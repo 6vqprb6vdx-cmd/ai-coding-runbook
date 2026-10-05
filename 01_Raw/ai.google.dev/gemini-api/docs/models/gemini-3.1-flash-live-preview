@@ -1,64 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ja
-fetched_at: 2026-09-28T06:23:23.416388+00:00
-title: "Gemini 3.1 Flash \u30e9\u30a4\u30d6 \u30d7\u30ec\u30d3\u30e5\u30fc \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=zh-TW
+fetched_at: 2026-10-05T06:26:31.149599+00:00
+title: "Gemini 3.1 Flash \u9810\u5148\u767c\u5e03\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-フィードバックを送信
+提供意見
 
-# Gemini 3.1 Flash ライブ プレビュー
+# Gemini 3.1 Flash 預先發布版
 
-Gemini 3.1 Flash Live プレビュー版は、リアルタイムのダイアログと音声ファーストの AI アプリケーション向けの以前のプレビュー モデルです。
+Gemini 3.1 Flash Live 預先發布版是舊版預先發布模型，適用於即時對話和語音優先 AI 應用程式。
 
-[Google AI Studio で試す](https://aistudio.google.com/live?model=gemini-3.1-flash-live-preview&hl=ja)
+[在 Google AI Studio 中試用](https://aistudio.google.com/live?model=gemini-3.1-flash-live-preview&hl=zh-tw)
 
-## ドキュメント
+## 說明文件
 
-機能と機能の詳細については、[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja) ガイドをご覧ください。
+如要全面瞭解功能，請參閱 [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw) 指南。
 
 ## gemini-3.1-flash-live-preview
 
-| プロパティ | 説明 |
+| 屬性 | 說明 |
 | --- | --- |
-| id\_cardモデルコード | `gemini-3.1-flash-live-preview` |
-| save でサポートされているデータ型 | **入力**  テキスト、画像、音声、動画  **出力**  テキストと音声 |
-| token\_autoトークンの上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  131,072  **出力トークンの上限**  65,536 |
-| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象外  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象外  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象外  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象外  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象外  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象外 |
-| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象外 |
-| 123 バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - プレビュー: `gemini-3.1-flash-live-preview` |
-| calendar\_month最終更新日 | 2026 年 3 月 |
-| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/?hl=ja) |
+| id\_card 模型代碼 | `gemini-3.1-flash-live-preview` |
+| save支援的資料類型 | **輸入裝置**  文字、圖片、音訊、影片  **輸出內容**  文字和音訊 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  131,072  **輸出詞元限制**  65,536 |
+| handyman功能 | **[生成音訊](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)**  支援  **[快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)**  不支援  **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**  不支援  **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**  不支援  **[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**  支援  **[利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**  不支援  **[圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)**  不支援  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw)**  支援  **[以搜尋為基準](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)**  支援  **[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)**  不支援  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)**  支援  **[網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**  不支援 |
+| speed計費方案 | **[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)**  不支援 |
+| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 預覽：`gemini-3.1-flash-live-preview` |
+| calendar\_month最新更新 | 2026 年 3 月 |
+| id\_card模型資訊卡 | [模型資訊卡](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/?hl=zh-tw) |
 
-## Gemini 2.5 Flash Live から移行する
+## 從 Gemini 2.5 Flash Live 遷移
 
-Gemini 3.1 Flash Live Preview は、低レイテンシのリアルタイムの対話に最適化されています。`gemini-2.5-flash-native-audio-preview-12-2025` から移行する場合は、次の点を考慮してください。
+Gemini 3.1 Flash Live 預先發布版經過最佳化處理，延遲時間最短，適合即時對話。從 `gemini-2.5-flash-native-audio-preview-12-2025` 遷移時，請注意下列事項：
 
-- **モデル文字列**: モデル文字列を `gemini-2.5-flash-native-audio-preview-12-2025` から `gemini-3.1-flash-live-preview` に更新します。
-- **思考構成**: Gemini 3.1 は `thinkingBudget` ではなく `thinkingLevel`（`minimal`、`low`、`medium`、`high` などの設定を含む）を使用します。デフォルトは `minimal` で、レイテンシを最小限に抑えるように最適化されます。[思考レベルと予算](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#levels-budgets)をご覧ください。
-- **サーバー イベント**: 1 つの [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=ja#bidigeneratecontentservercontent) イベントに複数のコンテンツ部分（音声チャンクや文字起こしなど）を同時に含めることができるようになりました。コンテンツの欠落を防ぐため、各イベントのすべての部分を処理するようにコードを更新します。
-- **クライアント コンテンツ**: `send_client_content` は、明示的なロール（`user` または `model`）を使用してセッションのライフサイクル全体でサポートされます。`turn_complete=true` を設定すると、アクティブなモデル生成が無条件で中断されます。[コンテンツの増分更新](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja#incremental-updates)をご覧ください。
-- **Turn coverage**: `TURN_INCLUDES_ONLY_ACTIVITY` ではなく [`TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`](https://ai.google.dev/api/live?hl=ja#turncoverage) がデフォルトになります。モデルのターンには、検出された音声アクティビティとすべての動画フレームが含まれるようになりました。アプリケーションが現在、動画フレームの定常的なストリームを送信している場合は、追加費用が発生しないように、音声アクティビティがある場合にのみ動画フレームを送信するようにアプリケーションを更新することをおすすめします。
-- **非同期関数呼び出し**: まだサポートされていません。関数呼び出しは同期のみです。ツール応答を送信するまで、モデルは応答を開始しません。[非同期関数呼び出し](https://ai.google.dev/gemini-api/docs/live-tools?hl=ja#async-function-calling)をご覧ください。
-- **プロアクティブ音声と感情的な会話**: これらの機能は、Gemini 3.1 Flash Live ではまだサポートされていません。コードからこれらの機能の構成を削除します。[プロアクティブ音声](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja#proactive-audio)と[感情的な会話](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja#affective-dialog)をご覧ください。
+- **模型字串**：將模型字串從 `gemini-2.5-flash-native-audio-preview-12-2025` 更新為 `gemini-3.1-flash-live-preview`。
+- **思考設定**：Gemini 3.1 使用 `thinkingLevel` (搭配 `minimal`、`low`、`medium` 和 `high` 等設定)，而非 `thinkingBudget`。預設值為 `minimal`，可將延遲時間降至最低。請參閱[思考層級和預算](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#levels-budgets)。
+- **伺服器事件**：單一
+  [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontentservercontent)
+  事件現在可以同時包含多個內容部分 (例如音訊區塊和轉錄稿)。更新程式碼，處理每個事件中的所有部分，以免遺漏內容。
+- **用戶端內容**：`send_client_content`在整個工作階段生命週期中，系統會支援明確角色 (`user` 或 `model`)。設定 `turn_complete=true` 會無條件中斷模型生成作業。請參閱「[內容增量更新](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw#incremental-updates)」。
+- **開啟涵蓋範圍**：預設為 [`TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`](https://ai.google.dev/api/live?hl=zh-tw#turncoverage)，而非 `TURN_INCLUDES_ONLY_ACTIVITY`。現在模型的回覆會納入偵測到的音訊活動和所有影片影格。如果應用程式目前會持續傳送影片影格串流，建議您更新應用程式，只在有音訊活動時傳送影片影格，避免產生額外費用。
+- **非同步函式呼叫**：尚未支援。函式呼叫僅支援同步。你必須先傳送工具回覆，模型才會開始回覆。請參閱[非同步函式呼叫](https://ai.google.dev/gemini-api/docs/live-tools?hl=zh-tw#async-function-calling)。
+- **主動判斷式語音和情感對話**：Gemini 3.1 Flash Live 目前不支援這些功能。請從程式碼中移除這些功能的任何設定。請參閱「[主動判斷式語音](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw#proactive-audio)」和「[情緒感知對話](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw#affective-dialog)」。
 
-機能の詳細な比較については、機能ガイドの[モデル比較](https://ai.google.dev/gemini-api/docs/live-guide?hl=ja#model-comparison)表をご覧ください。
+如需詳細的功能比較，請參閱功能指南中的「[模式比較](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw#model-comparison)」表格。
 
-フィードバックを送信
+提供意見
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-最終更新日 2026-09-17 UTC。
+上次更新時間：2026-09-17 (世界標準時間)。
 
-ご意見をお聞かせください
+想進一步說明嗎？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-17 UTC。"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-17 (世界標準時間)。"],[],[]]

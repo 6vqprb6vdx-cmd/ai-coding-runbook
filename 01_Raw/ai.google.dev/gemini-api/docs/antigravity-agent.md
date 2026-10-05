@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he
-fetched_at: 2026-09-28T06:18:54.755119+00:00
-title: "\u05e1\u05d5\u05db\u05df Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-CN
+fetched_at: 2026-10-05T06:30:41.227610+00:00
+title: "Antigravity \u667a\u80fd\u4f53 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-שליחת משוב
+发送反馈
 
-# סוכן Antigravity
+# Antigravity 智能体
 
-סוכן Antigravity הוא סוכן מנוהל לשימוש כללי ב-Gemini API. קריאה אחת ל-API מספקת לכם סוכן שמבצע ניתוח, מריץ קוד, מנהל קבצים ומחפש באינטרנט בתוך ארגז חול מאובטח של Linux, שמתארח ב-Google.
+Antigravity 智能体是 Gemini API 上的通用托管式智能体。通过一次 API 调用，您即可获得一个智能体，该智能体可在 Google 托管的自有安全 Linux 沙盒中进行推理、执行代码、管理文件和浏览网页。
 
-הוא מבוסס על Gemini 3.8 Flash ומשתמש באותו מנגנון כמו Antigravity IDE. אפשר להגדיר את מודל Gemini הבסיסי באמצעות `agent_config`. זמין דרך [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) ו-[Google AI Studio](https://aistudio.google.com?hl=he).
+它采用 Gemini 3.8 Flash 构建，并使用与 Antigravity IDE 相同的 harness。您可以使用 `agent_config` 配置底层 Gemini 模型。可通过 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 和 [Google AI Studio](https://aistudio.google.com?hl=zh-cn) 使用。
 
 ### Python
 
@@ -128,33 +128,33 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## יכולות
+## 功能
 
-כל שיחה יכולה להקצות ארגז חול של Linux ולהתחיל לולאה של שימוש בכלי. הסוכן מתכנן, פועל, בודק את התוצאות וחוזר על הפעולות עד שהמשימה מסתיימת.
+每次调用都可以预配一个 Linux 沙盒，并启动一个工具使用循环。智能体制定计划、采取行动、观察结果，然后重复这些步骤，直到任务完成。
 
-- **הרצת קוד:** הרצת פקודות Bash,‏ Python ו-Node.js. להתקין חבילות, להריץ בדיקות ולפתח אפליקציות.
-- **ניהול קבצים:** קריאה, כתיבה, עריכה, חיפוש ורישום של קבצים בארגז החול. הקבצים נשמרים בכל האינטראקציות.
-- **גישה לאינטרנט:** חיפוש ב-Google ואחזור כתובות URL של נתונים.
-- **דחיסת הקשר:** דחיסת הקשר אוטומטית (מופעלת בערך ב-135, 000 טוקנים) כדי לתמוך בסשנים ארוכים ורב-שלביים בלי לאבד את ההקשר או להגיע למגבלות הטוקנים.
+- **代码执行**：运行 Bash、Python 和 Node.js 命令。安装软件包、运行测试、构建应用。
+- **文件管理**：在沙盒中读取、写入、修改、搜索和列出文件。文件会在多次互动中保留。
+- **网页访问权限**：Google 搜索和网址提取功能，用于获取数据。
+- **上下文压缩**：自动上下文压缩（在约 13.5 万个令牌时触发），支持长时间运行的多轮会话，而不会丢失上下文或达到令牌限制。
 
-במאמר [מדריך למתחילים](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he) מוסבר איך להשתמש בסטרימינג ובשימוש רב-שלבי.
+如需了解多轮对话使用和流式传输，请参阅[快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)。
 
-## כלים נתמכים
+## 支持的工具
 
-כברירת מחדל, לסוכן יש גישה אל `code_execution`, אל `google_search` ואל `url_context`. הכלים של מערכת הקבצים מופעלים אוטומטית כשמציינים את הפרמטר `environment`. אפשר גם להגדיר **פונקציות בהתאמה אישית** כדי לחבר את הסוכן לממשקי API ולכלים שלכם. צריך לציין את הפרמטר `tools` רק כשמתאימים אישית את קבוצת ברירת המחדל או מגבילים אותה, או כשמוסיפים פונקציות מותאמות אישית.
+默认情况下，智能体有权访问 `code_execution`、`google_search` 和 `url_context`。指定 `environment` 参数后，系统会自动启用文件系统工具。您还可以定义**自定义函数**，将智能体连接到您自己的 API 和工具。只有在自定义或限制默认集，或者添加自定义函数时，才需要指定 `tools` 参数。
 
-| כלי | הקלדת ערך | תיאור |
+| 工具 | 类型值 | 说明 |
 | --- | --- | --- |
-| הרצת קוד | `code_execution` | הרצת פקודות של מעטפת (bash, ‏ Python, ‏ Node) עם לכידה של stdout/stderr. |
-| חיפוש Google | `google_search` | חיפוש באינטרנט הציבורי. |
-| URL Context | `url_context` | אחזור וקריאה של דפי אינטרנט. |
-| מערכת קבצים | *(הופעל באמצעות `environment`)* | קריאה, כתיבה, עריכה, חיפוש ורישום של קבצים בסביבת הארגז. המערכת מפעילה את הכלים האלה באופן אוטומטי כשמגדירים את `environment`. |
-| פונקציות מותאמות אישית | `function` | הגדרת פונקציות בהתאמה אישית שהסוכן יכול לבקש להפעיל. [מידע נוסף על בקשה להפעלת פונקציה](#function-calling) |
-| שרת MCP מרוחק | `mcp_server` | רישום שרתים חיצוניים של Model Context Protocol‏ (MCP) ככלים. מידע נוסף מופיע בקטע [שרתי MCP](#mcp-servers). |
+| 代码执行 | `code_execution` | 运行 shell 命令（bash、Python、Node），并捕获 stdout/stderr。 |
+| Google 搜索 | `google_search` | 搜索公开网络。 |
+| 网址上下文 | `url_context` | 提取和读取网页。 |
+| 文件系统 | *（通过 `environment` 启用）* | 读取、写入、修改、搜索和列出沙盒中的文件。当您设置 `environment` 时，系统会自动启用这些工具。 |
+| 自定义函数 | `function` | 定义智能体可以请求执行的自定义函数。请参阅[函数调用](#function-calling)。 |
+| 远程 MCP 服务器 | `mcp_server` | 将外部 Model Context Protocol (MCP) 服务器注册为工具。请参阅 [MCP 服务器](#mcp-servers)。 |
 
-אתם יכולים ליירט ולאמת את ההרצה של כלי `code_execution` ו-`filesystem` ישירות בארגז החול המרוחק באמצעות [ווים](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=he) סינכרוניים.
+您可以使用同步 [Hook](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=zh-cn) 在远程沙盒中拦截并验证 `code_execution` 和 `filesystem` 工具执行。
 
-כדי להגביל את הסוכן לכלים ספציפיים, מעבירים רק את הכלים שצריך:
+如需将代理限制为仅使用特定工具，请仅传递所需的工具：
 
 ### Python
 
@@ -285,9 +285,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## קלט מולטי-מודאלי
+## 多模态输入
 
-הסוכן Antigravity תומך בקלט רב-אופני. בשלב הזה יש תמיכה רק בקלט בשפות `text` ו`image`. צריך לספק את התמונות כמחרוזות מוטבעות בקידוד Base64‏ (`data`).
+Antigravity 智能体支持多模态输入。目前，仅支持 `text` 和 `image` 输入。图片必须以内嵌的 base64 编码字符串 (`data`) 形式提供。
 
 ### Python
 
@@ -453,11 +453,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## בקשה להפעלת פונקציה
+## 函数调用
 
-התכונה 'הפעלת פונקציות' מאפשרת לכם לחבר את סוכן Antigravity לממשקי API ולמסדי נתונים חיצוניים על ידי הגדרת כלים מותאמים אישית שהסוכן יכול להפעיל. למידע על מושגים כלליים, אפשר לעיין במאמר [בקשות להפעלת פונקציות באמצעות Gemini API](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
+通过函数调用，您可以定义智能体可调用的自定义工具，从而将 Antigravity 智能体连接到外部 API 和数据库。如需了解一般概念，请参阅[使用 Gemini API 进行函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
 
-בדוגמה הבאה מוצגת אינטראקציה של 2 תורות. הסוכן מבקש קודם קריאה לפונקציה מותאמת אישית `get_weather`, והלקוח מבצע אותה ומחזיר את התוצאה בתור השני.
+以下示例演示了 2 轮对话。智能体首先请求自定义 `get_weather` 函数调用，客户端执行该函数并在第二轮中返回结果。
 
 ### Python
 
@@ -878,19 +878,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## שרתי MCP
+## MCP 服务器
 
-כדי לחבר את סוכן Antigravity לכלים חיצוניים, צריך לרשום שרתי Model Context Protocol‏ (MCP) מרוחקים. הסוכן תומך בשרתי MCP מרוחקים באמצעות HTTP שניתן להזרמה.
+您可以通过注册远程 Model Context Protocol (MCP) 服务器，将 Antigravity 智能体连接到外部工具。代理支持通过可流式传输的 HTTP 连接到远程 MCP 服务器。
 
-כשרושמים שרת MCP, צריך לציין את השדות הבאים במערך `tools`:
+注册 MCP 服务器时，您必须在 `tools` 数组中指定以下字段：
 
-| שדה | סוג | נדרש | תיאור |
+| 字段 | 类型 | 是否必需 | 说明 |
 | --- | --- | --- | --- |
-| `type` | מחרוזת | כן | חייב להיות `"mcp_server"`. |
-| `name` | מחרוזת | כן | מזהה ייחודי של השרת. הערך חייב להיות אלפאנומרי (בהתאם ל-`^[a-z0-9_-]+$`) ובאותיות קטנות בלבד. |
-| `url` | מחרוזת | כן | כתובת ה-URL של נקודת הקצה של שרת ה-MCP המרוחק. |
-| `headers` | אובייקט | לא | כותרות מותאמות אישית (למשל, אימות) שנשלחות עם בקשות. |
-| `allowed_tools` | מערך | לא | רשימה של שמות הכלים שמותר להפעיל. אם לא מציינים כלים, כל הכלים מותרים. |
+| `type` | 字符串 | 是 | 必须为 `"mcp_server"`。 |
+| `name` | 字符串 | 是 | 服务器的唯一标识符。必须严格采用小写字母和数字（与 `^[a-z0-9_-]+$` 匹配）。 |
+| `url` | 字符串 | 是 | 远程 MCP 服务器的端点网址。 |
+| `headers` | 对象 | 否 | 随请求发送的自定义标头（例如，身份验证）。 |
+| `allowed_tools` | 数组 | 否 | 允许执行的工具名称列表。如果省略，则允许使用所有工具。 |
 
 ### Python
 
@@ -1030,11 +1030,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## בחירת מודל
+## 模型选择
 
-ב-`antigravity-preview-09-2026`, מודל ברירת המחדל הוא **Gemini 3.8 Flash** (`gemini-3.8-flash`). אם לא מציינים את `agent_config`, ברירת המחדל של הסוכן היא `gemini-3.8-flash`.
+对于 `antigravity-preview-09-2026`，默认模型为 **Gemini 3.8 Flash** (`gemini-3.8-flash`)。如果您省略 `agent_config`，代理将默认使用 `gemini-3.8-flash`。
 
-אתם יכולים להגדיר את מודל Gemini הבסיסי באמצעות `agent_config` כדי לבצע אופטימיזציה של המהירות, העלות או יכולת החשיבה הרציונלית.
+您可以使用 `agent_config` 配置底层 Gemini 模型，以优化速度、费用或推理能力。
 
 ### Python
 
@@ -1163,27 +1163,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-הערכים הנתמכים של `agent_config.model` הם:
+`agent_config.model` 支持的值如下：
 
-| מודל | הערך ב-`agent_config.model` | תיאור |
+| 模型 | `agent_config.model` 中的值 | 说明 |
 | --- | --- | --- |
-| ‫**Gemini 3.8 Flash** (ברירת מחדל) | `gemini-3.8-flash` | מודל מאוזן כברירת מחדל לנימוקים, לתכנות ולשימוש בכלי. |
-| ‫**Gemini 3.7 Flash** | `gemini-3.7-flash` | מודל Flash מהדור הקודם להסקת מסקנות, לתכנות ולתהליכי עבודה אג'נטיים. |
-| ‫**Gemini 3.6 Flash** | `gemini-3.6-flash` | מודל Flash מאוזן לתהליכי עבודה אג'נטיים כלליים. |
-| ‫**Gemini 3.5 Flash** | `gemini-3.5-flash` | מודל קל משקל לתהליכי עבודה כלליים. |
-| ‫**Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | מודל קל משקל שעבר אופטימיזציה לזמן אחזור נמוך ולמשימות שבהן העלות היא שיקול חשוב. |
+| **Gemini 3.8 Flash**（默认） | `gemini-3.8-flash` | 用于推理、编码和使用工具的默认平衡模型。 |
+| **Gemini 3.7 Flash** | `gemini-3.7-flash` | 上一代 Flash 模型，适用于推理、编码和智能体工作流。 |
+| **Gemini 3.6 Flash** | `gemini-3.6-flash` | 平衡型 Flash 模型，适用于一般性智能体工作流。 |
+| **Gemini 3.5 Flash** | `gemini-3.5-flash` | 适用于一般工作流程的轻量级模型。 |
+| **Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | 轻量级模型，针对低延迟和精控成本的任务进行了优化。 |
 
-כשיוצרים סוכן מנוהל באמצעות `agents.create`, מגדירים את המודל בדיוק באותו אופן על ידי העברת `base_agent` ו-`agent_config`. שימו לב שאי אפשר לבטל את המודל במועד האינטראקציה לסוכן מנוהל שנוצר באמצעות `agents.create`. המודל נעול למה שהוגדר כשהסוכן נוצר. כך אפשר לוודא שההתנהגות של הפעלת הכלים תהיה צפויה, שהניפוי באגים יהיה עקבי ושגבולות האבטחה יישמרו.
+使用 `agents.create` 创建受管代理时，您可以通过传递 `base_agent` 和 `agent_config` 来以完全相同的方式配置模型。请注意，对于使用 `agents.create` 创建的受管代理，您无法在互动时替换模型。模型锁定为创建代理时设置的值。这可确保工具调用行为可预测、调试一致，并遵守安全边界。
 
-## התאמה אישית של הנציג
+## 自定义代理
 
-אפשר להרחיב את יכולות הסוכן Antigravity על ידי התאמה אישית של ההוראות, הכלים והסביבה שלו. הסוכן תומך בגישה מקורית למערכת הקבצים להתאמה אישית: אתם יכולים לטעון קבצים כמו `AGENTS.md` להוראות ולסקילים בתיקייה `.agents/skills/` ישירות לארגז החול, או להעביר את ההגדרה בשורה במועד האינטראקציה. אפשר לבצע איטרציות על ההגדרה בשורה ואז לשמור אותה כסוכן מנוהל כשמוכנים.
+您可以通过自定义 Antigravity 智能体的指令、工具和环境来扩展该智能体。该代理支持一种文件系统原生自定义方法：您可以将 `AGENTS.md` 等文件（用于提供指令和技能）装载到 `.agents/skills/` 下的沙盒中，也可以在互动时以内联方式传递配置。您可以内联迭代配置，然后在准备就绪后将其保存为受管理的代理。
 
-לפרטים מלאים על בניית סוכנים בהתאמה אישית, אפשר לעיין במאמר [בניית סוכנים מנוהלים](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he).
+如需详细了解如何构建自定义智能体，请参阅[构建托管式智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)。
 
-## ביצוע ברקע
+## 后台执行
 
-משימות של סוכני AI שכוללות חשיבה רב-שלבית, הרצת קוד או פעולות על קבצים יכולות להימשך כמה דקות. כדי להפעיל את האינטראקציה באופן אסינכרוני, משתמשים ב-`background=True`. ה-API מחזיר מיד מזהה אינטראקציה שאתם שולחים לו בקשות עד שהסטטוס הוא `completed` או `failed`.
+涉及多步推理、代码执行或文件操作的智能体任务可能需要几分钟才能完成。使用 `background=True` 异步运行互动。该 API 会立即返回一个互动 ID，您可以轮询该 ID，直到状态为 `completed` 或 `failed`。
 
 ### Python
 
@@ -1365,9 +1365,9 @@ curl -s -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/$I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-כדי להריץ ברקע, צריך להשתמש ב-`store=True`, שמוגדר כברירת מחדל. כדי לראות עדכוני התקדמות בזמן אמת במהלך הפעלה ברקע, אפשר לעיין במאמר בנושא [הזרמת אינטראקציות ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he#streaming-pattern).
+后台执行需要 `store=True`，这是默认设置。如需了解后台执行期间的实时进度更新，请参阅[流式传输后台互动](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-cn#streaming-pattern)。
 
-אפשר לבטל אינטראקציה שפועלת ברקע באמצעות השיטה `cancel`.
+您可以使用 `cancel` 方法取消正在运行的后台互动。
 
 ### Python
 
@@ -1426,9 +1426,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions/INTE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-**רב-שלבי עם ביצוע ברקע**
+**在后台执行的多轮对话**
 
-כשאינטראקציה ברקע כוללת כלים עם מצב (כמו הרצת קוד בסביבת ארגז חול), משתמשים ב-`environment_id` מהאינטראקציה שהושלמה כדי להמשיך באותה סביבה. כך הסוכן ימשיך מהמקום שבו הוא הפסיק, עם כל הקבצים והמצב הקודם.
+如果后台互动涉及有状态的工具（例如在沙盒中执行代码），请使用已完成互动的 `environment_id` 在同一环境中继续操作。这样可确保代理在所有文件和状态完好无损的情况下从上次中断的地方继续运行。
 
 ### Python
 
@@ -1669,27 +1669,27 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }"
 ```
 
-## סביבה
+## 环境
 
-כל קריאה יוצרת ארגז חול של Linux או משתמשת בארגז חול קיים. הפרמטר `environment` מופיע בשלושה פורמטים:
+每次调用都会创建或重用 Linux 沙盒。`environment` 参数有三种形式：
 
-| טופס | תיאור |
+| 表单 | 说明 |
 | --- | --- |
-| `"remote"` | הקצאת ארגז חול חדש עם הגדרות ברירת מחדל. |
-| `"env_abc123"` | אפשר לעשות שימוש חוזר בסביבה קיימת לפי המזהה שלה, ולשמור את כל הקבצים והמצב. |
-| `{...}` | מלא `EnvironmentConfig` עם מקורות מותאמים אישית וכללי רשת. |
+| `"remote"` | 使用默认设置配置全新的沙盒。 |
+| `"env_abc123"` | 按 ID 重用现有环境，保留所有文件和状态。 |
+| `{...}` | 通过自定义来源和网络规则实现完整的 `EnvironmentConfig`。 |
 
-פרטים על מקורות (Git,‏ GCS,‏ inline), רשתות, מחזור חיים ומגבלות משאבים זמינים במאמר [סביבות](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he).
+如需详细了解来源（Git、GCS、内嵌）、网络、生命周期和资源限制，请参阅[环境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-cn)。
 
-## טריגרים
+## 触发器
 
-טריגרים מאפשרים לתזמן הפעלה אוטומטית של סוכן לפי לוח זמנים של cron. גורם מפעיל קושר בין סוכן, סביבה, הנחיה ולוח זמנים למשאב קבוע שמופעל ללא התערבות ידנית. כל הרצה משתמשת מחדש באותה סביבה, כך שקבצים שנוצרו בהרצה אחת נשמרים וגלויים להרצה הבאה.
+利用触发器，您可以安排智能体按 cron 时间表自动运行。触发器将代理、环境、提示和时间表绑定到一个持久性资源中，该资源无需人工干预即可触发。每次执行都会重复使用同一环境，因此在一次运行中创建的文件会保留下来，并对下一次运行可见。
 
-### יצירת טריגר
+### 创建触发器
 
-כדי ליצור טריגר, מציינים את לוח הזמנים של cron, את אזור הזמן ואת הגדרת האינטראקציה. הטריגר מתחיל בסטטוס `active` ויופעל בזמן cron התואם הבא. שומרים את הערך `id` שמוחזר כדי לנהל את הטריגר בקריאות הבאות.
+通过指定 cron 时间表、时区和互动配置来创建触发器。触发器以 `active` 状态启动，并将在下一个匹配的 Cron 时间触发。保存返回的 `id`，以便在后续调用中管理触发器。
 
-מכיוון שטריגר פועל ללא השגחה לפי לוח זמנים, צריך להפנות אל [פרטי כניסה](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=he) מאוחסנים ולא אל טוקן מוטבע. פרוקסי היציאה פותר את הבעיה בכל הפעלה, ואתם מסובבים את הסוד בלי לגעת בטריגר. גם כללי `transform` inline פועלים כאן, רק צריך לעדכן את הטריגר בכל פעם שהערך משתנה.
+由于触发器会按计划以无人值守的方式运行，因此请引用存储的[凭据](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=zh-cn)，而不是内嵌令牌。出站代理会在每次运行时解析该变量，并且您可以在不触及触发器的情况下轮换密文。内嵌 `transform` 规则也适用于此处，只是您需要在值发生变化时更新触发器。
 
 ### Python
 
@@ -1775,7 +1775,6 @@ import com.google.genai.gaos.models.interactions.InteractionsInput;
 import com.google.genai.gaos.models.interactions.Network;
 import com.google.genai.gaos.models.interactions.Transform;
 import com.google.genai.gaos.models.shared.Security;
-import com.google.genai.gaos.models.triggers.Interaction;
 import com.google.genai.gaos.models.triggers.Trigger;
 import com.google.genai.gaos.models.triggers.TriggerCreateParams;
 import java.util.List;
@@ -1813,7 +1812,7 @@ TriggerCreateParams params = TriggerCreateParams.builder()
     .schedule("0 9 * * *")
     .timeZone("America/Argentina/Buenos_Aires")
     .displayName("issue-solver")
-    .interaction(Interaction.of(interactionTemplate))
+    .interaction(interactionTemplate)
     .build();
 
 Trigger trigger = client.triggers().create(params).trigger().get();
@@ -1873,7 +1872,7 @@ func main() {
             Schedule:    "0 9 * * *",
             TimeZone:    "America/Argentina/Buenos_Aires",
             DisplayName: genai.Ptr("issue-solver"),
-            Interaction: triggers.NewInteraction(interactionTemplate),
+            Interaction: interactionTemplate,
         },
     })
     if err != nil {
@@ -1915,29 +1914,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
   }'
 ```
 
-הבקשה `CreateTrigger` מקבלת את השדות הבאים:
+`CreateTrigger` 请求接受以下字段：
 
-| שדה | סוג | נדרש | תיאור |
+| 字段 | 类型 | 是否必需 | 说明 |
 | --- | --- | --- | --- |
-| `schedule` | מחרוזת | כן | ביטוי Cron (לדוגמה, `0 * * * *` לשעה, `0 9 * * 1-5` לבוקר של יום חול). |
-| `time_zone` | מחרוזת | כן | אזור זמן של IANA (למשל, `UTC`, ‏ `America/Argentina/Buenos_Aires`). |
-| `display_name` | מחרוזת | לא | שם הטריגר שקריא לבני אדם. |
-| `max_consecutive_failures` | מספר שלם | לא | מספר הכשלים המקסימלי לפני שהטריגר מושהה באופן אוטומטי. ברירת מחדל: 5. |
-| `execution_timeout_seconds` | מספר שלם | לא | זמן קצוב לתפוגה לכל הפעלה בשניות. ברירת מחדל: 600. |
-| `interaction` | אובייקט | כן | `CreateInteractionRequest` שמגדיר את הסוכן, הקלט, הכלים והסביבה. |
+| `schedule` | 字符串 | 是 | Cron 表达式（例如，`0 * * * *` 表示每小时一次，`0 9 * * 1-5` 表示工作日早晨）。 |
+| `time_zone` | 字符串 | 是 | IANA 时区（例如 `UTC`、`America/Argentina/Buenos_Aires`）。 |
+| `display_name` | 字符串 | 否 | 触发器的简明易懂的名称。 |
+| `max_consecutive_failures` | integer | 否 | 触发器自动暂停前的最大失败次数。默认值：5。 |
+| `execution_timeout_seconds` | integer | 否 | 每次执行的超时时间（以秒为单位）。默认值：600。 |
+| `interaction` | 对象 | 是 | 用于定义代理、输入、工具和环境的 `CreateInteractionRequest`。 |
 
-התשובה כוללת את השדות העיקריים הבאים:
+响应包括以下关键字段：
 
-| שדה | סוג | תיאור |
+| 字段 | 类型 | 说明 |
 | --- | --- | --- |
-| `id` | מחרוזת | מזהה ייחודי של הטריגר. משתמשים בערך הזה בכל הפעולות הבאות. |
-| `status` | מחרוזת | המצב הנוכחי: `active`, `paused` או `disabled`. |
-| `next_run_time` | מחרוזת | חותמת הזמן בפורמט ISO 8601 של ההפעלה המתוזמנת הבאה. |
-| `consecutive_failure_count` | מספר שלם | מספר הביצועים הרצופים שנכשלו מאז ההצלחה האחרונה. |
+| `id` | 字符串 | 触发器的唯一标识符。在所有后续操作中使用此 shell。 |
+| `status` | 字符串 | 当前状态：`active`、`paused` 或 `disabled`。 |
+| `next_run_time` | 字符串 | 下一次预定执行的 ISO 8601 时间戳。 |
+| `consecutive_failure_count` | integer | 自上次成功以来连续失败的执行次数。 |
 
-### הצגת רשימת הטריגרים
+### 列出触发器
 
-אחזור כל הטריגרים שמשויכים לפרויקט.
+检索与您的项目关联的所有触发器。
 
 ### Python
 
@@ -2017,9 +2016,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### קבלת טריגר
+### 获取触发器
 
-אחזור ההגדרה המלאה והמצב הנוכחי של טריגר יחיד.
+提取单个触发器的完整配置和当前状态。
 
 ### Python
 
@@ -2095,9 +2094,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### השהיה והמשך
+### 暂停和恢复
 
-אתם יכולים להשהות טריגר כדי להפסיק את ההפעלות המתוזמנות, ולהמשיך אותו כדי להפעיל מחדש את התזמון. השהיה לא משפיעה על הפעלות ידניות.
+您可以暂停触发器以停止预定执行，也可以恢复触发器以重新激活时间表。暂停不会影响手动执行。
 
 ### Python
 
@@ -2201,9 +2200,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER
   -d '{"status": "active"}'
 ```
 
-### מחיקת טריגר
+### 删除触发器
 
-להסיר טריגר לצמיתות. היסטוריית ההרצה הקודמת לא נמחקת.
+永久移除触发器。系统不会删除过往的执行历史记录。
 
 ### Python
 
@@ -2268,9 +2267,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### הפעלת טריגר באופן מיידי
+### 立即运行触发器
 
-הפעלת טריגר על פי דרישה בלי לחכות למועד הבא שנקבע. הפעולה הזו תתבצע גם אם ההפעלה של הטריגר מושהית.
+按需触发触发器，无需等待下一个预定时间。即使触发器处于暂停状态，此功能也能正常运行。
 
 ### Python
 
@@ -2335,9 +2334,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### הצגת רשימה של הפעלות
+### 列出执行任务
 
-עיון בהיסטוריית הביצוע של טריגר. כל הרצה כוללת `status`, חותמות זמן, `interaction_id` שאפשר להשתמש בו כדי לאחזר את הפלט המלא של האינטראקציה ו`environment_id` שמאשר שכל ההרצות משתמשות באותו ארגז חול.
+查看触发器的执行历史记录。每次执行都包含 `status`、时间戳、可用于获取完整互动输出的 `interaction_id`，以及确认所有运行共享同一沙盒的 `environment_id`。
 
 ### Python
 
@@ -2452,20 +2451,19 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## זמינות ומחירים
+## 适用范围和定价
 
-סוכן Antigravity זמין בגרסת Preview דרך [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) ב-Google AI Studio וב-Gemini API, גם בפרויקטים בתוכנית בחינם וגם בפרויקטים בתוכנית בתשלום.
+Antigravity 智能体现已推出预览版，可通过 Google AI Studio 中的 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 和 Gemini API（免费层级和付费层级项目均可使用）使用。
 
-התמחור מבוסס על [מודל של תשלום לפי שימוש](https://ai.google.dev/gemini-api/docs/pricing?hl=he#pricing-for-agents), בהתאם לטוקנים של מודל Gemini הבסיסי ולכלים שבהם הסוכן משתמש. בניגוד לבקשת צ'אט רגילה שמפיקה פלט יחיד, אינטראקציה של Antigravity היא תהליך עבודה מבוסס-סוכן. בקשה אחת מפעילה לולאה אוטונומית של ניתוח, הפעלת כלי, הפעלת קוד וניהול קבצים. פרויקטים בתוכנית ללא תשלום כוללים מכסת שימוש ומגבלת תעריף בחינם.
+价格遵循[随用随付模式](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#pricing-for-agents)，具体取决于底层 Gemini 模型的 token 和智能体使用的工具。与生成单个输出的标准聊天请求不同，Antigravity 互动是一种代理工作流。单个请求会触发一个自主循环，包括推理、工具执行、代码运行和文件管理。免费层级项目包含免费的速率限制和使用量配额。
 
-אינטראקציות אנטי-גרביטציה מפעילות לולאות אוטונומיות מרובות שלבים ויכולות לצרוך מספר משמעותי של טוקנים. הגדרת [אמצעי בקרה על התקציב](#budget-controls) בבקשה כדי להגביל את השימוש באסימונים. אפשר גם לעקוב אחרי ההתקדמות בזמן אמת באמצעות [הזרמת SSE](https://ai.google.dev/gemini-api/docs/streaming?hl=he), או לבטל בקשות שפועלות.
+Antigravity 交互会运行多轮自主循环，并可能会消耗大量 token。在请求中设置[预算控制](#budget-controls)，以限制令牌用量。您还可以通过 [SSE 流式传输](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-cn)实时监控进度，或取消正在运行的请求。
 
-### אמצעי בקרה להגבלת השימוש בטוקנים
+### 预算控制
 
-בנוסף ל[בחירת המודל](#model-selection), מגדירים את `max_total_tokens` בתוך `agent_config` (עם `"type": "antigravity"`) כדי להגביל את המספר הכולל של הטוקנים (קלט + פלט + חשיבה) שאינטראקציה יכולה לצרוך.
-טוקנים שנשמרו במטמון לא נכללים במגבלה הזו. כשהסוכן מגיע למגבלה, האינטראקציה נפסקת ומוחזרת עם `status: "incomplete"`. המגבלה היא על בסיס מיטב המאמצים: השימוש בפועל עשוי לחרוג ממנה מעט, בהתאם למועד שבו הסוכן בודק את התקציב בין השלבים.
+除了[选择模型](#model-selection)之外，还可以在 `agent_config` 内设置 `max_total_tokens`（使用 `"type": "antigravity"`），以限制一次互动可消耗的 token 总数（输入 + 输出 + 思考）。缓存的令牌不计入此限额。当代理达到限制时，互动会停止并返回 `status: "incomplete"`。此限制是尽力而为：实际用量可能会略微超出此限制，具体取决于智能体在各步骤之间检查预算的时间。
 
-מגדירים את התקציב בבקשת האינטראקציה ב-`agent_config` לצד `agent` ו-`input`.
+在 `agent_config` 中，将互动请求的预算设置为 `agent` 和 `input`。
 
 ### Python
 
@@ -2649,9 +2647,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### המשך אינטראקציה לא שלמה
+#### 继续未完成的互动
 
-כשאינטראקציה חוזרת `status: "incomplete"`, העבודה וההקשר של הנציג נשמרים. שולחים אינטראקציה חדשה עם הפניה לאינטראקציה המקורית `id` ול-`environment_id` כדי להמשיך מהמקום שבו הפסקתם. לאינטראקציה החדשה יש תקציב משלה `max_total_tokens`.
+当互动返回 `status: "incomplete"` 时，智能体的工作和上下文会保留。发送引用原始互动 `id` 和 `environment_id` 的新互动，以便从上次中断的地方继续。新互动有自己的 `max_total_tokens` 预算。
 
 ### Python
 
@@ -2782,48 +2780,48 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### עלויות משוערות
+### 估算费用
 
-העלויות משתנות בהתאם למורכבות המשימה. הסוכן קובע באופן אוטונומי כמה קריאות לכלים, הפעלות קוד ופעולות על קבצים נדרשות. האומדנים הבאים מבוססים על הרצות.
+费用因任务复杂程度而异。智能体可自主确定需要多少次工具调用、代码执行和文件操作。以下估算值基于跑步活动。
 
-| קטגוריית משימה | טוקנים של קלט | טוקנים של פלט | עלות רגילה |
+| 任务类别 | 输入 token 数 | 输出 token 数 | 一般费用 |
 | --- | --- | --- | --- |
-| **מחקר וסינתזת מידע** | ‫100,000 עד 500,000 | ‫10,000 עד 40,000 | ‫0.30$ – 1.00$ |
-| **יצירת מסמכים ותוכן** | ‫100,000 עד 500,000 | ‫15,000 עד 50,000 | ‫0.30$-1.30$ |
-| **עיצוב תהליכים ומערכות** | ‫100,000 עד 400,000 | ‫10,000 עד 30,000 | ‫0.25$-0.80$ |
-| **עיבוד וניתוח נתונים** | ‫300,000 עד 3 מיליון | ‫30,000 עד 150,000 | ‫0.70 עד 3.25 דולר |
+| **研究和信息整合** | 10 万至 50 万 | 1 万至 4 万 | 0.30 美元 - 1.00 美元 |
+| **文档和内容生成** | 10 万至 50 万 | 1.5 万 - 5 万 | 0.30 美元 - 1.30 美元 |
+| **流程和系统设计** | 10 万至 40 万 | 1 万至 3 万 | 0.25 美元 - 0.80 美元 |
+| **数据处理和分析** | 30 万 - 300 万 | 3 万 - 15 万 | 0.70 美元 - 3.25 美元 |
 
-בדרך כלל, 50-70% מאסימוני הקלט נשמרים במטמון. בתהליכי עבודה מורכבים של סוכנים עם הרבה קריאות לכלים, יכולים להצטבר 3-5 מיליון טוקנים באינטראקציה אחת, והעלויות יכולות להגיע ל-5$בערך.
+通常会缓存 50% 到 70% 的输入 token。包含多次工具调用的复杂智能体工作流在单次互动中可能会累积 300 万到 500 万个 token，费用最高可达 5 美元左右。
 
-**חישוב סביבתי** (CPU, זיכרון, הרצת ארגז חול) **לא מחויב** במהלך תקופת התצוגה המקדימה.
+在预览版期间，**环境计算资源**（CPU、内存、沙盒执行）**不计费**。
 
-## מגבלות
+## 限制
 
-- **סטטוס גרסת טרום-השקה:** סוכן Antigravity ו-Interactions API. יכולים להיות שינויים בתכונות ובסכימות.
-- **הגדרת דור לא נתמכת:** הפרמטרים הבאים לא נתמכים ומחזירים שגיאת 400: ‏`temperature`, ‏`top_p`, ‏`top_k`, ‏`stop_sequences`, ‏`max_output_tokens`.
-- **פלט מובנה:** סוכן Antigravity לא תומך בפלט מובנה.
-- **כלים לא זמינים:** עדיין אין תמיכה ב-`file_search`,‏ `computer_use` ו-`google_maps`.
-- **מגבלות של MCP מרוחק:** אין תמיכה בתעבורת אירועים שנשלחים מהשרת (SSE) (צריך להשתמש ב-HTTP ניתן להזרמה). בנוסף, שם השרת `name` חייב להיות באותיות קטנות בלבד ואלפאנומרי (שימוש באותיות גדולות יפעיל שגיאה כללית `400 Bad Request`).
-- **כלי למערכת הקבצים:** אין כלי למערכת הקבצים כרגע. הוא חלק מ`environment`.
-- **דרישה של החנות:** כדי להריץ סוכן באמצעות `background=True`, צריך `store=True`.
-- **הפעלת פונקציות רק במצב stateful:** הפעלת פונקציות נתמכת רק במצב stateful. כדי להמשיך את התור, צריך להשתמש ב-`previous_interaction_id`. אי אפשר לשחזר את ההיסטוריה באופן ידני (מצב חסר מצב).
-- **סוגים לא נתמכים של מודלים מולטימודאליים.** בשלב הזה, אין תמיכה בקלט של אודיו, וידאו ומסמכים. מותר להשתמש רק בטקסט ובתמונה.
+- **预览版状态**：Antigravity 智能体和 Interactions API。功能和架构可能会发生变化。
+- **不支持的生成配置**：不支持以下参数，并且会返回 400 错误：`temperature`、`top_p`、`top_k`、`stop_sequences`、`max_output_tokens`。
+- **结构化输出**：Antigravity 智能体不支持结构化输出。
+- **不可用的工具**： `file_search`、`computer_use` 和 `google_maps` 尚不受支持。
+- **远程 MCP 限制**：不支持服务器发送的事件 (SSE) 传输（请使用可流式传输的 HTTP）。此外，服务器 `name` 必须严格采用小写字母和字母数字字符（使用大写字母会触发一般性 `400 Bad Request` 错误）。
+- **文件系统工具**：目前没有文件系统工具。它是 `environment` 的一部分。
+- **商店要求**：使用 `background=True` 执行代理需要 `store=True`。
+- **仅支持有状态的函数调用**：函数调用仅在有状态模式下受支持。您必须使用 `previous_interaction_id` 继续对话轮次；不支持手动重建历史记录（无状态模式）。
+- **不支持的多模态类型。**目前不支持音频、视频和文档输入。仅允许使用文字和图片。
 
-## המאמרים הבאים
+## 后续步骤
 
-- [מדריך למתחילים](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he): שיחות רב-שלביות וסטרימינג.
-- [יצירת סוכנים בהתאמה אישית](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he): הוראות בהתאמה אישית, מיומנויות ושמירת סוכנים.
-- [סביבות](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he): הגדרת ארגז חול, מקורות, רשת.
-- [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=he): אכיפה של שערים לאבטחה ואימות של תופעות לוואי בתוך ארגז החול.
-- [סוכן Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he): משימות מחקר ארוכות.
-- ‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he): ממשק ה-API הבסיסי.
+- [快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)：多轮对话和流式传输。
+- [构建自定义智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)：自定义指令、技能和保存智能体。
+- [环境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-cn)：沙盒配置、来源、网络。
+- [钩子](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=zh-cn)：在沙盒内强制执行安全门和副作用验证。
+- [Deep Research 智能体](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn)：执行长篇研究任务。
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn)：底层 API。
 
-שליחת משוב
+发送反馈
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-עדכון אחרון: 2026-09-24 (שעון UTC).
+最后更新时间 (UTC)：2026-09-29。
 
-רוצה לתת לנו משוב?
+需要向我们提供更多信息？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-29。"],[],[]]

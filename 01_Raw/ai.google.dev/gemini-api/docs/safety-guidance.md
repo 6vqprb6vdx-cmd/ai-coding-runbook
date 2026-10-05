@@ -1,149 +1,117 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id
-fetched_at: 2026-09-28T06:24:02.653559+00:00
-title: "Panduan keselamatan dan faktualitas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=hi
+fetched_at: 2026-10-05T06:27:27.945403+00:00
+title: "\u0938\u0941\u0930\u0915\u094d\u0937\u093e \u0914\u0930 \u0924\u0925\u094d\u092f\u094b\u0902 \u0915\u0947 \u0938\u0939\u0940 \u0939\u094b\u0928\u0947 \u0938\u0947 \u091c\u0941\u0921\u093c\u0947 \u0926\u093f\u0936\u093e-\u0928\u093f\u0930\u094d\u0926\u0947\u0936 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Panduan keselamatan dan faktualitas
+# सुरक्षा और तथ्यों के सही होने से जुड़े दिशा-निर्देश
 
-Model kecerdasan buatan generatif adalah alat yang canggih, tetapi memiliki keterbatasan. Fleksibilitas dan penerapannya terkadang dapat menghasilkan output yang tidak terduga, seperti output yang tidak akurat, bias, atau menyinggung. Pemrosesan pasca-output, dan evaluasi manual yang ketat sangat penting untuk membatasi risiko bahaya dari output tersebut.
+जनरेटिव आर्टिफ़िशियल इंटेलिजेंस मॉडल, दमदार टूल होते हैं. हालांकि, इनकी कुछ सीमाएं भी होती हैं. इनकी वर्सटैलिटी और इस्तेमाल करने की सुविधा की वजह से, कभी-कभी अनचाहे आउटपुट मिल सकते हैं. जैसे, गलत, पक्षपात वाले या आपत्तिजनक आउटपुट. इस तरह के आउटपुट से होने वाले नुकसान के जोखिम को कम करने के लिए, पोस्ट-प्रोसेसिंग और मैन्युअल तरीके से बारीकी से आकलन करना ज़रूरी है.
 
-Model yang disediakan oleh Gemini API dapat digunakan untuk berbagai aplikasi AI generatif dan pemrosesan bahasa alami (NLP). Penggunaan fungsi ini hanya tersedia melalui Gemini API atau aplikasi web Google AI Studio. Penggunaan Gemini API oleh Anda juga tunduk pada [Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id) dan [persyaratan layanan Gemini API](https://ai.google.dev/terms?hl=id).
+Gemini API की मदद से उपलब्ध कराए गए मॉडल का इस्तेमाल, जनरेटिव एआई और नैचुरल लैंग्वेज प्रोसेसिंग (एनएलपी) से जुड़े कई तरह के ऐप्लिकेशन के लिए किया जा सकता है. इन फ़ंक्शन का इस्तेमाल सिर्फ़ Gemini API या Google AI Studio के वेब ऐप्लिकेशन के ज़रिए किया जा सकता है. Gemini API का इस्तेमाल करने पर, [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) और [Gemini API की सेवा की शर्तें](https://ai.google.dev/terms?hl=hi) भी लागू होती हैं.
 
-Sebagian dari hal yang membuat model bahasa besar (LLM) sangat berguna adalah karena model ini merupakan alat kreatif yang dapat menangani berbagai tugas bahasa. Sayangnya,
-hal ini juga berarti bahwa model bahasa besar dapat menghasilkan output yang tidak
-Anda harapkan, termasuk teks yang menyinggung, tidak sensitif, atau salah secara faktual.
-Selain itu, fleksibilitas model ini yang luar biasa juga menyulitkan
-memprediksi dengan tepat jenis output yang tidak diinginkan yang mungkin dihasilkan. Meskipun
-Gemini API telah dirancang dengan mempertimbangkan [prinsip AI Google](https://ai.google/principles/?hl=id), developer bertanggung jawab untuk
-menerapkan model ini secara bertanggung jawab. Untuk membantu developer membuat aplikasi yang aman dan bertanggung jawab, Gemini API memiliki beberapa pemfilteran konten bawaan serta setelan keamanan yang dapat disesuaikan di 4 dimensi bahaya. Baca panduan
-[setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id) untuk mempelajari lebih lanjut. Fitur ini juga menawarkan Perujukan dengan Google Penelusuran yang diaktifkan untuk meningkatkan faktualitas, meskipun fitur ini dapat dinonaktifkan bagi developer yang kasus penggunaannya lebih kreatif dan tidak mencari informasi.
+लार्ज लैंग्वेज मॉडल (एलएलएम) को इतना मददगार बनाने वाली चीज़ों में से एक यह है कि ये क्रिएटिव टूल हैं. इनकी मदद से, भाषा से जुड़े कई टास्क पूरे किए जा सकते हैं. माफ़ करें, इसका यह भी मतलब है कि लार्ज लैंग्वेज मॉडल ऐसा आउटपुट जनरेट कर सकते हैं जो आपकी उम्मीद के मुताबिक न हो. इसमें ऐसा टेक्स्ट भी शामिल है जो आपत्तिजनक, असंवेदनशील या तथ्यों के हिसाब से ग़लत हो.
+इन मॉडल की अलग-अलग तरह की क्षमताओं की वजह से, यह अनुमान लगाना मुश्किल हो जाता है कि ये किस तरह का आपत्तिजनक आउटपुट जनरेट कर सकते हैं. Gemini API को [एआई से जुड़े Google के सिद्धांतों](https://ai.google/principles/?hl=hi) को ध्यान में रखकर डिज़ाइन किया गया है. हालांकि, इन मॉडल को ज़िम्मेदारी से लागू करना डेवलपर की ज़िम्मेदारी है. डेवलपर को सुरक्षित और ज़िम्मेदारी के साथ ऐप्लिकेशन बनाने में मदद करने के लिए, Gemini API में कॉन्टेंट फ़िल्टर करने की सुविधा पहले से मौजूद है. साथ ही, इसमें नुकसान पहुंचाने वाले कॉन्टेंट के चार डाइमेंशन के हिसाब से, सुरक्षा सेटिंग को अडजस्ट करने की सुविधा भी है. ज़्यादा जानने के लिए, [सुरक्षा सेटिंग](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) गाइड देखें. इसमें Google Search की सुविधा के साथ ग्राउंडिंग की सुविधा भी मिलती है, ताकि तथ्यों को बेहतर बनाया जा सके. हालांकि, इसे उन डेवलपर के लिए बंद किया जा सकता है जिनके इस्तेमाल के उदाहरण ज़्यादा क्रिएटिव हैं और जानकारी खोजने से जुड़े नहीं हैं.
 
-Dokumen ini dimaksudkan untuk memperkenalkan beberapa risiko keamanan yang dapat muncul saat
-menggunakan LLM, dan merekomendasikan desain dan pengembangan keamanan yang baru muncul. (Perhatikan bahwa hukum dan peraturan juga dapat memberlakukan batasan, tetapi pertimbangan tersebut berada di luar cakupan panduan ini.)
+इस दस्तावेज़ का मकसद, आपको सुरक्षा से जुड़े कुछ ऐसे जोखिमों के बारे में बताना है जो एलएलएम का इस्तेमाल करते समय हो सकते हैं. साथ ही, सुरक्षा से जुड़े डिज़ाइन और डेवलपमेंट के बारे में सुझाव देना है. (ध्यान दें कि कानून और नियमों के तहत भी पाबंदियां लगाई जा सकती हैं. हालांकि, इस गाइड में इन बातों को शामिल नहीं किया गया है.)
 
-Langkah-langkah berikut direkomendasikan saat membangun aplikasi dengan LLM:
+एलएलएम का इस्तेमाल करके ऐप्लिकेशन बनाते समय, यह तरीका अपनाने का सुझाव दिया जाता है:
 
-- Memahami risiko keamanan aplikasi Anda
-- Mempertimbangkan penyesuaian untuk mengurangi risiko keselamatan
-- Melakukan pengujian keamanan yang sesuai dengan kasus penggunaan Anda
-- Meminta masukan dari pengguna dan memantau penggunaan
+- अपने ऐप्लिकेशन से जुड़े सुरक्षा जोखिमों को समझना
+- सुरक्षा से जुड़े जोखिमों को कम करने के लिए, बदलावों पर विचार करना
+- इस्तेमाल के उदाहरण के हिसाब से, सुरक्षा से जुड़ी जांच करना
+- उपयोगकर्ताओं से सुझाव, शिकायत या राय मांगना और इस्तेमाल पर नज़र रखना
 
-Fase penyesuaian dan pengujian harus dilakukan secara berulang hingga Anda mencapai performa yang sesuai untuk aplikasi Anda.
+जब तक आपके ऐप्लिकेशन के लिए सही परफ़ॉर्मेंस नहीं मिल जाती, तब तक आपको अडजस्टमेंट और टेस्टिंग के चरणों को दोहराते रहना चाहिए.
 
-![Siklus penerapan model](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=id)
+![मॉडल लागू करने का साइकल](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=hi)
 
-## Memahami risiko keamanan aplikasi Anda
+## अपने ऐप्लिकेशन से जुड़े सुरक्षा जोखिमों के बारे में जानना
 
-Dalam konteks ini, keamanan didefinisikan sebagai kemampuan LLM untuk menghindari menyebabkan bahaya bagi penggunanya, misalnya, dengan membuat bahasa atau konten berbahaya yang mempromosikan stereotipe. Model yang tersedia melalui Gemini API telah dirancang dengan mempertimbangkan [prinsip AI Google](https://ai.google/principles/?hl=id) dan penggunaan model ini tunduk pada [Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id). API ini menyediakan filter keamanan bawaan untuk membantu mengatasi beberapa masalah umum model bahasa seperti bahasa berbahaya dan ujaran kebencian, serta berupaya untuk inklusivitas dan menghindari stereotipe. Namun, setiap aplikasi dapat menimbulkan serangkaian risiko yang berbeda bagi penggunanya. Jadi, sebagai pemilik aplikasi, Anda bertanggung jawab untuk mengetahui pengguna Anda dan potensi bahaya yang dapat ditimbulkan oleh aplikasi Anda, serta memastikan bahwa aplikasi Anda menggunakan LLM secara aman dan bertanggung jawab.
+इस संदर्भ में, सुरक्षा का मतलब है कि एलएलएम अपने उपयोगकर्ताओं को नुकसान पहुंचाने से बचता है. उदाहरण के लिए, वह ऐसी भाषा या कॉन्टेंट जनरेट नहीं करता जो नुकसान पहुंचाने वाला हो या रूढ़ियों को बढ़ावा देता हो. Gemini API के ज़रिए उपलब्ध कराए गए मॉडल, [Google के एआई से जुड़े सिद्धांतों](https://ai.google/principles/?hl=hi) को ध्यान में रखकर डिज़ाइन किए गए हैं. साथ ही, इसके इस्तेमाल पर [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) लागू होती है. एपीआई में पहले से मौजूद सुरक्षा फ़िल्टर होते हैं. इनसे, लैंग्वेज मॉडल से जुड़ी कुछ सामान्य समस्याओं को हल करने में मदद मिलती है. जैसे, आपत्तिजनक भाषा और नफ़रत फैलाने वाली भाषा का इस्तेमाल. साथ ही, इनसे बिना किसी भेदभाव के सभी को शामिल करने वाली सोच और घिसी-पिटी सोच से बचने में मदद मिलती है. हालांकि, हर ऐप्लिकेशन से उपयोगकर्ताओं को अलग-अलग तरह के जोखिम हो सकते हैं. इसलिए, ऐप्लिकेशन के मालिक के तौर पर यह आपकी ज़िम्मेदारी है कि
+आपको अपने उपयोगकर्ताओं और ऐप्लिकेशन से होने वाले संभावित नुकसान के बारे में पता हो. साथ ही,
+यह पक्का करें कि आपका ऐप्लिकेशन, एलएलएम का इस्तेमाल सुरक्षित और ज़िम्मेदारी के साथ करता हो.
 
-Sebagai bagian dari penilaian ini, Anda harus mempertimbangkan kemungkinan terjadinya bahaya dan menentukan keseriusan serta langkah-langkah mitigasinya. Misalnya, aplikasi yang membuat esai berdasarkan peristiwa faktual harus lebih berhati-hati dalam menghindari misinformasi, dibandingkan dengan aplikasi yang membuat cerita fiksi untuk hiburan. Cara yang baik untuk mulai mempelajari potensi risiko keselamatan adalah dengan meneliti pengguna akhir Anda, dan orang lain yang mungkin terpengaruh oleh hasil aplikasi Anda. Hal ini dapat dilakukan dalam berbagai bentuk, termasuk meneliti studi terbaru di domain aplikasi Anda, mengamati cara orang menggunakan aplikasi serupa, atau menjalankan studi pengguna, survei, atau melakukan wawancara informal dengan calon pengguna.
+इस आकलन के तहत, आपको यह देखना चाहिए कि नुकसान होने की कितनी संभावना है. साथ ही, यह तय करना चाहिए कि नुकसान कितना गंभीर है और इसे कम करने के लिए क्या कदम उठाए जा सकते हैं. उदाहरण के लिए, तथ्यों पर आधारित घटनाओं के आधार पर निबंध जनरेट करने वाले ऐप्लिकेशन को, गलत जानकारी से बचने के लिए ज़्यादा सावधानी बरतनी होगी. ऐसा इसलिए, क्योंकि मनोरंजन के लिए काल्पनिक कहानियां जनरेट करने वाले ऐप्लिकेशन की तुलना में, इस ऐप्लिकेशन के ज़रिए दी गई जानकारी के सही होने की ज़िम्मेदारी ज़्यादा होती है. सुरक्षा से जुड़े संभावित जोखिमों के बारे में जानने के लिए, अपने ऐप्लिकेशन का इस्तेमाल करने वाले लोगों और उन लोगों के बारे में रिसर्च करें जिन पर आपके ऐप्लिकेशन के नतीजों का असर पड़ सकता है. इसके कई तरीके हो सकते हैं. जैसे, आपके ऐप्लिकेशन के डोमेन में सबसे नई स्टडी के बारे में रिसर्च करना, यह देखना कि लोग मिलते-जुलते ऐप्लिकेशन का इस्तेमाल कैसे कर रहे हैं या उपयोगकर्ताओं पर स्टडी करना, सर्वे करना या संभावित उपयोगकर्ताओं के साथ अनौपचारिक इंटरव्यू करना.
 
-### Tips lanjutan
+### उन्नत युक्तियां
 
-- Bicaralah dengan beragam calon pengguna dalam target populasi Anda tentang aplikasi Anda dan tujuan yang dimaksudkan agar mendapatkan perspektif yang lebih luas tentang potensi risiko dan menyesuaikan kriteria keberagaman sesuai kebutuhan.
-- [AI Risk Management Framework](https://www.nist.gov/itl/ai-risk-management-framework) yang dirilis oleh National Institute of Standards and Technology (NIST) pemerintah Amerika Serikat memberikan panduan yang lebih mendetail dan sumber pembelajaran tambahan untuk manajemen risiko AI.
-- Publikasi DeepMind tentang [risiko bahaya etis dan sosial dari model bahasa](https://arxiv.org/abs/2112.04359) menjelaskan secara mendetail cara aplikasi model bahasa dapat menyebabkan bahaya.
+- अपने ऐप्लिकेशन और उसके मकसद के बारे में, टारगेट किए गए लोगों के अलग-अलग संभावित उपयोगकर्ताओं से बात करें. इससे, संभावित जोखिमों के बारे में ज़्यादा जानकारी मिलेगी. साथ ही, ज़रूरत के हिसाब से विविधता के मानदंड को अडजस्ट किया जा सकेगा.
+- अमेरिका की सरकार के नेशनल इंस्टिट्यूट ऑफ़ स्टैंडर्ड्स ऐंड टेक्नोलॉजी (एनआईएसटी) ने [एआई से जुड़े जोखिम को मैनेज करने के लिए फ़्रेमवर्क](https://www.nist.gov/itl/ai-risk-management-framework) जारी किया है. इसमें एआई से जुड़े जोखिम को मैनेज करने के बारे में ज़्यादा जानकारी और सीखने के अतिरिक्त संसाधन दिए गए हैं.
+- DeepMind के पब्लिकेशन में, [भाषा मॉडल से होने वाले नुकसान के नैतिक और सामाजिक जोखिमों](https://arxiv.org/abs/2112.04359) के बारे में बताया गया है. इसमें भाषा मॉडल के ऐप्लिकेशन से होने वाले नुकसान के बारे में विस्तार से बताया गया है.
 
-## Mempertimbangkan penyesuaian untuk mengurangi risiko keselamatan dan faktualitas
+## सुरक्षा और तथ्यों के सही होने से जुड़े जोखिमों को कम करने के लिए, जवाब में बदलाव करें
 
-Setelah memahami risiko, Anda dapat memutuskan cara memitigasinya. Menentukan risiko mana yang harus diprioritaskan dan seberapa besar upaya yang harus Anda lakukan untuk mencoba mencegahnya adalah keputusan penting, mirip dengan memilah-milah bug dalam proyek software. Setelah menentukan prioritas, Anda dapat mulai memikirkan jenis mitigasi yang paling tepat. Sering kali perubahan sederhana dapat
-membuat perbedaan dan mengurangi risiko.
+अब आपको जोखिमों के बारे में पता चल गया है. इसलिए, अब आपके पास यह तय करने का विकल्प है कि उन्हें कैसे कम किया जाए. यह तय करना ज़रूरी है कि किन जोखिमों को प्राथमिकता दी जाए और उन्हें रोकने के लिए आपको क्या करना चाहिए. यह फ़ैसला, सॉफ़्टवेयर प्रोजेक्ट में बग को प्राथमिकता देने जैसा है. प्राथमिकताएं तय करने के बाद, यह तय किया जा सकता है कि किस तरह के जोखिमों को कम करना सबसे सही होगा. अक्सर, सामान्य बदलावों से भी जोखिमों को कम किया जा सकता है.
 
-Misalnya, saat mendesain aplikasi, pertimbangkan:
+उदाहरण के लिए, किसी ऐप्लिकेशन को डिज़ाइन करते समय इन बातों का ध्यान रखें:
 
-- **Menyesuaikan output model** agar lebih mencerminkan apa yang dapat diterima dalam konteks aplikasi Anda. Penyesuaian dapat membuat output model lebih
-  dapat diprediksi dan konsisten, sehingga dapat membantu mengurangi risiko tertentu.
-- **Menyediakan metode input yang memfasilitasi output yang lebih aman.** Input persis yang Anda berikan ke LLM dapat memengaruhi kualitas output.
-  Bereksperimen dengan perintah input untuk menemukan perintah yang paling aman dalam kasus penggunaan Anda sangatlah bermanfaat, karena Anda kemudian dapat memberikan UX yang memfasilitasinya. Misalnya, Anda dapat membatasi pengguna untuk memilih hanya dari
-  daftar drop-down perintah input, atau menawarkan saran pop-up dengan
-  frasa
-  deskriptif yang Anda temukan berperforma aman dalam konteks aplikasi Anda.
-- **Memblokir input yang tidak aman dan memfilter output sebelum ditampilkan kepada
-  pengguna.** Dalam situasi sederhana, daftar yang tidak diizinkan dapat digunakan untuk mengidentifikasi dan memblokir kata atau frasa yang tidak aman dalam perintah atau respons, atau mewajibkan peninjau manual untuk mengubah atau memblokir konten tersebut secara manual.
-- **Menggunakan pengklasifikasi terlatih untuk memberi label setiap perintah dengan sinyal berpotensi berbahaya atau adversarial.** Kemudian, berbagai strategi dapat diterapkan untuk menangani permintaan berdasarkan jenis bahaya yang terdeteksi. Misalnya, jika input bersifat terlalu adversarial atau melanggar, input tersebut dapat diblokir dan menghasilkan respons yang telah ditulis dalam skrip.
-  **Tips lanjutan:** Jika sinyal menentukan bahwa output berbahaya, aplikasi dapat menggunakan opsi berikut:
+- **मॉडल के आउटपुट को ट्यून करना**, ताकि आपके ऐप्लिकेशन के कॉन्टेक्स्ट में यह बेहतर तरीके से काम कर सके. ट्यूनिंग की मदद से, मॉडल के आउटपुट को ज़्यादा अनुमानित और एक जैसा बनाया जा सकता है. इसलिए, इससे कुछ जोखिमों को कम करने में मदद मिल सकती है.
+- **ऐसा इनपुट देने का तरीका उपलब्ध कराना जिससे सुरक्षित आउटपुट मिलें.** एलएलएम को दिया गया सटीक इनपुट, आउटपुट की क्वालिटी में अंतर ला सकता है. अपने इस्तेमाल के उदाहरण में सबसे सुरक्षित तरीके से काम करने वाले इनपुट प्रॉम्प्ट ढूंढने के लिए, अलग-अलग प्रॉम्प्ट आज़माएं. इससे आपको ऐसा यूज़र एक्सपीरियंस देने में मदद मिलेगी जो इसे आसान बनाता है. उदाहरण के लिए, उपयोगकर्ताओं को इनपुट प्रॉम्प्ट की सिर्फ़ ड्रॉप-डाउन सूची से चुनने की अनुमति दी जा सकती है. इसके अलावा, पॉप-अप सुझावों के साथ ऐसे वाक्यांश दिए जा सकते हैं जो आपके ऐप्लिकेशन के संदर्भ में सुरक्षित तरीके से काम करते हैं.
+- **खतरनाक इनपुट को ब्लॉक करना और उपयोगकर्ता को जवाब दिखाने से पहले उसे फ़िल्टर करना.** सामान्य मामलों में, ब्लॉकलिस्ट का इस्तेमाल करके प्रॉम्प्ट या जवाबों में मौजूद खतरनाक शब्दों या वाक्यांशों का पता लगाया जा सकता है और उन्हें ब्लॉक किया जा सकता है. इसके अलावा, ब्लॉकलिस्ट का इस्तेमाल करके, मानवीय समीक्षकों को ऐसे कॉन्टेंट को मैन्युअल तरीके से बदलने या ब्लॉक करने के लिए कहा जा सकता है.
+- **ट्रेन किए गए क्लासिफ़ायर का इस्तेमाल करके, हर प्रॉम्प्ट को संभावित नुकसान या नुकसान पहुंचाने वाले सिग्नल के साथ लेबल करना.** इसके बाद, नुकसान के टाइप के आधार पर, अनुरोध को हैंडल करने के लिए अलग-अलग रणनीतियों का इस्तेमाल किया जा सकता है. उदाहरण के लिए, अगर इनपुट साफ़ तौर पर नुकसान पहुंचाने वाला या आपत्तिजनक है, तो इसे ब्लॉक किया जा सकता है. इसके बजाय, पहले से स्क्रिप्ट की गई प्रतिक्रिया दी जा सकती है.
+  **ऐडवांस सलाह:** अगर सिग्नल से पता चलता है कि आउटपुट नुकसान पहुंचाने वाला है, तो ऐप्लिकेशन इन विकल्पों का इस्तेमाल कर सकता है:
 
-  - Menyediakan pesan error atau output yang telah ditulis dalam skrip.
-  - Coba lagi perintahnya, jika output alternatif yang aman dihasilkan, karena terkadang perintah yang sama akan menghasilkan output yang berbeda.
-- **Menerapkan pengamanan terhadap penyalahgunaan yang disengaja** seperti menetapkan ID unik untuk setiap pengguna dan membatasi volume kueri pengguna yang dapat dikirimkan dalam jangka waktu tertentu. Pengamanan lainnya adalah mencoba dan
-  melindungi dari kemungkinan injeksi perintah. Injeksi perintah, seperti injeksi SQL, adalah cara bagi pengguna berbahaya untuk mendesain perintah input yang memanipulasi output model, misalnya, dengan mengirimkan perintah input yang menginstruksikan model untuk mengabaikan contoh sebelumnya. Lihat
-  [Kebijakan Penggunaan Terlarang untuk AI Generatif](https://policies.google.com/terms/generative-ai/use-policy?hl=id)
-  untuk mengetahui detail tentang penyalahgunaan yang disengaja.
-- **Menyesuaikan fungsi menjadi sesuatu yang pada dasarnya memiliki risiko lebih rendah.**
-  Tugas yang lebih sempit cakupannya (misalnya, mengekstrak kata kunci dari bagian
-  teks) atau yang memiliki pengawasan manusia yang lebih besar (misalnya, membuat konten
-  singkat yang akan ditinjau oleh manusia), sering kali menimbulkan risiko yang lebih rendah. Jadi, misalnya, daripada membuat aplikasi untuk menulis balasan email dari awal, Anda dapat membatasinya untuk memperluas kerangka atau menyarankan susunan kata alternatif.
-- **Menyesuaikan setelan keamanan konten berbahaya untuk mengurangi kemungkinan Anda
-  melihat respons yang dapat berbahaya.** Gemini API menyediakan setelan keamanan
-  yang dapat Anda sesuaikan selama tahap pembuatan prototipe untuk menentukan apakah
-  aplikasi Anda memerlukan konfigurasi keamanan yang lebih ketat atau longgar. Anda dapat
-  menyesuaikan setelan ini di lima kategori filter untuk membatasi atau mengizinkan
-  jenis konten tertentu. Lihat [panduan setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id) untuk mempelajari setelan keamanan yang dapat disesuaikan yang tersedia melalui Gemini API.
-- **Mengurangi potensi ketidakakuratan faktual atau halusinasi dengan mengaktifkan
-  Perujukan dengan Google Penelusuran**. Ingat, banyak model AI bersifat eksperimental
-  dan dapat menyajikan informasi yang faktanya tidak akurat, berhalusinasi, atau
-  menghasilkan output yang bermasalah. Fitur Grounding with Google Search menghubungkan model Gemini ke konten web real-time dan berfungsi dengan semua bahasa yang tersedia. Dengan fitur ini, Gemini dapat memberikan jawaban yang lebih akurat dan mengutip sumber yang dapat diverifikasi di luar batas informasinya.
+  - गड़बड़ी का मैसेज या पहले से स्क्रिप्ट किया गया आउटपुट देना.
+  - प्रॉम्प्ट को फिर से आज़माएं. ऐसा हो सकता है कि आपको सुरक्षित जवाब का कोई दूसरा विकल्प मिले. ऐसा इसलिए, क्योंकि कभी-कभी एक ही प्रॉम्प्ट के अलग-अलग जवाब मिलते हैं.
+- **जान-बूझकर किए जाने वाले गलत इस्तेमाल को रोकने के लिए सुरक्षा के तरीके लागू करना**. जैसे, हर उपयोगकर्ता को एक यूनीक आईडी असाइन करना और किसी अवधि में सबमिट की जा सकने वाली उपयोगकर्ता क्वेरी की संख्या पर सीमा लगाना. एक और सुरक्षा तरीका यह है कि प्रॉम्प्ट इंजेक्शन से बचने की कोशिश की जाए. प्रॉम्प्ट इंजेक्शन, एसक्यूएल इंजेक्शन की तरह ही होता है. इसमें नुकसान पहुंचाने वाले लोग, ऐसा इनपुट प्रॉम्प्ट डिज़ाइन करते हैं जिससे मॉडल के आउटपुट में बदलाव होता है. उदाहरण के लिए, ऐसा इनपुट प्रॉम्प्ट भेजना जिसमें मॉडल को पिछले सभी उदाहरणों को अनदेखा करने का निर्देश दिया गया हो. जान-बूझकर किए जाने वाले गलत इस्तेमाल के बारे में ज़्यादा जानने के लिए, [जनरेटिव एआई के गलत इस्तेमाल को रोकने के लिए बनी नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) पढ़ें.
+- **किसी सुविधा को इस तरह से अडजस्ट करना कि उससे जोखिम कम हो.**
+  जिन टास्क का दायरा सीमित होता है (जैसे, टेक्स्ट के पैसेज से कीवर्ड निकालना) या जिन पर इंसानों की निगरानी ज़्यादा होती है (जैसे, कम अवधि का ऐसा कॉन्टेंट जनरेट करना जिसकी समीक्षा कोई व्यक्ति करेगा), उनमें अक्सर जोखिम कम होता है. उदाहरण के लिए, ईमेल के जवाब को नए सिरे से लिखने के लिए ऐप्लिकेशन बनाने के बजाय, उसे सिर्फ़ आउटलाइन को बड़ा करने या वाक्यांशों के विकल्प सुझाने तक सीमित किया जा सकता है.
+- **नुकसान पहुंचाने वाले कॉन्टेंट से जुड़ी सुरक्षा सेटिंग में बदलाव करके, नुकसान पहुंचाने वाले जवाबों को कम किया जा सकता है.** Gemini API में सुरक्षा सेटिंग उपलब्ध होती हैं. प्रोटोटाइपिंग के दौरान, इनमें बदलाव किया जा सकता है. इससे यह तय किया जा सकता है कि आपके ऐप्लिकेशन के लिए, सुरक्षा से जुड़ी ज़्यादा या कम पाबंदियां ज़रूरी हैं. इन सेटिंग में बदलाव करके, फ़िल्टर की पांच कैटगरी में कुछ तरह के कॉन्टेंट को प्रतिबंधित या अनुमति दी जा सकती है. Gemini API के ज़रिए उपलब्ध सुरक्षा सेटिंग के बारे में जानने के लिए, [सुरक्षा सेटिंग से जुड़ी गाइड](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) पढ़ें.
+- **Google Search से सटीक जानकारी पाने की सुविधा चालू करके, तथ्यों के गलत होने या भ्रमित करने वाली जानकारी मिलने की संभावना को कम करें**. याद रखें कि कई एआई मॉडल एक्सपेरिमेंटल हैं. इसलिए, हो सकता है कि वे तथ्यों के हिसाब से गलत जानकारी दें, भ्रमित करने वाली जानकारी दें या किसी और तरह से समस्या पैदा करने वाले आउटपुट जनरेट करें. Google Search से सटीक जानकारी पाने की सुविधा, Gemini मॉडल को रीयल-टाइम में वेब कॉन्टेंट से कनेक्ट करती है. यह सुविधा, सभी उपलब्ध भाषाओं में काम करती है. इससे Gemini, जानकारी न मिलने की स्थिति के दायरे से बाहर निकलकर ज़्यादा सटीक जवाब और भरोसेमंद सोर्स के रेफ़रंस दे पाता है.
 
-## Melakukan pengujian keamanan yang sesuai dengan kasus penggunaan Anda
+## इस्तेमाल के उदाहरण के हिसाब से, सुरक्षा जांच करें
 
-Pengujian adalah bagian penting dalam membangun aplikasi yang andal dan aman, tetapi tingkat, cakupan, dan strategi pengujian akan bervariasi. Misalnya, generator haiku yang hanya untuk bersenang-senang cenderung menimbulkan risiko yang tidak terlalu parah dibandingkan, misalnya, aplikasi yang dirancang untuk digunakan oleh firma hukum guna meringkas dokumen hukum dan membantu menyusun kontrak. Namun, generator haiku dapat digunakan oleh berbagai pengguna yang lebih luas, yang berarti potensi upaya berbahaya atau bahkan input berbahaya yang tidak disengaja dapat lebih besar. Konteks penerapan juga penting. Misalnya, aplikasi dengan output yang ditinjau oleh pakar manusia sebelum tindakan apa pun diambil mungkin dianggap lebih kecil kemungkinannya menghasilkan output berbahaya dibandingkan aplikasi identik tanpa pengawasan tersebut.
+मज़बूत और सुरक्षित ऐप्लिकेशन बनाने के लिए, टेस्टिंग एक अहम हिस्सा है. हालांकि, टेस्टिंग का दायरा, रणनीति, और तरीका अलग-अलग हो सकता है. उदाहरण के लिए, सिर्फ़ मनोरंजन के लिए कविताएं जनरेट करने वाले ऐप्लिकेशन से, कानूनी दस्तावेज़ों का ब्यौरा देने और अनुबंधों का मसौदा तैयार करने के लिए डिज़ाइन किए गए ऐप्लिकेशन की तुलना में कम गंभीर जोखिम हो सकते हैं. हालांकि, कविताएं जनरेट करने वाले ऐप्लिकेशन का इस्तेमाल ज़्यादा लोग कर सकते हैं. इसका मतलब है कि इस ऐप्लिकेशन के साथ छेड़छाड़ करने की कोशिशें या अनजाने में नुकसान पहुंचाने वाले इनपुट मिलने की संभावना ज़्यादा हो सकती है. ऐप्लिकेशन को लागू करने का कॉन्टेक्स्ट भी मायने रखता है. उदाहरण के लिए, किसी ऐप्लिकेशन के आउटपुट की समीक्षा, कार्रवाई करने से पहले विशेषज्ञों की टीम करती है. ऐसे में, इस ऐप्लिकेशन से नुकसान पहुंचाने वाले आउटपुट मिलने की संभावना, उसी तरह के ऐप्लिकेशन की तुलना में कम हो सकती है जिसमें इस तरह की निगरानी नहीं की जाती.
 
-Tidak jarang Anda harus melakukan beberapa iterasi perubahan dan pengujian sebelum merasa yakin bahwa Anda siap meluncurkan aplikasi, bahkan untuk aplikasi yang risikonya relatif rendah. Dua jenis pengujian sangat berguna untuk aplikasi AI:
+कई बार, बदलाव करने और उनकी जांच करने के बाद ही, ऐप्लिकेशन को लॉन्च करने का फ़ैसला लिया जाता है. ऐसा उन ऐप्लिकेशन के लिए भी किया जाता है जिनमें जोखिम कम होता है. एआई ऐप्लिकेशन के लिए, दो तरह की टेस्टिंग खास तौर पर मददगार होती हैं:
 
-- **Tolok ukur keamanan** melibatkan perancangan metrik keamanan yang mencerminkan cara aplikasi Anda dapat menjadi tidak aman dalam konteks kemungkinan penggunaannya, lalu menguji seberapa baik performa aplikasi Anda berdasarkan metrik tersebut menggunakan set data evaluasi. Sebaiknya pikirkan tingkat minimum metrik keamanan yang dapat diterima sebelum melakukan pengujian sehingga 1) Anda dapat mengevaluasi hasil pengujian berdasarkan ekspektasi tersebut dan 2) Anda dapat mengumpulkan set data evaluasi berdasarkan pengujian yang mengevaluasi metrik yang paling penting bagi Anda.
+- **सुरक्षा बेंचमार्किंग** में, सुरक्षा से जुड़ी मेट्रिक डिज़ाइन की जाती हैं. ये मेट्रिक, इस बात को दिखाती हैं कि आपका ऐप्लिकेशन, इस्तेमाल के तरीके के हिसाब से कितना सुरक्षित है. इसके बाद, यह टेस्ट किया जाता है कि आपका ऐप्लिकेशन, मेट्रिक के हिसाब से कितना अच्छा परफ़ॉर्म करता है. इसके लिए, आकलन वाले डेटासेट का इस्तेमाल किया जाता है. टेस्टिंग से पहले, सुरक्षा मेट्रिक के कम से कम स्वीकार्य लेवल के बारे में सोच लेना एक अच्छा तरीका है. इससे 1) आपको उन उम्मीदों के हिसाब से टेस्ट के नतीजों का आकलन करने में मदद मिलेगी और 2) आपको उन टेस्ट के आधार पर आकलन का डेटासेट इकट्ठा करने में मदद मिलेगी जो आपकी सबसे ज़्यादा ज़रूरी मेट्रिक का आकलन करते हैं.
 
-  **Tips lanjutan:**
+  **बेहतर सुझाव:**
 
-  - Berhati-hatilah agar tidak terlalu mengandalkan pendekatan “siap pakai” karena kemungkinan Anda perlu membuat set data pengujian sendiri menggunakan pemberi rating manusia agar sesuai sepenuhnya dengan konteks aplikasi Anda.
-  - Jika memiliki lebih dari satu metrik, Anda harus memutuskan cara melakukan trade-off jika perubahan menyebabkan peningkatan pada satu metrik dan penurunan pada metrik lainnya. Seperti halnya teknik performa lainnya, Anda mungkin ingin berfokus pada performa terburuk di seluruh set evaluasi, bukan performa rata-rata.
-- **Pengujian adversarial** secara proaktif mencoba merusak aplikasi Anda. Tujuannya adalah untuk mengidentifikasi titik lemah sehingga Anda dapat mengambil langkah-langkah untuk memperbaikinya sebagaimana mestinya. Pengujian adversarial dapat memerlukan waktu/upaya yang signifikan dari evaluator dengan keahlian di aplikasi Anda, tetapi makin sering Anda melakukannya, makin besar peluang Anda untuk menemukan masalah, terutama yang jarang terjadi atau hanya terjadi setelah aplikasi dijalankan berulang kali.
+  - “ऑफ द शेल्फ़” अप्रोच पर ज़्यादा भरोसा न करें, क्योंकि हो सकता है कि आपको अपने ऐप्लिकेशन के कॉन्टेक्स्ट के हिसाब से, इंसानों की रेटिंग का इस्तेमाल करके अपने टेस्टिंग डेटासेट बनाने पड़ें.
+  - अगर आपके पास एक से ज़्यादा मेट्रिक हैं, तो आपको यह तय करना होगा कि अगर किसी बदलाव से एक मेट्रिक में सुधार होता है और दूसरी मेट्रिक में गिरावट आती है, तो आपको किस मेट्रिक को प्राथमिकता देनी है. परफ़ॉर्मेंस इंजीनियरिंग के अन्य तरीकों की तरह ही, आपको औसत परफ़ॉर्मेंस के बजाय, अपने आकलन सेट में सबसे खराब परफ़ॉर्मेंस पर फ़ोकस करना चाहिए.
+- **नुकसान पहुंचाने वाले कॉन्टेंट का इस्तेमाल करके खामी का पता लगाने** का मतलब है कि ऐप्लिकेशन को नुकसान पहुंचाने की कोशिश करना. इसका मकसद, कमियों की पहचान करना है, ताकि आप उन्हें ठीक करने के लिए ज़रूरी कदम उठा सकें. एआई सिस्टम की कमियों का पता लगाने के लिए की जाने वाली टेस्टिंग में, आपके ऐप्लिकेशन के बारे में विशेषज्ञता रखने वाले समीक्षकों को काफ़ी समय और मेहनत करनी पड़ सकती है. हालांकि, जितनी ज़्यादा टेस्टिंग की जाएगी, उतनी ही ज़्यादा समस्याएं मिलने की संभावना होगी. खास तौर पर, ऐसी समस्याएं जो कभी-कभी या ऐप्लिकेशन को बार-बार चलाने के बाद ही दिखती हैं.
 
-  - Pengujian adversarial adalah metode untuk mengevaluasi model ML secara sistematis dengan maksud mempelajari perilakunya saat diberi input berbahaya atau yang tidak sengaja membahayakan:
-    - Input dapat dianggap berbahaya jika input tersebut jelas dirancang untuk
-      menghasilkan output yang tidak aman atau berbahaya--misalnya, meminta model
-      pembuatan teks untuk membuat ujaran kebencian tentang agama tertentu.
-    - Input tidak sengaja membahayakan jika input itu sendiri mungkin tampak aman, tetapi menghasilkan output yang membahayakan -- misalnya, meminta model pembuatan teks untuk mendeskripsikan seseorang dari etnis tertentu dan menerima output yang bersifat rasis.
-  - Yang membedakan pengujian adversarial dari evaluasi standar adalah komposisi data yang digunakan untuk pengujian. Untuk pengujian adversarial, pilih data pengujian yang kemungkinan besar akan memicu output bermasalah dari model. Hal ini berarti menyelidiki perilaku model untuk semua jenis bahaya yang mungkin terjadi, termasuk contoh langka atau tidak biasa dan kasus ekstrem yang relevan dengan kebijakan keamanan. Hal ini juga harus mencakup
-    keberagaman dalam berbagai dimensi kalimat seperti struktur,
-    makna, dan panjang. Anda dapat melihat [praktik AI Bertanggung Jawab Google dalam
-    keterbukaan](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=id)
-    untuk mengetahui detail selengkapnya tentang hal yang perlu dipertimbangkan saat membuat set data pengujian.
-    **Tips lanjutan:**
-  - Gunakan [pengujian otomatis](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=id), bukan metode tradisional dengan merekrut orang ke dalam 'tim merah' untuk mencoba merusak aplikasi Anda. Dalam pengujian otomatis, 'red team' adalah model bahasa lain yang menemukan teks input yang memicu output berbahaya dari model yang sedang diuji.
+  - नुकसान पहुंचाने वाले कॉन्टेंट का इस्तेमाल करके खामी का पता लगाना, एमएल मॉडल का व्यवस्थित तरीके से आकलन करने का एक तरीका है. इसका मकसद यह जानना है कि नुकसान पहुंचाने वाले या अनजाने में नुकसान पहुंचाने वाले इनपुट दिए जाने पर, मॉडल कैसा व्यवहार करता है:
+    - किसी इनपुट को नुकसान पहुंचाने वाला तब माना जा सकता है, जब उसे साफ़ तौर पर असुरक्षित या नुकसान पहुंचाने वाला आउटपुट जनरेट करने के लिए डिज़ाइन किया गया हो. उदाहरण के लिए, किसी टेक्स्ट जनरेशन मॉडल से किसी धर्म के बारे में नफ़रत फैलाने वाली टिप्पणी जनरेट करने के लिए कहना.
+    - किसी इनपुट से अनजाने में नुकसान तब पहुंचता है, जब इनपुट खुद नुकसान पहुंचाने वाला न हो, लेकिन उससे नुकसान पहुंचाने वाला आउटपुट मिले. उदाहरण के लिए, किसी टेक्स्ट जनरेशन मॉडल से किसी खास नस्ल के व्यक्ति के बारे में बताने के लिए कहना और नस्लभेदी आउटपुट मिलना.
+  - स्टैंडर्ड तरीके से किए गए आकलन और ऐडवर्सरियल टेस्ट में यह अंतर होता है कि टेस्ट के लिए इस्तेमाल किए गए डेटा की कंपोज़िशन अलग-अलग होती है. विरोधी जांचों के लिए, ऐसा टेस्ट डेटा चुनें जिससे मॉडल से समस्या पैदा करने वाला आउटपुट मिलने की संभावना सबसे ज़्यादा हो. इसका मतलब है कि मॉडल के व्यवहार की जांच करना. इसमें, नुकसान पहुंचाने वाले सभी संभावित उदाहरण शामिल हैं. जैसे, सुरक्षा से जुड़ी नीतियों के हिसाब से, दुर्लभ या असामान्य उदाहरण और मुश्किल मामले. इसमें वाक्य के अलग-अलग डाइमेंशन में विविधता भी शामिल होनी चाहिए. जैसे, स्ट्रक्चर, मतलब, और लंबाई. टेस्ट डेटासेट बनाते समय किन बातों का ध्यान रखना चाहिए, इस बारे में ज़्यादा जानने के लिए, [Google के ज़िम्मेदारी के साथ एआई इस्तेमाल करने से जुड़े सिद्धांतों में निष्पक्षता](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=hi) पढ़ें.
+    **बेहतर सुझाव:**
+  - अपने ऐप्लिकेशन को हैक करने की कोशिश करने के लिए, 'रेड टीम' में लोगों को शामिल करने के पारंपरिक तरीके के बजाय, [ऑटोमेटेड टेस्टिंग](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=hi) का इस्तेमाल करें. ऑटोमेटेड टेस्टिंग में, 'रेड टीम' एक और लैंग्वेज मॉडल होता है. यह ऐसा इनपुट टेक्स्ट ढूंढता है जिससे टेस्ट किए जा रहे मॉडल से नुकसान पहुंचाने वाले आउटपुट मिलते हैं.
 
-## Memantau masalah
+## समस्याओं पर नज़र रखने के लिए
 
-Tidak peduli seberapa banyak Anda menguji dan memitigasi, Anda tidak akan pernah dapat menjamin kesempurnaan, jadi rencanakan terlebih dahulu cara Anda akan menemukan dan mengatasi masalah yang muncul. Pendekatan umum mencakup menyiapkan saluran yang dipantau agar pengguna dapat membagikan masukan (misalnya, rating suka/tidak suka) dan menjalankan studi pengguna untuk secara proaktif meminta masukan dari beragam pengguna, terutama jika pola penggunaan berbeda dari yang diharapkan.
+चाहे आपने कितनी भी टेस्टिंग की हो और समस्याओं को कम किया हो, लेकिन यह कभी नहीं कहा जा सकता कि सब कुछ सही है. इसलिए, पहले से ही यह प्लान कर लें कि आपको आने वाली समस्याओं का पता कैसे चलेगा और उन्हें कैसे ठीक किया जाएगा. आम तौर पर, इन तरीकों का इस्तेमाल किया जाता है: उपयोगकर्ताओं के लिए एक ऐसा चैनल सेट अप करना जिस पर नज़र रखी जा सके, ताकि वे सुझाव/राय/शिकायत शेयर कर सकें. जैसे, पसंद/नापसंद रेटिंग देना. साथ ही, उपयोगकर्ताओं पर एक स्टडी करना, ताकि अलग-अलग तरह के उपयोगकर्ताओं से सुझाव/राय/शिकायत मिल सकें. यह तरीका तब ज़्यादा फ़ायदेमंद होता है, जब इस्तेमाल के पैटर्न उम्मीद के मुताबिक न हों.
 
-### Tips lanjutan
+### उन्नत युक्तियां
 
-- Saat pengguna memberikan masukan ke produk AI, hal ini dapat meningkatkan performa AI dan pengalaman pengguna seiring waktu, misalnya, dengan membantu Anda memilih contoh yang lebih baik untuk penyesuaian perintah. [Bab Masukan dan Kontrol](https://pair.withgoogle.com/chapter/feedback-controls/) dalam [Panduan Google untuk Orang dan AI](https://pair.withgoogle.com/guidebook/chapters) menggarisbawahi pertimbangan utama yang harus diperhatikan saat mendesain mekanisme masukan.
+- जब उपयोगकर्ता, एआई प्रॉडक्ट के बारे में सुझाव/राय देते हैं या शिकायत करते हैं, तो इससे समय के साथ एआई की परफ़ॉर्मेंस और उपयोगकर्ता अनुभव को बेहतर बनाने में मदद मिलती है. उदाहरण के लिए, इससे आपको प्रॉम्प्ट ट्यूनिंग के लिए बेहतर उदाहरण चुनने में मदद मिलती है. [Google की People and AI guidebook](https://pair.withgoogle.com/guidebook/chapters) में [सुझाव/राय देने या शिकायत करने और कंट्रोल करने से जुड़ा चैप्टर](https://pair.withgoogle.com/chapter/feedback-controls/) में, सुझाव/राय देने या शिकायत करने के तरीके डिज़ाइन करते समय ध्यान रखने वाली मुख्य बातों के बारे में बताया गया है.
 
-## Langkah berikutnya
+## अगले चरण
 
-- Lihat panduan
-  [setelan keamanan](https://ai.google.dev/gemini-api/docs/safety-settings?hl=id) untuk mempelajari setelan keamanan yang dapat disesuaikan yang tersedia melalui Gemini API.
-- Lihat [pengantar perintah](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=id) untuk mulai menulis perintah pertama Anda.
+- Gemini API के ज़रिए उपलब्ध, अडजस्ट की जा सकने वाली [सुरक्षा सेटिंग के बारे में जानने के लिए, सुरक्षा सेटिंग](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) गाइड पढ़ें.
+- पहला प्रॉम्प्ट लिखने के लिए, [प्रॉम्प्ट के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=hi) देखें.
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-06-05 UTC.
+आखिरी बार 2026-06-05 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-05 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-05 (UTC) को अपडेट किया गया."],[],[]]

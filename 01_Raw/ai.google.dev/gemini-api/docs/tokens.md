@@ -1,51 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=id
-fetched_at: 2026-09-28T06:24:20.271613+00:00
-title: "Memahami dan menghitung token \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=ar
+fetched_at: 2026-10-05T06:38:48.367851+00:00
+title: "\u0641\u0647\u0645 \u0627\u0644\u0631\u0645\u0648\u0632 \u0627\u0644\u0645\u0645\u064a\u0651\u0632\u0629 \u0648\u0639\u062f\u0651\u0647\u0627 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Kirim masukan
+إرسال ملاحظات
 
-# Memahami dan menghitung token
+# فهم الرموز المميّزة وعدّها
 
-Gemini dan model AI generatif lainnya memproses input dan output pada perincian
-yang disebut *token*.
+تعالج نماذج الذكاء الاصطناعي التوليدي، مثل Gemini، المدخلات والمخرجات بدقة
+تُعرف باسم *الرمز المميز*.
 
-**Untuk model Gemini, satu token setara dengan sekitar 4 karakter.
-100 token setara dengan sekitar 60-80 kata dalam bahasa Inggris.**
+**في نماذج Gemini، يعادل الرمز المميز الواحد حوالي 4 أحرف.
+تعادل 100 رمز مميز حوالي 60 إلى 80 كلمة إنجليزية.**
 
-## Tentang token
+## لمحة عن الرموز المميّزة
 
-Token dapat berupa karakter tunggal seperti `z` atau seluruh kata seperti `cat`. Kata-kata panjang
-dipecah menjadi beberapa token. Kumpulan semua token yang digunakan oleh model disebut kosakata, dan proses membagi teks menjadi token disebut *tokenisasi*.
+يمكن أن تكون الرموز المميزة أحرفًا مفردة مثل `z` أو كلمات كاملة مثل `cat`. يتم تقسيم الكلمات الطويلة إلى عدة رموز مميزة. تُعرف مجموعة جميع الرموز المميزة التي يستخدمها النموذج باسم
+المفردات، وتُعرف عملية تقسيم النص إلى رموز مميزة باسم
+*التقطيع إلى رموز مميزة*.
 
-Jika penagihan diaktifkan, [biaya panggilan ke Gemini API](https://ai.google.dev/pricing?hl=id) sebagian ditentukan oleh jumlah token input dan output, jadi mengetahui cara menghitung token dapat membantu.
+عند تفعيل الفوترة، يتم تحديد [تكلفة طلب البيانات من Gemini API](https://ai.google.dev/pricing?hl=ar) جزئيًا من خلال عدد الرموز المميزة للإدخال والإخراج، لذا قد يكون من المفيد معرفة كيفية عدّ الرموز المميزة.
 
-## Menghitung token
+## عدد الرموز المميّزة
 
-Semua input ke dan output dari Gemini API di-tokenisasi, termasuk teks, file gambar, dan modalitas non-teks lainnya.
+يتم تحويل جميع البيانات المدخلة إلى واجهة Gemini API والناتجة عنها إلى رموز مميزة، بما في ذلك النصوص وملفات الصور وغيرها من الوسائط غير النصية.
 
-Anda dapat menghitung token dengan cara berikut:
+يمكنك احتساب الرموز المميزة بالطرق التالية:
 
-- **Panggil `count_tokens` dengan input permintaan.** Menampilkan jumlah total token dalam *input saja*. Lakukan panggilan ini sebelum mengirim input
-  untuk memeriksa ukuran permintaan Anda.
-- **Gunakan `usage` pada respons interaksi.** Menampilkan jumlah token
-  untuk input (`total_input_tokens`), output (`total_output_tokens`),
-  pemikiran (`total_thought_tokens`), konten yang di-cache
-  (`total_cached_tokens`), penggunaan alat (`total_tool_use_tokens`),
-  dan total (`total_tokens`).
+- **اتّصِل بـ "`count_tokens`" مع إدخال الطلب.** تعرض هذه الدالة إجمالي عدد الرموز المميزة في *الإدخال فقط*. يجب إجراء هذه المكالمة قبل إرسال الإدخال
+  للتحقّق من حجم طلباتك.
+- **استخدِم `usage` في ردّك على التفاعل.** تعرض هذه السمة عدد الرموز المميزة
+  للمدخلات (`total_input_tokens`) والمخرجات (`total_output_tokens`) والتفكير (`total_thought_tokens`) والمحتوى المخزّن مؤقتًا (`total_cached_tokens`) واستخدام الأدوات (`total_tool_use_tokens`) والإجمالي (`total_tokens`).
 
-### Menghitung token teks
+### احتساب الرموز المميّزة للنص
 
 ### Python
 
@@ -95,7 +93,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.usage);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -166,9 +164,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Menghitung token multi-giliran
+### عدّ الرموز المميزة في المحادثات المترابطة
 
-Menghitung token di seluruh histori percakapan menggunakan `previous_interaction_id`:
+احتساب الرموز المميزة في سجلّ المحادثات باستخدام `previous_interaction_id`:
 
 ### Python
 
@@ -214,7 +212,7 @@ console.log(`Input tokens: ${interaction2.usage.total_input_tokens}`);
 console.log(`Output tokens: ${interaction2.usage.total_output_tokens}`);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -320,18 +318,16 @@ func main() {
 }
 ```
 
-### Menghitung token multimodal
+### عدّ الرموز المميزة المتعددة الوسائط
 
-Semua input ke Gemini API di-tokenisasi, termasuk gambar, video, dan audio.
-Poin penting tentang tokenisasi:
+يتم تحويل جميع البيانات المُدخلة إلى Gemini API إلى رموز مميزة، بما في ذلك الصور والفيديوهات والمحتوى الصوتي.
+في ما يلي النقاط الرئيسية حول عملية الترميز:
 
-- **Gambar**: Gambar ≤384 piksel di kedua dimensi dihitung sebagai 258 token. Gambar yang lebih besar diatur menjadi ubin berukuran 768x768 piksel, yang masing-masing dihitung sebagai 258 token.
-- **Video**: 263 token per detik (berlaku untuk pemrosesan statis). Untuk pemrosesan
-  berbasis agen, penggunaan token bervariasi. Lihat
-  [Penggunaan token video menurut mode pemrosesan](#video-token-usage).
-- **Audio**: 32 token per detik
+- **الصور**: يتم احتساب الصور التي يبلغ حجمها 384 بكسل أو أقل في كلا البُعدين على أنّها 258 رمزًا مميزًا. يتم تقسيم الصور الأكبر حجمًا إلى مربّعات بحجم 768x768 بكسل، ويتم احتساب كل مربّع على أنّه 258 رمزًا مميزًا.
+- **الفيديو**: 263 رمزًا مميّزًا في الثانية (ينطبق على المعالجة الثابتة). بالنسبة إلى المعالجة التي تتطلّب وكيلًا، يختلف استخدام الرموز المميزة. يمكنك الاطّلاع على [استخدام الرموز المميزة للفيديو حسب وضع المعالجة](#video-token-usage).
+- **الصوت**: 32 رمزًا مميزًا في الثانية
 
-#### Token gambar
+#### رموز الصور المميزة
 
 ### Python
 
@@ -377,7 +373,7 @@ const countResponse = await client.models.countTokens({
 console.log(countResponse.totalTokens);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -490,7 +486,7 @@ func main() {
 }
 ```
 
-**Contoh data inline:**
+**مثال على البيانات المضمّنة:**
 
 ### Python
 
@@ -515,7 +511,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Token video
+#### رموز الفيديو المميّزة
 
 ### Python
 
@@ -548,25 +544,25 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Penggunaan token video menurut mode pemrosesan
+#### استخدام الرموز المميزة للفيديو حسب وضع المعالجة
 
-Penggunaan token untuk video bergantung pada mode pemrosesan:
+يعتمد استخدام الرموز المميزة للفيديو على وضع المعالجة:
 
-| **Mode pemrosesan** | **Penghitungan token** | **Penggunaan umum** |
+| **وضع المعالجة** | **احتساب الرموز المميزة** | **الاستخدام النموذجي** |
 | --- | --- | --- |
-| **Statis** (default) | ~100 token/detik secara default (resolusi rendah) atau ~300 token/detik (resolusi tinggi). Semua frame diambil sampelnya pada 1 FPS. | Dapat diprediksi, proporsional dengan durasi video. |
-| **Agentic** | Bervariasi berdasarkan kompleksitas konten. Model hanya memuat transkrip dan/atau frame dan/atau audio yang diperlukan untuk menjawab perintah. | Hingga 88% lebih sedikit token untuk konten panjang. |
+| **ثابتة** (تلقائي) | حوالي 100 رمز مميز في الثانية تلقائيًا (دقة منخفضة) أو حوالي 300 رمز مميز في الثانية (دقة عالية) تم أخذ عيّنات من جميع اللقطات بمعدّل لقطة واحدة في الثانية. | يمكن توقّعها وتتناسب مع مدة الفيديو. |
+| **Agentic** | يختلف حسب مدى تعقيد المحتوى. لا يحمّل النموذج سوى نص الفيديو و/أو إطاراته و/أو الصوت اللازم للإجابة عن الطلب. | انخفاض عدد الرموز المميزة بنسبة تصل إلى% 88 للمحتوى الطويل |
 
-Dengan pemrosesan agentik, kuliah 1 jam yang akan menggunakan ~1,08 juta token dalam mode statis mungkin menggunakan ~108 ribu token, bergantung pada perintah dan konten.
+باستخدام المعالجة المستندة إلى الوكيل، قد تستخدم محاضرة مدتها ساعة واحدة حوالي 108 ألف رمز مميز، بدلاً من 1.08 مليون رمز مميز في الوضع الثابت، وذلك حسب الطلب والمحتوى.
 
-Untuk memeriksa penggunaan token sebenarnya untuk permintaan, periksa `interaction.usage`. Token video agentik dilaporkan di seluruh kolom berikut:
+للاطّلاع على الاستخدام الفعلي للرموز المميزة في طلب معيّن، افحص `interaction.usage`. يتم تسجيل رموز الفيديو التي تم إنشاؤها باستخدام الذكاء الاصطناعي التوليدي في الحقول التالية:
 
-- **Perintah awal** (referensi video + perintah pengguna): `total_input_tokens`
-- **Pemikiran navigasi**: `total_thought_tokens`
-- **Transkrip, frame, dan audio dimuat sesuai permintaan**: `total_tool_use_tokens`
-- **Jawaban akhir**: `total_output_tokens`
+- **الطلب الأوّلي** (مرجع الفيديو + طلب المستخدم): `total_input_tokens`
+- **التفكير في التنقّل**: `total_thought_tokens`
+- **يتم تحميل النص والإطارات والصوت عند الطلب**: `total_tool_use_tokens`
+- **الإجابة النهائية**: `total_output_tokens`
 
-#### Token audio
+#### الرموز الصوتية
 
 ### Python
 
@@ -592,9 +588,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Menghitung token petunjuk sistem
+### احتساب الرموز المميزة لتعليمات النظام
 
-Petunjuk sistem dihitung sebagai bagian dari token input:
+يتم احتساب تعليمات النظام كجزء من الرموز المميزة للإدخال:
 
 ### Python
 
@@ -610,9 +606,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Menghitung token alat
+### رموز أدوات الاحتساب
 
-Alat (fungsi, eksekusi kode, Google Penelusuran) juga dihitung:
+يتم أيضًا احتساب الأدوات (الدوال، وتنفيذ التعليمات البرمجية، و"بحث Google"):
 
 ### Python
 
@@ -642,12 +638,11 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Jendela konteks
+## قدرة الاستيعاب
 
-Setiap model Gemini memiliki jumlah token maksimum yang dapat ditangani. Jendela konteks
-menentukan batas gabungan token input dan output.
+لكل نموذج من نماذج Gemini حدّ أقصى لعدد الرموز المميزة التي يمكنه معالجتها. تحدّد نافذة السياق الحدّ الأقصى المسموح به لعدد الرموز المميزة في كل من الطلب والرد.
 
-### Mendapatkan ukuran jendela konteks secara terprogram
+### الحصول على حجم قدرة الاستيعاب آليًا
 
 ### Python
 
@@ -667,7 +662,7 @@ console.log(`Input token limit: ${modelInfo.inputTokenLimit}`);
 console.log(`Output token limit: ${modelInfo.outputTokenLimit}`);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -753,20 +748,20 @@ func main() {
 }
 ```
 
-Temukan ukuran jendela konteks di halaman [model](https://ai.google.dev/gemini-api/docs/models?hl=id).
+يمكنك الاطّلاع على أحجام قدرة الاستيعاب في صفحة [النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
 
-## Langkah berikutnya
+## الخطوات التالية
 
-- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id): Dasar-dasar pembuatan
-- [Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id): Mengurangi biaya dengan caching
-- [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id): Memahami biaya
+- [إنشاء النصوص](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar): الأساسيات
+- [التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar): خفض التكاليف باستخدام التخزين المؤقت
+- [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar): فهم التكاليف
 
-Kirim masukan
+إرسال ملاحظات
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Terakhir diperbarui pada 2026-09-24 UTC.
+تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)
 
-Ada masukan untuk kami?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

@@ -1,124 +1,111 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=th
-fetched_at: 2026-09-28T06:12:25.472024+00:00
-title: "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e43\u0e2b\u0e49\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19\u0e44\u0e14\u0e49\u0e08\u0e32\u0e01 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-CN
+fetched_at: 2026-10-05T06:33:13.571572+00:00
+title: "\u4ece Google AI Studio \u90e8\u7f72 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-ส่งความคิดเห็น
+发送反馈
 
-# การทำให้ใช้งานได้จาก Google AI Studio
+# 从 Google AI Studio 部署
 
-Google AI Studio ช่วยให้คุณสามารถทําให้แอปพลิเคชัน Full Stack ใช้งานได้โดยตรง
-จากโหมดสร้าง ซึ่งช่วยให้เปลี่ยนจากต้นแบบไปสู่
-สภาพแวดล้อมการผลิตที่มีการจัดการและปรับขนาดได้ได้อย่างรวดเร็ว
+借助 Google AI Studio，您可以直接从“构建”模式部署全栈应用。这提供了一条从原型设计到可扩缩的受管理生产环境的快速路径。
 
-## ตัวเลือกการติดตั้งใช้งาน
+## 部署方案
 
-หากต้องการติดตั้งใช้งานแอปพลิเคชันจากโหมด AI Studio Build ข้อกำหนดจะขึ้นอยู่กับระดับที่คุณใช้ ดังนี้
+如需从 AI Studio 构建模式部署应用，具体要求取决于您使用的层级：
 
-- [**ระดับเริ่มต้นของ Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=th):
-  ช่วยให้คุณเผยแพร่แอปพลิเคชันแบบฟูลสแต็กได้สูงสุด 2 รายการโดยไม่ต้องตั้งค่า
-  โปรเจ็กต์ Google Cloud หรือบัญชีสำหรับการเรียกเก็บเงิน
-- **การติดตั้งใช้งานมาตรฐาน**: ต้องมีโปรเจ็กต์ Google Cloud ที่ลิงก์กับบัญชี AI Studio และเปิดใช้การเรียกเก็บเงินในโปรเจ็กต์นั้น
+- [**Google Cloud 新手体验层级**](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn)：符合条件的账号无需设置 Google Cloud 云项目或结算账号，即可发布最多 2 个全栈应用。
+- **标准部署**：需要一个与 AI Studio 账号相关联的 Google Cloud 项目，并且该项目已启用结算功能。
 
-## เกี่ยวกับ Starter Tier
+## 新手体验层级简介
 
-Google Cloud Starter Tier มีเส้นทางที่คล่องตัวในการทำให้แอปพลิเคชันใช้งานได้ใน Google Cloud โดยตรงจาก Google AI Studio โดยไม่ต้องตั้งค่าสภาพแวดล้อม Google Cloud แบบเต็มหรือบัญชีสำหรับการเรียกเก็บเงิน
+Google Cloud 新手体验层级为符合条件的账号提供了一条简化的途径，让其能够直接从 Google AI Studio 将应用部署到 Google Cloud。您无需设置完整的 Google Cloud 环境或结算账号。
 
-การทำให้ใช้งานได้แต่ละครั้งใน Google AI Studio จะสร้างบริการที่เกี่ยวข้องใน
-Cloud Run สำหรับบริการที่ใช้งานใน Google AI Studio ด้วย Starter
-Tier จะมีข้อจำกัดต่อไปนี้
+每次 Google AI Studio 部署都会在 Cloud Run 中创建相应的服务。对于在 Google AI Studio 中以 Starter 级部署的服务，存在以下限制：
 
-- คุณสามารถติดตั้งใช้งานบริการได้สูงสุด 2 รายการ
-- ระบบจะทําให้บริการของคุณใช้งานได้ใน[ภูมิภาค Cloud Run เดียว](https://docs.cloud.google.com/run/docs/locations?hl=th)
+- 您最多可以部署两项服务。
+- 您的服务部署在[单个 Cloud Run 区域](https://docs.cloud.google.com/run/docs/locations?hl=zh-cn)中。
 
-## ขั้นตอนการติดตั้งใช้งาน Starter Tier
+### 新手体验层级资格条件
 
-หลังจากออกแบบแอปในโหมดสร้างแล้ว ให้ทำให้แอปใช้งานได้ด้วย Starter Tier โดยทำดังนี้
+并非所有账号都符合使用 Google Cloud 新手体验层级的条件。如果您的账号符合以下任何条件，则可能不符合条件：
 
-1. คลิกปุ่ม**เผยแพร่**ที่มุมขวาบน
-2. คลิก**เริ่มต้น**
-3. คลิก**เผยแพร่แอป**
+- 您登录的是 Google Workspace 账号（包括付费或免费的 Google Workspace、Google Workspace 教育版或 Google 公益支持 订阅）。
+- 您拥有有效的付费 Google Cloud 结算账号或曾经拥有付费 Google Cloud 结算账号。
+- 根据您账号的活动情况，我们目前没有足够的证据来授予您 Starter 级访问权限。
 
-เมื่อการติดตั้งใช้งานเสร็จสมบูรณ์แล้ว AI Studio จะให้ URL ของ Cloud Run ซึ่งคุณสามารถใช้เพื่อเข้าถึงแอปพลิเคชันที่ใช้งานจริงได้
+Google AI Studio 支持团队无法覆盖入门级资格要求。如果您的账号不符合条件，请附加结算账号并使用[标准部署](#standard-deployment)来发布应用。
 
-## URL ที่กำหนดเองสำหรับ AI Studio
+## 使用新手体验层级进行部署
 
-เมื่อเผยแพร่แอปพลิเคชันจาก Google AI Studio คุณจะตั้งค่าโดเมนย่อยที่กำหนดเองและจดจำง่ายได้ในส่วน `ai.studio` (เช่น `https://your-app-name.ai.studio`)
+在 Build 模式下设计应用后，使用新手体验层级部署应用：
 
-Google AI Studio กำหนดให้โดเมนย่อยต้องไม่ซ้ำกันทั่วโลกในทุกโปรเจ็กต์
-และจะกำหนดโดเมนย่อยตามลำดับการลงทะเบียน หากโปรเจ็กต์อื่น
-ใช้ชื่ออยู่แล้ว AI Studio จะแจ้งให้คุณเลือกชื่ออื่น หากคุณ
-เลิกเผยแพร่หรือลบแอปพลิเคชัน ระบบจะปล่อย URL แบบกำหนดเองของแอปพลิเคชันนั้นและ
-เปิดให้ผู้ใช้รายอื่นอ้างสิทธิ์ได้
+1. 点击右上角的**发布**按钮。
+2. 点击**开始使用**。
+3. 点击**发布应用**。
 
-### ตั้ง URL ที่กำหนดเอง
+部署完成后，AI Studio 会提供一个 Cloud Run 网址，您可以通过该网址访问已上线的应用。
 
-วิธีตั้งค่าหรืออัปเดต URL ที่กำหนดเองสำหรับแอปพลิเคชัน
+## AI Studio 的自定义网址
 
-1. เปิดแอปพลิเคชันใน Google AI Studio ในโหมด**สร้าง**
-2. คลิก**เผยแพร่**ที่มุมขวาบน
-3. ในการกำหนดค่าการติดตั้งใช้งาน ให้ป้อนโดเมนย่อยที่ต้องการในช่อง **URL ที่กำหนดเอง** หรือยอมรับ URL ที่แนะนำ
-4. คลิก**เผยแพร่แอป**
+从 Google AI Studio 发布应用时，您可以设置 `ai.studio` 下的自定义子网域（例如 `https://your-app-name.ai.studio`），以便用户轻松记住。
 
-หากต้องการโอน URL ที่กำหนดเองที่มีอยู่ไปยังแอปพลิเคชันอื่น คุณต้องเลิกเผยแพร่หรือลบแอปพลิเคชันที่กำหนด URL ที่กำหนดเองนั้นก่อน แล้วจึงเผยแพร่แอปพลิเคชันใหม่โดยใช้โดเมนย่อยที่เลือก
+Google AI Studio 要求子网域在所有项目中是全局唯一的，并按先到先得的原则进行分配。如果其他项目已使用某个名称，AI Studio 会提示您选择其他名称。如果您取消发布或删除应用，其自定义网址将被释放，并可供其他用户声明。
 
-### รายงานปัญหาเกี่ยวกับเครื่องหมายการค้าหรือลิขสิทธิ์
+### 设置自定义网址
 
-โดเมนย่อยที่กำหนดเองต้องเป็นไปตาม[ข้อกำหนดในการให้บริการของ Google](https://policies.google.com/terms?hl=th) หากพบ
-URL ที่กำหนดเองซึ่งละเมิดเครื่องหมายการค้าหรือใช้ชื่อที่มีลิขสิทธิ์โดยไม่ได้รับ
-อนุญาต คุณสามารถรายงานได้โดยใช้[เครื่องมือแก้ปัญหาทางกฎหมายของ Google](https://support.google.com/legal/troubleshooter/1114905?hl=th)
+如需为应用设置或更新自定义网址，请执行以下操作：
 
-## การติดตั้งใช้งานมาตรฐาน
+1. 在 **Build** 模式下，在 Google AI Studio 中打开您的应用。
+2. 点击右上角的**发布**。
+3. 在部署配置中，在**自定义网址**字段中输入首选子域名，或接受建议的网址。
+4. 点击**发布应用**。
 
-เมื่อแอปพลิเคชันของคุณพัฒนาขึ้น คุณอาจต้องใช้ความสามารถที่นอกเหนือจากระดับ Starter
-Tier เช่น โควต้าที่สูงขึ้น ทรัพยากรการประมวลผลที่เพิ่มขึ้น หรือผลิตภัณฑ์อื่นๆ ของ
-Google Cloud ที่ไม่มีให้บริการในระดับ Starter Tier หากต้องการปลดล็อก
-ความสามารถเหล่านี้ คุณสามารถแปลงโปรเจ็กต์ระดับเริ่มต้นที่มีการจัดการเต็มรูปแบบเป็น
-โปรเจ็กต์ Google Cloud มาตรฐานได้
+如需将现有自定义网址转移到其他应用，您必须先取消发布或删除分配了该自定义网址的应用，然后使用所选子网域发布新应用。
 
-ซึ่งจะช่วยให้คุณปรับขนาดได้อย่างราบรื่นโดยไม่สูญเสีย
-ความคืบหน้า ทำตามขั้นตอนเพื่อ
-[สร้างบัญชีสำหรับการเรียกเก็บเงินใน Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=th#create-new-billing-account)
-ยอมรับข้อกำหนดในการให้บริการมาตรฐานของ Google Cloud อย่างเป็นทางการ และ
-[อัปเกรดเป็นโปรเจ็กต์ Google Cloud มาตรฐาน](https://docs.cloud.google.com/docs/starter-tier?hl=th#upgradee)
-ดูข้อมูลเพิ่มเติมได้ที่
-[การตั้งค่าสำหรับบัญชีแบบชำระเงิน](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=th#paid-setup)
+### 举报商标或版权问题
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับระดับการเรียกเก็บเงินได้ที่[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)
+自定义子网域必须遵守 [Google 服务条款](https://policies.google.com/terms?hl=zh-cn)。如果您发现某个自定义网址侵犯了商标或未经许可使用了受版权保护的名称，可以使用 [Google 法律问题排查工具](https://support.google.com/legal/troubleshooter/1114905?hl=zh-cn)进行举报。
 
-## ลบแอปพลิเคชัน
+## 标准部署
 
-หากไม่ต้องการใช้แอปแล้ว คุณสามารถลบแอปใน Google AI Studio ได้
-โดยทำตามวิธีการต่อไปนี้
+随着应用的发展，您可能需要新手体验层级以外的功能，例如更高的配额、更多的计算资源，或者新手体验层级中未提供的其他 Google Cloud 产品。如需解锁这些功能，您可以将完全受管的新手体验层级项目转换为标准 Google Cloud 项目。
 
-1. ไปที่[หน้าแอป](https://aistudio.google.com/app/apps?hl=th)ใน Google AI Studio
-2. เลือก**แอป**ในเมนูด้านซ้าย
-3. วางเคอร์เซอร์เหนือแอปที่ต้องการลบ
-4. คลิกไอคอนถังขยะทางด้านขวาของแถวเพื่อลบแอป
+这样可确保您能够顺畅地扩展规模，而不会丢失进度。按照步骤[创建 Cloud Billing 账号](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=zh-cn#create-new-billing-account)，正式接受标准 Google Cloud 服务条款，并[升级为标准 Google Cloud 项目](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn#upgradee)。
+如需了解详情，请参阅[付费账号的设置](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-cn#paid-setup)。
 
-## ขั้นตอนถัดไป
+如需详细了解结算层级，请参阅[结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
 
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ
-  [รุ่นเริ่มต้นของ Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=th)
-- อ่านเกี่ยวกับ[การเรียกเก็บเงิน](https://ai.google.dev/gemini-api/docs/billing?hl=th)ใน Gemini API
+## 删除您的申请
 
-ส่งความคิดเห็น
+如果您不再需要自己的应用，可以按照以下说明在 Google AI Studio 中将其删除：
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+1. 在 Google AI Studio 中，前往[应用页面](https://aistudio.google.com/app/apps?hl=zh-cn)。
+2. 在左侧菜单中，选择**应用**。
+3. 将鼠标指针悬停在要删除的应用上。
+4. 点击相应行右侧的回收站图标即可删除该应用。
 
-อัปเดตล่าสุด 2026-07-10 UTC
+## 后续步骤
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+- 详细了解 [Google Cloud 新手体验层级](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn)。
+- 阅读有关 Gemini API 中[结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)的内容。
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-07-10 UTC"],[],[]]
+发送反馈
+
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+
+最后更新时间 (UTC)：2026-09-28。
+
+需要向我们提供更多信息？
+
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-28。"],[],[]]

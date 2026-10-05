@@ -1,113 +1,113 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=id
-fetched_at: 2026-09-28T06:18:57.557661+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=ja
+fetched_at: 2026-10-05T06:37:49.835765+00:00
 title: "Gemini 3.5 Transcribe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
 # Gemini 3.5 Transcribe
 
-Gemini 3.5 Transcribe adalah model speech-to-text berdasarkan kemampuan pemahaman audio Gemini. Layanan ini menyediakan transkripsi yang akurat dan latensi rendah dengan deteksi bahasa berbasis ucapan, diarisasi pembicara, stempel waktu tingkat kata, Transkripsi pintar, dan penyesuaian ucapan kosakata kustom.
+Gemini 3.5 Transcribe は、Gemini の音声理解機能に基づく音声テキスト変換モデルです。発話ベースの言語検出、話者ダイアライゼーション、単語レベルのタイムスタンプ、スマート音声文字変換、カスタム語彙の音声バイアスにより、低レイテンシで正確な音声文字変換を実現します。
 
-[Coba di Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=id)
+[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=ja)
 
-## Dokumentasi
+## ドキュメント
 
-Transcribe Gemini 3.5 mengonversi ucapan menjadi teks dari file audio. Model ini otomatis mendeteksi lebih dari 85 bahasa, menangani peralihan kode multi-bahasa, mengidentifikasi setiap penutur, menghasilkan stempel waktu tingkat kata, dan beradaptasi dengan istilah khusus domain melalui penyesuaian kosakata kustom.
+Gemini 3.5 Transcribe は、音声ファイルから音声をテキストに変換します。85 以上の言語を自動的に検出し、多言語のコード切り替えを処理し、個々の話者を識別し、単語レベルのタイムスタンプを出力し、カスタム語彙バイアスを使用してドメイン固有の用語に適応します。
 
-Buka panduan [Transkripsi audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=id) untuk mengetahui cakupan lengkap fitur non-streaming. Untuk transkripsi streaming latensi rendah real-time melalui WebSockets, buka panduan [Transkripsi instan](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=id) menggunakan `gemini-3.5-transcribe-live`. Untuk mengetahui harga mendetail, lihat [halaman Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.5-transcribe).
+ストリーミング以外の機能の詳細については、[音声文字変換](https://ai.google.dev/gemini-api/docs/transcribe?hl=ja)ガイドをご覧ください。WebSocket 経由でのリアルタイムの低レイテンシ ストリーミング音声文字変換については、[ライブ音声文字変換](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=ja) ガイド（`gemini-3.5-transcribe-live` を使用）をご覧ください。料金の詳細については、[料金ページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#gemini-3.5-transcribe)をご覧ください。
 
 ## gemini-3.5-transcribe
 
-| Properti | Deskripsi |
+| プロパティ | 説明 |
 | --- | --- |
-| Kode model id\_card | `gemini-3.5-transcribe` |
-| saveJenis data yang didukung | **Input**  Audio (hingga 1 jam)  **Output**  Anotasi Teks, Kata |
-| Batas audio token\_auto | **Batas audio unary**  Hingga 1 jam per permintaan (hingga 30 menit jika pemisahan pembicara atau stempel waktu tingkat kata diaktifkan) |
-| handymanKemampuan | **[Transkripsi audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=id)**  Didukung  **[Diarisasi pembicara](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#speaker-diarization)**  Didukung  **[Stempel waktu tingkat kata](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#word-timestamps)**  Didukung  **[Kosakata kustom](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#custom-vocabulary)**  Didukung  **[Transkripsi pintar](https://ai.google.dev/gemini-api/docs/transcribe?hl=id#transcription-modes)**  Didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Tidak didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Tidak didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Tidak didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Tidak didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Tidak didukung |
-| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Tidak didukung  **[Inferensi Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
-| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - `gemini-3.5-transcribe` (Unary) - `gemini-3.5-transcribe-live` (Live API) |
-| calendar\_monthPembaruan terbaru | Agustus 2026 |
+| id\_cardモデルコード | `gemini-3.5-transcribe` |
+| saveサポートされるデータタイプ | **入力**  音声（最大 1 時間）  **出力**  テキスト、単語注釈 |
+| token\_auto音声の上限 | **単項音声の上限**  リクエストごとに最大 1 時間（話者ダイアライゼーションまたは単語レベルのタイムスタンプが有効になっている場合は最大 30 分） |
+| handyman機能 | **[音声文字変換](https://ai.google.dev/gemini-api/docs/transcribe?hl=ja)**  サポート対象  **[話者ダイアライゼーション](https://ai.google.dev/gemini-api/docs/transcribe?hl=ja#speaker-diarization)**  サポート対象  **[単語レベルのタイムスタンプ](https://ai.google.dev/gemini-api/docs/transcribe?hl=ja#word-timestamps)**  サポート対象  **[カスタム語彙](https://ai.google.dev/gemini-api/docs/transcribe?hl=ja#custom-vocabulary)**  サポート対象  **[スマート音声文字変換](https://ai.google.dev/gemini-api/docs/transcribe?hl=ja#transcription-modes)**  サポート対象  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象外  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象外  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象外  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象外  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象外 |
+| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象外  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象外  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象外 |
+| 123バージョン | 詳細については、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - `gemini-3.5-transcribe`（単項） - `gemini-3.5-transcribe-live`（Live API） |
+| calendar\_month最終更新日 | 2026 年 8 月 |
 
-## Dukungan dan batasan fitur
+## 機能のサポートと制限事項
 
-Transkripsi Gemini 3.5 mendukung fitur berikut di kedua endpoint-nya:
+Gemini 3.5 Transcribe は、2 つのエンドポイントで次の機能をサポートしています。
 
-| Fitur | Live Streaming (`gemini-3.5-transcribe-live`) | Pemrosesan File Audio (`gemini-3.5-transcribe`) | Catatan / Batasan |
+| 機能 | ライブ ストリーミング（`gemini-3.5-transcribe-live`） | 音声ファイル処理（`gemini-3.5-transcribe`） | 備考 / 制限事項 |
 | --- | --- | --- | --- |
-| **Deteksi Otomatis Bahasa** | Didukung (lebih dari 85 bahasa) | Didukung (lebih dari 85 bahasa) | Mencakup pencampuran kode di tengah sesi. |
-| **Stempel Waktu Tingkat Kata** | Tidak Didukung | Didukung | Menurunkan akurasi transkripsi. |
-| **Penyesuaian Kosakata Kustom** | Didukung (hingga 1.000 istilah) | Didukung (hingga 1.000 istilah) | Pelanggan biasanya melihat hasil terbaik dengan hingga 100 istilah. |
-| **Dikte & Pemformatan Cerdas** | Didukung | Didukung | Mencakup penghapusan kata pengisi dan pemformatan alfanumerik yang sesuai dengan maksud. |
-| **Diarisasi Pembicara** | Tidak Didukung | Didukung (hingga 8 speaker) | Atribusi untuk 3+ speaker bersifat eksperimental. |
-| **Durasi Audio Maksimum** | 10 menit per sesi. | Hingga 1 jam | Pemrosesan file dibatasi hingga 30 menit jika fitur seperti diarisasi atau stempel waktu diaktifkan. |
+| **言語の自動検出** | サポート対象（85 以上の言語） | サポート対象（85 以上の言語） | セッション中のコード混合が含まれます。 |
+| **単語レベルのタイムスタンプ** | サポート対象外 | サポート対象 | 音声文字変換の精度が低下します。 |
+| **カスタム語彙バイアス** | サポート対象（最大 1,000 個の用語） | サポート対象（最大 1,000 個の用語） | 通常、100 個までの用語で最適な結果が得られます。 |
+| **スマート音声入力と書式設定** | サポート対象 | サポート対象 | つなぎ言葉の削除と、インテントを認識した英数字の書式設定が含まれます。 |
+| **話者ダイアライゼーション** | サポート対象外 | サポート対象（最大 8 人の話者） | 3 人以上の話者の帰属は試験運用版です。 |
+| **音声の最大時間** | セッションあたり 10 分。 | 1 時間以内 | ファイル処理は、ダイアライゼーションやタイムスタンプなどの機能が有効になっている場合、30 分に制限されます。 |
 
-## Bahasa yang didukung
+## サポートされている言語
 
-Bahasa dan kode bahasa BCP-47 berikut didukung untuk Transkripsi Gemini 3.5:
+Gemini 3.5 Transcribe では、次の言語と BCP-47 言語コードがサポートされています。
 
-| Language | Kode BCP-47 | Language | Kode BCP-47 |
+| 言語 | BCP-47 コード | 言語 | BCP-47 コード |
 | --- | --- | --- | --- |
-| Afrika | `af-ZA` | Jepang | `ja-JP` |
-| Amharik | `am-ET` | Jawa | `jv-ID` |
-| Arab (Mesir) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| Armenia | `hy-AM` | Kannada | `kn-IN` |
-| Assam | `as-IN` | Kazak | `kk-KZ` |
-| Azerbaijan | `az-AZ` | Korea | `ko-KR` |
-| Belarusia | `be-BY` | Kirgiz | `ky-KG` |
-| Bengali (Bangladesh) | `bn-BD` | Latvia | `lv-LV` |
-| Bengali (India) | `bn-IN` | Lingala | `ln-CD` |
-| Bosnia | `bs-BA` | Lituania | `lt-LT` |
-| Bulgaria | `bg-BG` | Makedonia | `mk-MK` |
-| Bulgaria (Aromania) | `rup-BG` | Melayu | `ms-MY` |
-| Burma | `my-MM` | Malayalam | `ml-IN` |
-| Kanton (Tradisional) | `yue-Hant-HK` | Malta | `mt-MT` |
-| Katalan | `ca-ES` | China Mandarin (Aksara Sederhana) | `cmn-Hans-CN` |
-| Cebuano | `ceb` | Marathi | `mr-IN` |
-| Khmer Tengah | `km-KH` | Mongolia | `mn-MN` |
-| Kroasia | `hr-HR` | Nepal | `ne-NP` |
-| Ceko | `cs-CZ` | Norwegia | `nb-NO` |
-| Denmark | `da-DK` | Oriya | `or-IN` |
-| Belanda | `nl-NL` | Polandia | `pl-PL` |
-| Inggris (Britania Raya) | `en-GB` | Portugis (Brasil) | `pt-BR` |
-| Inggris (India) | `en-IN` | Portugis (Portugal) | `pt-PT` |
-| Inggris (Amerika Serikat) | `en-US` | Punjabi | `pa-IN` |
-| Estonia | `et-EE` | Punjabi (skrip Gurmukhi) | `pa-Guru-IN` |
-| Persia | `fa-IR` | Rumania | `ro-RO` |
-| Filipino | `fil-PH` | Rusia | `ru-RU` |
-| Finlandia | `fi-FI` | Serbia | `sr-RS` |
-| Prancis | `fr-FR` | Sindhi (skrip Arab) | `sd-Arab-IN` |
-| Galisia | `gl-ES` | Slovakia | `sk-SK` |
-| Georgia | `ka-GE` | Slovenia | `sl-SI` |
-| Jerman | `de-DE` | Spanyol (Amerika Latin) | `es-419` |
-| Yunani | `el-GR` | Spanyol (Amerika Serikat) | `es-US` |
-| Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
-| Hausa | `ha-NG` | Swedia | `sv-SE` |
-| Ibrani | `he-IL` | Tajik | `tg-TJ` |
-| Hindi | `hi-IN` | Telugu | `te-IN` |
-| Hungaria | `hu-HU` | Thai | `th-TH` |
-| Islandia | `is-IS` | Turki | `tr-TR` |
-| Inggris - India | `en-IN` | Ukraina | `uk-UA` |
-| Indonesia | `id-ID` | Uzbek | `uz-UZ` |
-| Italia | `it-IT` | Vietnam | `vi-VN` |
+| アフリカーンス語 | `af-ZA` | 日本語 | `ja-JP` |
+| アムハラ語 | `am-ET` | ジャワ語 | `jv-ID` |
+| アラビア語（エジプト） | `ar-EG` | カーボベルデ語 | `kea-CV` |
+| アルメニア語 | `hy-AM` | カンナダ語 | `kn-IN` |
+| アッサム語 | `as-IN` | カザフ語 | `kk-KZ` |
+| アゼルバイジャン語 | `az-AZ` | 韓国語 | `ko-KR` |
+| ベラルーシ語 | `be-BY` | キルギス語 | `ky-KG` |
+| ベンガル語（バングラデシュ） | `bn-BD` | ラトビア語 | `lv-LV` |
+| ベンガル語（インド） | `bn-IN` | リンガラ語 | `ln-CD` |
+| ボスニア語 | `bs-BA` | リトアニア語 | `lt-LT` |
+| ブルガリア語 | `bg-BG` | マケドニア語 | `mk-MK` |
+| ブルガリア語（アルーマニア語） | `rup-BG` | マレー語 | `ms-MY` |
+| ビルマ語 | `my-MM` | マラヤーラム語 | `ml-IN` |
+| 広東語（繁体） | `yue-Hant-HK` | マルタ語 | `mt-MT` |
+| カタルーニャ語 | `ca-ES` | 中国語（標準語、簡体） | `cmn-Hans-CN` |
+| セブアノ語 | `ceb` | マラーティー語 | `mr-IN` |
+| 中央クメール語 | `km-KH` | モンゴル語 | `mn-MN` |
+| クロアチア語 | `hr-HR` | ネパール語 | `ne-NP` |
+| チェコ語 | `cs-CZ` | ノルウェー語 | `nb-NO` |
+| デンマーク語 | `da-DK` | オリヤ語 | `or-IN` |
+| オランダ語 | `nl-NL` | ポーランド語 | `pl-PL` |
+| 英語（英国） | `en-GB` | ポルトガル語（ブラジル） | `pt-BR` |
+| 英語（インド） | `en-IN` | ポルトガル語（ポルトガル） | `pt-PT` |
+| 英語（米国） | `en-US` | パンジャブ語 | `pa-IN` |
+| エストニア語 | `et-EE` | パンジャブ語（グルムキー文字） | `pa-Guru-IN` |
+| Farsi | `fa-IR` | ルーマニア語 | `ro-RO` |
+| フィリピン語 | `fil-PH` | ロシア語 | `ru-RU` |
+| フィンランド語 | `fi-FI` | セルビア語 | `sr-RS` |
+| フランス語 | `fr-FR` | シンド語（アラビア文字） | `sd-Arab-IN` |
+| ガリシア語 | `gl-ES` | スロバキア語 | `sk-SK` |
+| ジョージア語 | `ka-GE` | スロベニア語 | `sl-SI` |
+| ドイツ語 | `de-DE` | スペイン語（ラテンアメリカ） | `es-419` |
+| ギリシャ語 | `el-GR` | スペイン語（米国） | `es-US` |
+| グジャラート語 | `gu-IN` | スワヒリ語（ケニア） | `sw-KE` |
+| ハウサ語 | `ha-NG` | スウェーデン語 | `sv-SE` |
+| ヘブライ語 | `he-IL` | タジク語 | `tg-TJ` |
+| ヒンディー語 | `hi-IN` | テルグ語 | `te-IN` |
+| ハンガリー語 | `hu-HU` | タイ語 | `th-TH` |
+| アイスランド語 | `is-IS` | トルコ語 | `tr-TR` |
+| インド英語 | `en-IN` | ウクライナ語 | `uk-UA` |
+| インドネシア語 | `id-ID` | ウズベク語 | `uz-UZ` |
+| イタリア語 | `it-IT` | ベトナム語 | `vi-VN` |
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-09-10 UTC.
+最終更新日 2026-09-10 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-10 UTC。"],[],[]]

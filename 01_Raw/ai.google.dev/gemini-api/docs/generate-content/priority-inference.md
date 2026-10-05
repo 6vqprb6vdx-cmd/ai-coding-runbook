@@ -1,34 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=ko
-fetched_at: 2026-09-28T06:12:44.781457+00:00
-title: "\uc6b0\uc120\uc21c\uc704 \ucd94\ub860 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=es-419
+fetched_at: 2026-10-05T06:37:58.869443+00:00
+title: "Inferencia de prioridad \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
 
-의견 보내기
+Enviar comentarios
 
-# 우선순위 추론
+# Inferencia de prioridad
 
-설명: 우선순위 추론 등급으로 지연 시간을 최적화하는 방법을 알아봅니다.
+Descripción: Obtén información para optimizar la latencia con el nivel de
+inferencia Priority
 
-Gemini Priority API는 지연 시간이 짧고 최고 수준의 안정성이 필요한 비즈니스에 중요한 워크로드를 위해 설계된 프리미엄 추론 등급입니다. 우선순위 등급 트래픽은 표준 API 및 Flex 등급 트래픽보다 우선순위가 높습니다.
+La API de Gemini Priority es un nivel de inferencia premium diseñado para cargas de trabajo fundamentales para el negocio que requieren una latencia más baja y la mayor confiabilidad a un precio premium. El tráfico del nivel Priority tiene prioridad sobre el tráfico de la API estándar y el nivel Flexible.
 
-우선순위 추론은 [Tier 2 & Tier 3](https://ai.google.dev/gemini-api/docs/billing?hl=ko#about-billing) 사용자가 GenerateContent API
-및 Interactions API 엔드포인트에서 사용할 수 있습니다.
+La inferencia Priority está disponible para los usuarios de [los niveles 2 y 3](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#about-billing) en los extremos de la API de GenerateContent
+y la API de Interactions.
 
-## 우선순위 사용 방법
+## Cómo usar Priority
 
-우선순위 등급을 사용하려면 요청 본문의 `service_tier` 필드를 `priority`로 설정합니다. 필드가 생략되면 기본 등급은 표준입니다.
+Para usar el nivel Priority, establece el campo `service_tier` en el cuerpo de la solicitud en `priority`. El nivel predeterminado es estándar si se omite el campo.
 
 ### Python
 
@@ -139,91 +140,90 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 }'
 ```
 
-## 우선순위 추론 작동 방식
+## Cómo funciona la inferencia Priority
 
-우선순위 추론은 요청을 중요도가 높은 컴퓨팅 대기열로 라우팅하여 사용자 대상 애플리케이션에 예측 가능하고 빠른 성능을 제공합니다. 기본 메커니즘은 동적 한도를 초과하는 트래픽에 대한 표준 처리로의 점진적인 서버 측 다운그레이드입니다. 이렇게 하면 요청이 실패하는 대신 애플리케이션 안정성이 보장됩니다.
+La inferencia Priority enruta las solicitudes a colas de procesamiento de alta criticidad, lo que ofrece un rendimiento predecible y rápido para las aplicaciones orientadas al usuario. Su mecanismo principal es una degradación correcta del servidor al procesamiento estándar para el tráfico que excede los límites dinámicos, lo que garantiza la estabilidad de la aplicación en lugar de fallar la solicitud.
 
-| 기능 | 우선순위 | 표준 | Flex | 일괄 |
+| Función | Priority | Estándar | Flexible | Lote |
 | --- | --- | --- | --- | --- |
-| **가격 책정** | 표준보다 75~100% 더 높음 | 정상가 | 50% 할인 | 50% 할인 |
-| **지연 시간** | 초 | 수 초에서 수 분 | 분 (1~15분 목표) | 최대 24시간 |
-| **안정성** | 높음 (삭제 불가) | 높음 / 중간-높음 | 최대한 노력 (삭제 가능) | 높음 (처리량) |
-| **인터페이스** | 동기식 | 동기식 | 동기식 | 비동기식 |
+| **Precios** | Entre un 75% y un 100% más que el nivel Estándar | Precio completo | 50% de descuento | 50% de descuento |
+| **Latencia** | Segundos | De segundos a minutos | Minutos (objetivo de 1 a 15 min) | Hasta 24 horas |
+| **Confiabilidad** | Alta (no se puede descartar) | Alta / media alta | Mejor esfuerzo (se puede descartar) | Alta (para la capacidad de procesamiento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Asíncrona |
 
-### 주요 이점
+### Ventajas clave
 
-- **지연 시간 단축**: 대화형
-  사용자 대상 AI 도구의 초 단위 응답 시간을 위해 설계되었습니다.
-- **높은 안정성**: 트래픽은 중요도가 가장 높은 것으로 처리되며
-  엄격하게 삭제할 수 없습니다.
-- **점진적 대처**: 동적 한도를 초과하는 트래픽 급증은 실패하는 대신 처리를 위해
-  자동으로 표준 등급으로 다운그레이드되어
-  서비스 중단을 방지합니다.
-- **낮은 마찰**: 표준 및 Flex 등급과 동일한 동기식 `generateContent` 메서드를 사용합니다.
+- **Latencia baja**: Diseñada para tiempos de respuesta de segundos para herramientas de IA interactivas,
+  orientadas al usuario.
+- **Alta confiabilidad**: El tráfico se trata con la mayor criticidad y es
+  estrictamente no descartable.
+- **Degradación elegante**: Los aumentos repentinos de tráfico que exceden los límites dinámicos se degradan automáticamente al nivel Estándar para el procesamiento en lugar de fallar, lo que evita las interrupciones del servicio.
+- **Baja fricción**: Usa el mismo método `generateContent` síncrono que los niveles
+  Estándar y Flexible.
 
-### 사용 사례
+### Casos de uso
 
-우선순위 처리는 성능과 안정성이 가장 중요한 비즈니스에 중요한 워크플로에 적합합니다.
+El procesamiento Priority es ideal para flujos de trabajo fundamentales para el negocio en los que el rendimiento y la confiabilidad son primordiales.
 
-- **대화형 AI 애플리케이션**: 사용자가 프리미엄을 지불하고 빠르고 일관된 응답을 기대하는 고객 서비스 챗봇 및 코파일럿입니다.
-- **실시간 의사결정 엔진**: 실시간 티켓 분류 또는 사기 감지와 같이 안정성이 높고 지연 시간이 짧은
-  결과가 필요한 시스템입니다.
-- **프리미엄 고객 기능**: 유료 고객에게 더 높은 서비스
-  수준 목표 (SLO)를 보장해야 하는 개발자입니다.
+- **Aplicaciones de IA interactivas**: Chatbots y copilotos de atención al cliente en los que
+  los usuarios pagan un precio premium y esperan respuestas rápidas y coherentes.
+- **Motores de decisión en tiempo real**: Sistemas que requieren resultados altamente confiables y de baja latencia
+  como la clasificación de tickets en vivo o la detección de fraudes.
+- **Funciones premium para clientes**: Desarrolladores que necesitan garantizar objetivos de nivel de servicio (SLO) más altos para los clientes que pagan.
 
-### 비율 제한
+### Límites de frecuencia
 
-우선순위 소비는 소비가 [전체 대화형 트래픽 비율 제한](https://aistudio.google.com/rate-limit?hl=ko)에
-포함되더라도 자체 비율 제한을 유지합니다. 우선순위 추론의 기본 비율 제한은 **모델 / 등급의 표준 비율 제한의 0.3배** 입니다.
+El consumo de Priority tiene sus propios límites de frecuencia, aunque el consumo se
+cuenta para los [límites de frecuencia generales del tráfico interactivo](https://aistudio.google.com/rate-limit?hl=es-419). Los límites de frecuencia predeterminados para la inferencia Priority son **0.3 veces el límite de frecuencia estándar para el modelo o el nivel**.
 
-### 점진적 다운그레이드 로직
+### Lógica de degradación correcta
 
-정체로 인해 우선순위 한도를 초과하는 경우 오버플로 요청은 503 또는 429 오류로 실패하는 대신 표준 처리로 **자동으로 점진적으로** 다운그레이드됩니다. 다운그레이드된 요청은 우선순위 프리미엄 요금이 아닌 표준 요금으로 청구됩니다.
+Si se exceden los límites de Priority debido a la congestión, las solicitudes de desbordamiento se degradan **automática y correctamente** al procesamiento Estándar en lugar de fallar con un error 503 o 429. Las solicitudes degradadas se facturan a la tarifa estándar, no a la tarifa premium de Priority.
 
-### 클라이언트 책임
+### Responsabilidad del cliente
 
-- **응답 모니터링**: 개발자는 요청이 `x-gemini-service-tier`
-  로 자주 다운그레이드되는지 감지하기 위해 API 응답의
-  헤더를 모니터링해야 합니다.`standard`
-- **재시도**: 클라이언트는
-  표준 오류(예: `DEADLINE_EXCEEDED`)에 대해 재시도 로직/지수 백오프를 구현해야 합니다.
+- **Supervisión de respuestas**: Los desarrolladores deben supervisar el `x-gemini-service-tier`
+  encabezado en la respuesta de la API para detectar si las solicitudes se degradan con frecuencia a
+  `standard`.
+- **Reintentos**: Los clientes deben implementar la lógica de reintento o la retirada exponencial para los
+  errores estándar, como `DEADLINE_EXCEEDED`.
 
-## 가격 책정
+## Precios
 
-우선순위 추론은 [표준 API](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)보다 75~100% 더 비싸며 토큰당 청구됩니다.
+La inferencia Priority tiene un precio entre un 75% y un 100% más que la [API estándar](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) y se factura por token.
 
-## 지원되는 모델
+## Modelos compatibles
 
-다음 모델은 우선순위 추론을 지원합니다.
+Los siguientes modelos admiten la inferencia Priority:
 
-| 모델 | 우선순위 추론 |
+| Modelo | Inferencia Priority |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ko) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ko) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ |
-| [Gemini 3.1 Pro 미리보기](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ |
-| [Gemini 3 Flash 미리보기](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) | ✔️ |
-| [Gemini 3 Pro 이미지 미리보기](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=ko) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash 이미지](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=es-419) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=es-419) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=es-419) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image-preview?hl=es-419) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=es-419) | ✔️ |
+| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=es-419) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
 
-## 다음 단계
+## ¿Qué sigue?
 
-Gemini의 다른 [추론 및 최적화](https://ai.google.dev/gemini-api/docs/optimization?hl=ko) 옵션에 대해 알아봅니다.
+Obtén información sobre las otras opciones de [inferencia y optimización](https://ai.google.dev/gemini-api/docs/optimization?hl=es-419) de Gemini:
 
-- [비용을 50% 절감하는](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko) Flex 추론
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko) 24시간 이내에 비동기 처리를 위한
-- [입력 토큰 비용 절감을 위한 컨텍스트 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)
+- [Inferencia Flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419) para una reducción de costos del 50%.
+- [API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419) para el procesamiento asíncrono en un plazo de 24 horas.
+- [Almacenamiento en caché de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=es-419) para reducir los costos de tokens de entrada.
 
-의견 보내기
+Enviar comentarios
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-최종 업데이트: 2026-09-12(UTC)
+Última actualización: 2026-09-12 (UTC)
 
-의견을 전달하고 싶나요?
+¿Quieres brindar más información?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-12(UTC)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-12 (UTC)"],[],[]]

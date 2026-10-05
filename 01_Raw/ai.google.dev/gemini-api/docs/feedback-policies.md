@@ -1,69 +1,63 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=id
-fetched_at: 2026-09-28T06:17:35.492465+00:00
-title: "Masukan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=tr
+fetched_at: 2026-10-05T06:39:45.670603+00:00
+title: "Geri bildirim \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Kirim masukan
+Geri bildirim gönderin
 
-# Masukan
+# Geri bildirim
 
-Google AI Studio menyediakan beberapa cara bagi Anda untuk mengirimkan masukan tentang output model, artefak yang dihasilkan, dan log permintaan API. Kebijakan ini berlaku untuk semua
-masukan yang dikirimkan di Google AI Studio - termasuk rating respons (seperti
-suka dan tidak suka), komentar tertulis, dan pemungutan suara preferensi (seperti
-Pemungutan Suara Preferensi Inline dan mode Build Arena).
+Google AI Studio, model çıkışları, oluşturulan yapılar ve API isteği günlükleri hakkında geri bildirim göndermeniz için birden fazla yöntem sunar. Bu politika, Google AI Studio'da gönderilen tüm geri bildirimler için geçerlidir. Bunlara yanıt derecelendirmeleri (ör. beğeni ve beğenmeme), yazılı yorumlar ve tercih oylaması (ör. satır içi tercih oylaması ve Build Arena modu) dahildir.
 
-## Mengapa kita melakukan hal ini?
+## Bunu neden yapıyoruz?
 
-Kami terus berupaya meningkatkan kualitas model dan layanan AI kami. Masukan Anda membantu kami menyediakan, meningkatkan kualitas, dan mengembangkan produk serta layanan Google dan teknologi machine learning, termasuk fitur, produk, dan layanan perusahaan Google, sesuai dengan [Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id) dan [Kebijakan Privasi](https://policies.google.com/privacy?hl=id).
+Yapay zeka modellerimizi ve hizmetlerimizi iyileştirmek için sürekli çalışıyoruz. Geri bildiriminiz, [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr) ve [Gizlilik Politikası](https://policies.google.com/privacy?hl=tr)'na uygun olarak Google'ın kurumsal özellikleri, ürünleri ve hizmetleri de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini sunmamıza, iyileştirmemize ve geliştirmemize yardımcı olur.
 
-## Data apa yang disertakan dalam Masukan?
+## Geri bildirime hangi veriler dahil edilir?
 
-Untuk membuat keputusan yang tepat tentang model dan fitur kami, kami mengumpulkan data tertentu saat Anda mengirimkan masukan di Google AI Studio:
+Modellerimiz ve özelliklerimiz hakkında bilinçli kararlar vermek için Google AI Studio'da geri bildirim gönderdiğinizde belirli verileri toplarız:
 
-- **Perintah dan Respons:** Kami mencatat perintah dan respons, termasuk file atau media yang diupload, dari interaksi atau percakapan yang Anda kirimkan masukan tentangnya. Saat Anda berpartisipasi dalam evaluasi preferensi komparatif, kami juga mencatat beberapa opsi respons yang ditampilkan agar kami dapat memahami konteks pilihan Anda.
-- **Rating, Suara, atau Komentar Anda:** Kami mencatat rating yang Anda berikan (seperti suka atau tidak suka), respons yang Anda pilih dalam pemungutan suara, kategori masukan yang dipilih, dan komentar tertulis yang Anda kirimkan.
-- **Detail Penggunaan:** Hal ini mencakup detail teknis dan operasional dari interaksi atau percakapan Anda, seperti informasi tentang model mana yang menghasilkan respons, parameter model, dan metadata sistem.
+- **İstemler ve Yanıtlar:** Geri bildirim gönderdiğiniz etkileşim veya sohbetteki istemleri ve yanıtları (yüklenen dosyalar veya medya dahil) kaydederiz. Karşılaştırmalı tercih değerlendirmelerine katıldığınızda, seçiminizin bağlamını anlayabilmemiz için sunulan birden fazla yanıt seçeneğini de kaydederiz.
+- **Puanınız, oyunuz veya yorumlarınız:** Verdiğiniz puanı (ör. beğenme veya beğenmeme), oylamada tercih ettiğiniz yanıtı, seçilen geri bildirim kategorilerini ve gönderdiğiniz yazılı yorumları kaydederiz.
+- **Kullanım Ayrıntıları:** Bu, etkileşiminiz veya sohbetinizle ilgili teknik ve operasyonel ayrıntıları (ör. yanıtı hangi modelin oluşturduğu, model parametreleri ve sistem meta verileri) içerir.
 
-### Masukan menurut platform
+### Yüzeye göre geri bildirim
 
-Masukan dapat dikirimkan di berbagai platform di Google AI Studio, dengan sedikit perbedaan dalam konteks yang diambil:
+Geri bildirimler, Google AI Studio'daki farklı platformlarda gönderilebilir. Bağlamda küçük farklılıklar olabilir:
 
-- **Playground AI Studio:** Di Playground, masukan dapat dikirimkan menggunakan rating respons (suka atau tidak suka), atau Pemungutan Suara Preferensi Inline berdampingan. Data yang direkam mencakup histori percakapan, perintah, respons model, media atau file yang diupload, setelan parameter, masukan, dan detail penggunaan.
-- **Build AI Studio:** Di Build (termasuk Build Arena), masukan dapat
-  dikirimkan terkait kode yang dihasilkan, output aplikasi, dan evaluasi model komparatif.
-  Data yang direkam mencakup petunjuk dan perintah build, kode dan output aplikasi yang dihasilkan, suara atau rating komparatif, komentar yang menyertai dan detail penggunaan.
-- **Log Gemini API:** Di penampil Log dan Set Data, masukan dapat dikirimkan pada setiap log permintaan Gemini API. Data yang direkam mencakup entri log API tertentu (termasuk payload permintaan, respons model, parameter, dan metadata) beserta masukan dan detail penggunaan. Untuk mengetahui detail selengkapnya tentang
-  penyimpanan data log dan berbagi set data, lihat kebijakan
-  [Pencatatan dan Berbagi Data](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id).
+- **AI Studio Playground:** Playground'da yanıt derecelendirmeleri (beğen veya beğenme) ya da yan yana satır içi tercih oylaması kullanılarak geri bildirim gönderilebilir. Kaydedilen veriler arasında sohbet geçmişi, istemler, model yanıtları, yüklenen medya veya dosyalar, parametre ayarları, geri bildirim ve kullanım ayrıntıları yer alır.
+- **AI Studio Build:** Build Arena dahil olmak üzere Build'de oluşturulan kod, uygulama çıkışları ve karşılaştırmalı model değerlendirmeleri hakkında geri bildirim gönderilebilir.
+  Kaydedilen veriler arasında derleme talimatları ve istemler, oluşturulan uygulama kodu ve çıkışlar, karşılaştırmalı oylar veya derecelendirmeler, eşlik eden yorumlar ve kullanım ayrıntıları yer alır.
+- **Gemini API günlükleri:** Günlükler ve Veri Kümeleri Görüntüleyici'de, tek tek Gemini API istek günlükleri hakkında geri bildirim gönderilebilir. Kaydedilen veriler arasında, belirli API günlük girişi (istek yükü, model yanıtı, parametreler ve meta veriler dahil) ile birlikte geri bildirimler ve kullanım ayrıntıları yer alır. Günlük verilerinin depolanması ve veri kümesi paylaşımı hakkında daha fazla bilgi için [Veri Günlüğü ve Paylaşımı](https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr) Politikası'nı inceleyin.
 
-## Pemungutan Suara Preferensi Inline
+## Satır İçi Tercih Oylaması
 
-Di Google AI Studio, Anda mungkin sesekali melihat perbandingan berdampingan dari dua respons yang berbeda terhadap perintah Anda. Hal ini merupakan bagian dari sistem pemungutan suara preferensi kami. Anda akan diminta untuk memilih respons mana yang lebih Anda sukai, yang membantu kami memahami output model mana yang paling bermanfaat bagi pengguna.
+Google AI Studio'da, isteminize verilen iki farklı yanıtın yan yana karşılaştırmasını görebilirsiniz. Bu, tercihli oylama sistemimizin bir parçasıdır. Hangi yanıtı tercih ettiğinizi seçmeniz istenir. Bu sayede, kullanıcıların hangi model çıkışlarını en faydalı bulduğunu anlayabiliriz.
 
-## Privasi Anda
+## Gizliliğiniz
 
-**Jangan mengirimkan masukan tentang percakapan, perintah, respons, atau log yang menyertakan informasi sensitif, rahasia, atau pribadi.** Memberikan masukan
-selalu bersifat sukarela.
+**Hassas, gizli veya kişisel bilgiler içeren görüşmeler, istemler, yanıtlar ya da günlükler hakkında geri bildirim göndermeyin.** Geri bildirimde bulunmak
+her zaman isteğe bağlıdır.
 
-Terima kasih telah membantu kami meningkatkan kualitas Google AI Studio.
+Google AI Studio'yu geliştirmemize yardımcı olduğunuz için teşekkür ederiz.
 
-Kirim masukan
+Geri bildirim gönderin
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Terakhir diperbarui pada 2026-09-25 UTC.
+Son güncelleme tarihi: 2026-09-25 UTC.
 
-Ada masukan untuk kami?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-25 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-25 UTC."],[],[]]

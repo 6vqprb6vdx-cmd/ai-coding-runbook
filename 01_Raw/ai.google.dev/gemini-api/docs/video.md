@@ -1,52 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=th
-fetched_at: 2026-09-28T06:23:59.541172+00:00
-title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d\u0e43\u0e19 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=ar
+fetched_at: 2026-10-05T06:42:26.723569+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u0627\u0644\u0641\u064a\u062f\u064a\u0648\u0647\u0627\u062a \u0641\u064a Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-ส่งความคิดเห็น
+إرسال ملاحظات
 
-# การสร้างวิดีโอใน Gemini API
+# إنشاء الفيديوهات في Gemini API
 
-Gemini API มีโมเดล 2 แบบสำหรับสร้างวิดีโอ ได้แก่
-[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=th) และ [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=th)
-ซึ่งแต่ละแบบได้รับการออกแบบมาสำหรับเวิร์กโฟลว์ที่แตกต่างกัน
+توفر Gemini API نموذجين لإنشاء الفيديوهات،
+[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=ar) و[Veo](https://ai.google.dev/gemini-api/docs/veo?hl=ar).
+تم تصميم كلّ منهما لسير عمل مختلف.
 
-ใช้ Gemini Omni Flash เป็นโมเดลเริ่มต้นสำหรับการสร้างวิดีโอ เนื่องจากมีความสอดคล้องของวิดีโอที่เหนือกว่า การให้เหตุผลแบบหลายอินพุต (รองรับอินพุตข้อความ รูปภาพ เสียง และวิดีโอพร้อมกัน) ความสอดคล้องของตัวละคร ความถูกต้องของข้อเท็จจริง และการตัดต่อแบบสนทนาหลายรอบ (เช่น การแทนที่องค์ประกอบหรือการเปลี่ยนมุมมอง) ใช้ Veo 3.1 สำหรับความสามารถเฉพาะ เช่น การขยายฉาก การควบคุมเฟรมสุดท้าย หรือการผสานรวมกับไปป์ไลน์เดิม
+استخدِم Gemini Omni Flash كنموذج تلقائي لإنشاء الفيديوهات. يوفّر هذا النموذج اتساقًا فائقًا للفيديوهات، واستدلالًا متعدد الإدخالات (يدعم إدخالات النصوص والصور والمقاطع الصوتية والفيديوهات في الوقت نفسه)، واتساق الشخصيات، ودقة الحقائق، وتعديل المحادثات المترابطة (مثل استبدال العناصر أو تغيير المنظورات). استخدِم Veo 3.1 إذا كنت بحاجة إلى إمكانات معيّنة، مثل توسيع المشهد أو التحكّم في الإطار الأخير أو الدمج مع مسارات البيانات القديمة.
 
 ## Gemini Omni Flash
 
-Gemini Omni Flash เป็นโมเดลมัลติโมดัลที่รวดเร็วสำหรับการสร้างวิดีโอและการตัดต่อวิดีโอแบบสนทนา มีความโดดเด่นในการเปลี่ยนพรอมต์ข้อความและรูปภาพให้เป็นวิดีโอสั้นๆ ได้อย่างรวดเร็ว และช่วยให้คุณปรับแต่งผลลัพธ์ได้หลายรอบโดยใช้ Interactions API
+‫Gemini Omni Flash هو نموذج سريع ومتعدّد الوسائط لإنشاء الفيديوهات وتعديلها في المحادثات. يتفوّق هذا النموذج في تحويل الطلبات النصية والصور بسرعة إلى فيديوهات قصيرة، ويسمح لك بتحسين النتائج على مدار عدة أدوار باستخدام Interactions API.
 
-[เริ่มต้นใช้งาน Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=th)
+[ابدأ باستخدام Gemini Omni Flash ←](https://ai.google.dev/gemini-api/docs/omni?hl=ar)
 
 ## Veo 3.1
 
-Veo 3.1 เป็นโมเดลสำหรับการสร้างวิดีโอพร้อมเสียงดั้งเดิม รองรับฟีเจอร์ต่างๆ เช่น การขยายวิดีโอ การสร้างเฉพาะเฟรม และการกำหนดทิศทางตามรูปภาพผ่าน `generateContent` API
+‫Veo 3.1 هو نموذج لإنشاء الفيديوهات مع مقاطع صوتية أصلية. يدعم هذا النموذج ميزات مثل توسيع الفيديوهات والإنشاء على مستوى الإطار والتوجيه المستند إلى الصور من خلال `generateContent` API.
 
-[เริ่มต้นใช้งาน Veo 3.1 →](https://ai.google.dev/gemini-api/docs/veo?hl=th)
+[ابدأ باستخدام Veo 3.1 ←](https://ai.google.dev/gemini-api/docs/veo?hl=ar)
 
-## การทำความเข้าใจวิดีโอ
+## فهم الفيديوهات
 
-หากต้องการนำเข้าและวิเคราะห์เนื้อหาวิดีโอที่มีอยู่แทนที่จะสร้าง
-วิดีโอใหม่ โปรดดู[คู่มือการทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th)
+إذا كنت بحاجة إلى استيعاب محتوى الفيديو الحالي وتحليله بدلاً من إنشاء
+فيديو جديد، اطّلِع على دليل [فهم الفيديوهات](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar).
 
-ส่งความคิดเห็น
+إرسال ملاحظات
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-อัปเดตล่าสุด 2026-06-30 UTC
+تاريخ التعديل الأخير: 2026-06-30 (حسب التوقيت العالمي المتفَّق عليه)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-06-30 UTC"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-06-30 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

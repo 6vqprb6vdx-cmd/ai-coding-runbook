@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko
-fetched_at: 2026-09-28T06:13:48.426921+00:00
-title: "Google \uc9c0\ub3c4\ub97c \uc0ac\uc6a9\ud55c \uadf8\ub77c\uc6b4\ub529 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419
+fetched_at: 2026-10-05T06:34:14.542221+00:00
+title: "Fundamentaci\u00f3n con Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-의견 보내기
+Enviar comentarios
 
-# Google 지도를 사용한 그라운딩
+# Fundamentación con Google Maps
 
-Google 지도 기반 그라운딩은 Gemini의 생성 기능을 Google 지도의 풍부하고 사실에 기반한 최신 데이터와 연결합니다. 이 기능을 사용하면 개발자가 위치 인식 기능을 애플리케이션에 쉽게 통합할 수 있습니다. 사용자 쿼리에 지도 데이터와 관련된 컨텍스트가 있는 경우 Gemini 모델은 Google 지도를 활용하여 사용자가 지정한 위치 또는 대략적인 위치와 관련된 사실에 기반한 최신 답변을 제공합니다.
+La fundamentación con Google Maps conecta las capacidades generativas de Gemini con los datos enriquecidos, fácticos y actualizados de Google Maps. Esta función permite a los desarrolladores incorporar fácilmente la funcionalidad que tiene en cuenta la ubicación en sus aplicaciones. Cuando una búsqueda del usuario tiene un contexto relacionado con los datos de Maps, el modelo de Gemini aprovecha Google Maps para proporcionar respuestas precisas y actualizadas que son pertinentes para la ubicación especificada por el usuario o el área general.
 
-- **정확하고 위치를 인식하는 대답:** 지리적으로 구체적인 질문에 대해 Google 지도의 광범위하고 최신 데이터를 활용합니다.
-- **맞춤설정 강화:** 사용자가 제공한 위치를 기반으로 추천 및 정보를 맞춤설정합니다.
+- **Respuestas precisas y basadas en la ubicación:** Aprovecha los datos extensos y actuales de Google Maps para las búsquedas específicas geográficamente.
+- **Personalización mejorada:** Adapta las recomendaciones y la información según las ubicaciones proporcionadas por el usuario.
 
-## 시작하기
+## Comenzar
 
-이 예시에서는 Google 지도 기반 그라운딩을 애플리케이션에 통합하여 사용자 질문에 정확하고 위치 인식 응답을 제공하는 방법을 보여줍니다. 프롬프트는 선택적 사용자 위치와 함께 현지 추천을 요청하여 Gemini 모델이 Google 지도 데이터를 사용할 수 있도록 합니다.
+En este ejemplo, se muestra cómo integrar la fundamentación con Google Maps en tu aplicación para proporcionar respuestas precisas y basadas en la ubicación a las preguntas de los usuarios. La instrucción solicita recomendaciones locales con una ubicación del usuario opcional, lo que permite que el modelo de Gemini use los datos de Google Maps.
 
 ### Python
 
@@ -58,7 +58,7 @@ for step in interaction.steps:
                             print(f"  - {annotation.name}: {annotation.url}")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -100,7 +100,7 @@ async function main() {
 main();
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -251,38 +251,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Google 지도 기반 그라운딩 작동 방식
+## Cómo funciona la fundamentación con Google Maps
 
-Google 지도 기반 그라운딩은 지도 API를 그라운딩 소스로 사용하여 Gemini API를 Google 지리 생태계와 통합합니다. 사용자의 질문에 지리적 맥락이 포함된 경우 Gemini 모델은 Google 지도 기반 그라운딩 도구를 호출할 수 있습니다. 그러면 모델이 제공된 위치와 관련된 Google 지도 데이터를 기반으로 응답을 생성할 수 있습니다.
+La Fundamentación con Google Maps integra la API de Gemini con el ecosistema geográfico de Google usando la API de Google Maps como fuente de fundamentación. Cuando la búsqueda de un usuario contiene contexto geográfico, el modelo de Gemini puede invocar la herramienta de Fundamentación con Google Maps. Luego, el modelo puede generar respuestas fundamentadas en los datos de Google Maps que sean pertinentes para la ubicación proporcionada.
 
-이 프로세스에는 일반적으로 다음이 포함됩니다.
+Por lo general, el proceso incluye lo siguiente:
 
-1. **사용자 쿼리:** 사용자가 애플리케이션에 쿼리를 제출합니다. 여기에는 지리적 컨텍스트 (예: '내 주변 카페', '샌프란시스코 박물관')가 포함될 수 있습니다.
-2. **도구 호출:** 지리적 의도를 인식한 Gemini 모델이 Google 지도 기반 그라운딩 도구를 호출합니다. 이 도구에는 사용자의 `latitude` 및 `longitude`이 선택적으로 제공될 수 있습니다. 이 도구는 텍스트 검색 도구이며, 로컬 쿼리 ('내 주변')는 좌표를 사용하는 반면 구체적이거나 비로컬 쿼리는 명시적 위치의 영향을 받지 않을 가능성이 높다는 점에서 지도에서 검색하는 것과 유사하게 작동합니다.
-3. **데이터 검색:** Google 지도 기반 그라운딩 서비스는 Google 지도에 관련 정보 (예: 장소, 리뷰, 사진, 주소, 영업시간)를 쿼리합니다.
-4. **그라운딩된 생성:** 검색된 지도 데이터는 Gemini 모델의 대답에 반영되어 사실적 정확성과 관련성을 보장합니다.
-5. **대답 및 주석:** 모델은 Google 지도 소스에 연결되는 인라인 주석이 포함된 텍스트 대답을 반환하므로 개발자가 인용을 표시할 수 있습니다.
+1. **Consulta del usuario:** Un usuario envía una consulta a tu aplicación, que puede incluir contexto geográfico (p.ej., "cafeterías cerca de mí", "museos en San Francisco").
+2. **Invocación de la herramienta:** El modelo de Gemini, que reconoce la intención geográfica, invoca la herramienta de Fundamentación con Google Maps. De manera opcional, se puede proporcionar a esta herramienta el `latitude` y el `longitude` del usuario. La herramienta es de búsqueda textual y se comporta de manera similar a la búsqueda en Maps, ya que las búsquedas locales ("cerca de mí") usarán las coordenadas, mientras que es poco probable que las búsquedas específicas o no locales se vean influenciadas por la ubicación explícita.
+3. **Recuperación de datos:** El servicio de Fundamentación con Google Maps consulta Google Maps para obtener información pertinente (p.ej., lugares, opiniones, fotos, direcciones y horarios de atención).
+4. **Generación fundamentada:** Los datos recuperados de Maps se usan para fundamentar la respuesta del modelo de Gemini, lo que garantiza la precisión y la relevancia fácticas.
+5. **Respuesta y anotaciones:** El modelo devuelve una respuesta de texto con anotaciones intercaladas que vinculan a fuentes de Google Maps, lo que permite a los desarrolladores mostrar citas.
 
-## Google 지도 기반 그라운딩을 사용하는 이유 및 조건
+## Por qué y cuándo usar la Fundamentación con Google Maps
 
-Google 지도 기반 그라운딩은 정확하고 최신이며 위치별 정보가 필요한 애플리케이션에 적합합니다. 전 세계 2억 5천만 개 이상의 장소로 구성된 Google 지도의 광범위한 데이터베이스를 기반으로 관련성 높은 맞춤 콘텐츠를 제공하여 사용자 환경을 개선합니다.
+La fundamentación con Google Maps es ideal para las aplicaciones que requieren información precisa, actualizada y específica de la ubicación. Mejora la experiencia del usuario, ya que proporciona contenido pertinente y personalizado respaldado por la extensa base de datos de Google Maps de más de 250 millones de lugares en todo el mundo.
 
-애플리케이션에서 다음 작업을 수행해야 하는 경우 Google 지도 기반 그라운딩을 사용해야 합니다.
+Debes usar la fundamentación con Google Maps cuando tu aplicación necesite hacer lo siguiente:
 
-- 지역별 질문에 대해 완전하고 정확한 답변을 제공합니다.
-- 대화형 여행 플래너와 현지 가이드를 구축하세요.
-- 위치 및 음식점이나 상점과 같은 사용자 선호도를 기반으로 관심 장소를 추천합니다.
-- 소셜, 소매 또는 음식 배달 서비스를 위한 위치 인식 환경을 만드세요.
+- Proporciona respuestas completas y precisas a preguntas específicas de la ubicación geográfica.
+- Crea planificadores de viajes y guías locales conversacionales.
+- Recomienda lugares de interés según la ubicación y las preferencias del usuario, como restaurantes o tiendas.
+- Crea experiencias que tengan en cuenta la ubicación para servicios de redes sociales, venta minorista o entrega de comida.
 
-Google 지도를 사용한 그라운딩은 '가장 가까운 커피숍'을 찾거나 길을 안내받는 등 근접성과 현재 사실 데이터가 중요한 사용 사례에서 뛰어납니다.
+La fundamentación con Google Maps se destaca en los casos de uso en los que la proximidad y los datos fácticos actuales son fundamentales, como encontrar la "mejor cafetería cerca de mí" o recibir instrucciones sobre cómo llegar.
 
-## 사용 사례
+## Casos de uso
 
-Google 지도 기반 그라운딩은 다양한 위치 인식 사용 사례를 지원합니다.
+La fundamentación con Google Maps admite una variedad de casos de uso que tienen en cuenta la ubicación.
 
-### 장소 관련 질문 처리
+### Cómo responder preguntas específicas sobre lugares
 
-특정 장소에 관해 자세한 질문을 하면 Google 사용자 리뷰 및 기타 지도 데이터를 기반으로 답변을 받을 수 있습니다.
+Haz preguntas detalladas sobre un lugar específico para obtener respuestas basadas en las opiniones de los usuarios de Google y otros datos de Maps.
 
 ### Python
 
@@ -314,7 +314,7 @@ for step in interaction.steps:
                             print(f"  - {annotation.name}: {annotation.url}")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -355,7 +355,7 @@ async function main() {
 main();
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -486,9 +486,9 @@ func main() {
 }
 ```
 
-### 위치 기반 맞춤설정 제공
+### Proporcionar personalización basada en la ubicación
 
-사용자의 선호도와 특정 지역에 맞게 맞춤설정된 추천을 받습니다.
+Obtén recomendaciones personalizadas según las preferencias de un usuario y un área geográfica específica.
 
 ### Python
 
@@ -520,7 +520,7 @@ for step in interaction.steps:
                             print(f"  - {annotation.name}: {annotation.url}")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -561,7 +561,7 @@ async function main() {
 main();
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -691,9 +691,9 @@ func main() {
 }
 ```
 
-### 여행 일정 계획 지원
+### Ayuda con la planificación de itinerarios
 
-여행 애플리케이션에 적합한 다양한 위치에 관한 정보와 경로가 포함된 여러 날짜의 계획을 생성합니다.
+Genera planes de varios días con instrucciones sobre cómo llegar e información sobre varias ubicaciones, lo que resulta ideal para aplicaciones de viajes.
 
 ### Python
 
@@ -717,7 +717,7 @@ interaction = client.interactions.create(
 # ... code to process response
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -740,7 +740,7 @@ async function main() {
 main();
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -837,100 +837,100 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 서비스 사용 요구사항
+## Requisitos de uso del servicio
 
-이 섹션에서는 Google 지도 그라운딩에 대한 서비스 사용 요구사항을 설명합니다.
+En esta sección, se describen los requisitos de uso del servicio de Grounding con Google Maps.
 
-### 사용자에게 Google 지도 소스 사용 알림
+### Informa al usuario sobre el uso de las fuentes de Google Maps
 
-각 Google 지도 그라운딩 결과와 함께 각 대답을 지원하는 `model_output` 단계의 콘텐츠 블록에 소스 주석이 표시됩니다. 다음 메타데이터가 반환됩니다.
+Con cada resultado fundamentado de Google Maps, recibirás anotaciones de la fuente en los bloques de contenido del paso `model_output` que respaldan cada respuesta. Se devuelven los siguientes metadatos:
 
-- 소스 URL
-- 이름
+- URL de la fuente
+- nombre
 
-Google 지도 기반 그라운딩 결과를 표시할 때는 연결된 Google 지도 소스를 명시하고 사용자에게 다음 사항을 알려야 합니다.
+Cuando presentes resultados de la fundamentación con Google Maps, debes especificar las fuentes asociadas de Google Maps y comunicarles a los usuarios lo siguiente:
 
-- Google 지도 소스는 해당 소스를 뒷받침하는 생성된 콘텐츠 직후에 따라와야 합니다. 이렇게 생성된 콘텐츠를 Google 지도 그라운딩 결과라고도 합니다.
-- Google 지도 소스는 단일 사용자 상호작용 내에서 확인 가능해야 합니다.
+- Las fuentes de Google Maps deben seguir inmediatamente el contenido generado que admiten las fuentes. Este contenido generado también se conoce como Resultado Fundamentado de Google Maps.
+- Las fuentes de Google Maps deben poder verse en una sola interacción del usuario.
 
-### Google 지도 소스를 Google 지도 링크와 함께 표시
+### Mostrar fuentes de Google Maps con vínculos de Google Maps
 
-각 소스 주석에 대해 다음 요구사항에 따라 링크 미리보기를 생성해야 합니다.
+Para cada anotación de fuente, se debe generar una vista previa del vínculo según los siguientes requisitos:
 
-- 각 소스는 Google 지도에서 제공한 것임을 명시하고 Google 지도의 텍스트 [저작자 표시 지침](#maps-attribution-guidelines)을 따라야 합니다.
-- 응답에 포함된 소스 이름을 표시해야 합니다.
-- 주석의 `url`를 사용하여 소스에 연결해야 합니다.
+- Atribuye cada fuente a Google Maps según los [lineamientos de atribución](#maps-attribution-guidelines) de texto de Google Maps.
+- Mostrar el nombre de la fuente proporcionado en la respuesta
+- Vincula la fuente con el `url` de la anotación.
 
-### Google 지도 텍스트 저작자 표시 가이드라인
+### Lineamientos para la atribución de texto de Google Maps
 
-Google 지도의 텍스트 저작자 소스를 표시할 때는 다음 가이드라인을 따라야 합니다.
+Cuando atribuyas fuentes a Google Maps en texto, sigue estos lineamientos:
 
-- Google 지도 텍스트를 어떤 방식으로도 수정하지 마세요.
-  - Google 지도의 대소문자를 변경하지 마세요.
-  - Google 지도를 여러 줄로 나누어 표시하지 마세요.
-  - Google 지도를 다른 언어로 현지화하지 마세요.
-  - 브라우저가 Google 지도를 번역하지 못하도록 HTML 속성 translate="no"를 사용해야 합니다.
+- No modifiques el texto de Google Maps de ninguna manera:
+  - No cambies el uso de mayúsculas y minúsculas de Google Maps.
+  - No dividas Google Maps en varias líneas.
+  - No localices Google Maps en otro idioma.
+  - Evita que los navegadores traduzcan Google Maps usando el atributo HTML translate="no".
 
-일부 Google 지도 데이터 제공업체 및 해당 라이선스 조건에 대한 자세한 내용은 [Google 지도 및 Google 어스 법적 고지](https://www.google.com/help/legalnotices_maps/?hl=ko)를 참고하세요.
+Para obtener más información sobre algunos de nuestros proveedores de datos de Google Maps y sus condiciones de licencia, consulta los [avisos legales de Google Maps y Google Earth](https://www.google.com/help/legalnotices_maps/?hl=es-419).
 
-## 권장사항
+## Prácticas recomendadas
 
-- **사용자 위치 제공:** 가장 관련성 높은 맞춤형 대답을 얻으려면 사용자의 위치를 알 때 항상 `google_maps` 도구 구성에 `latitude` 및 `longitude`를 포함하세요.
-- **최종 사용자에게 알림:** 특히 도구가 사용 설정된 경우 Google 지도 데이터가 사용자의 질문에 답변하는 데 사용된다는 점을 최종 사용자에게 명확하게 알립니다.
-- **필요하지 않을 때 사용 중지:** Google 지도 기반 그라운딩은 기본적으로 사용 중지되어 있습니다. 성능과 비용을 최적화하려면 쿼리에 명확한 지리적 컨텍스트가 있는 경우에만 사용 설정 (`"tools": [{"type": "google_maps"}]`)하세요.
+- **Proporciona la ubicación del usuario:** Para obtener las respuestas más relevantes y personalizadas, siempre incluye `latitude` y `longitude` en la configuración de tu herramienta `google_maps` cuando se conozca la ubicación del usuario.
+- **Informa a los usuarios finales:** Informa claramente a los usuarios finales que se usan datos de Google Maps para responder sus preguntas, en especial cuando la herramienta está habilitada.
+- **Desactivar cuando no sea necesario:** La fundamentación con Google Maps está desactivada de forma predeterminada. Solo habilítalo (`"tools": [{"type": "google_maps"}]`) cuando una búsqueda tenga un contexto geográfico claro para optimizar el rendimiento y el costo.
 
-## 제한사항
+## Limitaciones
 
-- Google 지도 기반 그라운딩은 현재 영어 프롬프트와 응답만 지원합니다.
-- 일부 지역에서는 이 도구를 사용하지 못할 수 있습니다.
-- 결과는 위치 정확도와 사용 가능한 지도 데이터에 따라 달라질 수 있습니다.
-- **지리적 범위:** Google 지도 기반 그라운딩은 전 세계에서 사용할 수 있습니다.
-- **기본 상태:** Google 지도 기반 그라운딩 도구는 기본적으로 사용 중지되어 있습니다.
-  API 요청에서 명시적으로 사용 설정해야 합니다.
+- Actualmente, la fundamentación con Google Maps solo admite instrucciones y respuestas en inglés.
+- Es posible que la herramienta no esté disponible en todas las regiones.
+- Los resultados pueden variar según la precisión de la ubicación y los datos disponibles de Maps.
+- **Alcance geográfico:** La fundamentación con Google Maps está disponible a nivel mundial.
+- **Estado predeterminado:** La herramienta Fundamentación con Google Maps está desactivada de forma predeterminada.
+  Debes habilitarla de forma explícita en tus solicitudes a la API.
 
-## 가격 및 비율 제한
+## Precios y límites de frecuencia
 
-Google 지도 기반 그라운딩 가격은 모델 생성에 따라 다릅니다.
+Los precios de la fundamentación con Google Maps varían según la generación del modelo:
 
-- **Gemini 3 모델:** 모델이 실행하기로 결정한 각 **검색어**에 대해 프로젝트에 요금이 청구됩니다. 단일 **검색 프롬프트** (모델에 대한 API 요청)로 인해 모델이 필요한 정보를 찾기 위해 여러 검색어를 실행할 수 있습니다. 이러한 각 쿼리는 도구의 청구 가능한 사용으로 계산됩니다.
-- **Gemini 2.5 및 이전 모델:** 프로젝트에 **검색 프롬프트**당 요금이 청구됩니다.
-  프롬프트가 Google 지도 그라운딩 결과를 하나 이상 성공적으로 반환하는 경우에만 요청에 요금이 청구됩니다. 모델이 해당 결과를 얻기 위해 내부적으로 수행한 개별 검색 쿼리의 수는 상관없습니다.
+- **Modelos de Gemini 3:** Se te facturará el proyecto por cada **búsqueda** que decida ejecutar el modelo. Una sola **instrucción de búsqueda** (tu solicitud a la API del modelo) puede hacer que el modelo ejecute varias búsquedas para encontrar la información necesaria. Cada una de estas búsquedas se considera un uso facturable de la herramienta.
+- **Modelos de Gemini 2.5 y anteriores:** Se te facturará el proyecto por cada **instrucción de búsqueda**.
+  Solo se factura una solicitud si la instrucción devuelve correctamente al menos un resultado fundamentado de Google Maps, independientemente de la cantidad de búsquedas individuales que el modelo haya realizado internamente para obtener ese resultado.
 
-자세한 가격 정보는 [Gemini API 가격 페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)를 참고하세요.
+Para obtener información detallada sobre los precios, consulta la [página de precios de la API de Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419).
 
-## 지원되는 모델
+## Modelos compatibles
 
-다음 모델은 Google 지도 기반 그라운딩을 지원합니다.
+Los siguientes modelos admiten la fundamentación con Google Maps:
 
-| 모델 | Google 지도를 사용한 그라운딩 |
+| Modelo | Fundamentación con Google Maps |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ko) | ✔️ |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=ko) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ko) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ko) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ko) | ✔️ |
-| [Gemini 3.1 Pro 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ko) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ko) | ✔️ |
-| [Gemini 3 Flash 프리뷰](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ko) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ko) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=es-419) | ✔️ |
+| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=es-419) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=es-419) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=es-419) | ✔️ |
+| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
+| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=es-419) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
 
-## 지원되는 도구 조합
+## Combinaciones de herramientas admitidas
 
-[Google 검색을 사용한 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko) (Gemini 3.5 Flash 이상 모델에서 지원)과 같은 다른 내장 도구와 함께 Google 지도 기반 그라운딩을 사용하여 더 복잡한 사용 사례를 지원할 수 있습니다. Gemini 3 모델은 이러한 기본 제공 도구를 맞춤 도구 (함수 호출)와 결합하는 것도 지원합니다. [도구 조합](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko) 페이지에서 자세히 알아보세요.
+Puedes usar la Fundamentación con Google Maps con otras herramientas integradas, como la [Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) (compatible con Gemini 3.5 Flash y modelos posteriores) para potenciar casos de uso más complejos. Los modelos de Gemini 3 también admiten la combinación de estas herramientas integradas con herramientas personalizadas (llamadas a funciones). Obtén más información en la página de [combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
 
-## 다음 단계
+## ¿Qué sigue?
 
-- [사용 가능한 다른 도구](https://ai.google.dev/gemini-api/docs/tools?hl=ko)에 대해 알아보세요.
-- 책임감 있는 AI 권장사항 및 Gemini API의 안전 필터에 대해 자세히 알아보려면 [안전 설정 가이드](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ko)를 참고하세요.
+- Obtén más información sobre otras [herramientas disponibles](https://ai.google.dev/gemini-api/docs/tools?hl=es-419).
+- Para obtener más información sobre las prácticas recomendadas de IA responsable y los filtros de seguridad de la API de Gemini, consulta [la guía de configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419).
 
-의견 보내기
+Enviar comentarios
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-최종 업데이트: 2026-09-24(UTC)
+Última actualización: 2026-09-24 (UTC)
 
-의견을 전달하고 싶나요?
+¿Quieres brindar más información?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-24(UTC)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]

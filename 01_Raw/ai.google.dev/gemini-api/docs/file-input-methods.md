@@ -1,30 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pt-BR
-fetched_at: 2026-09-28T06:10:12.464144+00:00
-title: "M\u00e9todos de entrada de arquivo \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id
+fetched_at: 2026-10-05T06:33:31.713402+00:00
+title: "Metode input file \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Métodos de entrada de arquivo
+# Metode input file
 
-Este guia explica as diferentes maneiras de incluir arquivos de mídia, como imagens, áudio, vídeo e documentos, ao fazer solicitações para a API Gemini.
-Os novos métodos são compatíveis com todos os endpoints da API Gemini, incluindo
-API Batch, Interactions e Live.
-A escolha do método certo depende do tamanho do arquivo, de onde os dados estão armazenados e da frequência com que você planeja usar o arquivo.
+Panduan ini menjelaskan berbagai cara Anda dapat menyertakan file media seperti gambar, audio, video, dan dokumen saat membuat permintaan ke Gemini API.
+Metode baru ini didukung di semua endpoint Gemini API, termasuk
+Batch, Interactions, dan Live API.
+Memilih metode yang tepat bergantung pada ukuran file, tempat data Anda disimpan, dan seberapa sering Anda berencana menggunakan file tersebut.
 
-A maneira mais simples de incluir um arquivo como entrada é ler um arquivo local e
-incluí-lo em um comando. O exemplo a seguir mostra como ler um arquivo PDF local. Os PDFs são limitados a 50 MB para esse método. Consulte a [tabela de comparação de métodos de entrada](#method-comparison) para ver uma lista completa de tipos e limites de entrada de arquivos.
+Cara paling sederhana untuk menyertakan file sebagai input adalah dengan membaca file lokal dan
+menyertakannya dalam perintah. Contoh berikut menunjukkan cara membaca file PDF lokal. PDF dibatasi hingga 50 MB untuk metode ini. Lihat
+[Tabel perbandingan metode input](#method-comparison) untuk mengetahui daftar lengkap jenis dan batas input file.
 
 ### Python
 
@@ -200,28 +201,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Comparação de métodos de entrada
+## Perbandingan metode input
 
-A tabela a seguir compara cada método de entrada com limites de arquivos e casos de uso recomendados. O limite de tamanho do arquivo pode variar dependendo do tipo de arquivo e do modelo ou tokenizador usado para processá-lo.
+Tabel berikut membandingkan setiap metode input dengan batas file dan kasus penggunaan terbaik. Perhatikan bahwa batas ukuran file dapat bervariasi, bergantung pada jenis file dan
+model atau tokenizer yang digunakan untuk memproses file.
 
-| Método | Ideal para | Tamanho máximo do arquivo | Persistência |
+| Metode | Paling cocok untuk | Ukuran file maks. | Persistensi |
 | --- | --- | --- | --- |
-| **Dados inline** | Testes rápidos, arquivos pequenos, aplicativos em tempo real. | 100 MB por solicitação ou payload   (**50 MB para PDFs**) | Nenhum (enviado com todas as solicitações) |
-| **Upload de arquivos da API** | Arquivos grandes, arquivos usados várias vezes. | 2 GB por arquivo,   até 20 GB por projeto | 48 horas |
-| **Registro de URI do GCS da API File** | Arquivos grandes já no Google Cloud Storage, arquivos usados várias vezes. | 2 GB por arquivo, sem limites gerais de armazenamento | Nenhum (buscado por solicitação). Um registro único pode dar acesso por até 30 dias. |
-| **URLs externos** | Dados públicos ou em buckets da nuvem (AWS, Azure, GCS) sem fazer upload novamente. | 100 MB por solicitação/payload | Nenhum (buscado por solicitação) |
+| **Data inline** | Pengujian cepat, file kecil, aplikasi real-time. | 100 MB per permintaan atau payload   (**50 MB untuk PDF**) | Tidak ada (dikirim dengan setiap permintaan) |
+| **Upload File API** | File besar, file yang digunakan beberapa kali. | 2 GB per file,   hingga 20 GB per project | 48 Jam |
+| **Pendaftaran URI GCS File API** | File besar yang sudah ada di Google Cloud Storage, file yang digunakan beberapa kali. | 2 GB per file, tanpa batas penyimpanan keseluruhan | Tidak ada (diambil per permintaan). Pendaftaran satu kali dapat memberikan akses hingga 30 hari. |
+| **URL eksternal** | Data publik atau data di bucket cloud (AWS, Azure, GCS) tanpa mengupload ulang. | 100 MB per permintaan/payload | Tidak ada (diambil per permintaan) |
 
-## Dados inline
+## Data inline
 
-Para arquivos menores (menos de 100 MB ou 50 MB para PDFs), é possível transmitir os dados diretamente no payload da solicitação. Esse é o método mais simples para testes rápidos ou
-aplicativos que processam dados transitórios em tempo real. Você pode fornecer dados como strings codificadas em base64 ou lendo arquivos locais diretamente.
+Untuk file yang lebih kecil (di bawah 100 MB, atau 50 MB untuk PDF), Anda dapat meneruskan data secara langsung di payload permintaan. Ini adalah metode paling sederhana untuk pengujian cepat atau
+aplikasi yang menangani data sementara real-time. Anda dapat menyediakan data sebagai
+string berenkode base64 atau dengan membaca file lokal secara langsung.
 
-Para um exemplo de leitura de um arquivo local, consulte o exemplo no início
-desta página.
+Untuk contoh membaca dari file lokal, lihat contoh di awal halaman ini.
 
-### Buscar de um URL
+### Mengambil dari URL
 
-Também é possível buscar um arquivo de um URL, convertê-lo em bytes e incluí-lo na entrada.
+Anda juga dapat mengambil file dari URL, mengonversinya menjadi byte, dan menyertakannya dalam
+input.
 
 ### Python
 
@@ -432,13 +435,14 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## API Gemini File
+## Gemini File API
 
-A API File foi projetada para arquivos maiores (até 2 GB) ou arquivos que você pretende usar em várias solicitações.
+File API dirancang untuk file yang lebih besar (hingga 2 GB) atau file yang ingin Anda gunakan dalam beberapa permintaan.
 
-### Upload de arquivo padrão
+### Upload file standar
 
-Faça upload de um arquivo local para a API Gemini. Os arquivos enviados dessa forma são armazenados temporariamente (48 horas) e processados para recuperação eficiente pelo modelo.
+Mengupload file lokal ke Gemini API. File yang diupload dengan cara ini disimpan
+untuk sementara (48 jam) dan diproses agar dapat diambil secara efisien oleh model.
 
 ### Python
 
@@ -636,47 +640,47 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-### Registrar arquivos do Google Cloud Storage
+### Mendaftarkan file Google Cloud Storage
 
-Se os dados já estiverem no Google Cloud Storage, não será necessário fazer o download e o reenvio. É possível registrar diretamente com a API File.
+Jika data Anda sudah ada di Google Cloud Storage, Anda tidak perlu mendownload dan menguploadnya kembali. Anda dapat mendaftarkannya langsung dengan File API.
 
-1. Conceda ao **agente de serviço** acesso a cada bucket.
+1. Memberikan akses **Agen Layanan** ke setiap bucket
 
-   1. Ative a API Gemini no seu projeto do Google Cloud.
-   2. Crie o agente de serviço:
+   1. Aktifkan Gemini API di project Google Cloud Anda.
+   2. Buat Agen Layanan:
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Conceda ao agente de serviço da API Gemini permissões** para ler seus buckets de armazenamento.
+   3. **Beri Agen Layanan Gemini API izin** untuk membaca bucket penyimpanan Anda.
 
-      O usuário precisa atribuir o [papel do IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=pt-br#storage.objectViewer) `Storage Object Viewer` a esse agente de serviço nos buckets de armazenamento específicos que pretende usar.
+      Pengguna perlu menetapkan `Storage Object Viewer`
+      [peran IAM](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=id#storage.objectViewer)
+      kepada agen layanan ini di bucket penyimpanan tertentu yang ingin mereka gunakan.
 
-   Esse acesso não expira por padrão, mas pode ser alterado a qualquer momento. Também é possível usar os comandos do [SDK do IAM do Google Cloud Storage](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=pt-br) para conceder permissões.
-2. Autenticar seu serviço
+   Akses ini tidak memiliki masa berlaku secara default, tetapi dapat diubah kapan saja. Anda juga dapat menggunakan perintah [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=id) untuk memberikan izin.
+2. Mengautentikasi layanan Anda
 
-   **Pré-requisitos**
+   **Prasyarat**
 
-   - Ativar API
-   - Crie uma conta de serviço ou um agente com as permissões adequadas.
+   - Aktifkan API
+   - Buat akun layanan atau agen dengan izin yang sesuai.
 
-   Primeiro, é necessário fazer a autenticação como o serviço que tem permissões de leitor de objetos do Storage. Isso depende do ambiente em que o código de gerenciamento de arquivos
-   será executado.
+   Anda harus melakukan autentikasi terlebih dahulu sebagai layanan yang memiliki izin penampil objek penyimpanan. Cara ini terjadi bergantung pada lingkungan tempat kode pengelolaan file Anda akan berjalan.
 
-   **Fora do Google Cloud**
+   **Di luar Google Cloud**
 
-   Se o código estiver sendo executado fora do Google Cloud, como no seu computador,
-   faça o download das credenciais da conta no console do Google Cloud seguindo estas etapas:
+   Jika kode Anda berjalan dari luar Google Cloud, seperti desktop Anda,
+   download kredensial akun dari Konsol Google Cloud dengan
+   langkah-langkah berikut:
 
-   1. Acesse o [console da conta de serviço](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=pt-br).
-   2. Selecione a conta de serviço relevante
-   3. Selecione a guia **Chaves** e escolha **Adicionar chave, Criar nova chave**.
-   4. Escolha o tipo de chave **JSON** e observe onde o arquivo foi baixado na sua máquina.
+   1. Buka [konsol Akun Layanan](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=id)
+   2. Pilih akun layanan yang relevan
+   3. Pilih tab **Keys**, lalu pilih **Add key, Create new key**
+   4. Pilih jenis kunci **JSON**, dan catat tempat file didownload di komputer Anda.
 
-   Para mais detalhes, consulte a documentação oficial do Google Cloud sobre
-   [gerenciamento de chaves de contas de serviço](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=pt-br).
+   Untuk mengetahui detail selengkapnya, lihat dokumentasi resmi Google Cloud tentang
+   [pengelolaan kunci akun layanan](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=id).
 
-   Em seguida, use os comandos abaixo para autenticar. Esses comandos pressupõem que o arquivo da
-   conta de serviço esteja no diretório atual, chamado
-   `service-account.json`.
+   Kemudian, gunakan perintah berikut untuk mengautentikasi. Perintah ini mengasumsikan file akun layanan Anda berada di direktori saat ini, bernama `service-account.json`.
 
    ### Python
 
@@ -722,13 +726,17 @@ Se os dados já estiverem no Google Cloud Storage, não será necessário fazer 
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **No Google Cloud**
+   **Di Google Cloud**
 
-   Se você estiver executando diretamente no Google Cloud, por exemplo, usando [funções do Cloud Run](https://cloud.google.com/functions?hl=pt-br) ou uma [instância do Compute Engine](https://cloud.google.com/products/compute?hl=pt-br), terá credenciais implícitas, mas precisará fazer a autenticação novamente para conceder os escopos adequados.
+   Jika Anda menjalankan secara langsung di Google Cloud, misalnya dengan menggunakan [fungsi Cloud Run](https://cloud.google.com/functions?hl=id) atau
+   [instance Compute Engine](https://cloud.google.com/products/compute?hl=id), Anda akan
+   memiliki kredensial implisit, tetapi harus melakukan autentikasi ulang untuk memberikan cakupan yang sesuai.
 
    ### Python
 
-   Esse código espera que o serviço esteja sendo executado em um ambiente em que as [Credenciais padrão de aplicativo](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pt-br) podem ser obtidas automaticamente, como o Cloud Run ou o Compute Engine.
+   Kode ini mengharapkan layanan berjalan di lingkungan tempat
+   [Kredensial Default Aplikasi](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=id)
+   dapat diperoleh secara otomatis, seperti Cloud Run atau Compute Engine.
 
    ```
    import google.auth
@@ -743,7 +751,9 @@ Se os dados já estiverem no Google Cloud Storage, não será necessário fazer 
 
    ### JavaScript
 
-   Esse código espera que o serviço esteja sendo executado em um ambiente em que as [Credenciais padrão de aplicativo](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=pt-br) podem ser obtidas automaticamente, como o Cloud Run ou o Compute Engine.
+   Kode ini mengharapkan layanan berjalan di lingkungan tempat
+   [Kredensial Default Aplikasi](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=id)
+   dapat diperoleh secara otomatis, seperti Cloud Run atau Compute Engine.
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -798,17 +808,16 @@ func main() {
 
 ### CLI
 
-Este é um comando interativo. Para serviços como o Compute Engine, é possível anexar escopos ao
-serviço em execução no nível da configuração. Consulte a [documentação do serviço gerenciado pelo usuário](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=pt-br#using) para ver um exemplo.
+Ini adalah perintah interaktif. Untuk layanan seperti Compute Engine, Anda dapat melampirkan cakupan ke
+layanan yang sedang berjalan di tingkat konfigurasi. Lihat [dokumen layanan yang dikelola pengguna](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=id#using) untuk melihat contohnya.
 
 ```
 gcloud auth application-default login \
 --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
 ```
 
-1. Registro de arquivos (API Files)
-   Use a API Files para registrar arquivos e produzir um caminho da API Files que pode
-   ser usado diretamente na API Gemini.
+1. Pendaftaran file (Files API)
+   Gunakan Files API untuk mendaftarkan file dan menghasilkan jalur Files API yang dapat langsung digunakan di Gemini API.
 
    ### Python
 
@@ -1001,11 +1010,10 @@ curl -X POST https://generativelanguage.googleapis.com/v1beta/files:register \
     -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
 ```
 
-## HTTP externo / URLs assinados
+## HTTP Eksternal / URL Bertanda Tangan
 
-É possível transmitir URLs HTTPS acessíveis publicamente ou URLs pré-assinados diretamente na sua
-solicitação. A API Gemini vai buscar o conteúdo de forma segura durante o processamento.
-Isso é ideal para arquivos de até 100 MB que você não quer reenviar.
+Anda dapat meneruskan URL HTTPS yang dapat diakses secara publik atau URL yang telah ditandatangani sebelumnya secara langsung dalam permintaan Anda. Gemini API akan mengambil konten secara aman selama pemrosesan.
+Cara ini ideal untuk file berukuran hingga 100 MB yang tidak ingin Anda upload ulang.
 
 ### Python
 
@@ -1070,22 +1078,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         }'
 ```
 
-### Acessibilidade
+### Aksesibilitas
 
-Verifique se os URLs fornecidos não levam a páginas que exigem login ou estão atrás de um paywall. Para bancos de dados particulares, crie um URL assinado
-com as permissões de acesso e o vencimento corretos.
+Pastikan URL yang Anda berikan tidak mengarah ke halaman yang memerlukan login atau berada di balik penghalang konten berbayar. Untuk database pribadi, pastikan Anda membuat URL bertanda tangan
+dengan izin akses dan waktu habis masa berlaku yang benar.
 
-### Confirmações de segurança
+### Pemeriksaan keamanan
 
-O sistema faz uma verificação de moderação de conteúdo no URL para confirmar se ele atende aos padrões de segurança e política. Se o URL não passar nessa verificação, você vai receber um
-`url_retrieval_status` de `URL_RETRIEVAL_STATUS_UNSAFE`.
+Sistem melakukan pemeriksaan moderasi konten pada URL untuk mengonfirmasi bahwa URL tersebut memenuhi standar keamanan dan kebijakan. Jika URL gagal dalam pemeriksaan ini, Anda akan mendapatkan
+`url_retrieval_status` `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### Tipos de conteúdo compatíveis
+### Jenis konten yang didukung
 
-Essa lista de tipos de arquivo e limitações aceitos é apenas uma orientação inicial e não é abrangente. O conjunto efetivo de tipos compatíveis está sujeito a mudanças e pode variar de acordo com o modelo e a versão do tokenizador específicos em uso. Tipos incompatíveis vão resultar em um erro.
-Além disso, a recuperação de conteúdo para esses tipos de arquivo só é compatível com URLs de acesso público.
+Daftar jenis file yang didukung dan batasan ini dimaksudkan sebagai panduan awal dan tidak lengkap. Kumpulan jenis yang didukung yang efektif dapat berubah dan bervariasi berdasarkan model dan versi tokenizer tertentu yang digunakan. Jenis yang tidak didukung akan menyebabkan error.
+Selain itu, pengambilan konten untuk jenis file ini hanya mendukung URL yang dapat diakses secara publik.
 
-#### Tipos de arquivos de texto
+#### Jenis file teks
 
 - `text/html`
 - `text/css`
@@ -1095,19 +1103,19 @@ Além disso, a recuperação de conteúdo para esses tipos de arquivo só é com
 - `text/rtf`
 - `text/javascript`
 
-#### Tipos de arquivo de aplicativo
+#### Jenis file aplikasi
 
 - `application/json`
 - `application/pdf`
 
-#### Tipos de arquivo de imagem
+#### Jenis file gambar
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Tipos de arquivo de vídeo
+#### Jenis file video
 
 - `video/mp4`
 - `video/mpeg`
@@ -1119,37 +1127,37 @@ Além disso, a recuperação de conteúdo para esses tipos de arquivo só é com
 - `video/wmv`
 - `video/3gpp`
 
-## Práticas recomendadas
+## Praktik terbaik
 
-- **Escolha o método certo**:use dados inline para arquivos pequenos e temporários.
-  Use a API File para arquivos maiores ou usados com frequência. Use URLs externos
-  para dados já hospedados on-line.
-- **Especifique tipos MIME**:sempre forneça o tipo MIME correto para os dados do arquivo para garantir o processamento adequado.
-- **Tratar erros**:implemente o tratamento de erros no seu código para gerenciar
-  possíveis problemas, como falhas de rede, problemas de acesso a arquivos ou erros
-  de API.
+- **Pilih metode yang tepat:** Gunakan data inline untuk file kecil dan sementara.
+  Gunakan File API untuk file yang lebih besar atau sering digunakan. Gunakan URL eksternal
+  untuk data yang sudah dihosting secara online.
+- **Tentukan Jenis MIME:** Selalu berikan jenis MIME yang benar untuk data file guna memastikan pemrosesan yang tepat.
+- **Menangani Error:** Terapkan penanganan error dalam kode Anda untuk mengelola potensi masalah seperti kegagalan jaringan, masalah akses file, atau error API.
 
-## Limitações
+## Batasan
 
-- Os limites de tamanho de arquivo variam de acordo com o método (consulte a [tabela de comparação](#method-comparison)) e o tipo de arquivo.
-- Os dados inline aumentam o tamanho do payload da solicitação.
-- Os uploads da API File são temporários e expiram após 48 horas.
-- A busca de URL externo é limitada a 100 MB por payload e é compatível com tipos de conteúdo específicos.
+- Batas ukuran file bervariasi menurut metode (lihat [tabel perbandingan](#method-comparison))
+  dan jenis file.
+- Data inline meningkatkan ukuran payload permintaan.
+- Upload File API bersifat sementara dan akan berakhir setelah 48 jam.
+- Pengambilan URL eksternal dibatasi hingga 100 MB per payload dan mendukung jenis konten tertentu.
 
-## A seguir
+## Langkah berikutnya
 
-- Escreva seus próprios comandos multimodais usando o [Google AI Studio](http://aistudio.google.com/?hl=pt-br).
-- Para informações sobre como incluir arquivos nos comandos, consulte os guias de
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=pt-br),
-  [Áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br) e
-  [Processamento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br).
+- Coba tulis perintah multimodal Anda sendiri menggunakan
+  [Google AI Studio](http://aistudio.google.com/?hl=id).
+- Untuk mengetahui informasi tentang cara menyertakan file dalam perintah Anda, lihat panduan
+  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id),
+  [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan
+  [Pemrosesan dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-09-24 UTC.
+Terakhir diperbarui pada 2026-09-24 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-24 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]

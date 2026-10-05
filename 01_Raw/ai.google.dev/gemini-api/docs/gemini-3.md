@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/gemini-3?hl=es-419
-fetched_at: 2026-09-28T06:15:48.403971+00:00
+fetched_at: 2026-10-05T06:38:58.376570+00:00
 title: "Gu\u00eda para desarrolladores de Gemini 3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

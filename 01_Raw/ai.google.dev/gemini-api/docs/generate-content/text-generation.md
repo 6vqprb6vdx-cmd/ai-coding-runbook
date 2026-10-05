@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=ko
-fetched_at: 2026-09-28T06:22:47.669698+00:00
-title: "\ud14d\uc2a4\ud2b8 \uc0dd\uc131 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=hi
+fetched_at: 2026-10-05T06:30:04.726451+00:00
+title: "\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-의견 보내기
+सुझाव भेजें
 
-# 텍스트 생성
+# टेक्स्ट जनरेट करना
 
-Gemini API는 텍스트, 이미지, 동영상, 오디오 입력에서 텍스트 출력을 생성할 수 있습니다.
+Gemini API, टेक्स्ट, इमेज, वीडियो, और ऑडियो इनपुट से टेक्स्ट आउटपुट जनरेट कर सकता है.
 
-다음은 기본 예입니다.
+यहां एक सामान्य उदाहरण दिया गया है:
 
 ### Python
 
@@ -37,7 +37,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -55,7 +55,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -86,7 +86,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -160,11 +160,11 @@ function main() {
 }
 ```
 
-## Gemini로 생각하기
+## Gemini के साथ मिलकर सोचना
 
-Gemini 모델은 요청에 응답하기 전에 모델이 추론할 수 있도록 ['사고'](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)가 기본적으로 사용 설정되어 있는 경우가 많습니다.
+Gemini मॉडल में, ["सोचना"](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) मोड डिफ़ॉल्ट रूप से चालू होता है. इससे मॉडल को किसी अनुरोध का जवाब देने से पहले, उस पर विचार करने का समय मिलता है.
 
-각 모델은 다양한 사고 구성을 지원하므로 비용, 지연 시간, 인텔리전스를 제어할 수 있습니다. 자세한 내용은 [생각 가이드](https://ai.google.dev/gemini-api/docs/thinking?hl=ko#set-budget)를 참고하세요.
+हर मॉडल, अलग-अलग थिंकिंग कॉन्फ़िगरेशन के साथ काम करता है. इससे आपको लागत, लेटेन्सी, और इंटेलिजेंस पर कंट्रोल मिलता है. ज़्यादा जानकारी के लिए, [सोचने की गाइड](https://ai.google.dev/gemini-api/docs/thinking?hl=hi#set-budget) देखें.
 
 ### Python
 
@@ -184,7 +184,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI, ThinkingLevel } from "@google/genai";
@@ -207,7 +207,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -244,7 +244,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -336,9 +336,10 @@ function main() {
 }
 ```
 
-## 시스템 요청 사항 및 기타 구성
+## सिस्टम के निर्देश और अन्य कॉन्फ़िगरेशन
 
-시스템 요청 사항을 사용하여 Gemini 모델의 동작을 안내할 수 있습니다. 이렇게 하려면 [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerationConfig) 객체를 전달합니다.
+सिस्टम के निर्देशों की मदद से, Gemini मॉडल के व्यवहार को कंट्रोल किया जा सकता है. ऐसा करने के लिए,
+[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) ऑब्जेक्ट पास करें.
 
 ### Python
 
@@ -358,7 +359,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -379,7 +380,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -414,7 +415,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -510,7 +511,7 @@ function main() {
 }
 ```
 
-[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerationConfig) 객체를 사용하면 [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerationConfig)과 같은 기본 생성 매개변수를 재정의할 수도 있습니다.
+[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) ऑब्जेक्ट की मदद से, जनरेशन के डिफ़ॉल्ट पैरामीटर भी बदले जा सकते हैं. जैसे, [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig).
 
 ### Python
 
@@ -530,7 +531,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -551,7 +552,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -587,7 +588,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -676,11 +677,11 @@ function main() {
 }
 ```
 
-구성 가능한 매개변수와 설명의 전체 목록은 API 참조의 [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerationConfig)를 참고하세요.
+कॉन्फ़िगर किए जा सकने वाले पैरामीटर और उनके ब्यौरे की पूरी सूची देखने के लिए, हमारे एपीआई रेफ़रंस में [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) देखें.
 
-## 멀티모달 입력
+## मल्टीमोडल इनपुट
 
-Gemini API는 멀티모달 입력을 지원하므로 텍스트와 미디어 파일을 결합할 수 있습니다. 다음 예에서는 이미지를 제공하는 방법을 보여줍니다.
+Gemini API में, टेक्स्ट, इमेज, वीडियो, और ऑडियो, सभी तरह के इनपुट इस्तेमाल किए जा सकते हैं. इससे आपको टेक्स्ट के साथ-साथ मीडिया फ़ाइलें भी इस्तेमाल करने की सुविधा मिलती है. यहां दी गई इमेज में, इमेज उपलब्ध कराने का तरीका दिखाया गया है:
 
 ### Python
 
@@ -698,7 +699,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import {
@@ -728,7 +729,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -776,7 +777,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -888,14 +889,14 @@ function getImageData(url) {
 }
 ```
 
-이미지를 제공하는 다른 방법과 고급 이미지 처리에 관한 내용은 [이미지 이해 가이드](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko)를 참고하세요.
-API는 [문서](https://ai.google.dev/gemini-api/docs/document-processing?hl=ko), [동영상](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko), [오디오](https://ai.google.dev/gemini-api/docs/audio?hl=ko) 입력 및 이해도 지원합니다.
+इमेज उपलब्ध कराने के अन्य तरीकों और इमेज प्रोसेसिंग के ज़्यादा बेहतर तरीके के बारे में जानने के लिए, [इमेज समझने से जुड़ी हमारी गाइड](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi) देखें.
+यह एपीआई, [दस्तावेज़](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi), [वीडियो](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi), और [ऑडियो](https://ai.google.dev/gemini-api/docs/audio?hl=hi) इनपुट को भी समझ सकता है.
 
-## 스트리밍 응답
+## जवाब स्ट्रीम करना
 
-기본적으로 모델은 전체 생성 프로세스가 완료된 후에만 대답을 반환합니다.
+डिफ़ॉल्ट रूप से, मॉडल जवाब सिर्फ़ तब देता है, जब जनरेट करने की पूरी प्रोसेस पूरी हो जाती है.
 
-더 원활한 상호작용을 위해 스트리밍을 사용하여 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerateContentResponse) 인스턴스를 생성될 때마다 점진적으로 수신하세요.
+बेहतर इंटरैक्शन के लिए, स्ट्रीमिंग का इस्तेमाल करें. इससे जनरेट होने वाले [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerateContentResponse) इंस्टेंस, आपको धीरे-धीरे मिलते रहेंगे.
 
 ### Python
 
@@ -912,7 +913,7 @@ for chunk in response:
     print(chunk.text, end="")
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -933,7 +934,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -967,7 +968,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1049,9 +1050,9 @@ function main() {
 }
 ```
 
-## 멀티턴 대화(채팅)
+## सिलसिलेवार बातचीत (चैट)
 
-Google SDK는 여러 라운드의 프롬프트와 대답을 하나의 채팅으로 수집하는 기능을 제공하므로 대화 기록을 쉽게 추적할 수 있습니다.
+हमारे SDK, चैट में कई राउंड के प्रॉम्प्ट और जवाब इकट्ठा करने की सुविधा देते हैं. इससे आपको बातचीत के इतिहास को आसानी से ट्रैक करने में मदद मिलती है.
 
 ### Python
 
@@ -1072,7 +1073,7 @@ for message in chat.get_history():
     print(message.parts[0].text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1108,7 +1109,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1142,7 +1143,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -1259,7 +1260,7 @@ function main() {
 }
 ```
 
-스트리밍은 멀티턴 대화에도 사용할 수 있습니다.
+स्ट्रीमिंग का इस्तेमाल, सिलसिलेवार बातचीत के लिए भी किया जा सकता है.
 
 ### Python
 
@@ -1282,7 +1283,7 @@ for message in chat.get_history():
     print(message.parts[0].text)
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1324,7 +1325,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1359,7 +1360,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -1478,35 +1479,38 @@ function main() {
 }
 ```
 
-## 프롬프트 작성 팁
+## प्रॉम्प्ट लिखने से जुड़ी सलाह
 
-Gemini를 최대한 활용하는 방법에 관한 제안은 [프롬프트 엔지니어링 가이드](https://ai.google.dev/gemini/docs/prompting-strategies?hl=ko)를 참고하세요.
+Gemini का ज़्यादा से ज़्यादा फ़ायदा पाने के लिए, हमारी [प्रॉम्प्ट इंजीनियरिंग गाइड](https://ai.google.dev/gemini/docs/prompting-strategies?hl=hi) देखें.
 
-## 다음 단계
+## आगे क्या करना है
 
-- [Google AI Studio에서 Gemini](https://aistudio.google.com?hl=ko)를 사용해 보세요.
-- JSON과 유사한 대답을 위해 [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)을 실험해 보세요.
-- Gemini의 [이미지](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ko), [동영상](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ko), [오디오](https://ai.google.dev/gemini-api/docs/audio?hl=ko), [문서](https://ai.google.dev/gemini-api/docs/document-processing?hl=ko) 이해 기능을 살펴보세요.
-- 멀티모달 [파일 프롬프팅 전략](https://ai.google.dev/gemini-api/docs/files?hl=ko#prompt-guide)에 대해 알아봅니다.
+- [Google AI Studio में Gemini](https://aistudio.google.com?hl=hi) को आज़माएं.
+- JSON जैसे जवाबों के लिए, [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) की सुविधा आज़माएं.
+- Gemini की [इमेज](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi), [वीडियो](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi), [ऑडियो](https://ai.google.dev/gemini-api/docs/audio?hl=hi), और [दस्तावेज़](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi) को समझने की क्षमताओं के बारे में जानें.
+- मल्टीमॉडल [फ़ाइल प्रॉम्प्ट करने की रणनीतियों](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide) के बारे में जानें.
 
-## 콘텐츠 생성
+## कॉन्टेंट जनरेट करना
 
-모델에 프롬프트를 전송하는 중앙 엔드포인트입니다. 콘텐츠를 생성하는 데는 두 가지 엔드포인트가 있으며, 주요 차이점은 응답을 수신하는 방식입니다.
+यह मॉडल को प्रॉम्प्ट भेजने के लिए मुख्य एंडपॉइंट है. कॉन्टेंट जनरेट करने के लिए, दो एंडपॉइंट उपलब्ध हैं. इनमें मुख्य अंतर यह है कि आपको जवाब कैसे मिलता है:
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=ko#method:-models.generatecontent)(REST)**: 요청을 수신하고 모델이 전체 생성을 완료한 후 단일 응답을 제공합니다.
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=ko#method:-models.streamgeneratecontent)(SSE)**: 정확히 동일한 요청을 받지만 모델은 응답 청크를 생성되는 대로 다시 스트리밍합니다. 이렇게 하면 부분 결과를 즉시 표시할 수 있으므로 대화형 애플리케이션의 사용자 환경이 개선됩니다.
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=hi#method:-models.generatecontent)
+  (REST)**:
+  यह अनुरोध स्वीकार करता है और मॉडल के जवाब जनरेट करने के बाद, एक जवाब देता है.
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=hi#method:-models.streamgeneratecontent)
+  (एसएसई)**: इसे ठीक वही अनुरोध मिलता है, लेकिन मॉडल जवाब के हिस्सों को जनरेट होने के साथ-साथ स्ट्रीम करता है. इससे इंटरैक्टिव ऐप्लिकेशन के लिए, उपयोगकर्ताओं को बेहतर अनुभव मिलता है. ऐसा इसलिए, क्योंकि इससे आपको तुरंत कुछ नतीजे दिखाने की सुविधा मिलती है.
 
-### 요청 본문 구조
+### अनुरोध के मुख्य हिस्से का स्ट्रक्चर
 
-[요청 본문](https://ai.google.dev/api/generate-content?hl=ko#request-body)은 표준 모드와 스트리밍 모드 모두에 대해 **동일**하며 몇 가지 핵심 객체에서 빌드되는 JSON 객체입니다.
+[अनुरोध का मुख्य हिस्सा](https://ai.google.dev/api/generate-content?hl=hi#request-body) एक JSON ऑब्जेक्ट है. यह स्टैंडर्ड और स्ट्रीमिंग, दोनों मोड के लिए **एक जैसा** होता है. इसे कुछ मुख्य ऑब्जेक्ट से बनाया जाता है:
 
-- [`Content`](https://ai.google.dev/api/caching?hl=ko#Content) 객체: 대화의 단일 턴을 나타냅니다.
-- [`Part`](https://ai.google.dev/api/caching?hl=ko#Part) 객체: `Content` 대화의 데이터 조각(예: 텍스트 또는 이미지)입니다.
-- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=ko#Blob)): 원시 미디어 바이트와 MIME 유형의 컨테이너입니다.
+- [`Content`](https://ai.google.dev/api/caching?hl=hi#Content) ऑब्जेक्ट: यह बातचीत के एक टर्न को दिखाता है.
+- [`Part`](https://ai.google.dev/api/caching?hl=hi#Part) ऑब्जेक्ट: `Content` टर्न में मौजूद डेटा का कोई हिस्सा (जैसे, टेक्स्ट या इमेज).
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=hi#Blob)): यह रॉ मीडिया बाइट और उनके एमआईएमई टाइप के लिए एक कंटेनर होता है.
 
-최상위 수준에서 요청 본문에는 `contents` 객체가 포함됩니다. 이 객체는 `Content` 객체의 목록이며, 각 객체는 대화의 턴을 나타냅니다. 대부분의 경우 기본 텍스트 생성에는 단일 `Content` 객체가 사용되지만 대화 기록을 유지하려면 여러 `Content` 객체를 사용할 수 있습니다.
+सबसे ऊपर के लेवल पर, अनुरोध के मुख्य हिस्से में एक `contents` ऑब्जेक्ट होता है. यह `Content` ऑब्जेक्ट की सूची होती है. हर ऑब्जेक्ट, बातचीत के टर्न को दिखाता है. ज़्यादातर मामलों में, बुनियादी टेक्स्ट जनरेट करने के लिए आपके पास एक `Content` ऑब्जेक्ट होगा. हालांकि, अगर आपको बातचीत का इतिहास बनाए रखना है, तो एक से ज़्यादा `Content` ऑब्जेक्ट इस्तेमाल किए जा सकते हैं.
 
-다음은 일반적인 `generateContent` 요청 본문을 보여줍니다.
+यहां `generateContent` अनुरोध के मुख्य हिस्से का एक सामान्य उदाहरण दिया गया है:
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1531,20 +1535,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### 응답 본문 구조
+### जवाब के मुख्य भाग का स्ट्रक्चर
 
-[응답 본문](https://ai.google.dev/api/generate-content?hl=ko#response-body)은 스트리밍 모드와 표준 모드 모두에서 비슷하지만 다음은 예외입니다.
+स्ट्रीमिंग और स्टैंडर्ड, दोनों मोड के लिए [जवाब का मुख्य हिस्सा](https://ai.google.dev/api/generate-content?hl=hi#response-body) एक जैसा होता है. हालांकि, इनमें ये अंतर होते हैं:
 
-- 일반 모드: 응답 본문에 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerateContentResponse) 인스턴스가 포함됩니다.
-- 스트리밍 모드: 응답 본문에는 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=ko#v1beta.GenerateContentResponse) 인스턴스 스트림이 포함됩니다.
+- स्टैंडर्ड मोड: जवाब के मुख्य हिस्से में [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerateContentResponse) का एक इंस्टेंस होता है.
+- स्ट्रीमिंग मोड: जवाब के मुख्य हिस्से में, [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerateContentResponse) इंस्टेंस की स्ट्रीम होती है.
 
-개략적으로 응답 본문에는 `Candidate` 객체 목록인 `candidates` 객체가 포함됩니다. `Candidate` 객체에는 모델에서 반환된 생성된 대답이 있는 `Content` 객체가 포함됩니다.
+जवाब के मुख्य हिस्से में एक `candidates` ऑब्जेक्ट होता है. यह `Candidate` ऑब्जेक्ट की सूची होती है. `Candidate` ऑब्जेक्ट में एक `Content` ऑब्जेक्ट होता है. इसमें मॉडल से मिला जनरेट किया गया जवाब होता है.
 
-## REST API 예시
+## REST API के उदाहरण
 
-### 멀티모달 프롬프트 (텍스트 및 이미지)
+### मल्टीमॉडल प्रॉम्प्ट (टेक्स्ट और इमेज)
 
-프롬프트에 텍스트와 이미지를 모두 제공하려면 `parts` 배열에 `Part` 객체 두 개가 포함되어야 합니다. 하나는 텍스트용이고 다른 하나는 이미지 `inline_data`용입니다.
+प्रॉम्प्ट में टेक्स्ट और इमेज, दोनों शामिल करने के लिए, `parts` ऐरे में दो `Part` ऑब्जेक्ट होने चाहिए: एक टेक्स्ट के लिए और दूसरा इमेज `inline_data` के लिए.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1566,9 +1570,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### 멀티턴 대화(채팅)
+### सिलसिलेवार बातचीत (चैट)
 
-여러 턴으로 대화를 빌드하려면 `Content` 객체가 여러 개 있는 `contents` 배열을 정의합니다. API는 이 전체 기록을 다음 응답의 컨텍스트로 사용합니다. 각 `Content` 객체의 `role`은 `user`와 `model` 사이에서 번갈아 표시되어야 합니다.
+कई टर्न वाली बातचीत बनाने के लिए, `contents` ऐरे को कई `Content` ऑब्जेक्ट के साथ तय करें. एपीआई, इस पूरे इतिहास का इस्तेमाल अगले जवाब के लिए कॉन्टेक्स्ट के तौर पर करेगा. हर `Content` ऑब्जेक्ट के लिए `role`, `user` और `model` के बीच बदलता रहना चाहिए.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1599,24 +1603,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### 핵심 내용
+### ज़रूरी बातें
 
-- `Content`는 봉투입니다. 사용자 또는 모델에서 보낸 메시지 턴의 최상위 컨테이너입니다.
-- `Part`를 사용하면 멀티모달이 지원됩니다. 단일 `Content` 객체 내에서 여러 `Part` 객체를 사용하여 다양한 유형의 데이터 (텍스트, 이미지, 동영상 URI 등)를 결합합니다.
-- 데이터 방법을 선택합니다.
-  - 작고 직접 삽입된 미디어 (예: 대부분의 이미지)의 경우 `inline_data`이 있는 `Part`를 사용합니다.
-  - 대용량 파일 또는 요청 간에 재사용하려는 파일의 경우 File API를 사용하여 파일을 업로드하고 `file_data` 파트로 참조하세요.
-- 대화 기록 관리: REST API를 사용하는 채팅 애플리케이션의 경우 `"user"` 및 `"model"` 역할 간에 번갈아 가며 각 턴의 `Content` 객체를 추가하여 `contents` 배열을 빌드합니다. SDK를 사용하는 경우 대화 기록을 관리하는 권장 방법은 SDK 문서를 참고하세요.
+- `Content` एनवलप है: यह मैसेज टर्न के लिए टॉप-लेवल कंटेनर होता है. यह उपयोगकर्ता या मॉडल, किसी का भी हो सकता है.
+- `Part` मल्टीमॉडल की सुविधा चालू करता है: अलग-अलग तरह के डेटा (टेक्स्ट, इमेज, वीडियो यूआरआई वगैरह) को एक साथ इस्तेमाल करने के लिए, एक ही `Content` ऑब्जेक्ट में कई `Part` ऑब्जेक्ट का इस्तेमाल करें.
+- डेटा ट्रांसफ़र करने का तरीका चुनें:
+  - सीधे तौर पर एम्बेड किए गए छोटे मीडिया (जैसे कि ज़्यादातर इमेज) के लिए, `Part` के साथ `inline_data` का इस्तेमाल करें.
+  - बड़ी फ़ाइलों या उन फ़ाइलों के लिए जिन्हें आपको कई अनुरोधों में फिर से इस्तेमाल करना है, फ़ाइल अपलोड करने के लिए File API का इस्तेमाल करें. साथ ही, इसे `file_data` पार्ट के साथ रेफ़रंस करें.
+- बातचीत के इतिहास को मैनेज करना: REST API का इस्तेमाल करने वाले चैट ऐप्लिकेशन के लिए, `contents` ऐरे बनाएं. इसके लिए, हर टर्न के लिए `Content` ऑब्जेक्ट जोड़ें. साथ ही, `"user"` और `"model"` भूमिकाओं के बीच बारी-बारी से बदलाव करें. अगर एसडीके का इस्तेमाल किया जा रहा है, तो बातचीत के इतिहास को मैनेज करने के सुझाए गए तरीके के लिए, एसडीके के दस्तावेज़ देखें.
 
-## 응답 예시
+## जवाब के उदाहरण
 
-다음 예에서는 다양한 유형의 요청에 대해 이러한 구성요소가 어떻게 결합되는지 보여줍니다.
+यहां दिए गए उदाहरणों में दिखाया गया है कि अलग-अलग तरह के अनुरोधों के लिए, ये कॉम्पोनेंट एक साथ कैसे काम करते हैं.
 
-### 텍스트 전용 응답
+### सिर्फ़ टेक्स्ट वाला जवाब
 
-기본 텍스트 응답은 모델의 응답이 포함된 하나 이상의 `content` 객체가 있는 `candidates` 배열로 구성됩니다.
+डिफ़ॉल्ट टेक्स्ट रिस्पॉन्स में, एक `candidates` ऐरे होता है. इसमें एक या उससे ज़्यादा `content` ऑब्जेक्ट होते हैं. इनमें मॉडल का जवाब शामिल होता है.
 
-다음은 **표준** 응답의 예입니다.
+यहां **स्टैंडर्ड** जवाब का एक उदाहरण दिया गया है:
 
 ```
 {
@@ -1637,7 +1641,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-다음은 일련의 **스트리밍** 응답입니다. 각 대답에는 전체 대답을 연결하는 `responseId`이 포함됩니다.
+यहां **स्ट्रीमिंग** के ज़रिए दिए गए जवाबों की सीरीज़ दी गई है. हर जवाब में एक `responseId` होता है, जिसमें पूरे जवाब की जानकारी होती है:
 
 ```
 {
@@ -1687,35 +1691,35 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 
 ## Live API (BidiGenerateContent) WebSockets API
 
-Live API는 실시간 스트리밍 사용 사례를 지원하기 위해 양방향 스트리밍을 위한 스테이트풀 WebSocket 기반 API를 제공합니다. 자세한 내용은 [Live API 가이드](https://ai.google.dev/gemini-api/docs/live?hl=ko) 및 [Live API 참조](https://ai.google.dev/api/live?hl=ko)를 참고하세요.
+Live API, स्टेटफ़ुल WebSocket पर आधारित एपीआई उपलब्ध कराता है. इससे दोनों दिशाओं में स्ट्रीमिंग की जा सकती है, ताकि रीयल-टाइम स्ट्रीमिंग के इस्तेमाल के उदाहरणों को चालू किया जा सके. ज़्यादा जानकारी के लिए, [Live API की गाइड](https://ai.google.dev/gemini-api/docs/live?hl=hi) और [Live API के बारे में जानकारी](https://ai.google.dev/api/live?hl=hi) देखें.
 
-## 특화 모델
+## खास मॉडल
 
-Gemini 제품군 모델 외에도 Gemini API는 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko), [Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=ko), [embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=ko) 모델과 같은 전문 모델의 엔드포인트를 제공합니다. 모델 섹션에서 이러한 가이드를 확인할 수 있습니다.
+Gemini API, Gemini के मॉडल के अलावा, [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi), [Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=hi), और [embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi) मॉडल जैसे खास मॉडल के लिए एंडपॉइंट उपलब्ध कराता है. मॉडल सेक्शन में जाकर, इन गाइड को देखा जा सकता है.
 
-## 플랫폼 API
+## प्लैटफ़ॉर्म एपीआई
 
-나머지 엔드포인트는 지금까지 설명한 기본 엔드포인트와 함께 사용할 수 있는 추가 기능을 지원합니다. 자세한 내용은 가이드 섹션의 [일괄 모드](https://ai.google.dev/gemini-api/docs/batch-mode?hl=ko) 및 [파일 API](https://ai.google.dev/gemini-api/docs/files?hl=ko) 주제를 참고하세요.
+बाकी एंडपॉइंट, अब तक बताए गए मुख्य एंडपॉइंट के साथ इस्तेमाल करने के लिए अतिरिक्त सुविधाएं चालू करते हैं. ज़्यादा जानने के लिए, गाइड सेक्शन में जाकर [बैच मोड](https://ai.google.dev/gemini-api/docs/batch-mode?hl=hi) और [File API](https://ai.google.dev/gemini-api/docs/files?hl=hi) के बारे में पढ़ें.
 
-## 다음 단계
+## आगे क्या करना है
 
-이제 막 시작하는 경우 Gemini API 프로그래밍 모델을 이해하는 데 도움이 되는 다음 가이드를 확인하세요.
+अगर आपको Gemini API के बारे में ज़्यादा जानकारी नहीं है, तो यहाँ दी गई गाइड पढ़ें. इनसे आपको Gemini API के प्रोग्रामिंग मॉडल को समझने में मदद मिलेगी:
 
-- [Gemini API 시작 가이드](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [Gemini 모델 가이드](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko)
+- [Gemini API का इस्तेमाल शुरू करने से जुड़ी गाइड](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Gemini मॉडल गाइड](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi)
 
-다양한 Gemini API 기능을 소개하고 코드 예시를 제공하는 기능 가이드를 확인해 보세요.
+आपको Gemini API की सुविधाओं के बारे में बताने वाली गाइड भी देखनी चाहिए. इनमें Gemini API की अलग-अलग सुविधाओं के बारे में बताया गया है. साथ ही, कोड के उदाहरण भी दिए गए हैं:
 
-- [텍스트 생성](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko)
-- [컨텍스트 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)
-- [임베딩](https://ai.google.dev/gemini-api/docs/embeddings?hl=ko)
+- [टेक्स्ट जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi)
+- [कॉन्टेक्स्ट के लिए कैश मेमोरी की सुविधा](https://ai.google.dev/gemini-api/docs/caching?hl=hi)
+- [एम्बेडिंग](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi)
 
-의견 보내기
+सुझाव भेजें
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-최종 업데이트: 2026-09-18(UTC)
+आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया.
 
-의견을 전달하고 싶나요?
+क्या आपको हमें और कुछ बताना है?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-18(UTC)"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया."],[],[]]

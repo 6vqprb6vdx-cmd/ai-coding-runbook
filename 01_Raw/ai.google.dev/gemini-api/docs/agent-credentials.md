@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fr
-fetched_at: 2026-09-28T06:15:58.588662+00:00
-title: "Identifiants dans les agents g\u00e9r\u00e9s \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr
+fetched_at: 2026-10-05T06:29:11.093134+00:00
+title: "Y\u00f6netilen arac\u0131lardaki kimlik bilgileri \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-# Identifiants dans les agents gérés
+# Yönetilen aracılardaki kimlik bilgileri
 
-Les identifiants sont des secrets gérés par le serveur qui permettent à vos agents d'accéder à des services tiers sans que le secret n'entre dans l'environnement de l'agent. Vous stockez un identifiant une seule fois, vous y faites référence par son ID, et le proxy de sortie le résout et l'injecte au moment de la requête.
+Kimlik bilgileri, sunucu tarafından yönetilen ve gizli anahtarın hiçbir zaman aracının ortamına girmediği üçüncü taraf hizmetlerine erişmesine olanak tanıyan gizli anahtarlardır. Kimlik bilgisini bir kez saklar, kimliğe göre referans verirsiniz. Çıkış proxy'si, istek sırasında kimlik bilgisini çözümler ve ekler.
 
-Les valeurs secrètes sont en écriture seule. Une fois stockés, ils ne sont jamais renvoyés par aucun point de terminaison. Par conséquent, un agent piraté ne peut pas relire les jetons qu'il utilise.
+Gizli değerler yalnızca yazılabilir. Depolandıktan sonra hiçbir uç nokta tarafından döndürülmezler. Bu nedenle, güvenliği ihlal edilmiş bir aracı, kullandığı jetonları geri okuyamaz.
 
-Vous utilisez principalement un identifiant dans la liste d'autorisation du réseau sur [`environment.network`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr). Stockez d'abord le secret :
+Kimlik bilgisini kullandığınız birincil yer, [`environment.network`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) üzerindeki ağ izin verilenler listesidir. Önce sırrı saklayın:
 
 ### Python
 
@@ -105,7 +105,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Associez-le ensuite au domaine qu'il authentifie :
+Ardından, kimliğini doğruladığı alana ekleyin:
 
 ### Python
 
@@ -208,23 +208,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-L'agent effectue désormais des requêtes authentifiées vers `api.github.com`, et le jeton n'existe jamais dans le bac à sable.
+Aracı artık `api.github.com` için kimliği doğrulanmış istekler gönderiyor ve jeton hiçbir zaman sanal alan içinde bulunmuyor.
 
-## Types d'identifiants
+## Yeterlilik belgesi türleri
 
-Chaque identifiant possède un `type` qui détermine les champs qu'il accepte et la façon dont le proxy l'applique.
+Her kimlik bilgisinin, hangi alanları kabul edeceğini ve proxy'nin bunu nasıl uygulayacağını belirleyen bir `type` vardır.
 
-| Type | Cas d'utilisation | Comportement |
+| Tür | Kullanım alanı | Davranış |
 | --- | --- | --- |
-| `bearer_token` | Jetons d'accès personnels, jetons de bot, clés API statiques | Le proxy injecte le jeton en tant qu'en-tête de requête. Aucune logique d'actualisation. |
-| `oauth2` | Applications OAuth et flux délégués par l'utilisateur | Le proxy échange le jeton d'actualisation contre des jetons d'accès et les actualise lorsqu'ils expirent. |
-| `environment_variable` | SDK clients qui lisent les secrets de l'environnement de processus | L'environnement de l'agent reçoit un espace réservé. Le proxy remplace le secret réel dans les requêtes sortantes. |
+| `bearer_token` | Kişisel erişim jetonları, bot jetonları, statik API anahtarları | Proxy, jetonu istek başlığı olarak yerleştirir. Yenileme mantığı yoktur. |
+| `oauth2` | OAuth uygulamaları ve kullanıcı tarafından temsil edilen akışlar | Proxy, yenileme jetonunu erişim jetonlarıyla değiştirir ve süreleri doldukça bunları yeniler. |
+| `environment_variable` | Gizli dizileri işlem ortamından okuyan istemci SDK'ları | Temsilcinin ortamı bir yer tutucu alır. Proxy, giden isteklerde gerçek sırrın yerine geçer. |
 
-## Utiliser des identifiants dans la liste d'autorisation du réseau
+## Ağın izin verilenler listesindeki kimlik bilgilerini kullanma
 
-Ajoutez `credential` à une règle de liste d'autorisation. Le proxy authentifie alors chaque requête sortante vers ce domaine. Il s'agit de la méthode recommandée pour accorder à un agent l'accès à une API privée, un dépôt privé ou un bucket privé.
+İzin verilenler listesi kuralına `credential` eklediğinizde proxy, bu alana yapılan her giden isteğin kimliğini doğrular. Bu yöntem, bir temsilciye özel API'ye, özel depoya veya özel pakete erişim vermek için önerilir.
 
-Vous pouvez combiner des règles authentifiées et non authentifiées dans la même liste d'autorisation :
+Aynı izin verilenler listesinde kimliği doğrulanmış ve doğrulanmamış kuralları birlikte kullanabilirsiniz:
 
 ### Python
 
@@ -359,22 +359,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Étant donné que le proxy résout les identifiants pour chaque requête, un identifiant `oauth2` actualise son jeton d'accès de manière transparente. Une interaction de longue durée ne s'interrompt pas lorsque le jeton d'accès expire.
+Proxy, kimlik bilgisini istek başına çözdüğünden `oauth2` kimlik bilgisi, erişim jetonunu şeffaf bir şekilde yeniler. Uzun süren bir etkileşim, erişim jetonunun süresi dolduğunda kesintiye uğramaz.
 
-### Combiner `credential` et `transform`
+### `credential` ve `transform`'ı birleştirme
 
-Les règles de liste d'autorisation acceptent également un objet [`transform`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr#private-sources) intégré qui définit les en-têtes directement sur la règle. Les deux mécanismes sont appliqués par le proxy de sortie sur le réseau. Dans les deux cas, la valeur de l'en-tête n'existe donc jamais dans le bac à sable. Les deux champs peuvent apparaître dans la même règle.
+İzin verilenler listesi kuralları, doğrudan kuralda başlıkları ayarlayan satır içi [`transform`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#private-sources) nesnesini de kabul eder. Her iki mekanizma da kablodaki çıkış proxy'si tarafından uygulanır. Bu nedenle, her iki durumda da üstbilgi değeri hiçbir zaman sanal alan içinde bulunmaz. Her iki alan da aynı kuralda görünebilir.
 
-| Configuration de la règle | Comportement |
+| Kural yapılandırması | Davranış |
 | --- | --- |
-| `credential` uniquement | Le proxy résout les identifiants et injecte leur en-tête dans chaque requête envoyée au domaine. |
-| `transform` uniquement | Injection d'en-tête statique. Les en-têtes que vous rédigez sont envoyés tels quels. |
-| Les deux | L'identifiant est appliqué en premier, puis `transform` est fusionné par-dessus. Un en-tête `transform` explicite est prioritaire si les deux définissent la même clé. |
-| Ni l'un, ni l'autre | Le domaine est autorisé et aucun en-tête n'est injecté. |
+| Yalnızca `credential` | Proxy, kimlik bilgisini çözer ve alanla ilgili her isteğe başlığını ekler. |
+| Yalnızca `transform` | Statik başlık yerleştirme. Yazdığınız başlıklar olduğu gibi gönderilir. |
+| Her ikisi de | Önce kimlik bilgisi uygulanır, ardından `transform` üstte birleştirilir. Her ikisi de aynı anahtarı ayarlarsa açık bir `transform` başlığı öncelikli olur. |
+| Hiçbiri | Alana izin verilir ve herhangi bir başlık eklenmez. |
 
-Il est intéressant d'utiliser un identifiant lorsque vous souhaitez stocker un secret une seule fois et y faire référence depuis chaque environnement, agent et déclencheur de votre projet, et lorsque vous souhaitez que l'actualisation et la rotation des jetons d'accès soient gérées pour vous. Un `transform` intégré est adapté lorsque la valeur appartient à un seul appel, par exemple un jeton que vous générez vous-même juste avant de créer l'interaction.
+Bir sırrı bir kez saklamak ve projenizdeki her ortamda, aracıda ve tetikleyicide buna referans vermek istediğinizde ve erişim jetonu yenileme ve döndürme işlemlerinin sizin için yapılmasını istediğinizde kimlik bilgisi kullanmak mantıklıdır. Satır içi `transform`, değer tek bir çağrıya ait olduğunda (ör. etkileşimi oluşturmadan hemen önce kendiniz oluşturduğunuz bir jeton) uygundur.
 
-Il est courant de combiner les deux. Les identifiants comportent l'en-tête d'authentification, et `transform` ajoute tout ce que le service en amont attend de la même requête :
+İkisinin bir arada kullanılması yaygındır. Kimlik bilgisi, kimlik doğrulama üstbilgisini taşır ve `transform`, aynı istekte yukarı akış hizmetinin beklediği diğer her şeyi ekler:
 
 ```
 {
@@ -386,11 +386,11 @@ Il est courant de combiner les deux. Les identifiants comportent l'en-tête d'au
 }
 ```
 
-Pour déplacer un secret d'un `transform` intégré vers un identifiant, stockez-le avec `POST /credentials`, remplacez l'en-tête d'authentification dans `transform` par `"credential": "<id>"` et laissez le reste de l'objet `transform` tel quel.
+Bir sırrı satır içi `transform` öğesinden kimlik bilgisine taşımak için `POST /credentials` ile birlikte saklayın, `transform` öğesindeki kimlik doğrulama başlığını `"credential": "<id>"` ile değiştirin ve `transform` nesnesinin geri kalanını olduğu gibi bırakın.
 
-## Utiliser des identifiants avec les serveurs MCP
+## MCP sunucularıyla kimlik bilgilerini kullanma
 
-Les serveurs MCP distants acceptent le même champ `credential`. Définissez-le sur un outil `mcp_server`. Le proxy injecte l'en-tête d'authentification dans chaque requête envoyée à ce serveur :
+Uzak MCP sunucuları aynı `credential` alanını alır. `mcp_server` aracında ayarlayın. Proxy, kimlik doğrulama üst bilgisini bu sunucuya yapılan her isteğe ekler:
 
 ### Python
 
@@ -494,8 +494,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`credential` et `headers` suivent la même règle de priorité que la liste d'autorisation.
-Les identifiants sont appliqués en premier, et `headers` est fusionné par-dessus. Par conséquent, un en-tête explicite est prioritaire si les deux définissent la même clé :
+`credential` ve `headers`, izin verilenler listesiyle aynı öncelik kuralına tabidir.
+Kimlik bilgisi önce uygulanır ve `headers` üstte birleştirilir. Bu nedenle, her ikisi de aynı anahtarı ayarlarsa açık bir başlık kazanır:
 
 ```
 {
@@ -509,14 +509,14 @@ Les identifiants sont appliqués en premier, et `headers` est fusionné par-dess
 }
 ```
 
-Pour déplacer un secret hors de `headers` intégré et dans un identifiant, stockez-le avec `POST /credentials` et remplacez l'entrée d'authentification dans `headers` par `credential`.
-Conservez les autres en-têtes à leur emplacement.
+Bir sırrı satır içi `headers` öğesinden kimlik bilgisine taşımak için `POST /credentials` ile saklayın ve `headers` öğesindeki kimlik doğrulama girişini `credential` ile değiştirin.
+Diğer başlıkları olduğu gibi bırakın.
 
-## Utiliser des identifiants comme variables d'environnement
+## Kimlik bilgilerini ortam değişkeni olarak kullanma
 
-Certaines bibliothèques clientes lisent les secrets à partir de l'environnement de processus au lieu de les accepter comme en-têtes de requête. Les clients en mode Socket et en mode Long-Polling sont les plus courants.
+Bazı istemci kitaplıkları, sırları istek üstbilgisi olarak kabul etmek yerine işlem ortamından okur. Soket modu ve uzun anket istemcileri yaygın olarak kullanılır.
 
-Associez un identifiant `environment_variable` à un nom de variable sous `environment.env` :
+`environment_variable` kimlik bilgisini `environment.env` altındaki bir değişken adına bağlayın:
 
 ### Python
 
@@ -611,21 +611,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`env` accepte les chaînes littérales et les références d'identifiants côte à côte. Une chaîne littérale est injectée dans le conteneur en tant que variable en texte brut normale.
+`env`, değişmez dizeleri ve kimlik bilgisi referanslarını yan yana kabul eder. Dize değişmezi, kapsayıcıya normal bir düz metin değişkeni olarak yerleştirilir.
 
-Une référence d'identifiant ne l'est pas. La variable reçoit l'espace réservé `__GEMINI_CRED_<credential-id>__`, et le proxy remplace le secret réel uniquement pour les requêtes sortantes adressées à un domaine dans le `trusted_domains` des identifiants. Toute requête adressée à un autre domaine est rejetée. Le secret ne quitte donc jamais le périmètre et l'espace réservé n'est pas envoyé à sa place.
+Kimlik bilgisi referansı değildir. Değişken, yer tutucuyu (`__GEMINI_CRED_<credential-id>__`) alır ve proxy, yalnızca kimlik bilgilerinin `trusted_domains` bölümündeki bir alana giden giden istekler için gerçek gizliyi değiştirir. Başka bir alana yapılan istekler reddedilir. Böylece, gizli anahtar hiçbir zaman sınırın dışına çıkmaz ve yerine yer tutucu gönderilmez.
 
-Définissez `trusted_domains` sur chaque identifiant `environment_variable`. Il s'agit du contrôle qui définit l'étendue d'utilisation du secret.
+Her `environment_variable` kimlik bilgisinde `trusted_domains` ayarlayın. Bu, sırrın kullanılabileceği kapsamları belirleyen kontroldür.
 
-## Créer un identifiant
+## Kimlik bilgisi oluşturma
 
-Chaque requête de création nécessite un `type`, ainsi que les champs requis par ce type.
+Her oluşturma isteği için `type` ve bu türün gerektirdiği alanlar gerekir.
 
-Lorsque vous appelez REST directement, tous les noms de champs utilisent snake\_case. L'envoi d'un champ camelCase renvoie un `400`.
+REST doğrudan çağrıldığında tüm alan adları snake\_case kullanır. camelCase
+alanı göndermek `400` döndürür.
 
-### Jeton de support
+### Hamiline ait jeton
 
-Un identifiant de jeton de support n'a besoin que de `token` :
+Bir taşıyıcı jeton kimlik bilgisinin yalnızca `token` olması gerekir:
 
 ### Python
 
@@ -696,7 +697,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-La réponse ne renvoie que des métadonnées, jamais le jeton :
+Yanıt yalnızca meta verileri döndürür, jetonu asla döndürmez:
 
 ```
 {
@@ -708,7 +709,7 @@ La réponse ne renvoie que des métadonnées, jamais le jeton :
 }
 ```
 
-Par défaut, le proxy envoie `Authorization: Bearer <token>`. Remplacez `header_name` et `prefix` pour cibler un service qui attend autre chose :
+Proxy varsayılan olarak `Authorization: Bearer <token>` gönderir. Başka bir şey bekleyen bir hizmeti hedeflemek için `header_name` ve `prefix` değerlerini geçersiz kılın:
 
 ### Python
 
@@ -787,11 +788,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Cette configuration génère l'en-tête `x-goog-api-key: key_xxxxxxxxxxxx`.
+Bu yapılandırma, `x-goog-api-key: key_xxxxxxxxxxxx` başlığını oluşturur.
 
-Le tableau suivant montre comment `header_name` et `prefix` se combinent :
+Aşağıdaki tabloda `header_name` ve `prefix` değerlerinin nasıl birleştiği gösterilmektedir:
 
-| Configuration | En-tête injecté |
+| Yapılandırma | Yerleştirilmiş üstbilgi |
 | --- | --- |
 | `{"token": "ghp_xxx"}` | `Authorization: Bearer ghp_xxx` |
 | `{"token": "sk_live_xxx"}` | `Authorization: Bearer sk_live_xxx` |
@@ -800,7 +801,7 @@ Le tableau suivant montre comment `header_name` et `prefix` se combinent :
 
 ### OAuth2
 
-Un identifiant OAuth2 nécessite `client_id`, `client_secret`, `refresh_token` et `token_url`. Le champ `scopes` est facultatif :
+OAuth2 kimlik bilgisi için `client_id`, `client_secret`, `refresh_token` ve `token_url` gerekir. `scopes` alanı isteğe bağlıdır:
 
 ### Python
 
@@ -887,9 +888,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-La création d'un identifiant OAuth2 effectue un échange de jetons en direct avec `token_url` pour confirmer que la configuration fonctionne. L'identifiant n'est stocké que si le fournisseur renvoie une réponse de jeton réussie contenant un `access_token`. Les réponses JSON et form-urlencoded sont acceptées.
+OAuth2 kimlik bilgisi oluşturmak, yapılandırmanın çalıştığını onaylamak için `token_url` ile canlı jeton değişimi gerçekleştirir. Kimlik bilgisi yalnızca sağlayıcı, `access_token` içeren başarılı bir jeton yanıtı döndürürse saklanır. Hem JSON hem de form-urlencoded yanıtları kabul edilir.
 
-Cela signifie que vous avez besoin d'un jeton d'actualisation valide et non expiré au moment de la création. Si le fournisseur refuse l'échange, l'erreur vous est renvoyée :
+Bu, oluşturma sırasında geçerli ve süresi dolmamış bir yenileme jetonuna ihtiyacınız olduğu anlamına gelir. Sağlayıcı, değişimi reddederse hata size döndürülür:
 
 ```
 {
@@ -900,11 +901,11 @@ Cela signifie que vous avez besoin d'un jeton d'actualisation valide et non expi
 }
 ```
 
-Une fois stocké, le proxy actualise les jetons d'accès lorsqu'ils expirent. Si le fournisseur effectue une rotation des jetons d'actualisation et en renvoie un nouveau lors d'une actualisation, le nouveau jeton remplace automatiquement celui stocké.
+Depolandıktan sonra proxy, erişim jetonlarının süresi doldukça bunları yeniler. Sağlayıcı, yenileme jetonlarını döndürürse ve yenileme sırasında yeni bir jeton döndürürse yeni jeton, depolanan jetonun yerini otomatik olarak alır.
 
-### Variable d'environnement
+### Ortam değişkeni
 
-Un identifiant `environment_variable` nécessite `value` et `injection_location` :
+`environment_variable` kimlik bilgisi için `value` ve `injection_location` gerekir:
 
 ### Python
 
@@ -983,19 +984,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Le champ `injection_location` indique au proxy où remplacer le secret dans la requête sortante. Il accepte `header`, `query` ou `body`, sous forme de chaîne unique ou de tableau lorsqu'un service en a besoin de plusieurs :
+`injection_location` alanı, proxy'ye giden istekte sırrın nerede değiştirileceğini bildirir. Bir hizmetin birden fazla değere ihtiyacı olduğunda `header`, `query` veya `body` değerlerini tek bir dize ya da dizi olarak kabul eder:
 
 ```
 "injection_location": ["header", "query"]
 ```
 
-La substitution n'a lieu que dans les emplacements que vous indiquez. Une requête contenant le code de substitution ailleurs est refusée au lieu d'être envoyée.
+Yerine koyma işlemi yalnızca listelediğiniz konumlarda gerçekleşir. Yer tutucuyu başka bir yerde taşıyan istekler, iletilmek yerine reddedilir.
 
-Pour associer les identifiants à un nom de variable, consultez [Utiliser des identifiants comme variables d'environnement](#environment-variables).
+Kimliği bir değişken adına bağlamak için [Kimlikleri ortam değişkeni olarak kullanma](#environment-variables) başlıklı makaleyi inceleyin.
 
-### ID générés
+### Oluşturulan kimlikler
 
-Le champ `id` est facultatif. Si vous l'omettez, le service génère un UUID :
+`id` alanı isteğe bağlıdır. Bu parametreyi atladığınızda hizmet bir UUID oluşturur:
 
 ```
 {
@@ -1007,11 +1008,11 @@ Le champ `id` est facultatif. Si vous l'omettez, le service génère un UUID :
 }
 ```
 
-Fournissez votre propre ID lorsque vous souhaitez disposer d'une référence stable et lisible à utiliser dans les interactions. Étant donné que l'ID apparaît dans le chemin d'accès à la ressource, préférez les caractères alphanumériques en minuscules avec des traits d'union ou des traits de soulignement.
+Etkileşimlerde kullanmak üzere sabit ve okunabilir bir referans istediğinizde kendi kimliğinizi sağlayın. Kimlik, kaynak yolunda göründüğünden kısa çizgi veya alt çizgi içeren küçük alfanümerik karakterler tercih edilir.
 
-## Lister les identifiants
+## Kimlik bilgilerini listeleme
 
-Répertoriez les identifiants appartenant à votre projet. Utilisez les paramètres de pagination pour contrôler la taille du lot de réponses.
+Projenize ait kimlik bilgilerini listeleyin. Yanıt grup boyutunu kontrol etmek için sayfalama parametrelerini kullanın.
 
 ### Python
 
@@ -1071,7 +1072,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/credentials?page_s
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La réponse ne contient que des métadonnées :
+Yanıtta yalnızca meta veriler var:
 
 ```
 {
@@ -1095,16 +1096,16 @@ La réponse ne contient que des métadonnées :
 }
 ```
 
-Transmettez `next_page_token` en tant que `page_token` pour récupérer la page suivante. Ce champ est omis lorsqu'il n'y a plus de résultats.
+Sonraki sayfayı getirmek için `next_page_token` değerini `page_token` olarak geri iletin. Başka sonuç olmadığında alan atlanır.
 
-| Paramètre | Type | Description |
+| Parametre | Tür | Açıklama |
 | --- | --- | --- |
-| `page_size` | entier | Nombre maximal d'identifiants par page. |
-| `page_token` | chaîne | Jeton provenant du `next_page_token` d'une réponse précédente. |
+| `page_size` | tam sayı | Sayfa başına maksimum kimlik bilgisi sayısı. |
+| `page_token` | dize | Önceki bir yanıttaki `next_page_token` jetonu. |
 
-## Obtenir un identifiant
+## Yeterlilik belgesi edinme
 
-Récupérez les métadonnées d'un identifiant spécifique à l'aide de son ID.
+Belirli bir kimlik bilgisinin meta verilerini kimliğine göre alma
 
 ### Python
 
@@ -1159,7 +1160,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/credentials/github
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La réponse ressemble à ce qui suit :
+Yanıt, aşağıdakine benzer şekilde görünür:
 
 ```
 {
@@ -1171,7 +1172,7 @@ La réponse ressemble à ce qui suit :
 }
 ```
 
-Si vous demandez un identifiant qui n'existe pas, le code d'erreur `404` est renvoyé :
+Mevcut olmayan bir kimlik bilgisi istenirse `404` döndürülür:
 
 ```
 {
@@ -1182,13 +1183,13 @@ Si vous demandez un identifiant qui n'existe pas, le code d'erreur `404` est ren
 }
 ```
 
-## Faire tourner un identifiant
+## Kimlik bilgisini döndürme
 
-Remplacez un secret sans modifier les règles de la liste d'autorisation, la définition de l'outil ni les variables d'environnement qui y font référence. La rotation prend effet lors de la prochaine résolution du proxy.
+İzin verilenler listesi kuralına, araç tanımına veya ona referans veren ortam değişkenine dokunmadan bir sırrı değiştirin. Rotasyon, bir sonraki proxy çözümünde geçerli olur.
 
-La requête doit inclure `type`, ainsi que les champs que vous souhaitez modifier. Les champs que vous omettez conservent leurs valeurs actuelles.
+İstek, `type` ve değiştirmek istediğiniz alanları içermelidir. Atladığınız alanlar mevcut değerlerini korur.
 
-Faire pivoter un jeton de support :
+Hamiline ait jetonu döndürme:
 
 ### Python
 
@@ -1257,7 +1258,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/credentials/gith
 }'
 ```
 
-Faire pivoter un jeton d'actualisation OAuth2 :
+OAuth2 yenileme jetonunu döndürme:
 
 ### Python
 
@@ -1326,7 +1327,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/credentials/jira
 }'
 ```
 
-La réponse reflète le nouveau `update_time` :
+Yanıt, yeni `update_time`'ı yansıtıyor:
 
 ```
 {
@@ -1338,11 +1339,11 @@ La réponse reflète le nouveau `update_time` :
 }
 ```
 
-Le `type` d'un identifiant est fixe lors de la création. Pour le modifier, supprimez l'identifiant et créez-en un autre.
+Kimlik bilgilerinin `type` oluşturma sırasında sabitlenir. Değiştirmek için kimlik bilgisini silip yenisini oluşturun.
 
-## Supprimer un identifiant
+## Kimlik bilgisini silme
 
-Supprimez un identifiant et son secret stocké lorsqu'ils ne sont plus nécessaires.
+Artık ihtiyaç duyulmayan kimlik bilgilerini ve depolanmış sırlarını silin.
 
 ### Python
 
@@ -1392,55 +1393,55 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/credentials/git
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Une suppression réussie renvoie un objet vide :
+Başarılı bir silme işlemi boş bir nesne döndürür:
 
 ```
 {}
 ```
 
-Toute règle, tout outil ou toute variable d'environnement de la liste d'autorisation qui fait encore référence à l'ID ne pourra pas être résolue. Mettez-les donc à jour en premier.
+Kimliğe hâlâ referans veren tüm izin verilenler listesi kuralları, araçları veya ortam değişkenleri çözümlenemez. Bu nedenle, önce bunları güncelleyin.
 
-## Référence de champ
+## Alan referansı
 
-Champs communs à tous les identifiants :
+Her kimlik bilgisi için ortak olan alanlar:
 
-| Champ | Type | Obligatoire | Description |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `id` | chaîne | Non | Identifiant unique. Généré sous forme d'UUID lorsqu'il est omis. |
-| `type` | chaîne | Oui | à savoir `bearer_token`, `oauth2` ou `environment_variable`. |
-| `status` | chaîne | Lecture seule | État actuel du certificat. |
-| `create_time` | chaîne | Lecture seule | Code temporel de création au format RFC 3339. |
-| `update_time` | chaîne | Lecture seule | Code temporel RFC 3339 de la dernière mise à jour. |
+| `id` | dize | Hayır | Benzersiz tanımlayıcı. Atlandığında UUID olarak oluşturulur. |
+| `type` | dize | Evet | Şunlardan biri: `bearer_token`, `oauth2`, `environment_variable`. |
+| `status` | dize | Salt okunur | Kimlik bilgisinin mevcut durumu. |
+| `create_time` | dize | Salt okunur | RFC 3339 oluşturma zaman damgası. |
+| `update_time` | dize | Salt okunur | Son güncellemenin RFC 3339 zaman damgası. |
 
-Champs pour `bearer_token` :
+`bearer_token` için alanlar:
 
-| Champ | Type | Obligatoire | Description |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `token` | chaîne | Oui | Écriture seule. Valeur du jeton. |
-| `header_name` | chaîne | Non | En-tête à injecter. La valeur par défaut est `Authorization`. |
-| `prefix` | chaîne | Non | Préfixe de la valeur. La valeur par défaut est `Bearer`. Définissez la valeur sur `""` pour qu'il n'y ait pas de traînée. |
+| `token` | dize | Evet | Salt yazma. Jeton değeri. |
+| `header_name` | dize | Hayır | Eklenecek üstbilgi. Varsayılan olarak `Authorization` değerine ayarlanır. |
+| `prefix` | dize | Hayır | Değer öneki. Varsayılan olarak `Bearer` değerine ayarlanır. Hiçbiri için `""` olarak ayarlayın. |
 
-Champs pour `oauth2` :
+`oauth2` için alanlar:
 
-| Champ | Type | Obligatoire | Description |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `client_id` | chaîne | Oui | ID client OAuth2. |
-| `client_secret` | chaîne | Oui | Écriture seule. Code secret du client OAuth2. |
-| `refresh_token` | chaîne | Oui | Écriture seule. Jeton d'actualisation utilisé pour obtenir des jetons d'accès. |
-| `token_url` | chaîne | Oui | Point de terminaison du jeton du fournisseur. |
-| `scopes` | tableau | Non | Champs d'application OAuth à demander. |
+| `client_id` | dize | Evet | OAuth2 istemci kimliği. |
+| `client_secret` | dize | Evet | Salt yazma. OAuth2 istemci gizli anahtarı. |
+| `refresh_token` | dize | Evet | Salt yazma. Erişim jetonları almak için kullanılan yenileme jetonu. |
+| `token_url` | dize | Evet | Sağlayıcı jeton uç noktası. |
+| `scopes` | dizi | Hayır | İstek yapılacak OAuth kapsamları. |
 
-Champs pour `environment_variable` :
+`environment_variable` için alanlar:
 
-| Champ | Type | Obligatoire | Description |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `value` | chaîne | Oui | Écriture seule. Valeur du secret. |
-| `injection_location` | chaîne ou tableau | Oui | Où remplacer le secret. Une ou plusieurs des valeurs suivantes : `header`, `query`, `body`. |
-| `trusted_domains` | tableau | Non | Schémas de domaine autorisés pour la substitution. |
+| `value` | dize | Evet | Salt yazma. Gizli anahtar değeri. |
+| `injection_location` | dize veya dizi | Evet | Gizli anahtarın yerine ne yazılacağı. `header`, `query`, `body` değerlerinden biri veya daha fazlası. |
+| `trusted_domains` | dizi | Hayır | Değiştirme için yetkilendirilmiş alan adları. |
 
-## Erreurs
+## Hatalar
 
-Les erreurs renvoient un objet JSON avec un `message` et un `code` :
+Hatalar, `message` ve `code` içeren bir JSON nesnesi döndürür:
 
 ```
 {
@@ -1451,13 +1452,13 @@ Les erreurs renvoient un objet JSON avec un `message` et un `code` :
 }
 ```
 
-| État HTTP | `code` | Cause |
+| HTTP durumu | `code` | Neden |
 | --- | --- | --- |
-| 400 | `invalid_request` | Champ obligatoire manquant, champ inconnu, `type` non accepté ou validation OAuth2 ayant échoué. |
-| 404 | `not_found` | Aucun identifiant ne correspond à cet ID. |
-| 409 | `aborted` | Un identifiant associé à cet ID existe déjà. |
+| 400 | `invalid_request` | Zorunlu alan eksik, bilinmeyen alan, desteklenmeyen `type` veya başarısız OAuth2 doğrulama. |
+| 404 | `not_found` | Bu kimliğe sahip kimlik bilgisi yok. |
+| 409 | `aborted` | Bu kimliğe sahip bir kimlik bilgisi zaten var. |
 
-Les champs inconnus sont rejetés plutôt qu'ignorés, et l'erreur indique le nom du champ :
+Bilinmeyen alanlar yoksayılmak yerine reddedilir ve hata, alanı adlandırır:
 
 ```
 {
@@ -1468,18 +1469,18 @@ Les champs inconnus sont rejetés plutôt qu'ignorés, et l'erreur indique le no
 }
 ```
 
-## Étape suivante
+## Sırada ne var?
 
-- [Environnements](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : découvrez comment les agents exécutent du code et conservent les fichiers.
-- [Présentation des agents](https://ai.google.dev/gemini-api/docs/agents?hl=fr) : découvrez les concepts de base des agents gérés.
-- [Créer des agents personnalisés](https://ai.google.dev/gemini-api/docs/custom-agents?hl=fr) : définissez vos propres agents à l'aide de `AGENTS.md` et `SKILL.md`.
+- [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): Aracıların kodu nasıl çalıştırdığını ve dosyaları nasıl kalıcı hale getirdiğini öğrenin.
+- [Ajanlara Genel Bakış](https://ai.google.dev/gemini-api/docs/agents?hl=tr): Yönetilen ajanların temel kavramları hakkında bilgi edinin.
+- [Özel Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): `AGENTS.md` ve `SKILL.md` kullanarak kendi ajanlarınızı tanımlayın.
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Dernière mise à jour le 2026/09/24 (UTC).
+Son güncelleme tarihi: 2026-09-24 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/24 (UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]

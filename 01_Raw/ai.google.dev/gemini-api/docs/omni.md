@@ -1,33 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=es-419
-fetched_at: 2026-09-28T06:12:19.739715+00:00
-title: "Genera y edita videos con Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=id
+fetched_at: 2026-10-05T06:32:40.388047+00:00
+title: "Membuat dan mengedit video dengan Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Enviar comentarios
+Kirim masukan
 
-# Genera y edita videos con Gemini Omni Flash
+# Membuat dan mengedit video dengan Gemini Omni Flash
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`) es un modelo multimodal de alto rendimiento diseñado para la generación y edición de videos de alta velocidad, y el control cinematográfico.
-Gemini Omni se basa en las siguientes capacidades principales que lo distinguen de los modelos de video anteriores:
+Gemini Omni Flash (`gemini-omni-1.1-flash`) adalah model multimodal berperforma tinggi yang dirancang untuk pembuatan, pengeditan, dan kontrol sinematik video berkecepatan tinggi.
+Gemini Omni dibangun berdasarkan kemampuan inti berikut yang membedakannya dari model video sebelumnya:
 
-- **Multimodalidad nativa:** Procesa texto, imágenes, audio y video de forma simultánea, lo que te brinda resultados más cohesivos, coherentes y controlables.
-- **Edición conversacional:** Esta función, habilitada por la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), te permite mejorar y editar tus videos de forma iterativa a través de conversaciones en lenguaje natural. Describe lo que quieres cambiar y el modelo aplicará la edición y conservará las partes del video que quieras mantener.
-- **Conocimiento del mundo:** Gemini Omni combina la comprensión de la física con el conocimiento de Gemini sobre la historia, la ciencia y el contexto cultural, lo que une la brecha entre el fotorrealismo y la narración significativa.
+- **Multimodalitas native:** model ini memproses teks, gambar, audio, dan video secara bersamaan, sehingga memberikan output yang lebih kohesif, konsisten, dan dapat dikontrol.
+- **Pengeditan via percakapan:** didukung oleh [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id), fitur ini memungkinkan Anda menyempurnakan
+  dan mengedit video secara berulang melalui percakapan bahasa alami. Jelaskan perubahan yang ingin Anda lakukan, dan model akan menerapkan hasil edit sambil mempertahankan bagian video yang ingin Anda pertahankan.
+- **Pengetahuan tentang dunia:** Gemini Omni menggabungkan pemahaman tentang fisika dengan pengetahuan Gemini tentang sejarah, sains, dan konteks budaya, sehingga menjembatani kesenjangan dari fotorealisme ke penceritaan yang bermakna.
 
-## Generación de texto a video
+## Pembuatan video dari teks
 
-Generar un video a partir de una instrucción de texto El modelo genera un video con audio basado en tu descripción de texto. Escribe instrucciones con detalles como la descripción de la escena, el movimiento de la cámara, la iluminación y el ambiente para obtener los mejores resultados.
+Buat video dari perintah teks. Model ini menghasilkan video dengan audio
+berdasarkan deskripsi teks Anda. Tulis perintah dengan detail seperti deskripsi adegan,
+gerakan kamera, pencahayaan, dan suasana hati untuk mendapatkan hasil terbaik.
 
 ### Python
 
@@ -152,12 +155,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Esquema de respuesta de REST
+### Skema respons REST
 
-El campo de conveniencia `interaction.output_video` es **solo para el SDK**.
-Obtén el resultado de video del array `steps` cuando uses la API de REST directamente.
+Kolom praktis `interaction.output_video` hanya **SDK**.
+Dapatkan output video dari array `steps` saat menggunakan REST API secara langsung.
 
-**Estructura JSON de REST sin procesar:**
+**Struktur JSON REST mentah:**
 
 ```
 {
@@ -182,9 +185,10 @@ Obtén el resultado de video del array `steps` cuando uses la API de REST direct
 }
 ```
 
-### Control de la relación de aspecto
+### Mengontrol rasio aspek
 
-Configura `aspect_ratio` en `"9:16"` para crear videos verticales. El formato horizontal (16:9) es el predeterminado.
+Setel `aspect_ratio` ke `"9:16"` untuk membuat video potret. Lanskap (16:9)
+adalah defaultnya.
 
 ### Python
 
@@ -338,16 +342,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Resolución de salida
+### Resolusi output
 
-Controla la resolución de salida del video generado con el parámetro `resolution` en `response_format`. La resolución predeterminada es 720p.
+Kontrol resolusi output video yang dihasilkan menggunakan parameter `resolution`
+di `response_format`. Resolusi default adalah 720p.
 
-| Valor | Descripción |
+| Nilai | Deskripsi |
 | --- | --- |
-| `360p` | Resolución de salida de 360p |
-| `720p` | Resolución de salida de 720p (predeterminada) |
-| `1080p` | Salida de 1080p (reescalado) |
-| `4k` | Salida en 4K (reescalada) |
+| `360p` | Resolusi output 360p |
+| `720p` | Resolusi output 720p (default) |
+| `1080p` | Output 1080p (ditingkatkan) |
+| `4k` | Output 4K (ditingkatkan) |
 
 ### Python
 
@@ -499,24 +504,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_misty_mountains_1080p.mp4)
 
-## Generación de video a partir de imágenes
+## Pembuatan video dari gambar
 
-Puedes proporcionar una imagen de referencia con tu instrucción de texto. Según tu instrucción, el modelo decidirá cómo usar la imagen. Esto es útil para dar vida a las ilustraciones, las fotografías o las tomas de productos.
+Anda dapat memberikan gambar referensi dengan perintah teks Anda. Bergantung pada perintah Anda, model akan memutuskan cara menggunakan gambar. Fitur ini berguna untuk menghidupkan foto produk, ilustrasi, atau foto.
 
-En el siguiente ejemplo, se muestra cómo usar la imagen de referencia de un dibujo de un pez que salta fuera del agua:
+Contoh berikut menunjukkan cara menggunakan gambar referensi sketsa
+ikan yang melompat keluar dari air:
 
-![Dibujo de un pez saltando del agua](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=es-419)
+![Gambar ikan melompat dari air](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=id)
 
-Con la siguiente instrucción:
+Dengan perintah berikut:
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-Generar un video realista del dibujo
+Untuk membuat video gambar yang realistis.
 
 ### Python
 
@@ -685,11 +691,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Interpolación del primer y el último fotograma
+### Interpolasi frame pertama dan terakhir
 
-Gemini Omni Flash admite la interpolación de video, lo que te permite generar un video que realice una transición fluida entre una imagen inicial (primer fotograma) y una imagen final (último fotograma).
+Gemini Omni Flash mendukung interpolasi video, sehingga Anda dapat membuat video yang bertransisi dengan lancar antara gambar awal (frame pertama) dan gambar akhir (frame terakhir).
 
-Proporciona dos imágenes en la lista `input` y describe la transición deseada en tu instrucción. El modelo animará la escena desde el primer fotograma hasta el fotograma final.
+Berikan dua gambar dalam daftar `input` dan deskripsikan transisi yang diinginkan dalam perintah Anda. Model akan menganimasikan adegan dari frame pertama hingga
+frame akhir.
 
 ### Python
 
@@ -881,13 +888,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_keyframe_interpolation.mp4)
 
-### Referencia del sujeto
+### Referensi subjek
 
-Puedes generar un video que incorpore temas específicos proporcionados como imágenes de referencia.
-Por ejemplo, el siguiente código muestra cómo proporcionar 2 imágenes de un gato y un ovillo de lana para generar un video del gato jugando con la lana.
+Anda dapat membuat video yang menyertakan subjek tertentu yang disediakan sebagai gambar referensi.
+Misalnya, kode berikut menunjukkan cara menyediakan 2 gambar kucing dan benang
+untuk membuat video kucing yang sedang bermain dengan benang.
 
 ### Python
 
@@ -1074,11 +1082,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Parámetro de tareas
+### Parameter tugas
 
-Usa el parámetro `task` en `video_config` para especificar de forma explícita el comportamiento deseado. Por ejemplo, si quieres que el modelo genere un video a partir de una imagen, puedes establecer el parámetro en `image_to_video`. Si no se configura, el modelo inferirá lo que quieres a partir de la instrucción.
+Gunakan parameter `task` di `video_config` untuk menentukan perilaku yang diinginkan secara eksplisit, misalnya, jika Anda ingin model membuat video dari gambar, Anda dapat menyetel parameter ke `image_to_video`. Jika tidak ditetapkan, model akan menyimpulkan apa yang Anda inginkan dari perintah.
 
-Los siguientes son los valores permitidos:
+Berikut adalah nilai yang diizinkan:
 
 - `text_to_video`
 - `image_to_video`
@@ -1086,7 +1094,7 @@ Los siguientes son los valores permitidos:
 - `edit`
 - `extend`
 
-En el siguiente ejemplo, se muestra cómo configurar esto para el ejemplo de imagen a video que se mostró anteriormente.
+Contoh berikut menunjukkan cara menyetelnya untuk contoh gambar ke video yang ditampilkan sebelumnya.
 
 ### Python
 
@@ -1294,11 +1302,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Edición de video con estado
+## Pengeditan video dengan status
 
-Generar un video y editarlo de forma iterativa con instrucciones adicionales Cada turno se basa en el resultado anterior. El modelo recuerda el contexto del video y aplica los cambios a la vez que conserva los elementos que no mencionaste. Usa `previous_interaction_id` para hacer un seguimiento del historial de conversaciones y el estado del video generado sin volver a subir el video anterior.
+Buat video dan edit secara berulang menggunakan perintah lanjutan. Setiap giliran
+dibuat berdasarkan hasil sebelumnya. Model mengingat konteks video, menerapkan perubahan Anda sambil mempertahankan elemen yang tidak Anda sebutkan. Gunakan
+`previous_interaction_id` untuk melacak histori percakapan dan status video yang dibuat
+tanpa mengupload ulang video sebelumnya.
 
-En el siguiente ejemplo, se muestra cómo generar un primer video y, luego, editarlo:
+Contoh berikut menunjukkan cara membuat video pertama, lalu mengeditnya:
 
 ### Python
 
@@ -1458,17 +1469,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-Ejemplo de un video inicial:
+Contoh video awal:
 
-Ejemplo de un video editado:
+Contoh video yang diedit:
 
-Cada turno de la conversación produce un video nuevo. El modelo comprende el contexto de los turnos anteriores, lo que te permite realizar cambios incrementales, como ajustar la iluminación y cambiar los fondos, sin tener que volver a describir toda la escena.
+Setiap giliran dalam percakapan akan menghasilkan video baru. Model ini memahami konteks dari giliran sebelumnya, sehingga Anda dapat melakukan perubahan inkremental seperti menyesuaikan pencahayaan, dan mengganti latar belakang, tanpa mendeskripsikan ulang seluruh adegan.
 
-### Edita tus propios videos
+### Mengedit video Anda sendiri
 
-Sube tus videos con la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419) para editarlos con Gemini Omni Flash.
+Upload video Anda menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) untuk mengeditnya dengan Gemini Omni Flash.
 
-En el siguiente ejemplo, se muestra cómo editar el siguiente video original:
+Contoh berikut menunjukkan cara mengedit video asli berikut:
 
 ### Python
 
@@ -1717,12 +1728,13 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-Ejemplo de un video editado:
+Contoh video yang diedit:
 
-## Cómo recuperar videos con un URI
+## Mengambil video dengan URI
 
-Usa el parámetro `delivery="uri"` en `response_format` para recuperar los videos generados que superen los 4 MB.
-Devuelve un URI alojado en Google que puedes sondear hasta que el video sea `ACTIVE` antes de descargarlo.
+Gunakan parameter `delivery="uri"` di
+`response_format` untuk mengambil video yang dibuat dan berukuran lebih dari 4 MB.
+Tindakan ini akan menampilkan URI yang dihosting oleh Google yang dapat Anda polling hingga video `ACTIVE` sebelum didownload.
 
 ### Python
 
@@ -1967,7 +1979,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Estructura JSON de REST sin procesar (URI):**
+**Struktur JSON REST mentah (URI):**
 
 ```
 {
@@ -1992,15 +2004,16 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## Extensión de video
+## Ekstensi video
 
-Extiende un video existente generando una continuación fluida al final del clip. En la instrucción, describe cómo quieres que continúe el video, por ejemplo, `"Extend this video"` o `"Continue the scene: the camera pans across the mountains"`.
-El modelo analiza el video de entrada para generar una continuación de entre 3 y 10 segundos.
+Perpanjang durasi video yang ada dengan membuat kelanjutan yang lancar di bagian akhir klip. Jelaskan bagaimana Anda ingin video berlanjut dalam perintah Anda, misalnya
+`"Extend this video"` atau `"Continue the scene: the camera pans across the mountains"`.
+Model menganalisis video input untuk membuat kelanjutan berdurasi 3–10 detik.
 
-Puedes extender lo siguiente:
+Anda dapat memperpanjang:
 
-- **Videos generados por el modelo (varios turnos)**: Extiende un video generado anteriormente haciendo referencia a su `previous_interaction_id`.
-- **Videos subidos**: Proporciona un archivo de video subido (a través de la API de Files) junto con la instrucción de la extensión.
+- **Video yang dihasilkan oleh model (multi-turn)**: Memperpanjang video yang dihasilkan sebelumnya dengan merujuk ke `previous_interaction_id`-nya.
+- **Video yang diupload**: Menyediakan file video yang diupload (melalui Files API) bersama dengan perintah ekstensi Anda.
 
 ### Python
 
@@ -2181,17 +2194,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_base.mp4)
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_extended.mp4)
 
-### Extensión con contenido multimedia de referencia
+### Memperluas dengan media referensi
 
-Puedes proporcionar imágenes de referencia en el array `input` junto con tu instrucción para introducir nuevos personajes o elementos en el video extendido:
+Anda dapat memberikan gambar referensi dalam array `input` bersama dengan perintah Anda untuk
+memperkenalkan karakter atau elemen baru ke dalam video yang diperpanjang:
 
 ### Python
 
@@ -2394,123 +2408,132 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Browser Anda tidak mendukung tag video.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_traveler_extension.mp4)
 
-### Lineamientos y restricciones de extensiones
+### Batasan dan panduan ekstensi
 
-Ten en cuenta las siguientes reglas y restricciones cuando extiendas videos:
+Perhatikan aturan dan batasan berikut saat memperpanjang video:
 
-- **Diálogo hablado en videos subidos**: Actualmente, no puedes extender un video subido en el que alguien está hablando para agregar diálogo adicional (se admite si el personaje permanece en silencio o si la instrucción no agrega diálogo).
-- **Extensión de voz de varios turnos**: Se admite la generación de diálogo o voz hablada cuando se extienden videos generados previamente a través de varios turnos (`previous_interaction_id`).
-- **Solo al final del clip**: La extensión se limita a agregarse al final del video.
-  No puedes agregar contenido al principio ni extender la parte media de un clip.
-- **Límite de duración**: Los videos de entrada para la extensión deben tener una duración de 10 segundos o menos cuando se suben (a menos que se use la función de varios turnos).
-- **Disponibilidad regional**: Por el momento, la extensión de videos subidos no está disponible para los usuarios del Espacio Económico Europeo (EEE), Suiza ni el Reino Unido (la extensión de videos generados por el modelo se admite en todas las regiones disponibles).
+- **Dialog lisan pada video yang diupload**: Saat ini, Anda tidak dapat memperpanjang video yang diupload yang menampilkan seseorang sedang berbicara untuk menambahkan dialog lain (hal ini didukung jika karakter tetap diam atau jika perintah tidak menambahkan dialog).
+- **Ekstensi suara multi-giliran**: Pembuatan dialog atau ucapan yang diucapkan didukung
+  saat memperluas video yang dibuat sebelumnya melalui multi-giliran (`previous_interaction_id`).
+- **Hanya di akhir klip**: Ekstensi terbatas untuk ditambahkan di akhir video.
+  Anda tidak dapat menambahkan konten di awal atau memperpanjang bagian tengah klip.
+- **Batas durasi**: Video input untuk ekstensi harus berdurasi 10 detik atau kurang
+  saat diupload (kecuali jika menggunakan multi-turn).
+- **Ketersediaan regional**: Saat ini, perpanjangan video yang diupload tidak tersedia untuk pengguna di Wilayah Ekonomi Eropa (EEA), Swiss, dan Inggris Raya (perpanjangan video yang dibuat oleh model didukung di semua wilayah yang tersedia).
 
-## Prácticas recomendadas
+## Praktik terbaik
 
-- **Usa la entrega de URI para videos grandes:** Para los videos de más de 4 MB (más de 720 p cuando estén disponibles), usa `delivery="uri"` en `response_format` para evitar los límites de tamaño de la carga útil.
-- **Rendimiento optimizado:** Establece `background=false`, `store=false` y `stream=false` para una generación unaria más rápida y síncrona. Ten en cuenta que el parámetro de configuración `store=false` significa que el video generado no se podrá editar en turnos posteriores con `previous_interaction_id`.
-- **Precisión de la instrucción:** Consulta la sección de [orientación sobre instrucciones](#prompt-guide) para obtener más detalles.
+- **Gunakan pengiriman URI untuk video berukuran besar:** Untuk video yang lebih besar dari 4 MB (>720p jika tersedia), gunakan `delivery="uri"` di `response_format` untuk menghindari batas ukuran payload.
+- **Performa yang dioptimalkan:** Tetapkan `background=false`, `store=false`, dan
+  `stream=false` untuk pembuatan unary sinkron yang lebih cepat. Perhatikan bahwa setelan
+  `store=false` berarti video yang dibuat tidak dapat diedit pada
+  gilirannya menggunakan `previous_interaction_id`.
+- **Presisi perintah:** Lihat bagian [panduan perintah](#prompt-guide) untuk mengetahui detailnya.
 
-## Limitaciones
+## Batasan
 
-- No se admite la carga ni la edición de imágenes que contengan a menores en el Espacio Económico Europeo, Suiza ni el Reino Unido.
-- No se admite la carga ni la edición de imágenes que contengan personas reconocibles.
-- Por el momento, la edición o extensión de videos subidos no está disponible para los usuarios del Espacio Económico Europeo (EEE), Suiza ni el Reino Unido (se admite la edición o extensión de videos generados por el modelo).
-- Los videos de entrada para la edición y la extensión deben durar 10 segundos o menos cuando se suben (a menos que se extiendan los videos generados por el modelo en varios turnos).
-- La extensión de video se limita a agregar contenido al final de un video. No se admite agregar contenido al principio ni extender la parte media de un clip.
-- No puedes extender un video subido en el que alguien está hablando para agregar diálogo adicional (los personajes pueden permanecer en silencio o se puede usar una extensión de varios turnos con `previous_interaction_id`).
-- No se admite la edición de voz.
-- La carga de referencias de audio no se admite en la versión actual de la API.
-- Las referencias de video funcionan mejor con imágenes de personas. Se ignora el audio de las referencias de video. Las referencias de video admiten un máximo de 3 clips de hasta 3 segundos cada uno.
-- No se admite hacer referencia a varios videos ni razonar sobre ellos. Si intentas usar instrucciones con varios videos, es posible que se degrade el rendimiento del modelo o que se generen resultados inesperados.
-- No se admite el procesamiento aprovisionado.
-- No se admiten instrucciones del sistema, temperatura, `top_p`, secuencias de detención ni instrucciones negativas (puedes incluir tus instrucciones negativas en la instrucción normal, p.ej., "No hagas X").
-- No se admite el uso de videos de YouTube como fuente de medios.
+- Mengupload dan mengedit gambar yang berisi anak di bawah umur tidak didukung di Wilayah Ekonomi Eropa, Swiss, dan Inggris Raya.
+- Mengupload dan mengedit gambar yang berisi orang tertentu yang dapat dikenali tidak didukung.
+- Saat ini, pengeditan atau perluasan video yang diupload tidak tersedia untuk pengguna di Wilayah Ekonomi Eropa (EEA), Swiss, dan Inggris Raya (pengeditan atau perluasan video yang dibuat oleh model didukung).
+- Video input untuk pengeditan dan perpanjangan durasi harus berdurasi 10 detik atau kurang saat diupload (kecuali jika memperpanjang durasi video yang dibuat oleh model dalam multi-turn).
+- Ekstensi video terbatas untuk ditambahkan di akhir video; menambahkan di awal atau memperpanjang bagian tengah klip tidak didukung.
+- Anda tidak dapat memperpanjang video yang diupload saat seseorang sedang berbicara untuk menambahkan dialog lain (karakter dapat tetap diam, atau perpanjangan multi-turn dengan `previous_interaction_id` dapat digunakan).
+- Pengeditan suara tidak didukung.
+- Mengupload referensi audio tidak didukung di versi API saat ini.
+- Referensi video berfungsi paling baik dengan kemiripan; audio apa pun dalam referensi video diabaikan. Referensi video mendukung maksimal 3 klip, dengan durasi masing-masing hingga 3 detik.
+- Merujuk atau menyimpulkan dari beberapa video tidak didukung. Mencoba perintah multi-video dapat menyebabkan penurunan performa model atau output yang tidak terduga.
+- Throughput yang disediakan tidak didukung.
+- Petunjuk sistem, temperatur, `top_p`, urutan penghentian, dan perintah negatif tidak didukung (Anda dapat memasukkan perintah negatif dalam perintah biasa: misalnya, "Jangan lakukan X").
+- Penggunaan video YouTube sebagai sumber media tidak didukung.
 
-## Detalles técnicos
+## Detail teknis
 
-- Todos los videos generados incluyen marcas de agua de SynthID, que son invisibles para los usuarios, pero se pueden detectar de forma programática para verificar la procedencia.
-- Los tiempos de generación de video varían según la duración, la resolución y la carga actual de la API. Los videos más largos y con mayor resolución tardan más en generarse.
-- Omni aplica filtros de seguridad del contenido tanto a las instrucciones de entrada como a los videos generados (que varían según la región). Se bloquean las instrucciones que incumplen las políticas de uso.
-- El inglés (EN) es totalmente compatible, pero no se evaluaron otros idiomas, por lo que es posible que funcionen, pero los resultados pueden variar.
+- Semua video yang dihasilkan menyertakan watermark SynthID, yang tidak terlihat oleh penonton, tetapi dapat dideteksi secara terprogram untuk verifikasi asal.
+- Waktu pembuatan video bervariasi berdasarkan durasi, resolusi, dan beban API saat ini. Video yang lebih panjang dan beresolusi lebih tinggi memerlukan waktu lebih lama untuk dibuat.
+- Omni menerapkan filter keamanan konten ke perintah input dan video yang dihasilkan (yang bervariasi menurut wilayah). Perintah yang melanggar kebijakan penggunaan akan diblokir.
+- Bahasa Inggris (EN) didukung sepenuhnya, tetapi bahasa lain belum dievaluasi, sehingga mungkin berfungsi, tetapi hasilnya dapat bervariasi.
 
-## Guía de instrucciones de Gemini Omni Flash
+## Panduan perintah Gemini Omni Flash
 
-En esta sección, se incluyen sugerencias y ejemplos sobre cómo escribir instrucciones eficaces para Gemini Omni Flash.
+Bagian ini berisi tips dan contoh cara memberikan perintah yang efektif untuk Gemini Omni Flash.
 
-### Escena única
+### Satu adegan
 
-De forma predeterminada, Omni Flash intentará crear un video con varias tomas diferentes.
-Intentará crear una narrativa interesante basada en la instrucción.
+Secara default, Omni Flash akan mencoba membuat video dengan beberapa adegan yang berbeda.
+Gemini akan mencoba membuat narasi yang menarik berdasarkan perintah.
 
-Si necesitas que el video de salida contenga una sola escena, debes indicarlo en la instrucción:
+Jika Anda ingin video output hanya berisi satu adegan, Anda harus memberikan perintah untuk itu:
 
-- En una sola escena continua
-- En una sola toma continua
-- Sin cortes de escena
+- Dalam satu adegan tanpa jeda
+- Dalam satu pengambilan gambar berkelanjutan
+- Tidak ada potongan adegan
 
-Por ejemplo:
+Contoh:
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### Cómo quitar elementos no deseados
+### Menghapus elemen yang tidak diinginkan
 
-Si el video generado contiene elementos que no quieres, incluye instrucciones negativas simples para evitarlos:
+Jika video yang dihasilkan berisi hal-hal yang tidak Anda inginkan, sertakan perintah negatif sederhana untuk menghindarinya:
 
-- Sin diálogo
-- Sin adornos
-- Sin efectos de sonido adicionales
+- Tidak ada dialog
+- Tanpa hiasan
+- Tidak ada efek suara tambahan
 
-### Instrucciones para la edición
+### Perintah untuk pengeditan
 
-Las instrucciones simples funcionan mejor para la edición de video. Las instrucciones demasiado descriptivas pueden generar cambios no deseados.
+Perintah sederhana berfungsi paling baik untuk pengeditan video. Perintah yang terlalu deskriptif dapat menyebabkan perubahan yang tidak diinginkan.
 
-A continuación, se incluyen más ejemplos de instrucciones de edición simples:
+Berikut adalah contoh perintah pengeditan sederhana lainnya:
 
-- Convierte este video en anime
-- Ponle un sombrero moderno a esta persona
-- Cambia la iluminación para que sea más dramática
-- Cambia el texto del cartel para que diga "Omni Flash".
+- Ubah video ini menjadi anime
+- Pakaikan topi modis pada orang ini
+- Ubah pencahayaan agar lebih dramatis
+- Ubah teks pada papan iklan menjadi "Omni Flash"
 
-Cuando edites un aspecto específico del video, incluye `"Keep everything else the same"` para mantener la coherencia visual.
+Saat mengedit aspek tertentu dari video, sertakan `"Keep everything else the same"` untuk mempertahankan konsistensi visual.
 
-A continuación, se incluyen algunos ejemplos para mostrar cómo aplicar esta técnica:
+Berikut adalah beberapa contoh untuk menunjukkan cara menerapkan teknik ini:
 
-- **Evita:** `In the video of the man sitting on the sofa, please add a small
+- **Hindari:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Simplificar:** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **Sederhanakan:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **Evita:** `Please remove the cell phone that the person is holding in
+- **Hindari:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Simplificar:** `Make the phone invisible. Keep everything else the
+  - **Sederhanakan:** `Make the phone invisible. Keep everything else the
     same.`
 
-### Indicaciones de audio
+### Membuat perintah audio
 
-De forma predeterminada, el modelo intentará generar una pista de audio adecuada para un video. Es posible que esto no siempre sea lo que quieras. Puedes usar la instrucción para describir el tipo de audio que deseas. Esto es especialmente importante si quieres incluir música en tu video:
+Secara default, model akan mencoba membuat trek audio yang sesuai untuk video. Hal ini mungkin tidak selalu sesuai dengan yang Anda inginkan. Anda dapat menggunakan perintah untuk
+mendeskripsikan jenis audio yang Anda inginkan. Hal ini sangat penting jika Anda ingin
+musik dalam video Anda:
 
-- Incluye música de fondo relajante
-- El video tiene una base tecno enérgica
-- El audio es una transmisión de radio de baja calidad que se reproduce en segundo plano y en la que se escucha una canción.
+- Sertakan musik latar belakang yang menenangkan
+- Video memiliki irama tekno yang penuh energi
+- Audio adalah siaran radio yang berbunyi sengau di latar belakang, memutar lagu
 
-### Tiempos de eventos
+### Pengaturan waktu peristiwa
 
-Puedes solicitar que sucedan cosas en momentos específicos del video, no se necesita una sintaxis precisa y puedes usar lenguaje natural. Esto es especialmente útil para crear tus propios cortes de escena, ritmos o secuencias de disparos rápidos.
-Consulta los siguientes ejemplos:
+Anda dapat meminta agar sesuatu terjadi pada waktu tertentu dalam video, tidak ada
+sintaksis yang tepat yang diperlukan dan Anda dapat menggunakan bahasa alami. Hal ini sangat
+berguna dalam membuat potongan adegan, ritme, atau urutan tembakan cepat Anda sendiri.
+Lihat contoh berikut:
 
-- Después de 3 segundos, entra una mujer en escena.
-- A los 5 s, el coro comienza en el audio de fondo.
-- Cada 2 s, se corta a un nuevo fotograma.
-- En una secuencia de disparos rápidos, cada medio segundo (12 fotogramas a 24 FPS), cambia la escena a una nueva ubicación.
+- Setelah 3 detik, seorang wanita memasuki adegan.
+- Pada detik ke-5, chorus dimulai di audio latar belakang.
+- Setiap 2 detik beralih ke frame baru.
+- Dalam urutan cepat, setiap setengah detik (12 frame pada 24 fps), ubah adegan ke lokasi baru.
 
-También puedes usar una sintaxis de código de tiempo:
+Anda juga dapat menggunakan sintaks kode waktu:
 
 ```
 [0-3s] A person is walking
@@ -2518,52 +2541,55 @@ También puedes usar una sintaxis de código de tiempo:
 [6-10s] They start running
 ```
 
-### Metainstrucciones
+### Meta prompting
 
-Puedes pedirle a Gemini Omni Flash que preste atención a las cualidades o los principios generales de la generación de videos:
+Anda dapat meminta Gemini Omni Flash untuk memperhatikan kualitas atau prinsip umum pembuatan video:
 
-- Ten en cuenta los microdetalles, la expresión y la sincronización para crear una escena muy detallada y enriquecida, pero completamente natural.
-- Sé muy detallado en tus descripciones de personajes y entornos.
-  Aplicar los principios del diseño de vestuario a los personajes Sé muy específico sobre las personas, los elementos y los objetos que aparecen en la escena.
-- Incluye muchos detalles adecuados en los elementos del fondo para que la escena se vea realista y natural.
-- Haz un video de preguntas rápidas que muestre un `[thing]` diferente cada 1 s, con música alegre y texto para etiquetar cada cosa.
+- Pertimbangkan detail mikro, ekspresi, dan pengaturan waktu untuk menciptakan adegan yang sangat kaya dan mendetail, tetapi sepenuhnya alami.
+- Berikan deskripsi yang sangat mendetail tentang karakter dan lingkungan.
+  Menerapkan prinsip desain kostum pada karakter. Jelaskan orang, item, dan objek dalam adegan secara spesifik.
+- Sertakan banyak detail yang sesuai di elemen latar belakang untuk membuat adegan terasa realistis dan alami.
+- Buat video cepat yang menampilkan `[thing]` langka yang berbeda setiap 1 detik, musik yang ceria, dan sertakan teks untuk memberi label pada objek.
 
-### Texto en videos
+### Teks dalam video
 
-Puedes solicitar que se incluya texto en tu video, y Gemini Omni lo renderizará de una manera correcta y legible. Si habrá texto que aparecerá de forma natural en tu video, incluso en los elementos de fondo, puede ser útil definir lo que debería decir.
+Anda dapat memberikan perintah untuk menyertakan teks dalam video Anda dan Gemini Omni akan merendernya dengan cara yang benar dan mudah dibaca. Jika akan ada teks yang muncul secara alami dalam video Anda, bahkan dalam elemen latar belakang, Anda dapat menentukan apa yang harus dikatakan.
 
-- Una palabra a la vez en la pantalla: "¿Sabías que Omni puede generar texto increíble?". Cada palabra aparece durante 1 s con un estilo animado diferente. Sin diálogo.
-- Hay una señal de tránsito que dice: "Esta es una generación de IA de Omni", hay una tienda que dice: "Todo lo que necesitas de la IA" y hay un automóvil con la matrícula "OMNI1.1".
+- Satu kata di layar dalam satu waktu: "tahu, kah, kamu, bahwa, Omni, bisa, membuat, teks, yang, keren?" Setiap kata muncul selama 1 detik dengan gaya animasi yang berbeda. Tidak ada
+  dialog.
+- Ada rambu jalan yang bertuliskan: "Ini adalah hasil generasi AI oleh Omni", ada etalase toko yang bertuliskan: "Semua yang Anda butuhkan AI", ada mobil dengan pelat nomor: "OMNI1.1"
 
-### Instrucciones para extender un video
+### Perintah untuk memperpanjang video
 
-Con Gemini Omni 1.1 Flash, puedes extender videos con instrucciones como `"Extend this video"` o `"The scene continues"`. Puedes extender los videos en 10 s, hasta una duración total de 40 s.
+Dengan Gemini Omni 1.1 Flash, Anda dapat memperpanjang durasi video dengan perintah seperti, `"Extend this video"` atau `"The scene continues"`. Anda dapat memperpanjang video 10 detik, hingga total durasi 40 detik.
 
-Omni crea una extensión que mantiene la coherencia del video, el movimiento, los personajes y el audio usando los últimos 10 s del video original como contexto. Se editarán algunos de los fotogramas finales del video de entrada para que la transición sea fluida.
+Omni membuat ekstensi yang menjaga koherensi video, gerakan, karakter, dan audio dengan menggunakan 10 detik terakhir video asli Anda sebagai konteks. Beberapa frame terakhir dalam video input Anda akan diedit agar transisinya lancar.
 
-Cuando extiendas la instrucción, se seguirán aplicando todas las sugerencias de instrucción de Omni de esta guía:
+Saat memperluas, semua tips perintah Omni dalam panduan ini tetap berlaku:
 
-- Describe el audio de tu escena extendida, en especial si necesitas que cambie: `"The music continues into the chorus"`
-- Describe si la escena continúa o si hay un corte a una escena nueva (quizás con los mismos personajes): `"Show the same characters in the next scene"`
-- Incluye imágenes y videos como referencias cuando realices extensiones para mantener la precisión de tus resultados o presentar personajes nuevos: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- Si usas marcas de tiempo o una sintaxis de código de tiempo, 0 s hace referencia al comienzo de la parte extendida del video. Si extiendes un video de 10 s, el corte de escena en esta instrucción se producirá después de 12 s: `"After 2s cut to a new scene with the same characters"`
+- Jelaskan audio dalam adegan yang diperpanjang, terutama jika Anda ingin mengubahnya: `"The music continues into the chorus"`
+- Jelaskan apakah adegan berlanjut, atau apakah ada potongan gambar ke adegan baru (mungkin dengan karakter yang sama): `"Show the same characters in the next scene"`
+- Sertakan gambar dan video sebagai referensi saat memperluas untuk membantu menjaga akurasi output Anda, atau untuk memperkenalkan karakter baru: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- Jika menggunakan stempel waktu atau sintaks kode waktu, 0s merujuk ke awal bagian video yang diperpanjang. Jika memperpanjang video 10 detik, pemotongan adegan dalam perintah ini akan terjadi setelah 12 detik: `"After 2s cut to a new scene with the same characters"`
 
-### Cómo usar etiquetas en instrucciones para establecer roles de imágenes y videos
+### Menggunakan tag dalam perintah untuk menetapkan peran gambar dan video
 
-Puedes usar etiquetas para vincular el contenido multimedia subido a roles de generación específicos. Esto te permite especificar si cada imagen o video es un fotograma inicial, un fotograma final o una referencia.
+Anda dapat menggunakan tag untuk mengikat media yang diupload ke peran pembuatan tertentu. Dengan begitu, Anda dapat menentukan apakah setiap gambar atau video adalah frame awal, frame akhir, atau referensi.
 
-#### 1. Etiquetas simples (recomendadas)
+#### 1. Tag sederhana (direkomendasikan)
 
-En casos simples en los que los roles de los medios son claros a partir de la instrucción, puedes vincular imágenes y videos a roles directamente:
+Untuk kasus sederhana di mana peran media jelas dari perintah, Anda dapat mengikat
+gambar dan video ke peran secara langsung:
 
-- **`<FIRST_FRAME>`**: Usa la imagen como el fotograma inicial del video, por ejemplo: `<FIRST_FRAME> a woman is walking`
-- **`<LAST_FRAME>`**: Usa la imagen como el fotograma final del video al que se realizará la transición. Se debe usar con `<FIRST_FRAME>`, por ejemplo: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**: Usa la imagen como referencia, por ejemplo, `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (combina la referencia de estilo de la primera imagen y la referencia de sujeto de la segunda imagen).
-  Las referencias de imágenes comienzan en 0.
-- **`<VIDEO_REF_N>`**: Usa el video como referencia de un personaje o un objeto, por ejemplo, `the person in <VIDEO_REF_0> is playing the violin`. Las referencias de video también comienzan desde 0.
+- **`<FIRST_FRAME>`**: gunakan gambar sebagai frame awal video, misalnya: `<FIRST_FRAME> a woman is walking`
+- **`<LAST_FRAME>`**: menggunakan gambar sebagai frame terakhir video untuk transisi. Harus digunakan dengan `<FIRST_FRAME>`, misalnya: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: menggunakan gambar sebagai referensi, misalnya: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (menggabungkan referensi gaya dari gambar pertama dan referensi subjek dari gambar kedua).
+  Referensi gambar dimulai dari 0.
+- **`<VIDEO_REF_N>`**: menggunakan video sebagai referensi karakter atau objek, misalnya:
+  `the person in <VIDEO_REF_0> is playing the violin`. Referensi video juga dimulai dari 0.
 
-El siguiente es un ejemplo con 6 imágenes de referencia:
+Berikut adalah contoh dengan 6 gambar referensi:
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -2571,54 +2597,56 @@ El siguiente es un ejemplo con 6 imágenes de referencia:
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. Cómo declarar fuentes y referencias
+#### 2. Mendeklarasikan sumber dan referensi
 
-Para casos más complejos con varias entradas de medios y varios roles, puedes usar etiquetas de prefijo explícitas junto con instrucciones en lenguaje natural. Debes declarar estas fuentes y referencias al comienzo de tu instrucción.
+Untuk kasus yang lebih kompleks dengan beberapa input media dan beberapa peran, Anda dapat menggunakan
+tag awalan eksplisit yang dipasangkan dengan petunjuk bahasa alami. Anda harus
+menyatakan sumber dan referensi ini di awal perintah Anda.
 
-- `[# Sources <FIRST_FRAME>@Image1]` usará la primera imagen como fotograma inicial.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` usará la primera imagen como fotograma inicial y la segunda como fotograma final.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` usará la primera imagen como el primer y el último fotograma, lo que creará un video en bucle.
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` usará la primera imagen como fotograma inicial y la segunda como referencia.
-- `[# Sources <VIDEO_0>@Video1]` usará el video como fuente principal para editarlo o modificarlo.
-- `[# Sources <PREVIOUS_VIDEO>@Video1]` usará el video del turno anterior para extenderlo.
-- `[# References <IMAGE_REF_0>@Image1]` usará la primera imagen como referencia.
-- `[# References <IMAGE_REF_1>@Image2]` usará la segunda imagen como referencia.
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` usará ambas imágenes como referencias.
-- `[# References <VIDEO_REF_0>@Video1]` usará el primer video como referencia.
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` usará una imagen y un video como referencia.
+- `[# Sources <FIRST_FRAME>@Image1]` akan menggunakan gambar pertama sebagai frame awal.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` akan menggunakan gambar pertama sebagai frame awal dan gambar kedua sebagai frame akhir.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` akan menggunakan gambar pertama sebagai frame pertama dan frame terakhir, sehingga membuat video yang berputar.
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` akan menggunakan gambar pertama sebagai frame awal dan gambar kedua sebagai referensi.
+- `[# Sources <VIDEO_0>@Video1]` akan menggunakan video sebagai video sumber utama untuk diedit atau diubah.
+- `[# Sources <PREVIOUS_VIDEO>@Video1]` akan menggunakan video dari giliran sebelumnya untuk memperpanjang.
+- `[# References <IMAGE_REF_0>@Image1]` akan menggunakan gambar pertama sebagai referensi.
+- `[# References <IMAGE_REF_1>@Image2]` akan menggunakan gambar kedua sebagai referensi.
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` akan menggunakan kedua gambar sebagai referensi.
+- `[# References <VIDEO_REF_0>@Video1]` akan menggunakan video pertama sebagai referensi.
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` akan menggunakan gambar dan video sebagai referensi.
 
-Agrega instrucciones de guía al final de la instrucción:
+Tambahkan petunjuk panduan di akhir perintah Anda:
 
-- Para un fotograma de inicio: `"Use this image as the starting frame."`
-- Para un video en bucle a través de fotogramas de inicio y finalización: `"Use this image as the first frame and the last frame."`
-- Para las imágenes de referencia: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- En el caso de los videos de referencia, haz lo siguiente: `"Use the given video(s) as references. Do not use them as a source for video editing."`
+- Untuk frame awal: `"Use this image as the starting frame."`
+- Untuk video berulang melalui frame awal dan akhir: `"Use this image as the first frame and the last frame."`
+- Untuk gambar referensi: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- Untuk video referensi: `"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-Estos son algunos ejemplos de instrucciones con declaraciones de fuente y referencia:
+Beberapa contoh perintah dengan pernyataan sumber dan referensi:
 
-**Fotograma inicial combinado con una imagen de referencia:**
+**Frame awal yang digabungkan dengan gambar referensi:**
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**Video de referencia del personaje combinado con una imagen de referencia del objeto:**
+**Video referensi karakter yang dipadukan dengan gambar referensi objek:**
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## ¿Qué sigue?
+## Langkah berikutnya
 
-- Comienza a usar Gemini Omni Flash experimentando en el [Colab de inicio rápido de Omni](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=es-419).
-- Obtén más información para escribir instrucciones aún mejores con nuestra [Introducción al diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
+- Mulai menggunakan Gemini Omni Flash dengan bereksperimen di [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=id).
+- Pelajari cara menulis perintah yang lebih baik lagi dengan [Pengantar desain perintah](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=id) kami.
 
-Enviar comentarios
+Kirim masukan
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última actualización: 2026-09-24 (UTC)
+Terakhir diperbarui pada 2026-09-24 UTC.
 
-¿Quieres brindar más información?
+Ada masukan untuk kami?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]

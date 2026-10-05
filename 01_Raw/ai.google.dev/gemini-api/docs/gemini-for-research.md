@@ -1,35 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=he
-fetched_at: 2026-09-28T06:11:02.436316+00:00
-title: "\u05de\u05d0\u05d9\u05e6\u05d9\u05dd \u05d0\u05ea \u05ea\u05d4\u05dc\u05d9\u05da \u05d4\u05d2\u05d9\u05dc\u05d5\u05d9 \u05d1\u05e2\u05d6\u05e8\u05ea Gemini \u05dc\u05de\u05d7\u05e7\u05e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ja
+fetched_at: 2026-10-05T06:34:03.472078+00:00
+title: "Gemini for Research \u3067\u767a\u898b\u3092\u52a0\u901f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
 
-# מאיצים את תהליך הגילוי בעזרת Gemini למחקר
+# Gemini for Research で発見を加速
 
-[קבלת מפתח Gemini API](https://aistudio.google.com/apikey?hl=he)
+[Gemini API キーを取得する](https://aistudio.google.com/apikey?hl=ja)
 
-אפשר להשתמש במודלים של Gemini כדי לקדם מחקר בסיסי במגוון תחומים.
-כך תוכלו להשתמש ב-Gemini כדי לבצע מחקר:
+Gemini モデルは、さまざまな分野の基礎研究を進めるために使用できます。Gemini を調査に活用する方法は次のとおりです。
 
-- **ניתוח של פלט המודל ובקרה עליו**: כדי לבצע ניתוח נוסף, אתם יכולים לבדוק תשובה פוטנציאלית שנוצרה על ידי המודל באמצעות כלים כמו `CitationMetadata`. אפשר גם להגדיר אפשרויות ליצירת מודלים ולפלט, כמו `responseSchema`, `topP` ו-`topK`. [מידע נוסף](https://ai.google.dev/api/generate-content?hl=he)
-- **קלט מולטי-מודאלי**: Gemini יכול לעבד תמונות, אודיו וסרטונים, וכך לאפשר מגוון רחב של כיווני מחקר מעניינים. [מידע נוסף](https://ai.google.dev/gemini-api/docs/vision?hl=he)
-- **יכולות של הקשר ארוך**: ל-Gemini 3.0 Flash ול-Gemini 3.0 Pro יש חלון הקשר של מיליון טוקנים. [מידע נוסף](https://ai.google.dev/gemini-api/docs/long-context?hl=he)
-- **הסדנה הדיגיטלית של Google**: גישה מהירה למודלים של Gemini דרך ה-API ו-Google AI Studio לתרחישי שימוש בייצור. אם אתם מחפשים פלטפורמה מבוססת Google Cloud, ‏ Gemini Enterprise Agent Platform יכולה לספק תשתית תומכת נוספת.
+- **モデルの出力を分析して制御する**: さらに分析するために、`CitationMetadata` などのツールを使用して、モデルによって生成されたレスポンス候補を調べることができます。`responseSchema`、`topP`、`topK` など、モデルの生成と出力のオプションを構成することもできます。[詳細](https://ai.google.dev/api/generate-content?hl=ja)
+- **マルチモーダル入力**: Gemini は画像、音声、動画を処理できるため、さまざまなエキサイティングな研究の方向性を実現できます。[詳細](https://ai.google.dev/gemini-api/docs/vision?hl=ja)
+- **長いコンテキスト機能**: Gemini 3.0 Flash と Pro には、100 万トークンのコンテキスト ウィンドウが搭載されています。[詳細](https://ai.google.dev/gemini-api/docs/long-context?hl=ja)
+- **Grow with Google**: API と Google AI Studio を通じて Gemini モデルにすばやくアクセスし、本番環境のユースケースに活用できます。Google Cloud ベースのプラットフォームをお探しの場合は、Gemini Enterprise Agent Platform で追加のサポート インフラストラクチャを利用できます。
 
-כדי לתמוך במחקר אקדמי ולקדם מחקר מתקדם, Google מספקת גישה לקרדיטים ל-Gemini API למדענים ולחוקרים אקדמיים באמצעות [Gemini Academic Program](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=he#gemini-academic-program).
+学術研究を支援し、最先端の研究を推進するため、Google は [Gemini アカデミック プログラム](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ja#gemini-academic-program)を通じて、科学者や学術研究者に Gemini API クレジットを提供しています。
 
-## מתחילים לעבוד עם Gemini
+## Gemini を使ってみる
 
-‫Gemini API ו-Google AI Studio עוזרים לכם להתחיל לעבוד עם המודלים העדכניים ביותר של Google ולהפוך את הרעיונות שלכם לאפליקציות שניתנות להרחבה.
+Gemini API と Google AI Studio を使用すると、Google の最新モデルの利用を開始し、アイデアをスケーラブルなアプリケーションに変えることができます。
 
 ### Python
 
@@ -132,40 +131,40 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
    }'
 ```
 
-## אנשי אקדמיה מומלצים
+## 注目の学術関係者
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=he)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=ja)
 
-"במחקר שלנו אנחנו בודקים את Gemini כמודל שפה חזותי (VLM) ואת ההתנהגויות שלו בסביבות מגוונות מנקודות מבט של חוסן ובטיחות. עד עכשיו, בדקנו את העמידות של Gemini בפני הסחות דעת כמו חלונות קופצים כשסוכני VLM מבצעים משימות במחשב, והשתמשנו ב-Gemini כדי לנתח אינטראקציה חברתית, אירועים זמניים וגורמי סיכון על סמך קלט וידאו".
+「私たちの研究では、Gemini を視覚言語モデル（VLM）として、堅牢性と安全性の観点からさまざまな環境におけるエージェントの動作を調査しています。これまでのところ、VLM エージェントがコンピュータ タスクを実行する際のポップアップ ウィンドウなどの妨害に対する Gemini の堅牢性を評価し、Gemini を活用してソーシャル インタラクション、時間的イベント、動画入力に基づくリスク要因を分析してきました。」
 
-[האתר של Diyi Yang](https://cs.stanford.edu/~diyiy/)
+[Diyi Yang のウェブサイト](https://cs.stanford.edu/~diyiy/)
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=he)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=ja)
 
-‫"Gemini Pro ו-Flash, עם חלון ההקשר הארוך שלהם, עוזרים לנו ב-OK-Robot, פרויקט המניפולציה הניידת שלנו עם אוצר מילים פתוח. ‫Gemini מאפשר לשלוח שאילתות ופקודות מורכבות בשפה טבעית ל"זיכרון" של הרובוט: במקרה הזה, תצפיות קודמות שהרובוט ביצע במהלך פעולה ארוכה. גם אני ומאהי שפיאוללה משתמשים ב-Gemini כדי לפרק משימות לקוד שהרובוט יכול להריץ בעולם האמיתי".
+「Gemini Pro と Flash は、長いコンテキスト ウィンドウを備えており、オープン ボキャブラリー モバイル マニピュレーション プロジェクトである OK-Robot で活用されています。Gemini を使用すると、ロボットの「メモリ」（この場合は、ロボットが長期間の動作中に取得した過去の観測データ）に対して、複雑な自然言語クエリとコマンドを実行できます。Mahi Shafiullah と私は、Gemini を使用して、ロボットが現実世界で実行できるコードにタスクを分解しています。」
 
-[האתר של Lerrel Pinto](https://www.lerrelpinto.com/)
+[Lerrel Pinto のウェブサイト](https://www.lerrelpinto.com/)
 
-## Gemini Academic Program
+## Gemini アカデミック プログラム
 
-חוקרים אקדמיים שעומדים בדרישות (כמו חברי סגל, עובדים וסטודנטים לתואר שלישי) ב[מדינות נתמכות](https://ai.google.dev/gemini-api/docs/available-regions?hl=he) יכולים להגיש בקשה לקבלת קרדיטים ל-Gemini API ומכסות שימוש גבוהות יותר לפרויקטים מחקריים. התמיכה הזו מאפשרת תפוקה גבוהה יותר בניסויים מדעיים ומקדמת את המחקר.
+[対象国](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)の認定学術研究者（教員、職員、博士課程の学生など）は、研究プロジェクトで Gemini API クレジットとレート上限の引き上げを受けることができます。このサポートにより、科学実験のスループットが向上し、研究が進歩します。
 
-אנחנו מתעניינים במיוחד בתחומי המחקר שמפורטים בקטע הבא, אבל אנחנו מקבלים בקשות מתחומים מדעיים מגוונים:
+特に、次のセクションの研究分野に関心がありますが、さまざまな科学分野からの応募を歓迎します。
 
-- **הערכות ובנצ'מרקים**: שיטות הערכה שקיבלו אישור מהקהילה ויכולות לספק אות חזק של ביצועים בתחומים כמו עובדתיות, בטיחות, ביצוע הוראות, חשיבה רציונלית ותכנון.
-- **קידום גילויים מדעיים לטובת האנושות**: יישומים פוטנציאליים של AI במחקר מדעי רב-תחומי, כולל תחומים כמו מחלות נדירות ומוזנחות, ביולוגיה ניסויית, מדע חומרים וקיימות.
-- **התגלמות ואינטראקציות**: שימוש במודלים גדולים של שפה כדי לחקור אינטראקציות חדשות בתחומי ה-AI המגולם, האינטראקציות הסביבתיות, הרובוטיקה והאינטראקציה בין אדם למחשב.
-- **יכולות מתפתחות**: בחינת יכולות אג'נטיות חדשות שנדרשות לשיפור חשיבה רציונלית ותכנון, ואיך אפשר להרחיב את היכולות במהלך היקש (למשל, באמצעות Gemini Flash).
-- **אינטראקציה והבנה מולטי-מודאליות**: זיהוי פערים והזדמנויות במודלים בסיסיים מולטי-מודאליים לניתוח, להסקת מסקנות ולתכנון במגוון משימות.
+- **評価とベンチマーク**: 事実性、安全性、指示の遵守、推論、計画などの分野で強力なパフォーマンス シグナルを提供できる、コミュニティで承認された評価方法。
+- **人類に利益をもたらす科学的発見の加速**: 希少疾患や顧みられない病気、実験生物学、材料科学、持続可能性などの分野を含む、学際的な科学研究における AI の潜在的な応用。
+- **エンボディメントとインタラクション**: 大規模言語モデルを活用して、エンボディド AI、アンビエント インタラクション、ロボティクス、ヒューマン コンピュータ インタラクションの分野における新しいインタラクションを調査します。
+- **新機能**: 推論と計画を強化するために必要な新しいエージェント機能を検討し、推論中に機能を拡張する方法（Gemini Flash の活用など）を検討します。
+- **マルチモーダルなインタラクションと理解**: さまざまなタスクにわたる分析、推論、計画のためのマルチモーダル基盤モデルのギャップと機会を特定します。
 
-הזכאות: רק אנשים פרטיים (חברי סגל, חוקרים או אנשים בתפקיד מקביל) שמשויכים למוסד אקדמי תקף או לארגון מחקר אקדמי יכולים להגיש בקשה. הערה: Google תעניק ותסיר גישה ל-API וקרדיטים לפי שיקול דעתה. אנחנו בודקים את הבקשות אחת לחודש.
+対象: 有効な教育機関または学術研究機関に所属する個人（教員、研究者など）のみが申請できます。API へのアクセス権とクレジットは、Google の裁量で付与および削除されます。お申し込みは毎月審査されます。
 
-### איך מתחילים לחקור באמצעות Gemini API
+### Gemini API を使用して調査を開始する
 
-[להגשת בקשה](https://forms.gle/HMviQstU8PxC5iCt5)
+[今すぐ申し込む](https://forms.gle/HMviQstU8PxC5iCt5)
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-עדכון אחרון: 2026-09-24 (שעון UTC).
+最終更新日 2026-09-24 UTC。
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-24 UTC。"],[],[]]

@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=vi
-fetched_at: 2026-09-28T06:11:53.409285+00:00
-title: "Hi\u1ec3u \u00e2m thanh \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=it
+fetched_at: 2026-10-05T06:37:44.003236+00:00
+title: "Comprensione dell'audio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Gửi ý kiến phản hồi
+Invia feedback
 
-# Hiểu âm thanh
+# Comprensione dell'audio
 
-Gemini có thể phân tích thông tin đầu vào bằng âm thanh và tạo câu trả lời bằng văn bản.
+Gemini può analizzare l'input audio e generare risposte di testo.
 
 ### Python
 
@@ -190,22 +190,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Tổng quan
+## Panoramica
 
-Gemini có thể phân tích và hiểu dữ liệu đầu vào là âm thanh, đồng thời tạo ra câu trả lời bằng văn bản, từ đó hỗ trợ các trường hợp sử dụng như:
+Gemini può analizzare e comprendere l'input audio e generare risposte di testo,
+consentendo casi d'uso come:
 
-- Mô tả, tóm tắt hoặc trả lời câu hỏi về nội dung âm thanh
-- Chép lời và dịch (lời nói thành văn bản)
-- Phân tách người nói (xác định những người nói khác nhau)
-- Phát hiện cảm xúc trong lời nói và âm nhạc
-- Phân tích các phân đoạn cụ thể bằng dấu thời gian
+- Descrivere, riassumere o rispondere a domande sui contenuti audio
+- Trascrizione e traduzione (conversione della voce in testo)
+- Diarizzazione degli interlocutori (identificazione di diversi interlocutori)
+- Rilevamento delle emozioni nel parlato e nella musica
+- Analizzare segmenti specifici con timestamp
 
-Để biết thông tin về các hoạt động tương tác bằng giọng nói và video theo thời gian thực, hãy xem [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
-Đối với các mô hình chuyển lời nói thành văn bản chuyên dụng có hỗ trợ phiên âm theo thời gian thực, hãy sử dụng [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=vi).
+Per interazioni vocali e video in tempo reale, consulta l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it).
+Per modelli di sintesi vocale dedicati con supporto per la trascrizione in tempo reale,
+utilizza l'[API Google Cloud Speech-to-Text](https://cloud.google.com/speech-to-text?hl=it).
 
-## Chuyển lời nói thành văn bản
+## Trascrivere la voce in testo
 
-Ví dụ này cho thấy cách chép lời, dịch và tóm tắt lời nói có dấu thời gian, phân biệt người nói và phát hiện cảm xúc bằng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi).
+Questo esempio mostra come trascrivere, tradurre e riassumere un discorso con
+timestamp, diarizzazione dei parlanti e rilevamento delle emozioni utilizzando
+[output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it).
 
 ### Python
 
@@ -539,18 +543,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![Ứng dụng Gemini có tính năng chuyển âm thanh thành văn bản bằng nhiều ngôn ngữ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=vi)
+![Un'app Gemini per la trascrizione audio multilingue](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=it)
 
-## Âm thanh đầu vào
+## Audio di input
 
-Bạn có thể cung cấp dữ liệu âm thanh theo những cách sau:
+Puoi fornire i dati audio nei seguenti modi:
 
-- [Tải tệp âm thanh lên](#upload-audio) trước khi đưa ra yêu cầu.
-- [Truyền dữ liệu âm thanh nội tuyến](#inline-audio) bằng yêu cầu.
+- [Carica un file audio](#upload-audio) prima di effettuare una richiesta.
+- [Trasmetti i dati audio incorporati](#inline-audio) con la richiesta.
 
-### Tải tệp âm thanh lên
+### Caricare un file audio
 
-Sử dụng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) cho các tệp lớn hơn 20 MB.
+Utilizza l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it) per i file più grandi di 20 MB.
 
 ### Python
 
@@ -723,9 +727,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Truyền dữ liệu âm thanh cùng dòng
+### Trasmettere i dati audio in linea
 
-Đối với các tệp âm thanh nhỏ có tổng kích thước yêu cầu dưới 20 MB:
+Per i file audio di piccole dimensioni con una dimensione totale della richiesta inferiore a 20 MB:
 
 ### Python
 
@@ -906,13 +910,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Lưu ý về dữ liệu âm thanh nội tuyến:
-\* Tổng kích thước yêu cầu tối đa là 20 MB (bao gồm cả câu lệnh và tất cả các tệp)
-\* Để sử dụng lại, hãy [tải tệp lên](#upload-audio) thay vì sử dụng dữ liệu âm thanh nội tuyến
+Note sui dati audio in linea:
+\* La dimensione massima della richiesta è 20 MB totali (inclusi i prompt e tutti i file)
+\* Per il riutilizzo, [carica il file](#upload-audio)
 
-## Lấy bản chép lời
+## Ottenere una trascrizione
 
-Để nhận bản chép lời, hãy yêu cầu bản chép lời trong câu lệnh:
+Per ottenere una trascrizione, chiedila nel prompt:
 
 ### Python
 
@@ -1048,9 +1052,9 @@ func main() {
 }
 ```
 
-## Tham khảo dấu thời gian
+## Fare riferimento ai timestamp
 
-Sử dụng định dạng `MM:SS` để tham chiếu các phần cụ thể:
+Utilizza il formato `MM:SS` per fare riferimento a sezioni specifiche:
 
 ### Python
 
@@ -1181,9 +1185,9 @@ func main() {
 }
 ```
 
-## Đếm số lượng mã thông báo
+## Contare i token
 
-Đếm số mã thông báo trong một tệp âm thanh:
+Per contare i token in un file audio:
 
 ### Python
 
@@ -1278,46 +1282,48 @@ func main() {
 }
 ```
 
-## Định dạng âm thanh được hỗ trợ
+## Formati audio supportati
 
-Gemini hỗ trợ các loại MIME định dạng âm thanh sau:
+Gemini supporta i seguenti tipi MIME di formati audio:
 
-- WAV – `audio/wav`
-- MP3 – `audio/mp3`
-- AIFF – `audio/aiff`
-- AAC – `audio/aac`
-- OGG – `audio/ogg`
-- FLAC – `audio/flac`
-- MPEG – `audio/mpeg`
-- M4A – `audio/m4a`
-- L16 – `audio/l16`
-- Opus – `audio/opus`
-- ALAW – `audio/alaw`
-- MULAW – `audio/mulaw`
-- WebM – `audio/webm`
+- WAV - `audio/wav`
+- MP3 - `audio/mp3`
+- AIFF - `audio/aiff`
+- AAC - `audio/aac`
+- OGG - `audio/ogg`
+- FLAC - `audio/flac`
+- MPEG - `audio/mpeg`
+- M4A - `audio/m4a`
+- L16 - `audio/l16`
+- Opus - `audio/opus`
+- ALAW - `audio/alaw`
+- MULAW - `audio/mulaw`
+- WebM - `audio/webm`
 
-Để xem danh sách đầy đủ các loại MIME và giản đồ tham số được hỗ trợ, hãy xem [Tài liệu tham khảo về Interactions API](https://ai.google.dev/api/interactions-api?hl=vi#Resource:Content).
+Per l'elenco completo dei tipi MIME e degli schemi dei parametri supportati, consulta il [riferimento API Interactions](https://ai.google.dev/api/interactions-api?hl=it#Resource:Content).
 
-## Thông tin kỹ thuật về âm thanh
+## Dettagli tecnici sull'audio
 
-- **Mã thông báo**: 32 mã thông báo cho mỗi giây âm thanh (1 phút = 1.920 mã thông báo)
-- **Âm thanh không phải lời nói**: Gemini hiểu được âm thanh không phải lời nói (tiếng chim hót, tiếng còi báo động, v.v.)
-- **Độ dài tối đa**: 9,5 giờ âm thanh cho mỗi câu lệnh
-- **Độ phân giải**: Giảm xuống còn 16 Kbps
-- **Kênh**: Âm thanh nhiều kênh kết hợp thành một kênh
+- **Token**: 32 token al secondo di audio (1 minuto = 1920 token)
+- **Non vocali**: Gemini comprende i suoni non vocali (canti di uccelli, sirene e così via).
+- **Lunghezza massima**: 9 ore e 30 minuti di audio per prompt
+- **Risoluzione**: sottocampionata a 16 Kbps
+- **Canali**: audio multicanale combinato a un singolo canale
 
-## Bước tiếp theo
+## Passaggi successivi
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi): Tải lên và quản lý tệp âm thanh
-- [Hướng dẫn của hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Tuỳ chỉnh hành vi của mô hình
-- [Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi): Nhận kết quả phiên âm ở định dạng JSON
+- [API Files](https://ai.google.dev/gemini-api/docs/files?hl=it): carica e gestisci i file audio
+- [Istruzioni di sistema](https://ai.google.dev/gemini-api/docs/text-generation?hl=it#system-instructions):
+  Personalizza il comportamento del modello
+- [Output strutturato](https://ai.google.dev/gemini-api/docs/structured-output?hl=it):
+  Ottieni i risultati della trascrizione in formato JSON
 
-Gửi ý kiến phản hồi
+Invia feedback
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Cập nhật lần gần đây nhất: 2026-09-24 UTC.
+Ultimo aggiornamento 2026-09-24 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Vuoi dirci altro?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-24 UTC."],[],[]]

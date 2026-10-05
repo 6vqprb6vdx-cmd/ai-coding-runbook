@@ -1,42 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=id
-fetched_at: 2026-09-28T06:23:54.300354+00:00
-title: "Output terstruktur \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=hi
+fetched_at: 2026-10-05T06:41:19.644547+00:00
+title: "\u0938\u094d\u091f\u094d\u0930\u0915\u094d\u091a\u0930\u094d\u0921 \u0906\u0909\u091f\u092a\u0941\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Output terstruktur
+# स्ट्रक्चर्ड आउटपुट
 
-Anda dapat mengonfigurasi model Gemini untuk menghasilkan respons yang sesuai dengan Skema JSON yang diberikan. Hal ini memastikan hasil yang dapat diprediksi dan aman untuk jenis, serta menyederhanakan
-ekstraksi data terstruktur dari teks tidak terstruktur.
+Gemini मॉडल को कॉन्फ़िगर करके, दिए गए JSON स्कीमा के मुताबिक जवाब जनरेट किए जा सकते हैं. इससे टाइप-सेफ़ नतीजे मिलते हैं और बिना स्ट्रक्चर वाले टेक्स्ट से स्ट्रक्चर्ड डेटा को आसानी से निकाला जा सकता है.
 
-Penggunaan output terstruktur sangat ideal untuk:
+स्ट्रक्चर्ड आउटपुट का इस्तेमाल इन कामों के लिए सबसे सही है:
 
-- **Ekstraksi data:** Mengambil informasi tertentu seperti nama dan tanggal dari teks.
-- **Klasifikasi terstruktur:** Mengklasifikasikan teks ke dalam kategori yang telah ditentukan.
-- **Alur kerja agentic:** Membuat input terstruktur untuk alat atau API.
+- **डेटा निकालना:** टेक्स्ट से नाम और तारीख जैसी खास जानकारी निकालना.
+- **स्ट्रक्चर्ड क्लासिफ़िकेशन:** टेक्स्ट को पहले से तय की गई कैटगरी में बांटें.
+- **एजेंटिक वर्कफ़्लो:** टूल या एपीआई के लिए स्ट्रक्चर्ड इनपुट जनरेट करें.
 
-Selain mendukung Skema JSON di REST API, Google GenAI SDK
-memungkinkan penentuan skema menggunakan
-[Pydantic](https://docs.pydantic.dev/latest/) (Python) dan
-[Zod](https://zod.dev/) (JavaScript).
+REST API में JSON स्कीमा के साथ-साथ, Google के GenAI SDK, [Pydantic](https://docs.pydantic.dev/latest/) (Python) और [Zod](https://zod.dev/) (JavaScript) का इस्तेमाल करके स्कीमा तय करने की सुविधा देते हैं.
 
-## Contoh output terstruktur
+## स्ट्रक्चर्ड आउटपुट के उदाहरण
 
-### Pengekstrak Resep
+### रेसिपी एक्सट्रैक्टर
 
-Contoh ini menunjukkan cara mengekstrak data terstruktur dari teks menggunakan jenis Skema JSON dasar seperti `object`, `array`, `string`, dan `integer`.
+इस उदाहरण में बताया गया है कि `object`, `array`, `string`, और `integer` जैसे बुनियादी JSON स्कीमा टाइप का इस्तेमाल करके, टेक्स्ट से स्ट्रक्चर्ड डेटा कैसे निकाला जाता है.
 
 ### Python
 
@@ -252,7 +248,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -394,7 +390,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Contoh Respons:**
+**जवाब का उदाहरण:**
 
 ```
 {
@@ -422,10 +418,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Moderasi Konten
+### कॉन्टेंट मॉडरेट करने की सुविधा
 
-Contoh ini menampilkan `anyOf` untuk skema bersyarat dan `enum` untuk
-klasifikasi, sehingga struktur output dapat bervariasi berdasarkan konten.
+इस उदाहरण में, शर्त के साथ स्कीमा लागू करने के लिए `anyOf` और क्लासिफ़िकेशन के लिए `enum` का इस्तेमाल किया गया है. इससे कॉन्टेंट के आधार पर आउटपुट स्ट्रक्चर में बदलाव किया जा सकता है.
 
 ### Python
 
@@ -617,7 +612,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -756,7 +751,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Contoh Respons:**
+**जवाब का उदाहरण:**
 
 ```
 {
@@ -767,10 +762,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Struktur Rekursif
+### रिकर्सिव स्ट्रक्चर
 
-Contoh ini menggambarkan cara menentukan skema rekursif seperti
-diagram organisasi.
+इस उदाहरण में, किसी रिकर्सिव स्कीमा को तय करने का तरीका बताया गया है. जैसे, संगठन का चार्ट.
 
 ### Python
 
@@ -921,7 +915,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1022,7 +1016,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Contoh Respons:**
+**जवाब का उदाहरण:**
 
 ```
 {
@@ -1049,9 +1043,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Hasil streaming
+## स्ट्रीमिंग के नतीजे
 
-Anda dapat mengalirkan output terstruktur, sehingga Anda dapat mulai memproses respons saat respons tersebut sedang dibuat. Potongan yang di-streaming adalah string JSON parsial yang valid yang dapat digabungkan untuk membentuk objek JSON akhir.
+स्ट्रक्चर्ड आउटपुट को स्ट्रीम किया जा सकता है. इससे, जवाब जनरेट होने के साथ-साथ उसे प्रोसेस किया जा सकता है. स्ट्रीम किए गए चंक, मान्य पार्शियल JSON स्ट्रिंग होते हैं. इन्हें जोड़कर, फ़ाइनल JSON ऑब्जेक्ट बनाया जा सकता है.
 
 ### Python
 
@@ -1198,7 +1192,7 @@ try (EventStream<InteractionSSEStreamEvent> events = response.events()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1294,14 +1288,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## Output terstruktur dengan alat
+## टूल की मदद से स्ट्रक्चर्ड आउटपुट
 
-Gemini 3 memungkinkan Anda menggabungkan Output Terstruktur dengan alat bawaan, termasuk
-[Perujukan dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id),
-[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id),
-[Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id),
-[Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id#structured-output), dan
-[Pemanggilan Fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
+Gemini 3 की मदद से, स्ट्रक्चर्ड आउटपुट को पहले से मौजूद टूल के साथ जोड़ा जा सकता है. इनमें ये टूल शामिल हैं:
+[Google Search से जानकारी पाना](https://ai.google.dev/gemini-api/docs/google-search?hl=hi),
+[यूआरएल का कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi),
+[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi),
+[फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi#structured-output), और
+[फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi).
 
 ### Python
 
@@ -1435,7 +1429,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1533,80 +1527,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Dukungan skema JSON
+## JSON स्कीमा का इस्तेमाल करने की सुविधा
 
-Untuk membuat objek JSON, konfigurasi `response_format` dengan objek (atau array yang berisi objek) berjenis `text` dan tetapkan `mime_type`-nya ke `application/json`. Skema harus diberikan di kolom `schema`.
+JSON ऑब्जेक्ट जनरेट करने के लिए, `response_format` को `text` टाइप के ऑब्जेक्ट (या ऑब्जेक्ट वाला कलेक्शन) के साथ कॉन्फ़िगर करें. साथ ही, इसके `mime_type` को `application/json` पर सेट करें. स्कीमा, `schema` फ़ील्ड में दिया जाना चाहिए.
 
-Mode output terstruktur Gemini mendukung subset spesifikasi
-[JSON Schema](https://json-schema.org/).
+Gemini का स्ट्रक्चर्ड आउटपुट मोड, [JSON स्कीमा](https://json-schema.org/) स्पेसिफ़िकेशन के सबसेट के साथ काम करता है.
 
-Nilai `type` berikut didukung:
+`type` एट्रिब्यूट की इन वैल्यू का इस्तेमाल किया जा सकता है:
 
-- **`string`**: Untuk teks.
-- **`number`**: Untuk bilangan floating point.
-- **`integer`**: Untuk bilangan bulat.
-- **`boolean`**: Untuk nilai benar atau salah.
-- **`object`**: Untuk data terstruktur dengan pasangan nilai kunci.
-- **`array`**: Untuk daftar item.
-- **`null`**: Untuk mengizinkan properti bernilai null, sertakan `"null"` dalam array jenis (misalnya, `{"type": ["string", "null"]}`).
+- **`string`**: टेक्स्ट के लिए.
+- **`number`**: फ़्लोटिंग-पॉइंट नंबर के लिए.
+- **`integer`**: पूर्णांकों के लिए.
+- **`boolean`**: सही या गलत वैल्यू के लिए.
+- **`object`**: यह स्ट्रक्चर्ड डेटा के लिए होता है, जिसमें कुंजी-वैल्यू पेयर होते हैं.
+- **`array`**: आइटम की सूचियों के लिए.
+- **`null`**: किसी प्रॉपर्टी को शून्य के तौर पर सेट करने के लिए, टाइप कलेक्शन में `"null"` शामिल करें. उदाहरण के लिए, `{"type": ["string", "null"]}`.
 
-Properti deskriptif ini membantu memandu model:
+ब्यौरे वाली इन प्रॉपर्टी से, मॉडल को सही जानकारी देने में मदद मिलती है:
 
-- **`title`**: Deskripsi singkat properti.
-- **`description`**: Deskripsi properti yang lebih panjang dan mendetail.
+- **`title`**: किसी प्रॉपर्टी के बारे में कम शब्दों में जानकारी.
+- **`description`**: किसी प्रॉपर्टी के बारे में ज़्यादा जानकारी.
 
-### Properti spesifik per jenis
+### टाइप के हिसाब से प्रॉपर्टी
 
-**Untuk nilai `object`:**
+**`object` वैल्यू के लिए:**
 
-- **`properties`**: Objek dengan setiap kunci adalah nama properti dan setiap nilai adalah skema untuk properti tersebut.
-- **`required`**: Array string, yang mencantumkan properti mana yang wajib diisi.
-- **`additionalProperties`**: Mengontrol apakah properti yang tidak tercantum dalam `properties` diizinkan. Dapat berupa boolean atau skema.
+- **`properties`**: यह एक ऐसा ऑब्जेक्ट है जिसमें हर कुंजी, प्रॉपर्टी का नाम होती है और हर वैल्यू, उस प्रॉपर्टी का स्कीमा होती है.
+- **`required`**: यह स्ट्रिंग का एक कलेक्शन है. इसमें यह जानकारी होती है कि कौनसी प्रॉपर्टी ज़रूरी हैं.
+- **`additionalProperties`**: इससे यह कंट्रोल किया जाता है कि `properties` में शामिल नहीं की गई प्रॉपर्टी को अनुमति दी जाए या नहीं. यह बूलियन या स्कीमा हो सकता है.
 
-**Untuk nilai `string`:**
+**`string` वैल्यू के लिए:**
 
-- **`enum`**: Mencantumkan kumpulan string tertentu yang mungkin untuk tugas klasifikasi.
-- **`format`**: Menentukan sintaksis untuk string, seperti `date-time`, `date`, `time`.
+- **`enum`**: इसमें क्लासिफ़िकेशन के टास्क के लिए, संभावित स्ट्रिंग का एक खास सेट दिया जाता है.
+- **`format`**: यह स्ट्रिंग के लिए सिंटैक्स तय करता है. जैसे, `date-time`, `date`, `time`.
 
-**Untuk nilai `number` dan `integer`:**
+**`number` और `integer` वैल्यू के लिए:**
 
-- **`enum`**: Mencantumkan serangkaian nilai numerik tertentu yang mungkin.
-- **`minimum`**: Nilai inklusif minimum.
-- **`maximum`**: Nilai inklusif maksimum.
+- **`enum`**: यह संभावित संख्यात्मक वैल्यू का एक खास सेट दिखाता है.
+- **`minimum`**: कम से कम वैल्यू.
+- **`maximum`**: ज़्यादा से ज़्यादा वैल्यू.
 
-**Untuk nilai `array`:**
+**`array` वैल्यू के लिए:**
 
-- **`items`**: Menentukan skema untuk semua item dalam array.
-- **`prefixItems`**: Menentukan daftar skema untuk N item pertama, sehingga memungkinkan struktur seperti tuple.
-- **`minItems`**: Jumlah minimum item dalam array.
-- **`maxItems`**: Jumlah maksimum item dalam array.
+- **`items`**: यह कलेक्शन में मौजूद सभी आइटम के लिए स्कीमा तय करता है.
+- **`prefixItems`**: यह पहले N आइटम के लिए स्कीमा की एक सूची तय करता है. इससे टपल जैसे स्ट्रक्चर बनाए जा सकते हैं.
+- **`minItems`**: कलेक्शन में मौजूद आइटम की कम से कम संख्या.
+- **`maxItems`**: कलेक्शन में मौजूद आइटम की ज़्यादा से ज़्यादा संख्या.
 
-## Output terstruktur versus pemanggilan fungsi
+## स्ट्रक्चर्ड आउटपुट बनाम फ़ंक्शन कॉलिंग
 
-| Fitur | Kasus Penggunaan Utama |
+| सुविधा | इस्तेमाल का मुख्य उदाहरण |
 | --- | --- |
-| **Output Terstruktur** | **Memformat respons akhir.** Gunakan saat Anda menginginkan *jawaban* model dalam format tertentu. |
-| **Pemanggilan Fungsi** | **Mengambil tindakan selama percakapan.** Gunakan saat model perlu *meminta Anda* melakukan tugas sebelum memberikan jawaban akhir. |
+| **स्ट्रक्चर्ड आउटपुट** | **आखिरी जवाब को फ़ॉर्मैट किया जा रहा है.** इसका इस्तेमाल तब करें, जब आपको मॉडल से *जवाब* किसी खास फ़ॉर्मैट में चाहिए हो. |
+| **फ़ंक्शन कॉलिंग** | **बातचीत के दौरान कार्रवाई करना.** इसका इस्तेमाल तब करें, जब मॉडल को फ़ाइनल जवाब देने से पहले, किसी टास्क को पूरा करने के लिए *आपसे पूछना* हो. |
 
-## Praktik terbaik
+## सबसे सही तरीके
 
-- **Deskripsi yang jelas:** Gunakan kolom `description` untuk memandu model.
-- **Pengetikan kuat:** Gunakan jenis tertentu (`integer`, `string`, `enum`).
-- **Rekayasa perintah:** Nyatakan dengan jelas apa yang Anda ingin model lakukan.
-- **Validasi:** Meskipun output adalah JSON yang benar secara sintaksis, selalu validasi nilai di aplikasi Anda.
-- **Penanganan error:** Terapkan penanganan error yang andal untuk output yang sesuai dengan skema, tetapi salah secara semantik.
+- **साफ़ तौर पर ब्यौरा देना:** मॉडल को सही जानकारी देने के लिए, `description` फ़ील्ड का इस्तेमाल करें.
+- **स्ट्रॉन्ग टाइपिंग:** खास टाइप (`integer`, `string`, `enum`) का इस्तेमाल करें.
+- **प्रॉम्प्ट इंजीनियरिंग:** मॉडल को साफ़ तौर पर बताएं कि आपको उससे क्या काम कराना है.
+- **पुष्टि करना:** आउटपुट, सिंटैक्टिक तौर पर सही JSON है. हालांकि, अपने ऐप्लिकेशन में वैल्यू की हमेशा पुष्टि करें.
+- **गड़बड़ी ठीक करना:** स्कीमा के मुताबिक, लेकिन सिमेंटिक रूप से गलत आउटपुट के लिए, गड़बड़ी ठीक करने की मज़बूत सुविधा लागू करें.
 
-## Batasan
+## सीमाएं
 
-- **Subkumpulan skema:** Tidak semua fitur Skema JSON didukung.
-- **Kompleksitas skema:** Skema yang sangat besar atau memiliki banyak tingkat mungkin ditolak.
+- **स्कीमा का सबसेट:** JSON स्कीमा की सभी सुविधाओं के साथ काम नहीं करता.
+- **स्कीमा की जटिलता:** बहुत बड़े या नेस्ट किए गए स्कीमा अस्वीकार किए जा सकते हैं.
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-09-24 UTC.
+आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=fr
-fetched_at: 2026-09-28T06:15:51.570264+00:00
-title: "Premiers pas avec l'API Gemini\u00a0Live \u00e0 l'aide du SDK Google GenAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=pt-BR
+fetched_at: 2026-10-05T06:35:59.628415+00:00
+title: "Come\u00e7ar a usar a API Gemini Live com o SDK da IA generativa do Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Envoyer des commentaires
+Envie comentários
 
-# Premiers pas avec l'API Gemini Live à l'aide du SDK Google GenAI
+# Começar a usar a API Gemini Live com o SDK da IA generativa do Google
 
-L'API Gemini Live permet une interaction bidirectionnelle en temps réel avec les modèles Gemini, et accepte les entrées audio, vidéo et texte, ainsi que les sorties audio natives. Ce guide explique comment intégrer l'API à l'aide du SDK Google GenAI sur votre serveur.
+A API Gemini Live permite a interação bidirecional em tempo real com os modelos do Gemini, oferecendo suporte a entradas de áudio, vídeo e texto, além de saídas de áudio nativas. Este guia explica como fazer a integração com a API usando o SDK do Google GenAI no seu servidor.
 
-[Essayer l'API Live dans Google AI Studiomic](https://aistudio.google.com/live?hl=fr)
-[Cloner l'exemple d'application depuis GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[Utiliser les compétences de l'agent de codageterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=fr)
+[Testar a API Live no Google AI Studiomic](https://aistudio.google.com/live?hl=pt-br)
+[Clonar o app de exemplo do GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Usar habilidades do agente de codificaçãoterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br)
 
-## Présentation
+## Visão geral
 
-L'API Gemini Live utilise WebSockets pour la communication en temps réel. Le SDK `google-genai` fournit une interface asynchrone de haut niveau pour gérer ces connexions.
+A API Gemini Live usa WebSockets para comunicação em tempo real. O SDK `google-genai` oferece uma interface assíncrona de alto nível para gerenciar essas conexões.
 
-Concepts clés :
+Principais conceitos:
 
-- **Session** : connexion persistante au modèle.
-- **Configuration** : configuration des modalités (audio/texte), de la voix et des instructions système.
-- **Entrée en temps réel** : envoi de frames audio et vidéo sous forme de blobs.
+- **Sessão**: uma conexão persistente com o modelo.
+- **Configuração**: configuração de modalidades (áudio/texto), voz e instruções do sistema.
+- **Entrada em tempo real**: envio de frames de áudio e vídeo como blobs.
 
-## Se connecter à l'API Live
+## Como se conectar à API Live
 
-Démarrez une session de l'API Live avec une clé API :
+Inicie uma sessão da API Live com uma chave de API:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## Envoi de texte
+## Enviando texto
 
-Le texte peut être envoyé à l'aide de `send_realtime_input` (Python) ou `sendRealtimeInput` (JavaScript).
+O texto pode ser enviado usando `send_realtime_input` (Python) ou `sendRealtimeInput` (JavaScript).
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## Envoi d'audio
+## Enviando áudio
 
-L'audio doit être envoyé sous forme de données PCM brutes (audio PCM 16 bits brut, 16 kHz, little-endian).
+O áudio precisa ser enviado como dados PCM brutos (áudio PCM bruto de 16 bits, 16 kHz, little-endian).
 
 ### Python
 
@@ -143,12 +143,12 @@ session.sendRealtimeInput({
 });
 ```
 
-Pour obtenir un exemple de récupération de l'audio à partir de l'appareil client (par exemple, le navigateur)
-consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
+Para um exemplo de como receber o áudio do dispositivo cliente (por exemplo, o navegador)
+consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
 
-## Envoi de vidéo
+## Enviando vídeo
 
-Les frames vidéo sont envoyées sous forme d'images individuelles (par exemple, JPEG ou PNG) à une fréquence d'images spécifique (1 frame par seconde maximum).
+Os frames de vídeo são enviados como imagens individuais (por exemplo, JPEG ou PNG) em uma taxa de frames específica (máximo de 1 frame por segundo).
 
 ### Python
 
@@ -174,12 +174,12 @@ session.sendRealtimeInput({
 });
 ```
 
-Pour obtenir un exemple de récupération de la vidéo à partir de l'appareil client (par exemple, le navigateur)
-consultez l'exemple de bout en bout sur [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
+Para um exemplo de como receber o vídeo do dispositivo cliente (por exemplo, o navegador)
+consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
 
-## Réception d'audio
+## Recebendo áudio
 
-Les réponses audio du modèle sont reçues sous forme de blocs de données.
+As respostas de áudio do modelo são recebidas como partes de dados.
 
 ### Python
 
@@ -207,11 +207,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-Consultez l'exemple d'application sur GitHub pour découvrir comment [recevoir l'audio sur votre serveur](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) et [le lire dans le navigateur](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
+Consulte o app de exemplo no GitHub para saber como [receber o áudio no servidor](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) e [reproduzi-lo no navegador](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
 
-## Réception de texte
+## Recebendo texto
 
-Les transcriptions des entrées utilisateur et des sorties du modèle sont disponibles dans le contenu du serveur.
+As transcrições da entrada do usuário e da saída do modelo estão disponíveis no conteúdo do servidor.
 
 ### Python
 
@@ -238,9 +238,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## Gérer les appels d'outils
+## Como processar chamadas de ferramentas
 
-L'API est compatible avec les appels d'outils (appels de fonction). Lorsque le modèle demande un appel d'outil, vous devez exécuter la fonction et renvoyer la réponse.
+A API oferece suporte a chamadas de ferramentas (chamadas de função). Quando o modelo solicita uma chamada de ferramenta, você precisa executar a função e enviar a resposta de volta.
 
 ### Python
 
@@ -281,20 +281,20 @@ if (response.toolCall) {
 }
 ```
 
-## Étape suivante
+## A seguir
 
-- Consultez le guide complet sur les fonctionnalités de l'API Live [Fonctionnalités](https://ai.google.dev/gemini-api/docs/live-guide?hl=fr) pour découvrir les principales fonctionnalités et configurations, y compris la détection d'activité vocale et les fonctionnalités audio natives.
-- Consultez le [guide sur l'utilisation des outils](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr) pour découvrir comment intégrer l'API Live aux outils et aux appels de fonction.
-- Consultez le [guide sur la gestion des sessions](https://ai.google.dev/gemini-api/docs/live-session?hl=fr) pour gérer les conversations de longue durée.
-- Consultez le guide sur les [jetons éphémères](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=fr) pour l'authentification sécurisée dans les applications [client-serveur](https://ai.google.dev/gemini-api/docs/live-api?hl=fr#implementation-approach).
-- Pour en savoir plus sur l'API WebSockets sous-jacente, consultez la [documentation de référence de l'API WebSockets](https://ai.google.dev/api/live?hl=fr).
+- Leia o guia completo de [recursos](https://ai.google.dev/gemini-api/docs/live-guide?hl=pt-br) da API Live para conferir os principais recursos e configurações, incluindo a detecção de atividade de voz e recursos de áudio nativos.
+- Leia o [guia de uso de ferramentas](https://ai.google.dev/gemini-api/docs/live-tools?hl=pt-br) para saber como integrar a API Live com ferramentas e chamadas de função.
+- Leia o [guia de gerenciamento de sessões](https://ai.google.dev/gemini-api/docs/live-session?hl=pt-br) para gerenciar conversas longas.
+- Leia o guia de [tokens temporários](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=pt-br) para autenticação segura em aplicativos [cliente-servidor](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br#implementation-approach).
+- Para mais informações sobre a API WebSockets subjacente, consulte a [referência da API WebSockets](https://ai.google.dev/api/live?hl=pt-br).
 
-Envoyer des commentaires
+Envie comentários
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Dernière mise à jour le 2026/09/17 (UTC).
+Última atualização 2026-09-17 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Quer enviar seu feedback?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/17 (UTC)."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-17 UTC."],[],[]]

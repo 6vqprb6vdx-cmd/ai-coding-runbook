@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=zh-CN
-fetched_at: 2026-09-28T06:23:57.600837+00:00
+fetched_at: 2026-10-05T06:27:12.926162+00:00
 title: "Lyria \u63d0\u793a\u6307\u5357 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

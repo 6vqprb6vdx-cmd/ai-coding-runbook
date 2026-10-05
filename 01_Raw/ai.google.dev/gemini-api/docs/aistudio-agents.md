@@ -1,138 +1,139 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=de
-fetched_at: 2026-09-28T06:21:41.065572+00:00
-title: "KI-Agenten im AI\u00a0Studio-Playground \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=ja
+fetched_at: 2026-10-05T06:26:54.727194+00:00
+title: "AI Studio \u30d7\u30ec\u30a4\u30b0\u30e9\u30a6\u30f3\u30c9\u306e\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Feedback geben
+フィードバックを送信
 
-# KI-Agenten im AI Studio-Playground
+# AI Studio プレイグラウンドのエージェント
 
-Google AI Studio Playground bietet eine visuelle Oberfläche, mit der Sie Prototypen erstellen und lernen können, wie Sie verwaltete Agents entwickeln, ohne API-Aufrufe erstellen und schreiben zu müssen.
+Google AI Studio Playground には、API 呼び出しを作成して記述することなく、マネージド エージェントをプロトタイピングして構築する方法を学習できるビジュアル インターフェースが用意されています。
 
-Rufen Sie dazu in der Navigationsleiste von Google AI Studio den Tab **Playground** auf und stellen Sie den Schalter auf **Agents**.
+まず、Google AI Studio のナビゲーション パネルで [**Playground**] タブに移動し、切り替えを [**Agents**] に切り替えます。
 
-## Vordefinierte Vorlagen
+## 事前構築済みのテンプレート
 
-Auf dem Tab **Agents** (KI-Agenten) finden Sie eine Reihe von Vorlagen, mit denen der Antigravity-Basis-KI-Agent durch Festlegen von Tool- und Umgebungskonfigurationen vorkonfiguriert wird. Alle Vorlagen sind Open Source und werden im Repository [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/) veröffentlicht. Wenn Sie sich diese Vorlagen ansehen, können Sie lernen, wie Sie Ihren eigenen verwalteten Agent erstellen und strukturieren.
+[**Agents**] タブには、ツールと環境の構成を設定してベースの Antigravity Agent を事前構成する一連のテンプレートがあります。すべてのテンプレートはオープンソースで、
+[google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/) リポジトリで公開されています。これらのテンプレートを確認すると、独自のマネージド エージェントを構築して構造化する方法を学ぶことができます。
 
-Wenn Sie beispielsweise die Vorlage „KI‑Radio“ auswählen, werden alle zulässigen Tools aktiviert und eine spezielle `AGENTS.md`-Datei sowie Skills für die Produktion von Radiosendungen verknüpft. Sie können diese Einstellungen in der Playground-Benutzeroberfläche im Bereich **Environment** (Umgebung) aufrufen, indem Sie auf die Schaltfläche **Sources** (Quellen) klicken.
+たとえば、AI Radio テンプレートを選択すると、許可されているすべてのツールが有効になり、ラジオ番組制作用の専用の `AGENTS.md` ファイルとスキルがリンクされます。これらの設定は、[**Sources**] ボタンをクリックすると、[**Environment**] セクションの Playground UI で確認できます。
 
-## Toolkonfiguration
+## ツール構成
 
-In den Agent-Einstellungen im Playground können Sie den Zugriff auf die folgenden integrierten Tools aktivieren oder deaktivieren:
+Playground の [Agent settings] で、次の組み込みツールへのアクセスを切り替えることができます。
 
-- **Google Suche**:Auf das öffentliche Web zugreifen, um Echtzeitinformationen zu erhalten.
-- **URL-Kontext**:Textinhalte bestimmter Webseiten-URLs abrufen und parsen.
-- **Codeausführung**:Bash- und Python-Befehle direkt in der isolierten Sandbox-Umgebung ausführen.
-- **Dateisystemtools**:Dateien im Arbeitsbereich lesen, schreiben, auflisten und löschen.
+- **Google 検索:** オープンウェブにアクセスして、リアルタイム情報のグラウンディングを行います。
+- **URL コンテキスト:** 特定のウェブページ URL のテキスト コンテンツを取得して解析します。
+- **コード実行:** 分離されたサンドボックス環境内で Bash コマンドと Python コマンドを直接実行します。
+- **ファイル システム ツール:** ワークスペース内のファイルの読み取り、書き込み、一覧表示、削除を行います。
 
-## Umgebung konfigurieren
+## 環境の設定
 
-Verwaltete Agents werden in einer sicheren, kurzlebigen Linux-Sandbox (der Umgebung) ausgeführt, die den Arbeitsbereich und die Tools bereitstellt, die sie für ihre Arbeit benötigen. Weitere Informationen finden Sie im Leitfaden zur [verwalteten Agent-Umgebung](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de).
+マネージド エージェントは、安全なエフェメラル Linux サンドボックス（環境）内で実行されます。このサンドボックスには、オペレーションに必要なワークスペースとツールが用意されています。詳細については、[マネージド エージェント環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja)ガイドをご覧ください。
 
-### Agent-Verhalten steuern
+### エージェントの動作の制御
 
-Das Verhalten, die Persona und die Funktionen des Agenten werden hauptsächlich durch die Dateien in seiner Umgebung bestimmt. Der Agent erkennt und lädt Konfigurationen automatisch aus einem speziellen `.agents`-Ordner:
+エージェントの動作、ペルソナ、機能は、主に環境内のファイルによって決まります。エージェントは、特別な `.agents` フォルダから構成を自動的に検出して読み込みます。
 
-- **`AGENTS.md`**: Vorgegeben im Kontext des Agenten, um Systemanweisungen und Persona zu definieren.
-- **`SKILL.md`**: Diese Dateien befinden sich in den jeweiligen Skill-Ordnern (z.B. `.agents/skills/my-skill/SKILL.md`), um bestimmte Funktionen und Workflows zu definieren.
+- **`AGENTS.md`**: システム指示とペルソナを定義するために、エージェントのコンテキストに事前読み込みされます。
+- **`SKILL.md`**: 特定の機能とワークフローを定義するために、それぞれのスキルフォルダ（例: `.agents/skills/my-skill/SKILL.md`）に配置されます。
 
-### Umgebung bereitstellen
+### 環境のプロビジョニング
 
-Sie können die vom Agent verwendete Umgebung konfigurieren, indem Sie Dateien in die Umgebung einbinden, bevor Sie eine Sitzung starten. Sie können entweder eine neue Umgebung erstellen, indem Sie Quellen einbinden, oder eine vorherige Umgebung wiederherstellen:
+セッションを開始する前にファイルを環境にマウントすることで、エージェントが使用する環境を構成できます。ソースをマウントして新しい環境を構築することも、以前の環境を復元することもできます。
 
-- **So erstellen Sie eine neue Umgebung**: Klicken Sie im Bereich „Umgebungseinstellungen“ auf **Quellen hinzufügen** und wählen Sie einen der folgenden Quelltypen aus:
+- ****新しい環境を作成するには**、[\*\*Add Sources\*\*] を [Environment settings] パネルでクリックし、次のソースタイプから選択します。**
 
-| Quelltyp | Beschreibung | Bereitstellungspfad |
+| ソースタイプ | 説明 | マウントパス |
 | --- | --- | --- |
-| **Inline-Dateien** | Konfigurationsdateien, Mock-Datasets oder Utility-Scripts (bis zu 100 KB) können direkt in die Playground-Benutzeroberfläche geschrieben oder eingefügt werden. | Benutzerdefinierter Zielpfad (z.B. `/workspace/scripts/parser.py`). |
-| **Google Cloud Storage** | Einen öffentlichen oder privaten Cloud Storage-Bucket einbinden  Für private Buckets ist ein standardmäßiges OAuth 2.0-Inhabertoken erforderlich. Weitere Informationen finden Sie unter [Private Quellen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de#private-sources). | Ordnet einen GCS-Bucket-Pfad (z.B. `gs://your-bucket-name/data/`) einem Workspace-Verzeichnis (z.B. `/workspace/data/`) zu. |
-| **GitHub-Repositories** | Öffentliche oder private Codebases klonen  Für private Repositories ist die Standardauthentifizierung mit Ihrem persönlichen GitHub-Zugriffstoken (Personal Access Token, PAT) erforderlich. Weitere Informationen finden Sie unter [Private Quellen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de#private-sources). | Direkt in `/workspace/` geklont (in der Regel unter `/workspace/<repo-name>`). |
+| **インライン ファイル** | 構成ファイル、モック データセット、ユーティリティ スクリプト（最大 100 KB）を Playground UI に直接書き込むか貼り付けます。 | ユーザー定義の宛先パス（例: `/workspace/scripts/parser.py`）。 |
+| **Google Cloud Storage** | 公開または非公開の Cloud Storage バケットをマウントします。  非公開バケットには、標準の OAuth 2.0 ベアラー トークンが必要です。詳細については、[非公開ソース](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#private-sources)をご覧ください。 | GCS バケットパス（例: `gs://your-bucket-name/data/`）をワークスペース ディレクトリ（例: `/workspace/data/`）にマッピングします。 |
+| **GitHub リポジトリ** | 公開または非公開のコードベースをクローンします。  非公開リポジトリには、GitHub 個人用アクセス トークン（PAT）を使用した基本認証が必要です。詳細については、[非公開ソース](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#private-sources)をご覧ください。 | `/workspace/` に直接クローンされます（通常は `/workspace/<repo-name>` の下）。 |
 
-- **Wenn Sie eine frühere Umgebung wiederherstellen möchten**, können Sie [eine vorhandene Umgebungs-ID wiederverwenden](#reusing-an-existing-environment-id), um ihren genauen Status zu klonen und zu forken.
+- **以前の環境を復元するには**、[既存の環境 ID を再利用して](#reusing-an-existing-environment-id)、その正確な状態をクローンしてフォークできます。
 
-### Vorhandene Umgebungs-ID wiederverwenden
+### 既存の環境 ID を再利用する
 
-Wenn Sie bereits eine Sandbox-Umgebung eingerichtet haben, müssen Sie nicht von vorn beginnen. So verwenden Sie eine vorhandene Umgebung:
+サンドボックス環境の設定にすでに時間を費やしている場合は、最初からやり直す必要はありません。既存の環境を使用するには:
 
-1. Rufen Sie in AI Studio den Bereich „Umgebungen“ auf und stellen Sie **Typ** auf **Vorhanden** um.
-2. Geben Sie die **Umgebungs-ID** ein, z. B. `env_abc123`.
+1. AI Studio の [Environments] パネルに移動し、[**Type**] を [**Existing**] に切り替えます。
+2. **Environment ID** （例: `env_abc123`）を入力します。
 
-Weitere Informationen finden Sie unter [Umgebung konfigurieren](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de#configure-an-environment). Sie können die Umgebungs-ID der aktuellen Sitzung auch auf dem Tab „Umgebung“ in der Benutzeroberfläche abrufen.
+詳細については、[環境を構成する](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#configure-an-environment)をご覧ください。現在のセッションの環境 ID は、UI の [Environment] タブから取得することもできます。
 
-Sobald Sie Ihre erste Nachricht an den Agent senden, ist die Umgebungskonfiguration für diese Sitzung festgelegt. Sie können keine neuen Quellen einbinden oder die Zulassungsliste für das Netzwerk ändern, während die Interaktion aktiv ausgeführt wird.
+エージェントに最初のメッセージを送信すると、そのセッションの環境構成が確定します。インタラクションがアクティブに実行されている間は、新しいソースをマウントしたり、ネットワーク許可リストを変更したりすることはできません。
 
-## Umgebung herunterladen
+## 環境をダウンロードする
 
-Nachdem eine Umgebung erstellt wurde, können Sie den Umgebungs-Snapshot jederzeit über die Schaltfläche **Herunterladen** in den Umgebungseinstellungen des AI Studio Playgrounds herunterladen, um Umgebungsdateien als Tarball abzurufen.
+環境が作成されたら、AI Studio Playground の [Environment settings] の [**Download**] ボタンを使用して、環境スナップショットをいつでもダウンロードし、環境ファイルを tarball として取得できます。
 
-## Sicherheit und Kostenverwaltung
+## 安全性と費用管理
 
-### Tokenverbrauch verwalten
+### トークン消費量の管理
 
-Im Gegensatz zu einer Standard-Chatanfrage, die eine einzelne Ausgabe erzeugt, führt der Antigravity-Agent einen autonomen Workflow aus. Es plant, führt Code aus, beobachtet Ergebnisse und wiederholt den Vorgang. Das bedeutet, dass ein einzelner Prompt zu einem unbegrenzten Tokenverbrauch führen kann.
+単一の出力を生成する標準のチャット リクエストとは異なり、Antigravity Agent は自律的なワークフローを実行します。計画、コードの実行、結果の観察、反復を行います。つまり、1 つのプロンプトで無制限のトークン消費が発生する可能性があります。
 
-Um die Kosten zu verwalten, **geben Sie in Ihren Prompts klare Beendigungskriterien an und begrenzen Sie die Aufgaben für den Agenten**. Ein gutes Beispiel ist der Prompt: *Überprüfe die Pull-Anfrage und stoppe, sobald du die Markdown-Zusammenfassung erstellt hast.
-Versuchen Sie nicht, die Korrektur selbst zu schreiben.*
+費用を管理するには、**プロンプトで明確な終了条件を指定し、エージェントのタスクの範囲を絞ります** 。たとえば、「 *プルリクエストを確認し、Markdown の概要を生成したら停止してください。
+自分で修正を記述しようとしないでください* 」のようなプロンプトを使用できます。
 
-### Zusätzliche Kosten
+### 追加費用
 
-Standardmäßig haben alle Agent-Vorlagen im Playground Zugriff auf den Gemini API-Dienst und können API-Aufrufe aus der Umgebung ausführen, um Anfragen zu bearbeiten. Dabei können zusätzliche Kosten anfallen, die nicht im Tokenverbrauch berücksichtigt werden.
+デフォルトでは、Playground のすべてのエージェント テンプレートが Gemini API サービスにアクセスでき、リクエストを満たすために環境から API 呼び出しを行うことができます。これにより、トークン消費量に反映されない追加費用が発生する可能性があります。
 
-Wenn Sie andere externe Dienste hinzufügen, können für den Agenten zusätzliche Kosten anfallen, da er diese Dienste in Ihrem Namen aufruft.
+同様に、他の外部サービスを追加すると、エージェントがユーザーに代わってこれらのサービスを呼び出すことで、追加費用が発生する可能性があります。
 
-### Zulassungsliste für Netzwerke
+### ネットワーク許可リスト
 
-Standardmäßig werden in AI Studio alle ausgehenden Netzwerkanfragen aus der Sandbox-Umgebung Ihres Agents streng kontrolliert und eingeschränkt, um die Sicherheit zu gewährleisten. Damit Ihr Agent externe APIs, Webservices oder Paketmanager erreichen kann, müssen Sie diese explizit deklarieren:
+デフォルトでは、AI Studio では、エージェントのサンドボックス環境内からのすべての送信ネットワーク リクエストが厳密に制御され、セキュリティを確保するために制限されています。エージェントに外部 API、ウェブサービス、パッケージ マネージャーにアクセスできるようにするには、明示的に宣言する必要があります。
 
-1. Rufen Sie in AI Studio das Feld „Umgebungen“ auf.
-2. Klicken Sie neben **Netzwerk** auf die Schaltfläche **Regeln**.
-3. Klicken Sie im Bereich **Netzwerkkonfiguration** auf **Zur Zulassungsliste hinzufügen** und geben Sie die entsprechenden Details ein:
-   - **Domainbeschränkung**:Nur auf die bestimmten Domains oder Platzhaltermuster, die der Liste hinzugefügt wurden, kann über die virtuelle Maschine des Agents zugegriffen werden. Sie können beispielsweise genaue Domains wie `api.github.com` oder allgemeine Muster wie `*.googleapis.com` eingeben.
-   - **HTTP-Header und Token-Injection hinzufügen**:Mit der Option **HTTP-Header hinzufügen** können Sie erforderliche Anmeldedaten (z. B. ein API-Token) für eine bestimmte Domain sicher einfügen. Diese Anmeldedaten werden sicher über einen Egress-Proxy weitergeleitet und niemals direkt als Rohtext in der Agent-Sandbox offengelegt.
+1. AI Studio の [Environments] パネルに移動します。
+2. [**Network**] の横にある**ルール** ボタンを選択します。
+3. [**Network configuration**] パネルで、[**Add to allowlist**] をクリックし、関連する詳細を入力します。
+   - **ドメイン制限:** リストに追加された特定のドメインまたはワイルドカード パターンにのみ、エージェントの仮想マシンからアクセスできます。たとえば、`api.github.com` などの正確なドメインや、`*.googleapis.com` などの広範なパターンを入力できます。
+   - **HTTP ヘッダーとトークン インジェクションの追加:** [**Add HTTP header**] オプションを使用して、特定のドメインに必要な認証情報（API トークンなど）を安全に挿入します。これらの認証情報は、エグレス プロキシを介して安全に渡され、エージェント サンドボックス内の未加工テキストとして直接公開されることはありません。
 
-Seien Sie immer vorsichtig, wenn Sie Domains auf die Zulassungsliste setzen. Wenn Sie dem Agent Zugriff auf authentifizierte Dienste gewähren, kann er in Ihrem Namen handeln. Wenn Sie das nicht sorgfältig überwachen, kann das zu unbeabsichtigten Aktionen führen.
+許可リストにドメインを追加する場合は、常に注意してください。エージェントに認証済みサービスへのアクセス権を付与すると、エージェントがユーザーに代わって操作できるようになります。注意深くモニタリングしないと、意図しない操作につながる可能性があります。
 
-### Best Practices für Anmeldedaten
+### 認証情報のベスト プラクティス
 
-Wenn für Ihren Workflow eine Authentifizierung des Agenten bei externen Diensten erforderlich ist, sind Sie für die Bereitstellung und den Umfang dieser Anmeldedaten verantwortlich. Befolgen Sie diese Richtlinien, um das Risiko zu verringern:
+ワークフローでエージェントが外部サービスに対して認証を行う必要がある場合は、これらの認証情報のプロビジョニングとスコープ設定を行う必要があります。リスクを軽減するには、次のガイドラインに従ってください。
 
-- **Anmeldedaten mit geringsten Berechtigungen verwenden**:Erstellen Sie Dienstkonten oder API-Schlüssel mit nur den Berechtigungen, die Ihr Agent benötigt. Vermeiden Sie die Übergabe von Anmeldedaten mit umfassendem oder administrativem Zugriff.
-- **Kurzlebige Tokens bevorzugen**:Verwenden Sie nach Möglichkeit zeitlich begrenzte Anmeldedaten oder Tokens, die ablaufen, anstatt langlebiger API-Schlüssel.
-- **Vollzugriff annehmen**:Der Agent kann alle Anmeldedaten verwenden, auf die er Zugriff hat, um die von Ihnen erteilte Aufgabe auszuführen. Geben Sie nur Anmeldedaten an, deren vollständigen Zugriffsbereich Sie gewähren möchten.
-- **Anmeldedaten regelmäßig rotieren**:Behandeln Sie Anmeldedaten, die für den Agenten freigegeben wurden, genauso wie alle anderen programmatischen Anmeldedaten. Rotieren Sie sie regelmäßig.
+- **最小権限の認証情報を使用する:** エージェントに必要な権限のみを持つサービス アカウントまたは API キーを作成します。広範なアクセス権または管理者権限を持つ認証情報を渡さないでください。
+- **有効期間の短いトークンを優先する:** 可能な場合は、有効期間の長い API キーではなく、有効期限のある時間制限付きの認証情報またはトークンを使用します。
+- **完全なアクセス権を想定する:** エージェントは、与えられたタスクを完了するために、アクセスできる任意の認証情報を使用する可能性があります。完全なアクセス権を付与してもよい認証情報のみを指定してください。
+- **認証情報を定期的にローテーションする:** エージェントと共有する認証情報は、プログラムによる認証情報と同じように扱い、定期的にローテーションします。
 
-### Verbindung zu externen Tools und APIs herstellen
+### 外部ツールと API を接続する
 
-Sie können externe Tools und APIs (z. B. Model Context Protocol-/MCP-Server) verbinden, um die Funktionen des Agenten zu erweitern. Dabei gilt:
+外部ツールと API（Model Context Protocol / MCP サーバーなど）を接続して、エージェントの機能を拡張できます。その場合、次のようになります。
 
-- Verbinden Sie nur Tools von Quellen, denen Sie vertrauen. Ein böswilliges oder schlecht geschriebenes Tool kann Daten offenlegen oder unbeabsichtigte Aktionen ausführen.
-- Konfigurieren Sie Tools mit den für Ihren Anwendungsfall erforderlichen Mindestberechtigungen. Wenn ein Tool den schreibgeschützten Modus unterstützt, sollten Sie diesen bevorzugen, es sei denn, Schreibvorgänge sind unbedingt erforderlich.
-- Bevor Sie ein Tool mit einer Produktionsdatenquelle verbinden, sollten Sie es mit Beispiel- oder synthetischen Daten testen, um zu prüfen, ob der Agent es wie erwartet verwendet.
+- 信頼できる提供元のツールのみを接続してください。悪意のあるツールや不適切なツールは、データを公開したり、意図しない操作を実行したりする可能性があります。
+- ユースケースに必要な最小限の権限でツールを構成します。ツールが読み取り専用モードをサポートしている場合は、書き込みが厳密に必要な場合を除き、読み取り専用モードを優先します。
+- ツールを本番環境のデータソースに接続する前に、サンプルデータまたは合成データに対してテストし、エージェントが想定どおりに使用することを確認します。
 
-### Menschliche Aufsicht
+### 人間による監視
 
-KI-Agenten können mehrstufige Workflows mit einem hohen Maß an Autonomie planen, begründen und ausführen. Das ist zwar leistungsstark, bedeutet aber auch, dass Sie für eine angemessene Aufsicht sorgen müssen, insbesondere bei Aufgaben, die Daten ändern oder mit externen Systemen interagieren.
+エージェントは、高度な自律性で複数ステップのワークフローを推論、計画、実行できます。これは強力ですが、適切な監視を適用する必要があります。特に、データを変更したり、外部システムとやり取りしたりするタスクの場合は注意が必要です。
 
-Prüfen Sie immer kritische Ausgaben wie generierten Code, Datentransformationen oder Konfigurationsänderungen, bevor Sie sie bereitstellen.
+生成されたコード、データ変換、構成変更などの重要な出力は、デプロイする前に必ず確認してください。
 
-Feedback geben
+フィードバックを送信
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Zuletzt aktualisiert: 2026-08-19 (UTC).
+最終更新日 2026-08-19 UTC。
 
-Haben Sie Feedback für uns?
+ご意見をお聞かせください
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-08-19 (UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-08-19 UTC。"],[],[]]

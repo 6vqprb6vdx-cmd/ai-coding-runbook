@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/imagen?hl=id
-fetched_at: 2026-09-28T06:16:12.060461+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/imagen?hl=he
+fetched_at: 2026-10-05T06:33:00.516090+00:00
 title: "Imagen 4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Kirim masukan
+שליחת משוב
 
 # Imagen 4
 
-Mesin berperforma tinggi untuk sintesis visual tingkat lanjut, yang menawarkan kontrol kreatif yang canggih dan output fotorealistis. Gunakan Imagen 4 untuk tugas desain fidelitas tinggi, komposisi adegan yang rumit, dan branding profesional yang memerlukan rendering teks yang presisi dan pencahayaan yang kompleks.
+מנוע עם ביצועים גבוהים לסינתזה חזותית מתקדמת, שמציע שליטה יצירתית מתוחכמת ותוצאות פוטו-ריאליסטיות. כדאי להשתמש ב-Imagen 4 למיתוג מקצועי, לקומפוזיציה מורכבת של סצנות ולמשימות עיצוב ברמת דיוק גבוהה שדורשות עיבוד מדויק של טקסט ותאורה מורכבת.
 
-[Coba di Google AI Studio](https://aistudio.google.com?model=imagen-4.0-generate-001&hl=id)
+[לניסיון ב-Google AI Studio](https://aistudio.google.com?model=imagen-4.0-generate-001&hl=he)
 
-## Dokumentasi
+## מאמרי עזרה
 
-Buka halaman [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=id) untuk mengetahui cakupan lengkap fitur dan kemampuan.
+בדף [Imagen](https://ai.google.dev/gemini-api/docs/imagen?hl=he) מפורטים כל הפיצ'רים והיכולות.
 
 ## imagen-4.0-generate-001
 
-| Properti | Deskripsi |
+| נכס | תיאור |
 | --- | --- |
-| Kode model id\_card | **Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
-| saveJenis data yang didukung | **Input**  Teks  **Output**  Gambar |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  480 token (teks)  **Output gambar**  1 hingga 4 (Ultra/Standard/Cepat) |
-| calendar\_monthPembaruan terbaru | Juni 2025 |
+| id\_cardקוד המודל | ‫**Gemini API**  `imagen-4.0-generate-001`  `imagen-4.0-ultra-generate-001`  `imagen-4.0-fast-generate-001` |
+| saveסוגי נתונים נתמכים | **קלט**  טקסט  **פלט**  תמונות |
+| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  ‫480 טוקנים (טקסט)  **תמונות פלט**  ‫1 עד 4 (Ultra/Standard/Fast) |
+| calendar\_monthהעדכון האחרון | יוני 2025 |
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-06-15 UTC.
+עדכון אחרון: 2026-06-15 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-06-15 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-15 (שעון UTC)."],[],[]]

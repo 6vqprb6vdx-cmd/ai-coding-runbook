@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=hi
-fetched_at: 2026-09-28T06:19:50.452670+00:00
-title: "Lyria 3.5 \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u0938\u0902\u0917\u0940\u0924 \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=es-419
+fetched_at: 2026-10-05T06:29:25.949848+00:00
+title: "Genera m\u00fasica con Lyria 3.5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
 
-सुझाव भेजें
+Enviar comentarios
 
-# Lyria 3.5 की मदद से संगीत जनरेट करना
+# Genera música con Lyria 3.5
 
-Lyria 3.5, Google के संगीत जनरेट करने वाले मॉडल का परिवार है. यह Gemini API के ज़रिए उपलब्ध है. Lyria 3.5 की मदद से, टेक्स्ट प्रॉम्प्ट या इमेज से 44.1 kHz का हाई-क्वालिटी वाला स्टीरियो ऑडियो जनरेट किया जा सकता है. ये मॉडल, गाने के स्ट्रक्चर को बेहतर बनाते हैं. इनमें आवाज़, समय के हिसाब से लिरिक्स, और इंस्ट्रुमेंटल अरेंजमेंट शामिल हैं.
+Lyria 3.5 es la familia de modelos de generación de música de Google, disponible a través de la API de Gemini. Con Lyria 3.5, puedes generar audio estéreo de alta calidad a 44.1 kHz a partir de instrucciones de texto o imágenes. Estos modelos ofrecen coherencia estructural, incluidas las voces, las letras sincronizadas y los arreglos instrumentales completos.
 
-Lyria फ़ैमिली में ये मॉडल शामिल हैं:
+La familia de Lyria incluye los siguientes modelos:
 
-| मॉडल | मॉडल आईडी | इन स्थितियों में बेहतर है | कुल समय | आउटपुट |
+| Modelo | ID de modelo | Ideal para | Duración | Salida |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | कम अवधि वाली वीडियो क्लिप, लूप, झलक | 30 सेकंड | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | पूरे गाने, जिनमें वर्स, कोरस, और ब्रिज शामिल हों | कुछ मिनट (प्रॉम्प्ट के ज़रिए कंट्रोल किया जा सकता है) | MP3 |
+| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips cortos, bucles y adelantos | 30 segundos | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | Canciones completas con versos, estribillos y puentes | Un par de minutos (se puede controlar con instrucciones) | MP3 |
 
-दोनों मॉडल का इस्तेमाल, स्टैंडर्ड `generateContent` तरीके और नए [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) का इस्तेमाल करके किया जा सकता है. ये मल्टीमॉडल इनपुट (टेक्स्ट और इमेज) के साथ काम करते हैं और **44.1 kHz हाई-फ़िडेलिटी स्टीरियो** ऑडियो जनरेट करते हैं.
+Ambos modelos se pueden usar con el método `generateContent` estándar y la nueva [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), admiten entradas multimodales (texto e imágenes) y producen audio **estéreo de alta fidelidad de 44.1 kHz**.
 
-## म्यूज़िक क्लिप जनरेट करना
+## Genera un clip musical
 
-Lyria 3 Clip मॉडल हमेशा **30 सेकंड** की क्लिप जनरेट करता है. क्लिप जनरेट करने के लिए, टेक्स्ट प्रॉम्प्ट के साथ `generateContent` तरीके को कॉल करें. जवाब में हमेशा ऑडियो के साथ-साथ, जनरेट किए गए बोल और गाने का स्ट्रक्चर शामिल होता है.
+El modelo Lyria 3 Clip siempre genera un clip de **30 segundos**. Para generar un clip, llama al método `generateContent` con una instrucción de texto. La respuesta siempre incluye la letra y la estructura de la canción generadas junto con el audio.
 
 ### Python
 
@@ -87,7 +87,7 @@ async function main() {
 main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -213,9 +213,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## पूरा गाना जनरेट करना
+## Genera una canción completa
 
-`lyria-3.5` मॉडल का इस्तेमाल करके, पूरे गाने जनरेट करें. इनकी अवधि कुछ मिनट होती है. Pro मॉडल, संगीत के स्ट्रक्चर को समझता है. साथ ही, अलग-अलग वर्स, कोरस, और ब्रिज वाली कंपोज़िशन बना सकता है. अपने प्रॉम्प्ट में अवधि तय करके (जैसे, "दो मिनट का गाना बनाओ") या स्ट्रक्चर तय करने के लिए [टाइमस्टैंप](#timing) का इस्तेमाल करके, अवधि पर असर डाला जा सकता है.
+Usa el modelo `lyria-3.5` para generar canciones de larga duración que duren un par de minutos. El modelo Pro comprende la estructura musical y puede crear composiciones con versos, estribillos y puentes distintos. Puedes influir en la duración especificándola en la instrucción (p.ej., "crea una canción de 2 minutos") o usando [marcas de tiempo](#timing) para definir la estructura.
 
 ### Python
 
@@ -240,7 +240,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 result, err := client.Models.GenerateContent(
@@ -290,9 +290,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## आउटपुट फ़ॉर्मैट चुनें
+## Selecciona el formato de salida
 
-डिफ़ॉल्ट रूप से, Lyria 3.5 मॉडल **MP3** फ़ॉर्मैट में ऑडियो जनरेट करते हैं. Lyria 3.5 के लिए, `generationConfig` में `response_format` सेट करके, **WAV** फ़ॉर्मैट में आउटपुट का अनुरोध भी किया जा सकता है.
+De forma predeterminada, los modelos de Lyria 3.5 generan audio en formato **MP3**. En Lyria 3.5, también puedes solicitar el resultado en formato **WAV** configurando `response_format` en `generationConfig`.
 
 ### Python
 
@@ -322,7 +322,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 config := &genai.GenerateContentConfig{
@@ -387,9 +387,9 @@ curl -s -X POST \
   }'
 ```
 
-## जवाब को पार्स करना
+## Analiza la respuesta
 
-Lyria 3.5 से मिले जवाब में कई हिस्से होते हैं. टेक्स्ट वाले हिस्सों में, जनरेट किए गए बोल या गाने के स्ट्रक्चर की JSON फ़ाइल होती है. `inline_data` वाले हिस्सों में ऑडियो बाइट शामिल होते हैं.
+La respuesta de Lyria 3.5 contiene varias partes. Las partes de texto contienen la letra generada o una descripción en formato JSON de la estructura de la canción. Las partes con `inline_data` contienen los bytes de audio.
 
 ### Python
 
@@ -434,7 +434,7 @@ if (audioData) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 var lyrics []string
@@ -515,9 +515,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## इमेज से संगीत जनरेट करना
+## Genera música a partir de imágenes
 
-Lyria 3.5 में मल्टीमॉडल इनपुट का इस्तेमाल किया जा सकता है. इसमें टेक्स्ट प्रॉम्प्ट के साथ-साथ **10 इमेज** तक शामिल की जा सकती हैं. इसके बाद, मॉडल विज़ुअल कॉन्टेंट से प्रेरणा लेकर संगीत तैयार करेगा.
+Lyria 3.5 admite entradas multimodales: puedes proporcionar hasta **10 imágenes** junto con tu instrucción de texto, y el modelo compondrá música inspirada en el contenido visual.
 
 ### Python
 
@@ -558,7 +558,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 imgData, err := os.ReadFile("desert_sunset.jpg")
@@ -638,9 +638,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## अपनी पसंद के मुताबिक गाने के बोल उपलब्ध कराना
+## Proporciona letras personalizadas
 
-आपके पास अपने बोल लिखने और उन्हें प्रॉम्प्ट में शामिल करने का विकल्प होता है. सेक्शन टैग, जैसे कि `[Verse]`, `[Chorus]`, और `[Bridge]` का इस्तेमाल करें, ताकि मॉडल को गाने के स्ट्रक्चर को समझने में मदद मिल सके:
+Puedes escribir tu propia letra y agregarla a la instrucción. Usa etiquetas de sección, como `[Verse]`, `[Chorus]` y `[Bridge]`, para ayudar al modelo a comprender la estructura de la canción:
 
 ### Python
 
@@ -705,7 +705,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 prompt := `
@@ -819,9 +819,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## समय और स्ट्रक्चर को कंट्रोल करना
+## Controla la sincronización y la estructura
 
-टाइमस्टैंप का इस्तेमाल करके, यह बताया जा सकता है कि गाने के किस हिस्से में क्या होगा. इससे यह कंट्रोल किया जा सकता है कि इंस्ट्रुमेंट कब शुरू हों, बोल कब डिलीवर किए जाएं, और गाना कैसे आगे बढ़े:
+Puedes especificar exactamente lo que sucede en momentos específicos de la canción con marcas de tiempo. Esto es útil para controlar cuándo entran los instrumentos, cuándo se entregan las letras y cómo progresa la canción:
 
 ### Python
 
@@ -862,7 +862,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 prompt := `
@@ -936,9 +936,9 @@ curl -s -X POST \
   }'
 ```
 
-## इंस्ट्रुमेंटल ट्रैक जनरेट करना
+## Genera pistas instrumentales
 
-बैकग्राउंड म्यूज़िक, गेम के साउंडट्रैक या किसी ऐसे इस्तेमाल के लिए जहाँ वोकल की ज़रूरत नहीं है, मॉडल को सिर्फ़ इंस्ट्रुमेंटल ट्रैक बनाने के लिए कहा जा सकता है:
+Para la música de fondo, las bandas sonoras de juegos o cualquier caso de uso en el que no se requieran voces, puedes indicarle al modelo que produzca pistas solo instrumentales:
 
 ### Python
 
@@ -961,7 +961,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 result, err := client.Models.GenerateContent(
@@ -1008,9 +1008,9 @@ curl -s -X POST \
   }'
 ```
 
-## अलग-अलग भाषाओं में संगीत जनरेट करना
+## Genera música en diferentes idiomas
 
-Lyria 3.5, प्रॉम्प्ट में इस्तेमाल की गई भाषा में गाने के बोल जनरेट करता है. फ़्रेंच भाषा में बोल वाला गाना जनरेट करने के लिए, अपना प्रॉम्प्ट फ़्रेंच में लिखें. यह मॉडल, भाषा के हिसाब से अपनी आवाज़ और उच्चारण को बदलता है.
+Lyria 3.5 genera letras en el idioma de tu instrucción. Para generar una canción con letra en francés, escribe la instrucción en ese idioma. El modelo adapta su estilo vocal y pronunciación para que coincidan con el idioma.
 
 ### Python
 
@@ -1035,7 +1035,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 result, err := client.Models.GenerateContent(
@@ -1085,14 +1085,14 @@ curl -s -X POST \
   }'
 ```
 
-## मॉडल इंटेलिजेंस
+## Inteligencia del modelo
 
-Lyria 3.5, आपके प्रॉम्प्ट को प्रोसेस करता है. इसमें मॉडल, आपके प्रॉम्प्ट के आधार पर संगीत की संरचना (इंट्रो, वर्स, कोरस, ब्रिज वगैरह) के बारे में बताता है.
-यह प्रोसेस, ऑडियो जनरेट होने से पहले होती है. इससे यह पक्का होता है कि ऑडियो में स्ट्रक्चरल कोहेरेंस और म्यूज़िकैलिटी हो.
+Lyria 3.5 analiza el proceso de instrucción en el que el modelo razona a través de la estructura musical (introducción, estrofa, coro, puente, etc.) según tu instrucción.
+Esto sucede antes de que se genere el audio y garantiza la coherencia estructural y la musicalidad.
 
-## Interactions API
+## API de Interactions
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) के साथ Lyria 3.5 मॉडल इस्तेमाल किए जा सकते हैं. यह Gemini मॉडल और एजेंटों के साथ इंटरैक्ट करने के लिए एक यूनिफ़ाइड इंटरफ़ेस है. यह जटिल मल्टीमॉडल इस्तेमाल के उदाहरणों के लिए, स्टेट मैनेजमेंट और लंबे समय तक चलने वाले टास्क को आसान बनाता है.
+Puedes usar los modelos de Lyria 3.5 con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), una interfaz unificada para interactuar con modelos y agentes de Gemini. Simplifica la administración del estado y las tareas de larga duración para casos de uso multimodales complejos.
 
 ### Python
 
@@ -1159,42 +1159,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## प्रॉम्प्ट से जुड़ी गाइड
+## Guía de instrucciones
 
-संगीत की शैलियों, इंस्ट्रुमेंट, गाने के स्ट्रक्चर, कस्टम बोल, और वोकल डिलीवरी स्टाइल के लिए असरदार प्रॉम्प्ट बनाने का तरीका जानने के लिए, [Lyria की प्रॉम्प्ट गाइड](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=hi) देखें.
+Para obtener información sobre cómo crear instrucciones eficaces para géneros musicales, instrumentos, estructura de canciones, letras personalizadas y estilos de interpretación vocal, consulta la [guía de instrucciones de Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=es-419).
 
-## सबसे सही तरीके
+## Prácticas recomendadas
 
-- **सबसे पहले Clip की मदद से दोहराएं.** `lyria-3.5` की मदद से पूरा जवाब जनरेट करने से पहले, प्रॉम्प्ट के साथ एक्सपेरिमेंट करने के लिए, ज़्यादा तेज़ `lyria-3-clip-preview` मॉडल का इस्तेमाल करें.
-- **सटीक जानकारी दें.** प्रॉम्प्ट क्लियर न हो, तो रिज़ल्ट सटीक नहीं मिलता. बेहतरीन आउटपुट पाने के लिए, इंस्ट्रुमेंट, बीपीएम, की, मूड, और स्ट्रक्चर के बारे में जानकारी दें.
-- **अपनी भाषा से मिलती-जुलती भाषा चुनें.** आपको जिस भाषा में गाने के बोल चाहिए उस भाषा में प्रॉम्प्ट लिखें.
-- **सेक्शन टैग इस्तेमाल करें.** `[Verse]`, `[Chorus]`, `[Bridge]` टैग की मदद से, मॉडल को जवाब देने के लिए एक साफ़ स्ट्रक्चर मिलता है.
-- **गीत के बोल और निर्देशों को अलग-अलग रखें.** अपनी पसंद के मुताबिक़ बोल देते समय, उन्हें संगीत से जुड़े निर्देशों से अलग रखें.
+- **Primero, itera con Clip.** Usa el modelo `lyria-3-clip-preview` más rápido para experimentar con instrucciones antes de generar un video completo con `lyria-3.5`.
+- **Sea específico.** Las instrucciones vagas producen resultados genéricos. Menciona los instrumentos, los BPM, la clave, el estado de ánimo y la estructura para obtener el mejor resultado.
+- **Utiliza el mismo idioma.** Escribe la instrucción en el idioma en el que quieres la letra.
+- **Usa etiquetas de sección.** Las etiquetas `[Verse]`, `[Chorus]` y `[Bridge]` le brindan al modelo una estructura clara que debe seguir.
+- **Separa la letra de las instrucciones.** Cuando proporciones letras personalizadas, sepáralas claramente de las instrucciones de dirección musical.
 
-## सीमाएं
+## Limitaciones
 
-- **सुरक्षा**: सभी प्रॉम्प्ट की जांच, सुरक्षा फ़िल्टर करते हैं. ऐसे प्रॉम्प्ट ब्लॉक कर दिए जाएंगे जिनसे फ़िल्टर ट्रिगर होते हैं. इसमें ऐसे प्रॉम्प्ट शामिल हैं जिनमें किसी खास कलाकार की आवाज़ में गाने बनाने या कॉपीराइट वाले बोल जनरेट करने का अनुरोध किया गया हो.
-- **वॉटरमार्किंग**: जनरेट किए गए सभी ऑडियो में, पहचान के लिए [SynthID ऑडियो वॉटरमार्क](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=hi) शामिल होता है. यह वॉटरमार्क, इंसानों को सुनाई नहीं देता. साथ ही, इससे सुनने के अनुभव पर कोई असर नहीं पड़ता.
-- **एक से ज़्यादा बार बदलाव करने की सुविधा**: संगीत जनरेट करने की सुविधा एक बार में पूरी हो जाती है.
-  Lyria 3.5 के मौजूदा वर्शन में, एक से ज़्यादा प्रॉम्प्ट के ज़रिए जनरेट की गई क्लिप में बार-बार बदलाव करने या उसे बेहतर बनाने की सुविधा काम नहीं करती.
-- **अवधि**: क्लिप मॉडल हमेशा 30 सेकंड की क्लिप जनरेट करता है. Pro मॉडल, कुछ मिनट की अवधि वाले गाने जनरेट करता है. हालांकि, प्रॉम्प्ट में अवधि के बारे में जानकारी देकर, गाने की अवधि को बदला जा सकता है.
-- **डिटरमिनिज़्म**: एक ही प्रॉम्प्ट के लिए, कॉल के हिसाब से नतीजे अलग-अलग हो सकते हैं.
+- **Seguridad**: Todos los mensajes se verifican con filtros de seguridad. Se bloquearán las instrucciones que activen los filtros. Esto incluye las instrucciones que solicitan voces de artistas específicos o la generación de letras protegidas por derechos de autor.
+- **Marcas de agua**: Todo el audio generado incluye una [marca de agua de audio de SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=es-419) para su identificación. Esta marca de agua es imperceptible para el oído humano y no afecta la experiencia de escucha.
+- **Edición conversacional continua**: La generación de música es un proceso de un solo turno.
+  La edición o el perfeccionamiento iterativos de un clip generado a través de múltiples instrucciones no se admiten en la versión actual de Lyria 3.5.
+- **Duración**: El modelo de Clip siempre genera clips de 30 segundos. El modelo Pro genera canciones que duran un par de minutos. La duración exacta se puede influir a través de la instrucción.
+- **Determinismo**: Los resultados pueden variar entre las llamadas, incluso con la misma instrucción.
 
-## आगे क्या करना है
+## ¿Qué sigue?
 
-- Lyria 3.5 मॉडल की [कीमत](https://ai.google.dev/gemini-api/docs/generate-content/pricing?hl=hi) देखें.
-- Lyria RealTime की मदद से, [रीयल-टाइम में संगीत जनरेट करने और उसे स्ट्रीम करने की सुविधा](https://ai.google.dev/gemini-api/docs/generate-content/realtime-music-generation?hl=hi) आज़माएँ.
-- [टीटीएस मॉडल](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=hi) की मदद से, एक से ज़्यादा स्पीकर वाली बातचीत जनरेट करें.
-- [इमेज](https://ai.google.dev/gemini-api/docs/generate-content/image-generation?hl=hi) या [वीडियो](https://ai.google.dev/gemini-api/docs/generate-content/video?hl=hi) जनरेट करने का तरीका जानें.
-- जानें कि Gemini [ऑडियो फ़ाइलों को कैसे समझ सकता है](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=hi).
-- [Live API](https://ai.google.dev/gemini-api/docs/generate-content/live?hl=hi) का इस्तेमाल करके, Gemini के साथ रीयल-टाइम में बातचीत करें.
+- Consulta los [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) de los modelos de Lyria 3.5.
+- Prueba la [generación de música en tiempo real y por transmisión](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419) con Lyria RealTime.
+- Genera conversaciones con varios oradores con los [modelos de TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419).
+- Descubre cómo generar [imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) o [videos](https://ai.google.dev/gemini-api/docs/video?hl=es-419).
+- Descubre cómo Gemini puede [comprender archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
+- Mantén una conversación en tiempo real con Gemini usando la [API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419).
 
-सुझाव भेजें
+Enviar comentarios
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया.
+Última actualización: 2026-10-01 (UTC)
 
-क्या आपको हमें और कुछ बताना है?
+¿Quieres brindar más información?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-01 (UTC)"],[],[]]

@@ -1,53 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=es-419
-fetched_at: 2026-09-28T06:21:44.973678+00:00
-title: "El almacenamiento de contexto en cach\u00e9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=th
+fetched_at: 2026-10-05T06:31:19.009254+00:00
+title: "\u0e01\u0e32\u0e23\u0e41\u0e04\u0e0a\u0e1a\u0e23\u0e34\u0e1a\u0e17 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-# El almacenamiento de contexto en caché
+# การแคชบริบท
 
-En un flujo de trabajo de IA típico, es posible que pases los mismos tokens de entrada una y otra vez a un modelo. La API de Gemini ofrece almacenamiento en caché implícito para optimizar el rendimiento y los costos.
+ในเวิร์กโฟลว์ AI ทั่วไป คุณอาจส่งโทเค็นอินพุตเดียวกันซ้ำๆ ไปยังโมเดล Gemini API มีการแคชแบบไม่เจาะจงเพื่อเพิ่มประสิทธิภาพและลดต้นทุน
 
-## Almacenamiento en caché implícito
+## การแคชแบบไม่เจาะจง
 
-El almacenamiento en caché implícito está habilitado de forma predeterminada para todos los modelos de Gemini 2.5 y versiones posteriores. Se admite para los modos de conversación [con estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#multi-turn-conversations) (con `previous_interaction_id`) y [sin estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#stateless-conversations).
-Pasamos automáticamente los ahorros de costos si tu solicitud alcanza las cachés. No es necesario que hagas nada para habilitar esta función. El recuento mínimo de tokens de entrada para el almacenamiento en caché de contexto se indica en la siguiente tabla para cada modelo:
+ระบบจะเปิดใช้การแคชแบบไม่เจาะจงโดยค่าเริ่มต้นสำหรับโมเดล Gemini 2.5 และใหม่กว่าทั้งหมด
+โดยรองรับทั้งโหมดการสนทนา[แบบเก็บสถานะ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#multi-turn-conversations) (ใช้ `previous_interaction_id`)
+และ[แบบไม่เก็บสถานะ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#stateless-conversations)
+เราจะส่งต่อการประหยัดต้นทุนโดยอัตโนมัติหากคำขอของคุณตรงกับแคช คุณไม่จำเป็นต้องดำเนินการใดๆ เพื่อเปิดใช้ฟีเจอร์นี้ จำนวนโทเค็นอินพุตขั้นต่ำสำหรับการแคชบริบทแสดงอยู่ในตารางต่อไปนี้สำหรับแต่ละโมเดล
 
-| Modelo | Límite mínimo de tokens |
+| โมเดล | ขีดจำกัดโทเค็นขั้นต่ำ |
 | --- | --- |
 | Gemini 3.8 Flash | 4,096 |
 | Gemini 3.7 Flash | 4,096 |
 | Gemini 3.6 Flash | 4,096 |
 | Gemini 3.5 Flash | 4,096 |
-| Versión preliminar de Gemini 3.1 Pro | 4,096 |
+| Gemini 3.1 Pro Preview | 4,096 |
 | Gemini 2.5 Flash | 2,048 |
 | Gemini 2.5 Pro | 2,048 |
 
-Para aumentar las posibilidades de un acierto de caché implícito, haz lo siguiente:
+วิธีเพิ่มโอกาสที่จะพบแคชแบบไม่เจาะจง:
 
-- Intenta colocar contenido grande y común al comienzo de tu instrucción.
-- Intenta enviar solicitudes con un prefijo similar en un período breve.
+- ลองวางเนื้อหาขนาดใหญ่และเนื้อหาทั่วไปไว้ที่จุดเริ่มต้นของพรอมต์
+- ลองส่งคำขอที่มีคำนำหน้าที่คล้ายกันภายในระยะเวลาสั้นๆ
 
-Puedes ver la cantidad de tokens que fueron aciertos de caché en el campo `usage.total_cached_tokens` (Python y JavaScript) del objeto de respuesta.
+คุณสามารถดูจำนวนโทเค็นที่ตรงกับแคชได้ในช่อง `usage.total_cached_tokens` (Python และ JavaScript) ของออบเจ็กต์การตอบกลับ
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última actualización: 2026-09-10 (UTC)
+อัปเดตล่าสุด 2026-09-10 UTC
 
-¿Quieres brindar más información?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-10 (UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-10 UTC"],[],[]]

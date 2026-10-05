@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/transcribe?hl=fr
-fetched_at: 2026-09-28T06:15:32.233301+00:00
-title: "Transcription audio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/transcribe?hl=it
+fetched_at: 2026-10-05T06:39:31.020176+00:00
+title: "Trascrizione audio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envoyer des commentaires
+Invia feedback
 
-# Transcription audio
+# Trascrizione audio
 
-L'API Gemini convertit la parole contenue dans les fichiers audio en texte à l'aide du modèle Gemini 3.5 Transcribe (`gemini-3.5-transcribe`). Grâce aux capacités de compréhension audio de Gemini, elle fournit une transcription précise avec identification automatique de la langue, attribution des locuteurs, codes temporels au niveau des mots et suggestions de vocabulaire personnalisé. Il propose également un mode de [transcription intelligente](#transcription-modes) qui supprime les hésitations et met en forme le texte de manière intelligente.
+L'API Gemini converte il parlato nei file audio in testo utilizzando il modello Gemini 3.5 Transcribe (`gemini-3.5-transcribe`). Grazie alle funzionalità di comprensione dell'audio di Gemini, offre una trascrizione accurata con identificazione automatica della lingua, diarizzazione degli oratori, timestamp a livello di parola e suggerimenti per il vocabolario personalizzato. Offre anche una modalità di [trascrizione intelligente](#transcription-modes) con rimozione di disfluenze e formattazione intelligente.
 
-Pour transcrire un fichier audio, importez-le et transmettez-le à `gemini-3.5-transcribe` :
+Per trascrivere un file audio, caricalo e passalo a `gemini-3.5-transcribe`:
 
 ### Python
 
@@ -136,26 +136,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Présentation
+## Panoramica
 
-Gemini 3.5 Transcribe est optimisé pour les tâches de reconnaissance vocale. Il gère les différents accents, les bruits de fond et les conversations multilingues.
+Gemini 3.5 Transcribe è ottimizzato per le attività di sintesi vocale. Gestisce accenti diversi, rumori di fondo e conversazioni in più lingue.
 
-Voici les principales fonctionnalités de cette solution :
+Le sue funzionalità principali includono:
 
-- **Reconnaissance vocale automatique (ASR)** : détecte automatiquement les langues dans [plus de 85 paramètres régionaux](#supported-languages). Gère le changement de code intra-phrase et inter-phrase sans configuration manuelle.
-- **Vocabulaire personnalisé** : oriente la reconnaissance vers les termes, acronymes et noms propres spécifiques à un domaine en transmettant jusqu'à 1 000 expressions.
-- **Diarisation des locuteurs** : permet de distinguer plusieurs locuteurs et d'attribuer les segments parlés à des libellés distincts.
-- **Codes temporels au niveau du mot** : génère des codes temporels de début et de fin précis pour chaque mot reconnu.
-- **Transcription intelligente** : supprime les hésitations, les mots de remplissage et les répétitions, et applique une mise en forme structurée.
-- **Mise en forme et normalisation** : applique la mise en majuscules, la ponctuation et la normalisation inverse du texte (par exemple, en convertissant "vingt-six millions de dollars" en "26 M$").
+- **Riconoscimento vocale automatico (ASR)**: rileva automaticamente le lingue in oltre [85 impostazioni internazionali](#supported-languages). Gestisce il cambio di codice all'interno della frase e tra le frasi senza configurazione manuale.
+- **Vocabolario personalizzato**:orienta il riconoscimento verso termini, acronimi e nomi propri specifici del dominio passando fino a 1000 frasi.
+- **Diarizzazione degli speaker**:distingue tra più interlocutori e attribuisce i segmenti parlati a etichette distinte.
+- **Timestamp a livello di parola**:genera offset temporali di inizio e di fine precisi per ogni parola riconosciuta.
+- **Trascrizione intelligente**:elimina le disfluenze, gli intercalari e le ripetizioni e applica una formattazione strutturata.
+- **Formattazione e normalizzazione**:applica maiuscole, punteggiatura e normalizzazione del testo inversa, ad esempio convertendo "ventisei milioni di dollari" in "26 milioni di $".
 
-Pour le raisonnement audio général ou les systèmes de questions-réponses sur le contenu audio, utilisez [Compréhension audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr). Pour la synthèse audio de texte en voix, utilisez [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr).
+Per il ragionamento audio generale o la risposta a domande sui contenuti audio, utilizza [Comprensione audio](https://ai.google.dev/gemini-api/docs/audio?hl=it). Per la sintesi audio della sintesi vocale, utilizza [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it).
 
-## Détection de la langue et suggestions
+## Rilevamento della lingua e suggerimenti
 
-Par défaut, le modèle détecte automatiquement la langue parlée. Elle passe d'une langue à l'autre de manière dynamique lorsque les locuteurs changent de langue.
+Per impostazione predefinita, il modello rileva automaticamente la lingua parlata. Passa da una lingua all'altra in modo dinamico quando gli oratori cambiano lingua.
 
-Pour utiliser la détection automatique, omettez `language_codes` ou fournissez une liste vide :
+Per utilizzare il rilevamento automatico, ometti `language_codes` o fornisci un elenco vuoto:
 
 ### Python
 
@@ -271,7 +271,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Si vous connaissez la langue à l'avance, spécifiez les codes de langue BCP-47 dans `language_codes` pour améliorer la précision de la transcription (consultez [Langues acceptées](#supported-languages)) :
+Se conosci la lingua in anticipo, specifica i codici lingua BCP-47 in `language_codes` per migliorare l'accuratezza della trascrizione (vedi [Lingue supportate](#supported-languages)):
 
 ### Python
 
@@ -324,9 +324,9 @@ func main() {
 }
 ```
 
-## Vocabulaire personnalisé
+## Vocabolario personalizzato
 
-Vous pouvez orienter le modèle de reconnaissance vocale vers des mots rares, du jargon technique, des noms de marques ou des noms propres. Fournissez jusqu'à 1 000 termes dans le tableau `custom_vocabulary` (les meilleurs résultats sont généralement obtenus avec un maximum de 100 termes) :
+Puoi indirizzare il modello vocale verso parole non comuni, tecnicismi, nomi di brand o nomi propri. Fornisci fino a 1000 termini nell'array `custom_vocabulary` (in genere si ottengono risultati ottimali con un massimo di 100 termini):
 
 ### Python
 
@@ -442,11 +442,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Identification du locuteur
+## Diarizzazione degli speaker
 
-L'identification des locuteurs permet d'identifier les différentes voix dans l'enregistrement et d'attribuer à chaque segment un identifiant de locuteur, tel que `spk_1` ou `spk_2`. Jusqu'à huit locuteurs sont pris en charge (l'attribution pour trois locuteurs ou plus est expérimentale).
+La diarizzazione degli interlocutori identifica le diverse voci nella registrazione e tagga ogni segmento con un identificatore dell'interlocutore, ad esempio `spk_1` o `spk_2`. Sono supportati fino a 8 relatori (l'attribuzione per 3 o più relatori è sperimentale).
 
-Activez l'identification des locuteurs en configurant `diarization_mode` dans `mode` :
+Abilita la diarizzazione configurando `diarization_mode` in `mode`:
 
 ### Python
 
@@ -573,11 +573,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Codes temporels au niveau du mot
+## Timestamp a livello di parola
 
-Les codes temporels au niveau du mot fournissent des décalages de début et de fin exacts pour chaque mot reconnu dans le flux audio.
+I timestamp a livello di parola forniscono offset di inizio e fine esatti per ogni parola riconosciuta nello stream audio.
 
-Activez les codes temporels en configurant `timestamp_granularities` dans `mode` :
+Attiva i timestamp configurando `timestamp_granularities` in `mode`:
 
 ### Python
 
@@ -704,7 +704,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Vous pouvez combiner `diarization_mode` et `timestamp_granularities` dans `mode` pour recevoir à la fois les identifiants des intervenants et les codes temporels des mots :
+Puoi combinare `diarization_mode` e `timestamp_granularities` in `mode` per ricevere sia le etichette di chi parla sia i timestamp a livello di parola:
 
 ### Python
 
@@ -773,21 +773,21 @@ func main() {
 }
 ```
 
-## Modes de transcription
+## Modalità di trascrizione
 
-Gemini 3.5 Transcribe prend en charge deux modes de transcription via le paramètre `mode` :
+Gemini 3.5 Transcribe supporta due modalità di trascrizione tramite il parametro `mode`:
 
-- **`verbatim` (par défaut)** : renvoie une transcription exacte de tout ce qui a été dit, en conservant les mots de remplissage bruts ("euh", "enfin", "genre", "tu vois"), les répétitions, les pauses et les faux départs. Les codes temporels et l'identification du locuteur sont configurés dans ce mode (`{"type": "verbatim", ...}`).
-- **`smart` (Transcription intelligente)** : optimise la transcription pour la lecture en appliquant un post-traitement intelligent :
-  - **Suppression des disfluences** : élimine les mots de remplissage, les bégaiements et les faux départs.
-  - **Corrections spontanées** : les corrections sont directement prises en compte (par exemple, *"Rendez-vous mardi, non, mercredi à deux heures"* devient *"Rendez-vous mercredi à 14h"*).
-  - **Mise en forme structurée automatique** : structure automatiquement les pensées exprimées en paragraphes, listes numérotées, listes à puces, dates, devises et nombres mis en forme.
-  - **Nettoyage grammatical** : applique une ponctuation, une mise en forme des phrases et un flux naturels.
+- **`verbatim` (impostazione predefinita)**: restituisce una trascrizione esatta parola per parola di tutto ciò che viene detto, conservando le parole di riempimento grezze ("um", "uh", "like", "you know"), le ripetizioni, le pause e le false partenze. In questa modalità (`{"type": "verbatim", ...}`) vengono configurati i timestamp e la diarizzazione degli interlocutori.
+- **`smart` (Trascrizione intelligente)**: ottimizza la trascrizione per la lettura applicando una post-elaborazione intelligente:
+  - **Rimozione delle disfluenze**: elimina le parole di riempimento, le balbuzie e gli avvii errati.
+  - **Correzioni automatiche in linea**: risolve direttamente le correzioni vocali (ad esempio, *"Ci vediamo martedì, no, mercoledì alle 14:00"* diventa *"Ci vediamo mercoledì alle 14:00"*).
+  - **Formattazione strutturata automatica**: struttura automaticamente i pensieri espressi in paragrafi, elenchi numerati, elenchi puntati, date, valute e numeri formattati.
+  - **Pulizia grammaticale**: applica punteggiatura, maiuscole e flusso naturali.
 
-| Audio parlé | Résultat de la fonction `verbatim` | Sortie `smart` (transcription intelligente) |
+| Audio parlato | `verbatim` output | Output `smart` (Trascrizione intelligente) |
 | --- | --- | --- |
-| "Euh, pour la réunion, je pense qu'on devrait, euh, inviter Alice et, non, Bob et Carol." | "Euh, pour la réunion, je pense qu'on devrait inviter Alice, non, Bob et Carol." | "Pour la réunion, je pense que nous devrions inviter Bob et Carol." |
-| "First item review budget second item finalize timeline third item send recap" (Examine le budget en premier, finalise le calendrier en deuxième, envoie le récapitulatif en troisième) | "first item review budget second item finalize timeline third item send recap" (premier élément, examiner le budget ; deuxième élément, finaliser le calendrier ; troisième élément, envoyer le récapitulatif) | "1. Vérifiez le budget 2. Finalisez le calendrier 3. Envoyer le récap" |
+| "Allora, per la riunione, penso che dovremmo invitare Alice e, no, aspetta, Bob e Carol". | "Allora, per la riunione penso che dovremmo invitare Alice e no, Bob e Carol". | "Per la riunione, penso che dovremmo invitare Bob e Carol." |
+| "First item review budget second item finalize timeline third item send recap" | "first item review budget second item finalize timeline third item send recap" | "1. Controlla il budget 2. Finalizza la sequenza temporale 3. Invia riepilogo" |
 
 ### Python
 
@@ -905,13 +905,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Analyser la transcription
+## Analisi dell'output della trascrizione
 
-Le texte complet de la transcription est renvoyé dans `interaction.output_text`.
+Il testo completo della trascrizione viene restituito in `interaction.output_text`.
 
-Lorsque `timestamp_granularities` ou `diarization_mode` sont activés, l'API renvoie également des annotations détaillées au niveau des mots, associées au contenu de l'interaction.
+Quando `timestamp_granularities` o `diarization_mode` è abilitato, l'API restituisce anche annotazioni dettagliate a livello di parola allegate ai contenuti dell'interazione.
 
-Voici comment extraire et parcourir les codes temporels des mots et les tours de parole :
+Ecco come estrarre e scorrere i timestamp a livello di parola e i turni di parola:
 
 ### Python
 
@@ -1048,58 +1048,58 @@ func main() {
 }
 ```
 
-## Langues disponibles
+## Lingue supportate
 
-Les langues et les codes de langue BCP-47 suivants sont compatibles avec Gemini 3.5 Transcribe :
+Le seguenti lingue e i seguenti codici lingua BCP-47 sono supportati per Gemini 3.5 Transcribe:
 
-| Langue | Code BCP-47 | Langue | Code BCP-47 |
+| Lingua | Codice BCP-47 | Lingua | Codice BCP-47 |
 | --- | --- | --- | --- |
-| Afrikaans | `af-ZA` | Japonais | `ja-JP` |
-| Amharique | `am-ET` | Javanais | `jv-ID` |
-| Arabe (Égypte) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| Arménien | `hy-AM` | Kannada | `kn-IN` |
-| Assamais | `as-IN` | Kazakh | `kk-KZ` |
-| Azéri | `az-AZ` | Coréen | `ko-KR` |
-| Biélorusse | `be-BY` | Kirghiz | `ky-KG` |
-| Bengali (Bangladesh) | `bn-BD` | Letton | `lv-LV` |
-| Bengali (Inde) | `bn-IN` | Lingala | `ln-CD` |
-| Bosniaque | `bs-BA` | Lituanien | `lt-LT` |
-| Bulgare | `bg-BG` | Macédonien | `mk-MK` |
-| Bulgare (aroumain) | `rup-BG` | Malaisien | `ms-MY` |
-| Birman | `my-MM` | Malayalam | `ml-IN` |
-| Cantonais (traditionnel) | `yue-Hant-HK` | Maltais | `mt-MT` |
-| Catalan | `ca-ES` | Chinois mandarin (simplifié) | `cmn-Hans-CN` |
+| Afrikaans | `af-ZA` | Giapponese | `ja-JP` |
+| Amarico | `am-ET` | Giavanese | `jv-ID` |
+| Arabo (Egitto) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| Armeno | `hy-AM` | Kannada | `kn-IN` |
+| Assamese | `as-IN` | Kazako | `kk-KZ` |
+| Azero | `az-AZ` | Coreano | `ko-KR` |
+| Bielorusso | `be-BY` | Kirgizo | `ky-KG` |
+| Bengalese (Bangladesh) | `bn-BD` | Lettone | `lv-LV` |
+| Bengalese (India) | `bn-IN` | Lingala | `ln-CD` |
+| Bosniaco | `bs-BA` | Lituano | `lt-LT` |
+| Bulgaro | `bg-BG` | Macedone | `mk-MK` |
+| Bulgaro (aromeno) | `rup-BG` | Malese | `ms-MY` |
+| Birmano | `my-MM` | Malayalam | `ml-IN` |
+| Cantonese (tradizionale) | `yue-Hant-HK` | Maltese | `mt-MT` |
+| Catalano | `ca-ES` | Cinese mandarino (semplificato) | `cmn-Hans-CN` |
 | Cebuano | `ceb` | Marathi | `mr-IN` |
-| Khmer central | `km-KH` | Mongol | `mn-MN` |
-| Croate | `hr-HR` | Népalais | `ne-NP` |
-| Tchèque | `cs-CZ` | Norvégien | `nb-NO` |
-| Danois | `da-DK` | Oriya | `or-IN` |
-| Néerlandais | `nl-NL` | Polonais | `pl-PL` |
-| Anglais (Grande-Bretagne) | `en-GB` | Portugais (Brésil) | `pt-BR` |
-| Anglais (Inde) | `en-IN` | Portugais (Portugal) | `pt-PT` |
-| Anglais (États-Unis) | `en-US` | Panjabi | `pa-IN` |
-| Estonien | `et-EE` | Panjabi (écriture gurmukhī) | `pa-Guru-IN` |
-| Farsi | `fa-IR` | Roumain | `ro-RO` |
-| Tagalog | `fil-PH` | Russe | `ru-RU` |
-| Finnois | `fi-FI` | Serbe | `sr-RS` |
-| Français | `fr-FR` | Sindhi (écriture arabe) | `sd-Arab-IN` |
-| Galicien | `gl-ES` | Slovaque | `sk-SK` |
-| Géorgien | `ka-GE` | Slovène | `sl-SI` |
-| Allemand | `de-DE` | Espagnol (Amérique latine) | `es-419` |
-| Grec | `el-GR` | Espagnol (États-Unis) | `es-US` |
+| Khmer centrale | `km-KH` | Mongolo | `mn-MN` |
+| Croato | `hr-HR` | Nepalese | `ne-NP` |
+| Ceco | `cs-CZ` | Norvegese | `nb-NO` |
+| Danese | `da-DK` | Oriya | `or-IN` |
+| Olandese | `nl-NL` | Polacco | `pl-PL` |
+| Inglese (Gran Bretagna) | `en-GB` | Portoghese (Brasile) | `pt-BR` |
+| Inglese (India) | `en-IN` | Portoghese (Portogallo) | `pt-PT` |
+| Inglese (Stati Uniti) | `en-US` | Punjabi | `pa-IN` |
+| Estone | `et-EE` | Punjabi (alfabeto gurmukhi) | `pa-Guru-IN` |
+| Farsi | `fa-IR` | Rumeno | `ro-RO` |
+| Filippino | `fil-PH` | Russo | `ru-RU` |
+| Finlandese | `fi-FI` | Serbo | `sr-RS` |
+| Francese | `fr-FR` | Sindhi (alfabeto arabo) | `sd-Arab-IN` |
+| Galiziano | `gl-ES` | Slovacco | `sk-SK` |
+| Georgiano | `ka-GE` | Sloveno | `sl-SI` |
+| Tedesco | `de-DE` | Spagnolo (America Latina) | `es-419` |
+| Greek | `el-GR` | Spagnolo (Stati Uniti) | `es-US` |
 | Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
-| Haoussa | `ha-NG` | Suédois | `sv-SE` |
-| Hébreu | `he-IL` | Tadjik | `tg-TJ` |
+| Hausa | `ha-NG` | Svedese | `sv-SE` |
+| Ebraico | `he-IL` | Tagico | `tg-TJ` |
 | Hindi | `hi-IN` | Telugu | `te-IN` |
-| Hongrois | `hu-HU` | Thaï | `th-TH` |
-| Islandais | `is-IS` | Turc | `tr-TR` |
-| Anglais indien | `en-IN` | Ukrainien | `uk-UA` |
-| Indonésien | `id-ID` | Ouzbek | `uz-UZ` |
-| Italien | `it-IT` | Vietnamien | `vi-VN` |
+| Ungherese | `hu-HU` | Thailandese | `th-TH` |
+| Islandese | `is-IS` | Turco | `tr-TR` |
+| Inglese indiano | `en-IN` | Ucraino | `uk-UA` |
+| Indonesiano | `id-ID` | Uzbeco | `uz-UZ` |
+| Italiano | `it-IT` | Vietnamita | `vi-VN` |
 
-## Formats audio acceptés
+## Formati audio supportati
 
-Gemini 3.5 Transcribe est compatible avec les types MIME de format audio suivants :
+Gemini 3.5 Transcribe supporta i seguenti tipi MIME di formati audio:
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -1109,56 +1109,56 @@ Gemini 3.5 Transcribe est compatible avec les types MIME de format audio suivan
 - FLAC - `audio/flac`
 - MPEG - `audio/mpeg`
 - M4A - `audio/m4a`
-- L16 – `audio/l16`
-- Opus – `audio/opus`
+- L16 - `audio/l16`
+- Opus - `audio/opus`
 - ALAW - `audio/alaw`
 - MULAW - `audio/mulaw`
 - WebM - `audio/webm`
 
-Pour obtenir la liste complète des types MIME et des schémas de paramètres acceptés, consultez la [documentation de référence de l'API Interactions](https://ai.google.dev/api/interactions-api?hl=fr#Resource:Content).
+Per l'elenco completo dei tipi MIME e degli schemi dei parametri supportati, consulta il [riferimento API Interactions](https://ai.google.dev/api/interactions-api?hl=it#Resource:Content).
 
-## Référence de paramètre
+## Riferimento al parametro
 
-Configurez la transcription en définissant les champs de l'objet `transcription_config` dans `generation_config` :
+Configura la trascrizione impostando i campi all'interno dell'oggetto `transcription_config` in `generation_config`:
 
-| Champ | Type | Description |
+| Campo | Tipo | Descrizione |
 | --- | --- | --- |
-| `language_codes` | Tableau de chaînes | Codes de langue BCP-47 (par exemple, `["en-US"]`). S'ils sont omis ou vides (`[]`), le modèle détecte automatiquement la langue et gère le changement de code. |
-| `custom_vocabulary` | Tableau de chaînes | Jusqu'à 1 000 termes, acronymes ou noms propres personnalisés pour orienter la reconnaissance vocale. Incompatible avec l'identification du locuteur et les codes temporels au niveau du mot. |
-| `mode` | Objet ou chaîne | Configuration du mode Transcription. Accepte `"smart"` ou un objet en mode verbatim (`{"type": "verbatim", ...}`). La transcription verbatim est définie par défaut. |
-| `mode.type` | Chaîne | *(Mode verbatim uniquement)* Identifiant du mode. Toujours défini sur `"verbatim"`. |
-| `mode.timestamp_granularities` | Tableau de chaînes | *(Mode verbatim uniquement)* : précision des codes temporels à renvoyer. Transmettez `["word"]` pour activer les décalages de début et de fin des mots. Incompatible avec le vocabulaire personnalisé. |
-| `mode.diarization_mode` | Chaîne | *(Mode verbatim uniquement)* : mode de diarisation. Transmettez `"speaker"` pour identifier les différents intervenants et leur attribuer un libellé. Incompatible avec le vocabulaire personnalisé. |
+| `language_codes` | Array di stringhe | Codici lingua BCP-47 (ad es. `["en-US"]`). Se omesso o vuoto (`[]`), il modello rileva automaticamente la lingua e gestisce il cambio di codice. |
+| `custom_vocabulary` | Array di stringhe | Fino a 1000 termini personalizzati, acronimi o nomi propri per orientare il riconoscimento vocale. Non compatibile con la diarizzazione degli interlocutori e i timestamp a livello di parola. |
+| `mode` | Oggetto o stringa | Configurazione della modalità di trascrizione. Accetta `"smart"` o un oggetto in modalità letterale (`{"type": "verbatim", ...}`). Il valore predefinito è la trascrizione letterale. |
+| `mode.type` | Stringa | *(Solo modalità Verbatim)* Identificatore della modalità. Sempre impostato su `"verbatim"`. |
+| `mode.timestamp_granularities` | Array di stringhe | *(solo modalità Verbatim)* Granularità dei timestamp da restituire. Passa `["word"]` per abilitare gli offset di inizio e fine delle parole. Non compatibile con il vocabolario personalizzato. |
+| `mode.diarization_mode` | Stringa | *(Solo modalità letterale)* Modalità di diarizzazione. Passa `"speaker"` per identificare ed etichettare le diverse persone che parlano. Incompatibile con il vocabolario personalizzato. |
 
-## Bonnes pratiques
+## Best practice
 
-- **Fournissez un son clair** : assurez-vous que les enregistrements audio ont une séparation vocale claire et évitez les découpages importants.
-- **Fournissez des indications de langue si vous les connaissez** : si vous connaissez la langue de l'audio à l'avance, spécifiez `language_codes` pour maximiser la précision.
-- **Cibler un vocabulaire personnalisé** : n'incluez que des termes de domaine distincts, des noms de marques ou des noms propres dans `custom_vocabulary`, plutôt que des mots courants.
-- **Utilisez l'API Files pour les enregistrements volumineux** : pour les fichiers de plus de quelques secondes, importez-les à l'aide de `client.files.upload` et transmettez l'URI de fichier renvoyé au modèle.
+- **Fornisci audio pulito**:assicurati che le registrazioni audio abbiano una separazione vocale chiara ed evita il clipping eccessivo.
+- **Fornisci suggerimenti sulla lingua quando è nota**:se conosci la lingua dell'audio in anticipo, specifica `language_codes` per massimizzare l'accuratezza.
+- **Vocabolario personalizzato di destinazione**:includi solo termini di dominio, nomi di brand o nomi propri distinti in `custom_vocabulary` anziché parole comuni di uso quotidiano.
+- **Utilizza l'API Files per le registrazioni di grandi dimensioni**:per i file più lunghi di pochi secondi, carica il file utilizzando `client.files.upload` e passa l'URI del file restituito al modello.
 
-## Limites
+## Limitazioni
 
-- **Durée de l'audio** : les requêtes unitaires standards acceptent les fichiers audio d'une durée maximale d'une heure. Le traitement audio est limité à 30 minutes lorsque des fonctionnalités telles que l'identification du locuteur ou les codes temporels au niveau du mot sont activées.
-- **Codes temporels au niveau du mot** : l'activation des codes temporels au niveau du mot peut dégrader la précision globale de la transcription.
-- **Identification du locuteur** : l'identification du locuteur est compatible avec un maximum de huit locuteurs. L'attribution des locuteurs pour trois locuteurs ou plus est une fonctionnalité expérimentale.
-- **Vocabulaire personnalisé** : vous pouvez fournir jusqu'à 1 000 termes dans `custom_vocabulary`, mais les meilleurs résultats sont généralement obtenus avec un maximum de 100 termes. Vous ne pouvez pas combiner `custom_vocabulary` avec la segmentation des locuteurs ni les codes temporels au niveau des mots. L'API rejette les requêtes qui spécifient `custom_vocabulary` avec l'une ou l'autre de ces fonctionnalités.
-- **Compatibilité des modes** : la transcription intelligente (`"smart"`) ne peut pas être combinée avec `timestamp_granularities` ni `diarization_mode`.
+- **Durata audio**:le richieste unarie standard supportano file audio fino a 1 ora. L'elaborazione audio è limitata a 30 minuti quando sono attivate funzionalità come la diarizzazione degli interlocutori o i timestamp a livello di parola.
+- **Timestamp a livello di parola**:l'attivazione dei timestamp a livello di parola potrebbe ridurre l'accuratezza complessiva della trascrizione.
+- **Diarizzazione degli interlocutori**:la diarizzazione degli interlocutori supporta fino a 8 interlocutori. L'attribuzione degli speaker per 3 o più speaker è sperimentale.
+- **Vocabolario personalizzato**:puoi fornire fino a 1000 termini in `custom_vocabulary`, ma in genere i risultati migliori si ottengono con un massimo di 100 termini. Non puoi combinare `custom_vocabulary` con la diarizzazione degli oratori o i timestamp a livello di parola; l'API rifiuta le richieste che specificano `custom_vocabulary` insieme a una delle due funzionalità.
+- **Compatibilità delle modalità**:la trascrizione intelligente (`"smart"`) non può essere combinata con `timestamp_granularities` o `diarization_mode`.
 
-## Étape suivante
+## Passaggi successivi
 
-- Diffusez de l'audio en temps réel avec le [guide de transcription en direct](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=fr) à l'aide de l'API Live.
-- Explorez la [compréhension audio](https://ai.google.dev/gemini-api/docs/audio?hl=fr) pour analyser, résumer ou interroger des contenus audio.
-- Découvrez comment synthétiser des contenus audio à partir de texte à l'aide de [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr).
-- Consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.5-transcribe) pour connaître les tarifs des modèles et les limites de jetons.
-- Consultez le guide de l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=fr) pour savoir comment importer et gérer des fichiers multimédias.
+- Trasmetti audio in tempo reale con la [guida alla trascrizione in tempo reale](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=it) utilizzando l'API Live.
+- Esplora [Comprensione dell'audio](https://ai.google.dev/gemini-api/docs/audio?hl=it) per analizzare, riepilogare o interrogare i contenuti audio.
+- Scopri come sintetizzare l'audio dal testo utilizzando [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it).
+- Consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-3.5-transcribe) per i prezzi dei modelli e i limiti dei token.
+- Consulta la guida all'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it) per informazioni dettagliate sul caricamento e sulla gestione dei file multimediali.
 
-Envoyer des commentaires
+Invia feedback
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Dernière mise à jour le 2026/09/24 (UTC).
+Ultimo aggiornamento 2026-09-24 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Vuoi dirci altro?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/24 (UTC)."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-24 UTC."],[],[]]

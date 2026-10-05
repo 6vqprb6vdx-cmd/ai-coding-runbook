@@ -1,218 +1,202 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pt-BR
-fetched_at: 2026-09-28T06:07:17.012760+00:00
-title: "Estrat\u00e9gias de design de comandos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=fr
+fetched_at: 2026-10-05T06:27:35.120138+00:00
+title: "Strat\u00e9gies de conception des invites \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Envie comentários
+Envoyer des commentaires
 
-# Estratégias de design de comandos
+# Stratégies de conception des invites
 
-*Design de comando* é o processo de criação de comandos ou solicitações em linguagem natural
-que extraem respostas precisas e de alta qualidade de um modelo de linguagem.
+La *conception de requêtes* est le processus de création de requêtes, ou demandes en langage naturel, qui permettent d'obtenir des réponses précises et de haute qualité à partir d'un modèle de langage.
 
-Nesta página, apresentamos conceitos básicos, estratégias e práticas recomendadas para você começar a criar comandos e aproveitar ao máximo os modelos de IA do Gemini.
+Cette page présente des concepts, des stratégies et des bonnes pratiques de base pour vous aider à concevoir des requêtes afin de tirer le meilleur parti des modèles d'IA Gemini.
 
-## Guias de comandos específicos para temas
+## Guides de requêtes spécifiques à un thème
 
-Quer estratégias de comando mais específicas? Confira nossos outros guias de comandos em:
+Vous recherchez des stratégies de requête plus spécifiques ? Consultez nos autres guides sur les prompts :
 
-- [Comandos com arquivos de mídia](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide)
-- [Comandos para geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br#prompt-guide)
-- [Comandos para geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br#prompt-guide)
+- [Créer des requêtes avec des fichiers multimédias](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide)
+- [Générer des images avec des requêtes](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr#prompt-guide)
+- [Écrire des requêtes pour générer des vidéos](https://ai.google.dev/gemini-api/docs/video?hl=fr#prompt-guide)
 
-Você pode encontrar outros exemplos de comandos na [galeria de comandos](https://ai.google.dev/gemini-api/prompts?hl=pt-br), que mostra de forma interativa muitos dos conceitos compartilhados neste guia.
+Vous trouverez d'autres exemples de requêtes dans la [galerie de requêtes](https://ai.google.dev/gemini-api/prompts?hl=fr), qui vise à présenter de manière interactive de nombreux concepts abordés dans ce guide.
 
-## Instruções claras e específicas
+## Instructions claires et spécifiques
 
-Uma maneira eficaz e eficiente de personalizar o comportamento do modelo é fornecer instruções claras e específicas. As instruções podem ser uma pergunta,
-tarefas detalhadas ou tão complexas quanto mapear a experiência e a mentalidade de um usuário.
+Pour personnaliser le comportement du modèle de manière efficace, fournissez-lui des instructions claires et spécifiques. Les instructions peuvent se présenter sous la forme d'une question, de tâches détaillées ou être aussi complexes que de définir l'expérience et l'état d'esprit d'un utilisateur.
 
-### Entrada
+### Entrée
 
-A entrada é o texto obrigatório no comando para o qual você quer que o modelo forneça uma resposta. As entradas podem ser uma pergunta que o modelo responde (entrada de pergunta), uma tarefa que o modelo realiza (entrada de tarefa), uma entidade em que o modelo opera (entrada de entidade) ou entrada parcial que o modelo conclui ou continue (entrada concluída).
+L'entrée est le texte obligatoire de la requête pour laquelle le modèle doit fournir une réponse. Les entrées peuvent être des questions auxquelles le modèle répond (entrée de question), une tâche effectuée par le modèle (entrée de tâche), une entité sur laquelle le modèle travaille (entrée d'entité) ou une entrée partielle que le modèle doit terminer ou continuer (entrée de saisie semi-automatique).
 
-| **Tipo de entrada** | **Comando** | **Saída gerada** |
+| **Type d'entrée** | **Prompt** (Requête) | **Résultat généré** |
 | --- | --- | --- |
-| Pergunta | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
-| Tarefa | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
-| Entidade | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
+| Question | ```     What's a good name for a flower shop that specializes in selling bouquets of     dried flowers? Create a list of 5 options with just the names. ``` | ```     Here are 5 names for a flower shop specializing in dried flowers:      1. Everlasting Blooms     2. Dried & Delightful     3. The Petal Preserve     4. Whispers of Wildflowers     5. Forever Blooms ``` |
+| Tâche | ```     Give me a simple list of just the things that I must bring on a camping trip. The list should have 5 items. ``` | ```     1. **Tent:** Your shelter from the elements.     2. **Sleeping Bag:** Stay warm and comfortable.     3. **Sleeping Pad:** Insulation and cushioning for a good night's sleep.     4. **Headlamp or Flashlight:** Light for nighttime activities.     5. **First Aid Kit:** Be prepared for minor injuries. ``` |
+| Entité | ```     Classify the following items as [large, small]: Elephant Mouse Snail ``` | ``` Here's the classification:  * **Elephant:** Large * **Mouse:** Small * **Snail:** Small ``` |
 
-#### Conclusão parcial de entrada
+#### Saisie semi-automatique partielle
 
-Os modelos de linguagem generativa funcionam como uma ferramenta avançada de preenchimento automático. Quando você fornece conteúdo parcial, o modelo pode fornecer o restante do conteúdo ou o que considera ser uma continuação desse conteúdo, como uma resposta. Ao fazer isso, se você incluir exemplos ou contexto, o modelo poderá levar esses exemplos ou contexto em consideração.
+Les modèles de langage génératif fonctionnent comme un outil de saisie semi-automatique avancé. Lorsque vous fournissez un contenu partiel, le modèle peut fournir le reste du contenu ou ce qu'il considère comme une suite de ce contenu en tant que réponse. Ainsi, si vous incluez des exemples ou du contexte, le modèle peut prendre en compte ces exemples ou éléments de contexte.
 
-O exemplo a seguir fornece um prompt com uma instrução e uma entrada de entidade:
-
-|  |
-| --- |
-| **Comando**:    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Resposta:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
-
-Embora o modelo tenha feito o que foi solicitado, escrever as instruções em linguagem natural às vezes pode ser desafiador e deixar muito para a interpretação do modelo.
-Por exemplo, o cardápio de um restaurante pode conter muitos itens. Para reduzir o tamanho da resposta JSON, omita os itens que não foram ordenados. Nesse caso, é possível fornecer um exemplo e um prefixo de resposta e deixar o modelo
-concluí-lo:
+L'exemple suivant fournit une requête avec une instruction et une entrée d'entité :
 
 |  |
 | --- |
-| **Comando**:    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Resposta:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
+| **Requête :**    ``` For the given order, return a JSON object that has the fields cheeseburger, hamburger, fries, or drink, with the value being the quantity.  Order: A burger and a drink. ```  **Réponse:**    ``` {   "cheeseburger": 0,   "hamburger": 1,   "fries": 0,   "drink": 1 } ```  (gemini-2.5-flash) |
 
-Observe como "cheeseburger" foi excluído da saída porque não fazia parte do pedido.
-
-Embora seja possível especificar o formato de objetos de resposta JSON simples usando comandos, recomendamos usar o recurso de [saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br) da API Gemini ao especificar um esquema JSON mais complexo para a resposta.
-
-### Restrições
-
-Especifique as restrições à leitura do comando ou à geração de uma resposta. Você pode
-dizer ao modelo o que fazer e o que não fazer. Por exemplo, é possível especificar uma restrição
-no comando sobre a duração de um resumo:
+Bien que le modèle ait respecté l'invite, il peut parfois être difficile d'écrire les instructions en langage naturel et cela laisse une marge d'interprétation au modèle.
+Par exemple, le menu d'un restaurant peut contenir de nombreux plats. Pour réduire la taille de la réponse JSON, vous souhaiterez probablement omettre les éléments qui n'ont pas été commandés. Dans ce cas, vous pouvez fournir un exemple et un préfixe de réponse, puis laisser le modèle le terminer :
 
 |  |
 | --- |
-| **Comando**:     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Resposta**:     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
+| **Requête :**    ``` Valid fields are cheeseburger, hamburger, fries, and drink. Order: Give me a cheeseburger and fries Output: ``` {   "cheeseburger": 1,   "fries": 1 } ``` Order: I want two burgers, a drink, and fries. Output: ```  **Réponse:**    ``` ``` {   "hamburger": 2,   "drink": 1,   "fries": 1 } ``` ```  (gemini-2.5-flash) |
 
-### Formato da resposta
+Notez que le "cheeseburger" a été exclu du résultat, car il ne faisait pas partie de la commande.
 
-Você pode dar instruções que especifiquem o formato da resposta. Por exemplo, você pode pedir que a resposta seja formatada como tabela, lista com marcadores, argumento rápido de venda, palavras-chave, frase ou parágrafo. A instrução do sistema a seguir informa ao modelo para ser mais conversacional na resposta:
+Bien que vous puissiez spécifier le format des objets de réponse JSON simples à l'aide d'invites, nous vous recommandons d'utiliser la fonctionnalité de [sortie structurée](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) de l'API Gemini lorsque vous spécifiez un schéma JSON plus complexe pour la réponse.
 
-|  |
-| --- |
-| **Instrução do sistema**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **Comando**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Resposta:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
+### Contraintes
 
-#### Formatar respostas com a estratégia de conclusão
-
-A [estratégia de conclusão](#completion) também pode ajudar a formatar a resposta.
-O exemplo a seguir solicita que o modelo crie um esboço de redação:
+Spécifiez les contraintes liées à la lecture du prompt ou à la génération d'une réponse. Vous pouvez indiquer au modèle ce qu'il doit faire et ne pas faire. Par exemple, vous pouvez spécifier une contrainte dans la requête concernant la durée d'un résumé :
 
 |  |
 | --- |
-| **Comando**:    ``` Create an outline for an essay about hummingbirds. ```  **Resposta:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
+| **Requête :**     ``` Summarize this text in one sentence: Text: A quantum computer exploits quantum mechanical phenomena to perform calculations exponentially faster than any modern traditional computer. At very tiny scales, physical matter acts as both particles and as waves, and quantum computing uses specialized hardware to leverage this behavior. The operating principles of quantum devices is beyond the scope of classical physics. When deployed at scale, quantum computers could be used in a wide variety of applications such as: in cybersecurity to break existing encryption methods while helping researchers create new ones, in meteorology to develop better weather forecasting etc. However, the current state of the art quantum computers are still largely experimental and impractical. ```     **Réponse :**     ```       Exploiting quantum mechanical phenomena, quantum computers can perform calculations exponentially faster than traditional computers for potential applications like cybersecurity and meteorology, although they are currently largely experimental and impractical. ```  (gemini-2.5-flash) |
 
-O comando não especificou o formato da estrutura de tópicos, e o modelo escolheu um formato para você. Para que o modelo retorne uma estrutura de tópicos em um formato específico, adicione texto que represente o início dela e deixe que o modelo a conclua com base no padrão iniciado.
+### Format de réponse
 
-|  |
-| --- |
-| **Comando**:    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Resposta:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
-
-## Tomada zero ou poucas fotos
-
-Você pode incluir exemplos no prompt que mostram ao modelo como fazer isso da forma certa. O modelo tenta identificar padrões e relações nos exemplos e os aplica ao gerar uma resposta. As solicitações que contêm alguns exemplos são chamadas de *solicitações curtas*, enquanto as que não fornecem exemplos são chamadas de *solicitações de zero disparo*. Muitas vezes, as solicitações de imagem são usadas para regular a formatação, a frase, o escopo ou o padrão geral das respostas do modelo. Use exemplos específicos e variados para ajudar o modelo a restringir o foco e gerar resultados mais precisos.
-
-Recomendamos sempre incluir exemplos few-shot nos comandos. Comandos sem exemplos com poucos exemplos (few-shot) provavelmente serão menos eficazes. Na verdade, é possível remover
-instruções do comando se os exemplos forem claros o suficiente para mostrar a
-tarefa em questão.
-
-O prompt de imagem zero pede ao modelo para escolher a melhor explicação.
+Vous pouvez donner des instructions qui spécifient le format de la réponse. Par exemple, vous pouvez demander que la réponse soit mise en forme sous forme de tableau, de liste à puces, d'argumentaire éclair, de mots clés, de phrase ou de paragraphe. L'instruction système suivante indique au modèle d'être plus conversationnel dans sa réponse :
 
 |  |
 | --- |
-| **Comando**:    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Resposta:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
+| **Instruction système**    ```     All questions should be answered comprehensively with details, unless the user requests a concise response specifically. ```  **Requête**    ```     What is a smart way to make a business that sells DVD's in 2026? ```  **Réponse:**    ``` Starting a business selling DVDs in 2026 presents significant challenges due to the overwhelming dominance of digital streaming and on-demand services; a "smart" approach would therefore require a highly specialized niche, a strong value proposition beyond just the disc, and likely a focus on community or collector markets rather than mainstream consumption.  Here's a breakdown of what a smart DVD business in 2026 would likely entail:  1. Extreme Niche Specialization: You cannot compete with streaming libraries. Your business must focus on what digital doesn't offer easily or at all. This could include:      * Out-of-Print & Rare Titles: Sourcing films or TV shows that have never been released digitally or are currently unavailable on major streaming platforms.     .... ```  (gemini-2.5-flash) |
 
-Se o caso de uso exigir que o modelo produza respostas concisas, inclua exemplos no comando para dar preferência a respostas concisas.
+#### Mettre en forme les réponses avec la stratégie de complétion
 
-O prompt a seguir fornece dois exemplos que mostram preferência pelas explicações mais curtas. Na resposta, é possível ver que os exemplos guiaram o modelo para escolher a explicação mais curta (`Explanation2`), em vez da explicação mais longa (`Explanation1`) como fazia anteriormente.
-
-|  |
-| --- |
-| **Comando**:    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Resposta:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
-
-### Número ideal de exemplos
-
-Modelos como o Gemini geralmente podem identificar padrões usando alguns exemplos. No entanto, talvez seja necessário testar quantos exemplos fornecer no comando
-para ter os melhores resultados. Ao mesmo tempo, se você incluir muitos exemplos, o modelo poderá começar a [sobrepor](https://developers.google.com/machine-learning/glossary?hl=pt-br#overfitting) a resposta aos exemplos.
-
-### Consistência no formato
-
-Confira se a estrutura e a formatação de poucos exemplos (few-shot) são iguais para evitar respostas com formatos indesejados. Um dos principais objetivos de adicionar exemplos few-shot nos comandos é mostrar ao modelo o formato da resposta. Portanto, é essencial garantir um formato consistente em todos os exemplos, especialmente prestando atenção às tags XML, espaços em branco, novas linhas e divisores de exemplo.
-
-## Adicionar contexto
-
-É possível incluir nas instruções e informações do comando que o modelo precisa para resolver um problema, em vez de presumir que o modelo tem todas as informações necessárias. Essas informações contextuais ajudam o modelo a entender as restrições e os detalhes do que você está pedindo que ele faça.
-
-O exemplo a seguir pede ao modelo que forneça orientação para solução de problemas de um roteador:
+La [stratégie de complémentation](#completion) peut également vous aider à formater la réponse.
+L'exemple suivant demande au modèle de créer un plan de dissertation :
 
 |  |
 | --- |
-| **Comando**:    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Resposta:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+| **Requête :**    ``` Create an outline for an essay about hummingbirds. ```  **Réponse:**    ``` Here is a possible outline for an essay about hummingbirds:  I. Introduction A. Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). B. Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds. C. Thesis Statement: State the main point of the essay, which could be about the remarkable adaptations, behaviors, and ecological importance of hummingbirds.  II. Appearance and Identification ..... ```  (gemini-2.5-flash) |
 
-A resposta se parece com informações genéricas de solução de problemas que não são específicas
-do roteador ou do status das luzes indicadoras de LED.
-
-Para personalizar a resposta do roteador específico, é possível adicionar ao prompt o guia de solução de problemas dele como contexto para consulta ao fornecer uma resposta.
+La requête ne mentionnait pas de format pour le plan et le modèle a choisi un format pour vous. Pour que le modèle renvoie un plan dans un format spécifique, vous pouvez ajouter du texte représentant le début du plan et laisser le modèle le terminer en fonction du schéma que vous avez initié.
 
 |  |
 | --- |
-| **Comando**:    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Resposta:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+| **Requête :**    ``` Create an outline for an essay about hummingbirds. I. Introduction    * ```  **Réponse:**    ``` Okay, here is an outline for an essay about hummingbirds, starting from the introduction you provided:  I. Introduction * Hook: Start with a captivating fact or description about hummingbirds (e.g., their speed, iridescent colors, or tiny size). * Background: Briefly introduce hummingbirds – where they are found (Americas), their reputation as unique birds, and their general characteristics. * Thesis Statement: State the main point of the essay, focusing on the remarkable adaptations, behaviors, and ecological significance that make hummingbirds extraordinary. ..... ```  (gemini-2.5-flash) |
 
-## Dividir comandos em componentes
+## Requêtes zero-shot et requêtes few-shot
 
-Para casos de uso que exigem solicitações complexas, é possível ajudar o modelo a gerenciar essa complexidade dividindo os itens em componentes mais simples.
+Vous pouvez inclure des exemples dans la requête afin de montrer au modèle à quoi ressemble une réponse correcte. Le modèle tente d'identifier des schémas et des relations à partir des exemples, et les applique lors de la génération d'une réponse. Les requêtes contenant quelques exemples sont appelées des requêtes *few-shot*, tandis que les requêtes qui ne fournissent aucun exemple sont appelées *requêtes zero-shot*. Les requêtes few-shot sont souvent utilisées pour réguler la mise en forme, la formulation, le champ d'application ou la mise en forme générale des réponses du modèle. Utilisez des exemples spécifiques et variés pour aider le modèle à affiner son champ d'action et à générer des résultats plus précis.
 
-1. **Divida as instruções**:em vez de ter várias instruções em um só comando, crie um por instrução. Você pode escolher qual solicitação processar com base na entrada do usuário.
-2. **Encadeie comandos**:para tarefas complexas que envolvem várias etapas sequenciais, transforme cada etapa em um comando e encadeie os comandos em uma sequência. Nessa cadeia sequencial, a saída de um comando na sequência se torna a entrada do próximo comando. A saída do último comando na sequência
-   é a saída final.
-3. **Agregar respostas**:a agregação é quando você quer executar diferentes tarefas paralelas em diferentes partes dos dados e agregar os resultados para produzir a saída final. Por exemplo, é possível dizer ao modelo para executar uma operação na primeira parte dos dados, executar outra operação no restante dos dados e agregar os resultados.
+Nous vous recommandons d'inclure systématiquement des exemples few-shot dans vos requêtes. Les requêtes sans exemples few-shot sont susceptibles d'être moins efficaces. En fait, vous pouvez supprimer les instructions de votre requête si vos exemples montrent clairement la tâche à accomplir.
 
-## Testar parâmetros do modelo
+La requête zero-shot suivante demande au modèle de choisir la meilleure explication.
 
-Cada chamada que você envia a um modelo inclui valores de parâmetros que controlam como o modelo gera uma resposta. O modelo pode gerar diferentes resultados para diferentes valores de parâmetros. Teste diferentes valores de parâmetros para conseguir os melhores valores para a tarefa. Os parâmetros disponíveis para modelos diferentes podem ser diferentes. Os parâmetros mais comuns são:
+|  |
+| --- |
+| **Requête :**    ``` Please choose the best explanation to the question:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Réponse:**    ``` Explanation1 is the better explanation because it provides more detail on the process, including how ice crystals combine and grow into snowflakes as they fall through the atmosphere. ```  (gemini-2.5-flash) |
 
-1. **Máximo de tokens de saída**:especifica o número máximo de tokens que podem ser gerados na resposta. Um token tem cerca de quatro caracteres. 100 tokens correspondem a cerca de 60 a 80 palavras.
-2. **Temperatura**:controla o grau de aleatoriedade na seleção de tokens. A temperatura é usada para amostragem durante a geração de respostas,
-   que ocorre quando `topP` e `topK` são aplicados. Temperaturas mais baixas são boas para comandos que exigem uma resposta mais determinista ou menos aberta, enquanto temperaturas mais altas podem levar a resultados mais diversos ou criativos. Uma temperatura 0 é determinista, o que significa que a resposta de maior probabilidade é sempre selecionada.
-3. **`topK`**:o parâmetro `topK` muda a forma como o modelo seleciona tokens para saída. Um `topK` de 1 significa que o token selecionado é o mais provável entre todos os tokens no vocabulário do modelo (também chamado de decodificação gananciosa), enquanto um `topK` de 3 significa que o próximo token é selecionado entre os três mais prováveis usando a temperatura. Em cada etapa de seleção de token, são escolhidos os tokens `topK` com as maiores probabilidades. Em seguida, os tokens são filtrados com base no `topP`, com o token final selecionado usando a amostragem de temperatura.
-4. **`topP`**:o parâmetro `topP` muda a forma como o modelo seleciona tokens para saída. Os tokens são selecionados do mais ao menos provável até que a soma das probabilidades seja igual ao valor `topP`. Por exemplo, se os tokens A, B e C tiverem uma probabilidade de 0,3, 0,2 e 0,1 e o valor de `topP` for 0,5, o modelo vai selecionar A ou B como token seguinte usando a temperatura e excluir C como candidato. O valor padrão de `topP` é 0,95.
-5. **`stop_sequences`**:defina uma sequência de parada para
-   instruir o modelo a parar de gerar conteúdo. Uma sequência de parada pode ser qualquer
-   sequência de caracteres. Evite usar uma sequência de caracteres que possa aparecer no conteúdo gerado.
+Si votre cas d'utilisation nécessite que le modèle produise des réponses concises, vous pouvez inclure dans la requête des exemples qui privilégient les réponses concises.
 
-## Estratégias de iteração de prompt
+La requête suivante fournit deux exemples qui indiquent une préférence pour les explications plus courtes. Dans la réponse, vous pouvez constater que les exemples ont poussé le modèle à choisir l'explication la plus courte (`Explanation2`), par opposition à la plus longue (`Explanation1`).
 
-Às vezes, o design de comandos exige algumas iterações até que você receba de forma consistente a resposta que procura. Esta seção fornece orientações sobre algumas coisas que você pode tentar ao iterar nas suas solicitações:
+|  |
+| --- |
+| **Requête :**    ``` Below are some examples showing a question, explanation, and answer format:  Question: Why is the sky blue? Explanation1: The sky appears blue because of Rayleigh scattering, which causes shorter blue wavelengths of light to be scattered more easily than longer red wavelengths, making the sky look blue. Explanation2: Due to Rayleigh scattering effect. Answer: Explanation2  Question: What is the cause of earthquakes? Explanation1: Sudden release of energy in the Earth's crust. Explanation2: Earthquakes happen when tectonic plates suddenly slip or break apart, causing a release of energy that creates seismic waves that can shake the ground and cause damage. Answer: Explanation1  Now, Answer the following question given the example formats above:  Question: How is snow formed? Explanation1: Snow is formed when water vapor in the air freezes into ice crystals in the atmosphere, which can combine and grow into snowflakes as they fall through the atmosphere and accumulate on the ground. Explanation2: Water vapor freezes into ice crystals forming snow. Answer: ```  **Réponse:**    ``` Answer: Explanation2 ```  (gemini-2.5-flash) |
 
-1. **Use frases diferentes**:usar palavras ou frases diferentes nos comandos
-   costuma gerar respostas diferentes do modelo, mesmo que todas tenham o mesmo
-   significado. Se você não estiver recebendo os resultados esperados, tente reformular o comando.
+### Nombre optimal d'exemples
+
+Des modèles tels que Gemini peuvent souvent détecter des schémas avec seulement quelques exemples, mais vous devrez peut-être tester le nombre d'exemples à fournir dans la requête pour obtenir les meilleurs résultats. Cependant, si vous incluez trop d'exemples, le modèle peut manifester un [surapprentissage](https://developers.google.com/machine-learning/glossary?hl=fr#overfitting) qui biaise les réponses obtenues.
+
+### Toujours le même format
+
+Assurez-vous que la structure et la mise en forme des exemples few-shot sont identiques pour éviter les réponses avec des formats indésirables. L'un des principaux objectifs de l'ajout d'exemples few-shot dans les requêtes est de montrer au modèle le format de réponse. Il est donc essentiel de veiller à ce que le format soit cohérent dans tous les exemples, en prêtant particulièrement attention aux balises XML, aux espaces blancs, aux sauts de ligne et aux séparateurs d'exemples.
+
+## Ajouter le contexte
+
+Vous pouvez inclure dans une requête des instructions et des informations dont le modèle a besoin pour résoudre un problème, au lieu de supposer que le modèle dispose de toutes les informations requises. Ces informations contextuelles aident le modèle à comprendre les contraintes et les détails de ce que vous lui demandez de faire.
+
+L'exemple suivant demande au modèle de fournir des conseils de dépannage pour un routeur :
+
+|  |
+| --- |
+| **Requête :**    ``` What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly. ```  **Réponse:**    ```   A yellow blinking light on your Google Wifi router usually indicates a problem   with the internet connection. Here are some steps to troubleshoot and fix the   issue:   1. Restart your router and modem:     - Unplug your modem from the power outlet and wait for 30 seconds.     - Plug your modem back in and wait for it to fully boot up.     - Unplug your Google Wifi router and wait for 30 seconds.     - Plug your Google Wifi router back in and wait for it to fully boot up. ..... ```  (gemini-2.5-flash) |
+
+La réponse est semblable aux informations de dépannage génériques qui ne sont pas spécifiques au routeur ou à l'état des témoins LED.
+
+Pour personnaliser la réponse en fonction du routeur spécifique, vous pouvez ajouter le guide de dépannage du routeur à la requête en tant que contexte auquel le modèle doit faire référence dans sa réponse.
+
+|  |
+| --- |
+| **Requête :**    ``` Answer the question using the text below. Respond with only the text provided. Question: What should I do to fix my disconnected wifi? The light on my Google Wifi router is yellow and blinking slowly.  Text: Color: Slowly pulsing yellow What it means: There is a network error. What to do: Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again.  Color: Fast blinking yellow What it means: You are holding down the reset button and are factory resetting this device. What to do: If you keep holding down the reset button, after about 12 seconds, the light will turn solid yellow. Once it is solid yellow, let go of the factory reset button.  Color: Solid yellow What it means: Router is factory resetting. What to do: This can take up to 10 minutes. When it's done, the device will reset itself and start pulsing white, letting you know it's ready for setup.  Color: Solid red What it means: Something is wrong. What to do: Critical failure. Factory reset the router. If the light stays red, contact Wifi customer support. ```  **Réponse:**    ``` Check that the Ethernet cable is connected to both your router and your modem and both devices are turned on. You might need to unplug and plug in each device again. ```  (gemini-2.5-flash) |
+
+## Décomposer les requêtes en composants
+
+Pour les cas d'utilisation qui nécessitent des requêtes complexes, vous pouvez aider le modèle à gérer cette complexité en décomposant les éléments en composants plus simples.
+
+1. **Décomposez les instructions** : au lieu d'inclure plusieurs instructions dans une même requête, créez une requête par instruction. Vous pouvez choisir l'invite à traiter en fonction de la saisie de l'utilisateur.
+2. **Requêtes de chaîne** : pour les tâches complexes impliquant plusieurs étapes séquentielles, faites de chaque étape une requête et associez les requêtes dans une séquence. Dans cette chaîne de requêtes séquentielle, la sortie d'une requête de la séquence devient l'entrée de la requête suivante. Le résultat de la dernière requête de la séquence est le résultat final.
+3. **Réponses agrégées** : l'agrégation consiste à effectuer différentes tâches parallèles sur différentes parties des données et à agréger les résultats pour produire le résultat final. Par exemple, vous pouvez demander au modèle d'effectuer une opération sur la première partie des données, une autre opération sur le reste des données et d'agréger les résultats.
+
+## Tester les paramètres du modèle
+
+Chaque appel que vous envoyez à un modèle inclut des valeurs de paramètres qui contrôlent la manière dont le modèle génère sa réponse. Le modèle peut générer différents résultats pour différentes valeurs de paramètre. Testez différentes valeurs de paramètre pour obtenir les meilleures valeurs pour la tâche. Les paramètres disponibles pour les différents modèles peuvent différer. Les paramètres les plus courants sont les suivants :
+
+1. **Nombre maximal de jetons de sortie** : spécifie le nombre maximal de jetons pouvant être générés dans la réponse. Un jeton correspond environ à quatre caractères. 100 jetons correspondent environ à 60-80 mots.
+2. **Température** : la température permet de contrôler le degré de hasard dans la sélection des jetons. La température est utilisée pour l'échantillonnage pendant la génération de la réponse, qui se produit lorsque `topP` et `topK` sont appliqués. Les températures basses sont idéales pour les requêtes qui nécessitent une réponse plus déterministe ou moins ouverte, tandis que des températures plus élevées peuvent entraîner des résultats plus diversifiés ou créatifs. Une température de 0 est déterministe, ce qui signifie que la réponse dont la probabilité est la plus élevée est toujours sélectionnée.
+3. **`topK`** : le paramètre `topK` modifie la façon dont le modèle sélectionne les jetons pour la sortie. Une valeur `topK` de 1 signifie que le jeton sélectionné est le plus probable parmi tous les jetons du vocabulaire du modèle (également appelé décodage glouton), tandis qu'une valeur `topK` de 3 signifie que le jeton suivant est sélectionné parmi les trois jetons les plus probables à l'aide de la température. Pour chaque étape de sélection de jeton, les principaux jetons `topK` ayant les probabilités les plus élevées sont échantillonnés. Les jetons sont ensuite filtrés en fonction de `topP`, puis le jeton final est sélectionné à l'aide de l'échantillonnage de température.
+4. **`topP`** : le paramètre `topP` modifie la façon dont le modèle sélectionne les jetons pour la sortie. Les jetons sont sélectionnés de la probabilité la plus élevée à la plus faible, jusqu'à ce que la somme de leurs probabilités soit égale à la valeur `topP`. Par exemple, si les jetons A, B et C ont une probabilité de 0,3, 0,2 et 0,1 et que la valeur `topP` est égale à 0,5, le modèle sélectionne A ou B comme jeton suivant en utilisant la température et exclut C comme candidat. La valeur `topP` par défaut est 0,95.
+5. **`stop_sequences`** : définissez une séquence d'arrêt pour indiquer au modèle d'arrêter de générer du contenu. Une séquence d'arrêt peut être n'importe quelle séquence de caractères. Essayez d'éviter d'utiliser une séquence de caractères qui pourrait apparaître dans le contenu généré.
+
+## Stratégies d'itération des invites
+
+La conception d'une requête peut parfois nécessiter plusieurs essais avant d'obtenir la réponse souhaitée de manière consistante. Cette section fournit des conseils sur les mesures que vous pouvez appliquer lors de l'itération de vos requêtes :
+
+1. **Utilisez une formulation différente** : l'utilisation de formulations ou de mots différents dans vos requêtes permet souvent d'obtenir des réponses différentes du modèle, même lorsque chaque requête a la même signification. Si vous n'obtenez pas les résultats attendus à partir de la requête, essayez de la reformuler.
 
    |  |
    | --- |
    | ``` Version 1: How do I bake a pie?  Version 2: Suggest a recipe for a pie.  Version 3: What's a good pie recipe? ``` |
-2. **Mude para uma tarefa análoga**:se você não conseguir que o modelo siga suas instruções para uma tarefa, tente dar a ele instruções para uma tarefa análoga que consiga o mesmo resultado.
+2. **Passez à une tâche analogue** : si vous ne parvenez pas à ce que le modèle suive vos instructions pour une tâche, essayez de lui donner des instructions pour une tâche analogue qui permet d'obtenir le même résultat.
 
-   Esse comando instrui o modelo a categorizar um livro usando categorias predefinidas:
-
-   |  |
-   | --- |
-   | **Comando**:    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Resposta:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
-
-   A resposta está correta, mas o modelo não permaneceu dentro dos limites das opções. Você também precisa modelar para responder apenas com uma das opções, em vez de em uma frase completa. Nesse caso, é possível reformular as instruções como uma pergunta de múltipla escolha e solicitar que o modelo escolha uma opção.
+   Cette requête demande au modèle de catégoriser un livre en utilisant des catégories prédéfinies :
 
    |  |
    | --- |
-   | **Comando**:    ``` Multiple choice problem: Which of the following options describes the book The Odyssey? Options: ``` |
+   | **Requête :**    ``` Which category does The Odyssey belong to: thriller sci-fi mythology biography ```  **Réponse:**    ```     The Odyssey belongs to the category of **mythology**.       Here's why:      * **Mythology:** The Odyssey tells the story of Odysseus, a hero from Greek mythology, and his     journey home after the Trojan War. It features gods, monsters, and supernatural events common to     Greek mythology. ..... ```  (gemini-2.5-flash) |
+
+   La réponse est correcte, mais le modèle n'est pas resté dans les limites des options. Vous souhaitez également que le modèle réponde avec l'une des options plutôt qu'avec une phrase complète. Dans ce cas, vous pouvez reformuler les instructions sous la forme d'une question à choix multiples et demander au modèle de choisir une option.
+
+   |  |
+   | --- |
+   | **Requête :**    ``` Multiple choice problem: Which of the following options describes the book The Odyssey? Options: ``` |
 
    - thriller
    - sci-fi
    - mythology
    - biography
-     **Resposta:**
+     **Réponse:**
 
      ```
      The correct answer is mythology.
      ```
 
      (gemini-2.5-flash)
-   - **Mude a ordem do conteúdo do comando**:às vezes, a ordem do conteúdo no comando afeta a resposta. Tente mudar a ordem do conteúdo e veja
-     como isso afeta a resposta.
+   - **Modifiez l'ordre du contenu dans la requête** : l'ordre du contenu dans la requête peut parfois affecter la réponse. Essayez de modifier l'ordre du contenu et vérifiez comment cela affecte la réponse.
 
      ```
      Version 1:
@@ -231,52 +215,51 @@ Cada chamada que você envia a um modelo inclui valores de parâmetros que contr
      [context]
      ```
 
-## Respostas substitutas
+## Réponses de remplacement
 
-Uma resposta substituta é retornada pelo modelo quando a solicitação ou a resposta acionam um filtro de segurança. Um exemplo de resposta substituta é "Não posso ajudar com isso, porque sou apenas um modelo de linguagem".
+Une réponse de remplacement est une réponse renvoyée par le modèle lorsque la requête ou la réponse déclenche un filtre de sécurité. Voici un exemple de réponse de remplacement : "Je ne peux pas vous aider, car je ne suis qu'un modèle de langage".
 
-Se o modelo responder com uma resposta substituta, tente aumentar a temperatura.
+Si le modèle renvoie une réponse de remplacement, essayez d'augmenter la température.
 
-## Embasamento e execução de código
+## Ancrage et exécution de code
 
-O Gemini pode usar ferramentas para evitar alucinações em cenários em que poderia produzir respostas incorretas.
+Gemini peut utiliser des outils pour éviter les hallucinations dans les scénarios où il pourrait autrement produire des réponses incorrectes.
 
-O [embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) conecta o modelo do Gemini ao conteúdo da Web em tempo real e precisa ser ativado sempre que o modelo precisar saber fatos obscuros ou recentes.
+L'[ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) permet d'associer le modèle Gemini à des contenus Web en temps réel. Il doit être activé chaque fois que le modèle peut avoir besoin de connaître des faits obscurs ou récents.
 
-A [ferramenta de execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br) do Gemini permite que o modelo gere e execute código Python. Ela precisa ser ativada sempre que o modelo precisar realizar qualquer tipo de aritmética, contagem ou cálculo.
+L'[outil d'exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) de Gemini permet au modèle de générer et d'exécuter du code Python. Il doit être activé chaque fois que le modèle doit effectuer des opérations arithmétiques, de comptage ou de calcul.
 
-## Gemini 3
+## Gemini 3
 
-Os [modelos do Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3) são projetados para raciocínio avançado e seguimento de instruções.
-Elas respondem melhor a comandos diretos, bem estruturados e que definem claramente a tarefa e as restrições. As seguintes práticas são recomendadas para resultados ideais com o Gemini 3:
+Les [modèles Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=fr#gemini-3) sont conçus pour le raisonnement avancé et le suivi des instructions.
+Ils répondent mieux aux requêtes directes et bien structurées qui définissent clairement la tâche et les éventuelles contraintes. Les pratiques suivantes sont recommandées pour obtenir des résultats optimaux avec Gemini 3 :
 
-### Princípios básicos de criação de comandos
+### Principes de base du prompting
 
-- **Seja preciso e direto**:defina sua meta de forma clara e concisa. Evite linguagem desnecessária ou excessivamente persuasiva.
-- **Use uma estrutura consistente**:use delimitadores claros para separar diferentes
-  partes do comando. Tags no estilo XML (por exemplo, `<context>`, `<task>`) ou cabeçalhos em Markdown são eficazes. Escolha um formato e use-o de maneira consistente em um único comando.
-- **Defina parâmetros**:explique explicitamente termos ou parâmetros ambíguos.
-- **Controle a verbosidade da saída**:por padrão, os modelos do Gemini 3 fornecem respostas diretas e eficientes. Se você precisar de uma resposta mais detalhada ou em formato de conversa, peça isso explicitamente nas instruções.
-- **Lide com entradas multimodais de maneira coerente**:ao usar texto, imagens, áudio ou vídeo, trate-os como entradas de mesma classe. Verifique se as instruções referenciam claramente cada modalidade, conforme necessário.
-- **Priorize instruções críticas**:coloque restrições comportamentais essenciais, definições de função (persona) e requisitos de formato de saída na instrução do sistema ou no início do comando do usuário.
-- **Estrutura para contextos longos**:ao fornecer grandes quantidades de contexto (por exemplo, documentos, código), forneça todo o contexto primeiro. Coloque suas instruções ou perguntas específicas no *final* do comando.
-- **Contexto de ancoragem**:depois de um grande bloco de dados, use uma frase de transição clara para conectar o contexto e sua consulta, como "Com base nas informações acima..."
+- **Soyez précis et direct** : énoncez clairement et de manière concise votre objectif. Évitez le langage inutile ou trop persuasif.
+- **Utilisez une structure cohérente** : utilisez des délimiteurs clairs pour séparer les différentes parties de votre requête. Les balises de style XML (par exemple, `<context>`, `<task>`) ou les titres Markdown sont efficaces. Choisissez un format et utilisez-le de manière cohérente dans un même prompt.
+- **Définissez les paramètres** : expliquez explicitement tous les termes ou paramètres ambigus.
+- **Contrôler la verbosité de la sortie** : par défaut, les modèles Gemini 3 fournissent des réponses directes et efficaces. Si vous avez besoin d'une réponse plus détaillée ou plus conversationnelle, vous devez l'indiquer explicitement dans vos instructions.
+- **Gérez les entrées multimodales de manière cohérente** : lorsque vous utilisez du texte, des images, de l'audio ou des vidéos, traitez-les comme des entrées de même catégorie. Assurez-vous que vos instructions font clairement référence à chaque modalité, si nécessaire.
+- **Donnez la priorité aux instructions critiques** : placez les contraintes comportementales essentielles, les définitions de rôle (persona) et les exigences de format de sortie dans l'instruction système ou tout au début de la requête utilisateur.
+- **Structure pour les contextes longs** : lorsque vous fournissez de grandes quantités de contexte (par exemple, des documents ou du code), fournissez d'abord tout le contexte. Placez vos instructions ou questions spécifiques tout à la *fin* du prompt.
+- **Contexte d'ancrage** : après un grand bloc de données, utilisez une phrase de transition claire pour faire le lien entre le contexte et votre requête, par exemple "Sur la base des informations ci-dessus…".
 
-### Estratégias do Gemini 3 Flash
+### Stratégies Gemini 3 Flash
 
-- **Precisão do dia atual**:adicione a seguinte cláusula às instruções do sistema para ajudar o modelo a prestar atenção ao dia atual em 2026:
+- **Précision pour le jour actuel** : ajoutez la clause suivante aux instructions système pour aider le modèle à tenir compte du fait que le jour actuel est en 2026 :
 
   ```
   For time-sensitive user queries that require up-to-date information, you
   MUST follow the provided current time (date and year) when formulating
   search queries in tool calls. Remember it is 2026 this year.
   ```
-- **Acurácia do limite de conhecimento**:adicione a seguinte cláusula às instruções do sistema para que o modelo saiba sobre o limite de conhecimento:
+- **Précision de la limite de connaissances** : ajoutez la clause suivante aux instructions système pour informer le modèle de sa limite de connaissances :
 
   ```
   Your knowledge cutoff date is January 2025.
   ```
-- **Performance de embasamento**:adicione a seguinte cláusula às instruções do sistema (com edições quando apropriado) para melhorar a capacidade do modelo de embasar as respostas no contexto fornecido:
+- **Performances d'ancrage** : ajoutez la clause suivante aux instructions système (en la modifiant si nécessaire) pour améliorer la capacité du modèle à ancrer les réponses dans le contexte fourni :
 
   ```
   You are a strictly grounded assistant limited to the information provided in
@@ -292,17 +275,17 @@ Elas respondem melhor a comandos diretos, bem estruturados e que definem clarame
   the context, you must state that the information is not available.
   ```
 
-### Melhorar o raciocínio e o planejamento
+### Améliorer le raisonnement et la planification
 
-Os modelos das séries Gemini 2.5 e 3 geram automaticamente um texto interno de "pensamento" para melhorar o desempenho do raciocínio. Por isso, geralmente não é necessário que o modelo descreva, planeje ou detalhe as etapas de raciocínio na resposta retornada. Para problemas que exigem muito raciocínio, solicitações simples como "Pense muito antes de responder" podem melhorar o desempenho, mas ao custo de tokens de pensamento extras.
+Les modèles des séries Gemini 2.5 et 3 génèrent automatiquement du texte de "réflexion" interne pour améliorer les performances de raisonnement. Par conséquent, il n'est généralement pas nécessaire que le modèle fournisse un plan, un résumé ou des étapes de raisonnement détaillées dans la réponse renvoyée. Pour les problèmes qui nécessitent un raisonnement approfondi, des requêtes simples comme "Réfléchis bien avant de répondre" peuvent améliorer les performances, mais au prix de jetons de réflexion supplémentaires.
 
-Consulte a documentação sobre o [raciocínio do Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para mais detalhes.
+Pour en savoir plus, consultez la documentation [Réflexion de Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=fr).
 
-### Exemplos de comandos estruturados
+### Exemples de requêtes structurées
 
-Usar tags ou Markdown ajuda o modelo a distinguir entre instruções, contexto e tarefas.
+L'utilisation de tags ou de Markdown aide le modèle à faire la distinction entre les instructions, le contexte et les tâches.
 
-**Exemplo de XML**:
+**Exemple de code XML :**
 
 ```
 <role>
@@ -323,7 +306,7 @@ You are a helpful assistant.
 </task>
 ```
 
-**Exemplo de Markdown:**
+**Exemple Markdown :**
 
 ```
 # Identity
@@ -337,11 +320,11 @@ You are a senior solution architect.
 Return a single code block.
 ```
 
-### Exemplo de modelo que combina práticas recomendadas
+### Exemple de modèle combinant les bonnes pratiques
 
-Este modelo captura os princípios básicos para comandos com o Gemini 3. Sempre itere e modifique para seu caso de uso específico.
+Ce modèle reprend les principes fondamentaux pour rédiger des requêtes avec Gemini 3. Veillez toujours à itérer et à modifier le code pour l'adapter à votre cas d'utilisation spécifique.
 
-**Instrução do sistema**:
+**Instruction système :**
 
 ```
 <role>
@@ -368,7 +351,7 @@ Structure your response as follows:
 </output_format>
 ```
 
-**Comando do usuário:**
+**Requête de l'utilisateur** :
 
 ```
 <context>
@@ -384,41 +367,41 @@ Remember to think step-by-step before answering.
 </final_instruction>
 ```
 
-## Fluxos de trabalho com agentes
+## Workflows agentifs
 
-Para fluxos de trabalho agênticos complexos, geralmente são necessárias instruções específicas para controlar como o modelo raciocina, planeja e executa tarefas. Embora o Gemini ofereça um desempenho geral excelente, os agentes complexos geralmente exigem que você configure a compensação entre custo computacional (latência e tokens) e precisão da tarefa.
+Pour les workflows agentiques complexes, des instructions spécifiques sont souvent nécessaires pour contrôler la façon dont le modèle raisonne, planifie et exécute les tâches. Bien que Gemini offre de bonnes performances générales, les agents complexes vous obligent souvent à configurer le compromis entre le coût de calcul (latence et jetons) et la précision des tâches.
 
-Ao criar comandos para agentes, considere as seguintes dimensões de comportamento que podem ser direcionadas no agente:
+Lorsque vous concevez des requêtes pour les agents, tenez compte des dimensions de comportement suivantes que vous pouvez orienter dans l'agent :
 
-### Raciocínio e estratégia
+### Raisonnement et stratégie
 
-Configuração de como o modelo pensa e planeja antes de agir.
+Configuration de la façon dont le modèle réfléchit et planifie avant d'agir.
 
-- **Decomposição lógica**:define a profundidade com que o modelo precisa analisar restrições, pré-requisitos e a ordem das operações.
-- **Diagnóstico de problemas**: controla a profundidade da análise ao identificar causas e o uso do raciocínio abdutivo pelo modelo. Determina se o modelo deve aceitar a resposta mais óbvia ou explorar explicações complexas e menos prováveis.
-- **Exaustividade das informações**:a troca entre analisar todas as políticas e documentos disponíveis e priorizar a eficiência e a velocidade.
+- **Décomposition logique** : définit la profondeur d'analyse des contraintes, des prérequis et de l'ordre des opérations par le modèle.
+- **Diagnostic des problèmes** : contrôle la profondeur de l'analyse lors de l'identification des causes et l'utilisation du raisonnement abductif par le modèle. Détermine si le modèle doit accepter la réponse la plus évidente ou explorer des explications complexes et moins probables.
+- **Exhaustivité des informations** : compromis entre l'analyse de chaque règlement et document disponibles, et la priorité accordée à l'efficacité et à la rapidité.
 
-### Execução e confiabilidade
+### Exécution et fiabilité
 
-Configuração de como o agente opera de forma autônoma e lida com obstáculos.
+Configuration du fonctionnement autonome de l'agent et de la gestion des obstacles.
 
-- **Adaptabilidade**:como o modelo reage a novos dados. Determina se ele deve aderir estritamente ao plano inicial ou mudar imediatamente quando as observações contradizem as proposições.
-- **Persistência e recuperação**:o grau em que o modelo tenta corrigir erros por conta própria. A alta persistência aumenta as taxas de sucesso, mas pode gerar custos de token ou loops mais altos.
-- **Avaliação de risco**:a lógica para avaliar as consequências. Distingue explicitamente entre ações exploratórias de baixo risco (leituras) e mudanças de estado de alto risco (gravações).
+- **Adaptabilité** : façon dont le modèle réagit aux nouvelles données. Détermine s'il doit s'en tenir strictement à son plan initial ou pivoter immédiatement lorsque les observations contredisent les hypothèses.
+- **Persistance et récupération** : degré auquel le modèle tente de corriger lui-même les erreurs. Une persistance élevée augmente les taux de réussite, mais risque d'entraîner des coûts de jetons plus élevés ou des boucles.
+- **Évaluation des risques** : logique d'évaluation des conséquences. Elle distingue explicitement les actions exploratoires à faible risque (lectures) des modifications d'état à haut risque (écritures).
 
-### Interação e saída
+### Interaction et sortie
 
-Configuração de como o agente se comunica com o usuário e formata os resultados.
+Configuration de la façon dont l'agent communique avec l'utilisateur et met en forme les résultats.
 
-- **Ambiguidade e tratamento de permissões**:define quando o modelo pode fazer suposições e quando ele precisa pausar a execução para pedir esclarecimentos ou permissão ao usuário.
-- **Nível de detalhe**:controla o volume de texto gerado junto com as chamadas de ferramentas. Isso determina se o modelo explica as ações para o usuário ou permanece em silêncio durante a execução.
-- **Precisão e integridade**:a fidelidade necessária da saída. Especifica se o modelo precisa resolver todos os casos extremos e fornecer números exatos ou se estimativas aproximadas são aceitáveis.
+- **Gestion de l'ambiguïté et des autorisations** : définit les cas où le modèle est autorisé à faire des hypothèses et ceux où il doit suspendre l'exécution pour demander des éclaircissements ou une autorisation à l'utilisateur.
+- **Niveau de détail** : contrôle le volume de texte généré à côté des appels d'outils. Cela détermine si le modèle explique ses actions à l'utilisateur ou reste silencieux lors de l'exécution.
+- **Précision et exhaustivité** : fidélité requise de la sortie. Indique si le modèle doit résoudre tous les cas extrêmes et fournir des chiffres exacts ou si des estimations approximatives sont acceptables.
 
-### Modelo de instrução do sistema
+### Modèle d'instruction système
 
-A instrução de sistema a seguir é um exemplo que foi avaliado por pesquisadores para melhorar a performance em comparativos de agentes em que o modelo precisa obedecer a um conjunto de regras complexo e interagir com um usuário. Ele incentiva o agente a agir como um forte planejador e raciocinador, impõe comportamentos específicos nas dimensões listadas acima e exige que o modelo planeje de forma proativa antes de tomar qualquer ação.
+L'instruction système suivante est un exemple qui a été évalué par des chercheurs pour améliorer les performances sur les benchmarks agentiques où le modèle doit respecter un ensemble de règles complexes et interagir avec un utilisateur. Il encourage l'agent à agir en tant que planificateur et raisonneur efficace, applique des comportements spécifiques aux dimensions listées ci-dessus et exige du modèle qu'il planifie de manière proactive avant d'entreprendre toute action.
 
-Você pode adaptar esse modelo para atender às restrições do seu caso de uso específico.
+Vous pouvez adapter ce modèle pour qu'il corresponde aux contraintes de votre cas d'utilisation spécifique.
 
 ```
 You are a very strong reasoner and planner. Use these critical instructions to structure your plans, thoughts, and responses.
@@ -466,20 +449,19 @@ Before taking any action (either tool calls *or* responses to the user), you mus
 9) Inhibit your response: only take an action after all the above reasoning is completed. Once you've taken an action, you cannot take it back.
 ```
 
-## Próximas etapas
+## Étapes suivantes
 
-- Agora que você tem um entendimento mais profundo sobre o design de comandos, tente escrever seus próprios comandos usando o [Google AI Studio](http://aistudio.google.com?hl=pt-br).
-- Para saber mais sobre comandos multimodais, consulte
-  [Comandos com arquivos de mídia](https://ai.google.dev/gemini-api/docs/files?hl=pt-br#prompt-guide).
-- Para saber mais sobre comandos de imagem, consulte o guia de comandos do [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br#prompt-guide).
-- Para saber mais sobre comandos de vídeo, consulte o [guia de comandos do Veo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br#prompt-guide).
+- Maintenant que vous avez une meilleure compréhension de la conception des requêtes, essayez d'écrire vos propres requêtes à l'aide de [Google AI Studio](http://aistudio.google.com?hl=fr).
+- Pour en savoir plus sur le prompting multimodal, consultez [Prompting avec des fichiers multimédias](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide).
+- Pour en savoir plus sur les prompts d'images, consultez le guide sur les prompts [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr#prompt-guide).
+- Pour en savoir plus sur les prompts vidéo, consultez le [Guide sur les prompts Veo](https://ai.google.dev/gemini-api/docs/video?hl=fr#prompt-guide).
 
-Envie comentários
+Envoyer des commentaires
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Última atualização 2026-09-18 UTC.
+Dernière mise à jour le 2026/09/18 (UTC).
 
-Quer enviar seu feedback?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-18 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/18 (UTC)."],[],[]]

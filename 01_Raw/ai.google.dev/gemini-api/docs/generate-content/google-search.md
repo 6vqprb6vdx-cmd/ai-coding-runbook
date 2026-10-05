@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=zh-CN
-fetched_at: 2026-09-28T06:21:57.408668+00:00
+fetched_at: 2026-10-05T06:33:36.403800+00:00
 title: "\u4f7f\u7528 Google \u641c\u7d22\u5efa\u7acb\u4f9d\u636e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

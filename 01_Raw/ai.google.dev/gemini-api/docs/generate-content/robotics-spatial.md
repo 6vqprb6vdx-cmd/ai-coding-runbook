@@ -1,32 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=th
-fetched_at: 2026-09-28T06:08:01.370709+00:00
-title: "\u0e01\u0e32\u0e23\u0e43\u0e2b\u0e49\u0e40\u0e2b\u0e15\u0e38\u0e1c\u0e25\u0e40\u0e0a\u0e34\u0e07\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=tr
+fetched_at: 2026-10-05T06:28:57.200426+00:00
+title: "Mekansal ak\u0131l y\u00fcr\u00fctme \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# การให้เหตุผลเชิงพื้นที่
+# Mekansal akıl yürütme
 
-โมเดล Gemini Robotics ER สามารถชี้ไปยังออบเจ็กต์ ติดตามออบเจ็กต์ในวิดีโอ ตรวจจับออบเจ็กต์ด้วยกรอบล้อมรอบ และสร้างเส้นทางการเคลื่อนที่ ตัวอย่างทั้งหมดในหน้านี้ใช้พรอมต์ภาษาธรรมชาติกับ `generateContent`
+Gemini Robotics ER modelleri, nesneleri işaret edebilir, videoda takip edebilir, sınırlayıcı kutularla algılayabilir ve hareket yörüngeleri oluşturabilir. Bu sayfadaki tüm örneklerde `generateContent` ile doğal dil istemleri kullanılır.
 
-ดูโค้ดที่เรียกใช้ได้ทั้งหมดที่
-[Cookbook สำหรับ Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)
+Çalıştırılabilir kodun tamamı için [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'a (Robotik yemek kitabı) bakın.
 
-## ชี้ไปยังออบเจ็กต์
+## Nesneleri işaret etme
 
-ตัวอย่างต่อไปนี้จะค้นหาออบเจ็กต์ที่เฉพาะเจาะจงในรูปภาพและแสดงผลพิกัด `[y, x]` ที่เป็นค่าปกติ
+Aşağıdaki örnekte, bir resimdeki belirli nesneler bulunur ve normalleştirilmiş `[y, x]` koordinatları döndürülür:
 
 ### Python
 
@@ -99,7 +98,7 @@ curl -X POST \
   }'
 ```
 
-เอาต์พุตจะเป็นอาร์เรย์ JSON ที่มีออบเจ็กต์ ซึ่งแต่ละออบเจ็กต์จะมี `point` (พิกัด `[y, x]` ที่เป็นค่าปกติ) และ `label` ที่ระบุออบเจ็กต์
+Çıktı, her biri `point` (normalleştirilmiş `[y, x]` koordinatları) ve nesneyi tanımlayan bir `label` içeren nesnelerden oluşan bir JSON dizisi olacaktır.
 
 ### JSON
 
@@ -118,13 +117,13 @@ curl -X POST \
 ]
 ```
 
-รูปภาพต่อไปนี้แสดงตัวอย่างวิธีแสดงจุดเหล่านี้
+Aşağıdaki resimde, bu noktaların nasıl gösterilebileceğine dair bir örnek verilmiştir:
 
-![ตัวอย่างที่แสดงจุดของออบเจ็กต์ในรูปภาพ](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=th)
+![Resimdeki nesnelerin noktalarını gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=tr)
 
-## การติดตามออบเจ็กต์ในวิดีโอ
+## Videodaki nesneleri izleme
 
-Gemini Robotics ER 2 ยังวิเคราะห์เฟรมวิดีโอเพื่อติดตามออบเจ็กต์เมื่อเวลาผ่านไปได้ด้วย ดูรายการรูปแบบวิดีโอที่รองรับได้ที่ [อินพุตวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#supported-formats)
+Gemini Robotics ER 2, nesneleri zaman içinde takip etmek için video karelerini de analiz edebilir. Desteklenen video biçimlerinin listesi için [Video girişleri](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr#supported-formats) bölümüne bakın.
 
 ### Python
 
@@ -163,9 +162,9 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-## การตรวจจับออบเจ็กต์และกรอบล้อมรอบ
+## Nesne tespit etme ve sınırlayıcı kutular
 
-นอกเหนือจากจุดแล้ว คุณยังสามารถพรอมต์ให้โมเดลแสดงผลกรอบล้อมรอบ 2 มิติ ซึ่งให้รายละเอียดเชิงพื้นที่เพิ่มเติมสำหรับออบเจ็กต์ที่ตรวจพบ
+Noktalara ek olarak, modelden algılanan nesneler için daha fazla mekansal ayrıntı sağlayan 2D sınırlayıcı kutular döndürmesini de isteyebilirsiniz.
 
 ### Python
 
@@ -203,11 +202,11 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-## เส้นทาง
+## Yörüngeler
 
-Gemini Robotics ER 2 สามารถสร้างลำดับของจุดที่กำหนดเส้นทาง ซึ่งมีประโยชน์สำหรับการนำทางการเคลื่อนที่ของหุ่นยนต์
+Gemini Robotics ER 2, robot hareketini yönlendirmek için yararlı olan ve bir yörüngeyi tanımlayan nokta dizileri oluşturabilir.
 
-ตัวอย่างนี้ขอเส้นทางเพื่อย้ายปากกาสีแดงไปยังกล่องใส่เครื่องเขียน รวมถึงการประมาณจุดอ้างอิงระหว่างทาง เราได้ลดโค้ดลงเพื่อแสดงเฉพาะพรอมต์
+Bu örnekte, ara noktaların tahmini de dahil olmak üzere kırmızı bir kalemi düzenleyiciye götürmek için bir yörünge isteniyor. Kod, yalnızca istemi gösterecek şekilde kısaltıldı.
 
 ### Python
 
@@ -220,9 +219,9 @@ prompt = """
         """
 ```
 
-## การจัดพื้นที่สำหรับแล็ปท็อป
+## Dizüstü bilgisayar için yer açma
 
-ตัวอย่างนี้แสดงวิธีที่ Gemini Robotics ER สามารถให้เหตุผลเกี่ยวกับพื้นที่ พรอมต์ขอให้โมเดลระบุออบเจ็กต์ที่ต้องย้ายเพื่อสร้างพื้นที่สำหรับรายการอื่น
+Bu örnekte, Gemini Robotics ER'ın bir alan hakkında nasıl akıl yürütebileceği gösterilmektedir. İstemde, başka bir öğe için yer açmak üzere hangi nesnenin taşınması gerektiği soruluyor.
 
 ### Python
 
@@ -258,7 +257,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-การตอบกลับจะมีพิกัด 2 มิติของออบเจ็กต์ที่ตอบคำถามของผู้ใช้ ซึ่งในกรณีนี้คือออบเจ็กต์ที่ควรย้ายเพื่อให้มีพื้นที่สำหรับแล็ปท็อป
+Yanıtta, kullanıcının sorusunu yanıtlayan nesnenin 2 boyutlu koordinatı yer alır. Bu örnekte, dizüstü bilgisayara yer açmak için taşınması gereken nesne söz konusudur.
 
 ```
 [
@@ -266,11 +265,11 @@ print(image_response.text)
 ]
 ```
 
-![ตัวอย่างที่แสดงว่าต้องย้ายออบเจ็กต์ใดสำหรับออบเจ็กต์อื่น](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=th)
+![Başka bir nesne için hangi nesnenin taşınması gerektiğini gösteren örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=tr)
 
-## การจัดเตรียมอาหารกลางวัน
+## Öğle yemeği hazırlama
 
-โมเดลยังสามารถให้คำแนะนำสำหรับงานหลายขั้นตอนและชี้ไปยังออบเจ็กต์ที่เกี่ยวข้องสำหรับแต่ละขั้นตอนได้ด้วย ตัวอย่างนี้แสดงวิธีที่โมเดลวางแผนชุดขั้นตอนเพื่อจัดเตรียมอาหารกลางวันใส่กระเป๋า
+Model, çok adımlı görevlerle ilgili talimatlar da verebilir ve her adım için ilgili nesneleri gösterebilir. Bu örnekte, modelin bir öğle yemeği çantasını hazırlamak için bir dizi adımı nasıl planladığı gösterilmektedir.
 
 ### Python
 
@@ -307,13 +306,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-การตอบกลับของพรอมต์นี้คือชุดคำแนะนำทีละขั้นตอนเกี่ยวกับวิธีจัดเตรียมอาหารกลางวันใส่กระเป๋าจากรูปภาพอินพุต
+Bu istemin yanıtı, resim girişinden yola çıkarak bir öğle yemeği çantasını nasıl paketleyeceğinizle ilgili adım adım talimatlar içerir.
 
-**รูปภาพอินพุต**
+**Giriş resmi**
 
-![รูปภาพกล่องอาหารกลางวันและสิ่งของที่จะใส่ลงในกล่อง](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=th)
+![Yemek kutusu ve içine konulacak öğelerin resmi](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=tr)
 
-**เอาต์พุตโมเดล**
+**Model çıkışı**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -336,19 +335,19 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-## ขั้นตอนถัดไป
+## Sırada ne var?
 
-- [ความสามารถด้าน Agentic AI](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=th) — การเรียกใช้โค้ด การอ่านเครื่องมือ การใส่คำอธิบายประกอบรูปภาพ
-- [การจัดระเบียบงาน](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=th) — งานระยะยาวที่มี API ของหุ่นยนต์ที่กำหนดเอง
-- [Robotics พร้อมการสตรีม](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th) — การสตรีมแบบ 2 ทางแบบเรียลไทม์ (Gemini Robotics ER 2 เท่านั้น)
-- [ความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=th) — การค้นหาช่วงเวลาและการจัดประเภทความคืบหน้า (Gemini Robotics ER 2 เท่านั้น)
+- [Ajan tabanlı yetenekler](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=tr): Kod yürütme, enstrüman okuma, görüntü açıklama.
+- [Görev düzenleme](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=tr): Özel robot API'leri içeren uzun vadeli görevler.
+- [Yayın özellikli robotik](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=tr): Gerçek zamanlı çift yönlü yayın (yalnızca Gemini Robotics ER 2).
+- [Video anlama](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=tr): Anları bulma ve ilerleme sınıflandırması (yalnızca Gemini Robotics ER 2).
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-09-09 UTC
+Son güncelleme tarihi: 2026-09-09 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-09 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-09 UTC."],[],[]]

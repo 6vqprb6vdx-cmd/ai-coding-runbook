@@ -1,41 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=tr
-fetched_at: 2026-09-28T06:18:08.704967+00:00
-title: "Gemini ve CrewAI ile m\u00fc\u015fteri deste\u011fi analizi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=th
+fetched_at: 2026-10-05T06:42:18.154384+00:00
+title: "\u0e01\u0e32\u0e23\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e25\u0e39\u0e01\u0e04\u0e49\u0e32\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Gemini ve CrewAI ile müşteri desteği analizi
+# การวิเคราะห์การสนับสนุนลูกค้าด้วย Gemini และ CrewAI
 
-[CrewAI](https://docs.crewai.com/introduction), karmaşık hedeflere ulaşmak için işbirliği yapan bağımsız yapay zeka aracılarını düzenlemeye yönelik bir çerçevedir. Rolleri, hedefleri ve geçmişleri belirterek aracıları tanımlamanıza ve ardından bunlar için görevler tanımlamanıza olanak tanır.
+[CrewAI](https://docs.crewai.com/introduction) เป็นเฟรมเวิร์กสำหรับการจัดระเบียบ
+AI Agent แบบอัตโนมัติที่ทำงานร่วมกันเพื่อให้บรรลุเป้าหมายที่ซับซ้อน โดยจะช่วยให้คุณ
+กำหนด Agent ได้ด้วยการระบุบทบาท เป้าหมาย และเรื่องราวเบื้องหลัง จากนั้นจึงกำหนดงาน
+สำหรับ Agent เหล่านั้น
 
-Bu örnekte, Gemini 3 Flash kullanarak sorunları belirlemek ve süreç iyileştirmeleri önermek için müşteri desteği verilerini analiz etmeye yönelik çoklu aracı sistemi oluşturma ve bir Operasyon Direktörü (COO) tarafından okunması amaçlanan bir rapor oluşturma işlemi gösterilmektedir.
+ตัวอย่างนี้แสดงวิธีสร้างระบบหลายเอเจนต์เพื่อวิเคราะห์ข้อมูลการสนับสนุนลูกค้าเพื่อระบุปัญหาและเสนอการปรับปรุงกระบวนการโดยใช้ Gemini 3 Flash ซึ่งจะสร้างรายงานที่ออกแบบมาให้ประธานเจ้าหน้าที่ฝ่ายปฏิบัติการ (COO) อ่าน
 
-Bu kılavuzda, aşağıdaki görevleri yapabilen bir "ekip" yapay zeka temsilcisi oluşturma adımları açıklanmaktadır:
+คู่มือนี้จะแสดงวิธีสร้าง "ทีม" ของ AI Agent ที่สามารถทำงานต่อไปนี้ได้
 
-1. Müşteri desteği verilerini getirme ve analiz etme (bu örnekte simüle edilmiştir).
-2. Tekrarlanan sorunları ve süreçlerdeki darboğazları belirleyin.
-3. Uygulanabilir iyileştirmeler önerin.
-4. Bulguları, COO için uygun olan kısa bir raporda derleyin.
+1. ดึงและวิเคราะห์ข้อมูลการสนับสนุนลูกค้า (จำลองในตัวอย่างนี้)
+2. ระบุปัญหาที่เกิดซ้ำและคอขวดของกระบวนการ
+3. แนะนำการปรับปรุงที่นำไปใช้ได้จริง
+4. รวบรวมผลการวิจัยเป็นรายงานที่กระชับซึ่งเหมาะสำหรับ COO
 
-Gemini API anahtarına ihtiyacınız vardır. Henüz bir hesabınız yoksa [Google AI Studio'da hesap oluşturabilirsiniz](https://aistudio.google.com/apikey?hl=tr).
+คุณต้องมีคีย์ Gemini API หากยังไม่มี คุณสามารถ[รับได้ใน
+Google AI Studio](https://aistudio.google.com/apikey?hl=th)
 
 ```
 pip install "crewai[tools]"
 ```
 
-Gemini API anahtarınızı `GEMINI_API_KEY` adlı bir ortam değişkeni olarak ayarlayın, ardından CrewAI'yı Gemini modelini kullanacak şekilde yapılandırın.
+ตั้งค่าคีย์ Gemini API เป็นตัวแปรสภาพแวดล้อมชื่อ `GEMINI_API_KEY` จากนั้น
+กำหนดค่า CrewAI ให้ใช้โมเดล Gemini
 
 ```
 import os
@@ -50,13 +55,15 @@ gemini_llm = LLM(
 )
 ```
 
-## Bileşenleri tanımlama
+## กำหนดคอมโพเนนต์
 
-**Araçlar**, **Temsilciler**, **Görevler** ve **Ekip**'i kullanarak CrewAI uygulamaları oluşturun. Aşağıdaki bölümlerde bu bileşenlerin her biri açıklanmaktadır.
+สร้างแอปพลิเคชัน CrewAI โดยใช้**เครื่องมือ** **เอเจนต์** **งาน** และ**ทีม**เอง ส่วนต่อไปนี้จะอธิบายแต่ละองค์ประกอบเหล่านี้
 
-### Araçlar
+### เครื่องมือ
 
-Araçlar, temsilcilerin dış dünyayla etkileşim kurmak veya belirli işlemleri gerçekleştirmek için kullanabileceği özelliklerdir. Burada, müşteri desteği verilerini getirme işlemini simüle etmek için bir yer tutucu araç tanımlarsınız. Gerçek bir uygulamada, veritabanına, API'ye veya dosya sistemine bağlanırsınız. Araçlar hakkında daha fazla bilgi için [CrewAI araçları rehberine](https://docs.crewai.com/concepts/tools) bakın.
+เครื่องมือคือความสามารถที่เอเจนต์ใช้โต้ตอบกับโลกภายนอกหรือ
+ดำเนินการบางอย่างได้ ในที่นี้ คุณจะกำหนดเครื่องมือตัวยึดตำแหน่งเพื่อจำลอง
+การดึงข้อมูลการสนับสนุนลูกค้า ในแอปพลิเคชันจริง คุณจะต้องเชื่อมต่อกับฐานข้อมูล, API หรือระบบไฟล์ ดูข้อมูลเพิ่มเติมเกี่ยวกับเครื่องมือได้ที่[คู่มือเครื่องมือ CrewAI](https://docs.crewai.com/concepts/tools)
 
 ```
 from crewai.tools import BaseTool
@@ -86,9 +93,9 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### Temsilciler
+### ตัวแทน
 
-Ajanlar, ekibinizdeki bağımsız yapay zeka çalışanlarıdır. Her aracının belirli bir `role`, `goal`, `backstory`, atanmış `llm` ve isteğe bağlı `tools` vardır. Temsilciler hakkında daha fazla bilgi için [CrewAI temsilcileri rehberine](https://docs.crewai.com/concepts/agents) bakın.
+เอเจนต์คือผู้ปฏิบัติงาน AI แต่ละคนในทีมของคุณ Agent แต่ละรายจะมี `role`, `goal`, `backstory`, `llm` ที่กำหนด และ `tools` ที่ไม่บังคับ ดูข้อมูลเพิ่มเติมเกี่ยวกับตัวแทนได้ที่[คู่มือตัวแทน CrewAI](https://docs.crewai.com/concepts/agents)
 
 ```
 from crewai import Agent
@@ -135,9 +142,9 @@ report_writer = Agent(
 )
 ```
 
-### Görevler
+### งาน
 
-Görevler, temsilcilerin belirli atamalarını tanımlar. Her görevin bir `description`, `expected_output` ve `agent` ataması vardır. Görevler varsayılan olarak sırayla çalıştırılır ve önceki görevin bağlamını içerir. Görevler hakkında daha fazla bilgi için [CrewAI görevleri rehberine](https://docs.crewai.com/concepts/tasks) bakın.
+งานจะกำหนดการมอบหมายที่เฉพาะเจาะจงสำหรับตัวแทน แต่ละงานจะมี`description` `expected_output` และมอบหมายให้`agent` โดยค่าเริ่มต้น ระบบจะเรียกใช้งานตามลำดับและรวมบริบทของงานก่อนหน้า ดูข้อมูลเพิ่มเติมเกี่ยวกับงานได้ที่[คู่มือเกี่ยวกับงานของ CrewAI](https://docs.crewai.com/concepts/tasks)
 
 ```
 from crewai import Task
@@ -196,9 +203,10 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Ekip
+### ทีมงาน
 
-`Crew`, iş akışı sürecini ("sıralı" gibi) tanımlayarak aracıları ve görevleri bir araya getirir.
+`Crew`จะเชื่อมต่อ Agent และงานเข้าด้วยกันเพื่อกำหนดกระบวนการเวิร์กโฟลว์
+(เช่น "ตามลำดับ")
 
 ```
 from crewai import Crew, Process
@@ -213,7 +221,7 @@ support_analysis_crew = Crew(
 
 ## Run the crew
 
-Son olarak, gerekli girişleri yaparak ekibin çalışmasını başlatın.
+สุดท้าย ให้เริ่มการทำงานของทีมด้วยข้อมูลที่จำเป็น
 
 ```
 # Start the crew's work
@@ -227,18 +235,19 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-Komut dosyası artık yürütülecek. `Data Analyst` aracı kullanır, `Process
-Optimizer` bulguları analiz eder ve `Report Writer` nihai raporu derler. Bu rapor daha sonra konsola yazdırılır. `verbose=True` ayarı, her aracının ayrıntılı düşünce sürecini ve işlemlerini gösterir.
+ตอนนี้สคริปต์จะทำงาน `Data Analyst` จะใช้เครื่องมือนี้ `Process
+Optimizer` จะวิเคราะห์ผลลัพธ์ และ `Report Writer` จะรวบรวม
+รายงานสุดท้าย ซึ่งจะพิมพ์ลงในคอนโซล `verbose=True` การตั้งค่า
+จะแสดงกระบวนการคิดและการดำเนินการโดยละเอียดของเอเจนต์แต่ละราย
 
-CrewAI hakkında daha fazla bilgi edinmek için [CrewAI'ya
-giriş](https://docs.crewai.com/introduction) bölümüne göz atın.
+ดูข้อมูลเพิ่มเติมเกี่ยวกับ CrewAI ได้ที่[ข้อมูลเบื้องต้นเกี่ยวกับ CrewAI](https://docs.crewai.com/introduction)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-09-12 UTC.
+อัปเดตล่าสุด 2026-09-12 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-12 UTC"],[],[]]

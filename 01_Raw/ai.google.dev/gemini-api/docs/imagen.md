@@ -1,40 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=pl
-fetched_at: 2026-09-28T06:09:05.887019+00:00
-title: "Generowanie obraz\u00f3w za pomoc\u0105 Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=th
+fetched_at: 2026-10-05T06:39:52.323351+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-# Generowanie obrazów za pomocą Imagen
+# สร้างรูปภาพโดยใช้ Imagen
 
-Imagen to starszy model Google do generowania obrazów. Został on wyłączony i nie jest już dostępny w interfejsie Gemini API.
+Imagen เป็นโมเดลการสร้างรูปภาพรุ่นเดิมของ Google ตอนนี้เราได้ปิดตัวลงแล้ว
+และจะไม่พร้อมใช้งานใน Gemini API อีกต่อไป
 
-## Przejdź na Nano Banana
+## ย้ายไปใช้ Nano Banana
 
-Przejdź na Nano Banana, aby generować obrazy:
+ย้ายข้อมูลไปยัง Nano Banana เพื่อสร้างรูปภาพ
 
-- **Nazwa modelu:** zamiast nazw modeli Imagen używaj `gemini-2.5-flash-image` (lub modeli Nano Banana 2, np. `gemini-3.1-flash-image`).
-- **Metoda:** używaj `client.models.generate_content` zamiast `client.models.generate_images`.
-- **Obsługa odpowiedzi:** Nano Banana zwraca części treści zawierające dane obrazu zamiast konkretnego obiektu odpowiedzi obrazu.
+- **ชื่อโมเดล**: ใช้ `gemini-2.5-flash-image` (หรือโมเดล Nano Banana 2 เช่น `gemini-3.1-flash-image`) แทนชื่อโมเดล Imagen
+- **วิธีการ**: ใช้ `client.models.generate_content` แทน
+  `client.models.generate_images`
+- **การจัดการการตอบกลับ**: Nano Banana จะแสดงผลชิ้นส่วนเนื้อหาที่มีข้อมูลรูปภาพ
+  แทนออบเจ็กต์การตอบกลับรูปภาพที่เฉพาะเจาะจง
 
-Szczegółowe informacje i przykłady znajdziesz w [przewodniku po generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
+ดูรายละเอียดและตัวอย่างได้ที่[คำแนะนำการสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
 
-Prześlij opinię
+ส่งความคิดเห็น
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Ostatnia aktualizacja: 2026-09-18 UTC.
+อัปเดตล่าสุด 2026-09-18 UTC
 
-Chcesz przekazać coś jeszcze?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-18 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-18 UTC"],[],[]]

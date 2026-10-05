@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=tr
-fetched_at: 2026-09-28T06:11:22.006713+00:00
-title: "Bilgisayar kullan\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=id
+fetched_at: 2026-10-05T06:41:51.339164+00:00
+title: "Penggunaan komputer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Geri bildirim gönderin
+Kirim masukan
 
-# Bilgisayar kullanımı
+# Penggunaan komputer
 
-Bilgisayar Kullanımı aracı, tarayıcı, mobil ve masaüstü kontrol ajanları oluşturmanıza olanak tanır. Bu ajanlar, görevlerle etkileşim kurup görevleri otomatikleştirir. Model, ekran görüntülerini kullanarak bilgisayar ekranını "görebilir" ve fare tıklamaları ile klavye girişleri gibi belirli kullanıcı arayüzü işlemleri oluşturarak "hareket edebilir". İşlev çağrısına benzer şekilde, Bilgisayar Kullanımı işlemlerini almak ve yürütmek için istemci tarafı yürütme ortamını uygulamanız gerekir.
+Alat Penggunaan Komputer memungkinkan Anda membuat agen kontrol browser, seluler, dan desktop yang berinteraksi dengan dan mengotomatiskan tugas. Dengan menggunakan screenshot, model dapat "melihat" layar komputer, dan "bertindak" dengan membuat tindakan UI tertentu seperti klik mouse dan input keyboard. Mirip dengan panggilan fungsi, Anda harus menerapkan lingkungan eksekusi sisi klien untuk menerima dan mengeksekusi tindakan Penggunaan Komputer.
 
-Desteklenen modellerin listesi için [Model sürümleri](#model-versions) başlıklı makaleyi inceleyin. Gemini 3.x modelleri, çeşitli gelişmiş özellikleri destekler:
+Untuk mengetahui daftar model yang didukung, lihat [Versi model](#model-versions). Model Gemini 3.x mendukung beberapa kemampuan lanjutan:
 
-- **Çoklu ortam desteği:** [Tarayıcı, mobil ve masaüstü](#supported-environments) ortamları için aracı oluşturun.
-- **Intent'lerle basitleştirilmiş işlemler:** İşlemlerde, modelin her adımın arkasındaki mantığını açıklayan bir `intent` alanı bulunur.
-- **Yapılandırılabilir güvenlik politikaları:** Yerleşik politika kategorileri ve geçersiz kılma işlemleriyle [güvenlik davranışını](#safety-policies) hassas bir şekilde ayarlayın.
-- **İstem enjeksiyonu tespiti:** Gizli saldırı talimatlarını tespit etmek için [ekran görüntüsü taramayı](#prompt-injection) etkinleştirin.
+- **Dukungan multi-lingkungan:** agen build untuk lingkungan [browser, seluler, dan desktop](#supported-environments).
+- **Tindakan yang disederhanakan dengan maksud:** tindakan mencakup kolom `intent` yang menjelaskan alasan model di balik setiap langkah.
+- **Kebijakan keamanan yang dapat dikonfigurasi:** sesuaikan [perilaku keamanan](#safety-policies) dengan kategori dan penggantian kebijakan bawaan.
+- **Deteksi injeksi perintah:** aktifkan [pemindaian screenshot](#prompt-injection) untuk mendeteksi petunjuk berbahaya tersembunyi.
 
-Bilgisayar Kullanımı ile şunları yapabilen temsilciler oluşturabilirsiniz:
+Dengan Penggunaan Komputer, Anda dapat membuat agen yang:
 
-- Web sitelerinde tekrarlayan veri girişini veya form doldurma işlemlerini otomatikleştirin.
-- Web uygulamalarının ve kullanıcı akışlarının otomatik testini gerçekleştirme
-- Çeşitli web sitelerinde araştırma yapma (ör. satın alma işlemi hakkında bilgi vermek için e-ticaret sitelerinden ürün bilgileri, fiyatlar ve yorumlar toplama)
+- Mengotomatiskan entri data atau pengisian formulir yang berulang di situs.
+- Melakukan pengujian otomatis aplikasi web dan alur pengguna
+- Melakukan riset di berbagai situs (misalnya, mengumpulkan informasi produk, harga, dan ulasan dari situs e-commerce untuk membantu pengambilan keputusan pembelian)
 
-İstemciyi başlatma ve tarayıcı ortamında `computer_use` aracı etkinleştirilmişken modele istem gönderme ile ilgili minimum örnek aşağıda verilmiştir:
+Berikut adalah contoh minimal untuk menginisialisasi klien dan mengirimkan perintah ke model dengan alat `computer_use` yang diaktifkan untuk lingkungan browser:
 
 ### Python
 
@@ -137,46 +137,54 @@ func main() {
 }
 ```
 
-## Bilgisayar Kullanımı nasıl çalışır?
+## Cara kerja Penggunaan Komputer
 
-Bilgisayar Kullanımı modeliyle bir aracı oluşturmak için uygulamanız ile API arasında sürekli bir döngü oluşturmanız gerekir. Kodunuzun her adımda ne yapacağını aşağıda bulabilirsiniz:
+Untuk membuat agen dengan model Penggunaan Komputer, Anda perlu menyiapkan loop berkelanjutan antara aplikasi dan API. Berikut adalah fungsi kode Anda di setiap langkah:
 
-1. [**Modele istek gönderme**](#send-request)
-   - Uygulamanız, Bilgisayar Kullanımı aracını, yapılandırma ayarlarınızı (ör. hedef ortam), kullanıcının istemini ve mevcut ekranın ekran görüntüsünü içeren bir API isteği gönderir.
-2. [**Model yanıtını alma**](#model-response)
-   - Model, ekranı ve istemi analiz ederek bir yanıt döndürür. Bu yanıtta, kullanıcı arayüzü işlemini (ör. tıklama, kaydırma veya tuş vuruşu) temsil eden önerilen bir `function_call` yer alır.
-   - **Gemini 3.x modellerinde** yanıt, modelin bu işlemi neden seçtiğini açıklayan bir gerekçe `intent`
-     de içerir.
-   - Yanıt, işlemi normal/izin verilen, `safety_decision` (kullanıcı onayı gerektiren) veya engellenen olarak sınıflandıran bir dahili güvenlik sisteminden `require_confirmation` de içerebilir.
-3. [**Alınan işlemi yürütün**](#execute-actions)
-   - İşleme izin verilirse (veya kullanıcı işlemi onaylarsa) istemci tarafı kodunuz `function_call` öğesini ayrıştırır, normalleştirilmiş koordinatları görünüm alanınızla eşleşecek şekilde ölçeklendirir ve otomasyon araçlarını (ör. Playwright) kullanarak hedef ortamınızda işlemi yürütür. İşlem engellenirse istemciniz yürütmeyi durdurmalı veya kesintiyi işlemelidir.
-4. [**Yeni ortam durumunu yakalama**](#capture-state)
-   - İşlem yürütülmeyi tamamladıktan sonra uygulamanız yeni bir ekran görüntüsü alır ve bir sonraki adımı istemek için `function_result` içinde modele geri gönderir.
+1. [**Mengirim permintaan ke model**](#send-request)
+   - Aplikasi Anda mengirimkan permintaan API yang berisi alat Penggunaan Komputer, setelan konfigurasi Anda (seperti lingkungan target), perintah pengguna, dan screenshot layar saat ini.
+2. [**Menerima respons model**](#model-response)
+   - Model menganalisis layar dan perintah, lalu menampilkan respons
+     yang mencakup `function_call` yang disarankan yang mewakili tindakan UI (seperti
+     klik, scroll, atau penekanan tombol).
+   - Untuk **model Gemini 3.x**, respons juga mencakup alasan `intent`
+     yang menjelaskan mengapa model memilih tindakan tersebut.
+   - Respons juga dapat mencakup `safety_decision` dari sistem keamanan internal yang mengklasifikasikan tindakan sebagai reguler/diizinkan, `require_confirmation` (memerlukan persetujuan pengguna), atau diblokir.
+3. [**Jalankan tindakan yang diterima**](#execute-actions)
+   - Jika tindakan diizinkan (atau pengguna mengonfirmasinya), kode
+     sisi klien Anda akan mem-parsing `function_call`, menskalakan koordinat yang dinormalisasi agar sesuai dengan
+     area tampilan, dan menjalankan tindakan di lingkungan target menggunakan
+     alat otomatisasi (seperti Playwright). Jika tindakan diblokir, klien Anda harus menghentikan eksekusi atau menangani gangguan.
+4. [**Merekam status lingkungan baru**](#capture-state)
+   - Setelah tindakan selesai dieksekusi, aplikasi Anda akan mengambil screenshot baru dan mengirimkannya kembali ke model dalam `function_result` untuk meminta langkah berikutnya.
 
-Bu işlem daha sonra 2. adımdan itibaren tekrarlanır ve görev tamamlanana veya sonlandırılana kadar modelden sürekli olarak bir sonraki işlem istenir.
+Kemudian, proses ini diulang dari langkah 2, terus-menerus meminta tindakan berikutnya
+dari model hingga tugas selesai atau dihentikan.
 
-![Bilgisayar Kullanımı'na genel bakış](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=tr)
+![Ringkasan Penggunaan Komputer](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=id)
 
-## Bilgisayar Kullanımı'nı uygulama
+## Cara menerapkan Penggunaan Komputer
 
-Bilgisayar Kullanımı aracıyla oluşturmaya başlamadan önce şunları ayarlamanız gerekir:
+Sebelum membangun dengan alat Penggunaan Komputer, Anda harus menyiapkan:
 
-- **Güvenli yürütme ortamı:** Aracılarınızı, ana makine sisteminizden izole etmek ve olası etkilerini sınırlamak için korumalı alanda çalışan bir sanal makinede veya kapsayıcıda çalıştırın.
-  [Referans uygulama](https://github.com/google/computer-use-preview/), başlangıç noktası olarak kullanabileceğiniz, kullanıma hazır Docker tabanlı bir sanal alan içerir.
-- **İstemci tarafı işlem işleyici:** Koordinatları yürütmek, metin yazmak ve ekran görüntüsü almak için istemci tarafı mantığını uygulayın.
+- **Lingkungan eksekusi yang aman:** Jalankan agen Anda di VM atau container sandbox untuk mengisolasinya dari sistem host Anda dan membatasi potensi dampaknya.
+  [Implementasi referensi](https://github.com/google/computer-use-preview/)
+  mencakup sandbox berbasis Docker yang siap digunakan dan dapat Anda gunakan sebagai titik awal.
+- **Handler tindakan sisi klien:** Terapkan logika sisi klien untuk menjalankan koordinat, mengetik teks, dan mengambil screenshot.
 
-Aşağıdaki örneklerde yürütme ortamı olarak web tarayıcısı, istemci tarafı işleyici olarak ise [Playwright](https://playwright.dev/) kullanılır.
+Contoh di bawah menggunakan browser web sebagai lingkungan eksekusi dan
+[Playwright](https://playwright.dev/) sebagai handler sisi klien.
 
-### 0. Playwright'ı ayarlama
+### 0. Menyiapkan Playwright
 
-Öncelikle gerekli paketleri yükleyin:
+Pertama, instal paket yang diperlukan:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-Ardından, yürütme için kullanılacak bir Playwright tarayıcı örneği başlatın:
+Kemudian, inisialisasi instance browser Playwright yang akan digunakan untuk eksekusi:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -204,15 +212,13 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. Modele istek gönderme
+### 1. Mengirim permintaan ke model
 
-İstemci kitaplığını başlatın ve Bilgisayar Kullanımı aracını yapılandırın. İstek gönderirken ekran boyutunu belirtmenize gerek olmadığını unutmayın. Model, piksel koordinatlarını ekranın yüksekliğine ve genişliğine göre ölçekleyerek tahmin eder.
-
-### Gemini 3.x
+Lakukan inisialisasi library klien dan konfigurasi alat Penggunaan Komputer. Perhatikan bahwa tidak perlu menentukan ukuran tampilan saat mengeluarkan permintaan; model memprediksi koordinat piksel yang diskalakan ke tinggi dan lebar layar.
 
 ### Python
 
-Tarayıcı ortamını hedefleyen bir isteği yapılandırmak için `google-genai` Python SDK'sını (`2.7.0` veya sonraki bir sürüm) kullanın:
+Gunakan `google-genai` Python SDK (versi `2.7.0` atau yang lebih tinggi) untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
 
 ```
 from google import genai
@@ -236,7 +242,7 @@ print(interaction)
 
 ### JavaScript
 
-Tarayıcı ortamını hedefleyen bir isteği yapılandırmak için `@google/genai` Node.js SDK'sını kullanın:
+Gunakan `@google/genai` Node.js SDK untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -336,7 +342,7 @@ func main() {
 
 ### REST
 
-İstek göndermek için curl'ü kullanın:
+Gunakan curl untuk mengirim permintaan:
 
 ```
 curl -X POST \
@@ -356,144 +362,10 @@ curl -X POST \
   }'
 ```
 
-### Gemini 2.5 (Legacy)
+### 2. Menerima respons model
 
-### Python
-
-```
-from google import genai
-
-client = genai.Client()
-
-# Specify predefined functions to exclude (optional)
-excluded_functions = ["drag_and_drop"]
-
-interaction = client.interactions.create(
-    model='gemini-2.5-computer-use-preview-10-2025',
-    input="Search for highly rated smart fridges on Google Shopping.",
-    tools=[
-        {
-            "type": "computer_use",
-            "environment": "browser",
-            "excluded_predefined_functions": excluded_functions
-        }
-    ]
-)
-
-print(interaction)
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI } from '@google/genai';
-
-const ai = new GoogleGenAI();
-
-// Specify predefined functions to exclude (optional)
-const excludedFunctions = ["drag_and_drop"];
-
-const interaction = await ai.interactions.create({
-  model: 'gemini-2.5-computer-use-preview-10-2025',
-  input: "Search for highly rated smart fridges on Google Shopping.",
-  tools: [
-    {
-      type: "computer_use",
-      environment: "browser",
-      excluded_predefined_functions: excludedFunctions
-    }
-  ]
-});
-
-console.log(interaction);
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.ComputerUse;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.EnvironmentEnum;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-// Specify predefined functions to exclude (optional)
-List<String> excludedFunctions = Arrays.asList("drag_and_drop");
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model("gemini-2.5-computer-use-preview-10-2025")
-        .input(InteractionsInput.of("Search for highly rated smart fridges on Google Shopping."))
-        .tools(
-            Arrays.asList(
-                ComputerUse.builder()
-                    .environment(EnvironmentEnum.BROWSER)
-                    .excludedPredefinedFunctions(excludedFunctions)
-                    .build()))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction);
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Specify predefined functions to exclude (optional)
-    excludedFunctions := []string{"drag_and_drop"}
-
-    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
-        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-2.5-computer-use-preview-10-2025"),
-            Input: interactions.NewInteractionsInput("Search for highly rated smart fridges on Google Shopping."),
-            Tools: []interactions.Tool{
-                interactions.NewTool(interactions.ComputerUse{
-                    Environment:                 interactions.EnvironmentEnumBrowser.ToPointer(),
-                    ExcludedPredefinedFunctions: excludedFunctions,
-                }),
-            },
-        }),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(res.Interaction)
-}
-```
-
-### 2. Model yanıtını alma
-
-Yanıt modeli, bir işlev çağrısı öneriyor. **Gemini 3.x modellerinde** yanıt, koordinatların yanı sıra amaca uygun bir akıl yürütme niyeti içerir. Aşağıda her iki yanıtın da örnekleri verilmiştir:
-
-### Gemini 3.x
+Respons model menyarankan panggilan fungsi yang berisi koordinat dan maksud
+penalaran yang disesuaikan untuk menjelaskan tindakan:
 
 ```
 {
@@ -511,39 +383,9 @@ Yanıt modeli, bir işlev çağrısı öneriyor. **Gemini 3.x modellerinde** yan
 }
 ```
 
-### Gemini 2.5 (Legacy)
+### 3. Menjalankan tindakan yang diterima
 
-```
-{
-  "steps": [
-    {
-      "type": "model_output",
-      "content": [
-        {
-          "type": "text",
-          "text": "I will type the search query into the search bar."
-        }
-      ]
-    },
-    {
-      "type": "function_call",
-      "name": "type_text_at",
-      "arguments": {
-        "x": 371,
-        "y": 470,
-        "text": "highly rated smart fridges",
-        "press_enter": true
-      }
-    }
-  ]
-}
-```
-
-### 3. Alınan işlemleri yürütme
-
-Uygulamanız, yanıt koordinatlarını ayrıştırmalı, işlemi yürütmeli ve bunları normalleştirilmiş 1.000x1.000 koordinatlarından ölçeklendirmelidir.
-
-Aşağıdaki kod hem eski araç komutlarını (`click_at`, `type_text_at`) hem de modern, basitleştirilmiş komutları (`click`, `type`) işler.
+Aplikasi Anda harus mengurai koordinat respons, menskalakannya dari koordinat 1000x1000 yang dinormalisasi, dan menjalankan tindakan:
 
 ### Python
 
@@ -572,13 +414,13 @@ def execute_function_calls(interaction, page, screen_width, screen_height):
         print(f"  -> Executing: {fname} (Intent: {args.get('intent', 'N/A')})")
 
         try:
-            if fname in ("open_web_browser", "open_app"):
+            if fname == "open_app":
                 pass # Handled / already open
-            elif fname in ("click", "click_at", "double_click", "triple_click", "middle_click", "right_click", "move", "long_press"):
+            elif fname in ("click", "double_click", "triple_click", "middle_click", "right_click", "move", "long_press"):
                 actual_x = denormalize_x(args["x"], screen_width)
                 actual_y = denormalize_y(args["y"], screen_height)
 
-                if fname in ("click", "click_at"):
+                if fname == "click":
                     page.mouse.click(actual_x, actual_y)
                 elif fname == "double_click":
                     page.mouse.dblclick(actual_x, actual_y)
@@ -588,7 +430,7 @@ def execute_function_calls(interaction, page, screen_width, screen_height):
                     page.mouse.click(actual_x, actual_y, button="middle")
                 elif fname == "move":
                     page.mouse.move(actual_x, actual_y)
-            elif fname in ("type", "type_text_at"):
+            elif fname == "type":
                 actual_x = denormalize_x(args["x"], screen_width) if "x" in args else None
                 actual_y = denormalize_y(args["y"], screen_height) if "y" in args else None
                 text = args["text"]
@@ -649,13 +491,13 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
         console.log(`  -> Executing: ${fname} (Intent: ${args.intent || 'N/A'})`);
 
         try {
-            if (fname === "open_web_browser" || fname === "open_app") {
+            if (fname === "open_app") {
                 // Handled / already open
-            } else if (["click", "click_at", "double_click", "triple_click", "middle_click", "right_click", "move", "long_press"].includes(fname)) {
+            } else if (["click", "double_click", "triple_click", "middle_click", "right_click", "move", "long_press"].includes(fname)) {
                 const actualX = denormalizeX(args.x, screenWidth);
                 const actualY = denormalizeY(args.y, screenHeight);
 
-                if (fname === "click" || fname === "click_at") {
+                if (fname === "click") {
                     await page.mouse.click(actualX, actualY);
                 } else if (fname === "double_click") {
                     await page.mouse.dblclick(actualX, actualY);
@@ -666,7 +508,7 @@ async function executeFunctionCalls(interaction, page, screenWidth, screenHeight
                 } else if (fname === "move") {
                     await page.mouse.move(actualX, actualY);
                 }
-            } else if (fname === "type" || fname === "type_text_at") {
+            } else if (fname === "type") {
                 const actualX = args.x !== undefined ? denormalizeX(args.x, screenWidth) : null;
                 const actualY = args.y !== undefined ? denormalizeY(args.y, screenHeight) : null;
                 const text = args.text;
@@ -744,11 +586,11 @@ class ActionExecutor {
             "  -> Executing: " + fname + " (Intent: " + args.getOrDefault("intent", "N/A") + ")");
 
         try {
-          if (fname.equals("click") || fname.equals("click_at")) {
+          if (fname.equals("click")) {
             int actualX = denormalizeX(((Number) args.get("x")).intValue(), screenWidth);
             int actualY = denormalizeY(((Number) args.get("y")).intValue(), screenHeight);
             // Perform mouse click at (actualX, actualY) using your browser automation library
-          } else if (fname.equals("type") || fname.equals("type_text_at")) {
+          } else if (fname.equals("type")) {
             String text = (String) args.get("text");
             // Type text into active element using your browser automation library
           } else if (fname.equals("navigate")) {
@@ -806,7 +648,7 @@ func executeFunctionCalls(interaction *interactions.Interaction, screenWidth, sc
             fmt.Printf("  -> Executing: %s (Intent: %v)\n", fname, intent)
 
             switch fname {
-            case "click", "click_at":
+            case "click":
                 xVal, _ := args["x"].(float64)
                 yVal, _ := args["y"].(float64)
                 actualX := denormalizeX(int(xVal), screenWidth)
@@ -814,7 +656,7 @@ func executeFunctionCalls(interaction *interactions.Interaction, screenWidth, sc
                 _ = actualX
                 _ = actualY
                 // Perform mouse click at (actualX, actualY) using your browser automation library
-            case "type", "type_text_at":
+            case "type":
                 text, _ := args["text"].(string)
                 _ = text
                 // Type text into active element using your browser automation library
@@ -839,9 +681,11 @@ func main() {
 }
 ```
 
-### 4. Yeni ortam durumunu yakalama
+### 4. Merekam status lingkungan baru
 
-İşlemleri yürüttükten sonra, işlev yürütme sonucunu modele geri gönderin. Böylece model, bu bilgileri kullanarak sonraki işlemi oluşturabilir. Birden fazla işlem (paralel çağrı) yürütülürse sonraki kullanıcı dönüşünde her biri için bir `function_result` göndermeniz gerekir.
+Setelah menjalankan tindakan, kirim hasil eksekusi fungsi kembali ke model agar model dapat menggunakan informasi ini untuk membuat tindakan berikutnya. Jika
+beberapa tindakan (panggilan paralel) dijalankan, Anda harus mengirimkan
+`function_result` untuk setiap tindakan dalam giliran pengguna berikutnya.
 
 ### Python
 
@@ -995,14 +839,15 @@ func main() {
 }
 ```
 
-Ortam durumunun nasıl yakalanacağını ve biçimlendirileceğini tanımladıktan sonra tüm bu adımları sürekli bir yürütme döngüsünde birleştirebilirsiniz.
+Setelah menentukan cara merekam dan memformat status lingkungan, Anda dapat menggabungkan semua langkah ini ke dalam loop eksekusi berkelanjutan.
 
-## Aracı döngüsü oluşturma
+## Membangun loop agen
 
-Çok adımlı etkileşimleri etkinleştirmek için [Bilgisayar kullanımını uygulama](#implement-computer-use) bölümündeki dört adımı tek bir döngüde birleştirin.
-Bu döngü, görev tamamlanana kadar işlem isteğinde bulunmaya ve sonuçları modele geri göndermeye devam eder.
+Untuk mengaktifkan interaksi multi-langkah, gabungkan empat langkah dari bagian [Cara menerapkan Penggunaan Komputer](#implement-computer-use) ke dalam satu loop.
+Loop ini terus meminta tindakan dan mengirimkan kembali hasilnya ke model
+hingga tugas selesai.
 
-Her adımda hem model yanıtlarını hem de işlev yanıtlarınızı geçmişe ekleyerek sohbet geçmişini doğru şekilde yönetmeyi unutmayın.
+Jangan lupa untuk mengelola histori percakapan dengan benar dengan menambahkan respons model dan respons fungsi Anda ke histori di setiap langkah.
 
 ### Python
 
@@ -1397,107 +1242,85 @@ func main() {
 }
 ```
 
-## Desteklenen ortamlar (Gemini 3.x)
+## Lingkungan yang didukung
 
-Gemini 3.x modelleri, `computer_use` yapılandırmalarında belirtilen üç ortamı destekler:
+Model Gemini 3.x mendukung tiga lingkungan yang ditentukan dalam konfigurasi `computer_use`:
 
-### Tarayıcı ortamı (`ENVIRONMENT_BROWSER`)
+### Lingkungan browser (`ENVIRONMENT_BROWSER`)
 
-Tarayıcı aracında kullanılabilen işlemler:
+Tindakan yang tersedia di alat browser:
 
-| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
 | --- | --- | --- |
-| **tıklama** | Koordinatta sol tıklama. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Koordinatı çift tıklayın. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Koordinat üç kez tıklanır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Orta tıklama ile koordinat seçilir. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Koordinatta sağ tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Fare düğmesini koordinatta basar ve basılı tutar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Fare düğmesini koordinatta bırakır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **move** | İmleci belirtilen konuma taşır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
-| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
-| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
-| **key\_down** | Belirtilen tuşa basar ve basılı tutar. | `key`: str `intent`: str |
-| **key\_up** | Belirtilen anahtarı serbest bırakır. | `key`: str `intent`: str |
-| **hotkey** | Belirtilen tuş kombinasyonuna basar. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
-| **scroll** | Bir koordinatta yukarı, aşağı, sola veya sağa bir piksel mesafede kaydırır. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, İsteğe bağlı, varsayılan `300`) `intent`: str |
-| **go\_back** | Tarama geçmişinde önceki web sayfasına geri döner. | `intent`: str |
-| **navigate** | Belirtilen bir URL'ye doğrudan gider. | `url`: str `intent`: str |
-| **go\_forward** | Tarayıcı geçmişinde sonraki web sayfasına gider. | `intent`: str |
+| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
+| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
+| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
+| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
+| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
+| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
+| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
+| **go\_back** | Kembali ke halaman web sebelumnya dalam histori browser. | `intent`: str |
+| **navigate** | Membuka langsung URL tertentu. | `url`: str `intent`: str |
+| **go\_forward** | Membuka halaman web berikutnya dalam histori browser. | `intent`: str |
 
-### Mobil ortam (`ENVIRONMENT_MOBILE`)
+### Lingkungan seluler (`ENVIRONMENT_MOBILE`)
 
-Android için optimize edilmiş ortam işlemleri:
+Tindakan lingkungan yang dioptimalkan untuk Android:
 
-| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
 | --- | --- | --- |
-| **open\_app** | Bir uygulamayı adına göre açar. | `app_name`: str `intent`: str |
-| **tıklama** | Koordinatta sol tıklama. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | Cihazdaki kullanılabilir uygulamaları adları ve paket adlarıyla birlikte listeler. | `intent`: str |
-| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
-| **go\_back** | Önceki ekrana veya web sayfasına geri döner. | `intent`: str |
-| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
-| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | Ekranda bir koordinata uzun basma işlemi gerçekleştirir. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (İsteğe bağlı, varsayılan `2`) `intent`: str |
-| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
-| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
+| **open\_app** | Membuka aplikasi berdasarkan namanya. | `app_name`: str `intent`: str |
+| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | Mencantumkan aplikasi yang tersedia di perangkat, menampilkan nama dan nama paketnya. | `intent`: str |
+| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
+| **go\_back** | Kembali ke layar atau halaman web sebelumnya. | `intent`: str |
+| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
+| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | Melakukan tekan lama pada koordinat di layar. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (Opsional, default `2`) `intent`: str |
+| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
+| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
 
-### Masaüstü ortamı (`ENVIRONMENT_DESKTOP`)
+### Lingkungan desktop (`ENVIRONMENT_DESKTOP`)
 
-Masaüstü ortamlarında işletim sistemi düzeyinde imleç komutları:
+Perintah kursor tingkat OS lingkungan desktop:
 
-| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) |
+| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
 | --- | --- | --- |
-| **tıklama** | Koordinatta sol tıklama. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Koordinatı çift tıklayın. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Koordinat üç kez tıklanır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Orta tıklama ile koordinat seçilir. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Koordinatta sağ tıklamalar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Fare düğmesini koordinatta basar ve basılı tutar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Fare düğmesini koordinatta bırakır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **move** | İmleci belirtilen konuma taşır. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **type** | Metin yazma | `text`: str `press_enter`: bool (isteğe bağlı, varsayılan `false`) `intent`: str |
-| **drag\_and\_drop** | Bir öğeyi başlangıç koordinatından bitiş koordinatına sürükler. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Yürütmeyi belirtilen saniye sayısı kadar duraklatır. | `seconds`: int (İsteğe bağlı, varsayılan `1`) `intent`: str |
-| **press\_key** | Belirtilen tuşa basar ve tuşu bırakır. | `key`: str `intent`: str |
-| **key\_down** | Belirtilen tuşa basar ve basılı tutar. | `key`: str `intent`: str |
-| **key\_up** | Belirtilen anahtarı serbest bırakır. | `key`: str `intent`: str |
-| **hotkey** | Belirtilen tuş kombinasyonuna basar. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Mevcut ekranın ekran görüntüsünü döndürür. | `intent`: str |
-| **scroll** | Bir koordinatta yukarı, aşağı, sola veya sağa bir piksel mesafede kaydırır. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, İsteğe bağlı, varsayılan `300`) `intent`: str |
+| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
+| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
+| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
+| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
+| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
+| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
+| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
 
-## Eski desteklenen kullanıcı arayüzü işlemleri (Gemini 2.5)
+## Fungsi kustom yang ditentukan pengguna
 
-Eski modeller (`gemini-2.5-computer-use-preview-10-2025`) için aşağıdaki işlemler desteklenir:
-
-| Komut adı | Açıklama | Bağımsız değişkenler (işlev çağrısında) | Örnek işlev çağrısı |
-| --- | --- | --- | --- |
-| **open\_web\_browser** | Web tarayıcısını açar. | Yok | `{"name": "open_web_browser", "arguments": {}}` |
-| **wait\_5\_seconds** | Yürütmeyi 5 saniye duraklatır. | Yok | `{"name": "wait_5_seconds", "arguments": {}}` |
-| **go\_back** | Geçmişteki önceki sayfaya gider. | Yok | `{"name": "go_back", "arguments": {}}` |
-| **go\_forward** | Geçmiş'te sonraki sayfaya gider. | Yok | `{"name": "go_forward", "arguments": {}}` |
-| **search** | Varsayılan arama motoruna gider. | Yok | `{"name": "search", "arguments": {}}` |
-| **navigate** | Tarayıcıyı doğrudan belirtilen URL'ye yönlendirir. | `url`: str | `{"name": "navigate", "arguments": {"url": "https://www.wikipedia.org"}}` |
-| **click\_at** | Belirli bir koordinattaki tıklamalar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "click_at", "arguments": {"y": 300, "x": 500}}` |
-| **hover\_at** | Fareyi belirli bir koordinat üzerinde tutar. | `y`: int (0-999), `x`: int (0-999) | `{"name": "hover_at", "arguments": {"y": 150, "x": 250}}` |
-| **type\_text\_at** | Bir koordinata metin yazar. | `y`: int (0-999), `x`: int (0-999), `text`: str, `press_enter`: bool (isteğe bağlı, varsayılan değer True), `clear_before_typing`: bool (isteğe bağlı, varsayılan değer True) | `{"name": "type_text_at", "arguments": {"y": 250, "x": 400, "text": "search", "press_enter": false}}` |
-| **key\_combination** | Tuşlara veya kombinasyonlara basın. | `keys`: str | `{"name": "key_combination", "arguments": {"keys": "Control+A"}}` |
-| **scroll\_document** | Web sayfasının tamamını kaydırır. | `direction`: str | `{"name": "scroll_document", "arguments": {"direction": "down"}}` |
-| **scroll\_at** | (x,y) koordinatında kaydırır. | `y`: int, `x`: int, `direction`: str, `magnitude`: int (isteğe bağlı, varsayılan 800) | `{"name": "scroll_at", "arguments": {"y": 500, "x": 500, "direction": "down"}}` |
-| **drag\_and\_drop** | İki koordinat arasında sürükleme. | `y`: int, `x`: int, `destination_y`: int, `destination_x`: int | `{"name": "drag_and_drop", "arguments": {"y": 100, "destination_y": 500, "destination_x": 500, "x": 100}}` |
-
-## Özel kullanıcı tanımlı işlevler
-
-Özel kullanıcı tanımlı işlevler ekleyerek modelin işlevselliğini genişletebilirsiniz. Örneğin, sürece insanların dahil edildiği (HITL) senaryolarda varsayılan olarak önceden tanımlanmış işlemleri hariç tutabilir ve özel işlemleri kaydedebilirsiniz.
-
-#### Gemini 3.x Özel Araçları
+Anda dapat memperluas fungsi model dengan menyertakan fungsi kustom yang ditentukan pengguna. Misalnya, dalam skenario human-in-the-loop (HITL), Anda dapat mengecualikan tindakan standar yang telah ditentukan sebelumnya dan mendaftarkan tindakan kustom.
 
 ### Python
 
-Standart önceden tanımlanmış tarayıcı işlemlerini (ör. `click`) hariç tutun ve özel bir `yield_to_user` aracı kaydedin:
+Mengecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan mendaftarkan alat `yield_to_user` kustom:
 
 ```
 from google import genai
@@ -1536,7 +1359,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-Standart önceden tanımlanmış tarayıcı işlemlerini (ör. `click`) hariç tutun ve özel bir `yield_to_user` aracı kaydedin:
+Mengecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan mendaftarkan alat `yield_to_user` kustom:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1685,226 +1508,30 @@ func main() {
 }
 ```
 
-#### Gemini 2.5 (Legacy) Özel Araçlar
+## Mengelola tingkat penalaran
 
-### Python
+Untuk agen penggunaan komputer, Anda dapat mengonfigurasi tingkat pemikiran yang berbeda untuk menyeimbangkan kualitas tindakan dan kecepatan eksekusi. Tingkat pemikiran yang lebih rendah umumnya mencapai keseimbangan yang baik untuk tugas otomatisasi standar.
 
-```
-from google import genai
+## Keselamatan dan keamanan
 
-client = genai.Client()
+### Mengonfigurasi kebijakan keselamatan
 
-# Define custom tools here
-custom_functions = [...]  # Describe parameters as function declarations
+Model Gemini 3.x mencakup kategori layanan keamanan bawaan yang membantu
+menentukan apakah konfirmasi pengguna diperlukan.
 
-excluded_functions = [
-    "open_web_browser",
-    "wait_5_seconds",
-    "go_back",
-    "go_forward",
-    "search",
-    "navigate",
-    "hover_at",
-    "scroll_document",
-    "key_combination",
-    "drag_and_drop",
-]
-
-interaction = client.interactions.create(
-    model='gemini-2.5-computer-use-preview-10-2025',
-    input="Open Chrome, then long-press at 200,400.",
-    tools=[
-        {
-            "type": "computer_use",
-            "environment": "browser",
-            "excluded_predefined_functions": excluded_functions
-        },
-        *custom_functions
-    ]
-)
-
-print(interaction)
-```
-
-### JavaScript
-
-```
-import { GoogleGenAI } from '@google/genai';
-
-const ai = new GoogleGenAI();
-
-// Define custom tools here
-const customFunctions = [...]; // Describe parameters as function declarations
-
-const excludedFunctions = [
-    "open_web_browser",
-    "wait_5_seconds",
-    "go_back",
-    "go_forward",
-    "search",
-    "navigate",
-    "hover_at",
-    "scroll_document",
-    "key_combination",
-    "drag_and_drop",
-];
-
-const interaction = await ai.interactions.create({
-    model: 'gemini-2.5-computer-use-preview-10-2025',
-    input: "Open Chrome, then long-press at 200,400.",
-    tools: [
-        {
-            type: "computer_use",
-            environment: "browser",
-            excluded_predefined_functions: excludedFunctions
-        },
-        ...customFunctions
-    ]
-});
-
-console.log(interaction);
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.ComputerUse;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.EnvironmentEnum;
-import com.google.genai.gaos.models.interactions.Function;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-import java.util.Arrays;
-import java.util.List;
-
-Client client = new Client();
-
-// Define custom tools here
-Function customFunction =
-    Function.builder()
-        .name("long_press_at")
-        .description("Long-press at specified coordinates.")
-        .build();
-
-List<String> excludedFunctions =
-    Arrays.asList(
-        "open_web_browser",
-        "wait_5_seconds",
-        "go_back",
-        "go_forward",
-        "search",
-        "navigate",
-        "hover_at",
-        "scroll_document",
-        "key_combination",
-        "drag_and_drop");
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model("gemini-2.5-computer-use-preview-10-2025")
-        .input(InteractionsInput.of("Open Chrome, then long-press at 200,400."))
-        .tools(
-            Arrays.asList(
-                ComputerUse.builder()
-                    .environment(EnvironmentEnum.BROWSER)
-                    .excludedPredefinedFunctions(excludedFunctions)
-                    .build(),
-                customFunction))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction);
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    // Define custom tools here
-    customFunction := interactions.NewTool(interactions.Function{
-        Name:        genai.Ptr("long_press_at"),
-        Description: genai.Ptr("Long-press at specified coordinates."),
-    })
-
-    excludedFunctions := []string{
-        "open_web_browser",
-        "wait_5_seconds",
-        "go_back",
-        "go_forward",
-        "search",
-        "navigate",
-        "hover_at",
-        "scroll_document",
-        "key_combination",
-        "drag_and_drop",
-    }
-
-    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
-        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-2.5-computer-use-preview-10-2025"),
-            Input: interactions.NewInteractionsInput("Open Chrome, then long-press at 200,400."),
-            Tools: []interactions.Tool{
-                interactions.NewTool(interactions.ComputerUse{
-                    Environment:                 interactions.EnvironmentEnumBrowser.ToPointer(),
-                    ExcludedPredefinedFunctions: excludedFunctions,
-                }),
-                customFunction,
-            },
-        }),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    fmt.Println(res.Interaction)
-}
-```
-
-## Düşünme düzeylerini yönetme (Gemini 3.x)
-
-Bilgisayar kullanımına yönelik aracıları, işlem kalitesi ile yürütme hızını dengelemek için farklı düşünme düzeylerinde yapılandırabilirsiniz. Daha düşük düşünme seviyeleri, standart otomasyon görevlerinde genellikle iyi bir denge sağlar.
-
-## Güvenlik
-
-### Güvenlik politikalarını yapılandırma (Gemini 3.x)
-
-Gemini 3.x modellerinde, kullanıcı onayının gerekip gerekmediğini otomatik olarak belirleyen yerleşik güvenlik hizmeti kategorileri bulunur.
-
-| Güvenlik politikası kategorisi | Açıklama |
+| Kategori kebijakan keselamatan | Deskripsi |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | Ödeme, perakende ödemesi veya yasal düzenlemelere tabi ürünler içeren işlemler için onaylama özelliğini engeller veya tetikler. |
-| `SENSITIVE_DATA_MODIFICATION` | Sağlık, finans veya devlet kayıtlarını yetkisiz değişikliklere karşı korur. |
-| `COMMUNICATION_TOOL` | Aracının bağımsız olarak e-posta, sohbet mesajı veya taslak göndermesini kısıtlar. |
-| `ACCOUNT_CREATION` | Aracının web sitelerinde bağımsız olarak yeni hesap kaydetmesini kısıtlar. |
-| `DATA_MODIFICATION` | Genel dosya sistemi değişikliklerini, veri paylaşımını ve depolama silme işlemlerini düzenler. |
-| `USER_CONSENT_MANAGEMENT` | Çerez izni banner'ları ve gizlilik istemleri için kullanıcı devralma işlemi gerektirir. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | Modelin, Hizmet Şartları'nı veya yasal olarak bağlayıcı sözleşmeleri bağımsız olarak kabul etmesini engeller. |
+| `FINANCIAL_TRANSACTIONS` | Memblokir atau memicu konfirmasi untuk tindakan yang melibatkan pembayaran, checkout retail, atau barang yang diatur oleh hukum. |
+| `SENSITIVE_DATA_MODIFICATION` | Melindungi catatan kesehatan, keuangan, atau pemerintah dari modifikasi yang tidak sah. |
+| `COMMUNICATION_TOOL` | Membatasi agen agar tidak mengirim email, pesan chat, atau draf secara mandiri. |
+| `ACCOUNT_CREATION` | Membatasi agen agar tidak mendaftarkan akun baru secara mandiri di situs. |
+| `DATA_MODIFICATION` | Mengatur modifikasi sistem file secara keseluruhan, berbagi data, dan penghapusan penyimpanan. |
+| `USER_CONSENT_MANAGEMENT` | Memerlukan pengambilalihan pengguna untuk banner izin cookie dan dialog privasi. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | Mencegah model menerima Persyaratan Layanan atau kontrak yang mengikat secara hukum secara mandiri. |
 
-#### Güvenlik geçersiz kılma işlemleri
+#### Penggantian keamanan
 
-Geçersiz kılmalar ileterek belirli politikaları geçersiz kılabilirsiniz:
+Anda dapat mengganti kebijakan tertentu dengan meneruskan penggantian:
 
 ### Python
 
@@ -2023,13 +1650,13 @@ func main() {
 }
 ```
 
-### İstem enjeksiyonu tespiti (Gemini 3.x)
+### Deteksi injeksi perintah
 
-Gemini 3.5 Flash veya sonraki sürümler için bilgisayar kullanımı, istem enjeksiyonu saldırılarını tespit etmek üzere gelişmiş bir güvenlik mekanizmasını destekler. Bu özellik etkinleştirildiğinde, eklenen ekran görüntüsünde gizli saldırgan talimatlar (örneğin, "Önceki komutları yoksay") olup olmadığını kontrol eder ve algılandığında yürütmeyi engeller.
+Penggunaan Komputer untuk Gemini 3.5 Flash atau yang lebih baru mendukung mekanisme keamanan lanjutan untuk mendeteksi serangan injeksi perintah. Jika diaktifkan, fitur ini akan memeriksa apakah screenshot yang disertakan berisi petunjuk tersembunyi yang bersifat merugikan (misalnya, "Abaikan perintah sebelumnya") dan memblokir eksekusi jika terdeteksi.
 
-İstem enjeksiyonu tespiti, etkinleştirilmesi gereken bir özelliktir. Varsayılan değer: `false`.
+Deteksi injeksi perintah adalah fitur opsional. Defaultnya adalah `false`.
 
-Aşağıdaki örneklerde, Bilgisayar Kullanımı aracı yapılandırmanızda istem enjeksiyonu tespitinin nasıl etkinleştirileceği gösterilmektedir:
+Contoh berikut menunjukkan cara mengaktifkan deteksi injeksi perintah dalam konfigurasi alat Penggunaan Komputer Anda:
 
 ### Python
 
@@ -2158,16 +1785,16 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI
 }'
 ```
 
-### Güvenlik kararını onaylama
+### Mengonfirmasi keputusan keamanan
 
-Yanıt, işlev çağrısı bağımsız değişkenlerinde bir `safety_decision` parametresi içerebilir:
+Respons dapat menyertakan parameter `safety_decision` dalam argumen panggilan fungsi:
 
 ```
 {
   "steps": [
     {
       "type": "function_call",
-      "name": "click_at",
+      "name": "click",
       "arguments": {
         "x": 60,
         "y": 100,
@@ -2181,7 +1808,7 @@ Yanıt, işlev çağrısı bağımsız değişkenlerinde bir `safety_decision` p
 }
 ```
 
-`safety_decision` `require_confirmation` ise son kullanıcıya istem gösterin. Kullanıcı onaylarsa `safety_acknowledgement` değerini `function_result` olarak ayarlayın.
+Jika `safety_decision` adalah `require_confirmation`, minta pengguna akhir. Jika pengguna mengonfirmasi, tetapkan `safety_acknowledgement` di `function_result`.
 
 ### Python
 
@@ -2200,13 +1827,14 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### Güvenlikle ilgili en iyi uygulamalar
+### Praktik terbaik keamanan
 
-Kullanıcı adına hareket eden bir model, ekranlarda güvenilmeyen içeriklerle karşılaşabileceği veya işlemleri yürütürken hatalar yapabileceği için Bilgisayar Kullanımı, benzersiz güvenlik ve operasyonel riskler barındırır. Kullanıcı verilerini ve sistemlerini korumak için aşağıdaki en iyi uygulamaları kullanın:
+Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karena model yang bertindak atas nama pengguna dapat menemukan konten yang tidak tepercaya di layar atau melakukan kesalahan dalam menjalankan tindakan. Terapkan praktik terbaik berikut untuk melindungi data dan sistem pengguna:
 
-1. **İnsanların dahil edilmesi (HITL):**
-   - **Kullanıcı onayını zorunlu kılma:** Güvenlik yanıtı `require_confirmation` simgesini gösterdiğinde (veya eski güvenlik kararı bunu gerektirdiğinde) kullanıcıdan onay isteyin.
-   - **Özel güvenlik talimatları sağlama:** Kendi güvenlik sınırlarınızı tanımlamak ve zorunlu kılmak için özel bir sistem talimatı uygulayın. Örneğin:
+1. **Human-in-the-Loop (HITL):**
+   - **Terapkan konfirmasi pengguna:** Jika respons keamanan menunjukkan
+     `require_confirmation`, minta persetujuan pengguna.
+   - **Memberikan petunjuk keamanan kustom:** Terapkan petunjuk sistem kustom untuk menentukan dan menerapkan batas keamanan Anda sendiri. Contoh:
 
      ### Python
 
@@ -2504,39 +2132,41 @@ func main() {
 }
 ```
 
-1. **Güvenli yürütme ortamı:** Potansiyel etkisini sınırlamak için aracınızı güvenli ve korumalı bir ortamda çalıştırın. Bu, sınırlı izinlere sahip bir sanal makine (VM), bir kapsayıcı (ör. Docker) veya özel bir tarayıcı profili olabilir. Docker kullanarak sanal alan kurulumuyla ilgili rehberlik için [GitHub referans uygulamasını](https://github.com/google/computer-use-preview/) inceleyin.
-2. **Giriş temizleme:** İstenmeyen talimatlar veya istem enjeksiyonu riskini azaltmak için istemlerdeki kullanıcı tarafından oluşturulan tüm metinleri temizleyin. Bu, faydalı bir güvenlik katmanı olsa da güvenli bir yürütme ortamının yerini almaz.
-3. **İçerik koruma sınırları:** Kullanıcı girişlerini, araç girişlerini ve çıkışlarını, aracının yanıtlarını uygunluk, istem enjeksiyonu ve jailbreak tespiti açısından değerlendirmek için koruma sınırlarını ve içerik güvenliği API'lerini kullanın.
-4. **İzin verilenler ve engellenenler listeleri:** Modelin nereye gidebileceğini ve neler yapabileceğini kontrol etmek için filtreleme mekanizmalarını uygulayın. Yasaklanmış web sitelerinin engellenenler listesi iyi bir başlangıç noktasıdır. Daha kısıtlayıcı bir izin verilenler listesi ise daha da güvenlidir.
-5. **Gözlemlenebilirlik ve günlük kaydı:** Hata ayıklama, denetleme ve olay müdahalesi için ayrıntılı günlükler tutun. Müşteriniz istemleri, ekran görüntülerini, model tarafından önerilen işlemleri (`function_call`), güvenlik yanıtlarını ve sonuç olarak istemci tarafından gerçekleştirilen tüm işlemleri kaydetmelidir.
-6. **Ortam yönetimi:** GUI ortamının tutarlı olmasını sağlayın.
-   Beklenmedik pop-up'lar, bildirimler veya düzendeki değişiklikler modelin kafasını karıştırabilir. Mümkünse her yeni görev için bilinen ve temiz bir durumdan başlayın.
+1. **Lingkungan eksekusi yang aman:** Jalankan agen Anda di lingkungan yang aman dan sandbox untuk membatasi potensi dampaknya. Hal ini dapat berupa mesin virtual (VM) sandbox, container (misalnya, Docker), atau profil browser khusus dengan izin terbatas. Lihat
+   [implementasi referensi GitHub](https://github.com/google/computer-use-preview/)
+   untuk panduan penyiapan sandbox menggunakan Docker.
+2. **Pembersihan input:** Bersihkan semua teks buatan pengguna dalam perintah untuk
+   memitigasi risiko perintah yang tidak diinginkan atau injeksi perintah. Ini adalah lapisan keamanan yang berguna, tetapi bukan pengganti lingkungan eksekusi yang aman.
+3. **Pembatasan konten:** Gunakan pembatasan dan API keamanan konten untuk mengevaluasi input pengguna, input dan output alat, serta respons agen untuk mengetahui kesesuaian, deteksi injeksi perintah, dan deteksi jailbreak.
+4. **Daftar yang diizinkan dan daftar yang tidak diizinkan:** Terapkan mekanisme pemfilteran untuk mengontrol ke mana model dapat membuka dan apa yang dapat dilakukannya. Daftar situs yang dilarang yang tidak diizinkan adalah titik awal yang baik, sementara daftar yang diizinkan yang lebih ketat akan lebih aman.
+5. **Observabilitas dan logging:** Pertahankan log mendetail untuk proses debug, audit, dan respons insiden. Klien Anda harus mencatat perintah, screenshot, tindakan yang disarankan model (`function_call`), respons keamanan, dan semua tindakan yang akhirnya dilakukan oleh klien.
+6. **Pengelolaan lingkungan:** Pastikan lingkungan GUI konsisten.
+   Pop-up, notifikasi, atau perubahan tata letak yang tidak terduga dapat membingungkan model. Mulai dari status bersih yang diketahui untuk setiap tugas baru jika memungkinkan.
 
-## Model sürümleri
+## Versi model
 
-Bilgisayar Kullanımı'nı aşağıdaki modellerle kullanabilirsiniz:
+Anda dapat menggunakan Penggunaan Komputer dengan model berikut:
 
-- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=tr) (`gemini-3.8-flash`): Yüksek doğrulukta kullanıcı arayüzü etkileşimi ve güvenilir araç çağrısı özelliklerine sahip olan bu model, bilgisayar kullanımı için önerilir.
-- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=tr) (`gemini-3.7-flash`): Bilgisayar kullanımına yönelik önceki kararlı model. Amaçlarla basitleştirilmiş işlemler, tarayıcı, mobil ve masaüstü ortamları için destek, yapılandırılabilir güvenlik politikaları ve istem enjeksiyonu tespiti özelliklerine sahiptir.
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=tr) (`gemini-3.5-flash-lite`): Bilgisayar kullanımını destekleyen, düşük gecikmeli ve uygun maliyetli bir modeldir.
-- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) (`gemini-3.5-flash`): Bilgisayar kullanımını destekleyen önceki kararlı model.
-- [**Gemini 3 Flash Preview**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) (`gemini-3-flash-preview`): Bilgisayar kullanımını destekleyen önizleme modeli.
-- [**Gemini 2.5 (Eski Önizleme)**](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=tr) (`gemini-2.5-computer-use-preview-10-2025`): Tarayıcı tabanlı bilgisayar kullanımı için optimize edilmiş eski önizleme modeli.
+- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=id) (`gemini-3.8-flash`): Model yang direkomendasikan untuk penggunaan komputer, yang menampilkan interaksi UI dengan akurasi tinggi dan panggilan alat yang andal.
+- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=id) (`gemini-3.7-flash`): Model stabil sebelumnya untuk penggunaan komputer, yang menampilkan tindakan yang disederhanakan dengan maksud, dukungan untuk lingkungan browser, seluler, dan desktop, kebijakan keamanan yang dapat dikonfigurasi, dan deteksi injeksi perintah.
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) (`gemini-3.5-flash-lite`): Model hemat biaya dengan latensi rendah yang mendukung penggunaan komputer.
+- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) (`gemini-3.5-flash`): Model stabil sebelumnya yang mendukung penggunaan komputer.
+- [**Pratinjau Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) (`gemini-3-flash-preview`): Model pratinjau yang mendukung penggunaan komputer.
 
-## Sırada ne var?
+## Langkah berikutnya
 
-- [Browserbase demo ortamında](http://gemini.browserbase.com) bilgisayar kullanımını deneyin.
-- Örnek kod için [Referans uygulama](https://github.com/google/computer-use-preview) bölümünü inceleyin.
-- Diğer Gemini API araçları hakkında bilgi edinin:
-  - [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
-  - [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)
+- Bereksperimen dengan Penggunaan Komputer di [lingkungan demo Browserbase](http://gemini.browserbase.com).
+- Lihat [Penerapan referensi](https://github.com/google/computer-use-preview) untuk melihat contoh kode.
+- Pelajari alat Gemini API lainnya:
+  - [Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+  - [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
 
-Geri bildirim gönderin
+Kirim masukan
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Son güncelleme tarihi: 2026-09-24 UTC.
+Terakhir diperbarui pada 2026-10-01 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Ada masukan untuk kami?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-01 UTC."],[],[]]

@@ -1,59 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pt-BR
-fetched_at: 2026-09-28T06:15:07.103426+00:00
+source_url: https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th
+fetched_at: 2026-10-05T06:38:07.568359+00:00
 title: "Gemini Robotics ER \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Envie comentários
+ส่งความคิดเห็น
 
 # Gemini Robotics ER
 
-Os modelos de raciocínio incorporado (ER) do Gemini Robotics são modelos de visão-linguagem (VLMs) que permitem que os robôs percebam e interajam com o mundo físico. Eles interpretam dados visuais, fazem raciocínio espacial e temporal, planejam tarefas com várias etapas e orquestram robôs e ferramentas.
+โมเดล Gemini Robotics ER (การให้เหตุผลแบบฝังตัว) เป็นโมเดลวิชันภาษา (VLM) ที่ช่วยให้หุ่นยนต์รับรู้และโต้ตอบกับโลกทางกายภาพได้ โดยจะตีความข้อมูลภาพ
+ใช้การให้เหตุผลเชิงพื้นที่และเวลา วางแผนงานที่มีหลายขั้นตอน และควบคุม
+หุ่นยนต์และเครื่องมือ
 
-## Modelos
+## โมเดล
 
-O modelo Gemini Robotics ER 2 é a versão mais recente do Gemini Robotics.
-É nosso modelo de raciocínio atualizado que permite que os robôs entendam os ambientes com precisão. Ele é especializado em recursos de raciocínio incorporado, como orquestração agêntica de robôs (por exemplo, usando VLAs), compreensão de vídeo de robôs, incluindo compreensão de progresso e detecção de sucesso, leitura de instrumentos, apontamento e raciocínio espacial.
+โมเดล Gemini Robotics ER 2 เป็นโมเดลล่าสุดใน Gemini Robotics
+ซึ่งเป็นโมเดลการให้เหตุผลที่อัปเดตแล้วของเราที่ช่วยให้หุ่นยนต์
+เข้าใจสภาพแวดล้อมของตนเองได้อย่างแม่นยำ โดยมีความเชี่ยวชาญด้านความสามารถในการให้เหตุผลแบบฝังตัว เช่น การจัดการเป็นกลุ่มของ Agent ของหุ่นยนต์ (เช่น การใช้ VLA), ความเข้าใจวิดีโอของหุ่นยนต์ รวมถึงความเข้าใจความคืบหน้าและการตรวจหาความสำเร็จ การอ่านเครื่องมือ การชี้ และการให้เหตุผลเชิงพื้นที่
 
-O modelo Gemini Robotics ER 2 apresenta dois endpoints de modelo:
+โมเดล Gemini Robotics ER 2 มีปลายทางของโมเดล 2 รายการ ได้แก่
 
-- **`gemini-robotics-er-2-preview`**: o modelo padrão de ER 2. Baseado no Gemini 3.5 Flash com raciocínio espacial aprimorado, localização de descobertas em vídeo, classificação do progresso do vídeo, orquestração de vários robôs e uso de ferramentas em várias etapas.
-- **`gemini-robotics-er-2-streaming-preview`**: otimizado para streaming em tempo real pela [API Live](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br). Use esse modelo para agentes robóticos de baixa latência que processam entrada contínua de áudio e vídeo.
+- **`gemini-robotics-er-2-preview`**: โมเดล ER 2 มาตรฐาน ต่อยอดจาก
+  Gemini 3.5 Flash ด้วยการให้เหตุผลเชิงพื้นที่ การค้นหาช่วงเวลาในวิดีโอ
+  การจัดประเภทความคืบหน้าของวิดีโอ การประสานงานหุ่นยนต์หลายตัว และการใช้เครื่องมือแบบหลายขั้นตอนที่ดียิ่งขึ้น
+- **`gemini-robotics-er-2-streaming-preview`**: เหมาะสำหรับการสตรีมแบบเรียลไทม์
+  ผ่าน [Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th) ใช้โมเดลนี้
+  สำหรับเอเจนต์หุ่นยนต์ที่มีเวลาในการตอบสนองต่ำซึ่งประมวลผลอินพุตเสียงและวิดีโออย่างต่อเนื่อง
 
-Se você estiver usando o Gemini Robotics ER 1.6, faça upgrade para o Gemini Robotics ER 2 substituindo
-`model="gemini-robotics-er-1.6-preview"` por
-`model="gemini-robotics-er-2-preview"` ou
-`model="gemini-robotics-er-2-streaming-preview"` nas suas chamadas de API. O modelo Gemini Robotics ER 1.6 será desativado no [fim de agosto](https://ai.google.dev/gemini-api/docs/deprecations?hl=pt-br#robotics-models).
+หากคุณใช้ Gemini Robotics ER 1.6 ให้อัปเกรดเป็น Gemini Robotics ER 2 โดยแทนที่
+`model="gemini-robotics-er-1.6-preview"` ด้วย
+`model="gemini-robotics-er-2-preview"` หรือ
+`model="gemini-robotics-er-2-streaming-preview"` ในการเรียก API โปรดทราบว่าเราจะปิดตัวโมเดล Gemini Robotics ER 1.6 ใน[ช่วงปลายเดือนสิงหาคม](https://ai.google.dev/gemini-api/docs/deprecations?hl=th#robotics-models)
 
-[Teste o Gemini Robotics ER 2 no Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=pt-br)
+[ลองใช้ Gemini Robotics ER 2 ใน Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=th)
 
-## Recursos de robótica
+## ความสามารถด้านหุ่นยนต์
 
-O Gemini Robotics ER oferece suporte a vários recursos de raciocínio incorporado.
-Selecione uma funcionalidade para saber mais:
+Gemini Robotics ER รองรับความสามารถในการให้เหตุผลที่หลากหลาย
+เลือกความสามารถเพื่อดูข้อมูลเพิ่มเติม
 
-| Capacidade | Descrição | Guia |
+| ความสามารถ | คำอธิบาย | คู่มือ |
 | --- | --- | --- |
-| Raciocínio espacial | Aponte para objetos, rastreie-os em vídeo, detecte com caixas delimitadoras e planeje trajetórias. | [Raciocínio espacial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=pt-br) |
-| Visão agêntica | Use a execução de código para melhorar outros recursos com ferramentas de manipulação de imagens. | [Visão agêntica](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=pt-br) |
-| Orquestração de tarefas | Combine o raciocínio espacial com APIs de robôs personalizados para concluir tarefas de longo prazo. | [Orquestração de tarefas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-br) |
-| Streaming (somente endpoint de streaming do Gemini Robotics ER 2) | Streaming bidirecional para agentes robóticos em tempo real com baixa latência e chamadas de função. | [Streaming para robótica](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br) |
-| Andamento do vídeo (somente no Gemini Robotics ER 2) | Localização de momentos e classificação de progresso com base em feeds de vídeo contínuos. | [Compreensão do vídeo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pt-br) |
+| การให้เหตุผลเชิงพื้นที่ | ชี้ไปที่วัตถุ ติดตามวัตถุในวิดีโอ ตรวจหาด้วยกรอบล้อม วางแผนวิถี | [การใช้เหตุผลเชิงพื้นที่](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=th) |
+| วิสัยทัศน์ของ Agent | ใช้การเรียกใช้โค้ดเพื่อเพิ่มประสิทธิภาพความสามารถอื่นๆ โดยใช้ประโยชน์จากเครื่องมือการปรับแต่งรูปภาพ | [Agentic vision](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=th) |
+| การจัดการงาน | รวมการใช้เหตุผลเชิงพื้นที่เข้ากับ API ของหุ่นยนต์ที่กำหนดเองเพื่อทำงานระยะยาวให้เสร็จสมบูรณ์ | [การจัดระเบียบงาน](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=th) |
+| การสตรีม (เฉพาะปลายทางการสตรีม Gemini Robotics ER 2) | การสตรีมแบบ 2 ทางสำหรับเอเจนต์หุ่นยนต์แบบเรียลไทม์ที่มีเวลาในการตอบสนองต่ำ การเรียกใช้ฟังก์ชัน | [การสตรีมสำหรับหุ่นยนต์](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th) |
+| ความคืบหน้าของวิดีโอ (Gemini Robotics ER 2 เท่านั้น) | การค้นหาช่วงเวลาและการจัดประเภทความคืบหน้าจากฟีดวิดีโอต่อเนื่อง | [การทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=th) |
 
-## Primeiros passos
+## เริ่มต้นใช้งาน
 
-O exemplo a seguir encontra objetos em uma imagem e retorna as coordenadas e os rótulos 2D normalizados deles. É possível transmitir essa saída diretamente para uma API de robótica ou um modelo de
-VLA para gerar ações de robôs.
+ตัวอย่างต่อไปนี้จะค้นหาออบเจ็กต์ในรูปภาพและแสดงผลพิกัด 2 มิติที่ปรับให้เป็นมาตรฐาน
+และป้ายกำกับ คุณสามารถส่งเอาต์พุตนี้ไปยัง Robotics API หรือโมเดล VLA โดยตรงเพื่อสร้างการทำงานของหุ่นยนต์
 
 ### Python
 
@@ -268,7 +275,8 @@ curl -X POST \
   }'
 ```
 
-A saída será uma matriz JSON contendo objetos, cada um com um `point` (coordenadas `[y, x]` normalizadas) e um `label` que identifica o objeto.
+เอาต์พุตจะเป็นอาร์เรย์ JSON ที่มีออบเจ็กต์ โดยแต่ละออบเจ็กต์จะมี `point`
+(พิกัด `[y, x]` ที่ปรับให้เป็นมาตรฐาน) และ `label` ที่ระบุออบเจ็กต์
 
 ### JSON
 
@@ -287,110 +295,127 @@ A saída será uma matriz JSON contendo objetos, cada um com um `point` (coorden
 ]
 ```
 
-A imagem a seguir é um exemplo de como esses pontos podem ser mostrados:
+รูปภาพต่อไปนี้เป็นตัวอย่างวิธีแสดงคะแนนเหล่านี้
 
-![Um exemplo que mostra os pontos de objetos em uma imagem](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=pt-br)
+![ตัวอย่างที่แสดงจุดของออบเจ็กต์ในรูปภาพ](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=th)
 
-## Como funciona
+## วิธีการทำงาน
 
-O Gemini Robotics ER usa entradas de imagem, vídeo ou áudio com comandos de linguagem natural. Ele identifica objetos, raciocina sobre o contexto da cena e as relações espaciais e retorna uma saída estruturada, como coordenadas ou caixas delimitadoras.
+Gemini Robotics ER รับอินพุตรูปภาพ วิดีโอ หรือเสียงด้วยพรอมต์ภาษาธรรมชาติ
+โดยจะระบุออบเจ็กต์ เหตุผลเกี่ยวกับบริบทของฉากและความสัมพันธ์เชิงพื้นที่ และแสดงผลลัพธ์ที่มีโครงสร้าง เช่น พิกัดหรือกรอบล้อม
 
-O Gemini Robotics ER também é agêntico: ele divide tarefas complexas em subtarefas e as executa chamando as funções do robô ou executando o código gerado. Por exemplo, "coloque a maçã na tigela" se torna uma sequência de etapas de localizar, pegar e colocar.
+นอกจากนี้ Gemini Robotics ER ยังเป็นแบบ Agent ด้วย โดยจะแบ่งงานที่ซับซ้อนออกเป็นงานย่อยๆ และ
+ดำเนินการโดยเรียกใช้ฟังก์ชันของหุ่นยนต์หรือเรียกใช้โค้ดที่สร้างขึ้น ตัวอย่างเช่น "วางแอปเปิ้ลในชาม" จะกลายเป็นลำดับขั้นตอนการค้นหา การจับ และการวาง
 
-Consulte [Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=pt-br#how-it-works) para saber como o Gemini executa chamadas de ferramentas.
+ดู[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=th#how-it-works)เพื่อดูรายละเอียดเกี่ยวกับวิธีที่ Gemini ดำเนินการเรียกใช้เครื่องมือ
 
-## Segurança
+## ความปลอดภัย
 
-Embora o Gemini Robotics ER tenha sido criado pensando na segurança, é sua responsabilidade manter um ambiente seguro ao redor do robô. Os modelos de IA generativa podem cometer erros, e os robôs físicos podem causar danos. Para saber mais, acesse a [página de segurança de robótica do Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=pt-br).
+แม้ว่า Gemini Robotics ER จะสร้างขึ้นโดยคำนึงถึงความปลอดภัย แต่คุณมี
+หน้าที่รับผิดชอบในการรักษาสภาพแวดล้อมที่ปลอดภัยรอบๆ หุ่นยนต์ โมเดล Generative AI
+อาจทำงานผิดพลาดได้ และหุ่นยนต์ที่จับต้องได้อาจทำให้เกิดความเสียหาย ดูข้อมูลเพิ่มเติมได้ที่
+[หน้าความปลอดภัยด้านหุ่นยนต์ของ Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=th)
 
-## Práticas recomendadas
+## แนวทางปฏิบัติแนะนำ
 
-1. Use uma linguagem simples e natural. Descreva o que você quer que o robô faça como se estivesse falando com uma pessoa. Se um termo não funcionar, tente um sinônimo comum.
-2. Otimize a entrada visual. Corte ou faça zoom em objetos pequenos ou pouco claros antes de enviar a imagem. A iluminação e o baixo contraste de cores podem afetar a detecção.
-3. Divida tarefas complexas em etapas. Envie cada etapa como um comando separado para manter o modelo focado e melhorar a precisão.
-4. Consulte várias vezes e faça a média dos resultados para tarefas de alta precisão. Essa abordagem de consenso reduz a variância nas saídas espaciais.
+1. ใช้ภาษาธรรมดาที่เป็นธรรมชาติ อธิบายสิ่งที่ต้องการให้หุ่นยนต์ทำเหมือนที่คุณ
+   อธิบายให้คนฟัง หากคำหนึ่งๆ ไม่ได้ผล ให้ลองใช้คำพ้องความหมายที่ใช้กันทั่วไป
+2. เพิ่มประสิทธิภาพอินพุตภาพ ครอบตัดหรือซูมเข้าวัตถุขนาดเล็กหรือไม่ชัดเจนก่อน
+   ส่งรูปภาพ แสงและคอนทราสต์ของสีต่ำอาจส่งผลต่อการตรวจจับ
+3. แบ่งงานที่ซับซ้อนออกเป็นขั้นตอน ส่งแต่ละขั้นตอนเป็นพรอมต์แยกกันเพื่อ
+   ให้โมเดลโฟกัสและปรับปรุงความแม่นยำ
+4. ค้นหาหลายครั้งและหาค่าเฉลี่ยของผลลัพธ์สำหรับงานที่มีความแม่นยำสูง แนวทางฉันทามตินี้ช่วยลดความแปรปรวนของเอาต์พุตเชิงพื้นที่
 
-## Limitações
+## ข้อจำกัด
 
-Considere as seguintes limitações ao desenvolver com o Gemini Robotics ER:
+โปรดคำนึงถึงข้อจำกัดต่อไปนี้เมื่อพัฒนาด้วย Gemini Robotics ER
 
-- **Restrições de chave de API**:a API Gemini não aceita solicitações de chaves de API sem restrições e retorna um erro `403 Forbidden`. Proteja sua chave de API adicionando restrições no [AI Studio](https://aistudio.google.com/api-keys?hl=pt-br).
-  Consulte [Proteger chaves de API irrestritas](https://ai.google.dev/gemini-api/docs/api-key?hl=pt-br#secure-unrestricted-keys) para mais detalhes.
-- **Latência x desempenho**:consultas complexas, entradas de alta resolução ou níveis de pensamento elevados podem aumentar os tempos de processamento. Para o nível de pensamento, use "médio" para um bom equilíbrio entre latência e desempenho.
-- **Alucinações**:como todos os modelos de linguagem grandes, os modelos de resposta de emergência da Gemini Robotics podem ocasionalmente "alucinar" ou fornecer informações incorretas, principalmente em comandos ambíguos ou entradas fora da distribuição.
-- **Dependência da qualidade do comando**:a qualidade da saída depende da clareza do comando de entrada. Use comandos específicos e bem estruturados.
-- **Custo computacional**:executar o modelo, principalmente com entradas de vídeo ou `thinking_budget` alto, consome recursos computacionais e gera custos.
-  Consulte a página [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para mais detalhes.
-- **Tipos de entrada**:consulte os tópicos a seguir para detalhes sobre as limitações de cada modo.
-  - [Entradas de imagem](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br#technical-details-image)
-  - [Entradas de vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br#supported-formats)
-  - [Entradas de áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br#supported-formats)
+- **ข้อจำกัดของคีย์ API:** Gemini API ไม่ยอมรับคำขอจากคีย์ API ที่ไม่มีข้อจำกัดและจะแสดงข้อผิดพลาด `403 Forbidden` รักษาความปลอดภัยของคีย์ API โดยการเพิ่มข้อจำกัดใน [AI Studio](https://aistudio.google.com/api-keys?hl=th)
+  ดูรายละเอียดได้ที่[รักษาคีย์ API ที่ไม่มีการจำกัดให้ปลอดภัย](https://ai.google.dev/gemini-api/docs/api-key?hl=th#secure-unrestricted-keys)
+- **เวลาในการตอบสนองเทียบกับประสิทธิภาพ:** คำค้นหาที่ซับซ้อน อินพุตความละเอียดสูง หรือระดับการคิดขั้นสูงอาจทำให้เวลาในการประมวลผลเพิ่มขึ้น สำหรับระดับการคิด
+  ให้ใช้ระดับปานกลางเพื่อให้สมดุลระหว่างเวลาในการตอบสนองและประสิทธิภาพ
+- **อาการหลอน:** โมเดล Gemini Robotics ER อาจ "หลอน" หรือให้ข้อมูลที่ไม่ถูกต้องเป็นครั้งคราว เช่นเดียวกับโมเดลภาษาขนาดใหญ่ทั้งหมด โดยเฉพาะอย่างยิ่งสำหรับพรอมต์ที่ไม่ชัดเจนหรืออินพุตที่อยู่นอกการกระจาย
+- **ขึ้นอยู่กับคุณภาพของพรอมต์:** คุณภาพของเอาต์พุตขึ้นอยู่กับความชัดเจน
+  ของพรอมต์อินพุต ใช้พรอมต์ที่เฉพาะเจาะจงและมีโครงสร้างที่ดี
+- **ค่าใช้จ่ายในการคำนวณ:** การเรียกใช้โมเดล โดยเฉพาะอย่างยิ่งเมื่อมีอินพุตวิดีโอหรือ`thinking_budget`สูง จะใช้ทรัพยากรการคำนวณและทำให้เกิดค่าใช้จ่าย
+  ดูรายละเอียดเพิ่มเติมได้ที่หน้า[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+- **ประเภทอินพุต:** ดูรายละเอียดเกี่ยวกับข้อจำกัดของแต่ละโหมดได้ในหัวข้อต่อไปนี้
+  - [อินพุตรูปภาพ](https://ai.google.dev/gemini-api/docs/image-understanding?hl=th#technical-details-image)
+  - [อินพุตวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#supported-formats)
+  - [อินพุตเสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th#supported-formats)
 
-## Aviso de privacidade
+## ประกาศเกี่ยวกับนโยบายความเป็นส่วนตัว
 
-Você reconhece que os modelos mencionados neste documento (os "Modelos de robótica") usam dados de vídeo e áudio para operar e mover seu hardware de acordo com suas instruções. Portanto, você pode operar os modelos de robótica de forma que os dados de pessoas identificáveis, como voz, imagens e dados de semelhança ("Dados pessoais"), sejam coletados por eles. Se você optar por operar os modelos de robótica de uma maneira que colete dados pessoais, concorda em não permitir que pessoas identificáveis interajam ou estejam presentes na área ao redor dos modelos de robótica, a menos que essas pessoas identificáveis tenham sido suficientemente notificadas e consentido com o fato de que os dados pessoais delas podem ser fornecidos e usados pelo Google conforme descrito nos Termos adicionais de serviço da API Gemini, disponíveis em [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=pt-br) (os "Termos"), incluindo de acordo com a seção intitulada "Como o Google usa seus dados". Você vai garantir que esse aviso permita a coleta e o uso de dados pessoais conforme descrito nos Termos e vai usar esforços comercialmente razoáveis para minimizar a coleta e a distribuição de dados pessoais usando técnicas como desfoque de rosto e operando os modelos de robótica em áreas sem pessoas identificáveis, na medida do possível.
+คุณรับทราบว่าโมเดลที่อ้างอิงในเอกสารนี้ ("โมเดลหุ่นยนต์") ใช้ประโยชน์จากข้อมูลวิดีโอและเสียงเพื่อใช้งานและเคลื่อนย้ายฮาร์ดแวร์ตามคำสั่งของคุณ ดังนั้น คุณอาจใช้งาน
+โมเดลหุ่นยนต์ในลักษณะที่โมเดลหุ่นยนต์จะเก็บรวบรวมข้อมูลจากบุคคลที่ระบุตัวตนได้ เช่น เสียง
+รูปภาพ และข้อมูลความเหมือน ("ข้อมูลส่วนบุคคล") หากเลือกที่จะใช้งานโมเดลหุ่นยนต์ในลักษณะที่เก็บรวบรวม
+ข้อมูลส่วนตัว คุณยอมรับว่าจะไม่อนุญาตให้บุคคลที่ระบุตัวตนได้
+โต้ตอบหรืออยู่ในพื้นที่รอบๆ โมเดลหุ่นยนต์
+เว้นแต่และจนกว่าบุคคลที่ระบุตัวตนได้ดังกล่าวจะได้รับการแจ้งเตือนอย่างเพียงพอ
+และยินยอมให้ Google อาจให้และใช้ข้อมูลส่วนตัวของบุคคลดังกล่าว
+ตามที่ระบุไว้ในข้อกำหนดในการให้บริการเพิ่มเติมของ Gemini API ที่[https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=th)
+("ข้อกำหนด") รวมถึงตามส่วนที่ชื่อว่า "วิธีที่ Google ใช้ข้อมูลของคุณ" คุณจะตรวจสอบว่าประกาศดังกล่าวอนุญาตให้เก็บรวบรวมและใช้ข้อมูลส่วนตัวตามที่ระบุไว้ในข้อกำหนด และคุณจะใช้ความพยายามที่สมเหตุสมผลในเชิงพาณิชย์เพื่อลดการเก็บรวบรวมและการเผยแพร่ข้อมูลส่วนตัวโดยใช้เทคนิคต่างๆ เช่น การเบลอใบหน้า และการใช้งานโมเดลหุ่นยนต์ในพื้นที่ที่ไม่มีบุคคลที่ระบุตัวตนได้เท่าที่สามารถทำได้
 
-## Preços
+## ราคา
 
-Para informações detalhadas sobre preços e regiões disponíveis, consulte a página de
-[preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br).
+ดูข้อมูลโดยละเอียดเกี่ยวกับการกำหนดราคาและภูมิภาคที่พร้อมให้บริการได้ที่หน้า[การกำหนดราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
 
-## Endpoints de modelos
+## ปลายทางของโมเดล
 
-### Pré-lançamento do Gemini Robotics ER 2
+### Gemini Robotics ER 2 (เวอร์ชันตัวอย่าง)
 
-| Propriedade | Descrição |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| Código do modelo id\_card | `gemini-robotics-er-2-preview` |
-| saveTipos de dados aceitos | **Entradas** (link em inglês)  Texto, imagens, vídeo, áudio  **Saída**  Texto |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  131.072  **Limite de token de saída**  65.536 |
-| handymanRecursos | **[Geração de áudio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pt-br)**  incompatível  **[Armazenamento em cache](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)**  Compatível  **[Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br)**  Compatível  **[Uso de computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br)**  Compatível  **[Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br)**  Compatível  **[Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)**  Compatível  **[Embasamento com o Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br)**  Compatível  **[Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)**  incompatível  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br)**  incompatível  **[Embasamento da pesquisa](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br)**  Compatível  **[Respostas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)**  Compatível  **[Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br)**  Compatível  **[Contexto do URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br)**  Compatível |
-| speedOpções de consumo | **[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br)**  Compatível  **[Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br)**  incompatível  **[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)**  incompatível |
-| Versões do 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `gemini-robotics-er-2-preview` |
-| calendar\_monthÚltima atualização | Julho de 2026 |
-| id\_cardCard de modelo | [Card de modelo](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=pt-br) |
+| รหัสโมเดล id\_card | `gemini-robotics-er-2-preview` |
+| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ วิดีโอ เสียง  **เอาต์พุต**  ข้อความ |
+| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  131,072  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  สิ่งที่ทำได้  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  สิ่งที่ทำได้  **[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)**  สิ่งที่ทำได้  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  สิ่งที่ทำได้  **[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  สิ่งที่ทำได้  **[การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  สิ่งที่ทำได้  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  สิ่งที่ทำไม่ได้  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  สิ่งที่ทำได้  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  สิ่งที่ทำได้  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  สิ่งที่ทำได้  **[บริบทของ URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  สิ่งที่ทำได้ |
+| speedตัวเลือกการรับชม | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  สิ่งที่ทำได้  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  สิ่งที่ทำไม่ได้  **[การอนุมานตามลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  สิ่งที่ทำไม่ได้ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `gemini-robotics-er-2-preview` |
+| calendar\_monthการอัปเดตล่าสุด | กรกฎาคม 2569 |
+| การ์ดโมเดล id\_card | [การ์ดโมเดล](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=th) |
 
-### Pré-lançamento do Gemini Robotics ER 2 Streaming
+### Gemini Robotics ER 2 Streaming Preview
 
-| Propriedade | Descrição |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| Código do modelo id\_card | `gemini-robotics-er-2-streaming-preview` |
-| saveTipos de dados aceitos | **Entradas** (link em inglês)  Texto, imagens, vídeo, áudio  **Saída**  Texto |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  131.072  **Limite de token de saída**  65.536 |
-| handymanRecursos | **[Geração de áudio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pt-br)**  incompatível  **[Armazenamento em cache](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)**  incompatível  **[Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br)**  incompatível  **[Uso de computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br)**  incompatível  **[Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br)**  incompatível  **[Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)**  Compatível  **[Embasamento com o Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br)**  incompatível  **[Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)**  incompatível  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br)**  Compatível  **[Embasamento da pesquisa](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br)**  Compatível  **[Respostas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)**  incompatível  **[Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br)**  Compatível  **[Contexto do URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br)**  incompatível |
-| speedOpções de consumo | **[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br)**  incompatível  **[Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br)**  incompatível  **[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)**  incompatível |
-| Versões do 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `gemini-robotics-er-2-streaming-preview` |
-| calendar\_monthÚltima atualização | Julho de 2026 |
-| id\_cardCard de modelo | [Card de modelo](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=pt-br) |
+| รหัสโมเดล id\_card | `gemini-robotics-er-2-streaming-preview` |
+| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ วิดีโอ เสียง  **เอาต์พุต**  ข้อความ |
+| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  131,072  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  สิ่งที่ทำไม่ได้  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  สิ่งที่ทำไม่ได้  **[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)**  สิ่งที่ทำไม่ได้  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  สิ่งที่ทำไม่ได้  **[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  สิ่งที่ทำได้  **[การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  สิ่งที่ทำไม่ได้  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  สิ่งที่ทำได้  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  สิ่งที่ทำได้  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  สิ่งที่ทำไม่ได้  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  สิ่งที่ทำได้  **[บริบทของ URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  สิ่งที่ทำไม่ได้ |
+| speedตัวเลือกการรับชม | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  สิ่งที่ทำไม่ได้  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  สิ่งที่ทำไม่ได้  **[การอนุมานตามลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  สิ่งที่ทำไม่ได้ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `gemini-robotics-er-2-streaming-preview` |
+| calendar\_monthการอัปเดตล่าสุด | กรกฎาคม 2569 |
+| การ์ดโมเดล id\_card | [การ์ดโมเดล](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=th) |
 
-### Pré-lançamento do Gemini Robotics ER 1.6
+### Gemini Robotics ER 1.6 (เวอร์ชันตัวอย่าง)
 
-| Propriedade | Descrição |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| Código do modelo id\_card | `gemini-robotics-er-1.6-preview` |
-| saveTipos de dados aceitos | **Entradas** (link em inglês)  Texto, imagens, vídeo, áudio  **Saída**  Texto |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  131.072  **Limite de token de saída**  65.536 |
-| handymanRecursos | **[Geração de áudio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pt-br)**  incompatível  **[Armazenamento em cache](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)**  Compatível  **[Execução de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=pt-br)**  Compatível  **[Uso de computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br)**  Compatível  **[Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br)**  Compatível  **[Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)**  Compatível  **[Embasamento com o Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pt-br)**  Compatível  **[Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)**  incompatível  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=pt-br)**  incompatível  **[Embasamento da pesquisa](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br)**  Compatível  **[Respostas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)**  Compatível  **[Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br)**  Compatível  **[Contexto do URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br)**  Compatível |
-| speedOpções de consumo | **[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br)**  Compatível  **[Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br)**  incompatível  **[Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)**  incompatível |
-| Versões do 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Visualização: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthÚltima atualização | Dezembro de 2025 |
-| cognition\_2Limite de conhecimento | Janeiro de 2025 |
+| รหัสโมเดล id\_card | `gemini-robotics-er-1.6-preview` |
+| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ วิดีโอ เสียง  **เอาต์พุต**  ข้อความ |
+| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  131,072  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  สิ่งที่ทำได้  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  สิ่งที่ทำได้  **[การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)**  สิ่งที่ทำได้  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  สิ่งที่ทำได้  **[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  สิ่งที่ทำได้  **[การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  สิ่งที่ทำได้  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  สิ่งที่ทำไม่ได้  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  สิ่งที่ทำได้  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  สิ่งที่ทำได้  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  สิ่งที่ทำได้  **[บริบทของ URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  สิ่งที่ทำได้ |
+| speedตัวเลือกการรับชม | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  สิ่งที่ทำได้  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  สิ่งที่ทำไม่ได้  **[การอนุมานตามลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  สิ่งที่ทำไม่ได้ |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthการอัปเดตล่าสุด | ธันวาคม 2025 |
+| cognition\_2การตัดข้อมูล | มกราคม 2025 |
 
-## A seguir
+## ขั้นตอนถัดไป
 
-- [Raciocínio espacial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=pt-br): apontamento, rastreamento, caixas delimitadoras, trajetórias.
-- [Capacidades agênticas](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=pt-br): execução de código, leitura de instrumentos, anotação de imagens.
-- [Orquestração de tarefas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-br): tarefas de longo prazo com APIs de robôs personalizadas.
-- [Robótica com streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br): streaming bidirecional em tempo real (somente Gemini Robotics ER 2).
-- [Compreensão de vídeo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pt-br): identificação de momentos e classificação de progresso (somente Gemini Robotics ER 2).
-- [Segurança de robôs do Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=pt-br): pesquisa de segurança por trás da família de modelos.
+- [การใช้เหตุผลเชิงพื้นที่](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=th) - การชี้ การติดตาม กรอบพื้นที่ วิถี
+- [ความสามารถด้าน Agentic AI](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=th) - การเรียกใช้โค้ด การอ่านเครื่องมือ การอธิบายประกอบรูปภาพ
+- [การจัดระเบียบงาน](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=th) - งานระยะยาวที่มี API ของหุ่นยนต์ที่กำหนดเอง
+- [หุ่นยนต์ที่มีการสตรีม](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th) - การสตรีมแบบ 2 ทางแบบเรียลไทม์ (Gemini Robotics ER 2 เท่านั้น)
+- [การทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=th) - การค้นหาช่วงเวลาและการจัดประเภทความคืบหน้า (Gemini Robotics ER 2 เท่านั้น)
+- [ความปลอดภัยด้านหุ่นยนต์ของ Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=th) — การวิจัยด้านความปลอดภัยที่อยู่เบื้องหลังตระกูลโมเดล
 
-Envie comentários
+ส่งความคิดเห็น
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Última atualização 2026-09-24 UTC.
+อัปเดตล่าสุด 2026-09-24 UTC
 
-Quer enviar seu feedback?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-24 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]

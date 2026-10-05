@@ -1,78 +1,72 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=pl
-fetched_at: 2026-09-28T06:07:23.284856+00:00
-title: "Logowanie i\u00a0udost\u0119pnianie danych \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=ko
+fetched_at: 2026-10-05T06:39:40.215862+00:00
+title: "\ub370\uc774\ud130 \ub85c\uae45 \ubc0f \uacf5\uc720 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Prześlij opinię
+의견 보내기
 
-# Logowanie i udostępnianie danych
+# 데이터 로깅 및 공유
 
-Ta strona zawiera informacje o przechowywaniu i zarządzaniu
-[logami Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pl), które są danymi API należącymi do dewelopera
-i pochodzącymi z obsługiwanych wywołań Gemini API w projektach z włączonymi płatnościami. Logi obejmują cały proces od żądania użytkownika do odpowiedzi modelu.
-Te logi, które są prywatne dla Twojego projektu w chmurze Google Cloud, są oddzielone od wszelkich
-logów przechowywanych wyłącznie na potrzeby [monitorowania nadużyć](https://ai.google.dev/gemini-api/docs/usage-policies?hl=pl).
+이 페이지에서는 결제가 사용 설정된 프로젝트의 지원되는 Gemini API 호출에서 개발자가 소유한
+API 데이터인
+[Gemini API 로그](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ko)의 저장 및 관리에 대해 설명합니다. 로그는 사용자의 요청부터 모델의 응답까지 전체 프로세스를 포함합니다.
+Google Cloud 프로젝트에 비공개인 이러한 로그는 [악용 모니터링](https://ai.google.dev/gemini-api/docs/usage-policies?hl=ko) 목적으로만 보관되는 로그와는 별개입니다.
 
-## Dane, które można udostępniać
+## 공유할 수 있는 데이터
 
-Jako właściciel projektu możesz włączyć logowanie wywołań Gemini API na własny użytek lub na potrzeby przesyłania opinii i udostępniania ich Google, aby pomóc nam w ciągłym ulepszaniu naszych modeli.
+프로젝트 소유자는 자체 사용을 위해 또는 Google에 의견을 제공하고 공유하여 Google이 모델을 지속적으로 개선할 수 있도록 Gemini API 호출의 로깅을 선택할 수 있습니다.
 
-Jeśli włączysz logowanie, możesz pomóc nam w tworzeniu systemów AI, które będą nadal przydatne dla deweloperów z różnych dziedzin i w różnych przypadkach użycia. W tym celu możesz udostępnić nam te dane na potrzeby ulepszania usług i trenowania modeli:
+로깅을 사용 설정하면 제품 개선 및 모델 학습을 위해 다음 데이터를 제공하여 다양한 분야와 사용 사례에서 개발자에게 계속해서 유용한 AI 시스템을 구축하는 데 도움이 될 수 있습니다.
 
-- **Zbiory danych:** użyj interfejsu Logi i zbiory danych w Google AI Studio, aby wybrać logi (żądania, odpowiedzi, metadane itp.) z obsługiwanych wywołań Gemini API, które Cię interesują. Możesz je udostępnić, dodając je do zbiorów danych. Podczas tworzenia zbioru danych możesz zrezygnować z udostępniania.
-- **Opinie:** podczas przeglądania logów możesz przesyłać opinie, w tym oceny za pomocą kciuka w górę i w dół oraz wszelkie pisemne komentarze.
+- **데이터 세트:** Google AI Studio의 로그 및 데이터 세트 인터페이스를 사용하여 지원되는 Gemini API 호출에서 관심 있는 로그 (요청, 응답, 메타데이터 등)를 선택합니다. 데이터 세트 생성 중에 선택 해제할 수 있는 옵션과 함께 데이터 세트에 포함하여 제공됩니다.
+- **의견:** 로그를 검토할 때 의견을 제공할 수 있습니다. 여기에는 좋아요 및 싫어요 평가와 작성한 의견이 포함됩니다.
 
-Gdy udostępnisz Google zbiór danych, Twoje logi w tym zbiorze, w tym
-żądania i odpowiedzi, będą przetwarzane zgodnie z naszymi
-[Warunkami](https://developers.google.com/terms?hl=pl) korzystania z
-"[Usług bezpłatnych](https://ai.google.dev/gemini-api/terms?hl=pl#data-use-unpaid),"
-Oznacza to, że zbiór danych może być używany do rozwijania i ulepszania usług Google,
-produktów, usług i technologii uczenia maszynowego, w tym do ich ulepszania i
-trenowania. **Nie podawaj danych osobowych, poufnych ani wrażliwych.**
+Google과 데이터 세트를 공유하면 요청 및 응답을 포함한 해당 데이터 세트의 로그가 [약관](https://developers.google.com/terms?hl=ko)에 따라 처리됩니다. 즉, 데이터 세트는 모델 개선 및 학습을 포함하여 Google 제품, 서비스, 머신러닝 기술을 개발하고 개선하는 데 사용될 수 있습니다. **개인 정보, 민감한 정보 또는 기밀 정보를 포함하지 마세요.**
 
-## Jak wykorzystujemy Twoje dane
+## Google에서 데이터를 사용하는 방식
 
-Logi są przechowywane przez domyślny maksymalny okres 55 dni. Po upływie tego okresu logi są automatycznie oznaczane do usunięcia. Okres przechowywania logów w projekcie można zmienić w AI Studio, aby automatycznie oznaczać logi do usunięcia po 7, 14, 28 lub 55 dniach.
+로그는 기본적으로 최대 55일 동안 보관됩니다. 이 기간이 지나면 로그는 자동으로 삭제 대상으로 표시됩니다. 프로젝트의 저장소 보관 기간은 AI Studio에서 업데이트하여 7일, 14일, 28일 또는 55일 후에 로그가 자동으로 삭제 대상으로 표시되도록 할 수 있습니다.
 
-[Zbiory danych](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pl) można tworzyć w celu przechowywania logów, które Cię interesują, przez okres dłuższy niż ustawiony okres przechowywania. Można je wykorzystywać w dalszych przypadkach użycia i
-opcjonalnie udostępniać na potrzeby ulepszania modeli. Logi przechowywane w zbiorach danych nie mają ustawionych okresów przechowywania.
+[데이터 세트](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ko)는 다운스트림 사용 사례 및
+모델 개선에 대한 선택적 기여를 위해 설정된 보관 기간을 초과하여
+관심 있는 로그를 보관하도록 만들 수 있습니다. 데이터 세트에 저장된 로그에는 설정된 보관 기간이 없습니다.
 
-Domyślnie, ponieważ logowanie jest dostępne tylko w projektach z włączonymi płatnościami,
-prompty i odpowiedzi w logach nie są używane do ulepszania ani
-rozwijania usług zgodnie z naszymi [Warunkami](https://developers.google.com/terms?hl=pl)
-korzystania z danych.
+기본적으로 로깅은 결제가 사용 설정된 프로젝트에서만 사용할 수 있으므로
+로그 내의 프롬프트와 응답은 제품 개선 또는
+개발에 사용되지 않습니다. 이는 데이터 사용에 관한 [약관](https://developers.google.com/terms?hl=ko)
+에 따릅니다.
 
-Jeśli zdecydujesz się udostępnić Google zbiory danych z logami, będą one używane jako dane demonstracyjne z rzeczywistych przypadków użycia, aby lepiej zrozumieć różnorodność domen i kontekstów, w których używane są systemy i aplikacje AI. Te dane mogą być używane do poprawy jakości modelu oraz do trenowania i oceniania przyszłych modeli i usług. Dane te są przetwarzane zgodnie z naszymi warunkami korzystania z danych
-w przypadku [usług bezpłatnych](https://ai.google.dev/gemini-api/terms?hl=pl#data-use-unpaid).
+로그의 데이터 세트를 Google과 공유하도록 선택하면 이러한 데이터 세트는 AI 시스템 및 애플리케이션이 사용되는 다양한 도메인과 컨텍스트를 더 잘 이해하기 위한 실제 데모 데이터로 사용됩니다. 이 데이터는 모델 품질을 개선하고 향후 모델 및 서비스의 학습 및 평가에 영향을 미칠 수 있습니다. 이 데이터는 [무료 서비스](https://ai.google.dev/gemini-api/terms?hl=ko#data-use-unpaid)의 데이터 사용
+약관에 따라 처리됩니다.
 
-W związku z tym osoby weryfikujące treści mogą odczytywać i przetwarzać udostępniane przez Ciebie dane wejściowe i wyjściowe interfejsu API oraz dodawać do nich adnotacje. Zanim dane zostaną użyte do ulepszania modelu, Google podejmuje działania mające na celu ochronę prywatności użytkowników. Obejmuje to oddzielanie tych danych od Twojego konta Google, klucza API i projektu w chmurze, zanim weryfikatorzy je zobaczą lub opatrzą adnotacjami.
+따라서 인적 검토자는 공유하는 API 입력 및 출력을 읽고, 주석을 달고, 처리할 수 있습니다. 데이터가 모델 개선에 사용되기 전에 Google은 이러한 과정에서 사용자 개인 정보를 보호하기 위한 조치를 취합니다. 여기에는 검토자가 이 데이터를 보거나 주석을 작성하기 전에 Google 계정, API 키, Cloud 프로젝트에서 이 데이터의 연결을 해제하는 조치가 포함됩니다.
 
-## Uprawnienia do danych
+## 데이터 권한
 
-Jeśli zdecydujesz się udostępniać dane API, potwierdzasz, że masz niezbędne uprawnienia, aby Google mogło przetwarzać i wykorzystywać te dane zgodnie z opisem w tej dokumentacji. **Nie udostępniaj logów zawierających informacje poufne, wrażliwe ani zastrzeżone, które zostały uzyskane w ramach płatnej usługi.**
-Licencja, której udzielasz Google w sekcji „[Przesyłanie treści](https://developers.google.com/terms?hl=pl#b_submission_of_content)” w Warunkach korzystania z interfejsu API, obejmuje również, w zakresie wymaganym przez obowiązujące prawo, wszelkie treści (np. prompty, w tym powiązane instrukcje systemowe, treści zapisane w pamięci podręcznej i pliki takie jak obrazy, filmy czy dokumenty) przesyłane do usług oraz wszelkie wygenerowane odpowiedzi.
+API 데이터 제공을 선택하면 Google이 이 문서에 설명된 대로 데이터를 처리하고 사용할 수 있는 필요한 권한이 있음을 확인하는 것입니다. **유료 서비스를 통해 얻은 민감한 정보, 기밀 정보 또는 독점 정보가 포함된 로그는 제공하지 마세요**.
+'[콘텐츠 제출](https://developers.google.com/terms?hl=ko#b_submission_of_content)' 조항에 따라 Google에 부여한 라이선스도 Google의 사용에 대한 관련 법규에 따라 요구되는 범위 내에서 '서비스' 및 생성된 답변에 제출한 콘텐츠 (예: 이미지, 동영상, 문서 등 관련 파일, 캐시된 콘텐츠, 시스템 안내를 포함한 프롬프트)로 확장됩니다.
 
-## Udostępnianie danych i opinie
+## 데이터 공유 및 의견
 
-Możesz pomóc nam w rozwoju badań nad AI, Gemini API i Google AI Studio, udostępniając swoje dane jako przykłady. Dzięki temu będziemy mogli stale ulepszać nasze modele w różnych kontekstach i tworzyć systemy AI, które będą nadal przydatne dla deweloperów z różnych dziedzin i w różnych przypadkach użycia.
+데이터를 예시로 공유하도록 선택하면 AI 연구, Gemini API, Google AI Studio의 발전에 도움이 될 수 있습니다. 이를 통해 다양한 컨텍스트에서 모델을 지속적으로 개선하고 다양한 분야와 사용 사례에서 개발자에게 계속해서 유용한 AI 시스템을 구축할 수 있습니다.
 
-Prześlij opinię
+의견 보내기
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Ostatnia aktualizacja: 2026-09-08 UTC.
+최종 업데이트: 2026-09-08(UTC)
 
-Chcesz przekazać coś jeszcze?
+의견을 전달하고 싶나요?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-08(UTC)"],[],[]]

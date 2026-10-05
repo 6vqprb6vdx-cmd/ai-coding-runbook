@@ -1,1263 +1,1250 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=de
-fetched_at: 2026-09-28T06:07:36.112146+00:00
-title: "Preise f\u00fcr die Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=zh-TW
+fetched_at: 2026-10-05T06:28:46.029909+00:00
+title: "Gemini Developer API \u5b9a\u50f9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-# Preise für die Gemini Developer API
+# Gemini Developer API 定價
 
-Sie können mit großzügigen Limits kostenlos mit der Entwicklung beginnen und dann mit Prepaid- und „Pay as you go“-Preisen für Ihre produktionsreifen Anwendungen skalieren.
+您可先免費建構應用程式，享有充裕的限制，然後使用預付方案擴大規模，並為正式版應用程式採用即付即用計費模式。
 
-### Kostenlos
+### 免費
 
-Für Entwickler\*innen und kleine Projekte zum Einstieg in die Gemini API
+適合剛開始使用 Gemini API 的開發人員和小型專案。
 
-- check\_circle Eingeschränkter Zugriff auf bestimmte Modelle
-- check\_circleKostenlose Ein- und Ausgabetokens
-- check\_circle Zugriff auf Google AI Studio
-- check\_circleNutzung von Inhalten zur Optimierung unserer Produkte[\*](https://ai.google.dev/gemini-api/terms?hl=de)
+- check\_circle只能使用部分模型
+- check\_circle免費輸入和輸出詞元
+- check\_circleGoogle AI Studio 存取權
+- check\_circle內容會用於提升我們的產品[\*](https://ai.google.dev/gemini-api/terms?hl=zh-tw)
 
-[Jetzt kostenlos starten](https://aistudio.google.com?hl=de)
+[免費試用](https://aistudio.google.com?hl=zh-tw)
 
-### Kostenpflichtig
+### 付費
 
-Für Produktionsanwendungen, die höhere Kapazitäten und erweiterte Funktionen erfordern
+適合需要大量資料及進階功能的正式環境應用程式。
 
-- check\_circle Höhere Ratenbegrenzungen für die Produktionsbereitstellung
-- check\_circle Zugriff auf Kontext-Caching
-- check\_circleBatch API (50% Kostenersparnis)
-- check\_circle Zugriff auf die fortschrittlichsten Modelle von Google
-- check\_circleInhalte, die **nicht** zur Verbesserung unserer Produkte verwendet werden[\*](https://ai.google.dev/gemini-api/terms?hl=de)
+- check\_circle提高正式環境部署作業的頻率限制
+- check\_circle存取脈絡快取功能
+- check\_circle Batch API (成本降低 50%)
+- check\_circle使用 Google 最先進的模型
+- check\_circle內容**不會**用於提升我們的產品[\*](https://ai.google.dev/gemini-api/terms?hl=zh-tw)
 
-[Upgrade auf kostenpflichtige Version ausführen](https://aistudio.google.com/api-keys?hl=de)
+[升級為付費帳戶](https://aistudio.google.com/api-keys?hl=zh-tw)
 
-### Unternehmen
+### Enterprise
 
-Für Unternehmensbereitstellungen, unterstützt von der [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=de).
+企業部署作業則由 [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=zh-tw) 支援。
 
-- check\_circle Alle Funktionen in der kostenpflichtigen Version sowie optionaler Zugriff auf:
-- check\_circleSpezielle Supportkanäle
-- check\_circle Mehr Sicherheit und Compliance
-- check\_circle Bereitgestellter Durchsatz
-- check\_circleMengenrabatte (basierend auf der Nutzung)
-- check\_circle ML Ops, Model Garden und mehr
+- check\_circle所有付費功能，外加選用存取權：
+- check\_circle專屬支援管道
+- check\_circle進階安全性和法規遵循
+- check\_circle佈建輸送量
+- check\_circle依用量計算的折扣
+- check\_circle機器學習作業、Model Garden 等
 
-[Vertrieb kontaktieren](https://cloud.google.com/contact?hl=de)
+[與銷售人員聯絡](https://cloud.google.com/contact?hl=zh-tw)
 
-## Gemini 3.8 Flash
+## Gemini 3.8 Flash
 
-*[`gemini-3.8-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=de)*
+*[`gemini-3.8-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-tw)
 
-Unser intelligentestes Flash-Modell, das für langfristige Softwareentwicklung, autonome KI-Agenten und komplexe Unternehmensworkflows entwickelt wurde.
+我們最聰明的 Flash 模型，適合用於長程軟體工程、自主式代理，以及複雜的企業工作流程。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 75 $ bis zum 31.Dezember 2026. 1, 50 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 3, 75 $ bis zum 31.Dezember 2026. 7, 50 $ ab dem 1.Januar 2027. |
-| Preis für Kontext-Caching | Kostenlos | 0,075 $ bis zum 31. Dezember 2026. 0,15 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.75 美元 2027 年 1 月 1 日起為$1.50 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $3.75 美元。 2027 年 1 月 1 日起為$7.50 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.075 美元。 2027 年 1 月 1 日起為$0.15 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個權杖$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個權杖$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 無法使用 | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 無法使用 | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 375 $ bis zum 31.Dezember 2026. 0, 75 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1, 875 $ bis zum 31. Dezember 2026 3, 75 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0375 $ bis zum 31. Dezember 2026. 0,075 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.375 美元 2027 年 1 月 1 日起為$0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $1.875 美元。 2027 年 1 月 1 日起為$3.75 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.0375 美元。 2027 年 1 月 1 日起為$0.075 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 375 $ bis zum 31.Dezember 2026. 0, 75 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1, 875 $ bis zum 31. Dezember 2026 3, 75 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0375 $ bis zum 31. Dezember 2026. 0,075 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.375 美元 2027 年 1 月 1 日起為$0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $1.875 美元。 2027 年 1 月 1 日起為$3.75 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.0375 美元。 2027 年 1 月 1 日起為$0.075 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1, 35 $ bis zum 31.Dezember 2026. 2, 70 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 6, 75 $ bis zum 31. Dezember 2026 13, 50 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,135 $ bis zum 31. Dezember 2026. 0,27 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $1.35 美元 2027 年 1 月 1 日起為$2.70 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $6.75 美元。 2027 年 1 月 1 日起為$13.50 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.135 美元。 2027 年 1 月 1 日起為$0.27 美元。 2026 年 12 月 31 日前為每小時每 100 萬個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 100 萬個符記$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 3.7 Flash
+## Gemini 3.7 Flash
 
-*[`gemini-3.7-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=de)*
+*[`gemini-3.7-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.7-flash&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.7-flash&hl=zh-tw)
 
-Unser schnelles, effizientes Flash-Modell, das für alltägliche Programmieraufgaben, die Verwendung von agentischen Tools und die zuverlässige Ausführung mehrstufiger Aufgaben entwickelt wurde.
+效率卓越的高速 Flash 模型，適合處理日常程式設計任務、使用代理工具，並能穩定執行多步驟作業。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 75 $ bis zum 31.Dezember 2026. 1, 50 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 3, 75 $ bis zum 31.Dezember 2026. 7, 50 $ ab dem 1.Januar 2027. |
-| Preis für Kontext-Caching | Kostenlos | 0,075 $ bis zum 31. Dezember 2026. 0,15 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.75 美元 2027 年 1 月 1 日起為$1.50 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $3.75 美元。 2027 年 1 月 1 日起為$7.50 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.075 美元。 2027 年 1 月 1 日起為$0.15 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個權杖$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個權杖$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 無法使用 | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 無法使用 | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 375 $ bis zum 31.Dezember 2026. 0, 75 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1, 875 $ bis zum 31. Dezember 2026 3, 75 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0375 $ bis zum 31. Dezember 2026. 0,075 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.375 美元 2027 年 1 月 1 日起為$0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $1.875 美元。 2027 年 1 月 1 日起為$3.75 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.0375 美元。 2027 年 1 月 1 日起為$0.075 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 375 $ bis zum 31.Dezember 2026. 0, 75 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1, 875 $ bis zum 31. Dezember 2026 3, 75 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0375 $ bis zum 31. Dezember 2026. 0,075 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.375 美元 2027 年 1 月 1 日起為$0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $1.875 美元。 2027 年 1 月 1 日起為$3.75 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.0375 美元。 2027 年 1 月 1 日起為$0.075 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1, 35 $ bis zum 31.Dezember 2026. 2, 70 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 6, 75 $ bis zum 31. Dezember 2026 13, 50 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,135 $ bis zum 31. Dezember 2026. 0,27 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $1.35 美元 2027 年 1 月 1 日起為$2.70 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $6.75 美元。 2027 年 1 月 1 日起為$13.50 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.135 美元。 2027 年 1 月 1 日起為$0.27 美元。 2026 年 12 月 31 日前為每小時每 100 萬個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 100 萬個符記$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 3.6 Flash
+## Gemini 3.6 Flash
 
-*[`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de)*
+*[`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=zh-tw)
 
-Unser Flash-Modell der vorherigen Generation, das Geschwindigkeit und multimodale Funktionen für allgemeine agentische und alltägliche Aufgaben in Einklang bringt.
+前一代的 Flash 模型，兼具速度與多模態能力，適合處理一般代理功能和日常任務。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 75 $ bis zum 31.Dezember 2026. 1, 50 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 3, 75 $ bis zum 31.Dezember 2026. 7, 50 $ ab dem 1.Januar 2027. |
-| Preis für Kontext-Caching | Kostenlos | 0,075 $ bis zum 31. Dezember 2026. 0,15 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.75 美元 2027 年 1 月 1 日起為$1.50 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $3.75 美元。 2027 年 1 月 1 日起為$7.50 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.075 美元。 2027 年 1 月 1 日起為$0.15 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個權杖$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個權杖$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 375 $ bis zum 31.Dezember 2026. 0, 75 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1, 875 $ bis zum 31. Dezember 2026 3, 75 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0375 $ bis zum 31. Dezember 2026. 0,075 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.375 美元 2027 年 1 月 1 日起為$0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $1.875 美元。 2027 年 1 月 1 日起為$3.75 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.0375 美元。 2027 年 1 月 1 日起為$0.075 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 375 $ bis zum 31.Dezember 2026. 0, 75 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1, 875 $ bis zum 31. Dezember 2026 3, 75 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0375 $ bis zum 31. Dezember 2026. 0,075 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.375 美元 2027 年 1 月 1 日起為$0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $1.875 美元。 2027 年 1 月 1 日起為$3.75 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.0375 美元。 2027 年 1 月 1 日起為$0.075 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1, 35 $ bis zum 31.Dezember 2026. 2, 70 $ ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 6, 75 $ bis zum 31. Dezember 2026 13, 50 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,135 $ bis zum 31. Dezember 2026. 0,27 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $1.35 美元 2027 年 1 月 1 日起為$2.70 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $6.75 美元。 2027 年 1 月 1 日起為$13.50 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.135 美元。 2027 年 1 月 1 日起為$0.27 美元。 2026 年 12 月 31 日前為每小時每 100 萬個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 100 萬個符記$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 3.5 Flash
+## Gemini 3.5 Flash
 
-*[`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de)*
+*[`gemini-3.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash&hl=zh-tw)
 
-Unser früheres Flash-Modell, das für Geschwindigkeit und grundlegende Leistung bei routinemäßigen Arbeitslasten mit hohem Durchsatz entwickelt wurde.
+早期推出的 Flash 模型，以速度見長，執行高處理量的例行工作負載時表現良好。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1,50 $ |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 9,00 $ |
-| Preis für Kontext-Caching | Kostenlos | 0,15 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $1.50 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $9.00 美元 |
+| 脈絡快取價格 | 無須支付費用 | 每小時每 1,000,000 個符記 $0.15 $1.00 美元 (儲存價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,75 $ |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 4,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,075 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | $4.50 美元 |
+| 脈絡快取價格 | 無法使用 | 每小時每 1,000,000 個符記 $0.075 $1.00 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,75 $ |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 4,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,08 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.75 美元 |
+| 輸出價格 (含思考詞元) | 無法使用 | $4.50 美元 |
+| 脈絡快取價格 | 無法使用 | 每小時每 1,000,000 個符記 $0.08 $1.00 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 2,70 $ |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 16,20 $ |
-| Preis für Kontext-Caching | Kostenlos | 0,27 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $2.70 美元 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $16.20 |
+| 脈絡快取價格 | 無須支付費用 | 每小時每 1,000,000 個符記 $0.27 $1.00 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 3.8 Live, Gemini 3.8 Live Extended Thinking und Gemini 3.1 Flash Live Preview
+## Gemini 3.8 Live、Gemini 3.8 Live Extended Thinking 和 Gemini 3.1 Flash Live Preview
 
-*[`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de), [`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=de) und [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de)*
+*[`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=zh-tw)、[`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=zh-tw) 和 [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/live?model=gemini-3.8-live&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/live?model=gemini-3.8-live&hl=zh-tw)
 
-Unsere Audio-zu-Audio-Modelle mit niedriger Latenz sind für Sprachagenten und Live-Dialoge in Echtzeit optimiert. Sie unterstützen auch Hintergrundüberlegungen mit Extended Thinking.
+我們的音訊對音訊模型延遲時間短，經過最佳化調整，適用於即時語音代理和即時對話，包括支援 Extended Thinking 的背景推論功能。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,75 $ (Text) 3,00 $ oder 0,005 $/Minute (Audio) 1,00 $ oder 0,002 $/Minute (Bild/Video) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 4,50 $ (Text) 12,00 $ oder 0,018 $/Minute (Audio) |
-| Fundierung mit der Google Suche\* | Unterstützt | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.75 (文字) $3.00 或 $0.005/分鐘 (音訊) $1.00 或 $0.002/分鐘 (圖片/影片) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $4.50 美元 (文字) $12.00 美元或 $0.018 美元/分鐘 (語音) |
+| 以 Google 搜尋強化事實基礎\* | 是否支援 | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-## Gemini 3.5 Live-Übersetzung
+## Gemini 3.5 Live Translate
 
-*[`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=de)*
+*[`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=zh-tw)
 
-Unser Modell für die Echtzeit-Sprachübersetzung mit niedriger Latenz, das mehr als 70 Sprachen unterstützt.
+這項模型支援超過 70 種語言，可即時翻譯語音內容，延遲時間短。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 3,50 $ oder 0,0053 $/Minute\* (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 21,00 $ oder 0,0315 $/Minute\* (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $3.50 美元或 $0.0053 美元/分鐘\* (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $21.00 美元或 $0.0315 美元/分鐘\* (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die Abrechnung erfolgt basierend auf dem gesamten Verbrauch an Audio-Ein- und ‑Ausgabetokens.Dabei wird ein Satz von 25 Tokens pro Sekunde Audio berechnet, was einem effektiven Preis von etwa 0, 0368 $ pro Minute entspricht.
+\* 系統會根據音訊輸入和輸出權杖總用量計費，計算方式為每秒音訊 25 個權杖，相當於每分鐘約 $0.0368 美元的有效價格。
 
-## Gemini 3.5 Transcribe Live
+## Gemini 3.5 Transcribe Live
 
-*[`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=de)*
+*[`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-3.5-transcribe-live&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-3.5-transcribe-live&hl=zh-tw)
 
-Unser Speech-to-Text-Modell mit niedriger Latenz und Echtzeitfunktion für die bidirektionale Streaming-Audio-Transkription über WebSockets.
+我們的低延遲即時語音轉文字模型，可透過 WebSocket 雙向串流轉錄音訊。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 3,50 $ oder 0,005 $/Minute\* (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 21,00 $ oder 0,004 $/Minute\* (Text) |
-| Fundierung mit der Google Suche | Nicht unterstützt |  |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $3.50 美元或 $0.005 美元/分鐘\* (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $21.00 美元或 $0.004 美元/分鐘\* (文字) |
+| 以 Google 搜尋建立基準 | 不支援 |  |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die geschätzten Preise basieren auf 25 Audio-Tokens pro Sekunde für die Eingabe und 175 Text-Tokens pro Minute für die Ausgabe.Das ergibt einen effektiven Mischpreis von etwa 0, 009 $ pro Minute für die automatische Transkription.
+\* 預估價格是根據每秒 25 個音訊符記的輸入量，以及每分鐘 175 個文字符記的輸出量計算，因此即時轉錄的有效混合費率約為每分鐘$0.009 美元。
 
-## Gemini 3.5 Transcribe
+## Gemini 3.5 Transcribe
 
-*[`gemini-3.5-transcribe`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=de)*
+*[`gemini-3.5-transcribe`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-3.5-transcribe&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-3.5-transcribe&hl=zh-tw)
 
-Unser Speech-to-Text-Modell mit automatischer Spracherkennung, Sprecherbestimmung, Zeitstempeln auf Wortebene und benutzerdefinierter Vokabelgewichtung.
+我們的語音轉文字模型具備自動偵測語言、說話者分段標記、字詞層級時間戳記和自訂詞彙優先辨識功能。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 2,00 $ oder 0,003 $/Minute\* (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 12,00 $ oder 0,002 $/Minute\* (Text) |
-| Fundierung mit der Google Suche | Nicht unterstützt |  |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $2.00 美元或 $0.003 美元/分鐘\* (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $12.00 美元或 $0.002 美元/分鐘\* (文字) |
+| 以 Google 搜尋建立基準 | 不支援 |  |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die geschätzten Preise basieren auf 25 Audio-Tokens pro Sekunde für die Eingabe und 175 Text-Tokens pro Minute für die Ausgabe, was einem effektiven Mischpreis von etwa 0,005 $ pro Minute für die Transkription entspricht.
+\* 預估價格是根據每秒 25 個音訊權杖的輸入量，以及每分鐘 175 個文字權杖的輸出量計算，轉錄的有效混合費率為每分鐘約$0.005 美元。
 
-## Gemini 3.5 Flash-Lite
+## Gemini 3.5 Flash-Lite
 
-*[`gemini-3.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de)*
+*[`gemini-3.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=zh-tw)
 
-Ein kostengünstiges Modell, das für agentische Aufgaben mit hohem Volumen, Übersetzungen und einfache Datenverarbeitung optimiert ist.
+這款模型經濟實惠，非常適合處理大量代理工作、翻譯和簡單的資料處理作業。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,30 $ (Text / Bild / Video / Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 2,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,03 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.30 (文字 / 圖片 / 影片 / 音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $2.50 |
+| 脈絡快取價格 | 無法使用 | 每小時每 1,000,000 個符記 $0.03 $1.00 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,15 $ (Text / Bild / Video / Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 1,25 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,02 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.15 (文字 / 圖片 / 影片 / 音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $1.25 美元 |
+| 脈絡快取價格 | 無法使用 | 每小時每 1,000,000 個符記 $0.02 $1.00 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,15 $ (Text / Bild / Video / Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 1,25 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,02 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.15 (文字 / 圖片 / 影片 / 音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $1.25 美元 |
+| 脈絡快取價格 | 無法使用 | 每小時每 1,000,000 個符記 $0.02 $1.00 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,54 $ (Text / Bild / Video / Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 4,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,05 $ 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.54 (文字 / 圖片 / 影片 / 音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $4.50 美元 |
+| 脈絡快取價格 | 無法使用 | 每小時每 1,000,000 個符記 $0.05 $1.00 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 3.1 Flash Lite
+## Gemini 3.1 Flash-Lite
 
-*[`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de)*
+*[`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=zh-tw)
 
-Ein kostengünstiges Modell, das für agentische Aufgaben mit hohem Volumen, Übersetzungen und einfache Datenverarbeitung optimiert ist.
+這款模型經濟實惠，非常適合處理大量代理工作、翻譯和簡單的資料處理作業。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,25 $ (Text / Bild / Video) 0,50 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 1,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,025 $ (Text / Bild / Video) 0,05 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.25 (文字 / 圖片 / 影片) $0.50 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $1.50 美元 |
+| 脈絡快取價格 | 無法使用 | $0.025 (文字/圖片/影片) $0.05 (音訊) 每小時每 1,000,000 個權杖$1.00 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,125 $ (Text / Bild / Video) 0,25 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 0,75 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0125 $ (Text / Bild / Video) 0,025 $ (Audio) 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.125 (文字 / 圖片 / 影片) $0.25 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $0.75 美元 |
+| 脈絡快取價格 | 無法使用 | $0.0125 (文字/圖片/影片) $0.025 (音訊) 每小時每 1,000,000 個權杖$0.50 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,125 $ (Text / Bild / Video) 0,25 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 0,75 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0125 $ (Text / Bild / Video) 0,025 $ (Audio) 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.125 (文字 / 圖片 / 影片) $0.25 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $0.75 美元 |
+| 脈絡快取價格 | 無法使用 | $0.0125 (文字/圖片/影片) $0.025 (音訊) 每小時每 1,000,000 個權杖$0.50 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,45 $ (Text / Bild / Video) 0,90 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 2,70 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,045 $ (Text / Bild / Video) 0,09 $ (Audio) 1,80 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.45 (文字 / 圖片 / 影片) $0.90 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $2.70 美元 |
+| 脈絡快取價格 | 無法使用 | $0.045 (文字/圖片/影片) $0.09 (音訊) 每小時每 1,000,000 個符記$1.80 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
 ## Gemini Omni Flash
 
-*[`gemini-omni-1.1-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=de)*
+*[`gemini-omni-1.1-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-1.1-flash&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-1.1-flash&hl=zh-tw)
 
-Unser Modell der nächsten Generation zur Videogenerierung und ‑bearbeitung ist jetzt allgemein für Entwickler mit der kostenpflichtigen Stufe der Gemini API verfügbar.
+新一代影片生成和編輯模型現已正式發布，Gemini API 付費層級的開發人員可使用。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,50 $ (Text / Bild / Video / Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 9,00 $ (Text) 17,50 $ (Video)\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.50 (文字 / 圖片 / 影片 / 音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $9.00 美元 (文字) $17.50 美元 (影片)\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die Abrechnung erfolgt auf Grundlage des gesamten Verbrauchs an Ausgabetokens, der mit einer Rate von 5.792 Tokens pro Sekunde für 720p-Video berechnet wird. Bei der Standardpreisgestaltung entspricht das einem effektiven Preis von etwa 0, 10 $ pro Sekunde.
+\* 系統會根據總輸出詞元用量計費，計算方式為每秒 720p 影片 5,792 個詞元。在標準定價下，這相當於每秒約 $0.10 美元的有效價格。
 
-## Gemini Omni Flash (Vorabversion)
+## Gemini Omni Flash 預先發布版
 
-*[`gemini-omni-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=de)*
+*[`gemini-omni-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=zh-tw)
 
-Unser Modell der nächsten Generation für die Videogenerierung und ‑bearbeitung.
+Google 的新一代影片生成和編輯模型。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,50 $ (Text / Bild / Video / Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 9,00 $ (Text) 17,50 $ (Video)\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.50 (文字 / 圖片 / 影片 / 音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $9.00 美元 (文字) $17.50 美元 (影片)\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die Abrechnung erfolgt auf Grundlage des gesamten Verbrauchs an Ausgabetokens, der mit einer Rate von 5.792 Tokens pro Sekunde für 720p-Video berechnet wird. Bei der Standardpreisgestaltung entspricht das einem effektiven Preis von etwa 0, 10 $ pro Sekunde.
+\* 系統會根據總輸出詞元用量計費，計算方式為每秒 720p 影片 5,792 個詞元。以標準價格計算，這相當於每秒約 $0.10 美元的有效價格。
 
-## Gemini 3.1 Pro (Vorabversion)
+## Gemini 3.1 Pro 預先發布版
 
-*[`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) und [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de#gemini-31-pro-preview-customtools)*
+*[`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) 和 [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw#gemini-31-pro-preview-customtools)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=zh-tw)
 
-Unser Pro-Modell der 3. Generation, das für multimodales Verständnis, agentische Funktionen und Vibe-Coding entwickelt wurde.
+第 3 代 Pro 模型，專為多模態理解、代理能力和直覺式程式開發而建構。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 2,00 $, Prompts mit <= 200.000 Tokens 4,00 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 12,00 $, Prompts <= 200.000 Tokens 18,00 $, Prompts > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,20 $, Prompts <= 200.000 Tokens 0,40 $, Prompts > 200.000 Tokens 4,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $2.00 美元，提示詞詞元數 <= 20 萬個 $4.00 美元，提示詞詞元數 > 20 萬個 |
+| 輸出價格 (含思考詞元) | 無法使用 | $12.00，提示 <= 20 萬個權杖 $18.00，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | $0.20，提示 <= 20 萬個權杖 $0.40，提示 > 20 萬個權杖 每小時每 100 萬個權杖$4.50 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,00 $, Prompts mit <= 200.000 Tokens 2,00 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 6,00 $, Prompts mit <= 200.000 Tokens 9,00 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | *Wie Standard*  0,20 $, Prompts mit <= 200.000 Tokens 0,40 $, Prompts mit > 200.000 Tokens 4,50 $ pro 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.00 美元，提示詞 <= 20 萬個權杖 $2.00 美元，提示詞 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無法使用 | $6.00，提示 <= 20 萬個權杖 $9.00，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | *與 Standard 相同*  $0.20 美元，提示 <= 20 萬個權杖 $0.40 美元，提示 > 20 萬個權杖 每小時每 1,000,000 個權杖$4.50 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,00 $, Prompts mit <= 200.000 Tokens 2,00 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 6,00 $, Prompts mit <= 200.000 Tokens 9,00 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | *Wie Standard*  0,20 $, Prompts mit <= 200.000 Tokens 0,40 $, Prompts mit > 200.000 Tokens 4,50 $ pro 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.00 美元，提示詞 <= 20 萬個權杖 $2.00 美元，提示詞 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無法使用 | $6.00，提示 <= 20 萬個權杖 $9.00，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | *與 Standard 相同*  $0.20 美元，提示 <= 20 萬個權杖 $0.40 美元，提示 > 20 萬個權杖 每小時每 1,000,000 個權杖$4.50 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 3,60 $, Prompts mit <= 200.000 Tokens 7,20 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 21,60 $, Prompts mit ≤ 200.000 Tokens 32,40 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,36 $, Prompts mit <= 200.000 Tokens 0,72 $, Prompts mit > 200.000 Tokens 8,10 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $3.60 美元，提示詞 <= 20 萬個權杖 $7.20 美元，提示詞 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無法使用 | $21.60 美元，提示 <= 20 萬個權杖 $32.40 美元，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | $0.36，提示 <= 20 萬個權杖 $0.72，提示 > 20 萬個權杖 每小時每 1,000,000 個權杖$8.10 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
+## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
 
-*[`gemini-3.1-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=de)*
+*[`gemini-3.1-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=zh-tw)
 
-Das Gemini 3.1 Flash Image-Generierungsmodell ist auf Geschwindigkeit und Effizienz ausgelegt und eignet sich für schnelle, interaktive Antworten und einen hohen Durchsatz.
+Gemini 3.1 Flash Image 生成模型著重速度和效率，可快速生成互動式回應，並提供高處理量。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,50 $ (Text/Bild) |
-| Ausgabepreis | Nicht verfügbar | 3 $ (Text und Denken)  60,00 $ (Bilder)  Entspricht 0,045 $ pro 0,5K-Bild\*  0,067 $ pro 1K-Bild\*, 0,101 $ pro 2K-Bild\*, und 0,151 $ pro 4K-Bild\*. |
-| Fundierung mit der Google Web- und Bildersuche\*\* | Nicht verfügbar\*\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen für text- und bildbasierte Fundierung. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.50 美元 (文字/圖片) |
+| 輸出價格 | 無法使用 | $3 (文字和思考)  $60.00 (圖片)  相當於每張 0.5K 圖片 $0.045 美元\*  每張 1K 圖片 $0.067 美元\*、 每張 2K 圖片 $0.101 美元\*、 每張 4K 圖片 $0.151 美元\*。 |
+| 運用 Google 網頁和圖片搜尋建立基準\*\* | 不適用\*\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每 1,000 次要求 (以文字和圖片為基礎) 收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,25 $ (Text, Bild) |
-| Ausgabepreis | Nicht verfügbar | 1,50 $ (Text und Denken)  30,00 $ (Bilder)  Entspricht 0,022 $ pro 0,5K-Bild\*  0,034 $ pro 1K-Bild\*  0,050 $ pro 2K-Bild\*  und 0,076 $ pro 4K-Bild\*. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.25 (文字、圖片) |
+| 輸出價格 | 無法使用 | $1.50 (文字和思考)  $30.00 (圖片)  相當於每 0.5K 圖片 $0.022 美元\*  每 1K 圖片 $0.034 美元\*、  每 2K 圖片 $0.050 美元\*、  每 4K 圖片 $0.076 美元\*。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die Bildausgabe kostet 60 $ pro 1.000.000 Tokens.
-Für Ausgabebilder mit einer Auflösung von 0,5K (512 Pixel) werden 747 Tokens verwendet, was 0,045 $ pro Bild entspricht. Für die Ausgabe von Bildern mit 1.000 Pixeln (1.024 × 1.024 Pixel) werden 1.120 Tokens verwendet, was 0,067 $ pro Bild entspricht. Für Ausgabebilder in 2K (2048 × 2048 Pixel) werden 1.680 Tokens verwendet, was 0,101 $ pro Bild entspricht. Ausgabebilder in 4K-Auflösung (4096 × 4096 Pixel) verbrauchen 2.520 Tokens und kosten 0,151 $ pro Bild.
+\* 圖片輸出費用為每 100 萬個詞元 $60 美元。
+輸出 0.5K (512 像素) 的圖片會消耗 747 個權杖，每張圖片相當於 $0.045 美元。輸出 1K (1024x1024 像素) 圖片會消耗 1120 個權杖，每張圖片相當於 $0.067 美元。輸出 2K (2048x2048 像素) 圖片會消耗 1680 個權杖，每張圖片相當於 $0.101 美元。輸出 4K (4096x4096 像素) 圖片會消耗 2520 個權杖，每張圖片相當於 $0.151 美元。
 
-\*\* Eine von einem Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet. Abgerufener Kontext (Text oder Bilder), der von Grounding with Google Search bereitgestellt wird, wird nicht als Eingabetokens berechnet.
+\*\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。使用以 Google 搜尋強化事實基礎時，系統擷取的脈絡 (文字或圖片) 不會計為輸入的詞元。
 
-\*\*\* Kann in Google AI Studio getestet werden.
+\*\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
+## Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
 
-*[`gemini-3.1-flash-lite-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=de)*
+*[`gemini-3.1-flash-lite-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=zh-tw)
 
-Das Modell Gemini 3.1 Flash Lite Image ist das Effizienzmodell der Bildgenerierungsfamilie und wurde für eine extrem niedrige Latenz sowie eine kostengünstige Bildgenerierung und ‑bearbeitung entwickelt.
+Gemini 3.1 Flash Lite Image 模型是圖像生成系列中的效率專家，專為超低延遲和高成本效益的圖像生成與編輯而設計。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,25 $ (Text/Bild/Video) |
-| Ausgabepreis | Nicht verfügbar | 1,50 $ (Text und Denken)  30,00 $ (Bilder)  Entspricht 0,0336 $ pro Bild mit 1.000 Pixeln\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.25 (文字/圖片/影片) |
+| 輸出價格 | 無法使用 | $1.50 (文字和思考)  $30.00 (圖片)  相當於每張 1K 解析度圖片 $0.0336 美元\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,125 $ (Text/Bild/Video) |
-| Ausgabepreis | Nicht verfügbar | 0,75 $ (Text und Denken)  15,00 $ (Bilder)  Entspricht 0,0168 $ pro Bild mit 1.000 Pixeln\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.125 (文字/圖片/影片) |
+| 輸出價格 | 無法使用 | $0.75 (文字和思考)  $15.00 (圖片)  相當於每張 1K 解析度圖片 $0.0168 美元\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die Bildausgabe kostet 30 $ pro 1.000.000 Tokens. Für die Ausgabe von Bildern mit 1.000 Pixeln (1.024 × 1.024 Pixel) werden 1.120 Tokens verwendet, was 0,0336 $ pro Bild entspricht.
+\* 圖片輸出費用為每 100 萬個權杖 $30 美元。輸出 1K (1024x1024 像素) 的圖片會消耗 1120 個權杖，每張圖片相當於 $0.0336 美元。
 
-## Gemini 3.8 Flash TTS
+## Gemini 3.8 Flash TTS
 
-*[`gemini-3.8-flash-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=de)*
+*[`gemini-3.8-flash-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-tts&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-tts&hl=zh-tw)
 
-Unser 3.8 Flash-Audio-Modell für Text-zu-Sprache wurde für eine Sprachwiedergabe in Studioqualität, ausdrucksstarke Darbietungen und Stabilität bei langen Inhalten entwickelt.
+3.8 Flash 文字轉語音模型可生成錄音室等級的語音，並能展現豐富的情緒，適合用於長時間的對話。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 50 $ (Text) bis zum 31. Dezember 2026 1, 00 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Kostenlos | 9, 00 $ (Audio) bis zum 31. Dezember 2026 18, 00 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 00225 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 0045 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,125 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,25 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.50 美元 (文字)。 2027 年 1 月 1 日起為$1.00 美元 (文字)。 |
+| 輸出價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $9.00 美元 (音訊)。 2027 年 1 月 1 日起為$18.00 美元 (音訊)。 2026 年 12 月 31 日前，每 10 秒音訊\*為 $0.00225 美元。 2027 年 1 月 1 日起，每 10 秒音訊\*為 $0.0045 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前：$0.125 (輸入快取)。 2027 年 1 月 1 日起：$0.25 (輸入快取)。 2026 年 12 月 31 日前：每小時每 100 萬個權杖$0.50 (儲存價格)。 2027 年 1 月 1 日起：每小時每 100 萬個權杖$1.00 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 25 $ (Text) bis zum 31. Dezember 2026 0, 50 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Nicht verfügbar | 4, 50 $ (Audio) bis zum 31. Dezember 2026 9, 00 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 001125 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 00225 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0625 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,125 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.25 美元 (文字)。 2027 年 1 月 1 日起為$0.50 美元 (文字)。 |
+| 輸出價格 | 無法使用 | 2026 年 12 月 31 日前：$4.50 美元 (音訊)。 2027 年 1 月 1 日起：$9.00 美元 (音訊)。 2026 年 12 月 31 日前：每 10 秒音訊 $0.001125 美元\*。 2027 年 1 月 1 日起：每 10 秒音訊 $0.00225 美元\*。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前：$0.0625 (輸入快取)。 2027 年 1 月 1 日起：$0.125 (輸入快取)。 2026 年 12 月 31 日前：每小時每 1,000,000 個權杖$0.50 (儲存價格)。 2027 年 1 月 1 日起：每小時每 1,000,000 個權杖$1.00 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 25 $ (Text) bis zum 31. Dezember 2026 0, 50 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Nicht verfügbar | 4, 50 $ (Audio) bis zum 31. Dezember 2026 9, 00 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 001125 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 00225 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,025 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,05 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.25 美元 (文字)。 2027 年 1 月 1 日起為$0.50 美元 (文字)。 |
+| 輸出價格 | 無法使用 | 2026 年 12 月 31 日前：$4.50 美元 (音訊)。 2027 年 1 月 1 日起：$9.00 美元 (音訊)。 2026 年 12 月 31 日前：每 10 秒音訊 $0.001125 美元\*。 2027 年 1 月 1 日起：每 10 秒音訊 $0.00225 美元\*。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前：$0.025 美元 (輸入快取)。 2027 年 1 月 1 日起：$0.05 美元 (輸入快取)。 2026 年 12 月 31 日前：每小時每 100 萬個權杖$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起：每小時每 100 萬個權杖$1.00 美元 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 90 $ (Text) bis zum 31. Dezember 2026 1, 80 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Kostenlos | 16, 20 $ (Audio) bis zum 31. Dezember 2026 32, 40 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 00405 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 0081 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,225 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,45 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.90 美元 (文字)。 2027 年 1 月 1 日起為$1.80 美元 (文字)。 |
+| 輸出價格 | 無須支付費用 | 2026 年 12 月 31 日前：$16.20 美元 (音訊)。 2027 年 1 月 1 日起：$32.40 美元 (音訊)。 2026 年 12 月 31 日前：每 10 秒音訊\* $0.00405 美元。 2027 年 1 月 1 日起：每 10 秒音訊\* $0.0081 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前：$0.225 (輸入快取)。 2027 年 1 月 1 日起：$0.45 (輸入快取)。 2026 年 12 月 31 日前：每小時每 100 萬個權杖$0.50 (儲存價格)。 2027 年 1 月 1 日起：每小時每 100 萬個權杖$1.00 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Audio-Tokens entsprechen 25 Tokens pro Sekunde Audio.
+\* 音訊符記：每秒音訊 25 個符記。
 
-## Gemini 3.8 Flash-Lite TTS
+## Gemini 3.8 Flash-Lite TTS
 
-*[`gemini-3.8-flash-lite-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=de)*
+*[`gemini-3.8-flash-lite-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-lite-tts&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-lite-tts&hl=zh-tw)
 
-Unser 3.8 Flash-Lite-Modell für die Sprachausgabe ist für einen hohen Durchsatz, eine niedrige Latenz und kosteneffiziente Konversationssprache optimiert.
+我們的 3.8 Flash-Lite 文字轉語音音訊模型經過最佳化調整，可生成高處理量、低延遲且經濟實惠的對話語音。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 50 $ (Text) bis zum 31. Dezember 2026 1, 00 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Kostenlos | 6, 00 $ (Audio) bis zum 31. Dezember 2026 12, 00 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 0015 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 003 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,125 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,25 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.50 美元 (文字)。 2027 年 1 月 1 日起為$1.00 美元 (文字)。 |
+| 輸出價格 | 無須支付費用 | 2026 年 12 月 31 日前：$6.00 美元 (語音)。 2027 年 1 月 1 日起：$12.00 美元 (語音)。 2026 年 12 月 31 日前：每 10 秒語音 $0.0015 美元\*。 2027 年 1 月 1 日起：每 10 秒語音 $0.003 美元\*。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前：$0.125 (輸入快取)。 2027 年 1 月 1 日起：$0.25 (輸入快取)。 2026 年 12 月 31 日前：每小時每 100 萬個權杖$0.50 (儲存價格)。 2027 年 1 月 1 日起：每小時每 100 萬個權杖$1.00 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 25 $ (Text) bis zum 31. Dezember 2026 0, 50 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Nicht verfügbar | 3, 00 $ (Audio) bis zum 31. Dezember 2026 6, 00 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 00075 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 0015 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,0625 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,125 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.25 美元 (文字)。 2027 年 1 月 1 日起為$0.50 美元 (文字)。 |
+| 輸出價格 | 無法使用 | 2026 年 12 月 31 日前為 $3.00 美元 (語音)。 2027 年 1 月 1 日起為$6.00 美元 (語音)。 2026 年 12 月 31 日前，每 10 秒語音相當於 $0.00075 美元\*。 2027 年 1 月 1 日起，每 10 秒語音相當於 $0.0015 美元\*。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前：$0.0625 (輸入快取)。 2027 年 1 月 1 日起：$0.125 (輸入快取)。 2026 年 12 月 31 日前：每小時每 1,000,000 個權杖$0.50 (儲存價格)。 2027 年 1 月 1 日起：每小時每 1,000,000 個權杖$1.00 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 25 $ (Text) bis zum 31. Dezember 2026 0, 50 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Nicht verfügbar | 3, 00 $ (Audio) bis zum 31. Dezember 2026 6, 00 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 00075 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 0015 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,025 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,05 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.25 美元 (文字)。 2027 年 1 月 1 日起為$0.50 美元 (文字)。 |
+| 輸出價格 | 無法使用 | 2026 年 12 月 31 日前為 $3.00 美元 (語音)。 2027 年 1 月 1 日起為$6.00 美元 (語音)。 2026 年 12 月 31 日前，每 10 秒語音相當於 $0.00075 美元\*。 2027 年 1 月 1 日起，每 10 秒語音相當於 $0.0015 美元\*。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前：$0.025 美元 (輸入快取)。 2027 年 1 月 1 日起：$0.05 美元 (輸入快取)。 2026 年 12 月 31 日前：每小時每 100 萬個權杖$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起：每小時每 100 萬個權杖$1.00 美元 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0, 90 $ (Text) bis zum 31. Dezember 2026 1, 80 $ (Text) ab dem 1. Januar 2027 |
-| Ausgabepreis | Kostenlos | 10, 80 $ (Audio) bis zum 31. Dezember 2026 21, 60 $ (Audio) ab dem 1. Januar 2027 Entspricht 0, 0027 $ pro 10 Sekunden Audio\* bis zum 31. Dezember 2026 Entspricht 0, 0054 $ pro 10 Sekunden Audio\* ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Kostenlos | 0,225 $ (Eingabe-Caching) bis zum 31.Dezember 2026 0,45 $ (Eingabe-Caching) ab dem 1.Januar 2027 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31.Dezember 2026 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027 |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $0.90 美元 (文字)。 2027 年 1 月 1 日起為$1.80 美元 (文字)。 |
+| 輸出價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $10.80 美元 (音訊)。 2027 年 1 月 1 日起為$21.60 美元 (音訊)。 2026 年 12 月 31 日前，每 10 秒音訊\*為 $0.0027 美元。 2027 年 1 月 1 日起，每 10 秒音訊\*為 $0.0054 美元。 |
+| 脈絡快取價格 | 無須支付費用 | 2026 年 12 月 31 日前：$0.225 (輸入快取)。 2027 年 1 月 1 日起：$0.45 (輸入快取)。 2026 年 12 月 31 日前：每小時每 100 萬個權杖$0.50 (儲存價格)。 2027 年 1 月 1 日起：每小時每 100 萬個權杖$1.00 (儲存價格)。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Audio-Tokens entsprechen 25 Tokens pro Sekunde Audio.
+\* 音訊符記：每秒音訊 25 個符記。
 
-## Gemini 3.1 Flash TTS (Vorabversion)
+## Gemini 3.1 Flash TTS 預先發布版
 
-*[`gemini-3.1-flash-tts-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=de)*
+*[`gemini-3.1-flash-tts-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=zh-tw)
 
-Unser 3.1 Flash-Audio-Modell für die Sprachausgabe wurde für ein gutes Preis-Leistungs-Verhältnis, niedrige Latenz und steuerbare Sprachgenerierung optimiert.
+我們已針對價格效益、低延遲和可控語音生成功能，最佳化 3.1 Flash 文字轉語音音訊模型。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1,00 $ (Text) |
-| Ausgabepreis | Kostenlos | 20,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $1.00 (文字) |
+| 輸出價格 | 無須支付費用 | $20.00 (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,50 $ (Text) |
-| Ausgabepreis | Nicht verfügbar | 10,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.50 美元 (文字) |
+| 輸出價格 | 無法使用 | $10.00 美元 (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Audio-Tokens entsprechen 25 Tokens pro Sekunde Audio.
+\* 音訊符記：每秒音訊 25 個符記。
 
-## Gemini 3 Flash (Vorabversion)
+## Gemini 3 Flash 預先發布版
 
-*[`gemini-3-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de)*
+*[`gemini-3-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-3-flash-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-3-flash-preview&hl=zh-tw)
 
-Unser altes Flash-Modell, das grundlegende Geschwindigkeit und Intelligenz bietet.
+舊版 Flash 模型，提供基準速度和智慧功能。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,50 $ (Text / Bild / Video) 1,00 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 3,00 $ |
-| Preis für Kontext-Caching | Kostenlos | 0,05 $ (Text / Bild / Video) 0,10 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.50 (文字 / 圖片 / 影片) $1.00 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $3.00 |
+| 脈絡快取價格 | 無須支付費用 | $0.05 (文字/圖片/影片) $0.10 (音訊) 每小時每 1,000,000 個符記$1.00 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,25 $ (Text / Bild / Video) 0,50 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | *Wie Standard*  0,05 $ (Text / Bild / Video)  0,10 $ (Audio)  1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.25 (文字 / 圖片 / 影片) $0.50 (音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $1.50 美元 |
+| 脈絡快取價格 | 無法使用 | *與標準版相同*  $0.05 美元 (文字/圖片/影片)  $0.10 美元 (音訊)  每小時每 1,000,000 個權杖 $1.00 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,25 $ (Text / Bild / Video) 0,50 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | *Wie Standard*  0,05 $ (Text / Bild / Video)  0,10 $ (Audio)  1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Anfragen pro Monat (kostenlos, gemeinsam für Gemini 3), danach 14 $ pro 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.25 (文字 / 圖片 / 影片) $0.50 (音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $1.50 美元 |
+| 脈絡快取價格 | 無法使用 | *與標準版相同*  $0.05 美元 (文字/圖片/影片)  $0.10 美元 (音訊)  每小時每 1,000,000 個權杖 $1.00 美元 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 次要求 (免費，與 Gemini 3 共用)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,90 $ (Text / Bild / Video) 1,80 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 5,40 $ |
-| Preis für Kontext-Caching | Kostenlos | 0,09 $ (Text/Bild/Video) 0,18 $ (Audio) 1,80 $ pro 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche\* | Nicht verfügbar\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Fundierung mit Google Maps | Nicht verfügbar\*\* | 5.000 Prompts pro Monat (kostenlos, für Gemini 3), danach 14 $ / 1.000 Suchanfragen |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.90 美元 (文字 / 圖片 / 影片) $1.80 美元 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $5.40 美元 |
+| 脈絡快取價格 | 無須支付費用 | $0.09 (文字/圖片/影片) $0.18 (音訊) 每小時每 1,000,000 個權杖$1.80 (儲存空間價格) |
+| 以 Google 搜尋強化事實基礎\* | 不適用\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 利用 Google 地圖建立基準 | 不適用\*\* | 每月 5,000 則提示 (免費，適用於所有 Gemini 3 模型)，之後每 1,000 次搜尋查詢 $14 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\* Kann in Google AI Studio getestet werden.
+\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 3 Pro Image (Nano Banana Pro) 🍌
+## Gemini 3 Pro Image (Nano Banana Pro) 🍌
 
-*[`gemini-3-pro-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=de)*
+*[`gemini-3-pro-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=zh-tw)
 
-Unser natives Modell für die Bildgenerierung, das für Geschwindigkeit, Flexibilität und Kontextverständnis optimiert ist. Die Preise für **Texteingabe und -ausgabe** entsprechen denen für [Gemini 3.1 Pro](#gemini-3.1-pro-preview).
+我們原生的圖像生成模型，經過最佳化調整，可提供快速、彈性且瞭解情境的服務。**文字輸入和輸出**的價格與 [Gemini 3.1 Pro](#gemini-3.1-pro-preview) 相同。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 2,00 $ (Text/Bild),  entspricht 0,0011 $ pro Bild\* |
-| Ausgabepreis | Nicht verfügbar | 12,00 $ (Text und Denken)  120,00 $ (Bilder)  Entspricht 0,134 $ pro 1.000/2.000 Bildern\*\*  und 0,24 $ pro 4.000 Bildern\*\* |
-| Fundierung mit der Google Suche\*\*\* | Nicht verfügbar\*\*\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $2.00 (文字/圖片)，  相當於每張圖片 $0.0011 美元\* |
+| 輸出價格 | 無法使用 | $12.00 (文字和思考)  $120.00 (圖片)  相當於每張 1K/2K 圖片 $0.134\*\*  和每張 4K 圖片 $0.24\*\* |
+| 以 Google 搜尋強化事實基礎\*\*\* | 不適用\*\*\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,00 $ (Text), 0,0006 $ (Bild)\* |
-| Ausgabepreis | Nicht verfügbar | 6,00 $ (Text und Denken)  0,067 $ pro 1K-/2K-Bild\*\*  0,12 $ pro 4K-Bild\*\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.00 美元 (文字)、 $0.0006 美元 (圖片)\* |
+| 輸出價格 | 無法使用 | $6.00 (文字和思考)  每 1K/2K 圖片 $0.067 美元\*\*  每 4K 圖片 $0.12 美元\*\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,00 $ (Text), 0,0006 $ (Bild)\* |
-| Ausgabepreis | Nicht verfügbar | 6,00 $ (Text und Denken)  0,067 $ pro 1K-/2K-Bild\*\*  0,12 $ pro 4K-Bild\*\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.00 美元 (文字)、 $0.0006 美元 (圖片)\* |
+| 輸出價格 | 無法使用 | $6.00 (文字和思考)  每 1K/2K 圖片 $0.067 美元\*\*  每 4K 圖片 $0.12 美元\*\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 3,60 $ (Text/Bild) |
-| Ausgabepreis | Nicht verfügbar | 21,60 $ (Text und Denken)  216,00 $ (Bilder) |
-| Fundierung mit der Google Suche\*\*\* | Nicht verfügbar\*\*\*\* | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $3.60 (文字/圖片) |
+| 輸出價格 | 無法使用 | $21.60 (文字和思考)  $216.00 (圖片) |
+| 以 Google 搜尋強化事實基礎\*\*\* | 不適用\*\*\*\* | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-\* Die Bildeingabe ist auf 560 Tokens oder 0,0011 $ pro Bild festgelegt.
+\* 圖片輸入費用為每張圖片 560 個權杖或 $0.0011 美元。
 
-\*\* Die Bildausgabe wird mit 120 $ pro 1.000.000 Tokens berechnet. Für Ausgabebilder mit einer Größe von 1024 × 1024 Pixel (1K) bis 2048 × 2048 Pixel (2K) werden 1.120 Tokens verwendet. Das entspricht 0,134 $ pro Bild. Ausgabebilder mit einer Größe von bis zu 4096 × 4096 Pixeln (4K) verbrauchen 2.000 Tokens und kosten 0,24 $ pro Bild.
+\*\* 圖片輸出費用為每 1,000,000 個權杖 $120 美元。輸出 1024x1024 像素 (1K) 到 2048x2048 像素 (2K) 的圖片會消耗 1120 個詞元，每張圖片相當於 $0.134 美元。輸出圖片的尺寸上限為 4096x4096 像素 (4K)，每張圖片會消耗 2000 個權杖，相當於 $0.24 美元。
 
-\*\*\* Eine vom Kunden an Gemini gesendete Anfrage kann zu einer oder mehreren Anfragen an die Google Suche führen. Für jede einzelne Suchanfrage wird eine Gebühr berechnet.
+\*\*\* 客戶向 Gemini 提交要求後，可能會產生一或多個 Google 搜尋查詢。系統會針對您執行的每項搜尋查詢收取費用。
 
-\*\*\*\* Kann in Google AI Studio getestet werden.
+\*\*\*\* 可在 Google AI Studio 中測試。
 
-## Gemini 2.5 Pro
+## Gemini 2.5 Pro
 
-*[`gemini-2.5-pro`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de)*
+*[`gemini-2.5-pro`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-2.5-pro&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-2.5-pro&hl=zh-tw)
 
-Ein Pro-Modell, das sich durch seine Fähigkeiten beim Programmieren und bei komplexen Aufgaben zum logischen Denken auszeichnet.
+擅長程式設計和複雜推論工作的 Pro 模型。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1,25 $, Prompts mit <= 200.000 Tokens 2,50 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 10,00 $, Prompts mit <= 200.000 Tokens 15,00 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,125 $, Prompts <= 200.000 Tokens 0,25 $, Prompts > 200.000 Tokens 4,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | 10.000 RPD (kostenlos), danach 25 $ / 1.000 fundierte Prompts |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $1.25，提示 <= 20 萬個權杖 $2.50，提示 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $10.00 美元，提示 <= 20 萬個權杖 $15.00 美元，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | $0.125，提示 <= 20 萬個權杖 $0.25，提示 > 20 萬個權杖 每小時每 100 萬個權杖$4.50 美元 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 10,000 個 RPD (免費)，之後每 1,000 個基礎提示 $25 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,625 $, Prompts <= 200.000 Tokens 1,25 $, Prompts > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 5,00 $, Prompts mit ≤ 200.000 Tokens 7,50 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,125 $, Prompts <= 200.000 Tokens 0,25 $, Prompts > 200.000 Tokens 4,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.625，提示 <= 20 萬個權杖 $1.25，提示 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無法使用 | $5.00 美元，提示 <= 20 萬個權杖 $7.50 美元，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | $0.125，提示 <= 20 萬個權杖 $0.25，提示 > 20 萬個權杖 每小時每 100 萬個權杖$4.50 美元 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,625 $, Prompts <= 200.000 Tokens 1,25 $, Prompts > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 5,00 $, Prompts mit ≤ 200.000 Tokens 7,50 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,125 $, Prompts <= 200.000 Tokens 0,25 $, Prompts > 200.000 Tokens 4,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.625，提示 <= 20 萬個權杖 $1.25，提示 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無法使用 | $5.00 美元，提示 <= 20 萬個權杖 $7.50 美元，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | $0.125，提示 <= 20 萬個權杖 $0.25，提示 > 20 萬個權杖 每小時每 100 萬個權杖$4.50 美元 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 2,25 $, Prompts mit ≤ 200.000 Tokens 4,50 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 18,00 $, Prompts mit ≤ 200.000 Tokens 27,00 $, Prompts mit > 200.000 Tokens |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,225 $, Prompts <= 200.000 Tokens 0,45 $, Prompts > 200.000 Tokens 8,10 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | 10.000 RPD (kostenlos), danach 25 $ / 1.000 fundierte Prompts |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $2.25 美元，提示 <= 20 萬個權杖 $4.50 美元，提示 > 20 萬個權杖 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $18.00，提示 <= 20 萬個權杖 $27.00，提示 > 20 萬個權杖 |
+| 脈絡快取價格 | 無法使用 | $0.225，提示 <= 20 萬個權杖 $0.45，提示 > 20 萬個權杖 每小時每 1,000,000 個權杖$8.10 美元 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 10,000 個 RPD (免費)，之後每 1,000 個基礎提示 $25 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 2.5 Flash
+## Gemini 2.5 Flash
 
-*[`gemini-2.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de)*
+*[`gemini-2.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-2.5-flash&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-2.5-flash&hl=zh-tw)
 
-Unser erstes hybrides Modell, das ein Kontextfenster von 1 Million Tokens unterstützt und über Denkbudgets verfügt.
+這是 Google 首款混合式推理模型，支援 100 萬個詞元的脈絡窗口，並具備思考預算。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,30 $ (Text / Bild / Video) 1,00 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 2,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,03 $ (Text / Bild / Video) 0,1 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Kostenlos, bis zu 500 RPD (Limit wird mit Flash-Lite-RPD geteilt) | 1.500 RPD (kostenlos, Limit wird mit Flash-Lite-RPD geteilt), danach 35 $ pro 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | 500 RPD | 1.500 RPD (kostenlos), danach 25 $ / 1.000 fundierte Prompts |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.30 (文字 / 圖片 / 影片) $1.00 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $2.50 |
+| 脈絡快取價格 | 無法使用 | $0.03 (文字/圖片/影片) $0.1 (音訊) 每小時每 1,000,000 個權杖$1.00 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 免費，最多 500 個 RPD (與 Flash-Lite RPD 共用上限) | 1,500 個 RPD (免費，與 Flash-Lite RPD 共用上限)，之後每 1,000 個 grounded 提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 500 RPD | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $25 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,15 $ (Text / Bild / Video) 0,50 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1,25 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,03 $ (Text / Bild / Video) 0,1 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos, Limit wird mit Flash-Lite-RPD geteilt), danach 35 $ pro 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.15 (文字 / 圖片 / 影片) $0.50 (音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $1.25 美元 |
+| 脈絡快取價格 | 無法使用 | $0.03 (文字/圖片/影片) $0.1 (音訊) 每小時每 1,000,000 個權杖$1.00 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費，與 Flash-Lite RPD 共用上限)，之後每 1,000 個 grounded 提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,15 $ (Text / Bild / Video) 0,50 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 1,25 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,03 $ (Text / Bild / Video) 0,1 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos, Limit wird mit Flash-Lite-RPD geteilt), danach 35 $ pro 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.15 (文字 / 圖片 / 影片) $0.50 (音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $1.25 美元 |
+| 脈絡快取價格 | 無法使用 | $0.03 (文字/圖片/影片) $0.1 (音訊) 每小時每 1,000,000 個權杖$1.00 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費，與 Flash-Lite RPD 共用上限)，之後每 1,000 個 grounded 提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,54 $ (Text / Bild / Video) 1,80 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 4,50 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,054 $ (Text/Bild/Video) 0,18 $ (Audio) 1,80 $ pro 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Kostenlos, bis zu 500 RPD (Limit wird mit Flash-Lite-RPD geteilt) | 1.500 RPD (kostenlos, Limit wird mit Flash-Lite-RPD geteilt), danach 35 $ pro 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | 500 RPD | 1.500 RPD (kostenlos), danach 25 $ / 1.000 fundierte Prompts |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.54 (文字 / 圖片 / 影片) $1.80 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $4.50 美元 |
+| 脈絡快取價格 | 無法使用 | $0.054 (文字/圖片/影片) $0.18 (音訊) 每小時每 1,000,000 個權杖$1.80 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 免費，最多 500 個 RPD (與 Flash-Lite RPD 共用上限) | 1,500 個 RPD (免費，與 Flash-Lite RPD 共用上限)，之後每 1,000 個 grounded 提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 500 RPD | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $25 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 2.5 Flash-Lite
+## Gemini 2.5 Flash-Lite
 
-*[`gemini-2.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de)*
+*[`gemini-2.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=zh-tw)
 
-Ein kleines und kostengünstiges Modell, das für die Nutzung im großen Maßstab entwickelt wurde.
+這個模型體積小巧且經濟實惠，適合大規模使用。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis (Text, Bild, Video) | Kostenlos | 0,10 $ (Text / Bild / Video) 0,30 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 0,40 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,01 $ (Text / Bild / Video) 0,03 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Kostenlos, bis zu 500 RPD (Limit wird mit Flash-RPD geteilt) | 1.500 RPD (kostenlos, Limit wird mit Flash RPD geteilt), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | 500 RPD | 1.500 RPD (kostenlos), danach 25 $ / 1.000 fundierte Prompts |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 (文字、圖片、影片) | 無須支付費用 | $0.10 (文字 / 圖片 / 影片) $0.30 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $0.40 美元 |
+| 脈絡快取價格 | 無法使用 | $0.01 (文字/圖片/影片) $0.03 (音訊) 每小時每 1,000,000 個符記$1.00 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 免費，最多 500 個 RPD (與 Flash RPD 共用上限) | 1,500 個 RPD (免費，與 Flash RPD 共用上限)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 500 RPD | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $25 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis (Text, Bild, Video) | Nicht verfügbar | 0,05 $ (Text / Bild / Video) 0,15 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 0,20 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,01 $ (Text / Bild / Video) 0,03 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos, Limit wird mit Flash RPD geteilt), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 (文字、圖片、影片) | 無法使用 | $0.05 (文字 / 圖片 / 影片) $0.15 (音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $0.20 美元 |
+| 脈絡快取價格 | 無法使用 | $0.01 (文字/圖片/影片) $0.03 (音訊) 每小時每 1,000,000 個符記$1.00 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費，與 Flash RPD 共用上限)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis (Text, Bild, Video) | Nicht verfügbar | 0,05 $ (Text / Bild / Video) 0,15 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 0,20 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,01 $ (Text / Bild / Video) 0,03 $ (Audio) 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Nicht verfügbar | 1.500 RPD (kostenlos, Limit wird mit Flash RPD geteilt), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 (文字、圖片、影片) | 無法使用 | $0.05 (文字 / 圖片 / 影片) $0.15 (音訊) |
+| 輸出價格 (含思考詞元) | 無法使用 | $0.20 美元 |
+| 脈絡快取價格 | 無法使用 | $0.01 (文字/圖片/影片) $0.03 (音訊) 每小時每 1,000,000 個符記$1.00 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 無法使用 | 1,500 個 RPD (免費，與 Flash RPD 共用上限)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis (Text, Bild, Video) | Kostenlos | 0,18 $ (Text / Bild / Video) 0,54 $ (Audio) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 0,72 $ |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,018 $ (Text / Bild / Video) 0,054 $ (Audio) 1,80 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) |
-| Fundierung mit der Google Suche | Kostenlos, bis zu 500 RPD (Limit wird mit Flash-RPD geteilt) | 1.500 RPD (kostenlos, Limit wird mit Flash RPD geteilt), danach 35 $ / 1.000 fundierte Prompts |
-| Fundierung mit Google Maps | 500 RPD | 1.500 RPD (kostenlos), danach 25 $ / 1.000 fundierte Prompts |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 (文字、圖片、影片) | 無須支付費用 | $0.18 (文字 / 圖片 / 影片) $0.54 (音訊) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $0.72 |
+| 脈絡快取價格 | 無法使用 | $0.018 (文字/圖片/影片) $0.054 (音訊) 每小時每 1,000,000 個符記$1.80 (儲存空間價格) |
+| 以 Google 搜尋建立基準 | 免費，最多 500 個 RPD (與 Flash RPD 共用上限) | 1,500 個 RPD (免費，與 Flash RPD 共用上限)，之後每 1,000 個基礎提示 $35 美元 |
+| 利用 Google 地圖建立基準 | 500 RPD | 1,500 個 RPD (免費)，之後每 1,000 個基礎提示 $25 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 2.5 Flash Native Audio (Live API)
+## Gemini 2.5 Flash Native Audio (Live API)
 
-*[`gemini-2.5-flash-native-audio-preview-12-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=de)*
+*[`gemini-2.5-flash-native-audio-preview-12-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/app/live?hl=de#gemini-2.5-flash-native-audio-preview-12-2025)
+[在 Google AI Studio 中試用](https://aistudio.google.com/app/live?hl=zh-tw#gemini-2.5-flash-native-audio-preview-12-2025)
 
-Unsere nativen Audiomodelle der [Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) sind für Audioausgaben mit höherer Qualität optimiert und bieten ein besseres Tempo, natürlichere Stimmen, mehr Ausführlichkeit und eine passendere Stimmungslage.
+我們的 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 原生語音模型經過最佳化調整，可以輸出更優質的音訊，在節奏、語音自然程度、詳細程度和情緒方面都更為出色。
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,50 $ (Text) 3,00 $ (Audio / Video) |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 2,00 $ (Text) 12,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.50 美元 (文字) $3.00 美元 (音訊 / 影片) |
+| 輸出價格 (含思考詞元) | 無須支付費用 | $2.00 (文字) $12.00 (語音) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 2.5 Flash Image (Nano Banana) 🍌
+## Gemini 2.5 Flash Image (Nano Banana) 🍌
 
-*[`gemini-2.5-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=de)*
+*[`gemini-2.5-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=zh-tw)
 
-Ein natives Modell für die Bildgenerierung, das für Geschwindigkeit, Flexibilität und Kontextverständnis optimiert ist. Die Preise für Texteingabe und -ausgabe sind dieselben wie für [2.5 Flash](#gemini-2.5-flash).
+這個原生圖像生成模型經過最佳化，可提供快速、彈性且符合情境的理解能力。文字輸入和輸出內容的價格與 [2.5 Flash](#gemini-2.5-flash) 相同。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,30 $ (Text / Bild) |
-| Ausgabepreis | Nicht verfügbar | 0,039 $ pro Bild\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.30 (文字 / 圖片) |
+| 輸出價格 | 無法使用 | 每張圖片 $0.039 美元\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,15 $ (Text / Bild) |
-| Ausgabepreis | Nicht verfügbar | 0,0195 $ pro Bild\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.15 (文字 / 圖片) |
+| 輸出價格 | 無法使用 | 每張圖片 $0.0195 美元\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
 ### Flex
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,15 $ (Text / Bild) |
-| Ausgabepreis | Nicht verfügbar | 0,0195 $ pro Bild\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.15 (文字 / 圖片) |
+| 輸出價格 | 無法使用 | 每張圖片 $0.0195 美元\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Priorität
+### 優先順序
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,54 $ (Text / Bild) |
-| Ausgabepreis | Nicht verfügbar | 0,0702 $ pro Bild\* |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.54 (文字 / 圖片) |
+| 輸出價格 | 無法使用 | 每張圖片 $0.0702 美元\* |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-[\*] Die Bildausgabe kostet 30 $ pro 1.000.000 Tokens. Ausgabebilder mit einer Größe von bis zu 1.024 × 1.024 Pixel verbrauchen 1.290 Tokens und kosten 0,039 $ pro Bild.
+[\*] 圖片輸出費用為每 100 萬個權杖 $30 美元。輸出圖片大小上限為 1024x1024 像素，每張圖片會消耗 1290 個權杖，相當於 $0.039 美元。
 
-## Gemini 2.5 Flash Preview TTS
+## Gemini 2.5 Flash 預先發布版 TTS
 
-*[`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=de)*
+*[`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/generate-speech?hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/generate-speech?hl=zh-tw)
 
-Unser Text-zu-Sprache-Audiomodell 2.5 Flash ist für ein gutes Preis-Leistungs-Verhältnis, niedrige Latenz und steuerbare Sprachgenerierung optimiert.
+我們已針對價格效益、低延遲和可控的語音生成功能，最佳化 2.5 Flash 文字轉語音音訊模型。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 0,50 $ (Text) |
-| Ausgabepreis | Kostenlos | 10,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | $0.50 美元 (文字) |
+| 輸出價格 | 無須支付費用 | $10.00 美元 (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,25 $ (Text) |
-| Ausgabepreis | Nicht verfügbar | 5,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.25 美元 (文字) |
+| 輸出價格 | 無法使用 | $5.00 (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 2.5 Pro Preview TTS
+## Gemini 2.5 Pro 預先發布版 TTS
 
-*[`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=de)*
+*[`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/generate-speech?hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com/generate-speech?hl=zh-tw)
 
-Unser 2.5 Pro-Modell für die Sprachsynthese ist für die leistungsstarke Sprachgenerierung mit niedriger Latenz optimiert. So können natürlichere Ausgaben erzielt und Aufforderungen einfacher gesteuert werden.
+我們的 2.5 Pro 文字轉語音音訊模型經過最佳化調整，可生成強大且低延遲的語音，輸出更自然的內容，並輕鬆引導提示。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,00 $ (Text) |
-| Ausgabepreis | Nicht verfügbar | 20,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $1.00 (文字) |
+| 輸出價格 | 無法使用 | $20.00 (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0,50 $ (Text) |
-| Ausgabepreis | Nicht verfügbar | 10,00 $ (Audio) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | $0.50 美元 (文字) |
+| 輸出價格 | 無法使用 | $10.00 美元 (音訊) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Veo 3.1
+## Veo 3.1
 
-*[`veo-3.1-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=de), [`veo-3.1-fast-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=de), [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=de)*
+*[`veo-3.1-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=zh-tw)、[`veo-3.1-fast-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=zh-tw)、[`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=zh-tw)*
 
-[Veo 3.1 ausprobieren](https://deepmind.google/models/veo/?hl=de)
+[試用 Veo 3.1](https://deepmind.google/models/veo/?hl=zh-tw)
 
-Ein schnelles Modell zur Videogenerierung.
+快速影片生成模型。
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Sekunde in USD |
+|  | 免費方案 | 付費層級，每秒 (美元) |
 | --- | --- | --- |
-| Preis für Veo 3.1-Standardvideo mit Audio (Standard) | Nicht verfügbar | 0,40 $ (720p und 1080p) 0,60 $ (4K) |
-| Preis für Veo 3.1 Fast-Video mit Audio (Standard) | Nicht verfügbar | 0,10 $ (720p) 0,12 $ (1080p) 0,30 $ (4K) |
-| Preis für Veo 3.1 Lite-Video mit Audio (Standard) | Nicht verfügbar | 0,05 $ (720p) 0,08 $ (1080p) (4K-Ausgabe nicht unterstützt) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| Veo 3.1 標準有聲影片價格 (預設) | 無法使用 | $0.40 (720p 和 1080p) $0.60 (4k) |
+| Veo 3.1 Fast 有聲影片價格 (預設) | 無法使用 | $0.10 美元 (720p) $0.12 美元 (1080p) $0.30 美元 (4k) |
+| Veo 3.1 Lite 影片 (含音訊) 價格 (預設) | 無法使用 | $0.05 美元 (720p) $0.08 美元 (1080p) (不支援 4K 輸出) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Lyria 3.5
+## Lyria 3.5
 
-*[`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=de)*
+*[`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=zh-tw)*
 
-Das Modell zur Musikgenerierung von Google.
+Google 的音樂生成模型。
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Anfrage in USD |
+|  | 免費方案 | 付費層級，每項要求的價格 (美元) |
 | --- | --- | --- |
-| Lyria 3.5 (vollständiger Song) | Nicht verfügbar | 0,08 $ pro Song |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| Lyria 3.5 (全曲) | 無法使用 | 每首歌曲 $0.08 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Lyria 3
+## Lyria 3
 
-*[`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=de) und [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=de)*
+*[`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=zh-tw) 和 [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=zh-tw)*
 
-Die Familie der Legacy-Modelle zur Musikgenerierung von Google.
+Google 的舊版音樂生成模型系列。
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Anfrage in USD |
+|  | 免費方案 | 付費層級，每項要求的價格 (美元) |
 | --- | --- | --- |
-| Lyria 3-Clip-Vorschau (30 Sekunden) | Nicht verfügbar | 0,04 $ pro Song |
-| Lyria 3 Pro (Vorabversion) (ganzer Song) | Nicht verfügbar | 0,08 $ pro Song |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| Lyria 3 剪輯片段預覽 (30 秒) | 無法使用 | 每首歌曲 $0.04 |
+| Lyria 3 Pro 預先發布版 (完整歌曲) | 無法使用 | 每首歌曲 $0.08 美元 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini Embedding 2
+## Gemini Embedding 2
 
-*[`gemini-embedding-2`](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=de)*
+*[`gemini-embedding-2`](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=zh-tw)*
 
-[API testen](https://ai.google.dev/gemini-api/docs/embeddings?hl=de)
+[試用 API](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)
 
-Unser erstes multimodales Einbettungsmodell, das Text, Bilder, Videos, Audio und PDFs in einen einheitlichen Einbettungsbereich abbildet.
+這是我們第一個多模態嵌入模型，可將文字、圖片、影片、音訊和 PDF 檔案對應至統一的嵌入空間。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Preis für Texteingabe | Kostenlos | 0,20 $ |
-| Preis für Bildeingabe | Kostenlos | 0,45 $ (0,00012 $ pro Bild) |
-| Preis für Audioeingabe | Kostenlos | 6,50 $ (0,00016 $ pro Sekunde) |
-| Preis für Videoeingabe | Kostenlos | 12,00 $ (0,00079 $ pro Frame) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入文字價格 | 無須支付費用 | $0.20 美元 |
+| 輸入圖片價格 | 無須支付費用 | $0.45 美元 (每張圖片 $0.00012 美元) |
+| 音訊輸入價格 | 無須支付費用 | $6.50 美元 (每秒 $0.00016 美元) |
+| 影片輸入價格 | 無須支付費用 | $12.00 美元 (每影格 $0.00079 美元) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Preis für Texteingabe | Nicht verfügbar | 0,10 $ |
-| Preis für Bildeingabe | Nicht verfügbar | 0,225 $ (0,00006 $ pro Bild) |
-| Preis für Audioeingabe | Nicht verfügbar | 3,25 $ (0,00008 $ pro Sekunde) |
-| Preis für Videoeingabe | Nicht verfügbar | 6,00 $ (0,000395 $ pro Frame) |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入文字價格 | 無法使用 | $0.10 美元 |
+| 輸入圖片價格 | 無法使用 | $0.225 美元 (每張圖片 $0.00006 美元) |
+| 音訊輸入價格 | 無法使用 | $3.25 美元 (每秒 $0.00008 美元) |
+| 影片輸入價格 | 無法使用 | $6.00 美元 (每影格 $0.000395 美元) |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini Robotics ER 2 (Vorabversion)
+## Gemini Robotics ER 2 預先發布版
 
-*[`gemini-robotics-er-2-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview?hl=de)*
+*[`gemini-robotics-er-2-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=zh-tw)
 
-Gemini Robotics ER 2, kurz für Gemini Robotics Embodied Reasoning 2, ist ein Endpunkt für Vision-Language-Modelle, mit dem Roboter ihre Umgebung präzise erfassen können. Er unterstützt die agentische Orchestrierung von Robotern, das Verständnis von Videofortschritten, die Zusammenarbeit mehrerer Roboter und fortschrittliches räumliches Denken.
+Gemini Robotics ER 2 (Gemini Robotics 具身推論 2 的簡稱) 是視覺語言模型端點，可讓機器人精確瞭解環境，支援機器人代理協調、瞭解影片進度、多機器人協作和進階空間推理。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1, 00 $ (Text / Bild / Video / Audio) bis zum 31. Dezember 2026 2, 00 $ (Text / Bild / Video / Audio) ab dem 1. Januar 2027 |
-| Ausgabepreis (einschließlich Denk-Tokens) | Kostenlos | 5, 00 $ bis zum 31. Dezember 2026 10, 00 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,10 $ bis zum 31. Dezember 2026. 0,20 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche | Nicht verfügbar | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前：$1.00 (文字 / 圖片 / 影片 / 音訊)。 2027 年 1 月 1 日起：$2.00 (文字 / 圖片 / 影片 / 音訊)。 |
+| 輸出價格 (含思考詞元) | 無須支付費用 | 2026 年 12 月 31 日前為 $5.00 美元 2027 年 1 月 1 日起為$10.00 美元 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.10 美元。 2027 年 1 月 1 日起為$0.20 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個符記$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個符記$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋建立基準 | 無法使用 | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-### Batch
+### 批次
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 0, 50 $ (Text / Bild / Video / Audio) bis zum 31.Dezember 2026. 1, 00 $ (Text / Bild / Video / Audio) ab dem 1.Januar 2027. |
-| Ausgabepreis (einschließlich Denk-Tokens) | Nicht verfügbar | 2, 50 $ bis zum 31. Dezember 2026 5, 00 $ ab dem 1. Januar 2027 |
-| Preis für Kontext-Caching | Nicht verfügbar | 0,05 $ bis zum 31. Dezember 2026. 0,10 $ ab dem 1. Januar 2027. 0,50 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) bis zum 31. Dezember 2026. 1,00 $ / 1.000.000 Tokens pro Stunde (Speicherpreis) ab dem 1. Januar 2027. |
-| Fundierung mit der Google Suche | Nicht verfügbar | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無法使用 | 2026 年 12 月 31 日前：$0.50 (文字 / 圖片 / 影片 / 音訊)。 2027 年 1 月 1 日起：$1.00 (文字 / 圖片 / 影片 / 音訊)。 |
+| 輸出價格 (含思考詞元) | 無法使用 | 2026 年 12 月 31 日前為 $2.50 美元 。2027 年 1 月 1 日起為$5.00 美元。 |
+| 脈絡快取價格 | 無法使用 | 2026 年 12 月 31 日前為 $0.05 美元。 2027 年 1 月 1 日起為$0.10 美元。 2026 年 12 月 31 日前為每小時每 1,000,000 個權杖$0.50 美元 (儲存價格)。 2027 年 1 月 1 日起為每小時每 1,000,000 個權杖$1.00 美元 (儲存價格)。 |
+| 以 Google 搜尋建立基準 | 無法使用 | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini Robotics ER 2 – Streaming-Vorschau
+## Gemini Robotics ER 2 Streaming Preview
 
-*[`gemini-robotics-er-2-streaming-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-streaming-preview?hl=de)*
+*[`gemini-robotics-er-2-streaming-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-streaming-preview?hl=zh-tw)*
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=de)
+[在 Google AI Studio 中試用](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=zh-tw)
 
-Gemini Robotics ER 2 Streaming ist ein Vision-Language-Modell-Endpunkt für Robotik, der für das Echtzeit-Textstreaming mit der Live API optimiert ist. Sie akzeptiert Text-, Bild-, Video- und Audioeingaben und unterstützt bidirektionales Streaming mit Funktionsaufrufen.
+Gemini Robotics ER 2 Streaming 是機器人專用的視覺語言模型端點，可透過 Live API 即時串流文字。可接受文字、圖片、影片和音訊輸入內容，並支援雙向串流和函式呼叫。
 
-### Standard
+### 標準
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | 1, 00 $ (Text / Bild / Video / Audio) bis zum 31. Dezember 2026 2, 00 $ (Text / Bild / Video / Audio) ab dem 1. Januar 2027 |
-| Ausgabepreis | Kostenlos | 5, 00 $ bis zum 31. Dezember 2026 10, 00 $ ab dem 1. Januar 2027 |
-| Fundierung mit der Google Suche | Nicht verfügbar | 5.000 kostenlose Suchanfragen pro Monat (für alle Gemini 3.x-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 2026 年 12 月 31 日前：$1.00 (文字 / 圖片 / 影片 / 音訊)。 2027 年 1 月 1 日起：$2.00 (文字 / 圖片 / 影片 / 音訊)。 |
+| 輸出價格 | 無須支付費用 | 2026 年 12 月 31 日前為 $5.00 美元 2027 年 1 月 1 日起為$10.00 美元 |
+| 以 Google 搜尋建立基準 | 無法使用 | 每月可免費傳送 5,000 次搜尋要求 (適用於所有 Gemini 3.x 模型)，之後每傳送 1,000 次要求則收費 $14 美元。 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## Gemini 2.5 Computer Use (Vorabversion)
+## [Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4?hl=zh-tw)
 
-*[`gemini-2.5-computer-use-preview-10-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=de)*
+這款先進的輕量級開放式模型，採用與 Gemini 模型相同的技術打造而成。
 
-Unser Modell für die Computernutzung ist für die Entwicklung von Browsersteuerungs-Agents optimiert, die Aufgaben automatisieren.
-
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Nicht verfügbar | 1,25 $, Prompts mit <= 200.000 Tokens 2,50 $, Prompts mit > 200.000 Tokens |
-| Ausgabepreis | Nicht verfügbar | 10,00 $, Prompts mit <= 200.000 Tokens 15,00 $, Prompts mit > 200.000 Tokens |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| 輸入價格 | 無須支付費用 | 無法使用 |
+| 輸出價格 | 無須支付費用 | 無法使用 |
+| 脈絡快取價格 | 無須支付費用 | 無法使用 |
+| 脈絡快取 (儲存) | 無須支付費用 | 無法使用 |
+| 調整價格 | 無法使用 | 無法使用 |
+| 以 Google 搜尋建立基準 | 無法使用 | 無法使用 |
+| 用於改善我們的產品 | [是](https://ai.google.dev/gemini-api/terms?hl=zh-tw) | [否](https://ai.google.dev/gemini-api/terms?hl=zh-tw) |
 
-## [Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4?hl=de)
+## 工具定價
 
-Unser leichtgewichtiges, hochmodernes offenes Modell, das auf derselben Technologie basiert wie unsere Gemini-Modelle.
+工具的價格會依據各自的費率計算，並套用至使用這些工具的模型。
+請查看「模型」頁面，瞭解各模型適用的工具。
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 免費方案 | 付費方案，每 100 萬個權杖的費用 (美元) |
 | --- | --- | --- |
-| Eingabepreis | Kostenlos | Nicht verfügbar |
-| Ausgabepreis | Kostenlos | Nicht verfügbar |
-| Preis für Kontext-Caching | Kostenlos | Nicht verfügbar |
-| Kontext-Caching (Speicherung) | Kostenlos | Nicht verfügbar |
-| Preis für die Optimierung | Nicht verfügbar | Nicht verfügbar |
-| Fundierung mit der Google Suche | Nicht verfügbar | Nicht verfügbar |
-| Zur Verbesserung unserer Produkte | [Ja](https://ai.google.dev/gemini-api/terms?hl=de) | [Nein](https://ai.google.dev/gemini-api/terms?hl=de) |
+| [Google 搜尋](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw#pricing) | 免費 500 RPD (Flash 和 Flash-Lite 共用上限)。 不適用於 Pro。 | Gemini 2.5 模型：  每天可免費使用 1,500 個基礎提示 (Flash 和 Flash-Lite 共用上限)。 之後每 1,000 個基礎提示 $35 美元。   Gemini 3 模型：  每月可免費使用 5,000 次搜尋要求 (所有 Gemini 模型共用)，之後每 1,000 次要求 $14 美元。 |
+| [Google 地圖](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw#pricing_and_rate_limits) | 500 RPD 不適用於 Pro。 | 免費 1,500 個 RPD (Flash 和 Flash-Lite 共用上限) 免費 10,000 個 RPD (Pro 方案) 之後每 1,000 個基礎提示 $25 美元 |
+| [執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw#billing) | 無須支付費用 | 執行程式碼功能會按照所選模型的標準權杖費率計費。費用完全取決於工具的使用情形，工作階段執行階段不會產生任何費用。系統會在生成程式碼和執行結果時，將其視為**輸出詞元**計費；模型在反覆推論過程中，如果使用這些程式碼和執行結果，則會視為**輸入詞元**計費。 |
+| [網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw#limitations) | 無須支付費用 | 按照每個模型的定價，以輸入權杖計費。 |
+| [電腦使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw) | 無法使用 | 系統會依據模型定價 (例如標準 [Gemini 3.8 Flash](#gemini-3.8-flash) 定價)，以一般權杖計費。 |
+| [檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw#pricing) | 無須支付費用 | [嵌入](#gemini-embedding-2)費用為每 100 萬個權杖 $0.15 美元。 擷取的權杖費用與一般權杖相同，依模型定價計費。 |
+| [自訂工具端點 (Gemini 3.1 Pro 預先發布版)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | 無法使用 | 與 [Gemini 3.1 Pro 預先發布版](#gemini-3.1-pro-preview)定價相同 |
 
-## Preise für Tools
+## 代理的定價
 
-Tools werden zu ihren eigenen Preisen abgerechnet, die auf das Modell angewendet werden, das sie verwendet.
-Auf der Seite [Modelle](https://ai.google.dev/gemini-api/docs/models?hl=de) sehen Sie, welche Tools für die einzelnen Modelle verfügbar sind.
+代理程式使用費用是根據基礎權杖消耗量和工具使用量計算。
 
-|  | Kostenlose Stufe | Kostenpflichtige Stufe, pro Mio. Tokens in USD |
+|  | 模型 | 工具 |
 | --- | --- | --- |
-| [Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de#pricing) | 500 RPD kostenlos (Limit für Flash und Flash-Lite). Nicht für Pro verfügbar. | Gemini 2.5-Modelle:  1.500 RPD kostenlos (Limit für Flash und Flash-Lite). Danach 35 $ pro 1.000 fundierte Prompts   Gemini 3-Modelle:  5.000 kostenlose Suchanfragen pro Monat (gemeinsam für alle Gemini-Modelle), danach 14 $ pro 1.000 Anfragen. |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de#pricing_and_rate_limits) | 500 RPD Nicht für Pro verfügbar. | 1.500 RPD kostenlos (Limit für Flash und Flash-Lite) 10.000 RPD kostenlos für Pro. Danach 25 $ / 1.000 fundierte Prompts |
-| [Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de#billing) | Kostenlos | Die Codeausführung wird zu den Standard-Tokenraten für das ausgewählte Modell abgerechnet. Die Kosten werden ausschließlich durch die Nutzung des Tools bestimmt. Für die Sitzungsdauer fallen keine Gebühren an. Der generierte Code und die Ausführungsergebnisse werden bei der Erstellung als **Ausgabetokens** und als **Eingabetokens** abgerechnet, wenn das Modell sie im Rahmen seines iterativen Denkprozesses verwendet. |
-| [URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de#limitations) | Kostenlos | Die Abrechnung erfolgt als Eingabetokens pro Modell. |
-| [Computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=de) | Nicht verfügbar | Die Abrechnung erfolgt als reguläre Tokens gemäß der Modellpreisgestaltung (z.B. Standardpreise für [Gemini 3.5 Flash](#gemini-3.6-flash)). Die Preise für das alte Modell finden Sie in der Preistabelle [Gemini 2.5 Computer Use (Vorabversion)](#gemini-2.5-computer-use-preview-10-2025). |
-| [Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de#pricing) | Kostenlos | Für [Einbettungen](#gemini-embedding-2) werden 0,15 $ pro 1 Million Tokens berechnet. Für abgerufene Dokument-Tokens werden die regulären Tokenpreise des jeweiligen Modells berechnet. |
-| [Custom Tools-Endpunkt (Gemini 3.1 Pro-Vorschau)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | Nicht verfügbar | Gleiche Preise wie für die [Gemini 3.1 Pro-Vorabversion](#gemini-3.1-pro-preview) |
+| [Gemini Deep Research 代理](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw) | 所有模型推論作業均按標準 Gemini 費率計費，包括在代理迴圈中產生的輸入、輸出和中介輸入 / 推理詞元。 | 工具使用費會依現有定價結構收取，並維持搜尋基礎 (不含擷取的權杖) 與 Url\_context / 檔案搜尋 (含擷取的權杖) 的標準區別。 |
+| [Gemini API 中的 Managed Agents](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw) | 所有模型推論作業都會按照標準 Gemini 費率計費，包括在代理迴圈中產生的輸入、輸出和中介輸入 / 推理詞元。(請參閱[定價詳細資料](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw#pricing))。 | 預先發布期間不會收取環境運算 (CPU、記憶體、沙箱執行) 費用。 |
+| [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw) | 所有模型推論作業都會按照標準 Gemini 費率計費，包括在代理迴圈中產生的輸入、輸出和中介輸入 / 推理詞元。(請參閱[定價詳細資料](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw#pricing))。 | 預先發布期間不會收取環境運算 (CPU、記憶體、沙箱執行) 費用。 |
 
-## Preise für KI-Agenten
+## 附註
 
-Die Kosten für die Agent-Nutzung werden auf Grundlage des zugrunde liegenden Token-Verbrauchs und der Nutzung der Tools berechnet.
+- **代理式影片解讀：**使用代理式影片解讀時，權杖用量會根據模型載入的內容而有所不同，而非影片長度。這通常會使長篇影片的輸入權杖減少最多 88%，但權杖數量取決於查詢複雜度和動態取樣深度 (詳細視覺片段可能超過 1 FPS)。請參閱「[代理式影片解讀](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw#agentic-video-understanding)」。
+- **文件權杖計費：**`DOCUMENT` 模態的權杖 (例如 PDF) 會以圖片權杖費率計費。在 API 回應中，這些權杖會顯示在 `promptTokensDetails` 內的 `DOCUMENT` 模態下方。
+- 所有[適用地區](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-tw)均可免費使用 Google AI Studio。詳情請參閱[帳單常見問題](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw)。
+- 價格可能與這裡列出的價格和 Gemini Enterprise Agent Platform 提供的價格不同。如要瞭解 Gemini Enterprise Agent Platform 的價格，請參閱 [Gemini Enterprise Agent Platform 定價頁面](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=zh-tw)。
+- 如果您使用[動態擷取](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)功能來降低成本，只有在要求的回覆包含至少一個來自網路的基礎支援網址時，才會針對 Google 搜尋基礎功能收費。Gemini 費用一律適用。用量限制可能會變動。
 
-|  | Modell | Tools |
-| --- | --- | --- |
-| [Gemini Deep Research-Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=de) | Die gesamte Modellinferenz wird zu den Standardpreisen für Gemini-Listen berechnet, einschließlich der Eingabe-, Ausgabe- und Zwischen-Eingabe-/Begründungs-Tokens, die während der Agenten-Schleifen generiert werden. | Die Gebühren für die Tool-Nutzung richten sich nach der bestehenden Preisstruktur. Es gelten die Standardunterscheidungen für Search Grounding (abgerufene Tokens ausgeschlossen) im Vergleich zu Url\_context / File Search (abgerufene Tokens in allen anderen Tools enthalten). |
-| [Verwaltete KI-Agenten in der Gemini API](https://ai.google.dev/gemini-api/docs/agents?hl=de) | Die gesamte Modellinferenz wird zu den Standardpreisen für Gemini-Listen berechnet, einschließlich der Eingabe-, Ausgabe- und Zwischen-Eingabe-/Begründungs-Tokens, die während der Agenten-Schleifen generiert werden. [Preisangaben](https://ai.google.dev/gemini-api/docs/agents?hl=de#pricing) | Die Rechenleistung der Umgebung (CPU, Arbeitsspeicher, Sandbox-Ausführung) wird während des Vorschauzeitraums nicht in Rechnung gestellt. |
-| [Antigravity-Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=de) | Die gesamte Modellinferenz wird zu den Standardpreisen für Gemini-Listen berechnet, einschließlich der Eingabe-, Ausgabe- und Zwischen-Eingabe-/Begründungs-Tokens, die während der Agenten-Schleifen generiert werden. [Preisangaben](https://ai.google.dev/gemini-api/docs/agents?hl=de#pricing) | Die Rechenleistung der Umgebung (CPU, Arbeitsspeicher, Sandbox-Ausführung) wird während des Vorschauzeitraums nicht in Rechnung gestellt. |
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-## Hinweise
+上次更新時間：2026-10-01 (世界標準時間)。
 
-- **Agentisches Videoverständnis**:Wenn Sie das agentische Videoverständnis verwenden, hängt die Tokennutzung vom Inhalt ab, der vom Modell geladen wird, und nicht von der gesamten Videolänge. Dies führt in der Regel zu bis zu 88% weniger Eingabetokens für Langformvideos. Die Anzahl der Tokens hängt jedoch von der Komplexität der Anfrage und der dynamischen Samplingtiefe ab, die für detaillierte visuelle Segmente mehr als 1 FPS betragen kann. [Weitere Informationen](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#agentic-video-understanding)
-- **Abrechnung von Dokument-Tokens**:Tokens für die `DOCUMENT`-Modalität (z. B. PDFs) werden zum Bild-Token-Tarif abgerechnet. In API-Antworten werden diese Tokens unter der Modalität `DOCUMENT` innerhalb von `promptTokensDetails` angezeigt.
-- Die Nutzung von Google AI Studio ist in allen [verfügbaren Regionen](https://ai.google.dev/gemini-api/docs/available-regions?hl=de) kostenlos. Weitere Informationen finden Sie in den [FAQs zur Abrechnung](https://ai.google.dev/gemini-api/docs/billing?hl=de).
-- Die Preise können von den hier aufgeführten Preisen und den Preisen auf der Gemini Enterprise Agent Platform abweichen. Die Preise für die Gemini Enterprise Agent Platform finden Sie auf der [Preisseite für die Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=de).
-- Wenn Sie [dynamische Abrufe](https://ai.google.dev/gemini-api/docs/grounding?hl=de) verwenden, um die Kosten zu optimieren, werden nur Anfragen, die in ihrer Antwort mindestens eine Fundierungs-Support-URL aus dem Web enthalten, für die Fundierung mit der Google Suche in Rechnung gestellt.
-  Für Gemini fallen immer Kosten an. Die Ratenlimits können sich ändern.
-
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
-
-Zuletzt aktualisiert: 2026-09-24 (UTC).
-
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-24 (UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-01 (世界標準時間)。"],[],[]]

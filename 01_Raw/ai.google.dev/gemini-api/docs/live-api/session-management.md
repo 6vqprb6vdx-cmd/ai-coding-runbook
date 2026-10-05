@@ -1,52 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=pt-BR
-fetched_at: 2026-09-28T06:10:33.726348+00:00
-title: "Gerenciamento de sess\u00f5es com a API Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id
+fetched_at: 2026-10-05T06:36:03.336930+00:00
+title: "Pengelolaan sesi dengan Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Gerenciamento de sessões com a API Live
+# Pengelolaan sesi dengan Live API
 
-Na API Live, uma sessão se refere a uma conexão persistente
-em que a entrada e a saída são transmitidas continuamente pela mesma
-conexão. Saiba mais sobre [como ela funciona](https://ai.google.dev/gemini-api/docs/live?hl=pt-br).
-Esse design de sessão exclusivo permite baixa latência e oferece suporte a recursos exclusivos, mas também pode apresentar desafios, como limites de tempo de sessão e encerramento antecipado.
-Este guia aborda estratégias para superar os desafios de gerenciamento de sessão que podem surgir ao usar a API Live.
+Di Live API, sesi mengacu pada koneksi persisten
+tempat input dan output di-streaming secara berkelanjutan melalui koneksi
+yang sama (baca selengkapnya tentang [cara kerjanya](https://ai.google.dev/gemini-api/docs/live?hl=id)).
+Desain sesi unik ini memungkinkan latensi rendah dan mendukung fitur unik, tetapi juga dapat menimbulkan tantangan, seperti batas waktu sesi dan penghentian awal.
+Panduan ini membahas strategi untuk mengatasi tantangan pengelolaan sesi yang dapat muncul saat menggunakan Live API.
 
-## Tempo de vida da sessão
+## Masa aktif sesi
 
-Sem compressão, as sessões somente de áudio são limitadas a 15 minutos, e as sessões de áudio e vídeo são limitadas a 2 minutos. Exceder esses limites
-encerra a sessão (e, portanto, a conexão), mas é possível usar
-[a compressão da janela de contexto](#context-window-compression) para estender as sessões por
-um período ilimitado.
+Tanpa kompresi, sesi khusus audio dibatasi hingga 15 menit,
+dan sesi audio-video dibatasi hingga 2 menit. Jika batas ini terlampaui, sesi (dan oleh karena itu, koneksi) akan berakhir, tetapi Anda dapat menggunakan [kompresi jendela konteks](#context-window-compression) untuk memperpanjang sesi hingga durasi yang tidak terbatas.
 
-O tempo de vida de uma conexão também é limitado a cerca de 10 minutos. Quando a conexão é encerrada, a sessão também é. Nesse caso, é possível
-configurar uma única sessão para permanecer ativa em várias conexões usando
-[a retomada da sessão](#session-resumption).
-Você também vai receber uma [mensagem GoAway](#goaway-message) antes do
-término da conexão, permitindo que você tome outras ações.
+Masa aktif koneksi juga terbatas, hingga sekitar 10 menit. Saat koneksi berakhir, sesi juga akan berakhir. Dalam hal ini, Anda dapat mengonfigurasi satu sesi agar tetap aktif di beberapa koneksi menggunakan [pelanjutan sesi](#session-resumption).
+Anda juga akan menerima [pesan GoAway](#goaway-message) sebelum
+koneksi berakhir, sehingga Anda dapat mengambil tindakan lebih lanjut.
 
-## Compressão da janela de contexto
+## Kompresi jendela konteks
 
-Para ativar sessões mais longas e evitar o encerramento abrupto da conexão, você pode
-ativar a compactação da janela de contexto definindo o campo [contextWindowCompression](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression)
-como parte da configuração da sessão.
+Untuk mengaktifkan sesi yang lebih panjang dan menghindari penghentian koneksi yang tiba-tiba, Anda dapat mengaktifkan kompresi jendela konteks dengan menyetel kolom [contextWindowCompression](https://ai.google.dev/api/live?hl=id#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression) sebagai bagian dari konfigurasi sesi.
 
-No [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=pt-br#contextwindowcompressionconfig), é possível configurar um
-[mecanismo de janela deslizante](https://ai.google.dev/api/live?hl=pt-br#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
-e o [número de tokens](https://ai.google.dev/api/live?hl=pt-br#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
-que acionam a compressão.
+Di [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=id#contextwindowcompressionconfig), Anda dapat mengonfigurasi
+[mekanisme jendela geser](https://ai.google.dev/api/live?hl=id#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
+dan [jumlah token](https://ai.google.dev/api/live?hl=id#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
+yang memicu kompresi.
 
 ### Python
 
@@ -73,19 +67,13 @@ const config = {
 };
 ```
 
-## Retomada da sessão
+## Melanjutkan sesi
 
-Para evitar o encerramento da sessão quando o servidor redefine periodicamente a conexão WebSocket
-connection, configure o [sessionResumption](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption)
-campo na [configuração de instalação](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentSetup).
+Untuk mencegah penghentian sesi saat server secara berkala mereset koneksi WebSocket, konfigurasi kolom [sessionResumption](https://ai.google.dev/api/live?hl=id#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption) dalam [konfigurasi penyiapan](https://ai.google.dev/api/live?hl=id#BidiGenerateContentSetup).
 
-A transmissão dessa configuração faz com que o
-servidor envie [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=pt-br#SessionResumptionUpdate)
-mensagens, que podem ser usadas para retomar a sessão transmitindo o último token de retomada
-como o [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=pt-br#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle)
-da conexão subsequente.
+Meneruskan konfigurasi ini akan menyebabkan server mengirim pesan [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=id#SessionResumptionUpdate), yang dapat digunakan untuk melanjutkan sesi dengan meneruskan token kelanjutan terakhir sebagai [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=id#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle) dari koneksi berikutnya.
 
-Os tokens de retomada são válidos por duas horas após o encerramento das últimas sessões.
+Token kelanjutan valid selama 2 jam setelah penghentian sesi terakhir.
 
 ### Python
 
@@ -220,12 +208,11 @@ async function main() {
 main();
 ```
 
-## Receber uma mensagem antes da desconexão da sessão
+## Menerima pesan sebelum sesi terputus
 
-O servidor envia uma mensagem [GoAway](https://ai.google.dev/api/live?hl=pt-br#GoAway) que sinaliza que a conexão atual
-será encerrada em breve. Essa mensagem inclui o [timeLeft](https://ai.google.dev/api/live?hl=pt-br#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left),
-indicando o tempo restante, e permite que você tome outras medidas antes que a
-conexão seja encerrada como ABORTADA.
+Server mengirim pesan [GoAway](https://ai.google.dev/api/live?hl=id#GoAway) yang menandakan bahwa koneksi saat ini akan segera dihentikan. Pesan ini mencakup [timeLeft](https://ai.google.dev/api/live?hl=id#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left),
+yang menunjukkan waktu yang tersisa dan memungkinkan Anda mengambil tindakan lebih lanjut sebelum
+koneksi dihentikan sebagai DIBATALKAN.
 
 ### Python
 
@@ -248,10 +235,10 @@ for (const turn of turns) {
 }
 ```
 
-## Receber uma mensagem quando a geração estiver concluída
+## Menerima pesan saat pembuatan selesai
 
-O servidor envia uma [generationComplete](https://ai.google.dev/api/live?hl=pt-br#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
-mensagem que sinaliza que o modelo terminou de gerar a resposta.
+Server mengirimkan pesan [generationComplete](https://ai.google.dev/api/live?hl=id#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
+yang menandakan bahwa model telah selesai membuat respons.
 
 ### Python
 
@@ -273,19 +260,16 @@ for (const turn of turns) {
 }
 ```
 
-## A seguir
+## Langkah berikutnya
 
-Confira outras maneiras de trabalhar com a API Live no guia completo de
-[recursos](https://ai.google.dev/gemini-api/docs/live?hl=pt-br),
-na página de [uso da ferramenta](https://ai.google.dev/gemini-api/docs/live-tools?hl=pt-br) ou no
-[livro de receitas da API Live](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=pt-br).
+Pelajari cara lainnya untuk menggunakan Live API dalam panduan [Kemampuan](https://ai.google.dev/gemini-api/docs/live?hl=id) lengkap, halaman [Penggunaan alat](https://ai.google.dev/gemini-api/docs/live-tools?hl=id), atau [buku resep Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=id).
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-09-17 UTC.
+Terakhir diperbarui pada 2026-09-17 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-17 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-17 UTC."],[],[]]

@@ -1,66 +1,74 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de
-fetched_at: 2026-09-28T06:22:03.195754+00:00
-title: "Gemini\u00a03.8 Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ar
+fetched_at: 2026-10-05T06:33:53.967788+00:00
+title: "\u202bGemini 3.8 Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Feedback geben
+إرسال ملاحظات
 
-# Gemini 3.8 Live
+# ‫Gemini 3.8 Live
 
-Gemini 3.8 Live ist die Standardoption für die meisten Sprachagenten mit geringer Latenz und für Echtzeitdialoge ohne durch Reasoning verursachte Verzögerungen. Es unterstützt verschachtelte Argumentation, asynchrone Funktionsaufrufe, vollständige Aktualisierungen des Clientinhalts der Sitzung und integriertes Audiostreaming.
+‫Gemini 3.8 Live هو الخيار التلقائي لمعظم تجارب المساعد الصوتي المنخفضة الاستجابة والحوار في الوقت الفعلي بدون تأخيرات ناتجة عن التفكير. يتيح هذا النموذج
+الاستدلال المتداخل، واستدعاء الدوال غير المتزامن، وتعديلات المحتوى الكاملة من جانب العميل خلال الجلسة، وبث الصوت المضمّن.
 
-[In Google AI Studio ausprobieren](https://aistudio.google.com/live?model=gemini-3.8-live&hl=de)
+[تجربة الميزة في Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live&hl=ar)
 
-## Dokumentation
+## الوثائق
 
-Im [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)-Leitfaden finden Sie eine vollständige Beschreibung der Funktionen und Möglichkeiten.
+يمكنك الانتقال إلى دليل [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
 
 ## gemini-3.8-live
 
-| Attribut | Beschreibung |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardModellcode | `gemini-3.8-live` |
-| saveUnterstützte Datentypen | **Eingaben**  Text, Bilder, Audio, Video  **Ausgabe**  Text und Audio |
-| token\_autoToken-Limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Eingabetokenlimit**  131.072  **Tokenausgabelimit**  65.536 |
-| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Nicht unterstützt  **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Nicht unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Nicht unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Nicht unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Nicht unterstützt  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Nicht unterstützt  **[Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Unterstützt (verschachtelte Argumentation)  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Nicht unterstützt |
-| speedNutzungsoptionen | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Nicht unterstützt |
-| 123-Versionen | Weitere Informationen finden Sie unter [Muster für Modellversionen](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stabil: `gemini-3.8-live` |
-| calendar\_monthLetzte Aktualisierung | September 2026 |
-| id\_cardModellkarte | [Modellkarte](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=de) |
+| رمز النموذج id\_card | `gemini-3.8-live` |
+| saveأنواع البيانات المتوافقة | **المدخلات**  النصوص والصور والملفات الصوتية والفيديوهات  **الناتج**  النص والصوت |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  131,072  **الحدّ الأقصى لرموز الناتج المميزة**  65,536 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  غير متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  غير متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  غير متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح (الاستدلال المتداخل)  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  غير متاح |
+| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  غير متاح |
+| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-3.8-live` |
+| calendar\_monthآخر تعديل | سبتمبر 2026 |
+| id\_cardبطاقة النموذج | [بطاقة النموذج](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=ar) |
 
-## Migration von Gemini 3.1 Flash Live
+## نقل البيانات من Gemini 3.1 Flash Live
 
-Gemini 3.8 Live bietet Audio-zu-Audio-Interaktionen mit extrem niedriger Latenz und unterstützt jetzt auch asynchrone Workflows. Wenn Sie von `gemini-3.1-flash-live-preview` migrieren, sollten Sie sich die folgenden Updates ansehen:
+يوفّر الإصدار 3.8 من Gemini Live تفاعلات صوتية بوقت استجابة فائق السرعة،
+ويوسّع نطاق التوافق مع مهام سير العمل غير المتزامنة. عند نقل البيانات من
+`gemini-3.1-flash-live-preview`، راجِع التعديلات التالية:
 
-- **Modellstring**: Aktualisieren Sie Ihren Modellstring von `gemini-3.1-flash-live-preview` zu `gemini-3.8-live`.
-- **Denkaufwand**: `thinking_level` wird für `gemini-3.8-live` nicht unterstützt.
-  Lassen Sie `thinking_level` (oder `thinking_config`) bei der Einrichtung der Sitzung weg.
-- **Asynchrone Funktionsaufrufe**: Die asynchrone Ausführung (`behavior: NON_BLOCKING`) ist jetzt der Standardmodus für Funktionsaufrufe. Aus Gründen der Abwärtskompatibilität können Sie weiterhin den synchronen blockierenden Modus verwenden, indem Sie `behavior: BLOCKING` in Ihren Tool-Deklarationen festlegen. Die Planung von Funktionen (`SILENT`, `WHEN_IDLE`, `INTERRUPTED`) wird unterstützt.
-- **Aktualisierungen von Clientinhalten**: `send_client_content` wird während des gesamten Sitzungslebenszyklus mit expliziten Rollen (`user` oder `model`) unterstützt. Durch das Festlegen von `turn_complete=true` wird die aktive Modellgenerierung bedingungslos unterbrochen. Wenn Sie Inhalte ohne `turn_complete` senden, wartet der Server auf nachfolgende Nachrichten, bevor er antwortet.
-- **Proaktive Audioeingabe**: Die proaktive Audioeingabe ist jetzt dauerhaft aktiviert. Wenn Sie `proactive_audio: false` festlegen, wird ein Fehler zurückgegeben.
-- **Empathischer Dialog**: Der empathische Dialog wurde aus der API entfernt. Entfernen Sie alle `enable_affective_dialog`-Konfigurationen aus Ihrem Code.
-- **Turn coverage** (Abdeckung für Abbiegungen): Standardmäßig `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Videoframes werden standardmäßig an das Modell gesendet. Senden Sie daher nur Frames, wenn dies zur Verwaltung von Kontext und Kosten erforderlich ist.
-- **Antwortmodalitäten**: Audio ist die unterstützte Antwortmodalität. Aktivieren Sie die Audiotranskription für die Ausgabe, wenn Ihre Anwendung ein Texttranskript erfordert.
+- **سلسلة النموذج**: عدِّل سلسلة النموذج من
+  `gemini-3.1-flash-live-preview` إلى `gemini-3.8-live`.
+- **مستوى التفكير**: لا تتوفّر `thinking_level` للغة `gemini-3.8-live`.
+  احذف `thinking_level` (أو `thinking_config`) من إعدادات جلستك.
+- **استدعاء الدوال غير المتزامن**: أصبح التنفيذ غير المتزامن (`behavior: NON_BLOCKING`) هو وضع استدعاء الدوال التلقائي. سيظل بإمكانك استخدام وضع الحظر المتزامن للتوافق مع الأنظمة القديمة من خلال ضبط `behavior: BLOCKING` على
+  بيانات الأدوات. تتوفّر ميزة جدولة الدوال (`SILENT` و`WHEN_IDLE` و`INTERRUPTED`).
+- **تعديلات محتوى العميل**: يتم دعم `send_client_content` طوال دورة حياة الجلسة بأكملها باستخدام أدوار صريحة (`user` أو `model`). يؤدي ضبط `turn_complete=true` بشكل غير مشروط إلى مقاطعة عملية إنشاء النموذج النشط. إذا أرسلت محتوًى بدون `turn_complete`، ينتظر الخادم رسائل لاحقة قبل الرد.
+- **التحكّم الاستباقي بالصوت**: أصبحت ميزة "التحكّم الاستباقي بالصوت" مفعَّلة بشكل دائم. يؤدي ضبط
+  `proactive_audio: false` إلى عرض رسالة خطأ.
+- **الحوار التفاعلي التعاطفي**: تمت إزالة الحوار التفاعلي التعاطفي من واجهة برمجة التطبيقات. أزِل أي إعدادات `enable_affective_dialog` من الرمز.
+- **تغطية المنعطفات**: القيمة التلقائية هي
+  `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. يتم إرسال لقطات الفيديو إلى النموذج تلقائيًا، لذا لا ترسِل اللقطات إلا عند الحاجة إليها لإدارة السياق والتكلفة.
+- **طُرق الاستجابة**: الصوت هو طريقة الاستجابة المتاحة. فعِّل ميزة تحويل الصوت إلى نص إذا كان تطبيقك يتطلّب نصًا مكتوبًا.
 
-Einen Funktionsvergleich aller Live-API-Modelle finden Sie in der Tabelle [Modellvergleich](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de#model-comparison).
+للاطّلاع على مقارنة بين الميزات في جميع نماذج Live API، راجِع جدول
+[مقارنة النماذج](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ar#model-comparison).
 
-Feedback geben
+إرسال ملاحظات
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Zuletzt aktualisiert: 2026-09-17 (UTC).
+تاريخ التعديل الأخير: 2026-09-17 (حسب التوقيت العالمي المتفَّق عليه)
 
-Haben Sie Feedback für uns?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-17 (UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-17 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

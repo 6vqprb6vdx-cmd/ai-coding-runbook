@@ -1,35 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=tr
-fetched_at: 2026-09-28T06:13:20.175730+00:00
-title: "Ajan tabanl\u0131 g\u00f6r\u00fc\u015f yetenekleri \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=es-419
+fetched_at: 2026-10-05T06:31:22.581448+00:00
+title: "Capacidades de visi\u00f3n de agente \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
 
-Geri bildirim gönderin
+Enviar comentarios
 
-# Ajan tabanlı görüş yetenekleri
+# Capacidades de visión de agente
 
-Gemini Robotics ER modelleri, resimleri değiştirmek ve yanıt vermeden önce mantık uygulamak için Python kodu yazıp yürütebilir. Bu sayfada, kod yürütme örnekleri (yakınlaştırma ve kırpma ile nesne tespit etme, cihaz okuma, sıvı ölçümü, devre kartı okuma ve görüntü ek açıklaması) ele alınmaktadır.
+Los modelos ER de Gemini Robotics pueden escribir y ejecutar código de Python para manipular imágenes y aplicar lógica antes de responder. En esta página, se incluyen ejemplos de ejecución de código: detección de objetos con zoom y recorte, lectura de instrumentos, medición de fluidos, lectura de placas de circuitos y anotación de imágenes.
 
-Bu örnekleri kendi kullanım alanınıza uyarlamak için istem metnini ve yüklenen resim dosyasını kendinizinkilerle değiştirin. Ayrıca, istemdeki istenen JSON şemasını uygulamanızın ihtiyaç duyduğu çıkış yapısına uyacak şekilde ayarlayabilir veya çıkış biçimini ve doğruluğunu zorunlu kılmak için `system_instruction` ekleyebilirsiniz.
+Para adaptar estos ejemplos a tu caso de uso, reemplaza el texto de la instrucción y el archivo de imagen subido por los tuyos. También puedes ajustar el esquema JSON solicitado en la instrucción para que coincida con la estructura de salida que necesita tu aplicación o agregar una `system_instruction` para aplicar el formato y la precisión de la salida.
 
-Çalıştırılabilir kodun tamamı için [Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)'a (Robotik yemek kitabı) bakın.
+Para obtener el código ejecutable completo, consulta el
+[libro de recetas de Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Düşünme düzeyi
+## Nivel de pensamiento
 
-Gecikmeyi doğrulukla değiştirmek için düşünme düzeyini kontrol edebilirsiniz. Nesne tespit etme gibi uzamsal görevler, düşük düşünme seviyesinde iyi performans gösterir. Sayma veya ağırlık tahmini gibi karmaşık görevler, daha yüksek bir düşünme seviyesinden yararlanır.
+Puedes controlar el nivel de pensamiento para intercambiar latencia por precisión. Las tareas espaciales, como la detección de objetos, funcionan bien con un nivel de pensamiento bajo. Las tareas complejas, como el recuento o la estimación de peso, se benefician de un nivel de pensamiento más alto.
 
-Aşağıdaki örnekte, karmaşık bir sayma görevi için düşünme düzeyi `high` olarak ayarlanmıştır:
+En el siguiente ejemplo, se establece el nivel de pensamiento en `high` para una tarea de recuento compleja:
 
 ### Python
 
@@ -59,11 +60,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Ayrıntılar için [Thinking](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=tr) (Düşünme) bölümüne bakın.
+Consulta [Pensamiento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=es-419) para obtener más detalles.
 
-## Nesne tespit etme (yakınlaştırma ve kırpma)
+## Detección de objetos (zoom y recorte)
 
-Aşağıdaki örnekte, nesneleri algılarken ve sınırlayıcı kutuları döndürürken daha net bir görünüm için kodu yürütme özelliğini kullanarak bir resmi nasıl yakınlaştırıp kırpacağınız gösterilmektedir.
+En el siguiente ejemplo, se muestra cómo usar la ejecución de código para acercar y recortar una imagen para obtener una vista más clara cuando se detectan objetos y se muestran cuadros delimitadores.
 
 ### Python
 
@@ -101,7 +102,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Model çıkışı, aşağıdaki JSON yanıtına benzer olacaktır:
+El resultado del modelo sería similar a la siguiente respuesta JSON:
 
 ```
 [
@@ -113,13 +114,13 @@ Model çıkışı, aşağıdaki JSON yanıtına benzer olacaktır:
 ]
 ```
 
-Aşağıdaki resimde, modelden döndürülen kutular gösterilmektedir.
+En la siguiente imagen, se muestran los cuadros que muestra el modelo.
 
-![Bulunan nesnelerin sınırlayıcı kutularını gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=tr)
+![Ejemplo que muestra los cuadros de límite de los objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=es-419)
 
-## Analog bir göstergeyi okuma ve mantık uygulama
+## Leer un indicador analógico y aplicar lógica
 
-Aşağıdaki örnekte, analog bir ölçüm cihazını okumak ve zaman hesaplamaları yapmak için modelin nasıl kullanılacağı gösterilmektedir. JSON çıkışını zorunlu kılmak için sistem talimatı kullanır.
+En el siguiente ejemplo, se muestra cómo usar el modelo para leer un indicador analógico y realizar cálculos de tiempo. Usa una instrucción del sistema para aplicar una salida JSON.
 
 ### Python
 
@@ -155,9 +156,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Bir kaptaki sıvıyı ölçme
+## Medir el fluido en un contenedor
 
-Aşağıdaki örnekte, bir kaptaki sıvı seviyesini ölçmek için kod yürütmenin nasıl kullanılacağı gösterilmektedir.
+En el siguiente ejemplo, se muestra cómo usar la ejecución de código para medir el nivel de fluido en un contenedor.
 
 ### Python
 
@@ -192,9 +193,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Devre kartındaki işaretleri okuma
+## Leer marcas en una placa de circuitos
 
-Aşağıdaki örnekte, devre kartındaki işaretleri okumak için kod yürütmenin nasıl kullanılacağı gösterilmektedir.
+En el siguiente ejemplo, se muestra cómo usar la ejecución de código para leer las marcas en una placa de circuitos.
 
 ### Python
 
@@ -229,11 +230,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-![Bir devre kartındaki işaretleri gösteren örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=tr)
+![Ejemplo que muestra marcas en una placa de circuito](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=es-419)
 
-## Resim ek açıklaması
+## Anotación de la imagen
 
-Aşağıdaki örnekte, kod yürütme özelliğini kullanarak bir resmi nasıl açıklayacağınız (ör. imha talimatları için ok çizme) ve değiştirilen resmi nasıl döndüreceğiniz gösterilmektedir.
+En el siguiente ejemplo, se muestra cómo usar la ejecución de código para anotar una imagen (p.ej., dibujar flechas para las instrucciones de eliminación) y mostrar la imagen modificada.
 
 ### Python
 
@@ -270,11 +271,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Aşağıda örnek bir resim girişi verilmiştir.
+A continuación, se muestra un ejemplo de entrada de imagen.
 
-![Okumak için saat gösteren bir örnek](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=tr)
+![Un ejemplo que muestra un reloj para leer](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=es-419)
 
-Model çıkışı aşağıdaki gibi olur:
+El resultado del modelo sería similar al siguiente:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -283,18 +284,18 @@ Model çıkışı aşağıdaki gibi olur:
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Sırada ne var?
+## ¿Qué sigue?
 
-- [Görev düzenleme](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=tr): Özel robot API'leri içeren uzun vadeli görevler.
-- [Yayın özellikli robotik](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=tr): Gerçek zamanlı çift yönlü yayın (yalnızca Gemini Robotics ER 2).
-- [Video anlama](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=tr): Anları bulma ve ilerleme sınıflandırması (yalnızca Gemini Robotics ER 2).
+- [Orquestación de tareas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=es-419): tareas de largo plazo con APIs de robot personalizadas
+- [Robótica con transmisión](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419): transmisión bidireccional en tiempo real (solo Gemini Robotics ER 2).
+- [Comprensión de video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=es-419): búsqueda de momentos y clasificación de progreso (solo Gemini Robotics ER 2)
 
-Geri bildirim gönderin
+Enviar comentarios
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Son güncelleme tarihi: 2026-09-10 UTC.
+Última actualización: 2026-09-08 (UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+¿Quieres brindar más información?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-10 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-08 (UTC)"],[],[]]

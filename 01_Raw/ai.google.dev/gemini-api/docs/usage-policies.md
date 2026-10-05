@@ -1,67 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=hi
-fetched_at: 2026-09-28T06:16:05.458675+00:00
-title: "\u092c\u0941\u0930\u0947 \u092c\u0930\u094d\u0924\u093e\u0935 \u0915\u0940 \u0928\u093f\u0917\u0930\u093e\u0928\u0940 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr
+fetched_at: 2026-10-05T06:26:15.106496+00:00
+title: "K\u00f6t\u00fcye kullan\u0131m izleme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-सुझाव भेजें
+Geri bildirim gönderin
 
-# बुरे बर्ताव की निगरानी करना
+# Kötüye kullanım izleme
 
-Google, एआई को ज़िम्मेदारी के साथ डेवलप करने और उसका इस्तेमाल करने के लिए प्रतिबद्ध है. Gemini API की सुरक्षा और अखंडता बनाए रखने के लिए, हमने नीति के ये दिशा-निर्देश बनाए हैं.
-Gemini API का इस्तेमाल करने का मतलब है कि आप इन दिशा-निर्देशों, [Gemini API की सेवा की अतिरिक्त शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi), और जनरेटिव एआई के [इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) से सहमत हैं.
+Google, yapay zekanın sorumlu bir şekilde geliştirilmesine ve kullanılmasına kendini adamıştır. Gemini API'nin güvenliğini ve bütünlüğünü sağlamak için bu politika yönergelerini oluşturduk. Gemini API'yi kullanarak aşağıdaki yönergeleri, [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr)'nı ve Üretken Yapay Zeka [Yasaklanan Kullanım Politikası](https://policies.google.com/terms/generative-ai/use-policy?hl=tr)'nı kabul etmiş olursunuz.
 
-## हम गलत इस्तेमाल पर कैसे नज़र रखते हैं
+## Kötüye Kullanımı Nasıl İzleriz?
 
-Google की Trust and Safety टीम, Gemini API और Google AI Studio के संभावित गलत इस्तेमाल का पता लगाने के लिए, ऑटोमेटेड और मैन्युअल, दोनों तरीकों का इस्तेमाल करती है. इससे हमारी नीतियों को लागू करने में मदद मिलती है.
+Google'ın Güven ve Güvenlik Ekibi, politikalarımızı uygulamak için Gemini API ve Google AI Studio'nun olası kötüye kullanımını tespit etmek amacıyla hem otomatik hem de manuel süreçlerden yararlanır.
 
-- **अपने-आप पता लगाने की सुविधा:** ऑटोमेटेड सिस्टम, एपीआई के इस्तेमाल को स्कैन करते हैं. इससे, 'जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति' के उल्लंघन का पता चलता है. जैसे, नफ़रत फैलाने वाले भाषण, उत्पीड़न, अश्लील कॉन्टेंट, और खतरनाक कॉन्टेंट.
-- **मैन्युअल तरीके से पता लगाना:** अगर किसी प्रोजेक्ट में लगातार संदिग्ध गतिविधि होती है, तो Google के अधिकृत कर्मचारी मैन्युअल तरीके से उसकी समीक्षा कर सकते हैं.
+- **Otomatik Algılama:** Otomatik sistemler, API kullanımını yasaklanmış kullanım politikamızın ihlallerine (ör. nefret söylemi, taciz, müstehcen içerik ve tehlikeli içerik) karşı tarar.
+- **Manuel tespit:** Bir projede sürekli olarak şüpheli etkinlik görülürse yetkili Google personeli tarafından manuel inceleme için işaretlenebilir.
 
-## हम डेटा को कैसे हैंडल करते हैं
+## Verileri Nasıl İşleriz?
 
-Google, इन डेटा को 55 दिनों तक सेव करके रखता है. ऐसा इसलिए किया जाता है, ताकि सेवाओं को सुरक्षित बनाए रखने के लिए, पाबंदी वाले इस्तेमाल से जुड़ी नीति के उल्लंघनों का पता लगाया जा सके और उन्हें रोका जा सके. साथ ही, कानूनी या नियामक से जुड़ी ज़रूरी जानकारी का खुलासा किया जा सके:
+Google, Hizmetler'in güvenliğini ve emniyetini sağlamak amacıyla Yasaklanan Kullanım Politikası'nın ihlallerini tespit edip önlemek ve gerekli yasal veya düzenleyici açıklamaları yapmak için aşağıdaki verileri elli beş (55) gün boyunca saklar:
 
-- **प्रॉम्प्ट:** एपीआई को सबमिट किए गए टेक्स्ट प्रॉम्प्ट.
-- **कॉन्टेक्स्ट के हिसाब से जानकारी:** आपके प्रॉम्प्ट के साथ दी गई कोई भी अतिरिक्त जानकारी.
-- **आउटपुट:** Gemini API से जनरेट किए गए जवाब.
+- **İstemler:** API'ye gönderdiğiniz metin istemleri.
+- **Bağlamsal Bilgiler:** İstemlerinizle birlikte sağladığınız ek bağlam bilgileri.
+- **Çıkış:** Gemini API tarafından oluşturulan yanıtlar.
 
-## हम संभावित समस्याओं की जांच कैसे करते हैं
+## Olası Sorunları Nasıl İnceleriz?
 
-जब ऊपर बताए गए सुरक्षा फ़िल्टर और गलत इस्तेमाल का पता लगाने वाले सिस्टम, प्रॉम्प्ट या मॉडल के आउटपुट को फ़्लैग करते हैं, तो Google के अधिकृत कर्मचारी फ़्लैग किए गए कॉन्टेंट का आकलन कर सकते हैं. साथ ही, पहले से तय की गई गाइडलाइन और नीतियों के आधार पर, क्लासिफ़िकेशन या फ़ैसले की पुष्टि कर सकते हैं या उसे ठीक कर सकते हैं. डेटा की मैन्युअल तरीके से समीक्षा करने के लिए, सिर्फ़ Google के उन कर्मचारियों को ऐक्सेस दिया जाता है जिन्हें इसकी अनुमति मिली है. ऐसा इंटरनल गवर्नेंस असेसमेंट और समीक्षा मैनेजमेंट प्लैटफ़ॉर्म के ज़रिए किया जाता है. जब गलत इस्तेमाल की निगरानी के लिए डेटा लॉग किया जाता है, तो इसका इस्तेमाल सिर्फ़ नीति लागू करने और नीति के उल्लंघनों को रोकने के लिए किया जाता है.
-इसका इस्तेमाल, नीति लागू करने के लिए इस्तेमाल किए जाने वाले एआई/एमएल मॉडल के अलावा, किसी अन्य एआई/एमएल मॉडल को ट्रेनिंग देने या उसे बेहतर बनाने के लिए नहीं किया जाता.
+Yukarıda açıklanan güvenlik filtreleri ve kötüye kullanım tespit sistemleri tarafından işaretlenen istemler veya model çıkışları, yetkili Google çalışanları tarafından değerlendirilebilir. Bu çalışanlar, önceden tanımlanmış kurallar ve politikalara göre sınıflandırmayı veya belirlemeyi onaylayabilir ya da düzeltebilir. Verilere, yalnızca yetkili Google çalışanları tarafından dahili bir yönetim değerlendirmesi ve inceleme yönetimi platformu aracılığıyla inceleme uzmanı incelemesi için erişilebilir. Kötüye kullanım izleme için veriler kaydedildiğinde yalnızca politika yaptırımı ve politika ihlallerini önleme amacıyla kullanılır.
+Bu veriler, özellikle politika yaptırımı için kullanılanlar dışında herhangi bir yapay zeka/makine öğrenimi modelini eğitmek veya ince ayar yapmak için kullanılmaz.
 
-## नीति का पालन करने में आपकी मदद करना
+## Politikaya Uygunluk Konusunda Sizinle Birlikte Çalışma
 
-अगर Gemini का इस्तेमाल हमारी नीतियों के मुताबिक नहीं है, तो हम ये कार्रवाइयां कर सकते हैं:
+Gemini'ı kullanımınız politikalarımıza uygun değilse aşağıdaki adımları atabiliriz:
 
-- **हमसे संपर्क करें:** हम आपसे ईमेल के ज़रिए संपर्क कर सकते हैं. इससे हमें यह समझने में मदद मिलेगी कि आपने इस सुविधा का इस्तेमाल किस तरह किया है. साथ ही, हम यह पता लगा पाएंगे कि इसे इस्तेमाल करने के लिए, नियमों का पालन कैसे किया जा सकता है.
-- **इस्तेमाल की अस्थायी सीमाएं:** हम Gemini API के आपके ऐक्सेस को सीमित कर सकते हैं. जैसे, अनुरोध करने की दर की सीमाएं घटाकर या किसी खास अनुरोध का जवाब देने वाले मॉडल को बदलकर.
-- **कुछ समय के लिए निलंबन:** हम Gemini API को ऐक्सेस करने की आपकी सुविधा को कुछ समय के लिए रोक सकते हैं.
-- **खाता बंद करना:** गंभीर उल्लंघनों के मामले में, हम Gemini API और Google की अन्य सेवाओं को ऐक्सेस करने की आपकी सुविधा को हमेशा के लिए बंद कर सकते हैं.
+- **İletişime geçme:** Kullanım alanınızı anlamak ve kullanımınızı uygun hale getirmenin yollarını araştırmak için sizinle e-posta üzerinden iletişime geçebiliriz.
+- **Geçici kullanım sınırları:** Örneğin, hız sınırlarını ayarlayarak veya belirli bir isteğe hangi modelin yanıt vereceğini değiştirerek Gemini API'ye erişiminizi sınırlayabiliriz.
+- **Geçici askıya alma:** Gemini API'ye erişiminizi geçici olarak duraklatabiliriz.
+- **Hesabın kapatılması:** Son çare olarak ve ciddi ihlallerde Gemini API'ye ve diğer Google hizmetlerine erişiminizi kalıcı olarak kapatabiliriz.
 
-अगर हम खाते के निलंबन या खाता बंद करने के बारे में आपसे संपर्क करते हैं, तो हम आपको एक लिंक भी देंगे जहां आप अपील कर सकते हैं.
+Askıya alma veya hesap kapatma ile ilgili olarak sizinle iletişime geçersek itirazda bulunabileceğiniz bir bağlantı da paylaşırız.
 
-## दायरा
+## Kapsam
 
-नीति से जुड़े ये दिशा-निर्देश, Gemini API और AI Studio के इस्तेमाल पर लागू होते हैं.
+Bu politika yönergeleri, Gemini API ve AI Studio'nun kullanımı için geçerlidir.
 
-सुझाव भेजें
+Geri bildirim gönderin
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-आखिरी बार 2026-06-09 (UTC) को अपडेट किया गया.
+Son güncelleme tarihi: 2026-06-09 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-09 (UTC) को अपडेट किया गया."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-09 UTC."],[],[]]

@@ -1,155 +1,153 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=he
-fetched_at: 2026-09-28T06:08:08.366307+00:00
-title: "\u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05e4\u05ea\u05e8\u05d5\u05df \u05d1\u05e2\u05d9\u05d5\u05ea \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja
+fetched_at: 2026-10-05T06:36:31.309471+00:00
+title: "\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-שליחת משוב
+フィードバックを送信
 
-# מדריך לפתרון בעיות
+# トラブルシューティング ガイド
 
-המדריך הזה יעזור לכם לאבחן ולפתור בעיות נפוצות שמתעוררות כשקוראים ל-Gemini API. יכול להיות שתיתקלו בבעיות בשירות הקצה העורפי של Gemini API או בערכות ה-SDK של הלקוח. ערכות ה-SDK ללקוחות שלנו מבוססות על קוד פתוח במאגרים הבאים:
+このガイドは、Gemini API の呼び出し時に発生する一般的な問題を診断して解決する際に役立ちます。Gemini API バックエンド サービスまたはクライアント SDK のいずれかで問題が発生する可能性があります。クライアント SDK は、次のリポジトリでオープンソース化されています。
 
 - [python-genai](https://github.com/googleapis/python-genai)
 - [js-genai](https://github.com/googleapis/js-genai)
 - [go-genai](https://github.com/googleapis/go-genai)
 
-אם נתקלתם בבעיות במפתח API, ודאו שהגדרתם אותו בצורה נכונה לפי [מדריך ההגדרה של מפתח API](https://ai.google.dev/gemini-api/docs/api-key?hl=he).
+API キーに関する問題が発生した場合は、[API キーの設定ガイド](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)に沿って API キーが正しく設定されていることを確認してください。
 
-## קודי שגיאה
+## エラーコード
 
-רשימה מלאה של כל קודי השגיאה, כולל קודי סטטוס של HTTP, קודי חסימה של יצירת תוכן וקודי שגיאה של תוכן, מופיעה בדף [שגיאות ב-API](https://ai.google.dev/gemini-api/docs/api-errors?hl=he).
+HTTP ステータス コード、生成ブロック コード、コンテンツ エラーコードなど、すべてのエラーコードのリファレンスについては、[API エラー](https://ai.google.dev/gemini-api/docs/api-errors?hl=ja)のページをご覧ください。
 
-## אסטרטגיה של ניסיון חוזר
+## 再試行方法
 
-אם מקבלים שגיאה שמציינת שצריך לנסות שוב לשלוח את הבקשה (למשל `429 RESOURCE_EXHAUSTED` או `503 UNAVAILABLE`), מומלץ להטמיע אסטרטגיית השהיה מעריכית לפני ניסיון חוזר. כלומר, מחכים זמן קצר לפני הניסיון החוזר הראשון, ואז מגדילים בהדרגה את זמן ההמתנה בין הניסיונות החוזרים הבאים.
+リクエストを再試行する必要があることを示すエラー（`429 RESOURCE_EXHAUSTED` や `503 UNAVAILABLE` など）を受け取った場合は、指数バックオフ戦略を実装することをおすすめします。つまり、最初の再試行の前に短い時間待機し、後続の再試行間の待機時間を徐々に増やします。
 
-ערכות ה-SDK הרשמיות של הלקוח ל-Gemini API, כמו [Python SDK](https://github.com/googleapis/python-genai), כוללות כברירת מחדל לוגיקה של ניסיון חוזר עם השהיה מעריכית לפני ניסיון חוזר (exponential backoff) לטיפול בשגיאות זמניות כמו זמן קצוב לתפוגה, בעיות ברשת והגבלת קצב של יצירת בקשות (קודי סטטוס `429` ו-`5xx`). לדוגמה, Python SDK מנסה שוב באופן אוטומטי לתקן שגיאות זמניות עד ארבע פעמים, עם השהיה ראשונית של שנייה אחת בערך והשהיה מקסימלית של 60 שניות.
+[Python SDK](https://github.com/googleapis/python-genai) などの Gemini API の公式クライアント SDK には、タイムアウト、ネットワークの問題、レート制限（`429` と `5xx` のステータス コード）などの一時的なエラーを処理するための指数バックオフによる自動再試行ロジックがデフォルトで含まれています。たとえば、Python SDK は、一時的なエラーを最大 4 回自動的に再試行します。最初の遅延は約 1 秒で、最大遅延は 60 秒です。
 
-אם אתם שולחים בקשות ישירות ל-API בארכיטקטורת REST או מבצעים התאמה אישית של לוגיקת הניסיון החוזר, כדאי לפעול לפי השיטות המומלצות הבאות כדי להגדיל את הסיכוי שהבקשה תצליח ולמנוע עומס יתר על השירות:
+REST API リクエストを直接行う場合や、再試行ロジックをカスタマイズする場合は、次のベスト プラクティスに沿って、リクエストの成功率を高め、サービスへの過負荷を防ぎます。
 
-- **שימוש בהשהיה מעריכית לפני ניסיון חוזר (exponential backoff):** המתנה למשך זמן קצר לפני הניסיון הראשון (לדוגמה, שנייה אחת), ואז הגדלת העיכוב באופן אקספוננציאלי (לדוגמה, 2 שניות, 4 שניות, 8 שניות).
-- **הוספת תנודות:** הוספת תנודות אקראיות לעיכוב כדי למנוע מכל הלקוחות לנסות שוב בדיוק באותו הזמן.
-- **ניסיון חוזר במקרה של שגיאות ספציפיות:** כדאי לנסות שוב רק במקרה של שגיאות זמניות (כמו `429`,‏ `408` או `5xx`). לא כדאי לנסות שוב במקרה של שגיאות לקוח (כמו `400`,‏ `402` או `403`), כי הן מצביעות על בעיות כמו מפתחות API לא תקינים, קרדיטים בתשלום מראש שנוצלו או תחביר לא תקין.
-- **הגדרת מספר מקסימלי של ניסיונות חוזרים:** הגדרת מספר מקסימלי של ניסיונות חוזרים כדי למנוע לולאות אינסופיות.
+- **指数バックオフを使用する:** 最初の再試行の前に短い時間（1 秒など）待機し、遅延を指数関数的に増やします（2 秒、4 秒、8 秒など）。
+- **ジッターを追加する:** 遅延にランダムな「ジッター」を追加して、すべてのクライアントがまったく同じタイミングで再試行するのを防ぎます。
+- **特定のエラーで再試行する:** 一時的なエラー（`429`、`408`、`5xx` など）でのみ再試行します。クライアント エラー（`400`、`402`、`403` など）は、無効な API キー、プリペイド クレジットの枯渇、構文エラーなどの問題を示しているため、再試行しないでください。
+- **最大再試行回数を設定する:** 無限ループを回避するために、再試行の最大回数を定義します。
 
-## בדיקה של שגיאות בפרמטרים של המודל בקריאות ל-API
+## API 呼び出しでモデル パラメータのエラーを確認する
 
-מוודאים שערכי הפרמטרים של המודל נמצאים בטווח הערכים הבא:
+モデル パラメータが次の値の範囲内であることを確認します。
 
 |  |  |
 | --- | --- |
-| **פרמטר של מודל** | **ערכים (טווח)** |
-| מספר המועמדים | ‫1-8 (מספר שלם) |
-| טמפרטורה | ‫0.0 עד 1.0 |
-| מספר מקסימלי של טוקנים בפלט | משתמשים ב[דף המודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he) כדי לקבוע את המספר המקסימלי של טוקנים למודל שבו אתם משתמשים. |
-| TopP | ‫0.0 עד 1.0 |
+| **モデル パラメータ** | **値（範囲）** |
+| 候補数 | 1 ～ 8（整数） |
+| 温度 | 0.0 ～ 1.0 |
+| 最大出力トークン | [モデルのページ](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja)で、使用しているモデルの最大トークン数を特定します。 |
+| TopP | 0.0 ～ 1.0 |
 
-בנוסף לבדיקת ערכי הפרמטרים, חשוב לוודא שאתם משתמשים ב[גרסת ה-API](https://ai.google.dev/gemini-api/docs/api-versions?hl=he) הנכונה (למשל, `/v1` או `/v1beta`) ובמודל שתומך בתכונות שאתם צריכים. לדוגמה, אם תכונה מסוימת נמצאת בגרסת בטא, היא תהיה זמינה רק בגרסת API‏ `/v1beta`.
+パラメータ値の確認に加えて、必要な機能をサポートする正しい [API バージョン](https://ai.google.dev/gemini-api/docs/api-versions?hl=ja)（`/v1` や `/v1beta` など）とモデルを使用していることを確認してください。たとえば、機能がベータ版リリースの場合、`/v1beta` API バージョンでのみ使用できます。
 
-## בדיקה אם יש לכם את הדגם הנכון
+## 適切なモデルがあるかどうかを確認する
 
-מוודאים שאתם משתמשים במודל נתמך שמופיע ב[דף המודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he).
+[モデルのページ](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja)に記載されているサポート対象のモデルを使用していることを確認します。
 
-## זמן אחזור ארוך יותר או שימוש רב יותר בטוקנים עם מודלים של חשיבה
+## 思考モデルでのレイテンシの増加またはトークン使用量の増加
 
-חביון גבוה יותר או שימוש באסימונים מתרחשים לעיתים קרובות כי במודלים של Gemini 3.x מופעלת כברירת מחדל האפשרות 'חשיבה'. גם מודלים מיושנים של Gemini 2.5 משתמשים בחשיבה שמוגדרת כברירת מחדל.
+レイテンシやトークン使用量が増加するのは、Gemini 3.x モデルで思考がデフォルトで有効になっていることが原因であることがよくあります。非推奨の Gemini 2.5 モデルでも、デフォルトの思考が使用されます。
 
-מודלים של חשיבה יוצרים טוקנים פנימיים של הסקת מסקנות כדי לשפר את האיכות. תהליך החשיבה הזה מגדיל את זמן האחזור של התשובה ואת צריכת האסימונים הכוללת.
+思考モデルは、品質を向上させるために内部推論トークンを生成します。この推論プロセスでは、レスポンスのレイテンシとトークンの合計消費量が増加します。
 
-אם חשוב לכם להקטין את זמן האחזור או את העלויות, אתם יכולים להקטין את רמת החשיבה או להשבית את החשיבה.
+レイテンシの短縮を優先する場合や、費用を最小限に抑える必要がある場合は、思考レベルを下げるか、思考をオフにできます。
 
-פרטים על ההגדרה ודוגמאות קוד מופיעים ב[מדריך לתכנון](https://ai.google.dev/gemini-api/docs/thinking?hl=he#thinking-levels).
+構成の詳細とコードサンプルについては、[思考ガイド](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#thinking-levels)をご覧ください。
 
-## בעיות בטיחות
+## 安全性に関する問題
 
-אם מופיעה הודעה שהנחיה נחסמה בגלל הגדרת בטיחות בקריאה ל-API, צריך לבדוק את ההנחיה בהתאם למסננים שהגדרתם בקריאה ל-API.
+API 呼び出しの安全設定によりプロンプトがブロックされた場合は、API 呼び出しで設定したフィルタに照らしてプロンプトを確認してください。
 
-אם אתם רואים את הסמל `BlockedReason.OTHER`, יכול להיות שהשאילתה או התשובה מפרות את [התנאים וההגבלות](https://ai.google.dev/terms?hl=he) או שהן לא נתמכות מסיבה אחרת.
+`BlockedReason.OTHER` が表示された場合、クエリまたはレスポンスが[利用規約](https://ai.google.dev/terms?hl=ja)に違反しているか、サポートされていない可能性があります。
 
-## בעיה בהקראה
+## 列挙に関する問題
 
-אם אתם רואים שהמודל מפסיק ליצור פלט בגלל הסיבה RECITATION, זה אומר שהפלט של המודל עשוי להיות דומה לנתונים מסוימים. כדי לפתור את הבעיה, כדאי לנסות להפוך את הפרומפט או ההקשר לייחודיים ככל האפשר ולהשתמש ברמת אקראיות גבוהה יותר.
+RECITATION の理由でモデル出力の生成が停止した場合は、モデルの出力が特定のデータに類似している可能性があります。この問題を解決するには、プロンプト / コンテキストをできるだけ一意にし、Temperature を高くしてみてください。
 
-## בעיה של טוקנים חוזרים
+## トークンが繰り返し発行される問題
 
-אם אתם רואים טוקנים של פלט שחוזרים על עצמם, נסו את ההצעות הבאות כדי לצמצם או לבטל אותם.
+出力トークンが繰り返し表示される場合は、次の提案を試して、出力トークンを減らすか、削除してください。
 
-| תיאור | סיבה | פתרון עקיף מוצע |
+| 説明 | 原因 | 推奨される回避策 |
 | --- | --- | --- |
-| מקפים חוזרים בטבלאות Markdown | זה יכול לקרות כשהתוכן בטבלה ארוך, כי המודל מנסה ליצור טבלת Markdown עם יישור חזותי. עם זאת, היישור ב-Markdown לא נחוץ כדי שהעיבוד יהיה תקין. | מוסיפים להנחיה הוראות כדי לתת למודל הנחיות ספציפיות ליצירת טבלאות בפורמט Markdown. לספק דוגמאות שפועלות לפי ההנחיות האלה. אפשר גם לנסות לשנות את הטמפרטורה. כדי ליצור קוד או פלט מובנה מאוד כמו טבלאות Markdown, עדיף להשתמש ברמת אקראיות גבוהה (‎>= 0.8).  זו דוגמה להנחיות שאפשר להוסיף לפרומפט כדי למנוע את הבעיה הזו:     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
-| טוקנים חוזרים בטבלאות Markdown | בדומה למקפים החוזרים, זה קורה כשהמודל מנסה ליישר חזותית את התוכן של הטבלה. ההזחה ב-Markdown לא נדרשת כדי שהעיבוד יהיה תקין. | - נסו להוסיף לפרומפט המערכת הוראות כמו אלה:      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - כדאי לנסות לשנות את הטמפרטורה. טמפרטורות גבוהות יותר (>= 0.8)   עוזרות בדרך כלל למנוע חזרות או כפילויות   בפלט. |
-| שורה חדשה חוזרת (`\n`) בפלט מובנה | אם קלט המודל מכיל רצפי Unicode או רצפי escape כמו `\u` או `\t`, יכול להיות שיופיעו שורות חדשות חוזרות. | - בודקים אם יש רצפי escape אסורים בהנחיה ומחליפים אותם בתווי UTF-8. לדוגמה, אם בדוגמאות של JSON יש רצף escape של `\u`, המודל עלול להשתמש בו גם בפלט שלו. - לתת למודל הוראות לגבי יציאות מותרות. מוסיפים הוראה למערכת כמו זו:      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
-| טקסט שחוזר על עצמו בפלט מובנה | אם הפלט של המודל כולל את השדות בסדר שונה מזה של הסכימה המובנית שהוגדרה, הדבר עלול להוביל לחזרה על טקסט. | - אל תציינו את סדר השדות בהנחיה. - הופכים את כל שדות הפלט לשדות חובה. |
-| קריאות חוזרות לכלי | זה יכול לקרות אם המודל מאבד את ההקשר של מחשבות קודמות או אם הוא קורא לנקודת קצה לא זמינה שהוא נאלץ לקרוא לה. | הוראות למודל לשמור על מצב בתהליך החשיבה שלו. מוסיפים את ההוראה הבאה לסוף הוראות המערכת:    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
-| טקסט שחוזר על עצמו ולא מהווה חלק מהפלט המובנה | זה יכול לקרות אם המודל נתקע בבקשה שהוא לא יכול לפתור. | - אם התכונה 'חשיבה' מופעלת, כדאי להימנע מלתת הוראות מפורשות לגבי אופן הפתרון של בעיה בהוראות. פשוט מבקשים את הפלט הסופי. - נסו טמפרטורה גבוהה יותר >= 0.8. - מוסיפים הנחיות כמו "תשובה תמציתית", "לא לחזור על עצמך" או "לספק את התשובה פעם אחת". |
+| マークダウン テーブルでハイフンが繰り返される | これは、モデルが視覚的に整列された Markdown テーブルを作成しようとしたときに、テーブルの内容が長い場合に発生する可能性があります。ただし、Markdown の配置は正しくレンダリングするために必須ではありません。 | プロンプトに指示を追加して、Markdown テーブルを生成するための具体的なガイドラインをモデルに提供します。これらのガイドラインに沿った例を示します。温度を調整してみることもできます。コードやマークダウン テーブルなどの構造化された出力を生成する場合は、高い Temperature（0.8 以上）の方が効果的です。  以下は、この問題を回避するためにプロンプトに追加できるガイドラインの例です。     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
+| マークダウン テーブル内のトークンの繰り返し | ハイフンが繰り返されるのと同様に、これはモデルがテーブルの内容を視覚的に揃えようとしたときに発生します。Markdown の配置は、正しくレンダリングするために必須ではありません。 | - 次のような指示をシステム プロンプトに追加してみてください。      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - 温度を調整してみてください。温度が高い（0.8 以上）ほど、一般的に出力の繰り返しや重複を排除できます。 |
+| 構造化出力内の改行の繰り返し（`\n`） | モデル入力に `\u` や `\t` などの Unicode またはエスケープ シーケンスが含まれていると、改行が繰り返されることがあります。 | - プロンプトで禁止されているエスケープ シーケンスをチェックし、UTF-8 文字に置き換えます。たとえば、JSON の例で `\u` エスケープ シーケンスを使用すると、モデルがその出力を生成する際に同じエスケープ シーケンスを使用する可能性があります。 - 許可されるエスケープについてモデルに指示します。次のようなシステム指示を追加します。      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
+| 構造化出力でテキストが繰り返される | モデル出力で、定義された構造化スキーマとフィールドの順序が異なると、テキストが繰り返されることがあります。 | - プロンプトでフィールドの順序を指定しないでください。 - すべての出力フィールドを必須にします。 |
+| ツールの呼び出しの繰り返し | これは、モデルが以前の思考のコンテキストを失った場合や、強制的に使用できないエンドポイントを呼び出した場合に発生することがあります。 | モデルに、思考プロセス内で状態を維持するように指示します。システム指示の末尾に以下を追加します。    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
+| 構造化された出力の一部ではない繰り返しテキスト | これは、モデルが解決できないリクエストでスタックした場合に発生する可能性があります。 | - 思考がオンになっている場合は、手順で問題を解決する方法を明示的に指示しないでください。最終的な出力のみをリクエストします。 - 温度を 0.8 以上に設定してみてください。 - 「簡潔に」、「繰り返さないで」、「回答は 1 回だけ」などの指示を追加します。 |
 
-## מפתחות API חסומים או לא תקינים
+## ブロックされた API キーまたは機能しない API キー
 
-בקטע הזה מוסבר איך לבדוק אם מפתח Gemini API שלכם חסום ומה אפשר לעשות כדי לפתור את הבעיה.
+このセクションでは、Gemini API キーがブロックされているかどうかを確認する方法と、ブロックされている場合の対処方法について説明します。
 
-### למה מפתחות נחסמים
+### キーがブロックされる理由
 
-זיהינו נקודת חולשה שבה יכול להיות שחלק ממפתחות ה-API נחשפו באופן ציבורי. כדי להגן על הנתונים שלכם ולמנוע גישה לא מורשית, חסמנו באופן יזום את הגישה ל-Gemini API של מפתחות ידועים שדלפו.
+一部の API キーが一般公開されている可能性がある脆弱性が特定されました。お客様のデータを保護し、不正アクセスを防止するため、これらの既知の漏洩キーが Gemini API にアクセスできないように事前にブロックしました。
 
-### איך בודקים אם המפתחות מושפעים
+### キーが影響を受けるかどうかを確認する
 
-אם ידוע שמפתח נחשף, אי אפשר יותר להשתמש בו עם Gemini API. אתם יכולים להשתמש ב-[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=he) כדי לבדוק אם יש מפתחות API שחסימתם מונעת מהם לבצע קריאות ל-Gemini API, וליצור מפתחות חדשים. יכול להיות שתוצג גם השגיאה הבאה כשמנסים להשתמש במפתחות האלה:
+キーが漏洩したことが判明した場合、そのキーを Gemini API で使用することはできません。[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) を使用すると、Gemini API の呼び出しがブロックされている API キーがあるかどうかを確認し、新しいキーを生成できます。これらのキーを使用しようとすると、次のエラーが返されることもあります。
 
 ```
 Your API key was reported as leaked. Please use another API key.
 ```
 
-### פעולה למפתחות API חסומים
+### ブロックされた API キーに対するアクション
 
-מומלץ ליצור מפתחות API חדשים לשילובים של Gemini API באמצעות [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=he). מומלץ מאוד לבדוק את שיטות הניהול של מפתחות ה-API כדי לוודא שהמפתחות החדשים מאובטחים ולא נחשפים לציבור.
+Gemini API インテグレーション用の新しい API キーは、[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) を使用して生成する必要があります。新しいキーが安全に保管され、公開されないように、API キーの管理方法を見直すことを強くおすすめします。
 
-### חיובים לא צפויים בגלל פגיעות
+### 脆弱性による予期しない請求
 
-[שליחת בקשת תמיכה בנושא חיובים](https://console.cloud.google.com/support/chat?hl=he)
-צוות החיוב שלנו מטפל בבעיה הזו, ונעדכן אותך בהקדם האפשרי.
+[お支払いに関するサポートケースを送信します](https://console.cloud.google.com/support/chat?hl=ja)。請求チームが対応を進めております。進展がありしだい、できるだけ早くご連絡いたします。
 
-### אמצעי האבטחה של Google למפתחות שנחשפו
+### 漏洩した鍵に対する Google のセキュリティ対策
 
-**איך Google תעזור לי לאבטח את החשבון מפני חריגה מהתקציב ושימוש לרעה אם מפתחות ה-API שלי ידלפו?**
+**API キーが漏洩した場合、Google はアカウントの費用超過と不正使用をどのように防いでくれますか？**
 
-- אנחנו עוברים למצב שבו כשמבקשים מפתח חדש באמצעות [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=he), המערכת מנפיקה מפתחות API שמוגבלים כברירת מחדל לשימוש ב-Google AI Studio בלבד, ולא מקבלת מפתחות משירותים אחרים.
-  כך תוכלו למנוע שימוש לא מכוון במפתחות שונים.
-- אנחנו מגדירים כברירת מחדל חסימה של מפתחות API שדלפו ונעשה בהם שימוש ב-Gemini API, כדי למנוע שימוש לרעה בעלויות ובנתוני האפליקציה.
-- תוכלו לראות את הסטטוס של מפתחות ה-API ב-[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-keys?hl=he). אם נזהה שמפתחות ה-API שלכם נחשפו, נעדכן אתכם באופן יזום כדי שתוכלו לפעול באופן מיידי.
+- [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) を使用して新しいキーをリクエストすると、デフォルトで Google AI Studio のみに制限され、他のサービスからのキーを受け入れない API キーが発行されるようになります。これにより、意図しないクロスキーの使用を防ぐことができます。
+- Gemini API で使用される API キーが漏洩した場合、デフォルトでブロックされるため、コストとアプリケーション データの不正使用を防ぐことができます。
+- API キーのステータスは [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) で確認できます。また、API キーの漏洩が確認された場合は、直ちに対処できるよう、Google から積極的にご連絡いたします。
 
-## שיפור הפלט של המודל
+## モデル出力を改善する
 
-כדי לקבל פלט באיכות גבוהה יותר מהמודל, כדאי לנסות לכתוב הנחיות מובנות יותר. בדף [מדריך להנדסת פרומפטים](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he) מוסברים כמה מושגים בסיסיים, אסטרטגיות ושיטות מומלצות שיעזרו לכם להתחיל.
+モデルの出力の品質を高めるには、より構造化されたプロンプトの作成を検討してください。[プロンプト エンジニアリング ガイド](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)のページでは、基本的なコンセプト、戦略、ベスト プラクティスについて説明します。
 
-## הסבר על מגבלות הטוקנים
+## トークンの上限について
 
-כדי להבין טוב יותר איך לספור טוקנים ומה המגבלות שלהם, כדאי לעיין ב[מדריך הטוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
+トークン数とその上限のカウント方法について詳しくは、[トークンガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)をご覧ください。
 
-## בעיות מוכרות
+## 既知の問題
 
-- ה-API תומך רק במספר שפות נבחרות. הגשת הנחיות בשפות לא נתמכות עלולה להניב תשובות לא צפויות או אפילו חסומות. [כאן](https://ai.google.dev/gemini-api/docs/models?hl=he#supported-languages) אפשר לראות את השפות שזמינות לעדכונים.
+- この API は、選択した言語のみをサポートしています。サポートされていない言語でプロンプトを送信すると、予期しない回答やブロックされた回答が生成される可能性があります。最新情報については、[対応言語](https://ai.google.dev/gemini-api/docs/models?hl=ja#supported-languages)をご覧ください。
 
-## דיווח על באג
+## バグを報告する
 
-אם יש לכם שאלות, אתם יכולים להצטרף לדיון ב[פורום המפתחים של Google AI](https://discuss.ai.google.dev?hl=he).
+ご不明な点がある場合は、[Google AI デベロッパー フォーラム](https://discuss.ai.google.dev?hl=ja)でディスカッションにご参加ください。
 
-שליחת משוב
+フィードバックを送信
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-עדכון אחרון: 2026-09-20 (שעון UTC).
+最終更新日 2026-10-01 UTC。
 
-רוצה לתת לנו משוב?
+ご意見をお聞かせください
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-20 (שעון UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-01 UTC。"],[],[]]

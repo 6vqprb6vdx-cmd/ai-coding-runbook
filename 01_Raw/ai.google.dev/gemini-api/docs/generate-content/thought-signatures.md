@@ -1,99 +1,93 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=pl
-fetched_at: 2026-09-28T06:07:08.889427+00:00
-title: "podpisy w\u00a0my\u015blach \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=tr
+fetched_at: 2026-10-05T06:33:43.861042+00:00
+title: "D\u00fc\u015f\u00fcnce imzalar\u0131 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
 
-Prześlij opinię
+Geri bildirim gönderin
 
-# podpisy w myślach
+# Düşünce imzaları
 
-Podpisy myśli to zaszyfrowane reprezentacje wewnętrznego procesu myślowego modelu. Służą one do zachowania kontekstu rozumowania w interakcjach wieloetapowych.
-Gdy używasz modeli myślących (takich jak Gemini 3 i 2.5), interfejs API może
-zwracać pole `thoughtSignature` w [częściach odpowiedzi dotyczących treści](https://ai.google.dev/api/caching?hl=pl#Part) (np. `text` lub `functionCall`).
+Düşünce imzaları, modelin dahili düşünce sürecinin şifrelenmiş temsilleridir ve çok adımlı etkileşimlerde akıl yürütme bağlamını korumak için kullanılır.
+Düşünme modelleri (ör.Gemini 3 ve 2.5 serisi) kullanılırken API, yanıtın [content parts](https://ai.google.dev/api/caching?hl=tr#Part) (içerik bölümleri) içinde bir `thoughtSignature` alanı döndürebilir (ör. `text` veya `functionCall` bölümleri).
 
-Ogólnie rzecz biorąc, jeśli otrzymasz podpis myśli w odpowiedzi modelu, w następnym etapie musisz go przekazać dokładnie tak, jak został otrzymany, podczas wysyłania historii rozmowy.
-**Gdy używasz modeli Gemini 3, musisz przekazywać podpisy myśli podczas wywoływania funkcji. W przeciwnym razie otrzymasz błąd weryfikacji** (kod stanu 4xx).
-Dotyczy to również sytuacji, gdy używasz ustawienia `minimal`
-[poziomu myślenia](https://ai.google.dev/gemini-api/docs/thinking?hl=pl#thinking-levels) w przypadku Gemini 3
-Flash.
+Genel bir kural olarak, model yanıtında düşünce imzası alırsanız konuşma geçmişini bir sonraki turda gönderirken bu imzayı aynen iletmeniz gerekir.
+**Gemini 3 modellerini kullanırken işlev çağrısı sırasında düşünce imzalarını geri iletmeniz gerekir. Aksi takdirde doğrulama hatası alırsınız** (4xx durum kodu).
+Gemini 3 Flash için `minimal`
+[düşünme düzeyi](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#thinking-levels) ayarı kullanılırken de bu durum geçerlidir.
 
-## Jak to działa
+## İşleyiş şekli
 
-Poniższy diagram ilustruje znaczenie słów „etap” i „krok” w kontekście
-[wywoływania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl) w interfejsie Gemini API. „Etap” to pojedyncza, pełna wymiana informacji w rozmowie między użytkownikiem a modelem. „Krok” to bardziej szczegółowe działanie lub operacja wykonywana przez model, często w ramach większego procesu mającego na celu ukończenie etapu.
+Aşağıdaki grafik, Gemini API'deki [işlev çağrısı](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) ile ilgili olarak "dönüş" ve "adım"ın anlamını görselleştirir. "Dönüş", kullanıcı ile model arasındaki sohbetteki tek ve eksiksiz bir etkileşimdir. "Adım", model tarafından gerçekleştirilen daha ayrıntılı bir işlem veya operasyondur. Genellikle bir dönüşü tamamlamak için daha büyük bir sürecin parçası olarak gerçekleştirilir.
 
-![Diagram przedstawiający tury i kroki wywoływania funkcji](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=pl)
+![İşlev çağrısı dönüşleri ve adımları diyagramı](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=tr)
 
-*Ten dokument koncentruje się na obsłudze wywoływania funkcji w przypadku modeli Gemini 3. Więcej informacji o różnicach w przypadku modelu 2.5 znajdziesz w sekcji [Zachowanie modelu](#model-behavior).*
+*Bu belgede, Gemini 3 modellerinde işlev çağrısının nasıl işleneceği ele alınmaktadır. 2.5 ile ilgili tutarsızlıklar için [model davranışı](#model-behavior) bölümüne bakın.*
 
-Gemini 3 zwraca podpisy myśli we wszystkich odpowiedziach modelu (odpowiedziach z interfejsu API) z wywołaniem funkcji. Podpisy myśli pojawiają się w tych przypadkach:
+Gemini 3, işlev çağrısı içeren tüm model yanıtları (API'den gelen yanıtlar) için düşünce imzaları döndürür. Düşünce imzaları aşağıdaki durumlarda gösterilir:
 
-- Gdy występują [równoległe wywołania funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#parallel_function_calling), pierwsza część wywołania funkcji zwrócona przez odpowiedź modelu będzie zawierać
-  podpis myśli.
-- Gdy występują sekwencyjne wywołania funkcji (wieloetapowe), każde wywołanie funkcji będzie miało podpis i musisz przekazać wszystkie podpisy.
-- Odpowiedzi modelu bez wywołania funkcji będą zawierać podpis myśli w ostatniej części zwróconej przez model.
+- [Paralel işlev](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#parallel_function_calling) çağrıları olduğunda, model yanıtı tarafından döndürülen ilk işlev çağrısı bölümünde düşünce imzası bulunur.
+- Sıralı işlev çağrıları (çok adımlı) olduğunda her işlev çağrısının bir imzası olur ve tüm imzaları geri iletmeniz gerekir.
+- İşlev çağrısı içermeyen model yanıtları, modelin döndürdüğü son kısımda düşünce imzası döndürür.
 
-W tabeli poniżej przedstawiono wizualizację wieloetapowych wywołań funkcji, łącząc definicje etapów i kroków z koncepcją podpisów wprowadzoną powyżej:
+Aşağıdaki tabloda, yukarıda bahsedilen imzalar kavramıyla birlikte dönüş ve adım tanımlarını birleştiren çok adımlı işlev çağrıları için bir görselleştirme sunulmaktadır:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
+| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Brak |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Yok |
 
-## Podpisy w częściach wywoływania funkcji
+## İşlev çağrısı bölümlerindeki imzalar
 
-Gdy Gemini generuje `functionCall`, korzysta z `thought_signature`, aby prawidłowo przetworzyć dane wyjściowe narzędzia w następnym etapie.
+Gemini bir `functionCall` oluşturduğunda, sonraki turda aracın çıktısını doğru şekilde işlemek için `thought_signature` kullanır.
 
-- **Zachowanie**:
-  - **Pojedyncze wywołanie funkcji**: część `functionCall` będzie zawierać `thought_signature`.
-  - **Równoległe wywołania funkcji**: jeśli model wygeneruje równoległe wywołania funkcji
-    w odpowiedzi, `thought_signature` zostanie dołączony **tylko do pierwszej**
-    `functionCall` części. Kolejne części `functionCall` w tej samej odpowiedzi **nie** będą zawierać podpisu.
-- **Wymaganie**: podczas wysyłania historii rozmowy **musisz** zwrócić ten podpis w dokładnie tej części, w której został otrzymany.
-- **Weryfikacja**: w przypadku wszystkich wywołań funkcji w ramach
-  bieżącego etapu obowiązuje ścisła weryfikacja . (Wymagany jest tylko bieżący etap. Nie weryfikujemy poprzednich etapów).
-  - Interfejs API cofa się w historii (od najnowszej do najstarszej), aby znaleźć najnowszą wiadomość **użytkownika** zawierającą standardową treść (np. `text`) ( która będzie początkiem bieżącego etapu). Nie **be** to `functionResponse`.
-  - **Wszystkie** etapy `functionCall` modelu występujące po tej konkretnej wiadomości użytkownika są uważane za część etapu.
-  - **Pierwsza** część `functionCall` w **każdym kroku** bieżącego etapu **musi** zawierać swój `thought_signature`.
-  - Jeśli pominiesz `thought_signature` w pierwszej części `functionCall` w dowolnym kroku bieżącego etapu, żądanie zakończy się niepowodzeniem z błędem 400.
-- **Jeśli nie zostaną zwrócone prawidłowe podpisy, wystąpi błąd:**
-  - Modele Gemini 3: brak podpisów spowoduje błąd 400. Komunikat będzie miał postać:
-    - Wywołanie funkcji `<Function Call>` w bloku treści `<index of contents array>`
-      nie zawiera `thought_signature`. Na przykład *Wywołanie
-      funkcji `FC1` w bloku treści `1.` nie zawiera `thought_signature`.*
+- **Davranış**:
+  - **Tek İşlev Çağrısı**: `functionCall` bölümünde `thought_signature` yer alır.
+  - **Paralel İşlev Çağrıları**: Model, yanıtta paralel işlev çağrıları oluşturursa `thought_signature` **yalnızca ilk**
+    `functionCall` bölüme eklenir. Aynı yanıttaki sonraki `functionCall` bölümleri imza **içermez**.
+- **Şart**: Görüşme geçmişini geri gönderirken bu imzayı,
+  alındığı tam kısımda iade etmeniz **gerekir**.
+- **Doğrulama**: Geçerli dönüşteki tüm işlev çağrıları için katı doğrulama uygulanır . (Yalnızca mevcut dönüş gereklidir; önceki dönüşler doğrulanmaz)
+  - API, standart içerik (ör. `text`) içeren en son **User** mesajını (mevcut dönüşün başlangıcı) bulmak için geçmişe (en yeni mesajdan en eski mesaja) gider. Bu işlem **be** `functionResponse` değildir.
+  - Bu belirli kullanım mesajından sonraki **tüm** model `functionCall` dönüşleri, dönüşün bir parçası olarak kabul edilir.
+  - Mevcut dönüşteki **her adımın** **ilk** `functionCall` bölümü, `thought_signature`
+    **içermelidir**.
+  - Mevcut dönüşün herhangi bir adımında ilk `functionCall` bölüm için `thought_signature` karakterini atlarsanız istek 400 hatasıyla başarısız olur.
+- **Uygun imzalar döndürülmezse hata nasıl oluşur?**
+  - Gemini 3 modelleri: İmzaların eklenmemesi 400 hatasına neden olur. Metin şu biçimde olacaktır:
+    - `<index of contents array>` içerik bloğundaki `<Function Call>` işlevi çağrısında `thought_signature` eksik. Örneğin, *`1.` içerik bloğundaki Function
+      call `FC1` ifadesinde `thought_signature` eksik.*
 
-### Przykład sekwencyjnego wywoływania funkcji
+### Ardışık fonksiyon çağırma örneği
 
-W tej sekcji znajdziesz przykład wielu wywołań funkcji, w których użytkownik zadaje złożone pytanie wymagające wykonania kilku zadań.
+Bu bölümde, kullanıcının birden fazla görev gerektiren karmaşık bir soru sorduğu birden fazla işlev çağrısı örneği gösterilmektedir.
 
-Przyjrzyjmy się przykładowi wywoływania funkcji w wielu etapach, w którym użytkownik zadaje
-złożone pytanie wymagające wykonania kilku zadań: `"Check flight status for AA100 and
+Kullanıcının birden fazla görev gerektiren karmaşık bir soru sorduğu çok turlu bir işlev çağrısı örneğini inceleyelim: `"Check flight status for AA100 and
 book a taxi if delayed"`.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
+| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Poniższy kod ilustruje sekwencję w tabeli powyżej.
+Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 
-**Etap 1, krok 1 (prośba użytkownika)**
+**1. Tur, 1. Adım (Kullanıcı isteği)**
 
 ```
 {
@@ -148,7 +142,7 @@ Poniższy kod ilustruje sekwencję w tabeli powyżej.
 }
 ```
 
-**Etap 1, krok 1 (odpowiedź modelu)**
+**1. Tur, 1. Adım (Model yanıt)**
 
 ```
 {
@@ -169,8 +163,7 @@ Poniższy kod ilustruje sekwencję w tabeli powyżej.
 }
 ```
 
-**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)** Ponieważ ten etap użytkownika zawiera tylko `functionResponse` (bez nowego tekstu), nadal jesteśmy w etapie 1. Musimy
-zachować `<Signature_A>`.
+**1. tur, 2. adım (Kullanıcı yanıtı - Araç çıktılarını gönderme)** Bu kullanıcı turu yalnızca `functionResponse` içerdiğinden (yeni metin yok) hâlâ 1. turdayız. `<Signature_A>` korunmalıdır.
 
 ```
 {
@@ -211,7 +204,7 @@ zachować `<Signature_A>`.
 }
 ```
 
-**Etap 1, krok 2 (model)** Model decyduje teraz o zamówieniu taksówki na podstawie poprzednich danych wyjściowych narzędzia.
+**1. Dönem, 2. Adım (Model)** Model, önceki araç çıktısına göre taksi rezervasyonu yapmaya karar veriyor.
 
 ```
 {
@@ -232,9 +225,7 @@ zachować `<Signature_A>`.
 }
 ```
 
-**Etap 1, krok 3 (użytkownik – wysyłanie danych wyjściowych narzędzia)** Aby wysłać potwierdzenie
-rezerwacji taksówki, musimy uwzględnić podpisy **wszystkich** wywołań funkcji w tej pętli
-(`<Signature A>` + `<Signature B>`).
+**1. tur, 3. adım (Kullanıcı - Araç çıktısı gönderme)** Taksi rezervasyonu onayını göndermek için bu döngüdeki **TÜM** işlev çağrılarına imza eklememiz gerekir (`<Signature A>` + `<Signature B>`).
 
 ```
 {
@@ -303,19 +294,19 @@ rezerwacji taksówki, musimy uwzględnić podpisy **wszystkich** wywołań funkc
 }
 ```
 
-### Przykład równoległego wywoływania funkcji
+### Paralel fonksiyon çağırma örneği
 
-Przyjrzyjmy się przykładowi równoległego wywoływania funkcji, w którym użytkownik pyta
-`"Check weather in Paris and London"` aby zobaczyć, gdzie model przeprowadza weryfikację.
+Kullanıcının modele doğrulama yaptığı yeri görmeyi istediği paralel işlev çağrısı örneğini inceleyelim.
+`"Check weather in Paris and London"`
 
-| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
+| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paryż") + podpis  FC2 ("Londyn") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (brak FC) | Brak |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + imza  FC2 ("London") | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (FC yok) | Yok |
 
-Poniższy kod ilustruje sekwencję w tabeli powyżej.
+Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 
-**Etap 1, krok 1 (prośba użytkownika)**
+**1. Tur, 1. Adım (Kullanıcı isteği)**
 
 ```
 {
@@ -354,7 +345,7 @@ Poniższy kod ilustruje sekwencję w tabeli powyżej.
 }
 ```
 
-**Etap 1, krok 1 (odpowiedź modelu)**
+**1. Tur, 1. Adım (Model yanıt)**
 
 ```
 {
@@ -382,8 +373,7 @@ Poniższy kod ilustruje sekwencję w tabeli powyżej.
 }
 ```
 
-**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)** Musimy zachować
-`<Signature_A>` w pierwszej części dokładnie tak, jak została otrzymana.
+**1. Tur, 2. Adım (Kullanıcı yanıtı - Araç çıktılarını gönderme)** İlk bölümdeki `<Signature_A>`, alındığı şekilde korunmalıdır.
 
 ```
 [
@@ -441,20 +431,17 @@ Poniższy kod ilustruje sekwencję w tabeli powyżej.
 ]
 ```
 
-## Podpisy w częściach innych niż `functionCall`
+## `functionCall` dışındaki bölümlerdeki imzalar
 
-Gemini może też zwracać `thought_signatures` w ostatniej części odpowiedzi w częściach innych niż wywołanie funkcji.
+Gemini, işlev çağrısı içermeyen bölümlerde yanıtın son kısmında `thought_signatures` da döndürebilir.
 
-- **Zachowanie**: ostatnia część treści (`text, inlineData…`) zwrócona przez
-  model może zawierać `thought_signature`.
-- **Zalecenie**: zwracanie tych podpisów jest **zalecane** , aby zapewnić
-  wysoką jakość rozumowania modelu, zwłaszcza w przypadku złożonych instrukcji
-  lub symulowanych przepływów pracy agenta.
-- **Weryfikacja**: interfejs API **nie** wymusza ścisłej weryfikacji. Jeśli je pominiesz, nie otrzymasz błędu blokującego, ale wydajność może się pogorszyć.
+- **Davranış**: Model tarafından döndürülen son içerik bölümü (`text, inlineData…`), `thought_signature` içerebilir.
+- **Öneri**: Özellikle karmaşık talimatları takip etme veya simüle edilmiş aracı iş akışları için modelin yüksek kaliteli akıl yürütme özelliğini korumasını sağlamak amacıyla bu imzaların döndürülmesi **önerilir**.
+- **Doğrulama**: API, doğrulamayı katı bir şekilde **zorunlu kılmaz**. Bunları atladığınızda engelleme hatası almazsınız ancak performans düşebilir.
 
-### Tekst/rozumowanie w kontekście (bez weryfikacji)
+### Metin/Bağlam içi akıl yürütme (Doğrulama yok)
 
-**Etap 1, krok 1 (odpowiedź modelu)**
+**1. Tur, 1. Adım (Model yanıt)**
 
 ```
 {
@@ -468,7 +455,7 @@ Gemini może też zwracać `thought_signatures` w ostatniej części odpowiedzi 
 }
 ```
 
-**Etap 2, krok 1 (użytkownik)**
+**2. Tur, 1. Adım (Kullanıcı)**
 
 ```
 [
@@ -486,29 +473,26 @@ Gemini może też zwracać `thought_signatures` w ostatniej części odpowiedzi 
 ]
 ```
 
-## Podpisy dotyczące zgodności z OpenAI
+## OpenAI uyumluluğu için imzalar
 
-W przykładach poniżej pokazujemy, jak obsługiwać podpisy myśli w interfejsie Chat
-Completion API przy użyciu [zgodności z OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl).
+Aşağıdaki örneklerde, [OpenAI uyumluluğu](https://ai.google.dev/gemini-api/docs/openai?hl=tr) kullanılarak bir sohbet tamamlama API'si için düşünce imzalarının nasıl işleneceği gösterilmektedir.
 
-### Przykład sekwencyjnego wywoływania funkcji
+### Ardışık fonksiyon çağırma örneği
 
-To jest przykład wielu wywołań funkcji, w których użytkownik zadaje złożone pytanie wymagające wykonania kilku zadań.
+Bu, kullanıcının birden fazla görev gerektiren karmaşık bir soru sorduğu çoklu işlev çağrısı örneğidir.
 
-Przyjrzyjmy się przykładowi wywoływania funkcji w wielu etapach, w którym użytkownik pyta
-`Check flight status for AA100 and book a taxi if delayed` i zobaczysz, co
-się stanie, gdy użytkownik zada złożone pytanie wymagające wykonania kilku zadań.
+Kullanıcının `Check flight status for AA100 and book a taxi if delayed` diye sorduğu çok turlu bir işlev çağrısı örneğini inceleyelim. Kullanıcı, birden fazla görev gerektiren karmaşık bir soru sorduğunda ne olduğunu görebilirsiniz.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
+| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Poniższy kod ilustruje podaną sekwencję.
+Aşağıdaki kod, verilen sırayı adım adım açıklar.
 
-**Etap 1, krok 1 (prośba użytkownika)**
+**1. Tur, 1. Adım (Kullanıcı İsteği)**
 
 ```
 {
@@ -562,7 +546,7 @@ Poniższy kod ilustruje podaną sekwencję.
 }
 ```
 
-**Etap 1, krok 1 (odpowiedź modelu)**
+**1. Tur, 1. Adım (Model Yanıt)**
 
 ```
 {
@@ -585,10 +569,9 @@ Poniższy kod ilustruje podaną sekwencję.
     }
 ```
 
-**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)**
+**1. Dönüş, 2. Adım (Kullanıcı Yanıtı - Araç Çıkışlarını Gönderme)**
 
-Ponieważ ten etap użytkownika zawiera tylko `functionResponse` (bez nowego tekstu), nadal jesteśmy
-w etapie 1 i musimy zachować `<Signature_A>`.
+Bu kullanıcı dönüşü yalnızca `functionResponse` içerdiğinden (yeni metin yok) hâlâ 1. dönüşteyiz ve `<Signature_A>` korunmalıdır.
 
 ```
 "messages": [
@@ -623,9 +606,9 @@ w etapie 1 i musimy zachować `<Signature_A>`.
   ]
 ```
 
-**Etap 1, krok 2 (model)**
+**1. Tur, 2. Adım (Model)**
 
-Model decyduje teraz o zamówieniu taksówki na podstawie poprzednich danych wyjściowych narzędzia.
+Model, önceki araç çıkışına göre taksi rezervasyonu yapmaya karar veriyor.
 
 ```
 {
@@ -648,10 +631,9 @@ Model decyduje teraz o zamówieniu taksówki na podstawie poprzednich danych wyj
 }
 ```
 
-**Etap 1, krok 3 (użytkownik – wysyłanie danych wyjściowych narzędzia)**
+**1. Tur, 3. Adım (Kullanıcı - Araç Çıktısı Gönderme)**
 
-Aby wysłać potwierdzenie rezerwacji taksówki, musimy uwzględnić podpisy wszystkich
-wywołań funkcji w tej pętli (`<Signature A>` + `<Signature B>`).
+Taksi rezervasyonu onayını göndermek için bu döngüdeki TÜM işlev çağrıları (`<Signature A>` + `<Signature B>`) için imzalar eklememiz gerekir.
 
 ```
 "messages": [
@@ -710,21 +692,19 @@ wywołań funkcji w tej pętli (`<Signature A>` + `<Signature B>`).
   ]
 ```
 
-### Przykład równoległego wywoływania funkcji
+### Paralel fonksiyon çağırma örneği
 
-Przyjrzyjmy się przykładowi równoległego wywoływania funkcji, w którym użytkownik pyta
-`"Check weather in Paris and London"`, aby zobaczyć, gdzie model przeprowadza
-weryfikację.
+Kullanıcının `"Check weather in Paris and London"` diye sorduğu paralel işlev çağırma örneğini inceleyelim. Bu örnekte, modelin nerede doğrulama yaptığını görebilirsiniz.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Etap** | **Krok** | **Prośba użytkownika** | **Odpowiedź modelu** | **FunctionResponse** |
+| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-Oto kod, który ilustruje podaną sekwencję.
+Belirtilen sırayı izlemek için gereken kod aşağıda verilmiştir.
 
-**Etap 1, krok 1 (prośba użytkownika)**
+**1. Tur, 1. Adım (Kullanıcı İsteği)**
 
 ```
 {
@@ -763,7 +743,7 @@ Oto kod, który ilustruje podaną sekwencję.
 }
 ```
 
-**Etap 1, krok 1 (odpowiedź modelu)**
+**1. Tur, 1. Adım (Model Yanıt)**
 
 ```
 {
@@ -794,9 +774,9 @@ Oto kod, który ilustruje podaną sekwencję.
 }
 ```
 
-**Etap 1, krok 2 (odpowiedź użytkownika – wysyłanie danych wyjściowych narzędzia)**
+**1. Dönüş, 2. Adım (Kullanıcı Yanıtı - Araç Çıkışlarını Gönderme)**
 
-Musisz zachować `<Signature_A>` w pierwszej części dokładnie tak, jak została otrzymana.
+İlk bölümdeki `<Signature_A>` işaretini tam olarak alındığı şekilde korumalısınız.
 
 ```
 "messages": [
@@ -845,52 +825,41 @@ Musisz zachować `<Signature_A>` w pierwszej części dokładnie tak, jak zosta�
   ]
 ```
 
-## Najczęstsze pytania
+## SSS
 
-1. **Jak przenieść historię z innego modelu do Gemini 3 z częścią wywołania funkcji w bieżącym etapie i kroku? Muszę podać części wywołania funkcji
-   , które nie zostały wygenerowane przez interfejs API, a więc nie mają powiązanego
-   podpisu myśli?**
+1. **Geçerli dönüş ve adımda işlev çağrısı bölümü olan Gemini 3'e farklı bir modelden geçmiş nasıl aktarılır? API tarafından oluşturulmadığı için ilişkili düşünce imzası olmayan işlev çağrısı bölümleri sağlamam gerekiyor mu?**
 
-   Wstrzykiwanie niestandardowych bloków wywołań funkcji do żądania jest zdecydowanie
-   odradzane.W przypadkach, gdy nie można tego uniknąć, np. gdy trzeba przekazać informacje
-   modelowi o wywołaniach funkcji i odpowiedziach, które zostały wykonane
-   deterministycznie przez klienta, lub gdy trzeba przenieść ślad z innego
-   modelu, który nie zawiera podpisów myśli, możesz ustawić w polu podpisu myśli te
-   podpisy zastępcze: `"context_engineering_is_the_way_to_go"` lub
-   `"skip_thought_signature_validator"`, aby pominąć
-   weryfikację.
-2. **Wysyłam przeplatane równoległe wywołania funkcji i odpowiedzi, a interfejs API zwraca błąd 400. Dlaczego?**
+   İsteğe özel işlev çağrısı bloklarının isteğe eklenmesi kesinlikle önerilmez.Ancak bu durumun kaçınılmaz olduğu durumlarda (ör. istemci tarafından deterministik olarak yürütülen işlev çağrıları ve yanıtları hakkında modele bilgi sağlama veya düşünce imzaları içermeyen farklı bir modelden izleme aktarma) doğrulamanın atlanması için düşünce imzası alanında `"context_engineering_is_the_way_to_go"` veya `"skip_thought_signature_validator"` değerlerinden oluşan aşağıdaki sahte imzaları ayarlayabilirsiniz.
+2. **İç içe geçmiş paralel fonksiyon çağrıları ve yanıtları geri gönderiyorum ve API 400 döndürüyor. Neden?**
 
-   Gdy interfejs API zwraca równoległe wywołania funkcji „FC1 + podpis, FC2”, oczekiwana odpowiedź użytkownika to „FC1 + podpis, FC2, FR1, FR2”. Jeśli przeplatasz je jako „FC1 + podpis, FR1, FC2, FR2”, interfejs API zwróci błąd 400.
-3. **Podczas przesyłania strumieniowego model nie zwraca wywołania funkcji. Nie mogę znaleźć
-   podpisu myśli**
+   API, paralel işlev çağrıları "FC1 + imza, FC2" döndürdüğünde, beklenen kullanıcı yanıtı "FC1+ imza, FC2, FR1, FR2" olur. Bunları "FC1 + imza, FR1, FC2, FR2" şeklinde iç içe yerleştirirseniz API 400 hatası döndürür.
+3. **Yayın sırasında model, bulamadığım bir işlev çağrısı döndürmüyor. Bu durumda düşünce imzasını bulamıyorum**
 
-   Podczas odpowiedzi modelu, która nie zawiera FC z żądaniem przesyłania strumieniowego, model może zwrócić podpis myśli w części z pustą częścią treści tekstowej. Zalecamy analizowanie całego żądania, dopóki model nie zwróci `finish_reason`.
+   Akış isteğiyle birlikte FC içermeyen bir model yanıtı sırasında model, düşünce imzasını boş metin içerikli bir bölümde döndürebilir. Model tarafından `finish_reason`
+   döndürülene kadar isteğin tamamını ayrıştırmanız önerilir.
 
-## Podpisy myśli w przypadku różnych modeli
+## Farklı modeller için düşünce imzaları
 
-[Modele Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=pl#gemini-3) i modele Gemini 2.5
-różnie zachowują się w przypadku podpisów myśli w wywołaniach funkcji:
+[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr#gemini-3) ve Gemini 2.5 modelleri
+işlev çağrılarında düşünce imzalarıyla farklı şekilde davranır:
 
-- Jeśli w odpowiedzi znajdują się wywołania funkcji:
-  - Gemini 3 zawsze będzie mieć podpis w pierwszej części wywołania funkcji.
-    Zwrócenie tej części jest **obowiązkowe**.
-  - Gemini 2.5 będzie mieć podpis w pierwszej części (niezależnie od typu). Zwrócenie tej części jest **opcjonalne**.
-- Jeśli w odpowiedzi nie ma wywołań funkcji:
-  - Gemini 3 będzie mieć podpis w ostatniej części, jeśli model wygeneruje myśl.
-  - Gemini 2.5 nie będzie mieć podpisu w żadnej części.
+- Yanıt içinde işlev çağrıları varsa,
+  - Gemini 3, her zaman ilk işlev çağrısı bölümünde imzaya sahip olur.
+    Bu parçanın iade edilmesi **zorunludur**.
+  - Gemini 2.5, ilk bölümde imzayı (türden bağımsız olarak) içerir. Bu parçayı iade etmek **isteğe bağlıdır**.
+- Yanıt içinde işlev çağrısı yoksa,
+  - Model bir düşünce oluşturursa Gemini 3, son kısımda imzayı gösterir.
+  - Gemini 2.5'in hiçbir bölümünde imza bulunmaz.
 
-Więcej informacji o
-porównaniu znajdziesz na stronie [Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl#signatures).
-W przypadku modeli Gemini 3 Image zapoznaj się z sekcją Proces myślowy w przewodniku po
-[generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl#thinking-process).
+Daha fazla karşılaştırma bilgisi için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#signatures) sayfasına bakın.
+Gemini 3 Image modelleri için [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr#thinking-process) kılavuzunun düşünme süreci bölümüne bakın.
 
-Prześlij opinię
+Geri bildirim gönderin
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Ostatnia aktualizacja: 2026-09-08 UTC.
+Son güncelleme tarihi: 2026-09-08 UTC.
 
-Chcesz przekazać coś jeszcze?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]

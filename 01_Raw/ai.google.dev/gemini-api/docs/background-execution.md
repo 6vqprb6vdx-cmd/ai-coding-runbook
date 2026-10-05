@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=he
-fetched_at: 2026-09-28T06:17:04.495572+00:00
-title: "\u05d1\u05d9\u05e6\u05d5\u05e2 \u05d1\u05e8\u05e7\u05e2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=de
+fetched_at: 2026-10-05T06:35:08.667300+00:00
+title: "Ausf\u00fchrung im Hintergrund \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-שליחת משוב
+Feedback geben
 
-# ביצוע ברקע
+# Ausführung im Hintergrund
 
-במשימות ארוכות כמו Deep Research, חשיבה רציונלית מורכבת או הרצות של סוכנים מרובי-שלבים, זמן קצוב לתפוגה לחיבור עלול להפריע לבקשות HTTP רגילות (שבדרך כלל נסגרות אחרי 60 שניות). [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) מספק **background execution** כדי להריץ את המשימות האלה באופן אסינכרוני.
+Bei zeitaufwendigen Aufgaben wie tiefgründigen Recherchen, komplexen Schlussfolgerungen oder Agentenausführungen mit mehreren Schritten können Verbindungszeitüberschreitungen standardmäßige HTTP-Anfragen unterbrechen, die normalerweise nach 60 Sekunden geschlossen werden. Die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) bietet **Hintergrundausführung**, um diese Aufgaben asynchron auszuführen.
 
-כדי לאפשר לאינטראקציה לפעול עד שהיא משלימה את המשימה בשרת, מגדירים את `"background": true` כשיוצרים את האינטראקציה. ה-API מחזיר באופן מיידי מזהה אינטראקציה, שאפליקציות לקוח יכולות להשתמש בו כדי לבדוק את הסטטוס, את התקדמות הסטרימינג או להתחבר מחדש לסטרימינג שהחיבור אליו נותק.
+Wenn die Interaktion so lange laufen soll, bis die Aufgabe auf dem Server abgeschlossen ist, legen Sie beim Erstellen der Interaktion `"background": true` fest. Die API gibt sofort eine Interaktions-ID zurück, mit der Clientanwendungen den Status abrufen, den Fortschritt streamen oder die Verbindung zu einem getrennten Stream wiederherstellen können.
 
-הביצוע ברקע נתמך במודלים רגילים של Gemini (כמו `gemini-3.8-flash` ו-`gemini-3.1-pro-preview`) ובסוכנים מנוהלים (כמו `antigravity-preview-09-2026`).
+Die Ausführung im Hintergrund wird für Standard-Gemini-Modelle (z. B. `gemini-3.8-flash` und `gemini-3.1-pro-preview`) und Verwaltete KI-Agenten (z. B. `antigravity-preview-09-2026`) unterstützt.
 
-## יצירת אינטראקציה ברקע
+## Hintergrundinteraktion erstellen
 
-כדי להתחיל אינטראקציה ברקע, מגדירים את הפרמטר `background` לערך `true` כשיוצרים את המשאב.
+Wenn Sie eine Hintergrundinteraktion starten möchten, legen Sie beim Erstellen der Ressource den Parameter `background` auf `true` fest.
 
 ### Python
 
@@ -133,31 +133,31 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## איך הרצה ברקע פועלת
+## So funktioniert die Ausführung im Hintergrund
 
-כשיוצרים אינטראקציה ברקע, המשימה פועלת באופן אסינכרוני בשרת. האינטראקציה עוברת בין מצבי ביצוע שונים:
+Wenn Sie eine Hintergrundinteraktion erstellen, wird die Aufgabe asynchron auf dem Server ausgeführt. Die Interaktion durchläuft verschiedene Ausführungsstatus:
 
-- ‫`in_progress`: השרת מבצע באופן פעיל את האינטראקציה (למשל, מריץ קוד או מבצע מחקר).
-- ‫`requires_action`: האינטראקציה מושהית וממתינה לקלט מהלקוח (למשל, אישור של הפעלת כלי או מענה על שאלה).
-- ‫`completed`: האינטראקציה הסתיימה בהצלחה והפלט זמין.
-- ‫`failed`: אירעה שגיאה במהלך הביצוע (למשל, כשל בכלי או הגבלות קצב).
-- ‫`cancelled`: בקשה של לקוח עצרה את הביצוע.
+- `in_progress`: Der Server führt die Interaktion aktiv aus, z. B. durch Ausführen von Code oder durch Recherche.
+- `requires_action`: Die Interaktion wurde pausiert und wartet auf eine Eingabe des Kunden, z. B. die Bestätigung der Ausführung eines Tools oder die Beantwortung einer Frage.
+- `completed`: Die Interaktion wurde erfolgreich abgeschlossen und die Ausgabe ist verfügbar.
+- `failed`: Bei der Ausführung ist ein Fehler aufgetreten (z. B. ein Toolfehler oder Ratenbeschränkungen).
+- `cancelled`: Die Ausführung wurde durch eine Clientanfrage beendet.
 
-### תרחישים לדוגמה
+### Anwendungsfälle
 
-שימוש בביצוע ברקע עבור:
+Ausführung im Hintergrund verwenden für:
 
-- **הרצות של סוכנים:** משימות שדורשות הרצת קוד, גלישה באינטרנט או תיאום בין סוכנים משניים (כמו `antigravity-preview-09-2026`).
-- **Deep Research:** פועל באמצעות `deep-research-preview-04-2026` או `deep-research-max-preview-04-2026`, והתהליך נמשך כמה דקות.
-- **הסקה ארוכה:** משימות שבהן שלבי החשיבה של המודל חורגים מהמגבלות הרגילות של חיבור HTTP.
+- **Agent-Ausführungen**:Aufgaben, für die Codeausführung, Websuche oder die Orchestrierung von untergeordneten Agenten (z. B. `antigravity-preview-09-2026`) erforderlich ist.
+- **Deep Research**:Läufe mit `deep-research-preview-04-2026` oder `deep-research-max-preview-04-2026`, die mehrere Minuten dauern.
+- **Lange Begründung**:Aufgaben, bei denen die Denkprozesse des Modells die Standardlimits für HTTP-Verbindungen überschreiten.
 
-## אחזור תוצאות
+## Ergebnisse abrufen
 
-אפשר לקבל תוצאות של אינטראקציות ברקע באמצעות **polling** או **סטרימינג**.
+Ergebnisse von Hintergrundinteraktionen können entweder durch **Polling** oder **Streaming** abgerufen werden.
 
-### תבנית דגימה (לא חוסמת)
+### Polling-Muster (nicht blockierend)
 
-התשאול בודק את סטטוס האינטראקציה באופן תקופתי באמצעות בקשות GET לא חוסמות, עד שהוא מגיע למצב סופי.
+Beim Polling wird der Interaktionsstatus regelmäßig mithilfe von nicht blockierenden GET-Anfragen geprüft, bis ein Endstatus erreicht ist.
 
 ### Python
 
@@ -293,9 +293,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### תבנית סטרימינג
+### Streamingmuster
 
-אם השידור מתנתק בגלל הפרעה ברשת, אפשר להמשיך את השידור מהאירוע האחרון שהתקבל. כל דלתא מכילה `event_id` ייחודי במטען הייעודי שלה. העברת המזהה הזה כ-`last_event_id` מפעילה מחדש את הזרם מהאירוע הזה.
+Wenn ein Stream aufgrund einer Netzwerkunterbrechung getrennt wird, kann das Streaming ab dem letzten empfangenen Ereignis fortgesetzt werden. Jedes Delta enthält eine eindeutige `event_id` in seiner Nutzlast. Wenn Sie diese ID als `last_event_id` übergeben, wird der Stream ab diesem Ereignis fortgesetzt.
 
 ### Python
 
@@ -500,14 +500,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## שיחות רב-שלביות
+## Unterhaltungen über mehrere Themen
 
-אינטראקציות עוקבות יכולות להתבסס על שיחה ברקע באמצעות `previous_interaction_id`, בכפוף למגבלות הבאות:
+Nachfolgende Interaktionen können mit `previous_interaction_id` an eine Hintergrundunterhaltung angehängt werden. Dabei gelten die folgenden Einschränkungen:
 
-1. **ביצועים פעילים נחסמים:** שרשור של אינטראקציה עוקבת לאינטראקציה עם סטטוס `in_progress` מחזיר שגיאת `400 Bad Request`. צריך לחכות שהאינטראקציה תגיע למצב `completed` לפני שמתחילים את האינטראקציה הבאה.
-2. **פרמטר סביבה לסוכנים מנוהלים:** כשמשרשרים אינטראקציות לסוכנים מנוהלים (כמו `antigravity-preview-09-2026`), הבקשות צריכות לכלול גם את `previous_interaction_id` וגם את `environment`.
+1. **Aktive Ausführungen werden blockiert**:Wenn Sie eine nachfolgende Interaktion mit dem Status `in_progress` verketten, wird ein `400 Bad Request`-Fehler zurückgegeben. Warten Sie, bis die Interaktion den Status `completed` erreicht hat, bevor Sie die nächste starten.
+2. **Umgebungsparameter für verwaltete KI-Agenten**:Wenn Sie Interaktionen für verwaltete KI-Agenten verketten (z. B. `antigravity-preview-09-2026`), müssen Anfragen sowohl `previous_interaction_id` als auch `environment` enthalten.
 
-בדוגמאות הבאות אפשר לראות איך יוצרים שרשור של אינטראקציות:
+Die folgenden Beispiele zeigen, wie Sie Interaktionen verketten:
 
 ### Python
 
@@ -717,12 +717,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## ביטול ומחיקה
+## Kündigung und Löschung
 
-שליטה בהרצות פעולות וניהול האחסון באמצעות בקשות ביטול ומחיקה:
+Laufende Ausführungen steuern und Speicher mit Abbrechen- und Löschanfragen verwalten:
 
-- **ביטול (`POST /interactions/{id}/cancel`):** מפסיק את המשימה הפעילה. הסטטוס משתנה ל`cancelled`. פעולות ניקוי בשרת יכולות לגרום לעיכוב קל לפני שהסטטוס מתעדכן בבקשות GET.
-- **מחיקה (`DELETE /interactions/{id}`):** רשומות האינטראקציות יוסרו מהשרת. בקשות GET הבאות מחזירות שגיאה `404 Not Found`.
+- **Abbrechen (`POST /interactions/{id}/cancel`)**: Die laufende Aufgabe wird beendet. Der Status ändert sich in `cancelled`. Bereinigungsaktionen auf dem Server können zu einer leichten Verzögerung führen, bevor die Status in GET-Anfragen aktualisiert werden.
+- **Löschen (`DELETE /interactions/{id}`)**: Entfernt die Interaktionsdatensätze vom Server. Nachfolgende GET-Anfragen geben den Fehler `404 Not Found` zurück.
 
 ### Python
 
@@ -818,18 +818,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## השלבים הבאים
+## Nächste Schritte
 
-- במאמר [סקירה כללית על Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) מוסבר על ניהול סשנים ומצבים.
-- פרטים נוספים על עדכונים בזמן אמת של אירועים זמינים במדריך בנושא [אינטראקציות בסטרימינג](https://ai.google.dev/gemini-api/docs/streaming?hl=he).
-- כדי ליצור סוכנים עם שמירת מצב שמנהלים שיחות רב-שלביות, כדאי לעיין ב[מדריך למתחילים בנושא סוכנים מנוהלים](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he).
+- Lesen Sie die [Übersicht über die Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de), um mehr über die Sitzungs- und Statusverwaltung zu erfahren.
+- Weitere Informationen zu Echtzeit-Event-Updates finden Sie im Leitfaden [Streaming-Interaktionen](https://ai.google.dev/gemini-api/docs/streaming?hl=de).
+- In der [Kurzanleitung für verwaltete Agents](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de) erfahren Sie, wie Sie zustandsorientierte Mehrfachdialog-Agents erstellen.
 
-שליחת משוב
+Feedback geben
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-עדכון אחרון: 2026-09-24 (שעון UTC).
+Zuletzt aktualisiert: 2026-09-24 (UTC).
 
-רוצה לתת לנו משוב?
+Haben Sie Feedback für uns?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-24 (UTC)."],[],[]]

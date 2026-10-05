@@ -1,24 +1,23 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content?hl=th
-fetched_at: 2026-09-28T06:23:14.384391+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content?hl=he
+fetched_at: 2026-10-05T06:33:46.360210+00:00
 title: "Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
 # Gemini API
 
-Gemini API เป็นเส้นทางที่เร็วที่สุดจากพรอมต์ไปสู่การผลิตด้วย Gemini, Veo,
-Nano Banana และอื่นๆ ซึ่งช่วยให้คุณผสานรวมโมเดล Generative เหล่านี้เข้ากับแอปพลิเคชันเพื่อสร้างข้อความและรูปภาพ วิเคราะห์อินพุตหลายรูปแบบ และสร้างเอเจนต์สนทนา
+‫Gemini API היא הדרך הכי מהירה להפוך הנחיה למוצר מוגמר באמצעות Gemini,‏ Veo,‏ Nano Banana ועוד. הוא מאפשר לכם לשלב את המודלים הגנרטיביים האלה באפליקציות שלכם כדי ליצור טקסט ותמונות, לנתח קלט מולטי-מודאלי ולבנות סוכנים שיכולים לנהל שיחות.
 
 ### Python
 
@@ -108,7 +107,7 @@ public class GenerateTextFromTextInput {
 }
 ```
 
-### C#
+### C#‎
 
 ```
 using System.Threading.Tasks;
@@ -146,128 +145,128 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-[เริ่มสร้าง](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+[אני רוצה להתחיל לפתח](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
 
 ---
 
-## พบกับโมเดล
+## היכרות עם המודלים
 
-[ดูทั้งหมด](https://ai.google.dev/gemini-api/docs/models?hl=th)
+[הצג הכול](https://ai.google.dev/gemini-api/docs/models?hl=he)
 
 [auto\_awesome
 Gemini 3.1 Pro
-ใหม่
+חדש
 
-โมเดลที่ชาญฉลาดที่สุดของเรา ซึ่งเป็นโมเดลที่ดีที่สุดในโลกสำหรับการทำความเข้าใจข้อมูลหลายรูปแบบ ทั้งหมดนี้สร้างขึ้นบนพื้นฐานของการให้เหตุผลที่ล้ำสมัย](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th)
+המודל הכי חכם שלנו, הכי טוב בעולם בהבנה מולטימודלית, והכול מבוסס על יכולות רציונליות מתקדמות.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he)
 [spark
 Gemini 3.6 Flash
-ใหม่
+חדש
 
-โมเดลล่าสุดของเราที่ผสานความเร็วเข้ากับความชาญฉลาดเพื่อมอบประสิทธิภาพที่ยอดเยี่ยมในงานแบบเป็น Agent และงานแบบมัลติโมดัล](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th)
+המודל העדכני שלנו, שמשלב בין מהירות לבין יכולות AI חכמות כדי לספק ביצועים טובים במשימות אקטיביות ומולטי-מודאליות.](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=he)
 [spark
 Gemini 3.5 Flash
 
-ประสิทธิภาพระดับแนวหน้าเทียบเท่าโมเดลขนาดใหญ่กว่าในราคาที่ถูกกว่า](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th)
+ביצועים ברמה של Frontier, שמתחרים במודלים גדולים יותר בעלות נמוכה בהרבה.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he)
 [graphic\_eq
-TTS ของ Gemini 3.8 Flash
-ใหม่
+Gemini 3.8 Flash TTS
+חדש
 
-โมเดลการอ่านออกเสียงข้อความระดับสตูดิโอที่มีการแสดงออกที่สื่ออารมณ์ การออกแบบเสียงที่กำหนดเอง และการจำลองเสียง](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th)
+מודל להמרת טקסט לדיבור ברמה של אולפן, עם משחק אקספרסיבי, עיצוב קול מותאם אישית ושכפול קול.](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=he)
 [spark
 Gemini 3.5 Flash-Lite
-ใหม่
+חדש
 
-โมเดลที่มีปริมาณมากและคำนึงถึงต้นทุนซึ่งได้รับการเพิ่มประสิทธิภาพสำหรับงานของตัวแทนย่อยที่มีเวลาในการตอบสนองต่ำและมีปริมาณงานสูง](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th)
+מודל בנפח גבוה ובעלות נמוכה, שעבר אופטימיזציה למשימות של סוכני משנה עם זמן אחזור נמוך וקצב העברה גבוה.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=he)
 [spark
 Gemini 3.1 Flash-Lite
 
-โมเดลที่มีปริมาณสูงและคำนึงถึงต้นทุน พร้อมประสิทธิภาพและคุณภาพของซีรีส์ Gemini 3](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th)
+מודל שמתאים לעיבוד נפחים גדולים של נתונים, רגיש לעלויות וכולל את הביצועים והאיכות של סדרת Gemini 3.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he)
 [spark
-Gemini 3 Flash
+‫Gemini 3 Flash
 
-ประสิทธิภาพระดับแนวหน้าเทียบเท่าโมเดลขนาดใหญ่กว่าในราคาที่ถูกกว่า](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th)
+ביצועים ברמה של Frontier, שמתחרים במודלים גדולים יותר בעלות נמוכה בהרבה.](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he)
 [🍌
-Nano Banana 2 และ Nano Banana Pro
+‫Nano Banana 2 ו-Nano Banana Pro
 
-โมเดลการสร้างและแก้ไขรูปภาพที่ล้ำสมัย](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
+מודלים חדשניים ומתקדמים ליצירה ולעריכה של תמונות.](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)
 [video\_library
 Veo 3.1
 
-โมเดลการสร้างวิดีโอสุดล้ำของเราพร้อมเสียงแบบเนทีฟ](https://ai.google.dev/gemini-api/docs/video?hl=th)
+מודל ליצירת וידאו המתקדם ביותר שלנו, עם אודיו מובנה.](https://ai.google.dev/gemini-api/docs/video?hl=he)
 [spark
 Gemini Robotics
 
-โมเดลวิชันภาษา (VLM) ที่นำความสามารถด้าน Agentic AI ของ Gemini มาใช้กับหุ่นยนต์และช่วยให้การให้เหตุผลขั้นสูงในโลกกายภาพเป็นไปได้](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=th)
+מודל ראייה-שפה (VLM) שמביא את יכולות אג'נטיות של Gemini לרובוטיקה ומאפשר חשיבה רציונלית משופרת בעולם הפיזי.](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he)
 
-## สำรวจความสามารถ
+## פרטים על היכולות
 
 [imagesmode
 
-การสร้างรูปภาพโดยตรง (Nano Banana)
+יצירת תמונות באופן מובנה (Nano Banana)
 
-สร้างและแก้ไขรูปภาพที่มีบริบทสูงได้โดยตรงด้วย Gemini 2.5 Flash สำหรับรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
+אתם יכולים ליצור ולערוך תמונות עם הקשר רחב באמצעות Gemini 2.5 Flash Image.](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)
 [article
 
-บริบทแบบยาว
+הקשר רחב
 
-ป้อนโทเค็นหลายล้านรายการลงในโมเดล Gemini และรับความเข้าใจจากรูปภาพ วิดีโอ และเอกสารที่ไม่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/long-context?hl=th)
+להזין מיליוני טוקנים למודלים של Gemini ולקבל תובנות מתמונות, סרטונים ומסמכים לא מובנים.](https://ai.google.dev/gemini-api/docs/long-context?hl=he)
 [code
 
-เอาต์พุตที่มีโครงสร้าง
+פלט מובנה
 
-จำกัดให้ Gemini ตอบกลับด้วย JSON ซึ่งเป็นรูปแบบข้อมูลที่มี Structured Data ที่เหมาะสำหรับการประมวลผลอัตโนมัติ](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)
+מגבילים את Gemini לתגובה ב-JSON, שהוא פורמט נתונים מובְנה שמתאים לעיבוד אוטומטי.](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)
 [functions
 
-การเรียกใช้ฟังก์ชัน
+בקשה להפעלת פונקציה
 
-สร้างเวิร์กโฟลว์แบบเอเจนต์โดยเชื่อมต่อ Gemini กับ API และเครื่องมือภายนอก](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
+אפשר לבנות תהליכי עבודה מבוססי-סוכנים על ידי חיבור של Gemini לממשקי API ולכלים חיצוניים.](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
 [videocam
 
-การสร้างวิดีโอด้วย Veo 3.1
+יצירת סרטונים באמצעות Veo 3.1
 
-สร้างเนื้อหาวิดีโอคุณภาพสูงจากพรอมต์ข้อความหรือรูปภาพด้วยโมเดลสุดล้ำของเรา](https://ai.google.dev/gemini-api/docs/video?hl=th)
+אתם יכולים ליצור תוכן וידאו באיכות גבוהה מפרומפטים של טקסט או תמונה באמצעות המודל המתקדם ביותר (SOTA) שלנו.](https://ai.google.dev/gemini-api/docs/video?hl=he)
 [android\_recorder
 
-เอเจนต์เสียงที่มี Live API
+סוכנים קוליים עם Live API
 
-สร้างแอปพลิเคชันและเอเจนต์เสียงแบบเรียลไทม์ด้วย Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)
+אתם יכולים ליצור סוכנים ואפליקציות קוליות בזמן אמת באמצעות ממשק Live API.](https://ai.google.dev/gemini-api/docs/live-api?hl=he)
 [build
 
-เครื่องมือ
+כלים
 
-เชื่อมต่อ Gemini กับโลกภายนอกผ่านเครื่องมือในตัว เช่น Google Search, บริบท URL, Google Maps, การดำเนินการโค้ด และการใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/tools?hl=th)
+אפשר לחבר את Gemini לעולם באמצעות כלים מובנים כמו חיפוש Google, הקשר של כתובת URL, מפות Google, הפעלת קוד ושימוש במחשב.](https://ai.google.dev/gemini-api/docs/tools?hl=he)
 [stacks
 
-การทำความเข้าใจเอกสาร
+הבנת מסמכים
 
-ประมวลผลไฟล์ PDF ได้สูงสุด 1,000 หน้าด้วยความสามารถในการทำความเข้าใจข้อมูลหลายรูปแบบอย่างเต็มที่ หรือไฟล์ประเภทอื่นๆ ที่เป็นข้อความ](https://ai.google.dev/gemini-api/docs/document-processing?hl=th)
+לעבד עד 1,000 דפים של קובצי PDF עם הבנה מולטי-מודאלית מלאה או סוגים אחרים של קבצים מבוססי-טקסט.](https://ai.google.dev/gemini-api/docs/document-processing?hl=he)
 [cognition\_2
 
-กำลังคิด
+מעמיק
 
-ดูว่าความสามารถในการคิดช่วยปรับปรุงการให้เหตุผลสำหรับงานและเอเจนต์ที่ซับซ้อนได้อย่างไร](https://ai.google.dev/gemini-api/docs/thinking?hl=th)
+כדאי לבדוק איך יכולות החשיבה משפרות את ההיגיון במשימות מורכבות ובסוכנים.](https://ai.google.dev/gemini-api/docs/thinking?hl=he)
 
 [Google AI Studio
 
-ทดสอบพรอมต์ จัดการคีย์ API ตรวจสอบการใช้งาน และสร้างต้นแบบ](https://aistudio.google.com?hl=th)
+אפשר לבדוק הנחיות, לנהל את מפתחות ה-API, לעקוב אחרי השימוש וליצור אבות טיפוס.](https://aistudio.google.com?hl=he)
 [group
 
-ชุมชนนักพัฒนาแอป
+קהילת המפתחים
 
-ถามคำถามและค้นหาโซลูชันจากนักพัฒนาแอปคนอื่นๆ และวิศวกรของ Google](https://discuss.ai.google.dev/c/gemini-api/4?hl=th)
+לשאול שאלות ולמצוא פתרונות ממפתחים אחרים וממהנדסי Google.](https://discuss.ai.google.dev/c/gemini-api/4?hl=he)
 [menu\_book
 
-เอกสารอ้างอิง API
+הפניית API
 
-ดูข้อมูลโดยละเอียดเกี่ยวกับ Gemini API ได้ในเอกสารอ้างอิงอย่างเป็นทางการ](https://ai.google.dev/api?hl=th)
+מידע מפורט על Gemini API זמין במסמכי העזרה הרשמיים.](https://ai.google.dev/api?hl=he)
 [sensors
 
-สถานะ
+סטטוס
 
-ตรวจสอบสถานะของ Gemini API, Google AI Studio และบริการโมเดลของเรา](https://aistudio.google.com/status?hl=th)
+בדיקת הסטטוס של Gemini API,‏ Google AI Studio ושירותי המודלים שלנו.](https://aistudio.google.com/status?hl=he)
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-อัปเดตล่าสุด 2026-09-24 UTC
+עדכון אחרון: 2026-09-24 (שעון UTC).
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]

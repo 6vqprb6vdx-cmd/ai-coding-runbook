@@ -1,66 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id
-fetched_at: 2026-09-28T06:07:45.603157+00:00
-title: "Memulai \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr
+fetched_at: 2026-10-05T06:40:39.504275+00:00
+title: "Ba\u015flang\u0131\u00e7 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
 
-Kirim masukan
+Geri bildirim gönderin
 
-# Memulai
+# Başlangıç
 
-Panduan ini akan membantu Anda memulai penggunaan **generateContent** API lama. Untuk project dan aplikasi baru, sebaiknya gunakan **Interactions API** baru, yang merupakan cara terbaik dan paling sederhana untuk membangun dengan model dan agen Gemini.
+Bu kılavuz, eski **generateContent** API'yi kullanmaya başlamanıza yardımcı olacaktır. Yeni projeler ve uygulamalar için Gemini modelleri ve aracılarıyla geliştirme yapmanın en basit ve en iyi yolu olan yeni **Interactions API**'yi kullanmanızı önemle tavsiye ederiz.
 
-Panduan memulai ini menunjukkan cara menginstal
-[library](https://ai.google.dev/gemini-api/docs/libraries?hl=id) kami dan membuat permintaan pertama, melakukan streaming
-respons, membuat percakapan multi-giliran, dan menggunakan alat menggunakan metode standar
-`generateContent`.
+Bu hızlı başlangıç kılavuzunda, [kitaplıklarımızı](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) nasıl yükleyeceğiniz, ilk isteğinizi nasıl yapacağınız, yanıtları nasıl yayınlayacağınız, çok turlu sohbetleri nasıl oluşturacağınız ve standart `generateContent` yöntemini kullanarak araçları nasıl kullanacağınız gösterilmektedir.
 
-## Mendapatkan kunci API
+## API anahtarı alma
 
-Untuk menggunakan Gemini API, Anda harus memiliki kunci API untuk mengautentikasi permintaan, menerapkan batas keamanan, dan melacak penggunaan ke akun Anda.
+Gemini API'yi kullanmak için isteklerinizin kimliğini doğrulamak, güvenlik sınırlarını zorunlu kılmak ve hesabınızdaki kullanımı izlemek üzere bir API anahtarınızın olması gerekir.
 
-- Google AI Studio otomatis membuat project dan kunci API untuk pengguna baru.
-  Anda dapat menyalinnya dari halaman kunci [API](https://aistudio.google.com/api-keys?hl=id).
-- Jika memerlukan kunci baru, klik **Create API key** di AI Studio dan ikuti dialog untuk menambahkan pasangan kunci-project baru.
+- Google AI Studio, yeni kullanıcılar için otomatik olarak bir proje ve API anahtarı oluşturur.
+  Bu anahtarı [API anahtarları sayfasından](https://aistudio.google.com/api-keys?hl=tr) kopyalayabilirsiniz.
+- Yeni bir anahtara ihtiyacınız varsa AI Studio'da **API anahtarı oluştur**'u tıklayın ve yeni bir anahtar-proje çifti eklemek için iletişim kutusunu takip edin.
 
-[Membuat Kunci Gemini API](https://aistudio.google.com/apikey?hl=id)
+[Gemini API anahtarı oluşturma](https://aistudio.google.com/apikey?hl=tr)
 
-Tetapkan kunci Anda sebagai variabel lingkungan:
+Anahtarınızı ortam değişkeni olarak ayarlayın:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### Mengupgrade ke paket berbayar
+### Ücretli katmana yükseltme
 
-Mengupgrade ke paket berbayar akan meningkatkan batas frekuensi Anda dan mengharuskan Anda menyiapkan Penagihan Cloud.
+Ücretli katmana yükseltme, hız sınırlarınızı artırır ve Cloud Billing'in ayarlanmasını gerektirir.
 
-- Klik **Set up billing** di halaman kunci [API](https://aistudio.google.com/api-keys?hl=id) atau [Project](https://aistudio.google.com/projects?hl=id) AI Studio.
-- Ikuti dialog Penagihan Cloud untuk membuat atau menautkan akun penagihan, menambahkan metode pembayaran, dan membayar di muka minimal $10 (atau nilai mata uang yang setara) dalam kredit berbayar.
-- Lihat penggunaan API Anda di [Google AI Studio](https://aistudio.google.com/usage?hl=id)
-  di bagian **Dashboard** > **Usage**.
+- AI Studio [API anahtarları](https://aistudio.google.com/api-keys?hl=tr) veya [Projeler](https://aistudio.google.com/projects?hl=tr) sayfalarında **Faturalandırma ayarlarını yap**'ı tıklayın.
+- Faturalandırma hesabı oluşturmak veya bağlamak, ödeme yöntemi eklemek ve ücretli kredilerle en az 10 ABD doları (veya eşdeğer para birimi) tutarında ön ödeme yapmak için Cloud Faturalandırma iletişim kutusundaki talimatları uygulayın.
+- API kullanımınızı [Google AI Studio](https://aistudio.google.com/usage?hl=tr)'da **Kontrol Paneli** > **Kullanım** bölümünde görüntüleyebilirsiniz.
 
-Lihat halaman [Penagihan](https://ai.google.dev/gemini-api/docs/billing?hl=id) untuk mengetahui informasi selengkapnya.
+Daha fazla bilgi için [Faturalandırma sayfası](https://ai.google.dev/gemini-api/docs/billing?hl=tr)'na bakın.
 
-## Menginstal Google GenAI SDK
+## Google GenAI SDK'yı yükleme
 
 ### Python
 
-Dengan menggunakan [Python 3.9+](https://www.python.org/downloads/), instal paket
-[`google-genai` menggunakan](https://pypi.org/project/google-genai/)
-perintah
-[pip berikut](https://packaging.python.org/en/latest/tutorials/installing-packages/):
+[Python 3.9+](https://www.python.org/downloads/) sürümünü kullanarak aşağıdaki [pip komutunu](https://packaging.python.org/en/latest/tutorials/installing-packages/) kullanarak [`google-genai` paketini](https://pypi.org/project/google-genai/) yükleyin:
 
 ```
 pip install -q -U google-genai
@@ -68,20 +61,15 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-Dengan menggunakan [Node.js v18+](https://nodejs.org/en/download/package-manager),
-instal
-[Google Gen AI SDK untuk TypeScript dan JavaScript](https://www.npmjs.com/package/@google/genai)
-menggunakan
-[perintah npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) berikut:
+[Node.js v18+](https://nodejs.org/en/download/package-manager)'ı kullanarak aşağıdaki [npm komutunu](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) kullanarak [TypeScript ve JavaScript için Google Gen AI SDK'sını](https://www.npmjs.com/package/@google/genai) yükleyin:
 
 ```
 npm install @google/genai
 ```
 
-## Membuat teks
+## Metin oluşturun
 
-Gunakan metode `models.generate_content` untuk
-[membuat respons teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id).
+`models.generate_content` yöntemini kullanarak [metin yanıtı oluşturun](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr).
 
 ### Python
 
@@ -137,11 +125,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Mengaktifkan respons bertahap
+## Yanıtları akış şeklinde göster
 
-Secara default, model hanya menampilkan respons setelah seluruh proses pembuatan selesai. Untuk pengalaman yang lebih cepat dan interaktif, Anda dapat
-[melakukan streaming potongan respons](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#stream) saat
-dibuat.
+Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir. Daha hızlı ve etkileşimli bir deneyim için yanıt parçalarını oluşturuldukça [yayınlayabilirsiniz](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#stream).
 
 ### Python
 
@@ -193,11 +179,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:s
   }'
 ```
 
-## Percakapan multi-giliran
+## Etkileşimli görüşmeler
 
-Untuk percakapan multi-giliran, SDK menyediakan helper `chats` stateful untuk
-membangun pengalaman [chat multi-giliran](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#chat)
-yang otomatis mengelola histori percakapan.
+SDK'lar, çok turlu sohbetler için durum bilgisi olan bir `chats` yardımcı sağlar. Bu yardımcı, etkileşim geçmişini otomatik olarak yöneten bir [çok turlu sohbet deneyimi](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#chat) oluşturmaya yardımcı olur.
 
 ### Python
 
@@ -253,11 +237,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Menggunakan alat
+## Araçları kullanma
 
-Perluas kemampuan model dengan
-[melakukan grounding respons dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-untuk mengakses konten web real-time. Model akan otomatis menentukan kapan harus menelusuri, menjalankan kueri, dan membuat respons.
+Gerçek zamanlı web içeriğine erişmek için [yanıtları Google Arama ile temellendirerek](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) modelin yeteneklerini genişletin. Model, ne zaman arama yapacağına otomatik olarak karar verir, sorguları yürütür ve yanıtı sentezler.
 
 ### Python
 
@@ -344,27 +326,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-Gemini API juga mendukung alat bawaan lainnya:
+Gemini API, diğer yerleşik araçları da destekler:
 
-- **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**:
-  Memungkinkan model menulis dan menjalankan kode Python untuk memecahkan masalah matematika yang kompleks.
-- **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**: Memungkinkan Anda
-  melakukan grounding respons di URL halaman web tertentu yang Anda berikan.
-- **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**: Memungkinkan Anda
-  mengupload file dan melakukan grounding respons dalam kontennya menggunakan penelusuran semantik.
-- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**: Memungkinkan Anda
-  melakukan grounding respons dalam data lokasi dan menelusuri tempat, rute, dan
-  peta.
-- **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**: Memungkinkan
-  model berinteraksi dengan layar, keyboard, dan mouse komputer virtual untuk
-  melakukan tugas.
+- **[Kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr)**:
+  Modelin karmaşık matematik problemlerini çözmek için Python kodu yazıp çalıştırmasına olanak tanır.
+- **[URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr)**: Yanıtları, sağladığınız belirli web sayfası URL'lerine dayandırmanıza olanak tanır.
+- **[Dosya arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr)**: Dosyaları yüklemenize ve semantik aramayı kullanarak yanıtları içeriklerinde temellendirmenize olanak tanır.
+- **[Google Haritalar](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr)**: Yanıtları konum verileriyle temellendirmenize ve yerleri, yol tariflerini ve haritaları aramanıza olanak tanır.
+- **[Bilgisayar kullanımı](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr)**: Modelin görevleri yerine getirmek için sanal bir bilgisayar ekranı, klavye ve fare ile etkileşime girmesine olanak tanır.
 
-## Memanggil fungsi kustom
+## Özel işlevleri çağırma
 
-Gunakan **[panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)** untuk menghubungkan
-model ke alat dan API kustom Anda. Model akan menentukan kapan harus memanggil fungsi Anda dan menampilkan `functionCall` dalam respons agar aplikasi Anda dapat dieksekusi.
+Modelleri özel araçlarınıza ve API'lerinize bağlamak için **[işlev çağrısını](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)** kullanın. Model, işlevinizi ne zaman çağıracağını belirler ve uygulamanızın yürütmesi için yanıtta bir `functionCall` döndürür.
 
-Contoh ini mendeklarasikan fungsi suhu tiruan dan memeriksa apakah model ingin memanggilnya.
+Bu örnekte, sahte bir sıcaklık işlevi tanımlanır ve modelin bu işlevi çağırmak isteyip istemediği kontrol edilir.
 
 ### Python
 
@@ -526,25 +501,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Langkah berikutnya
+## Sırada ne var?
 
-Setelah Anda mulai menggunakan Gemini API, pelajari panduan berikut untuk membuat aplikasi yang lebih canggih:
+Gemini API'yi kullanmaya başladığınıza göre, daha gelişmiş uygulamalar oluşturmak için aşağıdaki kılavuzları inceleyin:
 
-- [Pembuatan teks](https://ai.google.dev/gemini-api/docs/text-generation?hl=id)
-- [Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)
-- [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id)
-- [Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)
-- [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-- [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-- [Konteks panjang](https://ai.google.dev/gemini-api/docs/long-context?hl=id)
-- [Embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id)
+- [Metin üretme](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr)
+- [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)
+- [Resim yorumlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr)
+- [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) (Thinking)
+- [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
+- [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)
+- [Uzun bağlam](https://ai.google.dev/gemini-api/docs/long-context?hl=tr)
+- [Yerleştirmeler](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
 
-Kirim masukan
+Geri bildirim gönderin
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Terakhir diperbarui pada 2026-09-12 UTC.
+Son güncelleme tarihi: 2026-09-12 UTC.
 
-Ada masukan untuk kami?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]

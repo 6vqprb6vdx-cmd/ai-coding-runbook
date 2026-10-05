@@ -1,41 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-CN
-fetched_at: 2026-09-28T06:18:20.431198+00:00
-title: "\u6587\u5b57\u8f6c\u8bed\u97f3\u751f\u6210 (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr
+fetched_at: 2026-10-05T06:31:10.364479+00:00
+title: "G\u00e9n\u00e9ration de synth\u00e8se vocale \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-发送反馈
+Envoyer des commentaires
 
-# 文字转语音生成 (TTS)
+# Génération de synthèse vocale
 
-Gemini API 可以使用 Gemini 文字转语音 (TTS) 生成功能将文本输入转换为单人或多人语音。文字转语音生成是*[可控](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#controllable)*的，这意味着您可以结合使用结构化对话轮次元数据 (`speech_metadata`) 和内嵌语音标记来指导音频的*风格*、*口音*、*语速*和*音调*。
+L'API Gemini peut transformer des entrées de texte en contenu audio à un ou plusieurs intervenants à l'aide des fonctionnalités de génération de synthèse vocale (TTS) de Gemini.
+La génération de synthèse vocale est *[contrôlable](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#controllable)*, ce qui signifie que vous pouvez combiner des métadonnées de tour structurées (`speech_metadata`) et des balises vocales intégrées pour guider le *style*, l'*accent*, le *rythme* et le *ton* de l'audio.
 
-TTS 功能不同于通过 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 提供的语音生成功能，后者专为交互式非结构化音频以及多模态输入和输出而设计。虽然 Live API 在动态对话上下文中表现出色，但通过 Gemini API 实现的 TTS 专为需要精确朗读文本并对风格和声音进行精细控制的场景而量身打造，例如播客或有声读物生成。
+La fonctionnalité TTS diffère de la génération vocale fournie par l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr), qui est conçue pour les entrées et sorties audio interactives, non structurées et multimodales. Alors que l'API Live excelle dans les contextes conversationnels dynamiques, la TTS via l'API Gemini est conçue pour les scénarios qui nécessitent une récitation exacte du texte avec un contrôle précis du style et du son, comme la génération de podcasts ou de livres audio.
 
-本指南将向您展示如何使用 [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-cn) (`gemini-3.8-flash-tts`) 和 [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-cn) (`gemini-3.8-flash-lite-tts`) 从文本生成单人语音和多人语音。
+Ce guide vous explique comment générer de l'audio à une ou plusieurs voix à partir de texte à l'aide de [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`) et [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`).
 
-## 准备工作
+## Avant de commencer
 
-请确保您使用的是[支持的模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#supported-models)部分中列出的 Gemini TTS 模型。
-为获得最佳结果，请查看[何时使用哪种模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#when-to-use-which-model)，以便为您的工作负载选择最佳模型。
+Assurez-vous d'utiliser un modèle Gemini TTS listé dans la section [Modèles compatibles](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#supported-models), et passez à la dernière version du SDK Google GenAI (`google-genai >= 2.25.0` pour Python ou `@google/genai >= 2.24.0` pour JavaScript/TypeScript) ou utilisez l'API REST.
+Pour obtenir des résultats optimaux, consultez [Quand utiliser tel ou tel modèle](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#when-to-use-which-model) afin de sélectionner le modèle le mieux adapté à votre charge de travail.
 
-在开始构建之前，您可能会发现[在 AI Studio 中测试 Gemini TTS 模型](https://aistudio.google.com/generate-speech?hl=zh-cn)很有用。
+Il peut être utile de [tester les modèles Gemini TTS dans AI Studio](https://aistudio.google.com/generate-speech?hl=fr) avant de commencer à créer.
 
-## 单说话者 TTS
+## TTS à un seul locuteur
 
-如需使用 Gemini 3.8 TTS 模型将文本转换为单人语音音频，请在 `input` 中传递逐字转写内容，使用 `speech_metadata` 注释附加轮次级样式，并在 `generation_config.speech_config` 中配置语音。您可以从预建的[语音选项](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#voices)、扩展语音库 (`GET /v1beta/voices`)、自定义[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn) ID (`voice_...`) 或[语音复刻](https://ai.google.dev/gemini-api/docs/voice-replication?hl=zh-cn) ID（`voice_...` 或可选的无状态 `voicekey_...`）中选择语音。
+Pour convertir du texte en audio à un seul locuteur avec les modèles Gemini 3.8 TTS, transmettez la transcription verbatim dans `input`, ajoutez un style au niveau du tour de parole à l'aide d'une annotation `speech_metadata` et configurez votre voix dans `generation_config.speech_config`. Vous pouvez choisir une voix parmi les [options vocales](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#voices) prédéfinies, la bibliothèque vocale étendue (`GET /v1beta/voices`), un ID de [conception vocale](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr) personnalisé (`voice_...`) ou un ID de [réplication vocale](https://ai.google.dev/gemini-api/docs/voice-replication?hl=fr) (`voice_...` ou `voicekey_...` sans état facultatif).
 
-此示例将模型生成的默认 WAV 输出音频 (`audio/wav`) 直接保存到文件中：
+Cet exemple enregistre la sortie audio WAV par défaut (`audio/wav`) du modèle directement dans un fichier :
 
 ### Python
 
@@ -168,7 +169,7 @@ func main() {
 
     res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.1-flash-tts-preview"),
+            Model: interactions.Model("gemini-3.8-flash-tts"),
             Input: interactions.NewInteractionsInput("Say cheerfully: Have a wonderful day!"),
             ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
                 interactions.NewResponseFormat(interactions.AudioResponseFormat{}),
@@ -222,11 +223,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' | jq -r '[.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio")] | last | .data' | base64 --decode > out.wav
 ```
 
-在 Python 和 JavaScript SDK 中，您可以使用 `interaction.output_audio` 便捷属性检索生成的音频数据，该属性会返回上次生成的音频块（在原始 REST JSON 响应中，base64 编码的音频存储在 `steps[].content[].data` 中）。如需详细了解便捷属性，请参阅[互动概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn#convenience-properties)。
+Dans les SDK Python et JavaScript, vous pouvez récupérer les données audio générées à l'aide de la propriété pratique `interaction.output_audio`, qui renvoie le dernier bloc audio généré (dans les réponses JSON REST brutes, l'audio encodé en base64 est stocké dans `steps[].content[].data`). Pour en savoir plus sur les propriétés pratiques, consultez [Présentation des interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr#convenience-properties).
 
-## 多说话人 TTS
+## TTS multilocuteur
 
-对于多说话人对话，请在 `speech_config.speakers` 中配置两个说话人，并将每个轮次作为单独的文本项传递，其中包含 `speech_metadata` 注释，用于指定 `speaker` 和可选的轮次级 `style`。使用 `"mode": "conversational"` 实现自然的轮流发言节奏：
+Pour les dialogues à plusieurs locuteurs, configurez deux locuteurs dans `speech_config.speakers` et transmettez chaque tour de parole en tant qu'élément de texte distinct avec une annotation `speech_metadata` spécifiant `speaker` et `style` facultatif au niveau du tour de parole. Notez que `speech_config` accepte un tableau (`[{"voice": "..."}]`) pour la génération à une seule voix et un objet (`{"speakers": [...]}`) pour la génération à plusieurs voix :
 
 ### Python
 
@@ -264,7 +265,6 @@ interaction = client.interactions.create(
     response_format={"type": "audio"},
     generation_config={
         "speech_config": {
-            "mode": "conversational",
             "speakers": [
                 {"speaker": "Joe", "voice": "Puck"},
                 {"speaker": "Jane", "voice": "Kore"},
@@ -314,7 +314,6 @@ async function main() {
       response_format: { type: 'audio' },
       generation_config: {
          speech_config: {
-            mode: 'conversational',
             speakers: [
                { speaker: 'Joe', voice: 'Puck' },
                { speaker: 'Jane', voice: 'Kore' },
@@ -397,7 +396,7 @@ func main() {
 
     res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.1-flash-tts-preview"),
+            Model: interactions.Model("gemini-3.8-flash-tts"),
             Input: interactions.NewInteractionsInput(prompt),
             ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
                 interactions.NewResponseFormat(interactions.AudioResponseFormat{}),
@@ -467,14 +466,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 使用元数据和标记控制语音风格
+## Contrôler le style de parole avec des métadonnées et des tags
 
-Gemini 3.8 TTS 会将 `text` 字段严格视为逐字转写内容。如需控制朗读效果，但不希望系统朗读舞台说明，请按范围拆分指令：
+Gemini 3.8 TTS traite le champ `text` strictement comme une transcription mot à mot. Pour contrôler la diffusion sans que les indications scéniques soient lues à voix haute, séparez vos instructions par portée :
 
-- **持续的轮次级交付 (`speech_metadata.style`)**：将适用于整个轮次的情感、交付风格、韵律、节奏和音量放在 `style` 字段中（例如 `"style": "whispered urgently"`、`"style": "out of breath"` 或 `"style": "warm and enthusiastic"`）。
-- **时间点事件（内嵌标记）**：使用尖括号（例如 `"Wait... <short pause> did you hear that? <sigh>"` 或 `"Excuse me <cough> as I was saying..."`）将短暂的非语音声音爆发或停顿直接放置在转写内容中。
+- **Diffusion soutenue au niveau du tour de parole (`speech_metadata.style`)** : indiquez les émotions, le style de diffusion, la prosodie, le rythme et le volume qui s'appliquent à l'ensemble d'un tour de parole dans le champ `style` (par exemple, `"style": "whispered urgently"`, `"style": "out of breath"` ou `"style": "warm and enthusiastic"`).
+- **Événements ponctuels (balises intégrées)** : placez les brèves pauses ou les brèves émissions vocales non verbales directement dans la transcription à l'aide de crochets (par exemple, `"Wait... <short pause> did you hear that? <sigh>"` ou `"Excuse me <cough> as I was saying..."`).
 
-如需了解全面的最佳实践，请参阅[提示指南](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#prompting-guide)。
+Pour obtenir des bonnes pratiques complètes, consultez le [guide sur les requêtes](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#prompting-guide).
 
 ### Go
 
@@ -525,7 +524,7 @@ func main() {
 
     ttsRes, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.1-flash-tts-preview"),
+            Model: interactions.Model("gemini-3.8-flash-tts"),
             Input: interactions.NewInteractionsInput(transcript),
             ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
                 interactions.NewResponseFormat(interactions.AudioResponseFormat{}),
@@ -540,9 +539,9 @@ func main() {
 }
 ```
 
-## 流式语音生成
+## Génération de voix en flux continu
 
-您可以通过设置 `stream: true` 来在合成音频时对其进行流式传输。与返回包含 RIFF 标头的完整 WAV 文件的单次请求不同，**流式请求默认返回不含标头的原始 16 位有符号小端线性 PCM (`audio/l16`，24 kHz，单声道) 块**，因此音频块可以连续播放或串联，而无需容器标头。
+Vous pouvez diffuser l'audio généré au fur et à mesure de sa synthèse en définissant `stream: true`. Contrairement aux requêtes unaires (qui renvoient un fichier WAV complet avec un en-tête RIFF), **les requêtes de streaming renvoient par défaut des blocs bruts de PCM linéaire little-endian signé 16 bits sans en-tête (`audio/l16`, 24 kHz, mono)**. Les blocs audio peuvent ainsi être lus ou concaténés en continu sans en-tête de conteneur.
 
 ### Python
 
@@ -655,23 +654,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 音频输出格式
+## Formats de sortie audio
 
-Gemini 3.8 TTS 模型使用不同的默认音频格式，具体取决于请求是单次请求还是流式请求：
+Les modèles Gemini 3.8 TTS utilisent différents formats audio par défaut selon que la requête est unaire ou en flux :
 
-- **一元请求 (`stream=False`)**：返回完整的 **WAV (`audio/wav`)** 音频，其中包含标准 RIFF 标头（24 kHz、单声道、16 位有符号小端字节序 PCM）。您可以直接将解码后的音频字节保存到 `.wav` 文件，而无需手动添加 WAV 标头。
-- **流式请求 (`stream=True`)**：默认返回**无标头的原始线性 PCM (`audio/l16`)** 块（24 kHz、单声道、16 位有符号小端字节序 PCM），以便可以连续流式传输或串联块，而无需在每个块上添加容器标头。
+- **Requêtes unaires (`stream=False`)** : renvoient un fichier audio **WAV (`audio/wav`)** complet avec un en-tête RIFF standard (PCM 16 bits little-endian signé, mono, 24 kHz). Vous pouvez enregistrer les octets audio décodés directement dans un fichier `.wav` sans ajouter manuellement d'en-tête WAV.
+- **Requêtes de flux (`stream=True`)** : renvoient par défaut des blocs **PCM linéaire brut sans en-tête (`audio/l16`)** (PCM 24 kHz, mono, 16 bits signé little-endian). Les blocs peuvent ainsi être diffusés en streaming ou concaténés en continu sans en-tête de conteneur sur chaque bloc.
 
-如需请求其他音频编码或采样率，请在 `response_format` 内配置 `mime_type` 和可选的 `sample_rate`：
+Pour demander un autre encodage audio ou une autre fréquence d'échantillonnage, configurez `mime_type` et `sample_rate` facultatif dans `response_format` :
 
-| 格式 | `mime_type` 值 | 说明 |
+| Format | Valeur `mime_type` | Description |
 | --- | --- | --- |
-| **WAV** *（一元默认）* | `"audio/wav"` | 带有 RIFF 标头的未压缩 WAV 文件（16 位有符号小端字节序 PCM、单声道、24 kHz 默认）。一元请求的默认值。 |
-| **原始 PCM (L16)** *（流式传输默认）* | `"audio/l16"` | 未压缩、无标头的 16 位有符号小端字节序线性 PCM 音频（24 kHz，单声道）。流式传输请求的默认值。 |
-| **Mu-law** | `"audio/mulaw"` | 8 位 G.711 mu-law 编码音频（常用于北美和日本的电话/IVR 系统）。 |
-| **A-law** | `"audio/alaw"` | 8 位 G.711 A-law 编码音频（通常用于欧洲和国际电话系统）。 |
+| **WAV** *(par défaut pour les valeurs unitaires)* | `"audio/wav"` | Fichier WAV non compressé avec un en-tête RIFF (PCM 16 bits signé little-endian, mono, 24 kHz par défaut). Valeur par défaut pour les requêtes unaires. |
+| **PCM brut (L16)** *(paramètre par défaut pour le streaming)* | `"audio/l16"` | Audio PCM linéaire 16 bits signé little-endian sans en-tête et non compressé (24 kHz, mono). Valeur par défaut pour les requêtes de streaming. |
+| **Mu-law** | `"audio/mulaw"` | Audio encodé en G.711 MULAW 8 bits (couramment utilisé dans les systèmes de téléphonie/SVI nord-américains et japonais). |
+| **A-law** | `"audio/alaw"` | Audio encodé en G.711 A-law 8 bits (couramment utilisé dans les systèmes de téléphonie européens et internationaux). |
 
-您还可以指定以赫兹为单位的 `sample_rate`（例如 `24000`、`16000` 或 `8000`）。
+Vous pouvez également spécifier `sample_rate` en Hertz (par exemple, `24000`, `16000` ou `8000`).
 
 ### Python
 
@@ -780,7 +779,7 @@ func main() {
 
     res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.1-flash-tts-preview"),
+            Model: interactions.Model("gemini-3.8-flash-tts"),
             Input: interactions.NewInteractionsInput("Say cheerfully: Have a wonderful day!"),
             ResponseFormat: genai.Ptr(interactions.NewCreateModelInteractionResponseFormat(
                 interactions.NewResponseFormat(interactions.AudioResponseFormat{}),
@@ -847,56 +846,58 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 语音选项
+## Options vocales
 
-Gemini 3.8 TTS 支持四种选择或创建语音的方式：
+Gemini 3.8 TTS permet de sélectionner ou de créer des voix de quatre manières :
 
-1. **预建的 Studio 语音**：下表中列出的 30 种精选语音。
-2. **扩展语音库**：使用 `client.voices.list()` (`GET /v1beta/voices`) 可访问数百种其他语音，涵盖多种语言、口音和角色原型。
-3. **[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)**：在 [Google AI Studio](https://aistudio.google.com/generate-speech?hl=zh-cn) 中通过自然语言描述生成自定义声音角色，或使用 `POST /v1beta/voices`（`type="prompted"`，该函数会在 `CreateVoice` 和 `GetVoice` 中返回持久性 `voice_...` ID 和 `sample_audio` WAV 预览）。
-4. **[语音复刻](https://ai.google.dev/gemini-api/docs/voice-replication?hl=zh-cn)**：在 [Google AI Studio](https://aistudio.google.com/generate-speech?hl=zh-cn) 中或使用 `POST /v1beta/voices`（`type="replicated"`，默认情况下为持久性 `store=True`，或可选的无状态 `store=False`）复刻参考音频和同意音频中的说话者语音。
+1. **Voix Studio prédéfinies** : 30 voix sélectionnées sont listées dans le tableau suivant.
+2. **Bibliothèque vocale étendue** : des centaines de voix supplémentaires dans différentes langues, avec différents accents et différents archétypes de personnages sont disponibles à l'aide de `client.voices.list()` (`GET /v1beta/voices`).
+3. **[Conception de voix](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr)** : générez une personnalité vocale personnalisée à partir d'une description en langage naturel dans [Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr) ou à l'aide de `POST /v1beta/voices` (`type="prompted"`, qui renvoie un ID `voice_...` persistant et un aperçu WAV `sample_audio` dans `CreateVoice` et `GetVoice`).
+4. **[Réplication de la voix](https://ai.google.dev/gemini-api/docs/voice-replication?hl=fr)** : répliquez la voix d'un locuteur à partir d'un contenu audio de référence et de consentement dans [Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr) ou à l'aide de `POST /v1beta/voices` (`type="replicated"`, `store=True` persistant par défaut ou `store=False` sans état facultatif).
 
-### 自定义语音限制和 TTL
+### Limites et TTL des voix personnalisées
 
-| 语音类型 | 存储模式 | 配额 / 限制 | 保留期限 (TTL) |
+| Type de voix | Mode de stockage | Quota / Limite | Rétention (TTL) |
 | --- | --- | --- | --- |
-| **有状态语音**（`voice_...`，提示或复制） | `store=True` | **每个项目 200 个声音**（在提示声音和复制声音之间共享） | **1 年** |
-| **无状态语音键**（`voicekey_...`，已复制） | `store=False` | 由客户端管理 | **7 天** |
+| **Voix avec état** (`voice_...`, générées ou répliquées) | `store=True` | **200 voix par projet** (partagées entre les voix incitées et répliquées) | **1 an à compter de la dernière utilisation\*** |
+| **Clés vocales sans état** (`voicekey_...`, répliquées) | `store=False` | Géré par le client | **7 jours** |
 
-### 预建语音
+\* **Extension de la durée de vie** : la période de conservation d'un an est réinitialisée chaque fois que la voix est utilisée activement (soit pour synthétiser la parole, soit comme voix de base pour un remix). Les voix qui n'ont pas été utilisées pendant un an sont automatiquement supprimées.
+
+### Voix prédéfinies
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** - *明亮* | **Puck** - *欢快* | **Charon** - *信息丰富* |
-| **Kore** - *坚定* | **Fenrir** - *易兴奋* | **Leda** - *青春* |
-| **Orus** - *公司* | **Aoede** - *Breezy* | **Callirrhoe** - *轻松* |
-| **Autonoe** - *明亮* | **Enceladus** - *气声* | **Iapetus** -- *清晰* |
-| **Umbriel** - *随和* | **Algieba** - *平滑* | **Despina** - *平滑* |
-| **Erinome** - *清除* | **Algenib** -- *Gravelly* | **Rasalgethi** - *信息丰富* |
-| **Laomedeia** - *欢快* | **Achernar** - *柔和* | **Alnilam** - *坚定* |
-| **Schedar** - *均匀* | **Gacrux** - *成熟* | **Pulcherrima** - *转发* |
-| **Achird** - *友好* | **Zubenelgenubi** - *休闲* | **Vindemiatrix** - *柔和* |
-| **Sadachbia** - *活泼* | **Sadaltager** - *知识渊博* | **Sulafat** - *偏高* |
+| **Zephyr** : *Lumineux* | **Puck** : *Upbeat* | **Charon** : *informatif* |
+| **Kore** : *Ferme* | **Fenrir** : *excitabilité* | **Leda** : *jeune* |
+| **Orus** : *ferme* | **Aoede** : *Breezy* | **Callirrhoe** : *tranquille* |
+| **Autonoe** : *Lumineux* | **Encelade** : *Souffle* | **Iapetus** : *Effacer* |
+| **Umbriel** : *décontracté* | **Algieba** : *Lisse* | **Despina** : *Smooth* |
+| **Erinome** : *Effacer* | **Algenib** : *Graveleux* | **Rasalgethi** : *Informations* |
+| **Laomedeia** : *Upbeat* | **Achernar** : *Soft* | **Alnilam** -- *Firm* |
+| **Schedar** : *pair* | **Gacrux** : *Contenu réservé aux adultes* | **Pulcherrima** -- *Forward* |
+| **Achird** : *amical* | **Zubenelgenubi** : *décontracté* | **Vindemiatrix** : *Doux* |
+| **Sadachbia** : *Lively* | **Sadaltager** : *connaissances* | **Sulafat** : *chaude* |
 
-### 扩展的语音库和过滤功能
+### Bibliothèque vocale étendue et filtrage
 
-除了上表中列出的 30 种精选工作室语音外，**扩展语音库**还提供了数百种其他语音，涵盖多种语言、地区口音、角色人物和领域。您可以在 [Google AI Studio](https://aistudio.google.com/generate-speech?hl=zh-cn) 中以交互方式浏览、过滤和试听完整的语音库，也可以使用 `client.voices.list()`（`GET /v1beta/voices`，使用 `google-genai` 2.25.0+ / `@google/genai` 2.24.0+）以编程方式查询语音库。
+En plus des 30 voix de studio présentées dans le tableau précédent, la **bibliothèque vocale étendue** propose des centaines de voix supplémentaires dans différentes langues, avec des accents régionaux, des personnages et des domaines variés. Vous pouvez parcourir, filtrer et écouter l'intégralité de la bibliothèque de voix de manière interactive dans [Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr), ou l'interroger de manière programmatique à l'aide de `client.voices.list()` (`GET /v1beta/voices`, en utilisant `google-genai` 2.25.0+ / `@google/genai` 2.24.0+).
 
-`ListVoices` 会返回您的自定义存储语音（按最新到最旧的顺序排列），然后返回符合过滤条件的预构建目录语音。如果为列表过滤条件传递了多个值，系统会返回与该过滤条件中的**任何**值匹配的声音 (`OR`)，而不同的过滤条件参数会与 `AND` 结合使用：
+`ListVoices` renvoie vos voix stockées personnalisées (de la plus récente à la plus ancienne), suivies des voix de catalogue prédéfinies correspondant à vos critères de filtrage. Lorsque plusieurs valeurs sont transmises pour un filtre de liste, les voix correspondant à **n'importe quelle** valeur de ce filtre sont renvoyées (`OR`), tandis que les paramètres de filtre distincts sont combinés avec `AND` :
 
-| 参数 | 类型 | 说明 |
+| Paramètre | Type | Description |
 | --- | --- | --- |
-| `language_code` | `list[str]` | BCP-47 语言标记（例如 `["en-US", "en-GB"]`）。不区分大小写的完全匹配。 |
-| `region_code` | `list[str]` | ISO 3166-1 alpha-2 或联合国 M.49 地区代码（例如 `["US", "GB"]`）。 |
-| `accent` | `list[str]` | 区域口音描述符（例如 `["American", "British"]`）。 |
-| `gender` | `list[str]` | 感知到的性别表达（`"female"`、`"male"` 或 `"neutral"`）。 |
-| `pitch` | `list[str]` | 人声音调分类（`"low"`、`"medium"` 或 `"high"`）。 |
-| `persona` | `list[str]` | 声音角色或角色原型（例如 `["Warm, Friendly"]`、`["Narrator"]`）。 |
-| `contexts`（REST 中的 `context`） | `list[str]` | 最佳使用网域（例如 `["Audiobook", "Conversational", "News"]`）。 |
-| `type`（在 Python 中为 `type_`） | `list[str]` | 按语音来源过滤：`"prebuilt"`、`"prompted"`（[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)）或 `"replicated"`（[语音复刻](https://ai.google.dev/gemini-api/docs/voice-replication?hl=zh-cn)）。 |
-| `search` | `str` | 自由文本子字符串搜索不区分大小写，可匹配 `display_name` 和 `description`。 |
-| `page_size` | `int` | 每页返回的声音数量上限（默认值为 `50`，最大值为 `1000`）。 |
-| `page_token` | `str` | 来自 `response.next_page_token` 的令牌，用于获取下一页结果。 |
+| `language_code` | `list[str]` | Balise(s) de langue BCP-47 (par exemple, `["en-US", "en-GB"]`). Correspondance exacte non sensible à la casse. |
+| `region_code` | `list[str]` | Code(s) de région ISO 3166-1 alpha-2 ou UN M.49 (par exemple, `["US", "GB"]`). |
+| `accent` | `list[str]` | Descripteur(s) d'accent régional (par exemple, `["American", "British"]`). |
+| `gender` | `list[str]` | Genre perçu (`"female"`, `"male"` ou `"neutral"`). |
+| `pitch` | `list[str]` | Classification de la hauteur vocale (`"low"`, `"medium"` ou `"high"`). |
+| `persona` | `list[str]` | Personnalité vocale ou archétype de personnage (par exemple, `["Warm, Friendly"]`, `["Narrator"]`). |
+| `contexts` (`context` dans REST) | `list[str]` | Domaine d'utilisation optimal (par exemple, `["Audiobook", "Conversational", "News"]`). |
+| `type` (`type_` en Python) | `list[str]` | Filtrer par source vocale : `"prebuilt"`, `"prompted"` ([Conception de voix](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr)) ou `"replicated"` ([Réplication de voix](https://ai.google.dev/gemini-api/docs/voice-replication?hl=fr)). |
+| `search` | `str` | La recherche de sous-chaînes en texte libre correspond à la casse insensible par rapport à `display_name` et `description`. |
+| `page_size` | `int` | Nombre maximal de voix renvoyées par page (`50` par défaut, `1000` maximum). |
+| `page_token` | `str` | Jeton de `response.next_page_token` permettant d'extraire la page de résultats suivante. |
 
 ### Python
 
@@ -964,220 +965,220 @@ curl -G "https://generativelanguage.googleapis.com/v1beta/voices" \
   --data-urlencode "page_size=50"
 ```
 
-## 支持的语言
+## Langues disponibles
 
-TTS 模型会自动检测输入语言。
-[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-cn) (`gemini-3.8-flash-tts`) 支持**超过 130 种语言**，而 [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-cn) (`gemini-3.8-flash-lite-tts`) 支持**超过 100 种语言**：
+Les modèles TTS détectent automatiquement la langue d'entrée.
+[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`) est compatible avec **plus de 130 langues**, et [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`) est compatible avec **plus de 100 langues** :
 
-| 语言 | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
+| Langue | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
 | --- | --- | --- |
-| 亚齐语（阿拉伯文字） | ✔️ | ✔️ |
-| 南非荷兰语 | ✔️ | ✔️ |
-| 阿坎语 | ✔️ | ✔️ |
-| 阿姆哈拉语 | ✔️ | ✔️ |
-| 亚美尼亚语 | ✔️ | ✔️ |
-| 阿萨姆语 | ✔️ | ✔️ |
-| 阿瓦德语 | ✔️ | ✔️ |
-| 巴厘语 | ✔️ | ✔️ |
-| 孟加拉语 | ✔️ | ✔️ |
-| 班查语（阿拉伯文字） | ✔️ | — |
-| 班查语（拉丁文字） | ✔️ | ✔️ |
-| 巴什基尔语 | ✔️ | — |
-| 巴斯克语 | ✔️ | ✔️ |
-| 白俄罗斯语 | ✔️ | ✔️ |
-| 奔巴语 | ✔️ | — |
-| 博杰普尔语 | ✔️ | ✔️ |
-| 波斯尼亚语 | ✔️ | ✔️ |
-| 布吉文 | ✔️ | ✔️ |
-| 保加利亚语 | ✔️ | ✔️ |
-| 缅甸语 | ✔️ | — |
-| 粤语 | ✔️ | ✔️ |
-| 加泰罗尼亚语 | ✔️ | ✔️ |
-| 宿务语 | ✔️ | ✔️ |
-| 中部库尔德语 | ✔️ | ✔️ |
-| 恰蒂斯加尔语 | ✔️ | ✔️ |
-| 中文（汉字） | ✔️ | ✔️ |
-| 中文（繁体） | ✔️ | ✔️ |
-| 克里米亚鞑靼语 | ✔️ | — |
-| 克罗地亚语 | ✔️ | ✔️ |
-| 捷克 | ✔️ | ✔️ |
-| 丹麦语 | ✔️ | ✔️ |
-| 荷兰语 | ✔️ | ✔️ |
-| 迪尤拉语 | ✔️ | — |
-| 宗卡语 | ✔️ | — |
-| 阿拉伯语（埃及） | ✔️ | ✔️ |
-| 英语 | ✔️ | ✔️ |
-| 爱沙尼亚语 | ✔️ | ✔️ |
-| 菲律宾语 | ✔️ | ✔️ |
-| 芬兰语 | ✔️ | — |
-| 法语 | ✔️ | ✔️ |
-| 加利西亚语 | ✔️ | ✔️ |
-| 干达语 | ✔️ | ✔️ |
-| 格鲁吉亚语 | ✔️ | ✔️ |
-| 德语 | ✔️ | ✔️ |
-| 希腊语 | ✔️ | ✔️ |
-| 瓜拉尼人 | ✔️ | — |
-| 古吉拉特语 | ✔️ | ✔️ |
-| 海地克里奥尔语 | ✔️ | ✔️ |
-| 喀尔喀蒙古语 | ✔️ | ✔️ |
-| 豪萨语 | ✔️ | ✔️ |
-| 希伯来语 | ✔️ | ✔️ |
-| 印地语 | ✔️ | ✔️ |
-| 匈牙利语 | ✔️ | ✔️ |
-| 冰岛语 | ✔️ | ✔️ |
-| 伊博语 | ✔️ | — |
-| 伊洛果语 | ✔️ | ✔️ |
-| 印度尼西亚语 | ✔️ | ✔️ |
-| 伊朗波斯语 | ✔️ | ✔️ |
-| 意大利语 | ✔️ | ✔️ |
-| 日语 | ✔️ | ✔️ |
-| 爪哇语 | ✔️ | ✔️ |
-| 卡拜尔语 | ✔️ | — |
-| 卡姆巴语 | ✔️ | ✔️ |
-| 卡纳达语 | ✔️ | ✔️ |
-| 克什米尔语（阿拉伯文字） | ✔️ | ✔️ |
-| 克什米尔语（梵文） | ✔️ | ✔️ |
-| 哈萨克语 | ✔️ | ✔️ |
-| 高棉语 | ✔️ | ✔️ |
-| 吉库尤语 | ✔️ | ✔️ |
-| 卢旺达语 | ✔️ | ✔️ |
-| 刚果语 | ✔️ | ✔️ |
-| 韩语 | ✔️ | ✔️ |
-| 吉尔吉斯语 | ✔️ | ✔️ |
-| 老挝语 | ✔️ | ✔️ |
-| 拉特加莱语 | ✔️ | — |
-| 林加拉语 | ✔️ | ✔️ |
-| 立陶宛语 | ✔️ | — |
-| 卢森堡语 | ✔️ | — |
-| 马其顿语 | ✔️ | ✔️ |
-| 摩揭陀语 | ✔️ | ✔️ |
-| 迈蒂利语 | ✔️ | ✔️ |
-| 马拉雅拉姆语 | ✔️ | ✔️ |
-| 马耳他语 | ✔️ | ✔️ |
-| 曼尼普尔语 | ✔️ | ✔️ |
-| 马拉地语 | ✔️ | ✔️ |
-| 米南佳保语（阿拉伯文字） | ✔️ | ✔️ |
-| 米南佳保语（拉丁文字） | ✔️ | — |
-| 米佐语 | ✔️ | ✔️ |
-| 尼泊尔语（单独的语言） | ✔️ | ✔️ |
-| 尼日利亚富拉语 | ✔️ | ✔️ |
-| 阿塞拜疆北部 | ✔️ | ✔️ |
-| 北索托语 | ✔️ | ✔️ |
-| 乌兹别克北部 | ✔️ | ✔️ |
-| 挪威博克马尔语 | ✔️ | ✔️ |
-| 挪威语（尼诺斯克语） | ✔️ | ✔️ |
-| 尼昂加语 | ✔️ | ✔️ |
-| 奥克斯坦语 | ✔️ | — |
-| 奥里亚语（单个语言） | ✔️ | ✔️ |
-| 邦阿西楠语 | ✔️ | — |
-| 波斯语（阿富汗） | ✔️ | ✔️ |
-| 波兰语 | ✔️ | ✔️ |
-| 葡萄牙语 | ✔️ | ✔️ |
-| 旁遮普语 | ✔️ | ✔️ |
-| 罗马尼亚语 | ✔️ | ✔️ |
-| 俄语 | ✔️ | ✔️ |
-| 桑塔利语 | ✔️ | ✔️ |
-| 塞尔维亚语 | ✔️ | ✔️ |
-| 信德语 | ✔️ | — |
-| 僧伽罗语 | ✔️ | ✔️ |
-| 斯洛伐克语 | ✔️ | ✔️ |
-| 斯洛文尼亚语 | ✔️ | — |
-| 索马里语 | ✔️ | — |
-| 南阿塞拜疆语 | ✔️ | ✔️ |
-| 南部普什图语 | ✔️ | ✔️ |
-| 南索托语 | ✔️ | — |
-| 西班牙语 | ✔️ | ✔️ |
-| 标准阿拉伯语（阿拉伯文字） | ✔️ | ✔️ |
-| 标准阿拉伯语（拉丁文字） | ✔️ | ✔️ |
-| 标准拉脱维亚语 | ✔️ | ✔️ |
-| 标准马来语 | ✔️ | ✔️ |
-| 斯瓦希里语（单个语言） | ✔️ | — |
-| 斯瓦特语 | ✔️ | — |
-| 瑞典语 | ✔️ | — |
-| 塔吉克语 | ✔️ | — |
-| 泰米尔语 | ✔️ | ✔️ |
-| 泰卢固语 | ✔️ | ✔️ |
-| 泰语 | ✔️ | — |
-| 提格里尼亚语 | ✔️ | — |
-| 阿尔巴尼亚语托斯克方言 | ✔️ | — |
-| 土耳其语 | ✔️ | ✔️ |
-| 维吾尔语 | ✔️ | — |
-| 越南语 | ✔️ | ✔️ |
+| Aceh (écriture arabe) | ✔️ | ✔️ |
+| Afrikaans | ✔️ | ✔️ |
+| Akan | ✔️ | ✔️ |
+| Amharique | ✔️ | ✔️ |
+| Arménien | ✔️ | ✔️ |
+| Assamais | ✔️ | ✔️ |
+| Awadhi | ✔️ | ✔️ |
+| Balinais | ✔️ | ✔️ |
+| Bengali | ✔️ | ✔️ |
+| Banjar (écriture arabe) | ✔️ | — |
+| Banjar (alphabet latin) | ✔️ | ✔️ |
+| Bachkir | ✔️ | — |
+| Basque | ✔️ | ✔️ |
+| Belarusian | ✔️ | ✔️ |
+| Bemba | ✔️ | — |
+| Bhodjpouri | ✔️ | ✔️ |
+| Bosniaque | ✔️ | ✔️ |
+| Bouguis | ✔️ | ✔️ |
+| Bulgare | ✔️ | ✔️ |
+| Birman | ✔️ | — |
+| Cantonais | ✔️ | ✔️ |
+| Catalan | ✔️ | ✔️ |
+| Cebuano | ✔️ | ✔️ |
+| Sorani | ✔️ | ✔️ |
+| Chhattisgarhi | ✔️ | ✔️ |
+| Chinois (script Hans) | ✔️ | ✔️ |
+| Chinois (script Hant) | ✔️ | ✔️ |
+| Tatar de Crimée | ✔️ | — |
+| Croate | ✔️ | ✔️ |
+| Tchèque | ✔️ | ✔️ |
+| Danois | ✔️ | ✔️ |
+| Néerlandais | ✔️ | ✔️ |
+| Dioula | ✔️ | — |
+| Dzongkha | ✔️ | — |
+| Arabe (Égypte) | ✔️ | ✔️ |
+| Anglais | ✔️ | ✔️ |
+| Estonien | ✔️ | ✔️ |
+| Tagalog | ✔️ | ✔️ |
+| Finnois | ✔️ | — |
+| Français | ✔️ | ✔️ |
+| Galicien | ✔️ | ✔️ |
+| Ganda | ✔️ | ✔️ |
+| Géorgien | ✔️ | ✔️ |
+| Allemand | ✔️ | ✔️ |
+| Grec | ✔️ | ✔️ |
+| Guarani | ✔️ | — |
+| Gujarati | ✔️ | ✔️ |
+| Créole haïtien | ✔️ | ✔️ |
+| Mongol khalkha | ✔️ | ✔️ |
+| Haoussa | ✔️ | ✔️ |
+| Hébreu | ✔️ | ✔️ |
+| Hindi | ✔️ | ✔️ |
+| Hongrois | ✔️ | ✔️ |
+| Islandais | ✔️ | ✔️ |
+| Igbo | ✔️ | — |
+| Ilocano | ✔️ | ✔️ |
+| Indonésien | ✔️ | ✔️ |
+| Persan iranien | ✔️ | ✔️ |
+| Italien | ✔️ | ✔️ |
+| Japonais | ✔️ | ✔️ |
+| Javanais | ✔️ | ✔️ |
+| Kabyle | ✔️ | — |
+| Kamba | ✔️ | ✔️ |
+| Kannada | ✔️ | ✔️ |
+| Cachemiri (écriture arabe) | ✔️ | ✔️ |
+| Cachemiri (Devanagari) | ✔️ | ✔️ |
+| Kazakh | ✔️ | ✔️ |
+| Khmer | ✔️ | ✔️ |
+| Kikuyu | ✔️ | ✔️ |
+| Kinyarwanda | ✔️ | ✔️ |
+| Kongo | ✔️ | ✔️ |
+| Coréen | ✔️ | ✔️ |
+| Kirghiz | ✔️ | ✔️ |
+| Laotien | ✔️ | ✔️ |
+| Latgalien | ✔️ | — |
+| Lingala | ✔️ | ✔️ |
+| Lituanien | ✔️ | — |
+| Luxembourgeois | ✔️ | — |
+| Macédonien | ✔️ | ✔️ |
+| Magahi | ✔️ | ✔️ |
+| Maithili | ✔️ | ✔️ |
+| Malayalam | ✔️ | ✔️ |
+| Maltais | ✔️ | ✔️ |
+| Manipuri | ✔️ | ✔️ |
+| Marathi | ✔️ | ✔️ |
+| Minangkabau (écriture arabe) | ✔️ | ✔️ |
+| Minangkabau (alphabet latin) | ✔️ | — |
+| Mizo | ✔️ | ✔️ |
+| Népalais (langue individuelle) | ✔️ | ✔️ |
+| Peul du Nigeria | ✔️ | ✔️ |
+| Azerbaïdjanais du Nord | ✔️ | ✔️ |
+| Sotho du Nord | ✔️ | ✔️ |
+| Ouzbek du Nord | ✔️ | ✔️ |
+| Norvégien bokmål | ✔️ | ✔️ |
+| Nynorsk (norvégien) | ✔️ | ✔️ |
+| Chichewa | ✔️ | ✔️ |
+| Occitan | ✔️ | — |
+| Odia (langue individuelle) | ✔️ | ✔️ |
+| Pangasinan | ✔️ | — |
+| Perse (Afghanistan) | ✔️ | ✔️ |
+| Polish | ✔️ | ✔️ |
+| Portugais | ✔️ | ✔️ |
+| Panjabi | ✔️ | ✔️ |
+| Roumain | ✔️ | ✔️ |
+| Russe | ✔️ | ✔️ |
+| Santali | ✔️ | ✔️ |
+| Serbe | ✔️ | ✔️ |
+| Sindhî | ✔️ | — |
+| Cingalais | ✔️ | ✔️ |
+| Slovaque | ✔️ | ✔️ |
+| Slovène | ✔️ | — |
+| Somali | ✔️ | — |
+| Azéri | ✔️ | ✔️ |
+| Pachto du Sud | ✔️ | ✔️ |
+| Sotho du Sud | ✔️ | — |
+| Espagnol | ✔️ | ✔️ |
+| Arabe standard (écriture arabe) | ✔️ | ✔️ |
+| Arabe standard (alphabet latin) | ✔️ | ✔️ |
+| Letton standard | ✔️ | ✔️ |
+| Malais standard | ✔️ | ✔️ |
+| Swahili (langue individuelle) | ✔️ | — |
+| Swati | ✔️ | — |
+| Suédois | ✔️ | — |
+| Tadjik | ✔️ | — |
+| Tamoul | ✔️ | ✔️ |
+| Telugu | ✔️ | ✔️ |
+| Thaï | ✔️ | — |
+| Tigrinya | ✔️ | — |
+| Tosque albanais | ✔️ | — |
+| Turkish | ✔️ | ✔️ |
+| Ouïghour | ✔️ | — |
+| Vietnamien | ✔️ | ✔️ |
 
-## 支持的模型
+## Modèles compatibles
 
-| 模型 | 一位说话者 | 多说话人 | 语音设计 | 语音复刻 |
+| Modèle | Locuteur unique | Plusieurs locuteurs | Conception de la voix | Réplication vocale |
 | --- | --- | --- | --- | --- |
-| [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-cn) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-cn) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash TTS 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=zh-cn) | ✔️ | ✔️ | — | — |
-| [Gemini 2.5 Pro 预览版 TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=zh-cn) | ✔️ | ✔️ | — | — |
+| [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Preview Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=fr) | ✔️ | ✔️ | — | — |
+| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=fr) | ✔️ | ✔️ | — | — |
 
-### 何时使用哪种模型
+### Quand utiliser quel modèle
 
-Gemini 3.8 TTS 模型具有完全相同的 API 架构和提示格式，因此您只需更改一个参数即可在它们之间切换：
+Les deux modèles TTS Gemini 3.8 partagent exactement le même schéma d'API et le même format d'invite, ce qui vous permet de passer de l'un à l'autre en modifiant un seul paramètre :
 
-- **如果需要优先考虑最高声音保真度、细致的表演
-  和富有表现力的控制，请使用 [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-cn)
-  (`gemini-3.8-flash-tts`)**。它非常适合工作室级创意工作、复杂的多人对话、大量人声爆发标记、难以发音的词语、区域性或少数民族方言，以及需要稳定的人声和环境音的长篇旁白。
-- **使用 [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-cn) (`gemini-3.8-flash-lite-tts`)** 作为 `gemini-3.1-flash-tts-preview` 的快速、经济高效的替代方案。它经过优化，可用于大批量生成内容、创建对话式语音智能体级联、实现大声朗读功能、可靠地进行语音复刻，以及处理主要语言的日常单人语音。
+- **Utilisez [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr)
+  (`gemini-3.8-flash-tts`)** lorsque la fidélité acoustique maximale, le jeu nuancé
+  et le contrôle expressif sont prioritaires. Il est idéal pour les travaux créatifs de qualité studio, les dialogues complexes à plusieurs locuteurs, les tags vocaux lourds, les prononciations difficiles, les dialectes régionaux ou minoritaires, et les narrations longues nécessitant une stabilité vocale et de ton de pièce à toute épreuve.
+- **Utilisez [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr)
+  (`gemini-3.8-flash-lite-tts`)** comme solution de remplacement rapide et économique pour `gemini-3.1-flash-tts-preview`. Il est optimisé pour la production en masse à grand volume, les cascades d'agents vocaux conversationnels, les fonctionnalités de lecture à voix haute, la réplication vocale fiable et la parole quotidienne à un seul locuteur dans les principales langues.
 
-### 迁移指南
+### Guide de migration
 
-如果您要从 `gemini-3.1-flash-tts-preview` 或更早版本的 Gemini TTS 模型迁移到 Gemini 3.8 TTS，请注意以下事项：
+Si vous migrez des modèles Gemini TTS `gemini-3.1-flash-tts-preview` ou antérieurs vers Gemini 3.8 TTS :
 
-1. **将回合级指令移至 `speech_metadata`**：Gemini 3.8 TTS 会将输入文本严格视为逐字转写内容。将持续交付说明（`style` - 例如 `"whispering"`、`"out of breath"` 或 `"speaking slowly"`）和说话人标签 (`speaker`) 移至结构化 `speech_metadata` 注释中，而不是将舞台说明嵌入到转写文本中。
-2. **仅将尖括号内嵌标记用于时间点上的发声事件**：使用尖括号（例如 `<laugh>`、`<sigh>`、`<cough>`、`<breath>` 或 `<short pause>`）将短暂的非语音发声和停顿内嵌在转写中。避免使用音效标记（例如掌声或砰砰声），并将朗读风格放在 `speech_metadata.style` 中。
-3. **在多说话人请求的每个回合中指定 `speaker`**：多说话人请求
-   的每个回合都必须在
-   `speech_metadata` 内明确包含 `speaker`，且 与配置的说话人之一相匹配。
-4. **使用语音设计预先设计角色**：使用在[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)中创建的自定义语音替换多段落 `"Audio Profile"` 或 `"Director's Notes"` 代码块，然后通过 TTS 请求传递该 `voice_...` ID，并使用最少的 `style` 字符串或空字符串。
-5. **在一元请求中考虑默认 WAV (`audio/wav`) 输出**：与 `gemini-3.1-flash-tts-preview` 及更早版本的 TTS 模型（默认返回无标头的原始 PCM `audio/l16`）不同，Gemini 3.8 TTS 默认针对一元请求返回带有标准 RIFF 标头的 WAV 音频 (`audio/wav`)。
-   - 如果您的代码之前将原始 PCM 字节封装在 WAV 标头中（例如，使用 Python 的 `wave` 模块或 `ffmpeg`），请移除手动标头封装，并将返回的字节直接写入 `.wav` 文件。
-   - 如果流水线需要无标头的原始 PCM、mu-law 或 A-law 音频，请将 `response_format` 明确设置为 `"audio/l16"`、`"audio/mulaw"` 或 `"audio/alaw"`。请参阅[音频输出格式](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#audio-output-formats)。
+1. **Déplacez les instructions au niveau des tours dans `speech_metadata`** : Gemini 3.8 TTS traite le texte saisi strictement comme une transcription mot pour mot. Déplacez les instructions de diffusion continue (`style`, telles que `"whispering"`, `"out of breath"` ou `"speaking slowly"`) et les identifiants des intervenants (`speaker`) dans des annotations structurées `speech_metadata` plutôt que d'intégrer les mises en scène dans le texte de la transcription.
+2. **N'utilisez les balises en ligne entre crochets que pour les événements vocaux ponctuels** : conservez les vocalisations et les pauses momentanées non liées à la parole en ligne dans la transcription à l'aide de crochets (par exemple, `<laugh>`, `<sigh>`, `<cough>`, `<breath>` ou `<short pause>`). Évitez les balises d'effets sonores (comme les applaudissements ou les bruits sourds) et placez les styles de diction dans `speech_metadata.style`.
+3. **Spécifiez `speaker` à chaque tour dans les requêtes à plusieurs locuteurs** : chaque tour d'une requête à plusieurs locuteurs doit inclure explicitement `speaker` dans `speech_metadata` correspondant à l'un des locuteurs configurés.
+4. **Concevez des personas en amont avec la conception vocale** : remplacez les blocs `"Audio Profile"` ou `"Director's Notes"` de plusieurs paragraphes par une voix personnalisée créée dans [Conception vocale](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr), puis transmettez cet ID `voice_...` dans vos requêtes TTS avec des chaînes `style` minimales ou vides.
+5. **Tenir compte de la sortie WAV par défaut (`audio/wav`) pour les requêtes unaires** : contrairement aux modèles TTS `gemini-3.1-flash-tts-preview` et antérieurs (qui renvoyaient par défaut un PCM brut `audio/l16` sans en-tête), Gemini 3.8 TTS renvoie par défaut un fichier audio WAV (`audio/wav`) avec un en-tête RIFF standard pour les requêtes unaires.
+   - Si votre code encapsulait auparavant des octets PCM bruts dans un en-tête WAV (par exemple, à l'aide du module `wave` ou de `ffmpeg` de Python), supprimez l'encapsulation manuelle de l'en-tête et écrivez les octets renvoyés directement dans un fichier `.wav`.
+   - Si votre pipeline nécessite un format audio PCM brut sans en-tête, mu-law ou A-law, définissez explicitement `response_format.mime_type` sur `"audio/l16"`, `"audio/mulaw"` ou `"audio/alaw"` (par exemple, `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}` dans l'API Interactions ou `AUDIO_L16` dans `generateContent`). Consultez [Formats de sortie audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#audio-output-formats).
 
-## 提示指南
+## Guide sur les requêtes
 
-Gemini 3.8 TTS 模型将输入文本严格视为**逐字转写内容**。与之前将舞台说明嵌入纯文本中的预览模型不同，Gemini 3.8 TTS 将持续的回合级说明 (`speech_metadata`) 与时间点内嵌语音标记分开。
+Les modèles Gemini 3.8 TTS traitent le texte saisi strictement comme une **transcription mot pour mot**.
+Contrairement aux modèles d'aperçu précédents où les indications scéniques étaient intégrées en texte brut, Gemini 3.8 TTS sépare les indications de niveau tour soutenues (`speech_metadata`) des tags vocaux intégrés ponctuels.
 
-### 样式字段与内嵌标记
+### Champ "Style" et balises intégrées
 
-按范围拆分性能指令：
+Répartissez vos instructions de performances par portée :
 
-- **回合级交付 (`speech_metadata.style`)**：将持续交付属性（例如情绪、韵律、整体节奏或交付风格（如 `"whispering"`、`"out of breath"`、`"muttering"` 或 `"sarcastic"`））放入 `speech_metadata` 的 `style` 字段中。为了在对话轮次中打造稳定一致的角色和表演，请在[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)中预先设计角色，并仅使用 `style` 进行可选的轮次级调整。
-- **时间点事件（内嵌标记）**：使用尖括号（`<cough>`、`<breath>`、`<sigh>`、`<short pause>`）将短暂的非语音声音爆发、呼吸或停顿内嵌在转写内容中。使用尖括号 (`<...>`) 可获得最高音质，并且应仅标记人声，而非非人声的音效。
+- **Niveau de tour de parole (`speech_metadata.style`)** : placez les attributs de diffusion soutenue (comme l'émotion, la prosodie, le rythme général ou le style de diffusion, comme `"whispering"`, `"out of breath"`, `"muttering"` ou `"sarcastic"`) dans le champ `style` de `speech_metadata`. Pour créer un personnage et une performance stables tout au long des tours, concevez la persona à l'avance dans [Conception de la voix](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr) et n'utilisez `style` que pour les ajustements facultatifs au niveau du tour.
+- **Événements ponctuels (tags intégrés)** : insérez les brèves vocalises, respirations ou pauses non verbales dans la transcription à l'aide de crochets (`<cough>`, `<breath>`, `<sigh>`, `<short pause>`). Utilisez des crochets (`<...>`) pour obtenir la meilleure qualité audio possible et limitez-vous aux vocalises humaines plutôt qu'aux effets sonores non vocaux.
 
-| 范围 | 放置位置 | 示例 |
+| Champ d'application | Où placer | Exemples |
 | --- | --- | --- |
-| **回合级**（在整个回合中持续存在） | `speech_metadata.style` | `"angry tone"`、`"speaking rapidly"`、`"out of breath"`、`"whispers"`、`"sarcastic"` |
-| **时间点**（在特定字词处发生） | 内嵌在 `text` 中（`<...>`） | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
+| **Au niveau du tour** (soutenu tout au long du tour) | `speech_metadata.style` | `"angry tone"`, `"speaking rapidly"`, `"out of breath"`, `"whispers"`, `"sarcastic"` |
+| **À un moment précis** (se produit à un mot spécifique) | En ligne dans `text` (`<...>`) | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
 
-### 节奏和停顿
+### Rythme et pauses
 
-您可以从以下三个精细程度级别控制节奏和静音：
+Vous pouvez contrôler le rythme et le silence à trois niveaux de précision :
 
-- **标点符号和省略号**：使用逗号、短划线 (`--`) 和省略号 (`...`) 来模拟自然对话中的犹豫。
-- **内嵌暂停标记**：在脚本中说话者应暂停的确切位置插入 `<short pause>` 或 `<long pause>`：
+- **Ponctuation et points de suspension** : utilisez des virgules, des tirets (`--`) et des points de suspension (`...`) pour simuler des hésitations naturelles.
+- **Balises de pause intégrées** : insérez `<short pause>` ou `<long pause>` aux endroits exacts du script où l'orateur doit faire une pause :
   `text
   Hold on, let me think... <short pause> Alright, I've got it.`
-- **回合级语速**：在 `speech_metadata` 中设置 `"style": "speaking rapidly"` 或 `"style": "speaking slowly"`，以控制整个回合的说话速率。
+- **Rythme au niveau du tour** : définissez `"style": "speaking rapidly"` ou `"style": "speaking slowly"` dans `speech_metadata` pour contrôler le débit vocal pour l'ensemble du tour.
 
-### 韵律和音调
+### Prosodie et ton
 
-使用 **`speech_metadata.style`** 控制整个对话轮次的韵律、音调和语调（例如 `"style": "high pitch, cheerful and excited inflection"` 或 `"style": "monotone and flat"`）。如果情绪或韵律在对话中发生变化，请将脚本拆分为单独的轮次，并为每个轮次指定不同的 `style` 值。
+Utilisez **`speech_metadata.style`** pour contrôler la prosodie, la hauteur et l'inflexion de la voix tout au long d'un tour de parole (par exemple, `"style": "high pitch, cheerful and excited inflection"` ou `"style": "monotone and flat"`). Si l'émotion ou la prosodie changent au milieu du dialogue, divisez le script en tours de parole distincts avec des valeurs `style` différentes pour chacun d'eux.
 
-### 强调方式
+### Mise en valeur
 
-在转写内容中将特定字词大写，并结合标点符号和内嵌语音标记，以便在关键字上自然地施加语音重音：
+Mettez en majuscules certains mots de la transcription, en les combinant avec de la ponctuation et des balises vocales intégrées, pour mettre l'accent sur les mots clés :
 
 ```
 This is a VERY important point!
 It was a VERY long day <sigh> ... nobody listens anymore.
 ```
 
-### 爆发性发声和非语音声音
+### Exclamations et sons autres que la parole
 
-使用尖括号 (`<...>`) 将非语音的人声内嵌在声音应出现的准确位置。建议的人声标记包括：
+Placez les vocalisations humaines non verbales sur la même ligne que le texte, en utilisant des chevrons (`<...>`) à l'endroit exact où le son doit se produire. Voici quelques exemples de tags vocaux recommandés :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -1191,69 +1192,69 @@ It was a VERY long day <sigh> ... nobody listens anymore.
 | `<throat-clearing>` | `<tsk>` | `<whimper>` | `<whispers>`/`<whispering>` |
 | `<yawn>` | `<short pause>` | `<long pause>` |  |
 
-### 后通道和重叠语音
+### Canaux secondaires et chevauchement des voix
 
-在多说话人对话中，将听者的反应用竖线字符 (`|reaction|`) 括起来，放在说话人的回合内，以创建自然的后通道或重叠的语音，而无需为每个反应都另起一个回合。
+Dans un dialogue à plusieurs locuteurs, entourez les réactions de l'auditeur de barres verticales (`|reaction|`) à l'intérieur du tour de parole d'un locuteur pour créer des retours naturels ou un chevauchement de la parole sans créer un tour de parole distinct par réaction.
 
-- **简短的后通道交流**：在主动发言者的发言轮次中，添加简短的听众反应（`|oh hmm|`、`|oh really?|`、`|absolutely|`）：
-  - **第 1 轮（发言者 A）**： `"So the launch is Thursday |oh hmm| Are we actually ready?"`
-  - **第 2 轮（演讲者 B）**： `"Ready enough |oh really?| The last blocker cleared this morning."`
-  - **第 3 轮（演讲者 A）**： `"Then let's ship it |absolutely| and watch the dashboards."`
-- **重叠和交错的语音**：使用多个竖线分隔符来模拟两位发言者同时或交错的语音（最好与 `gemini-3.8-flash-tts` 搭配使用）：
-  - **同步倒计时/合唱**： `"Let's surprise him on three |ok| ready?"`，然后是 `"one. two. three. |happy| happy |birthday| birthday!"`
-  - **完全重叠的音箱**： `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
+- **Échanges brefs en canal arrière** : insérez de brèves réactions de l'auditeur (`|oh hmm|`, `|oh really?|`, `|absolutely|`) dans le tour de parole de l'interlocuteur actif :
+  - **Tour 1 (Locuteur A)** : `"So the launch is Thursday |oh hmm| Are we actually ready?"`
+  - **Tour 2 (Locuteur B)** : `"Ready enough |oh really?| The last blocker cleared this morning."`
+  - **Tour 3 (Intervenant A) :** `"Then let's ship it |absolutely| and watch the dashboards."`
+- **Chevauchement et entrelacement de la parole** : utilisez plusieurs segments de barre verticale pour simuler la parole simultanée ou entrelacée entre deux locuteurs (fonctionne mieux avec `gemini-3.8-flash-tts`) :
+  - **Compte à rebours/refrain simultanés** : `"Let's surprise him on three |ok| ready?"` suivi de `"one. two. three. |happy| happy |birthday| birthday!"`
+  - **Chevauchement complet des intervenants** : `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
 
-### 各代之间的一致性以及应避免的事项
+### Cohérence entre les générations et ce qu'il faut éviter
 
-请遵循以下准则，以确保在对话轮次之间保持稳定的声音身份：
+Suivez ces consignes pour que l'identité vocale reste stable tout au long de la conversation :
 
-- **在语音设计中提前设计角色，而不是使用长样式块**：
-  长篇 `"Audio Profile"` 段落和多项目符号 `"Director's Notes"` 是从早期模型沿用下来的，也是导致语音漂移的最常见原因。
-  在[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)中提前运用同样的创意直觉，生成持久的自定义 `voice_...` 人格，然后通过 TTS 调用传递该语音 ID。
-- **依靠语音参考实现稳定性（省略元指令）**：Gemini 3.8 TTS 模型经过训练，可先锚定音频参考。
-  请勿添加指示模型保持声音稳定的指令（例如 `"do not switch speaker identity"` 或 `"maintain identical timbre"`）- 额外的提示文本会增加漂移。舍弃不必要的风格指令，让模型在语音参考提供的稳定点附近自然变化。
-- **请勿尝试更改 `style` 中不可变的说话人特征**：避免在 `speech_metadata.style` 中添加年龄、性别、姓名或永久性口音变化。
-  您可以从扩展语音库中选择一种地区性语音，也可以使用[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)功能创建一种语音。
+- **Concevez des personas en amont dans la conception vocale au lieu de longs blocs de style** : les longs paragraphes `"Audio Profile"` et les listes à puces multiples `"Director's Notes"` hérités des modèles précédents sont la cause la plus fréquente de dérive vocale.
+  Utilisez cette même intuition créative en amont dans la [conception vocale](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr) pour générer une persona `voice_...` personnalisée persistante, puis transmettez cet ID vocal lors de vos appels TTS.
+- **S'appuyer sur la référence vocale pour la stabilité (omettre les méta-instructions)** :
+  Les modèles Gemini 3.8 TTS sont entraînés pour s'ancrer d'abord sur la référence audio.
+  N'incluez pas d'instructions demandant au modèle de maintenir la voix stable (comme `"do not switch speaker identity"` ou `"maintain identical timbre"`). Un texte de requête supplémentaire augmente la dérive. Supprimez les instructions de style inutiles et laissez le modèle varier naturellement autour du point stable fourni par la référence vocale.
+- **N'essayez pas de modifier les caractéristiques immuables du locuteur dans `style`** : évitez d'indiquer l'âge, le genre, les noms ou les changements d'accent permanents dans `speech_metadata.style`.
+  Choisissez plutôt une voix régionale dans la bibliothèque vocale étendue ou créez-en une avec [Conception de voix](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr).
 
-### 推荐的工作流程
+### Workflow recommandé
 
-1. **一次性打造角色**：在[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)中创建角色，或从扩展语音库中选择与目标语言和角色相符的地区性语音。
-2. **撰写包含语流不畅的自然口语转写内容**：为了尽可能自然，请将 `text` 撰写为真实的口语转写内容，包括自然的对话语流不畅和犹豫（例如，`"Oh uh yeah I think... hm, so that's interesting"`）。
-3. **先测试纯 TTS**：先使用空的 `style` 字段合成脚本，大多数请求根本不需要 `style` 指令。
-4. **仅为调整添加简短的 `style` 提示**：仅为需要进行特定交付调整的对话轮次添加简明扼要的 `style` 字符串（例如 `"casual, friendly"` 或 `"muttering, then reassuring"`），并在需要保持一致基准时，在多个对话轮次中重复使用该简短字符串。
+1. **Créez le personnage une seule fois** : créez votre personnage dans [Conception de voix](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr) ou sélectionnez une voix régionale dans la bibliothèque de voix étendue qui correspond à votre langue cible et à votre persona.
+2. **Rédigez des transcriptions naturelles avec des hésitations** : pour un naturel maximal, rédigez le `text` comme une véritable transcription orale, y compris les hésitations et les disfluences naturelles (par exemple, `"Oh uh yeah I think... hm, so that's interesting"`).
+3. **Testez d'abord la synthèse vocale simple** : synthétisez votre transcription avec un champ `style` vide. La plupart des requêtes n'ont pas besoin d'instruction `style`.
+4. **N'ajoutez des requêtes `style` courtes que pour les ajustements** : n'ajoutez une chaîne `style` concise (telle que `"casual, friendly"` ou `"muttering, then reassuring"`) que pour les tours qui nécessitent un ajustement de diffusion spécifique, et réutilisez cette chaîne courte exacte pour les tours lorsque vous souhaitez une base de référence cohérente.
 
-### 多轮对话和语音代理
+### Agents vocaux et de dialogue multitours
 
-构建实时对话式语音代理或多轮对话应用时：
+Lorsque vous créez des agents vocaux conversationnels en temps réel ou des applications multitours :
 
-- 在 LLM 文本块到达时，**每次轮次进行一次 TTS 调用**。
-- 让配置的 `voice`（预构建、设计的 `voice_...` 或复制的 `voice_...` / `voicekey_...`）在对话轮次之间传递发言者的身份，而无需在每个轮次中重新发送长字符角色。
-- 将每轮对话的 `style` 字段留空，或为整个对话发送一个简短的常量字符串（例如 `"casual, friendly"`）。
-- 将较长的智能体回答拆分为较短的对话轮次，而不是使用更强烈的风格提示。
+- Effectuez **un appel TTS par tour** à mesure que les blocs de texte LLM arrivent.
+- Laissez le `voice` configuré (`voice_...` prédéfini, conçu ou répliqué `voice_...` / `voicekey_...`) transmettre l'identité de l'interlocuteur à chaque tour de parole. N'envoyez jamais de persona de personnage long à chaque tour de parole.
+- Laissez le champ `style` par tour vide ou envoyez une courte chaîne constante (comme `"casual, friendly"`) pour l'ensemble de la conversation.
+- Divisez les longues réponses des agents en tours plus courts au lieu d'utiliser des consignes de style plus fortes.
 
-## 限制
+## Limites
 
-- TTS 模型接受纯文本输入，并生成纯音频输出。
-- 单次请求多说话人生成 (`speech_config.speakers`) 最多支持 2 位说话人，且使用预建语音。若要在多角色对话中组合自定义设计 (`voice_...`) 或复制 (`voice_...` / `voicekey_...`) 的声音，请单独合成每个说话者的发言。
-  由于一元请求默认返回带有 44 字节 RIFF 标头的 `audio/wav`，因此请请求原始 PCM (`{"type": "audio", "mime_type": "audio/l16"}`) 或从每个回合中剥离 WAV 标头，然后再连接 24 kHz PCM 音频帧。
-- **自定义语音存储空间限制和 TTL**：
-  - **有状态的声音（`store=True`，提示或复制）**：每个项目最多 **200 个声音**，**1 年 TTL**（存留时间）。
-  - **无状态语音密钥（`store=False`、`voicekey_...`）**： **7 天的 TTL**（存留时间）。
-- 如需了解语言覆盖范围，请参阅[支持的语言](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn#languages)部分。
+- Les modèles TTS acceptent les entrées textuelles uniquement et génèrent des sorties audio uniquement.
+- La génération multilocuteur en une seule requête (`speech_config.speakers`) est compatible avec un maximum de deux locuteurs utilisant des voix prédéfinies. Pour combiner des voix personnalisées (`voice_...`) ou répliquées (`voice_...` / `voicekey_...`) dans un dialogue à plusieurs personnages, synthétisez le tour de parole de chaque locuteur individuellement.
+  Étant donné que les requêtes unaires renvoient `audio/wav` avec un en-tête RIFF de 44 octets par défaut, demandez le PCM brut (`{"type": "audio", "mime_type": "audio/l16"}`) ou supprimez l'en-tête WAV de chaque tour avant de concaténer les trames audio PCM de 24 kHz.
+- **Limites de stockage et TTL pour les voix personnalisées :**
+  - **Voix avec état (`store=True`, incitées ou répliquées)** : maximum de **200 voix par projet** avec une **valeur TTL (Time To Live) d'un an**.
+  - **Clés vocales sans état (`store=False`, `voicekey_...`)** : **TTL de 7 jours** (time-to-live).
+- Consultez la section [Langues acceptées](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr#languages) pour connaître les langues disponibles.
 
-## 后续步骤
+## Étape suivante
 
-- 借助[语音设计](https://ai.google.dev/gemini-api/docs/voice-design?hl=zh-cn)，使用自然语言创建自定义声音角色。
-- 在[语音复刻](https://ai.google.dev/gemini-api/docs/voice-replication?hl=zh-cn)中复刻现有说话者的声音。
-- 在 [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-cn) 和 [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=zh-cn) 模型页面上比较模型规范。
-- 通过 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 探索交互式双向音频。
+- Créez des personas vocaux personnalisés à partir du langage naturel avec la [conception vocale](https://ai.google.dev/gemini-api/docs/voice-design?hl=fr).
+- Répliquez la voix d'un locuteur existant dans la [réplication de voix](https://ai.google.dev/gemini-api/docs/voice-replication?hl=fr).
+- Comparez les spécifications des modèles sur les pages [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) et [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr).
+- Découvrez l'audio bidirectionnel interactif avec l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr).
 
-发送反馈
+Envoyer des commentaires
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-最后更新时间 (UTC)：2026-09-24。
+Dernière mise à jour le 2026/10/02 (UTC).
 
-需要向我们提供更多信息？
+Voulez-vous nous donner plus d'informations ?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-24。"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/02 (UTC)."],[],[]]

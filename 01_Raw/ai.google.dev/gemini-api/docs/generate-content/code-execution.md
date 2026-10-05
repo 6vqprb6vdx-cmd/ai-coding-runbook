@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=th
-fetched_at: 2026-09-28T06:12:00.754123+00:00
-title: "\u0e01\u0e32\u0e23\u0e40\u0e23\u0e35\u0e22\u0e01\u0e43\u0e0a\u0e49\u0e42\u0e04\u0e49\u0e14 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=pl
+fetched_at: 2026-10-05T06:30:44.735014+00:00
+title: "Wykonanie kodu \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-ส่งความคิดเห็น
+Prześlij opinię
 
-# การเรียกใช้โค้ด
+# Wykonanie kodu
 
-Gemini API มีเครื่องมือเรียกใช้โค้ดที่ช่วยให้โมเดลสร้างและรันโค้ด Python ได้ จากนั้นโมเดลจะเรียนรู้ซ้ำๆ จากผลการเรียกใช้โค้ดจนกว่าจะได้เอาต์พุตสุดท้าย คุณสามารถใช้การเรียกใช้โค้ดเพื่อสร้างแอปพลิเคชันที่ได้รับประโยชน์จากการให้เหตุผลตามโค้ด เช่น คุณสามารถใช้การเรียกใช้โค้ดเพื่อแก้สมการหรือประมวลผลข้อความ นอกจากนี้ คุณยังใช้ [ไลบรารี](#supported-libraries)ที่รวมอยู่ในสภาพแวดล้อมการเรียกใช้โค้ดเพื่อทำงานที่เฉพาะเจาะจงมากขึ้นได้ด้วย
+Interfejs Gemini API udostępnia narzędzie do wykonywania kodu, które umożliwia modelowi generowanie i uruchamianie kodu w Pythonie. Model może następnie iteracyjnie uczyć się na podstawie wyników wykonania kodu, aż uzyska ostateczne dane wyjściowe. Możesz używać wykonywania kodu do tworzenia aplikacji, które korzystają z rozumowania opartego na kodzie. Możesz na przykład używać wykonywania kodu do rozwiązywania równań lub przetwarzania tekstu. Możesz też używać [bibliotek](#supported-libraries) dołączonych do środowiska wykonywania kodu, aby wykonywać bardziej wyspecjalizowane zadania.
 
-Gemini สามารถเรียกใช้โค้ดใน Python ได้เท่านั้น คุณยังคงขอความช่วยเหลือจาก Gemini ให้สร้างโค้ดในภาษาอื่นได้ แต่โมเดลจะใช้เครื่องมือการเรียกใช้โค้ดเพื่อดำเนินการไม่ได้
+Gemini może wykonywać kod tylko w języku Python. Nadal możesz poprosić Gemini o wygenerowanie kodu w innym języku, ale model nie może użyć narzędzia do wykonywania kodu, aby go uruchomić.
 
-## เปิดใช้การเรียกใช้โค้ด
+## Włączanie wykonywania kodu
 
-หากต้องการเปิดใช้การเรียกใช้โค้ด ให้กำหนดค่าเครื่องมือเรียกใช้โค้ดในโมเดล ซึ่งจะช่วยให้โมเดลสร้างและรันโค้ดได้
+Aby włączyć wykonywanie kodu, skonfiguruj narzędzie do wykonywania kodu w modelu. Dzięki temu model może generować i uruchamiać kod.
 
 ### Python
 
@@ -143,7 +143,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-เอาต์พุตอาจมีลักษณะดังต่อไปนี้ ซึ่งจัดรูปแบบให้อ่านง่าย
+Dane wyjściowe mogą wyglądać mniej więcej tak (sformatowane dla lepszej czytelności):
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,31 +192,27 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-เอาต์พุตนี้รวมส่วนเนื้อหาหลายส่วนที่โมเดลแสดงผลเมื่อใช้การเรียกใช้โค้ด
+Te dane wyjściowe łączą kilka części treści, które model zwraca podczas wykonywania kodu:
 
-- `text`: ข้อความแบบอินไลน์ที่โมเดลสร้างขึ้น
-- `executableCode`: โค้ดที่โมเดลสร้างขึ้นเพื่อเรียกใช้
-- `codeExecutionResult`: ผลลัพธ์ของโค้ดที่เรียกใช้ได้
+- `text`: tekst wbudowany wygenerowany przez model
+- `executableCode`: kod wygenerowany przez model, który ma zostać wykonany.
+- `codeExecutionResult`: wynik wykonania kodu
 
-รูปแบบการตั้งชื่อสำหรับส่วนเหล่านี้จะแตกต่างกันไปตามภาษาโปรแกรม
+Konwencje nazewnictwa tych części różnią się w zależności od języka programowania.
 
-## การเรียกใช้โค้ดกับรูปภาพ (Gemini 3)
+## Wykonanie kodu z obrazami (Gemini 3)
 
-ตอนนี้โมเดล Gemini 3 Flash สามารถเขียนและเรียกใช้โค้ด Python เพื่อจัดการและตรวจสอบรูปภาพได้อย่างมีประสิทธิภาพ
+Model Gemini 3 Flash może teraz pisać i uruchamiać kod Pythona, aby aktywnie manipulować obrazami i je sprawdzać.
 
-**กรณีการใช้งาน**
+**Przypadki użycia**
 
-- **ซูมและตรวจสอบ**: โมเดลจะตรวจหาโดยนัยเมื่อรายละเอียดมีขนาดเล็กเกินไป
-  (เช่น การอ่านมาตรวัดที่อยู่ไกลออกไป) และเขียนโค้ดเพื่อครอบตัดและตรวจสอบพื้นที่อีกครั้ง
-  ด้วยความละเอียดที่สูงขึ้น
-- **คณิตศาสตร์เชิงภาพ**: โมเดลสามารถทำการคำนวณหลายขั้นตอนโดยใช้โค้ด (เช่น
-  การรวมรายการในใบเสร็จ)
-- **คำอธิบายประกอบรูปภาพ**: โมเดลสามารถใส่คำอธิบายประกอบรูปภาพเพื่อตอบคำถาม เช่น
-  การวาดลูกศรเพื่อแสดงความสัมพันธ์
+- **Powiększanie i sprawdzanie:** model automatycznie wykrywa, kiedy szczegóły są zbyt małe (np. odczytywanie odległego wskaźnika), i pisze kod, aby przyciąć i ponownie zbadać obszar w wyższej rozdzielczości.
+- **Matematyka wizualna:** model może wykonywać wieloetapowe obliczenia za pomocą kodu (np. sumować pozycje na paragonie).
+- **Adnotacje do obrazów:** model może dodawać adnotacje do obrazów, aby odpowiadać na pytania, np. rysować strzałki wskazujące relacje.
 
-### เปิดใช้การเรียกใช้โค้ดกับรูปภาพ
+### Włączanie wykonywania kodu za pomocą obrazów
 
-ระบบรองรับการเรียกใช้โค้ดกับรูปภาพอย่างเป็นทางการใน Gemini 3 Flash คุณสามารถเปิดใช้งานลักษณะการทำงานนี้ได้โดยเปิดใช้ทั้งการเรียกใช้โค้ดเป็นเครื่องมือและการคิด
+Wykonywanie kodu z obrazami jest oficjalnie obsługiwane w Gemini 3 Flash. Możesz aktywować to działanie, włączając zarówno wykonywanie kodu jako narzędzia, jak i myślenie.
 
 ### Python
 
@@ -431,9 +427,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## ใช้การเรียกใช้โค้ดในการแชท
+## Korzystanie z wykonywania kodu na czacie
 
-คุณยังใช้การเรียกใช้โค้ดเป็นส่วนหนึ่งของการแชทได้ด้วย
+Możesz też używać wykonywania kodu w ramach czatu.
 
 ### Python
 
@@ -591,80 +587,73 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-## อินพุต/เอาต์พุต (I/O)
+## Wejście/wyjście (I/O)
 
-การเรียกใช้โค้ดรองรับอินพุตไฟล์และเอาต์พุตกราฟ คุณสามารถอัปโหลดไฟล์ CSV และไฟล์ข้อความ ถามคำถามเกี่ยวกับ
-ไฟล์ และสร้างกราฟ [Matplotlib](https://matplotlib.org/) เป็นส่วนหนึ่ง
-ของการตอบกลับได้โดยใช้ความสามารถด้านอินพุตและ
-เอาต์พุตเหล่านี้ ระบบจะแสดงไฟล์เอาต์พุตเป็นรูปภาพแบบอินไลน์ในการตอบกลับ
+Wykonywanie kodu obsługuje dane wejściowe w postaci plików i dane wyjściowe w postaci wykresów. Dzięki tym możliwościom wprowadzania i wyprowadzania danych możesz przesyłać pliki CSV i tekstowe, zadawać pytania dotyczące tych plików i generować wykresy [Matplotlib](https://matplotlib.org/) w ramach odpowiedzi. Pliki wyjściowe są zwracane w odpowiedzi jako obrazy w treści.
 
-### การกำหนดราคา I/O
+### Ceny operacji wejścia/wyjścia
 
-เมื่อใช้ I/O การเรียกใช้โค้ด ระบบจะเรียกเก็บเงินจากคุณสำหรับโทเค็นอินพุตและโทเค็นเอาต์พุต
+W przypadku korzystania z wejścia/wyjścia wykonywania kodu naliczane są opłaty za tokeny wejściowe i wyjściowe:
 
-**โทเค็นอินพุต:**
+**Tokeny wejściowe:**
 
-- พรอมต์ของผู้ใช้
+- Prompt użytkownika
 
-**โทเค็นเอาต์พุต:**
+**Tokeny wyjściowe:**
 
-- โค้ดที่โมเดลสร้างขึ้น
-- เอาต์พุตการเรียกใช้โค้ดในสภาพแวดล้อมโค้ด
-- โทเค็นการคิด
-- ข้อมูลสรุปที่โมเดลสร้างขึ้น
+- Kod wygenerowany przez model
+- Wynik wykonania kodu w środowisku kodu
+- Tokeny myślenia
+- Podsumowanie wygenerowane przez model
 
-### รายละเอียด I/O
+### Szczegóły wejścia/wyjścia
 
-เมื่อใช้ I/O การเรียกใช้โค้ด โปรดทราบรายละเอียดทางเทคนิคต่อไปนี้
+Podczas pracy z operacjami wejścia-wyjścia związanymi z wykonywaniem kodu pamiętaj o tych szczegółach technicznych:
 
-- รันไทม์สูงสุดของสภาพแวดล้อมโค้ดคือ 30 วินาที
-- หากสภาพแวดล้อมโค้ดสร้างข้อผิดพลาด โมเดลอาจตัดสินใจสร้างเอาต์พุตโค้ดใหม่ ซึ่งอาจเกิดขึ้นได้สูงสุด 5 ครั้ง
-- ขนาดอินพุตไฟล์สูงสุดจะจำกัดตามหน้าต่างโทเค็นของโมเดล ใน AI Studio ขนาดไฟล์อินพุตสูงสุดคือ 1 ล้านโทเค็น (ประมาณ 2 MB สำหรับไฟล์ข้อความของประเภทอินพุตที่รองรับ) หากคุณอัปโหลดไฟล์ที่มีขนาดใหญ่เกินไป AI Studio จะไม่อนุญาตให้คุณส่งไฟล์ดังกล่าว
-- การเรียกใช้โค้ดทำงานได้ดีที่สุดกับไฟล์ข้อความและไฟล์ CSV
-- คุณสามารถส่งไฟล์อินพุตใน `part.inlineData` หรือ `part.fileData` (อัปโหลด
-  ผ่าน [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)) และระบบจะแสดงผลไฟล์เอาต์พุตเป็น `part.inlineData` เสมอ
+- Maksymalny czas działania środowiska kodu to 30 sekund.
+- Jeśli środowisko kodu wygeneruje błąd, model może zdecydować się na ponowne wygenerowanie kodu. Może się to zdarzyć maksymalnie 5 razy.
+- Maksymalny rozmiar pliku wejściowego jest ograniczony przez okno tokenów modelu. W AI Studio maksymalny rozmiar pliku wejściowego to 1 milion tokenów (w przypadku plików tekstowych obsługiwanych typów wejściowych to około 2 MB). Jeśli prześlesz zbyt duży plik, AI Studio nie pozwoli Ci go wysłać.
+- Wykonywanie kodu działa najlepiej w przypadku plików tekstowych i CSV.
+- Plik wejściowy można przekazać w formacie `part.inlineData` lub `part.fileData` (przesłany za pomocą [interfejsu Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl)), a plik wyjściowy jest zawsze zwracany w formacie `part.inlineData`.
 
-## การเรียกเก็บเงิน
+## Płatności
 
-การเปิดใช้การเรียกใช้โค้ดจาก Gemini API จะไม่มีค่าใช้จ่ายเพิ่มเติม
-ระบบจะเรียกเก็บเงินจากคุณตามอัตราปัจจุบันของโทเค็นอินพุตและเอาต์พุตโดยอิงตามโมเดล Gemini ที่คุณใช้
+Włączenie wykonywania kodu z interfejsu Gemini API nie wiąże się z dodatkowymi opłatami.
+Opłata zostanie naliczona według aktualnej stawki za tokeny wejściowe i wyjściowe na podstawie używanego modelu Gemini.
 
-สิ่งอื่นๆ ที่ควรทราบเกี่ยวกับการเรียกเก็บเงินสำหรับการเรียกใช้โค้ดมีดังนี้
+Oto kilka dodatkowych informacji o płatnościach za wykonywanie kodu:
 
-- ระบบจะเรียกเก็บเงินจากคุณเพียงครั้งเดียวสำหรับโทเค็นอินพุตที่คุณส่งไปยังโมเดล และจะเรียกเก็บเงินสำหรับโทเค็นเอาต์พุตสุดท้ายที่โมเดลส่งกลับมาให้คุณ
-- ระบบจะนับโทเค็นที่แสดงโค้ดที่สร้างขึ้นเป็นโทเค็นเอาต์พุต โค้ดที่สร้างขึ้นอาจมีข้อความและเอาต์พุตหลายรูปแบบ เช่น รูปภาพ
-- ระบบจะนับผลการเรียกใช้โค้ดเป็นโทเค็นเอาต์พุตด้วย
+- Opłata jest naliczana tylko raz za tokeny wejściowe przekazywane do modelu i za tokeny wyjściowe zwracane przez model.
+- Tokeny reprezentujące wygenerowany kod są liczone jako tokeny wyjściowe. Wygenerowany kod może zawierać tekst i wyniki multimodalne, takie jak obrazy.
+- Wyniki wykonania kodu są również liczone jako tokeny wyjściowe.
 
-โมเดลการเรียกเก็บเงินแสดงอยู่ในแผนภาพต่อไปนี้
+Model rozliczeń przedstawia ten diagram:
 
-![โมเดลการเรียกเก็บเงินสำหรับการเรียกใช้โค้ด](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=th)
+![model rozliczeniowy wykonania kodu,](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=pl)
 
-- ระบบจะเรียกเก็บเงินจากคุณตามอัตราปัจจุบันของโทเค็นอินพุตและเอาต์พุตโดยอิงตามโมเดล Gemini ที่คุณใช้
-- หาก Gemini ใช้การเรียกใช้โค้ดเมื่อสร้างการตอบกลับ พรอมต์เดิม โค้ดที่สร้างขึ้น และผลลัพธ์ของโค้ดที่เรียกใช้จะติดป้ายกำกับเป็น *โทเค็นระดับกลาง* และระบบจะเรียกเก็บเงินเป็น *โทเค็นอินพุต*
-- จากนั้น Gemini จะสร้างข้อมูลสรุปและแสดงผลโค้ดที่สร้างขึ้น ผลลัพธ์ของโค้ดที่เรียกใช้ และข้อมูลสรุปสุดท้าย ระบบจะเรียกเก็บเงินสำหรับรายการเหล่านี้เป็น *โทเค็นเอาต์พุต*
-- Gemini API จะรวมจำนวนโทเค็นระดับกลางไว้ในการตอบกลับจาก API เพื่อให้คุณทราบว่าเหตุใดคุณจึงได้รับโทเค็นอินพุตเพิ่มเติมนอกเหนือจากพรอมต์เริ่มต้น
+- Opłaty są naliczane według aktualnej stawki za tokeny wejściowe i wyjściowe na podstawie używanego modelu Gemini.
+- Jeśli Gemini używa wykonania kodu podczas generowania odpowiedzi, oryginalny prompt, wygenerowany kod i wynik wykonania kodu są oznaczone jako *tokeny pośrednie* i rozliczane jako *tokeny wejściowe*.
+- Gemini generuje podsumowanie i zwraca wygenerowany kod, wynik wykonania kodu oraz ostateczne podsumowanie. Są one rozliczane jako *tokeny wyjściowe*.
+- Interfejs Gemini API uwzględnia w odpowiedzi API pośrednią liczbę tokenów, dzięki czemu wiesz, dlaczego otrzymujesz dodatkowe tokeny wejściowe poza początkowym promptem.
 
-## ข้อจำกัด
+## Ograniczenia
 
-- โมเดลสามารถสร้างและเรียกใช้โค้ดได้เท่านั้น โดยไม่สามารถแสดงผลอาร์ติแฟกต์อื่นๆ เช่น ไฟล์สื่อ
-- ในบางกรณี การเปิดใช้การเรียกใช้โค้ดอาจทำให้เกิดการถดถอยในส่วนอื่นๆ ของเอาต์พุตโมเดล (เช่น การเขียนเรื่องราว)
-- โมเดลต่างๆ มีความสามารถในการใช้การเรียกใช้โค้ดให้สำเร็จแตกต่างกันไป
+- Model może tylko generować i wykonywać kod. Nie może zwracać innych artefaktów, takich jak pliki multimedialne.
+- W niektórych przypadkach włączenie wykonywania kodu może prowadzić do regresji w innych obszarach danych wyjściowych modelu (np. w pisaniu opowiadań).
+- Różne modele mają różną zdolność do skutecznego wykonywania kodu.
 
-## ชุดค่าผสมของเครื่องมือที่รองรับ
+## Obsługiwane kombinacje narzędzi
 
-คุณสามารถใช้เครื่องมือเรียกใช้โค้ดร่วมกับ
-[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) เพื่อ
-รองรับกรณีการใช้งานที่ซับซ้อนมากขึ้น
+Narzędzie do wykonywania kodu można połączyć z [powiązaniem ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl), aby obsługiwać bardziej złożone przypadki użycia.
 
-โมเดล Gemini 3 รองรับการใช้เครื่องมือในตัว (เช่น การเรียกใช้โค้ด) ร่วมกับเครื่องมือที่กำหนดเอง (การเรียกฟังก์ชัน) คุณต้องส่งฟิลด์ `id` และ `thought_signature` กลับเพื่อให้การใช้เครื่องมือร่วมกันทำงานได้ ดูข้อมูลเพิ่มเติมได้ในหน้า
-[ชุดค่าผสมของเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Modele Gemini 3 obsługują łączenie wbudowanych narzędzi (takich jak wykonywanie kodu) z narzędziami niestandardowymi (wywoływanie funkcji). Aby połączenie narzędzi działało, musisz przekazać pola `id` i `thought_signature`. Więcej informacji znajdziesz na stronie [kombinacje narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
 
-## ไลบรารีที่รองรับ
+## Obsługiwane biblioteki
 
-สภาพแวดล้อมการเรียกใช้โค้ดมีไลบรารีต่อไปนี้
+Środowisko wykonawcze kodu zawiera te biblioteki:
 
 - attrs
-- chess
+- szachy
 - contourpy
 - fpdf
 - geopandas
@@ -679,9 +668,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 - numpy
 - opencv-python
 - openpyxl
-- packaging
-- pandas
-- pillow
+- przygotowywanie pakietów
+- pandy
+- poduszka
 - protobuf
 - pylatex
 - pyparsing
@@ -693,30 +682,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 - scikit-learn
 - scipy
 - seaborn
-- six
+- sześć
 - striprtf
 - sympy
-- tabulate
+- tabelaryzować
 - tensorflow
 - toolz
 - xlrd
 
-คุณจะติดตั้งไลบรารีของคุณเองไม่ได้
+Nie możesz instalować własnych bibliotek.
 
-## ขั้นตอนถัดไป
+## Co dalej?
 
-- ลองใช้
-  [Colab การเรียกใช้โค้ด](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=th)
-- ดูข้อมูลเกี่ยวกับเครื่องมืออื่นๆ ของ Gemini API ได้แก่
-  - [การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)
-  - [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th)
+- Wypróbuj [Colab do wykonywania kodu](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=pl).
+- Dowiedz się więcej o innych narzędziach Gemini API:
+  - [Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
+  - [Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl)
 
-ส่งความคิดเห็น
+Prześlij opinię
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-อัปเดตล่าสุด 2026-09-12 UTC
+Ostatnia aktualizacja: 2026-09-12 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Chcesz przekazać coś jeszcze?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-12 UTC"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]

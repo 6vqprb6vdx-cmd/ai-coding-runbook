@@ -1,37 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/files?hl=th
-fetched_at: 2026-09-28T06:09:18.476738+00:00
-title: "API \u0e02\u0e2d\u0e07\u0e44\u0e1f\u0e25\u0e4c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/files?hl=id
+fetched_at: 2026-10-05T06:25:36.884835+00:00
+title: "API File \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-ส่งความคิดเห็น
+Kirim masukan
 
-# API ของไฟล์
+# API File
 
-Gemini สามารถจัดการข้อมูลอินพุตประเภทต่างๆ ได้พร้อมกัน ซึ่งรวมถึงข้อความ รูปภาพ และเสียง
+Gemini dapat menangani berbagai jenis data input, termasuk teks, gambar, dan audio, secara bersamaan.
 
-คู่มือนี้จะแสดงวิธีทำงานกับไฟล์สื่อโดยใช้ Files API
-การดำเนินการพื้นฐานจะเหมือนกันสำหรับไฟล์เสียง รูปภาพ วิดีโอ เอกสาร และ
-ประเภทไฟล์อื่นๆ ที่รองรับ
+Panduan ini menunjukkan cara menggunakan file media menggunakan Files API. Operasi dasar sama untuk file audio, gambar, video, dokumen, dan jenis file lain yang didukung.
 
-ดูคำแนะนำในการใช้พรอมต์สำหรับไฟล์ได้ที่ส่วน[คู่มือการใช้พรอมต์สำหรับไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide)
+Untuk panduan perintah file, lihat bagian [Panduan perintah file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide).
 
-## อัปโหลดไฟล์
+## Upload file
 
-คุณใช้ Files API เพื่ออัปโหลดไฟล์สื่อได้ ใช้ Files API เสมอเมื่อขนาดคำขอทั้งหมด (รวมถึงไฟล์ พรอมต์ข้อความ คำสั่งของระบบ ฯลฯ) ใหญ่กว่า 100 MB สำหรับไฟล์ PDF จะมีขีดจำกัดอยู่ที่ 50 MB
+Anda dapat menggunakan Files API untuk mengupload file media. Selalu gunakan Files API jika total ukuran permintaan (termasuk file, perintah teks, petunjuk sistem, dll.) lebih besar dari 100 MB. Untuk file PDF, batasnya adalah 50 MB.
 
-โค้ดต่อไปนี้จะอัปโหลดไฟล์ แล้วใช้ไฟล์ในการเรียกไปยัง
-`interactions.create`
+Kode berikut mengupload file, lalu menggunakan file tersebut dalam panggilan ke
+`interactions.create`.
 
 ### Python
 
@@ -230,9 +228,10 @@ echo
 jq ".outputs[] | select(.type == \"text\") | .text" response.json
 ```
 
-## รับข้อมูลเมตาของไฟล์
+## Mendapatkan metadata untuk file
 
-คุณสามารถยืนยันว่า API จัดเก็บไฟล์ที่อัปโหลดเรียบร้อยแล้วและรับข้อมูลเมตาของไฟล์ได้โดยการเรียก `files.get`
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan
+metadatanya dengan memanggil `files.get`.
 
 ### Python
 
@@ -339,9 +338,9 @@ file_uri=$(jq -r ".uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## แสดงรายการไฟล์ที่อัปโหลด
+## Mencantumkan file yang diupload
 
-โค้ดต่อไปนี้จะรับรายการไฟล์ทั้งหมดที่อัปโหลด
+Kode berikut akan mendapatkan daftar semua file yang diupload:
 
 ### Python
 
@@ -427,9 +426,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## ลบไฟล์ที่อัปโหลด
+## Menghapus file yang diupload
 
-ระบบจะลบไฟล์โดยอัตโนมัติหลังจากผ่านไป 48 ชั่วโมง นอกจากนี้ คุณยังลบไฟล์ที่อัปโหลดด้วยตนเองได้โดยทำดังนี้
+File akan otomatis dihapus setelah 48 jam. Anda juga dapat menghapus file yang diupload secara manual:
 
 ### Python
 
@@ -520,220 +519,210 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/$name \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## ข้อมูลการใช้งาน
+## Informasi penggunaan
 
-คุณใช้ Files API เพื่ออัปโหลดและโต้ตอบกับไฟล์สื่อได้ Files API
-ช่วยให้คุณจัดเก็บไฟล์ได้สูงสุด 20 GB ต่อโปรเจ็กต์ โดยแต่ละไฟล์ต้องมีขนาดไม่เกิน 2 GB
-ระบบจะจัดเก็บไฟล์ไว้เป็นเวลา 48 ชั่วโมง
+Anda dapat menggunakan Files API untuk mengupload dan berinteraksi dengan file media. Files API memungkinkan Anda menyimpan hingga 20 GB file per project, dengan ukuran maksimum per file sebesar 2 GB. File disimpan selama 48 jam.
 
-ในระหว่างนั้น คุณสามารถใช้ API เพื่อรับข้อมูลเมตาเกี่ยวกับไฟล์ได้ อย่างไรก็ตาม คุณจะดาวน์โหลดไฟล์ที่ผู้ใช้อัปโหลดไม่ได้ คุณดาวน์โหลดไฟล์ที่โมเดลสร้างขึ้น เช่น วิดีโอ ได้โดยใช้เมธอด `files.download` Files API พร้อมให้บริการโดยไม่มีค่าใช้จ่ายในทุกภูมิภาคที่มี Gemini API พร้อมให้บริการ
+Selama waktu tersebut, Anda dapat menggunakan API untuk mendapatkan metadata tentang file. Namun,
+Anda tidak dapat mendownload file yang diupload pengguna. Anda dapat mendownload file yang dibuat oleh model, seperti video, menggunakan metode `files.download`. Files API tersedia tanpa biaya di semua wilayah tempat Gemini API tersedia.
 
-## กลยุทธ์การแจ้งไฟล์
+## Strategi penulisan perintah file
 
-ส่วนนี้จะให้คำแนะนำและแนวทางปฏิบัติแนะนำสำหรับการใช้ไฟล์สื่อกับ
-พรอมต์สำหรับ Gemini API
+Bagian ini memberikan panduan dan praktik terbaik untuk menggunakan file media dengan perintah untuk Gemini API.
 
-การใช้ข้อมูลประเภทต่างๆ ในพรอมต์จะช่วยให้คุณมีความยืดหยุ่นมากขึ้นในแง่ของงานที่สามารถจัดการได้ด้วย Gemini API เช่น คุณสามารถส่งรูปภาพอาหารแสนอร่อยให้โมเดลและขอให้เขียนบล็อกสั้นๆ เกี่ยวกับอาหารนั้น
+Kemampuan untuk menggunakan berbagai jenis data dalam perintah memberi Anda lebih banyak fleksibilitas dalam hal tugas yang dapat Anda selesaikan dengan Gemini API. Misalnya, Anda dapat mengirimkan foto hidangan lezat ke model dan memintanya untuk menulis blog singkat tentang hidangan tersebut.
 
 |  |  |
 | --- | --- |
-| **พรอมต์** | **การตอบกลับ** |
-| เขียนบล็อกโพสต์สั้นๆ ที่น่าสนใจจากรูปภาพนี้ โดยควร มีคำอธิบายเกี่ยวกับอาหารในรูปภาพและพูดถึงเส้นทางการ เตรียมอาหารของฉัน   คุกกี้ | การเตรียมอาหารเป็นวิธีที่ยอดเยี่ยมในการประหยัดเวลาและเงิน รวมถึงยังช่วยให้คุณกินอาหารที่ดีต่อสุขภาพมากขึ้นได้ด้วย มื้ออาหารนี้เป็นตัวอย่างที่ดีของมื้ออาหารเพื่อสุขภาพ และอร่อยที่เตรียมไว้ล่วงหน้าได้  มื้อนี้มีข้าวกล้อง ผักย่าง และไก่เทริยากิ ข้าวกล้องเป็นคาร์โบไฮเดรตเชิงซ้อนที่ดีต่อสุขภาพซึ่งจะให้พลังงานแก่คุณอย่างต่อเนื่อง ผักย่างเป็นวิธีที่ยอดเยี่ยมในการรับวิตามินและแร่ธาตุในแต่ละวัน ส่วนไก่เทอริยากิก็เป็นตัวเลือกที่อร่อยและ มีโปรตีนสูง  นอกจากนี้ อาหารมื้อนี้ยังเตรียมได้ง่ายๆ อีกด้วย เพียงหุงข้าวกล้อง คั่วผัก และทำไก่เทริยากิ เมื่อปรุงอาหารทุกอย่างเสร็จแล้ว ให้แบ่งอาหารใส่ภาชนะสำหรับเตรียมอาหารและเก็บไว้ในตู้เย็น จากนั้นก็หยิบกล่องแล้วออกไปทำงานในเช้าวันที่เร่งรีบได้เลย  หากคุณกำลังมองหามื้ออาหารเพื่อสุขภาพที่อร่อยและ เตรียมไว้ล่วงหน้าได้ มื้อนี้เป็นตัวเลือกที่ยอดเยี่ยม อัดแน่นไปด้วย สารอาหารและรสชาติ และจะช่วยให้คุณรู้สึกอิ่มและพึงพอใจ  ขอให้คุณเตรียมอาหารได้อย่างอร่อยและดีต่อสุขภาพ |
+| **Perintah** | **Respons** |
+| Tulis postingan blog singkat yang menarik berdasarkan gambar ini. Postingan tersebut harus menyertakan deskripsi makanan dalam foto dan menceritakan perjalanan saya dalam menyiapkan makanan.   Cookie | Menyiapkan makanan adalah cara yang bagus untuk menghemat waktu dan uang, serta dapat membantu Anda makan lebih sehat. Hidangan ini adalah contoh yang bagus dari hidangan sehat dan lezat yang dapat disiapkan sebelumnya.  Makanan ini terdiri dari nasi merah, sayuran panggang, dan ayam teriyaki. Nasi merah adalah karbohidrat kompleks yang sehat dan akan memberi Anda energi yang berkelanjutan. Sayuran panggang adalah cara yang bagus untuk mendapatkan dosis vitamin dan mineral harian Anda, dan ayam teriyaki adalah pilihan yang lezat dan kaya protein.  Makanan ini juga mudah disiapkan. Cukup masak nasi merah, panggang sayuran, dan masak ayam teriyaki. Setelah semuanya matang, bagi menjadi beberapa porsi dan simpan di dalam kulkas. Kemudian, Anda dapat mengambil wadah dan pergi di pagi yang sibuk.  Jika Anda mencari makanan sehat dan lezat yang dapat disiapkan sebelumnya, makanan ini adalah pilihan yang tepat. Makanan ini penuh dengan nutrisi dan rasa, serta pasti membuat Anda merasa kenyang dan puas.  Selamat menikmati persiapan makanan yang sehat dan lezat! |
 
-หากพบปัญหาในการรับเอาต์พุตที่ต้องการจากพรอมต์ที่ใช้ไฟล์สื่อ
-คุณสามารถใช้กลยุทธ์บางอย่างเพื่อช่วยให้ได้ผลลัพธ์ที่ต้องการ
-ส่วนต่อไปนี้จะอธิบายแนวทางการออกแบบและเคล็ดลับในการแก้ปัญหา
-เพื่อปรับปรุงพรอมต์ที่ใช้ข้อมูลหลายรูปแบบ
+Jika Anda mengalami kesulitan mendapatkan output yang diinginkan dari perintah yang menggunakan
+file media, ada beberapa strategi yang dapat membantu Anda mendapatkan hasil yang
+diinginkan. Bagian berikut memberikan pendekatan desain dan tips pemecahan masalah untuk meningkatkan kualitas perintah yang menggunakan input multimodal.
 
-คุณปรับปรุงพรอมต์มัลติโมดัลได้โดยทําตามแนวทางปฏิบัติแนะนําต่อไปนี้
+Anda dapat meningkatkan kualitas perintah multimodal dengan mengikuti praktik terbaik berikut:
 
-- ### [ข้อมูลพื้นฐานเกี่ยวกับการออกแบบพรอมต์](#specific-instructions)
+- ### [Dasar-dasar desain perintah](#specific-instructions)
 
-  - **ระบุคำสั่งอย่างชัดเจน**: สร้างคำสั่งที่ชัดเจนและกระชับซึ่งมีโอกาสน้อยที่จะเกิดการตีความผิด
-  - **เพิ่มตัวอย่าง 2-3 รายการลงในพรอมต์:** ใช้ตัวอย่างแบบ Few-Shot ที่สมจริงเพื่อแสดงให้เห็นสิ่งที่คุณต้องการทำให้สำเร็จ
-  - **แบ่งงานออกเป็นขั้นตอน**: แบ่งงานที่ซับซ้อนออกเป็นเป้าหมายย่อยที่จัดการได้ เพื่อนำโมเดลไปตลอดกระบวนการ
-  - **ระบุรูปแบบเอาต์พุต**: ในพรอมต์ ให้ขอเอาต์พุตในรูปแบบที่ต้องการ เช่น Markdown, JSON, HTML และอื่นๆ
-  - **วางรูปภาพไว้ก่อนสำหรับพรอมต์ที่มีรูปภาพเดียว**: แม้ว่า Gemini จะจัดการอินพุตรูปภาพและข้อความได้ทุกรูปแบบ แต่สำหรับพรอมต์ที่มีรูปภาพเดียว การวางรูปภาพ (หรือวิดีโอ) ไว้ก่อนพรอมต์ข้อความอาจช่วยให้ได้ผลลัพธ์ที่ดีกว่า อย่างไรก็ตาม สำหรับพรอมต์ที่ต้องสลับรูปภาพกับข้อความอย่างมากเพื่อให้เข้าใจได้ ให้ใช้ลำดับที่ดูเป็นธรรมชาติที่สุด
-- ### [การแก้ปัญหาพรอมต์มัลติโมดัล](#troubleshooting)
+  - **Berikan petunjuk yang spesifik**: Buat petunjuk yang jelas dan ringkas yang hanya menyisakan sedikit ruang untuk salah penafsiran.
+  - **Tambahkan beberapa contoh ke perintah Anda:** Gunakan contoh few-shot yang realistis untuk menggambarkan apa yang ingin Anda capai.
+  - **Uraikan langkah demi langkah**: Bagi tugas yang kompleks menjadi sub-tujuan yang mudah dikelola, dengan memandu model melalui prosesnya.
+  - **Tentukan format output**: Dalam perintah Anda, minta output dalam format yang Anda inginkan, seperti Markdown, JSON, HTML, dan lainnya.
+  - **Mengutamakan gambar untuk perintah satu gambar**: Meskipun Gemini dapat menangani input gambar dan teks dalam urutan apa pun, untuk perintah yang berisi satu gambar, performanya mungkin lebih baik jika gambar (atau video) tersebut ditempatkan sebelum perintah teks. Namun, untuk perintah yang memerlukan gambar diselingi dengan teks agar dapat dipahami, gunakan urutan apa pun yang paling alami.
+- ### [Memecahkan masalah perintah multimodal](#troubleshooting)
 
-  - **หากโมเดลไม่ได้ดึงข้อมูลจากส่วนที่เกี่ยวข้องของรูปภาพ** ให้บอกใบ้ว่าคุณต้องการให้พรอมต์ดึงข้อมูลจากส่วนใดของรูปภาพ
-  - **หากเอาต์พุตโมเดลเป็นแบบทั่วไปมากเกินไป (ไม่ปรับให้เข้ากับอินพุตรูปภาพ/วิดีโอมากพอ):** ที่จุดเริ่มต้นของพรอมต์ ให้ลองขอให้โมเดลอธิบายรูปภาพหรือวิดีโอก่อนที่จะให้คำสั่งงาน หรือลองขอให้โมเดลอ้างอิงถึงสิ่งที่อยู่ในรูปภาพ
-  - **หากต้องการแก้ปัญหาว่าส่วนใดล้มเหลว** ให้ขอให้โมเดลอธิบายรูปภาพ หรือขอให้โมเดลอธิบายเหตุผลเพื่อวัดความเข้าใจเริ่มต้นของโมเดล
-  - **หากพรอมต์ทำให้เกิดเนื้อหาที่โมเดลแต่งขึ้น** ให้ลองลดการตั้งค่าอุณหภูมิหรือขอให้โมเดลอธิบายสั้นลง เพื่อลดโอกาสที่โมเดลจะคาดการณ์รายละเอียดเพิ่มเติม
-  - **การปรับพารามิเตอร์การสุ่มตัวอย่าง:** ทดลองใช้การตั้งค่าอุณหภูมิและการเลือกแบบ Top-k ที่แตกต่างกันเพื่อปรับความคิดสร้างสรรค์ของโมเดล
+  - **Jika model tidak mengambil informasi dari bagian gambar yang relevan:** Berikan petunjuk tentang aspek gambar yang ingin Anda gunakan sebagai sumber informasi untuk perintah.
+  - **Jika output model terlalu umum (tidak cukup disesuaikan dengan input gambar/video):** Di awal perintah, coba minta model untuk mendeskripsikan gambar atau video sebelum memberikan petunjuk tugas, atau coba minta model untuk merujuk pada apa yang ada dalam gambar.
+  - **Untuk memecahkan masalah bagian mana yang gagal:** Minta model untuk mendeskripsikan gambar, atau minta model untuk menjelaskan penalarannya, guna mengukur pemahaman awal model.
+  - **Jika perintah Anda menghasilkan konten halusinasi:** Coba kurangi setelan temperatur atau minta model untuk memberikan deskripsi yang lebih singkat sehingga model cenderung tidak mengekstrapolasi detail tambahan.
+  - **Menyesuaikan parameter sampling:** Bereksperimenlah dengan berbagai setelan suhu dan pilihan top-k untuk menyesuaikan kreativitas model.
 
-### ระบุคำสั่งให้ชัดเจน
+### Berikan petunjuk yang spesifik
 
-พรอมต์จะประสบความสำเร็จมากที่สุดเมื่อมีความชัดเจนและละเอียด หากคุณมีผลลัพธ์ที่เฉพาะเจาะจงในใจ
-ควรระบุข้อกำหนดนั้นในพรอมต์
-เพื่อให้มั่นใจว่าคุณจะได้รับผลลัพธ์ที่ต้องการ
+Perintah akan memberikan hasil terbaik jika jelas dan mendetail. Jika Anda memiliki output tertentu yang diinginkan, sebaiknya sertakan persyaratan tersebut dalam perintah untuk memastikan Anda mendapatkan output yang diinginkan.
 
-สำหรับรูปภาพกระดานในสนามบินนี้ การขอให้โมเดล "อธิบายรูปภาพนี้" อาจสร้างคำอธิบายทั่วไป หากต้องการให้โมเดลแยกวิเคราะห์
-เวลาและเมืองจากรูปภาพ คุณสามารถใส่คำขอนั้นลงในพรอมต์ได้โดยตรง
+Untuk gambar papan informasi bandara ini, meminta model untuk "mendeskripsikan gambar ini" saja dapat menghasilkan deskripsi umum. Jika Anda ingin model mengurai
+waktu dan kota dari gambar, Anda dapat menyertakan permintaan tersebut langsung dalam perintah.
 
-| พรอมต์ | คำตอบของโมเดล |
+| Perintah | Respons model |
 | --- | --- |
-| อธิบายรูปภาพนี้ | รูปภาพแสดงตารางเที่ยวบินขาเข้าและขาออกของสนามบิน |
+| Jelaskan gambar ini. | Gambar menampilkan papan kedatangan dan keberangkatan bandara. |
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| ตารางเวลาการเดินทาง แยกวิเคราะห์เวลาและเมืองจากบอร์ดสนามบินที่แสดงในรูปภาพนี้เป็นรายการ | - 10:50 มอสโก - 11:05 เอดินบะระ - 11:05 ลอนดอน - 11:10 บูคาเรสต์ - 11:30 น. เคียฟ - 11:35 ดับลิน - 11:45 อีสต์มิดแลนส์ - 12:15 โซเฟีย - 12:30 ลอนดอน - 12:30 น. นิวคาสเซิล - 12:40 เซนต์ปีเตอร์สเบิร์ก - 12:40 ลอนดอน - 12:45 แมนเชสเตอร์ |
+| Jadwal perjalanan Parse waktu dan kota dari papan informasi bandara yang ditampilkan dalam gambar ini ke dalam daftar. | - 10.50 Moskow - 11:05 Edinburgh - 11:05 London - 11:10 Bucharest - 11.30 Kiev - 11:35 Dublin - 11.45 East Midlands - 12.15 Sofia - 12.30 London - 12:30 Newcastle - 12.40 St Petersburg - 12.40 London - 12.45 Manchester |
 
-### เพิ่มตัวอย่าง
+### Tambahkan beberapa contoh
 
-โมเดล Gemini รับอินพุตได้หลายรายการ ซึ่งสามารถใช้เป็นตัวอย่างเพื่อ
-ทำความเข้าใจเอาต์พุตที่คุณต้องการ การเพิ่มตัวอย่างเหล่านี้จะช่วยให้โมเดล
-ระบุรูปแบบและใช้ความสัมพันธ์ระหว่างรูปภาพและ
-คำตอบที่ระบุกับตัวอย่างใหม่ได้ หรือที่เรียกว่าการเรียนรู้แบบ "Few-Shot"
+Model Gemini dapat menerima beberapa input yang dapat digunakan sebagai contoh untuk memahami output yang Anda inginkan. Menambahkan contoh ini dapat membantu model
+mengidentifikasi pola dan menerapkan hubungan antara gambar dan
+respons yang diberikan ke contoh baru. Hal ini juga disebut pembelajaran "few-shot".
 
-ในตัวอย่างต่อไปนี้ เอาต์พุตเริ่มต้นจะเขียนในรูปแบบประโยค
-และมีประเทศ (บราซิล) ด้วย สมมติว่าคุณต้องการเอาต์พุตใน
-รูปแบบหรือสไตล์อื่น และต้องการเฉพาะเมือง ไม่ใช่ประเทศ การเพิ่มตัวอย่างแบบ Few-Shot ลงในพรอมต์จะช่วยให้โมเดลตอบสนองในแบบที่คุณต้องการ
+Dalam contoh berikut, output awal ditulis dalam bentuk kalimat,
+dan juga berisi negara (Brasil). Misalnya, Anda menginginkan output dalam format atau gaya yang berbeda, dan Anda hanya menginginkan kota, bukan negara. Menambahkan contoh few-shot ke prompt dapat mengarahkan model untuk merespons dengan cara yang Anda inginkan.
 
-| **พรอมต์** | **คำตอบของโมเดล** |
+| **Perintah** | **Respons model** |
 | --- | --- |
-| ตารางเวลาการเดินทาง ระบุเมืองพร้อมกับสถานที่สำคัญ | สถานที่สำคัญคือรูปปั้นพระคริสต์ผู้ไถ่ในรีโอเดจาเนโร ประเทศบราซิล |
+| Jadwal perjalanan Tentukan kota beserta tempat terkenalnya. | Landmark tersebut adalah patung Kristus Penebus di Rio de Janeiro, Brasil. |
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| ระบุเมืองพร้อมกับสถานที่สำคัญ โคลอสเซียม | เมือง: โรม, สถานที่สำคัญ: โคลอสเซียม |
-| นครต้องห้าม | เมือง: ปักกิ่ง, สถานที่สำคัญ: พระราชวังต้องห้าม |
-| forbidden-city | เมือง: รีโอเดจาเนโร, สถานที่สำคัญ: รูปปั้นพระคริสต์ผู้ไถ่ |
+| Tentukan kota beserta tempat terkenalnya. colosseum | kota: Roma, landmark: Colosseum. |
+| Kota Terlarang | kota: Beijing, landmark: Kota Terlarang |
+| kota-terlarang | kota: Rio de Janeiro, landmark: patung Kristus Penebus |
 
-### ดูรายละเอียดทีละขั้นตอน
+### Uraikan langkah demi langkah
 
-สำหรับงานที่ซับซ้อน เช่น งานที่ต้องใช้ทั้งความเข้าใจด้านภาพและการให้เหตุผล การแบ่งงานออกเป็นขั้นตอนย่อยๆ ที่ตรงไปตรงมามากขึ้นอาจเป็นประโยชน์ หรือคุณอาจขอให้โมเดล "คิดทีละขั้นตอน" ในพรอมต์โดยตรงก็ได้
+Untuk tugas kompleks seperti yang memerlukan pemahaman dan penalaran visual, sebaiknya pecah tugas menjadi langkah-langkah yang lebih kecil dan lebih sederhana. Atau, Anda juga dapat meminta model secara langsung untuk "berpikir secara berurutan" dalam perintah Anda.
 
-| พรอมต์ | คำตอบของโมเดล |
+| Perintah | Respons model |
 | --- | --- |
-| กระดาษชำระจะหมดเมื่อใด | คุณจะเหลือรีลเพียง 3 รายการในเร็วๆ นี้ |
+| Kapan tisu toilet saya akan habis? | Segera, Anda hanya memiliki 3 putaran tersisa. |
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 1. ก่อนอื่น ให้นับม้วนกระดาษชำระในรูปภาพนี้ 2. จากนั้นให้พิจารณาว่าโดยทั่วไปแล้วคนเราใช้กระดาษชำระวันละเท่าไร 3. คำนวณว่ากระดาษชำระม้วนเหล่านี้จะใช้ได้นานเท่าใด | 1. มีม้วนกระดาษชำระ 3 ม้วนในรูปภาพนี้ 2. โดยทั่วไปแล้ว คนเราใช้กระดาษชำระประมาณ 20 แผ่นต่อวัน 3. หากกระดาษชำระแต่ละม้วนมี 200 แผ่น กระดาษชำระแต่ละม้วนจะใช้ได้ประมาณ 10 วัน ดังนั้น ฟิล์ม 3 ม้วนจะใช้งานได้ประมาณ 1 เดือน |
+| 1. Pertama, hitung berapa banyak gulungan tisu toilet dalam gambar ini. 2. Kemudian, tentukan berapa banyak tisu toilet yang digunakan orang pada umumnya per hari. 3. Hitung berapa lama gulungan tisu toilet ini akan habis. | 1. Ada 3 tisu toilet dalam gambar ini. 2. Orang biasanya menggunakan sekitar 20 lembar tisu toilet per hari. 3. Jika setiap gulungan berisi 200 lembar, maka setiap gulungan akan bertahan selama sekitar 10 hari. Oleh karena itu, 3 gulungan tersebut akan bertahan selama sekitar satu bulan. |
 
-โจทย์คณิตศาสตร์หรือโจทย์ประเภทอื่นๆ เป็นตัวเลือกที่ยอดเยี่ยมในการขอให้โมเดลคิดแบบทีละขั้นตอน
+Soal matematika atau jenis soal cerita lainnya adalah kandidat yang tepat untuk meminta model berpikir langkah demi langkah.
 
-| **พรอมต์** | **การตอบกลับ** |
+| **Perintah** | **Respons** |
 | --- | --- |
-| พจน์ที่ 4 ในลำดับคืออะไร | -135 |
+| Berapa suku ke-4 dalam deret tersebut? | -135 |
 
-คำตอบจากโมเดลไม่ถูกต้อง วิธีปรับปรุงเรื่องนี้คือการขอให้โมเดลวิเคราะห์ปัญหาก่อนตอบพรอมต์
+Respons dari model salah. Beberapa cara untuk meningkatkan kualitas respons adalah dengan meminta model mengurai masalah sebelum menjawab perintah.
 
-| **พรอมต์** | **การตอบกลับ** |
+| **Perintah** | **Respons** |
 | --- | --- |
-| แยกวิเคราะห์สูตรในรูปภาพก่อน  จากนั้นตอบคำถาม "พจน์ที่ 4 ในลำดับคืออะไร" โดยอิงตามสูตร | *คลิกเพื่อขยายผลลัพธ์* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. แทนค่า n = 4 ในสูตร $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. เราไม่ทราบค่าของ b(3) ดังนั้นให้แทนค่า n = 3 ลงในสูตร $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. เราไม่ทราบค่าของ b(2) จึงแทนค่า n = 2 ลงในสูตร $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. เรารู้ว่าค่าของ b(1) คือ 15 ดังนั้นให้แทนค่าลงในสูตร $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. ตอนนี้เราทราบค่าของ b(2) แล้ว ให้แทนค่าลงในสูตรสำหรับ b(3) ดังนี้ $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. ตอนนี้เราทราบค่าของ b(3) แล้ว ให้แทนค่าลงในสูตรสำหรับ b(4) ดังนี้ $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   ดังนั้น พจน์ที่ 4 ในลำดับคือ -405 |
+| Parse formula dalam gambar terlebih dahulu.  Kemudian, berdasarkan formula, jawab "apa suku ke-4 dalam deret tersebut?". | *Klik untuk meluaskan hasil* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Substitusikan n = 4 ke dalam rumus: $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Kita tidak mengetahui nilai b(3), jadi substitusikan n = 3 ke dalam rumus: $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Kita tidak mengetahui nilai b(2), jadi substitusikan n = 2 ke dalam rumus: $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Kita tahu nilai b(1) adalah 15, jadi substitusikan ke dalam rumus: $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Sekarang setelah kita mengetahui nilai b(2), substitusikan ke dalam rumus untuk b(3): $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Sekarang kita mengetahui nilai b(3), substitusikan ke dalam rumus untuk b(4): $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Oleh karena itu, suku ke-4 dalam deret tersebut adalah -405. |
 
-คำตอบของโมเดลนี้ถูกต้องแล้ว แต่หากต้องการให้คำตอบมีประสิทธิภาพมากยิ่งขึ้น
-คุณสามารถขอให้โมเดลคิดทีละขั้นตอนได้
+Respons model ini benar - sekarang untuk membuat respons menjadi lebih efisien,
+Anda dapat meminta model untuk berpikir langkah demi langkah.
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| พจน์ที่ 4 ในลำดับคืออะไร คิดทีละขั้นตอน | โดยพจน์แรกคือ 15  พจน์ที่ 2 คือ b(1) \* (-3) = 15 \* (-3) = -45  พจน์ที่ 3 คือ b(2) \* (-3) = -45 \* (-3) = 135  พจน์ที่ 4 คือ b(3) \* (-3) = 135 \* (-3) = -405 |
+| Berapa suku ke-4 dalam deret tersebut? Berpikirlah secara berurutan. | Istilah pertama adalah 15.  Istilah kedua adalah b(1) \* (-3) = 15 \* (-3) = -45.  Suku ketiga adalah b(2) \* (-3) = -45 \* (-3) = 135.  Suku keempat adalah b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### ระบุรูปแบบเอาต์พุต
+### Tentukan format output
 
-ปัญหาที่พบบ่อยคือความจำเป็นที่เอาต์พุตของโมเดลต้องอยู่ในรูปแบบที่แน่นอน
-(เช่น มาร์กดาวน์, JSON, HTML) โดยเฉพาะอย่างยิ่งหากงานดาวน์สตรีมต้อง
-รับข้อมูลเอาต์พุตของโมเดล คุณลองสร้างเอาต์พุตในรูปแบบนั้นได้
-โดยสั่งให้โมเดลทำเช่นนั้นภายในพรอมต์ ตัวอย่าง 2 รายการมีดังนี้
+Masalah umum adalah kebutuhan output model dalam format tertentu
+(misalnya Markdown, JSON, HTML), terutama jika output model perlu
+diproses oleh tugas downstream. Anda dapat mencoba menghasilkan output dalam format tersebut
+dengan menginstruksikan model untuk melakukannya dalam perintah. Berikut adalah dua
+contohnya:
 
-| พรอมต์ | คำตอบของโมเดล |
+| Perintah | Respons model |
 | --- | --- |
-| แยกวิเคราะห์ตารางในรูปภาพนี้เป็นรูปแบบมาร์กดาวน์ | ```none | วิชา | สถานะ | เวลา | วันที่เริ่มต้น | กำหนดส่ง | | ------- | ------ | ---- | ---------- | ------ | | คณิตศาสตร์ | เสร็จแล้ว | 1.5 ชม. | 29/11/2023 | 1/12/2023 | | ภูมิศาสตร์ | เสร็จแล้ว | 30 นาที | 2/12/2023 | 4/12/2023 | | ฟิสิกส์ | กำลังดำเนินการ | 2 ชม. | 3/12/2023 | 5/12/2023 | | ชีววิทยา | ยังไม่ได้เริ่ม | 6 ชม. | 2/11/2016 | 6/12/2023 | ``` |
+| Parse tabel dalam gambar ini ke dalam format Markdown | ```none | Subjek | Status | Waktu | Tanggal mulai | Jatuh tempo pada | | ------- | ------ | ---- | ---------- | ------ | | Matematika | Selesai | 1,5 jam | 29/11/2023 | 1/12/2023 | | Geografi | Selesai | 30 menit | 2/12/2023 | 4/12/2023 | | Fisika | Dalam proses | 2 jam | 3/12/2023 | 5/12/2023 | | Biologi | Belum dimulai | 6 jam | 2/11/2016 | 6/12/2023 | ``` |
 
-| **พรอมต์** | **คำตอบของโมเดล** |
+| **Perintah** | **Respons model** |
 | --- | --- |
-| ระบุรายการแอตทริบิวต์ต่อไปนี้ทั้งหมด  ส่วนผสม ประเภทอาหาร มังสวิรัติหรือไม่ ในรูปแบบ JSON | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
+| Berikan daftar semua atribut berikut:  bahan, jenis masakan, vegetarian atau tidak, dalam format JSON | ```json { "ingredients": [ "rice", "shrimp", "clams", "mussels", "peas", "tomatoes", "onions", "garlic", "olive oil", "paprika", "salt", "pepper" ], "type of cuisine": "Spanish", "vegetarian": false } ``` |
 
-### วางรูปภาพไว้ก่อนสำหรับพรอมต์แบบรูปภาพเดียว
+### Utamakan gambar Anda untuk perintah gambar tunggal
 
-แม้ว่า Gemini จะตีความรูปภาพและข้อความในพรอมต์ได้ตามลำดับใดก็ได้ แต่การวาง
-รูปภาพเดี่ยวไว้ก่อนพรอมต์ข้อความอาจให้ผลลัพธ์ที่ดีกว่า
-ในตัวอย่างต่อไปนี้ คุณจะเห็นว่ารูปภาพจะมาก่อนข้อความในแต่ละพรอมต์
+Meskipun Gemini dapat menafsirkan gambar dan teks dalam urutan apa pun dalam perintah, menempatkan satu gambar sebelum perintah teks dapat memberikan hasil yang lebih baik.
+Dalam contoh berikut, Anda akan melihat gambar muncul terlebih dahulu sebelum teks di setiap perintah.
 
-### การแก้ปัญหาพรอมต์มัลติโมดัล
+### Memecahkan masalah prompt multimodal
 
-คุณอาจต้องแก้ปัญหาพรอมต์หากไม่ได้รับคำตอบที่เป็นประโยชน์
-คุณลองใช้กลยุทธ์ต่อไปนี้ได้
+Anda mungkin perlu memecahkan masalah perintah jika tidak mendapatkan respons yang
+bermanfaat. Berikut beberapa strategi yang dapat Anda coba.
 
-#### หากโมเดลไม่ได้ดึงข้อมูลจากส่วนที่เกี่ยวข้องของรูปภาพ
+#### Jika model tidak mengambil informasi dari bagian gambar yang relevan
 
-หากต้องการคำตอบที่เจาะจงมากขึ้น คุณสามารถระบุลักษณะของรูปภาพ
-ที่ต้องการให้พรอมต์ดึงข้อมูลมาใช้ในการตอบกลับได้
+Untuk mendapatkan respons yang lebih spesifik, Anda dapat menunjukkan aspek gambar yang ingin Anda gunakan sebagai sumber informasi untuk menghasilkan respons perintah.
 
-| พรอมต์ | คำตอบของโมเดล |
+| Perintah | Respons model |
 | --- | --- |
-| ผ้าอ้อมเหล่านี้จะใช้ได้นานกี่วันสำหรับทารก | ผ้าอ้อมจะใช้ได้ 198 วันก่อนที่จะหมด |
+| Berapa hari popok ini akan bertahan untuk bayi? | Popok akan bertahan selama 198 hari sebelum habis. |
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| ผ้าอ้อมเหล่านี้จะใช้ได้นานเท่าไรก่อนจะหมด  ใช้น้ำหนักที่แสดงบนกล่องเพื่อกำหนดอายุของเด็ก และใช้จำนวนผ้าอ้อมทั้งหมดในกล่อง  นำจำนวนทั้งหมดมาหารด้วยจำนวนผ้าอ้อมที่เด็กใช้ต่อวัน | กล่องนี้มีผ้าอ้อม 198 ชิ้น กล่องระบุว่าผ้าอ้อมเหมาะสำหรับเด็กที่มีน้ำหนัก 22-37 ปอนด์  เด็กที่มีน้ำหนักในช่วงนี้โดยเฉลี่ยจะมีอายุระหว่าง 1-2 ปี  โดยปกติแล้วเด็กอายุ 2 ขวบจะใช้ผ้าอ้อม 6 ผืนต่อวัน ดังนั้นผ้าอ้อมจะใช้ได้ประมาณ 33 วัน (198/6) |
+| Berapa lama popok ini akan bertahan sebelum habis?  Gunakan berat yang tertera di kotak untuk menentukan usia anak, dan gunakan jumlah total popok dalam kotak.  Bagilah total jumlah popok dengan jumlah popok yang digunakan anak per hari. | Kotak berisi 198 popok. Kotak tersebut menyatakan bahwa popok ditujukan untuk anak yang beratnya 22-37 lbs.  Rata-rata anak dalam rentang berat ini kemungkinan berusia antara 1 dan 2 tahun.  Anak berusia 2 tahun biasanya menggunakan 6 popok per hari, sehingga popok akan bertahan sekitar 33 hari (198/6). |
 
-#### หากเอาต์พุตโมเดลเป็นแบบทั่วไปมากเกินไปและไม่ปรับให้เข้ากับอินพุตรูปภาพ
+#### Jika output model terlalu umum dan tidak cukup disesuaikan dengan input gambar
 
-หากต้องการช่วยให้โมเดลปรับคำตอบให้เหมาะกับรูปภาพ ให้ลองขอให้โมเดลอธิบายรูปภาพก่อนที่จะทำงานให้เหตุผล
+Untuk membantu model menyesuaikan responsnya dengan gambar, coba minta model untuk mendeskripsikan gambar sebelum melakukan tugas penalarannya.
 
-| พรอมต์ | คำตอบของโมเดล |
+| Perintah | Respons model |
 | --- | --- |
-| รูปภาพเหล่านี้มีอะไรที่เหมือนกัน | รูปภาพทั้ง 4 รูปเป็นตัวอย่างของการถ่ายภาพทิวทัศน์ |
+| Apa kesamaan antara gambar-gambar ini? | Keempat gambar tersebut adalah contoh fotografi lanskap. |
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| ก่อนอื่น ให้อธิบายสิ่งที่อยู่ในแต่ละภาพโดยละเอียด รูปภาพเหล่านี้มีอะไรที่เหมือนกัน | รูปภาพแรกแสดงภาพคนกำลังจัดกระเป๋าเดินทาง ภาพที่ 2 แสดงทางเดินที่ว่างเปล่าในห้างสรรพสินค้า ภาพที่ 3 แสดงม้วนกระดาษชำระ รูปภาพที่ 4 แสดงทะเลที่มืดครึ้มและมีพายุ  ความเหมือนกันของภาพเหล่านี้คือเป็นตัวอย่างของพื้นที่กึ่งกลาง Liminal Space คือสถานที่หรือสถานการณ์ที่อยู่ระหว่างสถานที่หรือสถานการณ์อื่นๆ 2 แห่ง โดยมักมีลักษณะของความไม่แน่นอนหรือความคลุมเครือ  ภาพแรกแสดงให้เห็นว่าบุคคลดังกล่าวอยู่บ้านและเดินทาง ภาพที่ 2 แสดงทางเดินระหว่างร้านค้า 2 ร้าน ภาพที่ 3 เป็นกระดาษชำระ ซึ่งแสดงถึงห้องน้ำ ห้องน้ำเป็นพื้นที่เปลี่ยนผ่านระหว่างพื้นที่ส่วนตัว และพื้นที่สาธารณะ เป็นสถานที่ที่เราเตรียมตัวเพื่อเข้าหรือออกจากโลกภายนอก  ภาพที่ 4 แสดงให้เห็นทะเลที่อยู่ระหว่างความสงบกับความปั่นป่วน  พื้นที่กึ่งกลางอาจทั้งน่าตื่นเต้นและน่ากังวล ซึ่งอาจเป็นจุดเริ่มต้นใหม่หรือจุดสิ้นสุดก็ได้ ซึ่งอาจเป็นที่ที่ใช้ไตร่ตรองหรือที่ที่ใช้ลงมือทำ |
+| Pertama, jelaskan secara mendetail apa yang ada di setiap gambar. Apa kesamaan antara gambar-gambar ini? | Gambar pertama menunjukkan seseorang sedang mengemas koper. Gambar kedua menampilkan lorong kosong di pusat perbelanjaan. Gambar ketiga menampilkan gulungan tisu toilet. Gambar keempat menampilkan laut yang gelap dan berbadai.  Kesamaan antara gambar-gambar ini adalah bahwa semuanya merupakan contoh ruang liminal. Ruang liminal adalah tempat atau situasi yang berada di antara dua tempat atau situasi lainnya. Hal ini sering kali ditandai dengan rasa tidak pasti atau ambigu.  Gambar pertama menunjukkan orang yang berada di antara rumah dan sedang dalam perjalanan. Gambar kedua menunjukkan lorong di antara dua toko. Gambar ketiga adalah tisu toilet, yang dapat mewakili kamar mandi. Kamar mandi adalah ruang transisi antara ranah pribadi dan publik. Ini adalah tempat di mana kita mempersiapkan diri untuk masuk atau keluar dari dunia luar.  Gambar keempat menunjukkan laut di antara kedua sisi yang tenang dan berbadai.  Ruang liminal bisa terasa menarik dan mengganggu. Tempat tersebut bisa menjadi tempat awal yang baru atau tempat akhir. Tempat tersebut dapat menjadi tempat untuk merenung atau tempat untuk bertindak. |
 
-นอกจากนี้ คุณยังลองถามโมเดลอย่างชัดเจนให้ดูสิ่งที่อยู่ในรูปภาพได้ด้วย
+Anda juga dapat mencoba meminta model secara eksplisit untuk merujuk pada objek yang ada dalam gambar.
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| รูปภาพเหล่านี้มีอะไรที่เหมือนกัน อ้างอิงสิ่งที่อยู่ในรูปภาพในคำตอบ | รูปภาพทั้งหมดเกี่ยวข้องกับการท่องเที่ยว ภาพแรกแสดงภาพคนกำลังจัดกระเป๋าเดินทาง ภาพที่ 2 แสดงภาพทางเดินที่ว่างเปล่าในห้างสรรพสินค้า ภาพที่ 3 แสดงภาพกระดาษชำระที่วางซ้อนกัน และภาพที่ 4 แสดงภาพทะเลที่มืดครึ้มและมีพายุ  รูปภาพเหล่านี้เกี่ยวข้องกับการเดินทางทั้งหมดเนื่องจากเป็นสิ่งที่ผู้คนต้องการหรือใช้เมื่อ เดินทาง รูปภาพแรกแสดงให้เห็นบุคคลกำลังจัดกระเป๋าเดินทาง ซึ่งเป็น สิ่งที่ผู้คนทำเมื่อจะเดินทาง รูปภาพที่ 2 แสดงทางเดินที่ว่างเปล่าในห้างสรรพสินค้า ซึ่งเป็นสถานที่ที่ผู้คน มักจะไปซื้อของสำหรับการเดินทาง รูปภาพที่ 3 แสดงกองกระดาษชำระ ซึ่งเป็นสิ่งที่ผู้คนมักใช้เมื่อเดินทาง รูปภาพที่ 4 แสดงทะเลที่มืดครึ้มและมีพายุ ซึ่งเป็น สิ่งที่ผู้คนมักพบเจอเมื่อเดินทาง |
+| Apa kesamaan antara gambar-gambar ini? Rujuk isi gambar dalam respons Anda. | Semua gambar terkait dengan perjalanan. Gambar pertama menunjukkan seseorang sedang mengemas koper, gambar kedua menunjukkan lorong kosong di pusat perbelanjaan, gambar ketiga menunjukkan tumpukan tisu toilet, dan gambar keempat menunjukkan laut yang gelap dan badai.  Semua gambar ini terkait dengan perjalanan karena semuanya adalah hal-hal yang dibutuhkan atau digunakan orang saat mereka bepergian. Gambar pertama menunjukkan seseorang sedang mengemas koper, yang merupakan sesuatu yang dilakukan orang saat mereka akan bepergian. Gambar kedua menampilkan lorong kosong di pusat perbelanjaan, yang merupakan tempat yang sering dikunjungi orang untuk membeli perlengkapan perjalanan mereka. Gambar ketiga menampilkan tumpukan tisu toilet, yang sering digunakan orang saat mereka bepergian. Gambar keempat menunjukkan laut yang gelap dan badai, yang sering dialami orang saat bepergian. |
 
-เคล็ดลับเดียวกันนี้ใช้ได้กับผลงานครีเอทีฟโฆษณาจากรูปภาพด้วย ในตัวอย่างต่อไปนี้ที่มี
-กระต่าย การขอให้โมเดลรวมแง่มุมจากรูปภาพอย่างชัดเจนจะ
-ปรับปรุงเอาต์พุตได้
+Tips yang sama berlaku untuk output kreatif dari gambar. Dalam contoh berikut dengan
+kelinci, meminta model secara eksplisit untuk menyertakan aspek dari gambar dapat
+meningkatkan kualitas output.
 
-| พรอมต์ | คำตอบของโมเดล |
+| Perintah | Respons model |
 | --- | --- |
-| ช่วยแต่งกลอนเกี่ยวกับรูปภาพนี้ให้หน่อยได้ไหม | กระต่ายน้อยตัวนุ่มสีน้ำตาล  กระโดดโลดเต้นไปทั่วทุ่ง  หูยาว หางสั้น  เจ้าเป็นสัตว์ที่น่ารักที่สุดในบรรดาสัตว์ทั้งหมด  เจ้าแทะหญ้าเขียวหวาน  แล้วกระโดดหนีเมื่อเห็นฉัน  แต่ฉันจะเป็นเพื่อนของเธอเสมอ  กระต่ายน้อย จนกว่าจะถึงวันสุดท้าย |
+| Dapatkah Anda menulis puisi tentang gambar ini untuk saya? | Kelinci kecil, begitu lembut dan cokelat,  Melompat di padang rumput, naik dan turun.  Telingamu panjang, ekormu kecil,  Kamu adalah makhluk paling imut di antara semuanya.  Kamu mengunyah rumput, begitu hijau dan manis,  Dan melompat menjauh saat melihatku.  Namun, aku akan selalu menjadi temanmu,  Kelinci kecil, hingga akhir hayatku. |
 
-| **พรอมต์ที่อัปเดตแล้ว** | **การตอบสนองที่ดียิ่งขึ้น** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| ช่วยแต่งกลอนที่บรรยายและน่าทึ่งเกี่ยวกับรูปภาพนี้พร้อมระบุสถานที่ได้ไหม | กระต่ายน้อยบนทุ่งหญ้าเขียว  หูยาวเฟื้อยน่ารัก  เจ้าเห็นอะไรที่นั่น  ในระยะไกลที่เจ้าจ้องมอง  เป็นสีครามของมหาสมุทร  ส่องประกายในแสงแดดไหม  หรือคลื่นที่ซัดสาดและคำราม  จังหวะที่คุณชื่นชอบ  กระต่ายน้อยบอกฉันหน่อย  อะไรที่ดึงดูดความสนใจของเธอ  ลมทะเลเค็ม  หรือเสียงร้องของนกนางนวลที่ทำให้เพลิน  อาจเป็นเพราะความกว้างใหญ่ของทุกสิ่ง  โลกที่ทั้งใหญ่และเล็ก  ที่ซึ่งความฝันจะโลดแล่น  และหว่านการผจญภัย  กระต่ายน้อย ฉันสงสัยว่าเธอฝันถึงอะไร  ขณะนั่งอยู่บนหญ้าอย่างเงียบสงบ  คุณอยากสำรวจใต้ทะเลลึก  หรือจะอยู่บนบกที่กระโดดโลดเต้นได้  ไม่ว่าจะเป็นอะไรก็ตาม เจ้ากระต่ายน้อย  จงรักษาประกายแห่งความสงสัยให้ส่องสว่างต่อไป  เพราะในความฝันและความปรารถนา  มีโลกที่รอให้คุณสร้างสรรค์ |
+| Dapatkah Anda menulis puisi deskriptif dan dramatis tentang gambar ini dan menyertakan lokasinya? | Kelinci kecil di padang rumput hijau,  Telinganya panjang, sangat tajam.  Apa yang Anda lihat di sana,  Di kejauhan, tempat Anda menatap?  Apakah biru laut,  Berkilau dalam warna matahari?  Atau ombak yang menghantam dan menderu,  Irama yang Anda sukai?  Kelinci kecil, katakan yang sebenarnya,  Apa yang menarik perhatianmu?  Apakah angin laut yang asin,  Atau teriakan burung camar yang menyenangkan?  Mungkin karena luasnya semua ini,  Dunia yang begitu besar dan kecil.  Tempat impian dapat menjelajah,  Dan petualangan dapat dimulai.  Kelinci kecil, aku ingin tahu apa yang kamu impikan,  Saat kamu duduk di atas rumput, begitu tenang.  Apakah kamu ingin menjelajahi lautan yang dalam,  Atau tetap di darat, tempat kamu bisa melompat?  Apa pun itu, kelinci kecil,  Jaga agar percikan keajaiban itu tetap menyala terang.  Karena dalam impian dan aspirasi Anda,  Terletak dunia yang menunggu kreasi Anda. |
 
-#### การแก้ปัญหาว่าส่วนใดของพรอมต์ไม่สำเร็จ
+#### Memecahkan masalah bagian perintah yang gagal
 
-การทราบว่าพรอมต์ล้มเหลวเนื่องจากโมเดล**ไม่เข้าใจรูปภาพ**ตั้งแต่แรก หรือโมเดลเข้าใจรูปภาพแต่ไม่ได้ทำ**ขั้นตอนการให้เหตุผล**ที่ถูกต้องในภายหลังอาจเป็นเรื่องยาก
-หากต้องการแยกแยะเหตุผลเหล่านั้น ให้ขอให้โมเดลอธิบายสิ่งที่อยู่ในรูปภาพ
+Mungkin sulit untuk mengetahui apakah perintah gagal karena model **tidak memahami gambar** sejak awal, atau jika model memahami gambar tetapi tidak melakukan **langkah-langkah penalaran** yang benar setelahnya.
+Untuk membedakan alasan tersebut, minta model mendeskripsikan isi gambar.
 
-ในตัวอย่างต่อไปนี้ หากโมเดลตอบกลับด้วยของว่างที่ดูน่าประหลาดใจเมื่อจับคู่กับชา (เช่น ป๊อปคอร์น) คุณสามารถแก้ปัญหาเบื้องต้นเพื่อพิจารณาว่าโมเดลจดจำได้อย่างถูกต้องว่ารูปภาพมีชาหรือไม่
+Dalam contoh berikut, jika model merespons dengan makanan ringan yang tampaknya mengejutkan
+jika dipadukan dengan teh (misalnya, popcorn), Anda dapat memecahkan masalah terlebih dahulu untuk menentukan
+apakah model mengenali dengan benar bahwa gambar tersebut berisi teh.
 
-| พรอมต์ | พรอมต์สำหรับการแก้ปัญหา |
+| Perintah | Perintah untuk pemecahan masalah |
 | --- | --- |
-| มีของว่างอะไรที่ฉันทำได้ใน 1 นาทีและกินกับสิ่งนี้ได้บ้าง | อธิบายสิ่งที่อยู่ในรูปภาพนี้ |
+| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Jelaskan apa yang ada dalam gambar ini. |
 
-อีกกลยุทธ์หนึ่งคือการขอให้โมเดลอธิบายเหตุผล ซึ่งจะช่วยให้คุณ
-จำกัดส่วนของการให้เหตุผลที่ผิดพลาดได้ หากมี
+Strategi lainnya adalah meminta model untuk menjelaskan penalarannya. Hal ini dapat membantu Anda
+mempersempit bagian penalaran yang salah, jika ada.
 
-| พรอมต์ | พรอมต์สำหรับการแก้ปัญหา |
+| Perintah | Perintah untuk pemecahan masalah |
 | --- | --- |
-| มีของว่างอะไรที่ฉันทำได้ใน 1 นาทีและกินกับสิ่งนี้ได้บ้าง | มีของว่างอะไรที่ฉันทำได้ใน 1 นาทีและกินกับสิ่งนี้ได้บ้าง โปรดให้เหตุผล |
+| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? Harap jelaskan alasannya. |
 
-## ขั้นตอนถัดไป
+## Langkah berikutnya
 
-- ลองเขียนพรอมต์มัลติโมดัลของคุณเองโดยใช้ [Google AI
-  Studio](http://aistudio.google.com?hl=th)
-- ดูข้อมูลเกี่ยวกับการใช้ Gemini Files API สำหรับ
-  การอัปโหลดไฟล์สื่อและการรวมไฟล์เหล่านั้นไว้ในพรอมต์ได้ที่คำแนะนำเกี่ยวกับ
-  [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=th), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=th) และ
-  [การประมวลผลเอกสาร](https://ai.google.dev/gemini-api/docs/document-processing?hl=th)
-- ดูคำแนะนำเพิ่มเติมเกี่ยวกับการออกแบบพรอมต์ เช่น การปรับพารามิเตอร์การสุ่มตัวอย่าง ได้ที่หน้า[กลยุทธ์พรอมต์](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=th)
+- Coba tulis perintah multimodal Anda sendiri menggunakan [Google AI Studio](http://aistudio.google.com?hl=id).
+- Untuk mengetahui informasi tentang cara menggunakan Gemini Files API untuk mengupload file media dan menyertakannya dalam perintah Anda, lihat panduan [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan [Pemrosesan dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
+- Untuk panduan selengkapnya tentang desain perintah, seperti menyesuaikan parameter pengambilan sampel, lihat halaman [Strategi perintah](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id).
 
-ส่งความคิดเห็น
+Kirim masukan
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-อัปเดตล่าสุด 2026-09-24 UTC
+Terakhir diperbarui pada 2026-09-24 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Ada masukan untuk kami?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]

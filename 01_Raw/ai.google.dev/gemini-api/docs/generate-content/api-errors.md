@@ -1,47 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=pl
-fetched_at: 2026-09-28T06:09:39.120350+00:00
-title: "B\u0142\u0119dy interfejsu API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/api-errors?hl=pt-BR
+fetched_at: 2026-10-05T06:25:39.830069+00:00
+title: "Erros da API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Błędy interfejsu API
+# Erros da API
 
-Ta strona zawiera informacje o kodach błędów backendu zwracanych przez interfejs `GenerateContent` API, opisuje format odpowiedzi na błąd gRPC i zawiera kroki rozwiązywania problemów.
+Esta página fornece uma referência para códigos de erro de back-end retornados pela API `GenerateContent`, descreve o formato de resposta de erro do gRPC e fornece etapas de solução de problemas.
 
-## Kody błędów HTTP
+## Códigos de erro HTTP
 
-W tabeli poniżej znajdziesz typowe kody błędów backendu, wyjaśnienia ich przyczyn i zalecane rozwiązania:
+A tabela a seguir lista códigos de erro comuns do back-end, explicações sobre as causas e soluções recomendadas:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Kod HTTP** | **Stan** | **Opis** | **Przykład** | **Rozwiązanie** |
-| 400 | INVALID\_ARGUMENT | Treść żądania jest błędnie sformatowana. | W żądaniu jest błąd w pisowni lub brakuje wymaganego pola. | Format żądania, przykłady i obsługiwane wersje znajdziesz w [dokumentacji API](https://ai.google.dev/api?hl=pl). Używanie funkcji z nowszej wersji interfejsu API ze starszym punktem końcowym może powodować błędy. |
-| 400 | FAILED\_PRECONDITION | Bezpłatny poziom Gemini API nie jest dostępny w Twoim kraju. Włącz płatności w projekcie w Google AI Studio. | Wysyłasz żądanie w regionie, w którym poziom bezpłatny nie jest obsługiwany, a w projekcie w Google AI Studio nie masz włączonych rozliczeń. | Aby korzystać z Gemini API, musisz skonfigurować abonament w [Google AI Studio](https://aistudio.google.com/apikey?hl=pl). |
-| 402 | RESOURCE\_EXHAUSTED | Saldo środków z przedpłaty zostało wyczerpane. | Na Twoim koncie rozliczeniowym wyczerpały się środki przedpłaty, więc wszystkie klucze API powiązane z tym kontem rozliczeniowym przestają działać. | [Dodaj środki](https://ai.google.dev/gemini-api/docs/billing?hl=pl#buy-credits) na konto rozliczeniowe lub włącz [automatyczne doładowanie](https://ai.google.dev/gemini-api/docs/billing?hl=pl#auto-reload). Nie próbuj ponownie wysłać tego żądania: nie powiedzie się, dopóki nie dodasz środków. |
-| 403 | PERMISSION\_DENIED | Twój klucz API nie ma wymaganych uprawnień. | Używasz nieprawidłowego klucza interfejsu API. Próbujesz użyć dostosowanego modelu bez [prawidłowego uwierzytelniania](https://ai.google.dev/gemini-api/docs/model-tuning?hl=pl). | Sprawdź, czy klucz interfejsu API jest ustawiony i ma odpowiedni dostęp. Aby korzystać z dostosowanych modeli, musisz przejść odpowiednią weryfikację. |
-| 404 | NOT\_FOUND | Nie znaleziono żądanego zasobu. | Nie znaleziono pliku obrazu, audio ani wideo, do którego odwołuje się Twoja prośba. | Sprawdź, czy wszystkie parametry w żądaniu są prawidłowe w przypadku używanej wersji interfejsu API. |
-| 429 | RESOURCE\_EXHAUSTED | Przekroczono jeden z limitów częstotliwości interfejsu API (RPM, TPM, RPD, wydatki itp.). | Wysyłasz zbyt wiele żądań, używasz zbyt wielu tokenów lub przekraczasz limity oparte na wydatkach w przypadku historii płatności i poziomu konta. | Sprawdź, czy nie przekraczasz [limitów szybkości](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl) modelu. Poczekaj chwilę i spróbuj ponownie. Zmniejsz częstotliwość lub rozmiar żądań. W razie potrzeby [poproś o zwiększenie limitu częstotliwości](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl#request-rate-limit-increase). |
-| 499 | ANULOWANO | Operacja została anulowana, zwykle przez element wywołujący. | Klient zamknął połączenie, zanim interfejs API zdążył odpowiedzieć. | Sprawdź, czy klient lub infrastruktura sieciowa przedwcześnie zamyka połączenie (np. z powodu limitu czasu po stronie klienta). |
-| 500 | WEWNĘTRZNY | Po stronie Google wystąpił nieoczekiwany błąd. | Kontekst wejściowy jest za długi. | Sprawdź [stronę stanu Gemini API](https://aistudio.google.com/status?hl=pl), aby dowiedzieć się o bieżących incydentach. Zmniejsz kontekst wejściowy lub tymczasowo przełącz się na inny model (np. z Gemini 2.5 Pro na Gemini 2.5 Flash) i sprawdź, czy to pomoże. Możesz też poczekać chwilę i ponowić prośbę. Jeśli problem będzie się powtarzać, zgłoś go, klikając przycisk **Prześlij opinię** w Google AI Studio. |
-| 503 | PRODUKT NIEDOSTĘPNY | Usługa może być tymczasowo przeciążona lub niedostępna. | Usługa tymczasowo wyczerpuje swoje możliwości. | Sprawdź [stronę stanu Gemini API](https://aistudio.google.com/status?hl=pl), aby dowiedzieć się o bieżących incydentach. Tymczasowo przełącz się na inny model (np. z Gemini 2.5 Pro na Gemini 2.5 Flash) i sprawdź, czy to działa. Możesz też poczekać chwilę i ponowić prośbę. Jeśli problem będzie się powtarzać, zgłoś go, klikając przycisk **Prześlij opinię** w Google AI Studio. |
-| 504 | DEADLINE\_EXCEEDED | Usługa nie może zakończyć przetwarzania w terminie. | Prompt (lub kontekst) jest zbyt duży, aby można go było przetworzyć na czas. | Aby uniknąć tego błędu, ustaw w żądaniu klienta dłuższy „limit czasu”. |
+| **Código HTTP** | **Status** | **Descrição** | **Exemplo** | **Solução** |
+| 400 | INVALID\_ARGUMENT | O corpo da solicitação está incorreto. | Há um erro de digitação ou um campo obrigatório ausente na sua solicitação. | Consulte a [referência da API](https://ai.google.dev/api?hl=pt-br) para ver o formato da solicitação, exemplos e versões compatíveis. Usar recursos de uma versão mais recente da API com um endpoint mais antigo pode causar erros. |
+| 400 | FAILED\_PRECONDITION | O nível sem custo financeiro da API Gemini não está disponível no seu país. Ative o faturamento no seu projeto no Google AI Studio. | Você está fazendo uma solicitação em uma região onde o nível sem custo financeiro não está disponível e não ativou o faturamento no seu projeto no Google AI Studio. | Para usar a API Gemini, você precisa configurar um plano pago usando o [Google AI Studio](https://aistudio.google.com/apikey?hl=pt-br). |
+| 402 | RESOURCE\_EXHAUSTED | Seu saldo de crédito pré-pago acabou. | Sua conta de faturamento ficou sem créditos pré-pagos, então todas as chaves de API vinculadas a ela pararam de funcionar. | [Adicione créditos](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br#buy-credits) à sua conta de faturamento ou ative a [recarga automática](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br#auto-reload). Não tente de novo. A solicitação não vai ser concluída até que os créditos sejam adicionados. |
+| 403 | PERMISSION\_DENIED | Sua chave de API não tem as permissões necessárias. | Você está usando a chave de API errada ou tentando usar um modelo ajustado sem passar pela [autenticação adequada](https://ai.google.dev/gemini-api/docs/model-tuning?hl=pt-br). | Verifique se a chave de API está definida e tem o acesso correto. E faça a autenticação adequada para usar modelos ajustados. |
+| 404 | NOT\_FOUND | O recurso solicitado não foi encontrado. | Não foi encontrado um arquivo de imagem, áudio ou vídeo referenciado na sua solicitação. | Verifique se todos os parâmetros na sua solicitação são válidos para a versão da API. |
+| 429 | RESOURCE\_EXHAUSTED | Você excedeu um dos limites de taxa da API (RPM, TPM, RPD, gasto etc.). | Você está enviando muitas solicitações, usando muitos tokens ou excedendo os limites com base nos gastos do histórico de faturamento e do nível da sua conta. | Verifique se você está dentro dos [limites de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br) do modelo. Aguarde um pouco e tente de novo. Reduza a taxa ou o tamanho das solicitações. [Solicite um aumento no limite de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br#request-rate-limit-increase), se necessário. |
+| 499 | CANCELADO | A operação foi cancelada, geralmente pelo autor da chamada. | O cliente encerrou a conexão antes que a API pudesse terminar de responder. | Verifique se o cliente ou a infraestrutura de rede está fechando a conexão prematuramente (por exemplo, devido a um tempo limite do lado do cliente). |
+| 500 | INTERNAL | Ocorreu um erro inesperado no Google. | O contexto da sua entrada é muito longo. | Confira a [página de status da API Gemini](https://aistudio.google.com/status?hl=pt-br) para ver se há incidentes em andamento. Reduza o contexto de entrada ou mude temporariamente para outro modelo (por exemplo, do Gemini 2.5 Pro para o Gemini 2.5 Flash) e veja se funciona. Ou aguarde um pouco e tente de novo. Se o problema persistir depois de tentar novamente, informe usando o botão **Enviar feedback** no Google AI Studio. |
+| 503 | INDISPONÍVEL | O serviço pode estar temporariamente sobrecarregado ou indisponível. | O serviço está temporariamente sem capacidade. | Confira a [página de status da API Gemini](https://aistudio.google.com/status?hl=pt-br) para ver se há incidentes em andamento. Mude temporariamente para outro modelo (por exemplo, do Gemini 2.5 Pro para o Gemini 2.5 Flash) e veja se funciona. Ou aguarde um pouco e tente de novo. Se o problema persistir depois de tentar novamente, informe usando o botão **Enviar feedback** no Google AI Studio. |
+| 504 | DEADLINE\_EXCEEDED | O serviço não consegue concluir o processamento dentro do prazo. | Seu comando (ou contexto) é muito grande para ser processado a tempo. | Defina um "tempo limite" maior na solicitação do cliente para evitar esse erro. |
 
-## Format odpowiedzi na błąd
+## Formato da resposta de erro
 
-Gdy żądanie `GenerateContent` zakończy się niepowodzeniem, interfejs API ustawia kod stanu HTTP (np. `400 Bad Request`, `403 Forbidden` lub `429 Too Many Requests`) i zwraca treść odpowiedzi JSON zawierającą szczegóły stanu gRPC:
+Quando uma solicitação `GenerateContent` falha, a API define o código de status HTTP (como `400 Bad Request`, `403 Forbidden` ou `429 Too Many Requests`) e retorna um corpo de resposta JSON com detalhes do status do gRPC:
 
 ```
 {
@@ -68,24 +68,24 @@ Gdy żądanie `GenerateContent` zakończy się niepowodzeniem, interfejs API ust
 }
 ```
 
-| Pole | Typ | Opis |
+| Campo | Tipo | Descrição |
 | --- | --- | --- |
-| `code` | liczba całkowita | Kod stanu HTTP. |
-| `message` | tekst | Zrozumiały dla człowieka opis błędu. |
-| `status` | tekst | Kod stanu gRPC w `SCREAMING_CASE`. |
-| `details` | tablica | Dodatkowy kontekst błędu, np. `ErrorInfo` lub `LocalizedMessage`. |
+| `code` | número inteiro | O código de status HTTP. |
+| `message` | string | Uma descrição legível do erro. |
+| `status` | string | O código de status gRPC em `SCREAMING_CASE`. |
+| `details` | matriz | Contexto adicional do erro, como `ErrorInfo` ou `LocalizedMessage`. |
 
-## Co dalej?
+## A seguir
 
-- [Rozwiązywanie problemów z interfejsem API:](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=pl) rozwiązywanie typowych problemów i scenariuszy błędów.
-- [Limity](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl): dowiedz się więcej o limitach żądań i obsłudze limitów.
+- [Solução de problemas da API](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=pt-br): resolva problemas comuns e cenários de erro.
+- [Limites de taxa](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pt-br): saiba mais sobre limites de solicitação e processamento de cotas.
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-09-20 UTC.
+Última atualização 2026-09-20 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-20 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-20 UTC."],[],[]]

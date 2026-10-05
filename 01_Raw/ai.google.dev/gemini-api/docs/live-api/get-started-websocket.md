@@ -1,69 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=vi
-fetched_at: 2026-09-28T06:21:18.800453+00:00
-title: "B\u1eaft \u0111\u1ea7u s\u1eed d\u1ee5ng Gemini Live API b\u1eb1ng WebSocket \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=he
+fetched_at: 2026-10-05T06:31:12.951441+00:00
+title: "\u05d0\u05d9\u05da \u05de\u05ea\u05d7\u05d9\u05dc\u05d9\u05dd \u05dc\u05d4\u05e9\u05ea\u05de\u05e9 \u05d1-Gemini Live API \u05d1\u05d0\u05de\u05e6\u05e2\u05d5\u05ea WebSockets \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-# Bắt đầu sử dụng Gemini Live API bằng WebSocket
+# איך מתחילים להשתמש ב-Gemini Live API באמצעות WebSockets
 
-Gemini Live API cho phép tương tác hai chiều theo thời gian thực với các mô hình Gemini, hỗ trợ đầu vào âm thanh, video và văn bản cũng như đầu ra âm thanh gốc. Hướng dẫn này giải thích cách tích hợp trực tiếp với API bằng cách sử dụng WebSocket thô.
+‫Gemini Live API מאפשר אינטראקציה דו-כיוונית עם מודלים של Gemini בזמן אמת, ותומך בקלט של אודיו, וידאו וטקסט, וגם בפלט אודיו מקורי. במדריך הזה מוסבר איך לבצע שילוב ישירות עם ה-API באמצעות WebSockets גולמיים.
 
-[Dùng Live API trong Google AI Studiomic](https://aistudio.google.com/live?hl=vi)
-[Sao chép ứng dụng mẫu từ GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
-[Sử dụng các kỹ năng của tác nhân lập trìnhterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=vi)
+[אפשר לנסות את Live API ב-Google AI Studiomic](https://aistudio.google.com/live?hl=he)
+[שיבוט של אפליקציית הדוגמה מ-GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
+[שימוש במיומנויות של סוכן תכנותterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=he)
 
-## Tổng quan
+## סקירה כללית
 
-Gemini Live API sử dụng WebSockets để giao tiếp theo thời gian thực. Không giống như việc sử dụng SDK, phương pháp này liên quan đến việc quản lý trực tiếp kết nối WebSocket và gửi/nhận thông báo ở một định dạng JSON cụ thể do API xác định.
+‫Gemini Live API משתמש ב-WebSockets לתקשורת בזמן אמת. בגישה הזו, בניגוד לשימוש ב-SDK, צריך לנהל ישירות את חיבור ה-WebSocket ולשלוח ולקבל הודעות בפורמט JSON ספציפי שמוגדר על ידי ה-API.
 
-Các khái niệm chính:
+מושגים מרכזיים:
 
-- **Điểm cuối WebSocket**: URL cụ thể để kết nối.
-- **Định dạng thông báo**: Mọi hoạt động giao tiếp đều được thực hiện thông qua các thông báo JSON tuân thủ cấu trúc [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentclientmessage) và [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservermessage).
-- **Quản lý phiên**: Bạn chịu trách nhiệm duy trì kết nối WebSocket.
+- **נקודת קצה של WebSocket**: כתובת ה-URL הספציפית להתחברות.
+- **פורמט ההודעה**: כל התקשורת מתבצעת באמצעות הודעות JSON שתואמות למבנים של [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentclientmessage) ושל [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentservermessage).
+- **ניהול סשנים**: אתם אחראים לתחזוקת חיבור ה-WebSocket.
 
-## Xác thực
+## אימות
 
-Bạn có thể xử lý việc xác thực bằng cách thêm khoá API dưới dạng tham số truy vấn trong URL WebSocket.
+האימות מתבצע על ידי הוספת מפתח ה-API כפרמטר של שאילתה בכתובת ה-URL של WebSocket.
 
-Định dạng điểm cuối là:
+הפורמט של נקודת הקצה הוא:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=YOUR_API_KEY
 ```
 
-Thay thế `YOUR_API_KEY` bằng khoá API thực tế của bạn.
+מחליפים את הערך `YOUR_API_KEY` במפתח ה-API שלכם.
 
-## Xác thực bằng mã thông báo tạm thời
+## אימות באמצעות טוקנים זמניים
 
-Nếu đang sử dụng [mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=vi), bạn cần kết nối với điểm cuối `v1beta`.
-Bạn cần truyền mã thông báo tạm thời dưới dạng tham số truy vấn `access_token`.
+אם אתם משתמשים ב[טוקנים זמניים](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=he), אתם צריכים להתחבר לנקודת הקצה `v1beta`.
+צריך להעביר את הטוקן הזמני כפרמטר שאילתה `access_token`.
 
-Định dạng điểm cuối cho khoá tạm thời là:
+פורמט נקודת הקצה של מפתחות זמניים הוא:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained?access_token={short-lived-token}
 ```
 
-Thay thế `{short-lived-token}` bằng mã thông báo tạm thời thực tế.
+מחליפים את `{short-lived-token}` באסימון האפמרי בפועל.
 
-## Kết nối với Live API
+## חיבור ל-API של נתונים בזמן אמת
 
-Để bắt đầu một phiên trực tiếp, hãy thiết lập kết nối WebSocket với điểm cuối đã xác thực.
-Thông báo đầu tiên được gửi qua WebSocket phải là [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentsetup) chứa `config`.
-Để biết các lựa chọn cấu hình đầy đủ, hãy xem [Live API - Tài liệu tham khảo API WebSockets](https://ai.google.dev/api/live?hl=vi).
+כדי להתחיל סשן בזמן אמת, צריך ליצור חיבור WebSocket לנקודת הקצה המאומתת.
+ההודעה הראשונה ששולחים באמצעות WebSocket חייבת להיות [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentsetup) שמכילה את `config`.
+אפשרויות ההגדרה המלאות מפורטות במאמרי העזרה של ה-API [Live API - WebSockets API reference](https://ai.google.dev/api/live?hl=he).
 
 ### Python
 
@@ -144,9 +144,9 @@ websocket.onclose = () => {
 };
 ```
 
-## Gửi tin nhắn văn bản
+## שליחת הודעת טקסט
 
-Để gửi dữ liệu đầu vào là văn bản, hãy tạo một thông báo [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentrealtimeinput) có trường `text`.
+כדי לשלוח קלט טקסט, יוצרים הודעה מסוג [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentrealtimeinput) עם השדה `text`.
 
 ### Python
 
@@ -185,9 +185,9 @@ function sendTextMessage(text) {
 sendTextMessage("Hello, how are you?");
 ```
 
-## Gửi âm thanh
+## שלח אודיו
 
-Bạn cần gửi âm thanh dưới dạng dữ liệu PCM thô (âm thanh PCM thô 16 bit, 16 kHz, little-endian). Tạo một thông báo [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentrealtimeinput) bằng dữ liệu âm thanh. `mimeType` là yếu tố quan trọng.
+צריך לשלוח את האודיו כנתוני PCM גולמיים (אודיו PCM גולמי של 16 ביט, 16kHz, little-endian). יוצרים הודעה [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentrealtimeinput) עם נתוני האודיו. ה-`mimeType` הוא קריטי.
 
 ### Python
 
@@ -232,11 +232,11 @@ function sendAudioChunk(chunk) {
 // Example usage: sendAudioChunk(audioBuffer);
 ```
 
-Để biết ví dụ về cách lấy âm thanh từ thiết bị của khách hàng (ví dụ: trình duyệt), hãy xem ví dụ toàn diện trên [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74).
+דוגמה לאופן שבו מקבלים את האודיו ממכשיר הלקוח (למשל, הדפדפן) מופיעה בדוגמה המפורטת ב-[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74).
 
-## Gửi video
+## שלח סרטון
 
-Khung hình video được gửi dưới dạng hình ảnh riêng lẻ (ví dụ: JPEG hoặc PNG). Tương tự như âm thanh, hãy sử dụng `realtimeInput` với `Blob`, chỉ định `mimeType` chính xác.
+מסגרות של סרטונים נשלחות כתמונות נפרדות (למשל, JPEG או PNG). בדומה לאודיו, משתמשים ב-`realtimeInput` עם `Blob` ומציינים את `mimeType` הנכון.
 
 ### Python
 
@@ -281,11 +281,11 @@ function sendVideoFrame(frame, mimeType = 'image/jpeg') {
 // Example usage: sendVideoFrame(jpegBuffer);
 ```
 
-Để biết ví dụ về cách lấy video từ thiết bị của khách hàng (ví dụ: trình duyệt), hãy xem ví dụ toàn diện trên [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222).
+דוגמה לאופן קבלת הסרטון ממכשיר הלקוח (למשל, הדפדפן) מופיעה בדוגמה המפורטת ב-[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222).
 
-## Nhận phản hồi
+## קבלת תשובות
 
-WebSocket sẽ gửi lại thông báo [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservermessage). Bạn cần phân tích cú pháp các thông báo JSON này và xử lý nhiều loại nội dung.
+ה-WebSocket ישלח בחזרה הודעות [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentservermessage). צריך לנתח את הודעות ה-JSON האלה ולטפל בסוגים שונים של תוכן.
 
 ### Python
 
@@ -356,11 +356,11 @@ websocket.onmessage = (event) => {
 };
 ```
 
-Để biết ví dụ về cách xử lý phản hồi, hãy xem ví dụ toàn diện trên [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75).
+דוגמה לאופן הטיפול בתגובה מופיעה בדוגמה מקצה לקצה ב-[GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75).
 
-## Xử lý lệnh gọi công cụ
+## טיפול בקריאות לכלי
 
-Khi mô hình yêu cầu một lệnh gọi công cụ, [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontentservermessage) sẽ chứa một trường `toolCall`. Bạn phải thực thi hàm cục bộ và gửi kết quả trở lại WebSocket bằng thông báo [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=vi#bidigeneratecontenttoolresponse).
+כשהמודל מבקש הפעלת כלי, השדה [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=he#bidigeneratecontentservermessage) יכיל את השדה `toolCall`. צריך להריץ את הפונקציה באופן מקומי ולשלוח את התוצאה בחזרה ל-WebSocket באמצעות הודעה מסוג [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=he#bidigeneratecontenttoolresponse).
 
 ### Python
 
@@ -447,20 +447,20 @@ function handleToolCall(toolCall) {
 // This function is called within websocket.onmessage when a toolCall is detected.
 ```
 
-## Bước tiếp theo
+## המאמרים הבאים
 
-- Đọc hướng dẫn đầy đủ về [Các chức năng](https://ai.google.dev/gemini-api/docs/live-guide?hl=vi) của Live API để biết các chức năng và cấu hình chính, bao gồm cả tính năng Phát hiện hoạt động bằng giọng nói và các tính năng âm thanh gốc.
-- Đọc hướng dẫn về [Sử dụng công cụ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi) để tìm hiểu cách tích hợp Live API với các công cụ và tính năng gọi hàm.
-- Hãy đọc hướng dẫn [Quản lý phiên](https://ai.google.dev/gemini-api/docs/live-session?hl=vi) để quản lý các cuộc trò chuyện kéo dài.
-- Đọc hướng dẫn về [Mã thông báo tạm thời](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=vi) để xác thực an toàn trong các ứng dụng [từ ứng dụng đến máy chủ](#implementation-approach).
-- Để biết thêm thông tin về API WebSockets cơ bản, hãy xem [Tài liệu tham khảo API WebSockets](https://ai.google.dev/api/live?hl=vi).
+- במדריך המלא בנושא [יכולות](https://ai.google.dev/gemini-api/docs/live-guide?hl=he) של Live API מוסבר על היכולות וההגדרות העיקריות, כולל זיהוי פעילות קולית ותכונות אודיו מקוריות.
+- במדריך [שימוש בכלי](https://ai.google.dev/gemini-api/docs/live-tools?hl=he) מוסבר איך לשלב את Live API עם כלים ובקשות להפעלת פונקציות.
+- כדי לנהל שיחות ארוכות, כדאי לקרוא את המדריך בנושא [ניהול סשנים](https://ai.google.dev/gemini-api/docs/live-session?hl=he).
+- קוראים את המדריך בנושא [טוקנים זמניים](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=he) לאימות מאובטח באפליקציות [client-to-server](#implementation-approach).
+- מידע נוסף על WebSockets API מופיע ב[מאמרי העזרה של ה-API של WebSockets](https://ai.google.dev/api/live?hl=he).
 
-Gửi ý kiến phản hồi
+שליחת משוב
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Cập nhật lần gần đây nhất: 2026-09-17 UTC.
+עדכון אחרון: 2026-09-17 (שעון UTC).
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+רוצה לתת לנו משוב?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-17 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-17 (שעון UTC)."],[],[]]

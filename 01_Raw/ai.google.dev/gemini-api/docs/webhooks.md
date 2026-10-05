@@ -1,53 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=id
-fetched_at: 2026-09-28T06:16:20.489382+00:00
-title: "Webhook \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/webhooks?hl=th
+fetched_at: 2026-10-05T06:26:51.356604+00:00
+title: "\u0e40\u0e27\u0e47\u0e1a\u0e2e\u0e38\u0e04 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Kirim masukan
+ส่งความคิดเห็น
 
-# Webhook
+# เว็บฮุค
 
-Webhook memungkinkan Gemini API mengirimkan notifikasi real-time ke server Anda
-saat Operasi Asinkron atau Operasi yang Berjalan Lama (LRO) selesai. Hal ini menggantikan
-kebutuhan untuk melakukan polling API guna mendapatkan update status, sehingga mengurangi latensi dan overhead.
+Webhook ช่วยให้ Gemini API สามารถส่งการแจ้งเตือนแบบเรียลไทม์ไปยังเซิร์ฟเวอร์ของคุณ
+เมื่อการดำเนินการแบบไม่พร้อมกันหรือการดำเนินการที่ใช้เวลานาน (LRO) เสร็จสมบูรณ์ ซึ่งมาแทนที่
+ความจำเป็นในการสำรวจ API เพื่อดูการอัปเดตสถานะ ซึ่งจะช่วยลดเวลาในการตอบสนองและค่าใช้จ่าย
 
-Webhook tersedia untuk operasi seperti tugas [Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=id),
-[Interaksi](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id), dan [pembuatan video](https://ai.google.dev/gemini-api/docs/video?hl=id).
+Webhook พร้อมใช้งานสำหรับการดำเนินการต่างๆ เช่น งาน[กลุ่ม](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)
+[การโต้ตอบ](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) และ[การสร้างวิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)
 
-## Cara kerjanya
+## วิธีการทำงาน
 
-Daripada melakukan polling `GET /operations` berulang kali untuk memeriksa apakah tugas telah selesai, Anda dapat mengonfigurasi Webhook Gemini API untuk mengirim permintaan HTTP POST ke URL pendengar Anda segera setelah pemicu peristiwa.
+แทนที่จะทำการสำรวจ`GET /operations`ซ้ำๆ เพื่อตรวจสอบว่างานเสร็จสิ้นแล้วหรือไม่
+คุณสามารถกำหนดค่าเว็บฮุคของ Gemini API ให้ส่งคำขอ HTTP POST ไปยัง
+URL ของ Listener ทันทีเมื่อมีการทริกเกอร์เหตุการณ์
 
-Gemini API mendukung dua cara untuk mengonfigurasi webhook:
+Gemini API รองรับการกำหนดค่า Webhook 2 วิธี ดังนี้
 
-- [**Webhook statis**](#static-webhooks): Endpoint tingkat project yang dikonfigurasi dengan [WebhookService API](https://ai.google.dev/api?hl=id) Gemini. Cocok untuk integrasi global (misalnya, memberi tahu Slack, menyinkronkan database, dll.).
-- [**Webhook dinamis**](#dynamic-webhooks): Penggantian tingkat permintaan yang meneruskan
-  URL webhook dalam payload konfigurasi panggilan tugas tertentu. Ideal untuk
-  merutekan tugas tertentu ke endpoint khusus.
+- [**Webhook แบบคงที่**](#static-webhooks): ปลายทางระดับโปรเจ็กต์ที่กำหนดค่า
+  ด้วย [WebhookService API](https://ai.google.dev/api?hl=th) ของ Gemini เหมาะสำหรับการผสานรวมทั่วโลก (เช่น การแจ้งเตือน Slack, การซิงค์ฐานข้อมูล ฯลฯ)
+- [**เว็บฮุคแบบไดนามิก**](#dynamic-webhooks): การลบล้างระดับคำขอที่ส่ง URL ของเว็บฮุคในเพย์โหลดการกำหนดค่าของการเรียกงานที่เฉพาะเจาะจง เหมาะสำหรับ
+  การกำหนดเส้นทางงานที่เฉพาะเจาะจงไปยังปลายทางเฉพาะ
 
-## Webhook statis
+## เว็บฮุคแบบคงที่
 
-Webhook statis didaftarkan untuk seluruh [project](https://ai.google.dev/gemini-api/docs/api-key?hl=id#google-cloud-projects) dan dipicu untuk setiap peristiwa yang cocok.
+ระบบจะลงทะเบียนเว็บบุ๊กแบบคงที่สำหรับ[โปรเจ็กต์](https://ai.google.dev/gemini-api/docs/api-key?hl=th#google-cloud-projects)ทั้งหมดและทริกเกอร์สำหรับเหตุการณ์ที่ตรงกัน
 
-### Membuat webhook
+### สร้างเว็บฮุค
 
-Anda dapat membuat endpoint menggunakan SDK atau REST API.
+คุณสร้างปลายทางได้โดยใช้ SDK หรือ REST API
 
-**PENTING**: Saat membuat webhook, API akan menampilkan **secret penandatanganan**
-**hanya sekali**. Anda harus menyimpannya dengan aman (misalnya, di variabel lingkungan Anda)
-untuk memverifikasi tanda tangan nanti. Jika Anda kehilangan rahasia penandatanganan, Anda harus
-[merotasinya](#rotate-signing-secret).
+**สำคัญ**: เมื่อสร้าง Webhook แล้ว API จะแสดง**ข้อมูลลับในการลงนาม**
+**เพียงครั้งเดียว** คุณต้องจัดเก็บข้อมูลนี้อย่างปลอดภัย (เช่น ในตัวแปรสภาพแวดล้อม) เพื่อยืนยันลายเซ็นในภายหลัง
+หากทำคีย์ลับสำหรับการลงนามหาย คุณจะต้อง[หมุนเวียน](#rotate-signing-secret)คีย์ลับ
 
 ### Python
 
@@ -174,12 +175,11 @@ curl -X POST \
   }'
 ```
 
-Untuk mengetahui detail tentang cara menyiapkan server Anda untuk menerima data, lihat bagian
-[Menangani permintaan webhook](#handle-webhook-requests).
+ดูรายละเอียดเกี่ยวกับการตั้งค่าเซิร์ฟเวอร์เพื่อรับข้อมูลได้ที่ส่วน[จัดการคำขอ Webhook](#handle-webhook-requests)
 
-### Mendapatkan webhook
+### รับเว็บฮุค
 
-Mengambil detail tentang webhook tertentu berdasarkan nama resource-nya.
+ดึงรายละเอียดเกี่ยวกับ Webhook ที่เฉพาะเจาะจงตามชื่อทรัพยากร
 
 ### Python
 
@@ -274,9 +274,9 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Mencantumkan webhook
+### แสดงรายการเว็บฮุค
 
-Mencantumkan semua webhook yang dikonfigurasi untuk project saat ini, dengan penomoran halaman opsional.
+แสดงรายการ Webhook ทั้งหมดที่กำหนดค่าไว้สำหรับโปรเจ็กต์ปัจจุบัน โดยมีการแบ่งหน้าเป็นตัวเลือก
 
 ### Python
 
@@ -370,10 +370,10 @@ curl -X GET \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Memperbarui webhook
+### อัปเดตเว็บฮุค
 
-Memperbarui properti webhook yang ada seperti nama tampilan, URI target, atau
-peristiwa yang disubscribe.
+อัปเดตพร็อพเพอร์ตี้ของ Webhook ที่มีอยู่ เช่น ชื่อที่แสดง, URI เป้าหมาย หรือ
+เหตุการณ์ที่สมัครรับข้อมูล
 
 ### Python
 
@@ -499,9 +499,10 @@ curl -X PATCH \
   }'
 ```
 
-### Menghapus webhook
+### ลบเว็บฮุค
 
-Menghapus endpoint webhook dari project. Tindakan ini akan menghentikan pengiriman acara pada masa mendatang ke endpoint tersebut.
+นำปลายทางของเว็บฮุคออกจากโปรเจ็กต์ ซึ่งจะเป็นการหยุดการนำส่งเหตุการณ์ในอนาคต
+ไปยังปลายทางนั้น
 
 ### Python
 
@@ -583,11 +584,13 @@ curl -X DELETE \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Merotasi secret penandatanganan
+### หมุนเวียนข้อมูลลับในการลงนาม
 
-Merotasi rahasia penandatanganan untuk webhook. Anda dapat mengonfigurasi apakah secret yang sebelumnya aktif dicabut segera atau setelah masa tenggang 24 jam.
+หมุนเวียนข้อมูลลับในการลงนามสำหรับ Webhook คุณสามารถกำหนดค่าว่าจะเพิกถอนข้อมูลลับที่เคย
+ใช้งานอยู่ทันทีหรือหลังจากระยะเวลาผ่อนผัน 24 ชั่วโมง
 
-**PENTING**: Secret penandatanganan baru hanya ditampilkan **sekali** pada waktu rotasi. Simpan dengan aman sebelum memperbarui logika verifikasi Anda.
+**สำคัญ**: ระบบจะแสดงข้อมูลลับในการลงนามใหม่**เพียงครั้งเดียว**เมื่อถึงเวลาหมุนเวียน
+โปรดจัดเก็บอย่างปลอดภัยก่อนอัปเดตตรรกะการยืนยัน
 
 ### Python
 
@@ -707,16 +710,16 @@ curl -X POST \
   }'
 ```
 
-### Menangani permintaan webhook di server
+### จัดการคำขอเว็บฮุคในเซิร์ฟเวอร์
 
-Saat peristiwa yang Anda ikuti terjadi, URL webhook Anda akan menerima
-permintaan POST HTTP. Endpoint Anda harus merespons dengan kode status 2xx dalam beberapa detik untuk menghindari percobaan ulang. Untuk memastikan pengiriman, Gemini API
-akan otomatis mencoba ulang permintaan yang gagal selama 24 jam menggunakan backoff eksponensial.
+เมื่อเกิดเหตุการณ์ที่คุณติดตาม URL ของเว็บฮุคจะได้รับคำขอ HTTP POST ปลายทางต้องตอบกลับด้วยรหัสสถานะ 2xx
+ภายในไม่กี่วินาทีเพื่อหลีกเลี่ยงการลองใหม่ Gemini API จะลองส่งคำขอที่ไม่สำเร็จซ้ำโดยอัตโนมัติเป็นเวลา 24 ชั่วโมงโดยใช้ Exponential Backoff เพื่อให้มั่นใจว่าคำขอจะได้รับการนำส่ง
 
-Gemini secara ketat mengikuti spesifikasi [Webhook Standar](https://github.com/standard-webhooks/standard-webhooks) untuk
-header keamanan. Verifikasi payload di server Anda menggunakan tanda tangan header yang ditandatangani dan rahasia penandatanganan statis tersimpan Anda. Lihat bagian [Webhook envelope](#webhook-envelope) untuk mengetahui informasi payload.
+Gemini ปฏิบัติตามข้อกำหนดเฉพาะของ [Webhooks มาตรฐาน](https://github.com/standard-webhooks/standard-webhooks)อย่างเคร่งครัดสำหรับ
+ส่วนหัวด้านความปลอดภัย ยืนยันเพย์โหลดในเซิร์ฟเวอร์โดยใช้ส่วนหัวที่ลงชื่อ
+signatures และรหัสลับการลงชื่อแบบคงที่ที่จัดเก็บไว้ ดูข้อมูลเพย์โหลดได้ที่ส่วน[ซองจดหมายของ Webhook](#webhook-envelope)
 
-Berikut adalah contoh penggunaan Flask untuk pemroses HTTP:
+ตัวอย่างการใช้ Flask สำหรับเครื่องมือฟัง HTTP มีดังนี้
 
 ### Python
 
@@ -966,14 +969,14 @@ func main() {
 }
 ```
 
-## Webhook dinamis
+## เว็บฮุกแบบไดนามิก
 
-Webhook dinamis memungkinkan Anda mengikat endpoint webhook ke **konfigurasi
-permintaan tertentu**, yang ideal untuk antrean orkestrasi agen. Webhook dinamis memanfaatkan tanda tangan JWKS kunci publik asimetris, bukan rahasia simetris.
+Webhook แบบไดนามิกช่วยให้คุณเชื่อมโยงปลายทางของ Webhook กับ**การกำหนดค่าคำขอที่เฉพาะเจาะจง** ซึ่งเหมาะสำหรับคิวการจัดคิวของตัวแทน Webhook แบบไดนามิกใช้ประโยชน์จากลายเซ็น JWKS คีย์สาธารณะแบบอสมมาตรแทนที่จะใช้ลับแบบสมมาตร
 
-### Mengirim permintaan dinamis
+### ส่งคำขอแบบไดนามิก
 
-Tambahkan `webhook_config` saat memicu tugas asinkron (misalnya, membuat Batch).
+เพิ่ม `webhook_config` เมื่อทริกเกอร์งานแบบไม่พร้อมกัน (เช่น การสร้าง
+Batch)
 
 ### Python
 
@@ -1131,10 +1134,10 @@ curl -X POST \
   }'
 ```
 
-### Memverifikasi tanda tangan dinamis (JWKS)
+### ยืนยันลายเซ็นแบบไดนามิก (JWKS)
 
-Permintaan webhook dinamis memancarkan tanda tangan Token Web JSON (JWT). Pemroses Anda
-harus mengekstrak tanda tangan dan memverifikasinya menggunakan [endpoint sertifikat publik Google](https://www.googleapis.com/oauth2/v3/certs).
+คำขอเว็บฮุกแบบไดนามิกจะปล่อยลายเซ็นโทเค็นเว็บ JSON (JWT) ผู้ฟัง
+ต้องแยกข้อมูลลายเซ็นและยืนยันโดยใช้[ปลายทางใบรับรองสาธารณะของ Google](https://www.googleapis.com/oauth2/v3/certs)
 
 ### Python
 
@@ -1420,11 +1423,13 @@ func main() {
 }
 ```
 
-## Amplop webhook
+## ซองจดหมายของเว็บฮุค
 
-Untuk menghindari kemacetan bandwidth, webhook Gemini menggunakan model **payload tipis** untuk mengirimkan data. Pengiriman mengirimkan snapshot yang berisi detail status dan pointer ke hasil, bukan file output mentah itu sendiri.
+Webhook ของ Gemini ใช้โมเดล**เพย์โหลดแบบบาง**เพื่อส่งข้อมูล
+การนำส่งจะส่งสแนปชอตที่มีรายละเอียดสถานะและตัวชี้ไปยังผลลัพธ์
+แทนที่จะเป็นไฟล์เอาต์พุตดิบ
 
-Berikut contoh format payload:
+ตัวอย่างรูปแบบเพย์โหลดมีดังนี้
 
 ```
 {
@@ -1438,40 +1443,44 @@ Berikut contoh format payload:
 }
 ```
 
-## Referensi katalog acara
+## ข้อมูลอ้างอิงแคตตาล็อกกิจกรรม
 
-Peristiwa berikut dipicu untuk tugas pendukung:
+ระบบจะทริกเกอร์เหตุการณ์ต่อไปนี้สำหรับงานที่รองรับ
 
-| Jenis peristiwa | Pemicu | Item payload (`data`) |
+| ประเภทของกิจกรรม | ทริกเกอร์ | รายการเพย์โหลด (`data`) |
 | --- | --- | --- |
-| `batch.succeeded` | Pemrosesan berhasil diselesaikan. | `id`, `output_file_uri` |
-| `batch.cancelled` | Pengguna membatalkan permintaan | `id` |
-| `batch.expired` | Batch belum diproses (selesai) dalam jangka waktu 24 jam | `id` |
-| `batch.failed` | Tugas batch gagal (error sistem atau validasi). | `id`, `error_code`, `error_message` |
-| `interaction.requires_action` | Panggilan fungsi, pengguna perlu melakukan sesuatu | `id` |
-| `interaction.completed` | LRO di API interaksi berhasil | `id` |
-| `interaction.failed` | LRO di API interaksi gagal (error sistem atau validasi). | `id`, `error_code`, `error_message` |
-| `interaction.cancelled` | LRO di API interaksi dibatalkan | `id` |
-| `video.generated` | LRO pembuatan video selesai. | `id`, `output_file_uri`, `file_name` |
+| `batch.succeeded` | การประมวลผลเสร็จสมบูรณ์แล้ว | `id`, `output_file_uri` |
+| `batch.cancelled` | ผู้ใช้ยกเลิกคำขอ | `id` |
+| `batch.expired` | ระบบยังไม่ได้ประมวลผล (เสร็จสิ้น) แบตช์ภายในกรอบเวลา 24 ชั่วโมง | `id` |
+| `batch.failed` | งานแบบกลุ่มล้มเหลว (ข้อผิดพลาดของระบบหรือการตรวจสอบ) | `id`, `error_code`, `error_message` |
+| `interaction.requires_action` | การเรียกใช้ฟังก์ชัน ผู้ใช้ต้องดำเนินการบางอย่าง | `id` |
+| `interaction.completed` | LRO ใน Interactions API สำเร็จแล้ว | `id` |
+| `interaction.failed` | LRO ใน Interactions API ล้มเหลว (ข้อผิดพลาดของระบบหรือการตรวจสอบ) | `id`, `error_code`, `error_message` |
+| `interaction.cancelled` | ยกเลิก LRO ใน Interactions API แล้ว | `id` |
+| `video.generated` | LRO การสร้างวิดีโอเสร็จสมบูรณ์แล้ว | `id`, `output_file_uri`, `file_name` |
 
-## Praktik terbaik
+## แนวทางปฏิบัติแนะนำ
 
-Untuk memastikan operasi yang andal dan skalabel:
+เพื่อให้การดำเนินงานมีความน่าเชื่อถือและรองรับการปรับขนาด ให้ทำดังนี้
 
-- **Pemeriksaan perlindungan replay ketat**: Semua permintaan membawa header `webhook-timestamp`. Selalu validasi stempel waktu ini di lapisan konfigurasi server Anda untuk menolak payload yang lebih lama dari **5 menit** (untuk memitigasi serangan replay).
-- **Memproses secara asinkron**: Merespons dengan `2xx OK` segera setelah deteksi tanda tangan yang valid, dan mengantrekan operasi parsing secara internal. Waktu tunggu pendengar yang lama akan memicu siklus percobaan ulang pengiriman.
-- **Penanganan penghapusan duplikat**: Webhook standar mengirimkan "Minimal sekali". Gunakan header `webhook-id` yang konsisten untuk menangani potensi duplikat dalam alur kemacetan yang lebih tinggi.
+- **การตรวจสอบการป้องกันการเล่นซ้ำอย่างเข้มงวด**: คำขอทั้งหมดมี`webhook-timestamp`
+  ส่วนหัว ตรวจสอบการประทับเวลาในเลเยอร์การกำหนดค่าเซิร์ฟเวอร์เสมอเพื่อปฏิเสธเพย์โหลดที่เก่ากว่า**5 นาที** (เพื่อลดการโจมตีแบบรีเพลย์)
+- **ประมวลผลแบบไม่พร้อมกัน**: ตอบกลับด้วย `2xx OK` ทันทีที่ตรวจพบ
+  ลายเซ็นที่ถูกต้อง และจัดคิวการแยกวิเคราะห์ภายใน ระยะเวลาการรอสายที่นานเกินไปจะทริกเกอร์รอบการลองนำส่งอีกครั้ง
+- **การจัดการการกรองข้อมูลที่ซ้ำกันออก**: เว็บฮุกมาตรฐานจะส่ง "อย่างน้อย 1 ครั้ง" ใช้ส่วนหัว
+  ที่สอดคล้องกัน`webhook-id`เพื่อจัดการรายการที่อาจซ้ำกันในโฟลว์ที่มีความหนาแน่น
+  สูงกว่า
 
-## Apa langkah selanjutnya?
+## ต้องทำอะไรต่อ
 
-- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id): Manfaatkan webhook untuk mengotomatiskan endpoint bervolume tinggi.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th): ใช้ Webhook เพื่อทำให้ปลายทางที่มีปริมาณสูงเป็นแบบอัตโนมัติ
 
-Kirim masukan
+ส่งความคิดเห็น
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Terakhir diperbarui pada 2026-09-24 UTC.
+อัปเดตล่าสุด 2026-09-24 UTC
 
-Ada masukan untuk kami?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]

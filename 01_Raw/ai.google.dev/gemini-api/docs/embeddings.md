@@ -1,33 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-BR
-fetched_at: 2026-09-28T06:10:52.979789+00:00
-title: "Embeddings \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=ar
+fetched_at: 2026-10-05T06:38:13.050458+00:00
+title: "\u0627\u0644\u062a\u0636\u0645\u064a\u0646\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envie comentários
+إرسال ملاحظات
 
-# Embeddings
+# التضمينات
 
-A API Gemini oferece modelos de embedding para gerar embeddings de texto, imagens, vídeos e outros conteúdos. Os embeddings resultantes podem ser usados para tarefas como pesquisa semântica, classificação e agrupamento, fornecendo resultados mais precisos e contextualizados do que abordagens baseadas em palavras-chave.
+توفّر Gemini API نماذج تضمين لإنشاء تضمينات للنصوص والصور والفيديوهات والمحتوى الآخر. يمكن بعد ذلك استخدام التضمينات الناتجة في مهام مثل البحث الدلالي والتصنيف والتجميع، ما يوفّر نتائج أكثر دقة ومراعية للسياق مقارنةً بالطرق المستندة إلى الكلمات الرئيسية.
 
-O modelo mais recente, `gemini-embedding-2`, é o primeiro modelo de incorporação multimodal na API Gemini. Ele mapeia texto, imagens, vídeo, áudio e documentos em um espaço de embedding unificado, permitindo pesquisa, classificação e clustering entre modalidades em mais de 100 idiomas. Consulte a [seção de embeddings multimodais](#multimodal) para saber mais. Para casos de uso somente de texto, o `gemini-embedding-001` continua disponível.
+أحدث نموذج، `gemini-embedding-2`، هو أول نموذج متعدد الوسائط
+لإنشاء تضمينات في Gemini API. يعمل هذا النموذج على ربط النصوص والصور والفيديوهات والمقاطع الصوتية والمستندات بمساحة تضمين موحّدة، ما يتيح البحث والتصنيف والتجميع المتعدّد الوسائط بأكثر من 100 لغة. يمكنك الاطّلاع على [قسم "التضمينات المتعدّدة الوسائط"](#multimodal) لمعرفة المزيد. بالنسبة إلى حالات الاستخدام النصية فقط، سيظل `gemini-embedding-001` متاحًا.
 
-A criação de sistemas de geração aumentada de recuperação (RAG) é um caso de uso comum para
-produtos de IA. As incorporações têm um papel fundamental no aprimoramento significativo das saídas do modelo, com melhorias na acurácia factual, na coerência e na riqueza contextual. Se preferir usar uma solução de RAG gerenciada, criamos a ferramenta [Pesquisa de arquivos](https://ai.google.dev/gemini-api/docs/file-search?hl=pt-br), que facilita o gerenciamento e reduz os custos da RAG.
+إنشاء أنظمة التوليد المعزّز بالاسترجاع (RAG) هو حالة استخدام شائعة لمنتجات الذكاء الاصطناعي. تؤدي التضمينات دورًا رئيسيًا في تحسين مخرجات النماذج بشكل كبير،
+من خلال تعزيز دقتها الوقائعية وتماسكها وثراء سياقها. إذا كنت تفضّل استخدام حلّ مُدار للتوليد المعزّز بالاسترجاع، أنشأنا أداة [البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar) التي تسهّل إدارة عملية التوليد المعزّز بالاسترجاع وتجعلها أكثر فعالية من حيث التكلفة.
 
-## Gerar embeddings
+## إنشاء التضمينات
 
-Use o método `embedContent` para gerar embeddings de texto:
+استخدِم طريقة `embedContent` لإنشاء تضمينات نصية:
 
 ### Python
 
@@ -64,7 +65,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -135,32 +136,30 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## Especifique o tipo de tarefa para melhorar a performance
+## تحديد نوع المهمة لتحسين الأداء
 
-É possível usar embeddings para várias tarefas, desde classificação até pesquisa de documentos. Especificar o tipo de tarefa certo ajuda a otimizar os embeddings para as relações pretendidas, maximizando a precisão e a eficiência.
+يمكنك استخدام التضمينات في مجموعة كبيرة من المهام، بدءًا من التصنيف وصولاً إلى البحث عن المستندات. يساعد تحديد نوع المهمة المناسب في تحسين عمليات التضمين للعلاقات المقصودة، ما يؤدي إلى زيادة الدقة والفعالية إلى أقصى حد.
 
-### Tipos de tarefas com o Embeddings 2
+### أنواع المهام التي يمكن تنفيذها باستخدام Embeddings 2
 
-Para tarefas somente de texto com o `gemini-embedding-2`, recomendamos
-adicionar a instrução da tarefa no comando. Para isso, formate a consulta e o documento com o prefixo de tarefa correto.
+بالنسبة إلى المهام النصية فقط التي تتضمّن `gemini-embedding-2`، ننصحك بشدة بإضافة تعليمات المهمة في طلبك. ويمكن إجراء ذلك من خلال تنسيق طلب البحث والمستند باستخدام بادئة المهمة الصحيحة.
 
-Ao gerar um [único embedding com base em uma entrada multimodal](#embedding-aggregation), geralmente não recomendamos prefixar a parte de texto da entrada com uma instrução de tarefa. Em alguns casos, isso melhora o desempenho, mas em outros, reduz.
+عند إنشاء [تضمين واحد استنادًا إلى إدخال متعدد الوسائط](#embedding-aggregation)، لا ننصح عمومًا بإضافة بادئة إلى جزء النص من الإدخال تتضمّن تعليمات المهمة. وفي بعض الحالات، يؤدي ذلك إلى تحسين الأداء، ولكن في حالات أخرى، يؤدي إلى خفضه.
 
-As tabelas a seguir mostram exemplos de como formatar consultas e documentos para casos de uso simétricos e assimétricos usando o modelo `gemini-embedding-2`.
+تعرض الجداول التالية أمثلة على كيفية تنسيق طلبات البحث والمستندات لحالات الاستخدام المتماثلة وغير المتماثلة باستخدام نموذج `gemini-embedding-2`.
 
-**Casos de uso de recuperação (formato assimétrico)**
+**حالات استخدام الاسترجاع (تنسيق غير متماثل)**
 
-Em casos de uso assimétricos, adicione o prefixo da tarefa à consulta e aplique
-a estrutura do documento ao conteúdo que você quer incorporar e recuperar.
+في حالات الاستخدام غير المتماثل، أضِف بادئة المهمة إلى طلب البحث وطبِّق بنية المستند على المحتوى الذي تريد تضمينه واسترداده.
 
-| Caso de uso | Estrutura da consulta | Estrutura do documento |
+| حالة الاستخدام | بنية طلب البحث | بنية المستند |
 | --- | --- | --- |
-| Consulta de pesquisa | `task: search result | query: {content}` | `title: {title} | text: {content}` Se não houver um título, use `title: none`. |
-| Respostas a perguntas | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
-| Checagem de fatos | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
-| Recuperação de código | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
+| طلب البحث | `task: search result | query: {content}` | `title: {title} | text: {content}` في حال عدم توفّر عنوان، استخدِم `title: none`. |
+| الإجابة عن الأسئلة | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
+| التحقّق من صحة الأخبار | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
+| استرداد الرمز | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
 
-**Exemplo de uso**
+**مثال على الاستخدام**
 
 ### Python
 
@@ -179,17 +178,17 @@ def prepare_document(content, title=None):
     return f"title: {title} | text: {content}"
 ```
 
-**Casos de uso de entrada única (formato simétrico)**
+**حالات استخدام الإدخال الفردي (التنسيق المتماثل)**
 
-Em casos de uso simétricos, para a mesma tarefa, use a mesma formatação para a consulta e o documento.
+في حالات الاستخدام المتماثلة، استخدِم التنسيق نفسه للاستعلام والمستند في المهمة نفسها.
 
-| Caso de uso | Estrutura de entrada |
+| حالة الاستخدام | بنية الإدخال |
 | --- | --- |
-| Classificação | `task: classification | query: {content}` |
-| Clustering | `task: clustering | query: {content}` |
-| Similaridade semântica | `task: sentence similarity | query: {content}` Não use para pesquisa ou recuperação. Ela é destinada à similaridade textual semântica. |
+| التصنيف | `task: classification | query: {content}` |
+| التجميع | `task: clustering | query: {content}` |
+| التشابه الدلالي | `task: sentence similarity | query: {content}` لا تستخدِم هذه الميزة للبحث أو الاسترجاع. وهي مخصّصة للتشابه الدلالي النصي. |
 
-**Exemplo de uso**
+**مثال على الاستخدام**
 
 ### Python
 
@@ -201,13 +200,13 @@ def prepare_query_and_document(content):
     return f'task: classification | query: {content}'
 ```
 
-É importante que a tarefa seja usada de forma consistente. Por exemplo, se os documentos forem incorporados com `f'task: classification | query: {content}'`, a consulta também precisará ser incorporada seguindo esse formato de tarefa.
+من المهم استخدام المهمة بشكلٍ متّسق. على سبيل المثال، إذا كانت المستندات مضمّنة مع `f'task: classification | query: {content}'`، يجب أن يكون طلب البحث مضمّنًا أيضًا باتّباع تنسيق المهمة هذا.
 
-### Tipos de tarefa com Embeddings 1
+### أنواع المهام التي تتضمّن Embeddings 1
 
-Para `gemini-embedding-001`, é possível especificar o `task_type` no método `embedContent`. Para uma lista completa dos tipos de tarefas compatíveis, consulte a tabela [Tipos de tarefas compatíveis](#supported-task-types).
+بالنسبة إلى `gemini-embedding-001`، يمكنك تحديد `task_type` في طريقة `embedContent`. للحصول على قائمة كاملة بأنواع المهام المتوافقة، راجِع جدول [أنواع المهام المتوافقة](#supported-task-types).
 
-O exemplo a seguir mostra como usar `SEMANTIC_SIMILARITY` para verificar a semelhança de significado entre strings de texto.
+يوضّح المثال التالي كيفية استخدام `SEMANTIC_SIMILARITY` للتحقّق من مدى تشابه معاني سلاسل النصوص.
 
 ### Python
 
@@ -278,7 +277,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import java.util.Arrays;
@@ -414,28 +413,31 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-0
     }'
 ```
 
-Os snippets de código vão mostrar o quanto os diferentes trechos de texto são semelhantes entre si quando executados.
+ستوضّح مقتطفات الرموز مدى تشابه مقاطع النص المختلفة مع بعضها البعض عند تشغيلها.
 
-#### Tipos de tarefas com suporte
+#### أنواع المهام المتوافقة
 
-Tipos de tarefas compatíveis com `gemini-embedding-001`:
+أنواع المهام المتوافقة مع `gemini-embedding-001`:
 
-| Tipo de tarefa | Descrição | Exemplos |
+| نوع المهمة | الوصف | أمثلة |
 | --- | --- | --- |
-| **SEMANTIC\_SIMILARITY** | Embeddings otimizados para avaliar a semelhança de texto. | Sistemas de recomendação, detecção de duplicidade |
-| **CLASSIFICAÇÃO** | Embeddings otimizados para classificar textos de acordo com rótulos predefinidos. | Análise de sentimento, detecção de spam |
-| **CLUSTERING** | Embeddings otimizados para agrupar textos com base nas semelhanças deles. | Organização de documentos, pesquisa de mercado, detecção de anomalias |
-| **RETRIEVAL\_DOCUMENT** | Embeddings otimizados para pesquisa de documentos. | Indexação de artigos, livros ou páginas da Web para pesquisa. |
-| **RETRIEVAL\_QUERY** | Embeddings otimizados para consultas de pesquisa gerais. Use `RETRIEVAL_QUERY` para consultas e `RETRIEVAL_DOCUMENT` para documentos a serem recuperados. | Pesquisa personalizada |
-| **CODE\_RETRIEVAL\_QUERY** | Incorporações otimizadas para a recuperação de blocos de código com base em consultas em linguagem natural. Use `CODE_RETRIEVAL_QUERY` para consultas e `RETRIEVAL_DOCUMENT` para blocos de código a serem recuperados. | Sugestões de código e pesquisa |
-| **QUESTION\_ANSWERING** | Embeddings para perguntas em um sistema de resposta a perguntas, otimizados para encontrar documentos que respondam à pergunta. Use `QUESTION_ANSWERING` para perguntas e `RETRIEVAL_DOCUMENT` para documentos a serem recuperados. | Caixa de chat |
-| **FACT\_VERIFICATION** | Embeddings para declarações que precisam ser verificadas, otimizados para recuperar documentos que contenham evidências a favor ou contra a declaração. Use `FACT_VERIFICATION` para o texto de destino e `RETRIEVAL_DOCUMENT` para os documentos a serem recuperados. | Sistemas automatizados de checagem de fatos |
+| **SEMANTIC\_SIMILARITY** | تضمينات محسّنة لتقييم التشابه بين النصوص | أنظمة الاقتراح، رصد المحتوى المكرّر |
+| **التصنيف** | تضمينات محسَّنة لتصنيف النصوص وفقًا لتصنيفات محدَّدة مسبقًا | تحليل المشاعر ورصد الرسائل غير المرغوب فيها |
+| **التجميع** | تكون عمليات التضمين محسّنة لتجميع النصوص استنادًا إلى أوجه التشابه بينها. | تنظيم المستندات وأبحاث السوق ورصد القيم الشاذة |
+| **RETRIEVAL\_DOCUMENT** | تضمينات محسّنة للبحث عن المستندات | فهرسة المقالات أو الكتب أو صفحات الويب لتسهيل البحث فيها |
+| **RETRIEVAL\_QUERY** | تضمينات محسّنة لطلبات البحث العامة استخدِم `RETRIEVAL_QUERY` للاستعلامات و`RETRIEVAL_DOCUMENT` للمستندات التي سيتم استرجاعها. | تجربة مخصّصة على شبكة البحث |
+| **CODE\_RETRIEVAL\_QUERY** | تضمينات محسَّنة لاسترداد مجموعات الرموز استنادًا إلى طلبات البحث باللغة الطبيعية استخدِم `CODE_RETRIEVAL_QUERY` لطلبات البحث و`RETRIEVAL_DOCUMENT` لكتل الرموز البرمجية التي سيتم استردادها. | اقتراحات الرموز البرمجية والبحث |
+| **QUESTION\_ANSWERING** | تضمينات للأسئلة في نظام الإجابة عن الأسئلة، تم تحسينها للعثور على المستندات التي تجيب عن السؤال استخدِم `QUESTION_ANSWERING` لطرح الأسئلة و`RETRIEVAL_DOCUMENT` لاسترداد المستندات. | مربّع الدردشة |
+| **FACT\_VERIFICATION** | تضمين عبارات تحتاج إلى التحقّق، وتم تحسينها لاسترداد المستندات التي تتضمّن أدلة تؤيّد العبارة أو تدحضها استخدِم `FACT_VERIFICATION` للنص المستهدَف و`RETRIEVAL_DOCUMENT` للمستندات المطلوب استرجاعها | أنظمة التحقّق الآلي من صحة الأخبار |
 
-## Controlando o tamanho de inclusão
+## التحكّم في حجم التضمين
 
-`gemini-embedding-001` e `gemini-embedding-2` são treinados usando a técnica de aprendizado de representação de Matryoshka (MRL, na sigla em inglês), que ensina um modelo a aprender incorporações de alta dimensão com segmentos iniciais (ou prefixos) que também são versões úteis e mais simples dos mesmos dados.
+يتم تدريب كل من `gemini-embedding-001` و`gemini-embedding-2` باستخدام تقنية Matryoshka Representation Learning (MRL) التي تعلّم النموذج كيفية التعرّف على عمليات التضمين العالية الأبعاد التي تتضمّن مقاطع أولية (أو بادئات) مفيدة أيضًا، وهي عبارة عن إصدارات أبسط من البيانات نفسها.
 
-Use o parâmetro `output_dimensionality` para controlar o tamanho do vetor de embedding de saída. Selecionar uma dimensionalidade de saída menor pode economizar espaço de armazenamento e aumentar a eficiência computacional para aplicativos downstream, sem sacrificar muito em termos de qualidade. Por padrão, os dois modelos geram uma incorporação de 3.072 dimensões, mas é possível truncá-la para um tamanho menor sem perder qualidade e economizar espaço de armazenamento. Recomendamos usar dimensões de saída de 768, 1536 ou 3072.
+استخدِم المَعلمة `output_dimensionality` للتحكّم في حجم
+متّجه التضمين الناتج. يمكن أن يؤدي اختيار عدد أصغر من الأبعاد الناتجة إلى توفير مساحة التخزين وزيادة كفاءة الحوسبة للتطبيقات اللاحقة، مع التضحية بالقليل من حيث الجودة. بشكل تلقائي، ينتج كلا النموذجين تضمينًا
+بـ 3072 بُعدًا، ولكن يمكنك تقصيره إلى حجم أصغر بدون
+فقدان الجودة لتوفير مساحة التخزين. ننصحك باستخدام أبعاد الإخراج 768 أو 1536 أو 3072.
 
 ### Python
 
@@ -478,7 +480,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -554,17 +556,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-emb
     }'
 ```
 
-Exemplo de saída do snippet de código:
+مثال على الناتج من مقتطف الرمز:
 
 ```
 Length of embedding: 768
 ```
 
-## Garantir a qualidade para dimensões menores
+## ضمان الجودة للأبعاد الأصغر
 
-Embora os embeddings padrão de 3.072 dimensões sejam sempre normalizados, o Gemini Embedding 2 também normaliza automaticamente as dimensões truncadas (por exemplo, 768, 1536). Isso garante que a similaridade semântica seja calculada por direção vetorial em vez de magnitude, oferecendo resultados mais precisos.
+في حين يتم دائمًا تسوية عمليات التضمين التلقائية ذات 3072 بُعدًا، تعمل Gemini
+Embedding 2 أيضًا على تسوية الأبعاد المقتطعة تلقائيًا (مثل 768 و1536). يضمن ذلك احتساب التشابه الدلالي من خلال اتجاه المتّجه بدلاً من حجمه، ما يوفّر نتائج أكثر دقة بدون الحاجة إلى إجراء أي تعديلات.
 
-**Modelos mais antigos**: se você estiver usando `gemini-embedding-001`, será necessário normalizar manualmente as dimensões que não sejam 3072 da seguinte maneira:
+**الطُرز القديمة**: إذا كنت تستخدم `gemini-embedding-001`، عليك تسوية الأبعاد غير 3072 يدويًا باتّباع الخطوات التالية:
 
 ### Python
 
@@ -580,47 +583,47 @@ print(f"Normed embedding length: {len(normed_embedding)}")
 print(f"Norm of normed embedding: {np.linalg.norm(normed_embedding):.6f}") # Should be very close to 1
 ```
 
-Exemplo de saída deste snippet de código:
+مثال على الناتج من مقتطف الرمز هذا:
 
 ```
 Normed embedding length: 768
 Norm of normed embedding: 1.000000
 ```
 
-A tabela a seguir mostra as pontuações do MTEB, um comparativo de mercado usado com frequência para incorporações, em diferentes dimensões. O resultado mostra que a performance não está estritamente vinculada ao tamanho da dimensão do embedding. Dimensões menores alcançam pontuações comparáveis às dimensões maiores.
+يعرض الجدول التالي نتائج MTEB، وهو مقياس أداء شائع الاستخدام لعمليات التضمين، وذلك لمختلف السمات. والجدير بالذكر أنّ النتيجة توضّح أنّ الأداء
+لا يرتبط بشكل صارم بحجم سمة التضمين، إذ حقّقت السمات ذات الأبعاد المنخفضة نتائج مماثلة للسمات ذات الأبعاد الأعلى.
 
-| Dimensão MRL | Pontuação do MTEB (Embedding do Gemini 001) |
+| سمة MRL | نتيجة MTEB (Gemini Embedding 001) |
 | --- | --- |
-| 2048 | 68,16 |
-| 1536 | 68,17 |
-| 768 | 67,99 |
-| 512 | 67,55 |
-| 256 | 66,19 |
-| 128 | 63,31 |
+| 2048 | 68.16 |
+| 1536 | 68.17 |
+| 768 | 67.99 |
+| 512 | 67.55 |
+| 256 | 66.19 |
+| 128 | 63.31 |
 
-## Embeddings multimodais
+## التضمينات المتعددة الوسائط
 
-O modelo `gemini-embedding-2` aceita entradas multimodais, permitindo que você
-incorpore imagens, vídeos, áudios e documentos junto com texto. Todas as modalidades são mapeadas no mesmo espaço de embedding, permitindo a pesquisa e a comparação entre modalidades.
+يتيح نموذج `gemini-embedding-2` إدخال محتوى متعدّد الوسائط، ما يسمح لك بتضمين صور وفيديوهات ومقاطع صوتية ومستندات إلى جانب النصوص. يتم ربط جميع الوسائط بمساحة التضمين نفسها، ما يتيح البحث والمقارنة بين الوسائط المختلفة.
 
-### Modalidades e limites compatíveis
+### الوسائط المتوافقة والحدود
 
-O limite máximo geral de tokens de entrada é de 8.192 tokens.
+الحد الأقصى العام لعدد الرموز المميزة المُدخلة هو 8192 رمزًا مميزًا.
 
-| Modalidade | Especificações e limites |
+| نمط البيانات | المواصفات والحدود |
 | --- | --- |
-| **Texto** | Aceita até 8.192 tokens. |
-| **Imagem** | Máximo de seis imagens por solicitação. Formatos aceitos: PNG, JPEG. |
-| **Áudio** | Duração máxima de 180 segundos. Formatos compatíveis: MP3, WAV. |
-| **Vídeo** | Duração máxima de 120 segundos. Formatos aceitos: MP4, MOV. Codecs compatíveis: H264, H265, AV1 e VP9.  O sistema processa no máximo 32 frames por vídeo: vídeos curtos (≤32s) são amostrados a 1 fps, enquanto vídeos mais longos são amostrados uniformemente em 32 frames. As faixas de áudio não são processadas em arquivos de vídeo. |
-| **Documentos (PDF)** | Máximo de um arquivo por solicitação, até seis páginas. |
+| **Text** | يمكنه التعامل مع ما يصل إلى 8,192 رمزًا مميزًا. |
+| **صورة** | يمكن إرسال 6 صور كحد أقصى لكل طلب. التنسيقات المتوافقة: PNG وJPEG |
+| **الصوت** | الحدّ الأقصى للمدة هو 180 ثانية. التنسيقات المتوافقة: MP3 وWAV |
+| **الفيديو** | المدة القصوى هي 120 ثانية. التنسيقات المتوافقة: MP4 وMOV برامج الترميز المتوافقة: H264 وH265 وAV1 وVP9  يعالج النظام 32 لقطة كحدّ أقصى لكل فيديو: يتم أخذ عيّنات من الفيديوهات القصيرة (≤32 ثانية) بمعدّل لقطة واحدة في الثانية، بينما يتم أخذ عيّنات من الفيديوهات الأطول بشكل موحّد بمعدّل 32 لقطة. لا تتم معالجة المقاطع الصوتية في ملفات الفيديو. |
+| **المستندات (ملف PDF)** | يمكن إرسال ملف واحد كحد أقصى لكل طلب، على ألا يزيد عدد الصفحات عن 6. |
 
-### Incorporar imagens
+### تضمين الصور
 
-O exemplo a seguir mostra como incorporar uma imagem usando
-`gemini-embedding-2`.
+يوضّح المثال التالي كيفية تضمين صورة باستخدام `gemini-embedding-2`.
 
-As imagens podem ser fornecidas como dados in-line ou como arquivos enviados por upload pela [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+يمكن تقديم الصور كبيانات مضمّنة أو كملفات تم تحميلها
+من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
 
 ### Python
 
@@ -673,7 +676,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -716,15 +719,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### Agregação de embeddings
+### تجميع التضمين
 
-Ao trabalhar com conteúdo multimodal, a forma como você estrutura a entrada afeta a saída de incorporação:
+عند العمل على محتوى متعدد الوسائط، تؤثر طريقة تنظيم الإدخال في
+مخرجات التضمين:
 
-- **Várias partes (agregadas)**: adicionar várias entradas diretamente ao parâmetro `contents` produz um embedding agregado para todas as entradas.
-- **Vários objetos `Content` (separados)**: encapsular cada entrada em um objeto `Content` e transmiti-los no parâmetro `contents` retorna incorporações separadas para cada entrada.
-- **Representação no nível da postagem**:para objetos complexos, como postagens em redes sociais com vários itens de mídia, recomendamos agregar incorporações separadas (por exemplo, fazendo a média) para criar uma representação coerente no nível da postagem.
+- **أجزاء متعددة (مجمّعة):** تؤدي إضافة مدخلات متعددة مباشرةً إلى المَعلمة
+  `contents` إلى إنشاء عملية تضمين مجمّعة واحدة لجميع المدخلات.
+- **عناصر `Content` متعددة (منفصلة):** يؤدي تضمين كل إدخال في عنصر `Content`
+  وتمريرها في المَعلمة `contents` إلى عرض
+  تضمينات منفصلة لكل إدخال.
+- **التمثيل على مستوى المنشور:** بالنسبة إلى الكائنات المعقّدة، مثل المشاركات على وسائل التواصل الاجتماعي التي تتضمّن عناصر وسائط متعدّدة، ننصح بتجميع التضمينات المنفصلة (على سبيل المثال، عن طريق حساب المتوسط) لإنشاء تمثيل متماسك على مستوى المنشور.
 
-O exemplo a seguir mostra como criar um embedding agregado para entrada de texto e imagem. Basta adicionar várias entradas ao parâmetro `contents`:
+يوضّح المثال التالي كيفية إنشاء عملية تضمين مجمّعة واحدة لكل من النص والصورة. ما عليك سوى إضافة مدخلات متعدّدة إلى المَعلمة `contents`:
 
 ### Python
 
@@ -786,7 +793,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -840,9 +847,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-Por outro lado, se você usar objetos `Content` dentro do parâmetro `contents`,
-serão retornados encodings separados. Este exemplo cria vários embeddings em uma
-chamada de embedding:
+من ناحية أخرى، إذا كنت تستخدم عناصر `Content` داخل المَعلمة `contents`، سيعرض ذلك تضمينات منفصلة. ينشئ هذا المثال عدة تضمينات في طلب تضمين واحد:
 
 ### Python
 
@@ -910,7 +915,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import java.util.Arrays;
@@ -966,12 +971,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### Incorporar áudio
+### تضمين الصوت
 
-O exemplo a seguir mostra como incorporar um arquivo de áudio usando
-`gemini-embedding-2`.
+يوضّح المثال التالي كيفية تضمين ملف صوتي باستخدام `gemini-embedding-2`.
 
-Os arquivos de áudio podem ser fornecidos como dados inline ou como arquivos enviados por upload pela [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+يمكن تقديم ملفات الصوت كبيانات مضمّنة أو كملفات تم تحميلها
+من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
 
 ### Python
 
@@ -1024,7 +1029,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1067,12 +1072,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### Incorporar vídeo
+### تضمين فيديو
 
-O exemplo a seguir mostra como incorporar um vídeo usando
-`gemini-embedding-2`.
+يوضّح المثال التالي كيفية تضمين فيديو باستخدام `gemini-embedding-2`.
 
-Os vídeos podem ser fornecidos como dados inline ou como arquivos enviados pela [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+يمكن تقديم الفيديوهات كبيانات مضمّنة أو كملفات تم تحميلها
+من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
 
 ### Python
 
@@ -1125,7 +1130,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1170,29 +1175,30 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-Se você precisar incorporar vídeos com mais de 120 segundos, divida o conteúdo em segmentos sobrepostos e incorpore cada um deles individualmente.
+إذا كنت بحاجة إلى تضمين فيديوهات تزيد مدتها عن 120 ثانية، يمكنك تقسيم الفيديو إلى مقاطع متداخلة وتضمين هذه المقاطع بشكل فردي.
 
-### Incorporar documentos
+### تضمين المستندات
 
-Os documentos em formato PDF podem ser incorporados diretamente. O modelo processa o conteúdo visual e de texto de cada página.
+يمكن تضمين المستندات بتنسيق PDF مباشرةً. يعالج النموذج المحتوى المرئي والنصي لكل صفحة.
 
-Os PDFs podem ser fornecidos como dados inline ou como arquivos enviados pela [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br).
+يمكن تقديم ملفات PDF كبيانات مضمّنة أو كملفات تم تحميلها
+من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
 
-#### Como o modelo processa PDFs
+#### طريقة معالجة النموذج لملفات PDF
 
-Quando você incorpora um PDF, o modelo processa o documento usando recursos visuais e de texto:
+عند تضمين ملف PDF، يعالج النموذج المستند باستخدام ميزات مرئية ونصية:
 
-- **Representação visual**:o modelo renderiza cada página como uma imagem, o que consome **258 tokens** por página.
-- **Extração de texto**:o modelo extrai texto do documento. Para **PDFs nativos** (que contêm texto digital), o modelo extrai o texto diretamente. Para **PDFs digitalizados** (que contêm imagens de texto), o modelo executa automaticamente o reconhecimento óptico de caracteres (OCR) para extrair o texto.
+- **التمثيل المرئي:** يعرض النموذج كل صفحة كصورة، ما يستهلك **258 رمزًا مميزًا** لكل صفحة.
+- **استخراج النص:** يستخرج النموذج النص من المستند. بالنسبة إلى **ملفات PDF الأصلية** (التي تحتوي على نص رقمي)، يستخرج النموذج النص مباشرةً. بالنسبة إلى **ملفات PDF الممسوحة ضوئيًا** (التي تحتوي على صور للنص)، يشغّل النموذج تلقائيًا تقنية التعرّف البصري على الأحرف (OCR) لاستخراج النص.
 
-Para calcular a contagem de tokens total de um PDF, adicione os tokens visuais (258 por página) aos tokens de texto. As entradas precisam se encaixar no **limite de 8.192 tokens** do modelo (compartilhado em todas as modalidades). O sistema trunca silenciosamente as entradas que excedem esse limite.
+لاحتساب إجمالي عدد الرموز المميزة في ملف PDF، أضِف الرموز المميزة المرئية (258 رمزًا مميزًا لكل صفحة) إلى الرموز المميزة النصية. يجب أن تتناسب مدخلاتك مع **الحد الأقصى البالغ 8,192 رمزًا مميزًا** في النموذج (يتم مشاركته بين جميع الوسائط). يقتطع النظام تلقائيًا المدخلات التي تتجاوز هذا الحد.
 
-#### Limites de PDF
+#### حدود ملفات PDF
 
-- **Arquivos por solicitação**:é possível enviar no máximo um arquivo PDF.
-- **Limite de páginas**:é possível enviar até seis páginas por arquivo. Para ter a melhor qualidade, recomendamos usar uma página por PDF.
+- **الملفات لكل طلب:** يمكنك إرسال ملف PDF واحد كحدّ أقصى.
+- **الحدّ الأقصى لعدد الصفحات:** يمكنك إرسال 6 صفحات كحدّ أقصى لكل ملف. للحصول على أفضل جودة، ننصحك بشدة باستخدام صفحة واحدة لكل ملف PDF.
 
-O exemplo a seguir mostra como incorporar um PDF usando `gemini-embedding-2`:
+يوضّح المثال التالي كيفية تضمين ملف PDF باستخدام `gemini-embedding-2`:
 
 ### Python
 
@@ -1245,7 +1251,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1288,100 +1294,96 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## Casos de uso
+## حالات الاستخدام
 
-As incorporações de texto são cruciais para vários casos de uso comuns de IA, como:
+تُعدّ تضمينات النصوص ضرورية لمجموعة متنوّعة من حالات الاستخدام الشائعة للذكاء الاصطناعي، مثل:
 
-- **Geração aumentada por recuperação (RAG)**: as incorporações melhoram a qualidade do texto gerado ao recuperar e incorporar informações relevantes ao contexto de um modelo.
-- **Recuperação de informações**:pesquise o texto ou os documentos mais semelhantes semanticamente com base em um trecho de texto de entrada.
+- **التوليد المعزّز بالاسترجاع (RAG):** تعمل التضمينات على تحسين جودة النص الذي يتم إنشاؤه من خلال استرجاع المعلومات ذات الصلة ودمجها في سياق النموذج.
+- **استرجاع المعلومات:** البحث عن النص أو المستندات الأكثر تشابهًا من الناحية الدلالية، وذلك بالاستناد إلى جزء من النص المدخل
 
-  [Tutorial de pesquisa de documentostask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
-- **Reclassificação da pesquisa**: prioriza os itens mais relevantes ao pontuar semanticamente os resultados iniciais em relação à consulta.
+  [برنامج تعليمي حول البحث عن المستنداتtask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
+- **إعادة ترتيب نتائج البحث**: إعطاء الأولوية للعناصر الأكثر صلة من خلال تقييم النتائج الأولية دلاليًا مقارنةً بطلب البحث.
 
-  [Tutorial de reclassificação da pesquisatask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
-- **Detecção de anomalias**:comparar grupos de embeddings pode ajudar a identificar tendências ou outliers ocultos.
+  [البرنامج التعليمي لإعادة ترتيب نتائج البحثtask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
+- **رصد القيم الشاذة:** يمكن أن تساعد مقارنة مجموعات التضمينات في تحديد المؤشرات المخفية أو القيم الشاذة.
 
-  [Tutorial de detecção de anomaliasbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
-- **Classificação**:categoriza automaticamente o texto com base no conteúdo, como análise de sentimento ou detecção de spam.
+  [برنامج تعليمي حول رصد القيم الشاذةbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
+- **التصنيف:** تصنيف النصوص تلقائيًا استنادًا إلى محتواها، مثل تحليل المشاعر أو رصد الرسائل غير المرغوب فيها
 
-  [Tutorial de classificaçãotoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
-- **Clustering**:entenda relações complexas criando clusters e visualizações dos seus embeddings.
+  [البرنامج التعليمي للتصنيفtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
+- **التجميع:** يمكنك فهم العلاقات المعقّدة بشكل فعّال من خلال إنشاء مجموعات وتصوّرات لعمليات التضمين.
 
-  [Tutorial de visualização de clusteringbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
+  [برنامج تعليمي حول العرض المرئي للتجميعbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
 
-## Armazenar embeddings
+## تخزين التضمينات
 
-Ao levar embeddings para a produção, é comum usar **bancos de dados vetoriais** para armazenar, indexar e recuperar embeddings de alta dimensão com eficiência. O Google Cloud oferece serviços de dados gerenciados que podem ser usados para essa finalidade, incluindo a [Gemini Enterprise Agent Platform Busca vetorial 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview?hl=pt-br), o [BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=pt-br), o [AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=pt-br) e o [Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=pt-br).
+عند نقل عمليات التضمين إلى مرحلة الإنتاج، من الشائع استخدام **قواعد بيانات المتّجهات** لتخزين عمليات التضمين العالية الأبعاد وفهرستها واسترجاعها بكفاءة. تقدّم Google Cloud خدمات بيانات مُدارة يمكن استخدامها لهذا الغرض، بما في ذلك [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview?hl=ar) و[BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=ar) و[AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=ar) و[Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=ar).
 
-Os tutoriais a seguir mostram como usar outros bancos de dados de vetores de terceiros com o Gemini Embedding.
+توضّح البرامج التعليمية التالية كيفية استخدام قواعد بيانات متجهات تابعة لجهات خارجية أخرى مع Gemini Embedding.
 
-- [Tutoriais do ChromaDBbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
-- [Tutoriais do QDrantbolt](https://qdrant.tech/documentation/embeddings/gemini/)
-- [Tutoriais do Weaviatebolt](https://docs.weaviate.io/weaviate/model-providers/google)
-- [Tutoriais do Pineconebolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
+- [برامج تعليمية حول ChromaDBbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
+- [برامج QDrant التعليميةbolt](https://qdrant.tech/documentation/embeddings/gemini/)
+- [برامج Weaviate التعليميةbolt](https://docs.weaviate.io/weaviate/model-providers/google)
+- [برامج Pinecone التعليميةbolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
 
-## Versões do modelo
+## إصدارات النموذج
 
-### Embedding do Gemini 2
+### Gemini Embedding 2
 
-| Propriedade | Descrição |
+| الموقع | الوصف |
 | --- | --- |
-| Código do modelo id\_card | **API Gemini**  `gemini-embedding-2` |
-| saveTipos de dados aceitos | **Entrada**  Texto, imagem, vídeo, áudio, PDF  **Saída**  Embeddings de textos |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  8.192  **Tamanho da dimensão de saída**  Flexível, compatível com: 128 a 3072. Recomendado: 768, 1536, 3072 |
-| Versões 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Estável: `gemini-embedding-2` |
-| calendar\_monthÚltima atualização | Abril de 2026 |
+| رمز النموذج id\_card | **Gemini API**  `gemini-embedding-2` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  النصوص والصور والفيديوهات والملفات الصوتية وملفات PDF  **الناتج**  تضمينات النص |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  8,192  **حجم سمة الإخراج**  مرن، ويتوافق مع: 128 - 3072، الحجم المقترَح: 768 و1536 و3072 |
+| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-embedding-2` |
+| calendar\_monthآخر تعديل | أبريل 2026 |
 
-### Embedding do Gemini
+### تضمين Gemini
 
-| Propriedade | Descrição |
+| الموقع | الوصف |
 | --- | --- |
-| Código do modelo id\_card | **API Gemini**  `gemini-embedding-001` |
-| saveTipos de dados aceitos | **Entrada**  Texto  **Saída**  Embeddings de textos |
-| token\_autoLimites de token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) | **Limite de tokens de entrada**  2.048  **Tamanho da dimensão de saída**  Flexível, compatível com: 128 a 3072. Recomendado: 768, 1536, 3072 |
-| Versões 123 | Leia os [padrões de versão do modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pt-br#model-versions) para mais detalhes.  - Estável: `gemini-embedding-001` |
-| calendar\_monthÚltima atualização | Junho de 2025 |
+| رمز النموذج id\_card | **Gemini API**  `gemini-embedding-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص  **الناتج**  تضمينات النص |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  2,048  **حجم سمة الإخراج**  مرن، ويتوافق مع: 128 - 3072، الحجم المقترَح: 768 و1536 و3072 |
+| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-embedding-001` |
+| calendar\_monthآخر تعديل | يونيو 2025 |
 
-Para modelos de embeddings descontinuados, acesse a página [Descontinuações](https://ai.google.dev/gemini-api/docs/deprecations?hl=pt-br).
+بالنسبة إلى نماذج Embeddings المتوقّفة نهائيًا، يُرجى الانتقال إلى صفحة [الإيقافات النهائية](https://ai.google.dev/gemini-api/docs/deprecations?hl=ar).
 
-## Migração de gemini-embedding-001
+## نقل البيانات من gemini-embedding-001
 
-Os espaços de incorporação entre `gemini-embedding-001` e `gemini-embedding-2` são **incompatíveis**. Isso significa que não é possível comparar diretamente embeddings gerados por um modelo com embeddings gerados pelo outro. Se você estiver fazendo upgrade para o `gemini-embedding-2`, será necessário
-reincorporar todos os dados atuais.
+مساحات التضمين بين `gemini-embedding-001` و`gemini-embedding-2` **غير متوافقة**. وهذا يعني أنّه لا يمكنك مقارنة التضمينات التي تم إنشاؤها بواسطة نموذج معيّن بالتضمينات التي تم إنشاؤها بواسطة نموذج آخر بشكل مباشر. إذا كنت بصدد الترقية إلى `gemini-embedding-2`، عليك إعادة تضمين جميع بياناتك الحالية.
 
-Além da incompatibilidade, há várias outras diferenças notáveis entre os dois modelos:
+بالإضافة إلى عدم التوافق، هناك العديد من الاختلافات الأخرى بين النموذجين، وهي:
 
-- **Especificação do tipo de tarefa**:com `gemini-embedding-001`, você especifica o tipo de tarefa usando o parâmetro `task_type` (por exemplo, `SEMANTIC_SIMILARITY`, `RETRIEVAL_DOCUMENT`). Com `gemini-embedding-2`, o parâmetro `task_type` não é compatível. Em vez disso, inclua instruções de tarefa diretamente no comando para tarefas somente de texto. Consulte [Tipos de tarefas com Embeddings 2](#task-types-embeddings-2) para detalhes sobre como formatar comandos para diferentes casos de uso.
-- **Agregação de embeddings**:`gemini-embedding-001` gera embeddings individuais para cada string em uma lista de entradas. Por outro lado, o `gemini-embedding-2` produz um único embedding agregado quando várias entradas (como texto e imagens) são fornecidas diretamente em uma solicitação. Para
-  gerar incorporações separadas para entradas individuais, encapsule cada entrada em um
-  objeto `Content` ou use a
-  [API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br#batch-embedding). Consulte
-  [Agregação de incorporações](#embedding-aggregation) para mais informações.
-- **Normalização**:se você usar `output_dimensionality` para solicitar incorporações com menos de 3.072 dimensões, `gemini-embedding-2` normalizará automaticamente essas incorporações truncadas. Com `gemini-embedding-001`, é necessário fazer a normalização manual para dimensões diferentes de 3072. Consulte
-  [Garantir a qualidade para dimensões menores](#quality-for-smaller-dimensions)
-  para mais detalhes.
+- **تحديد نوع المهمة:** باستخدام `gemini-embedding-001`، يمكنك تحديد نوع المهمة باستخدام المَعلمة `task_type` (مثل `SEMANTIC_SIMILARITY` و`RETRIEVAL_DOCUMENT`). أما باستخدام `gemini-embedding-2`، فلا تتوفّر المَعلمة `task_type`. بدلاً من ذلك، عليك تضمين تعليمات المهمة مباشرةً في الطلب الخاص بالمهام التي تتضمّن نصًا فقط. راجِع مقالة
+  [أنواع المهام التي تستخدم Embeddings 2](#task-types-embeddings-2) للحصول على تفاصيل حول كيفية
+  تنسيق الطلبات لحالات الاستخدام المختلفة.
+- **تجميع التضمينات:** تنشئ `gemini-embedding-001` تضمينات فردية لكل سلسلة في قائمة من المدخلات. في المقابل،
+  تنتج `gemini-embedding-2` تضمينًا واحدًا مجمّعًا عند تقديم مدخلات متعددة (مثل النصوص والصور) مباشرةً في طلب واحد. لإنشاء تضمينات منفصلة لكل إدخال على حدة، عليك تضمين كل إدخال في عنصر `Content`، أو استخدام [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar#batch-embedding). لمزيد من المعلومات، اطّلِع على مقالة [تضمين التجميع](#embedding-aggregation).
+- **التسوية:** إذا كنت تستخدم `output_dimensionality` لطلب تضمينات بأقل من 3072 سمة، ستعمل `gemini-embedding-2` تلقائيًا على تسوية هذه التضمينات المقتطعة. باستخدام `gemini-embedding-001`، عليك إجراء تسوية يدوية للسمات التي تختلف عن 3072. لمزيد من التفاصيل، يُرجى الاطّلاع على مقالة [ضمان الجودة للأبعاد الأصغر](#quality-for-smaller-dimensions).
 
-## Embeddings em lote
+## التضمينات المجمّعة
 
-Se a latência não for um problema, use os modelos de incorporação do Gemini com a [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br#batch-embedding). Isso permite um throughput muito maior com 50% do preço padrão de incorporação.
-Encontre exemplos de como começar no [livro de receitas da API Batch](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
+إذا لم يكن وقت الاستجابة مصدر قلق، جرِّب استخدام نماذج Gemini Embeddings مع [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar#batch-embedding). يتيح ذلك سرعة معالجة بيانات أعلى بكثير بنسبة% 50 من سعر Embedding التلقائي.
+يمكنك العثور على أمثلة حول كيفية البدء في [كتاب وصفات Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
 
-## Aviso sobre o uso responsável
+## إشعار الاستخدام المسؤول
 
-Ao contrário dos modelos de IA generativa que criam novos conteúdos, o modelo de incorporação do Gemini
-destina-se apenas a transformar o formato dos seus dados de entrada em uma representação
-numérica. Embora o Google seja responsável por fornecer um modelo de incorporação que transforma o formato dos dados de entrada no formato numérico solicitado, os usuários mantêm total responsabilidade pelos dados inseridos e pelos embeddings resultantes. Ao usar o modelo de embedding do Gemini, você confirma que tem os direitos necessários sobre qualquer conteúdo que enviar. Não gere conteúdo que viole a propriedade intelectual ou os direitos de privacidade de terceiros. O uso deste serviço está sujeito à nossa [Política de Uso Proibido](https://policies.google.com/terms/generative-ai/use-policy?hl=pt-br) e aos [Termos de Serviço do Google](https://ai.google.dev/gemini-api/terms?hl=pt-br).
+على عكس نماذج الذكاء الاصطناعي التوليدي التي تنشئ محتوًى جديدًا، يهدف نموذج Gemini Embedding إلى تحويل تنسيق بيانات الإدخال إلى تمثيل رقمي فقط. في حين أنّ Google مسؤولة عن توفير نموذج تضمين
+يحوّل تنسيق بيانات الإدخال إلى التنسيق الرقمي المطلوب،
+يحتفظ المستخدمون بالمسؤولية الكاملة عن البيانات التي يدخلونها وعمليات التضمين الناتجة. يشير استخدامك لنموذج Gemini Embedding إلى تأكيدك على امتلاك الحقوق اللازمة لأي محتوى يتم تحميله. ويجب عدم إنشاء محتوى ينتهك حقوق الملكية الفكرية أو حقوق الخصوصية للآخرين. يخضع استخدامك لهذه الخدمة [لسياسة الاستخدام المحظور](https://policies.google.com/terms/generative-ai/use-policy?hl=ar) و[بنود خدمة Google](https://ai.google.dev/gemini-api/terms?hl=ar).
 
-## Comece a criar com embeddings
+## بدء التطوير باستخدام عمليات التضمين
 
-Confira o [notebook de início rápido de embeddings](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) para conhecer os recursos do modelo e aprender a personalizar e visualizar seus embeddings.
+اطّلِع على [دفتر ملاحظات البدء السريع الخاص بالتضمينات](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) لاستكشاف إمكانات النموذج والتعرّف على كيفية تخصيص التضمينات وعرضها بشكل مرئي.
 
-Envie comentários
+إرسال ملاحظات
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Última atualização 2026-09-18 UTC.
+تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)
 
-Quer enviar seu feedback?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-18 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

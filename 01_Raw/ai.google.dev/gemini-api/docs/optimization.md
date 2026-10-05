@@ -1,87 +1,93 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=ja
-fetched_at: 2026-09-28T06:10:46.190952+00:00
-title: "Gemini API \u306e\u6700\u9069\u5316\u3068\u63a8\u8ad6 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=de
+fetched_at: 2026-10-05T06:42:09.075040+00:00
+title: "Gemini API\u00a0\u2013 Optimierung und Inferenz \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-フィードバックを送信
+Feedback geben
 
-# Gemini API の最適化と推論
+# Gemini API – Optimierung und Inferenz
 
-Gemini API には、特定のワークロードのニーズに基づいて速度、コスト、信頼性のバランスを取るのに役立つさまざまな最適化メカニズムが用意されています。リアルタイムの会話型ボットを構築する場合でも、オフラインで大量のデータ処理パイプラインを実行する場合でも、適切なパラダイムを選択することで、コストを大幅に削減したり、パフォーマンスを向上させたりできます。
+Die Gemini API bietet eine Vielzahl von Optimierungsmechanismen, mit denen Sie Geschwindigkeit, Kosten und Zuverlässigkeit je nach den spezifischen Anforderungen Ihrer Arbeitslasten ausbalancieren können.
+Ob Sie nun Konversationsbots in Echtzeit entwickeln oder umfangreiche Pipelines zur Offline-Datenverarbeitung ausführen – die Wahl des richtigen Paradigmas kann die Kosten erheblich senken oder die Leistung steigern.
 
-| 機能 | 標準 | Flex | 候補 | バッチ | キャッシュ |
+| Funktion | Standard | Flex | Priorität | Batch | Caching |
 | --- | --- | --- | --- | --- | --- |
-| **料金** | 正規料金 | 50% 割引 | 標準の 75% ～ 100% 増 | 50% 割引 | 90% 割引 + トークン ストレージの比例配分 |
-| **レイテンシ** | 数秒～数分 | 数分（目標 1 ～ 15 分） | 秒 | 最大 24 時間 | 最初のトークンまでの時間を短縮 |
-| **信頼性** | 高 / 中～高 | ベスト エフォート（削減可能） | 高（削減不可） | 高（スループットの場合） | なし |
-| **インターフェース** | 同期 | 同期 | 同期 | 非同期 | 保存された状態 |
-| **最適なユースケース** | 一般的なアプリケーション ワークフロー | 緊急性の低いシーケンシャル チェーン | 本番環境のユーザー向けアプリ | 大規模なデータセット、オフライン評価 | 同じファイルに対する繰り返しクエリ |
+| **Preise** | Standardpreis | 50% Rabatt | 75% bis 100% mehr als Standard | 50% Rabatt | 90% Rabatt + anteilige Speicherung von Tokens |
+| **Latenz** | Sekunden bis Minuten | Minuten (Ziel: 1–15 Minuten) | Sekunden | Bis zu 24 Stunden | Schnellere Zeit bis zum ersten Token |
+| **Zuverlässigkeit** | Hoch / Mittel bis hoch | Best-Effort-Ansatz (kann verworfen werden) | Hoch (kann nicht verworfen werden) | Hoch (für Durchsatz) | – |
+| **Schnittstelle** | Synchron | Synchron | Synchron | Asynchron | Gespeicherter Status |
+| **Bester Anwendungsfall** | Allgemeine Anwendungs-Workflows | Nicht dringende sequenzielle Ketten | Produktions- und nutzerorientierte Apps | Umfangreiche Datasets, Offline-Bewertungen | Wiederkehrende Abfragen derselben Datei |
 
-## 推論サービスティア（同期）
+## Dienststufen für die Inferenz (synchron)
 
-標準生成呼び出しで `service_tier` パラメータを渡すことで、信頼性最適化と費用最適化の同期トラフィックを切り替えることができます。
+Sie können zwischen zuverlässigkeitsoptimiertem und kostenoptimiertem synchronem Traffic wechseln, indem Sie den Parameter `service_tier` in Ihren Standardgenerierungsaufrufen übergeben.
 
-### 標準推論（デフォルト）
+### Standardinferenz (Standardeinstellung)
 
-標準ティアは、シーケンシャル コンテンツ生成のデフォルト オプションです。追加料金や大量のキューイングなしで、通常のレスポンス時間を実現します。
+Die Standardstufe ist die Standardoption für die sequenzielle Contentgenerierung.
+Sie bietet normale Reaktionszeiten ohne zusätzliche Aufschläge oder lange Warteschlangen.
 
-- **信頼性:** 標準の重要度
-- **料金:** 標準料金。
-- **最適な用途:** ほとんどのインタラクティブな日常業務アプリケーション。
+- **Zuverlässigkeit**:Standardkritikalität
+- **Preis**:Standardpreise
+- **Am besten geeignet für**:Die meisten interaktiven Alltagsanwendungen
 
-### 優先度推論（レイテンシ最適化）
+### Prioritätsinferenz (latenzoptimiert)
 
-[優先度](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)処理では、リクエストが高重要度のコンピューティング キューにルーティングされます。このトラフィックは厳密に削減不可（他のティアによってプリエンプトされない）で、最高の信頼性を提供します。動的な優先度の上限を超過した場合、エラーで失敗する代わりに、リクエストは標準処理に正常にダウングレードされます。
+[Prioritätsverarbeitung](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de) leitet Ihre Anfragen
+an Rechenwarteschlangen mit hoher Kritikalität weiter.
+Dieser Traffic kann nicht verworfen werden (wird nie von anderen Stufen unterbrochen) und bietet die höchste Zuverlässigkeit. Wenn Sie die dynamischen Prioritätslimits überschreiten, wird die Anfrage vom System auf die Standardverarbeitung herabgestuft, anstatt dass ein Fehler auftritt.
 
-- **信頼性:** 最も高い重要度
-- **料金:** 標準料金の 75% ～ 100% 増。
-- **最適な用途:** カスタマー chatbot、リアルタイムの不正使用検出、ビジネスに不可欠なコパイロット。
+- **Zuverlässigkeit**:Höchste Kritikalität
+- **Preis**:75% bis 100% über den Standardpreisen
+- **Am besten geeignet für**:Kunden-Chatbots, Betrugserkennung in Echtzeit und geschäftskritische Copiloten
 
-### Flex 推論（費用最適化）
+### Flexible Inferenz (kostenoptimiert)
 
-[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)では、機会的なオフピーク コンピューティング容量を利用することで、標準料金と比較して 50% の割引が適用されます。リクエストは同期的に処理されるため、バッチ オブジェクトを管理するためにコードを書き換える必要はありません。
-「削減可能」なトラフィックであるため、システムで標準トラフィックの急増が発生すると、リクエストがプリエンプトされる可能性があります。
+[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de) bietet einen Rabatt von 50% im Vergleich zu den Standardpreisen, da opportunistische Rechenkapazität außerhalb der Spitzenzeiten genutzt wird. Anfragen werden synchron verarbeitet. Sie müssen also keinen Code umschreiben, um Batchobjekte zu verwalten.
+Da es sich um „verwerfbaren“ Traffic handelt, können Anfragen unterbrochen werden, wenn im System Standard-Trafficspitzen auftreten.
 
-- **信頼性:** 非保証型、削減可能な重要度
-- **料金:** 標準料金の 50%（トークン単位で課金）。
-- **最適な用途:** 呼び出し N+1 が呼び出し N の出力に依存するマルチステップ エージェント ワークフロー、バックグラウンド CRM の更新、オフライン評価。
+- **Zuverlässigkeit**:Nicht garantierte, verwerfbare Kritikalität
+- **Preis**:50% der Standardpreise (Abrechnung pro Token)
+- **Am besten geeignet für**:Mehrstufige Agenten-Workflows, bei denen der Aufruf N+1 von der Ausgabe des Aufrufs N abhängt, CRM-Updates im Hintergrund und Offline-Bewertungen
 
-## Batch API（一括、非同期）
+## Batch API (Bulk, asynchron)
 
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) は、大量のリクエストを標準料金の 50% で非同期的に処理するように設計されています。リクエストは、インライン ディクショナリとして送信することも、JSONL 入力ファイル（最大 2 GB）を使用して送信することもできます。リクエストは、バックグラウンド スループット キューを使用して処理され、目標のターンアラウンド時間は 24 時間です。
+[Die Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de) wurde entwickelt, um große Mengen
+von Anfragen asynchron zu
+50% der Standardkosten zu verarbeiten. Sie können Anfragen entweder als Inline-Wörterbücher oder mit einer JSONL-Eingabedatei (bis zu 2 GB) senden. Anfragen werden mit Hintergrund-Durchsatzwarteschlangen mit einer Zielbearbeitungszeit von 24 Stunden verarbeitet.
 
-- **信頼性:** 削減可能ですが、24 時間の自動再試行とキューイング システムがあります
-- **料金:** 標準料金の 50%。
-- **最適な用途:** 大規模なデータセットの事前処理、定期的な回帰テスト スイートの実行、大量の画像または埋め込みの生成。
+- **Zuverlässigkeit**:Verwerfbar, aber mit automatischen Wiederholungen und Warteschlangensystem nach 24 Stunden
+- **Preis**:50% der Standardpreise
+- **Am besten geeignet für**:Vorverarbeitung großer Datasets, Ausführung regelmäßiger Regressionstest-Suites und Generierung großer Mengen von Bildern oder Einbettungen
 
-## コンテキスト キャッシュ保存（入力の削減）
+## Kontext-Caching (Einsparungen bei der Eingabe)
 
-[コンテキスト キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)は、初期
-コンテキストの実体部分が、短いリクエストで繰り返し参照される場合に使用されます。
+[Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) wird verwendet, wenn in kürzeren Anfragen wiederholt auf einen umfangreichen anfänglichen
+Kontext verwiesen wird.
 
-- **暗黙的キャッシュ保存:** Gemini 2.5 以降のモデルで自動的に有効になります。
-  リクエストが一般的なプロンプト プレフィックスに基づいて既存のキャッシュにヒットした場合、システムはコスト削減を転送します。
-- **明示的なキャッシュ保存:** 特定の有効期間（TTL）でキャッシュ オブジェクトを手動で作成できます。作成したら、後続のリクエストでキャッシュに保存されたトークンを参照して、同じコーパス ペイロードを繰り返し渡さないようにします。
-- **料金:** キャッシュ トークン数と保存期間（TTL）に基づいて課金されます。
-- **最適な用途:** 広範なシステム指示を伴う chatbot、長い動画ファイルの繰り返し分析、大規模なドキュメント セットに対するクエリ。
+- **Implizites Caching**:Automatisch für Gemini 2.5 und neuere Modelle aktiviert
+  Das System gibt Kosteneinsparungen weiter, wenn Ihre Anfrage vorhandene Caches auf Grundlage gängiger Prompt-Präfixe trifft.
+- **Explizites Caching**:Sie können manuell ein Cache-Objekt mit einer bestimmten Gültigkeitsdauer (Time-To-Live, TTL) erstellen. Nach der Erstellung können Sie für nachfolgende Anfragen auf die im Cache gespeicherten Tokens verweisen, um nicht immer wieder dieselbe Korpusnutzlast zu übergeben.
+- **Preis**:Abrechnung basierend auf der Anzahl der Cache-Tokens und der Speicherdauer (TTL)
+- **Am besten geeignet für**:Chatbots mit ausführlichen Systemanweisungen, wiederholte Analysen langer Videodateien oder Abfragen großer Dokumentgruppen
 
-フィードバックを送信
+Feedback geben
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-最終更新日 2026-04-29 UTC。
+Zuletzt aktualisiert: 2026-04-29 (UTC).
 
-ご意見をお聞かせください
+Haben Sie Feedback für uns?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-04-29 (UTC)."],[],[]]

@@ -1,67 +1,73 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=fr
-fetched_at: 2026-09-28T06:23:11.239235+00:00
-title: "Gemini\u00a03.8 Live Extended\u00a0Thinking \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ar
+fetched_at: 2026-10-05T06:28:33.904763+00:00
+title: "\u202bGemini 3.8 Live Extended Thinking \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Envoyer des commentaires
+إرسال ملاحظات
 
-# Gemini 3.8 Live Extended Thinking
+# ‫Gemini 3.8 Live Extended Thinking
 
-Gemini 3.8 Live Extended Thinking est notre modèle audio-vers-audio à haut niveau de raisonnement. Il est recommandé lorsqu'un raisonnement en arrière-plan plus élevé est nécessaire pour résoudre des problèmes complexes en plusieurs étapes lors d'interactions vocales en temps réel. Il traite le raisonnement en arrière-plan et les appels d'outils asynchrones tout en diffusant des réponses audio continues.
+‫Gemini 3.8 Live Extended Thinking هو نموذج صوتي إلى صوتي عالي الاستدلال
+ننصح باستخدامه عندما يكون من الضروري إجراء استدلال أكثر تعمّقًا في الخلفية لحلّ المشاكل المعقّدة والمتعددة الخطوات
+أثناء التفاعلات الصوتية الفورية. تعالج هذه الميزة عمليات الاستدلال في الخلفية واستدعاءات الأدوات غير المتزامنة أثناء بث الردود الصوتية المتواصلة.
 
-[Essayer dans Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live-extended-thinking&hl=fr)
+[تجربة الميزة في Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live-extended-thinking&hl=ar)
 
-## Documentation
+## الوثائق
 
-Consultez le guide de l'[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr) pour obtenir une couverture complète des fonctionnalités.
+يمكنك الانتقال إلى دليل [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar) للاطّلاع على التغطية الكاملة للميزات والإمكانات.
 
 ## gemini-3.8-live-extended-thinking
 
-| Propriété | Description |
+| الموقع | الوصف |
 | --- | --- |
-| Code du modèle id\_card | `gemini-3.8-live-extended-thinking` |
-| Types de données acceptés pour save | **Entrées**  Texte, images, audio, vidéo  **Résultat**  Texte et audio |
-| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  131 072  **Limite de jetons de sortie**  65 536 |
-| handyman Fonctionnalités | **[Génération d'audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr)**  Compatible  **[Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr)**  Not supported  **[Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr)**  Not supported  **[Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr)**  Not supported  **[Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)**  Compatible (asynchrone uniquement)  **[Ancrage avec Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr)**  Not supported  **[Génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr)**  Not supported  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr)**  Compatible  **[Ancrage de recherche](https://ai.google.dev/gemini-api/docs/google-search?hl=fr)**  Compatible  **[Sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr)**  Not supported  **[Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)**  Compatible  **[Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr)**  Not supported |
-| speed Options de consommation | **[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr)**  Not supported |
-| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Stable : `gemini-3.8-live-extended-thinking` |
-| calendar\_monthDernière mise à jour | Septembre 2026 |
-| Fiche de modèle id\_card | [fiche de modèle](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=fr) |
+| رمز النموذج id\_card | `gemini-3.8-live-extended-thinking` |
+| saveأنواع البيانات المتوافقة | **المدخلات**  النصوص والصور والملفات الصوتية والفيديوهات  **الناتج**  النص والصوت |
+| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  131,072  **الحدّ الأقصى لرموز الناتج المميزة**  65,536 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  غير متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  غير متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح (غير متزامن فقط)  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  غير متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  غير متاح |
+| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  غير متاح |
+| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-3.8-live-extended-thinking` |
+| calendar\_monthآخر تعديل | سبتمبر 2026 |
+| id\_cardبطاقة النموذج | [بطاقة النموذج](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=ar) |
 
-## Passer à Gemini 3.8 Live Extended Thinking
+## الترقية إلى Gemini 3.8 Live Extended Thinking
 
-La fonctionnalité Gemini 3.8 Live Extended Thinking introduit le raisonnement en arrière-plan lors des sessions audio en direct. Lorsque vous intégrez ce modèle, mettez à jour la gestion de l'état du client pour gérer les signaux de raisonnement asynchrones :
+تتيح ميزة "التفكير الموسّع" في Gemini 3.8 Live إجراء عمليات استنتاج في الخلفية أثناء جلسات الصوت المباشرة. عند دمج هذا النموذج، عدِّل إدارة حالة العميل
+للتعامل مع إشارات الاستدلال غير المتزامن:
 
-- **Protocole de raisonnement asynchrone** : lorsque vous interagissez avec des modèles qui utilisent le raisonnement asynchrone, `turnComplete: true` n'indique plus que le modèle est inactif. Le serveur peut continuer à traiter le raisonnement en arrière-plan ou les appels d'outils. Votre client doit continuer à écouter les messages serveur suivants (tels que les appels d'outils ou les trames audio) après l'arrivée de `turnComplete: true`.
-- **Surveillance `interaction_status`** : utilisez le champ `interaction_status` dans les messages serveur entrants pour déterminer l'état actuel du serveur :
-  - `IN_PROGRESS` : le serveur traite activement l'entrée utilisateur, exécute un raisonnement en arrière-plan ou attend des réponses pour les appels d'outils asynchrones.
-    D'autres sorties de modèle ou appels d'outils peuvent suivre.
-  - `IDLE` : le serveur a terminé tous les traitements, raisonnements et appels d'outils.
-    La session est inactive et attend une entrée utilisateur.
-- **Appel de fonction asynchrone** : seule l'exécution asynchrone non bloquante (`behavior: NON_BLOCKING`) est acceptée. Le mode de blocage synchrone n'est pas pris en charge et renvoie une erreur fatale. Les configurations de planification des fonctions ne sont pas acceptées.
-- **Configuration de la réflexion** : configurez le raisonnement en arrière-plan à l'aide de `thinking_config` dans votre configuration (`thinking_level` : `low`, `medium` ou `high`). Notez que `MINIMAL` n'est pas pris en charge.
-- **Mises à jour du contenu client** : `send_client_content` est compatible tout au long du cycle de vie de la session avec des rôles explicites (`user` ou `model`). Définir `turn_complete=true` interrompt immédiatement la génération active.
-- **Audio proactif** : activé en permanence. La définition de `proactive_audio: false` renvoie une erreur.
+- **بروتوكول الاستدلال غير المتزامن**: عند التفاعل مع نماذج تستخدم الاستدلال غير المتزامن، لن يشير `turnComplete: true` إلى أنّ النموذج غير نشط. قد يواصل الخادم معالجة الاستدلال في الخلفية أو استدعاء الأدوات. يجب أن يواصل العميل الاستماع إلى رسائل الخادم اللاحقة (مثل طلبات الأدوات أو إطارات الصوت) بعد وصول `turnComplete: true`.
+- **المراقبة `interaction_status`**: استخدِم الحقل `interaction_status` في رسائل الخادم الواردة لتحديد حالة الخادم الحالية:
+  - ‫`IN_PROGRESS`: يعالج الخادم حاليًا بيانات أدخلها المستخدم أو ينفّذ عمليات استدلال في الخلفية أو ينتظر ردودًا على طلبات غير متزامنة من الأدوات.
+    قد يتبع ذلك مخرجات إضافية من النموذج أو طلبات إضافية من الأدوات.
+  - ‫`IDLE`: أكمل الخادم جميع عمليات المعالجة والاستدلال واستخدام الأدوات.
+    الجلسة غير نشطة وتنتظر بيانات يدخلها المستخدم.
+- **استدعاء الدوال غير المتزامن**: لا تتوفّر سوى عملية التنفيذ غير المتزامن وغير الحظر (`behavior: NON_BLOCKING`). لا يتوفّر وضع الحظر المتزامن، وسيؤدي استخدامه إلى ظهور خطأ. لا تتوفّر إعدادات جدولة الدوال.
+- **إعدادات التفكير**: اضبط التفكير في الخلفية باستخدام
+  `thinking_config` في إعداداتك (`thinking_level`: `low` أو `medium` أو `high`). يُرجى العِلم أنّ `MINIMAL` غير متاح.
+- **تعديلات على محتوى العميل**: تتوفّر ميزة `send_client_content` طوال دورة حياة الجلسة مع أدوار صريحة (`user` أو `model`). يؤدي ضبط `turn_complete=true` إلى مقاطعة عملية الإنشاء النشطة على الفور.
+- **التحكّم الاستباقي بالصوت**: مفعّل بشكل دائم. يؤدي ضبط `proactive_audio: false`
+  إلى حدوث خطأ.
 
-Pour comparer les fonctionnalités de tous les modèles de l'API Live, consultez le tableau [Comparaison des modèles](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=fr#model-comparison).
+للاطّلاع على مقارنة بين الميزات في جميع نماذج Live API، راجِع جدول
+[مقارنة النماذج](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ar#model-comparison).
 
-Envoyer des commentaires
+إرسال ملاحظات
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Dernière mise à jour le 2026/09/17 (UTC).
+تاريخ التعديل الأخير: 2026-09-17 (حسب التوقيت العالمي المتفَّق عليه)
 
-Voulez-vous nous donner plus d'informations ?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/17 (UTC)."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-17 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

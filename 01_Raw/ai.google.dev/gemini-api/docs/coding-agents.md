@@ -1,66 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi
-fetched_at: 2026-09-28T06:10:59.231315+00:00
-title: "Gemini MCP \u0914\u0930 Skills \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, \u0915\u094b\u0921\u093f\u0902\u0917 \u0905\u0938\u093f\u0938\u094d\u091f\u0947\u0902\u091f \u0915\u094b \u0938\u0947\u091f \u0905\u092a \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=ja
+fetched_at: 2026-10-05T06:32:24.634544+00:00
+title: "Gemini MCP \u3068\u30b9\u30ad\u30eb\u3092\u4f7f\u7528\u3057\u3066\u30b3\u30fc\u30c7\u30a3\u30f3\u30b0 \u30a2\u30b7\u30b9\u30bf\u30f3\u30c8\u3092\u8a2d\u5b9a\u3059\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-सुझाव भेजें
+フィードバックを送信
 
-# Gemini MCP और Skills की मदद से, कोडिंग असिस्टेंट को सेट अप करना
+# Gemini MCP とスキルを使用してコーディング アシスタントを設定する
 
-एआई कोडिंग असिस्टेंट बहुत काम के होते हैं, लेकिन इनकी कुछ सीमाएं होती हैं. जैसे, ट्रेनिंग डेटा एक तय तारीख के बाद अपडेट नहीं होता. साथ ही, इनमें एपीआई की नई सुविधाएं और बदलाव शामिल नहीं होते. Gemini से जुड़े दस्तावेज़ों का ऐक्सेस न होने पर, एजेंट ऑप्टिमाइज़ किए गए तरीकों के बजाय सामान्य पैटर्न के सुझाव दे सकते हैं.
+AI コーディング アシスタントは強力ですが、制限があります。トレーニング データは特定の日付でカットオフされ、新しい API 機能や変更が欠落しています。Gemini 固有のドキュメントにアクセスできない場合、エージェントは最適化されたアプローチではなく、一般的なパターンを提案する可能性があります。
 
-हमारा सुझाव है कि आप **Gemini Docs MCP** सेट अप करें. साथ ही, **Gemini API की स्किल** का इस्तेमाल करके अपने एनवायरमेंट को बेहतर बनाएं. इससे, आपकी कोडिंग असिस्टेंट को Gemini API और उसके इस्तेमाल के सुझावों के बारे में अप-टू-डेट जानकारी मिलती रहेगी. इन टूल का इस्तेमाल अलग-अलग किया जा सकता है. हालांकि, इन्हें एक साथ काम करने के लिए डिज़ाइन किया गया है, ताकि पूरी कवरेज मिल सके.
+進化する Gemini API とその推奨される使用方法に合わせてコーディング アシスタントを最新の状態に保つには、**Gemini Docs MCP** を設定し、**Gemini API Skills** で環境を強化することをおすすめします。これらのツールは単独で使用できますが、完全なカバレッジを提供するために連携して動作するように設計されています。
 
-## Gemini Docs MCP को कनेक्ट करना
+## Gemini Docs MCP を接続する
 
-Gemini, `https://gemini-api-docs-mcp.dev` पर एक सार्वजनिक मॉडल कॉन्टेक्स्ट प्रोटोकॉल (एमसीपी) सर्वर होस्ट करता है. अपने कोडिंग एजेंट को इस सर्वर से कनेक्ट करने पर, यह पक्का किया जा सकता है कि सभी क्वेरी के पास नए एपीआई, कोड अपडेट, और सबसे सही कॉन्फ़िगरेशन के उदाहरणों का ऐक्सेस हो.
+Gemini は、`https://gemini-api-docs-mcp.dev` でパブリック Model Context Protocol（MCP）サーバーをホストします。コーディング エージェントをこのサーバーに接続すると、すべてのクエリが最新の API、コード アップデート、最適な構成例にアクセスできるようになります。
 
-सर्वर इंस्टॉल करने के लिए, अपने एजेंट के टर्मिनल या प्रोजेक्ट रूट में यह कमांड चलाएं:
+エージェントのターミナルまたはプロジェクト ルートで次のコマンドを実行して、サーバーをインストールします。
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-यह सर्वर, `search_documentation` फ़ंक्शन जोड़ता है. इसका इस्तेमाल करके आपका एजेंट, Gemini के आधिकारिक दस्तावेज़ों की फ़ाइलों से रीयल-टाइम एपीआई की परिभाषाएं और इंटिग्रेशन पैटर्न पा सकता है.
+このサーバーは、エージェントが公式の Gemini ドキュメント ファイルからリアルタイムの API 定義と統合パターンを取得するために使用できる `search_documentation` 関数を追加します。
 
-## एपीआई डेवलपमेंट की स्किल जोड़ना
+## API 開発スキルを追加する
 
-इन स्किल में, **पहले से मौजूद नियम और सबसे सही तरीके** शामिल होते हैं. जैसे, सही एसडीके और मॉडल के मौजूदा वर्शन को लागू करना. ये सीधे तौर पर आपके असिस्टेंट के कॉन्टेक्स्ट में शामिल होते हैं. यह स्किल, Gemini Docs की एमसीपी सेवा के साथ मिलकर काम करती है: अगर आपने दोनों को इंस्टॉल किया है, तो यह स्किल दस्तावेज़ बनाने के लिए एमसीपी सेवा का इस्तेमाल करती है. हालाँकि, एमसीपी इंस्टॉल न होने पर भी, यह फ़ॉलबैक के तौर पर `ai.google.dev` से [`/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=hi) फ़ेच करेगी. इसमें `.md.txt` जोड़कर, अलग-अलग पेजों को रॉ मार्कडाउन के तौर पर भी फ़ेच किया जा सकता है. जैसे, `https://ai.google.dev/gemini-api/docs/speech-generation.md.txt`.
+スキルは、アシスタントのコンテキストに直接 **組み込みのルールとベスト プラクティス**（正しい SDK と現在のモデル バージョンの適用など）を提供します。このスキルは Gemini Docs MCP サービスと連携します。両方がインストールされている場合、このスキルはドキュメントに MCP サービスを使用します。MCP がインストールされていない場合でも、フォールバックとして `ai.google.dev` から [`/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=ja) を取得します（個々のページは、`.md.txt` を追加して未加工の Markdown として取得することもできます（例: `https://ai.google.dev/gemini-api/docs/speech-generation.md.txt`））。
 
-इन स्किल को इंस्टॉल करने के लिए, यहां दिए गए टूल में से किसी एक का इस्तेमाल किया जा सकता है. दोनों को इंस्टॉल करने के निर्देश, हर स्किल मॉड्यूल के नीचे दिए गए हैं:
+これらのスキルをインストールするには、次のいずれかのサポートされているツールを使用します。両方のインストール手順は、各スキル モジュールの下に記載されています。
 
-- **[skills.sh](https://skills.sh)**: इसका सुझाव दिया जाता है. यह एजेंट के व्यवहार को पोर्ट करने के लिए ओपन स्टैंडर्ड है.
-- **[Context7](https://context7.com)**: यह उन उपयोगकर्ताओं के लिए उपलब्ध है जो पहले से ही Context7 के इकोसिस्टम का इस्तेमाल कर रहे हैं.
+- **[skills.sh](https://skills.sh)**: 推奨。ポータブル エージェントの動作に関するオープン標準。
+- **[Context7](https://context7.com)**: Context7 エコシステムをすでに利用しているユーザーが対象です。
 
 ### gemini-api-dev
 
-[Gemini API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) (Interactions API) का इस्तेमाल करके ऐप्लिकेशन बनाने की स्किल. Interactions API, Gemini मॉडल और एजेंटों के साथ काम करने का सबसे आसान और बेहतरीन तरीका है. इस स्किल में ये शामिल हैं:
+[Gemini API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)（Interactions API）を使用してアプリを構築するためのスキル。Interactions API は、Gemini モデルとエージェントを使用して構築する最もシンプルで最適な方法です。このスキルでは、次のことを学びます。
 
-- टेक्स्ट जनरेट करने, सिलसिलेवार बातचीत करने, और स्ट्रीमिंग की सुविधा
-- फ़ंक्शन कॉल करना, स्ट्रक्चर्ड आउटपुट, और इमेज जनरेट करना
-- बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा और Deep Research एजेंट
-- सर्वर-साइड पर बातचीत की स्थिति को मैनेज करना
-- मौजूदा मॉडल पर तुरंत स्विच करना और बंद किए जा चुके मॉडल का इस्तेमाल न करना
-- Python और TypeScript SDK टूल के पैटर्न
+- テキスト生成、マルチターン チャット、ストリーミング
+- 関数呼び出し、構造化された出力、画像生成
+- バックグラウンド実行と Deep Research エージェント
+- サーバーサイドの会話状態の管理
+- 現在のモデルへのプロンプトのルーティングと非推奨モデルの回避
+- Python と TypeScript の SDK パターン
 
-#### skills.sh की मदद से इंस्टॉल करना
+#### skills.sh を使用してインストールする
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 ```
 
-#### Context7 की मदद से इंस्टॉल करना
+#### Context7 を使用してインストールする
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
@@ -68,85 +68,85 @@ npx ctx7 skills install /google-gemini/gemini-skills gemini-api-dev
 
 ### gemini-live-api-dev
 
-Gemini Live API की मदद से, रीयल-टाइम में बातचीत करने वाले एआई ऐप्लिकेशन बनाने की स्किल. इस स्किल में, इनके लिए दस्तावेज़ और सबसे सही तरीके दिए गए हैं:
+Gemini Live API を使用してリアルタイムの会話型 AI アプリケーションを構築するスキル。このスキルでは、次の項目に関するドキュメントとベスト プラクティスを提供します。
 
-- कम इंतज़ार के समय में स्ट्रीमिंग के लिए WebSocket कनेक्शन
-- ऑडियो, वीडियो, और टेक्स्ट स्ट्रीम करना
-- आवाज़ का पता लगाने की तकनीक और बार्ज-इन की सुविधा
+- 低レイテンシ ストリーミング用の WebSocket 接続
+- 音声、動画、テキストのストリーミング
+- 音声検出と割り込みのサポート
 
-#### skills.sh की मदद से इंस्टॉल करना
+#### skills.sh を使用してインストールする
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 ```
 
-#### Context7 की मदद से इंस्टॉल करना
+#### Context7 を使用してインストールする
 
 ```
 npx ctx7 skills install /google-gemini/gemini-skills gemini-live-api-dev
 ```
 
-## इंस्टॉल हो जाने की पुष्टि करें
+## インストールを確認する
 
-इंस्टॉल करने के बाद, पुष्टि करें कि कोडिंग असिस्टेंट, Gemini Docs MCP सर्वर से कनेक्ट हो सकती है और इंस्टॉल की गई आपकी स्किल का इस्तेमाल कर सकती है.
+インストール後、コーディング アシスタントが Gemini Docs MCP サーバーに接続し、インストールしたスキルを使用できることを確認します。
 
-### 1. एजेंट के व्यवहार की पुष्टि करना
+### 1. エージェントの動作を確認する
 
-पुष्टि करने का सबसे भरोसेमंद तरीका यह है कि आप अपने एजेंट से Gemini API के बारे में कोई तकनीकी सवाल पूछें.
+最も確実な方法は、Gemini API に関する技術的な質問をエージェントにすることです。
 
-**प्रॉम्प्ट:** "मैं Gemini API के साथ कॉन्टेक्स्ट कैशिंग का इस्तेमाल कैसे करूं?"
+**プロンプト:** 「Gemini API でコンテキスト キャッシュ保存機能を使用するにはどうすればよいですか？」
 
-सेटअप पूरा होने पर:
+セットアップが正常に完了すると、次のようになります。
 
-- **सटीक कोड दें**: Gemini के खास तरीकों का रेफ़रंस दें. जैसे, नए एंडपॉइंट से `cacheContent` या `cachedContents.create`.
-- **एमसीपी टूल का इस्तेमाल करना**: दिखाएँ कि यह **Gemini Docs MCP सर्वर** से कनेक्ट है या डेटा फ़ेच करने के लिए `search_documentation` टूल का इस्तेमाल कर रहा है.
-- **लोड की गई स्किल शुरू करना**: एक इंडिकेटर दिखाएं, जिसमें यह बताया गया हो कि "skill: gemini-api-dev का इस्तेमाल किया जा रहा है" (अगर किसी सेकंडरी रैपर पर भरोसा किया जा रहा है).
+- **正確なコードを提供する**: 最新のエンドポイントから `cacheContent` や `cachedContents.create` などの特定の Gemini メソッドを参照します。
+- **MCP ツールを使用する**: **Gemini Docs MCP サーバー**に接続されていること、または `search_documentation` ツールを使用してデータを取得していることを示します。
+- **読み込まれたスキルを呼び出す**: 「スキル: gemini-api-dev を使用中」というインジケーターを表示します（セカンダリ ラッパーに依存している場合）。
 
-### 2. मेनिफ़ेस्टेशन और टूल की पुष्टि करना
+### 2. マニフェストとツールを確認する
 
-अगर एजेंट सामान्य जवाब देता है, तो अपने एनवायरमेंट के लिए Discovery या Status कमांड का इस्तेमाल करें. इससे यह पुष्टि की जा सकेगी कि Docs MCP या स्किल को मेमोरी में लोड किया गया है.
+エージェントが一般的な回答をした場合は、環境固有の Discovery コマンドまたは Status コマンドを使用して、Docs MCP またはスキルがメモリに読み込まれていることを確認します。
 
-| परिवेश | MCP की पुष्टि | स्किल की पुष्टि करना |
+| 環境 | MCP の確認 | スキル検証 |
 | --- | --- | --- |
-| **Claude Code** | चालू सर्वर और `search_documentation` टूल देखने के लिए, टर्मिनल में `/mcp` टाइप करें. | सभी चालू मेनिफ़ेस्ट की सूची बनाने के लिए, टर्मिनल में `/skills` टाइप करें. |
-| **कर्सर** | **सेटिंग > सुविधाएं > एमसीपी** पर जाएं. पक्का करें कि सर्वर "कनेक्ट किया गया" हो. | **सेटिंग > नियम** खोलें. पुष्टि करें कि "एजेंट तय करता है" सेक्शन में स्किल दिख रही हो. |
-| **Antigravity** | एमसीपी की स्थिति देखने के लिए, **कस्टमाइज़ेशन > कनेक्शन** साइडबार पर जाएं. | `/skills list` टाइप करें या **कस्टमाइज़ेशन > नियम** साइडबार देखें. |
-| **Gemini CLI** | `gemini mcp list` चलाएं या `/mcp list` का इस्तेमाल करें. | `gemini skills list` चलाएं या सेशन के दौरान `/skills` स्लैश कमांड का इस्तेमाल करें. |
-| **Copilot** | चालू डेटा कनेक्टर की सूची बनाने के लिए, `@gemini /mcp` टाइप करें. | चालू एक्सटेंशन देखने के लिए, `@gemini /skills` (या `/skills`) टाइप करें. |
+| **Claude Code** | ターミナルに「`/mcp`」と入力して、アクティブなサーバーと `search_documentation` ツールを表示します。 | ターミナルで「`/skills`」と入力して、アクティブなすべてのマニフェストを一覧表示します。 |
+| **Cursor** | **[設定] > [機能] > [MCP]** に移動します。サーバーが [接続済み] になっていることを確認します。 | [**設定] > [**ルール] を開きます。スキルが [Agent Decides] に表示されていることを確認します。 |
+| **Antigravity** | [**カスタマイズ > 接続**] サイドバーで MCP のステータスを確認します。 | `/skills list` と入力するか、[**カスタマイズ**] > [ルール] サイドバーを確認します。 |
+| **Gemini CLI** | `gemini mcp list` を実行するか、`/mcp list` を使用します。 | `gemini skills list` を実行するか、セッション内で `/skills` スラッシュ コマンドを使用します。 |
+| **Copilot** | `@gemini /mcp` と入力して、アクティブなデータコネクタを一覧表示します。 | `@gemini /skills`（または `/skills`）と入力すると、有効な拡張機能が表示されます。 |
 
-## समस्या का हल
+## トラブルシューティング
 
-अगर आपका एजेंट सिर्फ़ सामान्य जानकारी देता है या Gemini के खास तरीकों को नहीं पहचान पाता है, तो यहां दी गई बातें देखें:
+エージェントが一般的な情報しか提供しない場合や、Gemini 固有のメソッドを認識しない場合は、次のことを確認します。
 
-### एजेंट को स्किल नहीं मिली
+### エージェントがスキルを検出できなかった
 
-ज़्यादातर एजेंट, सिर्फ़ स्टार्टअप पर कौशल को इंडेक्स करते हैं.
+ほとんどのエージェントは、起動時にのみスキルをインデックス登録します。
 
-**ठीक करें:** अपने आईडीई (Cursor/VS Code) को पूरी तरह से रीस्टार्ट करें या टर्मिनल पर आधारित एजेंट (Claude Code) को बंद करके फिर से खोलें.
+**修正:** IDE（Cursor/VS Code）を完全に再起動するか、ターミナルベースのエージェント（Claude Code）を終了して再度開きます。
 
-### अंतरराष्ट्रीय बनाम स्थानीय संघर्ष
+### グローバルな競合とローカルな競合
 
-अगर आपने `--global` फ़्लैग का इस्तेमाल करके इंस्टॉल किया है, तो हो सकता है कि आपका एजेंट, प्रोजेक्ट के हिसाब से बनाए गए नियमों के पक्ष में इसे अनदेखा कर रहा हो.
+`--global` フラグを使用してインストールした場合、エージェントはプロジェクト固有のルールを優先して、このフラグを無視している可能性があります。
 
-**ठीक करें:** ग्लोबल फ़्लैग के बिना, सीधे अपने प्रोजेक्ट रूट में स्किल इंस्टॉल करने की कोशिश करें:
+**修正:** グローバル フラグなしで、スキルをプロジェクト ルートに直接インストールしてみてください。
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev
 ```
 
-## संसाधन
+## リソース
 
-- [GitHub पर Gemini API की स्किल](https://github.com/google-gemini/gemini-skills)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi)
-- [शुरू करें](https://ai.google.dev/gemini-api/docs/get-started?hl=hi)
-- [लाइब्रेरी](https://ai.google.dev/gemini-api/docs/libraries?hl=hi)
+- [GitHub の Gemini API スキル](https://github.com/google-gemini/gemini-skills)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)
+- [使ってみる](https://ai.google.dev/gemini-api/docs/get-started?hl=ja)
+- [ライブラリ](https://ai.google.dev/gemini-api/docs/libraries?hl=ja)
 
-सुझाव भेजें
+フィードバックを送信
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
+最終更新日 2026-09-24 UTC。
 
-क्या आपको हमें और कुछ बताना है?
+ご意見をお聞かせください
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-24 UTC。"],[],[]]

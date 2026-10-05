@@ -1,62 +1,72 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419
-fetched_at: 2026-09-28T06:10:56.103279+00:00
-title: "API de Interactions \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-BR
+fetched_at: 2026-10-05T06:41:58.395252+00:00
+title: "API Interactions \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Enviar comentarios
+Envie comentários
 
-# API de Interactions
+# API Interactions
 
-La API de Interactions es la mejor manera de crear soluciones con modelos y agentes de Gemini. A partir de junio de 2026, estará disponible de forma general y se recomienda para todos los proyectos nuevos. Si bien ahora se considera heredada, la API original de [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=es-419) sigue siendo totalmente compatible.
+A API Interactions é a melhor maneira de criar com modelos e agentes do Gemini. Desde junho de 2026, ele está disponível para todos e é recomendado para todos os novos projetos. Embora agora seja considerada legada, a API
+[`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=pt-br) original
+continua sendo totalmente compatível.
 
-## ¿Por qué usar la API de Interactions?
+## Por que usar a API Interactions?
 
-- **Interfaz universal para todas las aplicaciones**: Se diseñó como la interfaz estándar para cada caso de uso, incluida la generación de texto de un solo turno, la comprensión multimodal, las salidas estructuradas, la orquestación de herramientas y los flujos de trabajo basados en agentes.
-- **Una sola API para modelos y agentes**: Un extremo y un patrón unificados para llamar a los modelos estándar de Gemini y a los agentes especializados directamente (como Deep Research y los agentes administrados personalizados).
-- **Nuevas capacidades listas para usar**: Funciones como el estado de conversación opcional del servidor con `previous_interaction_id`, pasos de ejecución observables para la depuración y la renderización de la IU, y [ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419) para tareas de larga duración con `background=true`.
-- **Menor costo con mayores tasas de aciertos de caché**: Cuando se usan conversaciones de varios turnos, la administración de estado opcional del servidor permite un almacenamiento en caché del contexto más eficiente en los turnos, lo que reduce los costos de tokens.
-- **Dónde se lanzarán las funciones nuevas**: En el futuro, todos los modelos nuevos, las capacidades multimodales, las herramientas y las funciones basadas en agentes se lanzarán en la API de Interactions.
+- **Interface universal para todos os aplicativos**: projetada como a interface padrão para todos os casos de uso, incluindo geração de texto de turno único, compreensão multimodal, saídas estruturadas, orquestração de ferramentas e fluxos de trabalho de agentes.
+- **API única para modelos e agentes**: um endpoint e um padrão unificados para chamar modelos padrão do Gemini e agentes especializados diretamente (como Deep Research e agentes gerenciados personalizados).
+- **Novos recursos prontos para uso**: recursos como estado de conversa opcional do lado do servidor usando `previous_interaction_id`, etapas de execução observáveis para depuração e renderização da interface e [execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) para tarefas de longa duração usando `background=true`.
+- **Menor custo com taxas de ocorrência em cache mais altas**: ao usar conversas multiturno, o gerenciamento de estado opcional do lado do servidor permite um cache de contexto mais eficiente entre as rodadas, reduzindo os custos de token.
+- **Onde os novos recursos são lançados**: daqui para frente, todos os novos modelos, recursos multimodais, ferramentas e recursos agênticos serão lançados na API Interactions.
 
-De forma predeterminada, la API de Interactions almacena solicitudes para que puedas aprovechar las funciones de administración de estado del servidor con `previous_interaction_id`. Puedes habilitar el comportamiento sin estado configurando `store=false`. Consulta la sección sobre la [retención de datos](#data-storage-retention) para obtener más información.
+Por padrão, a API Interactions armazena solicitações para que você possa aproveitar
+os recursos de gerenciamento de estado do lado do servidor usando
+`previous_interaction_id`. Para ativar o comportamento sem estado, defina
+`store=false`. Consulte a seção [retenção de dados](#data-storage-retention) para mais detalhes.
 
-## Comenzar
+## Primeiros passos
 
-- **Configura tu agente de programación**: Conéctate al **MCP de Gemini Docs** y, luego, instala la habilidad `gemini-api-dev` para darle a tu asistente acceso directo a la documentación para desarrolladores y las prácticas recomendadas más recientes. Para conocer los pasos detallados, consulta la [guía para configurar tu agente de programación](https://ai.google.dev/gemini-api/docs/coding-agents?hl=es-419).
-- **Migra desde `generateContent`**: Si tienes una integración existente, sigue la [guía de migración](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=es-419) para realizar la transición a la API de Interactions.
-- **Comienza**: Sigue los pasos de la [guía de inicio de la API de Interactions](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
+- **Configure seu agente de programação**: conecte-se ao **MCP dos Documentos do Gemini** e instale
+  a habilidade `gemini-api-dev` para dar ao seu assistente acesso direto aos
+  documentos mais recentes para desenvolvedores e às práticas recomendadas. Para conferir as etapas detalhadas, consulte o
+  [Guia de configuração do seu agente de programação](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br)
+- **Migrar de `generateContent`**: se você tiver uma integração, siga o [guia de migração](https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=pt-br) para fazer a transição para a API Interactions.
+- **Começar**: siga as etapas no [guia de início rápido da API Interactions](https://ai.google.dev/gemini-api/docs/get-started?hl=pt-br).
 
-### Guías de funciones
+### Guias de recursos
 
-Explora las capacidades específicas de la API de Interactions a través de estas guías. Puedes usar el botón de activación de estas páginas para cambiar entre la API de generateContent y la de Interactions:
+Conheça as funcionalidades específicas da API Interactions com estes guias. Use a chave nessas páginas para alternar entre a API generateContent e a API Interactions:
 
-- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419)
-- [Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)
-- [Comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419)
-- [Comprensión de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
-- [Comprensión de videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419)
-- [Procesamiento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419)
-- [Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)
-- [Salidas estructuradas](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419)
-- [Agente de Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419)
-- [Inferencia flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)
-- [Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)
+- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br)
+- [Geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br)
+- [Compreensão de imagens](https://ai.google.dev/gemini-api/docs/image-understanding?hl=pt-br)
+- [Compreensão de áudio](https://ai.google.dev/gemini-api/docs/audio?hl=pt-br)
+- [Compreensão do vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br)
+- [Processamento de documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=pt-br)
+- [Chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)
+- [Saída estruturada](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br)
+- [Agente Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br)
+- [Inferência flexível](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-br)
+- [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br)
 
-## Cómo funciona la API de Interactions
+## Como a API Interactions funciona
 
-La API de Interactions se centra en un recurso principal: [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=es-419#Resource:Interaction). Un `Interaction` representa un turno completo en una conversación o tarea. Actúa como un registro de sesión, que contiene todo el historial de una interacción como una secuencia cronológica de **pasos de ejecución**. Estos pasos incluyen las reflexiones del modelo, las llamadas a herramientas y los resultados del servidor o del cliente (como `function_call` y `function_result`), y el `model_output` final. El recurso almacenado (recuperado a través de `interactions.get`) también incluye pasos de `user_input` para el contexto completo, aunque la respuesta de `interactions.create` solo devuelve los pasos generados por el modelo.
+A API Interactions se concentra em um recurso principal: o [**`Interaction`**](https://ai.google.dev/api/interactions-api?hl=pt-br#Resource:Interaction). Um `Interaction` representa um turno completo em uma conversa ou tarefa. Ele funciona como um registro de sessão, contendo todo o histórico de uma interação como uma sequência cronológica de **etapas de execução**. Essas etapas incluem reflexões do modelo, chamadas de ferramentas e resultados do lado do servidor ou do lado do cliente (como `function_call` e `function_result`) e o `model_output` final. O recurso armazenado (recuperado via `interactions.get`) também inclui etapas `user_input` para contexto completo, embora a resposta `interactions.create` retorne apenas etapas geradas pelo modelo.
 
-Cuando llamas a [`interactions.create`](https://ai.google.dev/api/interactions-api?hl=es-419#CreateInteraction), creas un nuevo recurso `Interaction`:
+Ao fazer uma chamada para
+[`interactions.create`](https://ai.google.dev/api/interactions-api?hl=pt-br#CreateInteraction), você está
+criando um novo recurso `Interaction`:
 
 ### Python
 
@@ -161,9 +171,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Administración del estado del servidor
+### Gerenciamento de estado do lado do servidor
 
-Puedes usar el `id` de una interacción completada en una llamada posterior con el parámetro `previous_interaction_id` para continuar la conversación. El servidor usa este ID para recuperar el historial de conversación, lo que te evita tener que volver a enviar todo el historial de chat:
+Você pode usar o `id` de uma interação concluída em uma chamada subsequente usando o parâmetro
+`previous_interaction_id` para continuar a conversa. O servidor usa esse ID para recuperar o histórico da conversa, evitando que você precise reenviar todo o histórico do chat:
 
 ### Python
 
@@ -317,106 +328,114 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-El parámetro `previous_interaction_id` solo conserva el historial de conversaciones (entradas y salidas) con `previous_interaction_id`. Los demás parámetros son de **alcance de la interacción** y se aplican solo a la interacción específica que estás generando:
+O parâmetro `previous_interaction_id` preserva apenas o histórico de conversas (entradas e saídas) usando `previous_interaction_id`. Os outros parâmetros são **no escopo da interação** e se aplicam apenas à interação específica que você está gerando:
 
 - `tools`
 - `system_instruction`
-- `generation_config` (incluidos `thinking_level`, `temperature`, etcétera)
+- `generation_config` (incluindo `thinking_level`, `temperature` etc.)
 
-Esto significa que debes volver a especificar estos parámetros en cada interacción nueva si quieres que se apliquen. Esta administración de estado del servidor es opcional. También puedes operar en modo sin estado enviando el historial de conversación completo en cada solicitud.
+Isso significa que você precisa especificar esses parâmetros novamente em cada nova interação se quiser que eles sejam aplicados. Esse gerenciamento de estado do lado do servidor é opcional. Você também pode operar no modo sem estado enviando todo o histórico de conversas em cada solicitação.
 
-### Almacenamiento y retención de datos
+### Armazenamento e retenção de dados
 
-De forma predeterminada, la API almacena todos los objetos Interaction (`store=true`) para simplificar el uso de las funciones de administración de estados del servidor (con `previous_interaction_id`), la [ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419) (con `background=true`) y los fines de observabilidad.
+Por padrão, a API armazena todos os objetos de interação (`store=true`) para simplificar o uso de recursos de gerenciamento de estado do lado do servidor (com `previous_interaction_id`), [execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) (usando `background=true`) e fins de observabilidade.
 
-- **Nivel pagado**: El sistema conserva las interacciones durante **55 días**.
-- **Nivel gratuito**: El sistema retiene las interacciones durante **1 día**.
+- **Nível pago**: o sistema retém as interações por **55 dias**.
+- **Nível sem custo financeiro**: o sistema retém as interações por **1 dia**.
 
-Si no quieres esto, puedes establecer `store=false` en tu solicitud. Este control es independiente de la administración del estado. Puedes inhabilitar el almacenamiento para cualquier interacción. Sin embargo, ten en cuenta que `store=false` no es compatible con la [ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419) y evita el uso de `previous_interaction_id` en turnos posteriores.
+Se não quiser isso, defina `store=false` na sua solicitação. Esse controle é separado do gerenciamento de estado. Você pode desativar o armazenamento para qualquer interação. No entanto, `store=false` é incompatível com a [execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) e impede o uso de `previous_interaction_id` em turnos subsequentes.
 
-En el caso de los proyectos del nivel pagado, puedes configurar el período de retención en [AI Studio](https://aistudio.google.com/logs?hl=es-419) para marcar automáticamente los registros para su eliminación del almacenamiento del proyecto después de 7, 14, 28 o 55 días. Una retención más corta puede afectar la recuperación de conversaciones anteriores.
+Para projetos do nível pago, é possível configurar a janela de retenção no [AI Studio](https://aistudio.google.com/logs?hl=pt-br) para marcar automaticamente os registros para exclusão do armazenamento do projeto após 7, 14, 28 ou 55 dias. Um período de retenção mais curto pode afetar a recuperação de conversas anteriores.
 
-Puedes borrar las interacciones almacenadas en cualquier momento con el método [`delete`](https://ai.google.dev/api/interactions-api?hl=es-419#deleteInteraction) de forma programática, lo que requiere el ID de interacción. También puedes ver y administrar los registros de interacciones almacenados, incluida la eliminación del almacenamiento del proyecto, en [AI Studio](https://aistudio.google.com/logs?hl=es-419).
+É possível excluir as interações armazenadas a qualquer momento usando o método
+[`delete`](https://ai.google.dev/api/interactions-api?hl=pt-br#deleteInteraction) de forma programática,
+que exige o ID da interação. Também é possível acessar e gerenciar os registros de
+interações armazenados, incluindo a exclusão do armazenamento do projeto, no
+[AI Studio](https://aistudio.google.com/logs?hl=pt-br).
 
-Una vez que venza el período de retención, tus datos se borrarán automáticamente.
+Após o período de armazenamento, seus dados serão excluídos automaticamente.
 
-Los objetos de interacciones se procesan según las [condiciones](https://ai.google.dev/gemini-api/terms?hl=es-419).
+Os objetos de interação são processados de acordo com os [termos](https://ai.google.dev/gemini-api/terms?hl=pt-br).
 
-### Cómo ver las interacciones en AI Studio
+### Ver interações no AI Studio
 
-La API almacena las solicitudes de la API de Interactions ejecutadas con `store=true` para los proyectos del nivel pagado. Puedes verlos directamente en la [página Logs de Google AI Studio](https://ai.google.dev/gemini-api/docs/www.aistudio.google.com/logs?hl=es-419). Para obtener más información, consulta la [guía de registros](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=es-419).
+A API armazena solicitações da API Interactions executadas com `store=true` para projetos no nível pago. Você pode conferir essas informações diretamente na [página "Registros" do Google AI Studio](https://aistudio.google.com/logs?hl=pt-br). Consulte o [guia de registros](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-br) para mais informações.
 
-## Prácticas recomendadas
+## Práticas recomendadas
 
-- **Tasa de aciertos de caché**: El almacenamiento en caché implícito se admite en los modos con y sin estado (consulta la [guía de inicio rápido](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419#4_multi-turn_conversations)). El uso de `previous_interaction_id` (con estado) para continuar las conversaciones permite que el sistema utilice más fácilmente el almacenamiento en caché implícito para el historial de conversaciones, lo que mejora el rendimiento y reduce los costos.
-- **Combinación de interacciones**: Tienes la flexibilidad de combinar interacciones del agente y del modelo en una conversación. Por ejemplo, puedes usar un agente especializado, como el agente de Deep Research, para la recopilación inicial de datos y, luego, usar un modelo estándar de Gemini para tareas de seguimiento, como resumir o reformatear, y vincular estos pasos con `previous_interaction_id`.
+- **Taxa de ocorrência em cache**: o armazenamento em cache implícito é compatível com os modos com e sem estado. Consulte o [guia de início rápido](https://ai.google.dev/gemini-api/docs/get-started?hl=pt-br#4_multi-turn_conversations). Usar `previous_interaction_id` (com estado) para continuar conversas permite que o sistema utilize mais facilmente o armazenamento em cache implícito para o histórico de conversas, o que melhora a performance e reduz os custos.
+- **Misturar interações**: você tem a flexibilidade de misturar e combinar interações do agente e do modelo em uma conversa. Por exemplo, você pode usar um agente especializado, como o Deep Research Agent, para a coleta inicial de dados e, em seguida, usar um modelo padrão do Gemini para tarefas de acompanhamento, como resumir ou reformatar, vinculando essas etapas ao `previous_interaction_id`.
 
-## Modelos y agentes compatibles
+## Modelos e agentes compatíveis
 
-| Nombre del modelo | Tipo | ID de modelo |
+| Nome do modelo | Tipo | ID do modelo |
 | --- | --- | --- |
 | Gemini 3.8 Flash | Modelo | `gemini-3.8-flash` |
 | Gemini 3.7 Flash | Modelo | `gemini-3.7-flash` |
 | Gemini 3.6 Flash | Modelo | `gemini-3.6-flash` |
 | Gemini 3.5 Flash | Modelo | `gemini-3.5-flash` |
-| Versión preliminar de Gemini 3.1 Pro | Modelo | `gemini-3.1-pro-preview` |
-| Gemini 3.5 Flash-Lite | Modelo | `gemini-3.5-flash-lite` |
+| Pré-lançamento do Gemini 3.1 Pro | Modelo | `gemini-3.1-pro-preview` |
+| Gemini 3.5 Flash Lite | Modelo | `gemini-3.5-flash-lite` |
 | Gemini 3.1 Flash-Lite | Modelo | `gemini-3.1-flash-lite` |
-| Versión preliminar de Gemini 3 Flash | Modelo | `gemini-3-flash-preview` |
+| Pré-lançamento do Gemini 3 Flash | Modelo | `gemini-3-flash-preview` |
 | Gemini 2.5 Pro | Modelo | `gemini-2.5-pro` |
 | Gemini 2.5 Flash | Modelo | `gemini-2.5-flash` |
 | Gemini 2.5 Flash-lite | Modelo | `gemini-2.5-flash-lite` |
 | Gemini 3 Pro Image | Modelo | `gemini-3-pro-image` |
-| Gemini 3.1 Flash Image | Modelo | `gemini-3.1-flash-image` |
-| Versión preliminar de TTS de Gemini 3.1 Flash | Modelo | `gemini-3.1-flash-tts-preview` |
+| Imagem do Gemini 3.1 Flash | Modelo | `gemini-3.1-flash-image` |
+| Pré-lançamento do Gemini 3.1 Flash TTS | Modelo | `gemini-3.1-flash-tts-preview` |
 | Gemma 4 31B IT | Modelo | `gemma-4-31b-it` |
 | Gemma 4 26B MoE IT | Modelo | `gemma-4-26b-a4b-it` |
 | Lyria 3.5 | Modelo | `lyria-3.5` |
-| Vista previa de clip de Lyria 3 | Modelo | `lyria-3-clip-preview` |
-| Versión preliminar de Lyria 3 Pro | Modelo | `lyria-3-pro-preview` |
-| Versión preliminar de Deep Research | Agente | `deep-research-preview-04-2026` |
-| Versión preliminar de Deep Research | Agente | `deep-research-max-preview-04-2026` |
-| Vista previa de Antigravity | Agente | `antigravity-preview-09-2026` |
+| Prévia de clipes do Lyria 3 | Modelo | `lyria-3-clip-preview` |
+| Pré-lançamento do Lyria 3 Pro | Modelo | `lyria-3-pro-preview` |
+| Prévia do Deep Research | Agente | `deep-research-preview-04-2026` |
+| Prévia do Deep Research | Agente | `deep-research-max-preview-04-2026` |
+| Prévia do Antigravity | Agente | `antigravity-preview-09-2026` |
 
-## SDK
+## SDKs
 
-Puedes usar la versión más reciente de los SDKs de IA generativa de Google para acceder a la API de Interactions.
+Use a versão mais recente dos SDKs da IA generativa do Google para acessar a API Interactions.
 
-- En Python, este es el paquete `google-genai` a partir de la versión `2.3.0`.
-- En JavaScript, este es el paquete `@google/genai` a partir de la versión `2.3.0`.
-- En Go, este es el paquete `google.golang.org/genai`.
-- En Java, este es el paquete `com.google.genai:google-genai`.
+- Em Python, esse é o pacote `google-genai` da versão `2.3.0` em diante.
+- Em JavaScript, esse é o pacote `@google/genai` da versão `2.3.0`
+  em diante.
+- Em Go, esse é o pacote `google.golang.org/genai`.
+- Em Java, esse é o pacote `com.google.genai:google-genai`.
 
-Puedes obtener más información para instalar los SDKs en la página [Libraries](https://ai.google.dev/gemini-api/docs/libraries?hl=es-419).
+Saiba mais sobre como instalar os SDKs na página [Bibliotecas](https://ai.google.dev/gemini-api/docs/libraries?hl=pt-br).
 
-## Limitaciones
+## Limitações
 
-- **MCP remoto**: Gemini 3 no admite MCP remoto. Esta función estará disponible pronto.
-- **Compatibilidad del modelo de varios turnos**: Cuando se combinan diferentes modelos en una conversación (con estado o sin estado), los modelos posteriores deben admitir las modalidades de salida de los modelos anteriores como entrada. Por ejemplo, si generas una imagen con `gemini-3.1-flash-image`, no puedes continuar esa conversación con un modelo que no acepte entradas de imágenes (como un modelo solo de texto o un modelo de generación de música como Lyria).
+- **MCP remoto**: o Gemini 3 não é compatível com MCP remoto, mas isso vai mudar em breve.
+- **Compatibilidade de modelos multiturno**: ao misturar modelos diferentes em uma conversa (com ou sem estado), os modelos subsequentes precisam aceitar as modalidades de saída dos modelos anteriores como entrada. Por exemplo, se você gerar uma imagem usando o `gemini-3.1-flash-image`, não será possível continuar essa conversa com um modelo que não aceita entradas de imagem, como um modelo somente de texto ou um modelo de geração de música como o Lyria.
 
-La API de [`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=es-419) admite las siguientes funciones, pero **aún no están disponibles** en la API de Interactions:
+Os seguintes recursos são compatíveis com a API
+[`generateContent`](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=pt-br), mas **ainda não estão
+disponíveis** na API Interactions:
 
-- **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**
-- **[Llamada a función automática (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=es-419#automatic_function_calling_python_only)**
-- **[Almacenamiento en caché explícito](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**: Ten en cuenta que el almacenamiento en caché implícito del servidor está disponible en la API de Interactions a través de `previous_interaction_id`.
-- **[Configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419)**: La API de Interactions no admite la configuración de seguridad personalizada.
+- **[API em lote](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br)**
+- **[Chamada automática de função (Python)](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=pt-br#automatic_function_calling_python_only)**
+- **[Cache explícito](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br)**: o cache implícito do lado do servidor está disponível na API Interactions
+  via `previous_interaction_id`.
+- **[Configurações de segurança](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pt-br)**: as configurações de segurança personalizadas não são compatíveis com a API Interactions.
 
-## Comentarios
+## Feedback
 
-Tus comentarios son fundamentales para el desarrollo de la API de Interactions.
-Comparte tus opiniones, informa errores o solicita funciones en nuestro [foro de la comunidad de desarrolladores de IA de Google](https://discuss.ai.google.dev/c/gemini-api/4?hl=es-419).
+Seu feedback é fundamental para o desenvolvimento da API Interactions.
+Compartilhe suas ideias, informe bugs ou solicite recursos no [fórum da comunidade de desenvolvedores da IA do Google](https://discuss.ai.google.dev/c/gemini-api/4?hl=pt-br).
 
-## ¿Qué sigue?
+## A seguir
 
-- Prueba el [notebook de inicio rápido de la API de Interactions](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=es-419).
-- Obtén más información sobre el [agente de Deep Research de Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419).
+- Teste o [notebook de início rápido da API Interactions](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_interactions_api.ipynb?hl=pt-br).
+- Saiba mais sobre o [agente do Deep Research do Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br).
 
-Enviar comentarios
+Envie comentários
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última actualización: 2026-09-24 (UTC)
+Última atualização 2026-10-01 UTC.
 
-¿Quieres brindar más información?
+Quer enviar seu feedback?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-01 UTC."],[],[]]

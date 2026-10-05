@@ -1,452 +1,451 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=he
-fetched_at: 2026-09-28T06:22:40.504152+00:00
-title: "\u05d7\u05d9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=fr
+fetched_at: 2026-10-05T06:31:02.747454+00:00
+title: "Facturation \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-שליחת משוב
+Envoyer des commentaires
 
-# חיוב
+# Facturation
 
-במדריך הזה מוסבר על אפשרויות החיוב השונות של Gemini API, איך להפעיל את החיוב ולעקוב אחרי השימוש, וגם יש בו תשובות לשאלות נפוצות בנושא חיוב.
+Ce guide présente les différentes options de facturation de l'API Gemini, explique comment activer la facturation et surveiller l'utilisation, et répond aux questions fréquentes sur la facturation.
 
-## מידע על חיוב ורמות
+## À propos de la facturation et des niveaux
 
-החיוב על Gemini API מבוסס על היסטוריית התשלומים שלכם.
+La facturation de l'API Gemini dépend de votre historique de paiements.
 
-| רמת שימוש | מוקדמות | [מגבלת שכבת החיוב](#spend-caps) |
+| Niveau d'utilisation | Qualification | [Plafond du niveau de facturation](#spend-caps) |
 | --- | --- | --- |
-| **Free** | [פרויקט פעיל](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) או תקופת ניסיון בחינם | לא רלוונטי |
-| **רמה 1** | [הגדרה וקישור של חשבון לחיוב פעיל](#setup-billing) | ‎$250 |
-| **רמה 2** | התשלום בוצע בסך 100 $+ 3 ימים מהתשלום הראשון שבוצע בהצלחה | 2,000 $ |
-| **רמה 3** | התשלום בוצע בסך ‎1,000 $‎ + 30 ימים מהתשלום הראשון שבוצע בהצלחה | ‫$20,000 – $100,000 ומעלה |
+| **Free** | [Projet actif](https://ai.google.dev/gemini-api/docs/api-key?hl=fr#google-cloud-projects) ou essai sans frais | N/A |
+| **Niveau 1** | [Configurer et associer un compte de facturation actif](#setup-billing) | 250 $ |
+| **Niveau 2** | Paiement de 100 $ effectué trois jours après le premier paiement réussi | 2 000 $ |
+| **Niveau 3** | 1 000 $ payés + 30 jours à compter du premier paiement réussi | 20 000 $ – 100 000 $ et plus |
 
-בחשבונות חדשים מתחילים בתוכנית בחינם, שמאפשרת גישה ל[מודלים מסוימים](https://ai.google.dev/gemini-api/docs/pricing?hl=he) ב-Gemini API וב-AI Studio, עד [למכסות השימוש](https://aistudio.google.com/rate-limit?hl=he) של המודלים בתוכנית בחינם.
+Les nouveaux comptes commencent avec le niveau sans frais, qui permet d'accéder à [certains modèles](https://ai.google.dev/gemini-api/docs/pricing?hl=fr) dans l'API Gemini et AI Studio, jusqu'aux [limites de débit](https://aistudio.google.com/rate-limit?hl=fr) du niveau sans frais des modèles.
 
-כדי לפרוס את האפליקציות ישירות ממצב בנייה, אפשר להשתמש ב**תוכנית למתחילים של Google Cloud**. במסגרת הרמה הזו אפשר לפרסם עד 2 אפליקציות full stack בלי להגדיר פרויקט בענן ב-Google Cloud או חשבון לחיוב.
-פרטים נוספים זמינים במאמר בנושא [פריסה מ-Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=he) וב[מאמרי העזרה בנושא תוכנית למתחילים של Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=he).
+Pour déployer vos applications directement depuis le mode Création, les comptes éligibles peuvent utiliser le **niveau Starter de Google Cloud**. Ce niveau vous permet de publier jusqu'à deux applications full stack sans configurer de projet ni de compte de facturation Google Cloud.
+Pour en savoir plus sur l'éligibilité, consultez [Déployer à partir de Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=fr#starter-tier-eligibility) et la [documentation sur le niveau Starter de Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=fr).
 
-כדי לגשת למגבלות קצב גבוהות יותר, להשתמש במודלים מתקדמים ולוודא שההנחיות והתשובות שלכם **לא** ישמשו לשיפור מוצרי Google\*, אתם יכולים [לקשר חשבון לחיוב](#setup-billing) ו[לשלם מראש](#prepay) כדי לעבור לתוכניות בתשלום.
-לאחר מכן, תעברו לרמות גבוהות יותר בהתאם להוצאה המצטברת ולגיל החשבון.
+Pour accéder à des limites de taux plus élevées, utiliser des modèles avancés et vous assurer que vos requêtes et vos réponses **ne sont pas** utilisées pour améliorer les produits Google\*, vous pouvez [associer un compte de facturation](#setup-billing) et [prépayer](#prepay) pour passer aux niveaux payants.
+Vous passerez ensuite aux niveaux supérieurs en fonction de vos dépenses cumulées et de l'ancienneté de votre compte.
 
-הרמות, מגבלות הקצב והמגבלות על החשבון לחיוב נקבעים ברמת [החשבון לחיוב](#cloud-billing).
+Les niveaux, les limites de débit et les plafonds des comptes de facturation sont tous déterminés au niveau du [compte de facturation](#cloud-billing).
 
-‫\* *פרטיות נתונים ברמה שמתאימה לארגונים: מידע נוסף על השימוש בנתונים בשירותים בתשלום זמין [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#data-use-paid).*
+\* *Confidentialité des données de niveau Enterprise : pour en savoir plus sur l'utilisation des données pour les services payants, consultez les [Conditions d'utilisation](https://ai.google.dev/gemini-api/terms?hl=fr#data-use-paid).*
 
-## הגדרת חיוב כדי לקבל גישה לתוכנית בתשלום
+## Configurer la facturation pour accéder au forfait payant
 
-כדי לשדרג למינוי בתשלום ב-[Google AI Studio](https://aistudio.google.com/projects?hl=he), אתם יכולים ליצור פרויקט ולהגדיר חיוב, או לייבא פרויקט קיים.
-כדי לשדרג מהתוכנית בחינם לתוכנית בתשלום, צריך לקשר חשבון לחיוב ולבצע [תשלום מראש](#prepay) כדי להוסיף לחשבון לפחות 5$ (או שווה ערך במטבעות אחרים) של קרדיטים.
+Pour passer au niveau payant dans [Google AI Studio](https://aistudio.google.com/projects?hl=fr), vous pouvez créer un projet et configurer la facturation, ou importer un projet existant.
+Pour passer du niveau sans frais au niveau payant, vous devez associer un compte de facturation et [prépayer](#prepay) au moins 5 $ (ou l'équivalent dans d'autres devises) de crédits à votre compte.
 
-1. עוברים לדף [מפתחות API](https://aistudio.google.com/api-keys?hl=he), לדף [פרויקטים](https://aistudio.google.com/projects?hl=he) או לכל מקום אחר שבו מופיע הלחצן **הגדרת חיוב** ב-AI Studio.
-   - למשתמשים חדשים נוצר [פרויקט ומפתח API](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) כברירת מחדל.
-   - אם אתם צריכים מפתח חדש, לוחצים על [**Create API key**](https://aistudio.google.com/api-keys?hl=he) (יצירת מפתח API) ופועלים לפי ההוראות בתיבת הדו-שיח כדי להוסיף לטבלה צמד של מפתח ופרויקט.
-2. מאתרים את הפרויקט בתוכנית ללא תשלום שרוצים לשדרג לתוכנית בתשלום ולוחצים על **הגדרת חיוב** בעמודה *תוכנית חיוב*.
-3. אם אף פעם לא הגדרתם חשבון לחיוב ב-Google:
-   - תתבקשו לבחור את המדינה שלכם כדי לאשר את התנאים וההגבלות.
-   - לאחר מכן, ממלאים את פרטי הקשר ואת אמצעי התשלום או מאשרים אותם כדי להמשיך.
-4. אם הגדרתם בעבר חשבונות לחיוב ב-Google:
-   - תתבקשו לבחור מתוך החשבונות הקיימים לחיוב.
-   - אם אתם לא רוצים להשתמש באף אחד מהחשבונות הקיימים, לוחצים על **הוספת חשבון חיוב חדש** וממלאים או מאשרים את פרטי הקשר ואת אמצעי התשלום כדי להמשיך.
-5. לאחר מכן, תהיה לכם אחת מהאפשרויות הבאות:
-   - מתבקשים לשלם מראש סכום מינימלי של 5 $כדי להשלים את הגדרת החיוב (כלומר, החשבון שלכם משויך אוטומטית לתוכנית החיוב [תשלום מראש](#prepay)),
-   - אם יש לכם אפשרות לבחור בין תוכניות חיוב של [תשלום מראש](#prepay) לבין [תשלום לאחר השימוש](#postpay) בחשבון.
-   - הוקצו לתוכנית חיוב [Postpay](#postpay) לתקופת ביניים עד שהמערכת החדשה של Prepay תתעדכן אצל כל המשתמשים (החל מ-23 במרץ 2026).
-6. אחרי שתשלמו מראש או תבחרו באפשרות 'תשלום לאחר השימוש', הגדרת החשבון תושלם.
+1. Accédez à la page [Clés API](https://aistudio.google.com/api-keys?hl=fr) ou [Projets](https://aistudio.google.com/projects?hl=fr) d'AI Studio, ou à tout autre endroit où le bouton **Configurer la facturation** s'affiche dans AI Studio.
+   - Pour les nouveaux utilisateurs, un [projet et une clé API](https://ai.google.dev/gemini-api/docs/api-key?hl=fr#google-cloud-projects) sont créés par défaut.
+   - Si vous avez besoin d'une nouvelle clé, cliquez sur [**Créer une clé API**](https://aistudio.google.com/api-keys?hl=fr) et suivez les instructions de la boîte de dialogue pour ajouter une paire clé/projet au tableau.
+2. Recherchez le projet de niveau sans frais que vous souhaitez passer au niveau payant, puis cliquez sur **Configurer la facturation** sous la colonne *Niveau de facturation*.
+3. Si vous n'avez jamais configuré de compte de facturation Google :
+   - Vous serez invité à sélectionner votre pays pour accepter les conditions d'utilisation.
+   - Ensuite, saisissez ou confirmez vos coordonnées et votre mode de paiement pour continuer.
+4. Si vous avez déjà configuré des comptes de facturation Google :
+   - Vous serez invité à choisir l'un de vos comptes de facturation existants.
+   - Si vous ne souhaitez pas utiliser l'un de vos comptes existants, cliquez sur **Ajouter un compte de facturation**, puis saisissez ou confirmez vos coordonnées et votre mode de paiement pour continuer.
+5. Ensuite, vous serez :
+   - Vous avez été invité à prépayer un minimum de 5 $ pour terminer la configuration de la facturation (ce qui signifie que votre compte est automatiquement associé au forfait de facturation [Prépaiement](#prepay)).
+   - Vous avez le choix entre les forfaits de facturation [Prépaiement](#prepay) et [Post-paiement](#postpay) pour votre compte.
+   - Attribué à un forfait de facturation [post-paiement](#postpay) pour une période intermédiaire jusqu'à ce que le nouveau système de prépaiement soit déployé pour tous les utilisateurs (à partir du 23 mars 2026).
+6. Une fois le prépaiement effectué ou le post-paiement sélectionné, la configuration de votre compte est terminée.
 
-### שדרוג לרמת המינוי הבאה בתשלום
+### Passer au niveau payant supérieur
 
-אם אתם כבר משתמשים בתוכנית בתשלום ועומדים [בקריטריונים](#about-billing) לשינוי תוכנית, תקבלו שדרוג אוטומטי לתוכנית הבאה (בכפוף [לזמני העיבוד](#processing-times)).
+Si vous disposez déjà d'un forfait payant et que vous remplissez les [critères](#about-billing) pour changer de forfait, vous passerez automatiquement au forfait supérieur (sous réserve des [délais de traitement](#processing-times)).
 
-## אימות סטטוס החיוב
+## Vérifier l'état de facturation
 
-אחרי [קישור חשבון לחיוב](#setup-billing) לפרויקט, אפשר לעקוב אחרי הסטטוס שלו ב[דף החיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he). בניגוד לתוכנית בחינם, הסטטוס של תוכנית בתשלום הוא דינמי. רמת השימוש נקבעת לפי היסטוריית החשבון, אבל Gemini API ישרת בקשות רק אם יש לכם יתרה חיובית של קרדיטים ב[תשלום מראש](#prepay).
+Une fois que vous avez [associé un compte de facturation](#setup-billing) à votre projet, vous pouvez surveiller son état sur la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr). Contrairement au niveau sans frais, l'état du niveau payant est dynamique. Alors que votre niveau d'utilisation est déterminé par l'historique de votre compte, l'API Gemini ne traitera les requêtes que si vous disposez d'un solde de crédit [prépaiement](#prepay) positif.
 
-בדף [Projects](https://aistudio.google.com/projects?hl=he), בעמודה *Billing Tier*, תוכלו לראות את רמת החיוב ואת תוכנית החיוב של הפרויקט. פעולות שצריך לבצע לגבי סטטוס החיוב של פרויקט מוצגות בעמודות *רמת החיוב* או *סטטוס*:
+Sur la page [Projets](https://aistudio.google.com/projects?hl=fr), vous pouvez consulter le niveau et le forfait de facturation de votre projet dans la colonne *Niveau de facturation*. Toutes les actions liées à l'état de facturation que vous devrez peut-être effectuer pour un projet s'affichent dans les colonnes *Niveau de facturation* ou *État* :
 
-- ‫***Set up billing*** אם לפרויקט לא מצורף חשבון לחיוב.
-- ‫***Set up Prepay*** (הגדרת תשלום מראש) אם לפרויקט יש חשבון לחיוב שמצורף אליו, אבל נדרשת תוכנית חיוב [Prepay](#prepay) (תשלום מראש) שצריך להגדיר.
-- ‫***No credits*** אם נדרש לרכוש קרדיטים בחשבון לחיוב, אבל חשבון התשלומים מראש לא מוגדר או שמאזן הקרדיטים הזמין התרוקן.
+- ***Configurer la facturation*** : si aucun compte de facturation n'est associé au projet.
+- ***Configurer le prépaiement*** : si un compte de facturation est associé au projet, mais qu'il doit utiliser un forfait [avec prépaiement](#prepay) qui doit être configuré.
+- ***Aucun crédit*** : si le compte de facturation est requis pour acheter des crédits, mais que le compte de paiement par prépaiement n'est pas configuré ou que le solde de crédit disponible est épuisé.
 
-לוחצים על אחת מההודעות כדי להמשיך בפעולות הנדרשות.
+Cliquez sur l'un des messages pour effectuer les actions nécessaires.
 
-## מעקב אחרי השימוש
+## Surveiller l'utilisation
 
-אפשר לעקוב אחרי השימוש ב-Gemini API ב-[Google AI Studio](https://aistudio.google.com/usage?hl=he) בדף **מרכז הבקרה** > **שימוש**.
+Vous pouvez surveiller votre utilisation de l'API Gemini dans [Google AI Studio](https://aistudio.google.com/usage?hl=fr), sous **Tableau de bord** > **Utilisation**.
 
-## תוכניות חיוב
+## Forfaits
 
-יש שני סוגים של תוכניות חיוב ל-Gemini API ול-AI Studio, שקובעים מתי משלמים על השימוש: תשלום מראש ותשלום בסוף תקופת החיוב. בדף [AI Studio Billing](https://aistudio.google.com/billing?hl=he) אפשר לבדוק את תוכנית החיוב שהוקצתה לכם ולנהל את אמצעי התשלום.
+Les forfaits de facturation pour l'API Gemini et AI Studio se répartissent en deux catégories qui déterminent le moment où vous payez votre utilisation : prépaiement et post-paiement. Vous pouvez consulter votre forfait de facturation attribué et gérer vos modes de paiement sur la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr).
 
-### תשלום מראש
+### Prépaiement
 
-בתוכנית החיוב מראש, אתם רוכשים קרדיטים ליתרת התשלום מראש לפני השימוש ב-Gemini API, ועלויות השימוש ב-API מנוכות מיתרת הקרדיטים של התשלום מראש [כמעט בזמן אמת](#processing-times).
-אתם יכולים לשלם מראש על ידי [הוספת קרדיטים](#buy-credits) לחשבון או על ידי הגדרת [הוספת כסף אוטומטית](#auto-reload). אחרי רכישת הקרדיטים, קרדיטים שלא נעשה בהם שימוש יפוגו אחרי 12 חודשים ו[לא ניתן לקבל עליהם החזר כספי](#refunds), אלא אחרי [מעבר לחשבון עם תשלום לאחר השימוש (postpay)](#postpay).
+Dans le forfait de facturation avec prépaiement, vous achetez des crédits qui sont ajoutés à votre solde de prépaiement avant d'utiliser l'API Gemini. Les coûts d'utilisation de l'API sont déduits de votre solde de crédits de prépaiement [en temps quasi réel](#processing-times).
+Vous pouvez effectuer un prépaiement en [ajoutant du crédit](#buy-credits) à votre compte ou en configurant la [recharge automatique](#auto-reload). Une fois les crédits achetés, ceux qui ne sont pas utilisés expirent au bout de 12 mois et ne sont [pas remboursables](#refunds), sauf après [être passé à un compte postpayé](#postpay).
 
-כשהיתרה שלכם בקרדיט לתשלום מראש בחשבון לחיוב תגיע ל-0$, כל מפתחות ה-API בכל הפרויקטים שמקושרים לחשבון הזה לחיוב יפסיקו לפעול בו-זמנית.
-הבקשות ייכשלו עם השגיאה [HTTP 402 Payment Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=he) עד שתקבלו קרדיטים.
-קרדיטים לתשלום מראש חלים רק על עלויות השימוש ב-Gemini API, ואי אפשר להשתמש בהם לתשלום על שירותים אחרים של Google Cloud.
+Lorsque le solde de crédit prépayé du compte de facturation atteint 0 $, toutes les clés API de tous les projets associés à ce compte de facturation cessent de fonctionner simultanément.
+Les requêtes échouent alors et renvoient une erreur [HTTP 402 Payment Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=fr) jusqu'à ce que vous ajoutiez des crédits.
+Les crédits prépayés ne s'appliquent qu'aux coûts d'utilisation de l'API Gemini. Vous ne pouvez pas les utiliser pour payer d'autres services Google Cloud.
 
-משתמשים חדשים מוגדרים כברירת מחדל לתוכנית התשלום מראש. יכול להיות שיהיה צורך [לעדכן את פרטי החיוב של הפרויקט](#verify-billing) בפרויקטים שנוצרו לפני שהשקנו את תוכניות החיוב בתשלום מראש ובתשלום בסוף החודש, כדי להמשיך להשתמש ב-Gemini API.
+Par défaut, les nouveaux utilisateurs sont associés au forfait avec prépaiement. Les projets antérieurs à l'introduction des forfaits avec prépaiement et post-paiement peuvent nécessiter la [mise à jour des informations de facturation du projet](#verify-billing) avant de continuer à utiliser l'API Gemini.
 
-*חשוב לזכור שאי אפשר להגדיר תשלום מראש בחשבונות [שמחויבים בחשבונית (אופליין)](https://docs.cloud.google.com/billing/docs/concepts?hl=he#billing_account_types).*
+*Notez que le prépaiement n'est pas disponible pour les comptes [avec paiement sur facture (ou hors connexion)](https://docs.cloud.google.com/billing/docs/concepts?hl=fr#billing_account_types).*
 
-#### הוספת תשלום מראש לחשבון קיים עם תשלום לאחר השימוש
+#### Ajouter un forfait prépayé à un compte postpayé existant
 
-אם בחשבון לחיוב ב-Cloud הקיים שלכם מוגדרת תוכנית **תשלום לאחר השימוש**, אתם יכולים להוסיף יכולות **תשלום מראש** כדי לרכוש קרדיטים מראש. הקרדיטים האלה מאפשרים לכם להשתמש ב-Gemini API בלי ליצור חשבון חדש לחיוב ב-Cloud.
+Si votre compte de facturation Cloud existant utilise un forfait **postpayé**, vous pouvez ajouter des fonctionnalités **prépaiement** pour acheter des crédits à l'avance. Ces crédits prépayés vous permettent d'utiliser l'API Gemini sans créer de compte de facturation Cloud.
 
-במהלך ההגדרה של הוספת **תשלום מראש** לחשבון קיים, מוצג מסך אישור חובה שבו מוסבר שהחשבון לחיוב ב-Cloud שנבחר ישתנה.
+Lors de la configuration pour ajouter le **prépaiement** à un compte existant, un écran de confirmation obligatoire s'affiche pour vous expliquer que le compte de facturation Cloud sélectionné sera modifié.
 
-המערכת צריכה לשנות את סטטוס החשבון *לפני* שתשלחו את התשלום מראש.
-לכן, ביטול התהליך אחרי אישור השינוי אבל לפני השלמת הגדרת התשלום מראש עלול לגרום לשיבושים זמניים בשירות בפרויקטים שכבר מקושרים לחשבון לחיוב ב-Cloud הזה. לפני שמאשרים את המעבר, חשוב לוודא שמוכנים להשלים את תהליך התשלום מראש. אם נתקלים בבעיות, אפשר לעיין במאמר [הפרעה בשירותים אחרי ביטול הגדרת **תשלום מראש**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#prepay-issue).
+Le système doit modifier l'état de votre compte *avant* que vous n'envoyiez votre paiement anticipé.
+Par conséquent, si vous annulez le processus après avoir confirmé la modification, mais avant d'avoir terminé la configuration du prépaiement, vous risquez de rencontrer des interruptions de service temporaires pour les projets déjà associés à ce compte de facturation Cloud. Assurez-vous d'être prêt à effectuer le processus de prépaiement avant de confirmer la transition. Si vous rencontrez des problèmes, consultez [Services interrompus après l'annulation d'une configuration **Prépayé**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=fr#prepay-issue).
 
-אם אתם עומדים בדרישות ועוברים באופן ידני ממחזור **תשלום מראש** למחזור **תשלום לאחר השימוש**, כל יתרת זיכוי שנותרה מהתשלום מראש מוחזרת אוטומטית לאמצעי התשלום המקורי ששימש לתשלום מראש. עם זאת, אם תסגרו את החשבון לחיוב ב-Cloud מסיבה אחרת, לא תקבלו החזר על יתרת הקרדיטים שנותרו בתשלום מראש.
+Si vous êtes éligible et que vous passez manuellement d'un cycle de **prépaiement** à un cycle de **post-paiement**, tout solde de crédit de prépaiement restant est automatiquement remboursé sur le mode de paiement d'origine utilisé pour le prépaiement. Toutefois, si vous clôturez votre compte de facturation Cloud pour une autre raison, les crédits prépayés restants seront perdus et ne seront pas remboursés.
 
-#### רכישת קרדיטים
+#### Acheter des crédits
 
-אתם יכולים לרכוש קרדיטים באופן ידני לפני השימוש ב-Gemini API כדי להוסיף אותם ליתרת הקרדיטים בחשבון התשלום מראש.
+Vous pouvez acheter manuellement des crédits avant d'utiliser l'API Gemini pour les ajouter au solde de votre compte avec prépaiement.
 
-כדי לקנות קרדיטים, עוברים לדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he) ובוחרים באפשרות **קניית קרדיטים**.
-סכום הרכישה המינימלי הוא 5$. הסכום המקסימלי של הקרדיטים שאפשר לשלם מראש הוא 5,000$.
+Pour acheter des crédits, accédez à la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr) et sélectionnez **Acheter des crédits**.
+Le montant d'achat minimal est de 5 $. Le montant maximal des crédits que vous pouvez prépayer est de 5 000 $.
 
-#### הוספת כסף אוטומטית
+#### Actualisation automatique
 
-הוספת כסף אוטומטית היא תכונה אופציונלית שמוסיפה קרדיטים ליתרת הזכות שלכם בחשבון תשלום מראש כשהיא יורדת מתחת לסכום מסוים. כך אפשר למנוע שיבושים בשירות.
+Le rechargement automatique est une fonctionnalité facultative qui recharge automatiquement votre solde de crédits prépayés lorsqu'il est faible. Cela permet d'éviter les interruptions de service.
 
-בדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he), בכרטיס *קרדיטים זמינים*, אפשר להגדיר הוספת כסף אוטומטית ולראות את הסטטוס שלה. לוחצים על **הגדרת הוספת כסף אוטומטית** או על **ניהול הוספת כסף אוטומטית** כדי להגדיר את אמצעי התשלום, את סכום הטעינה ואת היתרה המינימלית שתפעיל את תשלום הטעינה.
+Vous pouvez configurer la recharge automatique et consulter son état dans la fiche *Crédits disponibles* de la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr). Cliquez sur **Configurer la recharge automatique** ou **Gérer la recharge automatique** pour définir votre mode de paiement, le montant de la recharge et le solde minimum qui déclenche un paiement de recharge.
 
-#### תקרה חודשית לחיובים אוטומטיים
+#### Limite de recharge automatique mensuelle
 
-תקרת החיוב החודשית האוטומטית זמינה למשתמשים שמשלמים מראש, ועוזרת למנוע עלויות לא צפויות כתוצאה מהוספה אוטומטית של כסף לחשבון בתדירות גבוהה.
-אתם יכולים להשתמש בתכונה הזו כדי להגדיר מגבלה מקסימלית לטעינה אוטומטית של קרדיטים במסגרת מחזור חיובים יחיד. אחרי שהסכום הכולל של הוספות הכסף האוטומטיות במחזור חיובים מגיע לתקרה הזו, המערכת משביתה את הוספת הכסף האוטומטית עד לתחילת החודש הבא. המגבלה הזו לא כוללת תשלומים חד-פעמיים שאתם יוזמים באופן ידני.
+La limite de recharge automatique mensuelle est disponible pour les utilisateurs du mode prépaiement. Elle permet d'éviter les coûts inattendus liés aux recharges automatiques fréquentes.
+Utilisez cette fonctionnalité pour définir une limite maximale pour les recharges automatiques de crédit au cours d'un même cycle de facturation. Une fois que le montant total des recharges automatiques dans un cycle de facturation atteint cette limite, le système désactive la recharge automatique jusqu'au début du mois suivant. Les paiements ponctuels que vous initiez manuellement ne sont pas comptabilisés dans cette limite.
 
-כדי להגדיר את המגבלה החודשית לחיוב אוטומטי כשהאפשרות להוספת כסף אוטומטית מופעלת:
+Pour définir la limite de recharge automatique mensuelle lorsque la recharge automatique est activée :
 
-1. עוברים לדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he).
-2. לוחצים על **ניהול ההגדרות של הוספת הכסף האוטומטית**.
-3. מרחיבים את הקטע **מגבלה חודשית** ומזינים את המגבלה החודשית המקסימלית להוספת כסף אוטומטית.
-4. לוחצים על **שמירה**.
+1. Accédez à la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr).
+2. Cliquez sur **Gérer la recharge automatique**.
+3. Développez la section **Limite mensuelle** et saisissez la limite mensuelle maximale pour les recharges automatiques.
+4. Cliquez sur **Enregistrer**.
 
-### תשלום לאחר השימוש (postpay)
+### Post-paiement
 
-בתוכנית התשלום לאחר השימוש, העלויות בחשבון לחיוב ב-Cloud מצטברות ואתם מחויבים אוטומטית בסוף החודש, או כשהעלויות מגיעות ל[מגבלת ההוצאות שהוקצתה אוטומטית](#tier-spend-caps) בהתאם לרמת החשבון.
-התשלום יחויב באמצעי התשלום שמצורף לחשבון התשלומים בסוף החודש, שאפשר לנהל בדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he). בדף **חיוב** תוכלו לראות את היתרה, את מועדי התשלום ואת התשלומים הקודמים, וגם לבצע תשלומים ולנהל את אמצעי התשלום.
+Dans le forfait de facturation post-paiement, votre compte de facturation Cloud génère des coûts et vous êtes automatiquement débité à la fin du mois ou lorsque vos coûts atteignent un [plafond de dépenses automatiquement attribué](#tier-spend-caps) en fonction du niveau de votre compte.
+Le paiement est débité du mode de paiement associé à votre compte de paiements postpayés, que vous pouvez gérer sur la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr). Sur la page **Facturation**, vous pourrez consulter votre solde, vos échéances et vos paiements précédents, ainsi qu'effectuer des paiements et gérer vos modes de paiement.
 
-כש[מגדירים חיוב](#setup-billing) לפרויקט חדש, אם אתם עומדים בדרישות לתשלום לאחר השימוש, תוכלו לבחור בין תשלום מראש לתשלום לאחר השימוש בתיבת הדו-שיח [הגדרת חיוב](#setup-billing).
+Lorsque vous [configurez la facturation](#setup-billing) pour un nouveau projet, si vous êtes éligible au post-paiement, vous pouvez choisir entre le prépaiement et le post-paiement dans la boîte de dialogue [Configuration de la facturation](#setup-billing).
 
-אחרי שמעבירים חשבון לחיוב ב-Cloud לשימוש בתוכנית חיוב לפי שימוש, כל הפרויקטים שמקושרים לחשבון הזה לחיוב מועברים לתוכנית הזו. כדי להעביר חשבון שעומד בדרישות לתשלום מראש, פועלים לפי השלבים במאמר [מעבר לתשלום מראש](#migrate-to-prepay). אפשר גם להעביר פרויקט לחשבון לחיוב עם תוכנית חיוב שונה כדי לשנות את מחזור החיוב של הפרויקט. מידע נוסף זמין במסמכי Cloud בנושא [ניהול החיוב של פרויקטים](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he).
+Lorsque vous passez à la facturation postpayée pour un compte de facturation Cloud, tous les projets associés à ce compte sont également basculés vers la facturation postpayée. Vous pouvez migrer un compte éligible vers le prépaiement en suivant la procédure décrite dans [Migrer vers le prépaiement](#migrate-to-prepay). Vous pouvez également déplacer un projet vers un compte de facturation avec un forfait différent pour modifier le cycle de facturation de ce projet. Consultez la documentation Cloud sur la [gestion de la facturation pour les projets](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=fr).
 
-[מידע נוסף על מחזור החיובים בתשלום לאחר השימוש](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he)
+Pour en savoir plus sur le cycle de facturation du post-paiement, consultez le [guide Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=fr).
 
-### מעבר לתשלום מראש
+### Migrer vers le prépaiement
 
-אנחנו מעבירים חשבונות מפתחים ב-Google AI Studio מחיוב לאחר השימוש (postpay) לחיוב מראש (prepay) על שימוש ב-Gemini API. השינוי הזה חל רק על Gemini API. שירותים אחרים של Google Cloud שמקושרים לחשבון לחיוב שלכם ימשיכו להיות בשיטת התשלום שאחרי השימוש.
+Google AI Studio migre les comptes de développeur du post-paiement vers le prépaiement pour l'utilisation de l'API Gemini. Cette modification ne s'applique qu'à l'API Gemini. Les autres services Google Cloud associés à votre compte de facturation restent en post-paiement.
 
-כדי למנוע שיבושים בשירות, צריך לעבור לתשלום מראש ולהוסיף קרדיטים לפני תאריך המעבר שמופיע בהודעה בחשבון. אם אתם משתמשים רק בתכונות של התוכנית בחינם, אתם לא צריכים לבצע פעולה כלשהי.
+Passez au prépaiement et ajoutez des crédits avant la date de bascule indiquée dans l'avis de votre compte pour éviter toute interruption de service. Les comptes qui n'utilisent que des fonctionnalités du niveau Sans frais n'ont aucune action à effectuer.
 
-כדי להעביר חשבון קיים עם תשלום לאחר השימוש (postpay) לתשלום מראש (prepay):
+Pour passer d'un compte avec post-paiement existant à un compte avec prépaiement :
 
-1. עוברים לדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he).
-2. בוחרים באפשרות **מעבר לתשלום מראש** בחשבון לחיוב.
-3. [רוכשים קרדיטים](#buy-credits) (מינימום 5$) כדי לטעון את היתרה ההתחלתית.
+1. Accédez à la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr).
+2. Sélectionnez **Passer au prépaiement** pour votre compte de facturation.
+3. [Achetez des crédits](#buy-credits) (5 $ minimum) pour créditer votre solde de départ.
 
-כדי למנוע שיבושים בשירות אחרי המעבר, צריך להגדיר [הוספת כסף אוטומטית](#auto-reload) כדי להוסיף כסף ליתרת הקרדיט כשהיא מתקרבת לאפס.
+Pour éviter toute interruption de service après le changement, configurez le [rechargement automatique](#auto-reload) afin de recharger votre solde de crédit lorsqu'il est faible.
 
-## תקרת הוצאות
+## Plafonds de dépenses
 
-‫Gemini API תומך בתקרות הוצאות חודשיות גם ברמת החשבון לחיוב וגם ברמת הפרויקט. אמצעי הבקרה האלה נועדו להגן על החשבון שלכם מפני חריגות לא צפויות, ועל המערכת האקולוגית כדי להבטיח את זמינות השירות.
+L'API Gemini accepte les plafonds de dépenses mensuels au niveau du compte de facturation et du projet. Ces contrôles sont conçus pour protéger votre compte contre les dépassements inattendus et l'écosystème pour assurer la disponibilité des services.
 
-*שימו לב: אי אפשר להגדיר תקרות הוצאות בחשבונות [שמחויבים בחשבונית (אופליין)](https://docs.cloud.google.com/billing/docs/concepts?hl=he#billing_account_types).*
+*Notez que les plafonds de dépenses ne sont pas disponibles pour les comptes [facturés (ou hors connexion)](https://docs.cloud.google.com/billing/docs/concepts?hl=fr#billing_account_types).*
 
-### תקרות הוצאה בפרויקט
+### Plafonds de dépenses pour les projets
 
-אתם יכולים להגדיר מגבלות הוצאה משלכם [ברמת הפרויקט](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) ב-AI Studio.
-האפשרות הזו שימושית אם יש לכם כמה פרויקטים באותו חשבון לחיוב ואתם רוצים לוודא שלכל אחד מהם תהיה גישה למספיק מהסכום המצטבר של מגבלת ההוצאות.
+Vous pouvez définir vos propres [plafonds de dépenses au niveau du projet](https://ai.google.dev/gemini-api/docs/api-key?hl=fr#google-cloud-projects) dans AI Studio.
+Cette option est utile si vous avez plusieurs projets sous le même compte de facturation et que vous souhaitez vous assurer que chacun d'eux a accès à une part suffisante de la limite de dépenses cumulée.
 
-בחשבונות עם [תפקידים](https://docs.cloud.google.com/iam/docs/roles-overview?hl=he) של עורך, בעלים או אדמין בפרויקט, אפשר להגדיר מגבלות הוצאה לכל פרויקט ב-AI Studio בדף [הוצאות](https://aistudio.google.com/spend?hl=he) בקטע **מגבלת הוצאות חודשית** > **עריכת מגבלת הוצאות**.
+Les comptes disposant des [rôles](https://docs.cloud.google.com/iam/docs/roles-overview?hl=fr) d'éditeur, de propriétaire ou d'administrateur de projet peuvent définir des limites de dépenses par projet dans AI Studio sur la page [Dépenses](https://aistudio.google.com/spend?hl=fr), sous **Limite de dépenses mensuelles** > **Modifier la limite de dépenses**.
 
-פרטים על הרשאות ספציפיות ב-Google Cloud IAM שנדרשות כדי להציג או לערוך את מגבלות ההוצאות ופרטי החיוב ב-AI Studio מופיעים [במדריך לפתרון בעיות ב-AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=he#iam-permissions).
+Pour en savoir plus sur les autorisations IAM Google Cloud spécifiques requises pour afficher ou modifier les limites de dépenses et les informations de facturation dans AI Studio, consultez le [guide de dépannage AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=fr#iam-permissions).
 
-אם [מעבירים פרויקט לחשבון אחר לחיוב](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#change_the_billing_account_for_a_project), כל מגבלת הוצאות שכבר הגדרתם לפרויקט הזה תישאר בתוקף, אבל כל ההוצאות המצטברות יאופסו ל-0 $עבור מחזור החיוב החדש.
+Si vous [déplacez un projet vers un autre compte de facturation](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=fr#change_the_billing_account_for_a_project), le plafond de dépenses que vous avez déjà défini pour ce projet sera conservé, mais les dépenses cumulées seront réinitialisées à 0 € pour le nouveau cycle de facturation.
 
-יכול להיות שיהיו חריגות במשימות ארוכות טווח כמו השלמות של [מצב אצווה](https://ai.google.dev/gemini-api/docs/batch-api?hl=he) וסשנים של סוכנים, מעבר למכסת ההוצאות של הפרויקט.
+Les tâches de longue durée, comme les finalisations en [mode batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr) et les sessions d'agent, peuvent entraîner des dépassements au-delà du plafond de dépenses de votre projet.
 
-יכול להיות עיכוב של עד 10 דקות בעיבוד נתוני החיוב ב-AI Studio. יכול להיות שתחויבו על חריגה ממכסת הפרויקט אם נתוני החיוב לא עברו עיבוד לפני שנוספו חיובים נוספים.
+Le traitement des données de facturation peut être retardé dans AI Studio (jusqu'à environ 10 minutes). Vous pouvez dépasser le plafond de votre projet si les données de facturation n'ont pas été traitées avant que d'autres frais ne soient accumulés.
 
-### תקרות הוצאות ברמת החשבון לחיוב
+### Plafonds de dépenses des niveaux de compte de facturation
 
-לכל [רמה](#about-billing) יש תקרת הוצאות חודשית מקסימלית:
+Chaque [niveau](#about-billing) est associé à une limite de dépenses mensuelles maximale :
 
-| רמת שימוש | תקרת הוצאות |
+| Niveau d'utilisation | Plafond de dépenses |
 | --- | --- |
-| **Free** | לא רלוונטי |
-| **רמה 1** | ‎$250 |
-| **רמה 2** | 2,000 $ |
-| **רמה 3** | ‫$20,000 – $100,000 |
+| **Free** | N/A |
+| **Niveau 1** | 250 $ |
+| **Niveau 2** | 2 000 $ |
+| **Niveau 3** | 20 000 $ – 100 000 $ |
 
-מכסות השימוש החודשיות נאכפות ב-Gemini API ברמת [החשבון לחיוב](#cloud-billing). המגבלות מוגדרות מראש, אבל אפשר [לבקש להגדיל אותן](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=he) כדי לאפשר שימוש גבוה יותר. ההוצאה הכוללת היא סכום מצטבר של כל הפרויקטים המקושרים שבהם מופעל שירות Gemini API. אחרי שהסכום הכולל בחשבון מגיע למגבלת הרמה, השירות מושהה בכל הפרויקטים שמקושרים לאותו חשבון לחיוב עד לתחילת מחזור החיוב הבא (הראשון בכל חודש).
+Des limites d'utilisation mensuelles sont appliquées à l'API Gemini au niveau du [compte de facturation](#cloud-billing). Bien que des limites par défaut soient prédéfinies, vous pouvez [demander une augmentation](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=fr) pour faire face à une utilisation plus élevée. Les dépenses totales sont agrégées pour tous les projets associés pour lesquels le service de l'API Gemini est activé. Une fois que le total cumulé du compte atteint la limite du niveau, le service est suspendu pour tous les projets associés à ce compte de facturation jusqu'au début du prochain cycle de facturation (le 1er de chaque mois).
 
-#### הערכת ההוצאות בחשבון לחיוב
+#### Évaluer les dépenses de votre compte de facturation
 
-כדי להעריך את ההוצאות החודשיות הקודמות שלכם ולקבוע אם [מגבלות ההוצאות החדשות לפי רמת חשבון לחיוב](#tier-spend-caps) ישפיעו על הפרויקטים הפעילים שלכם, אתם יכולים לפעול לפי השלבים הבאים:
+Pour évaluer vos dépenses mensuelles historiques et déterminer si les nouveaux [plafonds de dépenses des niveaux de compte de facturation](#tier-spend-caps) auront un impact sur vos projets en cours, procédez comme suit :
 
-1. במסוף Google Cloud, נכנסים לדף [Reports](https://console.cloud.google.com/billing/reports?hl=he) בחשבון לחיוב ב-Cloud.
-   - אם יש לכם יותר מחשבון אחד לחיוב, בהודעה שמופיעה בוחרים את החשבון לחיוב ב-Cloud שרוצים לראות את דוחות העלויות שלו.
-2. כברירת מחדל, הדוח מוגדר ל'קיבוץ לפי שירות' בחודש הנוכחי. בטבלה, בעמודה **Service** יופיע **Gemini API**, ובעמודה **Usage cost** יופיע סך ההוצאות.
-3. כדי לראות עלויות מפורטות שקשורות רק לשימוש ב-Gemini API, מגדירים את המסנן **Group by** לקיבוץ לפי **SKU**, ואת המסנן **Services** ל-**Gemini API**.
-4. משנים את המסנן **Time range by usage date** לטווח הרצוי כדי להעריך את ההוצאות ההיסטוריות בתקופה מסוימת.
+1. Dans la console Google Cloud, accédez à la page [Rapports sur le compte de facturation Cloud](https://console.cloud.google.com/billing/reports?hl=fr).
+   - Si vous disposez de plusieurs comptes de facturation, choisissez celui pour lequel vous souhaitez afficher des rapports sur les coûts lorsque vous y êtes invité.
+2. Par défaut, le rapport est défini sur "Grouper par service" pour le mois en cours. Vous verrez **API Gemini** dans la colonne **Service** et les dépenses totales dans la colonne **Coût d'utilisation** du tableau.
+3. Pour afficher des coûts précis limités à l'utilisation de l'API Gemini, définissez le critère de regroupement **Grouper par** sur **SKU** et le filtre **Services** sur **API Gemini**.
+4. Ajustez le filtre **Période par date d'utilisation** à la plage de votre choix pour évaluer vos dépenses historiques au cours d'une période.
 
-## משך זמן הטיפול
+## Délais de traitement
 
-העדכונים והאותות שקשורים לחיוב לא תמיד מתרחשים בזמן אמת.
+Les signaux et les mises à jour de facturation ne sont pas toujours en temps réel.
 
-- **שימוש בזיכויים**: בדרך כלל, עלויות השימוש מנוכות מהיתרה תוך דקות.
-- **אישור תשלום**: רוב התשלומים בכרטיס מתבצעים באופן מיידי, אבל יכול להיות שיעברו כמה ימים עד שסוגים מסוימים של תשלומים (כמו העברות בנקאיות) יאושרו. השירותים יתחדשו או ישודרגו רק אחרי שהרכישה של הקרדיטים תאושר באופן רשמי.
-- **שדרוגים של רמות**: אחרי תשלום מוצלח, או כשעומדים [בקריטריונים לשדרוג](#about-billing), השדרוגים של הרמות בדרך כלל משתקפים תוך 10 דקות.
-- **תרשימים של פירוט העלות הכוללת**: יכולות לעבור עד 24 שעות עד שהתרשימים שבהם מוצג פירוט העלות הכוללת בדף [חיוב](https://aistudio.google.com/billing?hl=he) ובדף [הוצאות](https://aistudio.google.com/spend?hl=he) יתעדכנו.
+- **Utilisation des crédits** : les coûts d'utilisation sont généralement déduits de votre solde en quelques minutes.
+- **Confirmation du paiement** : la plupart des paiements par carte sont instantanés, mais certains modes de paiement (comme les virements bancaires) peuvent prendre plusieurs jours à être traités. Les services ne reprennent ou ne sont mis à niveau qu'une fois l'achat de crédits officiellement confirmé.
+- **Passage à un niveau supérieur** : après un paiement réussi ou lorsque vous remplissez les [critères de mise à niveau](#about-billing), le passage à un niveau supérieur est généralement effectif sous 10 minutes.
+- **Graphiques de répartition du coût total** : les graphiques de répartition du coût total sur les pages [Facturation](https://aistudio.google.com/billing?hl=fr) et [Dépenses](https://aistudio.google.com/spend?hl=fr) peuvent mettre jusqu'à 24 heures à s'actualiser.
 
-במאמרים בנושא חיוב ב-Cloud מוסבר על [מחזור החיובים](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he#delayed-billing) ועל השהיות ב[עסקאות](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=he#missing-transactions), ובהם אפשר לקרוא מידע נוסף על עיכובים אפשריים בחיוב.
+Consultez les guides Cloud Billing sur le [cycle de facturation](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=fr#delayed-billing) et les latences des [transactions](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=fr#missing-transactions) pour en savoir plus sur les éventuels retards de facturation.
 
-## החזרים כספיים
+## Remboursements
 
-לא ניתן לקבל החזרים כספיים על חשבונות לחיוב בשיטת **תשלום מראש**, אלא אם מבצעים החלפה של סוג החשבון.
+Les remboursements ne sont pas autorisés pour les comptes de facturation **prépayés**, sauf en cas de changement de type de compte.
 
-**כשמשנים חשבון עם תשלום מראש לסוג חשבון עם תשלום לאחר השימוש** (אחרי שעומדים [בקריטריונים](#about-billing) ו[משדרגים את החשבון באופן ידני](#postpay)), החשבון עם התשלום מראש נסגר וכל יתרת הקרדיטים ששולמו מראש מוחזרת באופן אוטומטי לאמצעי התשלום שמוגדר בחשבון.
+**Lorsqu'un compte prépayé passe au type de compte postpayé** (après que vous avez rempli les [critères](#about-billing) et [mis à niveau manuellement](#postpay) votre compte), le compte prépayé est clôturé et tout crédit prépayé restant est automatiquement remboursé sur le mode de paiement enregistré.
 
-אם [סוגרים](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=he#close-a-billing-account) את החשבון בתשלום מראש מכל סיבה שהיא, מלבד שדרוג לתשלום לאחר השימוש, מאבדים את כל היתרה של הקרדיטים בתשלום מראש.
+Si vous [clôturez](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=fr#close-a-billing-account) votre compte prépayé pour une raison autre que le passage au post-paiement, tous les crédits prépayés restants seront perdus.
 
-התוקף של קרדיטים שרכשתם יפוג אחרי שנה. אחרי שתוקף השוברים יפוג, הם יבוטלו ולא ניתן יהיה לשחזר אותם.
+Les crédits achetés expirent au bout d'un an. Une fois les crédits expirés, ils sont perdus et ne peuvent pas être récupérés.
 
-בחשבונות **postpay** חלה [מדיניות ההחזרים הכספיים של Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=he#request_a_refund).
+Les comptes **postpayés** sont soumis au [Règlement Google Cloud sur les remboursements](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=fr#request_a_refund).
 
-## חשבונות לחיוב ב-Cloud
+## Comptes Cloud Billing
 
-ממשקי Gemini API משתמשים ב[חשבונות לחיוב ב-Cloud](https://cloud.google.com/billing/docs/concepts?hl=he) לשירותי חיוב, ואפשר [להגדיר אותם ישירות ב-AI Studio](#setup-billing).
-אתם יכולים להשתמש ב-AI Studio כדי לעקוב אחרי ההוצאות, להבין את העלויות ולבצע תשלומים.
+L'API Gemini utilise des [comptes de facturation Cloud](https://cloud.google.com/billing/docs/concepts?hl=fr) pour les services de facturation, que vous pouvez [configurer directement dans AI Studio](#setup-billing).
+Vous pouvez utiliser AI Studio pour suivre vos dépenses, comprendre vos coûts et effectuer des paiements.
 
-הרמות, מגבלות התעריפים והמגבלות על החשבון לחיוב נקבעים ברמת החשבון לחיוב.
+Les niveaux, les limites de débit et les plafonds de compte de facturation sont tous déterminés au niveau du compte de facturation.
 
-### פרויקטים ומפתחות API
+### Projets et clés API
 
-כל [הפרויקטים](https://ai.google.dev/gemini-api/docs/api-key?hl=he#google-cloud-projects) שמקושרים לחשבון לחיוב ב-Cloud יורשים את רמת השימוש של החשבון לחיוב ואת מגבלות התעריפים והמגבלות על החשבון שמשויכות אליה. אם [משנים פרויקט](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#change_the_billing_account_for_a_project) מחשבון אחד לחיוב לחשבון אחר, רמת הפרויקט, ומכסות הקצב ומכסות החשבון שנגזרות ממנה, ישתנו לרמה של החשבון החדש לחיוב.
+Tous les [projets](https://ai.google.dev/gemini-api/docs/api-key?hl=fr#google-cloud-projects) associés à un compte de facturation Cloud héritent du niveau d'utilisation, des limites de débit et des plafonds de compte associés. Si vous [modifiez le compte de facturation d'un projet](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=fr#change_the_billing_account_for_a_project), son niveau, et par conséquent ses limites de débit et ses plafonds de compte, passeront au niveau du nouveau compte de facturation.
 
-ההוצאה המצטברת (על כל מוצרי Google Cloud) וגיל החשבון בכל הפרויקטים שמקושרים לחשבון לחיוב נספרים לצורך [העמידה בדרישות לרמת החברות](#about-billing) של החשבון לחיוב.
+Les dépenses cumulées (pour tous les produits Google Cloud) et l'ancienneté du compte pour tous les projets associés à un compte de facturation sont prises en compte pour les [critères d'éligibilité aux niveaux](#about-billing) de ce compte de facturation.
 
-אפשר [לבטל את הקישור של פרויקט](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#disable_billing_for_a_project) לחשבון לחיוב כדי לחזור לתוכנית החינמית.
+Vous pouvez [dissocier un projet](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=fr#disable_billing_for_a_project) de son compte de facturation pour revenir au niveau sans frais.
 
-[מפתחות API](https://ai.google.dev/gemini-api/docs/api-key?hl=he) הם אמצעי אימות שנוצרים בתוך פרויקט.
-אין להם הגדרות חיוב עצמאיות, והם מקבלים בירושה את מגבלות הרמה ואת סטטוס החיוב של הפרויקט. השימוש המצטבר מכל המפתחות בפרויקט נספר במסגרת מגבלת ההוצאות של הפרויקט וההוצאות הכוללות בחשבון לחיוב.
+Les [clés API](https://ai.google.dev/gemini-api/docs/api-key?hl=fr) sont des identifiants générés dans un projet.
+Ils ne disposent pas de paramètres de facturation indépendants. Ils héritent des limites de niveau et de l'état de facturation du projet. L'utilisation cumulée de toutes les clés d'un projet est prise en compte dans la limite de dépenses de ce projet et dans les dépenses totales du compte de facturation.
 
-## שאלות נפוצות
+## Questions fréquentes
 
-בקטעים הבאים ריכזנו תשובות לשאלות נפוצות.
+Les sections suivantes répondent aux questions fréquentes.
 
-### על מה מחייבים אותי?
+### Quels sont les frais qui me sont facturés ?
 
-התמחור של Gemini API מבוסס על:
+Les tarifs de l'API Gemini sont basés sur les éléments suivants :
 
-- כמות הטוקנים של הקלט
-- כמות טוקנים בפלט
-- כמות טוקנים שנשמרו במטמון
-- משך האחסון של טוקנים במטמון
+- Nombre de jetons d'entrée
+- Nombre de jetons de sortie
+- Nombre de jetons mis en cache
+- Durée de stockage des jetons mis en cache
 
-למידע על מחירים אפשר לעיין ב[דף המחירים](https://ai.google.dev/pricing?hl=he).
+Pour obtenir des informations sur la tarification, consultez la [page des tarifs](https://ai.google.dev/pricing?hl=fr).
 
-### איפה אפשר לראות את המכסה?
+### Où puis-je consulter mon quota ?
 
-אפשר לראות את המכסה ואת מגבלות המערכת ב-[AI Studio](https://aistudio.google.com/usage?hl=he).
+Vous pouvez consulter vos quotas et les limites du système dans [AI Studio](https://aistudio.google.com/usage?hl=fr).
 
-### איך עוברים לרמה גבוהה יותר של מכסה לקצב שליחת בקשות או מבקשים להגדיל את המכסה?
+### Comment passer à un niveau de limite de fréquence supérieur ou demander un quota plus important ?
 
-המכסה שלכם תוגדל באופן אוטומטי כשהחשבון יעמוד [בדרישות של השלב הבא](https://ai.google.dev/gemini-api/docs/rate-limits?hl=he#usage-tiers).
+Vous recevrez automatiquement un quota plus élevé lorsque votre compte atteindra les [exigences du niveau](https://ai.google.dev/gemini-api/docs/rate-limits?hl=fr#usage-tiers) suivant.
 
-### האם אפשר להשתמש ב-Gemini API בחינם באזור הכלכלי האירופי (כולל האיחוד האירופי), בבריטניה ובשווייץ?
+### Puis-je utiliser l'API Gemini sans frais dans l'EEE (y compris l'UE), au Royaume-Uni et en Suisse ?
 
-כן, אנחנו מציעים תוכנית בחינם ותוכנית בתשלום [באזורים רבים](https://ai.google.dev/gemini-api/docs/available-regions?hl=he).
+Oui, nous proposons le niveau sans frais et le niveau payant dans [de nombreuses régions](https://ai.google.dev/gemini-api/docs/available-regions?hl=fr).
 
-### אם אגדיר חיוב ב-Gemini API, האם אחויב על השימוש שלי ב-Google AI Studio?
+### Si je configure la facturation avec l'API Gemini, serai-je facturé pour mon utilisation de Google AI Studio ?
 
-השימוש ב-AI Studio נשאר בחינם, אלא אם המשתמשים מקשרים מפתח API בתשלום כדי לגשת לתכונות בתשלום.
-אחרי שמקשרים מפתח API בתשלום כחלק מפרויקט בתשלום ב-AI Studio, יחויב על השימוש ב-AI Studio עבור המפתח הזה. אתם יכולים לעבור בין פרויקטים במסלול בתשלום לבין פרויקטים בתוכנית בחינם לפי הצורך, באמצעות מפתחות ה-API המתאימים שמקושרים לכל סוג.
+L'utilisation d'AI Studio reste sans frais, sauf si les utilisateurs associent une clé API payante pour accéder aux fonctionnalités payantes.
+Une fois que vous avez associé une clé API payante à un projet payant dans AI Studio, l'utilisation d'AI Studio pour cette clé vous sera facturée. Vous pouvez passer d'un projet de niveau payant à un projet de niveau sans frais selon vos besoins, en utilisant les clés API respectives associées à chaque type.
 
-### אם אני משתמש בתוכנית בחינם, איך משדרגים לתוכניות גבוהות יותר?
+### Si je suis au niveau sans frais, comment passer à un niveau supérieur ?
 
-כדי לגשת לרמות גבוהות יותר, צריך להגדיר חיוב בפרויקט. ב-Google AI Studio, לוחצים על [**הגדרת החיוב**](#setup-billing). במאמר הזה מוסבר איך לבחור או ליצור חשבון לחיוב ב-Cloud. אם אתם נדרשים להשתמש במודל של חיוב מראש, התהליך של **הגדרת חיוב** ידריך אתכם בתהליך ליצירת חשבון תשלום מראש שמקושר לחשבון לחיוב ב-Cloud.
+Pour accéder aux niveaux supérieurs, vous devez configurer la facturation pour votre projet. Cliquez sur [**Configurer la facturation**](#setup-billing) dans Google AI Studio. Vous serez guidé pour sélectionner ou créer un compte de facturation Cloud. Si vous devez utiliser le modèle de facturation prépayé, la procédure **Configurer la facturation** vous guidera pour créer votre compte prépayé associé à votre compte de facturation Cloud.
 
-### האם אפשר להשתמש במיליון טוקנים בתוכנית בחינם?
+### Puis-je utiliser 1 million de jetons dans le forfait sans frais ?
 
-דרגת המינוי החינמית ל-Gemini API משתנה בהתאם למודל שנבחר. בשלב הזה, אפשר לנסות את חלון ההקשר של מיליון טוקנים בדרכים הבאות:
+Le niveau sans frais de l'API Gemini varie en fonction du modèle sélectionné. Pour le moment, vous pouvez essayer la fenêtre de contexte d'un million de jetons de différentes manières :
 
-- ב-Google AI Studio
-- עם תוכניות ללא עלות למודלים נבחרים
-- עם מינויים בתשלום לאחר השימוש (postpay)
+- Dans Google AI Studio
+- Avec des forfaits sans frais pour certains modèles
+- Avec les forfaits postpayés
 
-### אפשר לחזור לרמה החינמית אחרי שמשדרגים לרמות גבוהות יותר (בתשלום)?
+### Puis-je revenir au niveau sans frais après avoir opté pour un forfait payant ?
 
-כדי לשדרג לאחור לתוכנית בחינם, אפשר [להשבית את החיוב](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#disable_billing_for_a_project) בכל אחד מהפרויקטים שרוצים לשדרג לאחור.
+Pour passer au niveau sans frais, vous pouvez [désactiver la facturation](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=fr#disable_billing_for_a_project) sur chacun des projets que vous souhaitez rétrograder.
 
-### איך אפשר לחשב את מספר הטוקנים שבהם נעשה שימוש?
+### Comment calculer le nombre de jetons que j'utilise ?
 
-משתמשים בשיטה [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=he#count_tokens) כדי לספור את מספר האסימונים. מידע נוסף על אסימונים זמין [במדריך בנושא אסימונים](https://ai.google.dev/gemini-api/docs/tokens?hl=he).
+Utilisez la méthode [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=fr#count_tokens) pour compter le nombre de jetons. Pour en savoir plus sur les jetons, consultez le [guide sur les jetons](https://ai.google.dev/gemini-api/docs/tokens?hl=fr).
 
-### אם נרשמתי לחשבון החיוב הראשון שלי ב-Cloud דרך AI Studio, האם עדיין אקבל תקופת ניסיון בחינם ב-Google Cloud?
+### Si je m'inscris à mon premier compte de facturation Cloud via AI Studio, bénéficierai-je toujours d'un essai sans frais de Google Cloud ?
 
-כשנרשמים לחשבון לחיוב ב-Cloud בפעם הראשונה, מתחילה [תקופת הניסיון בחינם ל-Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=he#free-trial) ומקבלים [קרדיט על סך 300 $](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#welcome-credits).
-עם זאת, אי אפשר להשתמש בקרדיטים האלה כדי לשלם על שימוש ב-AI Studio. אתם יכולים להשתמש בקרדיט על ההצטרפות כדי לשלם על שירותים אחרים שעומדים בדרישות ב-Google Cloud (שימו לב שאחרי שתשתמשו בקרדיטים האלה או שהם יפוגו (תוך 90 יום), כל עלויות שימוש נוספות יחויבו באופן אוטומטי באמצעי התשלום שהגדרתם).
+Lorsque vous vous inscrivez à votre premier compte de facturation Cloud, votre [essai sans frais Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=fr#free-trial) commence et vous recevez un [crédit de bienvenue](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=fr#welcome-credits) de 300 $.
+Toutefois, ces crédits ne peuvent pas être utilisés pour payer l'utilisation d'AI Studio. Vous pouvez utiliser le crédit de bienvenue pour payer d'autres services éligibles dans Google Cloud (notez qu'une fois ces crédits consommés ou expirés (sous 90 jours), tous les coûts d'utilisation supplémentaires sont automatiquement facturés selon le mode de paiement que vous avez défini).
 
-### האם אפשר להשתמש בקרדיט קבלת הפנים שלי ב-Google Cloud עם Gemini API?
+### Puis-je utiliser mon crédit de bienvenue Google Cloud avec l'API Gemini ?
 
-לא, אי אפשר להשתמש ב[קרדיט הפתיחה](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he#welcome-credits) או בקרדיט לתקופת הניסיון בחינם של Google Cloud עבור Gemini API או AI Studio.
+Non, le [crédit de bienvenue](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=fr#welcome-credits) ou le crédit d'essai sans frais Google Cloud ne peuvent pas être utilisés pour l'API Gemini ni AI Studio.
 
-אם קיבלתם קרדיט לשימוש ב-Google Cloud לפני שהפסקתם לעמוד בדרישות, אתם יכולים להשתמש ביתרה שנותרה לכם ב-Gemini API וב-AI Studio עד שהקרדיט יפוג (אחרי 90 יום).
+Si vous avez reçu un crédit de bienvenue Google Cloud avant de devenir inéligible, vous pouvez dépenser les crédits restants sur l'API Gemini et AI Studio jusqu'à leur expiration (au bout de 90 jours).
 
-### האם תקופת הניסיון בחינם ב-Google Cloud חלה על שימוש ב-Gemini API?
+### L'essai sans frais de Google Cloud s'applique-t-il à l'utilisation de l'API Gemini ?
 
-לא. החל ממרץ 2026, עלויות השימוש ב-Gemini API לא כלולות בתוכנית [תקופת הניסיון בחינם של Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=he#free-trial).
+Non, à partir de mars 2026, les coûts d'utilisation de l'API Gemini seront spécifiquement exclus du programme d'[essai sans frais de Google Cloud pour un crédit de 300 $](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=fr#free-trial).
 
-### איך קרדיטים ב-Google Cloud עובדים עם תשלום מראש?
+### Comment les crédits Google Cloud fonctionnent-ils avec le prépaiement ?
 
-משתמשים שמשלמים מראש צריכים קודם [לקנות קרדיטים בתשלום מראש](#buy-credits) כדי שיוכלו להשתמש בקרדיטים של Google Cloud שמתאימים לשימוש ב-Gemini API. אחרי שיש לכם יתרה פעילה של קרדיט לתשלום מראש, המערכת תנצל את הקרדיטים של Google Cloud שעומדים בדרישות לשימוש ב-Gemini API לפני שתנצל את היתרה של הקרדיט לתשלום מראש. כשהיתרה של הקרדיט בתשלום מראש בחשבון לחיוב תגיע ל-0$, לא ייעשה יותר שימוש בקרדיטים של Google Cloud.
+Les utilisateurs du prépaiement doivent d'abord [acheter des crédits prépayés](#buy-credits) avant que des crédits Google Cloud éligibles puissent être appliqués à l'utilisation de l'API Gemini. Une fois que vous disposez d'un solde de crédit prépayé actif, les crédits Google Cloud éligibles à l'API Gemini sont utilisés avant votre solde de crédit prépayé. Lorsque le solde de votre crédit prépayé sur le compte de facturation atteint 0 $, les crédits Google Cloud ne sont plus utilisés.
 
-לא כל הקרדיטים ב-Google Cloud, כמו [קרדיט ההצטרפות ל-Google Cloud](#cloud-credits), ניתנים למימוש ב-Gemini API וב-AI Studio.
+Tous les crédits Google Cloud, comme le [crédit de bienvenue Google Cloud](#cloud-credits), ne peuvent pas être utilisés avec l'API Gemini et AI Studio.
 
-### איך מתבצע החיוב?
+### Comment la facturation est-elle gérée ?
 
-החיוב על Gemini API מתבצע באמצעות מערכת [החיוב ב-Cloud](https://cloud.google.com/billing/docs/concepts?hl=he). מידע נוסף על הגדרת החיוב ב-Cloud דרך המוצר עצמו זמין ב[מאמרי העזרה בנושא חיוב ב-Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=he).
+La facturation de l'API Gemini est gérée par le système [Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=fr). Pour en savoir plus sur la configuration de la facturation Cloud dans le produit, consultez la [documentation Cloud Billing](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=fr).
 
-### האם מחייבים אותי על בקשות שנכשלו?
+### Des frais me sont-ils facturés pour les requêtes ayant échoué ?
 
-אם הבקשה נכשלת עם שגיאה 400 או 500, לא תחויבו על האסימונים שבהם נעשה שימוש. עם זאת, הבקשה עדיין תיחשב לחלק מהמכסה שלכם.
+Si votre requête échoue et renvoie une erreur 400 ou 500, les jetons utilisés ne vous seront pas facturés. Toutefois, la demande sera quand même décomptée de votre quota.
 
-### האם `GetTokens` מחויב?
+### `GetTokens` est-il facturé ?
 
-לא נגבה תשלום על בקשות ל-`GetTokens` API, והן לא נכללות במכסת ההסקה.
+Les requêtes envoyées à l'API `GetTokens` ne sont pas facturées et ne sont pas comptabilisées dans le quota d'inférence.
 
-### איך הנתונים שלי ב-Google AI Studio מטופלים אם יש לי חשבון API בתשלום?
+### Comment mes données Google AI Studio sont-elles traitées si je possède un compte API payant ?
 
-פרטים על אופן הטיפול בנתונים כשמופעל חיוב ב-Cloud מופיעים [בתנאים ובהגבלות](https://ai.google.dev/gemini-api/terms?hl=he#paid-services) (בקטע 'איך Google משתמשת בנתונים שלך' שבקטע 'שירותים בתשלום'). חשוב לדעת שההנחיות שלכם ב-Google AI Studio נחשבות כחלק מהתנאים של 'שירותים בתשלום' כל עוד החיוב מופעל לפחות בפרויקט API אחד. תוכלו לוודא זאת ב[דף מפתח Gemini API](https://aistudio.google.com/api-keys?hl=he) אם אתם רואים פרויקטים שמסומנים כ'בתשלום' בקטע 'תוכנית'.
+Pour en savoir plus sur le traitement des données lorsque la facturation Cloud est activée, consultez les [Conditions d'utilisation](https://ai.google.dev/gemini-api/terms?hl=fr#paid-services) (voir "Comment Google utilise vos données" sous "Services payants"). Notez que vos requêtes Google AI Studio sont traitées selon les mêmes conditions des "Services payants" tant qu'au moins un projet d'API a activé la facturation. Vous pouvez le vérifier sur la [page des clés API Gemini](https://aistudio.google.com/api-keys?hl=fr) si vous voyez des projets marqués comme "Payant" sous "Forfait".
 
-### מהו חיוב מראש ומי נדרש להשתמש במודל של חיוב מראש?
+### Qu'est-ce que la facturation par prépaiement et qui doit l'utiliser ?
 
-חיוב בתשלום מראש מאפשר למשתמשים ב-Gemini API ב-AI Studio לבצע רכישה מוקדמת של קרדיטים.
-החל מ-23 במרץ 2026, משתמשים חדשים ב-AI Studio עשויים להידרש להשתמש בתוכנית חיוב מראש. במהלך תהליך [הגדרת החיוב](#setup-billing) ב-AI Studio, ממשק המשתמש ינחה אתכם בתהליך הגדרת החיוב ויציין אם נדרש תשלום מראש.
+La facturation prépayée permet aux utilisateurs de l'API Gemini dans AI Studio d'acheter des crédits à l'avance.
+À partir du 23 mars 2026, les nouveaux utilisateurs d'AI Studio devront peut-être souscrire au forfait prépayé. Lors de la procédure [Configurer la facturation](#setup-billing) dans AI Studio, l'interface utilisateur vous guidera tout au long du processus de configuration de la facturation et vous indiquera si vous devez effectuer un prépaiement.
 
-### איך קונים קרדיטים לתשלום מראש, והאם יש סכום מינימלי או מקסימלי?
+### Comment acheter des crédits prépayés ? Y a-t-il un montant minimal ou maximal ?
 
-אפשר [לקנות קרדיטים](#buy-credits) בדף החיוב ב-AI Studio. במהלך תהליך הרכישה, בממשק המשתמש יוצג סכום המינימום הנדרש לרכישה מוקדמת בהתאם לאזור ולרמת המינוי, וגם הסכום המקסימלי שיכול להיות בחשבון בכל פעם.
+Vous pouvez [acheter des crédits](#buy-credits) sur la page de facturation d'AI Studio. Lors du processus d'achat, l'UI indique le montant minimal de prépaiement requis pour votre région et votre niveau, ainsi que le montant maximal qui peut être présent dans votre compte à un moment donné.
 
-### האם אפשר להגדיר בחשבון התשלום מראש רכישה אוטומטית של קרדיטים נוספים לפי הצורך?
+### Puis-je configurer mon compte prépayé pour qu'il achète automatiquement des crédits supplémentaires si nécessaire ?
 
-כן, מומלץ להגדיר [הוספת כסף אוטומטית](#auto-reload) בהגדרות החיוב של AI Studio. אתם מציינים יתרת קרדיט שמהווה "טריגר" (למשל, "כשהיתרה שלי יורדת מתחת ל-30$") ו "סכום להוספה" (למשל, "הוספת 100$").
+Oui, nous vous recommandons de configurer la [recharge automatique](#auto-reload) dans les paramètres de facturation d'AI Studio. Vous spécifiez un solde de crédits "déclencheur" (par exemple, "lorsque mon solde descend en dessous de 30 $") et une "valeur de recharge" (par exemple, "ajouter 100 $").
 
-### האם אפשר להגביל את סכום החיובים של טעינה אוטומטית?
+### Puis-je limiter le montant des recharges automatiques ?
 
-כן, משתמשים במינוי בתשלום מראש יכולים להגדיר [מגבלה חודשית על טעינה אוטומטית](#monthly-auto-charge-limit) בווידג'ט **טעינה אוטומטית**. כשהסכום הכולל של הוספות הכסף האוטומטיות במחזור חיובים מגיע לתקרה הזו, המערכת משביתה את הוספת הכסף האוטומטית עד לחודש הבא. המגבלה הזו לא כוללת רכישות ידניות של קרדיטים.
+Oui, les utilisateurs Prepay peuvent définir une [limite de recharge automatique mensuelle](#monthly-auto-charge-limit) dans le widget **Recharge automatique**. Lorsque le montant total des recharges automatiques au cours d'un cycle de facturation atteint cette limite, le système désactive la recharge automatique jusqu'au mois suivant. Les achats manuels de crédits ne sont pas comptabilisés dans cette limite.
 
-### האם אפשר לקבל החזר כספי על קרדיטים שלא נוצלו?
+### Puis-je me faire rembourser mes crédits inutilisés ?
 
-התוקף של כל הקרדיטים ב-API בתשלום מראש הוא שנה אחת, ואי אפשר לקבל עליהם החזר כספי. [כאן](#refunds) אפשר לקרוא את מדיניות ההחזרים הכספיים לחשבונות שמוגדר בהם תשלום מראש.
+Tous les crédits prépayés pour les API expirent au bout d'un an et ne peuvent pas être remboursés. Consultez les [conditions de remboursement pour les comptes avec prépaiement](#refunds).
 
-### האם יש תוקף לקרדיטים ששילמתי עליהם מראש?
+### Mes crédits prépayés expirent-ils ?
 
-כן, הקרדיטים תקפים למשך 12 חודשים ממועד הרכישה.
+Oui, les crédits expirent 12 mois après leur date d'achat.
 
-### מה קורה כשמאזן הקרדיט בתשלום מראש מגיע ל-0$?
+### Que se passe-t-il lorsque le solde de mon crédit prépayé atteint 0 € ?
 
-כל השירותים של Gemini API בכל הפרויקטים שמשולמים באמצעות חשבון התשלום מראש ב-Cloud יופסקו באופן מיידי כדי למנוע חיובים נוספים. הפרויקטים שלכם לא ישונמכו אוטומטית לתוכנית בחינם.
+Tous les services de l'API Gemini dans tous les projets payés par ce compte Cloud Billing avec prépaiement seront immédiatement arrêtés pour éviter d'engendrer des frais supplémentaires. Vos projets ne sont pas automatiquement rétrogradés vers le niveau sans frais.
 
-כדי לשחזר את השירות ברמה הנוכחית של התוכנית בתשלום, צריך [לרכוש קרדיטים נוספים](#buy-credits). אחרי שקונים קרדיטים, אמורה להיות לכם אפשרות להשתמש ב-Gemini API. שימו לב: יכול להיות שיהיה [עיכוב](#processing-times) עד שהמערכות שלנו יתעדכנו ויציגו את יתרת הקרדיט שלכם.
+Pour restaurer le service à votre niveau payant actuel, vous devez [acheter des crédits supplémentaires](#buy-credits). Une fois que vous avez acheté des crédits, vous devriez pouvoir utiliser l'API Gemini. Notez qu'un [délai](#processing-times) peut être nécessaire pour que nos systèmes mettent à jour votre solde créditeur.
 
-לחלופין, כדי לשנמך לתוכנית בחינם, אפשר [להשבית את החיוב](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=he#disable_billing_for_a_project) בפרויקטים שרוצים לשנמך.
+Si vous le souhaitez, vous pouvez [désactiver la facturation](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=fr#disable_billing_for_a_project) pour les projets que vous souhaitez rétrograder vers le niveau sans frais.
 
-### למה השימוש שלי הופסק למרות שיתרת הקרדיט בתשלום מראש גבוהה מ-0$?
+### Pourquoi mon utilisation s'est-elle arrêtée alors que mon solde de crédit prépayé est supérieur à 0 € ?
 
-יכול להיות שהגעתם [למכסת השימוש](#tier-spend-caps) של הרמה הנוכחית.
-מכסות השימוש יגדלו באופן אוטומטי כשתעברו לרמות גבוהות יותר. גם השימוש ב-Gemini API ב-AI Studio יכול להיות מושפע מ[הסטטוס של החשבון לחיוב ב-Cloud](#missed-payment).
+Vous avez peut-être atteint la [limite d'utilisation](#tier-spend-caps) de votre forfait actuel.
+Les limites d'utilisation augmenteront automatiquement à mesure que vous passerez à des niveaux supérieurs. L'utilisation de l'API Gemini dans AI Studio peut également être affectée par l'[état de votre compte de facturation Cloud](#missed-payment).
 
-### למה היתרה בחשבון שלי בתשלום מראש שלילית?
+### Pourquoi le solde de mon compte prépayé est-il négatif ?
 
-בגלל המורכבות של מערכות החיוב והעיבוד שלנו, יכול להיות שיהיו [עיכובים](#processing-times) ביכולת שלנו להפסיק את השימוש אחרי שתנצלו את כל הזיכויים. יכול להיות שהשימוש העודף הזה יופיע כיתרת קרדיט שלילית בלוח הבקרה לחיוב ב-AI Studio. במקרה כזה, השירות שלכם יושהה והיתרה השלילית תנוכה מהרכישה הבאה של קרדיט.
+En raison de la complexité de nos systèmes de facturation et de traitement, il peut y avoir des [retards](#processing-times) dans notre capacité à interrompre l'utilisation une fois que vous avez consommé tous vos crédits. Cette utilisation excédentaire peut apparaître sous la forme d'un solde créditeur négatif dans le tableau de bord de facturation AI Studio. Dans ce cas, votre service est suspendu et votre solde négatif sera déduit de votre prochain achat de crédit.
 
-כדי למנוע השהיה בשירות Gemini API, מומלץ להגדיר [הוספת כסף אוטומטית](#auto-reload) כדי לרכוש באופן אוטומטי קרדיטים נוספים כשיתרת הזכות שלכם יורדת מתחת לערך שאתם מציינים.
+Pour éviter toute interruption de votre service Gemini API, nous vous recommandons de configurer la [recharge automatique](#auto-reload) afin d'acheter automatiquement des crédits lorsque votre solde de crédits descend en dessous d'une valeur que vous spécifiez.
 
-### האם אפשר להשתמש בקרדיטים של תשלום מראש לשירותים אחרים של Google Cloud, כמו Gemini Enterprise Agent Platform?
+### Puis-je utiliser mes crédits prépayés pour d'autres services Google Cloud, comme Gemini Enterprise Agent Platform ?
 
-לא, קרדיטים לתשלום מראש מיועדים לשימוש ב-Gemini API בלבד. שירותים אחרים של Google Cloud שבהם אתם משתמשים (Compute, ‏ Storage, ‏ Gemini Enterprise Agent Platform) מחויבים באמצעות [מחזור החיובים הרגיל ב-Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he).
+Non, les crédits de prépaiement sont strictement réservés à l'utilisation de l'API Gemini. Tous les autres services Google Cloud que vous utilisez (Compute, Storage, Gemini Enterprise Agent Platform) sont facturés selon le [cycle de facturation Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=fr) standard.
 
-### האם אפשר לעבור מחיוב בתשלום מראש לחיוב בתשלום לאחר השימוש (postpay)?
+### Puis-je passer de la facturation avec prépaiement à la facturation avec post-paiement ?
 
-לא, אי אפשר לעבור מתוכנית חיוב בתשלום מראש לתוכנית חיוב בתשלום לאחר השימוש.
+Non, il n'est pas possible de passer d'un forfait avec prépaiement à un forfait avec post-paiement.
 
-### האם אפשר לעבור מחיוב לאחר השימוש לחיוב מראש?
+### Puis-je passer du post-paiement au prépaiement ?
 
-כן, אפשר להעביר חשבון קיים עם תשלום בסוף החודש בדף [חיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he). הוראות מפורטות מופיעות במאמר [מעבר לתשלום מראש](#migrate-to-prepay).
+Oui, vous pouvez migrer un compte Postpay existant sur la page [Facturation AI Studio](https://aistudio.google.com/billing?hl=fr). Pour obtenir des instructions, consultez [Migrer vers le prépaiement](#migrate-to-prepay).
 
-### מה יקרה לקרדיט בתשלום מראש אם אעבור לתשלום לאחר השימוש (postpay)?
+### Qu'advient-il de mes crédits prépayés si je passe à un forfait postpayé ?
 
-כשמשדרגים ל[תשלום לאחר השימוש](#postpay), המערכת לחיוב ב-Cloud סוגרת את חשבון התשלומים לתשלום מראש, משביתה את [הוספת כסף אוטומטית](#auto-reload) ומזכה אתכם אוטומטית על כל יתרה שלא נוצלה (בכפוף לזמן העיבוד הרגיל של ההחזרים הכספיים).
+Lorsque vous passez au [post-paiement](#postpay), la facturation Cloud clôture votre compte de paiement par prépaiement, désactive le [rechargement automatique](#auto-reload) et vous rembourse automatiquement les crédits de prépaiement inutilisés (sous réserve du délai de traitement standard des remboursements).
 
-### איפה אפשר לראות את יתרת הקרדיט הנוכחית שלי בתשלום מראש ואת היסטוריית העסקאות?
+### Où puis-je consulter mon solde de crédit prépayé actuel et l'historique de mes transactions ?
 
-כל הפעולות שקשורות לניהול היתרה ולהיסטוריית העסקאות ב-Gemini API צריכות להתבצע ישירות בכרטיסייה 'חיוב' ב-Google AI Studio.
+Toute gestion du solde et de l'historique des transactions pour l'API Gemini doit être effectuée directement dans l'onglet "Facturation" de Google AI Studio.
 
-### למה מוצגת לי ההודעה 'סוג החשבון לחיוב לא פעיל או לא נתמך'?
+### Pourquoi le message "Le type de compte de facturation est inactif ou incompatible" s'affiche-t-il ?
 
-יכול להיות שאינטראקציות שקשורות לתשלומים ב[דף החיוב ב-AI Studio](https://aistudio.google.com/billing?hl=he) ייחסמו ויוחלפו בהודעה 'סוג החשבון לחיוב לא פעיל או לא נתמך' אם סוג החשבון לחיוב או סטטוס החשבון לחיוב שבחרתם לא כשירים לשימוש בתוכנית בתשלום ב-AI Studio.
+Les interactions liées aux paiements sur la [page de facturation AI Studio](https://aistudio.google.com/billing?hl=fr) peuvent être bloquées et remplacées par le message "Le type de compte de facturation est inactif ou non compatible" si le type ou l'état du compte de facturation que vous avez sélectionné ne sont pas éligibles au niveau payant d'AI Studio.
 
-אפשר לבדוק את הסטטוס של החשבון לחיוב ב[מסוף Cloud](https://console.cloud.google.com/billing/?hl=he). סוג אחד של חשבון שלא עומד בדרישות הוא *חשבון עם תקופת ניסיון בחינם*. במקרה כזה, אפשר [להפעיל את החיוב](#setup-billing) ב-AI Studio כדי לעמוד בדרישות. מצב לא פעיל אחד יכול להיות *סגור*, ובמקרה כזה אפשר [לפתוח מחדש את החשבון](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=he).
+Consultez la [console Cloud](https://console.cloud.google.com/billing/?hl=fr) pour connaître l'état de votre compte de facturation. Un type de compte non éligible peut être un *compte d'essai sans frais*. Dans ce cas, vous pouvez [activer la facturation](#setup-billing) dans AI Studio pour devenir éligible. L'état inactif peut être *Fermé*. Dans ce cas, vous pouvez [rouvrir le compte](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=fr).
 
-### האם עלויות השימוש ב-Gemini API יופיעו במסוף Google Cloud?
+### Les coûts d'utilisation de l'API Gemini s'afficheront-ils dans la console Google Cloud ?
 
-כן, העלויות של Gemini API, לצד העלויות שקשורות לכל שירות אחר של Google Cloud שמשלמים עליו דרך החשבון לחיוב ב-Cloud, מוצגות ב[דפים לניהול עלויות](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=he#cost-reports) ב[מסוף החיוב ב-Cloud](https://console.cloud.google.com/billing?hl=he). הערה:
-אפשר לנהל את יתרת הקרדיטים בתשלום מראש רק ב-AI Studio.
+Oui, les coûts de l'API Gemini, ainsi que ceux associés à tout autre service Google Cloud payant par votre compte de facturation Cloud, sont visibles sur les pages [Gestion des coûts](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=fr#cost-reports) de la [console de facturation Cloud](https://console.cloud.google.com/billing?hl=fr). Notez que vous ne pouvez gérer votre solde de crédit prépayé que dans AI Studio.
 
-### למה השימוש שלי ב-Gemini API לא מופיע ב-Cloud Billing Console, למרות שאני יכול לראות אותו בחיוב ב-AI Studio, יחד עם ניצול הקרדיטים שלי?
+### Pourquoi mon utilisation de l'API Gemini ne s'affiche-t-elle pas dans la console Cloud Billing, alors que je peux la voir dans la facturation AI Studio, ainsi que la consommation de mes crédits ?
 
-שירותי Google Cloud ו-AI Studio מדווחים על נתוני השימוש לחיוב ב-Cloud במרווחי זמן שונים. בגלל המורכבות של מערכות החיוב והעיבוד שלנו, יכול להיות שלא תראו בחיוב ב-Cloud את נתוני השימוש והעלויות מייד אחרי השימוש בשירותים. בדרך כלל פרטי העלויות זמינים תוך יום, אבל לפעמים הם מדוּוחים אחרי יותר מ-24 שעות.
-מידע נוסף על חיובים מושהים זמין ב[מאמרי העזרה בנושא חיוב ב-Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=he#delayed-billing).
+Google Cloud et AI Studio transmettent les données d'utilisation à Cloud Billing à des intervalles variables. En raison de la complexité de nos systèmes de facturation et de traitement, vous pouvez constater un délai entre votre utilisation des services et la disponibilité des données d'utilisation et de coût dans Cloud Billing. Généralement, vos informations sur les coûts sont disponibles dans la journée, mais cela peut parfois prendre plus de 24 heures.
+Pour en savoir plus sur la facturation différée, consultez la [documentation Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=fr#delayed-billing).
 
-### אם אני משתמש בשירותים אחרים של Google Cloud עם עלויות שחלות עליהן מחזורי חיוב בתשלום בסוף התקופה, מה יקרה אם אפספס תשלום?
+### Si j'utilise d'autres services Google Cloud dont les coûts sont soumis à un cycle de facturation postpayé, que se passe-t-il si j'oublie de payer ?
 
-אם לא תשלמו על שירותים אחרים של Google Cloud, יכול להיות שהגישה שלכם ל-Gemini API ב-AI Studio תושעה, **גם אם יש לכם קרדיטים בתשלום מראש**. השימוש ב-AI Studio מבוסס על חשבון לחיוב ב-Google Cloud, שיכול לשמש גם לחיוב מראש על השימוש ב-AI Studio וגם לחיוב בסוף החודש על השימוש בשירותים אחרים של Cloud. בעיה ביתרה שלכם בתשלום לאחר השימוש (postpay) גורמת להשעיה של כל השירותים שמשויכים לחשבון הזה. השימוש ב-Gemini API יושעה אם החשבון לחיוב ב-Cloud יסומן בגלל בעיות כמו:
+Si vous n'effectuez pas un paiement pour d'autres services Google Cloud, votre accès à l'API Gemini dans AI Studio peut être suspendu, **quel que soit le nombre de crédits prépayés dont vous disposez**. L'utilisation d'AI Studio est alimentée par un compte de facturation Google Cloud, qui peut partager à la fois la facturation prépayée pour AI Studio et la facturation postpayée pour d'autres services Cloud. Un problème lié à votre solde postpayé interrompt tous les services associés à ce compte. Votre utilisation de l'API Gemini sera suspendue si votre compte de facturation Cloud est signalé pour des problèmes tels que :
 
-- יתרת חוב בפיגור או יתרת חוב לתשלום
-- תשלום שנדחה
-- אמצעי תשלום לא תקין או לא בתוקף
+- Un solde impayé ou en retard
+- Un paiement refusé
+- Un mode de paiement non valide ou expiré
 
-כדי לשחזר את השירות, צריך [לפתור את הבעיה בחשבון התשלום לאחר השימוש (postpay)](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=he#resolving-declined-payments) במסוף חיוב ב-Cloud. אחרי שתפתרו את הבעיה, תקבלו שוב גישה לקרדיטים ולשירותים של Gemini API בתשלום מראש.
+Pour restaurer le service, vous devez [résoudre le problème lié au compte post-paiement](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=fr#resolving-declined-payments) dans la console Google Cloud Billing. Une fois le problème résolu, vous retrouverez l'accès à vos crédits et services prépayés de l'API Gemini.
 
-### למה יש שיבושים בפרויקטים שלי אחרי שביטלתי את ההגדרה של תשלום מראש?
+### Pourquoi mes projets sont-ils interrompus après la résiliation d'une configuration de prépaiement ?
 
-**הבעיה:** התחלתם את התהליך להוספת אפשרויות תשלום מראש לחשבון לחיוב קיים שמוגדר לתשלום לאחר השימוש (postpay), אבל סגרתם את החלון או ביטלתם את התהליך לפני שהשלמתם את הגדרת התשלום מראש. פרויקטים אחרים שמקושרים לחשבון לחיוב הזה איבדו את הגישה ל-Gemini API.
+**Problème** : Vous avez commencé à ajouter des fonctionnalités de prépaiement à un compte de facturation postpayant existant, mais vous avez fermé la fenêtre ou annulé le processus avant de terminer la configuration du prépaiement. Les autres projets associés à ce compte de facturation ont perdu l'accès à l'API Gemini.
 
-**הסיבה:** במהלך תהליך המעבר, התשתית לתמיכה בתשלום מראש נוצרת בחשבון החיוב מיד אחרי שמאשרים את תיבת הדו-שיח לאישור. אם לא תבצעו את השלבים של התשלום מראש, ההגדרה תישאר במצב שלא מאפשר חיוב. מכיוון שהמצב הזה חל ברמת החשבון לחיוב, הוא מגביל את הגישה לכל הפרויקטים שמקושרים לחשבון לחיוב הזה ומסתמכים על שירותים בתשלום מראש.
+**Cause** : lors du processus de transition, l'infrastructure permettant de prendre en charge le prépaiement est créée dans votre compte de facturation immédiatement après que vous avez accepté la boîte de dialogue de confirmation. Si vous ne suivez pas la procédure de prépaiement, la configuration reste dans un état non facturable. Étant donné que cet état s'applique au niveau du compte de facturation, il limite l'accès à tous les projets associés à ce compte de facturation qui dépendent des services prépayés.
 
-**פתרון:** מכיוון שמצב החשבון כבר השתנה, אין דרך אוטומטית לשנות את המצב אם לא תמשיכו בתהליך התשלום. כדי לשחזר את השירות בפרויקטים המקושרים, אפשר לבצע אחת מהפעולות הבאות:
+**Solution** : Étant donné que l'état du compte a déjà changé, il n'existe aucun moyen automatique de rétablir l'état si vous abandonnez le processus de paiement. Pour restaurer le service dans vos projets associés, procédez comme suit :
 
-- **משלימים את ההגדרה:** חוזרים אל Google AI Studio, מפעילים מחדש את תהליך הגדרת החיוב ומשלימים את תהליך התשלום מראש. אחרי שהתשלום יעובד, תוכנית החיוב בתשלום מראש תופעל והשירות ישוחזר.
-- **פנייה לתמיכה:** אם אתם לא רוצים להשתמש בתוכנית התשלום מראש ורוצים להחזיר את חשבון החיוב שלכם לתשלום לאחר השימוש (postpay), [פנו לתמיכה בנושא חיוב ב-Cloud](https://cloud.google.com/support/billing?hl=he) כדי לאפס את מצב החשבון באופן ידני.
+- **Finalisez la configuration** : revenez à Google AI Studio, redémarrez le processus de configuration de la facturation et finalisez le processus de prépaiement. Une fois le paiement traité, le forfait prépayé devient actif et le service est restauré.
+- **Contacter l'assistance** : si vous ne souhaitez pas utiliser le forfait prépayé et que vous voulez rétablir le forfait postpayé pour votre compte de facturation, [contactez l'assistance Cloud Billing](https://cloud.google.com/support/billing?hl=fr) pour réinitialiser manuellement l'état de votre compte.
 
-### איפה אפשר לקבל עזרה בנושא חיובים?
+### Où puis-je obtenir de l'aide pour la facturation ?
 
-כדי לקבל עזרה בנושא חיוב, אפשר לעיין במאמר [איך מקבלים תמיכה בנושא חיוב ב-Cloud](https://cloud.google.com/support/billing?hl=he).
+Pour obtenir de l'aide concernant la facturation, consultez [Obtenir de l'aide sur Cloud Billing](https://cloud.google.com/support/billing?hl=fr).
 
-שליחת משוב
+Envoyer des commentaires
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-עדכון אחרון: 2026-09-20 (שעון UTC).
+Dernière mise à jour le 2026/09/28 (UTC).
 
-רוצה לתת לנו משוב?
+Voulez-vous nous donner plus d'informations ?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-20 (שעון UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/28 (UTC)."],[],[]]
