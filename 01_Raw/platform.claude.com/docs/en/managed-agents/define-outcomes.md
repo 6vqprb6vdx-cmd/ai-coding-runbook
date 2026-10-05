@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/define-outcomes
-fetched_at: 2026-09-28T06:06:51.705960+00:00
+fetched_at: 2026-10-05T06:25:25.147061+00:00
 fetch_method: mintlify_md
 ---
 
@@ -205,6 +205,7 @@ Pass the rubric as inline text on `user.define_outcome` (see [Create a session w
   import com.anthropic.models.beta.agents.BetaManagedAgentsAgentToolset20260401Params;
   import com.anthropic.models.beta.agents.BetaManagedAgentsModel;
   import com.anthropic.models.beta.environments.BetaCloudConfigParams;
+  import com.anthropic.models.beta.environments.BetaLimitedNetworkParams;
   import com.anthropic.models.beta.environments.EnvironmentCreateParams;
   import com.anthropic.models.beta.files.FileListParams;
   import com.anthropic.models.beta.sessions.SessionCreateParams;

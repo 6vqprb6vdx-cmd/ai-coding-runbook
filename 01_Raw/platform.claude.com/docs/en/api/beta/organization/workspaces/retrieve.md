@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/retrieve
-fetched_at: 2026-09-21T05:40:44.351073+00:00
+fetched_at: 2026-10-05T06:25:37.713398+00:00
 fetch_method: mintlify_md
 ---
 
@@ -77,7 +77,7 @@ Get Workspace
 
         - `"us"`
 
-      - `Unrestricted = "unrestricted"`
+      - `"unrestricted"`
 
     - `default_inference_geo: "global" or "us"`
 

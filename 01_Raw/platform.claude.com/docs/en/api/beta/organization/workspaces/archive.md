@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/archive
-fetched_at: 2026-09-21T05:40:44.391944+00:00
+fetched_at: 2026-10-05T06:25:37.749811+00:00
 fetch_method: mintlify_md
 ---
 
@@ -75,7 +75,7 @@ Archive Workspace
 
         - `"us"`
 
-      - `Unrestricted = "unrestricted"`
+      - `"unrestricted"`
 
     - `default_inference_geo: "global" or "us"`
 

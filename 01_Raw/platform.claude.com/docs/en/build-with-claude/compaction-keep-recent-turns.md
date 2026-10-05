@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/compaction-keep-recent-turns
-fetched_at: 2026-09-28T06:06:50.470147+00:00
+fetched_at: 2026-10-05T06:25:23.951507+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,7 @@ featureMetadata:
     - claude-opus-4-8
     - claude-opus-4-7
     - claude-opus-4-6
+    - claude-sonnet-5-5
     - claude-sonnet-5
     - claude-sonnet-4-6
   supportedPlatforms:
