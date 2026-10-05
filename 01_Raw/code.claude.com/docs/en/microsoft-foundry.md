@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/microsoft-foundry
-fetched_at: 2026-09-21T05:40:38.436730+00:00
+fetched_at: 2026-10-05T06:25:25.238546+00:00
 fetch_method: mintlify_md
 ---
 
@@ -167,6 +167,8 @@ export ANTHROPIC_FOUNDRY_RESOURCE={resource}
 # Or provide the full base URL:
 # export ANTHROPIC_FOUNDRY_BASE_URL=https://{resource}.services.ai.azure.com/anthropic
 ```
+
+Set `ANTHROPIC_FOUNDRY_RESOURCE` to the resource name alone, such as `my-resource`. Claude Code [refuses a URL or host name](/docs/en/errors#anthropic-foundry-resource-must-be-a-foundry-resource-name) when you send a message.
 
 ### 4. Pin model versions
 
