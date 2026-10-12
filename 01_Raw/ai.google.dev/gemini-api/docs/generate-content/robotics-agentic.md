@@ -1,36 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=es-419
-fetched_at: 2026-10-05T06:31:22.581448+00:00
-title: "Capacidades de visi\u00f3n de agente \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=ja
+fetched_at: 2026-10-12T07:04:57.828649+00:00
+title: "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u30d3\u30b8\u30e7\u30f3\u6a5f\u80fd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-Enviar comentarios
+フィードバックを送信
 
-# Capacidades de visión de agente
+# エージェントのビジョン機能
 
-Los modelos ER de Gemini Robotics pueden escribir y ejecutar código de Python para manipular imágenes y aplicar lógica antes de responder. En esta página, se incluyen ejemplos de ejecución de código: detección de objetos con zoom y recorte, lectura de instrumentos, medición de fluidos, lectura de placas de circuitos y anotación de imágenes.
+Gemini Robotics ER モデルは、Python コードを記述して実行し、画像を操作してロジックを適用してから回答できます。このページでは、コード実行の例として、ズームと切り抜きによるオブジェクト検出、計測器の読み取り、流体の測定、回路基板の読み取り、画像アノテーションについて説明します。
 
-Para adaptar estos ejemplos a tu caso de uso, reemplaza el texto de la instrucción y el archivo de imagen subido por los tuyos. También puedes ajustar el esquema JSON solicitado en la instrucción para que coincida con la estructura de salida que necesita tu aplicación o agregar una `system_instruction` para aplicar el formato y la precisión de la salida.
+これらの例を独自のユースケースに合わせるには、プロンプト テキストとアップロードした画像ファイルを独自のファイルに置き換えます。また、プロンプトでリクエストされた JSON スキーマを、アプリケーションに必要な出力構造に合わせて調整したり、`system_instruction` を追加して出力形式と精度を強制したりすることもできます。
 
-Para obtener el código ejecutable completo, consulta el
-[libro de recetas de Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+実行可能な完全なコードについては、
+[ロボット工学のクックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## Nivel de pensamiento
+## 思考レベル
 
-Puedes controlar el nivel de pensamiento para intercambiar latencia por precisión. Las tareas espaciales, como la detección de objetos, funcionan bien con un nivel de pensamiento bajo. Las tareas complejas, como el recuento o la estimación de peso, se benefician de un nivel de pensamiento más alto.
+思考レベルを制御して、レイテンシと精度のバランスを取ることができます。オブジェクト検出などの空間タスクは、思考レベルが低い場合に適切に機能します。カウントや重量推定などの複雑なタスクでは、思考レベルを高くすると効果的です。
 
-En el siguiente ejemplo, se establece el nivel de pensamiento en `high` para una tarea de recuento compleja:
+次の例では、複雑なカウントタスクの思考レベルを `high` に設定しています。
 
 ### Python
 
@@ -60,11 +60,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Consulta [Pensamiento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=es-419) para obtener más detalles.
+詳細については、[思考](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=ja)をご覧ください。
 
-## Detección de objetos (zoom y recorte)
+## オブジェクト検出（ズームと切り抜き）
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para acercar y recortar una imagen para obtener una vista más clara cuando se detectan objetos y se muestran cuadros delimitadores.
+次の例は、コード実行を使用して画像をズームして切り抜き、オブジェクトを検出してバウンディング ボックスを返すときに、より鮮明に表示する方法を示しています。
 
 ### Python
 
@@ -102,7 +102,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-El resultado del modelo sería similar a la siguiente respuesta JSON:
+モデル出力は、次の JSON レスポンスのようになります。
 
 ```
 [
@@ -114,13 +114,13 @@ El resultado del modelo sería similar a la siguiente respuesta JSON:
 ]
 ```
 
-En la siguiente imagen, se muestran los cuadros que muestra el modelo.
+次の画像は、モデルから返されたボックスを示しています。
 
-![Ejemplo que muestra los cuadros de límite de los objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=es-419)
+![検出されたオブジェクトの境界ボックスを示す例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ja)
 
-## Leer un indicador analógico y aplicar lógica
+## アナログ メーターを読み取り、ロジックを適用する
 
-En el siguiente ejemplo, se muestra cómo usar el modelo para leer un indicador analógico y realizar cálculos de tiempo. Usa una instrucción del sistema para aplicar una salida JSON.
+次の例は、モデルを使用してアナログ メーターを読み取り、時間計算を行う方法を示しています。システム命令を使用して JSON 出力を強制します。
 
 ### Python
 
@@ -156,9 +156,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Medir el fluido en un contenedor
+## 容器内の流体を測定する
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para medir el nivel de fluido en un contenedor.
+次の例は、コード実行を使用して容器内の流体のレベルを測定する方法を示しています。
 
 ### Python
 
@@ -193,9 +193,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Leer marcas en una placa de circuitos
+## 回路基板のマーキングを読み取る
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para leer las marcas en una placa de circuitos.
+次の例は、コード実行を使用して回路基板のマーキングを読み取る方法を示しています。
 
 ### Python
 
@@ -230,11 +230,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-![Ejemplo que muestra marcas en una placa de circuito](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=es-419)
+![回路基板のマーキングの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ja)
 
-## Anotación de la imagen
+## 画像アノテーション
 
-En el siguiente ejemplo, se muestra cómo usar la ejecución de código para anotar una imagen (p.ej., dibujar flechas para las instrucciones de eliminación) y mostrar la imagen modificada.
+次の例は、コード実行を使用して画像にアノテーションを付け（廃棄手順を示す矢印を描画するなど）、変更した画像を返す方法を示しています。
 
 ### Python
 
@@ -271,11 +271,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestra un ejemplo de entrada de imagen.
+画像入力の例を次に示します。
 
-![Un ejemplo que muestra un reloj para leer](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=es-419)
+![時計の読み取りの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ja)
 
-El resultado del modelo sería similar al siguiente:
+モデルの出力は次のようになります。
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -284,18 +284,18 @@ El resultado del modelo sería similar al siguiente:
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## ¿Qué sigue?
+## 次のステップ
 
-- [Orquestación de tareas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=es-419): tareas de largo plazo con APIs de robot personalizadas
-- [Robótica con transmisión](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419): transmisión bidireccional en tiempo real (solo Gemini Robotics ER 2).
-- [Comprensión de video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=es-419): búsqueda de momentos y clasificación de progreso (solo Gemini Robotics ER 2)
+- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - カスタム ロボット API を使用した長期的なタスク。
+- [ストリーミングによるロボット工学](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイムの双方向ストリーミング（Gemini Robotics ER 2 のみ）。
+- [動画理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja) - モーメントの検出と進捗状況の分類（Gemini Robotics ER 2 のみ）。
 
-Enviar comentarios
+フィードバックを送信
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última actualización: 2026-09-08 (UTC)
+最終更新日 2026-09-08 UTC。
 
-¿Quieres brindar más información?
+ご意見をお聞かせください
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-08 (UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]

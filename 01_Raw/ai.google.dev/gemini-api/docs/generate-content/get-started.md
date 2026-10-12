@@ -1,59 +1,58 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr
-fetched_at: 2026-10-05T06:40:39.504275+00:00
-title: "Ba\u015flang\u0131\u00e7 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-TW
+fetched_at: 2026-10-12T07:07:38.678471+00:00
+title: "\u958b\u59cb\u4f7f\u7528 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
 
-Geri bildirim gönderin
+提供意見
 
-# Başlangıç
+# 開始使用
 
-Bu kılavuz, eski **generateContent** API'yi kullanmaya başlamanıza yardımcı olacaktır. Yeni projeler ve uygulamalar için Gemini modelleri ve aracılarıyla geliştirme yapmanın en basit ve en iyi yolu olan yeni **Interactions API**'yi kullanmanızı önemle tavsiye ederiz.
+本指南可協助您開始使用舊版 **generateContent** API。對於新專案和應用程式，我們強烈建議改用新的 **Interactions API**，這是使用 Gemini 模型和代理程式建構應用程式最簡單且最佳的方式。
 
-Bu hızlı başlangıç kılavuzunda, [kitaplıklarımızı](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) nasıl yükleyeceğiniz, ilk isteğinizi nasıl yapacağınız, yanıtları nasıl yayınlayacağınız, çok turlu sohbetleri nasıl oluşturacağınız ve standart `generateContent` yöntemini kullanarak araçları nasıl kullanacağınız gösterilmektedir.
+本快速入門導覽課程說明如何安裝[程式庫](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw)、提出第一項要求、串流回應、建構多輪對話，以及使用標準 `generateContent` 方法來使用工具。
 
-## API anahtarı alma
+## 取得 API 金鑰
 
-Gemini API'yi kullanmak için isteklerinizin kimliğini doğrulamak, güvenlik sınırlarını zorunlu kılmak ve hesabınızdaki kullanımı izlemek üzere bir API anahtarınızın olması gerekir.
+如要使用 Gemini API，您必須有 API 金鑰，才能驗證要求、強制執行安全限制，以及追蹤帳戶的使用情形。
 
-- Google AI Studio, yeni kullanıcılar için otomatik olarak bir proje ve API anahtarı oluşturur.
-  Bu anahtarı [API anahtarları sayfasından](https://aistudio.google.com/api-keys?hl=tr) kopyalayabilirsiniz.
-- Yeni bir anahtara ihtiyacınız varsa AI Studio'da **API anahtarı oluştur**'u tıklayın ve yeni bir anahtar-proje çifti eklemek için iletişim kutusunu takip edin.
+- Google AI Studio 會自動為新使用者建立專案和 API 金鑰。您可以從「[API 金鑰](https://aistudio.google.com/api-keys?hl=zh-tw)」頁面複製。
+- 如需新金鑰，請在 AI Studio 中按一下「建立 API 金鑰」，然後按照對話方塊的指示新增金鑰/專案配對。
 
-[Gemini API anahtarı oluşturma](https://aistudio.google.com/apikey?hl=tr)
+[建立 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
 
-Anahtarınızı ortam değişkeni olarak ayarlayın:
+將金鑰設為環境變數：
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### Ücretli katmana yükseltme
+### 升級至付費層級
 
-Ücretli katmana yükseltme, hız sınırlarınızı artırır ve Cloud Billing'in ayarlanmasını gerektirir.
+升級至付費層級可提高頻率限制，但需要設定 Cloud Billing。
 
-- AI Studio [API anahtarları](https://aistudio.google.com/api-keys?hl=tr) veya [Projeler](https://aistudio.google.com/projects?hl=tr) sayfalarında **Faturalandırma ayarlarını yap**'ı tıklayın.
-- Faturalandırma hesabı oluşturmak veya bağlamak, ödeme yöntemi eklemek ve ücretli kredilerle en az 10 ABD doları (veya eşdeğer para birimi) tutarında ön ödeme yapmak için Cloud Faturalandırma iletişim kutusundaki talimatları uygulayın.
-- API kullanımınızı [Google AI Studio](https://aistudio.google.com/usage?hl=tr)'da **Kontrol Paneli** > **Kullanım** bölümünde görüntüleyebilirsiniz.
+- 在 AI Studio 的「API keys」(API 金鑰) 或「Projects」(專案) 頁面上，按一下「Set up billing」(設定帳單)。
+- 按照 Cloud Billing 對話方塊的指示建立或連結帳單帳戶、新增付款方式，並預付至少 $10 美元 (或等值貨幣) 的付費抵免額。
+- 在 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 中，依序點選「資訊主頁」 >「用量」，即可查看 API 用量。
 
-Daha fazla bilgi için [Faturalandırma sayfası](https://ai.google.dev/gemini-api/docs/billing?hl=tr)'na bakın.
+詳情請參閱「[帳單頁面](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw)」。
 
-## Google GenAI SDK'yı yükleme
+## 安裝 Google GenAI SDK
 
 ### Python
 
-[Python 3.9+](https://www.python.org/downloads/) sürümünü kullanarak aşağıdaki [pip komutunu](https://packaging.python.org/en/latest/tutorials/installing-packages/) kullanarak [`google-genai` paketini](https://pypi.org/project/google-genai/) yükleyin:
+使用 [Python 3.9 以上版本](https://www.python.org/downloads/)，透過下列 [pip 指令](https://packaging.python.org/en/latest/tutorials/installing-packages/)安裝 [`google-genai` 套件](https://pypi.org/project/google-genai/)：
 
 ```
 pip install -q -U google-genai
@@ -61,15 +60,15 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-[Node.js v18+](https://nodejs.org/en/download/package-manager)'ı kullanarak aşağıdaki [npm komutunu](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) kullanarak [TypeScript ve JavaScript için Google Gen AI SDK'sını](https://www.npmjs.com/package/@google/genai) yükleyin:
+使用 [Node.js v18 以上版本](https://nodejs.org/en/download/package-manager)，透過下列 [npm 指令](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)安裝 [TypeScript 和 JavaScript 適用的 Google Gen AI SDK](https://www.npmjs.com/package/@google/genai)：
 
 ```
 npm install @google/genai
 ```
 
-## Metin oluşturun
+## 生成文字
 
-`models.generate_content` yöntemini kullanarak [metin yanıtı oluşturun](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr).
+使用 `models.generate_content` 方法[生成文字回覆](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)。
 
 ### Python
 
@@ -125,9 +124,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Yanıtları akış şeklinde göster
+## 逐句回覆
 
-Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir. Daha hızlı ve etkileşimli bir deneyim için yanıt parçalarını oluşturuldukça [yayınlayabilirsiniz](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#stream).
+根據預設，整個生成程序完成後，模型才會傳回回覆。如要獲得更快速、更具互動性的體驗，可以[串流傳輸](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#stream)生成的回覆區塊。
 
 ### Python
 
@@ -179,9 +178,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:s
   }'
 ```
 
-## Etkileşimli görüşmeler
+## 多轉折對話
 
-SDK'lar, çok turlu sohbetler için durum bilgisi olan bir `chats` yardımcı sağlar. Bu yardımcı, etkileşim geçmişini otomatik olarak yöneten bir [çok turlu sohbet deneyimi](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#chat) oluşturmaya yardımcı olur.
+對於多輪對話，SDK 提供有狀態的 `chats` 輔助程式，可建構[多輪對話體驗](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#chat)，自動管理對話記錄。
 
 ### Python
 
@@ -237,9 +236,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Araçları kullanma
+## 使用工具
 
-Gerçek zamanlı web içeriğine erişmek için [yanıtları Google Arama ile temellendirerek](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) modelin yeteneklerini genişletin. Model, ne zaman arama yapacağına otomatik olarak karar verir, sorguları yürütür ve yanıtı sentezler.
+[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)，讓模型存取即時網路內容，擴展模型功能。模型會自動決定搜尋時機、執行查詢，並綜合整理出回覆。
 
 ### Python
 
@@ -326,20 +325,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-Gemini API, diğer yerleşik araçları da destekler:
+Gemini API 也支援其他內建工具：
 
-- **[Kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr)**:
-  Modelin karmaşık matematik problemlerini çözmek için Python kodu yazıp çalıştırmasına olanak tanır.
-- **[URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr)**: Yanıtları, sağladığınız belirli web sayfası URL'lerine dayandırmanıza olanak tanır.
-- **[Dosya arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr)**: Dosyaları yüklemenize ve semantik aramayı kullanarak yanıtları içeriklerinde temellendirmenize olanak tanır.
-- **[Google Haritalar](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr)**: Yanıtları konum verileriyle temellendirmenize ve yerleri, yol tariflerini ve haritaları aramanıza olanak tanır.
-- **[Bilgisayar kullanımı](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr)**: Modelin görevleri yerine getirmek için sanal bir bilgisayar ekranı, klavye ve fare ile etkileşime girmesine olanak tanır.
+- **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**：
+  讓模型編寫及執行 Python 程式碼，解決複雜的數學問題。
+- **[網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**：根據您提供的特定網頁網址，生成回覆內容。
+- **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**：可上傳檔案，並使用語意搜尋功能，根據檔案內容提供回覆。
+- **[Google 地圖](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**：根據位置資料提供回覆，並搜尋地點、路線和地圖。
+- **[電腦使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)**：讓模型與虛擬電腦螢幕、鍵盤和滑鼠互動，以執行工作。
 
-## Özel işlevleri çağırma
+## 呼叫自訂函式
 
-Modelleri özel araçlarınıza ve API'lerinize bağlamak için **[işlev çağrısını](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)** kullanın. Model, işlevinizi ne zaman çağıracağını belirler ve uygulamanızın yürütmesi için yanıtta bir `functionCall` döndürür.
+使用**[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**，將模型連結至自訂工具和 API。模型會判斷何時呼叫函式，並在回應中傳回 `functionCall`，供應用程式執行。
 
-Bu örnekte, sahte bir sıcaklık işlevi tanımlanır ve modelin bu işlevi çağırmak isteyip istemediği kontrol edilir.
+這個範例會宣告模擬溫度函式，並檢查模型是否要呼叫該函式。
 
 ### Python
 
@@ -501,25 +500,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Sırada ne var?
+## 後續步驟
 
-Gemini API'yi kullanmaya başladığınıza göre, daha gelişmiş uygulamalar oluşturmak için aşağıdaki kılavuzları inceleyin:
+現在您已開始使用 Gemini API，請參閱下列指南，建構更進階的應用程式：
 
-- [Metin üretme](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr)
-- [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)
-- [Resim yorumlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr)
-- [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) (Thinking)
-- [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
-- [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)
-- [Uzun bağlam](https://ai.google.dev/gemini-api/docs/long-context?hl=tr)
-- [Yerleştirmeler](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
+- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)
+- [圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)
+- [圖像理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)
+- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)
+- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
+- [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)
+- [長篇脈絡資訊](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw)
+- [嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)
 
-Geri bildirim gönderin
+提供意見
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Son güncelleme tarihi: 2026-09-12 UTC.
+上次更新時間：2026-09-12 (世界標準時間)。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+想進一步說明嗎？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-12 (世界標準時間)。"],[],[]]

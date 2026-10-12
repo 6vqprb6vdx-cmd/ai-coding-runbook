@@ -1,117 +1,143 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=hi
-fetched_at: 2026-10-05T06:27:27.945403+00:00
-title: "\u0938\u0941\u0930\u0915\u094d\u0937\u093e \u0914\u0930 \u0924\u0925\u094d\u092f\u094b\u0902 \u0915\u0947 \u0938\u0939\u0940 \u0939\u094b\u0928\u0947 \u0938\u0947 \u091c\u0941\u0921\u093c\u0947 \u0926\u093f\u0936\u093e-\u0928\u093f\u0930\u094d\u0926\u0947\u0936 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/safety-guidance?hl=it
+fetched_at: 2026-10-12T06:58:52.087285+00:00
+title: "Linee guida su sicurezza e accuratezza \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-सुझाव भेजें
+Invia feedback
 
-# सुरक्षा और तथ्यों के सही होने से जुड़े दिशा-निर्देश
+# Linee guida su sicurezza e accuratezza
 
-जनरेटिव आर्टिफ़िशियल इंटेलिजेंस मॉडल, दमदार टूल होते हैं. हालांकि, इनकी कुछ सीमाएं भी होती हैं. इनकी वर्सटैलिटी और इस्तेमाल करने की सुविधा की वजह से, कभी-कभी अनचाहे आउटपुट मिल सकते हैं. जैसे, गलत, पक्षपात वाले या आपत्तिजनक आउटपुट. इस तरह के आउटपुट से होने वाले नुकसान के जोखिम को कम करने के लिए, पोस्ट-प्रोसेसिंग और मैन्युअल तरीके से बारीकी से आकलन करना ज़रूरी है.
+I modelli di intelligenza artificiale generativa sono strumenti potenti, ma non sono privi di limitazioni. La loro versatilità e applicabilità a volte possono portare a output imprevisti, ad esempio output imprecisi, con bias o offensivi. La post-elaborazione e una rigorosa valutazione manuale sono essenziali per limitare il rischio di danni derivanti da questi output.
 
-Gemini API की मदद से उपलब्ध कराए गए मॉडल का इस्तेमाल, जनरेटिव एआई और नैचुरल लैंग्वेज प्रोसेसिंग (एनएलपी) से जुड़े कई तरह के ऐप्लिकेशन के लिए किया जा सकता है. इन फ़ंक्शन का इस्तेमाल सिर्फ़ Gemini API या Google AI Studio के वेब ऐप्लिकेशन के ज़रिए किया जा सकता है. Gemini API का इस्तेमाल करने पर, [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) और [Gemini API की सेवा की शर्तें](https://ai.google.dev/terms?hl=hi) भी लागू होती हैं.
+I modelli forniti dall'API Gemini possono essere utilizzati per un'ampia varietà di applicazioni di AI generativa ed elaborazione del linguaggio naturale (NLP). L'utilizzo di queste
+funzioni è disponibile solo tramite l'API Gemini o l'app web
+Google AI Studio. L'utilizzo dell'API Gemini è soggetto anche alle [Norme relative all'uso vietato dell'AI generativa
+Policy](https://policies.google.com/terms/generative-ai/use-policy?hl=it) e ai
+[Termini di servizio dell'API Gemini](https://ai.google.dev/terms?hl=it).
 
-लार्ज लैंग्वेज मॉडल (एलएलएम) को इतना मददगार बनाने वाली चीज़ों में से एक यह है कि ये क्रिएटिव टूल हैं. इनकी मदद से, भाषा से जुड़े कई टास्क पूरे किए जा सकते हैं. माफ़ करें, इसका यह भी मतलब है कि लार्ज लैंग्वेज मॉडल ऐसा आउटपुट जनरेट कर सकते हैं जो आपकी उम्मीद के मुताबिक न हो. इसमें ऐसा टेक्स्ट भी शामिल है जो आपत्तिजनक, असंवेदनशील या तथ्यों के हिसाब से ग़लत हो.
-इन मॉडल की अलग-अलग तरह की क्षमताओं की वजह से, यह अनुमान लगाना मुश्किल हो जाता है कि ये किस तरह का आपत्तिजनक आउटपुट जनरेट कर सकते हैं. Gemini API को [एआई से जुड़े Google के सिद्धांतों](https://ai.google/principles/?hl=hi) को ध्यान में रखकर डिज़ाइन किया गया है. हालांकि, इन मॉडल को ज़िम्मेदारी से लागू करना डेवलपर की ज़िम्मेदारी है. डेवलपर को सुरक्षित और ज़िम्मेदारी के साथ ऐप्लिकेशन बनाने में मदद करने के लिए, Gemini API में कॉन्टेंट फ़िल्टर करने की सुविधा पहले से मौजूद है. साथ ही, इसमें नुकसान पहुंचाने वाले कॉन्टेंट के चार डाइमेंशन के हिसाब से, सुरक्षा सेटिंग को अडजस्ट करने की सुविधा भी है. ज़्यादा जानने के लिए, [सुरक्षा सेटिंग](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) गाइड देखें. इसमें Google Search की सुविधा के साथ ग्राउंडिंग की सुविधा भी मिलती है, ताकि तथ्यों को बेहतर बनाया जा सके. हालांकि, इसे उन डेवलपर के लिए बंद किया जा सकता है जिनके इस्तेमाल के उदाहरण ज़्यादा क्रिएटिव हैं और जानकारी खोजने से जुड़े नहीं हैं.
+Parte di ciò che rende i modelli linguistici di grandi dimensioni (LLM) così utili è che sono strumenti creativi in grado di gestire molte attività linguistiche diverse. Purtroppo, questo significa anche che i modelli linguistici di grandi dimensioni possono generare output imprevisti, inclusi testi offensivi, insensibili o oggettivamente scorretti.
+Inoltre, l'incredibile versatilità di questi modelli è anche ciò che rende difficile prevedere esattamente i tipi di output indesiderati che potrebbero produrre. Sebbene l'
+API Gemini sia stata progettata tenendo conto dei [principi di AI
+di Google](https://ai.google/principles/?hl=it), è responsabilità degli sviluppatori
+applicare questi modelli in modo responsabile. Per aiutare gli sviluppatori a creare applicazioni sicure e responsabili, l'API Gemini include alcuni filtri dei contenuti integrati, nonché impostazioni di sicurezza regolabili su 4 dimensioni di danno. Per saperne di più, consulta la
+[guida alle impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it). Offre anche la funzionalità Grounding con la Ricerca Google abilitata per migliorare l'accuratezza dei fatti, anche se questa funzionalità può essere disattivata per gli sviluppatori i cui casi d'uso sono più creativi e non orientati alla ricerca di informazioni.
 
-इस दस्तावेज़ का मकसद, आपको सुरक्षा से जुड़े कुछ ऐसे जोखिमों के बारे में बताना है जो एलएलएम का इस्तेमाल करते समय हो सकते हैं. साथ ही, सुरक्षा से जुड़े डिज़ाइन और डेवलपमेंट के बारे में सुझाव देना है. (ध्यान दें कि कानून और नियमों के तहत भी पाबंदियां लगाई जा सकती हैं. हालांकि, इस गाइड में इन बातों को शामिल नहीं किया गया है.)
+Questo documento ha lo scopo di presentarti alcuni rischi per la sicurezza che possono sorgere quando utilizzi i modelli LLM e di consigliarti le nuove raccomandazioni per la progettazione e lo sviluppo della sicurezza. (Tieni presente che anche le leggi e le normative possono imporre restrizioni, ma queste considerazioni esulano dall'ambito di questa guida.)
 
-एलएलएम का इस्तेमाल करके ऐप्लिकेशन बनाते समय, यह तरीका अपनाने का सुझाव दिया जाता है:
+Quando crei applicazioni con modelli LLM, ti consigliamo di seguire questi passaggi:
 
-- अपने ऐप्लिकेशन से जुड़े सुरक्षा जोखिमों को समझना
-- सुरक्षा से जुड़े जोखिमों को कम करने के लिए, बदलावों पर विचार करना
-- इस्तेमाल के उदाहरण के हिसाब से, सुरक्षा से जुड़ी जांच करना
-- उपयोगकर्ताओं से सुझाव, शिकायत या राय मांगना और इस्तेमाल पर नज़र रखना
+- Comprendere i rischi per la sicurezza della tua applicazione
+- Valutare le modifiche per mitigare i rischi per la sicurezza
+- Eseguire test di sicurezza appropriati per il tuo caso d'uso
+- Richiedere feedback agli utenti e monitorare l'utilizzo
 
-जब तक आपके ऐप्लिकेशन के लिए सही परफ़ॉर्मेंस नहीं मिल जाती, तब तक आपको अडजस्टमेंट और टेस्टिंग के चरणों को दोहराते रहना चाहिए.
+Le fasi di regolazione e test devono essere iterative fino a raggiungere un rendimento appropriato per la tua applicazione.
 
-![मॉडल लागू करने का साइकल](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=hi)
+![Ciclo di implementazione del modello](https://ai.google.dev/static/gemini-api/docs/images/safety_diagram.png?hl=it)
 
-## अपने ऐप्लिकेशन से जुड़े सुरक्षा जोखिमों के बारे में जानना
+## Comprendere i rischi per la sicurezza della tua applicazione
 
-इस संदर्भ में, सुरक्षा का मतलब है कि एलएलएम अपने उपयोगकर्ताओं को नुकसान पहुंचाने से बचता है. उदाहरण के लिए, वह ऐसी भाषा या कॉन्टेंट जनरेट नहीं करता जो नुकसान पहुंचाने वाला हो या रूढ़ियों को बढ़ावा देता हो. Gemini API के ज़रिए उपलब्ध कराए गए मॉडल, [Google के एआई से जुड़े सिद्धांतों](https://ai.google/principles/?hl=hi) को ध्यान में रखकर डिज़ाइन किए गए हैं. साथ ही, इसके इस्तेमाल पर [जनरेटिव एआई के इस्तेमाल से जुड़ी पाबंदी की नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) लागू होती है. एपीआई में पहले से मौजूद सुरक्षा फ़िल्टर होते हैं. इनसे, लैंग्वेज मॉडल से जुड़ी कुछ सामान्य समस्याओं को हल करने में मदद मिलती है. जैसे, आपत्तिजनक भाषा और नफ़रत फैलाने वाली भाषा का इस्तेमाल. साथ ही, इनसे बिना किसी भेदभाव के सभी को शामिल करने वाली सोच और घिसी-पिटी सोच से बचने में मदद मिलती है. हालांकि, हर ऐप्लिकेशन से उपयोगकर्ताओं को अलग-अलग तरह के जोखिम हो सकते हैं. इसलिए, ऐप्लिकेशन के मालिक के तौर पर यह आपकी ज़िम्मेदारी है कि
-आपको अपने उपयोगकर्ताओं और ऐप्लिकेशन से होने वाले संभावित नुकसान के बारे में पता हो. साथ ही,
-यह पक्का करें कि आपका ऐप्लिकेशन, एलएलएम का इस्तेमाल सुरक्षित और ज़िम्मेदारी के साथ करता हो.
+In questo contesto, la sicurezza è definita come la capacità di un modello LLM di evitare di causare danni ai suoi utenti, ad esempio generando un linguaggio tossico o contenuti che promuovono stereotipi. I modelli disponibili tramite l'API Gemini sono stati progettati tenendo conto dei [principi dell'AI di Google](https://ai.google/principles/?hl=it) e il loro utilizzo è soggetto alle [Norme relative all'uso vietato dell'IA generativa](https://policies.google.com/terms/generative-ai/use-policy?hl=it). L'API fornisce filtri di sicurezza integrati per risolvere alcuni problemi comuni dei modelli linguistici, come il linguaggio tossico e i discorsi di incitamento all'odio, e si impegna a garantire l'inclusività e a evitare gli stereotipi. Tuttavia, ogni applicazione può comportare una serie diversa di rischi per i suoi utenti. Pertanto, in qualità di proprietario dell'applicazione, hai la responsabilità di conoscere i tuoi utenti e i potenziali danni che la tua applicazione potrebbe causare, nonché di assicurarti che la tua applicazione utilizzi i modelli LLM in modo sicuro e responsabile.
 
-इस आकलन के तहत, आपको यह देखना चाहिए कि नुकसान होने की कितनी संभावना है. साथ ही, यह तय करना चाहिए कि नुकसान कितना गंभीर है और इसे कम करने के लिए क्या कदम उठाए जा सकते हैं. उदाहरण के लिए, तथ्यों पर आधारित घटनाओं के आधार पर निबंध जनरेट करने वाले ऐप्लिकेशन को, गलत जानकारी से बचने के लिए ज़्यादा सावधानी बरतनी होगी. ऐसा इसलिए, क्योंकि मनोरंजन के लिए काल्पनिक कहानियां जनरेट करने वाले ऐप्लिकेशन की तुलना में, इस ऐप्लिकेशन के ज़रिए दी गई जानकारी के सही होने की ज़िम्मेदारी ज़्यादा होती है. सुरक्षा से जुड़े संभावित जोखिमों के बारे में जानने के लिए, अपने ऐप्लिकेशन का इस्तेमाल करने वाले लोगों और उन लोगों के बारे में रिसर्च करें जिन पर आपके ऐप्लिकेशन के नतीजों का असर पड़ सकता है. इसके कई तरीके हो सकते हैं. जैसे, आपके ऐप्लिकेशन के डोमेन में सबसे नई स्टडी के बारे में रिसर्च करना, यह देखना कि लोग मिलते-जुलते ऐप्लिकेशन का इस्तेमाल कैसे कर रहे हैं या उपयोगकर्ताओं पर स्टडी करना, सर्वे करना या संभावित उपयोगकर्ताओं के साथ अनौपचारिक इंटरव्यू करना.
+Nell'ambito di questa valutazione, devi considerare la probabilità che si verifichino danni, determinarne la gravità e i passaggi di mitigazione. Ad esempio, un'app che genera saggi basati su eventi reali dovrà prestare maggiore attenzione a evitare la disinformazione rispetto a un'app che genera storie di fantasia per l'intrattenimento. Un buon modo per iniziare a esplorare i potenziali rischi per la sicurezza è quello di fare ricerche sugli utenti finali e su altre persone che potrebbero essere interessate dai risultati della tua applicazione. Questa operazione può assumere molte forme, tra cui la ricerca di studi all'avanguardia nel dominio della tua app, l'osservazione di come le persone utilizzano app simili o l'esecuzione di uno studio utente, un sondaggio o interviste informali con potenziali utenti.
 
-### उन्नत युक्तियां
+### Suggerimenti avanzati
 
-- अपने ऐप्लिकेशन और उसके मकसद के बारे में, टारगेट किए गए लोगों के अलग-अलग संभावित उपयोगकर्ताओं से बात करें. इससे, संभावित जोखिमों के बारे में ज़्यादा जानकारी मिलेगी. साथ ही, ज़रूरत के हिसाब से विविधता के मानदंड को अडजस्ट किया जा सकेगा.
-- अमेरिका की सरकार के नेशनल इंस्टिट्यूट ऑफ़ स्टैंडर्ड्स ऐंड टेक्नोलॉजी (एनआईएसटी) ने [एआई से जुड़े जोखिम को मैनेज करने के लिए फ़्रेमवर्क](https://www.nist.gov/itl/ai-risk-management-framework) जारी किया है. इसमें एआई से जुड़े जोखिम को मैनेज करने के बारे में ज़्यादा जानकारी और सीखने के अतिरिक्त संसाधन दिए गए हैं.
-- DeepMind के पब्लिकेशन में, [भाषा मॉडल से होने वाले नुकसान के नैतिक और सामाजिक जोखिमों](https://arxiv.org/abs/2112.04359) के बारे में बताया गया है. इसमें भाषा मॉडल के ऐप्लिकेशन से होने वाले नुकसान के बारे में विस्तार से बताया गया है.
+- Parla con un mix diversificato di potenziali utenti all'interno della tua popolazione target della tua applicazione e del suo scopo previsto per ottenere una prospettiva più ampia sui potenziali rischi e per modificare i criteri di diversità, se necessario.
+- Il [framework di gestione del rischio AI](https://www.nist.gov/itl/ai-risk-management-framework)
+  pubblicato dal
+  National Institute of Standards and Technology (NIST) del governo statunitense fornisce indicazioni più
+  dettagliate e risorse di apprendimento aggiuntive per la gestione del rischio AI.
+- La pubblicazione di DeepMind sui
+  [rischi etici e sociali di danni derivanti dai modelli linguistici](https://arxiv.org/abs/2112.04359)
+  descrive in dettaglio i modi in cui le applicazioni dei modelli linguistici
+  possono causare danni.
 
-## सुरक्षा और तथ्यों के सही होने से जुड़े जोखिमों को कम करने के लिए, जवाब में बदलाव करें
+## Valutare le modifiche per mitigare i rischi per la sicurezza e l'accuratezza dei fatti
 
-अब आपको जोखिमों के बारे में पता चल गया है. इसलिए, अब आपके पास यह तय करने का विकल्प है कि उन्हें कैसे कम किया जाए. यह तय करना ज़रूरी है कि किन जोखिमों को प्राथमिकता दी जाए और उन्हें रोकने के लिए आपको क्या करना चाहिए. यह फ़ैसला, सॉफ़्टवेयर प्रोजेक्ट में बग को प्राथमिकता देने जैसा है. प्राथमिकताएं तय करने के बाद, यह तय किया जा सकता है कि किस तरह के जोखिमों को कम करना सबसे सही होगा. अक्सर, सामान्य बदलावों से भी जोखिमों को कम किया जा सकता है.
+Ora che hai compreso i rischi, puoi decidere come mitigarli. Determinare a quali rischi dare la priorità e quanto dovresti fare per cercare di prevenirli è una decisione fondamentale, simile alla gestione delle priorità dei bug in un progetto software. Una volta determinate le priorità, puoi iniziare a pensare ai tipi di mitigazioni più appropriati. Spesso, semplici modifiche possono fare la differenza e ridurre i rischi.
 
-उदाहरण के लिए, किसी ऐप्लिकेशन को डिज़ाइन करते समय इन बातों का ध्यान रखें:
+Ad esempio, quando progetti un'applicazione, considera:
 
-- **मॉडल के आउटपुट को ट्यून करना**, ताकि आपके ऐप्लिकेशन के कॉन्टेक्स्ट में यह बेहतर तरीके से काम कर सके. ट्यूनिंग की मदद से, मॉडल के आउटपुट को ज़्यादा अनुमानित और एक जैसा बनाया जा सकता है. इसलिए, इससे कुछ जोखिमों को कम करने में मदद मिल सकती है.
-- **ऐसा इनपुट देने का तरीका उपलब्ध कराना जिससे सुरक्षित आउटपुट मिलें.** एलएलएम को दिया गया सटीक इनपुट, आउटपुट की क्वालिटी में अंतर ला सकता है. अपने इस्तेमाल के उदाहरण में सबसे सुरक्षित तरीके से काम करने वाले इनपुट प्रॉम्प्ट ढूंढने के लिए, अलग-अलग प्रॉम्प्ट आज़माएं. इससे आपको ऐसा यूज़र एक्सपीरियंस देने में मदद मिलेगी जो इसे आसान बनाता है. उदाहरण के लिए, उपयोगकर्ताओं को इनपुट प्रॉम्प्ट की सिर्फ़ ड्रॉप-डाउन सूची से चुनने की अनुमति दी जा सकती है. इसके अलावा, पॉप-अप सुझावों के साथ ऐसे वाक्यांश दिए जा सकते हैं जो आपके ऐप्लिकेशन के संदर्भ में सुरक्षित तरीके से काम करते हैं.
-- **खतरनाक इनपुट को ब्लॉक करना और उपयोगकर्ता को जवाब दिखाने से पहले उसे फ़िल्टर करना.** सामान्य मामलों में, ब्लॉकलिस्ट का इस्तेमाल करके प्रॉम्प्ट या जवाबों में मौजूद खतरनाक शब्दों या वाक्यांशों का पता लगाया जा सकता है और उन्हें ब्लॉक किया जा सकता है. इसके अलावा, ब्लॉकलिस्ट का इस्तेमाल करके, मानवीय समीक्षकों को ऐसे कॉन्टेंट को मैन्युअल तरीके से बदलने या ब्लॉक करने के लिए कहा जा सकता है.
-- **ट्रेन किए गए क्लासिफ़ायर का इस्तेमाल करके, हर प्रॉम्प्ट को संभावित नुकसान या नुकसान पहुंचाने वाले सिग्नल के साथ लेबल करना.** इसके बाद, नुकसान के टाइप के आधार पर, अनुरोध को हैंडल करने के लिए अलग-अलग रणनीतियों का इस्तेमाल किया जा सकता है. उदाहरण के लिए, अगर इनपुट साफ़ तौर पर नुकसान पहुंचाने वाला या आपत्तिजनक है, तो इसे ब्लॉक किया जा सकता है. इसके बजाय, पहले से स्क्रिप्ट की गई प्रतिक्रिया दी जा सकती है.
-  **ऐडवांस सलाह:** अगर सिग्नल से पता चलता है कि आउटपुट नुकसान पहुंचाने वाला है, तो ऐप्लिकेशन इन विकल्पों का इस्तेमाल कर सकता है:
+- **Ottimizzare l'output del modello** per riflettere meglio ciò che è accettabile nel contesto dell'applicazione. L'ottimizzazione può rendere l'output del modello più prevedibile e coerente e, di conseguenza, può contribuire a mitigare alcuni rischi.
+- **Fornire un metodo di input che faciliti gli output più sicuri.** L'input esatto che fornisci a un modello LLM può fare la differenza nella qualità dell'output.
+  Vale la pena sperimentare con i prompt di input per trovare quelli che funzionano in modo più sicuro nel tuo caso d'uso, in modo da poter fornire un'esperienza utente che lo faciliti. Ad esempio, potresti limitare gli utenti a scegliere solo da un elenco a discesa di prompt di input oppure offrire suggerimenti popup con frasi descrittive che hai scoperto essere sicure nel contesto dell'applicazione.
+- **Bloccare gli input non sicuri e filtrare l'output prima che venga mostrato all'utente.** In situazioni semplici, le liste bloccate possono essere utili per identificare e bloccare parole o frasi non sicure nei prompt o nelle risposte oppure richiedere ai revisori umani di modificare o bloccare manualmente questi contenuti.
+- **Utilizzare classificatori addestrati per etichettare ogni prompt con potenziali danni o segnali contraddittori.** È poi possibile applicare varie strategie per gestire la richiesta in base al tipo di danno rilevato, ad esempio, se l'input è apertamente contraddittorio o di natura illecita, potrebbe essere bloccato e fornire una risposta preimpostata.
+  **Suggerimento avanzato:** se i segnali determinano che l'output è dannoso, l'applicazione può utilizzare le seguenti opzioni:
 
-  - गड़बड़ी का मैसेज या पहले से स्क्रिप्ट किया गया आउटपुट देना.
-  - प्रॉम्प्ट को फिर से आज़माएं. ऐसा हो सकता है कि आपको सुरक्षित जवाब का कोई दूसरा विकल्प मिले. ऐसा इसलिए, क्योंकि कभी-कभी एक ही प्रॉम्प्ट के अलग-अलग जवाब मिलते हैं.
-- **जान-बूझकर किए जाने वाले गलत इस्तेमाल को रोकने के लिए सुरक्षा के तरीके लागू करना**. जैसे, हर उपयोगकर्ता को एक यूनीक आईडी असाइन करना और किसी अवधि में सबमिट की जा सकने वाली उपयोगकर्ता क्वेरी की संख्या पर सीमा लगाना. एक और सुरक्षा तरीका यह है कि प्रॉम्प्ट इंजेक्शन से बचने की कोशिश की जाए. प्रॉम्प्ट इंजेक्शन, एसक्यूएल इंजेक्शन की तरह ही होता है. इसमें नुकसान पहुंचाने वाले लोग, ऐसा इनपुट प्रॉम्प्ट डिज़ाइन करते हैं जिससे मॉडल के आउटपुट में बदलाव होता है. उदाहरण के लिए, ऐसा इनपुट प्रॉम्प्ट भेजना जिसमें मॉडल को पिछले सभी उदाहरणों को अनदेखा करने का निर्देश दिया गया हो. जान-बूझकर किए जाने वाले गलत इस्तेमाल के बारे में ज़्यादा जानने के लिए, [जनरेटिव एआई के गलत इस्तेमाल को रोकने के लिए बनी नीति](https://policies.google.com/terms/generative-ai/use-policy?hl=hi) पढ़ें.
-- **किसी सुविधा को इस तरह से अडजस्ट करना कि उससे जोखिम कम हो.**
-  जिन टास्क का दायरा सीमित होता है (जैसे, टेक्स्ट के पैसेज से कीवर्ड निकालना) या जिन पर इंसानों की निगरानी ज़्यादा होती है (जैसे, कम अवधि का ऐसा कॉन्टेंट जनरेट करना जिसकी समीक्षा कोई व्यक्ति करेगा), उनमें अक्सर जोखिम कम होता है. उदाहरण के लिए, ईमेल के जवाब को नए सिरे से लिखने के लिए ऐप्लिकेशन बनाने के बजाय, उसे सिर्फ़ आउटलाइन को बड़ा करने या वाक्यांशों के विकल्प सुझाने तक सीमित किया जा सकता है.
-- **नुकसान पहुंचाने वाले कॉन्टेंट से जुड़ी सुरक्षा सेटिंग में बदलाव करके, नुकसान पहुंचाने वाले जवाबों को कम किया जा सकता है.** Gemini API में सुरक्षा सेटिंग उपलब्ध होती हैं. प्रोटोटाइपिंग के दौरान, इनमें बदलाव किया जा सकता है. इससे यह तय किया जा सकता है कि आपके ऐप्लिकेशन के लिए, सुरक्षा से जुड़ी ज़्यादा या कम पाबंदियां ज़रूरी हैं. इन सेटिंग में बदलाव करके, फ़िल्टर की पांच कैटगरी में कुछ तरह के कॉन्टेंट को प्रतिबंधित या अनुमति दी जा सकती है. Gemini API के ज़रिए उपलब्ध सुरक्षा सेटिंग के बारे में जानने के लिए, [सुरक्षा सेटिंग से जुड़ी गाइड](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) पढ़ें.
-- **Google Search से सटीक जानकारी पाने की सुविधा चालू करके, तथ्यों के गलत होने या भ्रमित करने वाली जानकारी मिलने की संभावना को कम करें**. याद रखें कि कई एआई मॉडल एक्सपेरिमेंटल हैं. इसलिए, हो सकता है कि वे तथ्यों के हिसाब से गलत जानकारी दें, भ्रमित करने वाली जानकारी दें या किसी और तरह से समस्या पैदा करने वाले आउटपुट जनरेट करें. Google Search से सटीक जानकारी पाने की सुविधा, Gemini मॉडल को रीयल-टाइम में वेब कॉन्टेंट से कनेक्ट करती है. यह सुविधा, सभी उपलब्ध भाषाओं में काम करती है. इससे Gemini, जानकारी न मिलने की स्थिति के दायरे से बाहर निकलकर ज़्यादा सटीक जवाब और भरोसेमंद सोर्स के रेफ़रंस दे पाता है.
+  - Mostrare un messaggio di errore o generare un output preimpostato.
+  - Riprovare con il prompt, nel caso in cui venga generato un output alternativo sicuro, poiché a volte lo stesso prompt genera output diversi.
+- **Implementare misure di salvaguardia contro l'uso improprio intenzionale** , ad esempio assegnando a ogni utente un ID univoco e imponendo un limite al volume di query utente che possono essere inviate in un determinato periodo. Un'altra misura di salvaguardia consiste nel cercare di proteggersi da possibili prompt injection. Il prompt injection, proprio come l'SQL injection, è un modo per gli utenti malintenzionati di progettare un prompt di input che manipola l'output del modello, ad esempio inviando un prompt di input che indica al modello di ignorare eventuali esempi precedenti. Per i dettagli sull'uso improprio intenzionale, consulta le
+  [Norme relative all'uso vietato dell'AI generativa](https://policies.google.com/terms/generative-ai/use-policy?hl=it).
+- **Modificare la funzionalità in modo che sia intrinsecamente a rischio inferiore.**
+  Le attività con un ambito più ristretto (ad es. l'estrazione di parole chiave da passaggi di testo) o che prevedono una maggiore supervisione umana (ad es. la generazione di contenuti di breve durata che verranno esaminati da una persona) spesso comportano un rischio inferiore. Ad esempio, anziché creare un'applicazione per scrivere una risposta email da zero, potresti limitarla all'espansione di una bozza o al suggerimento di formulazioni alternative.
+- **Modificare le impostazioni di sicurezza dei contenuti dannosi per ridurre la probabilità di ricevere risposte potenzialmente dannose.** L'API Gemini fornisce impostazioni di sicurezza che puoi modificare durante la fase di prototipazione per determinare se la tua applicazione richiede una configurazione di sicurezza più o meno restrittiva. Puoi modificare queste impostazioni in cinque categorie di filtri per limitare o consentire determinati tipi di contenuti. Per scoprire di più sulle impostazioni di sicurezza regolabili disponibili tramite l'API Gemini, consulta la [guida alle impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it).
+- **Ridurre le potenziali imprecisioni o allucinazioni fattuali attivando la funzionalità Grounding con la Ricerca Google**. Tieni presente che molti modelli di AI sono sperimentali e potrebbero presentare informazioni oggettivamente imprecise, allucinare o produrre output problematici. La funzionalità Grounding con la Ricerca Google collega il modello Gemini ai contenuti web in tempo reale e funziona con tutte le lingue disponibili. In questo modo, Gemini può fornire risposte più accurate e citare fonti verificabili aggiornate rispetto al knowledge cutoff dei modelli.
 
-## इस्तेमाल के उदाहरण के हिसाब से, सुरक्षा जांच करें
+## Eseguire test di sicurezza appropriati per il tuo caso d'uso
 
-मज़बूत और सुरक्षित ऐप्लिकेशन बनाने के लिए, टेस्टिंग एक अहम हिस्सा है. हालांकि, टेस्टिंग का दायरा, रणनीति, और तरीका अलग-अलग हो सकता है. उदाहरण के लिए, सिर्फ़ मनोरंजन के लिए कविताएं जनरेट करने वाले ऐप्लिकेशन से, कानूनी दस्तावेज़ों का ब्यौरा देने और अनुबंधों का मसौदा तैयार करने के लिए डिज़ाइन किए गए ऐप्लिकेशन की तुलना में कम गंभीर जोखिम हो सकते हैं. हालांकि, कविताएं जनरेट करने वाले ऐप्लिकेशन का इस्तेमाल ज़्यादा लोग कर सकते हैं. इसका मतलब है कि इस ऐप्लिकेशन के साथ छेड़छाड़ करने की कोशिशें या अनजाने में नुकसान पहुंचाने वाले इनपुट मिलने की संभावना ज़्यादा हो सकती है. ऐप्लिकेशन को लागू करने का कॉन्टेक्स्ट भी मायने रखता है. उदाहरण के लिए, किसी ऐप्लिकेशन के आउटपुट की समीक्षा, कार्रवाई करने से पहले विशेषज्ञों की टीम करती है. ऐसे में, इस ऐप्लिकेशन से नुकसान पहुंचाने वाले आउटपुट मिलने की संभावना, उसी तरह के ऐप्लिकेशन की तुलना में कम हो सकती है जिसमें इस तरह की निगरानी नहीं की जाती.
+I test sono una parte fondamentale della creazione di applicazioni robuste e sicure, ma l'estensione, l'ambito e le strategie di test variano. Ad esempio, un generatore di haiku per divertimento è probabile che comporti rischi meno gravi rispetto, ad esempio, a un'applicazione progettata per essere utilizzata da studi legali per riassumere documenti legali e aiutare a redigere contratti. Tuttavia, il generatore di haiku potrebbe essere utilizzato da una gamma più ampia di utenti, il che significa che il potenziale di tentativi contraddittori o persino di input dannosi non intenzionali può essere maggiore. Anche il contesto di implementazione è importante. Ad esempio, un'applicazione con output esaminati da esperti umani prima di intraprendere qualsiasi azione potrebbe essere considerata meno probabile di produrre output dannosi rispetto all'applicazione identica senza questa supervisione.
 
-कई बार, बदलाव करने और उनकी जांच करने के बाद ही, ऐप्लिकेशन को लॉन्च करने का फ़ैसला लिया जाता है. ऐसा उन ऐप्लिकेशन के लिए भी किया जाता है जिनमें जोखिम कम होता है. एआई ऐप्लिकेशन के लिए, दो तरह की टेस्टिंग खास तौर पर मददगार होती हैं:
+Non è raro dover apportare diverse modifiche ed eseguire diversi test prima di sentirsi sicuri di essere pronti per il lancio, anche per le applicazioni a rischio relativamente basso. Due tipi di test sono particolarmente utili per le applicazioni di AI:
 
-- **सुरक्षा बेंचमार्किंग** में, सुरक्षा से जुड़ी मेट्रिक डिज़ाइन की जाती हैं. ये मेट्रिक, इस बात को दिखाती हैं कि आपका ऐप्लिकेशन, इस्तेमाल के तरीके के हिसाब से कितना सुरक्षित है. इसके बाद, यह टेस्ट किया जाता है कि आपका ऐप्लिकेशन, मेट्रिक के हिसाब से कितना अच्छा परफ़ॉर्म करता है. इसके लिए, आकलन वाले डेटासेट का इस्तेमाल किया जाता है. टेस्टिंग से पहले, सुरक्षा मेट्रिक के कम से कम स्वीकार्य लेवल के बारे में सोच लेना एक अच्छा तरीका है. इससे 1) आपको उन उम्मीदों के हिसाब से टेस्ट के नतीजों का आकलन करने में मदद मिलेगी और 2) आपको उन टेस्ट के आधार पर आकलन का डेटासेट इकट्ठा करने में मदद मिलेगी जो आपकी सबसे ज़्यादा ज़रूरी मेट्रिक का आकलन करते हैं.
+- Il **benchmarking della sicurezza** prevede la progettazione di metriche di sicurezza che riflettano i modi in cui la tua applicazione potrebbe essere non sicura nel contesto del suo probabile utilizzo, quindi il test del rendimento dell'applicazione in base alle metriche utilizzando set di dati di valutazione. È buona norma pensare ai livelli minimi accettabili delle metriche di sicurezza prima di eseguire i test, in modo da 1) poter valutare i risultati dei test in base a queste aspettative e 2) poter raccogliere il set di dati di valutazione in base ai test che valutano le metriche a cui tieni di più.
 
-  **बेहतर सुझाव:**
+  **Suggerimenti avanzati:**
 
-  - “ऑफ द शेल्फ़” अप्रोच पर ज़्यादा भरोसा न करें, क्योंकि हो सकता है कि आपको अपने ऐप्लिकेशन के कॉन्टेक्स्ट के हिसाब से, इंसानों की रेटिंग का इस्तेमाल करके अपने टेस्टिंग डेटासेट बनाने पड़ें.
-  - अगर आपके पास एक से ज़्यादा मेट्रिक हैं, तो आपको यह तय करना होगा कि अगर किसी बदलाव से एक मेट्रिक में सुधार होता है और दूसरी मेट्रिक में गिरावट आती है, तो आपको किस मेट्रिक को प्राथमिकता देनी है. परफ़ॉर्मेंस इंजीनियरिंग के अन्य तरीकों की तरह ही, आपको औसत परफ़ॉर्मेंस के बजाय, अपने आकलन सेट में सबसे खराब परफ़ॉर्मेंस पर फ़ोकस करना चाहिए.
-- **नुकसान पहुंचाने वाले कॉन्टेंट का इस्तेमाल करके खामी का पता लगाने** का मतलब है कि ऐप्लिकेशन को नुकसान पहुंचाने की कोशिश करना. इसका मकसद, कमियों की पहचान करना है, ताकि आप उन्हें ठीक करने के लिए ज़रूरी कदम उठा सकें. एआई सिस्टम की कमियों का पता लगाने के लिए की जाने वाली टेस्टिंग में, आपके ऐप्लिकेशन के बारे में विशेषज्ञता रखने वाले समीक्षकों को काफ़ी समय और मेहनत करनी पड़ सकती है. हालांकि, जितनी ज़्यादा टेस्टिंग की जाएगी, उतनी ही ज़्यादा समस्याएं मिलने की संभावना होगी. खास तौर पर, ऐसी समस्याएं जो कभी-कभी या ऐप्लिकेशन को बार-बार चलाने के बाद ही दिखती हैं.
+  - Fai attenzione a non fare troppo affidamento sugli approcci "pronti all'uso", perché è probabile che dovrai creare i tuoi set di dati di test utilizzando valutatori umani per adattarli completamente al contesto della tua applicazione.
+  - Se hai più di una metrica, dovrai decidere come scambiarle se una modifica comporta miglioramenti per una metrica a scapito di un'altra. Come per altre tecniche di ottimizzazione del rendimento, potresti voler concentrarti sul rendimento nel caso peggiore nel set di valutazione anziché sul rendimento medio.
+- I **test contraddittori** prevedono di provare in modo proattivo a interrompere l'applicazione. L'obiettivo è identificare i punti deboli in modo da poter adottare le misure necessarie per risolverli. I test contraddittori possono richiedere molto tempo/impegno da parte dei valutatori esperti nella tua applicazione, ma più ne esegui, maggiori sono le probabilità di individuare i problemi, soprattutto quelli che si verificano raramente o solo dopo esecuzioni ripetute dell'applicazione.
 
-  - नुकसान पहुंचाने वाले कॉन्टेंट का इस्तेमाल करके खामी का पता लगाना, एमएल मॉडल का व्यवस्थित तरीके से आकलन करने का एक तरीका है. इसका मकसद यह जानना है कि नुकसान पहुंचाने वाले या अनजाने में नुकसान पहुंचाने वाले इनपुट दिए जाने पर, मॉडल कैसा व्यवहार करता है:
-    - किसी इनपुट को नुकसान पहुंचाने वाला तब माना जा सकता है, जब उसे साफ़ तौर पर असुरक्षित या नुकसान पहुंचाने वाला आउटपुट जनरेट करने के लिए डिज़ाइन किया गया हो. उदाहरण के लिए, किसी टेक्स्ट जनरेशन मॉडल से किसी धर्म के बारे में नफ़रत फैलाने वाली टिप्पणी जनरेट करने के लिए कहना.
-    - किसी इनपुट से अनजाने में नुकसान तब पहुंचता है, जब इनपुट खुद नुकसान पहुंचाने वाला न हो, लेकिन उससे नुकसान पहुंचाने वाला आउटपुट मिले. उदाहरण के लिए, किसी टेक्स्ट जनरेशन मॉडल से किसी खास नस्ल के व्यक्ति के बारे में बताने के लिए कहना और नस्लभेदी आउटपुट मिलना.
-  - स्टैंडर्ड तरीके से किए गए आकलन और ऐडवर्सरियल टेस्ट में यह अंतर होता है कि टेस्ट के लिए इस्तेमाल किए गए डेटा की कंपोज़िशन अलग-अलग होती है. विरोधी जांचों के लिए, ऐसा टेस्ट डेटा चुनें जिससे मॉडल से समस्या पैदा करने वाला आउटपुट मिलने की संभावना सबसे ज़्यादा हो. इसका मतलब है कि मॉडल के व्यवहार की जांच करना. इसमें, नुकसान पहुंचाने वाले सभी संभावित उदाहरण शामिल हैं. जैसे, सुरक्षा से जुड़ी नीतियों के हिसाब से, दुर्लभ या असामान्य उदाहरण और मुश्किल मामले. इसमें वाक्य के अलग-अलग डाइमेंशन में विविधता भी शामिल होनी चाहिए. जैसे, स्ट्रक्चर, मतलब, और लंबाई. टेस्ट डेटासेट बनाते समय किन बातों का ध्यान रखना चाहिए, इस बारे में ज़्यादा जानने के लिए, [Google के ज़िम्मेदारी के साथ एआई इस्तेमाल करने से जुड़े सिद्धांतों में निष्पक्षता](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=hi) पढ़ें.
-    **बेहतर सुझाव:**
-  - अपने ऐप्लिकेशन को हैक करने की कोशिश करने के लिए, 'रेड टीम' में लोगों को शामिल करने के पारंपरिक तरीके के बजाय, [ऑटोमेटेड टेस्टिंग](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=hi) का इस्तेमाल करें. ऑटोमेटेड टेस्टिंग में, 'रेड टीम' एक और लैंग्वेज मॉडल होता है. यह ऐसा इनपुट टेक्स्ट ढूंढता है जिससे टेस्ट किए जा रहे मॉडल से नुकसान पहुंचाने वाले आउटपुट मिलते हैं.
+  - I test contraddittori sono un metodo di valutazione sistematica di un modello di ML con l'intento di apprendere come si comporta quando gli viene fornito un input dannoso, inavvertitamente o intenzionalmente:
+    - Un input può essere intenzionalmente dannoso quando è chiaramente progettato per produrre un output non sicuro o pericoloso, ad esempio chiedendo a un modello di generazione di testo di generare un discorso di incitamento all'odio nei confronti di una particolare religione.
+    - Un input è inavvertitamente dannoso quando produce un output pericoloso pur essendo di per sé innocuo, ad esempio chiedendo a un modello di generazione di testo di descrivere una persona di un particolare gruppo etnico e ricevendo un output razzista.
+  - Ciò che distingue un test contraddittorio da una valutazione standard è la composizione dei dati utilizzati per i test. Per i test contraddittori, seleziona
+    i dati di test che hanno maggiori probabilità di generare output problematici da
+    l modello. Ciò significa analizzare il comportamento del modello per tutti i tipi di danni possibili, inclusi esempi rari o insoliti e casi limite pertinenti alle norme di sicurezza. Deve inoltre includere la diversità nelle diverse dimensioni di una frase, come struttura, significato e lunghezza. Per ulteriori dettagli su cosa considerare quando crei un set di dati di test, consulta le pratiche di AI responsabile di [Google's Responsible AI
+    in
+    materia di](https://ai.google/responsibilities/responsible-ai-practices/?category=fairness&hl=it)
+    equità.
+    **Suggerimenti avanzati:**
+  - Utilizza i [test automatici](https://www.deepmind.com/blog/red-teaming-language-models-with-language-models?hl=it)
+    anziché il metodo tradizionale di coinvolgere persone in 'red
+    team' per cercare di interrompere l'applicazione. Nei test automatici, il "red team" è un altro modello linguistico che trova il testo di input che genera output dannosi dal modello in fase di test.
 
-## समस्याओं पर नज़र रखने के लिए
+## Monitorare i problemi
 
-चाहे आपने कितनी भी टेस्टिंग की हो और समस्याओं को कम किया हो, लेकिन यह कभी नहीं कहा जा सकता कि सब कुछ सही है. इसलिए, पहले से ही यह प्लान कर लें कि आपको आने वाली समस्याओं का पता कैसे चलेगा और उन्हें कैसे ठीक किया जाएगा. आम तौर पर, इन तरीकों का इस्तेमाल किया जाता है: उपयोगकर्ताओं के लिए एक ऐसा चैनल सेट अप करना जिस पर नज़र रखी जा सके, ताकि वे सुझाव/राय/शिकायत शेयर कर सकें. जैसे, पसंद/नापसंद रेटिंग देना. साथ ही, उपयोगकर्ताओं पर एक स्टडी करना, ताकि अलग-अलग तरह के उपयोगकर्ताओं से सुझाव/राय/शिकायत मिल सकें. यह तरीका तब ज़्यादा फ़ायदेमंद होता है, जब इस्तेमाल के पैटर्न उम्मीद के मुताबिक न हों.
+Indipendentemente dalla quantità di test e mitigazioni, non puoi mai garantire la perfezione, quindi pianifica in anticipo come individuare e risolvere i problemi che si presentano. Gli approcci comuni includono la configurazione di un canale monitorato in cui gli utenti possono condividere feedback (ad es. valutazione con pollice in su/in giù) e l'esecuzione di uno studio utente per richiedere in modo proattivo feedback da un mix diversificato di utenti, soprattutto se i pattern di utilizzo sono diversi dalle aspettative.
 
-### उन्नत युक्तियां
+### Suggerimenti avanzati
 
-- जब उपयोगकर्ता, एआई प्रॉडक्ट के बारे में सुझाव/राय देते हैं या शिकायत करते हैं, तो इससे समय के साथ एआई की परफ़ॉर्मेंस और उपयोगकर्ता अनुभव को बेहतर बनाने में मदद मिलती है. उदाहरण के लिए, इससे आपको प्रॉम्प्ट ट्यूनिंग के लिए बेहतर उदाहरण चुनने में मदद मिलती है. [Google की People and AI guidebook](https://pair.withgoogle.com/guidebook/chapters) में [सुझाव/राय देने या शिकायत करने और कंट्रोल करने से जुड़ा चैप्टर](https://pair.withgoogle.com/chapter/feedback-controls/) में, सुझाव/राय देने या शिकायत करने के तरीके डिज़ाइन करते समय ध्यान रखने वाली मुख्य बातों के बारे में बताया गया है.
+- Quando gli utenti forniscono feedback sui prodotti di AI, nel tempo possono migliorare notevolmente il rendimento dell'AI e l'esperienza utente, ad esempio aiutandoti a scegliere esempi migliori per l'ottimizzazione dei prompt. Il
+  [capitolo Feedback e controllo](https://pair.withgoogle.com/chapter/feedback-controls/)
+  della [guida Persone e AI di Google](https://pair.withgoogle.com/guidebook/chapters)
+  evidenzia le considerazioni chiave da tenere presenti durante la progettazione dei
+  meccanismi di feedback.
 
-## अगले चरण
+## Passaggi successivi
 
-- Gemini API के ज़रिए उपलब्ध, अडजस्ट की जा सकने वाली [सुरक्षा सेटिंग के बारे में जानने के लिए, सुरक्षा सेटिंग](https://ai.google.dev/gemini-api/docs/safety-settings?hl=hi) गाइड पढ़ें.
-- पहला प्रॉम्प्ट लिखने के लिए, [प्रॉम्प्ट के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=hi) देखें.
+- Per scoprire di più sulle impostazioni di sicurezza regolabili disponibili tramite l'API Gemini, consulta la
+  [guida alle impostazioni di sicurezza](https://ai.google.dev/gemini-api/docs/safety-settings?hl=it).
+- Per iniziare a scrivere i tuoi primi prompt, consulta l'[introduzione ai prompt](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=it) per iniziare.
 
-सुझाव भेजें
+Invia feedback
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-आखिरी बार 2026-06-05 (UTC) को अपडेट किया गया.
+Ultimo aggiornamento 2026-06-05 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Vuoi dirci altro?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-06-05 (UTC) को अपडेट किया गया."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-06-05 UTC."],[],[]]

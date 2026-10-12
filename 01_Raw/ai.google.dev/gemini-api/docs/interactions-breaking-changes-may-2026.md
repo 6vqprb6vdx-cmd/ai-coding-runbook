@@ -1,47 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=pl
-fetched_at: 2026-10-05T06:42:02.382507+00:00
-title: "Interfejs API interakcji: przewodnik po migracji w zwi\u0105zku ze zmianami powoduj\u0105cymi niezgodno\u015b\u0107 (maj 2026\u00a0r.) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=he
+fetched_at: 2026-10-12T07:15:46.855721+00:00
+title: "\u202bInteractions API: \u05de\u05d3\u05e8\u05d9\u05da \u05dc\u05d4\u05e2\u05d1\u05e8\u05ea \u05e9\u05d9\u05e0\u05d5\u05d9\u05d9\u05dd \u05e9\u05d2\u05d5\u05e8\u05de\u05d9\u05dd \u05dc\u05d1\u05e2\u05d9\u05d5\u05ea (\u05de\u05d0\u05d9 2026) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Prześlij opinię
+שליחת משוב
 
-# Interfejs API interakcji: przewodnik po migracji w związku ze zmianami powodującymi niezgodność (maj 2026 r.)
+# ‫Interactions API: מדריך להעברת שינויים שגורמים לבעיות (מאי 2026)
 
-W interfejsie Interactions API `v1beta` wprowadzamy istotne zmiany, które restrukturyzują kształt interfejsu API, aby obsługiwać przyszłe funkcje, takie jak sterowanie w trakcie działania i asynchroniczne wywołania narzędzi. Na tej stronie wyjaśniamy, co się zmienia, i podajemy przykłady kodu przed i po zmianach, aby ułatwić Ci migrację. Wyróżniamy 2 kategorie zmian:
+ב-`v1beta` Interactions API מוצגים שינויים שעלולים לשבור את התאימות לאחור. השינויים האלה משנים את מבנה ה-API כדי לתמוך ביכולות עתידיות כמו ניהול של שיחות עם כלים בזמן שהן מתנהלות ושימוש בכלים אסינכרוניים. בדף הזה אנחנו מסבירים מה משתנה ומספקים דוגמאות לקוד לפני ואחרי השינוי כדי לעזור לכם לבצע את המעבר. יש שתי קטגוריות של שינויים:
 
-1. [**Schemat kroków**](#steps-schema): nowa tablica `steps` zastępuje tablicę
-   `outputs`, zapewniając uporządkowaną oś czasu każdej interakcji.
-2. [**Konfiguracja formatu wyjściowego**](#output-format-config): nowy polimorficzny
-   `response_format` łączy wszystkie elementy sterujące formatem wyjściowym i usuwa
-   `response_mime_type`.
+1. [**סכימת השלבים**](#steps-schema): מערך `steps` חדש מחליף את מערך `outputs`, ומספק ציר זמן מובנה של כל תור לאינטראקציה.
+2. [**הגדרת פורמט הפלט**](#output-format-config): פולימורפיזם חדש של `response_format` מאחד את כל אמצעי הבקרה של פורמט הפלט ומסיר את `response_mime_type`.
 
-Aby zaktualizować integrację, wykonaj czynności opisane w artykule [Jak przeprowadzić migrację do nowego schematu](#how-to-migrate) w celu
-aktualizacji integracji.
+כדי לעדכן את השילוב, פועלים לפי השלבים במאמר [איך מעבירים לסקירה החדשה](#how-to-migrate).
 
-## Główna zmiana: `outputs` na `steps`
+## שינוי מרכזי: `outputs` ל-`steps`
 
-Nowy schemat zastępuje tablicę `outputs` tablicą `steps`.
+הסכימה החדשה מחליפה את המערך `outputs` במערך `steps`.
 
-- **Starsza wersja**: odpowiedzi zwracały płaską tablicę `outputs` zawierającą tylko wygenerowaną przez model treść.
-- **Nowy schemat**: odpowiedzi zwracają tablicę `steps` zawierającą uporządkowane kroki z dyskryminatorami typu.
+- **גרסה קודמת**: התשובות הוחזרו כמערך שטוח `outputs` שמכיל רק את התוכן שנוצר על ידי המודל.
+- **סכימה חדשה**: התשובות מחזירות מערך `steps` שמכיל שלבים מובנים עם מפלים של סוגים.
 
-`POST /interactions` zwraca tylko kroki wyjściowe. `GET /interactions/{id}`
-zwraca pełną oś czasu kroków, w tym początkowy krok `user_input`.
+‫`POST /interactions` מחזירה רק שלבי פלט. ‫`GET /interactions/{id}`
+מחזירה את ציר הזמן המלא של השלב, כולל השלב הראשוני `user_input`.
 
-### Podstawowe dane wejściowe/wyjściowe (unarne)
+### קלט/פלט בסיסי (אונרי)
 
-#### Przed (starsza wersja)
+#### לפני (הגרסה הקודמת)
 
 ### Python
 
@@ -93,7 +89,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### Po (nowy schemat)
+#### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -109,6 +105,8 @@ print(interaction.output_text)
 
 ### JavaScript
 
+‫
+
 ```
 // Request
 const interaction = await client.interactions.create({
@@ -120,7 +118,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-[sdk-convenience]: /gemini-api/docs/interactions-overview#sdk-sugar
+‫[sdk-convenience]: /gemini-api/docs/interactions-overview#sdk-sugar
 
 ### REST
 
@@ -175,11 +173,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### Wywoływanie funkcji
+### בקשה להפעלת פונקציה
 
-Struktura żądania pozostaje bez zmian, ale odpowiedź zastępuje płaską zawartość `outputs` uporządkowanymi krokami.
+מבנה הבקשה נשאר ללא שינוי, אבל בתגובה התוכן השטוח `outputs` מוחלף בשלבים מובנים.
 
-#### Przed (starsza wersja)
+#### לפני (הגרסה הקודמת)
 
 ### Python
 
@@ -224,7 +222,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### Po (nowy schemat)
+#### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -272,11 +270,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Narzędzia po stronie serwera
+### כלים בצד השרת
 
-Narzędzia po stronie serwera (takie jak wyszukiwarka Google czy wykonywanie kodu) zwracają teraz określone typy kroków w tablicy `steps`. Starsza wersja schematu zwracała te operacje jako określone typy treści w tablicy `outputs`, a nowy schemat przenosi je do tablicy `steps`. W podanych niżej przykładach użyto wyszukiwarki Google.
+כלים בצד השרת (כמו חיפוש Google או Code Execution) מחזירים עכשיו סוגים ספציפיים של שלבים במערך `steps`. בזמן שהסכימה הקודמת החזירה את הפעולות האלה כסוגי תוכן ספציפיים במערך `outputs`, הסכימה החדשה מעבירה אותן למערך `steps`. הדוגמאות הבאות מתבססות על חיפוש Google.
 
-#### Przed (starsza wersja)
+#### לפני (הגרסה הקודמת)
 
 ### Python
 
@@ -350,7 +348,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### Po (nowy schemat)
+#### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -434,11 +432,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### Streaming
+### סטרימינג
 
-Streaming udostępnia nowe typy zdarzeń:
+הסטרימינג חושף סוגים חדשים של אירועים:
 
-#### Nowe typy zdarzeń
+#### סוגי אירועים חדשים
 
 - `interaction.created`
 - `interaction.completed`
@@ -448,25 +446,22 @@ Streaming udostępnia nowe typy zdarzeń:
 - `step.delta`
 - `step.stop`
 
-#### Wycofane typy zdarzeń
+#### סוגי אירועים שיצאו משימוש
 
-Te starsze typy zdarzeń zostały zastąpione nowymi typami zdarzeń wymienionymi powyżej:
+סוגי האירועים הבאים מדור קודם מוחלפים באירועים החדשים שמופיעים למעלה:
 
-- `interaction.start` → `interaction.created`
-- `content.start` → `step.start`
-- `content.delta` → `step.delta`
-- `content.stop` → `step.stop`
-- `interaction.complete` → `interaction.completed`
-- `interaction.status_update` → zastąpiony przez `interaction.in_progress`, `interaction.requires_action` itp.
+- `interaction.start` ← `interaction.created`
+- `content.start` ← `step.start`
+- `content.delta` ← `step.delta`
+- `content.stop` ← `step.stop`
+- `interaction.complete` ← `interaction.completed`
+- ‫`interaction.status_update` ← הוחלף על ידי `interaction.in_progress`, `interaction.requires_action` וכו'.
 
-**Wywołania funkcji przesyłane strumieniowo**: gdy używasz przesyłania strumieniowego z wywoływaniem funkcji,
-zdarzenie `step.start` dostarcza nazwę funkcji, a zdarzenia `step.delta`
-przesyłają argumenty jako częściowe ciągi JSON (za pomocą `arguments_delta`). Aby
-uzyskać pełne argumenty, musisz zgromadzić te delty. Różni się to od wywołań unarnych, w których od razu otrzymujesz pełny obiekt wywołania funkcji.
+**הזרמת קריאות לפונקציות**: כשמשתמשים בהזרמה עם קריאות לפונקציות, האירוע `step.start` מעביר את שם הפונקציה, והאירועים `step.delta` מזרימים את הארגומנטים כמחרוזות JSON חלקיות (באמצעות `arguments_delta`). צריך לצבור את הדלתאות האלה כדי לקבל את הארגומנטים המלאים. זה שונה מקריאות unary שבהן מקבלים את האובייקט המלא של הקריאה לפונקציה בבת אחת.
 
-#### Przykłady
+#### דוגמאות
 
-##### Przed (starsza wersja)
+##### לפני (גרסה קודמת)
 
 ### Python
 
@@ -533,7 +528,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### Po (nowy schemat)
+##### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -610,32 +605,30 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### Historia rozmowy bezstanowej
+### היסטוריית שיחות ללא שמירת מצב
 
-Jeśli zarządzasz historią rozmowy ręcznie po stronie klienta (przypadek użycia bezstanowy), musisz zaktualizować sposób łączenia poprzednich tur.
+אם אתם מנהלים את היסטוריית השיחות באופן ידני בצד הלקוח (תרחיש שימוש בלי שמירת מצב), אתם צריכים לעדכן את האופן שבו אתם מחברים בין תורות קודמות.
 
-- **Starsza wersja**: deweloperzy często zbierali tablicę `outputs` z odpowiedzi i wysyłali ją z powrotem w polu `input` w następnej turze.
-- **Nowy schemat**: teraz musisz zbierać tablicę `steps` z odpowiedzi i przekazywać ją w polu `input` następnego żądania, dołączając nową turę użytkownika jako krok `user_input`.
+- **גרסה קודמת**: מפתחים אספו לעיתים קרובות את מערך `outputs` מהתגובות ושלחו אותן בחזרה בשדה `input` בתור הבא.
+- **סכימה חדשה**: עכשיו צריך לאסוף את מערך `steps` מהתגובה ולהעביר אותו בשדה `input` של הבקשה הבאה, ולצרף את תור המשתמש החדש כשלב `user_input`.
 
-## Konfiguracja formatu wyjściowego: zmiany w `response_format`
+## הגדרות פורמט הפלט: `response_format` שינויים
 
-Zaktualizowany interfejs API łączy wszystkie elementy sterujące formatem wyjściowym w ujednolicone, polimorficzne pole `response_format`. Centralizuje to konfigurację wyjściową na najwyższym poziomie i sprawia, że `generation_config` skupia się na zachowaniu modelu (np. temperatura, top\_p i myślenie).
+ב-API המעודכן, כל אמצעי הבקרה של פורמט הפלט מאוחדים בשדה `response_format` פולימורפי. ההגדרה הזו מרכזת את הגדרת הפלט ברמה העליונה, ומאפשרת להתמקד בהתנהגות המודל (כמו רמת אקראיות, Top-P וחשיבה).`generation_config`
 
-### Najważniejsze zmiany
+### שינויים מרכזיים
 
-- **Interfejs API usuwa `response_mime_type`.** Teraz typ MIME określasz w przypadku każdego wpisu formatu w `response_format`.
-- **`response_format` jest teraz obiektem polimorficznym (lub tablicą).** Każdy wpis ma dyskryminator `type` (`text`, `audio`, `image`) i pola specyficzne dla typu. Aby poprosić o wiele modalności wyjściowych, przekaż tablicę wpisów formatu.
-- **`image_config` przenosi się z `generation_config` do `response_format`**.
-  Ustawienia wyjściowe obrazu, takie jak `aspect_ratio` i `image_size`
-  określasz teraz we wpisie `response_format` z parametrem `"type": "image"`.
+- **ה-API מסיר את `response_mime_type`.** עכשיו מציינים את סוג ה-MIME לכל רשומה של פורמט בתוך `response_format`.
+- **`response_format` הוא עכשיו אובייקט פולימורפי (או מערך).** לכל רשומה יש דיסקרימינטור `type` (`text`, ‏ `audio`, ‏ `image`) ושדות ספציפיים לסוג. כדי לבקש כמה אופנים של פלט, מעבירים מערך של רשומות פורמט.
+- **`image_config` עובר מ-`generation_config` אל `response_format`.**
+  עכשיו אפשר לציין הגדרות של פלט תמונה כמו `aspect_ratio` ו-`image_size`
+  בתוך רשומה של `response_format` עם `"type": "image"`.
 
-### Uporządkowane dane wyjściowe (JSON)
+### פלט מובנה (JSON)
 
-Nowy schemat usuwa pole `response_mime_type`. Zamiast tego określ typ
-MIME i schemat JSON w obiekcie `response_format` z
-`"type": "text"`.
+הסכימה החדשה מסירה את השדה `response_mime_type`. במקום זאת, מציינים את סוג ה-MIME ואת סכימת ה-JSON בתוך אובייקט `response_format` עם `"type": "text"`.
 
-#### Przed (starsza wersja)
+#### לפני (הגרסה הקודמת)
 
 ### Python
 
@@ -691,7 +684,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po (nowy schemat)
+#### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -762,11 +755,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### Konfiguracja obrazu
+### הגדרת תמונה
 
-Nowy schemat usuwa `image_config` z `generation_config`. Ustawienia wyjściowe obrazu określasz teraz we wpisie `response_format` z parametrem `"type": "image"`.
+הסכימה החדשה מסירה את `image_config` מ-`generation_config`. עכשיו אפשר לציין הגדרות של פלט תמונה ברשומה `response_format` עם `"type": "image"`.
 
-#### Przed (starsza wersja)
+#### לפני (הגרסה הקודמת)
 
 ### Python
 
@@ -815,7 +808,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po (nowy schemat)
+#### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -868,11 +861,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### Konfiguracja dźwięku
+### הגדרת האודיו
 
-Nowy schemat zastępuje `response_modalities: ["audio"]` wpisem `response_format` z parametrem `"type": "audio"`.
+הסכימה החדשה מחליפה את `response_modalities: ["audio"]` בערך `response_format` של `"type": "audio"`.
 
-#### Przed (starsza wersja)
+#### לפני (הגרסה הקודמת)
 
 ### Python
 
@@ -921,7 +914,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Po (nowy schemat)
+#### אחרי (סכימה חדשה)
 
 ### Python
 
@@ -980,53 +973,52 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-Aby poprosić o wiele modalności wyjściowych (np. tekst i dźwięk), przekaż do `response_format` tablicę wpisów formatu zamiast pojedynczego obiektu.
+כדי לבקש כמה פורמטים של פלט (לדוגמה, טקסט ואודיו ביחד), צריך להעביר מערך של רשומות פורמט אל `response_format` במקום אובייקט יחיד.
 
-## Jak przeprowadzić migrację do nowego schematu
+## איך עוברים לסכימה החדשה
 
-### Użytkownicy pakietu SDK
+### משתמשי SDK
 
-Uaktualnij pakiet SDK do najnowszej wersji (Python ≥2.0.0, JavaScript ≥2.0.0). Pakiet SDK automatycznie włącza nowy schemat – nie musisz wprowadzać żadnych zmian w kodzie poza aktualizacją sposobu odczytywania odpowiedzi (patrz przykłady powyżej). Pamiętaj, że w tych wersjach pakietu SDK obsługiwany jest tylko nowy schemat. Starsze wersje pakietu SDK (Python 1.x.x, JavaScript 1.x.x) będą działać do momentu usunięcia starszej wersji schematu **8 czerwca 2026 r.**
+שדרוג לגרסת ה-SDK העדכנית ביותר (Python ≥2.0.0, ‏ JavaScript ≥2.0.0). ה-SDK מפעיל את הסכימה החדשה באופן אוטומטי – לא צריך לשנות את הקוד, רק לעדכן את אופן קריאת התגובות (ראו דוגמאות למעלה). שימו לב שרק הסכימה החדשה נתמכת בגרסאות האלה של ה-SDK. גרסאות ישנות יותר של SDK‏ (Python 1.x.x,‏ JavaScript 1.x.x) ימשיכו לפעול עד להסרת הסכימה מדור קודם ב-**8 ביוני 2026**.
 
-### Użytkownicy interfejsu REST API
+### משתמשי REST API
 
-Aby teraz włączyć nowy schemat, dodaj do żądań nagłówek `Api-Revision: 2026-05-20`. Po **26 maja** nowy schemat stanie się domyślny dla wszystkich
-żądań. Do **8 czerwca** możesz tymczasowo zrezygnować z nowego schematu, używając nagłówka `Api-Revision: 2026-05-07`
-. Po tej dacie interfejs API trwale usunie starszą wersję schematu.
+כדי להצטרף לסקירה של הסכימה החדשה, מוסיפים את הכותרת `Api-Revision: 2026-05-20` לבקשות. אחרי **26 במאי**, הסכימה החדשה תהפוך לברירת המחדל לכל הבקשות. אפשר להשבית את השימוש ב-API באופן זמני באמצעות `Api-Revision: 2026-05-07`
+עד **8 ביוני**, התאריך שבו הסכימה מדור קודם תוסר מה-API לצמיתות.
 
-### Oś czasu
+### ציר הזמן
 
-| Data | Faza | Użytkownicy pakietu SDK | Użytkownicy interfejsu REST API |
+| תאריך | שלב | משתמשי SDK | משתמשי REST API |
 | --- | --- | --- | --- |
-| **7 maja** | Zaakceptuj | Dostępna jest nowa wersja pakietu SDK (Python ≥2.0.0, JS ≥2.0.0). Uaktualnij pakiet SDK, aby automatycznie uzyskać nowy schemat. | Aby włączyć nowy schemat, dodaj nagłówek `Api-Revision: 2026-05-20`. Domyślnie nadal używana jest starsza wersja. |
-| **26 maja** | Domyślne odwrócenie | Jeśli pakiet SDK został już uaktualniony, nie musisz nic robić. Starsze wersje pakietu SDK (Python 1.x.x, JS 1.x.x) nadal działają, ale zwracają odpowiedzi w starszej wersji. | Nowy schemat jest teraz domyślny. Aby zrezygnować z nowego schematu, wyślij nagłówek `Api-Revision: 2026-05-07`. |
-| **8 czerwca** | Zachód słońca | Wersje pakietu SDK Python 1.x.x i JS 1.x.x przestaną działać w przypadku wywołań interfejsu Interactions API. | Starsza wersja schematu została usunięta z interfejsu Interactions API. Nagłówek `Api-Revision` jest ignorowany. |
+| **‫7 במאי** | הבעת הסכמה | גרסת SDK חדשה זמינה (Python ≥2.0.0, ‏ JS ≥2.0.0). כדי לקבל את הסכימה החדשה באופן אוטומטי, צריך לשדרג. | הוספת הכותרת `Api-Revision: 2026-05-20` להסכמה להצטרפות. ברירת המחדל נשארת מדור קודם. |
+| **26 במאי** | היפוך ברירת המחדל | אם כבר שדרגתם, לא צריך לעשות כלום. ‫SDKs ישנים (Python 1.x.x,‏ JS 1.x.x) עדיין פועלים, אבל מחזירים תשובות מדור קודם. | הסכימה החדשה מוגדרת עכשיו כברירת מחדל. כדי לבטל את ההסכמה, שולחים את הכותרת `Api-Revision: 2026-05-07`. |
+| **8 ביוני** | שקיעה | גרסאות Python 1.x.x ו-JS 1.x.x SDK יפסיקו לפעול בקריאות ל-Interactions API. | הסרנו את הסכימה הקודמת של Interactions API. הכותרת `Api-Revision` לא נכללה. |
 
-## Lista kontrolna migracji
+## הגירה - רשימת משימות לביצוע
 
-### Schemat kroków (`steps`)
+### סכימת השלבים (`steps`)
 
-- Zaktualizuj kod, aby odczytywać treść odpowiedzi z tablicy `steps` zamiast z `outputs`. [Zobacz przykłady](#basic-unary).
-- Sprawdź, czy Twój kod obsługuje typy kroków `user_input` i `model_output`. [Zobacz przykłady](#basic-unary).
-- (Wywoływanie funkcji) Zaktualizuj kod, aby znajdować kroki `function_call` w tablicy `steps`. [Zobacz przykłady](#function-calling).
-- (Narzędzia po stronie serwera) Zaktualizuj kod, aby obsługiwać kroki specyficzne dla narzędzia (np. `google_search_call`, `google_search_result`). [Zobacz przykłady](#server-side-tools).
-- (Historia bez stanu) Zaktualizuj zarządzanie historią, aby przekazywać tablicę `steps` w polu `input` następnego żądania. [Zobacz szczegóły](#stateless-history).
-- (Tylko streaming) Zaktualizuj klienta, aby nasłuchiwał nowych typów zdarzeń SSE (`interaction.created`, `step.delta` itp.). [Zobacz przykłady](#streaming).
+- צריך לעדכן את הקוד כדי לקרוא את תוכן התשובה מהמערך `steps` במקום מ-`outputs`. [דוגמאות](#basic-unary)
+- מוודאים שהקוד מטפל בשני סוגי השלבים: `user_input` ו-`model_output`. [דוגמאות](#basic-unary)
+- (הפעלת פונקציות) מעדכנים את הקוד כדי למצוא את השלבים של `function_call` במערך `steps`. [דוגמאות](#function-calling)
+- (כלים בצד השרת) מעדכנים את הקוד כדי לטפל בשלבים ספציפיים לכלים (למשל `google_search_call`, `google_search_result`). [דוגמאות](#server-side-tools)
+- (היסטוריה בלי שמירת מצב) עדכון של ניהול ההיסטוריה כדי להעביר את מערך `steps` בשדה `input` של הבקשה הבאה. [פרטים נוספים](#stateless-history)
+- (סטרימינג בלבד) צריך לעדכן את הלקוח כדי להאזין לסוגים חדשים של אירועי SSE (‏`interaction.created`, ‏`step.delta` וכו'). [דוגמאות](#streaming)
 
-### Konfiguracja formatu wyjściowego (`response_format`)
+### הגדרת פורמט הפלט (`response_format`)
 
-- Zastąp `response_mime_type` polem `mime_type` w `response_format`. [Zobacz przykłady](#structured-output).
-- Owiń istniejący `response_format` schemat JSON w obiekt `{"type": "text", "schema": ...}`. [Zobacz przykłady](#structured-output).
-- (Generowanie obrazów) Przenieś `image_config` z `generation_config` do wpisu `{"type": "image", ...}` w `response_format`. [Zobacz przykłady](#image-config).
-- (Generowanie mowy) Zastąp `response_modalities=["audio"]` wpisem `{"type": "audio"}` w `response_format`. [Zobacz przykłady](#audio-config).
-- (Wielomodowość) Podczas wysyłania żądania wielu modalności wyjściowych zmień `response_format` z pojedynczego obiektu na tablicę.
+- מחליפים את `response_mime_type` בשדה `mime_type` בתוך `response_format`. [דוגמאות](#structured-output)
+- עוטפים את סכימת ה-JSON הקיימת `response_format` באובייקט `{"type": "text", "schema": ...}`. [דוגמאות](#structured-output)
+- (יצירת תמונות) העברה של `image_config` מ-`generation_config` לרשומה `{"type": "image", ...}` ב-`response_format`. [דוגמאות](#image-config)
+- (יצירת דיבור) מחליפים את `response_modalities=["audio"]` בערך `{"type": "audio"}` ב-`response_format`. [דוגמאות](#audio-config)
+- (מולטימודאלי) המרת `response_format` מאובייקט יחיד למערך כשמבקשים כמה אופנים של פלט.
 
-Prześlij opinię
+שליחת משוב
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Ostatnia aktualizacja: 2026-09-12 UTC.
+עדכון אחרון: 2026-09-12 (שעון UTC).
 
-Chcesz przekazać coś jeszcze?
+רוצה לתת לנו משוב?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]

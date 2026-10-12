@@ -1,36 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=de
-fetched_at: 2026-10-05T06:28:31.215535+00:00
-title: "URL-Kontext \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=hi
+fetched_at: 2026-10-12T06:51:34.404152+00:00
+title: "\u092f\u0942\u0906\u0930\u090f\u0932 \u0915\u093e \u0915\u0949\u0928\u094d\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-Feedback geben
+सुझाव भेजें
 
-# URL-Kontext
+# यूआरएल का कॉन्टेक्स्ट
 
-Mit dem Tool „URL-Kontext“ können Sie den Modellen zusätzlichen Kontext in Form von URLs zur Verfügung stellen. Wenn Sie URLs in Ihre Anfrage einfügen, greift das Modell auf die Inhalte dieser Seiten zu (sofern es sich nicht um einen URL-Typ handelt, der im Abschnitt zu den[Beschränkungen](#limitations)aufgeführt ist), um seine Antwort zu informieren und zu verbessern.
+यूआरएल कॉन्टेक्स्ट टूल की मदद से, मॉडल को यूआरएल के तौर पर अतिरिक्त कॉन्टेक्स्ट दिया जा सकता है. अपने अनुरोध में यूआरएल शामिल करने पर, मॉडल उन पेजों के कॉन्टेंट को ऐक्सेस करेगा. हालांकि, ऐसा तब ही होगा, जब वह यूआरएल, [सीमाएं सेक्शन](#limitations) में बताए गए यूआरएल टाइप में शामिल न हो. इससे मॉडल को जवाब देने और उसे बेहतर बनाने में मदद मिलेगी.
 
-Das Tool „URL-Kontext“ ist für Aufgaben wie die folgenden nützlich:
+यूआरएल कॉन्टेक्स्ट टूल, इन जैसे कामों के लिए मददगार होता है:
 
-- **Daten extrahieren**: Bestimmte Informationen wie Preise, Namen oder wichtige
-  Ergebnisse aus mehreren URLs abrufen.
-- **Dokumente vergleichen**: Mehrere Berichte, Artikel oder PDFs analysieren, um
-  Unterschiede zu ermitteln und Trends zu verfolgen.
-- **Inhalte zusammenführen und erstellen**: Informationen aus mehreren Quell-URLs kombinieren, um genaue Zusammenfassungen, Blogposts oder Berichte zu erstellen.
-- **Code und Dokumente analysieren**: Auf ein GitHub-Repository oder eine technische Dokumentation verweisen, um Code zu erklären, Einrichtungsanleitungen zu erstellen oder Fragen zu beantworten.
+- **डेटा निकालना**: एक से ज़्यादा यूआरएल से खास जानकारी निकालना. जैसे, कीमतें, नाम या मुख्य नतीजे.
+- **दस्तावेज़ों की तुलना करना**: अंतरों का पता लगाने और रुझानों को ट्रैक करने के लिए, एक से ज़्यादा रिपोर्ट, लेख या PDF का विश्लेषण करें.
+- **कॉन्टेंट बनाना और जानकारी इकट्ठा करना**: सटीक जवाब, ब्लॉग पोस्ट या रिपोर्ट जनरेट करने के लिए, कई सोर्स यूआरएल से जानकारी इकट्ठा करें.
+- **कोड और दस्तावेज़ों का विश्लेषण करना**: कोड के बारे में जानकारी पाने, सेटअप करने के निर्देश जनरेट करने या सवालों के जवाब पाने के लिए, GitHub रिपॉज़िटरी या तकनीकी दस्तावेज़ पर जाएं.
 
-Im folgenden Beispiel wird gezeigt, wie Sie zwei Rezepte von verschiedenen Websites vergleichen.
+यहां दिए गए उदाहरण में, अलग-अलग वेबसाइटों की दो रेसिपी की तुलना करने का तरीका बताया गया है.
 
 ### Python
 
@@ -39,7 +37,7 @@ from google import genai
 from google.genai.types import Tool, GenerateContentConfig
 
 client = genai.Client()
-model_id = "gemini-3.6-flash"
+model_id = "gemini-3.8-flash"
 
 tools = [
   {"url_context": {}},
@@ -72,7 +70,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: [
         "Compare the ingredients and cooking times from the recipes at https://www.foodnetwork.com/recipes/ina-garten/perfect-roast-chicken-recipe-1940592 and https://www.allrecipes.com/recipe/21151/simple-whole-roast-chicken/",
     ],
@@ -92,7 +90,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -113,26 +111,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 cat result.json
 ```
 
-## Funktionsweise
+## यह कैसे काम करता है
 
-Das Tool „URL-Kontext“ verwendet einen zweistufigen Abrufprozess, um Geschwindigkeit, Kosten und Zugriff auf aktuelle Daten auszubalancieren. Wenn Sie eine URL angeben, versucht das Tool zuerst, die Inhalte aus einem internen Index-Cache abzurufen. Dieser dient als hochoptimierter Cache. Wenn eine URL nicht im Index verfügbar ist (z. B. wenn es sich um eine sehr neue Seite handelt), führt das Tool automatisch einen Live-Abruf durch.
-Dabei wird direkt auf die URL zugegriffen, um die Inhalte in Echtzeit abzurufen.
+यूआरएल कॉन्टेक्स्ट टूल, डेटा को वापस पाने के लिए दो चरणों वाली प्रोसेस का इस्तेमाल करता है. इससे, तेज़ी से डेटा मिलता है, लागत कम होती है, और नए डेटा को ऐक्सेस किया जा सकता है. यूआरएल देने पर, यह टूल सबसे पहले इंटरनल इंडेक्स कैश मेमोरी से कॉन्टेंट फ़ेच करने की कोशिश करता है. यह बहुत ज़्यादा ऑप्टिमाइज़ की गई कैश मेमोरी के तौर पर काम करता है. अगर कोई यूआरएल इंडेक्स में उपलब्ध नहीं है (उदाहरण के लिए, अगर यह बहुत नया पेज है), तो टूल अपने-आप लाइव फ़ेच करने की सुविधा पर वापस चला जाता है.
+यह सीधे तौर पर यूआरएल को ऐक्सेस करता है, ताकि रीयल टाइम में उसका कॉन्टेंट वापस पाया जा सके.
 
-## Kombination mit anderen Tools
+## अन्य टूल के साथ इस्तेमाल करना
 
-Sie können das Tool „URL-Kontext“ mit anderen Tools kombinieren, um leistungsstärkere Workflows zu erstellen.
+यूआरएल कॉन्टेक्स्ट टूल को अन्य टूल के साथ मिलाकर, ज़्यादा असरदार वर्कफ़्लो बनाए जा सकते हैं.
 
-[Gemini 3-Modelle](#supported-models) unterstützen die Kombination von integrierten Tools
-(z. B. „URL-Kontext“) mit benutzerdefinierten Tools (Funktionsaufrufe). Weitere Informationen finden Sie auf der
-[Seite zu Tool-Kombinationen](https://ai.google.dev/gemini-api/docs/tool-combination?hl=de).
+[Gemini 3 मॉडल](#supported-models), कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ-साथ बिल्ट-इन टूल (जैसे, यूआरएल कॉन्टेक्स्ट) को एक साथ इस्तेमाल करने की सुविधा देते हैं. [टूल कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) पेज पर जाकर ज़्यादा जानें.
 
-### Fundierung mit der Suche
+### खोज के नतीजों से जानकारी पाना
 
-Wenn sowohl „URL-Kontext“ als auch
-[„Fundierung mit der Google Suche“](https://ai.google.dev/gemini-api/docs/grounding?hl=de) aktiviert sind,
-kann das Modell seine Suchfunktionen verwenden, um
-relevante Informationen online zu finden. Anschließend kann es mit dem Tool „URL-Kontext“ ein besseres
-Verständnis der gefundenen Seiten erhalten. Dieser Ansatz ist nützlich für Prompts, die sowohl eine umfassende Suche als auch eine detaillierte Analyse bestimmter Seiten erfordern.
+यूआरएल के कॉन्टेक्स्ट और [Google Search से मिली जानकारी का इस्तेमाल करने की सुविधा](https://ai.google.dev/gemini-api/docs/grounding?hl=hi), दोनों के चालू होने पर मॉडल, खोज से जुड़ी अपनी क्षमताओं का इस्तेमाल करके, ऑनलाइन काम की जानकारी ढूंढ सकता है. इसके बाद, यूआरएल के कॉन्टेक्स्ट टूल का इस्तेमाल करके, खोजे गए पेजों के बारे में ज़्यादा जानकारी पा सकता है. यह तरीका उन प्रॉम्प्ट के लिए बहुत कारगर है जिनमें व्यापक खोज और खास पेजों का बारीकी से विश्लेषण, दोनों की ज़रूरत होती है.
 
 ### Python
 
@@ -141,7 +133,7 @@ from google import genai
 from google.genai.types import Tool, GenerateContentConfig, GoogleSearch, UrlContext
 
 client = genai.Client()
-model_id = "gemini-3.6-flash"
+model_id = "gemini-3.8-flash"
 
 tools = [
       {"url_context": {}},
@@ -171,7 +163,7 @@ const ai = new GoogleGenAI({});
 
 async function main() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: [
         "Give me three day events schedule based on YOUR_URL. Also let me know what needs to taken care of considering weather and commute.",
     ],
@@ -193,7 +185,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -d '{
@@ -217,11 +209,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 cat result.json
 ```
 
-## Antwort verstehen
+## जवाब को समझना
 
-Wenn das Modell das Tool „URL-Kontext“ verwendet, enthält die Antwort ein `url_context_metadata`-Objekt. In diesem Objekt sind die URLs aufgeführt, von denen das Modell Inhalte abgerufen hat, sowie der Status der einzelnen Abrufversuche. Das ist nützlich für die Überprüfung und Fehlerbehebung.
+जब मॉडल, यूआरएल कॉन्टेक्स्ट टूल का इस्तेमाल करता है, तब जवाब में `url_context_metadata` ऑब्जेक्ट शामिल होता है. इस ऑब्जेक्ट में, उन यूआरएल की सूची होती है जिनसे मॉडल ने कॉन्टेंट को ऐक्सेस किया है. साथ ही, इसमें हर ऐक्सेस करने की कोशिश का स्टेटस भी होता है. यह ऑब्जेक्ट, पुष्टि करने और डीबग करने के लिए काम आता है.
 
-Im Folgenden sehen Sie ein Beispiel für diesen Teil der Antwort (Teile der Antwort wurden aus Gründen der Übersichtlichkeit weggelassen):
+यहां जवाब के उस हिस्से का उदाहरण दिया गया है. जवाब के कुछ हिस्सों को छोटा करने के लिए हटा दिया गया है:
 
 ```
 {
@@ -253,18 +245,15 @@ Im Folgenden sehen Sie ein Beispiel für diesen Teil der Antwort (Teile der Antw
 }
 ```
 
-Vollständige Informationen zu diesem Objekt finden Sie in der
-[`UrlContextMetadata` API-Referenz](https://ai.google.dev/api/generate-content?hl=de#UrlContextMetadata).
+इस ऑब्जेक्ट के बारे में पूरी जानकारी के लिए , [`UrlContextMetadata` एपीआई का संदर्भ](https://ai.google.dev/api/generate-content?hl=hi#UrlContextMetadata) देखें.
 
-### Sicherheitschecks
+### सुरक्षा जांच
 
-Das System führt eine Inhaltsmoderationsprüfung für die URL durch, um zu bestätigen, dass sie den Sicherheitsstandards entspricht. Wenn die von Ihnen angegebene URL diese Prüfung nicht besteht, erhalten Sie für `url_retrieval_status` den Wert `URL_RETRIEVAL_STATUS_UNSAFE`.
+सिस्टम, यूआरएल पर कॉन्टेंट मॉडरेशन की जांच करता है. इससे यह पुष्टि की जाती है कि यूआरएल, सुरक्षा मानकों के मुताबिक है. अगर आपके दिए गए यूआरएल की पुष्टि नहीं हो पाती है, तो आपको `url_retrieval_status` का `URL_RETRIEVAL_STATUS_UNSAFE` मिलेगा.
 
-### Tokenanzahl
+### टोकन की गिनती
 
-Die Inhalte, die von den in Ihrem Prompt angegebenen URLs abgerufen werden, werden als Teil der Eingabetokens gezählt. Die Tokenanzahl für Ihren Prompt und
-die Tool-Nutzung finden Sie im [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=de#UsageMetadata)
-Objekt der Modellausgabe. Hier ist ein Beispiel für die Ausgabe:
+आपके प्रॉम्प्ट में दिए गए यूआरएल से हासिल किए गए कॉन्टेंट को, इनपुट टोकन के तौर पर गिना जाता है. आपको मॉडल आउटपुट के [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=hi#UsageMetadata) ऑब्जेक्ट में, अपने प्रॉम्प्ट और टूल के इस्तेमाल के लिए टोकन की गिनती दिख सकती है. यहां उदाहरण के तौर पर आउटपुट दिया गया है:
 
 ```
 'usage_metadata': {
@@ -280,68 +269,61 @@ Objekt der Modellausgabe. Hier ist ein Beispiel für die Ausgabe:
   }
 ```
 
-Der Preis pro Token hängt vom verwendeten Modell ab. Weitere Informationen finden Sie auf der
-[Preisseite](https://ai.google.dev/gemini-api/docs/pricing?hl=de).
+हर टोकन की कीमत, इस्तेमाल किए गए मॉडल पर निर्भर करती है. ज़्यादा जानकारी के लिए, [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज देखें.
 
-## Unterstützte Modelle
+## इन मॉडल के साथ काम करता है
 
-| Modell | URL-Kontext |
+| मॉडल | यूआरएल कॉन्टेक्स्ट |
 | --- | --- |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=de) | ✔️ |
-| [Gemini 3.1 Pro (Vorabversion)](https://ai.google.dev/gemini-api/docs/generate-content/gemini-3.1-pro-preview?hl=de) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ |
-| [Gemini 3 Flash (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=hi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3 Flash की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
 
-## Best Practices
+## सबसे सही तरीके
 
-- **Bestimmte URLs angeben**: Die besten Ergebnisse erzielen Sie, wenn Sie direkte URLs zu den
-  Inhalten angeben, die das Modell analysieren soll. Das Modell ruft nur Inhalte von den von Ihnen angegebenen URLs ab, nicht von verschachtelten Links.
-- **Zugänglichkeit prüfen**: Prüfen Sie, ob die von Ihnen angegebenen URLs nicht zu
-  Seiten führen, für die eine Anmeldung erforderlich ist oder die sich hinter einer Paywall befinden.
-- **Vollständige URL verwenden**: Geben Sie die vollständige URL einschließlich des Protokolls an
-  (z.B. https://www.google.com anstelle von google.com).
+- **खास यूआरएल दें**: बेहतर नतीजे पाने के लिए, उस कॉन्टेंट के डायरेक्ट यूआरएल दें जिसका आपको मॉडल से विश्लेषण कराना है. मॉडल सिर्फ़ आपके दिए गए यूआरएल से कॉन्टेंट हासिल करेगा. वह नेस्ट किए गए लिंक से कोई कॉन्टेंट हासिल नहीं करेगा.
+- **सुलभता की जांच करें**: पुष्टि करें कि आपके दिए गए यूआरएल, ऐसे पेजों पर रीडायरेक्ट न करते हों जिनके लिए लॉग इन करना ज़रूरी है या जिनके लिए पैसे चुकाने पड़ते हैं.
+- **पूरा यूआरएल इस्तेमाल करें**: पूरा यूआरएल दें.इसमें प्रोटोकॉल भी शामिल होना चाहिए. उदाहरण के लिए, google.com के बजाय https://www.google.com का इस्तेमाल करें.
 
-## Beschränkungen
+## सीमाएं
 
-- Funktionsaufrufe: Die Tool-Nutzung (URL-Kontext, Fundierung mit der Google Suche usw.) mit Funktionsaufrufen wird derzeit nicht unterstützt.
-- Anfragelimit: Das Tool kann bis zu 20 URLs pro Anfrage verarbeiten.
-- Größe der URL-Inhalte: Die maximale Größe für Inhalte, die von einer einzelnen URL abgerufen werden, beträgt 34 MB.
-- Öffentliche Zugänglichkeit: Die URLs müssen öffentlich im Web zugänglich sein.
-  Localhost-Adressen (z.B. localhost, 127.0.0.1), private Netzwerke und Tunneling-Dienste (z.B. ngrok, pinggy) werden nicht unterstützt.
-- Nur Gemini API: „URL-Kontext“ ist nur in der Gemini API verfügbar, nicht über die Gemini Enterprise Agent Platform.
+- अनुरोध की सीमा: यह टूल, हर अनुरोध के लिए ज़्यादा से ज़्यादा 20 यूआरएल प्रोसेस कर सकता है.
+- यूआरएल के कॉन्टेंट का साइज़: किसी एक यूआरएल से फ़ेच किए गए कॉन्टेंट का साइज़ ज़्यादा से ज़्यादा 34 एमबी हो सकता है.
+- सार्वजनिक तौर पर ऐक्सेस करने की सुविधा: यूआरएल ऐसे होने चाहिए जिन्हें वेब पर सार्वजनिक तौर पर ऐक्सेस किया जा सके.
+  लोकलहोस्ट पते (जैसे, localhost, 127.0.0.1), निजी नेटवर्क, और टनलिंग सेवाओं (जैसे, ngrok, pinggy) का इस्तेमाल नहीं किया जा सकता.
 
-### Unterstützte und nicht unterstützte Inhaltstypen
+### इस्तेमाल किए जा सकने वाले और इस्तेमाल न किए जा सकने वाले कॉन्टेंट टाइप
 
-Das Tool kann Inhalte aus URLs mit den folgenden Inhaltstypen extrahieren:
+यह टूल, इन तरह के कॉन्टेंट वाले यूआरएल से कॉन्टेंट निकाल सकता है:
 
-- Text (text/html, application/json, text/plain, text/xml, text/css,
+- टेक्स्ट (text/html, application/json, text/plain, text/xml, text/css,
   text/javascript , text/csv, text/rtf)
-- Bild (image/png, image/jpeg, image/bmp, image/webp)
+- इमेज (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-Die folgenden Inhaltstypen werden **nicht** unterstützt:
+इस तरह के कॉन्टेंट के लिए, यह सुविधा **काम नहीं करती**:
 
-- Paywall-Inhalte
-- YouTube-Videos (Informationen zum Verarbeiten von YouTube-URLs finden Sie unter
-  [Video-Understanding](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#youtube))
-- Google Workspace-Dateien wie Google Docs-Dokumente oder Google-Tabellen
-- Video- und Audiodateien
+- Paywall की गई सामग्री
+- YouTube वीडियो (YouTube यूआरएल प्रोसेस करने का तरीका जानने के लिए, [वीडियो को समझना](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#youtube) लेख पढ़ें)
+- Google Workspace की फ़ाइलें, जैसे कि Google Docs या स्प्रेडशीट
+- वीडियो और ऑडियो फ़ाइलें
 
-## Nächste Schritte
+## आगे क्या करना है
 
-- Weitere Beispiele finden Sie im [Cookbook zum Tool „URL-Kontext“](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=de#url-context).
+- ज़्यादा उदाहरणों के लिए, [यूआरएल कॉन्टेक्स्ट कुकबुक](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=hi#url-context) देखें.
 
-Feedback geben
+सुझाव भेजें
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Zuletzt aktualisiert: 2026-09-12 (UTC).
+आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया.
 
-Haben Sie Feedback für uns?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-12 (UTC)."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया."],[],[]]

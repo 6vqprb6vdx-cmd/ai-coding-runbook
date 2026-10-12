@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419
-fetched_at: 2026-10-05T06:34:14.542221+00:00
-title: "Fundamentaci\u00f3n con Google Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr
+fetched_at: 2026-10-12T06:51:16.902631+00:00
+title: "Ancrage avec Google\u00a0Maps \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Enviar comentarios
+Envoyer des commentaires
 
-# Fundamentación con Google Maps
+# Ancrage avec Google Maps
 
-La fundamentación con Google Maps conecta las capacidades generativas de Gemini con los datos enriquecidos, fácticos y actualizados de Google Maps. Esta función permite a los desarrolladores incorporar fácilmente la funcionalidad que tiene en cuenta la ubicación en sus aplicaciones. Cuando una búsqueda del usuario tiene un contexto relacionado con los datos de Maps, el modelo de Gemini aprovecha Google Maps para proporcionar respuestas precisas y actualizadas que son pertinentes para la ubicación especificada por el usuario o el área general.
+L'ancrage avec Google Maps permet d'associer les capacités génératives de Gemini aux données riches, factuelles et à jour de Google Maps. Cette fonctionnalité permet aux développeurs d'intégrer facilement des fonctionnalités de localisation dans leurs applications. Lorsqu'une requête utilisateur comporte un contexte lié aux données Maps, le modèle Gemini s'appuie sur Google Maps pour fournir des réponses factuelles et récentes qui sont pertinentes pour la zone géographique spécifiée par l'utilisateur ou la zone géographique générale.
 
-- **Respuestas precisas y basadas en la ubicación:** Aprovecha los datos extensos y actuales de Google Maps para las búsquedas específicas geográficamente.
-- **Personalización mejorada:** Adapta las recomendaciones y la información según las ubicaciones proporcionadas por el usuario.
+- **Des réponses précises et géolocalisées** : exploitez les données actuelles et exhaustives de Google Maps pour les requêtes géographiques spécifiques.
+- **Personnalisation améliorée** : personnalisez les recommandations et les informations en fonction des lieux fournis par les utilisateurs.
 
-## Comenzar
+## Commencer
 
-En este ejemplo, se muestra cómo integrar la fundamentación con Google Maps en tu aplicación para proporcionar respuestas precisas y basadas en la ubicación a las preguntas de los usuarios. La instrucción solicita recomendaciones locales con una ubicación del usuario opcional, lo que permite que el modelo de Gemini use los datos de Google Maps.
+Cet exemple montre comment intégrer l'ancrage avec Google Maps à votre application pour fournir des réponses précises et géolocalisées aux requêtes des utilisateurs. La requête demande des recommandations locales avec une position de l'utilisateur facultative, ce qui permet au modèle Gemini d'utiliser les données Google Maps.
 
 ### Python
 
@@ -251,38 +251,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cómo funciona la fundamentación con Google Maps
+## Fonctionnement de l'ancrage avec Google Maps
 
-La Fundamentación con Google Maps integra la API de Gemini con el ecosistema geográfico de Google usando la API de Google Maps como fuente de fundamentación. Cuando la búsqueda de un usuario contiene contexto geográfico, el modelo de Gemini puede invocar la herramienta de Fundamentación con Google Maps. Luego, el modelo puede generar respuestas fundamentadas en los datos de Google Maps que sean pertinentes para la ubicación proporcionada.
+L'ancrage avec Google Maps intègre l'API Gemini à l'écosystème Google Geo en utilisant l'API Google Maps comme source d'ancrage. Lorsque la requête d'un utilisateur contient un contexte géographique, le modèle Gemini peut appeler l'outil d'ancrage avec Google Maps. Le modèle peut ensuite générer des réponses ancrées dans les données Google Maps pertinentes pour le lieu fourni.
 
-Por lo general, el proceso incluye lo siguiente:
+Ce processus implique généralement les étapes suivantes :
 
-1. **Consulta del usuario:** Un usuario envía una consulta a tu aplicación, que puede incluir contexto geográfico (p.ej., "cafeterías cerca de mí", "museos en San Francisco").
-2. **Invocación de la herramienta:** El modelo de Gemini, que reconoce la intención geográfica, invoca la herramienta de Fundamentación con Google Maps. De manera opcional, se puede proporcionar a esta herramienta el `latitude` y el `longitude` del usuario. La herramienta es de búsqueda textual y se comporta de manera similar a la búsqueda en Maps, ya que las búsquedas locales ("cerca de mí") usarán las coordenadas, mientras que es poco probable que las búsquedas específicas o no locales se vean influenciadas por la ubicación explícita.
-3. **Recuperación de datos:** El servicio de Fundamentación con Google Maps consulta Google Maps para obtener información pertinente (p.ej., lugares, opiniones, fotos, direcciones y horarios de atención).
-4. **Generación fundamentada:** Los datos recuperados de Maps se usan para fundamentar la respuesta del modelo de Gemini, lo que garantiza la precisión y la relevancia fácticas.
-5. **Respuesta y anotaciones:** El modelo devuelve una respuesta de texto con anotaciones intercaladas que vinculan a fuentes de Google Maps, lo que permite a los desarrolladores mostrar citas.
+1. **Requête utilisateur** : un utilisateur envoie une requête à votre application, qui peut inclure un contexte géographique (par exemple, "cafés à proximité", "musées à San Francisco").
+2. **Invocation de l'outil** : le modèle Gemini, qui reconnaît l'intention géographique, invoque l'outil d'ancrage avec Google Maps. Cet outil peut éventuellement être fourni avec les `latitude` et `longitude` de l'utilisateur. Cet outil de recherche textuelle fonctionne de la même manière que la recherche dans Maps. Les requêtes locales ("près de moi") utilisent les coordonnées, tandis que les requêtes spécifiques ou non locales sont peu susceptibles d'être influencées par la position explicite.
+3. **Récupération des données** : le service d'ancrage avec Google Maps interroge Google Maps pour obtenir des informations pertinentes (par exemple, des lieux, des avis, des photos, des adresses ou des horaires d'ouverture).
+4. **Génération ancrée** : les données Maps récupérées sont utilisées pour étayer la réponse du modèle Gemini, ce qui garantit l'exactitude et la pertinence des faits.
+5. **Réponse et annotations** : le modèle renvoie une réponse textuelle avec des annotations intégrées renvoyant aux sources Google Maps, ce qui permet aux développeurs d'afficher des citations.
 
-## Por qué y cuándo usar la Fundamentación con Google Maps
+## Pourquoi et quand utiliser l'ancrage avec Google Maps
 
-La fundamentación con Google Maps es ideal para las aplicaciones que requieren información precisa, actualizada y específica de la ubicación. Mejora la experiencia del usuario, ya que proporciona contenido pertinente y personalizado respaldado por la extensa base de datos de Google Maps de más de 250 millones de lugares en todo el mundo.
+L'ancrage avec Google Maps est idéal pour les applications qui nécessitent des informations précises, à jour et spécifiques à un lieu. Elle améliore l'expérience utilisateur en fournissant des contenus pertinents et personnalisés, basés sur la vaste base de données de Google Maps qui compte plus de 250 millions de lieux dans le monde.
 
-Debes usar la fundamentación con Google Maps cuando tu aplicación necesite hacer lo siguiente:
+Vous devez utiliser l'ancrage avec Google Maps lorsque votre application doit :
 
-- Proporciona respuestas completas y precisas a preguntas específicas de la ubicación geográfica.
-- Crea planificadores de viajes y guías locales conversacionales.
-- Recomienda lugares de interés según la ubicación y las preferencias del usuario, como restaurantes o tiendas.
-- Crea experiencias que tengan en cuenta la ubicación para servicios de redes sociales, venta minorista o entrega de comida.
+- Fournissez des réponses complètes et précises aux questions spécifiques à une zone géographique.
+- Créez des planificateurs de voyage et des guides locaux conversationnels.
+- Recommander des points d'intérêt en fonction de la position et des préférences de l'utilisateur (restaurants ou magasins, par exemple).
+- Créez des expériences basées sur la localisation pour les services sociaux, de vente au détail ou de livraison de repas.
 
-La fundamentación con Google Maps se destaca en los casos de uso en los que la proximidad y los datos fácticos actuales son fundamentales, como encontrar la "mejor cafetería cerca de mí" o recibir instrucciones sobre cómo llegar.
+L'ancrage avec Google Maps excelle dans les cas d'utilisation où la proximité et les données factuelles actuelles sont essentielles, comme pour trouver le "meilleur café à proximité" ou obtenir un itinéraire.
 
-## Casos de uso
+## Cas d'utilisation
 
-La fundamentación con Google Maps admite una variedad de casos de uso que tienen en cuenta la ubicación.
+L'ancrage avec Google Maps est compatible avec différents cas d'utilisation basés sur la localisation.
 
-### Cómo responder preguntas específicas sobre lugares
+### Gérer les questions spécifiques à un lieu
 
-Haz preguntas detalladas sobre un lugar específico para obtener respuestas basadas en las opiniones de los usuarios de Google y otros datos de Maps.
+Posez des questions détaillées sur un lieu spécifique pour obtenir des réponses basées sur les avis des utilisateurs Google et d'autres données Maps.
 
 ### Python
 
@@ -486,9 +486,9 @@ func main() {
 }
 ```
 
-### Proporcionar personalización basada en la ubicación
+### Fournir une personnalisation basée sur la position
 
-Obtén recomendaciones personalizadas según las preferencias de un usuario y un área geográfica específica.
+Obtenez des recommandations adaptées aux préférences d'un utilisateur et à une zone géographique spécifique.
 
 ### Python
 
@@ -691,9 +691,9 @@ func main() {
 }
 ```
 
-### Ayuda con la planificación de itinerarios
+### Aide à la planification d'itinéraires
 
-Genera planes de varios días con instrucciones sobre cómo llegar e información sobre varias ubicaciones, lo que resulta ideal para aplicaciones de viajes.
+Générez des plans sur plusieurs jours avec des itinéraires et des informations sur différents lieux, parfaits pour les applications de voyage.
 
 ### Python
 
@@ -837,100 +837,98 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Requisitos de uso del servicio
+## Conditions d'utilisation des services
 
-En esta sección, se describen los requisitos de uso del servicio de Grounding con Google Maps.
+Cette section décrit les exigences d'utilisation du service pour l'ancrage avec Google Maps.
 
-### Informa al usuario sobre el uso de las fuentes de Google Maps
+### Informer l'utilisateur de l'utilisation des sources Google Maps
 
-Con cada resultado fundamentado de Google Maps, recibirás anotaciones de la fuente en los bloques de contenido del paso `model_output` que respaldan cada respuesta. Se devuelven los siguientes metadatos:
+Pour chaque résultat Google Maps ancré, vous recevrez des annotations de source sur les blocs de contenu de l'étape `model_output` qui soutiennent chaque réponse. Les métadonnées suivantes sont renvoyées :
 
-- URL de la fuente
-- nombre
+- URL source
+- nom
 
-Cuando presentes resultados de la fundamentación con Google Maps, debes especificar las fuentes asociadas de Google Maps y comunicarles a los usuarios lo siguiente:
+Lorsque vous présentez des résultats issus de l'ancrage avec Google Maps, vous devez spécifier les sources Google Maps associées et informer vos utilisateurs des points suivants :
 
-- Las fuentes de Google Maps deben seguir inmediatamente el contenido generado que admiten las fuentes. Este contenido generado también se conoce como Resultado Fundamentado de Google Maps.
-- Las fuentes de Google Maps deben poder verse en una sola interacción del usuario.
+- Les sources Google Maps doivent suivre immédiatement le contenu généré qu'elles prennent en charge. Ce contenu généré est également appelé "résultat ancré Google Maps".
+- Les sources Google Maps doivent être visibles en une seule interaction de l'utilisateur.
 
-### Mostrar fuentes de Google Maps con vínculos de Google Maps
+### Afficher les sources Google Maps avec des liens Google Maps
 
-Para cada anotación de fuente, se debe generar una vista previa del vínculo según los siguientes requisitos:
+Pour chaque annotation source, un aperçu du lien doit être généré en respectant les exigences suivantes :
 
-- Atribuye cada fuente a Google Maps según los [lineamientos de atribución](#maps-attribution-guidelines) de texto de Google Maps.
-- Mostrar el nombre de la fuente proporcionado en la respuesta
-- Vincula la fuente con el `url` de la anotación.
+- Attribuez chaque source à Google Maps en suivant les [Consignes d'attribution](#maps-attribution-guidelines) du texte Google Maps.
+- Affichez le nom de la source fourni dans la réponse.
+- Associez la source à l'aide de `url` à partir de l'annotation.
 
-### Lineamientos para la atribución de texto de Google Maps
+### Consignes concernant l'attribution de texte Google Maps
 
-Cuando atribuyas fuentes a Google Maps en texto, sigue estos lineamientos:
+Lorsque vous attribuez des sources à Google Maps dans un texte, suivez ces consignes :
 
-- No modifiques el texto de Google Maps de ninguna manera:
-  - No cambies el uso de mayúsculas y minúsculas de Google Maps.
-  - No dividas Google Maps en varias líneas.
-  - No localices Google Maps en otro idioma.
-  - Evita que los navegadores traduzcan Google Maps usando el atributo HTML translate="no".
+- Ne modifiez en aucun cas le texte "Google Maps" :
+  - Ne modifiez pas la typographie de Google Maps.
+  - N'insérez pas Google Maps sur plusieurs lignes.
+  - Ne localisez pas Google Maps dans une autre langue.
+  - Empêchez les navigateurs de traduire Google Maps en utilisant l'attribut HTML translate="no".
 
-Para obtener más información sobre algunos de nuestros proveedores de datos de Google Maps y sus condiciones de licencia, consulta los [avisos legales de Google Maps y Google Earth](https://www.google.com/help/legalnotices_maps/?hl=es-419).
+Pour en savoir plus sur certains de nos fournisseurs de données Google Maps et sur les conditions de licence qu'ils appliquent, consultez les [mentions légales de Google Maps et Google Earth](https://www.google.com/help/legalnotices_maps/?hl=fr).
 
-## Prácticas recomendadas
+## Bonnes pratiques
 
-- **Proporciona la ubicación del usuario:** Para obtener las respuestas más relevantes y personalizadas, siempre incluye `latitude` y `longitude` en la configuración de tu herramienta `google_maps` cuando se conozca la ubicación del usuario.
-- **Informa a los usuarios finales:** Informa claramente a los usuarios finales que se usan datos de Google Maps para responder sus preguntas, en especial cuando la herramienta está habilitada.
-- **Desactivar cuando no sea necesario:** La fundamentación con Google Maps está desactivada de forma predeterminada. Solo habilítalo (`"tools": [{"type": "google_maps"}]`) cuando una búsqueda tenga un contexto geográfico claro para optimizar el rendimiento y el costo.
+- **Indiquez la position de l'utilisateur** : pour obtenir les réponses les plus pertinentes et personnalisées, incluez toujours `latitude` et `longitude` dans la configuration de votre outil `google_maps` lorsque la position de l'utilisateur est connue.
+- **Informez les utilisateurs finaux** : indiquez clairement à vos utilisateurs finaux que les données Google Maps sont utilisées pour répondre à leurs requêtes, en particulier lorsque l'outil est activé.
+- **Désactivez l'ancrage avec Google Maps lorsque vous n'en avez pas besoin** : il est désactivé par défaut. Ne l'activez (`"tools": [{"type": "google_maps"}]`) que lorsqu'une requête présente un contexte géographique clair, afin d'optimiser les performances et les coûts.
 
-## Limitaciones
+## Limites
 
-- Actualmente, la fundamentación con Google Maps solo admite instrucciones y respuestas en inglés.
-- Es posible que la herramienta no esté disponible en todas las regiones.
-- Los resultados pueden variar según la precisión de la ubicación y los datos disponibles de Maps.
-- **Alcance geográfico:** La fundamentación con Google Maps está disponible a nivel mundial.
-- **Estado predeterminado:** La herramienta Fundamentación con Google Maps está desactivada de forma predeterminada.
-  Debes habilitarla de forma explícita en tus solicitudes a la API.
+- L'ancrage avec Google Maps n'accepte actuellement que les requêtes et les réponses en anglais.
+- Il est possible que l'outil ne soit pas disponible dans toutes les régions.
+- Les résultats peuvent varier en fonction de la précision de la localisation et des données Maps disponibles.
+- **Couverture géographique** : l'ancrage avec Google Maps est disponible dans le monde entier.
+- **État par défaut** : l'outil d'ancrage avec Google Maps est désactivé par défaut.
+  Vous devez l'activer explicitement dans vos requêtes d'API.
 
-## Precios y límites de frecuencia
+## Tarifs et limites de débit
 
-Los precios de la fundamentación con Google Maps varían según la generación del modelo:
+Les tarifs de l'ancrage avec Google Maps varient selon la génération du modèle :
 
-- **Modelos de Gemini 3:** Se te facturará el proyecto por cada **búsqueda** que decida ejecutar el modelo. Una sola **instrucción de búsqueda** (tu solicitud a la API del modelo) puede hacer que el modelo ejecute varias búsquedas para encontrar la información necesaria. Cada una de estas búsquedas se considera un uso facturable de la herramienta.
-- **Modelos de Gemini 2.5 y anteriores:** Se te facturará el proyecto por cada **instrucción de búsqueda**.
-  Solo se factura una solicitud si la instrucción devuelve correctamente al menos un resultado fundamentado de Google Maps, independientemente de la cantidad de búsquedas individuales que el modelo haya realizado internamente para obtener ese resultado.
+- **Gemini 3 et modèles ultérieurs** : votre projet est facturé pour chaque requête de recherche que le modèle décide d'exécuter, avec 5 000 requêtes sans frais par mois partagées entre tous les modèles Gemini 3 et ultérieurs, puis **14 $ pour 1 000 requêtes de recherche**. Une seule requête de recherche (votre requête d'API au modèle) peut entraîner l'exécution de plusieurs requêtes de recherche par le modèle pour trouver les informations nécessaires. Chacune de ces requêtes est considérée comme une utilisation facturable de l'outil.
+- **Gemini 2.5 et modèles plus anciens** : votre projet est facturé par requête de recherche (25 $ pour 1 000 requêtes ancrées). Une requête n'est facturée que si la requête renvoie au moins un résultat ancré Google Maps, quel que soit le nombre de requêtes de recherche individuelles effectuées en interne par le modèle pour obtenir ce résultat.
 
-Para obtener información detallada sobre los precios, consulta la [página de precios de la API de Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419).
+Le quota d'ancrage avec Google Maps correspond généralement aux limites de débit du modèle Gemini sous-jacent. Pour en savoir plus sur les tarifs, consultez la [page des tarifs de l'API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=fr).
 
-## Modelos compatibles
+## Modèles compatibles
 
-Los siguientes modelos admiten la fundamentación con Google Maps:
+Les modèles suivants sont compatibles avec l'ancrage avec Google Maps :
 
-| Modelo | Fundamentación con Google Maps |
+| Modèle | Ancrage avec Google Maps |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=es-419) | ✔️ |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=es-419) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=es-419) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=es-419) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419) | ✔️ |
-| [Versión preliminar de Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=es-419) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=fr) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fr) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fr) | ✔️ |
+| [Preview Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fr) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fr) | ✔️ |
+| [Preview Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fr) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fr) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fr) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fr) | ✔️ |
 
-## Combinaciones de herramientas admitidas
+## Combinaisons d'outils compatibles
 
-Puedes usar la Fundamentación con Google Maps con otras herramientas integradas, como la [Fundamentación con la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) (compatible con Gemini 3.5 Flash y modelos posteriores) para potenciar casos de uso más complejos. Los modelos de Gemini 3 también admiten la combinación de estas herramientas integradas con herramientas personalizadas (llamadas a funciones). Obtén más información en la página de [combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
+Vous pouvez utiliser l'ancrage avec Google Maps avec d'autres outils intégrés, comme l'[ancrage avec la recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) (pris en charge sur les modèles Gemini 3.5 Flash-Lite et versions ultérieures), pour des cas d'utilisation plus complexes.
+Les modèles Gemini 3 prennent également en charge la combinaison de ces outils intégrés avec des outils personnalisés (appel de fonction). Pour en savoir plus, consultez la page sur les [combinaisons d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr).
 
-## ¿Qué sigue?
+## Étape suivante
 
-- Obtén más información sobre otras [herramientas disponibles](https://ai.google.dev/gemini-api/docs/tools?hl=es-419).
-- Para obtener más información sobre las prácticas recomendadas de IA responsable y los filtros de seguridad de la API de Gemini, consulta [la guía de configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419).
+- En savoir plus sur les autres [outils disponibles](https://ai.google.dev/gemini-api/docs/tools?hl=fr)
+- Pour en savoir plus sur les bonnes pratiques d'IA responsable et les filtres de sécurité de l'API Gemini, consultez le [guide sur les paramètres de sécurité](https://ai.google.dev/gemini-api/docs/safety-settings?hl=fr).
 
-Enviar comentarios
+Envoyer des commentaires
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Última actualización: 2026-09-24 (UTC)
+Dernière mise à jour le 2026/10/09 (UTC).
 
-¿Quieres brindar más información?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/09 (UTC)."],[],[]]

@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=id
-fetched_at: 2026-10-05T06:29:16.385042+00:00
-title: "Pemahaman audio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=he
+fetched_at: 2026-10-12T07:00:37.675906+00:00
+title: "\u05d4\u05d1\u05e0\u05ea \u05d0\u05d5\u05d3\u05d9\u05d5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Pemahaman audio
+# הבנת אודיו
 
-Gemini dapat menganalisis input audio dan menghasilkan respons teks.
+‫Gemini יכול לנתח קלט אודיו וליצור תשובות טקסט.
 
 ### Python
 
@@ -166,24 +166,22 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Ringkasan
+## סקירה כללית
 
-Gemini dapat menganalisis dan memahami input audio serta menghasilkan respons teks untuk input tersebut,
-sehingga memungkinkan kasus penggunaan seperti berikut:
+‫Gemini יכול לנתח ולהבין קלט אודיו וליצור תשובות טקסט לקלט הזה, וכך לאפשר תרחישי שימוש כמו:
 
-- Mendeskripsikan, meringkas, atau menjawab pertanyaan tentang konten audio.
-- Memberikan transkripsi dan terjemahan audio (speech to text).
-- Mendeteksi emosi dalam ucapan dan musik.
-- Menganalisis segmen audio tertentu, dan memberikan stempel waktu.
+- לתאר, לסכם או לענות על שאלות לגבי תוכן אודיו.
+- לספק תמליל ותרגום של האודיו (המרת דיבור לטקסט).
+- זיהוי רגשות בדיבור ובמוזיקה.
+- לנתח קטעים ספציפיים באודיו ולספק חותמות זמן.
 
-Saat ini, Gemini API tidak mendukung kasus penggunaan transkripsi real-time.
-Untuk interaksi suara dan video real-time, lihat [Live API](https://ai.google.dev/gemini-api/docs/live?hl=id).
-Untuk model speech-to-text khusus dengan dukungan untuk transkripsi real-time,
-gunakan [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=id).
+נכון לעכשיו, Gemini API לא תומך בתרחישי שימוש בתמלול בזמן אמת.
+לשיחות קוליות ושיחות וידאו בזמן אמת, אפשר לעיין ב-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=he).
+כדי להשתמש במודלים ייעודיים של תמלול דיבור לטקסט עם תמיכה בתמלול בזמן אמת, צריך להשתמש ב-[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=he).
 
-## Mentranskripsikan ucapan ke teks
+## תמלול דיבור לטקסט
 
-Aplikasi contoh ini menunjukkan cara meminta Gemini API untuk mentranskripsikan, menerjemahkan, dan meringkas ucapan, termasuk stempel waktu dan deteksi emosi menggunakan [output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
+באפליקציה לדוגמה הזו מוצגות הנחיות ל-Gemini API לתמלול, לתרגום ולסיכום של דיבור, כולל חותמות זמן וזיהוי רגשות באמצעות [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he).
 
 ### Python
 
@@ -411,32 +409,27 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Anda dapat meminta [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=id) untuk membuat
-aplikasi seperti
-[aplikasi transkripsi contoh ini](https://aistudio.google.com/apps/bundled/echoscript?hl=id)
-, hanya dengan mengklik tombol.
+אתם יכולים להנחות את [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=he) ליצור אפליקציה כמו [אפליקציית התמלול הזו לדוגמה](https://aistudio.google.com/apps/bundled/echoscript?hl=he) בלחיצת כפתור.
 
-![Aplikasi Gemini transkripsi audio multibahasa](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=id)
+![אפליקציית Gemini רב-לשונית לתמלול אודיו](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=he)
 
-## Input audio
+## קלט אודיו
 
-Anda dapat memberikan data audio ke Gemini dengan cara berikut:
+יש כמה דרכים לספק ל-Gemini נתוני אודיו:
 
-- [Upload file audio](#upload-audio) sebelum membuat permintaan ke
+- [מעלים קובץ אודיו](#upload-audio) לפני ששולחים בקשה אל
   `generateContent`.
-- [Teruskan data audio inline](#inline-audio) dengan permintaan ke
+- [העברת נתוני אודיו מוטבעים](#inline-audio) עם הבקשה אל
   `generateContent`.
 
-Untuk mempelajari metode input file lainnya, lihat panduan
-[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
+מידע על שיטות אחרות להזנת קבצים זמין במדריך בנושא [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
 
-### Mengupload file audio
+### העלאה של קובץ אודיו
 
-Anda dapat menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) untuk mengupload file audio.
-Selalu gunakan Files API jika ukuran total permintaan (termasuk file, perintah teks, petunjuk sistem, dll.) lebih besar dari 20 MB.
+אפשר להשתמש ב-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he) כדי להעלות קובץ אודיו.
+תמיד צריך להשתמש ב-Files API כשגודל הבקשה הכולל (כולל הקבצים, הנחיית הטקסט, הוראות המערכת וכו') גדול מ-20 MB.
 
-Kode berikut mengupload file audio, lalu menggunakan file tersebut dalam panggilan ke
-`generateContent`.
+הקוד הבא מעלה קובץ אודיו ואז משתמש בקובץ בשיחה אל `generateContent`.
 
 ### Python
 
@@ -583,12 +576,11 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Untuk mempelajari lebih lanjut cara menggunakan file media, lihat
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
+מידע נוסף על עבודה עם קובצי מדיה זמין במאמר בנושא [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
-### Meneruskan data audio inline
+### העברת נתוני אודיו בתוך השורה
 
-Daripada mengupload file audio, Anda dapat meneruskan data audio inline dalam permintaan ke `generateContent`:
+במקום להעלות קובץ אודיו, אפשר להעביר נתוני אודיו מוטבעים בבקשה אל `generateContent`:
 
 ### Python
 
@@ -687,16 +679,14 @@ func main() {
 }
 ```
 
-Beberapa hal yang perlu diingat tentang data audio inline:
+כמה דברים שחשוב לזכור לגבי נתוני אודיו מוטמעים:
 
-- Ukuran permintaan maksimum adalah 20 MB, yang mencakup perintah teks,
-  petunjuk sistem, dan file yang disediakan secara inline. Jika ukuran file Anda akan membuat *ukuran total permintaan* melebihi 20 MB, maka gunakan Files API untuk [mengupload file audio](#upload-audio) untuk digunakan dalam permintaan.
-- Jika Anda menggunakan sampel audio beberapa kali, akan lebih efisien
-  untuk [mengupload file audio](#upload-audio).
+- הגודל המקסימלי של הבקשה הוא 20MB, כולל הנחיות טקסט, הוראות מערכת וקבצים שסופקו בשורה. אם גודל הקובץ יגרום ל*גודל הבקשה הכולל* לחרוג מ-20MB, צריך להשתמש ב-Files API כדי [להעלות קובץ אודיו](#upload-audio) לשימוש בבקשה.
+- אם אתם משתמשים בדגימת אודיו כמה פעמים, עדיף [להעלות קובץ אודיו](#upload-audio).
 
-## Mendapatkan transkrip
+## קבלת תמליל
 
-Untuk mendapatkan transkrip data audio, cukup minta di perintah:
+כדי לקבל תמליל של נתוני אודיו, פשוט מבקשים אותו בהנחיה:
 
 ### Python
 
@@ -785,13 +775,12 @@ func main() {
 }
 ```
 
-## Merujuk pada stempel waktu
+## עיון בחותמות זמן
 
-Anda dapat merujuk ke bagian tertentu dari file audio menggunakan stempel waktu dalam bentuk
-`MM:SS`. Misalnya, perintah berikut meminta transkrip yang
+אפשר להפנות לקטעים ספציפיים בקובץ אודיו באמצעות חותמות זמן מהצורה `MM:SS`. לדוגמה, ההנחיה הבאה מבקשת תמליל
 
-- Dimulai pada 2 menit 30 detik dari awal file.
-- Berakhir pada 3 menit 29 detik dari awal file.
+- ההפעלה מתחילה אחרי 2 דקות ו-30 שניות מתחילת הקובץ.
+- הסרטון מסתיים אחרי 3 דקות ו-29 שניות מתחילת הקובץ.
 
 ### Python
 
@@ -853,9 +842,9 @@ func main() {
 }
 ```
 
-## Menjumlahkan token
+## ספירת טוקנים
 
-Panggil metode `countTokens` untuk mendapatkan jumlah token dalam file audio. Contoh:
+כדי לקבל את מספר הטוקנים בקובץ אודיו, קוראים ל-method‏ `countTokens`. לדוגמה:
 
 ### Python
 
@@ -939,45 +928,41 @@ func main() {
 }
 ```
 
-## Format audio yang didukung
+## פורמטים נתמכים של אודיו
 
-Gemini mendukung jenis MIME format audio berikut:
+‫Gemini תומך בסוגי ה-MIME הבאים של פורמטים של אודיו:
 
-- WAV - `audio/wav`
+- ‫WAV – `audio/wav`
 - MP3 - `audio/mp3`
 - AIFF - `audio/aiff`
-- AAC - `audio/aac`
+- ‫AAC – `audio/aac`
 - OGG Vorbis - `audio/ogg`
-- FLAC - `audio/flac`
+- ‫FLAC – `audio/flac`
 
-## Detail teknis tentang audio
+## פרטים טכניים על אודיו
 
-- Gemini merepresentasikan setiap detik audio sebagai 32 token; misalnya,
-  satu menit audio direpresentasikan sebagai 1.920 token.
-- Gemini dapat "memahami" komponen non-ucapan, seperti kicauan burung atau sirene.
-- Durasi maksimum data audio yang didukung dalam satu perintah adalah 9,5 jam.
-  Gemini tidak membatasi *jumlah* file audio dalam satu perintah; namun,
-  total durasi gabungan semua file audio dalam satu perintah tidak boleh melebihi
-  9,5 jam.
-- Gemini melakukan downsampling file audio ke resolusi data 16 Kbps.
-- Jika sumber audio berisi beberapa saluran, Gemini akan menggabungkan saluran tersebut menjadi satu saluran.
+- ‫Gemini מייצג כל שנייה של אודיו באמצעות 32 טוקנים. לדוגמה, דקה אחת של אודיו מיוצגת באמצעות 1,920 טוקנים.
+- ‫Gemini יכול 'להבין' רכיבים שאינם דיבור, כמו שירת ציפורים או סירנות.
+- האורך המקסימלי של נתוני אודיו בהנחיה אחת הוא 9.5 שעות.
+  ‫Gemini לא מגביל את *מספר* קובצי האודיו בהנחיה אחת, אבל האורך הכולל של כל קובצי האודיו בהנחיה אחת לא יכול להיות יותר מ-9.5 שעות.
+- ‫Gemini מבצע דגימת יתר של קובצי אודיו לרזולוציית נתונים של 16Kbps.
+- אם מקור האודיו מכיל כמה ערוצים, Gemini משלב את הערוצים האלה לערוץ אחד.
 
-## Langkah berikutnya
+## המאמרים הבאים
 
-Panduan ini menunjukkan cara membuat teks sebagai respons terhadap data audio. Untuk mempelajari lebih lanjut,
-lihat referensi berikut:
+במדריך הזה מוסבר איך ליצור טקסט בתגובה לנתוני אודיו. מידע נוסף זמין במקורות המידע הבאים:
 
-- [Strategi perintah file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung perintah dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai perintah multimodal.
-- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
-  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
-- [Panduan keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id): Terkadang model AI generatif menghasilkan output yang tidak terduga, seperti output yang tidak akurat, bias, atau menyinggung. Pemrosesan pasca-dan evaluasi manusia sangat penting untuk membatasi risiko bahaya dari output tersebut.
+- [אסטרטגיות לכתיבת הנחיות לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בכתיבת הנחיות עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראות גם כתיבת הנחיות מולטי-מודאליות.
+- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
+  הוראות מערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
+- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים תוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. עיבוד תמונה (Post Processing) והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-09-12 UTC.
+עדכון אחרון: 2026-09-12 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]

@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=ja
-fetched_at: 2026-10-05T06:31:45.683306+00:00
-title: "Gemini \u306e\u601d\u8003 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=pl
+fetched_at: 2026-10-12T07:16:41.946328+00:00
+title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-フィードバックを送信
+Prześlij opinię
 
-# Gemini の思考
+# Gemini
 
-[Gemini 3 および 2.5 シリーズのモデル](https://ai.google.dev/gemini-api/docs/models?hl=ja)は、推論と多段階計画の能力を大幅に向上させる内部の「思考プロセス」を使用します。これにより、コーディング、高度な数学、データ分析などの複雑なタスクに非常に効果的です。
+[Modele z serii Gemini 3 i 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pl) wykorzystują wewnętrzny „proces myślowy”, który znacznie poprawia ich zdolność do rozumowania i planowania wieloetapowego, dzięki czemu są bardzo skuteczne w przypadku złożonych zadań, takich jak kodowanie, zaawansowana matematyka i analiza danych.
 
-このガイドでは、Gemini API を使用して Gemini の思考機能を操作する方法について説明します。
+Ten przewodnik pokazuje, jak korzystać z możliwości myślenia Gemini za pomocą interfejsu Gemini API.
 
-## 思考を伴うコンテンツの生成
+## Generowanie treści z myśleniem
 
-思考モデルでリクエストを開始する手順は、他のコンテンツ生成リクエストと同様です。主な違いは、次の[テキスト生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=ja#text-input)の例に示すように、`model` フィールドで[思考サポート付きモデル](#supported-models)のいずれかを指定することです。
+Inicjowanie żądania za pomocą modelu myślącego jest podobne do każdego innego żądania generowania treści. Kluczowa różnica polega na określeniu w polu `model` jednego z [modeli z obsługą myślenia](#tools), jak pokazano w tym przykładzie [generowania tekstu](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl):
 
 ### Python
 
@@ -113,13 +113,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
  ```
 ```
 
-## 思考の要約
+## Podsumowania procesu myślowego
 
-思考の要約は、モデルの生の思考を要約したもので、モデルの内部推論プロセスに関する分析情報を提供します。思考レベルと予算は、モデルの生の思考に適用され、思考の要約には適用されません。
+Podsumowania procesu myślowego to skrócone wersje pierwotnych myśli modelu, które zawierają informacje o jego wewnętrznym procesie rozumowania. Pamiętaj, że poziomy myślenia i budżety dotyczą surowych myśli modelu, a nie podsumowań myśli.
 
-リクエスト構成で `includeThoughts` を `true` に設定すると、思考の要約を有効にできます。概要にアクセスするには、`response` パラメータの `parts` を反復処理し、`thought` ブール値を確認します。
+Aby włączyć podsumowania myśli, ustaw w konfiguracji żądania wartość `includeThoughts` na `true`. Następnie możesz uzyskać dostęp do podsumowania, iterując parametr `response``parts` i sprawdzając wartość logiczną `thought`.
 
-次の例は、ストリーミングなしで思考の要約を有効にして取得する方法を示しています。これにより、レスポンスとともに単一の最終的な思考の要約が返されます。
+Oto przykład pokazujący, jak włączyć i pobrać podsumowania myśli bez przesyłania strumieniowego, które zwraca pojedyncze, końcowe podsumowanie myśli w odpowiedzi:
 
 ### Python
 
@@ -229,7 +229,7 @@ func main() {
 }
 ```
 
-ストリーミングによる思考を使用して、生成中にローリング増分要約を返す例を次に示します。
+A to przykład użycia myślenia strumieniowego, które podczas generowania zwraca stopniowe podsumowania:
 
 ### Python
 
@@ -382,24 +382,25 @@ func main() {
 }
 ```
 
-## 思考の制御
+## Kontrolowanie myślenia
 
-Gemini モデルはデフォルトで動的思考を行い、ユーザーのリクエストの複雑さに基づいて推論の労力を自動的に調整します。ただし、特定のレイテンシの制約がある場合や、モデルが通常よりも深い推論を行う必要がある場合は、必要に応じてパラメータを使用して思考動作を制御できます。
+Modele Gemini domyślnie angażują się w dynamiczne myślenie, automatycznie dostosowując poziom rozumowania do złożoności zapytania użytkownika.
+Jeśli jednak masz konkretne ograniczenia dotyczące opóźnienia lub wymagasz, aby model przeprowadzał bardziej złożone rozumowanie niż zwykle, możesz opcjonalnie użyć parametrów do kontrolowania sposobu myślenia.
 
-### 思考レベル（Gemini 3）
+### Poziomy myślenia (Gemini 3)
 
-Gemini 3 以降のモデルにおすすめの `thinkingLevel` パラメータを使用すると、推論の動作を制御できます。
+Parametr `thinkingLevel`, zalecany w przypadku modeli Gemini 3 i nowszych, pozwala kontrolować zachowanie związane z rozumowaniem.
 
-次の表に、各モデルタイプの `thinkingLevel` 設定の詳細を示します。
+W tabeli poniżej znajdziesz szczegółowe informacje o ustawieniach `thinkingLevel` dla każdego typu modelu:
 
-| 思考レベル | Gemini 3.8 & 3.7 Flash | Gemini 3.6 & 3.5 Flash | Gemini 3.1 Pro | Gemini 3.5 & 3.1 Flash-Lite | Gemini 3.1 Flash-Lite Image | Gemini 3 Flash | Gemini Robotics ER 2 | 説明 |
+| Poziom myślenia | Gemini 3.8 Flash | Gemini 3.6 Flash | Gemini 3.1 Pro | Gemini 3.5 i 3.1 Flash-Lite | Obraz Gemini 3.1 Flash-Lite | Gemini 3 Flash | Gemini Robotics ER 2 | Opis |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | サポート対象外（エラー） | サポート対象 | サポート対象外 | Supported（デフォルト） | Supported（デフォルト） | サポート対象 | サポート対象 | ほとんどのクエリで「思考なし」の設定と一致します。なお、`minimal` を設定しても思考がオフになるわけではありません。複雑なタスクでは、モデルが最小限の推論を行うことがあります。 |
-| **`low`** | サポート対象 | サポート対象 | サポート対象 | サポート対象 | サポート対象外 | サポート対象 | サポート対象 | レイテンシと費用を最小限に抑えます。 |
-| **`medium`** | Supported（デフォルト） | Supported（デフォルト） | サポート対象 | サポート対象 | サポート対象外 | サポート対象 | サポート対象 | ほとんどのタスクでバランスの取れた思考。 |
-| **`high`** | サポート対象（動的） | サポート対象（動的） | サポート対象（デフォルト、動的） | サポート対象（動的） | サポート対象（動的） | サポート対象（デフォルト、動的） | サポート対象（デフォルト、動的） | 推論の深さを最大化します。最初の（思考以外の）出力トークンに到達するまでに時間がかかることがありますが、出力はより慎重に推論されます。 |
+| **`minimal`** | Nieobsługiwane (błąd) | Obsługiwane | Nieobsługiwane | Obsługiwane (domyślnie) | Obsługiwane (domyślnie) | Obsługiwane | Obsługiwane | W przypadku większości zapytań odpowiada ustawieniu „bez myślenia”. Pamiętaj, że `minimal` nie gwarantuje wyłączenia myślenia. Model może w minimalnym stopniu rozumować w przypadku złożonych zadań. |
+| **`low`** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane | Minimalizuje czas oczekiwania i koszty. |
+| **`medium`** | Obsługiwane (domyślnie) | Obsługiwane (domyślnie) | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane | Zrównoważone myślenie w przypadku większości zadań. |
+| **`high`** | Obsługiwane (dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Zwiększa głębokość rozumowania. Model może potrzebować znacznie więcej czasu, aby wygenerować pierwszy token wyjściowy (niebędący przemyśleniem), ale wynik będzie bardziej przemyślany. |
 
-次の例は、思考レベルを設定する方法を示しています。
+Przykład poniżej pokazuje, jak ustawić poziom myślenia.
 
 ### Python
 
@@ -502,33 +503,38 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }'
 ```
 
-Gemini 3.1 Pro では思考を無効にできません。Gemini 3 Flash と Flash-Lite も、思考の完全なオフをサポートしていません。思考レベルを指定しない場合、Gemini は Gemini 3 モデルのデフォルトの思考レベル（Gemini 3.1 Pro の場合は `"high"`、Gemini 3.5 Flash の場合は `"medium"` など）を使用します。
+Nie możesz wyłączyć myślenia w przypadku Gemini 3.1 Pro. Modele Gemini 3 Flash i Flash-Lite
+również nie obsługują pełnego wyłączenia myślenia.
+Jeśli nie określisz poziomu myślenia, Gemini użyje domyślnego poziomu myślenia modeli Gemini 3 (np. `"high"` w przypadku Gemini 3.1 Pro i `"medium"` w przypadku
+Gemini 3.8 Flash i Gemini 3.6 Flash).
 
-Gemini 2.5 シリーズ モデルは `thinkingLevel` をサポートしていません。代わりに `thinkingBudget` を使用してください。
+Modele z serii Gemini 2.5 nie obsługują tego typu pliku: `thinkingLevel`. Zamiast tego użyj `thinkingBudget`.
 
-### トークンの上限と `max_output_tokens`
+### Limity tokenów i `max_output_tokens`
 
-[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=ja#v1beta.GenerationConfig) 生成パラメータは、レスポンスが生成できるトークンの最大数（思考トークンを含む）を設定します。
+Parametr generowania [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=pl#v1beta.GenerationConfig) określa maksymalną liczbę tokenów, które może wygenerować odpowiedź, w tym tokeny myśli.
 
-このパラメータを設定すると、モデルが思考予算（`thinking_level`）を割り当てる方法を変更することなく、インフラストラクチャによって強制されるハードカットオフとして機能します。
+Gdy ten parametr jest ustawiony, działa jako sztywne ograniczenie wymuszane przez infrastrukturę, nie zmieniając sposobu, w jaki model przydziela budżet na przetwarzanie (`thinking_level`).
 
-推論中にモデルがこの上限に達すると、`finish_reason: MAX_TOKENS` で生成を停止し、切り捨てられた出力または空の出力を返します（生成された思考トークンは引き続き課金されます）。レスポンスを切り捨てずに費用やレイテンシを削減するには、小さい `max_output_tokens` を設定するのではなく、`thinking_level`（`low` または `medium`）を小さくします。
+Jeśli podczas rozumowania model osiągnie ten limit, przestanie generować odpowiedź z `finish_reason: MAX_TOKENS` i zwróci obcięty lub pusty wynik (ale nadal będzie naliczać opłaty za wygenerowane tokeny myślenia). Aby zmniejszyć koszt lub czas oczekiwania bez obcinania odpowiedzi, zmniejsz wartość `thinking_level` (`low` lub `medium`) zamiast ustawiać małą wartość `max_output_tokens`.
 
-### 思考予算
+### Budżety na myślenie
 
-Gemini 2.5 シリーズで導入された `thinkingBudget` パラメータは、推論に使用する思考トークンの特定の数に関するガイダンスをモデルに提供します。
+Parametr `thinkingBudget`, wprowadzony w serii Gemini 2.5, określa liczbę tokenów myślenia, których model ma użyć do rozumowania.
 
-以下に、各モデルタイプの `thinkingBudget` 構成の詳細を示します。思考を無効にするには、`thinkingBudget` を 0 に設定します。`thinkingBudget` を -1 に設定すると、**動的思考**が有効になります。つまり、モデルはリクエストの複雑さに基づいて予算を調整します。
+Poniżej znajdziesz `thinkingBudget` szczegóły konfiguracji poszczególnych typów modeli.
+Możesz wyłączyć myślenie, ustawiając wartość `thinkingBudget` na 0.
+Ustawienie wartości `thinkingBudget` na -1 włącza **dynamiczne myślenie**, co oznacza, że model dostosuje budżet do złożoności żądania.
 
-| モデル | デフォルト設定 （思考予算が設定されていない） | 範囲 | 思考を無効にする | 動的思考をオンにする |
+| Model | Ustawienie domyślne (budżet na myślenie nie jest ustawiony) | Zakres | Wyłącz myślenie | Włącz myślenie dynamiczne |
 | --- | --- | --- | --- | --- |
-| **2.5 Pro** | 動的な思考 | `128` から `32768` | N/A: 思考を無効にできない | `thinkingBudget = -1`（デフォルト） |
-| **2.5 Flash** | 動的な思考 | `0` から `24576` | `thinkingBudget = 0` | `thinkingBudget = -1`（デフォルト） |
-| **2.5 Flash プレビュー** | 動的な思考 | `0` から `24576` | `thinkingBudget = 0` | `thinkingBudget = -1`（デフォルト） |
-| **2.5 Flash-Lite** | モデルは思考しない | `512` から `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **2.5 Flash Lite プレビュー** | モデルは思考しない | `512` から `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **Robotics-ER 1.6 プレビュー版** | 動的な思考 | `0` から `24576` | `thinkingBudget = 0` | `thinkingBudget = -1`（デフォルト） |
-| **2.5 Flash Live ネイティブ音声プレビュー（2025 年 9 月）** | 動的な思考 | `0` から `24576` | `thinkingBudget = 0` | `thinkingBudget = -1`（デフォルト） |
+| **2.5 Pro** | Myślenie dynamiczne | Od `128` do `32768` | Nie dotyczy: nie można wyłączyć myślenia | `thinkingBudget = -1` (wartość domyślna) |
+| **2.5 Flash** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
+| **2.5 Flash – wersja testowa** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
+| **2.5 Flash Lite** | Model nie myśli | Od `512` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite – wersja testowa** | Model nie myśli | Od `512` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 Preview** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
+| **2.5 Flash Live Native Audio Preview (09-2025)** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
 
 ### Python
 
@@ -643,27 +649,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-プロンプトによっては、モデルがトークン予算を超過または不足する可能性があります。
+W zależności od promptu model może przekroczyć lub nie wykorzystać w pełni budżetu tokenów.
 
-## 思考シグネチャ
+## Podpisy myśli
 
-Gemini API はステートレスであるため、モデルはすべての API リクエストを個別に処理し、マルチターンのやり取りで以前のターンの思考コンテキストにアクセスできません。
+Gemini API jest bezstanowy, więc model traktuje każde żądanie do interfejsu API niezależnie i nie ma dostępu do kontekstu myślowego z poprzednich tur w interakcjach wieloetapowych.
 
-マルチターンのインタラクションで思考コンテキストを維持できるようにするために、Gemini は思考シグネチャを返します。これは、モデルの内部思考プロセスを暗号化したものです。
+Aby umożliwić zachowanie kontekstu myślowego w wieloetapowych interakcjach, Gemini zwraca sygnatury myśli, które są zaszyfrowanymi reprezentacjami wewnętrznego procesu myślowego modelu.
 
-- **Gemini 2.5 モデル**は、思考が有効になっていて、リクエストに[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#thinking)（具体的には[関数宣言](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#step-2)）が含まれている場合に、思考シグネチャを返します。
-- **Gemini 3 モデル**は、すべてのタイプの[パーツ](https://ai.google.dev/api/caching?hl=ja#Part)の思考シグネチャを返すことがあります。すべてのシグネチャをそのまま返すことをおすすめしますが、関数呼び出しシグネチャでは*必須*です。詳しくは、[思考シグネチャ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ja)のページをご覧ください。
+- **Modele Gemini 2.5** zwracają sygnatury myśli, gdy myślenie jest włączone, a żądanie obejmuje [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#thinking), a konkretnie [deklaracje funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#step-2).
+- **Modele Gemini 3** mogą zwracać sygnatury myśli dla wszystkich typów [części](https://ai.google.dev/api/caching?hl=pl#Part).
+  Zalecamy zawsze przekazywanie wszystkich sygnatur w takiej postaci, w jakiej zostały otrzymane, ale w przypadku sygnatur wywoływania funkcji jest to *wymagane*. Więcej informacji znajdziesz na stronie [Podpisy myśli](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pl).
 
-関数呼び出しで考慮すべきその他の使用上の制限は次のとおりです。
+Inne limity wykorzystania, o których warto pamiętać w przypadku wywoływania funkcji:
 
-- シグネチャは、レスポンスの他の部分（関数呼び出しやテキストなど）からモデルによって返されます。[すべての部分を含むレスポンス全体を返す](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#step-4)
-  後続のターンで、すべての部分を含むレスポンス全体をモデルに返します。
-- シグネチャを含むパートを連結しないでください。
-- シグネチャ付きのパートとシグネチャなしのパートを結合しないでください。
+- Sygnatury są zwracane przez model w innych częściach odpowiedzi, np. w wywołaniach funkcji lub częściach tekstowych.
+  [Zwróć całą odpowiedź](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#step-4)
+  ze wszystkimi częściami do modelu w kolejnych turach.
+- Nie łącz części z sygnaturami.
+- Nie łącz części z podpisem z częścią bez podpisu.
 
-## 料金
+## Ceny
 
-思考がオンになっている場合、レスポンスの料金は出力トークンと思考トークンの合計になります。生成された思考トークンの合計数は、`thoughtsTokenCount` フィールドから取得できます。
+Gdy myślenie jest włączone, cena odpowiedzi to suma tokenów wyjściowych i tokenów myślenia. Łączną liczbę wygenerowanych tokenów myślenia możesz uzyskać z pola `thoughtsTokenCount`.
 
 ### Python
 
@@ -689,51 +697,54 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-思考モデルは、最終的なレスポンスの品質を高めるために完全な思考を生成し、思考プロセスに関する分析情報を提供するために[要約](#summaries)を出力します。そのため、API から出力されるのは要約のみですが、料金はモデルが要約を作成するために生成する必要があるすべての思考トークンに基づいて計算されます。
+Modele myślenia generują pełne myśli, aby poprawić jakość ostatecznej odpowiedzi, a następnie wyświetlają [podsumowania](#summaries), które pozwalają zrozumieć proces myślowy. Ceny są więc oparte na pełnych tokenach myśli, których model potrzebuje do wygenerowania podsumowania, mimo że z interfejsu API wychodzi tylko podsumowanie.
 
-トークンの詳細については、[トークン数のカウント](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)のガイドをご覧ください。
+Więcej informacji o tokenach znajdziesz w przewodniku [Liczenie tokenów](https://ai.google.dev/gemini-api/docs/tokens?hl=pl).
 
-## ベスト プラクティス
+## Sprawdzone metody
 
-このセクションでは、思考モデルを効率的に使用するためのガイダンスを紹介します。これまでと同様に、[プロンプトのガイダンスとベスト プラクティス](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)に沿って操作することで、最良の結果を得ることができます。
+W tej sekcji znajdziesz wskazówki dotyczące efektywnego korzystania z modeli myślowych.
+Jak zawsze, najlepsze wyniki uzyskasz, jeśli będziesz postępować zgodnie z naszymi [wskazówkami i sprawdzonymi metodami dotyczącymi promptów](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pl).
 
-### デバッグとステアリング
+### Debugowanie i sterowanie
 
-- **推論を確認する**: 思考モデルから期待どおりの回答が得られない場合は、Gemini の思考の要約を慎重に分析すると役立ちます。タスクをどのように分解して結論に達したかを確認し、その情報を使用して正しい結果が得られるように修正できます。
-- **推論でガイダンスを提供する**: 特に長い出力を希望する場合は、プロンプトでガイダンスを指定して、モデルが使用する[思考の量](#set-budget)を制限することをおすすめします。これにより、レスポンス用にトークン出力をより多く予約できます。
+- **Sprawdź uzasadnienie:** jeśli modele myślowe nie udzielają oczekiwanej odpowiedzi, warto dokładnie przeanalizować podsumowania myśli Gemini.
+  Możesz zobaczyć, jak podzielił zadanie i doszedł do wniosku, a także wykorzystać te informacje, aby poprawić wyniki.
+- **Podaj wskazówki dotyczące rozumowania:** jeśli oczekujesz szczególnie długiego wyniku, możesz podać w prompcie wskazówki, aby ograniczyć [ilość myślenia](#set-budget), jakiej używa model. Dzięki temu możesz zarezerwować więcej tokenów na swoją odpowiedź.
 
-### タスクの複雑さ
+### Złożoność zadania
 
-- **簡単なタスク（思考をオフにできる）:** 事実の取得や分類など、複雑な推論を必要としない簡単なリクエストの場合、思考は必要ありません。次のようなアプリケーションがあります。
-  - 「DeepMind はどこで設立されましたか？」
-  - 「このメールは会議の依頼ですか、それとも単に情報を提供しているだけですか？」
-- **中程度のタスク（デフォルト/ある程度の思考が必要）:** 多くの一般的なリクエストは、段階的な処理やより深い理解によってメリットが得られます。Gemini は、次のようなタスクに思考機能を柔軟に使用できます。
-  - 光合成と成長を例える。
-  - 電気自動車とハイブリッド車を比較対照します。
-- **難しいタスク（思考能力を最大限に活用）:** 複雑な数学の問題やコーディング タスクなど、非常に複雑な課題には、思考予算を高く設定することをおすすめします。このようなタスクでは、モデルが推論と計画の機能を最大限に活用する必要があります。多くの場合、回答を提供する前に多くの内部ステップが必要になります。次のようなアプリケーションがあります。
-  - AIME 2025 の問題 1 を解きます。17b が 97b の約数となるすべての整数基数 b > 9 の合計を求めます。
-  - ユーザー認証を含む、リアルタイムの株式市場データを可視化するウェブ アプリケーションの Python コードを記述します。できるだけ効率的にします。
+- **Proste zadania (myślenie może być wyłączone):** w przypadku prostych żądań, które nie wymagają złożonego rozumowania, np. wyszukiwania faktów lub klasyfikacji, myślenie nie jest potrzebne. Przykłady:
+  - „Gdzie powstała firma DeepMind?”
+  - „Czy ten e-mail zawiera prośbę o spotkanie, czy tylko informacje?”
+- **Średnio złożone zadania (domyślne/wymagające pewnego zastanowienia):** wiele typowych żądań wymaga przetwarzania krok po kroku lub głębszego zrozumienia. Gemini może elastycznie wykorzystywać funkcję myślenia w przypadku takich zadań jak:
+  - Porównaj fotosyntezę i dorastanie.
+  - Porównaj samochody elektryczne i samochody hybrydowe.
+- **Trudne zadania (maksymalne możliwości myślenia):** w przypadku naprawdę złożonych wyzwań, takich jak rozwiązywanie skomplikowanych problemów matematycznych lub zadań związanych z kodowaniem, zalecamy ustawienie wysokiego budżetu na myślenie. Tego typu zadania wymagają od modelu pełnego wykorzystania możliwości rozumowania i planowania, co często wiąże się z wieloma wewnętrznymi krokami przed udzieleniem odpowiedzi. Przykłady:
+  - Rozwiąż zadanie 1 z AIME 2025: znajdź sumę wszystkich podstaw całkowitych b > 9, dla których 17b jest dzielnikiem liczby 97b.
+  - Napisz kod w Pythonie dla aplikacji internetowej, która wizualizuje dane giełdowe w czasie rzeczywistym, w tym uwierzytelnianie użytkowników. Zadbaj o jak największą wydajność.
 
-## サポートされているモデル、ツール、機能
+## Obsługiwane modele, narzędzia i możliwości
 
-思考機能は、3 シリーズと 2.5 シリーズのすべてのモデルでサポートされています。すべてのモデル機能については、[モデルの概要](https://ai.google.dev/gemini-api/docs/models?hl=ja)ページをご覧ください。
+Funkcje myślenia są obsługiwane we wszystkich modelach z serii 3 i 2.5.
+Wszystkie możliwości modelu znajdziesz na stronie [przeglądu modelu](https://ai.google.dev/gemini-api/docs/models?hl=pl).
 
-思考モデルは、Gemini のすべてのツールと機能で動作します。これにより、モデルは外部システムとやり取りしたり、コードを実行したり、リアルタイム情報にアクセスしたりして、その結果を推論と最終的な回答に組み込むことができます。
+Modele myślące działają ze wszystkimi narzędziami i funkcjami Gemini. Umożliwia to modelom interakcję z systemami zewnętrznymi, wykonywanie kodu lub dostęp do informacji w czasie rzeczywistym, a także uwzględnianie wyników w procesie rozumowania i odpowiedzi końcowej.
 
-[思考クックブック][Colab] で、思考モデルでツールを使用する例を試すことができます。
+Przykłady użycia narzędzi z modelami myślowymi znajdziesz w [książce kucharskiej dotyczącej myślenia][Colab].
 
-## 次のステップ
+## Co dalej?
 
-- 思考の範囲については、[OpenAI 互換性](https://ai.google.dev/gemini-api/docs/openai?hl=ja#thinking)ガイドをご覧ください。
+- Informacje o zakresie myślenia znajdziesz w naszym przewodniku [Zgodność z OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl#thinking).
 
 [Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
 
-フィードバックを送信
+Prześlij opinię
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-最終更新日 2026-09-25 UTC。
+Ostatnia aktualizacja: 2026-10-09 UTC.
 
-ご意見をお聞かせください
+Chcesz przekazać coś jeszcze?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-25 UTC。"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-09 UTC."],[],[]]

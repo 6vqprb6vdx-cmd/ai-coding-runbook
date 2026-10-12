@@ -1,32 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr
-fetched_at: 2026-10-05T06:31:00.016345+00:00
-title: "\u00d6ncelik \u00e7\u0131kar\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/priority-inference?hl=fa
+fetched_at: 2026-10-12T06:59:02.329668+00:00
+title: "\u0627\u0633\u062a\u0646\u0628\u0627\u0637 \u0627\u0648\u0644\u0648\u06cc\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash اکنون در دسترس است. [آن را امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fa) .
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-Geri bildirim gönderin
+ارسال بازخورد
 
-# Öncelik çıkarımı
+# استنباط اولویت
 
-Açıklama: Etkileşimler API'sindeki öncelikli çıkarım katmanıyla gecikmeyi nasıl optimize edeceğinizi öğrenin.
+توضیحات: با نحوه بهینه‌سازی تأخیر با سطح استنباط «اولویت‌دار» در «میانای برنامه‌سازی کاربردی تعاملات» آشنا شوید
 
-Gemini Priority API, daha düşük gecikme süresi ve en yüksek güvenilirliğin gerektiği, işletme açısından kritik iş yükleri için tasarlanmış premium bir çıkarım katmanıdır. Bu katman, premium fiyat noktasında sunulur. Öncelik katmanı trafiğine, standart API ve esnek katman trafiğine göre öncelik verilir.
+‫Gemini Priority API سطح استنباط ممتاز است که برای حجم‌های کاری حیاتی کسب‌وکار طراحی شده است و در ازای قیمت ممتاز، تأخیر پایین‌تر و بالاترین قابلیت اطمینان را ارائه می‌دهد. ترافیک سطح اولویت بالاتر از ترافیک سطح Flex و
+میانای برنامه‌سازی کاربردی استاندارد اولویت‌بندی می‌شود.
 
-Öncelikli çıkarım, Interactions API uç noktalarında kullanılabilir.
+استنباط اولویت‌دار در سراسر نقاط پایانی «میانای برنامه‌سازی کاربردی تعاملات» دردسترس است.
 
-## Önceliği kullanma
+## نحوه استفاده از «اولویت»
 
-Öncelikli katmanı kullanmak için isteğinizdeki `service_tier` alanını `priority` olarak ayarlayın. Alan atlanırsa varsayılan katman standarttır.
+برای استفاده از سطح «اولویت‌دار»، فیلد `service_tier` را در درخواستتان روی `priority` تنظیم کنید. اگر این فیلد حذف شود، سطح پیش‌فرض استاندارد است.
 
 ### Python
 
@@ -62,7 +63,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -88,7 +89,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -139,79 +140,83 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Öncelikli çıkarımın işleyiş şekli
+## نحوه عملکرد استنباط «اولویت»
 
-Öncelikli çıkarım, istekleri yüksek önem dereceli bilgi işlem kuyruklarına yönlendirerek kullanıcıya yönelik uygulamalar için tahmin edilebilir ve hızlı performans sunar. Bu özelliğin temel mekanizması, dinamik sınırları aşan trafik için sunucu tarafında standart işleme sorunsuz bir şekilde geçiş yapmaktır. Bu sayede, istek başarısız olmak yerine uygulama kararlılığı sağlanır.
+استنتاج اولویت درخواست‌ها را به صف‌های محاسباتی با اهمیت بالا هدایت می‌کند و
+عملکرد سریع و قابل‌پیش‌بینی برای برنامه‌های سَمت کاربر ارائه می‌دهد. سازوکار اصلی آن
+تنزل سطح سمت سرور به‌صورت تدریجی به پردازش استاندارد برای ترافیکی است که
+از حدود پویا فراتر می‌رود، و به‌جای رد کردن درخواست، پایداری برنامه را تضمین می‌کند.
 
-| Özellik | Öncelik | Standart | Yaratıcılığınızı | Toplu |
+| ویژگی | اولویت | استاندارد | به‌رخ کشیدن | دسته |
 | --- | --- | --- | --- | --- |
-| **Fiyatlandırma** | Standart'tan% 75-100 daha fazla | Tam fiyat | %50 indirim | %50 indirim |
-| **Gecikme** | Saniye | Saniyelerden dakikalara | Dakika (1-15 dakika hedef) | En fazla 24 saat |
-| **Güvenilirlik** | Yüksek (tüy bırakmaz) | Yüksek / Biraz yüksek | En iyi sonuç (Sheddable) | Yüksek (aktarım hızı için) |
-| **Arayüz** | Eşzamanlı | Eşzamanlı | Eşzamanlı | Eşzamansız |
+| **قیمت‌گذاری** | ‫۷۵ تا ۱۰۰٪ بیشتر از «استاندارد» | قیمت کامل | ‫٪۵۰ تخفیف | ‫٪۵۰ تخفیف |
+| **تأخیر** | ثانیه | ثانیه به دقیقه | دقیقه (هدف ۱ تا ۱۵ دقیقه) | حداکثر ۲۴ ساعت |
+| **قابلیت اطمینان** | زیاد (غیرقابل ریزش) | زیاد / متوسط روبه‌بالا | نهایت تلاش (قابل‌حذف) | بالا (برای توان گذرداد) |
+| **میانای** | هم‌زمان | هم‌زمان | هم‌زمان | غیرهمگام |
 
-### Temel avantajlar
+### مزایای کلیدی
 
-- **Düşük gecikme**: Kullanıcıya yönelik etkileşimli yapay zeka araçlarında saniyelik yanıt süreleri için tasarlanmıştır.
-- **Yüksek güvenilirlik**: Trafik en yüksek öncelik seviyesinde ele alınır ve kesinlikle bırakılmaz.
-- **Kontrollü azalma**: Dinamik sınırları aşan trafik artışları, başarısız olmak yerine işlenmek üzere otomatik olarak Standart katmanına düşürülür. Böylece hizmet kesintileri önlenir.
-- **Kolaylık**: Standart ve Flex katmanlarıyla aynı senkronize `create` yöntemini kullanır.
+- **تأخیر کم**: برای زمان‌های پاسخ ثانیه‌ای برای ابزارهای هوش مصنوعی تعاملی و کاربرپسند طراحی شده است.
+- **قابلیت اطمینان بالا**: ترافیک با بالاترین سطح اهمیت حیاتی درنظر گرفته می‌شود و
+  به‌هیچ‌وجه نباید حذف شود.
+- **تنزل تدریجی**: افزایش ناگهانی ترافیک که از حدود پویا فراتر می‌رود به‌طور خودکار به سطح «استاندارد» برای پردازش تنزل داده می‌شود و از خرابی جلوگیری می‌کند و مانع از قطعی سرویس می‌شود.
+- **اصطکاک کم**: از همان روش هم‌زمان `create` به‌عنوان سطوح استاندارد و Flex استفاده می‌کند.
 
-### Kullanım alanları
+### موارد استفاده
 
-Öncelikli işleme, performans ve güvenilirliğin en önemli olduğu, işletme açısından kritik iş akışları için idealdir.
+پردازش اولویت‌دار برای گردش کارهای حیاتی کسب‌وکار که در آن‌ها عملکرد و قابلیت اطمینان اهمیت زیادی دارد ایده‌آل است.
 
-- **Etkileşimli yapay zeka uygulamaları**: Kullanıcıların premium ödeme yaptığı ve hızlı, tutarlı yanıtlar beklediği müşteri hizmetleri chatbot'ları ve yardımcı pilotlar.
-- **Anlık karar motorları**: Canlı bilet önceliklendirme veya sahtekarlık tespiti gibi yüksek güvenilirlik ve düşük gecikme süresi gerektiren sistemler.
-- **Premium müşteri özellikleri**: Ücretli müşteriler için daha yüksek hizmet düzeyi hedefleri (SLO'lar) garanti etmesi gereken geliştiriciler.
+- **برنامه‌های هوش مصنوعی تعاملی**: روبات‌های گپ خدمات مشتری و دستیارهای هوش مصنوعی که در آن‌ها کاربران هزینه ممتاز پرداخت می‌کنند و انتظار دارند پاسخ‌های سریع و یکنواخت دریافت کنند.
+- **موتورهای تصمیم‌گیری هم‌زمان**: سیستم‌هایی که به نتایج بسیار قابل‌اعتماد و با تأخیر کم نیاز دارند، مانند اولویت‌بندی زنده درخواست‌های پشتیبانی یا تشخیص کلاهبرداری.
+- **ویژگی‌های مشتری ممتاز**: توسعه‌دهندگانی که باید اهداف سطح خدمات (SLO) بالاتری را برای مشتریان پولی تضمین کنند.
 
-### Hız sınırları
+### محدودیت‌های نرخ
 
-Öncelikli tüketim, [genel etkileşimli trafik hızı sınırlarına](https://aistudio.google.com/rate-limit?hl=tr) dahil edilse de kendi hız sınırlarına sahiptir. Öncelikli çıkarım için varsayılan hız sınırları **Model / Katman için standart hız sınırının 0,3 katıdır**.
+مصرف اولویت‌دار نرخ محدودیت‌های خود را دارد، حتی اگر مصرف در [محدودیت‌های نرخ ترافیک تعاملی کلی](https://aistudio.google.com/rate-limit?hl=fa) محاسبه شود. حدود نرخ پیش‌فرض
+برای استنباط «اولویت‌دار» **۰٫۳ برابر حد نرخ استاندارد برای «مدل / سطح»** است
 
-### Kontrollü sürüm düşürme mantığı
+### منطق تنزل ایمن
 
-Yoğunluk nedeniyle öncelikli sınırları aşan istekler, 503 veya 429 hatasıyla başarısız olmak yerine **otomatik olarak ve sorunsuz bir şekilde** standart işleme düşürülür. Düşürülen istekler, öncelikli premium oran üzerinden değil, standart oran üzerinden faturalandırılır.
+اگر به‌دلیل ازدحام، از حدود «اولویت» فراتر بروید، درخواست‌های سرریز به‌جای اینکه با خطای ۵۰۳ یا ۴۲۹ ناموفق شوند، **به‌طور خودکار و به‌نحوی مناسب** به پردازش «استاندارد» تنزل داده می‌شوند. هزینه درخواست‌های تنزل‌یافته براساس نرخ استاندارد محاسبه می‌شود، نه نرخ ممتاز «اولویت‌دار».
 
-### Müşterinin sorumluluğu
+### مسئولیت کارخواه
 
-- **Yanıt izleme**: Geliştiriciler, isteklerin sıklıkla `x-gemini-service-tier`
-  düşürülüp düşürülmediğini tespit etmek için API yanıtındaki `standard` başlığını izlemelidir.
-- **Yeniden denemeler**: İstemciler, `DEADLINE_EXCEEDED` gibi standart hatalar için yeniden deneme mantığı/eksponansiyel geri yükleme uygulamalıdır.
+- **پایش پاسخ**: توسعه‌دهندگان باید `x-gemini-service-tier`
+  سرایند در پاسخ API را پایش کنند تا تشخیص دهند آیا درخواست‌ها به‌طور مکرر به
+  `standard` تنزل داده می‌شوند یا نه.
+- **تلاش‌های مجدد**: کارخواه‌ها باید منطق تلاش مجدد/پس‌گیری نمایی را برای خطاهای استاندارد، مثل `DEADLINE_EXCEEDED`، پیاده‌سازی کنند.
 
-## Fiyatlandırma
+## قیمت‌گذاری
 
-Öncelikli çıkarım, [standart API](https://ai.google.dev/gemini-api/docs/pricing?hl=tr)'den% 75-100 daha yüksek bir fiyatla sunulur ve jeton başına faturalandırılır.
+قیمت استنباط اولویت ۷۵ تا ۱۰۰٪ بیشتر از [میانای برنامه‌سازی کاربردی استاندارد](https://ai.google.dev/gemini-api/docs/pricing?hl=fa) است و براساس تعداد نشان صورت‌حساب می‌شود.
 
-## Desteklenen modeller
+## مدل‌های پشتیبانی‌شده
 
-Aşağıdaki modellerde öncelikli çıkarım desteklenir:
+مدل‌های زیر از «استنباط اولویت‌دار» پشتیبانی می‌کنند:
 
-| Model | Öncelik çıkarımı |
+| مدل | استنباط اولویت |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=tr) | ✔️ |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=tr) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=tr) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=tr) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=tr) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
-| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | ✔️ |
-| [Gemini 3 Flash Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=fa) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fa) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fa) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fa) | ✔️ |
+| [پیش‌نمایش Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fa) | ✔️ |
+| [پیش‌نمایش Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fa) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fa) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fa) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fa) | ✔️ |
 
-## Sırada ne var?
+## قدم بعدی چیست
 
-- Maliyet azaltımı için [esnek çıkarım](https://ai.google.dev/gemini-api/docs/flex-inference?hl=tr).
-- [Jetonlar](https://ai.google.dev/gemini-api/docs/tokens?hl=tr): Jetonları anlayın.
+- [استنتاج انعطاف‌پذیر](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fa) برای کاهش هزینه.
+- [کدها](https://ai.google.dev/gemini-api/docs/tokens?hl=fa): با کدها آشنا شوید.
 
-Geri bildirim gönderin
+ارسال بازخورد
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Son güncelleme tarihi: 2026-09-24 UTC.
+تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی."],[],[]]

@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=pl
-fetched_at: 2026-10-05T06:37:34.103605+00:00
-title: "rozumowanie przestrzenne, \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=de
+fetched_at: 2026-10-12T06:48:48.393252+00:00
+title: "R\u00e4umliches Denken \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Prześlij opinię
+Feedback geben
 
-# rozumowanie przestrzenne,
+# Räumliches Denken
 
-Modele Gemini Robotics ER mogą wskazywać obiekty, śledzić je w filmie, wykrywać za pomocą ramek ograniczających i generować trajektorie ruchu.
+Gemini Robotics ER-Modelle können auf Objekte zeigen, sie in Videos verfolgen, sie mit Begrenzungsrahmen erkennen und Bewegungsbahnen generieren.
 
-Pełny kod, który można uruchomić, znajdziesz w
-[przewodniku Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Vollständiger ausführbarer Code ist im
+[Robotics-Kochbuch](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) verfügbar.
 
-## Wskazywanie obiektów
+## Auf Objekte zeigen
 
-Poniższy przykład znajduje określone obiekty na obrazie i zwraca ich znormalizowane współrzędne `[y, x]`:
+Im folgenden Beispiel werden bestimmte Objekte in einem Bild gesucht und ihre normalisierten `[y, x]`-Koordinaten zurückgegeben:
 
 ### Python
 
@@ -93,8 +93,7 @@ curl -X POST \
   }'
 ```
 
-Wynikiem będzie tablica JSON zawierająca obiekty, z których każdy ma `point`
-(znormalizowane `[y, x]` współrzędne) i `label` identyfikującą obiekt.
+Die Ausgabe ist ein JSON-Array mit Objekten, die jeweils einen `point` (normalisierte `[y, x]`-Koordinaten) und ein `label` zur Identifizierung des Objekts enthalten.
 
 ### JSON
 
@@ -113,13 +112,13 @@ Wynikiem będzie tablica JSON zawierająca obiekty, z których każdy ma `point`
 ]
 ```
 
-Poniższy obraz przedstawia przykład wyświetlania tych punktów:
+Die folgende Abbildung zeigt ein Beispiel dafür, wie diese Punkte angezeigt werden können:
 
-![Przykład wyświetlający punkty obiektów na obrazie](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=pl)
+![Beispiel für die Darstellung der Punkte von Objekten in einem Bild](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=de)
 
-## Śledzenie obiektów w filmie
+## Objekte in einem Video verfolgen
 
-Gemini Robotics ER 2 może też analizować klatki filmu, aby śledzić obiekty w czasie. Listę obsługiwanych formatów wideo znajdziesz w sekcji [Dane wejściowe wideo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pl#supported-formats).
+Gemini Robotics ER 2 kann auch Videoframes analysieren, um Objekte im Zeitverlauf zu verfolgen. Eine Liste der unterstützten Videoformate finden Sie unter [Videoeingaben](https://ai.google.dev/gemini-api/docs/video-understanding?hl=de#supported-formats).
 
 ### Python
 
@@ -153,9 +152,9 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-## Wykrywanie obiektów i ramki ograniczające
+## Objekterkennung und Begrenzungsrahmen
 
-Oprócz punktów możesz poprosić model o zwrócenie 2D ramek ograniczających, które zapewniają więcej szczegółów przestrzennych wykrytych obiektów.
+Neben Punkten können Sie das Modell auch auffordern, 2D-Begrenzungsrahmen zurückzugeben, die mehr räumliche Details für erkannte Objekte liefern.
 
 ### Python
 
@@ -189,11 +188,11 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-## Trajektorie
+## Bahnen
 
-Gemini Robotics ER 2 może generować sekwencje punktów, które definiują trajektorię, co jest przydatne do kierowania ruchem robota.
+Gemini Robotics ER 2 kann Folgen von Punkten generieren, die eine Bahn definieren. Das ist nützlich, um die Roboterbewegung zu steuern.
 
-Ten przykład zawiera prośbę o wyznaczenie trajektorii, która pozwoli przenieść czerwony długopis do organizera, w tym o oszacowanie pośrednich punktów trasy. Kod został skrócony, aby pokazać tylko prompt.
+In diesem Beispiel wird eine Bahn angefordert, um einen roten Eingabestift zu einem Organizer zu bewegen, einschließlich einer Schätzung der Zwischenwegpunkte. Der Code wurde reduziert, um nur die Eingabeaufforderung zu zeigen.
 
 ### Python
 
@@ -206,9 +205,9 @@ prompt = """
         """
 ```
 
-## Tworzenie miejsca na laptopa
+## Platz für einen Laptop schaffen
 
-Ten przykład pokazuje, jak Gemini Robotics ER może rozumować o przestrzeni. Prompt prosi model o określenie, który obiekt należy przesunąć, aby zrobić miejsce na inny element.
+In diesem Beispiel wird gezeigt, wie Gemini Robotics ER über einen Raum nachdenken kann. Die Eingabeaufforderung fordert das Modell auf, zu ermitteln, welches Objekt bewegt werden muss, um Platz für ein anderes Element zu schaffen.
 
 ### Python
 
@@ -240,7 +239,7 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-Odpowiedź zawiera współrzędne 2D obiektu, który odpowiada na pytanie użytkownika, w tym przypadku obiektu, który powinien się przesunąć, aby zrobić miejsce na laptopa.
+Die Antwort enthält eine 2D-Koordinate des Objekts, das die Frage des Nutzers beantwortet, in diesem Fall das Objekt, das bewegt werden soll, um Platz für einen Laptop zu schaffen.
 
 ```
 [
@@ -248,11 +247,11 @@ Odpowiedź zawiera współrzędne 2D obiektu, który odpowiada na pytanie użytk
 ]
 ```
 
-![Przykład pokazujący, który obiekt należy przenieść, aby inny obiekt](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=pl)
+![Ein Beispiel, das zeigt, welches Objekt für ein anderes Objekt verschoben werden muss](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=de)
 
-## Pakowanie lunchu
+## Lunchpaket packen
 
-Model może też podawać instrukcje dotyczące zadań wieloetapowych i wskazywać odpowiednie obiekty na każdym etapie. Ten przykład pokazuje, jak model planuje serię czynności, aby spakować lunch.
+Das Modell kann auch Anleitungen für mehrstufige Aufgaben geben und für jeden Schritt auf relevante Objekte zeigen. In diesem Beispiel plant das Modell eine Reihe von Schritten, um ein Lunchpaket zu packen.
 
 ### Python
 
@@ -285,13 +284,13 @@ image_response = client.interactions.create(
 print(image_response.output_text)
 ```
 
-Odpowiedzią na ten prompt jest zestaw instrukcji krok po kroku, jak spakować lunch na podstawie obrazu wejściowego.
+Die Antwort auf diese Eingabeaufforderung ist eine Schritt-für-Schritt-Anleitung zum Packen eines Lunchpakets aus der Bildeingabe.
 
-**Obraz wejściowy**
+**Eingabebild**
 
-![Obraz przedstawiający pojemnik na lunch i produkty, które można do niego włożyć](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=pl)
+![Bild einer Brotdose und von Lebensmitteln, die hineingepackt werden können](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=de)
 
-**Dane wyjściowe modelu**
+**Modellausgabe**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -314,19 +313,19 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-## Co dalej?
+## Nächste Schritte
 
-- [Możliwości agenta](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=pl) – wykonywanie kodu, odczytywanie danych z instrumentów, dodawanie adnotacji do obrazów.
-- [Orkiestracja zadań](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pl) – zadania długoterminowe z niestandardowymi interfejsami API robota.
-- [Robotyka ze strumieniowaniem](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pl) – dwukierunkowe strumieniowanie w czasie rzeczywistym (tylko Gemini Robotics ER 2).
-- [Rozumienie treści wideo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pl) – znajdowanie momentów i klasyfikowanie postępów (tylko Gemini Robotics ER 2).
+- [Agentische Funktionen](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=de): Code-Ausführung, Instrumentenablesung, Bildannotation.
+- [Aufgabenorchestrierung](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=de): Aufgaben mit langer Laufzeit mit benutzerdefinierten Roboter-APIs.
+- [Robotik mit Streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=de): bidirektionales Streaming in Echtzeit (nur Gemini Robotics ER 2).
+- [Videoanalyse](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=de): Momente finden und Fortschritt klassifizieren (nur Gemini Robotics ER 2).
 
-Prześlij opinię
+Feedback geben
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Ostatnia aktualizacja: 2026-09-08 UTC.
+Zuletzt aktualisiert: 2026-09-08 (UTC).
 
-Chcesz przekazać coś jeszcze?
+Haben Sie Feedback für uns?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-08 (UTC)."],[],[]]

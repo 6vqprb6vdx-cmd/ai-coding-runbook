@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=hi
-fetched_at: 2026-10-05T06:37:00.375019+00:00
-title: "\u0935\u0940\u0921\u093f\u092f\u094b \u0915\u0940 \u092c\u093e\u0930\u0940\u0915\u093c\u0940 \u0938\u0947 \u092a\u0939\u091a\u093e\u0928 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=de
+fetched_at: 2026-10-12T06:53:56.870675+00:00
+title: "Videos verstehen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
 
-सुझाव भेजें
+Feedback geben
 
-# वीडियो की बारीक़ी से पहचान करना
+# Videos verstehen
 
-> वीडियो जनरेट करने के बारे में जानने के लिए, [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=hi) गाइड देखें.
+> Weitere Informationen zur Videogenerierung finden Sie im [Gemini Omni Flash-Leitfaden](https://ai.google.dev/gemini-api/docs/omni?hl=de).
 
-Gemini मॉडल, वीडियो प्रोसेस कर सकते हैं. इससे डेवलपर को कई ऐसे मामलों में मदद मिलती है जिनमें पहले, डोमेन के हिसाब से मॉडल की ज़रूरत होती थी.
-Gemini की विज़न क्षमताओं में ये शामिल हैं: वीडियो के बारे में जानकारी देना, वीडियो को सेगमेंट में बांटना, वीडियो से जानकारी निकालना, वीडियो के कॉन्टेंट के बारे में सवालों के जवाब देना, और वीडियो में किसी खास टाइमस्टैंप का रेफ़रंस देना.
+Gemini-Modelle können Videos verarbeiten und ermöglichen so viele innovative Anwendungsfälle für Entwickler, für die früher domänenspezifische Modelle erforderlich gewesen wären.
+Gemini kann unter anderem: Videos beschreiben, segmentieren und Informationen daraus extrahieren, Fragen zu Videoinhalten beantworten und auf bestimmte Zeitstempel in einem Video verweisen.
 
-Gemini को वीडियो इनपुट के तौर पर देने के लिए, इन तरीकों का इस्तेमाल किया जा सकता है:
+Sie haben folgende Möglichkeiten, Videos als Eingabe für Gemini zu verwenden:
 
-| इनपुट विधि | ज़्यादा से ज़्यादा साइज़ | इस्तेमाल का सुझाया गया उदाहरण |
+| Eingabemethode | Max. Größe | Empfohlener Anwendungsfall |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 जीबी (पैसे चुकाकर लिया गया) / 2 जीबी (बिना शुल्क वाला) | बड़ी फ़ाइलें (100 एमबी से ज़्यादा), लंबी अवधि के वीडियो (10 मिनट से ज़्यादा), और फिर से इस्तेमाल की जा सकने वाली फ़ाइलें. |
-| [Cloud Storage रजिस्ट्रेशन](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi#registration) | 2 जीबी (हर फ़ाइल के लिए, स्टोरेज की कोई सीमा नहीं) | बड़ी फ़ाइलें (100 एमबी से ज़्यादा), लंबी अवधि के वीडियो (10 मिनट से ज़्यादा), लगातार इस्तेमाल की जा सकने वाली फ़ाइलें. |
-| [इनलाइन डेटा](#inline-video) | < 100 एमबी | छोटी फ़ाइलें (<100 एमबी), कम अवधि (<1 मिनट), एक बार में इनपुट. |
-| [YouTube के यूआरएल](#youtube) | लागू नहीं | सार्वजनिक YouTube वीडियो. |
+| [File API](#upload-video) | 20 GB (kostenpflichtig) / 2 GB (kostenlos) | Große Dateien (über 100 MB), lange Videos (über 10 Minuten), wiederverwendbare Dateien. |
+| [Cloud Storage-Registrierung](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de#registration) | 2 GB (pro Datei, keine Speicherplatzbeschränkungen) | Große Dateien (über 100 MB), lange Videos (über 10 Minuten), dauerhafte, wiederverwendbare Dateien. |
+| [Inlinedaten](#inline-video) | < 100 MB | Kleine Dateien (< 100 MB), kurze Dauer (< 1 Minute), einmalige Eingaben. |
+| [YouTube-URLs](#youtube) | – | Öffentliche YouTube-Videos |
 
-> **ध्यान दें:** ज़्यादातर मामलों में, [File API](#upload-video) का इस्तेमाल करने का सुझाव दिया जाता है. खास तौर पर, 100 एमबी से ज़्यादा साइज़ वाली फ़ाइलों के लिए या जब आपको एक ही फ़ाइल का इस्तेमाल कई अनुरोधों में करना हो.
+> **Hinweis**:Die [File API](#upload-video) wird für die meisten Anwendungsfälle empfohlen, insbesondere für Dateien, die größer als 100 MB sind, oder wenn Sie die Datei in mehreren Anfragen wiederverwenden möchten.
 
-फ़ाइल इनपुट करने के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट करने के तरीके](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi) गाइड देखें. जैसे, बाहरी यूआरएल या Google Cloud में सेव की गई फ़ाइलों का इस्तेमाल करना.
+Informationen zu anderen Dateieingabemethoden, z. B. zur Verwendung externer URLs oder in Google Cloud gespeicherter Dateien, finden Sie im Leitfaden [Dateieingabemethoden](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de).
 
-### वीडियो फ़ाइल अपलोड करना
+### Videodatei hochladen
 
-नीचे दिए गए कोड में, एक सैंपल वीडियो डाउनलोड किया जाता है. इसके बाद, उसे [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करके अपलोड किया जाता है. इसके बाद, वीडियो के प्रोसेस होने का इंतज़ार किया जाता है. इसके बाद, अपलोड की गई फ़ाइल के रेफ़रंस का इस्तेमाल करके वीडियो की खास जानकारी तैयार की जाती है.
+Im folgenden Code wird ein Beispielvideo heruntergeladen, mit der [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hochgeladen, auf die Verarbeitung gewartet und dann die hochgeladene Dateireferenz verwendet, um das Video zusammenzufassen.
 
 ### Python
 
@@ -87,7 +87,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 uploadedFile, _ := client.Files.UploadFromPath(ctx, "path/to/sample.mp4", nil)
@@ -164,18 +164,18 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 jq -r ".candidates[].content.parts[].text" response.json
 ```
 
-टोकन की परफ़ॉर्मेंस और इस्तेमाल को ऑप्टिमाइज़ करने के लिए, [एजेंटिक वीडियो प्रोसेसिंग](#agentic-video-understanding) का इस्तेमाल करें.
+Um die Token-Effizienz und ‑Leistung zu optimieren, sollten Sie die [Agentic-Videoverarbeitung](#agentic-video-understanding) verwenden.
 
-जब अनुरोध का कुल साइज़ (इसमें फ़ाइल, टेक्स्ट प्रॉम्प्ट, सिस्टम के निर्देश वगैरह शामिल हैं) 20 एमबी से ज़्यादा हो, वीडियो की अवधि ज़्यादा हो या आपको एक ही वीडियो का इस्तेमाल कई प्रॉम्प्ट में करना हो, तो हमेशा Files API का इस्तेमाल करें.
-File API, वीडियो फ़ाइल फ़ॉर्मैट को सीधे तौर पर स्वीकार करता है.
+Verwenden Sie immer die Files API, wenn die Gesamtgröße der Anfrage (einschließlich Datei, Text-Prompt, Systemanweisungen usw.) mehr als 20 MB beträgt, die Videodauer lang ist oder wenn Sie dasselbe Video in mehreren Prompts verwenden möchten.
+Die File API akzeptiert Videodateiformate direkt.
 
-मीडिया फ़ाइलों के साथ काम करने के बारे में ज़्यादा जानने के लिए, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) देखें.
+Weitere Informationen zum Arbeiten mit Media-Dateien finden Sie unter [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de).
 
-### वीडियो डेटा को इनलाइन पास करना
+### Videodaten inline übergeben
 
-फ़ाइल एपीआई का इस्तेमाल करके वीडियो फ़ाइल अपलोड करने के बजाय, `generateContent` को सीधे तौर पर छोटे वीडियो पास किए जा सकते हैं. यह 20 एमबी से कम साइज़ वाले छोटे वीडियो के लिए सही है.
+Anstatt eine Videodatei über die File API hochzuladen, können Sie kleinere Videos direkt im `generateContent`-Aufruf übergeben. Diese Methode eignet sich für kürzere Videos mit einer Gesamtgröße von weniger als 20 MB.
 
-यहां इनलाइन वीडियो का डेटा देने का उदाहरण दिया गया है:
+Hier ein Beispiel für die Bereitstellung von Inline-Videodaten:
 
 ### Python
 
@@ -260,9 +260,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-### YouTube वीडियो के यूआरएल पास करना
+### YouTube-URLs für den Pass
 
-YouTube के यूआरएल को सीधे Gemini API पर पास किया जा सकता है. इसके लिए, आपको अपने अनुरोध में इन यूआरएल को इस तरह शामिल करना होगा:
+Sie können YouTube-URLs direkt als Teil Ihrer Anfrage an die Gemini API übergeben:
 
 ### Python
 
@@ -308,7 +308,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 package main
@@ -368,33 +368,33 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-**सीमाएं:**
+**Beschränkungen:**
 
-- मुफ़्त टियर के लिए, हर दिन आठ घंटे से ज़्यादा का YouTube वीडियो अपलोड नहीं किया जा सकता.
-- पैसे चुकाकर ली जाने वाली सदस्यता के लिए, वीडियो की अवधि के हिसाब से कोई सीमा तय नहीं की गई है.
-- Gemini 2.5 से पहले के मॉडल के लिए, हर अनुरोध में सिर्फ़ एक वीडियो अपलोड किया जा सकता है. Gemini 2.5 और इसके बाद के मॉडल के लिए, हर अनुरोध में ज़्यादा से ज़्यादा 10 वीडियो अपलोड किए जा सकते हैं.
-- सिर्फ़ सार्वजनिक वीडियो अपलोड किए जा सकते हैं. निजी या 'सबके लिए मौजूद नहीं' के तौर पर उपलब्ध वीडियो अपलोड नहीं किए जा सकते.
+- In der kostenlosen Version können Sie pro Tag nicht mehr als 8 Stunden YouTube-Videos hochladen.
+- Bei der kostenpflichtigen Version gibt es keine Begrenzung der Videolänge.
+- Bei Modellen vor Gemini 2.5 können Sie nur ein Video pro Anfrage hochladen. Bei Gemini 2.5 und späteren Modellen können Sie pro Anfrage maximal 10 Videos hochladen.
+- Du kannst nur öffentliche Videos hochladen, keine privaten oder nicht gelisteten Videos.
 
-## एजेंट की मदद से वीडियो को समझना
+## Agentisches Videoverständnis
 
-डिफ़ॉल्ट रूप से, वीडियो इनपुट के लिए स्टैटिक प्रोसेसिंग का इस्तेमाल किया जाता है. इसमें 1 एफ़पीएस पर फ़्रेम निकाले जाते हैं.
-Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, और 3.5 Flash Lite मॉडल भी **एजेंटिक वीडियो अंडरस्टैंडिंग** की सुविधा के साथ काम करते हैं. इसमें मॉडल, वीडियो की टाइमलाइन को डाइनैमिक तरीके से एक्सप्लोर करता है. साथ ही, ट्रांसक्रिप्ट की चुनिंदा तौर पर जांच करता है. इसके अलावा, प्रॉम्प्ट के आधार पर फ़्रेम रेट और रिज़ॉल्यूशन को तुरंत अडजस्ट करता है.
+Für Videoeingaben wird standardmäßig die statische Verarbeitung verwendet, bei der Frames mit 1 FPS extrahiert werden.
+Die Modelle Gemini 3.8 Flash, 3.6 Flash und 3.5 Flash Lite unterstützen auch **agentisches Videoverständnis**. Dabei wird die Videotimeline dynamisch untersucht, Transkripte werden selektiv geprüft und Frameraten und Auflösung werden basierend auf dem Prompt spontan angepasst.
 
-| **मोड** | **ब्यौरा** | **इन मॉडल के साथ काम करता है** |
+| **Modus** | **Beschreibung** | **Unterstützte Modelle** |
 | --- | --- | --- |
-| **स्टैटिक** (डिफ़ॉल्ट) | यह फ़्रेम को एक तय दर (1 FPS) पर निकालता है और उन्हें एक ही पास में कॉन्टेक्स्ट में रखता है. यह छोटी क्लिप के लिए बेहतर तरीके से काम करता है. | Gemini के सभी मॉडल |
-| **एजेंटिक** | यह मॉडल, वीडियो की टाइमलाइन पर डाइनैमिक तरीके से नेविगेट करता है. साथ ही, सिर्फ़ उस कॉन्टेंट को लोड करता है जिसकी उसे प्रॉम्प्ट के आधार पर ज़रूरत होती है. यह लंबी अवधि वाले वीडियो के लिए, 88% तक ज़्यादा टोकन-इफ़िशिएंट है और इसकी क्वालिटी ~7% बेहतर है. | Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite |
+| **Statisch** (Standard) | Extrahiert Frames mit einer festen Rate (1 FPS) und setzt sie in einem einzigen Durchgang in den Kontext. Funktioniert gut bei kurzen Clips. | Alle Gemini-Modelle |
+| **Agentic** | Das Modell navigiert dynamisch durch die Video-Timeline und lädt nur die Inhalte, die es basierend auf dem Prompt benötigt. Bis zu 88% token-effizienter und bei Langform-Inhalten um etwa 7% höhere Qualität. | Gemini 3.8 Flash, 3.6 Flash, 3.5 Flash Lite |
 
-### प्रोसेसिंग का कोई मोड चुनना
+### Verarbeitungsmodus auswählen
 
-सामान्य दिशा-निर्देश के तौर पर, **एजेंटिक** मोड से शुरुआत करें. खास तौर पर, जवाब की क्वालिटी या टोकन की क्षमता को ऑप्टिमाइज़ करते समय ऐसा करें.
+Als allgemeine Richtlinie empfiehlt es sich, mit dem **agentischen** Modus zu beginnen, insbesondere wenn Sie die Antwortqualität oder die Token-Effizienz optimieren möchten.
 
-- **एजेंटिक:** लंबी अवधि के वीडियो या किसी खास पल को टारगेट करने वाली क्वेरी. यह मॉडल, टाइमलाइन में डाइनैमिक तरीके से नेविगेट करता है, ताकि कॉन्टेक्स्ट के हिसाब से काम की जानकारी को टारगेट किया जा सके. इसके लिए, कॉन्टेक्स्ट विंडो को भरने की ज़रूरत नहीं होती.
-- **स्टैटिक:** कम समय की क्लिप (पांच मिनट से कम) पर इंतज़ार के समय के हिसाब से संवेदनशील क्वेरी या ऐसे मामले जहां पूरी क्लिप में फ़्रेम-लेवल की सटीक जानकारी की ज़रूरत होती है.
+- **Agentic**:Videos im Langformat oder Anfragen, die auf bestimmte Momente abzielen. Das Modell navigiert dynamisch durch die Zeitachse, um kontextbezogene Informationen zu finden, ohne das Kontextfenster zu füllen.
+- **Statisch**:Latenzsensitive Anfragen zu kurzen Clips (unter 5 Minuten) oder Fälle, in denen eine framegenaue Präzision über den gesamten Clip hinweg erforderlich ist.
 
-> **ध्यान दें:** लंबे वीडियो या मुश्किल प्रॉम्प्ट के लिए, स्ट्रीमिंग (`client.models.generate_content_stream`) का इस्तेमाल करें. इनमें एजेंटिक प्रोसेसिंग में ज़्यादा समय लगता है. इससे कनेक्शन ऐक्टिव रहता है, बीच-बीच में तर्क देने के चरण दिखते हैं, और कनेक्शन या पुष्टि करने के लिए तय समय खत्म नहीं होता.
+> **Hinweis**:Bei langen Videos oder komplexen Prompts, bei denen die Verarbeitung durch den Agent länger dauert, sollten Sie Streaming (`client.models.generate_content_stream`) verwenden. So bleibt die Verbindung aktiv, es werden Zwischenschritte angezeigt und Verbindungs- oder Authentifizierungszeitüberschreitungen werden vermieden.
 
-### प्रोसेसिंग मोड सेट करना
+### Verarbeitungsmodus festlegen
 
 ### Python
 
@@ -463,7 +463,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 uploadedFile, _ := client.Files.UploadFromPath(ctx, "path/to/lecture.mp4", nil)
@@ -510,22 +510,22 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-> **ध्यान दें:** यह पुष्टि करने के लिए कि एजेंट की मदद से प्रोसेसिंग की गई है, `response.candidates[0].content.parts` की जांच करें. `MEDIA_PROCESSING` टूल टाइप के साथ `tool_call` और `tool_response` की मौजूदगी से पता चलता है कि मॉडल ने वीडियो को डाइनैमिक तरीके से नेविगेट किया है.
+> **Hinweis**:Wenn Sie prüfen möchten, ob die Verarbeitung mit Agenten verwendet wurde, sehen Sie sich `response.candidates[0].content.parts` an. Das Vorhandensein von `tool_call`- und `tool_response`-Teilen mit dem Tooltyp `MEDIA_PROCESSING` weist darauf hin, dass das Modell dynamisch durch das Video navigiert hat.
 
-> **ध्यान दें:** सर्वर साइड पर काम करने वाले अन्य टूल (जैसे कि Google Search या यूआरएल कॉन्टेक्स्ट) के उलट, एजेंटिक वीडियो को टूल कॉल और नतीजे दिखाने या स्ट्रीम करने के लिए, `ToolConfig` में `include_server_side_tool_invocations=True` सेट करने की ज़रूरत नहीं होती. वीडियो पर नेविगेट करने के लिए, `tool_call` और `tool_response` वाले हिस्से अपने-आप दिख जाते हैं. ऐसा तब होता है, जब किसी इनपुट हिस्से पर `media_processing="AGENTIC"` सेट किया गया हो.
+> **Hinweis**:Im Gegensatz zu anderen serverseitigen Tools (z. B. Google Suche oder URL-Kontext) ist für die Rückgabe oder das Streamen von Tool-Aufrufen und ‑Ergebnissen bei agentenbasierten Videos nicht erforderlich, dass `include_server_side_tool_invocations=True` in `ToolConfig` festgelegt wird. Die Teile `tool_call` und `tool_response` für die Videonavigation werden automatisch zurückgegeben, wenn `media_processing="AGENTIC"` für einen beliebigen Eingabeteil festgelegt ist.
 
-### जवाब का स्ट्रक्चर
+### Antwortstruktur
 
-एजेंटिक प्रोसेसिंग चालू होने पर, जवाब में ऐसे अतिरिक्त हिस्से शामिल होते हैं जिनसे इंटरनल नेविगेशन ट्रेस का पता चलता है:
+Wenn die Verarbeitung mit KI-Agenten aktiviert ist, enthält die Antwort zusätzliche Teile, die den internen Navigationsverlauf offenlegen:
 
-- `tool_call` **parts** (`tool_type: "MEDIA_PROCESSING"`): यह इवेंट तब ट्रिगर होता है, जब मॉडल किसी वीडियो सेगमेंट या ऑडियो ट्रांसक्रिप्ट का अनुरोध करता है.
-- `tool_response` **पार्ट** (`tool_type: "MEDIA_PROCESSING"`): हर लोड ऑपरेशन का नतीजा.
+- `tool_call` **parts** (`tool_type: "MEDIA_PROCESSING"`): Wird jedes Mal ausgegeben, wenn das Modell ein Videosegment oder ein Audio-Transkript anfordert.
+- `tool_response` **Teile** (`tool_type: "MEDIA_PROCESSING"`): Das Ergebnis jedes Ladevorgangs.
 
-आपको इन हिस्सों को मैन्युअल तरीके से मैनेज करने या इनके जवाब देने की ज़रूरत नहीं है: पूरे जवाब को बातचीत के इतिहास के तौर पर वापस भेजें. इन्हें अपने-आप मैनेज किया जाएगा.
+Sie müssen diese Teile nicht manuell bearbeiten oder beantworten. Geben Sie die vollständige Antwort als Unterhaltungsverlauf zurück. Sie werden automatisch verarbeitet.
 
-अगर `ThinkingConfig` में `include_thoughts=True` सेट किया गया है, तो गहराई से विश्लेषण के चरण, टूल कॉल/जवाब के जोड़े के साथ इंटरलीव किए गए `thought: true` हिस्सों के तौर पर दिखते हैं. 'सोच' सुविधा बंद होने पर, 'सोच' वाला टेक्स्ट नहीं दिखता, लेकिन टूल के हिस्से अब भी दिखते हैं.
+Wenn `include_thoughts=True` in `ThinkingConfig` festgelegt ist, werden die Begründungsschritte als `thought: true`-Teile angezeigt, die mit den Tool-Aufruf-/Antwortpaaren verschachtelt sind. Wenn Gedanken deaktiviert sind, wird der Text für Gedanken ausgelassen, die Tool-Teile sind aber weiterhin vorhanden.
 
-यहां जवाब के पेलोड का उदाहरण दिया गया है. इसमें टूल कॉल और जवाब के हिस्सों को इंटरलीव किया गया है:
+Das folgende Beispiel zeigt die Antwortnutzlast mit verschachtelten Tool-Aufruf- und Antwortteilen:
 
 ```
 {
@@ -581,9 +581,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-### अलग-अलग वीडियो के लिए, प्रोसेसिंग के अलग-अलग मोड का इस्तेमाल करना
+### Verarbeitungsmodi für verschiedene Videos kombinieren
 
-एक ही अनुरोध में, वीडियो के हर पार्ट के लिए अलग-अलग प्रोसेसिंग मोड सेट किए जा सकते हैं:
+Sie können für jeden Videoteil in derselben Anfrage unterschiedliche Verarbeitungsmodi festlegen:
 
 ### Python
 
@@ -659,7 +659,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 lecturePart := &genai.Part{
@@ -716,13 +716,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-## लंबे वीडियो के लिए, कॉन्टेक्स्ट कैश मेमोरी का इस्तेमाल करना
+## Kontext-Caching für lange Videos verwenden
 
-अगर वीडियो 10 मिनट से ज़्यादा लंबा है या आपको एक ही वीडियो फ़ाइल के लिए कई अनुरोध करने हैं, तो [कॉन्टेक्स्ट कैश मेमोरी](https://ai.google.dev/gemini-api/docs/caching?hl=hi) का इस्तेमाल करें. इससे लागत कम करने और इंतज़ार का समय कम करने में मदद मिलती है. कॉन्टेक्स्ट कैश मेमोरी की सुविधा की मदद से, वीडियो को एक बार प्रोसेस किया जा सकता है. साथ ही, बाद की क्वेरी के लिए टोकन का फिर से इस्तेमाल किया जा सकता है. इसलिए, यह सुविधा चैट सेशन या लंबी अवधि के कॉन्टेंट के बार-बार विश्लेषण के लिए सबसे सही है.
+Bei Videos, die länger als 10 Minuten sind, oder wenn Sie mehrere Anfragen für dieselbe Videodatei stellen möchten, sollten Sie [Context Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) verwenden, um die Kosten zu senken und die Latenz zu verbessern. Mit dem Kontext-Caching können Sie das Video einmal verarbeiten und die Tokens für nachfolgende Anfragen wiederverwenden. Das ist ideal für Chats oder wiederholte Analysen von Inhalten im Langformat.
 
-## कॉन्टेंट में मौजूद टाइमस्टैंप देखें
+## Auf Zeitstempel im Inhalt verweisen
 
-वीडियो में किसी खास समय के बारे में सवाल पूछने के लिए, `MM:SS` फ़ॉर्मैट वाले टाइमस्टैंप का इस्तेमाल किया जा सकता है.
+Sie können Fragen zu bestimmten Zeitpunkten im Video stellen, indem Sie Zeitstempel im Format `MM:SS` verwenden.
 
 ### Python
 
@@ -750,7 +750,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 parts := []*genai.Part{
@@ -784,12 +784,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-## वीडियो से ज़्यादा जानकारी पाना
+## Detaillierte Informationen aus Videos extrahieren
 
-Gemini मॉडल, वीडियो कॉन्टेंट को समझने के लिए कई सुविधाएं देते हैं. ये मॉडल, **ऑडियो और विज़ुअल**, दोनों स्ट्रीम से मिली जानकारी को प्रोसेस करते हैं. इसकी मदद से, वीडियो के बारे में ज़्यादा जानकारी निकाली जा सकती है. जैसे, वीडियो में क्या हो रहा है, इसके बारे में ब्यौरा जनरेट करना और वीडियो के कॉन्टेंट के बारे में सवालों के जवाब देना.
+Gemini-Modelle bieten leistungsstarke Funktionen zum Verarbeiten von Videoinhalten, indem sie Informationen aus **Audio- und visuellen** Streams verarbeiten. So können Sie viele Details extrahieren, z. B. Beschreibungen der Ereignisse in einem Video generieren und Fragen zum Inhalt beantworten lassen.
 
-विज़ुअल के बारे में जानकारी देने के लिए, मॉडल वीडियो को **हर सेकंड में एक फ़्रेम** (एफ़पीएस) की दर से सैंपल करता है. डिफ़ॉल्ट सैंपलिंग रेट, ज़्यादातर कॉन्टेंट के लिए सही होता है. हालांकि, ध्यान दें कि तेज़ गति वाले वीडियो या सीन में तेज़ी से बदलाव होने वाले वीडियो में, यह कुछ जानकारी को छोड़ सकता है.
-तेज़ी से चलने वाले ऐसे कॉन्टेंट के लिए, [कस्टम फ़्रेम रेट सेट करें](#custom-frame-rate).
+Für visuelle Beschreibungen wird das Video mit einer Rate von **1 Bild pro Sekunde** (fps) abgetastet. Diese Standard-Samplingrate eignet sich gut für die meisten Inhalte. Bei Videos mit schnellen Bewegungen oder schnellen Szenenwechseln können jedoch Details verloren gehen.
+Bei solchen Inhalten mit viel Bewegung sollten Sie [eine benutzerdefinierte Framerate festlegen](#custom-frame-rate).
 
 ### Python
 
@@ -817,7 +817,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### ऐप पर जाएं
+### Ok
 
 ```
 parts := []*genai.Part{
@@ -852,13 +852,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-## वीडियो प्रोसेसिंग को पसंद के मुताबिक बनाना
+## Videoverarbeitung anpassen
 
-Gemini API में वीडियो प्रोसेसिंग को अपनी पसंद के मुताबिक बनाया जा सकता है. इसके लिए, क्लिप करने के इंटरवल सेट करें या फ़्रेम रेट की सैंपलिंग को अपनी पसंद के मुताबिक बनाएं. कस्टमाइज़ेशन के ये विकल्प, सिर्फ़ `"static"` मोड में वीडियो प्रोसेस करते समय काम करते हैं.
+Sie können die Videoverarbeitung in der Gemini API anpassen, indem Sie Clipping-Intervalle festlegen oder benutzerdefiniertes Sampling der Framerate angeben. Diese Anpassungsoptionen werden nur unterstützt, wenn das Video im `"static"`-Modus verarbeitet wird.
 
-### क्लिपिंग इंटरवल सेट करना
+### Ausschnittintervalle festlegen
 
-शुरू और खत्म होने के ऑफ़सेट के साथ `videoMetadata` तय करके, वीडियो को क्लिप किया जा सकता है.
+Sie können Videos mit dem Parameter `videoMetadata` und Start- und End-Offsets in Clips unterteilen.
 
 ### Python
 
@@ -925,9 +925,9 @@ console.log(response.text)
 await main();
 ```
 
-### कस्टम फ़्रेम रेट सेट करना
+### Benutzerdefinierte Bildrate festlegen
 
-`videoMetadata` में `fps` आर्ग्युमेंट पास करके, फ़्रेम रेट की सैंपलिंग को अपनी पसंद के मुताबिक सेट किया जा सकता है.
+Sie können die benutzerdefinierte Sampling-Rate für die Framerate festlegen, indem Sie ein `fps`-Argument an `videoMetadata` übergeben.
 
 ### Python
 
@@ -987,11 +987,11 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-डिफ़ॉल्ट रूप से, वीडियो से हर सेकंड एक फ़्रेम (एफ़पीएस) का सैंपल लिया जाता है. ऐसा हो सकता है कि आपको लंबे वीडियो के लिए, कम एफ़पीएस (< 1) सेट करना हो. यह सुविधा, खास तौर पर ऐसे वीडियो के लिए मददगार है जिनमें ज़्यादा बदलाव नहीं होता. जैसे, लेक्चर. जिन वीडियो में समय के हिसाब से बारीकी से विश्लेषण करने की ज़रूरत होती है उनके लिए ज़्यादा एफ़पीएस का इस्तेमाल करें. जैसे, तेज़ी से होने वाली गतिविधि को समझना या तेज़ गति से होने वाली गतिविधि को ट्रैक करना.
+Standardmäßig wird aus dem Video ein Frame pro Sekunde (FPS) gesampelt. Bei langen Videos empfiehlt es sich, eine niedrige Framerate (< 1) festzulegen. Das ist besonders bei Videos mit wenig Bewegung nützlich, z.B. bei Vorträgen. Verwenden Sie eine höhere Framerate für Videos, die eine detaillierte zeitliche Analyse erfordern, z. B. zum Erfassen von schnellen Aktionen oder zum Verfolgen von Bewegungen mit hoher Geschwindigkeit.
 
-## काम करने वाले वीडियो फ़ॉर्मैट
+## Unterstützte Videoformate
 
-Gemini, वीडियो फ़ॉर्मैट के इन MIME टाइप के साथ काम करता है:
+Gemini unterstützt die folgenden MIME-Typen für Videoformate:
 
 - `video/mp4`
 - `video/mpeg`
@@ -1003,48 +1003,46 @@ Gemini, वीडियो फ़ॉर्मैट के इन MIME टाइ
 - `video/wmv`
 - `video/3gpp`
 
-## वीडियो के बारे में तकनीकी जानकारी
+## Technische Details zu Videos
 
-- **इस्तेमाल किए जा सकने वाले मॉडल और कॉन्टेक्स्ट**: सभी Gemini मॉडल, वीडियो डेटा को प्रोसेस कर सकते हैं.
-  - 10 लाख टोकन वाली कॉन्टेक्स्ट विंडो वाले मॉडल, डिफ़ॉल्ट रूप से तीन घंटे तक के वीडियो प्रोसेस कर सकते हैं. हालांकि, ऐसा कम मीडिया रिज़ॉल्यूशन पर होता है. वहीं, ज़्यादा मीडिया रिज़ॉल्यूशन पर, ये मॉडल एक घंटे तक के वीडियो प्रोसेस कर सकते हैं.
-- **प्रोसेसिंग मोड**: Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite, और इसके बाद के मॉडल में, वीडियो प्रोसेसिंग के दो मोड काम करते हैं:
-  - **स्टैटिक**: फ़्रेम, 1 एफ़पीएस पर निकाले जाते हैं और उन्हें कॉन्टेक्स्ट में रखा जाता है. यह सभी मॉडल के लिए डिफ़ॉल्ट रूप से उपलब्ध होता है. ऑडियो को 1 केबीपीएस (सिंगल चैनल) पर प्रोसेस किया जाता है.
-    टाइमस्टैंप हर सेकंड जोड़े जाते हैं. यह छोटी क्लिप के लिए सबसे अच्छा है. इसके अलावा, यह तब भी सबसे अच्छा है, जब हर फ़्रेम मायने रखता हो. जैसे, फ़्रेम-बाय-फ़्रेम जांच करना. ध्यान दें कि 1 एफ़पीएस सैंपलिंग रेट की वजह से, फ़ास्ट ऐक्शन सीक्वेंस में जानकारी कम हो सकती है.
-  - **एजेंटिक**: यह मॉडल, वीडियो में डाइनैमिक तरीके से नेविगेट करता है. साथ ही, मांग पर ट्रांसक्रिप्ट और/या फ़्रेम और/या ऑडियो लोड करता है. इस सुविधा से, लंबी अवधि के कॉन्टेंट के लिए 88% तक कम टोकन का इस्तेमाल होता है. हालांकि, जनरेट करने से पहले इंटरनल गहराई से विश्लेषण और टूल राउंड-ट्रिप की वजह से, छोटी क्लिप (<5 मिनट) पर नेविगेशन के लिए, पहले टोकन के लिए इंतज़ार का समय (टीटीएफ़टी) थोड़ा बढ़ सकता है.
-    जवाबों में `MEDIA_PROCESSING` टूल कॉल और जवाब के हिस्से शामिल होते हैं, ताकि हर बार जवाब देने के लिए सही कॉन्टेक्स्ट बना रहे. यह लंबी अवधि के वीडियो के लिए सबसे सही है. इससे टोकन की लागत और जवाब की क्वालिटी को ऑप्टिमाइज़ किया जा सकता है. यह सुविधा, Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, और 3.5 Flash Lite पर काम करती है. ज़्यादा जानकारी के लिए, [एजेंटिक वीडियो अंडरस्टैंडिंग](#agentic-video-understanding) देखें.
-- **टोकन कैलकुलेशन (स्टैटिक मोड)**: वीडियो के हर सेकंड को इस तरह टोकन में बदला जाता है:
-  - अलग-अलग फ़्रेम (1 एफ़पीएस पर सैंपल किए गए):
-    - अगर `media_resolution` को कम पर सेट किया जाता है, तो फ़्रेम को 66 टोकन प्रति फ़्रेम पर टोकन में बदला जाता है.
-    - अगर ऐसा नहीं है, तो फ़्रेम को हर फ़्रेम के लिए 258 टोकन के हिसाब से टोकन में बदला जाता है.
-  - ऑडियो: हर सेकंड 32 टोकन.
-  - इसमें मेटाडेटा भी शामिल होता है.
-  - कुल: डिफ़ॉल्ट (कम) मीडिया रिज़ॉल्यूशन पर, वीडियो के हर सेकंड के लिए करीब 100 टोकन या हाई मीडिया रिज़ॉल्यूशन पर, वीडियो के हर सेकंड के लिए करीब 300 टोकन.
-- **टोकन की गिनती (एजेंटिक मोड)**: टोकन का इस्तेमाल, कॉन्टेंट की जटिलता और मॉडल की नेविगेशन रणनीति के आधार पर अलग-अलग होता है. वीडियो एक्सप्लोर करने के दौरान जनरेट किए गए नेविगेशन रीज़निंग टोकन को **थिंकिंग टोकन** (`thoughts_token_count`) के तौर पर गिना जाता है. वहीं, मांग पर लोड किए गए फ़्रेम, ऑडियो, और ट्रांसक्रिप्ट को टूल प्रॉम्प्ट टोकन (`tool_use_prompt_token_count`) के तौर पर गिना जाता है. आम तौर पर, एजेंटिक प्रोसेसिंग में स्टैटिक प्रोसेसिंग की तुलना में, लंबे कॉन्टेंट के लिए कुल 88% कम टोकन इस्तेमाल होते हैं. ऐसा इसलिए, क्योंकि मॉडल सिर्फ़ उस ट्रांसक्रिप्ट और/या फ़्रेम और/या ऑडियो को लोड करता है जिसकी ज़रूरत उसे प्रॉम्प्ट का जवाब देने के लिए होती है. ज़्यादा जानकारी के लिए, [टोकन गाइड](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=hi#video-token-usage) देखें.
-- **मीडिया रिज़ॉल्यूशन**: Gemini 3 में, `media_resolution` पैरामीटर की मदद से मल्टीमॉडल विज़न प्रोसेसिंग को ज़्यादा बारीकी से कंट्रोल करने की सुविधा मिलती है. `media_resolution` पैरामीटर से यह तय होता है कि **हर इनपुट इमेज या वीडियो फ़्रेम के लिए, ज़्यादा से ज़्यादा कितने टोकन
-  मिलेंगे.** ज़्यादा रिज़ॉल्यूशन से, मॉडल को छोटे टेक्स्ट को पढ़ने या छोटी-छोटी बारीकियों को पहचानने में मदद मिलती है. हालांकि, इससे टोकन का इस्तेमाल और लेटेन्सी बढ़ जाती है. `media_resolution` और `media_processing` पैरामीटर एक-दूसरे से अलग होते हैं. इसलिए, इन्हें वीडियो के एक ही हिस्से पर सेट किया जा सकता है.
+- **Unterstützte Modelle und Kontext**: Alle Gemini-Modelle können Videodaten verarbeiten.
+  - Modelle mit einem Kontextfenster von 1 Million Tokens können standardmäßig Videos mit einer Länge von bis zu 3 Stunden (bei niedriger Media-Auflösung) oder bis zu 1 Stunde (bei hoher Media-Auflösung) verarbeiten.
+- **Verarbeitungsmodi**: Gemini 3.8 Flash, 3.6 Flash, 3.5 Flash Lite und spätere Modelle unterstützen zwei Videoverarbeitungsmodi:
+  - **Statisch**: Frames werden mit 1 FPS extrahiert und in den Kontext eingefügt (Standardeinstellung für alle Modelle). Audio wird mit 1 Kbit/s (Einzelkanal) verarbeitet.
+    Zeitstempel werden jede Sekunde hinzugefügt. Am besten für kurze Clips oder wenn jedes Frame wichtig ist, z. B. bei der Frame-by-Frame-Analyse. Bei schnellen Aktionssequenzen können aufgrund der Samplingrate von 1 FPS Details verloren gehen.
+  - **Agentic**: Das Modell navigiert dynamisch durch das Video und lädt Transkript, Frames und/oder Audioinhalte bei Bedarf. Dadurch werden bis zu 88 % weniger Tokens für lange Inhalte verwendet. Bei kurzen Clips (<5 Minuten) kann sich die Zeit bis zum ersten Token (Time to First Token, TTFT) jedoch aufgrund interner Begründungen und Tool-Roundtrips vor Beginn der Generierung leicht verlängern.
+    Die Antworten enthalten `MEDIA_PROCESSING`-Tool-Aufruf- und Antwortteile, um den Begründungskontext über mehrere Züge hinweg beizubehalten. Am besten geeignet für Videos im Langformat, um die Tokenkosten und die Qualität der Antworten zu optimieren. Wird von Gemini 3.8 Flash, 3.6 Flash und 3.5 Flash Lite unterstützt. Weitere Informationen finden Sie unter [Agentisches Videoverständnis](#agentic-video-understanding).
+- **Tokenberechnung (statischer Modus)**: Jede Sekunde des Videos wird so tokenisiert:
+  - Einzelne Frames (mit 1 FPS):
+    - Wenn `media_resolution` auf „low“ gesetzt ist, werden Frames mit 66 Tokens pro Frame tokenisiert.
+    - Andernfalls werden Frames mit 258 Tokens pro Frame tokenisiert.
+  - Audio: 32 Tokens pro Sekunde.
+  - Metadaten sind ebenfalls enthalten.
+  - Insgesamt: etwa 100 Tokens pro Sekunde Video bei der Standardauflösung (niedrig) oder etwa 300 Tokens pro Sekunde Video bei hoher Auflösung.
+- **Token-Berechnung (Agent-Modus)**: Die Token-Nutzung variiert je nach Komplexität des Inhalts und Navigationsstrategie des Modells. Navigations-Begründungs-Tokens, die während der Videoanalyse generiert werden, werden als **Denk-Tokens** (`thoughts_token_count`) gezählt. Frames, Audio und Transkript, die bei Bedarf geladen werden, werden als Tool-Prompt-Tokens (`tool_use_prompt_token_count`) gezählt. Bei der agentenbasierten Verarbeitung werden in der Regel bis zu 88% weniger Tokens für Langform-Inhalte verwendet als bei der statischen Verarbeitung, da das Modell nur das Transkript und/oder die Frames und/oder das Audio lädt, die zum Beantworten des Prompts erforderlich sind (siehe [Tokens](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=de#video-token-usage)).
+- **Media-Auflösung**: Mit dem Parameter `media_resolution` bietet Gemini 3 eine detaillierte Steuerung der multimodalen Bildverarbeitung. Der Parameter `media_resolution` bestimmt die **maximale Anzahl von Tokens**, die pro Eingabebild oder Videoframes zugewiesen werden. Höhere Auflösungen verbessern die Fähigkeit des Modells, kleinen Text zu lesen oder kleine Details zu erkennen, erhöhen aber die Tokennutzung und die Latenz. Die Parameter `media_resolution` und `media_processing` sind unabhängig voneinander. Sie können beide für denselben Videoteil festlegen.
 
-टोकन की गिनती के बारे में ज़्यादा जानने के लिए, [टोकन](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=hi) गाइड देखें.
+Weitere Informationen zur Tokenberechnung finden Sie in der [Anleitung zu Tokens](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=de).
 
-- **टाइमस्टैंप का फ़ॉर्मैट**: अपने प्रॉम्प्ट में किसी वीडियो के खास पलों के बारे में बताते समय, `MM:SS` फ़ॉर्मैट का इस्तेमाल करें. उदाहरण के लिए, 1 मिनट और 15 सेकंड के लिए `01:15`.
-- **प्रॉम्प्ट का प्लेसमेंट**: अगर टेक्स्ट और एक वीडियो को साथ में इस्तेमाल किया जा रहा है, तो `contents` ऐरे में वीडियो के बाद टेक्स्ट प्रॉम्प्ट को *रखें*.
-- **लंबे अनुरोधों के लिए टाइमआउट**: ऐसे वीडियो के लिए स्ट्रीमिंग (`client.models.generate_content_stream`) का इस्तेमाल करें जिन्हें प्रोसेस करने में ज़्यादा समय लगता है या जिनमें कई चरणों वाली जटिल प्रोसेस शामिल होती है. ज़्यादा मांग होने पर, सिंक्रोनस और नॉन-स्ट्रीमिंग अनुरोधों के लिए बैकएंड से फिर से कोशिश की जाती है. इससे कनेक्शन या पुष्टि करने वाले टोकन की वैधता की अवधि खत्म हो सकती है. ऐसा होने पर, `401 Unauthorized` या टाइमआउट से जुड़ी गड़बड़ियां दिख सकती हैं. स्ट्रीमिंग से कनेक्शन चालू रहता है. साथ ही, इससे बीच-बीच में तर्क और टूल कॉल की प्रोग्रेस दिखती है.
+- **Zeitstempelformat**: Wenn Sie in Ihrem Prompt auf bestimmte Momente in einem Video verweisen, verwenden Sie das Format `MM:SS` (z.B. `01:15` für 1 Minute und 15 Sekunden).
+- **Prompt-Platzierung**: Wenn Sie Text und ein einzelnes Video kombinieren, platzieren Sie den Text-Prompt *nach* dem Videoteil im `contents`-Array.
+- **Zeitüberschreitungen bei langen Anfragen**: Bei Videos, die eine längere Verarbeitungszeit oder komplexe mehrstufige Problemlösung erfordern, sollten Sie Streaming (`client.models.generate_content_stream`) verwenden. Synchrone, nicht streamende Anfragen, bei denen bei hoher Nachfrage Back-End-Wiederholungen auftreten, können die Gültigkeitszeiträume für Verbindungen oder Authentifizierungstokens überschreiten. Dies kann zu unerwarteten `401 Unauthorized`- oder Zeitüberschreitungsfehlern führen. Beim Streamen bleibt die Verbindung aktiv und es werden Zwischenergebnisse und der Fortschritt von Tool-Aufrufen angezeigt.
 
-## आगे क्या करना है
+## Nächste Schritte
 
-- [मीडिया रिज़ॉल्यूशन](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=hi): क्वालिटी और टोकन के इस्तेमाल को बैलेंस करने के लिए, वीडियो फ़्रेम के रिज़ॉल्यूशन को कंट्रोल करें.
-- [टोकन](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=hi): जानें कि स्टैटिक और एजेंटिक, दोनों प्रोसेसिंग मोड में वीडियो कॉन्टेंट को कैसे टोकनाइज़ किया जाता है.
-- [सिस्टम के लिए निर्देश](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=hi#system-instructions):
-  सिस्टम के लिए निर्देश देने की सुविधा की मदद से, अपनी खास ज़रूरतों और इस्तेमाल के उदाहरणों के आधार पर, मॉडल के व्यवहार को कंट्रोल किया जा सकता है.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi): Gemini के साथ इस्तेमाल करने के लिए, फ़ाइलें अपलोड करने और उन्हें मैनेज करने के बारे में ज़्यादा जानें.
-- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide): Gemini API, टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा देता है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
-- [सुरक्षा से जुड़ी गाइडलाइन](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=hi): कभी-कभी जनरेटिव एआई मॉडल ऐसे आउटपुट जनरेट करते हैं जिनकी उम्मीद नहीं होती. जैसे, गलत, पक्षपात वाले या आपत्तिजनक आउटपुट. इस तरह के आउटपुट से होने वाले नुकसान के जोखिम को कम करने के लिए, पोस्ट-प्रोसेसिंग और मैन्युअल तरीके से आकलन करना ज़रूरी है.
+- [Media-Auflösung](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=de): Sie können die Auflösung von Videoframes anpassen, um ein ausgewogenes Verhältnis zwischen Qualität und Token-Nutzung zu erreichen.
+- [Tokens](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=de): Hier erfahren Sie, wie Videoinhalte sowohl im statischen als auch im agentenbasierten Verarbeitungsmodus tokenisiert werden.
+- [Systemanweisungen](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=de#system-instructions): Mit Systemanweisungen können Sie das Verhalten des Modells entsprechend Ihren spezifischen Anforderungen und Anwendungsfällen steuern.
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de): Hier finden Sie weitere Informationen zum Hochladen und Verwalten von Dateien für die Verwendung mit Gemini.
+- [Strategien für Dateiprompts](https://ai.google.dev/gemini-api/docs/files?hl=de#prompt-guide): Die Gemini API unterstützt Prompts mit Text-, Bild-, Audio- und Videodaten, auch bekannt als multimodale Prompts.
+- [Sicherheitshinweise](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=de): Generative KI-Modelle können manchmal unerwartete Ausgaben liefern, z. B. Ausgaben, die ungenau, voreingenommen oder anstößig sind. Nachbearbeitung und menschliche Bewertung sind unerlässlich, um das Risiko von Schäden durch solche Ausgaben zu begrenzen.
 
-सुझाव भेजें
+Feedback geben
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया.
+Zuletzt aktualisiert: 2026-10-09 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Haben Sie Feedback für uns?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-09 (UTC)."],[],[]]

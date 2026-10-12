@@ -1,51 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=ja
-fetched_at: 2026-10-05T06:30:20.269693+00:00
-title: "Veo 3.1 Lite \u30d7\u30ec\u30d3\u30e5\u30fc\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=pt-BR
+fetched_at: 2026-10-12T06:51:20.696702+00:00
+title: "Pr\u00e9-lan\u00e7amento do Veo 3.1 Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-フィードバックを送信
+Envie comentários
 
-# Veo 3.1 Lite プレビュー版
+# Pré-lançamento do Veo 3.1 Lite
 
-Veo 3.1 Lite Preview は、高効率でデベロッパー ファーストの動画モデルであり、高忠実度の動画生成、編集、シネマティック制御を実現します。最先端の Veo 3.1 モデルを活用して、クリエイターや企業向けにスケーラブルでプログラマブルなインターフェースを提供することで、プロ品質の動画 AI を民主化します。
+O pré-lançamento do Veo 3.1 Lite é um modelo de vídeo de alta eficiência e focado em desenvolvedores que oferece geração de vídeo, edição e controle cinematográfico de alta fidelidade. Ele usa o modelo Veo 3.1 de última geração para democratizar o Video AI de nível profissional, oferecendo uma interface escalonável e programável para criadores de conteúdo e empresas.
 
-[Google AI Studio で試す](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=ja)
+[Testar no Google AI Studio](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=pt-br)
 
-## ドキュメント
+## Documentação
 
-Veo 3.1 Lite は、大量の動画アプリケーションやワークフローを大規模に構築するデベロッパーや企業に最適な価格を提供します。詳細と他の
-Veo 3.1 モデルとの比較については、[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja#veo-3.1)のページをご覧ください。
+O Veo 3.1 Lite oferece os melhores preços para desenvolvedores e empresas que criam aplicativos e fluxos de trabalho de vídeo de alto volume em escala. Acesse a página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#veo-3.1) para mais detalhes e uma comparação com outros modelos do Veo 3.1.
 
-機能と機能の全容については、[動画生成](https://ai.google.dev/gemini-api/docs/video?hl=ja)のページをご覧ください。Veo 3.1 Lite Preview は、
-[4K 出力](https://ai.google.dev/gemini-api/docs/video?hl=ja#resolution)または
-[拡張機能](https://ai.google.dev/gemini-api/docs/video?hl=ja#extending-veo-videos)をサポートしていません。
+Acesse a página [Geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br) para conferir a cobertura completa de recursos e funcionalidades. O pré-lançamento do Veo 3.1 Lite não é compatível com
+[saídas em 4K](https://ai.google.dev/gemini-api/docs/veo?hl=pt-br#resolution) nem com
+[extensões](https://ai.google.dev/gemini-api/docs/veo?hl=pt-br#extending-veo-videos).
 
 ## veo-3.1-lite-generate-preview
 
-| プロパティ | 説明 |
+| Propriedade | Descrição |
 | --- | --- |
-| id\_cardモデルコード | **Gemini API**  `veo-3.1-lite-generate-preview` |
-| saveサポートされるデータタイプ | **入力**  テキスト、画像  **出力**  音声付きの動画 |
-| token\_auto上限 | **テキスト入力**  1,024 トークン  **出力動画**  1 |
-| calendar\_month最終更新日 | 2026 年 3 月 |
+| Código do modelo id\_card | **API Gemini**  `veo-3.1-lite-generate-preview` |
+| saveTipos de dados aceitos | **Entrada**  Texto, imagem  **Saída**  Vídeo com áudio |
+| Limites de token\_auto | **Entrada de texto**  1.024 tokens  **Vídeo de saída**  1 |
+| calendar\_monthÚltima atualização | Março de 2026 |
 
-フィードバックを送信
+Envie comentários
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最終更新日 2026-09-11 UTC。
+Última atualização 2026-10-08 UTC.
 
-ご意見をお聞かせください
+Quer enviar seu feedback?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-11 UTC。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-08 UTC."],[],[]]

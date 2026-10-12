@@ -1,93 +1,86 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=tr
-fetched_at: 2026-10-05T06:33:43.861042+00:00
-title: "D\u00fc\u015f\u00fcnce imzalar\u0131 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=ja
+fetched_at: 2026-10-12T07:16:16.015814+00:00
+title: "\u601d\u8003\u30b7\u30b0\u30cd\u30c1\u30e3 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-Geri bildirim gönderin
+フィードバックを送信
 
-# Düşünce imzaları
+# 思考シグネチャ
 
-Düşünce imzaları, modelin dahili düşünce sürecinin şifrelenmiş temsilleridir ve çok adımlı etkileşimlerde akıl yürütme bağlamını korumak için kullanılır.
-Düşünme modelleri (ör.Gemini 3 ve 2.5 serisi) kullanılırken API, yanıtın [content parts](https://ai.google.dev/api/caching?hl=tr#Part) (içerik bölümleri) içinde bir `thoughtSignature` alanı döndürebilir (ör. `text` veya `functionCall` bölümleri).
+思考シグネチャは、モデルの内部的な思考プロセスを暗号化したもので、複数ステップのインタラクションで推論コンテキストを保持するために使用されます。思考モデル（Gemini 3 シリーズや 2.5 シリーズなど）を使用する場合、API はレスポンスの[コンテンツ部分](https://ai.google.dev/api/caching?hl=ja#Part)（`text` 部分や `functionCall` 部分など）内に `thoughtSignature` フィールドを返すことがあります。
 
-Genel bir kural olarak, model yanıtında düşünce imzası alırsanız konuşma geçmişini bir sonraki turda gönderirken bu imzayı aynen iletmeniz gerekir.
-**Gemini 3 modellerini kullanırken işlev çağrısı sırasında düşünce imzalarını geri iletmeniz gerekir. Aksi takdirde doğrulama hatası alırsınız** (4xx durum kodu).
-Gemini 3 Flash için `minimal`
-[düşünme düzeyi](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#thinking-levels) ayarı kullanılırken de bu durum geçerlidir.
+原則として、モデル レスポンスで思考シグネチャを受け取った場合は、次のターンで会話履歴を送信するときに、受け取ったとおりに返します。**Gemini 3 モデルを使用する場合は、関数呼び出し中に思考シグネチャを渡す必要があります。そうしないと、検証エラー（4xx ステータス コード）が発生します。**これには、Gemini 3 Flash の `minimal`
+[思考レベル](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#thinking-levels)設定を使用する場合も含まれます。
 
-## İşleyiş şekli
+## 仕組み
 
-Aşağıdaki grafik, Gemini API'deki [işlev çağrısı](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) ile ilgili olarak "dönüş" ve "adım"ın anlamını görselleştirir. "Dönüş", kullanıcı ile model arasındaki sohbetteki tek ve eksiksiz bir etkileşimdir. "Adım", model tarafından gerçekleştirilen daha ayrıntılı bir işlem veya operasyondur. Genellikle bir dönüşü tamamlamak için daha büyük bir sürecin parçası olarak gerçekleştirilir.
+次の図は、Gemini API の[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)における「ターン」と「ステップ」の意味を視覚化したものです。「ターン」は、ユーザーとモデル間の会話における 1 回の完全なやり取りです。「ステップ」は、モデルによって実行されるより細かいアクションまたはオペレーションです。多くの場合、ターンを完了するためのより大きなプロセスの一部として実行されます。
 
-![İşlev çağrısı dönüşleri ve adımları diyagramı](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=tr)
+![関数呼び出しのターンとステップの図](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=ja)
 
-*Bu belgede, Gemini 3 modellerinde işlev çağrısının nasıl işleneceği ele alınmaktadır. 2.5 ile ilgili tutarsızlıklar için [model davranışı](#model-behavior) bölümüne bakın.*
+*このドキュメントでは、Gemini 3 モデルの関数呼び出しの処理に焦点を当てています。2.5 との相違点については、[モデルの動作](#model-behavior)のセクションを参照してください。*
 
-Gemini 3, işlev çağrısı içeren tüm model yanıtları (API'den gelen yanıtlar) için düşünce imzaları döndürür. Düşünce imzaları aşağıdaki durumlarda gösterilir:
+Gemini 3 は、関数呼び出しを含むすべてのモデル レスポンス（API からのレスポンス）の思考シグネチャを返します。思考シグネチャは、次の場合に表示されます。
 
-- [Paralel işlev](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#parallel_function_calling) çağrıları olduğunda, model yanıtı tarafından döndürülen ilk işlev çağrısı bölümünde düşünce imzası bulunur.
-- Sıralı işlev çağrıları (çok adımlı) olduğunda her işlev çağrısının bir imzası olur ve tüm imzaları geri iletmeniz gerekir.
-- İşlev çağrısı içermeyen model yanıtları, modelin döndürdüğü son kısımda düşünce imzası döndürür.
+- [並列関数](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#parallel_function_calling)呼び出しがある場合、モデル レスポンスから返される最初の関数呼び出し部分には思考シグネチャが含まれます。
+- 関数呼び出しが連続している場合（マルチステップ）、各関数呼び出しにシグネチャがあり、すべてのシグネチャを返す必要があります。
+- 関数呼び出しのないモデル レスポンスでは、モデルによって返される最後の部分に思考シグネチャを返します。
 
-Aşağıdaki tabloda, yukarıda bahsedilen imzalar kavramıyla birlikte dönüş ve adım tanımlarını birleştiren çok adımlı işlev çağrıları için bir görselleştirme sunulmaktadır:
+次の表は、マルチステップ関数呼び出しの可視化を示しています。ターンとステップの定義と、上記のシグネチャの概念を組み合わせています。
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
+| **Turn** | **Step** | **ユーザー リクエスト** | **モデルのレスポンス** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Yok |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | なし |
 
-## İşlev çağrısı bölümlerindeki imzalar
+## 関数呼び出しパーツのシグネチャ
 
-Gemini bir `functionCall` oluşturduğunda, sonraki turda aracın çıktısını doğru şekilde işlemek için `thought_signature` kullanır.
+Gemini が `functionCall` を生成するとき、次のターンでツールの出力を正しく処理するために `thought_signature` に依存します。
 
-- **Davranış**:
-  - **Tek İşlev Çağrısı**: `functionCall` bölümünde `thought_signature` yer alır.
-  - **Paralel İşlev Çağrıları**: Model, yanıtta paralel işlev çağrıları oluşturursa `thought_signature` **yalnızca ilk**
-    `functionCall` bölüme eklenir. Aynı yanıttaki sonraki `functionCall` bölümleri imza **içermez**.
-- **Şart**: Görüşme geçmişini geri gönderirken bu imzayı,
-  alındığı tam kısımda iade etmeniz **gerekir**.
-- **Doğrulama**: Geçerli dönüşteki tüm işlev çağrıları için katı doğrulama uygulanır . (Yalnızca mevcut dönüş gereklidir; önceki dönüşler doğrulanmaz)
-  - API, standart içerik (ör. `text`) içeren en son **User** mesajını (mevcut dönüşün başlangıcı) bulmak için geçmişe (en yeni mesajdan en eski mesaja) gider. Bu işlem **be** `functionResponse` değildir.
-  - Bu belirli kullanım mesajından sonraki **tüm** model `functionCall` dönüşleri, dönüşün bir parçası olarak kabul edilir.
-  - Mevcut dönüşteki **her adımın** **ilk** `functionCall` bölümü, `thought_signature`
-    **içermelidir**.
-  - Mevcut dönüşün herhangi bir adımında ilk `functionCall` bölüm için `thought_signature` karakterini atlarsanız istek 400 hatasıyla başarısız olur.
-- **Uygun imzalar döndürülmezse hata nasıl oluşur?**
-  - Gemini 3 modelleri: İmzaların eklenmemesi 400 hatasına neden olur. Metin şu biçimde olacaktır:
-    - `<index of contents array>` içerik bloğundaki `<Function Call>` işlevi çağrısında `thought_signature` eksik. Örneğin, *`1.` içerik bloğundaki Function
-      call `FC1` ifadesinde `thought_signature` eksik.*
+- **動作**:
+  - **単一の関数呼び出し**: `functionCall` 部分に `thought_signature` が含まれます。
+  - **並列関数呼び出し**: モデルがレスポンスで並列関数呼び出しを生成する場合、`thought_signature` は最初の `functionCall` 部分にのみ付加されます。同じレスポンス内の後続の `functionCall` 部分には署名が含まれません。
+- **要件**: 会話履歴を返す際は、このシグネチャを受け取った部分に正確に返す**必要があります**。
+- **検証**: 現在のターンのすべての関数呼び出しに対して厳密な検証が適用されます。（現在のターンのみが必要です。前のターンは検証しません）
+  - API は履歴を遡って（最新から最古へ）、標準コンテンツ（`text` など）を含む最新の**ユーザー** メッセージ（現在のターンの開始）を見つけます。これは `functionResponse` にはなりません。**be**
+  - その特定の使用メッセージの後に発生したすべてのモデル `functionCall` ターンは、ターンの一部と見なされます。
+  - 現在のターンの**各ステップ**の**最初**の `functionCall` 部分には、その `thought_signature` を含める**必要があります**。
+  - 現在のターンのいずれかのステップの最初の `functionCall` 部分で `thought_signature` を省略すると、リクエストは 400 エラーで失敗します。
+- **適切なシグネチャが返されない場合、エラーが発生する仕組みは次のとおりです**
+  - Gemini 3 モデル: シグネチャを含めないと、400 エラーが発生します。文言は次の形式になります。
+    - `<index of contents array>` コンテンツ ブロックの関数呼び出し `<Function Call>` に `thought_signature` がありません。たとえば、「*`1.` コンテンツ ブロックの関数呼び出し `FC1` に `thought_signature` がありません。*」などです。
 
-### Ardışık fonksiyon çağırma örneği
+### 順次関数呼び出しの例
 
-Bu bölümde, kullanıcının birden fazla görev gerektiren karmaşık bir soru sorduğu birden fazla işlev çağrısı örneği gösterilmektedir.
+このセクションでは、ユーザーが複数のタスクを必要とする複雑な質問をした場合の、複数の関数呼び出しの例を示します。
 
-Kullanıcının birden fazla görev gerektiren karmaşık bir soru sorduğu çok turlu bir işlev çağrısı örneğini inceleyelim: `"Check flight status for AA100 and
-book a taxi if delayed"`.
+ユーザーが複数のタスクを必要とする複雑な質問（`"Check flight status for AA100 and
+book a taxi if delayed"`）を行うマルチターン関数呼び出しの例を見てみましょう。
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
+| **Turn** | **Step** | **ユーザー リクエスト** | **モデルのレスポンス** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
+次のコードは、上記の表のシーケンスを示しています。
 
-**1. Tur, 1. Adım (Kullanıcı isteği)**
+**ターン 1、ステップ 1（ユーザーのリクエスト）**
 
 ```
 {
@@ -142,7 +135,7 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-**1. Tur, 1. Adım (Model yanıt)**
+**ターン 1、ステップ 1（モデルのレスポンス）**
 
 ```
 {
@@ -163,7 +156,7 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-**1. tur, 2. adım (Kullanıcı yanıtı - Araç çıktılarını gönderme)** Bu kullanıcı turu yalnızca `functionResponse` içerdiğinden (yeni metin yok) hâlâ 1. turdayız. `<Signature_A>` korunmalıdır.
+**ターン 1、ステップ 2（ユーザーのレスポンス - ツールの出力を送信）**このユーザーのターンには `functionResponse` のみ（新しいテキストなし）が含まれているため、まだターン 1 です。`<Signature_A>` を保持する必要があります。
 
 ```
 {
@@ -204,7 +197,7 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-**1. Dönem, 2. Adım (Model)** Model, önceki araç çıktısına göre taksi rezervasyonu yapmaya karar veriyor.
+**ターン 1、ステップ 2（モデル）**モデルは、前のツールの出力に基づいてタクシーを予約することにしました。
 
 ```
 {
@@ -225,7 +218,7 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-**1. tur, 3. adım (Kullanıcı - Araç çıktısı gönderme)** Taksi rezervasyonu onayını göndermek için bu döngüdeki **TÜM** işlev çağrılarına imza eklememiz gerekir (`<Signature A>` + `<Signature B>`).
+**ターン 1、ステップ 3（ユーザー - ツールの出力を送信）**タクシーの予約確認を送信するには、このループ内のすべての関数呼び出し（`<Signature A>` + `<Signature B>`）の署名を含める必要があります。
 
 ```
 {
@@ -294,19 +287,18 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-### Paralel fonksiyon çağırma örneği
+### 並列関数呼び出しの例
 
-Kullanıcının modele doğrulama yaptığı yeri görmeyi istediği paralel işlev çağrısı örneğini inceleyelim.
-`"Check weather in Paris and London"`
+ユーザーが `"Check weather in Paris and London"` にモデルが検証を行う場所を尋ねる並列関数呼び出しの例を見てみましょう。
 
-| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
+| **Turn** | **Step** | **ユーザー リクエスト** | **モデルのレスポンス** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + imza  FC2 ("London") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (FC yok) | Yok |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1（「パリ」）+ 署名  FC2（「ロンドン」） | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  （FC なし） | なし |
 
-Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
+次のコードは、上記の表のシーケンスを示しています。
 
-**1. Tur, 1. Adım (Kullanıcı isteği)**
+**ターン 1、ステップ 1（ユーザーのリクエスト）**
 
 ```
 {
@@ -345,7 +337,7 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-**1. Tur, 1. Adım (Model yanıt)**
+**ターン 1、ステップ 1（モデルのレスポンス）**
 
 ```
 {
@@ -373,7 +365,7 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 }
 ```
 
-**1. Tur, 2. Adım (Kullanıcı yanıtı - Araç çıktılarını gönderme)** İlk bölümdeki `<Signature_A>`, alındığı şekilde korunmalıdır.
+**ターン 1、ステップ 2（ユーザーのレスポンス - ツールの出力を送信）**最初の部分の `<Signature_A>` は、受け取ったとおりに保持する必要があります。
 
 ```
 [
@@ -431,17 +423,17 @@ Aşağıdaki kod, yukarıdaki tablodaki sırayı gösterir.
 ]
 ```
 
-## `functionCall` dışındaki bölümlerdeki imzalar
+## `functionCall` 以外のパーツのシグネチャ
 
-Gemini, işlev çağrısı içermeyen bölümlerde yanıtın son kısmında `thought_signatures` da döndürebilir.
+Gemini は、関数呼び出し以外の部分のレスポンスの最後の部分で `thought_signatures` を返すこともあります。
 
-- **Davranış**: Model tarafından döndürülen son içerik bölümü (`text, inlineData…`), `thought_signature` içerebilir.
-- **Öneri**: Özellikle karmaşık talimatları takip etme veya simüle edilmiş aracı iş akışları için modelin yüksek kaliteli akıl yürütme özelliğini korumasını sağlamak amacıyla bu imzaların döndürülmesi **önerilir**.
-- **Doğrulama**: API, doğrulamayı katı bir şekilde **zorunlu kılmaz**. Bunları atladığınızda engelleme hatası almazsınız ancak performans düşebilir.
+- **動作**: モデルから返される最終的なコンテンツ部分（`text, inlineData…`）に `thought_signature` が含まれることがあります。
+- **推奨事項**: 特に複雑な指示の実行やエージェント ワークフローのシミュレーションで、モデルが高品質の推論を維持するために、これらのシグネチャを返すことが**推奨**されます。
+- **検証**: API は検証を厳密に適用しません。省略してもブロッキング エラーは発生しませんが、パフォーマンスが低下する可能性があります。
 
-### Metin/Bağlam içi akıl yürütme (Doğrulama yok)
+### テキスト/コンテキスト推論（検証なし）
 
-**1. Tur, 1. Adım (Model yanıt)**
+**ターン 1、ステップ 1（モデルのレスポンス）**
 
 ```
 {
@@ -455,7 +447,7 @@ Gemini, işlev çağrısı içermeyen bölümlerde yanıtın son kısmında `tho
 }
 ```
 
-**2. Tur, 1. Adım (Kullanıcı)**
+**ターン 2、ステップ 1（ユーザー）**
 
 ```
 [
@@ -473,26 +465,26 @@ Gemini, işlev çağrısı içermeyen bölümlerde yanıtın son kısmında `tho
 ]
 ```
 
-## OpenAI uyumluluğu için imzalar
+## OpenAI 互換性のシグネチャ
 
-Aşağıdaki örneklerde, [OpenAI uyumluluğu](https://ai.google.dev/gemini-api/docs/openai?hl=tr) kullanılarak bir sohbet tamamlama API'si için düşünce imzalarının nasıl işleneceği gösterilmektedir.
+次の例は、[OpenAI 互換性](https://ai.google.dev/gemini-api/docs/openai?hl=ja)を使用して、チャット補完 API の思考シグネチャを処理する方法を示しています。
 
-### Ardışık fonksiyon çağırma örneği
+### 順次関数呼び出しの例
 
-Bu, kullanıcının birden fazla görev gerektiren karmaşık bir soru sorduğu çoklu işlev çağrısı örneğidir.
+これは、ユーザーが複数のタスクを必要とする複雑な質問をした場合の、複数の関数呼び出しの例です。
 
-Kullanıcının `Check flight status for AA100 and book a taxi if delayed` diye sorduğu çok turlu bir işlev çağrısı örneğini inceleyelim. Kullanıcı, birden fazla görev gerektiren karmaşık bir soru sorduğunda ne olduğunu görebilirsiniz.
+ユーザーが `Check flight status for AA100 and book a taxi if delayed` を尋ねるマルチターン関数呼び出しの例を見てみましょう。ユーザーが複数のタスクを必要とする複雑な質問をしたときに何が起こるかを確認できます。
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
+| **Turn** | **Step** | **ユーザー リクエスト** | **モデルのレスポンス** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-Aşağıdaki kod, verilen sırayı adım adım açıklar.
+次のコードは、指定されたシーケンスを処理します。
 
-**1. Tur, 1. Adım (Kullanıcı İsteği)**
+**ターン 1、ステップ 1（ユーザーのリクエスト）**
 
 ```
 {
@@ -546,7 +538,7 @@ Aşağıdaki kod, verilen sırayı adım adım açıklar.
 }
 ```
 
-**1. Tur, 1. Adım (Model Yanıt)**
+**ターン 1、ステップ 1（モデルのレスポンス）**
 
 ```
 {
@@ -569,9 +561,9 @@ Aşağıdaki kod, verilen sırayı adım adım açıklar.
     }
 ```
 
-**1. Dönüş, 2. Adım (Kullanıcı Yanıtı - Araç Çıkışlarını Gönderme)**
+**ターン 1、ステップ 2（ユーザーのレスポンス - ツールの出力を送信）**
 
-Bu kullanıcı dönüşü yalnızca `functionResponse` içerdiğinden (yeni metin yok) hâlâ 1. dönüşteyiz ve `<Signature_A>` korunmalıdır.
+このユーザーのターンには `functionResponse` のみ（新しいテキストなし）が含まれているため、まだターン 1 であり、`<Signature_A>` を保持する必要があります。
 
 ```
 "messages": [
@@ -606,9 +598,9 @@ Bu kullanıcı dönüşü yalnızca `functionResponse` içerdiğinden (yeni meti
   ]
 ```
 
-**1. Tur, 2. Adım (Model)**
+**ターン 1、ステップ 2（モデル）**
 
-Model, önceki araç çıkışına göre taksi rezervasyonu yapmaya karar veriyor.
+モデルは、前のツールの出力に基づいてタクシーを予約することにしました。
 
 ```
 {
@@ -631,9 +623,9 @@ Model, önceki araç çıkışına göre taksi rezervasyonu yapmaya karar veriyo
 }
 ```
 
-**1. Tur, 3. Adım (Kullanıcı - Araç Çıktısı Gönderme)**
+**ターン 1、ステップ 3（ユーザー - ツールの出力を送信）**
 
-Taksi rezervasyonu onayını göndermek için bu döngüdeki TÜM işlev çağrıları (`<Signature A>` + `<Signature B>`) için imzalar eklememiz gerekir.
+タクシーの予約確認を送信するには、このループ内のすべての関数呼び出し（`<Signature A>` + `<Signature B>`）の署名を含める必要があります。
 
 ```
 "messages": [
@@ -692,19 +684,19 @@ Taksi rezervasyonu onayını göndermek için bu döngüdeki TÜM işlev çağr�
   ]
 ```
 
-### Paralel fonksiyon çağırma örneği
+### 並列関数呼び出しの例
 
-Kullanıcının `"Check weather in Paris and London"` diye sorduğu paralel işlev çağırma örneğini inceleyelim. Bu örnekte, modelin nerede doğrulama yaptığını görebilirsiniz.
+ユーザーが `"Check weather in Paris and London"` をリクエストした場合の並列関数呼び出しの例を見てみましょう。モデルが検証を行う場所を確認できます。
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Dönüş** | **Step** | **Kullanıcı İsteği** | **Model Response** (Model Yanıtı) | **FunctionResponse** |
+| **Turn** | **Step** | **ユーザー リクエスト** | **モデルのレスポンス** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-Belirtilen sırayı izlemek için gereken kod aşağıda verilmiştir.
+指定されたシーケンスをウォークスルーするコードを次に示します。
 
-**1. Tur, 1. Adım (Kullanıcı İsteği)**
+**ターン 1、ステップ 1（ユーザーのリクエスト）**
 
 ```
 {
@@ -743,7 +735,7 @@ Belirtilen sırayı izlemek için gereken kod aşağıda verilmiştir.
 }
 ```
 
-**1. Tur, 1. Adım (Model Yanıt)**
+**ターン 1、ステップ 1（モデルのレスポンス）**
 
 ```
 {
@@ -774,9 +766,9 @@ Belirtilen sırayı izlemek için gereken kod aşağıda verilmiştir.
 }
 ```
 
-**1. Dönüş, 2. Adım (Kullanıcı Yanıtı - Araç Çıkışlarını Gönderme)**
+**ターン 1、ステップ 2（ユーザーのレスポンス - ツールの出力を送信）**
 
-İlk bölümdeki `<Signature_A>` işaretini tam olarak alındığı şekilde korumalısınız.
+最初の部分の `<Signature_A>` は、受け取ったとおりに保持する必要があります。
 
 ```
 "messages": [
@@ -825,41 +817,37 @@ Belirtilen sırayı izlemek için gereken kod aşağıda verilmiştir.
   ]
 ```
 
-## SSS
+## よくある質問
 
-1. **Geçerli dönüş ve adımda işlev çağrısı bölümü olan Gemini 3'e farklı bir modelden geçmiş nasıl aktarılır? API tarafından oluşturulmadığı için ilişkili düşünce imzası olmayan işlev çağrısı bölümleri sağlamam gerekiyor mu?**
+1. **現在のターンとステップで関数呼び出し部分を含む別のモデルから Gemini 3 に履歴を転送するにはどうすればよいですか？API で生成されなかったため、関連する思考シグネチャーがない関数呼び出し部分を提供する必要がありますか？**
 
-   İsteğe özel işlev çağrısı bloklarının isteğe eklenmesi kesinlikle önerilmez.Ancak bu durumun kaçınılmaz olduğu durumlarda (ör. istemci tarafından deterministik olarak yürütülen işlev çağrıları ve yanıtları hakkında modele bilgi sağlama veya düşünce imzaları içermeyen farklı bir modelden izleme aktarma) doğrulamanın atlanması için düşünce imzası alanında `"context_engineering_is_the_way_to_go"` veya `"skip_thought_signature_validator"` değerlerinden oluşan aşağıdaki sahte imzaları ayarlayabilirsiniz.
-2. **İç içe geçmiş paralel fonksiyon çağrıları ve yanıtları geri gönderiyorum ve API 400 döndürüyor. Neden?**
+   カスタム関数呼び出しブロックをリクエストに挿入することは強く推奨されませんが、避けられない場合（クライアントによって決定論的に実行された関数呼び出しとレスポンスに関する情報をモデルに提供する場合や、思考シグネチャを含まない別のモデルからトレースを転送する場合など）は、思考シグネチャ フィールドに `"context_engineering_is_the_way_to_go"` または `"skip_thought_signature_validator"` の次のダミー シグネチャを設定して、検証をスキップできます。
+2. **並列関数呼び出しとレスポンスをインターリーブして返していますが、API から 400 が返されます。なぜですか？**
 
-   API, paralel işlev çağrıları "FC1 + imza, FC2" döndürdüğünde, beklenen kullanıcı yanıtı "FC1+ imza, FC2, FR1, FR2" olur. Bunları "FC1 + imza, FR1, FC2, FR2" şeklinde iç içe yerleştirirseniz API 400 hatası döndürür.
-3. **Yayın sırasında model, bulamadığım bir işlev çağrısı döndürmüyor. Bu durumda düşünce imzasını bulamıyorum**
+   API が並列関数呼び出し「FC1 + シグネチャ、FC2」を返した場合、ユーザー レスポンスは「FC1 + シグネチャ、FC2、FR1、FR2」になることが想定されます。「FC1 + 署名、FR1、FC2、FR2」のようにインターリーブされている場合、API は 400 エラーを返します。
+3. **ストリーミング中にモデルが関数呼び出しを返さない場合、思考シグネチャが見つかりません**
 
-   Akış isteğiyle birlikte FC içermeyen bir model yanıtı sırasında model, düşünce imzasını boş metin içerikli bir bölümde döndürebilir. Model tarafından `finish_reason`
-   döndürülene kadar isteğin tamamını ayrıştırmanız önerilir.
+   ストリーミング リクエストで FC を含まないモデル レスポンスの場合、モデルはテキスト コンテンツ部分が空の部分に思考シグネチャを返すことがあります。モデルから `finish_reason` が返されるまで、リクエスト全体を解析することをおすすめします。
 
-## Farklı modeller için düşünce imzaları
+## さまざまなモデルの思考シグネチャ
 
-[Gemini 3 modelleri](https://ai.google.dev/gemini-api/docs/models?hl=tr#gemini-3) ve Gemini 2.5 modelleri
-işlev çağrılarında düşünce imzalarıyla farklı şekilde davranır:
+[Gemini 3 モデル](https://ai.google.dev/gemini-api/docs/models?hl=ja#gemini-3)と Gemini 2.5 モデルでは、関数呼び出しの思考シグネチャの動作が異なります。
 
-- Yanıt içinde işlev çağrıları varsa,
-  - Gemini 3, her zaman ilk işlev çağrısı bölümünde imzaya sahip olur.
-    Bu parçanın iade edilmesi **zorunludur**.
-  - Gemini 2.5, ilk bölümde imzayı (türden bağımsız olarak) içerir. Bu parçayı iade etmek **isteğe bağlıdır**.
-- Yanıt içinde işlev çağrısı yoksa,
-  - Model bir düşünce oluşturursa Gemini 3, son kısımda imzayı gösterir.
-  - Gemini 2.5'in hiçbir bölümünde imza bulunmaz.
+- レスポンスに関数呼び出しがある場合、
+  - Gemini 3 では、最初の関数呼び出し部分に常にシグネチャが含まれます。その部品は**必ず**返送する必要があります。
+  - Gemini 2.5 では、シグネチャは最初の部分にあります（タイプに関係なく）。その部分を返品するかどうかは**任意**です。
+- レスポンスに関数呼び出しがない場合、
+  - モデルが思考を生成した場合、Gemini 3 の最後の部分に署名が追加されます。
+  - Gemini 2.5 には、どの部分にも署名がありません。
 
-Daha fazla karşılaştırma bilgisi için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#signatures) sayfasına bakın.
-Gemini 3 Image modelleri için [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr#thinking-process) kılavuzunun düşünme süreci bölümüne bakın.
+比較の詳細については、[Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#signatures) ページをご覧ください。Gemini 3 Image モデルについては、[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja#thinking-process)ガイドの思考プロセス セクションをご覧ください。
 
-Geri bildirim gönderin
+フィードバックを送信
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Son güncelleme tarihi: 2026-09-08 UTC.
+最終更新日 2026-09-08 UTC。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+ご意見をお聞かせください
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=ar
-fetched_at: 2026-10-05T06:37:05.219275+00:00
+fetched_at: 2026-10-12T06:47:26.758594+00:00
 title: "\u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0646\u0638\u064e\u0651\u0645\u0629 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -19,24 +19,21 @@ title: "\u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0646\u063
 
 # النتائج المنظَّمة
 
-يمكنك ضبط نماذج Gemini لإنشاء ردود تتوافق مع JSON Schema الذي تقدّمه. يضمن ذلك نتائج متوقّعة وآمنة من حيث النوع، ويُسهّل استخراج البيانات المنظَّمة من النصوص غير المنظَّمة.
+يمكنك ضبط نماذج Gemini لإنشاء ردود تتوافق مع مخطط JSON المقدَّم. يضمن ذلك الحصول على نتائج متوقّعة وآمنة من حيث النوع، كما يسهّل استخراج البيانات المنظَّمة من النصوص غير المنظَّمة.
 
-إنّ استخدام المُخرجات المنظَّمة مثالي في الحالات التالية:
+يُعدّ استخدام المُخرجات المنظَّمة مثاليًا للحالات التالية:
 
 - **استخراج البيانات:** استخراج معلومات محدّدة، مثل الأسماء والتواريخ، من النص
 - **التصنيف المنظَّم:** تصنيف النص ضِمن فئات محدَّدة مسبقًا
-- **سير العمل المستند إلى الوكيل:** إنشاء مدخلات منظَّمة للأدوات أو واجهات برمجة التطبيقات
+- **سير عمل الذكاء الاصطناعي الوكيل:** إنشاء مدخلات منظَّمة للأدوات أو واجهات برمجة التطبيقات
 
-بالإضافة إلى إتاحة JSON Schema في REST API، تُسهّل حِزم Google GenAI SDK
-تحديد المخطّطات باستخدام
-[Pydantic](https://docs.pydantic.dev/latest/) (لغة Python) و
-[Zod](https://zod.dev/) (JavaScript).
+بالإضافة إلى إتاحة استخدام JSON Schema في REST API، تسهّل حِزم تطوير البرامج (SDK) من Google GenAI تحديد المخططات باستخدام [Pydantic](https://docs.pydantic.dev/latest/) (في Python) و[Zod](https://zod.dev/) (في JavaScript).
 
-## أمثلة على المُخرجات المنظَّمة
+## أمثلة على الناتج المنظَّم
 
-### مستخرِج الوصفات
+### أداة استخراج وصفات الطعام
 
-يوضّح هذا المثال كيفية استخراج البيانات المنظَّمة من النص باستخدام أنواع JSON Schema الأساسية، مثل `object` و`array` و`string` و`integer`.
+يوضّح هذا المثال كيفية استخراج البيانات المنظَّمة من نص باستخدام أنواع أساسية من مخطط JSON، مثل `object` و`array` و`string` و`integer`.
 
 ### Python
 
@@ -72,7 +69,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 """
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": Recipe.model_json_schema()}},
@@ -119,7 +116,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.
 `;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(recipeSchema) } },
@@ -130,7 +127,7 @@ const recipe = recipeSchema.parse(JSON.parse(response.text));
 console.log(recipe);
 ```
 
-### انتقال
+### Go
 
 ```
 package main
@@ -204,7 +201,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         genai.Text(prompt),
         config,
     )
@@ -218,7 +215,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -267,7 +264,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**مثال على الردّ:**
+**مثال على الرد:**
 
 ```
 {
@@ -324,7 +321,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 
 ### الإشراف على المحتوى
 
-يعرض هذا المثال `anyOf` للمخطّطات الشرطية و`enum` للتصنيف، ما يسمح بتغيير بنية الإخراج استنادًا إلى المحتوى.
+يعرض هذا المثال `anyOf` للمخططات الشرطية و`enum` للتصنيف، ما يسمح بتغيير بنية الإخراج استنادًا إلى المحتوى.
 
 ### Python
 
@@ -352,7 +349,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 """
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": ModerationResult.model_json_schema()}},
@@ -392,7 +389,7 @@ Content: 'Congratulations! You''ve won a free cruise to the Bahamas. Click here 
 `;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(moderationResultSchema) } },
@@ -403,7 +400,7 @@ const result = moderationResultSchema.parse(JSON.parse(response.text));
 console.log(result);
 ```
 
-### انتقال
+### Go
 
 ```
 package main
@@ -476,7 +473,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         genai.Text(prompt),
         config,
     )
@@ -490,7 +487,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -551,9 +548,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-### البِنى المتكرّرة
+### البُنى التكرارية
 
-يوضّح هذا المثال كيفية تحديد مخطّط متكرّر، مثل مخطّط المؤسسة.
+يوضّح هذا المثال كيفية تحديد مخطط تكراري، مثل المخطط التنظيمي.
 
 ### Python
 
@@ -579,7 +576,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 """
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": Employee.model_json_schema()}},
@@ -611,7 +608,7 @@ The manager is Alice, who manages Bob and Charlie. Bob manages David.
 `;
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(employeeSchema) } },
@@ -622,7 +619,7 @@ const employee = employeeSchema.parse(JSON.parse(response.text));
 console.log(employee);
 ```
 
-### انتقال
+### Go
 
 ```
 package main
@@ -667,7 +664,7 @@ func main() {
 
     result, err := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         genai.Text(prompt),
         config,
     )
@@ -681,7 +678,7 @@ func main() {
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -716,7 +713,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
     }'
 ```
 
-**مثال على الردّ:**
+**مثال على الرد:**
 
 ```
 {
@@ -745,9 +742,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 
 ## البث
 
-يمكنك بثّ المُخرجات المنظَّمة، ما يسمح لك ببدء معالجة الردّ أثناء إنشائه، بدون الحاجة إلى الانتظار حتى اكتمال الإخراج بالكامل. يمكن أن يؤدي ذلك إلى تحسين الأداء المتصوَّر لتطبيقك.
+يمكنك بث النتائج المنظَّمة، ما يتيح لك بدء معالجة الرد أثناء إنشائه، بدون الحاجة إلى انتظار اكتمال الناتج بالكامل. يمكن أن يؤدي ذلك إلى تحسين الأداء المُدرَك لتطبيقك.
 
-ستكون الأجزاء التي يتم بثّها عبارة عن سلاسل JSON جزئية صالحة، ويمكن ربطها لتشكيل كائن JSON النهائي الكامل.
+ستكون الأجزاء التي يتم بثها عبارة عن سلاسل JSON جزئية صالحة، ويمكن ربطها لتكوين عنصر JSON النهائي الكامل.
 
 ### Python
 
@@ -764,7 +761,7 @@ client = genai.Client()
 prompt = "The new UI is incredibly intuitive and visually appealing. Great job. Add a very long summary to test streaming!"
 
 response_stream = client.models.generate_content_stream(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=prompt,
     config={
         "response_format": {"text": {"mime_type": "application/json", "schema": Feedback.model_json_schema()}},
@@ -791,7 +788,7 @@ const feedbackSchema = z.object({
 });
 
 const stream = await ai.models.generateContentStream({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: prompt,
   config: {
     responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(feedbackSchema) } },
@@ -803,13 +800,13 @@ for await (const chunk of stream) {
 }
 ```
 
-## المُخرجات المنظَّمة مع الأدوات
+## مُخرجات منظَّمة باستخدام الأدوات
 
-يتيح لك Gemini 3 الجمع بين المُخرجات المنظَّمة والأدوات المضمّنة، بما في ذلك
-[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)،
-[سياق عناوين URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)،
-[تطبيق الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)،
-[File Search](https://ai.google.dev/gemini-api/docs/file-search?hl=ar#structured-output)، و
+يتيح لك Gemini 3 الجمع بين "النتائج المنظَّمة" والأدوات المضمّنة، بما في ذلك
+[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) و
+[سياق عناوين URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) و
+[تطبيق الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) و
+[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar#structured-output) و
 [استدعاء الدالة](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar).
 
 ### Python
@@ -915,101 +912,103 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
   }'
 ```
 
-## إتاحة JSON Schema
+## إتاحة مخطّط JSON
 
-لإنشاء كائن JSON، اضبط `response_format` في إعدادات الإنشاء. يجب أن يكون المخطّط [JSON Schema](https://json-schema.org/) صالحًا يصف تنسيق الإخراج المطلوب.
+لإنشاء عنصر JSON، اضبط `response_format` في إعدادات الإنشاء. يجب أن يكون المخطط [مخطط JSON](https://json-schema.org/) صالحًا يصف تنسيق الإخراج المطلوب.
 
-سينشئ النموذج بعد ذلك ردًا عبارة عن سلسلة JSON صالحة من الناحية النحوية وتتطابق مع المخطّط المقدَّم. عند استخدام المُخرجات المنظَّمة، سينتج النموذج مُخرجات بالترتيب نفسه الذي تظهر به المفاتيح في المخطّط.
+سينشئ النموذج بعد ذلك ردًا عبارة عن سلسلة JSON صالحة نحويًا وتتطابق مع المخطط المقدَّم. عند استخدام النتائج المنظَّمة، سينتج النموذج نتائج بالترتيب نفسه الذي تظهر به المفاتيح في المخطط.
 
-يتيح وضع المُخرجات المنظَّمة في Gemini مجموعة فرعية من مواصفات [JSON Schema](https://json-schema.org).
+يتوافق وضع الإخراج المنظَّم في Gemini مع مجموعة فرعية من مواصفات [مخطط JSON](https://json-schema.org).
 
-القيم التالية لـ `type` متاحة:
+في ما يلي القيم المسموح بها لـ `type`:
 
-- **`string`**: للنص
-- **`number`**: لأرقام النقطة العائمة.
-- **`integer`**: للأرقام الصحيحة
-- **`boolean`**: لقيمتَي "صحيح" و"خطأ"
-- **`object`**: للبيانات المنظَّمة التي تتضمّن أزواجًا من القيم والمفاتيح
-- **`array`**: لقوائم العناصر
-- **`null`**: للسماح بأن تكون قيمة السمة فارغة، أدرِج `"null"` في مصفوفة النوع (مثل `{"type": ["string", "null"]}`).
+- ‫**`string`**: للنص
+- **`number`**: للأرقام ذات الفاصلة العائمة
+- ‫**`integer`**: للأعداد الصحيحة
+- ‫**`boolean`**: للقيم الصحيحة أو الخاطئة
+- **`object`**: للبيانات المنظَّمة التي تتضمّن أزواجًا من المفاتيح والقيم
+- ‫**`array`**: لقوائم العناصر
+- **`null`**: للسماح بأن تكون قيمة السمة فارغة، أدرِج `"null"` في مصفوفة النوع (مثلاً، `{"type": ["string", "null"]}`).
 
-تساعد هذه السمات الوصفية في توجيه النموذج:
+تساعد هذه الخصائص الوصفية في توجيه النموذج:
 
-- **`title`**: وصف قصير لسمة
-- **`description`**: وصف أطول وأكثر تفصيلاً لسمة
+- ‫**`title`**: وصف مختصر للمكان المخصّص للاستئجار
+- ‫**`description`**: وصف أطول وأكثر تفصيلاً للمكان المخصّص للاستئجار
 
-### السمات الخاصة بالنوع
+### السمات الخاصة بأنواع محدّدة
 
-**لقيم `object`:**
+**بالنسبة إلى قيم `object`:**
 
-- **`properties`**: كائن يكون فيه كل مفتاح اسم سمة وكل قيمة مخطّطًا لتلك السمة
-- **`required`**: مصفوفة من السلاسل، تسرد السمات الإلزامية
-- **`additionalProperties`**: تتحكّم في ما إذا كان يُسمح بالسمات غير المدرَجة في `properties` يمكن أن تكون قيمة هذه السمة منطقية أو مخطّطًا.
+- **`properties`**: عنصر يكون فيه كل مفتاح هو اسم سمة وكل قيمة هي مخطط لهذه السمة.
+- استبدِل **`required`** بمصفوفة من السلاسل التي تسرد السمات الإلزامية.
+- **`additionalProperties`**: تتحكّم هذه السمة في ما إذا كان يُسمح بالسمات غير المدرَجة في `properties`. يمكن أن تكون قيمة منطقية أو مخططًا.
 
-**لقيم `string`:**
+**بالنسبة إلى قيم `string`:**
 
-- **`enum`**: تسرد مجموعة محدّدة من السلاسل المحتمَلة لمهام التصنيف
-- **`format`**: تحدّد بنية للسلسلة، مثل `date-time` أو `date` أو `time`
+- ‫**`enum`**: تعرض هذه السمة مجموعة محدّدة من السلاسل المحتملة لمهام التصنيف.
+- **`format`**: تحدّد هذه السمة بنية السلسلة، مثل `date-time` أو `date` أو `time`.
 
-**لقيم `number` و`integer` القيم:**
+**بالنسبة إلى القيمتَين `number` و`integer`:**
 
-- **`enum`**: تسرد مجموعة محدّدة من القيم الرقمية المحتمَلة
-- **`minimum`**: الحد الأدنى للقيمة الشاملة
-- **`maximum`**: الحد الأقصى للقيمة الشاملة
+- **`enum`**: تعرض مجموعة معيّنة من القيم الرقمية المحتملة.
+- ‫**`minimum`**: تمثّل الحد الأدنى للقيمة الشاملة.
+- ‫**`maximum`**: تمثّل الحد الأقصى للقيمة الشاملة.
 
-**لقيم `array`:**
+**بالنسبة إلى قيم `array`:**
 
-- **`items`**: تحدّد المخطّط لجميع العناصر في المصفوفة
-- **`prefixItems`**: تحدّد قائمة بالمخطّطات لأول N عنصر، ما يسمح ببِنى تشبه الصفوف
-- **`minItems`**: الحد الأدنى لعدد العناصر في المصفوفة
-- **`maxItems`**: الحد الأقصى لعدد العناصر في المصفوفة
+- ‫**`items`**: تحدّد هذه السمة المخطط لجميع العناصر في المصفوفة.
+- ‫**`prefixItems`**: تحدّد هذه السمة قائمة بمخططات أول N عناصر، ما يتيح إنشاء بنى شبيهة بالصفوف.
+- ‫**`minItems`**: الحد الأدنى لعدد العناصر في المصفوفة
+- ‫**`maxItems`**: الحد الأقصى لعدد العناصر في المصفوفة
 
-## النماذج المتاحة
+## النماذج المتوافقة
 
-تتيح النماذج التالية المُخرجات المنظَّمة:
+تتيح النماذج التالية إخراج البيانات المنظَّمة:
 
-| الطراز | المُخرجات المنظَّمة |
+| الطراز | النتائج المنظَّمة |
 | --- | --- |
+| Gemini 3.8 Flash | ✔️ |
+| Gemini 3.6 Flash | ✔️ |
+| Gemini 3.5 Flash-Lite | ✔️ |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Pro Preview | ✔️ |
-| Gemini 3.5 Flash | ✔️ |
-| Gemini 3.1 Flash-Lite Preview | ✔️ |
+| معاينة Gemini 3.1 Pro | ✔️ |
+| معاينة Gemini 3.1 Flash-Lite | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
-| Gemini 2.0 Flash | ‫✔️\* |
-| Gemini 2.0 Flash-Lite | ‫✔️\* |
+| ‫Gemini 2.0 Flash | ✔️\* |
+| Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* ملاحظة: يتطلّب Gemini 2.0 قائمة صريحة `propertyOrdering` ضمن إدخال JSON لتحديد البنية المفضّلة. يمكنك الاطّلاع على مثال في دليل الطبخ هذا* .
+*\* يُرجى العِلم أنّ Gemini 2.0 يتطلّب قائمة `propertyOrdering` صريحة ضمن إدخال JSON لتحديد البنية المفضّلة. يمكنك العثور على مثال في [كتاب الطبخ](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) هذا.*
 
-## المُخرجات المنظَّمة مقابل استدعاء الدوال
+## المُخرجات المنظَّمة مقارنةً باستدعاء الدالة
 
-يستخدم كلٌّ من المُخرجات المنظَّمة واستدعاء الدوال JSON Schema، ولكنّهما يخدمان أغراضًا مختلفة:
+تستخدم كل من المخرجات المنظَّمة واستدعاء الدوال مخططات JSON، ولكنها تخدم أغراضًا مختلفة:
 
 | الميزة | حالة الاستخدام الأساسية |
 | --- | --- |
-| **المُخرجات المنظَّمة** | **تنسيق الردّ النهائي للمستخدم** استخدِم هذه الميزة عندما تريد أن يكون *ردّ* النموذج بتنسيق معيّن (مثل استخراج البيانات من مستند لحفظها في قاعدة بيانات). |
-| **استدعاء الدوال** | **اتخاذ إجراء أثناء المحادثة** استخدِم هذه الميزة عندما يحتاج النموذج إلى *أن يطلب منك* تنفيذ مهمة (مثل "الحصول على حالة الطقس الحالية") قبل أن يتمكّن من تقديم إجابة نهائية. |
+| **المخرجات المنظَّمة** | **تنسيق الرد النهائي للمستخدم:** استخدِم هذه الميزة عندما تريد أن يكون *ردّ* النموذج بتنسيق محدّد (مثل استخراج البيانات من مستند لحفظها في قاعدة بيانات). |
+| **استدعاء الدوال** | **اتّخاذ إجراء أثناء المحادثة** استخدِم هذه الحالة عندما يحتاج النموذج إلى *أن يطلب منك* تنفيذ مهمة (مثل "الحصول على حالة الطقس الحالية") قبل أن يتمكّن من تقديم إجابة نهائية. |
 
 ## أفضل الممارسات
 
-- **الأوصاف الواضحة:** استخدِم الحقل `description` في المخطّط لتقديم تعليمات واضحة للنموذج بشأن ما تمثّله كل سمة. هذا أمر بالغ الأهمية لتوجيه إخراج النموذج.
-- **النوع القوي:** استخدِم أنواعًا محدّدة (`integer` و`string` و`enum`) كلما أمكن ذلك. إذا كانت إحدى المَعلمات تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم `enum`.
-- **هندسة الطلبات:** وضِّح في طلبك ما تريد أن يفعله النموذج. على سبيل المثال، "استخرِج المعلومات التالية من النص..." أو "صنِّف هذه الملاحظات وفقًا للمخطّط المقدَّم...".
-- **التحقّق من الصحة:** على الرغم من أنّ المُخرجات المنظَّمة تضمن أن يكون JSON صحيحًا من الناحية النحوية، فإنّها لا تضمن أن تكون القيم صحيحة من الناحية الدلالية. يجب دائمًا التحقّق من صحة الإخراج النهائي في رمز تطبيقك قبل استخدامه.
-- **معالجة الأخطاء:** نفِّذ معالجة قوية للأخطاء في تطبيقك لإدارة الحالات التي قد لا يفي فيها إخراج النموذج بمتطلبات منطق عملك، على الرغم من أنّه متوافق مع المخطّط.
+- **أوصاف واضحة:** استخدِم الحقل `description` في المخطط لتقديم تعليمات واضحة للنموذج بشأن ما تمثله كل سمة. هذا أمر بالغ الأهمية لتوجيه ردّ النموذج.
+- **الكتابة القوية:** استخدِم أنواعًا محدّدة (`integer` و`string` و`enum`) كلما أمكن ذلك. إذا كانت إحدى المَعلمات تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم `enum`.
+- **هندسة الطلبات:** وضِّح في طلبك ما تريد أن يفعله النموذج، مثلاً "استخرِج المعلومات التالية من النص..." أو "صنِّف هذه الملاحظات وفقًا للمخطط المقدَّم...".
+- **التحقّق من الصحة:** على الرغم من أنّ الناتج المنظَّم يضمن صحة بنية JSON، إلا أنّه لا يضمن صحة القيم من الناحية الدلالية. يجب دائمًا التحقّق من صحة الناتج النهائي في الرمز البرمجي لتطبيقك قبل استخدامه.
+- **معالجة الأخطاء:** اتّخِذ إجراءات فعالة لمعالجة الأخطاء في تطبيقك من أجل إدارة الحالات التي قد لا يستوفي فيها ناتج النموذج متطلبات منطق نشاطك التجاري، على الرغم من توافقه مع المخطط.
 
 ## القيود
 
-- **مجموعة فرعية من المخطّطات:** لا تتوفّر جميع ميزات مواصفات JSON Schema. يتجاهل النموذج السمات غير المتاحة.
-- **تعقيد المخطّط:** قد ترفض واجهة برمجة التطبيقات المخطّطات الكبيرة جدًا أو المتداخلة بشكل كبير. إذا واجهتك أخطاء، حاوِل تبسيط المخطّط من خلال تقصير أسماء السمات أو تقليل مستوى التداخل أو الحدّ من عدد القيود.
+- **مجموعة فرعية من المخطط:** لا تتوفّر جميع ميزات مواصفات JSON Schema. يتجاهل النموذج الخصائص غير المتوافقة.
+- **تعقيد المخطط:** قد ترفض واجهة برمجة التطبيقات المخططات الكبيرة جدًا أو المتداخلة بشكل كبير. في حال مواجهة أخطاء، حاوِل تبسيط المخطط عن طريق تقصير أسماء السمات أو تقليل التداخل أو الحدّ من عدد القيود.
 
 إرسال ملاحظات
 
 إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
+تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)
 
 هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

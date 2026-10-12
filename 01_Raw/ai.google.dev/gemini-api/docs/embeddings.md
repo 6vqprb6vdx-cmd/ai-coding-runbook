@@ -1,34 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=ar
-fetched_at: 2026-10-05T06:38:13.050458+00:00
-title: "\u0627\u0644\u062a\u0636\u0645\u064a\u0646\u0627\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-TW
+fetched_at: 2026-10-12T07:17:00.331404+00:00
+title: "\u5d4c\u5165 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-إرسال ملاحظات
+提供意見
 
-# التضمينات
+# 嵌入
 
-توفّر Gemini API نماذج تضمين لإنشاء تضمينات للنصوص والصور والفيديوهات والمحتوى الآخر. يمكن بعد ذلك استخدام التضمينات الناتجة في مهام مثل البحث الدلالي والتصنيف والتجميع، ما يوفّر نتائج أكثر دقة ومراعية للسياق مقارنةً بالطرق المستندة إلى الكلمات الرئيسية.
+Gemini API 提供嵌入模型，可為文字、圖片、影片和其他內容生成嵌入內容。這些產生的嵌入內容可用於語意搜尋、分類和叢集等工作，提供比關鍵字方法更準確、情境感知的結果。
 
-أحدث نموذج، `gemini-embedding-2`، هو أول نموذج متعدد الوسائط
-لإنشاء تضمينات في Gemini API. يعمل هذا النموذج على ربط النصوص والصور والفيديوهات والمقاطع الصوتية والمستندات بمساحة تضمين موحّدة، ما يتيح البحث والتصنيف والتجميع المتعدّد الوسائط بأكثر من 100 لغة. يمكنك الاطّلاع على [قسم "التضمينات المتعدّدة الوسائط"](#multimodal) لمعرفة المزيد. بالنسبة إلى حالات الاستخدام النصية فقط، سيظل `gemini-embedding-001` متاحًا.
+最新模型 `gemini-embedding-2` 是 Gemini API 中第一個多模態嵌入模型。可將文字、圖片、影片、音訊和文件對應至統一的嵌入空間，以 100 多種語言進行跨模式搜尋、分類和叢集。詳情請參閱[多模態嵌入部分](#multimodal)。如要處理純文字內容，仍可使用 `gemini-embedding-001`。
 
-إنشاء أنظمة التوليد المعزّز بالاسترجاع (RAG) هو حالة استخدام شائعة لمنتجات الذكاء الاصطناعي. تؤدي التضمينات دورًا رئيسيًا في تحسين مخرجات النماذج بشكل كبير،
-من خلال تعزيز دقتها الوقائعية وتماسكها وثراء سياقها. إذا كنت تفضّل استخدام حلّ مُدار للتوليد المعزّز بالاسترجاع، أنشأنا أداة [البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar) التي تسهّل إدارة عملية التوليد المعزّز بالاسترجاع وتجعلها أكثر فعالية من حيث التكلفة.
+建構檢索增強生成 (RAG) 系統是 AI 產品的常見用途。嵌入在大幅提升模型輸出內容方面扮演關鍵角色，可提高事實準確度、連貫性和情境豐富度。如果偏好使用代管 RAG 解決方案，我們打造的[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)工具可讓您更輕鬆地管理 RAG，並提高成本效益。
 
-## إنشاء التضمينات
+## 生成嵌入
 
-استخدِم طريقة `embedContent` لإنشاء تضمينات نصية:
+使用 `embedContent` 方法生成文字嵌入：
 
 ### Python
 
@@ -65,7 +63,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -136,30 +134,30 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## تحديد نوع المهمة لتحسين الأداء
+## 指定工作類型以提升效能
 
-يمكنك استخدام التضمينات في مجموعة كبيرة من المهام، بدءًا من التصنيف وصولاً إلى البحث عن المستندات. يساعد تحديد نوع المهمة المناسب في تحسين عمليات التضمين للعلاقات المقصودة، ما يؤدي إلى زيادة الدقة والفعالية إلى أقصى حد.
+從分類到文件搜尋，您可以使用嵌入項目執行各種工作。指定正確的任務類型有助於針對預期關係最佳化嵌入項目，進而提高準確度和效率。
 
-### أنواع المهام التي يمكن تنفيذها باستخدام Embeddings 2
+### 使用 Embeddings 2 的工作類型
 
-بالنسبة إلى المهام النصية فقط التي تتضمّن `gemini-embedding-2`، ننصحك بشدة بإضافة تعليمات المهمة في طلبك. ويمكن إجراء ذلك من خلال تنسيق طلب البحث والمستند باستخدام بادئة المهمة الصحيحة.
+如果工作僅包含文字，且使用 `gemini-embedding-2`，強烈建議您在提示中加入工作指令。方法是使用正確的任務前置字串，設定查詢和文件的格式。
 
-عند إنشاء [تضمين واحد استنادًا إلى إدخال متعدد الوسائط](#embedding-aggregation)، لا ننصح عمومًا بإضافة بادئة إلى جزء النص من الإدخال تتضمّن تعليمات المهمة. وفي بعض الحالات، يؤدي ذلك إلى تحسين الأداء، ولكن في حالات أخرى، يؤدي إلى خفضه.
+根據[多模態輸入內容產生單一嵌入內容](#embedding-aggregation)時，我們通常不建議在輸入內容的文字部分加上工作指令前置字元。有時可提升成效，有時則會降低成效。
 
-تعرض الجداول التالية أمثلة على كيفية تنسيق طلبات البحث والمستندات لحالات الاستخدام المتماثلة وغير المتماثلة باستخدام نموذج `gemini-embedding-2`.
+下表提供範例，說明如何使用 `gemini-embedding-2` 模型，為對稱和非對稱用途格式化查詢和文件。
 
-**حالات استخدام الاسترجاع (تنسيق غير متماثل)**
+**擷取用途 (非對稱格式)**
 
-في حالات الاستخدام غير المتماثل، أضِف بادئة المهمة إلى طلب البحث وطبِّق بنية المستند على المحتوى الذي تريد تضمينه واسترداده.
+在非對稱用途中，請在查詢中加入工作前置字元，並套用要嵌入及擷取內容的文件結構。
 
-| حالة الاستخدام | بنية طلب البحث | بنية المستند |
+| 用途 | 查詢結構 | 文件結構 |
 | --- | --- | --- |
-| طلب البحث | `task: search result | query: {content}` | `title: {title} | text: {content}` في حال عدم توفّر عنوان، استخدِم `title: none`. |
-| الإجابة عن الأسئلة | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
-| التحقّق من صحة الأخبار | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
-| استرداد الرمز | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
+| 搜尋查詢 | `task: search result | query: {content}` | `title: {title} | text: {content}` 如果沒有標題，請使用 `title: none`。 |
+| 問題回答 | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
+| 事實查核 | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
+| 程式碼擷取 | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
 
-**مثال على الاستخدام**
+**使用範例**
 
 ### Python
 
@@ -178,17 +176,17 @@ def prepare_document(content, title=None):
     return f"title: {title} | text: {content}"
 ```
 
-**حالات استخدام الإدخال الفردي (التنسيق المتماثل)**
+**單一輸入內容的用途 (對稱格式)**
 
-في حالات الاستخدام المتماثلة، استخدِم التنسيق نفسه للاستعلام والمستند في المهمة نفسها.
+在對稱用途中，針對相同工作，查詢和文件使用相同的格式。
 
-| حالة الاستخدام | بنية الإدخال |
+| 用途 | 輸入結構 |
 | --- | --- |
-| التصنيف | `task: classification | query: {content}` |
-| التجميع | `task: clustering | query: {content}` |
-| التشابه الدلالي | `task: sentence similarity | query: {content}` لا تستخدِم هذه الميزة للبحث أو الاسترجاع. وهي مخصّصة للتشابه الدلالي النصي. |
+| 分類 | `task: classification | query: {content}` |
+| 分群 | `task: clustering | query: {content}` |
+| Semantic similarity (語意相似度) | `task: sentence similarity | query: {content}` 請勿使用這項功能進行搜尋或擷取。適用於語意文字相似度。 |
 
-**مثال على الاستخدام**
+**使用範例**
 
 ### Python
 
@@ -200,13 +198,13 @@ def prepare_query_and_document(content):
     return f'task: classification | query: {content}'
 ```
 
-من المهم استخدام المهمة بشكلٍ متّسق. على سبيل المثال، إذا كانت المستندات مضمّنة مع `f'task: classification | query: {content}'`، يجب أن يكون طلب البحث مضمّنًا أيضًا باتّباع تنسيق المهمة هذا.
+請務必持續使用這項工作。舉例來說，如果文件內嵌 `f'task: classification | query: {content}'`，查詢也應按照這項工作格式內嵌。
 
-### أنواع المهام التي تتضمّن Embeddings 1
+### 使用 Embeddings 1 的工作類型
 
-بالنسبة إلى `gemini-embedding-001`، يمكنك تحديد `task_type` في طريقة `embedContent`. للحصول على قائمة كاملة بأنواع المهام المتوافقة، راجِع جدول [أنواع المهام المتوافقة](#supported-task-types).
+如要使用 `gemini-embedding-001`，可以在 `embedContent` 方法中指定 `task_type`。如需支援的完整工作類型清單，請參閱「[支援的工作類型](#supported-task-types)」表格。
 
-يوضّح المثال التالي كيفية استخدام `SEMANTIC_SIMILARITY` للتحقّق من مدى تشابه معاني سلاسل النصوص.
+以下範例說明如何使用 `SEMANTIC_SIMILARITY` 檢查文字字串的意義相似程度。
 
 ### Python
 
@@ -277,7 +275,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -413,31 +411,28 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-0
     }'
 ```
 
-ستوضّح مقتطفات الرموز مدى تشابه مقاطع النص المختلفة مع بعضها البعض عند تشغيلها.
+執行程式碼片段後，即可查看不同文字區塊的相似程度。
 
-#### أنواع المهام المتوافقة
+#### 支援的工作類型
 
-أنواع المهام المتوافقة مع `gemini-embedding-001`:
+`gemini-embedding-001`支援的任務類型：
 
-| نوع المهمة | الوصف | أمثلة |
+| 工作類型 | 說明 | 範例 |
 | --- | --- | --- |
-| **SEMANTIC\_SIMILARITY** | تضمينات محسّنة لتقييم التشابه بين النصوص | أنظمة الاقتراح، رصد المحتوى المكرّر |
-| **التصنيف** | تضمينات محسَّنة لتصنيف النصوص وفقًا لتصنيفات محدَّدة مسبقًا | تحليل المشاعر ورصد الرسائل غير المرغوب فيها |
-| **التجميع** | تكون عمليات التضمين محسّنة لتجميع النصوص استنادًا إلى أوجه التشابه بينها. | تنظيم المستندات وأبحاث السوق ورصد القيم الشاذة |
-| **RETRIEVAL\_DOCUMENT** | تضمينات محسّنة للبحث عن المستندات | فهرسة المقالات أو الكتب أو صفحات الويب لتسهيل البحث فيها |
-| **RETRIEVAL\_QUERY** | تضمينات محسّنة لطلبات البحث العامة استخدِم `RETRIEVAL_QUERY` للاستعلامات و`RETRIEVAL_DOCUMENT` للمستندات التي سيتم استرجاعها. | تجربة مخصّصة على شبكة البحث |
-| **CODE\_RETRIEVAL\_QUERY** | تضمينات محسَّنة لاسترداد مجموعات الرموز استنادًا إلى طلبات البحث باللغة الطبيعية استخدِم `CODE_RETRIEVAL_QUERY` لطلبات البحث و`RETRIEVAL_DOCUMENT` لكتل الرموز البرمجية التي سيتم استردادها. | اقتراحات الرموز البرمجية والبحث |
-| **QUESTION\_ANSWERING** | تضمينات للأسئلة في نظام الإجابة عن الأسئلة، تم تحسينها للعثور على المستندات التي تجيب عن السؤال استخدِم `QUESTION_ANSWERING` لطرح الأسئلة و`RETRIEVAL_DOCUMENT` لاسترداد المستندات. | مربّع الدردشة |
-| **FACT\_VERIFICATION** | تضمين عبارات تحتاج إلى التحقّق، وتم تحسينها لاسترداد المستندات التي تتضمّن أدلة تؤيّد العبارة أو تدحضها استخدِم `FACT_VERIFICATION` للنص المستهدَف و`RETRIEVAL_DOCUMENT` للمستندات المطلوب استرجاعها | أنظمة التحقّق الآلي من صحة الأخبار |
+| **SEMANTIC\_SIMILARITY** | 經過最佳化處理的嵌入，可評估文字相似度。 | 推薦系統、重複內容偵測 |
+| **分類** | 經過最佳化處理的嵌入模型，可根據預設標籤分類文字。 | 情緒分析、垃圾訊息偵測 |
+| **分群** | 經過最佳化，可根據相似度將文字分群。 | 文件整理、市場調查、異常偵測 |
+| **RETRIEVAL\_DOCUMENT** | 專為文件搜尋最佳化的嵌入內容。 | 為搜尋功能建立文章、書籍或網頁的索引。 |
+| **RETRIEVAL\_QUERY** | 針對一般搜尋查詢最佳化的嵌入內容。 使用 `RETRIEVAL_QUERY` 進行查詢；使用 `RETRIEVAL_DOCUMENT` 擷取文件。 | 自訂搜尋 |
+| **CODE\_RETRIEVAL\_QUERY** | 經過最佳化處理的嵌入，可根據自然語言查詢擷取程式碼區塊。 使用 `CODE_RETRIEVAL_QUERY` 查詢；使用 `RETRIEVAL_DOCUMENT` 擷取程式碼區塊。 | 程式碼建議和搜尋 |
+| **QUESTION\_ANSWERING** | 問答系統中的問題嵌入，經過最佳化處理，可找出回答問題的文件。 使用 `QUESTION_ANSWERING` 提問；使用 `RETRIEVAL_DOCUMENT` 擷取文件。 | Chatbox |
+| **FACT\_VERIFICATION** | 需要驗證的陳述內容的嵌入內容，經過最佳化處理，可擷取含有佐證或反駁陳述內容的文件。 使用 `FACT_VERIFICATION` 做為目標文字；使用 `RETRIEVAL_DOCUMENT` 做為要擷取的檔案 | 自動事實查核系統 |
 
-## التحكّم في حجم التضمين
+## 控制嵌入大小
 
-يتم تدريب كل من `gemini-embedding-001` و`gemini-embedding-2` باستخدام تقنية Matryoshka Representation Learning (MRL) التي تعلّم النموذج كيفية التعرّف على عمليات التضمين العالية الأبعاد التي تتضمّن مقاطع أولية (أو بادئات) مفيدة أيضًا، وهي عبارة عن إصدارات أبسط من البيانات نفسها.
+`gemini-embedding-001`和 `gemini-embedding-2` 都是使用 Matryoshka 表徵學習 (MRL) 技術訓練而成，這項技術會教導模型學習高維度嵌入，這些嵌入具有初始區段 (或前置字元)，也是相同資料的實用簡化版本。
 
-استخدِم المَعلمة `output_dimensionality` للتحكّم في حجم
-متّجه التضمين الناتج. يمكن أن يؤدي اختيار عدد أصغر من الأبعاد الناتجة إلى توفير مساحة التخزين وزيادة كفاءة الحوسبة للتطبيقات اللاحقة، مع التضحية بالقليل من حيث الجودة. بشكل تلقائي، ينتج كلا النموذجين تضمينًا
-بـ 3072 بُعدًا، ولكن يمكنك تقصيره إلى حجم أصغر بدون
-فقدان الجودة لتوفير مساحة التخزين. ننصحك باستخدام أبعاد الإخراج 768 أو 1536 أو 3072.
+使用 `output_dimensionality` 參數控制輸出嵌入向量的大小。選取較小的輸出維度可節省儲存空間，並提高下游應用程式的運算效率，同時不會犧牲太多品質。這兩個模型預設都會輸出 3072 維度的嵌入內容，但您可以將其截斷為較小的尺寸，以節省儲存空間，且不會降低品質。建議使用 768、1536 或 3072 的輸出尺寸。
 
 ### Python
 
@@ -480,7 +475,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -556,18 +551,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-emb
     }'
 ```
 
-مثال على الناتج من مقتطف الرمز:
+程式碼片段的輸出範例如下：
 
 ```
 Length of embedding: 768
 ```
 
-## ضمان الجودة للأبعاد الأصغر
+## 確保較小尺寸的品質
 
-في حين يتم دائمًا تسوية عمليات التضمين التلقائية ذات 3072 بُعدًا، تعمل Gemini
-Embedding 2 أيضًا على تسوية الأبعاد المقتطعة تلقائيًا (مثل 768 و1536). يضمن ذلك احتساب التشابه الدلالي من خلال اتجاه المتّجه بدلاً من حجمه، ما يوفّر نتائج أكثر دقة بدون الحاجة إلى إجراء أي تعديلات.
+雖然預設的 3072 維度嵌入內容一律會經過正規化，但 Gemini Embedding 2 也會自動正規化截斷的維度 (例如 768、1536)。這可確保系統透過向量方向而非大小計算語意相似度，提供更準確的結果。
 
-**الطُرز القديمة**: إذا كنت تستخدم `gemini-embedding-001`، عليك تسوية الأبعاد غير 3072 يدويًا باتّباع الخطوات التالية:
+**舊版模型**：如果您使用 `gemini-embedding-001`，必須手動將非 3072 維度標準化，方法如下：
 
 ### Python
 
@@ -583,17 +577,16 @@ print(f"Normed embedding length: {len(normed_embedding)}")
 print(f"Norm of normed embedding: {np.linalg.norm(normed_embedding):.6f}") # Should be very close to 1
 ```
 
-مثال على الناتج من مقتطف الرمز هذا:
+這個程式碼片段的輸出範例如下：
 
 ```
 Normed embedding length: 768
 Norm of normed embedding: 1.000000
 ```
 
-يعرض الجدول التالي نتائج MTEB، وهو مقياس أداء شائع الاستخدام لعمليات التضمين، وذلك لمختلف السمات. والجدير بالذكر أنّ النتيجة توضّح أنّ الأداء
-لا يرتبط بشكل صارم بحجم سمة التضمين، إذ حقّقت السمات ذات الأبعاد المنخفضة نتائج مماثلة للسمات ذات الأبعاد الأعلى.
+下表顯示不同維度的 MTEB 分數，這是評估嵌入內容時常用的基準。值得注意的是，結果顯示效能並非與嵌入維度大小嚴格相關，較低的維度可達到與較高維度對應項目相當的分數。
 
-| سمة MRL | نتيجة MTEB (Gemini Embedding 001) |
+| MRL 維度 | MTEB 分數 (Gemini Embedding 001) |
 | --- | --- |
 | 2048 | 68.16 |
 | 1536 | 68.17 |
@@ -602,28 +595,27 @@ Norm of normed embedding: 1.000000
 | 256 | 66.19 |
 | 128 | 63.31 |
 
-## التضمينات المتعددة الوسائط
+## 多模態嵌入
 
-يتيح نموذج `gemini-embedding-2` إدخال محتوى متعدّد الوسائط، ما يسمح لك بتضمين صور وفيديوهات ومقاطع صوتية ومستندات إلى جانب النصوص. يتم ربط جميع الوسائط بمساحة التضمين نفسها، ما يتيح البحث والمقارنة بين الوسائط المختلفة.
+`gemini-embedding-2` 模型支援多模態輸入，可讓您在文字中嵌入圖片、影片、音訊和文件內容。所有模態都會對應到相同的嵌入空間，方便進行跨模態搜尋和比較。
 
-### الوسائط المتوافقة والحدود
+### 支援的模態和限制
 
-الحد الأقصى العام لعدد الرموز المميزة المُدخلة هو 8192 رمزًا مميزًا.
+輸入權杖總數上限為 8192 個。
 
-| نمط البيانات | المواصفات والحدود |
+| 模態 | 規格和限制 |
 | --- | --- |
-| **Text** | يمكنه التعامل مع ما يصل إلى 8,192 رمزًا مميزًا. |
-| **صورة** | يمكن إرسال 6 صور كحد أقصى لكل طلب. التنسيقات المتوافقة: PNG وJPEG |
-| **الصوت** | الحدّ الأقصى للمدة هو 180 ثانية. التنسيقات المتوافقة: MP3 وWAV |
-| **الفيديو** | المدة القصوى هي 120 ثانية. التنسيقات المتوافقة: MP4 وMOV برامج الترميز المتوافقة: H264 وH265 وAV1 وVP9  يعالج النظام 32 لقطة كحدّ أقصى لكل فيديو: يتم أخذ عيّنات من الفيديوهات القصيرة (≤32 ثانية) بمعدّل لقطة واحدة في الثانية، بينما يتم أخذ عيّنات من الفيديوهات الأطول بشكل موحّد بمعدّل 32 لقطة. لا تتم معالجة المقاطع الصوتية في ملفات الفيديو. |
-| **المستندات (ملف PDF)** | يمكن إرسال ملف واحد كحد أقصى لكل طلب، على ألا يزيد عدد الصفحات عن 6. |
+| **文字** | 最多支援 8,192 個權杖。 |
+| **圖片** | 每項要求最多可上傳 6 張圖片。支援的格式：PNG、JPEG。 |
+| **音訊** | 時間長度上限為 180 秒。支援的格式：MP3、WAV。 |
+| **影片** | 時間長度上限為 120 秒。支援的格式：MP4、MOV。支援的轉碼器：H264、H265、AV1、VP9。  系統最多會處理每部影片的 32 個影格：短片 (≤32 秒) 的取樣率為每秒 1 個影格，較長的影片則會均勻取樣至 32 個影格。影片檔案中的音軌不會經過處理。 |
+| **文件 (PDF)** | 每項要求最多可上傳 1 個檔案，最多 6 頁。 |
 
-### تضمين الصور
+### 嵌入圖片
 
-يوضّح المثال التالي كيفية تضمين صورة باستخدام `gemini-embedding-2`.
+以下範例說明如何使用 `gemini-embedding-2` 嵌入圖片。
 
-يمكن تقديم الصور كبيانات مضمّنة أو كملفات تم تحميلها
-من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
+圖片可以內嵌資料的形式提供，也可以透過 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳檔案。
 
 ### Python
 
@@ -676,7 +668,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -719,19 +711,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### تجميع التضمين
+### 嵌入匯總
 
-عند العمل على محتوى متعدد الوسائط، تؤثر طريقة تنظيم الإدخال في
-مخرجات التضمين:
+處理多模態內容時，輸入內容的結構會影響嵌入輸出內容：
 
-- **أجزاء متعددة (مجمّعة):** تؤدي إضافة مدخلات متعددة مباشرةً إلى المَعلمة
-  `contents` إلى إنشاء عملية تضمين مجمّعة واحدة لجميع المدخلات.
-- **عناصر `Content` متعددة (منفصلة):** يؤدي تضمين كل إدخال في عنصر `Content`
-  وتمريرها في المَعلمة `contents` إلى عرض
-  تضمينات منفصلة لكل إدخال.
-- **التمثيل على مستوى المنشور:** بالنسبة إلى الكائنات المعقّدة، مثل المشاركات على وسائل التواصل الاجتماعي التي تتضمّن عناصر وسائط متعدّدة، ننصح بتجميع التضمينات المنفصلة (على سبيل المثال، عن طريق حساب المتوسط) لإنشاء تمثيل متماسك على مستوى المنشور.
+- **多個部分 (匯總)：**直接在 `contents` 參數中新增多項輸入內容，即可為所有輸入內容產生一個匯總的嵌入。
+- **多個 `Content` 物件 (分開)：**將每個輸入內容包裝在 `Content` 物件中，並在 `contents` 參數中傳遞這些物件，即可為每個項目傳回個別的嵌入內容。
+- **貼文層級表示法：**如果是社群媒體貼文等複雜物件，且包含多個媒體項目，建議匯總個別嵌入 (例如取平均值)，建立連貫的貼文層級表示法。
 
-يوضّح المثال التالي كيفية إنشاء عملية تضمين مجمّعة واحدة لكل من النص والصورة. ما عليك سوى إضافة مدخلات متعدّدة إلى المَعلمة `contents`:
+以下範例說明如何為文字和圖片輸入內容建立一個匯總嵌入。只要在 `contents` 參數中新增多個輸入內容即可：
 
 ### Python
 
@@ -793,7 +781,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -847,7 +835,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-من ناحية أخرى، إذا كنت تستخدم عناصر `Content` داخل المَعلمة `contents`، سيعرض ذلك تضمينات منفصلة. ينشئ هذا المثال عدة تضمينات في طلب تضمين واحد:
+另一方面，如果您在 `contents` 參數中使用 `Content` 物件，則會傳回個別的嵌入內容。這個範例會在一次嵌入呼叫中建立多個嵌入：
 
 ### Python
 
@@ -915,7 +903,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -971,12 +959,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### تضمين الصوت
+### 嵌入音訊
 
-يوضّح المثال التالي كيفية تضمين ملف صوتي باستخدام `gemini-embedding-2`.
+以下範例說明如何使用 `gemini-embedding-2` 嵌入音訊檔案。
 
-يمكن تقديم ملفات الصوت كبيانات مضمّنة أو كملفات تم تحميلها
-من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
+音訊檔案可以內嵌資料形式提供，也可以透過 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳。
 
 ### Python
 
@@ -1029,7 +1016,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1072,12 +1059,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### تضمين فيديو
+### 嵌入影片
 
-يوضّح المثال التالي كيفية تضمين فيديو باستخدام `gemini-embedding-2`.
+以下範例說明如何使用 `gemini-embedding-2` 嵌入影片。
 
-يمكن تقديم الفيديوهات كبيانات مضمّنة أو كملفات تم تحميلها
-من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
+影片可以內嵌資料的形式提供，也可以透過 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳檔案。
 
 ### Python
 
@@ -1130,7 +1116,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1175,30 +1161,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-إذا كنت بحاجة إلى تضمين فيديوهات تزيد مدتها عن 120 ثانية، يمكنك تقسيم الفيديو إلى مقاطع متداخلة وتضمين هذه المقاطع بشكل فردي.
+如要嵌入長度超過 120 秒的影片，可以將影片分成重疊的片段，然後個別嵌入這些片段。
 
-### تضمين المستندات
+### 嵌入文件
 
-يمكن تضمين المستندات بتنسيق PDF مباشرةً. يعالج النموذج المحتوى المرئي والنصي لكل صفحة.
+您可以直接嵌入 PDF 格式的文件。模型會處理每個網頁的視覺和文字內容。
 
-يمكن تقديم ملفات PDF كبيانات مضمّنة أو كملفات تم تحميلها
-من خلال [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
+你可以透過 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)，以內嵌資料或上傳檔案的形式提供 PDF。
 
-#### طريقة معالجة النموذج لملفات PDF
+#### 模型如何處理 PDF
 
-عند تضمين ملف PDF، يعالج النموذج المستند باستخدام ميزات مرئية ونصية:
+嵌入 PDF 時，模型會同時使用視覺和文字功能處理文件：
 
-- **التمثيل المرئي:** يعرض النموذج كل صفحة كصورة، ما يستهلك **258 رمزًا مميزًا** لكل صفحة.
-- **استخراج النص:** يستخرج النموذج النص من المستند. بالنسبة إلى **ملفات PDF الأصلية** (التي تحتوي على نص رقمي)، يستخرج النموذج النص مباشرةً. بالنسبة إلى **ملفات PDF الممسوحة ضوئيًا** (التي تحتوي على صور للنص)، يشغّل النموذج تلقائيًا تقنية التعرّف البصري على الأحرف (OCR) لاستخراج النص.
+- **視覺化呈現：**模型會將每個網頁算繪為圖片，每個網頁會消耗 **258 個權杖**。
+- **文字擷取：**模型會從文件中擷取文字。如果是**原生 PDF** (內含數位文字)，模型會直接擷取文字。如果是**掃描的 PDF** (內含文字圖片)，模型會自動執行光學字元辨識 (OCR) 來擷取文字。
 
-لاحتساب إجمالي عدد الرموز المميزة في ملف PDF، أضِف الرموز المميزة المرئية (258 رمزًا مميزًا لكل صفحة) إلى الرموز المميزة النصية. يجب أن تتناسب مدخلاتك مع **الحد الأقصى البالغ 8,192 رمزًا مميزًا** في النموذج (يتم مشاركته بين جميع الوسائط). يقتطع النظام تلقائيًا المدخلات التي تتجاوز هذا الحد.
+如要計算 PDF 的詞元總數，請將視覺詞元 (每頁 258 個) 加到文字詞元。輸入內容必須符合模型的**8,192 個權杖限制** (所有模態共用)。如果輸入內容超過這個上限，系統會自動截斷。
 
-#### حدود ملفات PDF
+#### PDF 限制
 
-- **الملفات لكل طلب:** يمكنك إرسال ملف PDF واحد كحدّ أقصى.
-- **الحدّ الأقصى لعدد الصفحات:** يمكنك إرسال 6 صفحات كحدّ أقصى لكل ملف. للحصول على أفضل جودة، ننصحك بشدة باستخدام صفحة واحدة لكل ملف PDF.
+- **每個要求可提交的檔案數：**最多可提交 1 個 PDF 檔案。
+- **頁面限制：**每個檔案最多可提交 6 個頁面。為確保最佳品質，我們強烈建議每個 PDF 檔案只包含 1 頁。
 
-يوضّح المثال التالي كيفية تضمين ملف PDF باستخدام `gemini-embedding-2`:
+以下範例說明如何使用 `gemini-embedding-2` 嵌入 PDF：
 
 ### Python
 
@@ -1251,7 +1236,7 @@ async function main() {
 main();
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1294,96 +1279,90 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## حالات الاستخدام
+## 用途
 
-تُعدّ تضمينات النصوص ضرورية لمجموعة متنوّعة من حالات الاستخدام الشائعة للذكاء الاصطناعي، مثل:
+文字嵌入對於各種常見的 AI 用途至關重要，例如：
 
-- **التوليد المعزّز بالاسترجاع (RAG):** تعمل التضمينات على تحسين جودة النص الذي يتم إنشاؤه من خلال استرجاع المعلومات ذات الصلة ودمجها في سياق النموذج.
-- **استرجاع المعلومات:** البحث عن النص أو المستندات الأكثر تشابهًا من الناحية الدلالية، وذلك بالاستناد إلى جزء من النص المدخل
+- **檢索增強生成 (RAG)：**嵌入項目可擷取相關資訊並納入模型背景脈絡，提升生成文字的品質。
+- **資訊檢索：**根據輸入文字，搜尋語意最相似的文字或文件。
 
-  [برنامج تعليمي حول البحث عن المستنداتtask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
-- **إعادة ترتيب نتائج البحث**: إعطاء الأولوية للعناصر الأكثر صلة من خلال تقييم النتائج الأولية دلاليًا مقارنةً بطلب البحث.
+  [文件搜尋教學課程task](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
+- **搜尋結果重新排序**：根據查詢對初始結果進行語意評分，優先顯示最相關的項目。
 
-  [البرنامج التعليمي لإعادة ترتيب نتائج البحثtask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
-- **رصد القيم الشاذة:** يمكن أن تساعد مقارنة مجموعات التضمينات في تحديد المؤشرات المخفية أو القيم الشاذة.
+  [搜尋結果重新排序教學課程task](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
+- **異常偵測：**比較嵌入群組有助於找出隱藏的趨勢或離群值。
 
-  [برنامج تعليمي حول رصد القيم الشاذةbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
-- **التصنيف:** تصنيف النصوص تلقائيًا استنادًا إلى محتواها، مثل تحليل المشاعر أو رصد الرسائل غير المرغوب فيها
+  [異常偵測教學課程bubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
+- **分類：**根據內容自動分類文字，例如情緒分析或垃圾訊息偵測
 
-  [البرنامج التعليمي للتصنيفtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
-- **التجميع:** يمكنك فهم العلاقات المعقّدة بشكل فعّال من خلال إنشاء مجموعات وتصوّرات لعمليات التضمين.
+  [分類教學課程token](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
+- **分群：**建立嵌入的叢集和視覺化圖表，有效掌握複雜關係。
 
-  [برنامج تعليمي حول العرض المرئي للتجميعbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
+  [叢集視覺化教學課程bubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
 
-## تخزين التضمينات
+## 儲存嵌入
 
-عند نقل عمليات التضمين إلى مرحلة الإنتاج، من الشائع استخدام **قواعد بيانات المتّجهات** لتخزين عمليات التضمين العالية الأبعاد وفهرستها واسترجاعها بكفاءة. تقدّم Google Cloud خدمات بيانات مُدارة يمكن استخدامها لهذا الغرض، بما في ذلك [Gemini Enterprise Agent Platform Vector Search 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview?hl=ar) و[BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=ar) و[AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=ar) و[Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=ar).
+將嵌入投入實際應用時，通常會使用**向量資料庫**，有效率地儲存、建立索引及擷取高維度嵌入。Google Cloud 提供可達成此目的的受管理資料服務，包括 [Gemini Enterprise Agent Platform 向量搜尋 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview?hl=zh-tw)、[BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=zh-tw)、[AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=zh-tw) 和 [Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=zh-tw)。
 
-توضّح البرامج التعليمية التالية كيفية استخدام قواعد بيانات متجهات تابعة لجهات خارجية أخرى مع Gemini Embedding.
+下列教學課程說明如何搭配 Gemini Embedding 使用其他第三方向量資料庫。
 
-- [برامج تعليمية حول ChromaDBbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
-- [برامج QDrant التعليميةbolt](https://qdrant.tech/documentation/embeddings/gemini/)
-- [برامج Weaviate التعليميةbolt](https://docs.weaviate.io/weaviate/model-providers/google)
-- [برامج Pinecone التعليميةbolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
+- [ChromaDB 教學課程bolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
+- [QDrant 教學課程bolt](https://qdrant.tech/documentation/embeddings/gemini/)
+- [Weaviate 教學課程bolt](https://docs.weaviate.io/weaviate/model-providers/google)
+- [Pinecone 教學課程bolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
 
-## إصدارات النموذج
+## 模型版本
 
 ### Gemini Embedding 2
 
-| الموقع | الوصف |
+| 屬性 | 說明 |
 | --- | --- |
-| رمز النموذج id\_card | **Gemini API**  `gemini-embedding-2` |
-| saveأنواع البيانات المتوافقة | **الإدخال**  النصوص والصور والفيديوهات والملفات الصوتية وملفات PDF  **الناتج**  تضمينات النص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  8,192  **حجم سمة الإخراج**  مرن، ويتوافق مع: 128 - 3072، الحجم المقترَح: 768 و1536 و3072 |
-| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-embedding-2` |
-| calendar\_monthآخر تعديل | أبريل 2026 |
+| id\_card 模型代碼 | **Gemini API**  `gemini-embedding-2` |
+| 儲存支援的資料類型 | **輸入功率**  文字、圖片、影片、音訊、PDF  **輸出內容**  文字嵌入 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  8,192  **輸出維度大小**  彈性，支援：128 - 3072，建議：768、1536、3072 |
+| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 穩定：`gemini-embedding-2` |
+| calendar\_month最新更新 | 2026 年 4 月 |
 
-### تضمين Gemini
+### Gemini Embedding
 
-| الموقع | الوصف |
+| 屬性 | 說明 |
 | --- | --- |
-| رمز النموذج id\_card | **Gemini API**  `gemini-embedding-001` |
-| saveأنواع البيانات المتوافقة | **الإدخال**  نص  **الناتج**  تضمينات النص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  2,048  **حجم سمة الإخراج**  مرن، ويتوافق مع: 128 - 3072، الحجم المقترَح: 768 و1536 و3072 |
-| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - إصدار ثابت: `gemini-embedding-001` |
-| calendar\_monthآخر تعديل | يونيو 2025 |
+| id\_card 模型代碼 | **Gemini API**  `gemini-embedding-001` |
+| 儲存支援的資料類型 | **輸入功率**  文字  **輸出內容**  文字嵌入 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  2,048  **輸出維度大小**  彈性，支援：128 - 3072，建議：768、1536、3072 |
+| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - 穩定：`gemini-embedding-001` |
+| calendar\_month最新更新 | 2025 年 6 月 |
 
-بالنسبة إلى نماذج Embeddings المتوقّفة نهائيًا، يُرجى الانتقال إلى صفحة [الإيقافات النهائية](https://ai.google.dev/gemini-api/docs/deprecations?hl=ar).
+如要瞭解已淘汰的 Embeddings 模型，請前往「[淘汰項目](https://ai.google.dev/gemini-api/docs/deprecations?hl=zh-tw)」頁面。
 
-## نقل البيانات من gemini-embedding-001
+## 從 gemini-embedding-001 遷移
 
-مساحات التضمين بين `gemini-embedding-001` و`gemini-embedding-2` **غير متوافقة**. وهذا يعني أنّه لا يمكنك مقارنة التضمينات التي تم إنشاؤها بواسطة نموذج معيّن بالتضمينات التي تم إنشاؤها بواسطة نموذج آخر بشكل مباشر. إذا كنت بصدد الترقية إلى `gemini-embedding-2`، عليك إعادة تضمين جميع بياناتك الحالية.
+`gemini-embedding-001` 和 `gemini-embedding-2` 之間的嵌入空間**不相容**。也就是說，您無法直接比較一個模型產生的嵌入內容與另一個模型產生的嵌入內容。如要升級至 `gemini-embedding-2`，請務必重新嵌入所有現有資料。
 
-بالإضافة إلى عدم التوافق، هناك العديد من الاختلافات الأخرى بين النموذجين، وهي:
+除了不相容之外，這兩款機型還有其他幾項顯著差異：
 
-- **تحديد نوع المهمة:** باستخدام `gemini-embedding-001`، يمكنك تحديد نوع المهمة باستخدام المَعلمة `task_type` (مثل `SEMANTIC_SIMILARITY` و`RETRIEVAL_DOCUMENT`). أما باستخدام `gemini-embedding-2`، فلا تتوفّر المَعلمة `task_type`. بدلاً من ذلك، عليك تضمين تعليمات المهمة مباشرةً في الطلب الخاص بالمهام التي تتضمّن نصًا فقط. راجِع مقالة
-  [أنواع المهام التي تستخدم Embeddings 2](#task-types-embeddings-2) للحصول على تفاصيل حول كيفية
-  تنسيق الطلبات لحالات الاستخدام المختلفة.
-- **تجميع التضمينات:** تنشئ `gemini-embedding-001` تضمينات فردية لكل سلسلة في قائمة من المدخلات. في المقابل،
-  تنتج `gemini-embedding-2` تضمينًا واحدًا مجمّعًا عند تقديم مدخلات متعددة (مثل النصوص والصور) مباشرةً في طلب واحد. لإنشاء تضمينات منفصلة لكل إدخال على حدة، عليك تضمين كل إدخال في عنصر `Content`، أو استخدام [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar#batch-embedding). لمزيد من المعلومات، اطّلِع على مقالة [تضمين التجميع](#embedding-aggregation).
-- **التسوية:** إذا كنت تستخدم `output_dimensionality` لطلب تضمينات بأقل من 3072 سمة، ستعمل `gemini-embedding-2` تلقائيًا على تسوية هذه التضمينات المقتطعة. باستخدام `gemini-embedding-001`، عليك إجراء تسوية يدوية للسمات التي تختلف عن 3072. لمزيد من التفاصيل، يُرجى الاطّلاع على مقالة [ضمان الجودة للأبعاد الأصغر](#quality-for-smaller-dimensions).
+- **工作類型規格：**使用 `gemini-embedding-001` 時，您可以使用 `task_type` 參數指定工作類型 (例如 `SEMANTIC_SIMILARITY`、`RETRIEVAL_DOCUMENT`)。使用 `gemini-embedding-2` 時，系統不支援 `task_type` 參數。請改為在純文字工作的提示中直接加入工作指示。如要瞭解如何針對不同用途設定提示格式，請參閱「[使用 Embeddings 2 的工作類型](#task-types-embeddings-2)」。
+- **嵌入匯總：** `gemini-embedding-001`為輸入清單中的每個字串產生個別的嵌入。相反地，如果直接在一個要求中提供多個輸入內容 (例如文字和圖片)，`gemini-embedding-2` 會產生單一的匯總嵌入。如要為個別輸入內容產生不同的嵌入內容，請將每個輸入內容包裝在 `Content` 物件中，或使用 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw#batch-embedding)。詳情請參閱「[嵌入式匯總](#embedding-aggregation)」。
+- **正規化：**如果您使用 `output_dimensionality` 要求維度少於 3072 的嵌入，`gemini-embedding-2` 會自動正規化這些截斷的嵌入。使用 `gemini-embedding-001` 時，您需要手動將 3072 以外的維度正規化。詳情請參閱「[確保較小尺寸的品質](#quality-for-smaller-dimensions)」。
 
-## التضمينات المجمّعة
+## 批次嵌入
 
-إذا لم يكن وقت الاستجابة مصدر قلق، جرِّب استخدام نماذج Gemini Embeddings مع [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar#batch-embedding). يتيح ذلك سرعة معالجة بيانات أعلى بكثير بنسبة% 50 من سعر Embedding التلقائي.
-يمكنك العثور على أمثلة حول كيفية البدء في [كتاب وصفات Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
+如果延遲不是問題，請嘗試搭配 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw#batch-embedding) 使用 Gemini Embeddings 模型。這項模型可讓您以預設嵌入價格的 50% 價格，獲得高出許多的高輸送量。如需入門範例，請參閱 [Batch API 食譜](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)。
 
-## إشعار الاستخدام المسؤول
+## 負責任的使用方式通知
 
-على عكس نماذج الذكاء الاصطناعي التوليدي التي تنشئ محتوًى جديدًا، يهدف نموذج Gemini Embedding إلى تحويل تنسيق بيانات الإدخال إلى تمثيل رقمي فقط. في حين أنّ Google مسؤولة عن توفير نموذج تضمين
-يحوّل تنسيق بيانات الإدخال إلى التنسيق الرقمي المطلوب،
-يحتفظ المستخدمون بالمسؤولية الكاملة عن البيانات التي يدخلونها وعمليات التضمين الناتجة. يشير استخدامك لنموذج Gemini Embedding إلى تأكيدك على امتلاك الحقوق اللازمة لأي محتوى يتم تحميله. ويجب عدم إنشاء محتوى ينتهك حقوق الملكية الفكرية أو حقوق الخصوصية للآخرين. يخضع استخدامك لهذه الخدمة [لسياسة الاستخدام المحظور](https://policies.google.com/terms/generative-ai/use-policy?hl=ar) و[بنود خدمة Google](https://ai.google.dev/gemini-api/terms?hl=ar).
+Gemini Embedding 模型與生成新內容的生成式 AI 模型不同，只會將輸入資料的格式轉換為數字表示法。Google 負責提供嵌入模型，將輸入資料的格式轉換為要求的數字格式，但使用者仍須全權負責輸入的資料和產生的嵌入內容。使用 Gemini Embedding 模型即代表您確認自己具備必要權限，可使用上傳的一切內容。請勿生成會侵害他人智慧財產或隱私權的內容。使用這項服務時，請務必遵守《[使用限制政策](https://policies.google.com/terms/generative-ai/use-policy?hl=zh-tw)》和《[Google 服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw)》。
 
-## بدء التطوير باستخدام عمليات التضمين
+## 開始使用嵌入建構內容
 
-اطّلِع على [دفتر ملاحظات البدء السريع الخاص بالتضمينات](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) لاستكشاف إمكانات النموذج والتعرّف على كيفية تخصيص التضمينات وعرضها بشكل مرئي.
+請參閱[嵌入快速入門筆記本](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb)，瞭解模型功能，以及如何自訂和視覺化呈現嵌入。
 
-إرسال ملاحظات
+提供意見
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)
+上次更新時間：2026-10-09 (世界標準時間)。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+想進一步說明嗎？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-09 (世界標準時間)。"],[],[]]

@@ -1,40 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/latest-model?hl=es-419
-fetched_at: 2026-10-05T06:26:28.199253+00:00
-title: "Novedades de Gemini 3.8 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/latest-model?hl=th
+fetched_at: 2026-10-12T06:52:03.483207+00:00
+title: "\u0e21\u0e35\u0e2d\u0e30\u0e44\u0e23\u0e43\u0e2b\u0e21\u0e48\u0e43\u0e19 Gemini 3.8 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Enviar comentarios
+ส่งความคิดเห็น
 
-# Novedades de Gemini 3.8 Flash
+# มีอะไรใหม่ใน Gemini 3.8 Flash
 
-[Ver todos los modelos](https://ai.google.dev/gemini-api/docs/models?hl=es-419)
+[3.6 Flash และ 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=th)
+[โมเดลอื่นๆ](#other-models)
 
-Gemini 3.8 Flash (`gemini-3.8-flash`) tiene disponibilidad general (DG) y está listo para su uso en producción. Es nuestro modelo Flash más inteligente, diseñado para ingeniería de software a largo plazo, agentes autónomos y flujos de trabajo empresariales complejos.
+Gemini 3.8 Flash (`gemini-3.8-flash`) พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA) และพร้อมใช้งานจริงแล้ว โมเดลนี้เป็นโมเดล Flash ที่ชาญฉลาดที่สุดของเรา ซึ่งออกแบบมาเพื่อวิศวกรรมซอฟต์แวร์ระยะยาว เอเจนต์อัตโนมัติ และเวิร์กโฟลว์ที่ซับซ้อนขององค์กร
 
-En esta guía, se explican las novedades de Gemini 3.8 Flash, los cambios en la API, los ejemplos de código y la orientación para la migración.
+คู่มือนี้จะอธิบายสิ่งใหม่ๆ ใน Gemini 3.8 Flash, การเปลี่ยนแปลง API, ตัวอย่างโค้ด และคำแนะนำในการย้ายข้อมูล
 
-## Modelo nuevo
+## โมเดลใหม่
 
-| Modelo | ID de modelo | Nivel de pensamiento predeterminado | Precios | Descripción |
+| รุ่น | รหัสโมเดล | ระดับการคิดเริ่มต้น | ราคา | คำอธิบาย |
 | --- | --- | --- | --- | --- |
-| Gemini 3.8 Flash | `gemini-3.8-flash` | `medium` | 3.8 Flash está disponible hasta fin de año a un precio de introducción de USD 0.75 por 1 M de tokens de entrada y USD 3.75 por 1 M de tokens de salida. Consulta los [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) para obtener más detalles. | Nuestro modelo Flash más inteligente, diseñado para ingeniería de software a largo plazo, agentes autónomos y flujos de trabajo empresariales complejos. |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | `medium` | 3.8 Flash พร้อมให้บริการจนถึงสิ้นปีในราคาช่วงแนะนำที่ $0.75/โทเค็นอินพุต 1 ล้านโทเค็น และ $3.75/โทเค็นเอาต์พุต 1 ล้านโทเค็น ดูรายละเอียดเพิ่มเติมได้ที่[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th) | โมเดล Flash ที่ชาญฉลาดที่สุดของเรา ซึ่งออกแบบมาเพื่อวิศวกรรมซอฟต์แวร์ในระยะยาว เอเจนต์อัตโนมัติ และเวิร์กโฟลว์ที่ซับซ้อนขององค์กร |
 
-Gemini 3.8 Flash admite una ventana de contexto de 1 millón de tokens, un máximo de 64, 000 tokens de salida, niveles de pensamiento ajustables (`low`, `medium`, `high`) y el mismo conjunto integral de herramientas integradas.
+Gemini 3.8 Flash รองรับหน้าต่างบริบทขนาด 1 ล้านโทเค็น, โทเค็นเอาต์พุตสูงสุด 64, 000 โทเค็น, ระดับการคิดที่ปรับได้ (`low`, `medium`, `high`) และชุดเครื่องมือในตัวที่ครอบคลุมเหมือนเดิม
 
-Para conocer las especificaciones completas, consulta la [página del modelo Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=es-419). Para obtener detalles sobre los precios de introducción, consulta la [sección de precios](#pricing) a continuación o la [página de precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#gemini-3.8-flash).
+ดูรายละเอียดทั้งหมดได้ที่[หน้าโมเดล Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=th) ดูรายละเอียดราคาช่วงแนะนำได้ที่[ส่วนราคา](#pricing)ด้านล่างหรือ[หน้าราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.8-flash)
 
-## Guía de inicio rápido
+## คู่มือเริ่มใช้งานฉบับย่อ
 
 ### Python
 
@@ -142,25 +143,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Novedades de Gemini 3.8 Flash
+## มีอะไรใหม่ใน Gemini 3.8 Flash
 
-- **Ingeniería de software a largo plazo:** Ofrece resultados sólidos en comparativas de programación del mundo real, refactorización compleja de varios archivos y ejecución determinística de herramientas. Consulta la [metodología de evaluación](https://deepmind.google/models/evals-methodology/gemini-3-8-flash/?hl=es-419) para obtener más detalles.
-- **Agentes autónomos:** Te permite crear flujos de trabajo de planificación y organización de herramientas de varios pasos resilientes, lo que reduce considerablemente los bucles y errores fallidos.
-- **Flujos de trabajo empresariales complejos:** Ofrece una precisión superior, un razonamiento profundo y un alto rigor fáctico en tareas de dominio exigentes y canalizaciones de datos a gran escala.
-- **Modelo predeterminado para los agentes administrados:** El agente predeterminado para los agentes administrados, el [agente de Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419), ahora usa Gemini 3.8 Flash. El [SDK de Antigravity](https://antigravity.google/docs/sdk/overview/?hl=es-419) también usa Gemini 3.8 Flash de forma predeterminada.
-- **Precios de lanzamiento:** Gemini 3.8 Flash está disponible a una tarifa de lanzamiento de USD 0.75 por 1 M de tokens de entrada y USD 3.75 por 1 M de tokens de salida hasta el 31 de diciembre de 2026. Los precios estándar de USD 1.50 por 1 M de tokens de entrada y USD 7.50 por 1 M de tokens de salida entrarán en vigencia el 1 de enero de 2027.
+- **วิศวกรรมซอฟต์แวร์ระยะยาว:** ให้ผลลัพธ์ที่ยอดเยี่ยมในเกณฑ์มาตรฐานการเขียนโค้ดในโลกแห่งความเป็นจริง การรีแฟคเตอร์แบบหลายไฟล์ที่ซับซ้อน และการดำเนินการเครื่องมือแบบดีเทอร์มินิสติก ดูรายละเอียดได้ที่[ระเบียบวิธีวิจัยการประเมิน](https://deepmind.google/models/evals-methodology/gemini-3-8-flash/?hl=th)
+- **Agent ที่ทำงานได้ด้วยตนเอง:** ช่วยให้คุณสร้างเวิร์กโฟลว์การวางแผนแบบหลายขั้นตอนและการจัดการเครื่องมือที่ยืดหยุ่น ซึ่งจะช่วยลดลูปและข้อผิดพลาดที่ล้มเหลวได้อย่างมาก
+- **เวิร์กโฟลว์ที่ซับซ้อนขององค์กร:** ให้ความแม่นยำที่เหนือกว่า การให้เหตุผลเชิงลึก และความเข้มงวดด้านข้อเท็จจริงสูงในงานโดเมนที่ซับซ้อนและไปป์ไลน์ข้อมูลขนาดใหญ่
+- **โมเดลเริ่มต้นสำหรับ Agent ที่ได้รับการจัดการ:** Agent เริ่มต้นสำหรับ Agent ที่ได้รับการจัดการ ซึ่งก็คือ [Agent ของ Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th) จะใช้ Gemini 3.8 Flash [Antigravity SDK](https://antigravity.google/docs/sdk/overview/?hl=th) ยังใช้ Gemini 3.8 Flash โดยค่าเริ่มต้นด้วย
+- **ราคาช่วงแนะนำ:** Gemini 3.8 Flash พร้อมให้บริการในราคาช่วงแนะนำที่ $0.75/โทเค็นอินพุต 1 ล้านโทเค็น และ $3.75/โทเค็นเอาต์พุต 1 ล้านโทเค็นจนถึงวันที่ 31 ธันวาคม 2026 ราคามาตรฐานที่ $1.50/โทเค็นขาเข้า 1 ล้านโทเค็นและ $7.50/โทเค็นขาออก 1 ล้านโทเค็นจะมีผลในวันที่ 1 มกราคม 2027
 
-Por diseño, Gemini 3.8 Flash puede usar más tokens en tareas complejas y de mayor duración. Para ofrecer resultados de mayor calidad en objetivos difíciles de varios pasos, el modelo realiza pasos de razonamiento más pequeños, llama a las herramientas de forma iterativa y verifica su trabajo a lo largo del proceso. No todos los flujos de trabajo necesitan este nivel de verificación. Para las tareas diarias, puedes reducir el esfuerzo de [razonamiento](#understanding-reasoning-levels) para disminuir el consumo de tokens. Como alternativa, Gemini 3.7 Flash sigue siendo totalmente compatible.
+Gemini 3.8 Flash สามารถใช้โทเค็นมากขึ้นในงานที่ซับซ้อนและใช้เวลานานขึ้นได้ตามที่ออกแบบไว้ โมเดลจะใช้ขั้นตอนการให้เหตุผลที่สั้นลง เรียกใช้เครื่องมือซ้ำๆ และตรวจสอบงานระหว่างทางเพื่อให้ได้ผลลัพธ์ที่มีคุณภาพสูงขึ้นสำหรับเป้าหมายที่ซับซ้อนและมีหลายขั้นตอน เวิร์กโฟลว์บางอย่างไม่จำเป็นต้องมีการยืนยันในระดับนี้ สำหรับงานประจำวัน คุณสามารถลดความพยายามในการ[ให้เหตุผล](#understanding-reasoning-levels)เพื่อลดการใช้โทเค็นได้ หรือคุณจะใช้ Gemini 3.6 Flash ต่อไปก็ได้
 
-## Cómo comprender los niveles de razonamiento
+## ทำความเข้าใจระดับการให้เหตุผล
 
-Gemini 3.8 Flash te brinda un control flexible sobre la latencia y la inteligencia, ya que te permite ajustar el nivel de razonamiento del modelo:
+Gemini 3.8 Flash ช่วยให้คุณควบคุมเวลาในการตอบสนองและความชาญฉลาดได้อย่างยืดหยุ่นด้วยการปรับระดับการคิดของโมเดล ดังนี้
 
-- **Bajo esfuerzo de razonamiento**: Reduce el tiempo de respuesta para tareas críticas de latencia, como canalizaciones de respuesta ante incidentes, chat en tiempo real, redacción de borradores y análisis de datos rápidos.
-- **Mediana (predeterminada):** Es la mejor calidad para la mayoría de las tareas. Se recomienda para casos de uso complejos de código y agentes, ya que proporciona una mayor precisión en la primera pasada.
-- **Alto esfuerzo de pensamiento**: Maximiza las capacidades de razonamiento y organización de herramientas del modelo. Ideal para razonamiento profundo, matemáticas y tareas difíciles de varios pasos.
+- **การประมวลผลความคิดน้อย**: ลดเวลาในการตอบสำหรับงานที่สำคัญต่อเวลาในการตอบสนอง เช่น ไปป์ไลน์การตอบสนองต่อเหตุการณ์ แชทแบบเรียลไทม์ การเขียนฉบับร่าง และการวิเคราะห์ข้อมูลอย่างรวดเร็ว
+- **ปานกลาง (ค่าเริ่มต้น):** คุณภาพดีที่สุดสำหรับงานส่วนใหญ่ แนะนำสำหรับโค้ดที่ซับซ้อนและกรณีการใช้งานแบบเอเจนต์ ซึ่งให้ความแม่นยำในการตรวจสอบครั้งแรกสูงขึ้น
+- **ใช้ความคิดสูง**: เพิ่มความสามารถในการให้เหตุผลและการประสานงานเครื่องมือของโมเดลให้สูงสุด ดีที่สุดสำหรับการให้เหตุผลอย่างลึกซึ้ง คณิตศาสตร์ และงานหลายขั้นตอนที่ซับซ้อน
 
-En el siguiente ejemplo, se configura `thinking_level` como `medium` para una solicitud de análisis de código compleja:
+ตัวอย่างต่อไปนี้จะตั้งค่า `thinking_level` เป็น `medium` สำหรับคำขอวิเคราะห์โค้ดที่ซับซ้อน
 
 ### Python
 
@@ -286,9 +287,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Se actualizó el agente de Antigravity
+## อัปเดต Agent ของ Antigravity
 
-Debido a su rendimiento y razonamiento mejorados, el [agente de Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419) de los Agentes administrados por Gemini ahora se compila de forma predeterminada con la tecnología de Gemini 3.8 Flash.
+เนื่องจากประสิทธิภาพและการให้เหตุผลที่ดียิ่งขึ้น ตอนนี้เราจึงสร้าง[เอเจนต์ Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th) ใน Gemini Managed Agents ด้วย Gemini 3.8 Flash โดยค่าเริ่มต้น
 
 ### Python
 
@@ -414,47 +415,48 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-El modelo subyacente de Gemini [se puede configurar](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419#model-selection) con `agent_config`.
+[กำหนดค่า](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#model-selection)โมเดล Gemini พื้นฐานได้โดยใช้ `agent_config`
 
-## Lista de tareas para la migración
+## รายการตรวจสอบการย้ายข้อมูล
 
 ```
   `/gemini-api-dev migrate my app to Gemini 3.8 Flash`
 ```
 
-### Migra a gemini-3.8-flash
+### ย้ายข้อมูลไปยัง gemini-3.8-flash
 
-- **Actualiza el ID del modelo:** Cambia la cadena del modelo objetivo a `gemini-3.8-flash`.
-- **Se quitaron los parámetros de muestreo obsoletos:**
-  - Se quitaron `temperature`, `top_p` y `top_k` de las configuraciones de generación.
-  - Reemplaza `thinking_budget` por la cadena de enumeración `thinking_level`. Ten en cuenta que `minimal` no es compatible con Flash 3.8.
-  - Se quitó `candidate_count` (no compatible con Gemini 3 y versiones posteriores).
-- **Aplica reglas de validación de turnos:**
-  - Estandariza las conversaciones de varios turnos en `previous_interaction_id` del servidor.
-  - Quita los turnos del modelo completados previamente.
-- **Audita las llamadas a función:**
-  - Coloca los recursos multimodales dentro de la carga útil de la respuesta.
-  - Da formato a las instrucciones intercaladas con `\n\n`.
-  - Si ves errores `Malformed_Function_Call` vinculados al texto previo a la herramienta, consulta [Soluciones alternativas para los requisitos de texto previo a la herramienta](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419#workarounds-for-pre-tool-text-requirements).
-  - Solo si se usa la API de generateContent: Asegúrate de que todos los objetos `FunctionResponse` incluyan `call_id` y `name`.
-- **Requisitos básicos de Gemini 3:** Para las actualizaciones del SDK y la conservación de la firma de pensamiento, consulta la [Lista de tareas para la migración a Gemini 3.5](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.5?hl=es-419#migration).
+- **อัปเดตรหัสโมเดล:** เปลี่ยนสตริงโมเดลเป้าหมายเป็น `gemini-3.8-flash`
+- **กำหนดค่าระดับการคิด:** แทนที่ `thinking_budget` ด้วยสตริง enum `thinking_level` โปรดทราบว่า Gemini 3.8 Flash ไม่รองรับ `minimal` ให้เลือก `low`, `medium` (ค่าเริ่มต้น) หรือ `high`
+- **ใช้การเปลี่ยนแปลงพารามิเตอร์ API ของ Gemini 3:** นำพารามิเตอร์การสุ่มตัวอย่างที่เลิกใช้งานแล้ว (`temperature`, `top_p`, `top_k`), `candidate_count` (ไม่รองรับใน Gemini 3 ขึ้นไป) และเทิร์นของโมเดลที่เติมไว้ล่วงหน้าออก ดู[การเปลี่ยนแปลงใน Gemini 3.6 API และการอัปเดตพารามิเตอร์](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=th#api-changes-and-parameter-updates)
+- **บังคับใช้กฎการตรวจสอบรอบการสนทนา:** สร้างมาตรฐานการสนทนาไปมาใน `previous_interaction_id` ฝั่งเซิร์ฟเวอร์ และนำรอบการสนทนาของโมเดลที่กรอกข้อมูลไว้ล่วงหน้าออก
+- **การตรวจสอบการเรียกใช้ฟังก์ชัน:**
+  - วางชิ้นงานมัลติโมดอลไว้ในเพย์โหลดการตอบกลับ
+  - จัดรูปแบบวิธีการในบรรทัดโดยใช้ `\n\n`
+  - หากเห็น`Malformed_Function_Call`ข้อผิดพลาดที่เชื่อมโยงกับข้อความก่อนเครื่องมือ โปรดดู[วิธีแก้ปัญหาข้อกำหนดของข้อความก่อนเครื่องมือ](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#workarounds-for-pre-tool-text-requirements)
+  - เฉพาะในกรณีที่ใช้ GenerateContent API: ตรวจสอบว่าออบเจ็กต์ `FunctionResponse` ทั้งหมดมี `call_id` และ `name`
+- **ข้อกำหนดพื้นฐานของ Gemini 3:** ดูการอัปเดต SDK และการรักษาลายเซ็นความคิดได้ที่[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#signatures)
 
-## Precios
+## ราคา
 
-Aprovecha los precios de introducción en Google AI Studio y Gemini Enterprise Agent Platform hasta el 31 de diciembre de 2026 para Gemini 3.8 Flash, Gemini 3.7 Flash y Gemini 3.6 Flash. Los precios estándar entrarán en vigencia el 1 de enero de 2027. Para conocer los precios completos, consulta la [página de precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#gemini-3.8-flash).
+ใช้ประโยชน์จากราคาช่วงแนะนำใน Google AI Studio และแพลตฟอร์ม Agent ของ Gemini Enterprise จนถึงวันที่ 31 ธันวาคม 2026 สำหรับ Gemini 3.8 Flash และ Gemini 3.6 Flash ราคามาตรฐานจะมีผลในวันที่ 1 มกราคม 2027 ดูระดับราคาทั้งหมดได้ที่[หน้าราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.8-flash)
 
-## Próximos pasos
+## รุ่นอื่นๆ
 
-- Revisa las especificaciones de la API en la [Descripción general de los modelos](https://ai.google.dev/gemini-api/docs/models?hl=es-419).
-- Explora la organización de varios agentes en la [Descripción general de la API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419).
-- Probar y definir instrucciones en [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419)
+- [Gemini 3.6 Flash และ 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=th)
+- [ดูโมเดลทั้งหมด](https://ai.google.dev/gemini-api/docs/models?hl=th)
 
-Enviar comentarios
+## ขั้นตอนถัดไป
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+- ดูข้อกำหนดของ API ได้ที่[ภาพรวมของโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
+- สํารวจการประสานงานแบบหลายเอเจนต์ใน[ภาพรวมของ Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
+- ทดสอบและปรับแต่งพรอมต์ใน [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-Última actualización: 2026-09-24 (UTC)
+ส่งความคิดเห็น
 
-¿Quieres brindar más información?
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+อัปเดตล่าสุด 2026-10-09 UTC
+
+หากต้องการบอกให้เราทราบเพิ่มเติม
+
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-09 UTC"],[],[]]

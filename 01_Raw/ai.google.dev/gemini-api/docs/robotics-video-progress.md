@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr
-fetched_at: 2026-10-05T06:37:37.094122+00:00
-title: "Compr\u00e9hension des vid\u00e9os \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=tr
+fetched_at: 2026-10-12T06:57:37.538889+00:00
+title: "Video anlama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-# Compréhension des vidéos
+# Video anlama
 
-Gemini Robotics ER 2 peut suivre la progression des tâches à partir de flux vidéo continus à l'aide de deux fonctionnalités :
+Gemini Robotics ER 2, iki özelliği kullanarak sürekli video feed'lerinden görev ilerlemesini takip edebilir:
 
-- Recherche de moments : identifie l'horodatage précis auquel un événement clé se produit.
-- Classification de la progression : attribue chaque vidéo à l'une des cinq catégories de progression (0-20%, 20-40%, 40-60%, 60-80%, 80-100%).
+- An bulma: Önemli bir etkinliğin gerçekleştiği tam zaman damgasını belirler.
+- Tamamlama sınıflandırması: Her videoyu beş tamamlama aralığından birine atar (%0-20, %20-40, %40-60, %60-80, %80-100).
 
-## Recherche de moments
+## An bulma
 
-La recherche de moments identifie l'image vidéo exacte où un événement critique se produit, par exemple lorsqu'une tasse est pleine ou qu'un nœud est fait. Les robots l'utilisent pour vérifier la réussite, séquencer les étapes et déclencher des corrections.
+An bulma özelliği, önemli bir olayın gerçekleştiği tam video karesini (ör. bir kupanın dolduğu veya bir düğümün bağlandığı an) belirler. Robotlar, başarıyı doğrulamak, adımları sıralamak ve düzeltmeleri tetiklemek için bunu kullanır.
 
-L'exemple de prompt suivant demande au modèle d'identifier le moment d'achèvement d'une tâche donnée dans une vidéo :
+Aşağıdaki örnek istemde modelden, videodaki belirli bir görevin tamamlanma anını belirlemesi isteniyor:
 
 ```
 from google import genai
@@ -57,15 +57,15 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-L'exemple suivant montre des images d'une vidéo de recherche de moments, le modèle identifiant l'horodatage d'achèvement de la tâche :
+Aşağıda, bir an bulma videosundan örnek kareler gösterilmektedir. Model, görevin tamamlanma zaman damgasını tanımlamaktadır:
 
-![Exemple d'images vidéo montrant le résultat de la recherche de moments avec un code temporel en superposition](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=fr)
+![Zaman damgası yerleşimiyle an bulma çıktısını gösteren örnek video kareleri](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=tr)
 
-## Classification de la progression
+## İlerleme sınıflandırması
 
-La classification de la progression attribue une vidéo à l'une des cinq catégories de progression : 0-20%, 20-40%, 40-60%, 60-80 % ou 80-100%. Cela permet aux robots d'avoir une conscience de la situation en temps réel afin qu'ils puissent ajuster leurs actions ou réessayer les étapes qui ont échoué sans redémarrer l'ensemble du workflow.
+İlerleme sınıflandırması, bir videoyu beş tamamlama aralığından birine atar: 0-20%, 20-40%, 40-60%, 60-80% veya 80-100%. Bu sayede robotlar, tüm iş akışını yeniden başlatmadan eylemleri ayarlayabilir veya başarısız olan adımları yeniden deneyebilir.
 
-L'exemple de prompt suivant demande au modèle de classer le niveau de progression actuel à partir d'une vidéo :
+Aşağıdaki örnek istemde modelden, bir videodaki mevcut ilerleme düzeyini sınıflandırması isteniyor:
 
 ```
 from google import genai
@@ -95,27 +95,26 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-L'exemple suivant montre des images d'une vidéo de classification de la progression, le modèle attribuant une catégorie de progression :
+Aşağıda, modelin ilerleme aralığı atadığı bir ilerleme sınıflandırması videosundan örnek kareler gösterilmektedir:
 
-![Exemple de frames vidéo montrant le résultat de la classification de la progression avec un libellé de tranche de progression](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=fr)
+![İlerleme aralığı etiketiyle ilerleme sınıflandırma çıkışını gösteren örnek video kareleri](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=tr)
 
-## Exemples
+## Örnekler
 
-Pour obtenir des exemples exécutables complets, y compris le suivi des tâches en plusieurs étapes, consultez le
-[livre de recettes sur la robotique](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Çok adımlı görev izleme de dahil olmak üzere tam olarak çalıştırılabilir örnekler için [Robotik çözüm kitabına](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) bakın.
 
-## Étape suivante
+## Sırada ne var?
 
-- [API Live pour la robotique](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr) : streaming bidirectionnel en temps réel.
-- [Orchestration des tâches](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=fr) : tâches à long terme avec raisonnement spatial.
-- [Présentation de Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=fr) : comparaison des modèles et fonctionnalités.
+- [Robotik için Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=tr): Gerçek zamanlı çift yönlü yayın.
+- [Görev düzenleme](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=tr): Uzamsal akıl yürütme içeren uzun vadeli görevler.
+- [Gemini Robotics ER'ye genel bakış](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=tr): Model karşılaştırması ve özellikleri.
 
-Envoyer des commentaires
+Geri bildirim gönderin
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Dernière mise à jour le 2026/09/08 (UTC).
+Son güncelleme tarihi: 2026-09-08 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/08 (UTC)."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]

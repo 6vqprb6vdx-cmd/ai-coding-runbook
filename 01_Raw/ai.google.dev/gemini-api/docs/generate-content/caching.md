@@ -1,67 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=ja
-fetched_at: 2026-10-05T06:40:42.912713+00:00
-title: "\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u306e\u30ad\u30e3\u30c3\u30b7\u30e5\u4fdd\u5b58 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=vi
+fetched_at: 2026-10-12T07:16:29.716454+00:00
+title: "L\u01b0u ng\u1eef c\u1ea3nh v\u00e0o b\u1ed9 nh\u1edb \u0111\u1ec7m \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-# コンテキストのキャッシュ保存
+# Lưu ngữ cảnh vào bộ nhớ đệm
 
-一般的な AI ワークフローでは、同じ入力トークンをモデルに繰り返し渡すことがあります。Gemini API には、次の 2 つの異なるキャッシュ保存メカニズムが用意されています。
+Trong quy trình làm việc điển hình của AI, bạn có thể truyền đi truyền lại các mã thông báo đầu vào giống nhau cho một mô hình. Gemini API cung cấp 2 cơ chế lưu vào bộ nhớ đệm:
 
-- 暗黙的キャッシュ保存（Gemini 2.5 以降のモデルで自動的に有効になります。費用削減は保証されません）
-- 明示的なキャッシュ保存（ほとんどのモデルで手動で有効にできる、費用削減保証）
+- Lưu vào bộ nhớ đệm ngầm (tự động bật trên Gemini 2.5 và các mô hình mới hơn, không đảm bảo tiết kiệm chi phí)
+- Lưu vào bộ nhớ đệm một cách rõ ràng (có thể bật theo cách thủ công trên hầu hết các mô hình, đảm bảo tiết kiệm chi phí)
 
-明示的なキャッシュ保存は、コスト削減を保証したいが、開発者の作業が追加される場合に便利です。
+Việc lưu vào bộ nhớ đệm rõ ràng sẽ hữu ích trong trường hợp bạn muốn đảm bảo tiết kiệm chi phí, nhưng cần thêm một số công việc của nhà phát triển.
 
-## 暗黙的なキャッシュ保存
+## Lưu vào bộ nhớ đệm ngầm
 
-Gemini 2.5 以降のすべてのモデルでは、暗黙的キャッシュ保存がデフォルトで有効になっています。リクエストがキャッシュにヒットした場合、費用削減が自動的に適用されます。有効にするために必要な操作はありません。次の表に、各モデルのコンテキスト キャッシュ保存の最小入力トークン数を示します。
+Tính năng lưu vào bộ nhớ đệm ngầm định được bật theo mặc định cho tất cả các mô hình Gemini 2.5 trở lên. Chúng tôi tự động chuyển các khoản tiết kiệm chi phí nếu yêu cầu của bạn truy cập vào bộ nhớ đệm. Bạn không cần làm gì để bật tính năng này. Số lượng số token đầu vào tối thiểu để lưu vào bộ nhớ đệm ngữ cảnh được liệt kê trong bảng sau cho từng mô hình:
 
-| モデル | 最小トークン上限 |
+| Mô hình | Giới hạn mã thông báo tối thiểu |
 | --- | --- |
-| Gemini 3.8 Flash | 4,096 |
-| Gemini 3.7 Flash | 4,096 |
-| Gemini 3.6 Flash | 4,096 |
-| Gemini 3.5 Flash | 4,096 |
-| Gemini 3.1 Pro プレビュー版 | 4,096 |
-| Gemini 2.5 Flash | 2,048 |
-| Gemini 2.5 Pro | 2,048 |
+| Gemini 3.8 Flash | 4.096 |
+| Gemini 3.6 Flash | 4.096 |
+| Gemini 3.1 Pro (Bản xem trước) | 4.096 |
+| Gemini 2.5 Flash | 2.048 |
+| Gemini 2.5 Pro | 2.048 |
 
-暗黙的なキャッシュ ヒットの可能性を高めるには:
+Để tăng cơ hội đạt được kết quả tìm kiếm trong bộ nhớ cache ngầm ẩn:
 
-- 大規模で一般的なコンテンツは、プロンプトの先頭に配置します。
-- 類似した接頭辞を含むリクエストを短時間で送信しようとします
+- Hãy thử đặt nội dung lớn và phổ biến ở đầu câu lệnh
+- Hãy thử gửi các yêu cầu có tiền tố tương tự trong một khoảng thời gian ngắn
 
-レスポンス オブジェクトの `usage_metadata` フィールドで、キャッシュ ヒットしたトークンの数を確認できます。
+Bạn có thể xem số lượng token là kết quả tìm kiếm trong bộ nhớ cache trong trường `usage_metadata` của đối tượng phản hồi.
 
-## 明示的なキャッシュ保存
+## Lưu vào bộ nhớ đệm rõ ràng
 
-Gemini API の明示的キャッシュ保存機能を使用すると、コンテンツをモデルに 1 回渡して入力トークンをキャッシュに保存し、後続のリクエストでキャッシュに保存されたトークンを参照できます。特定のボリュームでは、キャッシュに保存されたトークンを使用する方が、同じトークン コーパスを繰り返し渡すよりも費用が安くなります。
+Khi sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng của Gemini API, bạn có thể truyền một số nội dung đến mô hình một lần, lưu vào bộ nhớ đệm các mã thông báo đầu vào, sau đó tham chiếu đến các mã thông báo đã lưu vào bộ nhớ đệm cho các yêu cầu tiếp theo. Ở một số lượng nhất định, việc sử dụng mã thông báo được lưu vào bộ nhớ đệm sẽ có chi phí thấp hơn so với việc truyền cùng một tập hợp mã thông báo nhiều lần.
 
-一連のトークンをキャッシュに保存するときに、トークンが自動的に削除されるまでのキャッシュの存続期間を選択できます。このキャッシュ保存期間は、有効期間（TTL）と呼ばれます。設定しない場合、TTL はデフォルトで 1 時間になります。キャッシュ保存の費用は、入力トークンのサイズとトークンの永続期間によって異なります。
+Khi lưu trữ một nhóm mã thông báo vào bộ nhớ đệm, bạn có thể chọn khoảng thời gian bạn muốn bộ nhớ đệm tồn tại trước khi mã thông báo tự động bị xoá. Khoảng thời gian lưu vào bộ nhớ đệm này được gọi là *thời gian tồn tại* (TTL). Nếu bạn không đặt, TTL sẽ mặc định là 1 giờ. Chi phí lưu vào bộ nhớ đệm phụ thuộc vào kích thước mã thông báo đầu vào và thời gian bạn muốn mã thông báo duy trì.
 
-このセクションでは、[スタートガイド](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)に示されているように、Gemini SDK がインストールされている（または curl がインストールされている）ことと、API キーが構成されていることを前提としています。
+Phần này giả định rằng bạn đã cài đặt Gemini SDK (hoặc đã cài đặt curl) và bạn đã định cấu hình khoá API, như trong [Hướng dẫn bắt đầu sử dụng](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi).
 
-### キャッシュを使用してコンテンツを生成する
+### Tạo nội dung bằng bộ nhớ đệm
 
 ### Python
 
-次の例は、キャッシュに保存されたシステム指示と動画ファイルを使用してコンテンツを生成する方法を示しています。
+Ví dụ sau đây cho biết cách tạo nội dung bằng chỉ dẫn hệ thống và tệp video được lưu vào bộ nhớ đệm.
 
-### 動画
+### Video
 
 ```
 import os
@@ -168,7 +166,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-次の例は、キャッシュに保存されたシステム指示とテキスト ファイルを使用してコンテンツを生成する方法を示しています。
+Ví dụ sau đây cho biết cách tạo nội dung bằng cách sử dụng một chỉ dẫn hệ thống được lưu vào bộ nhớ đệm và một tệp văn bản.
 
 ```
 import {
@@ -209,7 +207,7 @@ await main();
 
 ### Go
 
-次の例は、キャッシュを使用してコンテンツを生成する方法を示しています。
+Ví dụ sau đây cho thấy cách tạo nội dung bằng bộ nhớ đệm.
 
 ```
 package main
@@ -279,9 +277,9 @@ func main() {
 
 ### REST
 
-次の例は、キャッシュを作成し、それを使用してコンテンツを生成する方法を示しています。
+Ví dụ sau đây cho biết cách tạo bộ nhớ đệm rồi dùng bộ nhớ đệm đó để tạo nội dung.
 
-### 動画
+### Video
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -430,20 +428,20 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### キャッシュのリストを表示する
+### Liệt kê bộ nhớ đệm
 
-キャッシュに保存されたコンテンツを取得または表示することはできませんが、キャッシュ メタデータ（`name`、`model`、`display_name`、`usage_metadata`、`create_time`、`update_time`、`expire_time`）を取得することはできます。
+Bạn không thể truy xuất hoặc xem nội dung trong bộ nhớ đệm, nhưng có thể truy xuất siêu dữ liệu trong bộ nhớ đệm (`name`, `model`, `display_name`, `usage_metadata`, `create_time`, `update_time` và `expire_time`).
 
 ### Python
 
-アップロードされたすべてのキャッシュのメタデータを一覧表示するには、`CachedContent.list()` を使用します。
+Để liệt kê siêu dữ liệu cho tất cả các bộ nhớ đệm đã tải lên, hãy sử dụng `CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-1 つのキャッシュ オブジェクトのメタデータを取得するには、その名前がわかっている場合は `get` を使用します。
+Để tìm nạp siêu dữ liệu cho một đối tượng trong bộ nhớ đệm, nếu bạn biết tên của đối tượng đó, hãy sử dụng `get`:
 
 ```
 client.caches.get(name=name)
@@ -451,7 +449,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-アップロードされたすべてのキャッシュのメタデータを一覧表示するには、`GoogleGenAI.caches.list()` を使用します。
+Để liệt kê siêu dữ liệu cho tất cả các bộ nhớ đệm đã tải lên, hãy sử dụng `GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -468,7 +466,7 @@ while (true) {
 
 ### Go
 
-次の例では、すべてのキャッシュを一覧表示します。
+Ví dụ sau đây liệt kê tất cả các bộ nhớ đệm.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -481,7 +479,7 @@ for _, item := range caches {
 }
 ```
 
-次の例では、ページサイズ 2 を使用してキャッシュを一覧表示します。
+Ví dụ sau đây liệt kê các bộ nhớ đệm bằng cách sử dụng kích thước trang là 2.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -514,13 +512,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### キャッシュを更新する
+### Cập nhật bộ nhớ đệm
 
-キャッシュに新しい `ttl` または `expire_time` を設定できます。キャッシュに関するその他の変更はサポートされていません。
+Bạn có thể đặt `ttl` hoặc `expire_time` mới cho bộ nhớ đệm. Không hỗ trợ việc thay đổi bất kỳ nội dung nào khác về bộ nhớ đệm.
 
 ### Python
 
-次の例は、`client.caches.update()` を使用してキャッシュの `ttl` を更新する方法を示しています。
+Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm bằng `client.caches.update()`.
 
 ```
 from google import genai
@@ -534,7 +532,7 @@ client.caches.update(
 )
 ```
 
-有効期限を設定するには、`datetime` オブジェクトまたは ISO 形式の日時文字列（`dt.isoformat()`、`2025-01-27T16:02:36.473528+00:00` など）のいずれかを受け取ります。時刻にはタイムゾーンを含める必要があります（`datetime.utcnow()` はタイムゾーンを付加しませんが、`datetime.now(datetime.timezone.utc)` はタイムゾーンを付加します）。
+Để đặt thời gian hết hạn, bạn có thể chấp nhận đối tượng `datetime` hoặc chuỗi ngày giờ theo định dạng ISO (`dt.isoformat()`, chẳng hạn như `2025-01-27T16:02:36.473528+00:00`). Thời gian của bạn phải bao gồm múi giờ (`datetime.utcnow()` không đính kèm múi giờ, `datetime.now(datetime.timezone.utc)` có đính kèm múi giờ).
 
 ```
 from google import genai
@@ -554,7 +552,7 @@ client.caches.update(
 
 ### JavaScript
 
-次の例は、`GoogleGenAI.caches.update()` を使用してキャッシュの `ttl` を更新する方法を示しています。
+Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm bằng `GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -567,7 +565,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-次の例は、キャッシュの `TTL` を更新する方法を示しています。
+Ví dụ sau đây cho thấy cách cập nhật `TTL` của một bộ nhớ đệm.
 
 ```
 // Update the TTL (2 hours).
@@ -583,7 +581,7 @@ fmt.Println(cache)
 
 ### REST
 
-次の例は、キャッシュの `ttl` を更新する方法を示しています。
+Ví dụ sau đây cho thấy cách cập nhật `ttl` của một bộ nhớ đệm.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -591,9 +589,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### キャッシュを削除する
+### Xoá bộ nhớ đệm
 
-キャッシュ サービスには、キャッシュからコンテンツを手動で削除するための削除オペレーションが用意されています。次の例は、キャッシュを削除する方法を示しています。
+Dịch vụ lưu vào bộ nhớ đệm cung cấp một thao tác xoá để xoá nội dung khỏi bộ nhớ đệm theo cách thủ công. Ví dụ sau đây cho thấy cách xoá bộ nhớ đệm:
 
 ### Python
 
@@ -623,44 +621,44 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### OpenAI ライブラリを使用した明示的なキャッシュ保存
+### Lưu vào bộ nhớ đệm một cách rõ ràng bằng thư viện OpenAI
 
-[OpenAI ライブラリ](https://ai.google.dev/gemini-api/docs/openai?hl=ja)を使用している場合は、[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=ja#extra-body) の `cached_content` プロパティを使用して明示的なキャッシュ保存を有効にできます。
+Nếu đang dùng [thư viện OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=vi), bạn có thể bật tính năng lưu vào bộ nhớ đệm rõ ràng bằng cách dùng thuộc tính `cached_content` trên [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=vi#extra-body).
 
-## 明示的なキャッシュ保存を使用する状況
+## Trường hợp nên sử dụng tính năng lưu vào bộ nhớ đệm rõ ràng
 
-コンテキスト キャッシュ保存は、初期コンテキストの実体部分が、短いリクエストで繰り返し参照されるシナリオに特に適しています。次のようなユースケースでは、コンテキスト キャッシュ保存の使用を検討してください。
+Tính năng lưu bộ nhớ đệm ngữ cảnh đặc biệt phù hợp với những trường hợp mà một ngữ cảnh ban đầu đáng kể được các yêu cầu ngắn hơn tham chiếu nhiều lần. Hãy cân nhắc sử dụng bộ nhớ đệm ngữ cảnh cho các trường hợp sử dụng như:
 
-- 広範な[システム指示](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ja)を伴う chatbot
-- 長時間の動画ファイルの繰り返し分析
-- 大規模なドキュメント セットに対する繰り返しのクエリ
-- 頻繁なコード リポジトリの分析やバグ修正
+- Chatbot có [hướng dẫn chi tiết về hệ thống](https://ai.google.dev/gemini-api/docs/system-instructions?hl=vi)
+- Phân tích lặp đi lặp lại các tệp video dài
+- Truy vấn định kỳ đối với các tập tài liệu lớn
+- Thường xuyên phân tích kho lưu trữ mã hoặc sửa lỗi
 
-### 明示的なキャッシュ保存によるコスト削減
+### Cách bộ nhớ đệm rõ ràng giúp giảm chi phí
 
-コンテキスト キャッシュ保存は、コスト削減を目的とした有料機能です。ご請求は次の項目に基づいて行われます。
+Bộ nhớ đệm ngữ cảnh là một tính năng có tính phí được thiết kế để giảm chi phí. Việc tính phí dựa trên các yếu tố sau:
 
-1. **キャッシュ トークン数:** キャッシュに保存された入力トークンの数。後続のプロンプトに含まれる場合は、割引料金で請求されます。
-2. **保存期間:** キャッシュに保存されたトークンの保存時間（TTL）。キャッシュに保存されたトークン数の TTL 期間に基づいて課金されます。TTL に下限や上限はありません。
-3. **その他の項目:** 入力トークンや出力トークンがキャッシュされていない場合などは、別の料金が適用されます。
+1. **Số lượng mã thông báo trong bộ nhớ đệm:** Số lượng mã thông báo đầu vào được lưu vào bộ nhớ đệm, được tính phí với mức giá thấp hơn khi có trong các câu lệnh tiếp theo.
+2. **Thời gian lưu trữ:** Khoảng thời gian lưu trữ mã thông báo được lưu vào bộ nhớ đệm (TTL), được tính phí dựa trên thời lượng TTL của số lượng mã thông báo được lưu vào bộ nhớ đệm. Không có giới hạn tối thiểu hoặc tối đa về TTL.
+3. **Các yếu tố khác:** Các khoản phí khác được áp dụng, chẳng hạn như đối với mã thông báo đầu vào và đầu ra không được lưu vào bộ nhớ đệm.
 
-最新の料金の詳細については、Gemini API の[料金ページ](https://ai.google.dev/pricing?hl=ja)をご覧ください。トークンをカウントする方法については、[トークンガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)をご覧ください。
+Để biết thông tin chi tiết mới nhất về giá, hãy tham khảo [trang định giá](https://ai.google.dev/pricing?hl=vi) của Gemini API. Để tìm hiểu cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
 
-### その他の考慮事項
+### Các yếu tố cần cân nhắc khác
 
-コンテキスト キャッシュ保存を使用する場合は、次の点に注意してください。
+Khi sử dụng bộ nhớ đệm ngữ cảnh, hãy lưu ý những điều sau:
 
-- コンテキスト キャッシュの*最小*入力トークン数はモデルによって異なります。*最大値*は、指定されたモデルの最大値と同じです。（トークンのカウントの詳細については、[トークンガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)をご覧ください）。
-- モデルは、キャッシュに保存されたトークンと通常の入力トークンを区別しません。キャッシュに保存されたコンテンツは、プロンプトの接頭辞です。
-- コンテキスト キャッシュには特別なレート制限や使用量上限はありません。`GenerateContent` の標準レート制限が適用され、トークン上限にはキャッシュに保存されたトークンが含まれます。
-- キャッシュに保存されたトークンの数は、キャッシュ サービスの作成、取得、リスト オペレーションの `usage_metadata` で返されます。また、キャッシュを使用する場合は `GenerateContent` でも返されます。
+- Số lượng *token* đầu vào tối thiểu để lưu vào bộ nhớ đệm ngữ cảnh sẽ khác nhau tuỳ theo mô hình. *Tối đa* cũng giống như tối đa đối với mô hình đã cho. (Để biết thêm thông tin về cách đếm mã thông báo, hãy xem [Hướng dẫn về mã thông báo](https://ai.google.dev/gemini-api/docs/tokens?hl=vi)).
+- Mô hình này không phân biệt giữa các mã thông báo được lưu vào bộ nhớ đệm và các mã thông báo đầu vào thông thường. Nội dung được lưu vào bộ nhớ đệm là tiền tố của câu lệnh.
+- Không có giới hạn đặc biệt về tốc độ hoặc mức sử dụng đối với bộ nhớ đệm ngữ cảnh; các giới hạn tiêu chuẩn về tốc độ đối với `GenerateContent` sẽ được áp dụng và giới hạn mã thông báo bao gồm cả mã thông báo được lưu vào bộ nhớ đệm.
+- Số lượng mã thông báo được lưu vào bộ nhớ đệm sẽ được trả về trong `usage_metadata` từ các thao tác tạo, nhận và liệt kê của dịch vụ bộ nhớ đệm, cũng như trong `GenerateContent` khi sử dụng bộ nhớ đệm.
 
-フィードバックを送信
+Gửi ý kiến phản hồi
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最終更新日 2026-09-16 UTC。
+Cập nhật lần gần đây nhất: 2026-10-09 UTC.
 
-ご意見をお聞かせください
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-16 UTC。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-09 UTC."],[],[]]

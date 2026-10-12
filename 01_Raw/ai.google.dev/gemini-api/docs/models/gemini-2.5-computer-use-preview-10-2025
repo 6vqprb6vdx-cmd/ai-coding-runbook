@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=ko
-fetched_at: 2026-10-05T06:34:45.546152+00:00
-title: "Gemini 2.5 \ucef4\ud4e8\ud130 \uc0ac\uc6a9 \ubaa8\ub378 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-computer-use-preview-10-2025?hl=fr
+fetched_at: 2026-10-12T07:04:04.157015+00:00
+title: "Mod\u00e8le Gemini\u00a02.5 Computer Use \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-의견 보내기
+Envoyer des commentaires
 
-# Gemini 2.5 컴퓨터 사용 모델
+# Modèle Gemini 2.5 Computer Use
 
-직접 인터페이스 상호작용을 위해 설계된 에이전트 기능 모델로, Gemini가 디지털 환경을 인식하고 탐색할 수 있습니다. Gemini 2.5 Computer Use는 시각적 추론과 정확한 커서 제어가 필요한 브라우저 자동화, 다단계 소프트웨어 작업, UI 테스트에 가장 적합합니다.
+Modèle de capacités agentiques conçu pour l'interaction directe avec l'interface, permettant à Gemini de percevoir les environnements numériques et d'y naviguer. Gemini 2.5 Computer Use est idéal pour l'automatisation des navigateurs, les tâches logicielles en plusieurs étapes et les tests d'interface utilisateur nécessitant un raisonnement visuel et un contrôle précis du curseur.
 
-## 문서
+## Documentation
 
-기능 및 기능에 관한 전체 내용은 [컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko) 페이지를 참고하세요.
+Consultez la page [Utilisation de l'ordinateur](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr) pour obtenir une couverture complète des fonctionnalités.
 
 ## gemini-2.5-computer-use-preview-10-2025
 
-| 속성 | 설명 |
+| Propriété | Description |
 | --- | --- |
-| id\_card모델 코드 | **Gemini API**  `gemini-2.5-computer-use-preview-10-2025` |
-| save지원되는 데이터 유형 | **입력**  이미지, 텍스트  **출력**  텍스트 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  128,000  **출력 토큰 한도**  64,000 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 종료: `gemini-2.5-computer-use-preview-10-2025` |
-| calendar\_month최신 업데이트 | 2025년 10월 |
+| Code du modèle id\_card | **API Gemini**  `gemini-2.5-computer-use-preview-10-2025` |
+| Types de données acceptés pour save | **Entrée**  Image, texte  **Résultat**  Texte |
+| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  128 000  **Limite de jetons de sortie**  64 000 |
+| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Éteindre : `gemini-2.5-computer-use-preview-10-2025` |
+| calendar\_monthDernière mise à jour | Octobre 2025 |
 
-의견 보내기
+Envoyer des commentaires
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-최종 업데이트: 2026-10-01(UTC)
+Dernière mise à jour le 2026/10/01 (UTC).
 
-의견을 전달하고 싶나요?
+Voulez-vous nous donner plus d'informations ?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-01(UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/01 (UTC)."],[],[]]

@@ -1,50 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=tr
-fetched_at: 2026-10-05T06:27:58.096747+00:00
-title: "Google AI Studio'ya Workspace hesab\u0131n\u0131zla eri\u015fme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=it
+fetched_at: 2026-10-12T07:02:35.239201+00:00
+title: "Accedi a Google AI Studio con il tuo account Workspace \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Google AI Studio'ya Workspace hesabınızla erişme
+# Accedi a Google AI Studio con il tuo account Workspace
 
-Tüm [Google Workspace](https://workspace.google.com?hl=tr) kullanıcıları, varsayılan olarak AI Studio'ya erişebilir. Workspace kullanıcısıysanız ve AI Studio'yu kullanmaya başlamak istiyorsanız [AI Studio hızlı başlangıç kılavuzunu](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=tr) inceleyin.
+Per impostazione predefinita, tutti gli utenti di [Google Workspace](https://workspace.google.com?hl=it) hanno accesso ad AI
+Studio. Se sei un utente di Workspace e vuoi iniziare a utilizzare
+AI Studio, consulta la
+[guida rapida di AI Studio](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=it).
 
-## Sorun giderme
+## Risoluzione dei problemi
 
-Google Workspace hesabınız için AI Studio'ya erişim devre dışı bırakılmışsa aşağıdaki gibi bir hata mesajı görebilirsiniz:
+Se l'accesso ad AI Studio è disattivato per il tuo account Google Workspace, potresti visualizzare un errore simile al seguente:
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-AI Studio'ya erişebilmeniz gerektiğini düşünüyorsanız Workspace yöneticinizle iletişime geçin.
+Se ritieni di dover avere accesso ad AI Studio, contatta l'amministratore di Workspace.
 
-## Workspace kullanıcıları için AI Studio'yu etkinleştirme
+## Abilitare AI Studio per gli utenti di Workspace
 
-Google Workspace yöneticisi olarak, AI Studio'yu kimlerin kullanabileceğini kontrol edebilirsiniz:
+In qualità di amministratore di Google Workspace, puoi controllare chi utilizza AI Studio:
 
-- AI Studio, tüm sürümlerde varsayılan olarak etkindir.
-- AI Studio'yu kuruluş birimleri genelinde veya kuruluş birimleri içindeki kullanıcı grupları için devre dışı bırakabilir ya da etkinleştirebilirsiniz.
-- Google Workspace for Education sürümleri: 18 yaşından küçük kullanıcılar, Google Workspace for Education hesaplarıyla AI Studio'yu kullanamaz. Bu durum, AI Studio ayarı açık olsa bile geçerlidir. Ayrıntılı bilgi için [Google hizmetlerine erişimi yaşa göre kontrol etme](https://support.google.com/a/answer/10651918?hl=tr) başlıklı makaleyi inceleyin.
+- Per impostazione predefinita, AI Studio è attivo per tutte le versioni.
+- Puoi attivare o disattivare AI Studio per gruppi di utenti all'interno o tra le unità organizzative.
+- Versioni di Google Workspace for Education: gli utenti minori di 18 anni non possono utilizzare AI Studio con i propri account Google Workspace for Education. Ciò vale anche quando l'impostazione AI Studio è attiva. Per maggiori dettagli, vai a [Controlla l'accesso ai servizi Google in base all'
+  età](https://support.google.com/a/answer/10651918?hl=it).
 
-Kuruluşunuzdaki kullanıcılar için AI Studio'yu etkinleştirmek veya devre dışı bırakmak istiyorsanız [Kullanıcılar için Google AI Studio'yu etkinleştirme veya devre dışı bırakma](https://support.google.com/a/answer/15004095?hl=tr) başlıklı makaleyi inceleyin.
+Per attivare o disattivare AI Studio per gli utenti della tua organizzazione, consulta
+[Attivare o disattivare Google AI Studio per gli utenti](https://support.google.com/a/answer/15004095?hl=it).
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-04-29 UTC.
+Ultimo aggiornamento 2026-04-29 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-04-29 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-04-29 UTC."],[],[]]

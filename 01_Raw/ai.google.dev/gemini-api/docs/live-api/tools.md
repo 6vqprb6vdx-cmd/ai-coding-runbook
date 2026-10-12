@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-CN
-fetched_at: 2026-10-05T06:36:07.816821+00:00
-title: "\u4f7f\u7528 Live API \u7684\u5de5\u5177 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=he
+fetched_at: 2026-10-12T07:05:44.752363+00:00
+title: "\u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05db\u05dc\u05d9 \u05e2\u05dd Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-发送反馈
+שליחת משוב
 
-# 使用 Live API 的工具
+# שימוש בכלי עם Live API
 
-借助工具使用功能，Live API 不仅能进行对话，还能在保持实时连接的同时执行实际操作并提取外部上下文。
-您可以使用 Live API 定义工具，例如[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)和 [Google 搜索](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
+השימוש בכלי מאפשר ל-Live API לעשות יותר מסתם שיחה, ולבצע פעולות בעולם האמיתי ולשלוף הקשר חיצוני תוך שמירה על חיבור בזמן אמת.
+אפשר להגדיר כלים כמו [בקשות להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) ו[חיפוש Google](https://ai.google.dev/gemini-api/docs/grounding?hl=he) באמצעות Live API.
 
-## 受支持的工具概览
+## סקירה כללית של הכלים הנתמכים
 
-以下简要介绍了适用于 Live API 模型的可用工具：
+סקירה כללית קצרה של הכלים הזמינים למודלים של Live API:
 
-| 工具 | Gemini 3.1 Flash Live 预览版 | Gemini 2.5 Flash Live 预览版 |
+| כלי | ‫Gemini 3.1 Flash Live Preview | גרסת טרום-השקה של Gemini 2.5 Flash |
 | --- | --- | --- |
-| **搜索** | 支持 | 支持 |
-| **函数调用** | 支持（仅限同步） | 支持（同步和[异步](#async-function-calling)） |
-| **Google 地图** | 不受支持 | 不受支持 |
-| **代码执行** | 不受支持 | 不受支持 |
-| **网址上下文** | 不受支持 | 不受支持 |
+| **חיפוש** | נתמך | נתמך |
+| **בקשה להפעלת פונקציה** | נתמך (סינכרוני בלבד) | נתמך (סינכרוני ו[אסינכרוני](#async-function-calling)) |
+| **מפות Google** | לא נתמך | לא נתמך |
+| **הרצת קוד** | לא נתמך | לא נתמך |
+| **הקשר של כתובת ה-URL** | לא נתמך | לא נתמך |
 
-## 函数调用
+## בקשה להפעלת פונקציה
 
-Live API 支持函数调用，就像常规内容生成请求一样。函数调用功能可让 Live API 与外部数据和程序进行交互，从而大幅提升应用的功能。
+‫Live API תומך בבקשות להפעלת פונקציות, בדיוק כמו בקשות רגילות ליצירת תוכן. התכונה 'קריאה לפונקציה' מאפשרת ל-Live API לקיים אינטראקציה עם נתונים ותוכניות חיצוניים, וכך להרחיב משמעותית את היכולות של האפליקציות שלכם.
 
-您可以将会话配置定义为函数声明的一部分。
-收到工具调用后，客户端应使用 `session.send_tool_response` 方法返回 `FunctionResponse` 对象列表。
+אפשר להגדיר הצהרות על פונקציות כחלק מהגדרת הסשן.
+אחרי קבלת קריאות לכלים, הלקוח צריך להגיב עם רשימה של אובייקטים מסוג `FunctionResponse` באמצעות השיטה `session.send_tool_response`.
 
-如需了解详情，请参阅[函数调用教程](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+מידע נוסף זמין [במדריך להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
 ### Python
 
@@ -217,13 +217,13 @@ async function main() {
 main();
 ```
 
-根据单个提示，模型可以生成多个函数调用以及将这些函数的输出串联所需的代码。此代码在沙盒环境中执行，生成后续的 [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=zh-cn#bidigeneratecontenttoolcall) 消息。
+מתוך הנחיה אחת, המודל יכול ליצור כמה קריאות לפונקציות ואת הקוד שנדרש כדי לשרשר את הפלט שלהן. הקוד הזה מופעל בסביבת ארגז חול, ויוצר הודעות [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=he#bidigeneratecontenttoolcall) נוספות.
 
-## 异步函数调用
+## קריאה אסינכרונית להפעלת פונקציות
 
-函数调用默认按顺序执行，这意味着执行会暂停，直到每个函数调用的结果可用为止。这可确保按顺序处理，这意味着在运行函数时，您将无法继续与模型互动。
+כברירת מחדל, קריאות להפעלת פונקציות מתבצעות באופן רציף, כלומר הביצוע מושהה עד שהתוצאות של כל קריאה להפעלת פונקציה זמינות. כך מובטח עיבוד רציף, כלומר לא תוכלו להמשיך באינטראקציה עם המודל בזמן שהפונקציות פועלות.
 
-如果您不想阻塞对话，可以告知模型异步运行函数。为此，您首先需要向函数定义添加 `behavior`：
+אם אתם לא רוצים לחסום את השיחה, אתם יכולים להנחות את המודל להפעיל את הפונקציות באופן אסינכרוני. כדי לעשות את זה, קודם צריך להוסיף `behavior` להגדרות הפונקציה:
 
 ### Python
 
@@ -247,13 +247,15 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` 可确保函数异步运行，同时您还可以继续与模型互动。
+‫`NON-BLOCKING` מוודא שהפונקציה פועלת באופן אסינכרוני, כך שאתם יכולים להמשיך באינטראקציה עם המודל.
 
-然后，您需要使用 `scheduling` 参数告知模型在收到 `FunctionResponse` 时应如何运行。它可以：
+לאחר מכן צריך להגדיר למודל איך להתנהג כשהוא מקבל את `FunctionResponse` באמצעות הפרמטר `scheduling`. הוא יכול:
 
-- 中断当前操作并立即告知您收到的回答 (`scheduling="INTERRUPT"`)，
-- 等待它完成当前正在执行的任务 (`scheduling="WHEN_IDLE"`)，
-- 或者不执行任何操作，稍后在讨论中使用该知识 (`scheduling="SILENT"`)
+- להתפרץ לפעולה שהוא מבצע ולספר לכם על התשובה שהוא קיבל באופן מיידי
+  (`scheduling="INTERRUPT"`),
+- תחכה עד שהפעולה הנוכחית תסתיים (`scheduling="WHEN_IDLE"`),
+- או לא לעשות כלום ולהשתמש בידע הזה בהמשך השיחה
+  (`scheduling="SILENT"`)
 
 ### Python
 
@@ -285,9 +287,9 @@ const functionResponse = {
 }
 ```
 
-## 依托 Google 搜索进行接地
+## עיגון באמצעות חיפוש Google
 
-您可以在会话配置中启用“依托 Google 搜索进行接地”功能。这有助于提高 Live API 的准确性并防止出现幻觉。如需了解详情，请参阅[接地教程](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
+אפשר להפעיל את העיגון באמצעות חיפוש Google כחלק מהגדרת הסשן. כך משפרים את הדיוק של Live API ומונעים הזיות. מידע נוסף זמין [במדריך בנושא ביסוס](https://ai.google.dev/gemini-api/docs/grounding?hl=he).
 
 ### Python
 
@@ -446,9 +448,9 @@ async function main() {
 main();
 ```
 
-## 结合使用多种工具
+## שילוב של כמה כלים
 
-您可以在 Live API 中组合使用多种工具，从而进一步提升应用的功能：
+אפשר לשלב כמה כלים ב-Live API כדי להרחיב עוד יותר את היכולות של האפליקציה:
 
 ### Python
 
@@ -496,17 +498,17 @@ const config = {
 // ... remaining model call
 ```
 
-## 后续步骤
+## המאמרים הבאים
 
-- 如需查看更多将工具与 Live API 搭配使用的示例，请参阅[工具使用实战宝典](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=zh-cn)。
-- 如需全面了解功能和配置，请参阅 [Live API 功能指南](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-cn)。
+- ב[מדריך המתכונים לשימוש בכלי](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=he) יש עוד דוגמאות לשימוש בכלי באמצעות Live API.
+- ב[מדריך היכולות של Live API](https://ai.google.dev/gemini-api/docs/live-guide?hl=he) אפשר לקרוא את כל הפרטים על התכונות וההגדרות.
 
-发送反馈
+שליחת משוב
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-最后更新时间 (UTC)：2026-09-17。
+עדכון אחרון: 2026-09-17 (שעון UTC).
 
-需要向我们提供更多信息？
+רוצה לתת לנו משוב?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-17。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-17 (שעון UTC)."],[],[]]

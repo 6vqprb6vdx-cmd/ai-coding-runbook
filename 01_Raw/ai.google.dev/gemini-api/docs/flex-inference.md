@@ -1,28 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi
-fetched_at: 2026-10-05T06:28:54.359315+00:00
-title: "Flex inference \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/flex-inference?hl=pt-BR
+fetched_at: 2026-10-12T06:53:24.265784+00:00
+title: "Infer\u00eancia flex\u00edvel \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-सुझाव भेजें
+Envie comentários
 
-# Flex inference
+# Inferência flexível
 
-Gemini Flex API, अनुमान लगाने वाला टियर है. यह स्टैंडर्ड दरों की तुलना में 50% कम कीमत पर उपलब्ध है. हालांकि, इसमें जवाब मिलने में लगने वाला समय अलग-अलग हो सकता है और यह सबसे अच्छी उपलब्धता के साथ काम करता है. इसे ऐसे वर्कलोड के लिए डिज़ाइन किया गया है जिनमें कुछ समय की देरी से काम चल जाता है. साथ ही, जिनमें सिंक्रोनस प्रोसेसिंग की ज़रूरत होती है, लेकिन स्टैंडर्ड एपीआई की रीयल-टाइम परफ़ॉर्मेंस की ज़रूरत नहीं होती.
+A API Gemini Flex é um nível de inferência que oferece uma redução de custo de 50% em comparação com as taxas padrão, em troca de latência variável e disponibilidade do melhor esforço. Ele foi projetado para cargas de trabalho tolerantes à latência que exigem
+processamento síncrono, mas não precisam do desempenho em tempo real da API
+padrão.
 
-## Flex का इस्तेमाल कैसे करें
+## Como usar o Flex
 
-Flex टियर का इस्तेमाल करने के लिए, अपने अनुरोध में `service_tier` को `flex` के तौर पर सेट करें. इस फ़ील्ड को शामिल न करने पर, अनुरोधों के लिए डिफ़ॉल्ट रूप से स्टैंडर्ड टियर का इस्तेमाल किया जाता है.
+Para usar o nível Flex, especifique `service_tier` como `flex` na sua solicitação. Por padrão, as solicitações usam o nível padrão se esse campo for omitido.
 
 ### Python
 
@@ -83,7 +85,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -134,56 +136,59 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Flex inference की सुविधा कैसे काम करती है
+## Como a inferência Flex funciona
 
-Gemini Flex inference, स्टैंडर्ड एपीआई और [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi) के 24 घंटे के टर्नअराउंड के बीच के अंतर को कम करता है. यह ऑफ़-पीक समय में, "शेड की जा सकने वाली" कंप्यूट क्षमता का इस्तेमाल करता है. इससे बैकग्राउंड में होने वाले टास्क और क्रमवार वर्कफ़्लो के लिए, कम लागत वाला समाधान मिलता है.
+A inferência Flex do Gemini faz a ponte entre a API padrão e o tempo de resposta de 24 horas da [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br). Ele usa capacidade de computação fora do horário de pico e "descartável" para oferecer uma solução econômica para tarefas em segundo plano e fluxos de trabalho sequenciais.
 
-| सुविधा | Flex | प्राथमिकता | स्टैंडर्ड | बैच |
+| Recurso | Flex | Prioridade | Padrão | Lote |
 | --- | --- | --- | --- | --- |
-| **कीमत** | 50% की छूट | स्टैंडर्ड वर्शन की तुलना में 75 से 100% ज़्यादा | फ़ुल टिकट | 50% की छूट |
-| **लेटेंसी** | मिनट (1 से 15 मिनट का टारगेट) | कम (सेकंड) | सेकंड से मिनट | 24 घंटे तक |
-| **भरोसेमंद होना** | उपलब्ध कनेक्शन के हिसाब से सबसे अच्छी क्वालिटी (शेड की जा सकने वाली) | ज़्यादा (नॉन-शेडेबल) | ज़्यादा / सामान्य से ज़्यादा | ज़्यादा (थ्रूपुट के लिए) |
-| **इंटरफ़ेस** | सिंक्रोनस | सिंक्रोनस | सिंक्रोनस | एसिंक्रोनस |
+| **Preços** | 50% de desconto | 75 a 100% mais do que o Standard | Preço total | 50% de desconto |
+| **Latência** | Minutos (meta de 1 a 15 minutos) | Baixa (segundos) | Segundos para minutos | Até 24 horas |
+| **Confiabilidade** | Melhor esforço (descartável) | Alta (não descartável) | Alta / média-alta | Alta (para capacidade de processamento) |
+| **Interface** | Síncrona | Síncrona | Síncrona | Assíncrono |
 
-### मुख्य फ़ायदे
+### Principais vantagens
 
-- **लागत कम होना**: इससे नॉन-प्रोडक्शन इवैल, बैकग्राउंड एजेंट, और डेटा को बेहतर बनाने में काफ़ी बचत होती है.
-- **आसानी से लागू करना**: अपने मौजूदा अनुरोधों में बस एक पैरामीटर जोड़ें.
-- **सिंक्रोनस वर्कफ़्लो**: यह वर्कफ़्लो, एपीआई की उन चेन के लिए सबसे सही है जिनमें अगला अनुरोध, पिछले अनुरोध के आउटपुट पर निर्भर करता है. इसलिए, यह एजेंटिक वर्कफ़्लो के लिए बैच से ज़्यादा फ़्लेक्सिबल है.
+- **Eficiência de custo**: economia substancial para avaliações de não produção, agentes em segundo plano e aprimoramento de dados.
+- **Baixa fricção**: basta adicionar um único parâmetro às suas solicitações atuais.
+- **Workflows síncronos**: ideais para cadeias de APIs sequenciais em que a próxima solicitação depende da saída da anterior, o que os torna mais flexíveis do que o Batch para Agentic Workflows.
 
-### उपयोग के उदाहरण
+### Casos de uso
 
-- **ऑफ़लाइन आकलन**: "एलएलएम-एज़-ए-जज" रिग्रेशन टेस्ट या लीडरबोर्ड चलाना.
-- **बैकग्राउंड एजेंट**: ऐसे टास्क जो क्रम से किए जाते हैं. जैसे, सीआरएम अपडेट, प्रोफ़ाइल बनाना या कॉन्टेंट मॉडरेशन. इनमें कुछ मिनट की देरी स्वीकार की जा सकती है.
-- **बजट की कमी वाली रिसर्च**: ऐसे ऐकडेमिक एक्सपेरिमेंट जिनमें सीमित बजट में ज़्यादा टोकन की ज़रूरत होती है.
+- **Avaliações off-line**: execução de testes de regressão ou rankings de "LLM como juiz".
+- **Agentes em segundo plano**: tarefas sequenciais, como atualizações de CRM, criação de perfis ou moderação de conteúdo, em que minutos de atraso são aceitáveis.
+- **Pesquisa limitada pelo orçamento**: experimentos acadêmicos que exigem um alto volume de tokens com um orçamento limitado.
 
-### तय सीमाएं
+### Limites de taxas
 
-फ़्लेक्स इन्फ़्रेंस ट्रैफ़िक को, [अनुरोध भेजने की सामान्य सीमाओं](https://aistudio.google.com/rate-limit?hl=hi) में गिना जाता है. इसमें [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi) की तरह, अनुरोध भेजने की ज़्यादा सीमाएं नहीं मिलती हैं.
+O tráfego de inferência flexível é contabilizado nos [limites de taxa](https://aistudio.google.com/rate-limit?hl=pt-br) gerais, mas não oferece limites estendidos como a [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=pt-br).
 
-### कम की जा सकने वाली क्षमता
+### Capacidade descartável
 
-फ़्लेक्स ट्रैफ़िक को कम प्राथमिकता दी जाती है. अगर स्टैंडर्ड ट्रैफ़िक में अचानक बढ़ोतरी होती है, तो Flex के अनुरोधों को रोका जा सकता है या उन्हें हटा दिया जा सकता है. ऐसा इसलिए किया जाता है, ताकि ज़्यादा प्राथमिकता वाले उपयोगकर्ताओं के लिए क्षमता बनी रहे. अगर आपको ज़्यादा प्राथमिकता वाली इनफ़रेंस सुविधा चाहिए, तो [प्राथमिकता के आधार पर इनफ़रेंस](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi) देखें
+O tráfego flexível é tratado com prioridade mais baixa. Se houver um pico no tráfego padrão, as solicitações flexíveis poderão ser interrompidas ou removidas para garantir a capacidade dos usuários de alta prioridade. Se você estiver procurando inferência de alta prioridade, confira [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br).
 
-### गड़बड़ी के कोड
+### Códigos de erro
 
-जब फ़्लेक्स क्षमता उपलब्ध नहीं होती है या सिस्टम में ज़्यादा लोड होता है, तो एपीआई गड़बड़ी के स्टैंडर्ड कोड दिखाएगा:
+Quando a capacidade flexível não está disponível ou o sistema está congestionado, a API retorna códigos de erro padrão:
 
-- **503 कोड वाली गड़बड़ी: सेवा उपलब्ध नहीं है**: इस्तेमाल करने की मौजूदा सीमा पूरी हो गई है.
-- **429 बहुत ज़्यादा अनुरोध**: अनुरोधों की संख्या तय सीमा से ज़्यादा हो गई है या संसाधन खत्म हो गए हैं.
+- **503 Serviço indisponível**: o sistema está na capacidade máxima.
+- **429: número excessivo de solicitações**: limites de taxa ou esgotamento de recursos.
 
-### क्लाइंट की ज़िम्मेदारी
+### Responsabilidade do cliente
 
-- **सर्वर साइड से फ़ॉलबैक नहीं होता**: अचानक लगने वाले शुल्क से बचने के लिए, अगर Flex की क्षमता पूरी हो जाती है, तो सिस्टम Flex के अनुरोध को स्टैंडर्ड टियर में अपने-आप अपग्रेड नहीं करेगा.
-- **फिर से कोशिश करना**: आपको क्लाइंट-साइड पर, फिर से कोशिश करने का अपना लॉजिक लागू करना होगा. इसके लिए, एक्स्पोनेंशियल बैकऑफ़ का इस्तेमाल करें.
-- **टाइमआउट**: फ़्लेक्स अनुरोधों को कतार में रखा जा सकता है. इसलिए, हमारा सुझाव है कि क्लाइंट-साइड टाइमआउट को 10 मिनट या उससे ज़्यादा पर सेट करें, ताकि कनेक्शन समय से पहले बंद न हो.
+- **Sem substituição do lado do servidor**: para evitar cobranças inesperadas, o sistema não
+  fará upgrade automático de uma solicitação do Flex para o nível Standard se a capacidade do Flex estiver
+  cheia.
+- **Novas tentativas**: você precisa implementar sua própria lógica de novas tentativas do lado do cliente com
+  espera exponencial.
+- **Tempos limite**: como as solicitações flexíveis podem ficar em uma fila, recomendamos aumentar os tempos limite do lado do cliente para 10 minutos ou mais para evitar o fechamento prematuro da conexão.
 
-## टाइम आउट विंडो में बदलाव करना
+## Ajustar janelas de tempo limite
 
-REST API और क्लाइंट लाइब्रेरी के लिए, हर अनुरोध के हिसाब से टाइमआउट कॉन्फ़िगर किए जा सकते हैं.
-हमेशा यह पक्का करें कि क्लाइंट-साइड टाइमआउट, सर्वर के लिए तय की गई इंतज़ार की अवधि के बराबर हो. उदाहरण के लिए, फ़्लेक्स की इंतज़ार की कतारों के लिए 600 सेकंड से ज़्यादा. एसडीके, टाइम आउट की वैल्यू मिलीसेकंड में लेते हैं.
+É possível configurar tempos limite por solicitação para a API REST e as bibliotecas de cliente.
+Sempre verifique se o tempo limite do lado do cliente cobre a janela de espera pretendida do servidor (por exemplo, mais de 600 segundos para filas de espera flexíveis). Os SDKs esperam valores de tempo limite em milissegundos.
 
-### हर अनुरोध के लिए समयसीमाएं
+### Tempos limite por solicitação
 
 ### Python
 
@@ -245,7 +250,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -285,9 +290,10 @@ func main() {
 }
 ```
 
-## फिर से कोशिश करने की सुविधा लागू करना
+## Implementar novas tentativas
 
-फ़्लेक्स को बंद किया जा सकता है और इसमें 503 गड़बड़ियां होती हैं. इसलिए, यहां उन अनुरोधों को जारी रखने के लिए फिर से कोशिश करने के लॉजिक को लागू करने का एक उदाहरण दिया गया है जिन्हें पूरा नहीं किया जा सका:
+Como o Flex pode ser descartado e falha com erros 503, confira um exemplo de
+implementação opcional da lógica de novas tentativas para continuar com solicitações com falha:
 
 ### Python
 
@@ -421,7 +427,7 @@ if (interaction != null) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -486,39 +492,38 @@ func main() {
 }
 ```
 
-## कीमत
+## Preços
 
-फ़्लेक्स इन्फ़रेंस की कीमत, [स्टैंडर्ड एपीआई](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) की कीमत का 50% होती है. इसका बिल हर टोकन के हिसाब से भेजा जाता है.
+A inferência flexível custa 50% da [API padrão](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br)
+e é cobrada por token.
 
-## इन मॉडल के साथ काम करता है
+## Modelos compatíveis
 
-इन मॉडल में फ़्लेक्स इन्फ़रेंस की सुविधा काम करती है:
+Os seguintes modelos são compatíveis com a inferência flexível:
 
-| मॉडल | Flex inference |
+| Modelo | Inferência flex |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=hi) | ✔️ |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=hi) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=hi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
-| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
-| [Gemini 3 Flash की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## आगे क्या करना है
+## A seguir
 
-- इंतज़ार का समय बहुत कम रखने से जुड़ी सेटिंग के लिए, [प्राथमिकता के आधार पर अनुमान लगाना](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi).
-- [टोकन](https://ai.google.dev/gemini-api/docs/tokens?hl=hi): टोकन के बारे में जानें.
+- [Inferência de prioridade](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pt-br) para latência ultrabaixa.
+- [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br): entenda o que são tokens.
 
-सुझाव भेजें
+Envie comentários
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
+Última atualização 2026-10-09 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Quer enviar seu feedback?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-09 UTC."],[],[]]

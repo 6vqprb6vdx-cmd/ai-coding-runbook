@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=hi
-fetched_at: 2026-10-05T06:30:04.726451+00:00
-title: "\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u091c\u0928\u0930\u0947\u091f \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=sq
+fetched_at: 2026-10-12T06:47:43.256717+00:00
+title: "Gjenerimi i tekstit \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 3.8 Flash është tani në dispozicion. [Provojeni](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=sq) .
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs/generate-content?hl=sq)
 
-सुझाव भेजें
+Dërgo komente
 
-# टेक्स्ट जनरेट करना
+# Gjenerimi i tekstit
 
-Gemini API, टेक्स्ट, इमेज, वीडियो, और ऑडियो इनपुट से टेक्स्ट आउटपुट जनरेट कर सकता है.
+Gemini API mund të gjenerojë dalje me tekst nga hyrjet me tekst, imazhe, video dhe audio.
 
-यहां एक सामान्य उदाहरण दिया गया है:
+Këtu është një shembull bazë:
 
 ### Python
 
@@ -55,7 +55,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -105,7 +105,7 @@ public class GenerateContentWithTextInput {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -125,7 +125,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -160,11 +160,12 @@ function main() {
 }
 ```
 
-## Gemini के साथ मिलकर सोचना
+## Po mendon me Gemini
 
-Gemini मॉडल में, ["सोचना"](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) मोड डिफ़ॉल्ट रूप से चालू होता है. इससे मॉडल को किसी अनुरोध का जवाब देने से पहले, उस पर विचार करने का समय मिलता है.
+Modelet e Gemini shpesh kanë të aktivizuar si parazgjedhje ["arsyetimin"](https://ai.google.dev/gemini-api/docs/thinking?hl=sq), i cili e lejon modelin të arsyetojë para se t'i përgjigjet një kërkese.
 
-हर मॉडल, अलग-अलग थिंकिंग कॉन्फ़िगरेशन के साथ काम करता है. इससे आपको लागत, लेटेन्सी, और इंटेलिजेंस पर कंट्रोल मिलता है. ज़्यादा जानकारी के लिए, [सोचने की गाइड](https://ai.google.dev/gemini-api/docs/thinking?hl=hi#set-budget) देखें.
+Çdo model mbështet konfigurime të ndryshme të të menduarit, gjë që të jep kontroll mbi koston, vonesën dhe inteligjencën. Për më shumë detaje, shiko
+[udhëzuesin e të menduarit](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=sq#set-budget).
 
 ### Python
 
@@ -207,7 +208,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -271,7 +272,7 @@ public class GenerateContentWithThinkingConfig {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -296,7 +297,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -336,10 +337,9 @@ function main() {
 }
 ```
 
-## सिस्टम के निर्देश और अन्य कॉन्फ़िगरेशन
+## Udhëzimet e sistemit dhe konfigurimet e tjera
 
-सिस्टम के निर्देशों की मदद से, Gemini मॉडल के व्यवहार को कंट्रोल किया जा सकता है. ऐसा करने के लिए,
-[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) ऑब्जेक्ट पास करें.
+Mund të udhëzosh sjelljen e modeleve të Gemini me udhëzimet e sistemit. Për ta bërë këtë, kalo një objekt [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig)
 
 ### Python
 
@@ -380,7 +380,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -443,7 +443,7 @@ public class GenerateContentWithSystemInstruction {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -469,7 +469,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -511,7 +511,9 @@ function main() {
 }
 ```
 
-[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) ऑब्जेक्ट की मदद से, जनरेशन के डिफ़ॉल्ट पैरामीटर भी बदले जा सकते हैं. जैसे, [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig).
+Objekti [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig)
+të lejon gjithashtu të zëvendësosh parametrat e parazgjedhur të gjenerimit, si p.sh.
+[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig).
 
 ### Python
 
@@ -552,7 +554,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -610,7 +612,7 @@ public class GenerateContentWithConfig {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent \
@@ -636,7 +638,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ge
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -677,11 +679,13 @@ function main() {
 }
 ```
 
-कॉन्फ़िगर किए जा सकने वाले पैरामीटर और उनके ब्यौरे की पूरी सूची देखने के लिए, हमारे एपीआई रेफ़रंस में [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) देखें.
+Referoju [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig)
+në referencën tonë të API-së për një listë të plotë të parametrave të konfigurueshëm dhe
+përshkrimet e tyre.
 
-## मल्टीमोडल इनपुट
+## Hyrjet multimodale
 
-Gemini API में, टेक्स्ट, इमेज, वीडियो, और ऑडियो, सभी तरह के इनपुट इस्तेमाल किए जा सकते हैं. इससे आपको टेक्स्ट के साथ-साथ मीडिया फ़ाइलें भी इस्तेमाल करने की सुविधा मिलती है. यहां दी गई इमेज में, इमेज उपलब्ध कराने का तरीका दिखाया गया है:
+API-ja e Gemini mbështet hyrjet multimodale, duke të të lejuar që të kombinosh tekstin me skedarët e mediave. Shembulli i mëposhtëm demonstron dhënien e një imazhi:
 
 ### Python
 
@@ -729,7 +733,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -803,7 +807,7 @@ public class GenerateContentWithMultiModalInputs {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 # Use a temporary file to hold the base64 encoded image data
@@ -842,7 +846,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   -d "@$TEMP_JSON"
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -889,14 +893,19 @@ function getImageData(url) {
 }
 ```
 
-इमेज उपलब्ध कराने के अन्य तरीकों और इमेज प्रोसेसिंग के ज़्यादा बेहतर तरीके के बारे में जानने के लिए, [इमेज समझने से जुड़ी हमारी गाइड](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi) देखें.
-यह एपीआई, [दस्तावेज़](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi), [वीडियो](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi), और [ऑडियो](https://ai.google.dev/gemini-api/docs/audio?hl=hi) इनपुट को भी समझ सकता है.
+Për metoda alternative për të ofruar imazhe dhe për përpunim më të avancuar të imazheve,
+shiko [udhëzuesin tonë për kuptimin e imazheve](https://ai.google.dev/gemini-api/docs/image-understanding?hl=sq).
+API-ja mbështet gjithashtu hyrjet dhe të kuptuarit e [dokumenteve](https://ai.google.dev/gemini-api/docs/document-processing?hl=sq),
+[videove](https://ai.google.dev/gemini-api/docs/video-understanding?hl=sq) dhe
+[audios](https://ai.google.dev/gemini-api/docs/audio?hl=sq).
 
-## जवाब स्ट्रीम करना
+## Përgjigjet e transmetuara
 
-डिफ़ॉल्ट रूप से, मॉडल जवाब सिर्फ़ तब देता है, जब जनरेट करने की पूरी प्रोसेस पूरी हो जाती है.
+Si parazgjedhje, modeli kthen një përgjigje vetëm pasi të ketë përfunduar i gjithë procesi i gjenerimit.
 
-बेहतर इंटरैक्शन के लिए, स्ट्रीमिंग का इस्तेमाल करें. इससे जनरेट होने वाले [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerateContentResponse) इंस्टेंस, आपको धीरे-धीरे मिलते रहेंगे.
+Për ndërveprime më të rrjedhshme, përdor transmetimin për të marrë
+[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerateContentResponse)
+shembuj në mënyrë shtesë ndërsa gjenerohen.
 
 ### Python
 
@@ -934,7 +943,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -995,7 +1004,7 @@ public class GenerateContentStream {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse" \
@@ -1015,7 +1024,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:s
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1050,9 +1059,9 @@ function main() {
 }
 ```
 
-## सिलसिलेवार बातचीत (चैट)
+## Bisedat me shumë kthesa (biseda)
 
-हमारे SDK, चैट में कई राउंड के प्रॉम्प्ट और जवाब इकट्ठा करने की सुविधा देते हैं. इससे आपको बातचीत के इतिहास को आसानी से ट्रैक करने में मदद मिलती है.
+SDK-të tona ofrojnë funksionalitetin për të mbledhur disa raunde kërkesash dhe përgjigjesh në një bisedë, duke të të dhënë një mënyrë të lehtë për të mbajtur nën kontroll historikun e bisedës.
 
 ### Python
 
@@ -1109,7 +1118,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1175,7 +1184,7 @@ public class MultiTurnConversation {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent \
@@ -1212,7 +1221,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ge
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1260,7 +1269,7 @@ function main() {
 }
 ```
 
-स्ट्रीमिंग का इस्तेमाल, सिलसिलेवार बातचीत के लिए भी किया जा सकता है.
+Transmetimi mund të përdoret gjithashtu për biseda me shumë kthesa.
 
 ### Python
 
@@ -1325,7 +1334,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -1394,7 +1403,7 @@ public class MultiTurnConversationWithStreaming {
 }
 ```
 
-### REST
+### QETËSI
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse \
@@ -1431,7 +1440,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:st
   }'
 ```
 
-### Apps Script
+### Skripti i aplikacioneve
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1479,38 +1488,45 @@ function main() {
 }
 ```
 
-## प्रॉम्प्ट लिखने से जुड़ी सलाह
+## Këshilla për kërkesat
 
-Gemini का ज़्यादा से ज़्यादा फ़ायदा पाने के लिए, हमारी [प्रॉम्प्ट इंजीनियरिंग गाइड](https://ai.google.dev/gemini/docs/prompting-strategies?hl=hi) देखें.
+Konsulto [udhëzuesin tonë për hartimin e kërkesave](https://ai.google.dev/gemini/docs/prompting-strategies?hl=sq) për sugjerime për të përfituar sa më shumë nga Gemini.
 
-## आगे क्या करना है
+## Çfarë ka më pas
 
-- [Google AI Studio में Gemini](https://aistudio.google.com?hl=hi) को आज़माएं.
-- JSON जैसे जवाबों के लिए, [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) की सुविधा आज़माएं.
-- Gemini की [इमेज](https://ai.google.dev/gemini-api/docs/image-understanding?hl=hi), [वीडियो](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi), [ऑडियो](https://ai.google.dev/gemini-api/docs/audio?hl=hi), और [दस्तावेज़](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi) को समझने की क्षमताओं के बारे में जानें.
-- मल्टीमॉडल [फ़ाइल प्रॉम्प्ट करने की रणनीतियों](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide) के बारे में जानें.
+- Provo [Gemini në Google AI Studio](https://aistudio.google.com?hl=sq).
+- Eksperimento me [daljet e strukturuara](https://ai.google.dev/gemini-api/docs/structured-output?hl=sq) për përgjigje të ngjashme me JSON.
+- Eksploro aftësitë e Gemini për të kuptuar [imazhet](https://ai.google.dev/gemini-api/docs/image-understanding?hl=sq),
+  [videot](https://ai.google.dev/gemini-api/docs/video-understanding?hl=sq), [audion](https://ai.google.dev/gemini-api/docs/audio?hl=sq)
+  dhe [dokumentet](https://ai.google.dev/gemini-api/docs/document-processing?hl=sq).
+- Mëso rreth
+  [strategjive të kërkesave për skedarë](https://ai.google.dev/gemini-api/docs/files?hl=sq#prompt-guide) multimodalë.
 
-## कॉन्टेंट जनरेट करना
+## Gjenerimi i përmbajtjes
 
-यह मॉडल को प्रॉम्प्ट भेजने के लिए मुख्य एंडपॉइंट है. कॉन्टेंट जनरेट करने के लिए, दो एंडपॉइंट उपलब्ध हैं. इनमें मुख्य अंतर यह है कि आपको जवाब कैसे मिलता है:
+Kjo është pika përfundimtare qendrore për dërgimin e kërkesave te modeli. Ka dy pika fundore për gjenerimin e përmbajtjeve. Ndryshimi kryesor është mënyra se si e merr përgjigjen:
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=hi#method:-models.generatecontent)
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=sq#method:-models.generatecontent)
   (REST)**:
-  यह अनुरोध स्वीकार करता है और मॉडल के जवाब जनरेट करने के बाद, एक जवाब देता है.
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=hi#method:-models.streamgeneratecontent)
-  (एसएसई)**: इसे ठीक वही अनुरोध मिलता है, लेकिन मॉडल जवाब के हिस्सों को जनरेट होने के साथ-साथ स्ट्रीम करता है. इससे इंटरैक्टिव ऐप्लिकेशन के लिए, उपयोगकर्ताओं को बेहतर अनुभव मिलता है. ऐसा इसलिए, क्योंकि इससे आपको तुरंत कुछ नतीजे दिखाने की सुविधा मिलती है.
+  Merr një kërkesë dhe ofron një përgjigje të vetme pasi modeli ka përfunduar gjenerimin e tij të plotë.
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=sq#method:-models.streamgeneratecontent)
+  (SSE)**: Merr të njëjtën kërkesë, por modeli transmeton përsëri pjesë të përgjigjes ndërsa ato gjenerohen. Kjo ofron një përvojë më të mirë për përdoruesit për aplikacionet interaktive pasi të lejon të shfaqësh menjëherë rezultate të pjesshme.
 
-### अनुरोध के मुख्य हिस्से का स्ट्रक्चर
+### Struktura e trupit të kërkesës
 
-[अनुरोध का मुख्य हिस्सा](https://ai.google.dev/api/generate-content?hl=hi#request-body) एक JSON ऑब्जेक्ट है. यह स्टैंडर्ड और स्ट्रीमिंग, दोनों मोड के लिए **एक जैसा** होता है. इसे कुछ मुख्य ऑब्जेक्ट से बनाया जाता है:
+[Trupi i kërkesës](https://ai.google.dev/api/generate-content?hl=sq#request-body) është një objekt JSON që është
+**identik** për modalitetet standard dhe të transmetimit dhe është ndërtuar nga disa objekte
+themelore:
 
-- [`Content`](https://ai.google.dev/api/caching?hl=hi#Content) ऑब्जेक्ट: यह बातचीत के एक टर्न को दिखाता है.
-- [`Part`](https://ai.google.dev/api/caching?hl=hi#Part) ऑब्जेक्ट: `Content` टर्न में मौजूद डेटा का कोई हिस्सा (जैसे, टेक्स्ट या इमेज).
-- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=hi#Blob)): यह रॉ मीडिया बाइट और उनके एमआईएमई टाइप के लिए एक कंटेनर होता है.
+- Objekti [`Content`](https://ai.google.dev/api/caching?hl=sq#Content): Përfaqëson një kthesë të vetme në një bisedë.
+- Objekti [`Part`](https://ai.google.dev/api/caching?hl=sq#Part): Një pjesë e të dhënave brenda një kthese të `Content`
+  (si teksti ose një imazh).
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=sq#Blob)): Një kontejner për bajtet e medias së papërpunuar
+  dhe llojin e tyre MIME.
 
-सबसे ऊपर के लेवल पर, अनुरोध के मुख्य हिस्से में एक `contents` ऑब्जेक्ट होता है. यह `Content` ऑब्जेक्ट की सूची होती है. हर ऑब्जेक्ट, बातचीत के टर्न को दिखाता है. ज़्यादातर मामलों में, बुनियादी टेक्स्ट जनरेट करने के लिए आपके पास एक `Content` ऑब्जेक्ट होगा. हालांकि, अगर आपको बातचीत का इतिहास बनाए रखना है, तो एक से ज़्यादा `Content` ऑब्जेक्ट इस्तेमाल किए जा सकते हैं.
+Në nivelin më të lartë, trupi i kërkesës përmban një objekt `contents`, i cili është një listë e objekteve `Content`, secili prej të cilëve përfaqëson radhët në bisedë. Në shumicën e rasteve, për gjenerimin bazë të tekstit, do të kesh një objekt të vetëm `Content`, por nëse dëshiron të mbash historikun e bisedave, mund të përdorësh disa objekte `Content`.
 
-यहां `generateContent` अनुरोध के मुख्य हिस्से का एक सामान्य उदाहरण दिया गया है:
+Më poshtë tregohet një trup tipik i kërkesës `generateContent`:
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1535,20 +1551,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### जवाब के मुख्य भाग का स्ट्रक्चर
+### Struktura e trupit të përgjigjes
 
-स्ट्रीमिंग और स्टैंडर्ड, दोनों मोड के लिए [जवाब का मुख्य हिस्सा](https://ai.google.dev/api/generate-content?hl=hi#response-body) एक जैसा होता है. हालांकि, इनमें ये अंतर होते हैं:
+[Trupi i përgjigjes](https://ai.google.dev/api/generate-content?hl=sq#response-body) është i ngjashëm për të dyja modalitetet e transmetimit dhe standarde, përveç sa më poshtë:
 
-- स्टैंडर्ड मोड: जवाब के मुख्य हिस्से में [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerateContentResponse) का एक इंस्टेंस होता है.
-- स्ट्रीमिंग मोड: जवाब के मुख्य हिस्से में, [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerateContentResponse) इंस्टेंस की स्ट्रीम होती है.
+- Modaliteti standard: Trupi i përgjigjes përmban një shembull të
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerateContentResponse).
+- Modaliteti i transmetimit: Trupi i përgjigjes përmban një transmetim të
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerateContentResponse)
+  rasteve.
 
-जवाब के मुख्य हिस्से में एक `candidates` ऑब्जेक्ट होता है. यह `Candidate` ऑब्जेक्ट की सूची होती है. `Candidate` ऑब्जेक्ट में एक `Content` ऑब्जेक्ट होता है. इसमें मॉडल से मिला जनरेट किया गया जवाब होता है.
+Në nivel të lartë, trupi i përgjigjes përmban një objekt `candidates`, i cili është një listë e objekteve `Candidate`. Objekti `Candidate` përfshin një objekt `Content`
+që ka përgjigjen e gjeneruar të kthyer nga modeli.
 
-## REST API के उदाहरण
+## Shembuj të REST API
 
-### मल्टीमॉडल प्रॉम्प्ट (टेक्स्ट और इमेज)
+### Kërkesë multimodale (tekst dhe imazh)
 
-प्रॉम्प्ट में टेक्स्ट और इमेज, दोनों शामिल करने के लिए, `parts` ऐरे में दो `Part` ऑब्जेक्ट होने चाहिए: एक टेक्स्ट के लिए और दूसरा इमेज `inline_data` के लिए.
+Për të ofruar tekst dhe një imazh në një kërkesë, vargu `parts` duhet të përmbajë dy objekte `Part`: një për tekstin dhe një për imazhin `inline_data`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1570,9 +1590,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### सिलसिलेवार बातचीत (चैट)
+### Bisedat me shumë kthesa (biseda)
 
-कई टर्न वाली बातचीत बनाने के लिए, `contents` ऐरे को कई `Content` ऑब्जेक्ट के साथ तय करें. एपीआई, इस पूरे इतिहास का इस्तेमाल अगले जवाब के लिए कॉन्टेक्स्ट के तौर पर करेगा. हर `Content` ऑब्जेक्ट के लिए `role`, `user` और `model` के बीच बदलता रहना चाहिए.
+Për të ndërtuar një bisedë me shumë kthesa, ti përcakton një grup `contents` me shumë objekte `Content`. API-ja do ta përdorë të gjithë këtë historik si kontekst
+për përgjigjen e radhës. `role` për çdo objekt `Content` duhet të alternohet
+midis `user` dhe `model`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1603,24 +1625,27 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### ज़रूरी बातें
+### Pikat kryesore
 
-- `Content` एनवलप है: यह मैसेज टर्न के लिए टॉप-लेवल कंटेनर होता है. यह उपयोगकर्ता या मॉडल, किसी का भी हो सकता है.
-- `Part` मल्टीमॉडल की सुविधा चालू करता है: अलग-अलग तरह के डेटा (टेक्स्ट, इमेज, वीडियो यूआरआई वगैरह) को एक साथ इस्तेमाल करने के लिए, एक ही `Content` ऑब्जेक्ट में कई `Part` ऑब्जेक्ट का इस्तेमाल करें.
-- डेटा ट्रांसफ़र करने का तरीका चुनें:
-  - सीधे तौर पर एम्बेड किए गए छोटे मीडिया (जैसे कि ज़्यादातर इमेज) के लिए, `Part` के साथ `inline_data` का इस्तेमाल करें.
-  - बड़ी फ़ाइलों या उन फ़ाइलों के लिए जिन्हें आपको कई अनुरोधों में फिर से इस्तेमाल करना है, फ़ाइल अपलोड करने के लिए File API का इस्तेमाल करें. साथ ही, इसे `file_data` पार्ट के साथ रेफ़रंस करें.
-- बातचीत के इतिहास को मैनेज करना: REST API का इस्तेमाल करने वाले चैट ऐप्लिकेशन के लिए, `contents` ऐरे बनाएं. इसके लिए, हर टर्न के लिए `Content` ऑब्जेक्ट जोड़ें. साथ ही, `"user"` और `"model"` भूमिकाओं के बीच बारी-बारी से बदलाव करें. अगर एसडीके का इस्तेमाल किया जा रहा है, तो बातचीत के इतिहास को मैनेज करने के सुझाए गए तरीके के लिए, एसडीके के दस्तावेज़ देखें.
+- `Content` është zarfi: Është kontejneri i nivelit të lartë për një kthesë të mesazhit, pavarësisht nëse është nga përdoruesi apo modeli.
+- `Part` mundëson modalitetin e shumëfishtë: Përdor disa objekte të `Part` brenda një objekti të vetëm të `Content` për të kombinuar lloje të ndryshme të dhënash (tekst, imazh, URI videoje etj.).
+- Zgjidh metodën tënde të të dhënave:
+  - Për media të vogla të integruara drejtpërdrejt (si shumica e imazheve), përdor një `Part` me
+    `inline_data`.
+  - Për skedarë më të mëdhenj ose skedarë që dëshiron të ripërdorësh nëpër kërkesa, përdor File API për të ngarkuar skedarin dhe referoju atij me një pjesë `file_data`.
+- Menaxho historikun e bisedave: Për aplikacionet e bisedës që përdorin API-në REST, krijo
+  masivin `contents` duke shtuar objekte `Content` për çdo radhë,
+  duke alternuar rolet e `"user"` dhe `"model"`. Nëse po përdor një SDK, referoju dokumentacionit të SDK-së për mënyrën e rekomanduar për të menaxhuar historikun e bisedave.
 
-## जवाब के उदाहरण
+## Shembuj të përgjigjeve
 
-यहां दिए गए उदाहरणों में दिखाया गया है कि अलग-अलग तरह के अनुरोधों के लिए, ये कॉम्पोनेंट एक साथ कैसे काम करते हैं.
+Shembujt e mëposhtëm tregojnë se si këta komponentë bashkohen për lloje të ndryshme kërkesash.
 
-### सिर्फ़ टेक्स्ट वाला जवाब
+### Përgjigje vetëm me tekst
 
-डिफ़ॉल्ट टेक्स्ट रिस्पॉन्स में, एक `candidates` ऐरे होता है. इसमें एक या उससे ज़्यादा `content` ऑब्जेक्ट होते हैं. इनमें मॉडल का जवाब शामिल होता है.
+Një përgjigje e parazgjedhur me tekst përbëhet nga një matricë `candidates` me një ose më shumë objekte `content` që përmbajnë përgjigjen e modelit.
 
-यहां **स्टैंडर्ड** जवाब का एक उदाहरण दिया गया है:
+Më poshtë është një shembull i një përgjigjeje **standarde**:
 
 ```
 {
@@ -1641,7 +1666,8 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-यहां **स्ट्रीमिंग** के ज़रिए दिए गए जवाबों की सीरीज़ दी गई है. हर जवाब में एक `responseId` होता है, जिसमें पूरे जवाब की जानकारी होती है:
+Në vijim është një seri përgjigjesh **me transmetim**. Çdo përgjigje përmban një
+`responseId` që i lidh të gjitha përgjigjet së bashku:
 
 ```
 {
@@ -1689,37 +1715,43 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-## Live API (BidiGenerateContent) WebSockets API
+## API-ja e drejtpërdrejtë (BidiGenerateContent) WebSockets API
 
-Live API, स्टेटफ़ुल WebSocket पर आधारित एपीआई उपलब्ध कराता है. इससे दोनों दिशाओं में स्ट्रीमिंग की जा सकती है, ताकि रीयल-टाइम स्ट्रीमिंग के इस्तेमाल के उदाहरणों को चालू किया जा सके. ज़्यादा जानकारी के लिए, [Live API की गाइड](https://ai.google.dev/gemini-api/docs/live?hl=hi) और [Live API के बारे में जानकारी](https://ai.google.dev/api/live?hl=hi) देखें.
+Live API ofron një API me gjendje të bazuar në WebSocket për transmetim në dy drejtime për të mundësuar raste përdorimi të transmetimit në kohë reale. Mund të rishikosh
+[udhëzuesin e API-së së transmetimit të drejtpërdrejtë](https://ai.google.dev/gemini-api/docs/live?hl=sq) dhe [referencën e API-së së transmetimit të drejtpërdrejtë](https://ai.google.dev/api/live?hl=sq)
+për më shumë detaje.
 
-## खास मॉडल
+## Modelet e specializuara
 
-Gemini API, Gemini के मॉडल के अलावा, [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi), [Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=hi), और [embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi) मॉडल जैसे खास मॉडल के लिए एंडपॉइंट उपलब्ध कराता है. मॉडल सेक्शन में जाकर, इन गाइड को देखा जा सकता है.
+Përveç familjes së modeleve të Gemini, Gemini API ofron pika fundore për modele të specializuara si [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq),
+[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=sq) dhe
+[modelet e integrimit](https://ai.google.dev/gemini-api/docs/embeddings?hl=sq). Mund t'i shikosh këta udhëzues te seksioni "Modelet".
 
-## प्लैटफ़ॉर्म एपीआई
+## API-të e platformës
 
-बाकी एंडपॉइंट, अब तक बताए गए मुख्य एंडपॉइंट के साथ इस्तेमाल करने के लिए अतिरिक्त सुविधाएं चालू करते हैं. ज़्यादा जानने के लिए, गाइड सेक्शन में जाकर [बैच मोड](https://ai.google.dev/gemini-api/docs/batch-mode?hl=hi) और [File API](https://ai.google.dev/gemini-api/docs/files?hl=hi) के बारे में पढ़ें.
+Pjesa tjetër e pikave fundore aktivizojnë aftësi shtesë për t'u përdorur me pikat fundore kryesore të përshkruara deri tani. Shiko temat
+[Modaliteti i grupeve](https://ai.google.dev/gemini-api/docs/batch-mode?hl=sq) dhe
+[API-ja e skedarëve](https://ai.google.dev/gemini-api/docs/files?hl=sq) në seksionin "Udhëzuesit" për të mësuar më shumë.
 
-## आगे क्या करना है
+## Çfarë ka më pas
 
-अगर आपको Gemini API के बारे में ज़्यादा जानकारी नहीं है, तो यहाँ दी गई गाइड पढ़ें. इनसे आपको Gemini API के प्रोग्रामिंग मॉडल को समझने में मदद मिलेगी:
+Nëse sapo ke filluar, shiko udhëzuesit e mëposhtëm, të cilët do të të ndihmojnë të kuptosh modelin e programimit të Gemini API:
 
-- [Gemini API का इस्तेमाल शुरू करने से जुड़ी गाइड](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Gemini मॉडल गाइड](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi)
+- [Udhëzuesi i fillimit për Gemini API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
+- [Udhëzuesi për modelin e Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=sq)
 
-आपको Gemini API की सुविधाओं के बारे में बताने वाली गाइड भी देखनी चाहिए. इनमें Gemini API की अलग-अलग सुविधाओं के बारे में बताया गया है. साथ ही, कोड के उदाहरण भी दिए गए हैं:
+Mund të dëshirosh gjithashtu të shikosh udhëzuesit e aftësive, të cilët prezantojnë veçori të ndryshme të Gemini API dhe ofrojnë shembuj kodesh:
 
-- [टेक्स्ट जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi)
-- [कॉन्टेक्स्ट के लिए कैश मेमोरी की सुविधा](https://ai.google.dev/gemini-api/docs/caching?hl=hi)
-- [एम्बेडिंग](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi)
+- [Gjenerimi i tekstit](https://ai.google.dev/gemini-api/docs/text-generation?hl=sq)
+- [Ruajtja në memorien specifike e kontekstit](https://ai.google.dev/gemini-api/docs/caching?hl=sq)
+- [Integrimet](https://ai.google.dev/gemini-api/docs/embeddings?hl=sq)
 
-सुझाव भेजें
+Dërgo komente
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया.
+Përditësimi i fundit: 2026-10-09 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Duhet të na tregosh më shumë?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-18 (UTC) को अपडेट किया गया."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-09 UTC."],[],[]]

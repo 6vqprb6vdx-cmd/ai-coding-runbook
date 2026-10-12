@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=id
-fetched_at: 2026-10-05T06:41:51.339164+00:00
-title: "Penggunaan komputer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=hi
+fetched_at: 2026-10-12T07:17:53.117954+00:00
+title: "\u0915\u0902\u092a\u094d\u092f\u0942\u091f\u0930 \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Penggunaan komputer
+# कंप्यूटर का इस्तेमाल
 
-Alat Penggunaan Komputer memungkinkan Anda membuat agen kontrol browser, seluler, dan desktop yang berinteraksi dengan dan mengotomatiskan tugas. Dengan menggunakan screenshot, model dapat "melihat" layar komputer, dan "bertindak" dengan membuat tindakan UI tertentu seperti klik mouse dan input keyboard. Mirip dengan panggilan fungsi, Anda harus menerapkan lingkungan eksekusi sisi klien untuk menerima dan mengeksekusi tindakan Penggunaan Komputer.
+कंप्यूटर इस्तेमाल करने वाले टूल की मदद से, ब्राउज़र, मोबाइल, और डेस्कटॉप कंट्रोल एजेंट बनाए जा सकते हैं. ये एजेंट, टास्क के साथ इंटरैक्ट करते हैं और उन्हें ऑटोमेट करते हैं. स्क्रीनशॉट का इस्तेमाल करके, मॉडल कंप्यूटर स्क्रीन को "देख" सकता है. साथ ही, माउस क्लिक और कीबोर्ड इनपुट जैसी यूज़र इंटरफ़ेस (यूआई) से जुड़ी कार्रवाइयां करके "काम" कर सकता है. फ़ंक्शन कॉलिंग की तरह ही, आपको क्लाइंट-साइड एक्ज़ीक्यूशन एनवायरमेंट लागू करना होगा, ताकि कंप्यूटर के इस्तेमाल से जुड़ी कार्रवाइयां की जा सकें.
 
-Untuk mengetahui daftar model yang didukung, lihat [Versi model](#model-versions). Model Gemini 3.x mendukung beberapa kemampuan lanjutan:
+इस्तेमाल किए जा सकने वाले मॉडल की सूची देखने के लिए, [मॉडल के वर्शन](#model-versions) पर जाएं. Gemini 3.x मॉडल में कई बेहतर सुविधाएँ उपलब्ध हैं:
 
-- **Dukungan multi-lingkungan:** agen build untuk lingkungan [browser, seluler, dan desktop](#supported-environments).
-- **Tindakan yang disederhanakan dengan maksud:** tindakan mencakup kolom `intent` yang menjelaskan alasan model di balik setiap langkah.
-- **Kebijakan keamanan yang dapat dikonfigurasi:** sesuaikan [perilaku keamanan](#safety-policies) dengan kategori dan penggantian kebijakan bawaan.
-- **Deteksi injeksi perintah:** aktifkan [pemindaian screenshot](#prompt-injection) untuk mendeteksi petunjuk berbahaya tersembunyi.
+- **एक से ज़्यादा एनवायरमेंट के लिए सहायता:** [ब्राउज़र, मोबाइल, और डेस्कटॉप](#supported-environments) एनवायरमेंट के लिए एजेंट बनाएं.
+- **आसानी से की जा सकने वाली कार्रवाइयां:** कार्रवाइयों में एक `intent` फ़ील्ड शामिल होता है. इसमें मॉडल के हर चरण के पीछे की वजह बताई जाती है.
+- **कॉन्फ़िगर की जा सकने वाली सुरक्षा नीतियां:** पहले से मौजूद नीति की कैटगरी और ओवरराइड की मदद से, [सुरक्षा से जुड़ी सेटिंग](#safety-policies) को बेहतर बनाएं.
+- **प्रॉम्प्ट इंजेक्शन का पता लगाने की सुविधा:** छिपे हुए नुकसान पहुंचाने वाले निर्देशों का पता लगाने के लिए, [स्क्रीनशॉट स्कैन करने की सुविधा](#prompt-injection) के लिए ऑप्ट-इन करें.
 
-Dengan Penggunaan Komputer, Anda dapat membuat agen yang:
+कंप्यूटर के इस्तेमाल की सुविधा की मदद से, ऐसे एजेंट बनाए जा सकते हैं जो:
 
-- Mengotomatiskan entri data atau pengisian formulir yang berulang di situs.
-- Melakukan pengujian otomatis aplikasi web dan alur pengguna
-- Melakukan riset di berbagai situs (misalnya, mengumpulkan informasi produk, harga, dan ulasan dari situs e-commerce untuk membantu pengambilan keputusan pembelian)
+- वेबसाइटों पर बार-बार डेटा डालने या फ़ॉर्म भरने की प्रोसेस को अपने-आप होने की सुविधा का इस्तेमाल करके आसान बनाएं.
+- वेब ऐप्लिकेशन और उपयोगकर्ता फ़्लो की ऑटोमेटेड टेस्टिंग करना
+- अलग-अलग वेबसाइटों पर रिसर्च करना. जैसे, खरीदारी करने से पहले ई-कॉमर्स साइटों से प्रॉडक्ट की जानकारी, कीमतें, और समीक्षाएं इकट्ठा करना
 
-Berikut adalah contoh minimal untuk menginisialisasi klien dan mengirimkan perintah ke model dengan alat `computer_use` yang diaktifkan untuk lingkungan browser:
+यहां क्लाइंट को शुरू करने और ब्राउज़र एनवायरमेंट के लिए `computer_use` टूल चालू करके, मॉडल को प्रॉम्प्ट भेजने का एक छोटा उदाहरण दिया गया है:
 
 ### Python
 
@@ -96,7 +96,7 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -137,54 +137,45 @@ func main() {
 }
 ```
 
-## Cara kerja Penggunaan Komputer
+## कंप्यूटर के इस्तेमाल की सुविधा कैसे काम करती है
 
-Untuk membuat agen dengan model Penggunaan Komputer, Anda perlu menyiapkan loop berkelanjutan antara aplikasi dan API. Berikut adalah fungsi kode Anda di setiap langkah:
+कंप्यूटर के इस्तेमाल वाले मॉडल के साथ एजेंट बनाने के लिए, आपको अपने ऐप्लिकेशन और एपीआई के बीच एक लूप सेट अप करना होगा. यहां बताया गया है कि हर चरण में आपका कोड क्या करेगा:
 
-1. [**Mengirim permintaan ke model**](#send-request)
-   - Aplikasi Anda mengirimkan permintaan API yang berisi alat Penggunaan Komputer, setelan konfigurasi Anda (seperti lingkungan target), perintah pengguna, dan screenshot layar saat ini.
-2. [**Menerima respons model**](#model-response)
-   - Model menganalisis layar dan perintah, lalu menampilkan respons
-     yang mencakup `function_call` yang disarankan yang mewakili tindakan UI (seperti
-     klik, scroll, atau penekanan tombol).
-   - Untuk **model Gemini 3.x**, respons juga mencakup alasan `intent`
-     yang menjelaskan mengapa model memilih tindakan tersebut.
-   - Respons juga dapat mencakup `safety_decision` dari sistem keamanan internal yang mengklasifikasikan tindakan sebagai reguler/diizinkan, `require_confirmation` (memerlukan persetujuan pengguna), atau diblokir.
-3. [**Jalankan tindakan yang diterima**](#execute-actions)
-   - Jika tindakan diizinkan (atau pengguna mengonfirmasinya), kode
-     sisi klien Anda akan mem-parsing `function_call`, menskalakan koordinat yang dinormalisasi agar sesuai dengan
-     area tampilan, dan menjalankan tindakan di lingkungan target menggunakan
-     alat otomatisasi (seperti Playwright). Jika tindakan diblokir, klien Anda harus menghentikan eksekusi atau menangani gangguan.
-4. [**Merekam status lingkungan baru**](#capture-state)
-   - Setelah tindakan selesai dieksekusi, aplikasi Anda akan mengambil screenshot baru dan mengirimkannya kembali ke model dalam `function_result` untuk meminta langkah berikutnya.
+1. [**मॉडल को अनुरोध भेजना**](#send-request)
+   - आपका ऐप्लिकेशन, एपीआई का एक अनुरोध भेजता है. इसमें कंप्यूटर के इस्तेमाल से जुड़ा टूल, आपकी कॉन्फ़िगरेशन सेटिंग (जैसे कि टारगेट एनवायरमेंट), उपयोगकर्ता का प्रॉम्प्ट, और मौजूदा स्क्रीन का स्क्रीनशॉट शामिल होता है.
+2. [**मॉडल से जवाब पाना**](#model-response)
+   - मॉडल, स्क्रीन और प्रॉम्प्ट का विश्लेषण करता है. इसके बाद, जवाब देता है. इस जवाब में, यूज़र इंटरफ़ेस (यूआई) से जुड़ी कार्रवाई (जैसे कि क्लिक करना, स्क्रोल करना या कीस्ट्रोक) को दिखाने वाला `function_call` शामिल होता है.
+   - **Gemini 3.x मॉडल** के लिए, जवाब में `intent` भी शामिल होता है. इसमें यह बताया जाता है कि मॉडल ने वह कार्रवाई क्यों चुनी.
+   - जवाब में, `safety_decision` भी शामिल हो सकता है. यह इंटरनल सुरक्षा सिस्टम से मिलता है. इसमें कार्रवाई को सामान्य/अनुमति दी गई, `require_confirmation` (उपयोगकर्ता की अनुमति ज़रूरी है) या ब्लॉक के तौर पर क्लासिफ़ाई किया जाता है.
+3. [**मिली हुई कार्रवाई को पूरा करना**](#execute-actions)
+   - अगर कार्रवाई की अनुमति है या उपयोगकर्ता इसकी पुष्टि करता है, तो आपका क्लाइंट-साइड कोड `function_call` को पार्स करता है. इसके बाद, सामान्य किए गए कोऑर्डिनेट को आपके व्यूपोर्ट से मैच करने के लिए स्केल करता है. इसके बाद, ऑटोमेशन टूल (जैसे, Playwright) का इस्तेमाल करके, आपके टारगेट एनवायरमेंट में कार्रवाई को पूरा करता है. अगर कार्रवाई ब्लॉक कर दी जाती है, तो आपके क्लाइंट को कार्रवाई रोकनी चाहिए या रुकावट को मैनेज करना चाहिए.
+4. [**नए एनवायरमेंट की स्थिति कैप्चर करना**](#capture-state)
+   - कार्रवाई पूरी होने के बाद, आपका ऐप्लिकेशन एक नया स्क्रीनशॉट कैप्चर करता है और उसे मॉडल को वापस भेजता है. ऐसा `function_result` में अगले चरण का अनुरोध करने के लिए किया जाता है.
 
-Kemudian, proses ini diulang dari langkah 2, terus-menerus meminta tindakan berikutnya
-dari model hingga tugas selesai atau dihentikan.
+इसके बाद, यह प्रोसेस दूसरे चरण से फिर शुरू होती है. इसमें मॉडल से लगातार अगली कार्रवाई करने के लिए कहा जाता है. यह तब तक जारी रहता है, जब तक टास्क पूरा नहीं हो जाता या उसे बंद नहीं कर दिया जाता.
 
-![Ringkasan Penggunaan Komputer](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=id)
+![कंप्यूटर के इस्तेमाल की खास जानकारी](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=hi)
 
-## Cara menerapkan Penggunaan Komputer
+## कंप्यूटर इस्तेमाल करने की सुविधा कैसे लागू करें
 
-Sebelum membangun dengan alat Penggunaan Komputer, Anda harus menyiapkan:
+कंप्यूटर के इस्तेमाल से जुड़ी जानकारी देने वाले टूल का इस्तेमाल करने से पहले, आपको ये सेट अप करने होंगे:
 
-- **Lingkungan eksekusi yang aman:** Jalankan agen Anda di VM atau container sandbox untuk mengisolasinya dari sistem host Anda dan membatasi potensi dampaknya.
-  [Implementasi referensi](https://github.com/google/computer-use-preview/)
-  mencakup sandbox berbasis Docker yang siap digunakan dan dapat Anda gunakan sebagai titik awal.
-- **Handler tindakan sisi klien:** Terapkan logika sisi klien untuk menjalankan koordinat, mengetik teks, dan mengambil screenshot.
+- **सुरक्षित एक्ज़ीक्यूशन एनवायरमेंट:** अपने एजेंट को सैंडबॉक्स किए गए वीएम या कंटेनर में चलाएं, ताकि उसे अपने होस्ट सिस्टम से अलग किया जा सके और उसके संभावित असर को कम किया जा सके.
+  [रेफ़रंस इंप्लीमेंटेशन](https://github.com/google/computer-use-preview/) में, इस्तेमाल के लिए तैयार Docker पर आधारित सैंडबॉक्स शामिल है. इसका इस्तेमाल शुरुआती तौर पर किया जा सकता है.
+- **क्लाइंट-साइड ऐक्शन हैंडलर:** क्लाइंट-साइड लॉजिक लागू करें, ताकि कोऑर्डिनेट लागू किए जा सकें, टेक्स्ट टाइप किया जा सके, और स्क्रीनशॉट लिए जा सकें.
 
-Contoh di bawah menggunakan browser web sebagai lingkungan eksekusi dan
-[Playwright](https://playwright.dev/) sebagai handler sisi klien.
+यहां दिए गए उदाहरणों में, वेब ब्राउज़र को एक्ज़ीक्यूशन एनवायरमेंट के तौर पर इस्तेमाल किया गया है. साथ ही, क्लाइंट-साइड हैंडलर के तौर पर [Playwright](https://playwright.dev/) का इस्तेमाल किया गया है.
 
-### 0. Menyiapkan Playwright
+### 0. Playwright को सेट अप करना
 
-Pertama, instal paket yang diperlukan:
+सबसे पहले, ज़रूरी पैकेज इंस्टॉल करें:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-Kemudian, inisialisasi instance browser Playwright yang akan digunakan untuk eksekusi:
+इसके बाद, Playwright ब्राउज़र इंस्टेंस को शुरू करें, ताकि इसका इस्तेमाल किया जा सके:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -212,13 +203,13 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. Mengirim permintaan ke model
+### 1. मॉडल को अनुरोध भेजना
 
-Lakukan inisialisasi library klien dan konfigurasi alat Penggunaan Komputer. Perhatikan bahwa tidak perlu menentukan ukuran tampilan saat mengeluarkan permintaan; model memprediksi koordinat piksel yang diskalakan ke tinggi dan lebar layar.
+क्लाइंट लाइब्रेरी शुरू करें और कंप्यूटर के इस्तेमाल से जुड़े टूल को कॉन्फ़िगर करें. ध्यान दें कि अनुरोध करते समय, डिसप्ले साइज़ के बारे में बताना ज़रूरी नहीं है. मॉडल, स्क्रीन की ऊंचाई और चौड़ाई के हिसाब से पिक्सेल कोऑर्डिनेट का अनुमान लगाता है.
 
 ### Python
 
-Gunakan `google-genai` Python SDK (versi `2.7.0` atau yang lebih tinggi) untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
+ब्राउज़र एनवायरमेंट को टारगेट करने वाले अनुरोध को कॉन्फ़िगर करने के लिए, `google-genai` Python SDK (वर्शन `2.7.0` या इसके बाद का वर्शन) का इस्तेमाल करें:
 
 ```
 from google import genai
@@ -242,7 +233,7 @@ print(interaction)
 
 ### JavaScript
 
-Gunakan `@google/genai` Node.js SDK untuk mengonfigurasi permintaan yang menargetkan lingkungan browser:
+ब्राउज़र एनवायरमेंट को टारगेट करने वाले अनुरोध को कॉन्फ़िगर करने के लिए, `@google/genai` Node.js SDK का इस्तेमाल करें:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -298,7 +289,7 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -342,7 +333,7 @@ func main() {
 
 ### REST
 
-Gunakan curl untuk mengirim permintaan:
+अनुरोध भेजने के लिए curl का इस्तेमाल करें:
 
 ```
 curl -X POST \
@@ -362,10 +353,9 @@ curl -X POST \
   }'
 ```
 
-### 2. Menerima respons model
+### 2. मॉडल का जवाब पाना
 
-Respons model menyarankan panggilan fungsi yang berisi koordinat dan maksud
-penalaran yang disesuaikan untuk menjelaskan tindakan:
+मॉडल के जवाब में, कोऑर्डिनेट और कार्रवाई के बारे में बताने वाले तर्क के साथ फ़ंक्शन कॉल का सुझाव दिया गया है:
 
 ```
 {
@@ -383,9 +373,9 @@ penalaran yang disesuaikan untuk menjelaskan tindakan:
 }
 ```
 
-### 3. Menjalankan tindakan yang diterima
+### 3. मिली हुई कार्रवाइयों को लागू करना
 
-Aplikasi Anda harus mengurai koordinat respons, menskalakannya dari koordinat 1000x1000 yang dinormalisasi, dan menjalankan tindakan:
+आपके ऐप्लिकेशन को जवाब के कोऑर्डिनेट पार्स करने होंगे. साथ ही, उन्हें सामान्य किए गए 1000x1000 कोऑर्डिनेट से स्केल करना होगा और कार्रवाई करनी होगी:
 
 ### Python
 
@@ -613,7 +603,7 @@ class ActionExecutor {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -681,11 +671,9 @@ func main() {
 }
 ```
 
-### 4. Merekam status lingkungan baru
+### 4. नए एनवायरमेंट की स्थिति कैप्चर करना
 
-Setelah menjalankan tindakan, kirim hasil eksekusi fungsi kembali ke model agar model dapat menggunakan informasi ini untuk membuat tindakan berikutnya. Jika
-beberapa tindakan (panggilan paralel) dijalankan, Anda harus mengirimkan
-`function_result` untuk setiap tindakan dalam giliran pengguna berikutnya.
+कार्रवाइयां पूरी करने के बाद, फ़ंक्शन के नतीजे को मॉडल को वापस भेजें, ताकि वह इस जानकारी का इस्तेमाल करके अगली कार्रवाई जनरेट कर सके. अगर एक साथ कई कार्रवाइयां (पैरलल कॉल) की गई हैं, तो आपको उपयोगकर्ता के अगले टर्न में हर कार्रवाई के लिए `function_result` भेजना होगा.
 
 ### Python
 
@@ -794,7 +782,7 @@ class StateCapturer {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -839,15 +827,14 @@ func main() {
 }
 ```
 
-Setelah menentukan cara merekam dan memformat status lingkungan, Anda dapat menggabungkan semua langkah ini ke dalam loop eksekusi berkelanjutan.
+यह तय करने के बाद कि एनवायरमेंट की स्थिति को कैसे कैप्चर और फ़ॉर्मैट करना है, इन सभी चरणों को लगातार चलने वाले एक्ज़ीक्यूशन लूप में शामिल किया जा सकता है.
 
-## Membangun loop agen
+## एजेंट लूप बनाना
 
-Untuk mengaktifkan interaksi multi-langkah, gabungkan empat langkah dari bagian [Cara menerapkan Penggunaan Komputer](#implement-computer-use) ke dalam satu loop.
-Loop ini terus meminta tindakan dan mengirimkan kembali hasilnya ke model
-hingga tugas selesai.
+कई चरणों वाले इंटरैक्शन की सुविधा चालू करने के लिए, [कंप्यूटर के इस्तेमाल को लागू करने का तरीका](#implement-computer-use) सेक्शन में दिए गए चार चरणों को एक लूप में जोड़ें.
+टास्क पूरा होने तक, यह लूप कार्रवाई का अनुरोध करता रहता है और मॉडल को नतीजे वापस भेजता रहता है.
 
-Jangan lupa untuk mengelola histori percakapan dengan benar dengan menambahkan respons model dan respons fungsi Anda ke histori di setiap langkah.
+बातचीत के इतिहास को सही तरीके से मैनेज करना न भूलें. इसके लिए, हर चरण में मॉडल के जवाब और फ़ंक्शन के जवाब, दोनों को इतिहास में जोड़ें.
 
 ### Python
 
@@ -1136,7 +1123,7 @@ for (int i = 0; i < turnLimit; i++) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1242,85 +1229,85 @@ func main() {
 }
 ```
 
-## Lingkungan yang didukung
+## इन प्लैटफ़ॉर्म पर काम करता है
 
-Model Gemini 3.x mendukung tiga lingkungan yang ditentukan dalam konfigurasi `computer_use`:
+Gemini 3.x मॉडल, `computer_use`कॉन्फ़िगरेशन में बताए गए तीन एनवायरमेंट के साथ काम करते हैं:
 
-### Lingkungan browser (`ENVIRONMENT_BROWSER`)
+### ब्राउज़र एनवायरमेंट (`ENVIRONMENT_BROWSER`)
 
-Tindakan yang tersedia di alat browser:
+ब्राउज़र टूल में ये कार्रवाइयां उपलब्ध हैं:
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
+| कमांड का नाम | ब्यौरा | आर्ग्युमेंट (फ़ंक्शन कॉल में) |
 | --- | --- | --- |
-| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
-| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
-| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
-| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
-| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
-| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
-| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
-| **go\_back** | Kembali ke halaman web sebelumnya dalam histori browser. | `intent`: str |
-| **navigate** | Membuka langsung URL tertentu. | `url`: str `intent`: str |
-| **go\_forward** | Membuka halaman web berikutnya dalam histori browser. | `intent`: str |
+| **click** | इस विकल्प का इस्तेमाल करने पर, चुने गए निर्देशांक पर बाईं ओर क्लिक किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | निर्देशांक पर दो बार क्लिक करता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | निर्देशांक पर तीन बार क्लिक करें. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | मिडिल क्लिक, निर्देशांक पर होता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | इस कमांड से, दिए गए कोऑर्डिनेट पर राइट क्लिक किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | इस कुकी का इस्तेमाल, दिए गए कोऑर्डिनेट पर माउस बटन को दबाकर रखने के लिए किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | इस तरीके का इस्तेमाल, दिए गए निर्देशांक पर माउस बटन को छोड़ने के लिए किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **move** | इस निर्देश से कर्सर को बताई गई जगह पर ले जाया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | टेक्स्ट टाइप करता है. | `text`: str `press_enter`: bool (ज़रूरी नहीं, डिफ़ॉल्ट `false`) `intent`: str |
+| **drag\_and\_drop** | यह कमांड, किसी आइटम को शुरुआती निर्देशांक से आखिरी निर्देशांक तक खींचकर ले जाती है. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | यह फ़ंक्शन, तय की गई संख्या के हिसाब से कुछ सेकंड के लिए एक्ज़ीक्यूशन को रोकता है. | `seconds`: int (ज़रूरी नहीं, डिफ़ॉल्ट `1`) `intent`: str |
+| **press\_key** | यह कमांड, बताई गई कुंजी को दबाती है और छोड़ती है. | `key`: str `intent`: str |
+| **key\_down** | यह कमांड, तय की गई कुंजी को दबाकर रखती है. | `key`: str `intent`: str |
+| **key\_up** | यह फ़ंक्शन, बताई गई कुंजी को छोड़ता है. | `key`: str `intent`: str |
+| **हॉटकी** | यह कमांड, तय किए गए बटन के कॉम्बिनेशन को दबाती है. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | यह मौजूदा स्क्रीन का स्क्रीनशॉट दिखाता है. | `intent`: str |
+| **scroll** | यह किसी पिक्सल की दूरी पर मौजूद कोऑर्डिनेट पर, ऊपर, नीचे, बाएं या दाएं स्क्रोल करता है. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Optional, default `300`) `intent`: str |
+| **go\_back** | यह कुकी, ब्राउज़र के इतिहास में पिछले वेबपेज पर वापस ले जाती है. | `intent`: str |
+| **navigate** | यह सीधे तौर पर किसी यूआरएल पर ले जाता है. | `url`: str `intent`: str |
+| **go\_forward** | यह कुकी, ब्राउज़र के इतिहास में अगले वेबपेज पर ले जाती है. | `intent`: str |
 
-### Lingkungan seluler (`ENVIRONMENT_MOBILE`)
+### मोबाइल एनवायरमेंट (`ENVIRONMENT_MOBILE`)
 
-Tindakan lingkungan yang dioptimalkan untuk Android:
+Android के लिए ऑप्टिमाइज़ की गई एनवायरमेंट ऐक्शन:
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
+| कमांड का नाम | ब्यौरा | आर्ग्युमेंट (फ़ंक्शन कॉल में) |
 | --- | --- | --- |
-| **open\_app** | Membuka aplikasi berdasarkan namanya. | `app_name`: str `intent`: str |
-| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | Mencantumkan aplikasi yang tersedia di perangkat, menampilkan nama dan nama paketnya. | `intent`: str |
-| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
-| **go\_back** | Kembali ke layar atau halaman web sebelumnya. | `intent`: str |
-| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
-| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | Melakukan tekan lama pada koordinat di layar. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (Opsional, default `2`) `intent`: str |
-| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
-| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
+| **open\_app** | इस कमांड से, ऐप्लिकेशन को उसके नाम से खोला जाता है. | `app_name`: str `intent`: str |
+| **click** | इस विकल्प का इस्तेमाल करने पर, चुने गए निर्देशांक पर बाईं ओर क्लिक किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | यह डिवाइस पर उपलब्ध ऐप्लिकेशन की सूची दिखाता है. साथ ही, उनके नाम और पैकेज के नाम दिखाता है. | `intent`: str |
+| **wait** | यह फ़ंक्शन, तय की गई संख्या के हिसाब से कुछ सेकंड के लिए एक्ज़ीक्यूशन को रोकता है. | `seconds`: int (ज़रूरी नहीं, डिफ़ॉल्ट `1`) `intent`: str |
+| **go\_back** | यह बटन, पिछली स्क्रीन या वेबपेज पर वापस ले जाता है. | `intent`: str |
+| **type** | टेक्स्ट टाइप करता है. | `text`: str `press_enter`: bool (ज़रूरी नहीं, डिफ़ॉल्ट `false`) `intent`: str |
+| **drag\_and\_drop** | यह कमांड, किसी आइटम को शुरुआती निर्देशांक से आखिरी निर्देशांक तक खींचकर ले जाती है. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | स्क्रीन पर किसी जगह को दबाकर रखता है. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (वैकल्पिक, डिफ़ॉल्ट `2`) `intent`: str |
+| **press\_key** | यह कमांड, बताई गई कुंजी को दबाती है और छोड़ती है. | `key`: str `intent`: str |
+| **take\_screenshot** | यह मौजूदा स्क्रीन का स्क्रीनशॉट दिखाता है. | `intent`: str |
 
-### Lingkungan desktop (`ENVIRONMENT_DESKTOP`)
+### डेस्कटॉप एनवायरमेंट (`ENVIRONMENT_DESKTOP`)
 
-Perintah kursor tingkat OS lingkungan desktop:
+डेस्कटॉप एनवायरमेंट के लिए, ओएस-लेवल पर कर्सर को कंट्रोल करने के निर्देश:
 
-| Nama perintah | Deskripsi | Argumen (dalam panggilan fungsi) |
+| कमांड का नाम | ब्यौरा | आर्ग्युमेंट (फ़ंक्शन कॉल में) |
 | --- | --- | --- |
-| **click** | Klik kiri pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Klik dua kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Klik tiga kali pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Klik tengah pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Klik kanan pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Menekan dan menahan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Melepaskan tombol mouse pada koordinat. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **pindah** | Memindahkan kursor ke posisi yang ditentukan. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **jenis** | Mengetik teks. | `text`: str `press_enter`: bool (Opsional, default `false`) `intent`: str |
-| **drag\_and\_drop** | Menarik item dari koordinat awal ke koordinat akhir. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **wait** | Menjeda eksekusi selama jumlah detik yang ditentukan. | `seconds`: int (Opsional, default `1`) `intent`: str |
-| **press\_key** | Menekan tombol yang ditentukan, lalu melepaskannya. | `key`: str `intent`: str |
-| **key\_down** | Menekan dan menahan tombol yang ditentukan. | `key`: str `intent`: str |
-| **key\_up** | Melepaskan kunci yang ditentukan. | `key`: str `intent`: str |
-| **tombol pintas** | Menekan kombinasi tombol yang ditentukan. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Menampilkan screenshot layar saat ini. | `intent`: str |
-| **scroll** | Men-scroll ke atas, bawah, kiri, atau kanan pada koordinat dengan jarak piksel. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Opsional, default `300`) `intent`: str |
+| **click** | इस विकल्प का इस्तेमाल करने पर, चुने गए निर्देशांक पर बाईं ओर क्लिक किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | निर्देशांक पर दो बार क्लिक करता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | निर्देशांक पर तीन बार क्लिक करें. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | मिडिल क्लिक, निर्देशांक पर होता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | इस कमांड से, दिए गए कोऑर्डिनेट पर राइट क्लिक किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | इस कुकी का इस्तेमाल, दिए गए कोऑर्डिनेट पर माउस बटन को दबाकर रखने के लिए किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | इस तरीके का इस्तेमाल, दिए गए निर्देशांक पर माउस बटन को छोड़ने के लिए किया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **move** | इस निर्देश से कर्सर को बताई गई जगह पर ले जाया जाता है. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | टेक्स्ट टाइप करता है. | `text`: str `press_enter`: bool (ज़रूरी नहीं, डिफ़ॉल्ट `false`) `intent`: str |
+| **drag\_and\_drop** | यह कमांड, किसी आइटम को शुरुआती निर्देशांक से आखिरी निर्देशांक तक खींचकर ले जाती है. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **wait** | यह फ़ंक्शन, तय की गई संख्या के हिसाब से कुछ सेकंड के लिए एक्ज़ीक्यूशन को रोकता है. | `seconds`: int (ज़रूरी नहीं, डिफ़ॉल्ट `1`) `intent`: str |
+| **press\_key** | यह कमांड, बताई गई कुंजी को दबाती है और छोड़ती है. | `key`: str `intent`: str |
+| **key\_down** | यह कमांड, तय की गई कुंजी को दबाकर रखती है. | `key`: str `intent`: str |
+| **key\_up** | यह फ़ंक्शन, बताई गई कुंजी को छोड़ता है. | `key`: str `intent`: str |
+| **हॉटकी** | यह कमांड, तय किए गए बटन के कॉम्बिनेशन को दबाती है. | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | यह मौजूदा स्क्रीन का स्क्रीनशॉट दिखाता है. | `intent`: str |
+| **scroll** | यह किसी पिक्सल की दूरी पर मौजूद कोऑर्डिनेट पर, ऊपर, नीचे, बाएं या दाएं स्क्रोल करता है. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, Optional, default `300`) `intent`: str |
 
-## Fungsi kustom yang ditentukan pengguna
+## उपयोगकर्ता के तय किए गए कस्टम फ़ंक्शन
 
-Anda dapat memperluas fungsi model dengan menyertakan fungsi kustom yang ditentukan pengguna. Misalnya, dalam skenario human-in-the-loop (HITL), Anda dapat mengecualikan tindakan standar yang telah ditentukan sebelumnya dan mendaftarkan tindakan kustom.
+उपयोगकर्ता के तय किए गए कस्टम फ़ंक्शन शामिल करके, मॉडल की सुविधाओं को बढ़ाया जा सकता है. उदाहरण के लिए, ह्यूमन-इन-द-लूप (एचआईटीएल) के मामलों में, पहले से तय की गई डिफ़ॉल्ट कार्रवाइयों को बाहर रखा जा सकता है और कस्टम कार्रवाइयों को रजिस्टर किया जा सकता है.
 
 ### Python
 
-Mengecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan mendaftarkan alat `yield_to_user` kustom:
+पहले से तय की गई स्टैंडर्ड ब्राउज़र कार्रवाइयों (जैसे कि `click`) को बाहर रखें और कस्टम `yield_to_user` टूल रजिस्टर करें:
 
 ```
 from google import genai
@@ -1359,7 +1346,7 @@ interaction = client.interactions.create(
 
 ### JavaScript
 
-Mengecualikan tindakan browser standar yang telah ditentukan sebelumnya (seperti `click`) dan mendaftarkan alat `yield_to_user` kustom:
+पहले से तय की गई स्टैंडर्ड ब्राउज़र कार्रवाइयों (जैसे कि `click`) को बाहर रखें और कस्टम `yield_to_user` टूल रजिस्टर करें:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1453,7 +1440,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1508,30 +1495,29 @@ func main() {
 }
 ```
 
-## Mengelola tingkat penalaran
+## सूझ-बूझ वाले मॉडल के लेवल मैनेज करना
 
-Untuk agen penggunaan komputer, Anda dapat mengonfigurasi tingkat pemikiran yang berbeda untuk menyeimbangkan kualitas tindakan dan kecepatan eksekusi. Tingkat pemikiran yang lebih rendah umumnya mencapai keseimbangan yang baik untuk tugas otomatisasi standar.
+कंप्यूटर का इस्तेमाल करने वाले एजेंट के लिए, सोचने के अलग-अलग लेवल कॉन्फ़िगर किए जा सकते हैं. इससे कार्रवाई की क्वालिटी और उसे पूरा करने की स्पीड के बीच सही तालमेल बना रहता है. आम तौर पर, स्टैंडर्ड ऑटोमेशन टास्क के लिए, थिंकिंग लेवल कम होने पर बेहतर बैलेंस मिलता है.
 
-## Keselamatan dan keamanan
+## सुरक्षा
 
-### Mengonfigurasi kebijakan keselamatan
+### सुरक्षा नीतियां कॉन्फ़िगर करना
 
-Model Gemini 3.x mencakup kategori layanan keamanan bawaan yang membantu
-menentukan apakah konfirmasi pengguna diperlukan.
+Gemini 3.x मॉडल में, सुरक्षा सेवा की कैटगरी पहले से मौजूद होती हैं. इनसे यह तय करने में मदद मिलती है कि उपयोगकर्ता की पुष्टि करना ज़रूरी है या नहीं.
 
-| Kategori kebijakan keselamatan | Deskripsi |
+| सुरक्षा से जुड़ी नीति की कैटगरी | ब्यौरा |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | Memblokir atau memicu konfirmasi untuk tindakan yang melibatkan pembayaran, checkout retail, atau barang yang diatur oleh hukum. |
-| `SENSITIVE_DATA_MODIFICATION` | Melindungi catatan kesehatan, keuangan, atau pemerintah dari modifikasi yang tidak sah. |
-| `COMMUNICATION_TOOL` | Membatasi agen agar tidak mengirim email, pesan chat, atau draf secara mandiri. |
-| `ACCOUNT_CREATION` | Membatasi agen agar tidak mendaftarkan akun baru secara mandiri di situs. |
-| `DATA_MODIFICATION` | Mengatur modifikasi sistem file secara keseluruhan, berbagi data, dan penghapusan penyimpanan. |
-| `USER_CONSENT_MANAGEMENT` | Memerlukan pengambilalihan pengguna untuk banner izin cookie dan dialog privasi. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | Mencegah model menerima Persyaratan Layanan atau kontrak yang mengikat secara hukum secara mandiri. |
+| `FINANCIAL_TRANSACTIONS` | यह कुकी, पेमेंट, खुदरा चेकआउट या बिक्री पर कानूनी नियंत्रण वाले सामान से जुड़ी कार्रवाइयों को ब्लॉक करती है या उनकी पुष्टि करती है. |
+| `SENSITIVE_DATA_MODIFICATION` | यह स्वास्थ्य, वित्तीय या सरकारी रिकॉर्ड में बिना अनुमति के बदलाव किए जाने से बचाता है. |
+| `COMMUNICATION_TOOL` | इस सेटिंग से, एजेंट को अपने-आप ईमेल, चैट मैसेज या ड्राफ़्ट भेजने से रोका जाता है. |
+| `ACCOUNT_CREATION` | इस कुकी से, एजेंट को वेबसाइटों पर नए खाते अपने-आप रजिस्टर करने से रोका जाता है. |
+| `DATA_MODIFICATION` | यह फ़ाइल सिस्टम में होने वाले सभी बदलावों, डेटा शेयर करने, और स्टोरेज मिटाने की प्रोसेस को कंट्रोल करता है. |
+| `USER_CONSENT_MANAGEMENT` | इसके लिए, कुकी के लिए सहमति वाले बैनर और निजता से जुड़े प्रॉम्प्ट के लिए, उपयोगकर्ता के कंट्रोल की ज़रूरत होती है. |
+| `LEGAL_TERMS_AND_AGREEMENTS` | यह मॉडल को, सेवा की शर्तों या कानूनी रूप से बाध्यकारी अनुबंधों को अपने-आप स्वीकार करने से रोकता है. |
 
-#### Penggantian keamanan
+#### सुरक्षा से जुड़ी सेटिंग को अनदेखा करना
 
-Anda dapat mengganti kebijakan tertentu dengan meneruskan penggantian:
+नीचे दिए गए तरीके से, कुछ नीतियों को बदला जा सकता है:
 
 ### Python
 
@@ -1609,7 +1595,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1650,13 +1636,13 @@ func main() {
 }
 ```
 
-### Deteksi injeksi perintah
+### प्रॉम्प्ट इंजेक्शन का पता लगाने की सुविधा
 
-Penggunaan Komputer untuk Gemini 3.5 Flash atau yang lebih baru mendukung mekanisme keamanan lanjutan untuk mendeteksi serangan injeksi perintah. Jika diaktifkan, fitur ini akan memeriksa apakah screenshot yang disertakan berisi petunjuk tersembunyi yang bersifat merugikan (misalnya, "Abaikan perintah sebelumnya") dan memblokir eksekusi jika terdeteksi.
+Gemini 3.5 Flash-Lite या इसके बाद के वर्शन के लिए, कंप्यूटर के इस्तेमाल से प्रॉम्प्ट इंजेक्शन के हमलों का पता लगाने में मदद मिलती है. इस सुविधा के चालू होने पर, यह जांच की जाती है कि शामिल किए गए स्क्रीनशॉट में, नुकसान पहुंचाने वाले छिपे हुए निर्देश तो नहीं हैं. उदाहरण के लिए, "पिछली कमांड को अनदेखा करें". अगर ऐसे निर्देश मिलते हैं, तो उन्हें लागू होने से रोक दिया जाता है.
 
-Deteksi injeksi perintah adalah fitur opsional. Defaultnya adalah `false`.
+प्रॉम्प्ट इंजेक्शन का पता लगाने की सुविधा, एक ऐसी सुविधा है जिसके लिए ऑप्ट-इन किया जा सकता है. डिफ़ॉल्ट वैल्यू `false` है.
 
-Contoh berikut menunjukkan cara mengaktifkan deteksi injeksi perintah dalam konfigurasi alat Penggunaan Komputer Anda:
+यहां दिए गए उदाहरणों में, कंप्यूटर के इस्तेमाल से जुड़े टूल के कॉन्फ़िगरेशन में, प्रॉम्प्ट इंजेक्शन का पता लगाने की सुविधा चालू करने का तरीका बताया गया है:
 
 ### Python
 
@@ -1666,7 +1652,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.5-flash",
+    model="gemini-3.8-flash",
     input="Search for flight deals and summarize top results.",
     tools=[
         {
@@ -1686,7 +1672,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI();
 
 const interaction = await ai.interactions.create({
-    model: "gemini-3.5-flash",
+    model: "gemini-3.8-flash",
     input: "Search for flight deals and summarize top results.",
     tools: [
         {
@@ -1714,7 +1700,7 @@ Client client = new Client();
 
 CreateModelInteraction params =
     CreateModelInteraction.builder()
-        .model("gemini-3.5-flash")
+        .model("gemini-3.8-flash")
         .input(InteractionsInput.of("Search for flight deals and summarize top results."))
         .tools(
             Arrays.asList(
@@ -1728,7 +1714,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1751,7 +1737,7 @@ func main() {
 
     _, err = client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.5-flash"),
+            Model: interactions.Model("gemini-3.8-flash"),
             Input: interactions.NewInteractionsInput("Search for flight deals and summarize top results."),
             Tools: []interactions.Tool{
                 interactions.NewTool(interactions.ComputerUse{
@@ -1773,7 +1759,7 @@ func main() {
 curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI_API_KEY}" \
 -H 'Content-Type: application/json' \
 -d '{
-  "model": "gemini-3.5-flash",
+  "model": "gemini-3.8-flash",
   "input": "Search for flight deals and summarize top results.",
   "tools": [
     {
@@ -1785,9 +1771,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI
 }'
 ```
 
-### Mengonfirmasi keputusan keamanan
+### सुरक्षा से जुड़े फ़ैसले को स्वीकार करना
 
-Respons dapat menyertakan parameter `safety_decision` dalam argumen panggilan fungsi:
+जवाब में, फ़ंक्शन कॉल के तर्कों में `safety_decision` पैरामीटर शामिल हो सकता है:
 
 ```
 {
@@ -1808,7 +1794,7 @@ Respons dapat menyertakan parameter `safety_decision` dalam argumen panggilan fu
 }
 ```
 
-Jika `safety_decision` adalah `require_confirmation`, minta pengguna akhir. Jika pengguna mengonfirmasi, tetapkan `safety_acknowledgement` di `function_result`.
+अगर `safety_decision`, `require_confirmation` है, तो असली उपयोगकर्ता को प्रॉम्प्ट करें. अगर उपयोगकर्ता पुष्टि करता है, तो `function_result` में `safety_acknowledgement` को सेट करें.
 
 ### Python
 
@@ -1827,14 +1813,13 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### Praktik terbaik keamanan
+### सुरक्षा के सबसे सही तरीके
 
-Penggunaan Komputer menimbulkan risiko keamanan dan operasional yang unik, karena model yang bertindak atas nama pengguna dapat menemukan konten yang tidak tepercaya di layar atau melakukan kesalahan dalam menjalankan tindakan. Terapkan praktik terbaik berikut untuk melindungi data dan sistem pengguna:
+कंप्यूटर का इस्तेमाल करने पर, सुरक्षा और ऑपरेशन से जुड़े जोखिम हो सकते हैं. ऐसा इसलिए, क्योंकि उपयोगकर्ता की ओर से कार्रवाई करने वाले मॉडल को स्क्रीन पर ऐसा कॉन्टेंट मिल सकता है जिस पर भरोसा नहीं किया जा सकता. इसके अलावा, कार्रवाई करते समय उससे गड़बड़ियां भी हो सकती हैं. लोगों के डेटा और सिस्टम को सुरक्षित रखने के लिए, यहां दिए गए सबसे सही तरीके अपनाएं:
 
-1. **Human-in-the-Loop (HITL):**
-   - **Terapkan konfirmasi pengguna:** Jika respons keamanan menunjukkan
-     `require_confirmation`, minta persetujuan pengguna.
-   - **Memberikan petunjuk keamanan kustom:** Terapkan petunjuk sistem kustom untuk menentukan dan menerapkan batas keamanan Anda sendiri. Contoh:
+1. **ह्यूमन-इन-द-लूप (एचआईटीएल):**
+   - **उपयोगकर्ता से पुष्टि कराना:** अगर सुरक्षा से जुड़े जवाब में `require_confirmation` दिखता है, तो उपयोगकर्ता से मंज़ूरी लेने के लिए कहें.
+   - **सुरक्षा से जुड़े कस्टम निर्देश दें:** सुरक्षा से जुड़ी अपनी सीमाएं तय करने और उन्हें लागू करने के लिए, सिस्टम के लिए कस्टम निर्देश लागू करें. उदाहरण के लिए:
 
      ### Python
 
@@ -2085,7 +2070,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -2132,41 +2117,36 @@ func main() {
 }
 ```
 
-1. **Lingkungan eksekusi yang aman:** Jalankan agen Anda di lingkungan yang aman dan sandbox untuk membatasi potensi dampaknya. Hal ini dapat berupa mesin virtual (VM) sandbox, container (misalnya, Docker), atau profil browser khusus dengan izin terbatas. Lihat
-   [implementasi referensi GitHub](https://github.com/google/computer-use-preview/)
-   untuk panduan penyiapan sandbox menggunakan Docker.
-2. **Pembersihan input:** Bersihkan semua teks buatan pengguna dalam perintah untuk
-   memitigasi risiko perintah yang tidak diinginkan atau injeksi perintah. Ini adalah lapisan keamanan yang berguna, tetapi bukan pengganti lingkungan eksekusi yang aman.
-3. **Pembatasan konten:** Gunakan pembatasan dan API keamanan konten untuk mengevaluasi input pengguna, input dan output alat, serta respons agen untuk mengetahui kesesuaian, deteksi injeksi perintah, dan deteksi jailbreak.
-4. **Daftar yang diizinkan dan daftar yang tidak diizinkan:** Terapkan mekanisme pemfilteran untuk mengontrol ke mana model dapat membuka dan apa yang dapat dilakukannya. Daftar situs yang dilarang yang tidak diizinkan adalah titik awal yang baik, sementara daftar yang diizinkan yang lebih ketat akan lebih aman.
-5. **Observabilitas dan logging:** Pertahankan log mendetail untuk proses debug, audit, dan respons insiden. Klien Anda harus mencatat perintah, screenshot, tindakan yang disarankan model (`function_call`), respons keamanan, dan semua tindakan yang akhirnya dilakukan oleh klien.
-6. **Pengelolaan lingkungan:** Pastikan lingkungan GUI konsisten.
-   Pop-up, notifikasi, atau perubahan tata letak yang tidak terduga dapat membingungkan model. Mulai dari status bersih yang diketahui untuk setiap tugas baru jika memungkinkan.
+1. **सुरक्षित एक्ज़ीक्यूशन एनवायरमेंट:** अपने एजेंट को सुरक्षित और सैंडबॉक्स वाले एनवायरमेंट में चलाएं, ताकि उसके संभावित असर को सीमित किया जा सके. यह सैंडबॉक्स की गई वर्चुअल मशीन (वीएम), कंटेनर (जैसे, Docker) या सीमित अनुमतियों वाली ब्राउज़र प्रोफ़ाइल हो सकती है. Docker का इस्तेमाल करके सैंडबॉक्स सेट अप करने के बारे में दिशा-निर्देश पाने के लिए, [GitHub का रेफ़रंस इंप्लीमेंटेशन](https://github.com/google/computer-use-preview/) देखें.
+2. **इनपुट सैनिटाइज़ेशन:** प्रॉम्प्ट में मौजूद, उपयोगकर्ता के जनरेट किए गए सभी टेक्स्ट को सैनिटाइज़ करें. इससे अनचाहे निर्देशों या प्रॉम्प्ट इंजेक्शन के जोखिम को कम किया जा सकता है. यह सुरक्षा की एक मददगार लेयर है. हालांकि, यह सुरक्षित एक्ज़ीक्यूशन एनवायरमेंट का विकल्प नहीं है.
+3. **कॉन्टेंट से जुड़े दिशा-निर्देश:** दिशा-निर्देशों और Content Safety API का इस्तेमाल करके, यह पता लगाएं कि उपयोगकर्ता के इनपुट, टूल के इनपुट और आउटपुट, और एजेंट के जवाब सही हैं या नहीं. साथ ही, यह भी पता लगाएं कि प्रॉम्प्ट इंजेक्शन और जेलब्रेक का पता लगाया गया है या नहीं.
+4. **अनुमति वाली और बिना अनुमति वाली सूचियां:** फ़िल्टर करने के तरीके लागू करें, ताकि यह कंट्रोल किया जा सके कि मॉडल किन वेबसाइटों पर जा सकता है और क्या-क्या कर सकता है. प्रतिबंधित वेबसाइटों की बिना अनुमति वाली सूची से शुरुआत करना एक अच्छा विकल्प है. हालांकि, अनुमति वाली सूची को ज़्यादा पाबंदियों के साथ लागू करना ज़्यादा सुरक्षित होता है.
+5. **जांचने की क्षमता और लॉगिंग:** डीबग करने, ऑडिट करने, और समस्या हल करने के लिए, लॉग की पूरी जानकारी बनाए रखें. आपके क्लाइंट को प्रॉम्प्ट, स्क्रीनशॉट, मॉडल की सुझाई गई कार्रवाइयां (`function_call`), सुरक्षा से जुड़े जवाब, और क्लाइंट की ओर से की गई सभी कार्रवाइयों को लॉग करना चाहिए.
+6. **एनवायरमेंट मैनेजमेंट:** पक्का करें कि जीयूआई एनवायरमेंट एक जैसा हो.
+   अनचाहे पॉप-अप, सूचनाएं या लेआउट में बदलाव होने से, मॉडल को समझने में मुश्किल हो सकती है. अगर हो सके, तो हर नए टास्क के लिए, जानी-पहचानी और साफ़-सुथरी स्थिति से शुरुआत करें.
 
-## Versi model
+## मॉडल के वर्शन
 
-Anda dapat menggunakan Penggunaan Komputer dengan model berikut:
+कंप्यूटर के इस्तेमाल की सुविधा, इन मॉडल के साथ इस्तेमाल की जा सकती है:
 
-- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=id) (`gemini-3.8-flash`): Model yang direkomendasikan untuk penggunaan komputer, yang menampilkan interaksi UI dengan akurasi tinggi dan panggilan alat yang andal.
-- [**Gemini 3.7 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=id) (`gemini-3.7-flash`): Model stabil sebelumnya untuk penggunaan komputer, yang menampilkan tindakan yang disederhanakan dengan maksud, dukungan untuk lingkungan browser, seluler, dan desktop, kebijakan keamanan yang dapat dikonfigurasi, dan deteksi injeksi perintah.
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) (`gemini-3.5-flash-lite`): Model hemat biaya dengan latensi rendah yang mendukung penggunaan komputer.
-- [**Gemini 3.5 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=id) (`gemini-3.5-flash`): Model stabil sebelumnya yang mendukung penggunaan komputer.
-- [**Pratinjau Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) (`gemini-3-flash-preview`): Model pratinjau yang mendukung penggunaan komputer.
+- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=hi) (`gemini-3.8-flash`): कंप्यूटर पर इस्तेमाल करने के लिए सुझाया गया मॉडल. इसमें यूज़र इंटरफ़ेस (यूआई) के साथ ज़्यादा सटीक इंटरैक्शन और टूल को भरोसेमंद तरीके से कॉल करने की सुविधा मिलती है.
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) (`gemini-3.5-flash-lite`): यह कम समय में जवाब देने वाला और किफ़ायती मॉडल है. इसका इस्तेमाल कंप्यूटर पर किया जा सकता है.
+- [**Gemini 3 Flash की झलक**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) (`gemini-3-flash-preview`): कंप्यूटर पर इस्तेमाल किए जा सकने वाले मॉडल की झलक.
 
-## Langkah berikutnya
+## आगे क्या करना है
 
-- Bereksperimen dengan Penggunaan Komputer di [lingkungan demo Browserbase](http://gemini.browserbase.com).
-- Lihat [Penerapan referensi](https://github.com/google/computer-use-preview) untuk melihat contoh kode.
-- Pelajari alat Gemini API lainnya:
-  - [Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-  - [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+- [Browserbase के डेमो एनवायरमेंट](http://gemini.browserbase.com) में, कंप्यूटर के इस्तेमाल से जुड़े एक्सपेरिमेंट करें.
+- उदाहरण के लिए, [रेफ़रंस के तौर पर लागू किया गया कोड](https://github.com/google/computer-use-preview) देखें.
+- Gemini API के अन्य टूल के बारे में जानें:
+  - [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)
+  - [Google Search से सटीक जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-10-01 UTC.
+आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-01 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया."],[],[]]

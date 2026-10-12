@@ -1,44 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=id
-fetched_at: 2026-10-05T06:35:03.231998+00:00
-title: "Pemahaman video \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video-understanding?hl=th
+fetched_at: 2026-10-12T07:04:52.805427+00:00
+title: "\u0e01\u0e32\u0e23\u0e17\u0e33\u0e04\u0e27\u0e32\u0e21\u0e40\u0e02\u0e49\u0e32\u0e43\u0e08\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Kirim masukan
+ส่งความคิดเห็น
 
-# Pemahaman video
+# การทำความเข้าใจวิดีโอ
 
-> Untuk mempelajari pembuatan video, lihat panduan [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=id).
+> ดูข้อมูลเกี่ยวกับการสร้างวิดีโอได้ในคู่มือ [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=th)
 
-Model Gemini dapat memproses video, sehingga memungkinkan banyak kasus penggunaan developer yang canggih yang sebelumnya memerlukan model khusus domain.
-Beberapa kemampuan penglihatan Gemini mencakup kemampuan untuk: mendeskripsikan, menyegmentasikan, dan mengekstrak informasi dari video, menjawab pertanyaan tentang konten video, dan merujuk ke stempel waktu tertentu dalam video.
+โมเดล Gemini สามารถประมวลผลวิดีโอได้ ซึ่งช่วยให้ผู้พัฒนาที่อยู่แถวหน้าสามารถใช้กรณีการใช้งานต่างๆ
+ที่ในอดีตต้องใช้โมเดลเฉพาะโดเมน
+ความสามารถด้านการมองเห็นของ Gemini บางอย่าง ได้แก่ ความสามารถในการอธิบาย แบ่งกลุ่ม
+และดึงข้อมูลจากวิดีโอ ตอบคำถามเกี่ยวกับเนื้อหาวิดีโอ และ
+อ้างอิงการประทับเวลาที่เฉพาะเจาะจงภายในวิดีโอ
 
-Anda dapat memberikan video sebagai input ke Gemini dengan cara berikut:
+คุณสามารถป้อนวิดีโอไปยัง Gemini ได้ด้วยวิธีต่อไปนี้
 
-| Metode masukan | Ukuran maks | Kasus penggunaan yang direkomendasikan |
+| วิธีการป้อนข้อมูล | ขนาดสูงสุด | กรณีการใช้งานที่แนะนำ |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 GB (berbayar) / 2 GB (gratis) | File besar (100 MB+), video panjang (10 menit+), file yang dapat digunakan kembali. |
-| [Pendaftaran Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id#registration) | 2 GB (per file, tanpa batas penyimpanan) | File besar (100 MB+), video panjang (10 menit+), file persisten yang dapat digunakan kembali. |
-| [Data Sebaris](#inline-video) | < 100MB | File kecil (<100 MB), durasi singkat (<1 menit), input satu kali. |
-| [URL YouTube](#youtube) | T/A | Video YouTube publik. |
+| [File API](#upload-video) | 20 GB (แบบชำระเงิน) / 2 GB (ฟรี) | ไฟล์ขนาดใหญ่ (100 MB ขึ้นไป), วิดีโอยาว (10 นาทีขึ้นไป), ไฟล์ที่นำกลับมาใช้ซ้ำได้ |
+| [การลงทะเบียน Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th#registration) | 2 GB (ต่อไฟล์ ไม่มีขีดจำกัดพื้นที่เก็บข้อมูล) | ไฟล์ขนาดใหญ่ (100 MB ขึ้นไป), วิดีโอยาว (10 นาทีขึ้นไป), ไฟล์ที่ใช้ซ้ำได้ |
+| [ข้อมูลในบรรทัด](#inline-video) | < 100MB | ไฟล์ขนาดเล็ก (น้อยกว่า 100 MB), ระยะเวลาสั้น (น้อยกว่า 1 นาที), ข้อมูลที่ป้อนครั้งเดียว |
+| [URL ของ YouTube](#youtube) | ไม่มี | วิดีโอ YouTube สาธารณะ |
 
-> **Catatan:** [File API](#upload-video) direkomendasikan untuk sebagian besar kasus penggunaan, terutama untuk file yang berukuran lebih dari 100 MB atau saat Anda ingin menggunakan kembali file di beberapa permintaan.
+> **หมายเหตุ:** เราขอแนะนำให้ใช้ [File API](#upload-video) สำหรับ Use Case ส่วนใหญ่ โดยเฉพาะอย่างยิ่งสำหรับไฟล์ที่มีขนาดใหญ่กว่า 100 MB หรือเมื่อคุณต้องการนำไฟล์ไปใช้ซ้ำในคำขอหลายรายการ
 
-Untuk mempelajari metode input file lainnya, seperti menggunakan URL eksternal atau file yang disimpan di Google Cloud, lihat panduan [Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
+ดูข้อมูลเกี่ยวกับวิธีการป้อนไฟล์อื่นๆ เช่น การใช้ URL ภายนอกหรือไฟล์ที่เก็บไว้ใน Google Cloud ได้ที่คำแนะนำ[วิธีการป้อนไฟล์](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=th)
 
-### Mengupload file video
+### อัปโหลดไฟล์วิดีโอ
 
-Kode berikut mendownload video sampel, menguploadnya menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id), menunggu pemrosesannya selesai, lalu menggunakan referensi file yang diupload untuk meringkas video.
+โค้ดต่อไปนี้จะดาวน์โหลดวิดีโอตัวอย่าง อัปโหลดโดยใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)
+รอให้ประมวลผล แล้วใช้การอ้างอิงไฟล์ที่อัปโหลดเพื่อ
+สรุปวิดีโอ
 
 ### Python
 
@@ -296,21 +301,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 jq ".steps[].content[0].text" response.json
 ```
 
-Untuk mengoptimalkan efisiensi dan performa token, pertimbangkan untuk menggunakan
-[Pemrosesan video berbasis agen](#agentic-video-understanding).
+โปรดพิจารณาใช้[การประมวลผลวิดีโอแบบเอเจนต์](#agentic-video-understanding)เพื่อเพิ่มประสิทธิภาพและประสิทธิภาพของโทเค็น
 
-Selalu gunakan Files API jika total ukuran permintaan (termasuk file, perintah teks, petunjuk sistem, dll.) lebih besar dari 20 MB, durasi video signifikan, atau jika Anda ingin menggunakan video yang sama dalam beberapa perintah.
-File API menerima format file video secara langsung.
+ใช้ Files API เสมอเมื่อขนาดคำขอทั้งหมด (รวมถึงไฟล์ พรอมต์ข้อความ คำสั่งของระบบ ฯลฯ) ใหญ่กว่า 20 MB, ความยาววิดีโอมีความสำคัญ หรือหากคุณต้องการใช้วิดีโอเดียวกันในพรอมต์หลายรายการ
+File API ยอมรับรูปแบบไฟล์วิดีโอโดยตรง
 
-Untuk mempelajari lebih lanjut cara menggunakan file media, lihat
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
+ดูข้อมูลเพิ่มเติมเกี่ยวกับการทำงานกับไฟล์สื่อได้ที่
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=th)
 
-### Meneruskan data video secara inline
+### ส่งข้อมูลวิดีโอแบบอินไลน์
 
-Daripada mengupload file video menggunakan File API, Anda dapat meneruskan video yang lebih kecil langsung dalam permintaan. Opsi ini cocok untuk
-video yang lebih pendek dengan total ukuran permintaan di bawah 20 MB.
+คุณส่งวิดีโอขนาดเล็กกว่า
+ในคำขอได้โดยตรงแทนที่จะอัปโหลดไฟล์วิดีโอโดยใช้ File API เหมาะสำหรับ
+วิดีโอสั้นๆ ที่มีขนาดคำขอรวมไม่เกิน 20 MB
 
-Berikut contoh cara memberikan data video inline:
+ตัวอย่างการระบุข้อมูลวิดีโอในหน้าเว็บมีดังนี้
 
 ### Python
 
@@ -492,9 +497,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-### Meneruskan URL YouTube
+### ส่ง URL ของ YouTube
 
-Anda dapat meneruskan URL YouTube langsung ke Gemini API sebagai bagian dari permintaan Anda sebagai berikut:
+คุณส่ง URL ของ YouTube ไปยัง Gemini API ได้โดยตรงเป็นส่วนหนึ่งของคำขอ ดังนี้
 
 ### Python
 
@@ -638,38 +643,53 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }' 2> /dev/null
 ```
 
-**Batasan:**
+**ข้อจำกัด:**
 
-- Untuk paket gratis, Anda tidak dapat mengupload lebih dari 8 jam video YouTube per hari.
-- Untuk paket berbayar, tidak ada batasan berdasarkan durasi video.
-- Untuk model sebelum Gemini 2.5, Anda hanya dapat mengupload 1 video per permintaan. Untuk model Gemini 2.5 dan yang lebih baru, Anda dapat mengupload maksimal 10 video per permintaan.
-- Anda hanya dapat mengupload video publik (bukan video pribadi atau tidak publik).
+- สำหรับแพ็กเกจฟรี คุณจะอัปโหลดวิดีโอ YouTube ได้ไม่เกิน 8 ชั่วโมงต่อวัน
+- สำหรับแพ็กเกจแบบชำระเงิน จะไม่มีการจำกัดตามความยาวของวิดีโอ
+- สำหรับโมเดลก่อน Gemini 2.5 คุณจะอัปโหลดวิดีโอได้เพียง 1 รายการต่อคำขอ สำหรับโมเดล Gemini 2.5 ขึ้นไป คุณจะอัปโหลดวิดีโอได้สูงสุด 10 รายการต่อคำขอ
+- คุณอัปโหลดได้เฉพาะวิดีโอสาธารณะเท่านั้น (ไม่ใช่ส่วนตัวหรือที่ไม่เป็นสาธารณะ)
 
-## Pemahaman video agentik
+## การทำความเข้าใจวิดีโอแบบ Agent
 
-Secara default, input video menggunakan pemrosesan statis (mengekstraksi frame pada 1 FPS).
-Model Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, dan 3.5 Flash Lite juga mendukung
-**pemahaman video berbasis agen**, di mana model secara dinamis menjelajahi linimasa video, memeriksa transkrip secara selektif, dan menyesuaikan kecepatan frame serta resolusi secara adaptif dengan cepat berdasarkan perintah.
+โดยค่าเริ่มต้น อินพุตวิดีโอจะใช้การประมวลผลแบบคงที่ (ดึงเฟรมที่ 1 FPS)
+โมเดล Gemini 3.8 Flash, 3.6 Flash และ 3.5 Flash Lite ยังรองรับ**การทำความเข้าใจวิดีโอแบบเอเจนต์** ซึ่งโมเดลจะสำรวจไทม์ไลน์วิดีโอแบบไดนามิก ตรวจสอบข้อความถอดเสียงอย่างเลือกสรร และปรับอัตราเฟรมและความละเอียดแบบปรับเปลี่ยนได้ทันทีตามพรอมต์
 
-| **Mode** | **Deskripsi** | **Model yang didukung** |
+| **โหมด** | **คำอธิบาย** | **รุ่นที่รองรับ** |
 | --- | --- | --- |
-| **Statis** (default) | Mengekstrak frame dengan kecepatan tetap (1 FPS) dan menempatkannya ke dalam konteks dalam satu langkah. Berfungsi baik untuk klip pendek. | Semua model Gemini |
-| **Agentic** | Model ini secara dinamis menavigasi linimasa video, hanya memuat konten yang diperlukan berdasarkan perintah. Hingga 88% lebih efisien token dan kualitas ~7% lebih tinggi pada konten panjang. | Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite |
+| **คงที่** (ค่าเริ่มต้น) | แยกเฟรมในอัตราคงที่ (1 FPS) และวางเฟรมเหล่านั้นลงในบริบทได้ในครั้งเดียว เหมาะสำหรับคลิปสั้นๆ | โมเดล Gemini ทั้งหมด |
+| **Agentic** | โมเดลจะไปยังไทม์ไลน์ของวิดีโอแบบไดนามิก โดยจะโหลดเฉพาะเนื้อหาที่ต้องการตามพรอมต์ ประหยัดโทเค็นมากขึ้นสูงสุด 88% และมีคุณภาพสูงขึ้นประมาณ 7% ในเนื้อหาแบบยาว | Gemini 3.8 Flash, 3.6 Flash, 3.5 Flash Lite |
 
-### Memilih mode pemrosesan
+### เลือกโหมดการประมวลผล
 
-Sebagai panduan umum, mulailah dengan mode **berperan sebagai agen**, terutama saat mengoptimalkan
-kualitas respons atau efisiensi token.
+โดยหลักการทั่วไป ให้เริ่มต้นด้วยโหมด**เอเจนต์** โดยเฉพาะเมื่อเพิ่มประสิทธิภาพ
+เพื่อคุณภาพการตอบกลับหรือประสิทธิภาพของโทเค็น
 
-- **Agen:** Video panjang atau kueri yang menargetkan momen tertentu. Model
-  secara dinamis menavigasi linimasa untuk menargetkan informasi yang relevan secara kontekstual
-  tanpa mengisi jendela konteks.
-- **Statis:** Kueri yang sensitif terhadap latensi pada klip pendek (di bawah 5 menit), atau
-  kasus yang memerlukan presisi tingkat frame di seluruh klip.
+- **Agentic:** วิดีโอแบบยาวหรือคำค้นหาที่กำหนดเป้าหมายไปยังช่วงเวลาที่เฉพาะเจาะจง
+  โมเดลจะไปยังไทม์ไลน์แบบไดนามิกเพื่อกำหนดเป้าหมายข้อมูลที่เกี่ยวข้องตามบริบท
+  โดยไม่ต้องกรอกหน้าต่างบริบท
+- **คงที่:** คำค้นหาที่คำนึงถึงเวลาในการตอบสนองในคลิปสั้น (ไม่เกิน 5 นาที) หรือ
+  กรณีที่ต้องการความแม่นยำระดับเฟรมตลอดทั้งคลิป
 
-> **Catatan:** Untuk video panjang atau perintah kompleks yang memerlukan waktu lebih lama untuk diproses secara mandiri, gunakan streaming (`stream=True`) atau eksekusi di latar belakang (`background=True`). Hal ini akan menjaga koneksi tetap aktif, menampilkan langkah-langkah penalaran sementara, dan menghindari waktu tunggu koneksi atau autentikasi habis.
+> **หมายเหตุ:** สำหรับวิดีโอขนาดยาวหรือพรอมต์ที่ซับซ้อนซึ่งการประมวลผลแบบเอเจนต์ใช้เวลานานกว่า
+> ให้ใช้การสตรีม (`stream=True`) หรือ
+> [การดำเนินการในเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th) (`background=True`)
+> ซึ่งจะช่วยให้การเชื่อมต่อยังคงใช้งานได้ แสดงขั้นตอนการให้เหตุผลขั้นกลาง และ
+> หลีกเลี่ยงการหมดเวลาการเชื่อมต่อหรือการตรวจสอบสิทธิ์
 
-### Menetapkan mode pemrosesan
+### ตั้งค่าโหมดการประมวลผล
+
+หากต้องการใช้ความเข้าใจวิดีโอแบบเอเจนต์ ให้ตั้งค่า `"processing": "agentic"` ในส่วนวิดีโอ
+ในอาร์เรย์ `input`
+
+การประมวลผลวิดีโอแบบ Agentic อาจใช้เวลานานกว่าในวิดีโอแบบยาวเนื่องจากโมเดล
+จะทำการตรวจสอบหลายครั้งเพื่อไปยังไทม์ไลน์ ตัวอย่างนี้ใช้ `background=True` เพื่อเรียกใช้
+งานแบบไม่พร้อมกันในเซิร์ฟเวอร์เพื่อป้องกันไม่ให้ข้อมูลความคืบหน้าสูญหาย
+หากการเชื่อมต่อเครือข่ายขาดหายไป
+นอกจากนี้ คุณยังเรียกใช้คำขอแบบพร้อมกันได้โดยไม่ต้องดำเนินการในเบื้องหลังด้วยการ
+ละเว้นพารามิเตอร์ `background` ซึ่งเหมาะสำหรับวิดีโอที่สั้นกว่า
+
+ดูรายละเอียดเกี่ยวกับการสำรวจ การดึงผลลัพธ์ และการจัดการงานในเบื้องหลังได้ในคู่มือ[การดำเนินการในเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th)
 
 ### Python
 
@@ -686,7 +706,7 @@ while video_file.state.name == "PROCESSING":
     time.sleep(2)
     video_file = client.files.get(name=video_file.name)
 
-# Use agentic processing
+# Use agentic processing with background execution
 interaction = client.interactions.create(
     model="gemini-3.8-flash",
     input=[
@@ -697,8 +717,14 @@ interaction = client.interactions.create(
             "processing": "agentic"
         },
         {"type": "text", "text": "What are the three main arguments presented?"}
-    ]
+    ],
+    background=True,
 )
+
+while interaction.status == "in_progress":
+    time.sleep(5)
+    interaction = client.interactions.get(interaction.id)
+
 print(interaction.output_text)
 ```
 
@@ -720,8 +746,8 @@ while (videoFile.state === "PROCESSING") {
   videoFile = await ai.files.get({ name: videoFile.name });
 }
 
-// Use agentic processing
-const interaction = await ai.interactions.create({
+// Use agentic processing with background execution
+let interaction = await ai.interactions.create({
   model: "gemini-3.8-flash",
   input: [
     {
@@ -731,15 +757,23 @@ const interaction = await ai.interactions.create({
       processing: "agentic"
     },
     { type: "text", text: "What are the three main arguments presented?" }
-  ]
+  ],
+  background: true,
 });
+
+while (interaction.status === "in_progress") {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  interaction = await ai.interactions.get(interaction.id);
+}
+
 console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+# 1. Start the interaction in the background
+interaction=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -752,22 +786,34 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         "processing": "agentic"
       },
       {"type": "text", "text": "What are the three main arguments presented?"}
-    ]
-  }' 2> /dev/null
+    ],
+    "background": true
+  }')
+
+id=$(echo "$interaction" | jq -r '.id')
+
+# 2. Poll until the interaction finishes
+while [ "$(echo "$interaction" | jq -r '.status')" = "in_progress" ]; do
+  sleep 5
+  interaction=$(curl -s "https://generativelanguage.googleapis.com/v1beta/interactions/$id" \
+    -H "x-goog-api-key: $GEMINI_API_KEY")
+done
+
+echo "$interaction" | jq '.'
 ```
 
-> **Catatan:** Untuk memverifikasi bahwa pemrosesan berbasis agen digunakan, periksa `interaction.steps`. Kehadiran `processing_call` dan `processing_result` menunjukkan bahwa model menavigasi video secara dinamis.
+> **หมายเหตุ:** หากต้องการยืนยันว่ามีการใช้การประมวลผลผ่านระบบที่เป็น Agent ให้ตรวจสอบ `interaction.steps` การมีอยู่ของ `processing_call` และ `processing_result` แสดงให้เห็นว่าโมเดลไปยังส่วนต่างๆ ของวิดีโอแบบไดนามิก
 
-### Langkah-langkah respons
+### ขั้นตอนการตอบกลับ
 
-Pemrosesan dengan agen menambahkan dua jenis langkah baru ke array `steps`:
+การประมวลผลแบบ Agentic จะเพิ่มขั้นตอนใหม่ 2 ประเภทลงในอาร์เรย์ `steps` ดังนี้
 
-- `processing_call`: model meminta segmen video atau transkrip audio, yang diidentifikasi oleh `id`.
-- `processing_result`: hasil pemuatan tersebut, ditautkan oleh `call_id`.
+- `processing_call`: โมเดลขอส่วนวิดีโอหรือข้อความถอดเสียงที่ระบุโดย `id`
+- `processing_result`: ผลลัพธ์ของการโหลดนั้น ซึ่งลิงก์โดย `call_id`
 
-Ringkasan ini muncul berselang-seling dengan langkah-langkah `thought` (jika ringkasan diaktifkan) dan mendahului langkah `model_output` terakhir. Objek ini dapat digunakan untuk menampilkan rekaman aktivitas progres di UI Anda, tetapi tidak memerlukan respons.
+โดยจะปรากฏสลับกับ`thought` ขั้นตอน (เมื่อเปิดใช้สรุป) และอยู่ก่อน`model_output` ขั้นตอนสุดท้าย โดยสามารถใช้เพื่อแสดงร่องรอยความคืบหน้าใน UI แต่ไม่จำเป็นต้องมีการตอบกลับ
 
-Contoh berikut menunjukkan payload respons dengan langkah-langkah pemrosesan yang disisipkan:
+ตัวอย่างต่อไปนี้แสดงเพย์โหลดการตอบกลับพร้อมขั้นตอนการประมวลผลแบบสลับ
 
 ```
 {
@@ -835,13 +881,14 @@ Contoh berikut menunjukkan payload respons dengan langkah-langkah pemrosesan yan
 }
 ```
 
-### Mencampur mode pemrosesan di seluruh video
+### ผสมโหมดการประมวลผลในวิดีโอ
 
-Anda dapat menetapkan mode pemrosesan yang berbeda untuk setiap video dalam permintaan yang sama:
+ตั้งค่าโหมดการประมวลผลที่แตกต่างกันสำหรับวิดีโอแต่ละรายการในคำขอเดียวกัน
 
 ### Python
 
 ```
+import time
 from google import genai
 
 client = genai.Client()
@@ -849,6 +896,7 @@ client = genai.Client()
 lecture = client.files.upload(file="path/to/long-lecture.mp4")
 experiment = client.files.upload(file="path/to/short-experiment.mp4")
 
+# Use agentic processing with background execution
 interaction = client.interactions.create(
     model="gemini-3.8-flash",
     input=[
@@ -865,8 +913,14 @@ interaction = client.interactions.create(
             "processing": "static"  # Use static processing
         },
         {"type": "text", "text": "Compare the lecture content with the experiment results."}
-    ]
+    ],
+    background=True,
 )
+
+while interaction.status == "in_progress":
+    time.sleep(5)
+    interaction = client.interactions.get(interaction.id)
+
 print(interaction.output_text)
 ```
 
@@ -886,7 +940,8 @@ const experiment = await ai.files.upload({
   config: { mimeType: "video/mp4" }
 });
 
-const interaction = await ai.interactions.create({
+// Use agentic processing with background execution
+let interaction = await ai.interactions.create({
   model: "gemini-3.8-flash",
   input: [
     {
@@ -902,15 +957,23 @@ const interaction = await ai.interactions.create({
       processing: "static" // Use static processing
     },
     { type: "text", text: "Compare the lecture content with the experiment results." }
-  ]
+  ],
+  background: true,
 });
+
+while (interaction.status === "in_progress") {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  interaction = await ai.interactions.get(interaction.id);
+}
+
 console.log(interaction.output_text);
 ```
 
 ### REST
 
 ```
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+# 1. Start the interaction in the background
+interaction=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
@@ -929,24 +992,37 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         "processing": "static"
       },
       {"type": "text", "text": "Compare the lecture content with the experiment results."}
-    ]
-  }' 2> /dev/null
+    ],
+    "background": true
+  }')
+
+id=$(echo "$interaction" | jq -r '.id')
+
+# 2. Poll until the interaction finishes
+while [ "$(echo "$interaction" | jq -r '.status')" = "in_progress" ]; do
+  sleep 5
+  interaction=$(curl -s "https://generativelanguage.googleapis.com/v1beta/interactions/$id" \
+    -H "x-goog-api-key: $GEMINI_API_KEY")
+done
+
+echo "$interaction" | jq '.'
 ```
 
-### Percakapan video multi-giliran
+### การสนทนาผ่านวิดีโอแบบผ่านการสนทนาไปมา
 
-Konteks video dipertahankan di seluruh giliran dalam percakapan. Saat menggunakan pemrosesan
-dengan agen:
+บริบทของวิดีโอจะยังคงอยู่ตลอดการสนทนา เมื่อใช้การประมวลผลแบบเอเจนต์ ให้ทำดังนี้
 
-- **Mode stateful** (menggunakan `previous_interaction_id`): Server mempertahankan konteks video. Tidak diperlukan penanganan tambahan.
-- **Mode tanpa status** (menggunakan `step_list`): Dalam mode tanpa status, respons
-  mencakup langkah-langkah `processing_call` dan `processing_result` yang mengenkode
-  konteks video. Anda harus menyertakan semua langkah dari respons dalam `step_list` permintaan berikutnya untuk mempertahankan konteks video. Meskipun saat ini tidak menampilkan error API, konteks video akan hilang, sehingga mengurangi kualitas respons pada pertanyaan lanjutan secara signifikan. Perhatikan bahwa langkah-langkah yang ditampilkan
-  yang dikirim dalam permintaan berikutnya berkontribusi pada jumlah token input.
+- **โหมด Stateful** (ใช้ `previous_interaction_id`): เซิร์ฟเวอร์จะเก็บบริบทวิดีโอ
+  ไว้ โดยคุณไม่ต้องดำเนินการใดๆ เพิ่มเติม
+- **โหมดไม่เก็บสถานะ** (ใช้ `step_list`): ในโหมดไม่เก็บสถานะ คำตอบ
+  จะมีขั้นตอน `processing_call` และ `processing_result` ที่เข้ารหัสบริบทวิดีโอ
+  คุณต้องใส่ขั้นตอนทั้งหมดจากการตอบกลับใน`step_list`ของคำขอถัดไปเพื่อรักษาบริบทของวิดีโอ แม้ว่าการละเว้นจะไม่ทำให้เกิดข้อผิดพลาดของ API ในปัจจุบัน แต่บริบทวิดีโอจะหายไป ซึ่งจะลดคุณภาพการตอบกลับคำถามติดตามผลลงอย่างมาก โปรดทราบว่าขั้นตอนที่ส่งกลับ
+  ในคำขอที่ตามมาจะนับรวมในจำนวนโทเค็นอินพุต
 
-## Merujuk pada stempel waktu dalam konten
+## อ้างอิงการประทับเวลาในเนื้อหา
 
-Anda dapat mengajukan pertanyaan tentang titik waktu tertentu dalam video menggunakan stempel waktu dalam bentuk `MM:SS`.
+คุณสามารถถามคำถามเกี่ยวกับช่วงเวลาที่เฉพาะเจาะจงภายในวิดีโอได้โดยใช้
+การประทับเวลาในรูปแบบ `MM:SS`
 
 ### Python
 
@@ -978,11 +1054,15 @@ prompt := "What are the examples given at 00:05 and 00:10 supposed to show us?"
 PROMPT="What are the examples given at 00:05 and 00:10 supposed to show us?"
 ```
 
-## Mengekstrak insight mendetail dari video
+## ดึงข้อมูลเชิงลึกโดยละเอียดจากวิดีโอ
 
-Model Gemini menawarkan kemampuan canggih untuk memahami konten video dengan memproses informasi dari aliran **audio dan visual**. Dengan demikian, Anda dapat mengekstrak serangkaian detail yang kaya, termasuk membuat deskripsi tentang apa yang terjadi dalam video dan menjawab pertanyaan tentang kontennya.
+โมเดล Gemini มีความสามารถอันทรงพลังในการทำความเข้าใจเนื้อหาวิดีโอโดย
+การประมวลผลข้อมูลจากทั้งสตรีม**เสียงและภาพ** ซึ่งช่วยให้คุณ
+ดึงรายละเอียดที่ครบถ้วนได้ รวมถึงสร้างคำอธิบายสิ่งที่
+เกิดขึ้นในวิดีโอและตอบคำถามเกี่ยวกับเนื้อหาของวิดีโอ
 
-Untuk deskripsi visual, model mengambil sampel video dengan kecepatan **1 frame per detik** (FPS). Frekuensi sampling default ini berfungsi dengan baik untuk sebagian besar konten, tetapi perhatikan bahwa frekuensi ini mungkin tidak menangkap detail dalam video dengan gerakan cepat atau perubahan adegan yang cepat.
+สำหรับคำอธิบายภาพ โมเดลจะสุ่มตัวอย่างวิดีโอที่อัตรา **1 เฟรม
+ต่อวินาที** (FPS) อัตราการสุ่มตัวอย่างเริ่มต้นนี้เหมาะกับเนื้อหาส่วนใหญ่ แต่โปรดทราบว่าอาจพลาดรายละเอียดในวิดีโอที่มีการเคลื่อนไหวอย่างรวดเร็วหรือการเปลี่ยนฉากอย่างรวดเร็ว
 
 ### Python
 
@@ -1015,13 +1095,15 @@ prompt := "Describe the key events in this video, providing both audio and visua
 PROMPT="Describe the key events in this video, providing both audio and visual details. Include timestamps for salient moments."
 ```
 
-## Menyesuaikan pemrosesan video
+## ปรับแต่งการประมวลผลวิดีโอ
 
-Anda dapat menyesuaikan pemrosesan video di Gemini API dengan menyetel interval kliping atau memberikan pengambilan sampel kecepatan frame kustom. Opsi penyesuaian ini hanya didukung saat memproses video dalam mode `"static"`.
+คุณปรับแต่งการประมวลผลวิดีโอใน Gemini API ได้โดยการตั้งค่าช่วงการตัด
+หรือระบุการสุ่มตัวอย่างอัตราเฟรมที่กำหนดเอง ตัวเลือกการปรับแต่งเหล่านี้
+ใช้ได้เมื่อประมวลผลวิดีโอในโหมด `"static"` เท่านั้น
 
-### Menetapkan interval kliping
+### ตั้งค่าช่วงการตัด
 
-Anda dapat menggunting video dengan menentukan `start_offset` dan `end_offset` dalam objek konfigurasi `processing`.
+คุณตัดวิดีโอได้โดยระบุ `start_offset` และ `end_offset` ในออบเจ็กต์การกำหนดค่า `processing`
 
 ### Python
 
@@ -1091,9 +1173,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-### Menetapkan kecepatan frame kustom
+### ตั้งค่าอัตราเฟรมที่กำหนดเอง
 
-Anda dapat menyetel pengambilan sampel kecepatan frame kustom dengan meneruskan argumen `fps` dalam objek konfigurasi `processing`.
+คุณตั้งค่าการสุ่มตัวอย่างอัตราเฟรมที่กำหนดเองได้โดยส่งอาร์กิวเมนต์ `fps` ในออบเจ็กต์การกำหนดค่า `processing`
 
 ### Python
 
@@ -1160,9 +1242,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' 2> /dev/null
 ```
 
-## Format video yang didukung
+## รูปแบบวิดีโอที่รองรับ
 
-Gemini mendukung jenis MIME format video berikut:
+Gemini รองรับประเภท MIME ของรูปแบบวิดีโอต่อไปนี้
 
 - `video/mp4`
 - `video/mpeg`
@@ -1174,62 +1256,83 @@ Gemini mendukung jenis MIME format video berikut:
 - `video/wmv`
 - `video/3gpp`
 
-## Detail teknis tentang video
+## รายละเอียดทางเทคนิคเกี่ยวกับวิดีโอ
 
-- **Model dan konteks yang didukung**: Semua model Gemini dapat memproses data video.
-  - Model dengan jendela konteks 1 juta dapat memproses video berdurasi hingga 3 jam secara default (pada resolusi media rendah), atau hingga 1 jam pada resolusi media tinggi.
-- **Mode pemrosesan**: Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, 3.5 Flash Lite, dan model yang lebih baru mendukung dua mode pemrosesan video:
-  - **Statis**: Frame diekstrak pada 1 FPS dan ditempatkan ke dalam konteks (default untuk semua model). Audio diproses pada 1 Kbps (satu saluran).
-    Stempel waktu ditambahkan setiap detik. Paling cocok untuk klip pendek atau saat setiap frame
-    penting (seperti pemeriksaan frame demi frame). Perhatikan bahwa urutan tindakan cepat
-    mungkin kehilangan detail karena kecepatan pengambilan sampel 1 FPS.
-  - **Agentik**: Model menavigasi video secara dinamis, memuat
-    transkrip dan/atau frame dan/atau audio sesuai permintaan. Fitur ini menggunakan hingga 88% lebih sedikit token untuk konten panjang, meskipun navigasi dapat sedikit meningkatkan Waktu ke Token Pertama (TTFT) pada klip pendek (<5 menit) karena penalaran internal dan perjalanan pulang pergi alat sebelum pembuatan dimulai. Terbaik
-    untuk video panjang guna mengoptimalkan biaya token dan kualitas respons.
-    Didukung di Gemini 3.8 Flash, 3.7 Flash, 3.6 Flash, dan 3.5 Flash Lite.
-    Lihat [Pemahaman video agentik](#agentic-video-understanding) untuk mengetahui detailnya.
-- **Penghitungan token (mode statis)**: Setiap detik video di-tokenisasi sebagai
-  berikut:
-  - Frame individual (diambil sampel pada 1 FPS):
-    - Jika `media_resolution` disetel ke rendah, frame akan di-tokenisasi pada 66 token per frame.
-    - Jika tidak, frame akan di-tokenisasi pada 258 token per frame.
-  - Audio: 32 token per detik.
-  - Metadata juga disertakan.
-  - Total: Sekitar 100 token per detik video pada resolusi media default (rendah), atau sekitar 300 token per detik video pada resolusi media tinggi.
-- **Penghitungan token (mode agentik)**: Penggunaan token bervariasi berdasarkan kompleksitas konten dan strategi navigasi model. Token penalaran navigasi
-  yang dihasilkan selama eksplorasi video dihitung sebagai **token pemikiran**
-  (`total_thought_tokens`), sedangkan frame, audio, dan transkrip yang dimuat sesuai permintaan
-  dihitung sebagai token penggunaan alat (`total_tool_use_tokens`).
-  Pemrosesan agentik biasanya menggunakan total token hingga 88% lebih sedikit daripada pemrosesan statis untuk konten panjang karena model hanya memuat transkrip dan/atau frame dan/atau audio yang diperlukan untuk menjawab perintah (lihat [panduan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id#video-token-usage)).
-- **Resolusi media**: Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter `media_resolution`. Parameter
-  `media_resolution` menentukan **jumlah maksimum token
-  yang dialokasikan per frame video atau gambar input.** Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks kecil atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi. Parameter `media_resolution` dan `processing` bersifat independen: Anda dapat menyetel keduanya pada input video yang sama.
+- **โมเดลและบริบทที่รองรับ**: โมเดล Gemini ทุกรุ่นสามารถประมวลผลข้อมูลวิดีโอได้
+  - โมเดลที่มีหน้าต่างบริบทขนาด 1 ล้านสามารถประมวลผลวิดีโอได้นานสูงสุด 3 ชั่วโมงโดยค่าเริ่มต้น (ที่ความละเอียดของสื่อต่ำ) หรือนานสูงสุด 1 ชั่วโมงที่ความละเอียดของสื่อสูง
+- **โหมดการประมวลผล**: Gemini 3.8 Flash, 3.6 Flash, 3.5 Flash Lite
+  และโมเดลที่ใหม่กว่ารองรับโหมดการประมวลผลวิดีโอ 2 โหมด
+  - **คงที่**: ระบบจะดึงข้อมูลเฟรมที่ 1 FPS และวางลงในบริบท (ค่าเริ่มต้น
+    สำหรับทุกโมเดล) ระบบจะประมวลผลเสียงที่ 1Kbps (ช่องเดียว)
+    ระบบจะเพิ่มการประทับเวลาทุกวินาที เหมาะที่สุดสำหรับคลิปสั้นๆ หรือเมื่อทุกเฟรม
+    มีความสำคัญ (เช่น การตรวจสอบทีละเฟรม) โปรดทราบว่าลำดับการดำเนินการที่รวดเร็ว
+    อาจสูญเสียรายละเอียดเนื่องจากอัตราการสุ่มตัวอย่าง 1 FPS
+  - **เอเจนต์**: โมเดลจะไปยังส่วนต่างๆ ของวิดีโอแบบไดนามิก โดยจะโหลด
+    ข้อความถอดเสียงและ/หรือเฟรมและ/หรือเสียงตามคำขอ ซึ่งจะใช้โทเค็นน้อยลงสูงสุด 88%
+    สำหรับเนื้อหาแบบยาว แม้ว่าการนำทางอาจเพิ่ม
+    เวลาในการแสดงผลโทเค็นแรก (TTFT) เล็กน้อยในคลิปสั้นๆ (น้อยกว่า 5 นาที) เนื่องจาก
+    การให้เหตุผลภายในและการส่งคำขอไปกลับของเครื่องมือก่อนที่จะเริ่มสร้าง เหมาะ
+    สำหรับวิดีโอแบบยาวเพื่อเพิ่มประสิทธิภาพต้นทุนโทเค็นและคุณภาพคำตอบ
+    รองรับใน Gemini 3.8 Flash, 3.6 Flash และ 3.5 Flash Lite
+    ดูรายละเอียดได้ที่[การทำความเข้าใจวิดีโอแบบเอเจนต์](#agentic-video-understanding)
+- **การคำนวณโทเค็น (โหมดคงที่)**: ระบบจะแปลงวิดีโอแต่ละวินาทีเป็นโทเค็นดังนี้
+  - เฟรมแต่ละเฟรม (สุ่มตัวอย่างที่ 1 FPS)
+    - หากตั้งค่า `media_resolution` เป็นต่ำ ระบบจะแปลงเฟรมเป็นโทเค็นที่ 66
+      โทเค็นต่อเฟรม
+    - ไม่เช่นนั้น ระบบจะแปลงเฟรมเป็นโทเค็นที่ 258 โทเค็นต่อเฟรม
+  - เสียง: 32 โทเค็นต่อวินาที
+  - รวมถึงข้อมูลเมตาด้วย
+  - ทั้งหมด: ประมาณ 100 โทเค็นต่อวินาทีของวิดีโอที่ความละเอียดสื่อเริ่มต้น (ต่ำ) หรือประมาณ 300 โทเค็นต่อวินาทีของวิดีโอที่ความละเอียดสื่อสูง
+- **การคำนวณโทเค็น (โหมดตัวแทน)**: การใช้โทเค็นจะแตกต่างกันไปตามความซับซ้อนของเนื้อหาและกลยุทธ์การนำทางของโมเดล โทเค็นการให้เหตุผลในการนำทาง
+  ที่สร้างขึ้นระหว่างการสำรวจวิดีโอจะถือเป็น**โทเค็นความคิด**
+  (`total_thought_tokens`) ส่วนเฟรม เสียง และข้อความถอดเสียงที่โหลดตามคำขอจะถือเป็นโทเค็นการใช้เครื่องมือ (`total_tool_use_tokens`)
+  โดยปกติแล้วการประมวลผลแบบเอเจนต์จะใช้โทเค็นทั้งหมดน้อยกว่าการประมวลผลแบบคงที่ถึง 88% สำหรับเนื้อหารูปแบบยาว เนื่องจากโมเดลจะโหลดเฉพาะข้อความถอดเสียงและ/หรือเฟรมและ/หรือเสียงที่จำเป็นต่อการตอบพรอมต์ (ดู[คำแนะนำเกี่ยวกับโทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th#video-token-usage))
+- **ความละเอียดของสื่อ**: Gemini 3 มีการควบคุมการประมวลผลภาพหลายรูปแบบอย่างละเอียดด้วยพารามิเตอร์ `media_resolution` พารามิเตอร์
+  `media_resolution` จะกำหนด**จำนวนโทเค็นสูงสุด
+  ที่จัดสรรต่อรูปภาพอินพุตหรือเฟรมวิดีโอ** ความละเอียดที่สูงขึ้นจะช่วยเพิ่มความสามารถของโมเดลในการอ่านข้อความขนาดเล็กหรือระบุรายละเอียดเล็กๆ แต่จะเพิ่มการใช้โทเค็นและเวลาในการตอบสนอง พารามิเตอร์ `media_resolution` และ `processing`
+  เป็นอิสระต่อกัน คุณตั้งค่าทั้ง 2 อย่างในอินพุตวิดีโอเดียวกันได้
 
-Untuk mengetahui detail selengkapnya tentang penghitungan token, lihat panduan
-[token](https://ai.google.dev/gemini-api/docs/tokens?hl=id).
+ดูรายละเอียดเพิ่มเติมเกี่ยวกับการคำนวณโทเค็นได้ที่คู่มือ[โทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th)
 
-- **Format stempel waktu**: Saat merujuk ke momen tertentu dalam video di dalam perintah Anda, gunakan format `MM:SS` (misalnya, `01:15` untuk 1 menit 15 detik).
-- **Penempatan perintah**: Jika menggabungkan teks dan satu video, tempatkan perintah teks
-  *setelah* bagian video dalam array `input`.
-- **Waktu tunggu untuk permintaan yang panjang**: Untuk video yang memerlukan waktu pemrosesan yang lebih lama atau penalaran multi-langkah yang kompleks, gunakan streaming (`stream=True`) atau eksekusi di latar belakang (`background=True`). Permintaan sinkron yang tidak melakukan streaming yang mengalami percobaan ulang backend saat permintaan tinggi dapat melampaui periode validitas token autentikasi atau koneksi, yang dapat muncul sebagai error `401 Unauthorized` atau waktu tunggu yang tidak terduga.
-  Streaming membuat koneksi tetap aktif dan menampilkan penalaran perantara dan progres panggilan alat.
+- **รูปแบบการประทับเวลา**: เมื่ออ้างอิงถึงช่วงเวลาที่เฉพาะเจาะจงในวิดีโอภายในพรอมต์ ให้ใช้รูปแบบ `MM:SS` (เช่น `01:15` สำหรับ 1 นาที 15 วินาที)
+- **ตำแหน่งพรอมต์**: หากรวมข้อความและวิดีโอเดียว ให้วางพรอมต์ข้อความ*หลัง*ส่วนวิดีโอในอาร์เรย์ `input`
+- **การหมดเวลาสำหรับคำขอที่ใช้เวลานาน**: สำหรับวิดีโอที่ต้องใช้เวลาประมวลผล
+  นานขึ้นหรือการให้เหตุผลหลายขั้นตอนที่ซับซ้อน ให้ใช้การสตรีม
+  (`stream=True`) หรือ[การดำเนินการเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th)
+  (`background=True`)
+  คำขอแบบซิงโครนัสที่ไม่ใช่การสตรีมซึ่งมีการลองใหม่ที่แบ็กเอนด์ภายใต้
+  ดีมานด์สูงอาจเกินระยะเวลาที่ใช้ได้ของการเชื่อมต่อหรือโทเค็นการตรวจสอบสิทธิ์
+  ซึ่งอาจแสดงเป็นข้อผิดพลาด `401 Unauthorized` หรือข้อผิดพลาดการหมดเวลาที่ไม่คาดคิด
+  การสตรีมจะทำให้การเชื่อมต่อยังคงใช้งานได้และแสดงการให้เหตุผลระดับกลาง
+  และความคืบหน้าในการเรียกใช้เครื่องมือ
 
-## Langkah berikutnya
+## ขั้นตอนถัดไป
 
-- [Resolusi media](https://ai.google.dev/gemini-api/docs/media-resolution?hl=id): Kontrol resolusi frame video untuk menyeimbangkan kualitas dan penggunaan token.
-- [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id): Pahami cara konten video di-tokenisasi dalam mode pemrosesan statis dan agentic.
-- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
-  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id): Pelajari lebih lanjut cara mengupload dan mengelola file untuk digunakan dengan Gemini.
-- [Strategi multimodal prompting file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung multimodal prompting dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai multimodal prompting.
-- [Panduan keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id): Terkadang model AI generatif menghasilkan output yang tidak terduga, seperti output yang tidak akurat, bias, atau menyinggung. Pemrosesan pasca-dan evaluasi manusia sangat penting untuk membatasi risiko bahaya dari output tersebut.
+- [ความละเอียดของสื่อ](https://ai.google.dev/gemini-api/docs/media-resolution?hl=th): ควบคุม
+  ความละเอียดของเฟรมวิดีโอเพื่อปรับสมดุลคุณภาพและการใช้โทเค็น
+- [โทเค็น](https://ai.google.dev/gemini-api/docs/tokens?hl=th): ทำความเข้าใจวิธีแปลงเนื้อหาวิดีโอเป็นโทเค็น
+  ในโหมดการประมวลผลแบบคงที่และแบบเอเจนต์
+- [การดำเนินการในเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th): เรียกใช้
+  งานการทำความเข้าใจวิดีโอที่ใช้เวลานานแบบไม่พร้อมกันเพื่อหลีกเลี่ยงการหมดเวลา
+  การเชื่อมต่อ
+- [คำสั่งของระบบ](https://ai.google.dev/gemini-api/docs/text-generation?hl=th#system-instructions):
+  คำสั่งของระบบช่วยให้คุณกำหนดลักษณะการทำงานของโมเดลตามความต้องการ
+  และกรณีการใช้งานที่เฉพาะเจาะจงได้
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th): ดูข้อมูลเพิ่มเติมเกี่ยวกับการอัปโหลดและจัดการ
+  ไฟล์เพื่อใช้กับ Gemini
+- [กลยุทธ์การเขียนพรอมต์ไฟล์](https://ai.google.dev/gemini-api/docs/files?hl=th#prompt-guide): Gemini
+  API รองรับการเขียนพรอมต์ด้วยข้อมูลข้อความ รูปภาพ เสียง และวิดีโอ หรือที่เรียกว่าการเขียนพรอมต์แบบหลายรูปแบบ
+- [คำแนะนำด้านความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=th): บางครั้งโมเดล Generative AI
+  อาจสร้างเอาต์พุตที่ไม่คาดคิด เช่น เอาต์พุตที่ไม่ถูกต้อง
+  มีอคติ หรือไม่เหมาะสม การประมวลผลภายหลังและการประเมินโดยเจ้าหน้าที่เป็นสิ่งจำเป็นเพื่อ
+  จำกัดความเสี่ยงที่จะเกิดอันตรายจากเอาต์พุตดังกล่าว
 
-Kirim masukan
+ส่งความคิดเห็น
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Terakhir diperbarui pada 2026-09-24 UTC.
+อัปเดตล่าสุด 2026-10-09 UTC
 
-Ada masukan untuk kami?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-24 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-09 UTC"],[],[]]

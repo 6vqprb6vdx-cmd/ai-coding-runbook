@@ -1,38 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-search?hl=th
-fetched_at: 2026-10-05T06:37:16.085567+00:00
-title: "\u0e04\u0e49\u0e19\u0e2b\u0e32\u0e44\u0e1f\u0e25\u0e4c \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/file-search?hl=id
+fetched_at: 2026-10-12T07:02:48.619294+00:00
+title: "Penelusuran file \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 3.8 Flash kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
 
-ส่งความคิดเห็น
+Kirim masukan
 
-# ค้นหาไฟล์
+# Penelusuran file
 
-Gemini API ช่วยให้ Retrieval Augmented Generation ("RAG") ทำงานได้ผ่านเครื่องมือค้นหาไฟล์ การค้นหาไฟล์จะนำเข้า แบ่งเป็นกลุ่ม และจัดทำดัชนีข้อมูลของคุณเพื่อ
-ให้ดึงข้อมูลที่เกี่ยวข้องได้อย่างรวดเร็วตามพรอมต์ที่ระบุ จากนั้นระบบจะใช้ข้อมูลที่ดึงมานี้เป็นบริบทสำหรับโมเดล ซึ่งจะช่วยให้โมเดล
-ให้คำตอบที่ถูกต้องและเกี่ยวข้องมากขึ้นได้ การค้นหาไฟล์ยังสามารถ
-มอบความสามารถแบบหลายรูปแบบด้วยการฝังข้อความที่รองรับโดย
-`gemini-embedding-001` และการฝังรูปภาพ/แบบหลายรูปแบบที่รองรับโดย `gemini-embedding-2`
+Gemini API memungkinkan Retrieval-Augmented Generation ("RAG") melalui alat Penelusuran File. Penelusuran File mengimpor, membagi, dan mengindeks data Anda untuk memungkinkan pengambilan informasi yang relevan dengan cepat berdasarkan perintah yang diberikan. Informasi yang diambil ini kemudian digunakan sebagai konteks untuk model, sehingga model dapat memberikan jawaban yang lebih akurat dan relevan. Penelusuran file juga dapat
+memberikan kemampuan multimodal dengan embedding teks yang didukung oleh
+`gemini-embedding-001`, dan embedding gambar/multimodal yang didukung oleh `gemini-embedding-2`.
 
-การจัดเก็บไฟล์และการสร้างการฝังในเวลาที่ทำการค้นหาไม่มีค่าใช้จ่าย และคุณจะจ่ายเฉพาะ
-ค่าสร้างการฝังเมื่อจัดทำดัชนีไฟล์เป็นครั้งแรกและค่าโทเค็นอินพุต / เอาต์พุตของโมเดล Gemini
-ปกติเท่านั้น กระบวนทัศน์การเรียกเก็บเงินแบบใหม่นี้ทำให้เครื่องมือค้นหาไฟล์
-สร้างและปรับขนาดได้ง่ายขึ้นและคุ้มค่ากว่าเดิม ดูรายละเอียดได้ที่ส่วน[การกำหนดราคา](#pricing)
+Penyimpanan file dan pembuatan sematan pada waktu kueri gratis, dan Anda hanya akan membayar
+pembuatan sematan saat pertama kali mengindeks file dan biaya token input / output model Gemini
+yang normal. Paradigma penagihan baru ini membuat Alat Penelusuran File lebih mudah dan hemat biaya untuk dibangun dan diskalakan. Lihat bagian
+[harga](#pricing) untuk mengetahui detailnya.
 
-## อัปโหลดไปยังร้านค้า File Search โดยตรง
+## Mengupload langsung ke penyimpanan Penelusuran File
 
-ตัวอย่างนี้แสดงวิธีอัปโหลดไฟล์ไปยัง[ที่เก็บไฟล์ค้นหา](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-media.uploadtofilesearchstore)โดยตรง
+Contoh ini menunjukkan cara mengupload file secara langsung ke [penyimpanan penelusuran file](https://ai.google.dev/api/file-search/file-search-stores?hl=id#method:-media.uploadtofilesearchstore):
 
 ### Python
 
@@ -129,11 +127,11 @@ async function run() {
 run();
 ```
 
-ดูข้อมูลเพิ่มเติมได้ที่เอกสารอ้างอิง API สำหรับ [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-media.uploadtofilesearchstore)
+Periksa referensi API untuk [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=id#method:-media.uploadtofilesearchstore) untuk mengetahui informasi selengkapnya.
 
-## การนำเข้าไฟล์
+## Mengimpor file
 
-หรือจะอัปโหลดไฟล์ที่มีอยู่แล้ว[นำเข้าไปยังที่เก็บการค้นหาไฟล์](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-filesearchstores.importfile)ก็ได้ โดยทำดังนี้
+Atau, Anda dapat mengupload file yang ada dan [mengimpornya ke penyimpanan penelusuran file Anda](https://ai.google.dev/api/file-search/file-search-stores?hl=id#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -231,13 +229,14 @@ async function run() {
 run();
 ```
 
-ดูข้อมูลเพิ่มเติมได้ที่เอกสารอ้างอิง API สำหรับ [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=th#method:-filesearchstores.importfile)
+Periksa referensi API untuk [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=id#method:-filesearchstores.importfile) untuk mengetahui informasi selengkapnya.
 
-## การกำหนดค่าการแบ่งกลุ่ม
+## Konfigurasi pemotongan
 
-เมื่อนำเข้าไฟล์ไปยังร้านค้า File Search ระบบจะแบ่งไฟล์ออกเป็น
-ก้อนๆ ฝัง จัดทำดัชนี และอัปโหลดไปยังร้านค้า File Search โดยอัตโนมัติ หากต้องการควบคุมกลยุทธ์การแบ่งกลุ่มให้มากขึ้น คุณสามารถระบุการตั้งค่า [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=th#request-body_5)
-เพื่อกำหนดจำนวนโทเค็นสูงสุดต่อกลุ่มและจำนวนโทเค็นที่ทับซ้อนกันสูงสุดได้
+Saat Anda mengimpor file ke penyimpanan Penelusuran File, file tersebut akan otomatis dipecah menjadi beberapa bagian, disematkan, diindeks, dan diupload ke penyimpanan Penelusuran File Anda. Jika Anda
+membutuhkan kontrol yang lebih besar atas strategi chunking, Anda dapat menentukan setelan
+[`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=id#request-body_5)
+untuk menetapkan jumlah maksimum token per chunk dan jumlah maksimum token yang tumpang-tindih.
 
 ### Python
 
@@ -296,56 +295,49 @@ while (!operation.done) {
 console.log("Custom chunking complete.");
 ```
 
-หากต้องการใช้ที่เก็บข้อมูลการค้นหาไฟล์ ให้ส่งเป็นเครื่องมือไปยังเมธอด `generateContent`
-ดังที่แสดงในตัวอย่าง[อัปโหลด](#upload)และ[นำเข้า](#importing-files)
+Untuk menggunakan penyimpanan Penelusuran File, teruskan sebagai alat ke metode `generateContent`, seperti yang ditunjukkan dalam contoh [Upload](#upload) dan [Impor](#importing-files).
 
-## วิธีการทำงาน
+## Cara kerjanya
 
-การค้นหาไฟล์ใช้เทคนิคที่เรียกว่าการค้นหาเชิงความหมายเพื่อค้นหาข้อมูลที่เกี่ยวข้องกับพรอมต์ของผู้ใช้
-การค้นหาเชิงความหมายต่างจากการค้นหาตามคีย์เวิร์ดมาตรฐานตรงที่
-เข้าใจความหมายและบริบทของคำค้นหา
+Penelusuran File menggunakan teknik yang disebut penelusuran semantik untuk menemukan informasi yang relevan dengan perintah pengguna. Tidak seperti penelusuran berbasis kata kunci standar, penelusuran semantik memahami makna dan konteks kueri Anda.
 
-เมื่อนำเข้าไฟล์ ระบบจะแปลงไฟล์เป็นตัวแทนเชิงตัวเลขที่เรียกว่า
-[การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th) ซึ่งจะบันทึกความหมายเชิงความหมายของ
-เนื้อหาที่อัปโหลด ระบบจะจัดเก็บการฝังเหล่านี้ไว้ในฐานข้อมูลการค้นหาไฟล์เฉพาะ
-เมื่อคุณทำการค้นหา ระบบจะแปลงคำค้นหาเป็น Embedding ด้วย จากนั้นระบบจะ
-ทำการค้นหาไฟล์เพื่อค้นหาข้อมูลเอกสารที่คล้ายกันและเกี่ยวข้องมากที่สุด
-จากที่เก็บข้อมูลการค้นหาไฟล์
+Saat Anda mengimpor file, file tersebut akan dikonversi menjadi representasi numerik yang disebut
+[embedding](https://ai.google.dev/gemini-api/docs/embeddings?hl=id), yang menangkap makna semantik
+konten yang diupload. Embedding ini disimpan dalam database Penelusuran File khusus.
+Saat Anda membuat kueri, kueri tersebut juga dikonversi menjadi embedding. Kemudian, sistem
+melakukan Penelusuran File untuk menemukan potongan dokumen yang paling mirip dan relevan
+dari penyimpanan Penelusuran File.
 
-ไม่มี Time To Live (TTL) สำหรับการฝัง
-โดยจะยังคงอยู่จนกว่าจะถูกลบด้วยตนเองหรือเมื่อเลิกใช้งานโมเดล แต่ระบบจะลบไฟล์หลังจากผ่านไป 48 ชั่วโมง
+Tidak ada Time To Live (TTL) untuk sematan;
+sematan akan tetap ada hingga dihapus secara manual, atau saat model tidak digunakan lagi. Namun, file akan dihapus setelah 48 jam.
 
-ต่อไปนี้เป็นรายละเอียดของกระบวนการใช้ File Search
-`uploadToFileSearchStore` API
+Berikut perincian proses penggunaan File Search
+`uploadToFileSearchStore` API:
 
-1. **สร้างที่เก็บข้อมูลการค้นหาไฟล์**: ที่เก็บข้อมูลการค้นหาไฟล์มีข้อมูลที่ประมวลผลแล้วจากไฟล์ ซึ่งเป็นคอนเทนเนอร์แบบถาวรสำหรับ Embedding ที่การค้นหาเชิงความหมายจะทำงานด้วย
-2. **อัปโหลดไฟล์และนำเข้าไปยังร้านค้าการค้นหาไฟล์**: อัปโหลดไฟล์พร้อมกันและนำเข้าผลลัพธ์ไปยังร้านค้าการค้นหาไฟล์ ซึ่งจะสร้าง
-   ออบเจ็กต์`File`ชั่วคราว ซึ่งเป็นข้อมูลอ้างอิงถึงเอกสารดิบ จากนั้นระบบจะแบ่งข้อมูลออกเป็นส่วนๆ แปลงเป็นข้อมูลฝังสำหรับการค้นหาไฟล์ และจัดทำดัชนี `File`
-   ระบบจะลบออบเจ็กต์หลังจากผ่านไป 48 ชั่วโมง ส่วนข้อมูลที่นำเข้าไปยังที่เก็บข้อมูลของ File Search
-   จะได้รับการจัดเก็บอย่างไม่มีกำหนดจนกว่าคุณจะเลือกที่จะลบ
-3. **การค้นหาด้วยการค้นหาไฟล์**: สุดท้าย คุณจะใช้เครื่องมือ `FileSearch` ในการเรียกใช้ `generateContent` ในการกำหนดค่าเครื่องมือ คุณจะระบุ
-   `FileSearchRetrievalResource`ซึ่งชี้ไปยัง `FileSearchStore` ที่ต้องการ
-   ค้นหา ซึ่งจะบอกโมเดลให้ทำการค้นหาเชิงความหมายในที่เก็บข้อมูลการค้นหาไฟล์นั้นๆ เพื่อค้นหาข้อมูลที่เกี่ยวข้องมาใช้เป็นข้อมูลอ้างอิงสำหรับคำตอบ
+1. **Membuat penyimpanan Penelusuran File**: Penyimpanan Penelusuran File berisi data yang diproses dari file Anda. Ini adalah penampung persisten untuk embedding yang akan digunakan oleh penelusuran semantik.
+2. **Mengupload file dan mengimpor ke penyimpanan Penelusuran File**: Mengupload file dan mengimpor hasil ke penyimpanan Penelusuran File secara bersamaan. Tindakan ini akan membuat objek `File` sementara, yang merupakan referensi ke dokumen mentah Anda. Data tersebut kemudian dibagi-bagi, diubah menjadi embedding Penelusuran File, dan diindeks. Objek `File`
+   dihapus setelah 48 jam, sedangkan data yang diimpor ke penyimpanan Penelusuran File
+   akan disimpan tanpa batas waktu hingga Anda memilih untuk menghapusnya.
+3. **Kueri dengan Penelusuran File**: Terakhir, Anda menggunakan alat `FileSearch` dalam panggilan `generateContent`. Dalam konfigurasi alat, Anda menentukan
+   `FileSearchRetrievalResource`, yang mengarah ke `FileSearchStore` yang ingin
+   Anda telusuri. Hal ini memberi tahu model untuk melakukan penelusuran semantik di penyimpanan Penelusuran File tertentu tersebut guna menemukan informasi yang relevan untuk mendasari responsnya.
 
-![กระบวนการจัดทำดัชนีและการค้นหาของเครื่องมือค้นหาไฟล์](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=th)
+![Proses pengindeksan dan pembuatan kueri Penelusuran File](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=id)
 
-กระบวนการจัดทำดัชนีและการค้นหาของ File Search
+Proses pengindeksan dan pembuatan kueri Penelusuran File
 
-ในแผนภาพนี้ เส้นประจาก*เอกสาร*ไปยัง*โมเดลการฝัง*
-(ใช้ [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=th))
-แสดงถึง `uploadToFileSearchStore` API (ข้าม*ที่เก็บไฟล์*)
-ไม่เช่นนั้น การใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th) เพื่อสร้างแยกกัน
-แล้วจึงนำเข้าไฟล์จะย้ายกระบวนการจัดทำดัชนีจาก *Documents* ไปยัง
-*ที่เก็บไฟล์* แล้วจึงไปยัง*โมเดลการฝัง*
+Dalam diagram ini, garis putus-putus dari *Documents* ke *Embedding model*
+(menggunakan [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=id))
+merepresentasikan `uploadToFileSearchStore` API (melewati *File storage*).
+Jika tidak, menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) untuk membuat
+dan mengimpor file secara terpisah akan memindahkan proses pengindeksan dari *Dokumen* ke
+*Penyimpanan file*, lalu ke *Model sematan*.
 
-## File Search stores
+## Menyimpan Penelusuran File
 
-ที่เก็บการค้นหาไฟล์คือคอนเทนเนอร์สำหรับการฝังเอกสาร แม้ว่าระบบจะลบไฟล์ดิบที่อัปโหลดผ่าน File API หลังจาก 48 ชั่วโมง แต่ข้อมูลที่นำเข้าไปยังที่เก็บข้อมูลการค้นหาไฟล์จะจัดเก็บไว้เรื่อยๆ จนกว่าคุณจะลบด้วยตนเอง คุณสามารถ
-สร้างที่เก็บการค้นหาไฟล์หลายรายการเพื่อจัดระเบียบเอกสารได้
-`FileSearchStore` API ช่วยให้คุณสร้าง แสดงรายการ รับ และลบเพื่อจัดการร้านค้า
-การค้นหาไฟล์ได้ ชื่อร้านค้าของ File Search จะมีขอบเขตทั่วโลก
+Penyimpanan Penelusuran File adalah container untuk embedding dokumen Anda. Meskipun file mentah yang diupload melalui File API akan dihapus setelah 48 jam, data yang diimpor ke penyimpanan Penelusuran File akan disimpan tanpa batas waktu hingga Anda menghapusnya secara manual. Anda dapat membuat beberapa penyimpanan Penelusuran File untuk mengatur dokumen Anda. `FileSearchStore` API memungkinkan Anda membuat, mencantumkan, mendapatkan, dan menghapus untuk mengelola penyimpanan penelusuran file Anda. Nama toko Penelusuran File memiliki cakupan global.
 
-ตัวอย่างวิธีจัดการร้านค้าที่ใช้การค้นหาไฟล์มีดังนี้
+Berikut beberapa contoh cara mengelola toko Penelusuran File Anda:
 
 ### Python
 
@@ -404,11 +396,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123?key=${GEMINI_API_KEY}"
 ```
 
-## เอกสารการค้นหาไฟล์
+## Dokumen Penelusuran File
 
-คุณสามารถจัดการเอกสารแต่ละรายการในที่เก็บไฟล์ได้ด้วย API [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=th) เพื่อ`list`เอกสารแต่ละรายการ
-ในที่เก็บการค้นหาไฟล์ `get`ข้อมูลเกี่ยวกับเอกสาร และ`delete`เอกสาร
-ตามชื่อ
+Anda dapat mengelola setiap dokumen di penyimpanan file dengan API
+[File Search Documents](https://ai.google.dev/api/file-search/documents?hl=id) untuk `list` setiap dokumen
+di penyimpanan penelusuran file, `get` informasi tentang dokumen, dan `delete`
+dokumen menurut nama.
 
 ### Python
 
@@ -451,9 +444,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/my-file_search-store-123/documents/my_doc?key=${GEMINI_API_KEY}"
 ```
 
-## ข้อมูลเมตาของไฟล์
+## Metadata file
 
-คุณสามารถเพิ่มข้อมูลเมตาที่กำหนดเองลงในไฟล์เพื่อช่วยกรองไฟล์หรือให้บริบทเพิ่มเติมได้ ข้อมูลเมตาคือชุดคู่คีย์-ค่า
+Anda dapat menambahkan metadata kustom ke file untuk membantu memfilter atau memberikan
+konteks tambahan. Metadata adalah sekumpulan key-value pair.
 
 ### Python
 
@@ -483,8 +477,8 @@ let operation = await ai.fileSearchStores.importFile({
 });
 ```
 
-ซึ่งจะมีประโยชน์เมื่อคุณมีเอกสารหลายฉบับในที่เก็บการค้นหาไฟล์และต้องการ
-ค้นหาเฉพาะชุดย่อยของเอกสารเหล่านั้น
+Hal ini berguna jika Anda memiliki beberapa dokumen di penyimpanan Penelusuran File dan ingin
+menelusuri hanya sebagian dokumen tersebut.
 
 ### Python
 
@@ -549,17 +543,16 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 cat response.json
 ```
 
-ดูคำแนะนำในการใช้ไวยากรณ์ตัวกรองรายการสำหรับ `metadata_filter` ได้ที่ [google.aip.dev/160](https://google.aip.dev/160)
+Panduan tentang penerapan sintaksis filter daftar untuk `metadata_filter` dapat ditemukan
+di [google.aip.dev/160](https://google.aip.dev/160)
 
-## การค้นหาไฟล์หลายรูปแบบ
+## Penelusuran File Multimodal
 
-การค้นหาไฟล์แบบหลายรูปแบบช่วยให้คุณฝังและค้นหารูปภาพได้โดยตรง
-จึงสร้างแอปพลิเคชัน RAG แบบหลายรูปแบบที่สมบูรณ์ได้
+Penelusuran File Multimodal memungkinkan Anda menyematkan dan menelusuri gambar secara native, sehingga memungkinkan aplikasi RAG multimodal yang kaya.
 
-### กำหนดค่าโมเดลการฝัง
+### Mengonfigurasi model embedding
 
-เมื่อสร้าง `FileSearchStore` คุณต้องลบล้างโมเดลการฝังข้อความเท่านั้นเริ่มต้นเพื่อใช้โมเดลแบบมัลติโมดัล ใช้ `models/gemini-embedding-2` เพื่อ
-ประมวลผลทั้งข้อความและรูปภาพ
+Saat membuat `FileSearchStore`, Anda harus mengganti model embedding default khusus teks untuk menggunakan model multimodal. Gunakan `models/gemini-embedding-2` untuk memproses teks dan gambar.
 
 ### Python
 
@@ -594,21 +587,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### อัปโหลดรูปภาพ
+### Upload gambar
 
-หลังจากสร้างร้านค้าด้วยโมเดลการฝังแบบมัลติโมดัลแล้ว คุณจะอัปโหลดไฟล์รูปภาพได้โดยตรงโดยใช้ API การอัปโหลดเดียวกันกับที่อธิบายไว้ใน[อัปโหลดไปยังร้านค้า File Search โดยตรง](#upload)หรือ[การนำเข้าไฟล์](#importing-files)
+Setelah membuat toko dengan model penyematan multimodal, Anda dapat mengupload
+file gambar secara langsung menggunakan API upload yang sama seperti yang dijelaskan dalam
+[Mengupload langsung ke toko Penelusuran File](#upload) atau [Mengimpor file](#importing-files).
 
-**ข้อกำหนดของไฟล์รูปภาพ**
+**Persyaratan file gambar:**
 
-- ไฟล์รูปภาพต้องมีความละเอียดไม่เกิน 4K x 4K พิกเซล
-- รูปแบบที่รองรับ ได้แก่ PNG, JPEG
+- File gambar harus memiliki resolusi maksimal 4K x 4K piksel.
+- Format yang didukung adalah PNG, JPEG.
 
-## การอ้างอิง
+## Kutipan
 
-เมื่อคุณใช้การค้นหาไฟล์ คำตอบของโมเดลอาจมีการอ้างอิงที่ระบุส่วนของเอกสารที่คุณอัปโหลดซึ่งใช้ในการสร้างคำตอบ ซึ่งจะช่วยในการตรวจสอบข้อเท็จจริงและการยืนยัน
+Saat Anda menggunakan Penelusuran File, respons model dapat menyertakan kutipan yang menentukan bagian dokumen yang Anda upload yang digunakan untuk membuat jawaban. Hal ini membantu dalam pemeriksaan fakta dan verifikasi.
 
-คุณเข้าถึงข้อมูลการอ้างอิงได้ผ่านแอตทริบิวต์ `grounding_metadata`
-ของคำตอบ
+Anda dapat mengakses informasi kutipan melalui atribut `grounding_metadata`
+respons.
 
 ### Python
 
@@ -622,16 +617,16 @@ print(response.candidates[0].grounding_metadata)
 console.log(JSON.stringify(response.candidates?.[0]?.groundingMetadata, null, 2));
 ```
 
-ดูข้อมูลโดยละเอียดเกี่ยวกับโครงสร้างของข้อมูลเมตาการเชื่อมต่อแหล่งข้อมูลได้ที่
-ตัวอย่างใน[สูตรการแก้ปัญหาการค้นหาไฟล์](https://github.com/google-gemini/cookbook/blob/main/quickstarts/File_Search.ipynb)
-หรือ[ส่วนการเชื่อมต่อแหล่งข้อมูลของเอกสารประกอบการเชื่อมต่อแหล่งข้อมูลกับ Google
-Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th#attributing_sources_with_inline_citations)
+Untuk mengetahui informasi mendetail tentang struktur metadata perujukan, lihat contoh dalam [File Search
+cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/File_Search.ipynb)
+atau [bagian perujukan dalam dokumentasi Grounding dengan Google
+Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id#attributing_sources_with_inline_citations).
 
-### หมายเลขหน้า
+### Nomor halaman
 
-เมื่อใช้การค้นหาไฟล์กับเอกสารที่มีหน้า (เช่น PDF) คำตอบของโมเดลอาจมีหมายเลขหน้าที่มีข้อมูล
-คุณเข้าถึงข้อมูลนี้ได้ผ่านแอตทริบิวต์ `page_number` ของ
-`retrieved_context`
+Saat Anda menggunakan Penelusuran File dengan dokumen yang memiliki halaman (seperti PDF), respons model dapat menyertakan nomor halaman tempat informasi ditemukan.
+Anda dapat mengakses informasi ini melalui atribut `page_number` dari
+`retrieved_context`.
 
 ### Python
 
@@ -653,13 +648,11 @@ for (const chunk of groundingMetadata.groundingChunks) {
 }
 ```
 
-### การอ้างอิงสื่อ
+### Kutipan media
 
-เมื่อโมเดลอ้างอิงถึงก้อนข้อมูลรูปภาพในระหว่างการสร้าง API จะแสดงการอ้างอิงในข้อมูลเมตาการเชื่อมโยงกับความจริงซึ่งมี `media_id` คุณใช้รหัสนี้เพื่อดาวน์โหลดก้อนรูปภาพที่ตรงกันทุกประการซึ่งโมเดลอ้างอิงได้ `media_id`นี้จะ
-คงอยู่ในการเรียกค้นหาหลายครั้ง ซึ่งช่วยให้คุณดึง
-รูปภาพเดียวกันหรือแคชรูปภาพโดยใช้รหัสได้อย่างน่าเชื่อถือ
+Saat model mereferensikan potongan gambar selama pembuatan, API akan menampilkan kutipan dalam metadata perujukan yang menyertakan `media_id`. Anda dapat menggunakan ID ini untuk mendownload potongan gambar persis yang dirujuk model. `media_id` ini bersifat persisten di beberapa panggilan penelusuran, sehingga Anda dapat mengambil gambar yang sama atau menyimpannya dalam cache menggunakan ID dengan andal.
 
-ข้อมูลโค้ดต่อไปนี้เป็นตัวอย่างการตอบกลับของ REST
+Cuplikan berikut adalah contoh respons REST:
 
 ```
 "groundingMetadata": {
@@ -675,8 +668,8 @@ for (const chunk of groundingMetadata.groundingChunks) {
 }
 ```
 
-ข้อมูลโค้ดต่อไปนี้แสดงวิธีดึงข้อมูล `media_id` และ
-ดาวน์โหลดสื่อ
+Cuplikan kode berikut menunjukkan cara mengambil `media_id` dan
+mendownload media:
 
 ### Python
 
@@ -712,10 +705,12 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## ข้อมูลเมตาที่กำหนดเองในข้อมูลพื้นฐาน
+## Metadata kustom dalam data perujukan
 
-หากเพิ่มข้อมูลเมตาที่กำหนดเองลงในไฟล์ คุณจะเข้าถึงข้อมูลเมตาดังกล่าวได้ในข้อมูลเมตาพื้นฐานของคำตอบของโมเดล ซึ่งมีประโยชน์สำหรับการส่งบริบทเพิ่มเติม (เช่น URL, หมายเลขหน้า หรือผู้เขียน) จากเอกสารต้นฉบับไปยังตรรกะของแอปพลิเคชัน `grounding_chunk` แต่ละรายการใน
-`retrieved_context`จะมีข้อมูลเมตาที่กำหนดเองนี้
+Jika telah menambahkan metadata kustom ke file, Anda dapat mengaksesnya di metadata perujukan respons model. Hal ini berguna untuk meneruskan
+konteks tambahan (seperti URL, nomor halaman, atau penulis) dari dokumen sumber
+ke logika aplikasi Anda. Setiap `grounding_chunk` di
+`retrieved_context` berisi metadata kustom ini.
 
 ### Python
 
@@ -808,9 +803,10 @@ groundingMetadata.groundingChunks.forEach((chunk) => {
 }
 ```
 
-## เอาต์พุตที่มีโครงสร้าง
+## Output terstruktur
 
-ตั้งแต่โมเดล Gemini 3 เป็นต้นไป คุณสามารถใช้เครื่องมือค้นหาไฟล์ร่วมกับ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)ได้
+Mulai dari model Gemini 3, Anda dapat menggabungkan alat penelusuran file dengan
+[output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id).
 
 ### Python
 
@@ -908,32 +904,31 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-## รุ่นที่รองรับ
+## Model yang didukung
 
-รุ่นต่อไปนี้รองรับการค้นหาไฟล์
+Model berikut mendukung Penelusuran File:
 
-| รุ่น | การค้นหาไฟล์ |
+| Model | Penelusuran File |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=th) | ✔️ |
-| [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=th) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th) | ✔️ |
-| [Gemini 3.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=th) | ✔️ |
-| [Gemini 3.1 Pro เวอร์ชันตัวอย่าง](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
-| [ตัวอย่าง Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=id) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=id) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=id) | ✔️ |
+| [Pratinjau Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=id) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=id) | ✔️ |
+| [Pratinjau Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=id) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=id) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=id) | ✔️ |
 
-## ชุดเครื่องมือที่รองรับ
+## Kombinasi alat yang didukung
 
-โมเดล Gemini 3 รองรับการรวมเครื่องมือในตัว (เช่น การค้นหาไฟล์) กับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ที่หน้า[การผสมผสานเครื่องมือ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=th)
+Model Gemini 3 mendukung penggabungan alat bawaan (seperti Penelusuran File) dengan alat kustom (panggilan fungsi). Pelajari lebih lanjut di halaman
+[kombinasi alat](https://ai.google.dev/gemini-api/docs/tool-combination?hl=id).
 
-## ประเภทไฟล์ที่สนับสนุน
+## Jenis file yang didukung
 
-การค้นหาไฟล์รองรับรูปแบบไฟล์หลากหลายรูปแบบตามที่ระบุไว้ในส่วนต่อไปนี้
+Penelusuran File mendukung berbagai format file, yang tercantum di bagian berikut.
 
-### ประเภทไฟล์แอปพลิเคชัน
+### Jenis file aplikasi
 
 - `application/dart`
 - `application/ecmascript`
@@ -966,7 +961,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 - `application/xml`
 - `application/zip`
 
-### ประเภทไฟล์ข้อความ
+### Jenis file teks
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -1125,40 +1120,41 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## ข้อจำกัด
+## Batasan
 
-- **Live API:** ไม่รองรับการค้นหาไฟล์ใน [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
-- **เครื่องมือไม่รองรับ:** ขณะนี้การค้นหาไฟล์ใช้ร่วมกับเครื่องมืออื่นๆ ไม่ได้ เช่น [การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th), [บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th) เป็นต้น
+- **Live API:** Penelusuran File tidak didukung di
+  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=id).
+- **Ketidakcocokan alat:** Penelusuran File tidak dapat digabungkan dengan alat lain seperti [Grounding dengan Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id), [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id), dll. saat ini.
 
-### ขีดจำกัดอัตรา
+### Batas kapasitas
 
-API การค้นหาไฟล์มีขีดจำกัดต่อไปนี้เพื่อบังคับใช้ความเสถียรของบริการ
+File Search API memiliki batas berikut untuk memastikan stabilitas layanan:
 
-- **ขนาดไฟล์สูงสุด / ขีดจำกัดต่อเอกสาร**: 100 MB
-- **ขนาดรวมของที่เก็บข้อมูลการค้นหาไฟล์ของโปรเจ็กต์** (อิงตามระดับผู้ใช้)
-  - **ฟรี**: 1 GB
-  - **ระดับที่ 1**: 10 GB
-  - **ระดับ 2**: 100 GB
-  - **ระดับ 3**: 1 TB
-- **คำแนะนำ**: จำกัดขนาดของที่เก็บข้อมูลการค้นหาไฟล์แต่ละรายการให้ต่ำกว่า 20 GB เพื่อให้มั่นใจว่าเวลาในการดึงข้อมูลจะเหมาะสมที่สุด
+- **Ukuran file maksimum / batas per dokumen**: 100 MB
+- **Total ukuran penyimpanan Penelusuran File project** (berdasarkan tingkat pengguna):
+  - **Gratis**: 1 GB
+  - **Tingkat 1**: 10 GB
+  - **Tingkat 2**: 100 GB
+  - **Tingkat 3**: 1 TB
+- **Rekomendasi**: Batasi ukuran setiap penyimpanan Penelusuran File hingga di bawah 20 GB untuk memastikan latensi pengambilan yang optimal.
 
-## ราคา
+## Harga
 
-- ระบบจะเรียกเก็บเงินค่า Embedding จากคุณ ณ เวลาที่จัดทำดัชนีตาม[ราคา Embedding](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-embedding-2) ที่มีอยู่
-- พื้นที่เก็บข้อมูลไม่มีค่าใช้จ่าย
-- การฝังเวลาการค้นหาไม่มีค่าใช้จ่าย
-- ระบบจะเรียกเก็บเงินสำหรับโทเค็นเอกสารที่ดึงมาเป็น[โทเค็นบริบท](https://ai.google.dev/gemini-api/docs/tokens?hl=th)ปกติ
+- Anda akan ditagih untuk penyematan pada waktu pengindeksan berdasarkan [harga penyematan](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-embedding-2) yang ada.
+- Penyimpanan tidak dikenai biaya.
+- Embedding waktu kueri tidak dikenai biaya.
+- Token dokumen yang diambil dikenai biaya sebagai [token konteks](https://ai.google.dev/gemini-api/docs/tokens?hl=id) reguler.
 
-## ขั้นตอนถัดไป
+## Langkah berikutnya
 
-- ไปที่เอกสารอ้างอิง API สำหรับ[ที่เก็บข้อมูลการค้นหาไฟล์](https://ai.google.dev/api/file-search/file-search-stores?hl=th)และ[เอกสาร](https://ai.google.dev/api/file-search/documents?hl=th)การค้นหาไฟล์
+- Baca referensi API untuk [Penyimpanan Penelusuran File](https://ai.google.dev/api/file-search/file-search-stores?hl=id) dan [Dokumen](https://ai.google.dev/api/file-search/documents?hl=id) Penelusuran File.
 
-ส่งความคิดเห็น
+Kirim masukan
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-อัปเดตล่าสุด 2026-10-01 UTC
+Terakhir diperbarui pada 2026-10-09 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Ada masukan untuk kami?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-01 UTC"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]

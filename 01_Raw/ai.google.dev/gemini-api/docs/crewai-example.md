@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=th
-fetched_at: 2026-10-05T06:42:18.154384+00:00
-title: "\u0e01\u0e32\u0e23\u0e27\u0e34\u0e40\u0e04\u0e23\u0e32\u0e30\u0e2b\u0e4c\u0e01\u0e32\u0e23\u0e2a\u0e19\u0e31\u0e1a\u0e2a\u0e19\u0e38\u0e19\u0e25\u0e39\u0e01\u0e04\u0e49\u0e32\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=it
+fetched_at: 2026-10-12T07:15:40.071139+00:00
+title: "Analisi dell'assistenza clienti con Gemini e CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-ส่งความคิดเห็น
+Invia feedback
 
-# การวิเคราะห์การสนับสนุนลูกค้าด้วย Gemini และ CrewAI
+# Analisi dell'assistenza clienti con Gemini e CrewAI
 
-[CrewAI](https://docs.crewai.com/introduction) เป็นเฟรมเวิร์กสำหรับการจัดระเบียบ
-AI Agent แบบอัตโนมัติที่ทำงานร่วมกันเพื่อให้บรรลุเป้าหมายที่ซับซ้อน โดยจะช่วยให้คุณ
-กำหนด Agent ได้ด้วยการระบุบทบาท เป้าหมาย และเรื่องราวเบื้องหลัง จากนั้นจึงกำหนดงาน
-สำหรับ Agent เหล่านั้น
+[CrewAI](https://docs.crewai.com/introduction) è un framework per orchestrare
+agenti AI autonomi che collaborano per raggiungere obiettivi complessi. Ti consente di
+definire gli agenti specificando ruoli, obiettivi e retroscena, quindi di definire le attività
+per loro.
 
-ตัวอย่างนี้แสดงวิธีสร้างระบบหลายเอเจนต์เพื่อวิเคราะห์ข้อมูลการสนับสนุนลูกค้าเพื่อระบุปัญหาและเสนอการปรับปรุงกระบวนการโดยใช้ Gemini 3 Flash ซึ่งจะสร้างรายงานที่ออกแบบมาให้ประธานเจ้าหน้าที่ฝ่ายปฏิบัติการ (COO) อ่าน
+Questo esempio mostra come creare un sistema multi-agente per analizzare i dati dell'assistenza clienti per identificare i problemi e proporre miglioramenti dei processi utilizzando Gemini 3 Flash, generando un report destinato a essere letto da un Chief Operating Officer (COO).
 
-คู่มือนี้จะแสดงวิธีสร้าง "ทีม" ของ AI Agent ที่สามารถทำงานต่อไปนี้ได้
+La guida ti mostrerà come creare una "troupe" di agenti AI in grado di svolgere le seguenti attività:
 
-1. ดึงและวิเคราะห์ข้อมูลการสนับสนุนลูกค้า (จำลองในตัวอย่างนี้)
-2. ระบุปัญหาที่เกิดซ้ำและคอขวดของกระบวนการ
-3. แนะนำการปรับปรุงที่นำไปใช้ได้จริง
-4. รวบรวมผลการวิจัยเป็นรายงานที่กระชับซึ่งเหมาะสำหรับ COO
+1. Recuperare e analizzare i dati dell'assistenza clienti (simulati in questo esempio).
+2. Identificare problemi ricorrenti e colli di bottiglia dei processi.
+3. Suggerire miglioramenti pratici.
+4. Compilare i risultati in un report conciso adatto a un COO.
 
-คุณต้องมีคีย์ Gemini API หากยังไม่มี คุณสามารถ[รับได้ใน
-Google AI Studio](https://aistudio.google.com/apikey?hl=th)
+Devi avere una chiave API Gemini. Se non ne hai già una, puoi [ottenerla in
+Google AI Studio](https://aistudio.google.com/apikey?hl=it).
 
 ```
 pip install "crewai[tools]"
 ```
 
-ตั้งค่าคีย์ Gemini API เป็นตัวแปรสภาพแวดล้อมชื่อ `GEMINI_API_KEY` จากนั้น
-กำหนดค่า CrewAI ให้ใช้โมเดล Gemini
+Imposta la chiave API Gemini come variabile di ambiente denominata `GEMINI_API_KEY`, quindi configura CrewAI per utilizzare il modello Gemini.
 
 ```
 import os
@@ -55,15 +54,15 @@ gemini_llm = LLM(
 )
 ```
 
-## กำหนดคอมโพเนนต์
+## Definisci i componenti
 
-สร้างแอปพลิเคชัน CrewAI โดยใช้**เครื่องมือ** **เอเจนต์** **งาน** และ**ทีม**เอง ส่วนต่อไปนี้จะอธิบายแต่ละองค์ประกอบเหล่านี้
+Crea applicazioni CrewAI utilizzando **Strumenti**, **Agenti**, **Attività** e la
+**Troupe** stessa. Le sezioni seguenti spiegano ciascuno di questi componenti.
 
-### เครื่องมือ
+### Strumenti
 
-เครื่องมือคือความสามารถที่เอเจนต์ใช้โต้ตอบกับโลกภายนอกหรือ
-ดำเนินการบางอย่างได้ ในที่นี้ คุณจะกำหนดเครื่องมือตัวยึดตำแหน่งเพื่อจำลอง
-การดึงข้อมูลการสนับสนุนลูกค้า ในแอปพลิเคชันจริง คุณจะต้องเชื่อมต่อกับฐานข้อมูล, API หรือระบบไฟล์ ดูข้อมูลเพิ่มเติมเกี่ยวกับเครื่องมือได้ที่[คู่มือเครื่องมือ CrewAI](https://docs.crewai.com/concepts/tools)
+Gli strumenti sono funzionalità che gli agenti possono utilizzare per interagire con il mondo esterno o eseguire azioni specifiche. Qui definisci uno strumento segnaposto per simulare il recupero dei dati dell'assistenza clienti. In un'applicazione reale, ti connetteresti a un database, un'API o un file system. Per saperne di più sugli strumenti, consulta la [guida agli strumenti
+di CrewAI](https://docs.crewai.com/concepts/tools).
 
 ```
 from crewai.tools import BaseTool
@@ -93,9 +92,10 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### ตัวแทน
+### Agenti
 
-เอเจนต์คือผู้ปฏิบัติงาน AI แต่ละคนในทีมของคุณ Agent แต่ละรายจะมี `role`, `goal`, `backstory`, `llm` ที่กำหนด และ `tools` ที่ไม่บังคับ ดูข้อมูลเพิ่มเติมเกี่ยวกับตัวแทนได้ที่[คู่มือตัวแทน CrewAI](https://docs.crewai.com/concepts/agents)
+Gli agenti sono i singoli operatori AI della tua troupe. Ogni agente ha un
+`role`, `goal`, `backstory`, un `llm` assegnato e `tools` facoltativi specifici. Per saperne di più sugli agenti, consulta la [guida agli agenti di CrewAI](https://docs.crewai.com/concepts/agents).
 
 ```
 from crewai import Agent
@@ -142,9 +142,10 @@ report_writer = Agent(
 )
 ```
 
-### งาน
+### Tasks
 
-งานจะกำหนดการมอบหมายที่เฉพาะเจาะจงสำหรับตัวแทน แต่ละงานจะมี`description` `expected_output` และมอบหมายให้`agent` โดยค่าเริ่มต้น ระบบจะเรียกใช้งานตามลำดับและรวมบริบทของงานก่อนหน้า ดูข้อมูลเพิ่มเติมเกี่ยวกับงานได้ที่[คู่มือเกี่ยวกับงานของ CrewAI](https://docs.crewai.com/concepts/tasks)
+Le attività definiscono le assegnazioni specifiche per gli agenti. Ogni attività ha un
+`description`, `expected_output` e viene assegnata a un `agent`. Per impostazione predefinita, le attività vengono eseguite in sequenza e includono il contesto dell'attività precedente. Per saperne di più sulle attività, consulta la [guida alle attività di CrewAI](https://docs.crewai.com/concepts/tasks).
 
 ```
 from crewai import Task
@@ -203,10 +204,10 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### ทีมงาน
+### Banda
 
-`Crew`จะเชื่อมต่อ Agent และงานเข้าด้วยกันเพื่อกำหนดกระบวนการเวิร์กโฟลว์
-(เช่น "ตามลำดับ")
+Il `Crew` riunisce gli agenti e le attività, definendo il processo del flusso di lavoro
+(ad esempio "sequenziale").
 
 ```
 from crewai import Crew, Process
@@ -219,9 +220,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## Run the crew
+## Esegui la troupe
 
-สุดท้าย ให้เริ่มการทำงานของทีมด้วยข้อมูลที่จำเป็น
+Infine, avvia l'esecuzione della troupe con gli input necessari.
 
 ```
 # Start the crew's work
@@ -235,19 +236,19 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-ตอนนี้สคริปต์จะทำงาน `Data Analyst` จะใช้เครื่องมือนี้ `Process
-Optimizer` จะวิเคราะห์ผลลัพธ์ และ `Report Writer` จะรวบรวม
-รายงานสุดท้าย ซึ่งจะพิมพ์ลงในคอนโซล `verbose=True` การตั้งค่า
-จะแสดงกระบวนการคิดและการดำเนินการโดยละเอียดของเอเจนต์แต่ละราย
+Lo script verrà ora eseguito. Il `Data Analyst` utilizzerà lo strumento, il `Process
+Optimizer` analizzerà i risultati e il `Report Writer` compilerà il
+report finale, che verrà poi stampato nella console. L'impostazione `verbose=True` mostrerà il processo di pensiero e le azioni dettagliate di ogni agente.
 
-ดูข้อมูลเพิ่มเติมเกี่ยวกับ CrewAI ได้ที่[ข้อมูลเบื้องต้นเกี่ยวกับ CrewAI](https://docs.crewai.com/introduction)
+Per saperne di più su CrewAI, consulta la guida introduttiva a [CrewAI
+.](https://docs.crewai.com/introduction)
 
-ส่งความคิดเห็น
+Invia feedback
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-อัปเดตล่าสุด 2026-09-12 UTC
+Ultimo aggiornamento 2026-09-12 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Vuoi dirci altro?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-12 UTC"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]

@@ -1,34 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=vi
-fetched_at: 2026-10-05T06:35:15.580649+00:00
-title: "\u0110i\u1ec1u ph\u1ed1i t\u00e1c v\u1ee5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-BR
+fetched_at: 2026-10-12T06:52:39.890594+00:00
+title: "Orquestra\u00e7\u00e3o de tarefas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-# Điều phối tác vụ
+# Orquestração de tarefas
 
-Các mô hình Gemini Robotics ER có thể lập kế hoạch cho các tác vụ và suy luận về không gian, suy ra những hành động cần thực hiện và những đối tượng cần di chuyển để hoàn thành mục tiêu. Trang này cho thấy một ví dụ về việc [thực hiện thao tác chọn và đặt](#calling-custom-robot-api) thông qua một API robot tuỳ chỉnh để điều phối tác vụ đặt một vật phẩm vào bát. Ví dụ này sử dụng mô hình Gemini ER 2 tiêu chuẩn. Để xem ví dụ về truyền phát trực tiếp, hãy xem [Hướng dẫn truyền phát trực tiếp Gemini ER 2](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=vi).
+Os modelos do Gemini Robotics ER podem planejar tarefas e raciocinar sobre o espaço, inferindo quais ações realizar e quais objetos mover para concluir uma meta. Esta página
+mostra um exemplo de como [conduzir uma operação de coleta e colocação](#calling-custom-robot-api)
+usando uma API de robô personalizada para orquestrar a tarefa de colocar um item
+em uma tigela. Este exemplo usa o modelo padrão do Gemini ER 2. Para um exemplo de streaming
+, consulte o [guia de streaming do Gemini ER 2](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br).
 
-Để xem toàn bộ mã có thể chạy, hãy xem [Sổ tay về robot học](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Para conferir o código executável completo, consulte o
+[livro de receitas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Sử dụng API robot tuỳ chỉnh
+## Como usar uma API de robô personalizada
 
-Ví dụ này minh hoạ việc điều phối tác vụ bằng một API robot tuỳ chỉnh. API này giới thiệu một API mô phỏng được thiết kế cho hoạt động chọn và đặt. Việc cần làm là nhặt một khối màu xanh dương và đặt vào một chiếc bát màu cam:
+Este exemplo demonstra a orquestração de tarefas com uma API de robô personalizada. Ele apresenta uma API simulada projetada para uma operação de coleta e colocação. A tarefa é pegar um bloco azul e colocá-lo em uma tigela laranja:
 
-![Hình ảnh khối và bát](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=vi)
+![Imagem do bloco e da tigela](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=pt-br)
 
-Ví dụ này sử dụng API robot mô phỏng sau:
+Este exemplo usa a seguinte API de robô simulada:
 
 ### Python
 
@@ -71,7 +76,7 @@ set_gripper_state_function = {
 }
 ```
 
-Ví dụ sau đây sẽ gửi câu lệnh và hình ảnh đến mô hình cùng với các định nghĩa về công cụ. Sau đó, nó chạy một vòng lặp tác nhân: sau mỗi câu trả lời của mô hình, nó sẽ thực thi mọi lệnh gọi hàm được yêu cầu (`move`, `setGripperState`), trả kết quả về cho mô hình bằng cách sử dụng `previous_interaction_id` và lặp lại cho đến khi mô hình ngừng gọi hàm hoặc đạt đến giới hạn bước.
+O exemplo a seguir envia o comando e a imagem para o modelo com as definições de ferramenta. Em seguida, ele executa um loop agêntico: após cada resposta do modelo, ele executa todas as chamadas de função solicitadas (`move`, `setGripperState`), retorna os resultados para o modelo usando `previous_interaction_id` e repete até que o modelo pare de chamar funções ou o limite de etapas seja atingido.
 
 ### Python
 
@@ -147,7 +152,7 @@ while step_count < max_steps:
     )
 ```
 
-Sau đây là kết quả đầu ra có thể có của mô hình dựa trên câu lệnh và API rô-bốt mô phỏng. Đầu ra bao gồm đầu ra của các lệnh gọi hàm robot mà mô hình đã sắp xếp theo trình tự.
+A seguir, mostramos uma possível saída do modelo com base no comando e na API de robô simulada. A saída inclui o resultado das chamadas de função do robô que o modelo sequenciou.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -164,18 +169,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## Bước tiếp theo
+## A seguir
 
-- [Robot có tính năng truyền phát trực tiếp](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=vi) – truyền phát trực tiếp theo thời gian thực có tính năng gọi hàm (chỉ Gemini Robotics ER 2).
-- [Hiểu video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=vi) – theo dõi tiến trình của tác vụ trong video (chỉ ER 2).
-- [Lý luận không gian](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=vi) – ví dụ về việc chỉ, theo dõi và hộp giới hạn.
+- [Robótica com streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br): streaming em tempo real com chamada de função (somente Gemini Robotics ER 2).
+- [Entendimento de vídeo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pt-br): acompanhe o progresso da tarefa no vídeo (somente ER 2).
+- [Raciocínio espacial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=pt-br): exemplos de apontamento, rastreamento e caixa delimitadora.
 
-Gửi ý kiến phản hồi
+Envie comentários
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Cập nhật lần gần đây nhất: 2026-10-01 UTC.
+Última atualização 2026-10-01 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Quer enviar seu feedback?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-01 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-01 UTC."],[],[]]

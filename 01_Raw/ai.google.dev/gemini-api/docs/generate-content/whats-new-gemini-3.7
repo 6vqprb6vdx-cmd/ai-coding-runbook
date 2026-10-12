@@ -1,0 +1,145 @@
+---
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.7?hl=ar
+fetched_at: 2026-10-12T06:59:07.790446+00:00
+title: "\u0627\u0644\u0645\u064a\u0632\u0627\u062a \u0627\u0644\u062c\u062f\u064a\u062f\u0629 \u0641\u064a Gemini 3.7 Flash \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+---
+
+‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
+
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+
+إرسال ملاحظات
+
+# الميزات الجديدة في Gemini 3.7 Flash
+
+[أحدث طراز](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar)
+[طُرز أخرى](#other-models)
+
+‫Gemini 3.7 Flash (`gemini-3.7-flash`) هو نموذج Flash من الجيل السابق ضمن سلسلة Gemini 3، وقد تم إيقافه نهائيًا ويتم توجيه الطلبات تلقائيًا إلى [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar).
+
+يتم الاحتفاظ بهذا الدليل كمرجع، وهو يوضّح الإمكانات والتغييرات التي تم إدخالها في Gemini 3.7 Flash.
+
+## النظرة العامة على الطراز
+
+| الطراز | رقم تعريف الطراز | مستوى التفكير التلقائي | الوصف |
+| --- | --- | --- | --- |
+| ‫Gemini 3.7 Flash (متوقّف نهائيًا) | `gemini-3.7-flash` | `medium` | الجيل السابق من نموذج Flash المصمّم للترميز وسير العمل بالذكاء الاصطناعي الوكيل وتنفيذ المهام المتعدّدة الخطوات تم استبداله بـ [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar). |
+
+يتوافق Gemini 3.7 Flash مع قدرة استيعاب تبلغ مليون رمز مميّز، و64 ألف رمز مميّز كحد أقصى للناتج، ومستويات تفكير قابلة للتعديل (`low` و`medium` و`high`)، ومجموعة الأدوات المضمّنة نفسها المتوفرة في 3.6 Flash.
+
+للاطّلاع على المواصفات الكاملة، يُرجى الانتقال إلى [صفحة نموذج Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=ar).
+
+## البدء السريع
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.7-flash",
+    contents="Write a responsive navigation component in React with smooth animations and dark mode toggle."
+)
+
+print(response.text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+const response = await ai.models.generateContent({
+  model: "gemini-3.7-flash",
+  contents: "Write a responsive navigation component in React with smooth animations and dark mode toggle.",
+});
+
+console.log(response.text);
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.7-flash:generateContent" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "contents": [{
+      "parts": [{"text": "Write a responsive navigation component in React with smooth animations and dark mode toggle."}]
+    }]
+  }'
+```
+
+## الميزات الجديدة في Gemini 3.7 Flash
+
+- **الترميز والمهام التي تنفّذها البرامج الذكية:** تحسين كبير في الجودة وفقًا لمعايير هندسة البرامج والبرامج الذكية في العالم الحقيقي، ما يؤدي إلى تحسين حلّ المشاكل وتقليل عدد مرات تعذُّر تنفيذ المهام.
+- **تطوير الويب وتطابق التصميم بشكل أفضل:** يمكن إنشاء رموز برمجية لتطبيقات الويب وأجهزة الكمبيوتر المكتبي بدقة أعلى مباشرةً من نماذج التصميم، مع تحقيق تحسينات كبيرة في الالتزام بالتصميم وفي تدقيق قواعد الرموز البرمجية الحالية مقارنةً بالنماذج للتحقّق من تطابق التصميم بنسبة %100.
+
+## فهم مستويات الاستدلال
+
+يمنح Gemini 3.7 Flash المطوّرين إمكانية التحكّم المرن في سرعة الاستجابة والذكاء من خلال تعديل مستوى التفكير في النموذج:
+
+- **مجهود أقل في التفكير**: يقلّل من الوقت المستغرَق في الإجابة عن المهام التي تتطلّب سرعة الاستجابة، مثل مسارات الاستجابة للحوادث والمحادثات في الوقت الفعلي وكتابة المسودّات وتحليل البيانات بسرعة.
+- **متوسطة (تلقائية):** أفضل جودة لمعظم المهام يُنصح باستخدامه في حالات الاستخدام المعقّدة للرموز والوكلاء، مع دقة أعلى في المحاولة الأولى.
+- **مجهود التفكير العالي**: يزيد من قدرة النموذج على التفكير واستخدام الأدوات. الخيار الأفضل للاستدلال المعقّد والرياضيات الصعبة والترميز الصعب ومهام الوكيل تتيح هذه السمة التفكير بشكل موسّع واستخدام الدوال، مع استهلاك أكبر للرموز المميزة وتكلفة أعلى.
+
+لضبط مستويات التفكير في Gemini 3.7 Flash، اتّبِع الخطوات التالية:
+
+### Python
+
+```
+from google import genai
+from google.genai import types
+
+client = genai.Client()
+
+response = client.models.generate_content(
+    model="gemini-3.7-flash",
+    contents="Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
+    config=types.GenerateContentConfig(
+        thinking_config=types.ThinkingConfig(
+            thinking_level="medium"  # Balanced reasoning effort for complex tasks
+        ),
+    ),
+)
+
+print(response.text)
+```
+
+للاطّلاع على أمثلة على الرموز البرمجية بلغات متعددة (JavaScript وREST) ومفاهيم الاستدلال المتعمّقة، يمكنك الرجوع إلى [فهم مستويات الاستدلال في Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar#understanding-reasoning-levels).
+
+## دعم وكيل Antigravity
+
+## نماذج أخرى
+
+- [‫Gemini 3.8 Flash (الأحدث)](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar)
+- [Gemini 3.6 Flash و3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ar)
+- [عرض جميع النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar)
+
+## الخطوات التالية
+
+- راجِع مواصفات واجهة برمجة التطبيقات في [نظرة عامة على النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar).
+- استكشِف التنسيق بين عدة وكلاء في [دليل Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=ar).
+- اختبار الطلبات وتحسينها في [Google AI Studio](https://aistudio.google.com/?hl=ar)
+
+إرسال ملاحظات
+
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+
+تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)
+
+هل تريد مشاركة ملاحظاتك معنا؟
+
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

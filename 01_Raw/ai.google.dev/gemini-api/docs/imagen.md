@@ -1,43 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=th
-fetched_at: 2026-10-05T06:39:52.323351+00:00
-title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e\u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=zh-TW
+fetched_at: 2026-10-12T07:01:27.614206+00:00
+title: "\u4f7f\u7528 Imagen \u751f\u6210\u5716\u7247 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
 
-ส่งความคิดเห็น
+提供意見
 
-# สร้างรูปภาพโดยใช้ Imagen
+# 使用 Imagen 生成圖片
 
-Imagen เป็นโมเดลการสร้างรูปภาพรุ่นเดิมของ Google ตอนนี้เราได้ปิดตัวลงแล้ว
-และจะไม่พร้อมใช้งานใน Gemini API อีกต่อไป
+Imagen 是 Google 的舊版圖像生成模型。這項服務現已關閉，且不再支援 Gemini API。
 
-## ย้ายไปใช้ Nano Banana
+## 遷移至 Nano Banana
 
-ย้ายข้อมูลไปยัง Nano Banana เพื่อสร้างรูปภาพ
+改用 Nano Banana 生成圖像：
 
-- **ชื่อโมเดล**: ใช้ `gemini-2.5-flash-image` (หรือโมเดล Nano Banana 2 เช่น `gemini-3.1-flash-image`) แทนชื่อโมเดล Imagen
-- **วิธีการ**: ใช้ `client.models.generate_content` แทน
-  `client.models.generate_images`
-- **การจัดการการตอบกลับ**: Nano Banana จะแสดงผลชิ้นส่วนเนื้อหาที่มีข้อมูลรูปภาพ
-  แทนออบเจ็กต์การตอบกลับรูปภาพที่เฉพาะเจาะจง
+- **模型名稱**：使用 `gemini-2.5-flash-image` (或 Nano Banana 2 模型，例如 `gemini-3.1-flash-image`) 取代 Imagen 模型名稱。
+- **方法**：請使用 `client.models.generate_content`，不要使用 `client.models.generate_images`。
+- **回應處理**：Nano Banana 會傳回含有圖片資料的內容部分，而非特定圖片回應物件。
 
-ดูรายละเอียดและตัวอย่างได้ที่[คำแนะนำการสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)
+詳情和範例請參閱[圖片生成指南](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)。
 
-ส่งความคิดเห็น
+提供意見
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-อัปเดตล่าสุด 2026-09-18 UTC
+上次更新時間：2026-09-18 (世界標準時間)。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+想進一步說明嗎？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-18 UTC"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-18 (世界標準時間)。"],[],[]]

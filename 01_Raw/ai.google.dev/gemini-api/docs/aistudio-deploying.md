@@ -1,111 +1,134 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-CN
-fetched_at: 2026-10-05T06:33:13.571572+00:00
-title: "\u4ece Google AI Studio \u90e8\u7f72 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pt-BR
+fetched_at: 2026-10-12T07:04:21.483735+00:00
+title: "Implanta\u00e7\u00e3o do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-发送反馈
+Envie comentários
 
-# 从 Google AI Studio 部署
+# Implantação do Google AI Studio
 
-借助 Google AI Studio，您可以直接从“构建”模式部署全栈应用。这提供了一条从原型设计到可扩缩的受管理生产环境的快速路径。
+Com o Google AI Studio, você pode implantar seus aplicativos de pilha completa diretamente
+no modo de criação. Isso oferece um caminho rápido do protótipo para um ambiente de produção gerenciado e escalonável.
 
-## 部署方案
+## Opções de implantação
 
-如需从 AI Studio 构建模式部署应用，具体要求取决于您使用的层级：
+Para implantar seu aplicativo no modo Build do AI Studio, os requisitos dependem
+do nível que você usa:
 
-- [**Google Cloud 新手体验层级**](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn)：符合条件的账号无需设置 Google Cloud 云项目或结算账号，即可发布最多 2 个全栈应用。
-- **标准部署**：需要一个与 AI Studio 账号相关联的 Google Cloud 项目，并且该项目已启用结算功能。
+- [**Nível Starter do Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br):
+  permite que contas qualificadas publiquem até dois aplicativos full-stack sem
+  configurar um projeto na nuvem ou uma conta de faturamento do Google Cloud.
+- **Implantação padrão**: exige um projeto na nuvem do Google Cloud vinculado à sua conta do AI Studio e o faturamento ativado nesse projeto.
 
-## 新手体验层级简介
+## Sobre o nível Starter
 
-Google Cloud 新手体验层级为符合条件的账号提供了一条简化的途径，让其能够直接从 Google AI Studio 将应用部署到 Google Cloud。您无需设置完整的 Google Cloud 环境或结算账号。
+O nível Starter do Google Cloud oferece um caminho simplificado para que contas qualificadas
+implantem aplicativos no Google Cloud diretamente do Google AI Studio. Não é necessário configurar um ambiente completo do Google Cloud ou uma conta de faturamento.
 
-每次 Google AI Studio 部署都会在 Cloud Run 中创建相应的服务。对于在 Google AI Studio 中以 Starter 级部署的服务，存在以下限制：
+Cada implantação do Google AI Studio cria um serviço correspondente no
+Cloud Run. Para serviços implantados no Google AI Studio com o nível
+Starter, as seguintes limitações se aplicam:
 
-- 您最多可以部署两项服务。
-- 您的服务部署在[单个 Cloud Run 区域](https://docs.cloud.google.com/run/docs/locations?hl=zh-cn)中。
+- É possível implantar até dois serviços.
+- Seus serviços são implantados em uma [única região do Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=pt-br).
 
-### 新手体验层级资格条件
+### Qualificação para o nível Starter
 
-并非所有账号都符合使用 Google Cloud 新手体验层级的条件。如果您的账号符合以下任何条件，则可能不符合条件：
+Nem todas as contas estão qualificadas para o nível Starter do Google Cloud. Sua conta poderá não estar qualificada se alguma das seguintes situações se aplicar:
 
-- 您登录的是 Google Workspace 账号（包括付费或免费的 Google Workspace、Google Workspace 教育版或 Google 公益支持 订阅）。
-- 您拥有有效的付费 Google Cloud 结算账号或曾经拥有付费 Google Cloud 结算账号。
-- 根据您账号的活动情况，我们目前没有足够的证据来授予您 Starter 级访问权限。
+- Você fez login com uma conta do Google Workspace (incluindo assinaturas pagas ou sem custo financeiro do Google Workspace, Google Workspace for Education ou Google para organizações sem fins lucrativos).
+- Você tem uma conta de faturamento do Google Cloud ativa ou paga anteriormente.
+- No momento, não temos evidências suficientes da atividade da sua conta para conceder acesso ao nível inicial.
 
-Google AI Studio 支持团队无法覆盖入门级资格要求。如果您的账号不符合条件，请附加结算账号并使用[标准部署](#standard-deployment)来发布应用。
+A equipe de suporte do Google AI Studio não pode substituir a qualificação para o nível Starter. Se a sua conta não estiver qualificada, anexe uma conta de faturamento e use a [implantação padrão](#standard-deployment) para publicar apps.
 
-## 使用新手体验层级进行部署
+## Implantar com o nível Starter
 
-在 Build 模式下设计应用后，使用新手体验层级部署应用：
+Depois de criar o app no modo de criação, implante-o com o nível Starter:
 
-1. 点击右上角的**发布**按钮。
-2. 点击**开始使用**。
-3. 点击**发布应用**。
+1. Clique no botão **Publicar** no canto superior direito.
+2. Clique em **Primeiros passos**.
+3. Clique em **Publicar app**.
 
-部署完成后，AI Studio 会提供一个 Cloud Run 网址，您可以通过该网址访问已上线的应用。
+Quando a implantação for concluída, o AI Studio vai fornecer um URL do Cloud Run em que você pode
+acessar seu aplicativo ativo.
 
-## AI Studio 的自定义网址
+## URLs personalizados para o AI Studio
 
-从 Google AI Studio 发布应用时，您可以设置 `ai.studio` 下的自定义子网域（例如 `https://your-app-name.ai.studio`），以便用户轻松记住。
+Ao publicar um aplicativo no Google AI Studio, você pode definir um subdomínio personalizado e
+fácil de lembrar em `ai.studio` (por exemplo,
+`https://your-app-name.ai.studio`).
 
-Google AI Studio 要求子网域在所有项目中是全局唯一的，并按先到先得的原则进行分配。如果其他项目已使用某个名称，AI Studio 会提示您选择其他名称。如果您取消发布或删除应用，其自定义网址将被释放，并可供其他用户声明。
+O Google AI Studio exige que os subdomínios sejam globalmente exclusivos em todos os projetos
+e os atribui por ordem de chegada. Se outro projeto já usar um nome, o AI Studio vai pedir para você escolher outro. Se você
+cancelar a publicação ou excluir um aplicativo, o URL personalizado dele será liberado e ficará
+disponível para outros usuários reivindicarem.
 
-### 设置自定义网址
+### Definir um URL personalizado
 
-如需为应用设置或更新自定义网址，请执行以下操作：
+Para definir ou atualizar um URL personalizado para seu aplicativo:
 
-1. 在 **Build** 模式下，在 Google AI Studio 中打开您的应用。
-2. 点击右上角的**发布**。
-3. 在部署配置中，在**自定义网址**字段中输入首选子域名，或接受建议的网址。
-4. 点击**发布应用**。
+1. Abra seu aplicativo no Google AI Studio no modo **Criar**.
+2. Clique em **Publicar** no canto superior direito.
+3. Na configuração de implantação, insira seu subdomínio preferido no campo **URL personalizado** ou aceite o URL sugerido.
+4. Clique em **Publicar app**.
 
-如需将现有自定义网址转移到其他应用，您必须先取消发布或删除分配了该自定义网址的应用，然后使用所选子网域发布新应用。
+Para transferir um URL personalizado para outro aplicativo, primeiro
+cancele a publicação ou exclua o aplicativo que está atribuído a esse URL personalizado e depois
+publique o novo aplicativo usando o subdomínio escolhido.
 
-### 举报商标或版权问题
+### Denunciar problemas de direitos autorais ou marca registrada
 
-自定义子网域必须遵守 [Google 服务条款](https://policies.google.com/terms?hl=zh-cn)。如果您发现某个自定义网址侵犯了商标或未经许可使用了受版权保护的名称，可以使用 [Google 法律问题排查工具](https://support.google.com/legal/troubleshooter/1114905?hl=zh-cn)进行举报。
+Os subdomínios personalizados precisam obedecer aos [Termos de Serviço do Google](https://policies.google.com/terms?hl=pt-br). Se você notar um URL personalizado que viola uma marca registrada ou usa um nome protegido por direitos autorais sem permissão, denuncie usando o [solucionador de problemas legais do Google](https://support.google.com/legal/troubleshooter/1114905?hl=pt-br).
 
-## 标准部署
+## Implantação padrão
 
-随着应用的发展，您可能需要新手体验层级以外的功能，例如更高的配额、更多的计算资源，或者新手体验层级中未提供的其他 Google Cloud 产品。如需解锁这些功能，您可以将完全受管的新手体验层级项目转换为标准 Google Cloud 项目。
+À medida que seus aplicativos evoluem, você pode precisar de recursos além do nível Starter, como cotas mais altas, mais recursos de computação ou outros produtos do Google Cloud não disponíveis nesse nível. Para desbloquear
+essas funcionalidades, você pode converter seu projeto totalmente gerenciado do nível Starter em
+um projeto padrão do Google Cloud.
 
-这样可确保您能够顺畅地扩展规模，而不会丢失进度。按照步骤[创建 Cloud Billing 账号](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=zh-cn#create-new-billing-account)，正式接受标准 Google Cloud 服务条款，并[升级为标准 Google Cloud 项目](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn#upgradee)。
-如需了解详情，请参阅[付费账号的设置](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-cn#paid-setup)。
+Isso garante que você possa dimensionar sem perder o progresso. Siga as etapas para
+[criar uma conta do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=pt-br#create-new-billing-account),
+aceitar formalmente os Termos de Serviço padrão do Google Cloud e
+[fazer upgrade para um projeto padrão do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br#upgradee).
+Para mais informações, consulte
+[Configuração para contas pagas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#paid-setup).
 
-如需详细了解结算层级，请参阅[结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)。
+Para saber mais sobre os níveis de faturamento, consulte [Faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br).
 
-## 删除您的申请
+## Excluir sua inscrição
 
-如果您不再需要自己的应用，可以按照以下说明在 Google AI Studio 中将其删除：
+Se você não precisar mais do app, siga estas instruções para excluí-lo no Google AI Studio:
 
-1. 在 Google AI Studio 中，前往[应用页面](https://aistudio.google.com/app/apps?hl=zh-cn)。
-2. 在左侧菜单中，选择**应用**。
-3. 将鼠标指针悬停在要删除的应用上。
-4. 点击相应行右侧的回收站图标即可删除该应用。
+1. No Google AI Studio, acesse a
+   [página de apps](https://aistudio.google.com/app/apps?hl=pt-br).
+2. No menu à esquerda, selecione **Apps**.
+3. Passe o cursor sobre o app que você quer excluir.
+4. Clique no ícone de lixeira no lado direito da linha para excluir o app.
 
-## 后续步骤
+## A seguir
 
-- 详细了解 [Google Cloud 新手体验层级](https://docs.cloud.google.com/docs/starter-tier?hl=zh-cn)。
-- 阅读有关 Gemini API 中[结算](https://ai.google.dev/gemini-api/docs/billing?hl=zh-cn)的内容。
+- Saiba mais sobre o
+  [nível Starter do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br).
+- Leia sobre o [faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br) na API Gemini.
 
-发送反馈
+Envie comentários
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最后更新时间 (UTC)：2026-09-28。
+Última atualização 2026-09-28 UTC.
 
-需要向我们提供更多信息？
+Quer enviar seu feedback?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-28。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-28 UTC."],[],[]]

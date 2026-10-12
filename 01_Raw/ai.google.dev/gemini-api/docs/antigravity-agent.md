@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-CN
-fetched_at: 2026-10-05T06:30:41.227610+00:00
-title: "Antigravity \u667a\u80fd\u4f53 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id
+fetched_at: 2026-10-12T07:10:58.988321+00:00
+title: "Agen Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-发送反馈
+Kirim masukan
 
-# Antigravity 智能体
+# Agen Antigravity
 
-Antigravity 智能体是 Gemini API 上的通用托管式智能体。通过一次 API 调用，您即可获得一个智能体，该智能体可在 Google 托管的自有安全 Linux 沙盒中进行推理、执行代码、管理文件和浏览网页。
+Agen Antigravity adalah agen terkelola tujuan umum di Gemini API. Satu panggilan API memberi Anda agen yang dapat melakukan penalaran, mengeksekusi kode, mengelola file, dan menjelajahi web di dalam sandbox Linux Anda yang aman, yang dihosting oleh Google.
 
-它采用 Gemini 3.8 Flash 构建，并使用与 Antigravity IDE 相同的 harness。您可以使用 `agent_config` 配置底层 Gemini 模型。可通过 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 和 [Google AI Studio](https://aistudio.google.com?hl=zh-cn) 使用。
+Plugin ini dibuat dengan Gemini 3.8 Flash dan menggunakan harness yang sama dengan Antigravity IDE. Anda dapat mengonfigurasi model Gemini yang mendasarinya menggunakan `agent_config`. Tersedia melalui [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) dan [Google AI Studio](https://aistudio.google.com?hl=id).
 
 ### Python
 
@@ -128,33 +128,33 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 功能
+## Kemampuan
 
-每次调用都可以预配一个 Linux 沙盒，并启动一个工具使用循环。智能体制定计划、采取行动、观察结果，然后重复这些步骤，直到任务完成。
+Setiap panggilan dapat menyediakan sandbox Linux dan memulai loop penggunaan alat. Agen merencanakan, bertindak, mengamati hasil, dan mengulangi hingga tugas selesai.
 
-- **代码执行**：运行 Bash、Python 和 Node.js 命令。安装软件包、运行测试、构建应用。
-- **文件管理**：在沙盒中读取、写入、修改、搜索和列出文件。文件会在多次互动中保留。
-- **网页访问权限**：Google 搜索和网址提取功能，用于获取数据。
-- **上下文压缩**：自动上下文压缩（在约 13.5 万个令牌时触发），支持长时间运行的多轮会话，而不会丢失上下文或达到令牌限制。
+- **Eksekusi kode:** Jalankan perintah Bash, Python, dan Node.js. Menginstal paket, menjalankan pengujian, membangun aplikasi.
+- **Pengelolaan file:** Membaca, menulis, mengedit, menelusuri, dan mencantumkan file di sandbox. File tetap ada di seluruh interaksi.
+- **Akses web:** Google Penelusuran dan pengambilan URL untuk data.
+- **Pemadatan konteks:** Pemadatan konteks otomatis (dipicu pada ~135 ribu token) untuk mendukung sesi multi-turn yang berjalan lama tanpa kehilangan konteks atau mencapai batas token.
 
-如需了解多轮对话使用和流式传输，请参阅[快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)。
+Lihat [Panduan memulai](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id) untuk penggunaan dan streaming multi-giliran.
 
-## 支持的工具
+## Alat yang didukung
 
-默认情况下，智能体有权访问 `code_execution`、`google_search` 和 `url_context`。指定 `environment` 参数后，系统会自动启用文件系统工具。您还可以定义**自定义函数**，将智能体连接到您自己的 API 和工具。只有在自定义或限制默认集，或者添加自定义函数时，才需要指定 `tools` 参数。
+Secara default, agen memiliki akses ke `code_execution`, `google_search`, dan `url_context`. Alat sistem file diaktifkan secara otomatis saat Anda menentukan parameter `environment`. Anda juga dapat menentukan **fungsi kustom** untuk menghubungkan agen ke API dan alat Anda sendiri. Anda hanya perlu menentukan parameter `tools` saat menyesuaikan atau membatasi set default, atau saat menambahkan fungsi kustom.
 
-| 工具 | 类型值 | 说明 |
+| Alat | Nilai jenis | Deskripsi |
 | --- | --- | --- |
-| 代码执行 | `code_execution` | 运行 shell 命令（bash、Python、Node），并捕获 stdout/stderr。 |
-| Google 搜索 | `google_search` | 搜索公开网络。 |
-| 网址上下文 | `url_context` | 提取和读取网页。 |
-| 文件系统 | *（通过 `environment` 启用）* | 读取、写入、修改、搜索和列出沙盒中的文件。当您设置 `environment` 时，系统会自动启用这些工具。 |
-| 自定义函数 | `function` | 定义智能体可以请求执行的自定义函数。请参阅[函数调用](#function-calling)。 |
-| 远程 MCP 服务器 | `mcp_server` | 将外部 Model Context Protocol (MCP) 服务器注册为工具。请参阅 [MCP 服务器](#mcp-servers)。 |
+| Eksekusi Kode | `code_execution` | Jalankan perintah shell (bash, Python, Node) dengan pengambilan stdout/stderr. |
+| Google Penelusuran | `google_search` | Menelusuri web publik. |
+| Konteks URL | `url_context` | Mengambil dan membaca halaman web. |
+| Filesystem | *(diaktifkan melalui `environment`)* | Membaca, menulis, mengedit, menelusuri, dan mencantumkan file di sandbox. Sistem akan mengaktifkan alat ini secara otomatis saat Anda menyetel `environment`. |
+| Fungsi Kustom | `function` | Tentukan fungsi kustom yang dapat diminta agen untuk dieksekusi. Lihat [Pemanggilan fungsi](#function-calling). |
+| Server MCP Jarak Jauh | `mcp_server` | Mendaftarkan server Model Context Protocol (MCP) eksternal sebagai alat. Lihat [server MCP](#mcp-servers). |
 
-您可以使用同步 [Hook](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=zh-cn) 在远程沙盒中拦截并验证 `code_execution` 和 `filesystem` 工具执行。
+Anda dapat mencegat dan memvalidasi eksekusi alat `code_execution` dan `filesystem` langsung di dalam sandbox jarak jauh menggunakan [Hook](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=id) sinkron.
 
-如需将代理限制为仅使用特定工具，请仅传递所需的工具：
+Untuk membatasi agen ke alat tertentu, teruskan hanya alat yang Anda butuhkan:
 
 ### Python
 
@@ -285,9 +285,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 多模态输入
+## Input Multimodal
 
-Antigravity 智能体支持多模态输入。目前，仅支持 `text` 和 `image` 输入。图片必须以内嵌的 base64 编码字符串 (`data`) 形式提供。
+Agen Antigravity mendukung input multimodal. Saat ini, hanya input `text` dan `image` yang didukung. Gambar harus disediakan sebagai string inline berenkode base64 (`data`).
 
 ### Python
 
@@ -453,11 +453,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## 函数调用
+## Panggilan fungsi
 
-通过函数调用，您可以定义智能体可调用的自定义工具，从而将 Antigravity 智能体连接到外部 API 和数据库。如需了解一般概念，请参阅[使用 Gemini API 进行函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+Panggilan fungsi memungkinkan Anda menghubungkan agen Antigravity ke API dan database eksternal dengan menentukan alat kustom yang dapat dipanggil agen. Untuk mengetahui konsep umumnya, lihat [Panggilan fungsi dengan Gemini API](https://ai.google.dev/gemini-api/docs/function-calling?hl=id).
 
-以下示例演示了 2 轮对话。智能体首先请求自定义 `get_weather` 函数调用，客户端执行该函数并在第二轮中返回结果。
+Contoh berikut menunjukkan interaksi 2 putaran. Agen pertama-tama meminta panggilan fungsi `get_weather` kustom, dan klien mengeksekusinya serta menampilkan hasilnya pada giliran kedua.
 
 ### Python
 
@@ -878,19 +878,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## MCP 服务器
+## Server MCP
 
-您可以通过注册远程 Model Context Protocol (MCP) 服务器，将 Antigravity 智能体连接到外部工具。代理支持通过可流式传输的 HTTP 连接到远程 MCP 服务器。
+Anda dapat menghubungkan agen Antigravity ke alat eksternal dengan mendaftarkan server Model Context Protocol (MCP) jarak jauh. Agen mendukung server MCP jarak jauh melalui HTTP yang dapat di-streaming.
 
-注册 MCP 服务器时，您必须在 `tools` 数组中指定以下字段：
+Saat mendaftarkan server MCP, Anda harus menentukan kolom berikut dalam array `tools`:
 
-| 字段 | 类型 | 是否必需 | 说明 |
+| Kolom | Jenis | Wajib diisi | Deskripsi |
 | --- | --- | --- | --- |
-| `type` | 字符串 | 是 | 必须为 `"mcp_server"`。 |
-| `name` | 字符串 | 是 | 服务器的唯一标识符。必须严格采用小写字母和数字（与 `^[a-z0-9_-]+$` 匹配）。 |
-| `url` | 字符串 | 是 | 远程 MCP 服务器的端点网址。 |
-| `headers` | 对象 | 否 | 随请求发送的自定义标头（例如，身份验证）。 |
-| `allowed_tools` | 数组 | 否 | 允许执行的工具名称列表。如果省略，则允许使用所有工具。 |
+| `type` | string | Ya | Harus berupa `"mcp_server"`. |
+| `name` | string | Ya | ID unik untuk server. Harus huruf kecil dan alfanumerik (cocok dengan `^[a-z0-9_-]+$`). |
+| `url` | string | Ya | URL endpoint server MCP jarak jauh. |
+| `headers` | objek | Tidak | Header kustom (misalnya, autentikasi) yang dikirim dengan permintaan. |
+| `allowed_tools` | array | Tidak | Daftar nama alat yang diizinkan untuk dieksekusi. Jika tidak disertakan, semua alat diizinkan. |
 
 ### Python
 
@@ -1030,11 +1030,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 模型选择
+## Pemilihan model
 
-对于 `antigravity-preview-09-2026`，默认模型为 **Gemini 3.8 Flash** (`gemini-3.8-flash`)。如果您省略 `agent_config`，代理将默认使用 `gemini-3.8-flash`。
+Untuk `antigravity-preview-09-2026`, model defaultnya adalah **Gemini 3.8 Flash** (`gemini-3.8-flash`). Jika Anda tidak menyertakan `agent_config`, agen akan menggunakan `gemini-3.8-flash` secara default.
 
-您可以使用 `agent_config` 配置底层 Gemini 模型，以优化速度、费用或推理能力。
+Anda dapat mengonfigurasi model Gemini yang mendasarinya menggunakan `agent_config` untuk mengoptimalkan kecepatan, biaya, atau kemampuan penalaran.
 
 ### Python
 
@@ -1163,27 +1163,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-`agent_config.model` 支持的值如下：
+Nilai yang didukung untuk `agent_config.model` adalah:
 
-| 模型 | `agent_config.model` 中的值 | 说明 |
+| Model | Nilai dalam `agent_config.model` | Deskripsi |
 | --- | --- | --- |
-| **Gemini 3.8 Flash**（默认） | `gemini-3.8-flash` | 用于推理、编码和使用工具的默认平衡模型。 |
-| **Gemini 3.7 Flash** | `gemini-3.7-flash` | 上一代 Flash 模型，适用于推理、编码和智能体工作流。 |
-| **Gemini 3.6 Flash** | `gemini-3.6-flash` | 平衡型 Flash 模型，适用于一般性智能体工作流。 |
-| **Gemini 3.5 Flash** | `gemini-3.5-flash` | 适用于一般工作流程的轻量级模型。 |
-| **Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | 轻量级模型，针对低延迟和精控成本的任务进行了优化。 |
+| **Gemini 3.8 Flash** (default) | `gemini-3.8-flash` | Model seimbang default untuk penalaran, coding, dan penggunaan alat. |
+| **Gemini 3.6 Flash** | `gemini-3.6-flash` | Model Flash seimbang untuk Agentic Workflows umum. |
+| **Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | Model ringan yang dioptimalkan untuk tugas-tugas yang sensitif terhadap biaya dan latensi rendah. |
 
-使用 `agents.create` 创建受管代理时，您可以通过传递 `base_agent` 和 `agent_config` 来以完全相同的方式配置模型。请注意，对于使用 `agents.create` 创建的受管代理，您无法在互动时替换模型。模型锁定为创建代理时设置的值。这可确保工具调用行为可预测、调试一致，并遵守安全边界。
+Saat membuat agen terkelola dengan `agents.create`, Anda mengonfigurasi model dengan cara yang sama persis dengan meneruskan `base_agent` dan `agent_config`. Perhatikan bahwa Anda tidak dapat mengganti model pada waktu interaksi untuk agen terkelola yang dibuat dengan `agents.create`. Model dikunci ke setelan yang ditetapkan saat agen dibuat. Hal ini memastikan perilaku panggilan alat yang dapat diprediksi, proses pen-debug-an yang konsisten, dan kepatuhan terhadap batas keamanan.
 
-## 自定义代理
+## Menyesuaikan agen
 
-您可以通过自定义 Antigravity 智能体的指令、工具和环境来扩展该智能体。该代理支持一种文件系统原生自定义方法：您可以将 `AGENTS.md` 等文件（用于提供指令和技能）装载到 `.agents/skills/` 下的沙盒中，也可以在互动时以内联方式传递配置。您可以内联迭代配置，然后在准备就绪后将其保存为受管理的代理。
+Anda dapat memperluas agen Antigravity dengan menyesuaikan petunjuk, alat, dan lingkungannya. Agen mendukung pendekatan penyesuaian yang bersifat native pada sistem file: Anda dapat memuat file seperti `AGENTS.md` untuk petunjuk dan kemampuan di `.agents/skills/` langsung ke sandbox, atau meneruskan konfigurasi inline pada waktu interaksi. Anda dapat melakukan iterasi pada konfigurasi inline, lalu menyimpannya sebagai agen terkelola jika sudah siap.
 
-如需详细了解如何构建自定义智能体，请参阅[构建托管式智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)。
+Untuk mengetahui detail lengkap tentang cara membangun agen kustom, lihat [Membangun Agen Terkelola](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id).
 
-## 后台执行
+## Eksekusi latar belakang
 
-涉及多步推理、代码执行或文件操作的智能体任务可能需要几分钟才能完成。使用 `background=True` 异步运行互动。该 API 会立即返回一个互动 ID，您可以轮询该 ID，直到状态为 `completed` 或 `failed`。
+Tugas agen yang melibatkan penalaran multi-langkah, eksekusi kode, atau operasi file dapat memerlukan waktu beberapa menit untuk diselesaikan. Gunakan `background=True` untuk menjalankan interaksi secara asinkron. API akan langsung menampilkan ID interaksi yang Anda polling hingga statusnya `completed` atau `failed`.
 
 ### Python
 
@@ -1365,9 +1363,9 @@ curl -s -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/$I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-后台执行需要 `store=True`，这是默认设置。如需了解后台执行期间的实时进度更新，请参阅[流式传输后台互动](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-cn#streaming-pattern)。
+Eksekusi latar belakang memerlukan `store=True`, yang merupakan default. Untuk update progres real-time selama eksekusi latar belakang, lihat [Streaming interaksi latar belakang](https://ai.google.dev/gemini-api/docs/background-execution?hl=id#streaming-pattern).
 
-您可以使用 `cancel` 方法取消正在运行的后台互动。
+Anda dapat membatalkan interaksi latar belakang yang sedang berjalan menggunakan metode `cancel`.
 
 ### Python
 
@@ -1426,9 +1424,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions/INTE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-**在后台执行的多轮对话**
+**Multi-turn dengan eksekusi di latar belakang**
 
-如果后台互动涉及有状态的工具（例如在沙盒中执行代码），请使用已完成互动的 `environment_id` 在同一环境中继续操作。这样可确保代理在所有文件和状态完好无损的情况下从上次中断的地方继续运行。
+Jika interaksi latar belakang melibatkan alat stateful (seperti eksekusi kode di sandbox), gunakan `environment_id` dari interaksi yang telah selesai untuk melanjutkan di lingkungan yang sama. Tindakan ini memastikan agen melanjutkan dari tempat terakhir kali ia berhenti dengan semua file dan status tetap utuh.
 
 ### Python
 
@@ -1669,27 +1667,27 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }"
 ```
 
-## 环境
+## Lingkungan
 
-每次调用都会创建或重用 Linux 沙盒。`environment` 参数有三种形式：
+Setiap panggilan membuat atau menggunakan kembali sandbox Linux. Parameter `environment` memiliki tiga bentuk:
 
-| 表单 | 说明 |
+| Formulir | Deskripsi |
 | --- | --- |
-| `"remote"` | 使用默认设置配置全新的沙盒。 |
-| `"env_abc123"` | 按 ID 重用现有环境，保留所有文件和状态。 |
-| `{...}` | 通过自定义来源和网络规则实现完整的 `EnvironmentConfig`。 |
+| `"remote"` | Sediakan sandbox baru dengan setelan default. |
+| `"env_abc123"` | Menggunakan kembali lingkungan yang ada berdasarkan ID, dengan mempertahankan semua file dan status. |
+| `{...}` | `EnvironmentConfig` penuh dengan sumber kustom dan aturan jaringan. |
 
-如需详细了解来源（Git、GCS、内嵌）、网络、生命周期和资源限制，请参阅[环境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-cn)。
+Lihat [Environments](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) untuk mengetahui detail tentang sumber (Git, GCS, inline), jaringan, siklus proses, dan batas resource.
 
-## 触发器
+## Pemicu
 
-利用触发器，您可以安排智能体按 cron 时间表自动运行。触发器将代理、环境、提示和时间表绑定到一个持久性资源中，该资源无需人工干预即可触发。每次执行都会重复使用同一环境，因此在一次运行中创建的文件会保留下来，并对下一次运行可见。
+Pemicu memungkinkan Anda menjadwalkan agen untuk berjalan secara otomatis sesuai jadwal cron. Pemicu mengikat agen, lingkungan, perintah, dan jadwal ke dalam resource persisten yang diaktifkan tanpa intervensi manual. Setiap eksekusi menggunakan kembali lingkungan yang sama, sehingga file yang dibuat dalam satu eksekusi akan tetap ada dan dapat dilihat oleh eksekusi berikutnya.
 
-### 创建触发器
+### Buat pemicu
 
-通过指定 cron 时间表、时区和互动配置来创建触发器。触发器以 `active` 状态启动，并将在下一个匹配的 Cron 时间触发。保存返回的 `id`，以便在后续调用中管理触发器。
+Buat pemicu dengan menentukan jadwal cron, zona waktu, dan konfigurasi interaksi. Pemicu dimulai dalam status `active` dan akan diaktifkan pada waktu cron yang cocok berikutnya. Simpan `id` yang ditampilkan untuk mengelola pemicu dalam panggilan berikutnya.
 
-由于触发器会按计划以无人值守的方式运行，因此请引用存储的[凭据](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=zh-cn)，而不是内嵌令牌。出站代理会在每次运行时解析该变量，并且您可以在不触及触发器的情况下轮换密文。内嵌 `transform` 规则也适用于此处，只是您需要在值发生变化时更新触发器。
+Karena pemicu berjalan tanpa pengawasan sesuai jadwal, rujuk [kredensial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=id) yang disimpan, bukan token inline. Proxy keluar menyelesaikannya di setiap proses, dan Anda mengganti rahasia tanpa menyentuh pemicu. Aturan `transform` inline juga berfungsi di sini, Anda hanya perlu memperbarui pemicu setiap kali nilai berubah.
 
 ### Python
 
@@ -1785,9 +1783,9 @@ GenAI client = GenAI.builder()
     .build();
 
 Environment env = Environment.builder()
-    .network(Network.of(EnvironmentNetworkEgressAllowlist.of(
-        Allowlist.builder()
-            .allowlist(List.of(
+    .network(Network.of(
+        EnvironmentNetworkEgressAllowlist.builder()
+            .allowlist(Allowlist.of(List.of(
                 AllowlistEntry.builder()
                     .domain("api.github.com")
                     .transform(Transform.of(Map.of(
@@ -1797,9 +1795,9 @@ Environment env = Environment.builder()
                 AllowlistEntry.builder()
                     .domain("github.com")
                     .build()
-            ))
+            )))
             .build()
-    )))
+    ))
     .build();
 
 CreateAgentInteraction interactionTemplate = CreateAgentInteraction.builder()
@@ -1846,8 +1844,8 @@ func main() {
     }))
 
     env := interactions.Environment{
-        Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
-            Allowlist: []interactions.AllowlistEntry{
+        Network: genai.Ptr(interactions.NewNetwork(interactions.EnvironmentNetworkEgressAllowlist{
+            Allowlist: genai.Ptr(interactions.NewAllowlist([]interactions.AllowlistEntry{
                 {
                     Domain: "api.github.com",
                     Transform: genai.Ptr(interactions.NewTransform(map[string]string{
@@ -1857,8 +1855,8 @@ func main() {
                 {
                     Domain: "github.com",
                 },
-            },
-        }))),
+            })),
+        })),
     }
 
     interactionTemplate := interactions.CreateAgentInteraction{
@@ -1914,29 +1912,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
   }'
 ```
 
-`CreateTrigger` 请求接受以下字段：
+Permintaan `CreateTrigger` menerima kolom berikut:
 
-| 字段 | 类型 | 是否必需 | 说明 |
+| Kolom | Jenis | Wajib diisi | Deskripsi |
 | --- | --- | --- | --- |
-| `schedule` | 字符串 | 是 | Cron 表达式（例如，`0 * * * *` 表示每小时一次，`0 9 * * 1-5` 表示工作日早晨）。 |
-| `time_zone` | 字符串 | 是 | IANA 时区（例如 `UTC`、`America/Argentina/Buenos_Aires`）。 |
-| `display_name` | 字符串 | 否 | 触发器的简明易懂的名称。 |
-| `max_consecutive_failures` | integer | 否 | 触发器自动暂停前的最大失败次数。默认值：5。 |
-| `execution_timeout_seconds` | integer | 否 | 每次执行的超时时间（以秒为单位）。默认值：600。 |
-| `interaction` | 对象 | 是 | 用于定义代理、输入、工具和环境的 `CreateInteractionRequest`。 |
+| `schedule` | string | Ya | Ekspresi cron (misalnya, `0 * * * *` untuk setiap jam, `0 9 * * 1-5` untuk pagi hari di hari kerja). |
+| `time_zone` | string | Ya | Zona waktu IANA (misalnya, `UTC`, `America/Argentina/Buenos_Aires`). |
+| `display_name` | string | Tidak | Nama pemicu yang dapat dibaca manusia. |
+| `max_consecutive_failures` | bilangan bulat | Tidak | Jumlah maksimum kegagalan sebelum pemicu dijeda secara otomatis. Default: 5. |
+| `execution_timeout_seconds` | bilangan bulat | Tidak | Waktu tunggu per eksekusi dalam detik. Default: 600. |
+| `interaction` | objek | Ya | `CreateInteractionRequest` yang menentukan agen, input, alat, dan lingkungan. |
 
-响应包括以下关键字段：
+Respons mencakup kolom kunci berikut:
 
-| 字段 | 类型 | 说明 |
+| Kolom | Jenis | Deskripsi |
 | --- | --- | --- |
-| `id` | 字符串 | 触发器的唯一标识符。在所有后续操作中使用此 shell。 |
-| `status` | 字符串 | 当前状态：`active`、`paused` 或 `disabled`。 |
-| `next_run_time` | 字符串 | 下一次预定执行的 ISO 8601 时间戳。 |
-| `consecutive_failure_count` | integer | 自上次成功以来连续失败的执行次数。 |
+| `id` | string | ID unik untuk pemicu. Gunakan ini di semua operasi berikutnya. |
+| `status` | string | Status saat ini: `active`, `paused`, atau `disabled`. |
+| `next_run_time` | string | Stempel waktu ISO 8601 untuk eksekusi terjadwal berikutnya. |
+| `consecutive_failure_count` | bilangan bulat | Jumlah eksekusi gagal berturut-turut sejak keberhasilan terakhir. |
 
-### 列出触发器
+### Mencantumkan pemicu
 
-检索与您的项目关联的所有触发器。
+Mengambil semua pemicu yang terkait dengan project Anda.
 
 ### Python
 
@@ -2016,9 +2014,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### 获取触发器
+### Mendapatkan pemicu
 
-提取单个触发器的完整配置和当前状态。
+Mengambil konfigurasi lengkap dan status saat ini dari satu pemicu.
 
 ### Python
 
@@ -2094,9 +2092,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### 暂停和恢复
+### Jeda dan lanjutkan
 
-您可以暂停触发器以停止预定执行，也可以恢复触发器以重新激活时间表。暂停不会影响手动执行。
+Anda dapat menjeda pemicu untuk menghentikan eksekusi terjadwal, dan melanjutkannya untuk mengaktifkan kembali jadwal. Penjedaan tidak memengaruhi eksekusi manual.
 
 ### Python
 
@@ -2200,9 +2198,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER
   -d '{"status": "active"}'
 ```
 
-### 删除触发器
+### Menghapus pemicu
 
-永久移除触发器。系统不会删除过往的执行历史记录。
+Menghapus pemicu secara permanen. Histori eksekusi sebelumnya tidak dihapus.
 
 ### Python
 
@@ -2267,9 +2265,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### 立即运行触发器
+### Jalankan pemicu segera
 
-按需触发触发器，无需等待下一个预定时间。即使触发器处于暂停状态，此功能也能正常运行。
+Aktifkan pemicu sesuai permintaan tanpa menunggu waktu yang dijadwalkan berikutnya. Tindakan ini berfungsi meskipun pemicu dijeda.
 
 ### Python
 
@@ -2334,9 +2332,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### 列出执行任务
+### Mencantumkan eksekusi
 
-查看触发器的执行历史记录。每次执行都包含 `status`、时间戳、可用于获取完整互动输出的 `interaction_id`，以及确认所有运行共享同一沙盒的 `environment_id`。
+Melihat histori eksekusi untuk pemicu. Setiap eksekusi mencakup `status`, stempel waktu, `interaction_id` yang dapat Anda gunakan untuk mengambil output interaksi lengkap, dan `environment_id` yang mengonfirmasi bahwa semua proses berbagi sandbox yang sama.
 
 ### Python
 
@@ -2451,19 +2449,29 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 适用范围和定价
+## Ketersediaan dan harga
 
-Antigravity 智能体现已推出预览版，可通过 Google AI Studio 中的 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 和 Gemini API（免费层级和付费层级项目均可使用）使用。
+Agen Antigravity tersedia dalam pratinjau melalui
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) di Google AI Studio
+dan Gemini API untuk project paket gratis dan paket berbayar.
 
-价格遵循[随用随付模式](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#pricing-for-agents)，具体取决于底层 Gemini 模型的 token 和智能体使用的工具。与生成单个输出的标准聊天请求不同，Antigravity 互动是一种代理工作流。单个请求会触发一个自主循环，包括推理、工具执行、代码运行和文件管理。免费层级项目包含免费的速率限制和使用量配额。
+Harga mengikuti [model bayar sesuai penggunaan](https://ai.google.dev/gemini-api/docs/pricing?hl=id#pricing-for-agents)
+berdasarkan token model Gemini yang mendasarinya dan alat yang digunakan agen. Tidak seperti
+permintaan chat standar yang menghasilkan satu output, interaksi Antigravitasi adalah alur kerja
+agen. Satu permintaan memicu loop otonom dari penalaran, eksekusi alat, menjalankan kode, dan pengelolaan file. Project Paket Gratis mencakup pembatasan kapasitas dan kuota penggunaan gratis.
 
-Antigravity 交互会运行多轮自主循环，并可能会消耗大量 token。在请求中设置[预算控制](#budget-controls)，以限制令牌用量。您还可以通过 [SSE 流式传输](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-cn)实时监控进度，或取消正在运行的请求。
+Interaksi antigravitasi menjalankan loop otonom multi-turn dan dapat menggunakan token dalam jumlah besar. Tetapkan [kontrol anggaran](#budget-controls) pada permintaan Anda untuk membatasi penggunaan token. Anda juga dapat memantau progres secara real time dengan
+[streaming SSE](https://ai.google.dev/gemini-api/docs/streaming?hl=id), atau membatalkan permintaan yang sedang berjalan.
 
-### 预算控制
+### Kontrol anggaran
 
-除了[选择模型](#model-selection)之外，还可以在 `agent_config` 内设置 `max_total_tokens`（使用 `"type": "antigravity"`），以限制一次互动可消耗的 token 总数（输入 + 输出 + 思考）。缓存的令牌不计入此限额。当代理达到限制时，互动会停止并返回 `status: "incomplete"`。此限制是尽力而为：实际用量可能会略微超出此限制，具体取决于智能体在各步骤之间检查预算的时间。
+Selain [pemilihan model](#model-selection), tetapkan `max_total_tokens` di dalam `agent_config` (dengan `"type": "antigravity"`) untuk membatasi
+total jumlah token (input + output + penalaran) yang dapat digunakan oleh interaksi.
+Token yang di-cache tidak diperhitungkan dalam batas ini. Saat agen mencapai batas, interaksi akan berhenti dan kembali dengan `status: "incomplete"`. Batas ini adalah upaya terbaik:
+penggunaan sebenarnya mungkin sedikit melebihi batas tersebut, bergantung pada waktu agen memeriksa anggaran
+di antara langkah-langkah.
 
-在 `agent_config` 中，将互动请求的预算设置为 `agent` 和 `input`。
+Tetapkan anggaran pada permintaan interaksi di `agent_config` bersama dengan `agent` dan `input`.
 
 ### Python
 
@@ -2647,9 +2655,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### 继续未完成的互动
+#### Melanjutkan interaksi yang belum selesai
 
-当互动返回 `status: "incomplete"` 时，智能体的工作和上下文会保留。发送引用原始互动 `id` 和 `environment_id` 的新互动，以便从上次中断的地方继续。新互动有自己的 `max_total_tokens` 预算。
+Saat interaksi menampilkan `status: "incomplete"`, tugas dan konteks agen dipertahankan. Kirim interaksi baru yang mereferensikan interaksi asli `id` dan
+`environment_id` untuk melanjutkan dari tempat terakhir. Interaksi baru mendapatkan anggaran
+`max_total_tokens` sendiri.
 
 ### Python
 
@@ -2780,48 +2790,48 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 估算费用
+### Perkiraan biaya
 
-费用因任务复杂程度而异。智能体可自主确定需要多少次工具调用、代码执行和文件操作。以下估算值基于跑步活动。
+Biaya bervariasi berdasarkan kompleksitas tugas. Agen secara mandiri menentukan jumlah panggilan alat, eksekusi kode, dan operasi file yang diperlukan. Estimasi berikut didasarkan pada proses.
 
-| 任务类别 | 输入 token 数 | 输出 token 数 | 一般费用 |
+| Kategori tugas | Token input | Token output | Biaya standar |
 | --- | --- | --- | --- |
-| **研究和信息整合** | 10 万至 50 万 | 1 万至 4 万 | 0.30 美元 - 1.00 美元 |
-| **文档和内容生成** | 10 万至 50 万 | 1.5 万 - 5 万 | 0.30 美元 - 1.30 美元 |
-| **流程和系统设计** | 10 万至 40 万 | 1 万至 3 万 | 0.25 美元 - 0.80 美元 |
-| **数据处理和分析** | 30 万 - 300 万 | 3 万 - 15 万 | 0.70 美元 - 3.25 美元 |
+| **Riset & sintesis informasi** | 100 ribu–500 ribu | 10.000–40.000 | Rp4.500–Rp15.000 |
+| **Pembuatan dokumen & konten** | 100 ribu–500 ribu | 15 ribu–50 ribu | Rp4.500–Rp19.500 |
+| **Desain proses & sistem** | 100 ribu–400 ribu | 10.000–30.000 | $0,25–$0,80 |
+| **Pemrosesan & analisis data** | 300 ribu–3 juta | 30 ribu–150 ribu | Rp10.000–Rp45.000 |
 
-通常会缓存 50% 到 70% 的输入 token。包含多次工具调用的复杂智能体工作流在单次互动中可能会累积 300 万到 500 万个 token，费用最高可达 5 美元左右。
+50–70% token input biasanya di-cache. Alur kerja agentic yang kompleks dengan banyak panggilan alat dapat mengumpulkan 3–5 juta token dalam satu interaksi, dengan biaya hingga sekitar$5.
 
-在预览版期间，**环境计算资源**（CPU、内存、沙盒执行）**不计费**。
+**Komputasi lingkungan** (CPU, memori, eksekusi sandbox) **tidak ditagih** selama periode pratinjau.
 
-## 限制
+## Batasan
 
-- **预览版状态**：Antigravity 智能体和 Interactions API。功能和架构可能会发生变化。
-- **不支持的生成配置**：不支持以下参数，并且会返回 400 错误：`temperature`、`top_p`、`top_k`、`stop_sequences`、`max_output_tokens`。
-- **结构化输出**：Antigravity 智能体不支持结构化输出。
-- **不可用的工具**： `file_search`、`computer_use` 和 `google_maps` 尚不受支持。
-- **远程 MCP 限制**：不支持服务器发送的事件 (SSE) 传输（请使用可流式传输的 HTTP）。此外，服务器 `name` 必须严格采用小写字母和字母数字字符（使用大写字母会触发一般性 `400 Bad Request` 错误）。
-- **文件系统工具**：目前没有文件系统工具。它是 `environment` 的一部分。
-- **商店要求**：使用 `background=True` 执行代理需要 `store=True`。
-- **仅支持有状态的函数调用**：函数调用仅在有状态模式下受支持。您必须使用 `previous_interaction_id` 继续对话轮次；不支持手动重建历史记录（无状态模式）。
-- **不支持的多模态类型。**目前不支持音频、视频和文档输入。仅允许使用文字和图片。
+- **Status pratinjau:** Agen Antigravity dan Interactions API. Fitur dan skema dapat berubah.
+- **Konfigurasi pembuatan yang tidak didukung:** Parameter berikut tidak didukung dan menampilkan error 400: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
+- **Output terstruktur:** Agen Antigravity tidak mendukung output terstruktur.
+- **Alat yang tidak tersedia:** `file_search`, `computer_use`, dan `google_maps` belum didukung.
+- **Batasan MCP jarak jauh:** Transpor Peristiwa yang Dikirim Server (SSE) tidak didukung (gunakan HTTP yang Dapat Di-stream). Selain itu, `name` server harus berupa huruf kecil dan alfanumerik (penggunaan huruf besar akan memicu error `400 Bad Request` umum).
+- **Alat sistem file:** Saat ini tidak ada alat sistem file. Ini adalah bagian dari `environment`.
+- **Persyaratan penyimpanan:** Eksekusi agen menggunakan `background=True` memerlukan `store=True`.
+- **Panggilan fungsi hanya stateful:** Panggilan fungsi hanya didukung dalam mode stateful. Anda harus menggunakan `previous_interaction_id` untuk melanjutkan giliran; merekonstruksi histori secara manual (mode tanpa status) tidak didukung.
+- **Jenis multimodal tidak didukung.** Input audio, video, dan dokumen saat ini tidak didukung. Hanya teks dan gambar yang diizinkan.
 
-## 后续步骤
+## Langkah berikutnya
 
-- [快速入门](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-cn)：多轮对话和流式传输。
-- [构建自定义智能体](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-cn)：自定义指令、技能和保存智能体。
-- [环境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-cn)：沙盒配置、来源、网络。
-- [钩子](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=zh-cn)：在沙盒内强制执行安全门和副作用验证。
-- [Deep Research 智能体](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn)：执行长篇研究任务。
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn)：底层 API。
+- [Panduan memulai](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id): percakapan multi-turn dan streaming.
+- [Membangun Agen Kustom](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id): petunjuk, keterampilan, dan menyimpan agen kustom.
+- [Lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id): konfigurasi sandbox, sumber, jaringan.
+- [Hook](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=id): menerapkan gerbang keamanan dan validasi efek samping di dalam sandbox.
+- [Agen Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id): tugas riset panjang.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id): API yang mendasarinya.
 
-发送反馈
+Kirim masukan
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最后更新时间 (UTC)：2026-09-29。
+Terakhir diperbarui pada 2026-10-09 UTC.
 
-需要向我们提供更多信息？
+Ada masukan untuk kami?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-29。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]

@@ -1,0 +1,164 @@
+---
+source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=he
+fetched_at: 2026-10-12T06:52:59.062462+00:00
+title: "\u05de\u05d4 \u05d7\u05d3\u05e9 \u05d1-Gemini 3.7 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+---
+
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+
+שליחת משוב
+
+# מה חדש ב-Gemini 3.7 Flash
+
+[המודל הכי עדכני](https://ai.google.dev/gemini-api/docs/latest-model?hl=he)
+[מודלים אחרים](#other-models)
+
+‫Gemini 3.7 Flash (`gemini-3.7-flash`) הוא מודל Flash מהדור הקודם בסדרת Gemini 3, שהוצא משימוש ועכשיו מנותב אוטומטית אל [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he).
+
+המדריך הזה נשמר לעיון, והוא מתעד את היכולות והשינויים שהוצגו ב-Gemini 3.7 Flash.
+
+## סקירה כללית של מודל
+
+| מודל | מזהה דגם | רמת ההעמקה שמוגדרת כברירת מחדל | תיאור |
+| --- | --- | --- | --- |
+| ‫Gemini 3.7 Flash (יצא משימוש) | `gemini-3.7-flash` | `medium` | מודל Flash מהדור הקודם שנועד לתכנות, ל-Agentic Workflows ולביצוע של תהליכים מרובי-שלבים. הוחלף על ידי [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he). |
+
+‫Gemini 3.7 Flash תומך בחלון הקשר של מיליון טוקנים, ב-64, 000 טוקנים מקסימליים של פלט, ברמות חשיבה שניתנות להתאמה (`low`, ‏ `medium`,‏ `high`) ובאותו חבילה של כלים מובנים כמו Gemini 3.6 Flash.
+
+למפרט המלא, אפשר לעיין ב[דף המודל Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=he).
+
+## מדריך למתחילים
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.7-flash",
+    input="Write a responsive navigation component in React with smooth animations and dark mode toggle."
+)
+
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+const interaction = await client.interactions.create({
+  model: "gemini-3.7-flash",
+  input: "Write a responsive navigation component in React with smooth animations and dark mode toggle.",
+});
+
+console.log(interaction.output_text);
+```
+
+### Java
+
+```
+import com.google.genai.Client;
+import com.google.genai.gaos.models.interactions.CreateModelInteraction;
+import com.google.genai.gaos.models.interactions.Interaction;
+import com.google.genai.gaos.models.interactions.InteractionsInput;
+import com.google.genai.gaos.models.interactions.Model;
+import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
+
+Client client = new Client();
+CreateModelInteraction req = CreateModelInteraction.builder()
+    .model(Model.of("gemini-3.7-flash"))
+    .input(InteractionsInput.of("Write a responsive navigation component in React with smooth animations and dark mode toggle."))
+    .build();
+Interaction interaction =
+    client.interactions.create(CreateInteractionRequestBody.of(req)).interaction().get();
+System.out.println(interaction.outputText().orElse(""));
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H 'Content-Type: application/json' \
+  -X POST \
+  -d '{
+    "model": "gemini-3.7-flash",
+    "input": "Write a responsive navigation component in React with smooth animations and dark mode toggle."
+  }'
+```
+
+## מה חדש ב-Gemini 3.7 Flash
+
+- **תכנות ומשימות שדורשות סוכן:** איכות גבוהה משמעותית בבדיקות השוואתיות של הנדסת תוכנה בעולם האמיתי ובבדיקות השוואתיות של סוכנים, שיפור הפתרון של בעיות והפחתה של לולאות סוכנים שנכשלו.
+- **פיתוח אתרים והתאמה טובה יותר בין עיצובים:** יצירת קוד אפליקציה באיכות גבוהה לאפליקציות אינטרנט ולמחשב ישירות מתוך מוקאפים של עיצובים, עם שיפורים משמעותיים בהתאמה לעיצוב ובביקורת של בסיסי קוד קיימים בהשוואה למוקאפים, כדי לוודא שהעיצובים זהים.
+
+## הסבר על רמות החשיבה הרציונלית
+
+‫Gemini 3.7 Flash מאפשר למפתחים לשלוט בגמישות בנתוני ההשהיה וברמת התבונה על ידי שינוי רמת החשיבה של המודל:
+
+- **מאמץ חשיבה נמוך**: מקצר את הזמן עד לקבלת תשובה למשימות שבהן חביון הוא קריטי, כמו צינורות תגובה לאירועים, צ'אט בזמן אמת, טיוטות כתיבה וניתוח נתונים מהיר.
+- **בינונית (ברירת מחדל):** האיכות הכי טובה לרוב המשימות. מומלץ לשימוש בקוד מורכב ולתרחישי שימוש שכוללים סוכנים, עם רמת דיוק גבוהה יותר במעבר הראשון.
+- **מאמץ חשיבה גבוה**: ממקסם את היכולת של המודל לחשוב ולהשתמש בכלים. הכי מתאים לחשיבה רציונלית מורכבת, למתמטיקה קשה ולמשימות תכנות וסוכנים מורכבות. מאפשר מחשבות מורחבות וקריאות לפונקציות, עם צריכה גבוהה יותר של טוקנים ועלות גבוהה יותר.
+
+כדי להגדיר רמות חשיבה ב-Gemini 3.7 Flash:
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.7-flash",
+    input="Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
+    generation_config={
+        "thinking_level": "medium"  # Balanced reasoning effort for complex tasks
+    }
+)
+
+print(interaction.output_text)
+```
+
+דוגמאות לקוד בכמה שפות (JavaScript,‏ Java,‏ Go,‏ REST) והסברים מפורטים על מושגי חשיבה רציונלית זמינים במאמר [הסבר על רמות החשיבה הרציונלית ב-Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he#understanding-reasoning-levels).
+
+## תמיכה בסוכן Antigravity
+
+ב-Gemini 3.7 Flash הוספנו תמיכה בהפעלת [סוכן Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he) בסוכנים מנוהלים של Gemini וב-[Google Antigravity SDK](https://antigravity.google/docs/sdk/overview/?hl=he).
+
+דוגמאות קוד עדכניות והגדרת ברירת המחדל העדכנית של הסוכן זמינות ב[מדריך לסוכן Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he) וב[מדריך ל-Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he#updated-antigravity-agent).
+
+## מודלים אחרים
+
+- ‫[Gemini 3.8 Flash (הגרסה העדכנית)](https://ai.google.dev/gemini-api/docs/latest-model?hl=he)
+- ‫[Gemini 3.6 Flash ו-3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=he)
+- [הצגת כל המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he)
+
+## המאמרים הבאים
+
+- אפשר לעיין במפרט ה-API ב[סקירה הכללית של המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
+- מידע נוסף על תזמור של כמה סוכנים זמין [במדריך לשימוש ב-Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=he).
+- בודקים ומעדנים את הפרומפטים ב-[Google AI Studio](https://aistudio.google.com/?hl=he).
+
+שליחת משוב
+
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+
+עדכון אחרון: 2026-10-09 (שעון UTC).
+
+רוצה לתת לנו משוב?
+
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-09 (שעון UTC)."],[],[]]

@@ -1,99 +1,100 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agents?hl=zh-TW
-fetched_at: 2026-10-05T06:25:32.458809+00:00
-title: "\u4ee3\u7406\u7a0b\u5f0f\u7e3d\u89bd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agents?hl=he
+fetched_at: 2026-10-12T06:53:45.520620+00:00
+title: "\u05e1\u05e7\u05d9\u05e8\u05d4 \u05db\u05dc\u05dc\u05d9\u05ea \u05e9\u05dc \u05d4\u05e0\u05e6\u05d9\u05d2\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-提供意見
+שליחת משוב
 
-# 代理程式總覽
+# סקירה כללית של הנציגים
 
-Gemini API 的 Managed Agents 提供可設定的代理程式架構。只要呼叫單一 API，即可佈建 Linux 沙箱，讓代理自主推論、執行程式碼、管理檔案及瀏覽網頁。
+סוכנים מנוהלים ב-Gemini API מספקים לכם מסגרת סוכנים שניתנת להגדרה. קריאה יחידה ל-API מספקת ארגז חול של Linux שבו הסוכן מסיק מסקנות, מריץ קוד, מנהל קבצים וגולש באינטרנט באופן אוטונומי.
 
 [rocket\_launch
 
-快速入門導覽課程
+מדריך למתחילים
 
-進行第一次代理呼叫、串流回應，以及建構自訂代理。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)
+איך מתקשרים לסוכן, משדרים תשובות ויוצרים סוכן בהתאמה אישית](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he)
 [smart\_toy
 
-Antigravity 代理程式
+Antigravity Agent
 
-預設代理程式的功能、工具、多模態輸入和定價。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)
+יכולות, כלים, קלט מולטימודאלי ותמחור של הסוכן שמוגדר כברירת מחדל.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he)
 [experiment
 
-AI Studio 中的代理程式
+סוכנים ב-AI Studio
 
-視覺化測試區，可設計代理程式原型，完全不必編寫程式碼。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw)
+סביבת משחקים חזותית ליצירת אב טיפוס של סוכנים בלי לכתוב קוד.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=he)
 
-## 可用的受管理代理程式
+## סוכנים מנוהלים זמינים
 
-- **[Antigravity 代理](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)**：以 Gemini 3.8 Flash 建構的通用型受管理代理。在 Google 代管的安全 Linux 沙箱中執行程式碼、管理檔案及搜尋網路。您可以透過 `agent_config` 設定基礎模型 (例如 Gemini 3.7 Flash、Gemini 3.6 Flash 或 Gemini 3.5 Flash)，並使用自己的指令、技能和資料擴充模型，[建構自訂代理程式](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)。
-- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)**：自主研究代理，可規劃、執行及統整多步驟研究工作，適用於市場分析、盡職調查和文獻回顧等用途。
+- **[סוכן Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he)**: סוכן מנוהל למטרות כלליות שמבוסס על Gemini 3.8 Flash. מריץ קוד, מנהל קבצים ומבצע חיפושים באינטרנט בתוך ארגז חול מאובטח של Linux שמארחת Google. אתם יכולים להגדיר את המודל הבסיסי (כמו Gemini 3.6 Flash או Gemini 3.5 Flash-Lite) באמצעות `agent_config`, ולהרחיב אותו עם הוראות, מיומנויות ונתונים משלכם כדי [ליצור סוכן בהתאמה אישית](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he).
+- ‫**[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he)**: סוכן מחקר אוטונומי שתפקידו לתכנן ולבצע משימות מחקר רב-שלביות ולסכם את הממצאים. הוא מתאים לתרחישי שימוש כמו ניתוח שוק, בדיקת נאותות וסקירת ספרות.
 
-## 安全性與最佳做法
+## אבטחה ושיטות מומלצות
 
-每個代理程式都會在作業系統層級隔離的沙箱環境中執行。根據預設，沙箱的傳出網路存取權不受限制。您可以使用許可清單限制或停用網路存取權。
+כל סוכן פועל בסביבת ארגז חול שמבודדת ברמת מערכת ההפעלה.
+כברירת מחדל, לארגז החול יש גישה בלתי מוגבלת לרשת יוצאת. אפשר להגביל או להשבית את הגישה לרשת באמצעות רשימת היתרים.
 
-### 網路存取設定
+### גישה לרשת
 
-根據預設，環境具有不受限制的輸出網路存取權。使用`network`許可清單將輸出流量限制在特定網域或萬用字元模式。如需設定詳情，請參閱「[網路允許清單](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw#network_allow_list)」(AI Studio) 或「[網路規則](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw#with_network_rules)」(API)。
+כברירת מחדל, לסביבות יש גישה בלתי מוגבלת לרשת יוצאת. אפשר להשתמש ב`network`רשימת היתרים כדי להגביל את התנועה היוצאת לדומיינים ספציפיים או לדפוסי wildcard. פרטים על ההגדרה מופיעים במאמר בנושא [רשימת היתרים של רשתות](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=he#network_allow_list) (AI Studio) או [כללי רשת](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he#with_network_rules) (API).
 
-### 外部工具和 API
+### כלים חיצוניים וממשקי API
 
-您可以連結外部工具和 API，擴充代理程式功能。請只使用信任來源的工具，並將權限範圍設為最低必要層級。將密鑰儲存為受管理憑證，並依 ID 參照，讓輸出 Proxy 在要求時插入密鑰，且密鑰絕不會在沙箱中公開。代理程式可以使用任何可存取的憑證，因此請只提供您願意授予完整範圍的憑證。
+אפשר לחבר כלים חיצוניים וממשקי API כדי להרחיב את היכולות של הסוכן. מומלץ להשתמש רק בכלים ממקורות מהימנים ולהגדיר את ההרשאות למינימום הנדרש. אחסון הסודות כפרטי כניסה מנוהלים והפניה אליהם באמצעות מזהה, כך ששרת ה-proxy ליציאה מוסיף אותם בזמן הבקשה והם אף פעם לא נחשפים בתוך ארגז החול. הסוכן יכול להשתמש בכל פרטי כניסה שיש לו גישה אליהם, לכן צריך לספק רק פרטי כניסה שאתם מוכנים להעניק להם גישה מלאה.
 
-- 使用最低權限的服務帳戶或 API 金鑰。
-- 建議使用短期權杖，而非長期金鑰。
-- 請只提供您願意授予完整範圍的憑證。
-- 定期輪替憑證。
+- משתמשים בחשבונות שירות או במפתחות API עם הרשאות מינימליות.
+- עדיף להשתמש בטוקנים לטווח קצר במקום במפתחות לטווח ארוך.
+- חשוב לספק פרטי כניסה שאתם מוכנים להעניק להם גישה מלאה.
+- עדכון פרטי הכניסה לפי לוח זמנים קבוע.
 
-如要瞭解憑證類型和管理作業，請參閱「[憑證](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=zh-tw)」。您也可以在允許清單規則中內嵌設定標頭，請參閱「[網路設定](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#network-configuration)」。
+במאמר [פרטי כניסה](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=he) מפורטים סוגי פרטי הכניסה ופעולות הניהול. אפשר גם להגדיר כותרות בשורה בכלל של רשימת ההיתרים. מידע נוסף זמין במאמר בנושא [הגדרת הרשת](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he#network-configuration).
 
-### 專人監督
+### פיקוח אנושי
 
-部署前請務必驗證輸出內容 (生成的程式碼、資料轉換、設定變更)，尤其是會修改資料或與外部系統互動的工作。
+תמיד חשוב לבדוק את התוצרים (קוד שנוצר, טרנספורמציות של נתונים, שינויים בהגדרות) לפני שמבצעים פריסה, במיוחד במשימות שמשנות נתונים או יוצרות אינטראקציה עם מערכות חיצוניות.
 
-## 定價
+## תמחור
 
-受管理代理會根據 Gemini 模型權杖和工具用量，採用[即付即用模式](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#pricing-for-agents)。單一互動可能會觸發多個推理迴圈，通常會消耗 10 萬到 300 萬個權杖。預先發布版**不會收取**環境運算費用。如要查看各項工作的預估費用，請參閱[這篇文章](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#availability-and-pricing)。免費方案也提供受管理代理程式，但有免費的速率限制和用量配額。
+סוכנים מנוהלים משתמשים ב[מודל תשלום לפי שימוש](https://ai.google.dev/gemini-api/docs/pricing?hl=he#pricing-for-agents) שמבוסס על טוקנים של מודל Gemini ועל שימוש בכלי. אינטראקציה אחת יכולה להפעיל כמה לולאות חשיבה רציונלית, ובדרך כלל היא צורכת 100,000 עד 3 מיליון טוקנים. החישוב של הסביבה **לא מחויב** במהלך תקופת התצוגה המקדימה. [כאן](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he#availability-and-pricing) אפשר לראות פירוט של העלויות לכל משימה. סוכנים מנוהלים זמינים גם בתוכנית בחינם, עם מכסת שימוש והגבלת קצב בחינם.
 
-## 限制
+## מגבלות
 
-| 限制 | 說明 |
+| מגבלה | תיאור |
 | --- | --- |
-| **環境生命週期** | 環境閒置 7 天後就會永久刪除。 |
-| **VM 關閉** | VM 閒置一段時間後會關機，以節省資源。下一個要求會還原狀態 (冷啟動)。 |
-| **預先安裝的軟體** | 以 Ubuntu 為基礎的環境，搭載 Python 3.12 和 Node.js 22。如要進一步瞭解環境的基礎映像檔，請參閱「[預先安裝的軟體](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#pre-installed-software)」。 |
-| **最多代理程式** | 最多可有 1,000 個受管理代理程式。 |
+| **משך החיים של הסביבה** | סביבות נמחקות לצמיתות אחרי 7 ימים של חוסר פעילות. |
+| **VM Spin-down** | מכונות וירטואליות מושבתות אחרי פרק זמן קצר של חוסר פעילות כדי לחסוך במשאבים. הבקשה הבאה משחזרת את המצב (עם הפעלה במצב התחלתי). |
+| **תוכנות שמותקנות מראש** | סביבה מבוססת Ubuntu עם Python 3.12 ו-Node.js 22. מידע נוסף על תמונת הבסיס של הסביבה זמין במאמר בנושא [תוכנות שהותקנו מראש](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he#pre-installed-software). |
+| **מספר הסוכנים המקסימלי** | אפשר להוסיף עד 1,000 סוכנים מנוהלים. |
 
-## 代理架構
+## מסגרות של סוכנים
 
-您也可以使用下列架構和 SDK，透過 Gemini 建構代理：
+אפשר גם ליצור סוכנים באמצעות Gemini בעזרת המסגרות וערכות ה-SDK הבאות:
 
-- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=zh-tw)：使用圖表結構建構具狀態的複雜應用程式流程和多代理系統。
-- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=zh-tw)：將 Gemini 代理連結至私人資料，以利 RAG 增強型工作流程。
-- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=zh-tw)：自動調度管理角色扮演的自主式 AI 代理，進行協作。
-- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=zh-tw)：在 JavaScript/TypeScript 中建構 AI 輔助的使用者介面和代理程式。
-- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/)：開放原始碼框架，用於建構及協調可互通的 AI 代理。
-- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=zh-tw)：使用與 Google Antigravity 相同的工具、代理迴圈和環境管理功能，以 Python 建構自主式 AI 代理。
+- ‫[**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=he): יצירת תהליכי עבודה מורכבים של אפליקציות ומערכות מרובות סוכנים באמצעות מבני גרפים.
+- ‫[**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=he): קישור סוכני Gemini לנתונים פרטיים כדי לשפר את תהליכי העבודה באמצעות RAG.
+- ‫[**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=he): כלי לתזמור של סוכני AI אוטונומיים שמשתפים פעולה ומגלמים תפקידים.
+- ‫[**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=he): פיתוח ממשקי משתמש וסוכנים מבוססי-AI ב-JavaScript/TypeScript.
+- ‫[**Google ADK**](https://google.github.io/adk-docs/get-started/python/): מסגרת קוד פתוח ליצירה ולתיאום של סוכני AI עם יכולת פעולה הדדית.
+- ‫[**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=he): יצירה של סוכני AI אוטונומיים באמצעות אותם כלים, לולאת סוכן וניהול הקשר שמופעלים על ידי Google Antigravity, עם אפשרות לתכנות ב-Python.
 
-提供意見
+שליחת משוב
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-上次更新時間：2026-09-18 (世界標準時間)。
+עדכון אחרון: 2026-10-09 (שעון UTC).
 
-想進一步說明嗎？
+רוצה לתת לנו משוב?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-18 (世界標準時間)。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-09 (שעון UTC)."],[],[]]

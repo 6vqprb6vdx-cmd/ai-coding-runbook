@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=it
-fetched_at: 2026-10-05T06:33:50.678852+00:00
+fetched_at: 2026-10-12T07:13:38.998663+00:00
 title: "Combinare strumenti integrati e chiamata di funzione \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -21,7 +21,7 @@ Invia feedback
 
 Gemini consente la combinazione di [strumenti integrati](https://ai.google.dev/gemini-api/docs/tools?hl=it), come `google_search`, e [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) (note anche come *strumenti personalizzati*) in una singola generazione, preservando ed esponendo la cronologia del contesto delle chiamate di strumenti. Le combinazioni di strumenti integrati e personalizzati consentono
 workflow complessi e basati su agenti in cui, ad esempio, il modello può basarsi
-su dati web in tempo reale prima di richiamare la logica di business specifica.
+su dati web in tempo reale prima di chiamare la logica di business specifica.
 
 Ecco un esempio che consente combinazioni di strumenti integrati e personalizzati con
 `google_search` e una funzione personalizzata `getWeather`:
@@ -51,13 +51,13 @@ getWeather = {
 
 # Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="What is the northernmost city in the United States? What's the weather like there today?",
     config=types.GenerateContentConfig(
         tools=[
             types.Tool(
                 google_search=types.GoogleSearch(),  # Built-in tool
-                function_declarations=[getWeather]       # Custom tool
+                function_declarations=[getWeather],  # Custom tool
             ),
         ],
         tool_config=types.ToolConfig(
@@ -93,7 +93,7 @@ history = [
 ]
 
 response_2 = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=history,
     config=types.GenerateContentConfig(
         tools=[
@@ -137,10 +137,6 @@ const getWeather = {
 };
 
 async function run() {
-    const model = client.getGenerativeModel({
-        model: "gemini-3.6-flash",
-    });
-
     const tools = [
       { googleSearch: {} },
       { functionDeclarations: [getWeather] }
@@ -149,13 +145,14 @@ async function run() {
     const toolConfig = { includeServerSideToolInvocations: true };
 
     // Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
-    const result1 = await model.generateContent({
+    const response1 = await client.models.generateContent({
+        model: "gemini-3.8-flash",
         contents: [{role: "user", parts: [{text: "What is the northernmost city in the United States? What's the weather like there today?"}]}],
-        tools: tools,
-        toolConfig: toolConfig,
+        config: {
+            tools: tools,
+            toolConfig: toolConfig,
+        },
     });
-
-    const response1 = result1.response;
 
     for (const part of response1.candidates[0].content.parts) {
         if (part.functionCall) {
@@ -163,7 +160,7 @@ async function run() {
         }
     }
 
-    const functionCallId = response1.candidates[0].content.parts.find(p => p.functionCall)?.functionCall?.id;
+   const functionCallId = response1.candidates[0].content.parts.find(p => p.functionCall)?.functionCall?.id;
 
     // Turn 2: Manually build history to circulate both tool and function context
     const history = [
@@ -186,13 +183,16 @@ async function run() {
         }
     ];
 
-    const result2 = await model.generateContent({
+    const response2 = await client.models.generateContent({
+        model: "gemini-3.8-flash",
         contents: history,
-        tools: tools,
-        toolConfig: toolConfig,
+        config: {
+            tools: tools,
+            toolConfig: toolConfig,
+        },
     });
 
-    for (const part of result2.response.candidates[0].content.parts) {
+    for (const part of response2.candidates[0].content.parts) {
         if (part.text) {
             console.log(part.text);
         }
@@ -240,7 +240,7 @@ func main() {
         },
     }
 
-    model := client.GenerativeModel("gemini-3.6-flash")
+    model := client.GenerativeModel("gemini-3.8-flash")
     model.Tools = []*genai.Tool{
         {GoogleSearch: &genai.GoogleSearch{}}, // Built-in tool
         {FunctionDeclarations: []*genai.FunctionDeclaration{getWeather}}, // Custom tool
@@ -309,7 +309,7 @@ func main() {
 
 ```
 # Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -346,7 +346,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 # The following request assumes you have captured candidates[0].content from Turn 1 response,
 # and extracted function_call.id for getWeather.
 # Replace FUNCTION_CALL_ID and insert candidate content from turn 1.
-curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -393,20 +393,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6
 
 ## Come funziona
 
-I modelli Gemini 3 utilizzano la *circolazione del contesto degli strumenti* per consentire combinazioni di strumenti integrati e personalizzati. La circolazione del contesto degli strumenti consente di preservare ed esporre il contesto degli strumenti integrati e condividerlo con gli strumenti personalizzati nella stessa chiamata da turno a turno.
+I modelli Gemini 3 utilizzano la *circolazione del contesto degli strumenti* per consentire combinazioni di strumenti
+integrati e personalizzati. La circolazione del contesto degli strumenti consente di preservare ed esporre il contesto degli strumenti integrati e condividerlo con gli strumenti personalizzati nella stessa chiamata da turno a turno.
 
 ### Abilitare la combinazione di strumenti
 
 - Devi impostare il flag `include_server_side_tool_invocations` su `true` per
   attivare la circolazione del contesto dello strumento.
-- Includi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function-declarations), insieme agli strumenti integrati che vuoi utilizzare, per attivare il comportamento della combinazione.
+- Includi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function-declarations), insieme agli strumenti integrati che vuoi utilizzare, per attivare il comportamento di combinazione.
   - Se non includi `function_declarations`, la circolazione del contesto degli strumenti
     agirà comunque sugli strumenti integrati inclusi, a condizione che il flag sia impostato.
 
 ### L'API restituisce le parti
 
 In una singola risposta, l'API restituisce le parti `toolCall` e `toolResponse`
-per la chiamata di funzione integrata. Per la chiamata di funzione (strumento personalizzato), l'API
+per la chiamata allo strumento integrato. Per la chiamata di funzione (strumento personalizzato), l'API
 restituisce la parte di chiamata `functionCall`, a cui l'utente fornisce la parte
 `functionResponse` nel turno successivo.
 
@@ -428,43 +429,40 @@ Devi restituire tutte le parti, inclusi tutti i [campi](#critical-fields) che co
 
 Alcune [parti restituite dall'API](#api-returns-parts) includeranno i campi `id`,
 `tool_type` e `thought_signature`. Questi campi sono fondamentali per
-mantenere il contesto dello strumento (e quindi per le combinazioni di strumenti); devi
+mantenere il contesto dello strumento (e quindi fondamentali per le combinazioni di strumenti); devi
 restituire tutte le parti *come indicato nella risposta* nelle richieste successive.
 
 - `id`: un identificatore univoco che mappa una chiamata alla relativa risposta. `id` è **impostato su
   tutte le risposte di chiamata di funzione**, indipendentemente dalla circolazione del contesto dello strumento.
-  Devi *fornire* lo stesso `id` nella risposta della funzione
-  che l'API fornisce nella chiamata di funzione. Gli strumenti integrati condividono automaticamente
-  il `id` tra la chiamata allo strumento e la risposta dello strumento.
+  *Devi* fornire lo stesso `id` nella risposta della funzione
+  che l'API fornisce nella chiamata di funzione. Gli strumenti integrati condividono automaticamente il `id` tra la chiamata allo strumento e la risposta dello strumento.
   - Presente in tutte le parti relative allo strumento: `toolCall`, `toolResponse`,
     `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
-- `tool_type`: identifica lo strumento specifico utilizzato; il nome dello strumento o della funzione letterale integrata (ad es. `URL_CONTEXT` o `getWeather`).
+- `tool_type`: identifica lo strumento specifico utilizzato; il nome dello strumento o della funzione letterale integrata (ad es. `URL_CONTEXT`) o della funzione (ad es. `getWeather`).
   - Trovato nelle parti `toolCall` e `toolResponse`.
 - `thought_signature`: il contesto criptato effettivo incorporato in **ogni
-  parte restituita dall'API**. Il contesto non può essere
-  ricostruito senza le firme del pensiero; se non restituisci le firme del pensiero
-  per tutte le parti in ogni turno, il modello genererà un errore.
+  parte restituita dall'API**. Il contesto non può essere ricostruito senza le firme del pensiero; se non restituisci le firme del pensiero per tutte le parti in ogni turno, il modello genererà un errore.
   - Trovato in *tutte* le parti.
 
 ### Dati specifici dello strumento
 
-Alcuni strumenti integrati restituiscono argomenti di dati visibili agli utenti specifici per il tipo di strumento.
+Alcuni strumenti integrati restituiscono argomenti di dati visibili all'utente specifici per il tipo di strumento.
 
 | Strumento | Argomenti della chiamata allo strumento visibili all'utente (se presenti) | Risposta dello strumento visibile all'utente (se presente) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` URL da visitare | `urls_metadata` `retrieved_url`: URL sfogliati `url_retrieval_status`: Stato della navigazione |
+| **URL\_CONTEXT** | `urls` URL da visitare | `url_metadata` `retrieved_url`: URL sfogliati `url_retrieval_status`: Stato di navigazione |
 | **FILE\_SEARCH** | Nessuno | Nessuno |
 
 ## Esempio di struttura della richiesta di combinazione di strumenti
 
-La seguente struttura della richiesta mostra la struttura della richiesta del prompt: "Qual è la città più a nord degli Stati Uniti? Che tempo fa lì oggi?". Combina tre strumenti: gli strumenti Gemini integrati `google_search`
+La seguente struttura della richiesta mostra la struttura della richiesta del prompt: "Qual è la città più settentrionale degli Stati Uniti? Che tempo fa lì oggi?". Combina tre strumenti: gli strumenti Gemini integrati `google_search`
 e `code_execution` e una funzione personalizzata `get_weather`.
 
 ```
 {
-  "model": "models/gemini-3.6-flash",
+  "model": "models/gemini-3.8-flash",
   "contents": [{
     "parts": [{
       "text": "What is the northernmost city in the United States? What's the weather like there today?"
@@ -532,27 +530,28 @@ e `code_execution` e una funzione personalizzata `get_weather`.
 ## Token e prezzi
 
 Tieni presente che le parti `toolCall` e `toolResponse` nelle richieste vengono conteggiate ai fini di
-`prompt_token_count`. Poiché questi passaggi dello strumento intermedio sono ora visibili e
-restituiti, fanno parte della cronologia della conversazione. Questo vale solo per le *richieste*, non per le *risposte*.
+`prompt_token_count`. Poiché questi passaggi intermedi dello strumento ora sono visibili e
+ti vengono restituiti, fanno parte della cronologia della conversazione. Questo vale solo per le *richieste*, non per le *risposte*.
 
-Lo strumento Ricerca Google è un'eccezione a questa regola. La Ricerca Google applica già il proprio modello di prezzi a livello di query, pertanto i token non vengono addebitati due volte (consulta la pagina [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it)).
+Lo strumento Ricerca Google è un'eccezione a questa regola. La Ricerca Google applica già il proprio modello di prezzi a livello di query, quindi i token non vengono addebitati due volte (vedi la pagina [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it)).
 
 Per saperne di più, consulta la pagina [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
 
 ## Limitazioni
 
-- Impostazione predefinita della modalità `VALIDATED` (la modalità `AUTO` non è supportata) quando
-  il flag `include_server_side_tool_invocations` è attivato
-- Gli strumenti integrati come `google_search` si basano su informazioni relative alla posizione e all'ora corrente, quindi se `system_instruction` o `function_declaration.description` hanno informazioni su posizione e ora in conflitto, la funzionalità di combinazione degli strumenti potrebbe non funzionare correttamente.
+- Impostare la modalità `VALIDATED` per impostazione predefinita (la modalità `AUTO` non è supportata) quando
+  il flag `include_server_side_tool_invocations` è abilitato
+- Gli strumenti integrati come `google_search` si basano sulla posizione e sull'ora corrente, quindi se `system_instruction` o
+  `function_declaration.description` hanno informazioni su posizione e ora
+  in conflitto, la funzionalità di combinazione degli strumenti potrebbe non funzionare correttamente.
 
 ## Strumenti supportati
 
 La circolazione del contesto degli strumenti standard si applica agli strumenti lato server (integrati).
-Code Execution è anche uno strumento lato server, ma ha una propria soluzione integrata per la
-circolazione del contesto. L'utilizzo del computer e la chiamata di funzioni sono strumenti lato client
+Code Execution è anche uno strumento lato server, ma ha una propria soluzione integrata per la circolazione del contesto. L'utilizzo del computer e la chiamata di funzioni sono strumenti lato client
 e dispongono anche di soluzioni integrate per la circolazione del contesto.
 
-| Strumento | Lato esecuzione | Supporto per la circolazione del contesto |
+| Strumento | Lato di esecuzione | Supporto per la circolazione del contesto |
 | --- | --- | --- |
 | [la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) | Lato server | Supportato |
 | [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it) | Lato server | Supportato |
@@ -575,8 +574,8 @@ Invia feedback
 
 Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Ultimo aggiornamento 2026-09-12 UTC.
+Ultimo aggiornamento 2026-10-05 UTC.
 
 Vuoi dirci altro?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-05 UTC."],[],[]]

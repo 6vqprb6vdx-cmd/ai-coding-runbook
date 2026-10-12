@@ -1,72 +1,64 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=ko
-fetched_at: 2026-10-05T06:39:40.215862+00:00
-title: "\ub370\uc774\ud130 \ub85c\uae45 \ubc0f \uacf5\uc720 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr
+fetched_at: 2026-10-12T07:03:24.354892+00:00
+title: "Veri g\u00fcnl\u00fck kayd\u0131 ve payla\u015f\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-의견 보내기
+Geri bildirim gönderin
 
-# 데이터 로깅 및 공유
+# Veri günlük kaydı ve paylaşımı
 
-이 페이지에서는 결제가 사용 설정된 프로젝트의 지원되는 Gemini API 호출에서 개발자가 소유한
-API 데이터인
-[Gemini API 로그](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ko)의 저장 및 관리에 대해 설명합니다. 로그는 사용자의 요청부터 모델의 응답까지 전체 프로세스를 포함합니다.
-Google Cloud 프로젝트에 비공개인 이러한 로그는 [악용 모니터링](https://ai.google.dev/gemini-api/docs/usage-policies?hl=ko) 목적으로만 보관되는 로그와는 별개입니다.
+Bu sayfada, faturalandırmanın etkinleştirildiği projeler için desteklenen Gemini API çağrılarından elde edilen ve geliştiricilere ait API verileri olan [Gemini API günlüklerinin](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) depolanması ve yönetilmesi açıklanmaktadır. Günlükler, kullanıcının isteğinden modelin yanıtına kadar olan tüm süreci kapsar.
+Google Cloud projenize özel olan bu günlükler, yalnızca [kötüye kullanımı izleme](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr) amacıyla tutulan günlüklerden ayrıdır.
 
-## 공유할 수 있는 데이터
+## Paylaşılabilecek veriler
 
-프로젝트 소유자는 자체 사용을 위해 또는 Google에 의견을 제공하고 공유하여 Google이 모델을 지속적으로 개선할 수 있도록 Gemini API 호출의 로깅을 선택할 수 있습니다.
+Proje sahibi olarak, Gemini API çağrılarının kendi kullanımınız için veya modellerimizi sürekli olarak iyileştirmemize yardımcı olmak üzere Google ile geri bildirim ve paylaşım amacıyla kaydedilmesini etkinleştirebilirsiniz.
 
-로깅을 사용 설정하면 제품 개선 및 모델 학습을 위해 다음 데이터를 제공하여 다양한 분야와 사용 사례에서 개발자에게 계속해서 유용한 AI 시스템을 구축하는 데 도움이 될 수 있습니다.
+Günlük kaydı etkinleştirildiğinde, ürün iyileştirmeleri ve model eğitimi için aşağıdaki verileri göndermeyi seçerek çeşitli alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam eden yapay zeka sistemleri oluşturmamıza yardımcı olabilirsiniz:
 
-- **데이터 세트:** Google AI Studio의 로그 및 데이터 세트 인터페이스를 사용하여 지원되는 Gemini API 호출에서 관심 있는 로그 (요청, 응답, 메타데이터 등)를 선택합니다. 데이터 세트 생성 중에 선택 해제할 수 있는 옵션과 함께 데이터 세트에 포함하여 제공됩니다.
-- **의견:** 로그를 검토할 때 의견을 제공할 수 있습니다. 여기에는 좋아요 및 싫어요 평가와 작성한 의견이 포함됩니다.
+- **Veri kümeleri:** Desteklenen Gemini API çağrılarından ilgilendiğiniz günlükleri (istekler, yanıtlar, meta veriler vb.) seçmek için Google AI Studio'nun Günlükler ve Veri Kümeleri arayüzünü kullanın. Veri kümelerine dahil edilerek katkıda bulunulan bu günlükler, veri kümesi oluşturma sırasında devre dışı bırakılabilir.
+- **Geri bildirim:** Günlükleri incelerken geri bildirimde bulunabilirsiniz. Beğenme ve beğenmeme puanları ile yazdığınız yorumlar da geri bildirim kapsamındadır.
 
-Google과 데이터 세트를 공유하면 요청 및 응답을 포함한 해당 데이터 세트의 로그가 [약관](https://developers.google.com/terms?hl=ko)에 따라 처리됩니다. 즉, 데이터 세트는 모델 개선 및 학습을 포함하여 Google 제품, 서비스, 머신러닝 기술을 개발하고 개선하는 데 사용될 수 있습니다. **개인 정보, 민감한 정보 또는 기밀 정보를 포함하지 마세요.**
+Google ile bir veri kümesi paylaştığınızda, istekler ve yanıtlar dahil olmak üzere bu veri kümesindeki günlükleriniz, "[Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid)" ile ilgili [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca işlenir. Bu, veri kümesinin modellerimizi iyileştirmek ve eğitmek de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini geliştirmek ve iyileştirmek için kullanılabileceği anlamına gelir. **Kişisel, hassas veya gizli bilgiler eklemeyin.**
 
-## Google에서 데이터를 사용하는 방식
+## Verilerinizi nasıl kullanırız?
 
-로그는 기본적으로 최대 55일 동안 보관됩니다. 이 기간이 지나면 로그는 자동으로 삭제 대상으로 표시됩니다. 프로젝트의 저장소 보관 기간은 AI Studio에서 업데이트하여 7일, 14일, 28일 또는 55일 후에 로그가 자동으로 삭제 대상으로 표시되도록 할 수 있습니다.
+Günlükler varsayılan olarak en fazla 55 gün boyunca saklanır. Bu sürenin ardından günlükler otomatik olarak silinmek üzere işaretlenir. Bir projenin depolama saklama penceresi, AI Studio'da güncellenerek günlüklerin 7, 14, 28 veya 55 gün sonra silinmek üzere otomatik olarak işaretlenmesi sağlanabilir.
 
-[데이터 세트](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=ko)는 다운스트림 사용 사례 및
-모델 개선에 대한 선택적 기여를 위해 설정된 보관 기간을 초과하여
-관심 있는 로그를 보관하도록 만들 수 있습니다. 데이터 세트에 저장된 로그에는 설정된 보관 기간이 없습니다.
+Aşağı akış kullanım alanları için belirlenen saklama süresinin ötesinde ilgi çekici günlükleri saklamak ve model iyileştirmelerine isteğe bağlı olarak katkıda bulunmak amacıyla [veri kümeleri](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) oluşturulabilir. Veri kümelerinde depolanan günlüklerin belirli bir saklama süresi yoktur.
 
-기본적으로 로깅은 결제가 사용 설정된 프로젝트에서만 사용할 수 있으므로
-로그 내의 프롬프트와 응답은 제품 개선 또는
-개발에 사용되지 않습니다. 이는 데이터 사용에 관한 [약관](https://developers.google.com/terms?hl=ko)
-에 따릅니다.
+Varsayılan olarak, günlük kaydı yalnızca faturalandırmanın etkinleştirildiği projelerde kullanılabilir. Bu nedenle, günlüklerdeki istemler ve yanıtlar, veri kullanımına ilişkin [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca ürün iyileştirme veya geliştirme için kullanılmaz.
 
-로그의 데이터 세트를 Google과 공유하도록 선택하면 이러한 데이터 세트는 AI 시스템 및 애플리케이션이 사용되는 다양한 도메인과 컨텍스트를 더 잘 이해하기 위한 실제 데모 데이터로 사용됩니다. 이 데이터는 모델 품질을 개선하고 향후 모델 및 서비스의 학습 및 평가에 영향을 미칠 수 있습니다. 이 데이터는 [무료 서비스](https://ai.google.dev/gemini-api/terms?hl=ko#data-use-unpaid)의 데이터 사용
-약관에 따라 처리됩니다.
+Günlüklerinizin veri kümelerini Google ile paylaşmayı seçerseniz bu veri kümeleri, yapay zeka sistemlerinin ve uygulamalarının kullanıldığı alanların ve bağlamların çeşitliliğini daha iyi anlamak için gerçek dünya gösterim verileri olarak kullanılır. Bu veriler, model kalitesini artırmak ve gelecekteki modellerin ve hizmetlerin eğitim ve değerlendirme süreçlerine bilgi sağlamak için kullanılabilir. Bu veriler, [Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid) için veri kullanım şartlarımıza uygun olarak işlenir.
 
-따라서 인적 검토자는 공유하는 API 입력 및 출력을 읽고, 주석을 달고, 처리할 수 있습니다. 데이터가 모델 개선에 사용되기 전에 Google은 이러한 과정에서 사용자 개인 정보를 보호하기 위한 조치를 취합니다. 여기에는 검토자가 이 데이터를 보거나 주석을 작성하기 전에 Google 계정, API 키, Cloud 프로젝트에서 이 데이터의 연결을 해제하는 조치가 포함됩니다.
+Bu nedenle, inceleme uzmanları paylaştığınız API girişlerini ve çıkışlarını okuyabilir, işleyebilir ve bunlara açıklama ekleyebilir. Veriler model geliştirmede kullanılmadan önce Google, bu süreç kapsamında kullanıcı gizliliğini korumak için gerekli önlemleri alır. Örneğin, inceleme uzmanları görmeden veya açıklama eklemeden önce bu verilerin Google Hesabınız, API anahtarınız ve Cloud projenizle bağlantısını kaldırırız.
 
-## 데이터 권한
+## Veri izinleri
 
-API 데이터 제공을 선택하면 Google이 이 문서에 설명된 대로 데이터를 처리하고 사용할 수 있는 필요한 권한이 있음을 확인하는 것입니다. **유료 서비스를 통해 얻은 민감한 정보, 기밀 정보 또는 독점 정보가 포함된 로그는 제공하지 마세요**.
-'[콘텐츠 제출](https://developers.google.com/terms?hl=ko#b_submission_of_content)' 조항에 따라 Google에 부여한 라이선스도 Google의 사용에 대한 관련 법규에 따라 요구되는 범위 내에서 '서비스' 및 생성된 답변에 제출한 콘텐츠 (예: 이미지, 동영상, 문서 등 관련 파일, 캐시된 콘텐츠, 시스템 안내를 포함한 프롬프트)로 확장됩니다.
+API verilerine katkıda bulunmayı etkinleştirerek Google'ın verileri bu dokümanda açıklandığı şekilde işlemesi ve kullanması için gerekli izinlere sahip olduğunuzu onaylarsınız. **Lütfen ücretli hizmet aracılığıyla elde edilen hassas, gizli veya özel bilgileri içeren günlükleri göndermeyin**.
+API Şartları'ndaki "[İçerik Gönderme](https://developers.google.com/terms?hl=tr#b_submission_of_content)" bölümü uyarınca Google'a verdiğiniz lisans, Hizmetler'e gönderdiğiniz tüm içerikler (ör.ilişkili sistem talimatları da dahil olmak üzere istemler, önbelleğe alınmış içerikler ve resim, video ya da doküman gibi dosyalar) ve oluşturulan tüm yanıtlar için de geçerlidir. Bu geçerlilik, kullanımımız için geçerli yasalar uyarınca gerekli olduğu ölçüde geçerlidir.
 
-## 데이터 공유 및 의견
+## Veri paylaşımı ve geri bildirim
 
-데이터를 예시로 공유하도록 선택하면 AI 연구, Gemini API, Google AI Studio의 발전에 도움이 될 수 있습니다. 이를 통해 다양한 컨텍스트에서 모델을 지속적으로 개선하고 다양한 분야와 사용 사례에서 개발자에게 계속해서 유용한 AI 시스템을 구축할 수 있습니다.
+Verilerinizi örnek olarak paylaşmayı kabul ederek yapay zeka araştırmalarının, Gemini API'nin ve Google AI Studio'nun sınırlarını genişletmemize yardımcı olabilirsiniz. Bu sayede, modellerimizi çeşitli bağlamlarda sürekli olarak iyileştirebilir ve farklı alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam edecek yapay zeka sistemleri oluşturabiliriz.
 
-의견 보내기
+Geri bildirim gönderin
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-최종 업데이트: 2026-09-08(UTC)
+Son güncelleme tarihi: 2026-09-08 UTC.
 
-의견을 전달하고 싶나요?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-08(UTC)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]

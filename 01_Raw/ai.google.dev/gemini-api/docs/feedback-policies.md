@@ -1,63 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=tr
-fetched_at: 2026-10-05T06:39:45.670603+00:00
-title: "Geri bildirim \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=he
+fetched_at: 2026-10-12T06:49:42.431195+00:00
+title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Geri bildirim gönderin
+שליחת משוב
 
-# Geri bildirim
+# משוב
 
-Google AI Studio, model çıkışları, oluşturulan yapılar ve API isteği günlükleri hakkında geri bildirim göndermeniz için birden fazla yöntem sunar. Bu politika, Google AI Studio'da gönderilen tüm geri bildirimler için geçerlidir. Bunlara yanıt derecelendirmeleri (ör. beğeni ve beğenmeme), yazılı yorumlar ve tercih oylaması (ör. satır içi tercih oylaması ve Build Arena modu) dahildir.
+ב-Google AI Studio יש כמה דרכים לשלוח משוב על פלט של מודלים, על ארטיפקטים שנוצרו ועל יומני בקשות API. המדיניות הזו חלה על כל המשוב שנשלח ב-Google AI Studio – כולל דירוג תשובות (למשל, לייק או דיסלייק), תגובות כתובות והצבעה על העדפות (למשל, הצבעה על העדפות בתוך השורה ומצב Build Arena).
 
-## Bunu neden yapıyoruz?
+## למה אנחנו עושים את זה?
 
-Yapay zeka modellerimizi ve hizmetlerimizi iyileştirmek için sürekli çalışıyoruz. Geri bildiriminiz, [Gemini API Ek Hizmet Şartları](https://ai.google.dev/gemini-api/terms?hl=tr) ve [Gizlilik Politikası](https://policies.google.com/privacy?hl=tr)'na uygun olarak Google'ın kurumsal özellikleri, ürünleri ve hizmetleri de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini sunmamıza, iyileştirmemize ve geliştirmemize yardımcı olur.
+אנחנו פועלים כל הזמן כדי לשפר את מודלי ה-AI והשירותים שלנו. המשוב שלכם עוזר לנו לספק, לשפר ולפתח מוצרים, שירותים וטכנולוגיות למידת מכונה של Google, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם ל[תנאים והגבלות נוספים למתן שירות של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות הפרטיות](https://policies.google.com/privacy?hl=he).
 
-## Geri bildirime hangi veriler dahil edilir?
+## אילו נתונים נכללים במשוב?
 
-Modellerimiz ve özelliklerimiz hakkında bilinçli kararlar vermek için Google AI Studio'da geri bildirim gönderdiğinizde belirli verileri toplarız:
+כדי שנוכל לקבל החלטות מושכלות לגבי המודלים והתכונות שלנו, אנחנו אוספים נתונים מסוימים כשאתם שולחים משוב ב-Google AI Studio:
 
-- **İstemler ve Yanıtlar:** Geri bildirim gönderdiğiniz etkileşim veya sohbetteki istemleri ve yanıtları (yüklenen dosyalar veya medya dahil) kaydederiz. Karşılaştırmalı tercih değerlendirmelerine katıldığınızda, seçiminizin bağlamını anlayabilmemiz için sunulan birden fazla yanıt seçeneğini de kaydederiz.
-- **Puanınız, oyunuz veya yorumlarınız:** Verdiğiniz puanı (ör. beğenme veya beğenmeme), oylamada tercih ettiğiniz yanıtı, seçilen geri bildirim kategorilerini ve gönderdiğiniz yazılı yorumları kaydederiz.
-- **Kullanım Ayrıntıları:** Bu, etkileşiminiz veya sohbetinizle ilgili teknik ve operasyonel ayrıntıları (ör. yanıtı hangi modelin oluşturduğu, model parametreleri ve sistem meta verileri) içerir.
+- **פרומפטים ותשובות:** אנחנו מתעדים את הפרומפטים והתשובות, כולל קבצים או מדיה שהועלו, מהאינטראקציה או מהשיחה ששלחתם עליה משוב. כשאתם משתתפים בהערכות השוואתיות של העדפות, אנחנו גם מתעדים את האפשרויות הרבות לתגובה שמוצגות לכם, כדי להבין את ההקשר של הבחירה שלכם.
+- **הדירוג, ההצבעה או התגובות שלכם:** אנחנו מתעדים את הדירוג שנתתם (למשל, לייק או דיסלייק), את התשובה שהעדפתם בהצבעה, את קטגוריות המשוב שבחרתם ואת התגובות הכתובות ששלחתם.
+- **פרטי השימוש:** כולל פרטים טכניים ותפעוליים מהאינטראקציה או מהשיחה, כמו מידע על המודל שיצר את התשובה, פרמטרים של המודל ומטא-נתונים של המערכת.
 
-### Yüzeye göre geri bildirim
+### משוב לפי פלטפורמה
 
-Geri bildirimler, Google AI Studio'daki farklı platformlarda gönderilebilir. Bağlamda küçük farklılıklar olabilir:
+אפשר לשלוח משוב בפלטפורמות שונות ב-Google AI Studio, עם הבדלים קלים בהקשר שמתועד:
 
-- **AI Studio Playground:** Playground'da yanıt derecelendirmeleri (beğen veya beğenme) ya da yan yana satır içi tercih oylaması kullanılarak geri bildirim gönderilebilir. Kaydedilen veriler arasında sohbet geçmişi, istemler, model yanıtları, yüklenen medya veya dosyalar, parametre ayarları, geri bildirim ve kullanım ayrıntıları yer alır.
-- **AI Studio Build:** Build Arena dahil olmak üzere Build'de oluşturulan kod, uygulama çıkışları ve karşılaştırmalı model değerlendirmeleri hakkında geri bildirim gönderilebilir.
-  Kaydedilen veriler arasında derleme talimatları ve istemler, oluşturulan uygulama kodu ve çıkışlar, karşılaştırmalı oylar veya derecelendirmeler, eşlik eden yorumlar ve kullanım ayrıntıları yer alır.
-- **Gemini API günlükleri:** Günlükler ve Veri Kümeleri Görüntüleyici'de, tek tek Gemini API istek günlükleri hakkında geri bildirim gönderilebilir. Kaydedilen veriler arasında, belirli API günlük girişi (istek yükü, model yanıtı, parametreler ve meta veriler dahil) ile birlikte geri bildirimler ve kullanım ayrıntıları yer alır. Günlük verilerinin depolanması ve veri kümesi paylaşımı hakkında daha fazla bilgi için [Veri Günlüğü ve Paylaşımı](https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr) Politikası'nı inceleyin.
+- **הסביבה הניסיונית של AI Studio:** בסביבה הניסיונית, אפשר לשלוח משוב באמצעות דירוג התגובות (לייק או דיסלייק) או באמצעות הצבעה להעדפה מוטבעת זו לצד זו. הנתונים המוקלטים כוללים את היסטוריית השיחות, ההנחיות, התשובות של המודל, קבצים או מדיה שהועלו, הגדרות הפרמטרים, משוב ופרטי השימוש.
+- ‫**AI Studio Build:** ב-Build (כולל Build Arena), אפשר לשלוח משוב על קוד שנוצר, על פלט של אפליקציות ועל הערכות השוואתיות של מודלים.
+  הנתונים שתועדו כוללים את הוראות הבנייה וההנחיות, קוד האפליקציה והתוצרים שנוצרו, הצבעות או דירוגים השוואתיים, כל ההערות הנלוות ופרטי השימוש.
+- **יומנים של Gemini API:** בכלי לצפייה ביומנים ובמערכי נתונים, אפשר לשלוח משוב על יומנים של בקשות API ספציפיות ל-Gemini API. הנתונים שתועדו כוללים את רשומת היומן הספציפית של ה-API (כולל מטען ייעודי לבקשה, תגובת המודל, פרמטרים ומטא-נתונים), וגם משוב ופרטים על השימוש. פרטים נוספים על אחסון נתוני יומן ושיתוף מערכי נתונים זמינים במדיניות בנושא [רישום נתונים ושיתוף נתונים](https://ai.google.dev/gemini-api/docs/logs-policy?hl=he).
 
-## Satır İçi Tercih Oylaması
+## הצבעה על העדפות בתוך הטקסט
 
-Google AI Studio'da, isteminize verilen iki farklı yanıtın yan yana karşılaştırmasını görebilirsiniz. Bu, tercihli oylama sistemimizin bir parçasıdır. Hangi yanıtı tercih ettiğinizi seçmeniz istenir. Bu sayede, kullanıcıların hangi model çıkışlarını en faydalı bulduğunu anlayabiliriz.
+ב-Google AI Studio, יכול להיות שמדי פעם תראו השוואה בין שתי תשובות שונות להנחיה שלכם. זה חלק ממערכת ההצבעה לפי העדפות. תתבקשו לבחור איזו תשובה אתם מעדיפים, כדי לעזור לנו להבין אילו תוצאות של המודל הכי מועילות למשתמשים.
 
-## Gizliliğiniz
+## הפרטיות שלך
 
-**Hassas, gizli veya kişisel bilgiler içeren görüşmeler, istemler, yanıtlar ya da günlükler hakkında geri bildirim göndermeyin.** Geri bildirimde bulunmak
-her zaman isteğe bağlıdır.
+**אל תשלחו משוב על שיחות, הנחיות, תשובות או יומנים שכוללים מידע רגיש, סודי או אישי.** שליחת משוב היא תמיד וולונטרית.
 
-Google AI Studio'yu geliştirmemize yardımcı olduğunuz için teşekkür ederiz.
+תודה שעזרת לנו לשפר את Google AI Studio.
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-09-25 UTC.
+עדכון אחרון: 2026-09-25 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-25 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-25 (שעון UTC)."],[],[]]

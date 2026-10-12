@@ -1,54 +1,72 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview?hl=ja
-fetched_at: 2026-10-05T06:33:03.979448+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-overview?hl=it
+fetched_at: 2026-10-12T07:08:33.189713+00:00
 title: "Gemini Robotics ER \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
 
-フィードバックを送信
+Invia feedback
 
 # Gemini Robotics ER
 
-Gemini Robotics ER（embodied reasoning）モデルは、ロボットが現実世界を認識して操作できるようにする視覚言語モデル（VLM）です。視覚データを解釈し、空間的および時間的推論を実行し、マルチステップ タスクを計画し、ロボットとツールをオーケストレートします。
+I modelli Gemini Robotics ER (embodied reasoning) sono modelli di visione e linguaggio
+(VLM) che consentono ai robot
+di percepire e interagire con il mondo fisico. Interpretano i dati visivi,
+eseguono ragionamenti spaziali e temporali, pianificano attività in più fasi e coordinano
+robot e strumenti.
 
-## モデル
+## Modelli
 
-Gemini Robotics ER 2 モデルは、Gemini Robotics の最新モデルです。これは、ロボットが環境を正確に理解できるようにする、更新された推論モデルです。ロボットの自律的なオーケストレーション（VLA の使用など）、進捗状況の把握や成功検出を含むロボット動画の理解、計測器の読み取り、ポインティング、空間推論など、身体化された推論機能に特化しています。
+Il modello Gemini Robotics ER 2 è l'ultimo modello di Gemini Robotics.
+Si tratta del nostro modello di ragionamento aggiornato che consente ai robot di
+comprendere con precisione il loro ambiente. È specializzato in funzionalità di ragionamento basate sull'interazione con il mondo fisico, come l'orchestrazione di robot da parte di agenti (ad es. tramite VLA), la comprensione di video di robot, tra cui la comprensione dello stato di avanzamento e il rilevamento del successo, la lettura di strumenti, il puntamento e il ragionamento spaziale.
 
-Gemini Robotics ER 2 モデルには、次の 2 つのモデル エンドポイントが導入されています。
+Il modello Gemini Robotics ER 2 introduce due endpoint del modello:
 
-- **`gemini-robotics-er-2-preview`**: 標準の ER 2 モデル。Gemini 3.5 Flash をベースに、空間推論、動画の瞬間検出、動画の進行状況の分類、マルチロボット オーケストレーション、マルチステップ ツール使用が改善されています。
-- **`gemini-robotics-er-2-streaming-preview`**: [Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) を介したリアルタイム ストリーミング用に最適化されています。このモデルは、継続的な音声入力と動画入力を処理する低レイテンシのロボット エージェントに使用します。
+- **`gemini-robotics-er-2-preview`**: il modello ER 2 standard. Si basa su
+  Gemini 3.5 Flash con ragionamento spaziale migliorato, ricerca di momenti video,
+  classificazione dell'avanzamento dei video, orchestrazione multi-robot e utilizzo di strumenti
+  in più passaggi.
+- **`gemini-robotics-er-2-streaming-preview`**: ottimizzato per lo streaming in tempo reale tramite l'[API Live](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it). Utilizza questo
+  modello per agenti robot a bassa latenza che elaborano input audio e video
+  continui.
 
-Gemini Robotics ER 1.6 を使用している場合は、API 呼び出しで `model="gemini-robotics-er-1.6-preview"` を `model="gemini-robotics-er-2-preview"` または `model="gemini-robotics-er-2-streaming-preview"` に置き換えて、Gemini Robotics ER 2 にアップグレードします。Gemini Robotics ER 1.6 モデルは、[8 月末](https://ai.google.dev/gemini-api/docs/deprecations?hl=ja#robotics-models)にシャットダウンされます。
+Se utilizzi Gemini Robotics ER 1.6, esegui l'upgrade a Gemini Robotics ER 2 sostituendo
+`model="gemini-robotics-er-1.6-preview"` con
+`model="gemini-robotics-er-2-preview"` o
+`model="gemini-robotics-er-2-streaming-preview"` nelle chiamate API. Tieni presente che
+il modello Gemini Robotics ER 1.6 verrà ritirato alla
+[fine di agosto](https://ai.google.dev/gemini-api/docs/deprecations?hl=it#robotics-models).
 
-[Google AI Studio で Gemini Robotics ER 2 を試す](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=ja)
+[Prova Gemini Robotics ER 2 in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-2-preview&hl=it)
 
-## ロボット工学の機能
+## Funzionalità di robotica
 
-Gemini Robotics ER は、さまざまな身体化された推論機能をサポートしています。機能を選択して詳細を確認します。
+Gemini Robotics ER supporta una serie di funzionalità di ragionamento basate sull'interazione con il mondo fisico.
+Seleziona una funzionalità per saperne di più:
 
-| 能力 | 説明 | ガイド |
+| Capacità | Descrizione | Guida |
 | --- | --- | --- |
-| 空間推論 | オブジェクトをポイントし、動画内で追跡し、境界ボックスで検出し、軌跡を計画します。 | [空間推論](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=ja) |
-| エージェントのビジョン | コード実行を使用して、画像操作ツールを活用して他の機能を強化します。 | [エージェントのビジョン](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=ja) |
-| タスク オーケストレーション | 空間推論とカスタム ロボット API を組み合わせて、長期的なタスクを完了します。 | [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=ja) |
-| ストリーミング（Gemini Robotics ER 2 ストリーミング エンドポイントのみ） | 低レイテンシの関数呼び出しによるリアルタイム ロボット エージェントの双方向ストリーミング。 | [ロボット工学向けのストリーミング](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) |
-| 動画の進行状況（Gemini Robotics ER 2 のみ） | 連続動画フィードからの瞬間検出と進行状況の分類。 | [動画に関する理解を深める](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=ja) |
+| Ragionamento spaziale | Punta agli oggetti, monitorali nel video, rilevati con riquadri di delimitazione, pianifica le traiettorie. | [Ragionamento spaziale](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=it) |
+| Agentic Vision | Utilizza l'esecuzione del codice per migliorare altre funzionalità sfruttando gli strumenti di manipolazione delle immagini. | [Visione agentica](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=it) |
+| Orchestrazione delle attività | Combina il ragionamento spaziale con le API robot personalizzate per completare attività a lungo termine. | [Orchestrazione delle attività](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=it) |
+| Streaming (solo endpoint di streaming Gemini Robotics ER 2) | Streaming bidirezionale per agenti robot in tempo reale con chiamate di funzioni a bassa latenza. | [Streaming per la robotica](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it) |
+| Avanzamento video (solo Gemini Robotics ER 2) | Ricerca dei momenti e classificazione dei progressi dai feed video continui. | [Comprensione dei video](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=it) |
 
-## スタートガイド
+## Per iniziare
 
-次の例では、画像内のオブジェクトを検出し、正規化された 2D 座標とラベルを返します。この出力をロボット工学 API または VLA モデルに直接渡して、ロボット アクションを生成できます。
+L'esempio seguente trova gli oggetti in un'immagine e restituisce le relative coordinate e le relative etichette 2D normalizzate. Puoi passare questo output direttamente a un'API di robotica o a un
+modello VLA per generare azioni del robot.
 
 ### Python
 
@@ -119,7 +137,8 @@ curl -X POST \
   }'
 ```
 
-出力は、オブジェクトを含む JSON 配列になります。各オブジェクトには、オブジェクトを識別する `point`（正規化された `[y, x]` 座標）と `label` が含まれます。
+L'output sarà un array JSON contenente oggetti, ognuno con un `point`
+(coordinate `[y, x]` normalizzate) e un `label` che identifica l'oggetto.
 
 ### JSON
 
@@ -138,107 +157,132 @@ curl -X POST \
 ]
 ```
 
-次の図は、これらのポイントを表示する方法の例です。
+L'immagine seguente è un esempio di come possono essere visualizzati questi punti:
 
-![画像内のオブジェクトのポイントを表示する例](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ja)
+![Un esempio che mostra i punti degli oggetti in un'immagine](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=it)
 
-## 仕組み
+## Come funziona
 
-Gemini Robotics ER は、自然言語プロンプトで画像、動画、音声の入力を受け取ります。オブジェクトを識別し、シーンのコンテキストと空間関係を推論して、座標や境界ボックスなどの構造化された出力を返します。
+Gemini Robotics ER acquisisce input di immagini, video o audio con prompt in linguaggio naturale. Identifica gli oggetti, ragiona sul contesto della scena e sulle relazioni spaziali e restituisce un output strutturato come coordinate o riquadri di delimitazione.
 
-Gemini Robotics ER はエージェント機能も備えています。複雑なタスクをサブタスクに分割し、ロボット関数を呼び出すか、生成されたコードを実行してサブタスクを実行します。たとえば、「りんごをボウルに入れて」という指示は、見つける、つかむ、置くという一連のステップになります。
+Gemini Robotics ER è anche agentico: suddivide le attività complesse in sottoattività e
+le esegue chiamando le funzioni del robot o eseguendo il codice generato. Ad esempio, "metti la mela nella ciotola" diventa una sequenza di passaggi per individuare, afferrare e posizionare.
 
-Gemini がツール呼び出しを実行する方法の詳細については、[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ja#how-it-works)をご覧ください。
+Consulta [Chiamata
+di funzioni](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=it#how-it-works) per
+informazioni dettagliate su come Gemini esegue le chiamate di strumenti.
 
-## 安全性
+## Sicurezza
 
-Gemini Robotics ER は安全性を考慮して構築されていますが、ロボットの周囲の安全な環境を維持するのはお客様の責任です。生成 AI モデルは間違えることがあり、物理的なロボットは損傷を引き起こす可能性があります。詳しくは、[Google DeepMind のロボット工学の安全性に関するページ](https://deepmind.google/models/gemini-robotics/safety?hl=ja)をご覧ください。
+Sebbene Gemini Robotics ER sia stato progettato pensando alla sicurezza, è tua
+responsabilità mantenere un ambiente sicuro intorno al robot. I modelli di AI generativa possono commettere errori e i robot fisici possono causare danni. Per saperne di più,
+visita la
+[pagina sulla sicurezza della robotica di Google DeepMind](https://deepmind.google/models/gemini-robotics/safety?hl=it).
 
-## ベスト プラクティス
+## Best practice
 
-1. 平易で自然な言葉を使用します。ロボットに何をしてほしいかを、人に説明するのと同じように記述します。用語が機能しない場合は、一般的な同義語を試してください。
-2. 視覚的な入力を最適化します。画像を送信する前に、小さくて不鮮明な対象物を切り抜くか、拡大します。照明や色のコントラストが低いと、検出に影響する可能性があります。
-3. 複雑なタスクをステップに分割します。各ステップを個別のプロンプトとして送信して、モデルの焦点を絞り、精度を高めます。
-4. 高精度のタスクでは、複数回クエリを実行して結果を平均します。このコンセンサス アプローチにより、空間出力の分散が減少します。
+1. Usa un linguaggio semplice e naturale. Descrivi cosa vuoi che faccia il robot come se
+   parlassi con una persona. Se un termine non funziona, prova un sinonimo comune.
+2. Ottimizza l'input visivo. Ritaglia o ingrandisci oggetti piccoli o non chiari prima di inviare l'immagine. L'illuminazione e il basso contrasto cromatico possono influire sul rilevamento.
+3. Suddividi le attività complesse in passaggi. Invia ogni passaggio come prompt separato per
+   mantenere il modello concentrato e migliorare l'accuratezza.
+4. Esegui query più volte e calcola la media dei risultati per attività ad alta precisione. Questo
+   approccio di consenso riduce la varianza degli output spaziali.
 
-## 制限事項
+## Limitazioni
 
-Gemini Robotics ER を使用して開発する場合は、次の制限事項を考慮してください。
+Tieni presenti le seguenti limitazioni quando sviluppi con Gemini Robotics ER:
 
-- **API キーの制限:** Gemini API は、制限のない API キーからのリクエストを受け付けず、`403 Forbidden` エラーを返します。[AI Studio](https://aistudio.google.com/api-keys?hl=ja) で制限を追加して、API キーを保護します。詳細については、[制限のない API キーを保護する](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#secure-unrestricted-keys)をご覧ください。
-- **レイテンシとパフォーマンス:** 複雑なクエリ、高解像度の入力、高度な思考レベルは、処理時間の増加につながる可能性があります。思考レベルには、レイテンシとパフォーマンスのバランスが取れた中を使用します。
-- **ハルシネーション:** すべての大規模言語モデルと同様に、Gemini Robotics ER モデルも、特に曖昧なプロンプトや分布外の入力に対して、ハルシネーションを起こしたり、誤った情報を提供したりすることがあります。
-- **プロンプトの品質に依存:** 出力の品質は、入力プロンプトの明瞭さに依存します。具体的で構造化されたプロンプトを使用します。
-- **コンピューティング費用:** モデルを実行すると、特に動画入力や高い `thinking_budget` を使用すると、コンピューティング リソースが消費され、費用が発生します。詳細については、[思考](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=ja)のページをご覧ください。
-- **入力タイプ:** 各モードの制限事項について詳しくは、以下のトピックをご覧ください。
-  - [画像入力](https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=ja#technical-details-image)
-  - [ビデオ入力](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=ja#supported-formats)
-  - [音声入力](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=ja#supported-formats)
+- **Limitazioni relative alle chiavi API**:l'API Gemini non accetta richieste da
+  chiavi API senza limitazioni e restituisce un errore `403 Forbidden`. Proteggi la tua chiave API aggiungendo limitazioni in [AI Studio](https://aistudio.google.com/api-keys?hl=it).
+  Per informazioni dettagliate, consulta la sezione [Proteggere le chiavi API senza limitazioni](https://ai.google.dev/gemini-api/docs/api-key?hl=it#secure-unrestricted-keys).
+- **Latenza e prestazioni**:query complesse, input ad alta risoluzione o livelli di pensiero elevati possono comportare un aumento dei tempi di elaborazione. Per il livello di pensiero,
+  utilizza il livello medio per un buon equilibrio tra latenza e rendimento.
+- **Allucinazioni:** come tutti i modelli linguistici di grandi dimensioni, i modelli Gemini Robotics ER
+  possono occasionalmente "avere allucinazioni" o fornire informazioni errate, soprattutto
+  per prompt ambigui o input fuori distribuzione.
+- **Dipendenza dalla qualità del prompt:** la qualità dell'output dipende dalla chiarezza
+  del prompt di input. Utilizza prompt specifici e ben strutturati.
+- **Costo di calcolo**:l'esecuzione del modello, soprattutto con input video o
+  `thinking_budget` elevati, consuma risorse di calcolo e comporta costi.
+  Per ulteriori dettagli, consulta la pagina [Pensiero](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it).
+- **Tipi di input**:consulta i seguenti argomenti per informazioni dettagliate sulle limitazioni per ogni modalità.
+  - [Input immagine](https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=it#technical-details-image)
+  - [Input video](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=it#supported-formats)
+  - [Ingressi audio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=it#supported-formats)
 
-## プライバシーに関するお知らせ
+## Informativa sulla privacy
 
-お客様は、このドキュメントで言及されているモデル（以下「ロボティクス モデル」）が、お客様の指示に従ってハードウェアを操作し、移動させるために動画データと音声データを活用することを理解し、これに同意するものとします。そのため、音声、画像、肖像データなどの個人を特定できる人物のデータ（「個人データ」）がロボット モデルによって収集されるように、ロボット モデルを操作することがあります。個人データを収集する形でロボット モデルを運用することを選択した場合、Gemini API の追加利用規約（[https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=ja)）に記載されているとおり、Google に個人データが提供され、Google がそれを使用する可能性があることを、識別可能な人物に十分に通知し、その人物が同意するまで、その人物がロボット モデルとやり取りしたり、ロボット モデルの周囲に立ち入ったりすることを許可しないことに同意するものとします。これには、「Google によるデータの使用方法」というセクションに記載されている内容も含まれます。お客様は、かかる通知が本規約に記載されているとおりの個人データの収集と使用を許可することを保証し、顔のぼかしなどの技術を使用したり、識別可能な人物が含まれないエリアでロボティクス モデルを運用したりするなど、商業上合理的な努力をもって、個人データの収集と配布を可能な限り最小限に抑えます。
+Riconosci che i modelli a cui viene fatto riferimento in questo documento (i "Modelli
+di robotica") sfruttano i dati video e audio per funzionare e muovere l'hardware
+in conformità alle tue istruzioni. Pertanto, puoi utilizzare i
+Modelli di robotica in modo che i dati di persone identificabili, come voce, immagini e dati di somiglianza ("Dati personali"), vengano raccolti dai Modelli di robotica. Se scegli di utilizzare i Modelli di robotica in modo da raccogliere dati personali, accetti di non consentire a persone identificabili di interagire con i Modelli di robotica o di trovarsi nell'area circostante, a meno che e fino a quando queste persone identificabili non siano state informate in modo sufficiente e non abbiano acconsentito al fatto che i loro dati personali possano essere forniti e utilizzati da Google come descritto nei Termini di servizio aggiuntivi dell'API Gemini disponibili all'indirizzo [https://ai.google.dev/gemini-api/terms](https://ai.google.dev/gemini-api/terms?hl=it) (i "Termini"), anche in conformità con la sezione intitolata "Modalità di utilizzo dei dati da parte di Google". Ti assicurerai che tale
+avviso consenta la raccolta e l'utilizzo dei dati personali come descritto nei Termini
+e farai ogni sforzo commercialmente ragionevole per ridurre al minimo la raccolta e
+la distribuzione dei dati personali utilizzando tecniche come la sfocatura dei volti e
+utilizzando i modelli robotici in aree che non contengono persone identificabili
+nella misura in cui ciò sia praticabile.
 
-## 料金
+## Prezzi
 
-料金と利用可能なリージョンの詳細については、[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)ページをご覧ください。
+Per informazioni dettagliate sui prezzi e sulle regioni disponibili, consulta la pagina dei [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it).
 
-## モデル エンドポイント
+## Endpoint del modello
 
-### Gemini Robotics ER 2 プレビュー版
+### Gemini Robotics ER 2 (anteprima)
 
-| プロパティ | 説明 |
+| Proprietà | Descrizione |
 | --- | --- |
-| id\_cardモデルコード | `gemini-robotics-er-2-preview` |
-| save でサポートされているデータ型 | **入力**  テキスト、画像、動画、音声  **出力**  テキスト |
-| token\_autoトークンの上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  131,072  **出力トークンの上限**  65,536 |
-| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象  **[パソコンの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)**  サポート対象  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象外  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象 |
-| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象外  **[優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象外 |
-| 123 バージョン | 詳しくは、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - プレビュー: `gemini-robotics-er-2-preview` |
-| calendar\_month最終更新日 | 2026 年 7 月 |
-| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=ja) |
+| Codice modello id\_card | `gemini-robotics-er-2-preview` |
+| saveTipi di dati supportati | **Input**  Testo, immagini, video, audio  **Output**  Testo |
+| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  131.072  **Limite di token di output**  65.536 |
+| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Supportato  **[Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
+| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Non supportato  **[Inferenza prioritaria](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Non supportato |
+| Versioni 123 | Leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions) per maggiori dettagli.  - Anteprima: `gemini-robotics-er-2-preview` |
+| calendar\_monthUltimo aggiornamento | Luglio 2026 |
+| id\_cardScheda del modello | [Scheda del modello](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=it) |
 
-### Gemini Robotics ER 2 ストリーミング プレビュー
+### Gemini Robotics ER 2 Streaming Preview
 
-| プロパティ | 説明 |
+| Proprietà | Descrizione |
 | --- | --- |
-| id\_cardモデルコード | `gemini-robotics-er-2-streaming-preview` |
-| save でサポートされているデータ型 | **入力**  テキスト、画像、動画、音声  **出力**  テキスト |
-| token\_autoトークンの上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  131,072  **出力トークンの上限**  65,536 |
-| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象外  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象外  **[パソコンの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)**  サポート対象外  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象外  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象外  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象外  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象外 |
-| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象外  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象外  **[優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象外 |
-| 123 バージョン | 詳しくは、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - プレビュー: `gemini-robotics-er-2-streaming-preview` |
-| calendar\_month最終更新日 | 2026 年 7 月 |
-| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=ja) |
+| Codice modello id\_card | `gemini-robotics-er-2-streaming-preview` |
+| saveTipi di dati supportati | **Input**  Testo, immagini, video, audio  **Output**  Testo |
+| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  131.072  **Limite di token di output**  65.536 |
+| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Non supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Non supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Non supportato  **[Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Non supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Non supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Non supportato  **[Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Non supportato |
+| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Non supportato  **[Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Non supportato  **[Inferenza prioritaria](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Non supportato |
+| Versioni 123 | Leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions) per maggiori dettagli.  - Anteprima: `gemini-robotics-er-2-streaming-preview` |
+| calendar\_monthUltimo aggiornamento | Luglio 2026 |
+| id\_cardScheda del modello | [Scheda del modello](https://deepmind.google/models/model-cards/gemini-robotics-er-2/?hl=it) |
 
-### Gemini Robotics ER 1.6 プレビュー版
+### Gemini Robotics ER 1.6 (anteprima)
 
-| プロパティ | 説明 |
+| Proprietà | Descrizione |
 | --- | --- |
-| id\_cardモデルコード | `gemini-robotics-er-1.6-preview` |
-| save でサポートされているデータ型 | **入力**  テキスト、画像、動画、音声  **出力**  テキスト |
-| token\_autoトークンの上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  131,072  **出力トークンの上限**  65,536 |
-| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象  **[パソコンの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)**  サポート対象  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象外  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象 |
-| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象外  **[優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象外 |
-| 123 バージョン | 詳しくは、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - プレビュー: `gemini-robotics-er-1.6-preview` |
-| calendar\_month最終更新日 | 2025 年 12 月 |
-| cognition\_2ナレッジ カットオフ | 2025 年 1 月 |
+| Codice modello id\_card | `gemini-robotics-er-1.6-preview` |
+| saveTipi di dati supportati | **Input**  Testo, immagini, video, audio  **Output**  Testo |
+| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  131.072  **Limite di token di output**  65.536 |
+| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Supportato  **[Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
+| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Non supportato  **[Inferenza prioritaria](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Non supportato |
+| Versioni 123 | Leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions) per maggiori dettagli.  - Anteprima: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthUltimo aggiornamento | Dicembre 2025 |
+| cognition\_2Knowledge cutoff | Gennaio 2025 |
 
-## 次のステップ
+## Passaggi successivi
 
-- [空間推論](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=ja) - ポインティング、トラッキング、境界ボックス、軌跡。
-- [エージェント機能](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=ja) - コード実行、計測器の読み取り、画像アノテーション。
-- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=ja) - カスタム ロボット API を使用した長期的なタスク。
-- [ストリーミングを使用したロボティクス](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイム双方向ストリーミング（Gemini Robotics ER 2 のみ）。
-- [動画の理解](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=ja) - 瞬間検出と進捗状況の分類（Gemini Robotics ER 2 のみ）。
-- [Google DeepMind のロボット工学の安全性](https://deepmind.google/models/gemini-robotics/safety?hl=ja) - モデル ファミリーの背後にある安全性研究。
+- [Ragionamento spaziale](https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=it): puntamento, monitoraggio, riquadri di delimitazione, traiettorie.
+- [Capacità agentiche](https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=it): esecuzione di codice, lettura degli strumenti, annotazione delle immagini.
+- [Orchestrazione delle attività](https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=it): attività a lungo termine con API robot personalizzate.
+- [Robotica con streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=it): streaming bidirezionale in tempo reale (solo Gemini Robotics ER 2).
+- [Comprensione dei video](https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=it): ricerca dei momenti e classificazione dei progressi (solo Gemini Robotics ER 2).
+- [Google DeepMind robotics safety](https://deepmind.google/models/gemini-robotics/safety?hl=it): la ricerca sulla sicurezza alla base della famiglia di modelli.
 
-フィードバックを送信
+Invia feedback
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-最終更新日 2026-09-08 UTC。
+Ultimo aggiornamento 2026-09-08 UTC.
 
-ご意見をお聞かせください
+Vuoi dirci altro?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-08 UTC."],[],[]]

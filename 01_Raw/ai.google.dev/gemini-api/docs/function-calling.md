@@ -1,34 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=ja
-fetched_at: 2026-10-05T06:40:36.927859+00:00
-title: "Gemini API \u3092\u4f7f\u7528\u3057\u305f\u95a2\u6570\u547c\u3073\u51fa\u3057 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/function-calling?hl=tr
+fetched_at: 2026-10-12T07:12:04.560086+00:00
+title: "Gemini API ile i\u015flev \u00e7a\u011f\u0131rma \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-フィードバックを送信
+Geri bildirim gönderin
 
-# Gemini API を使用した関数呼び出し
+# Gemini API ile işlev çağırma
 
-関数呼び出しを使用すると、モデルを外部ツールや API に接続できます。テキスト レスポンスを生成する代わりに、モデルは特定の関数を呼び出すタイミングを判断し、現実世界のアクションを実行するために必要なパラメータを提供します。これにより、モデルは自然言語と現実世界のアクションやデータとの間の橋渡しとして機能できます。関数呼び出しには、次の 3 つの主なユースケースがあります。
+İşlev çağırma, modelleri harici araçlara ve API'lere bağlamanıza olanak tanır.
+Model, metin yanıtları oluşturmak yerine belirli işlevlerin ne zaman çağrılacağını belirler ve gerçek dünyadaki işlemleri gerçekleştirmek için gerekli parametreleri sağlar.
+Bu sayede model, doğal dil ile gerçek dünyadaki işlemler ve veriler arasında köprü görevi görebilir. İşlev çağrısının 3 temel kullanım alanı vardır:
 
-- [**アクションを実行する:**](#meeting) API を使用して外部システムとやり取りします。たとえば、予定のスケジュール設定、請求書の作成、メールの送信、スマートホーム デバイスの制御などです。
-- [**知識の補強:**](#weather) データベース、API、ナレッジベースなどの外部ソースから情報にアクセスします。
-- [**機能の拡張:**](#chart) 外部ツールを使用して計算を行い、モデルの制限を拡張します（電卓の使用やグラフの作成など）。
+- [**İşlem Yapma:**](#meeting) API'leri kullanarak harici sistemlerle etkileşim kurun. Örneğin, randevu planlayın, fatura oluşturun, e-posta gönderin veya akıllı ev cihazlarını kontrol edin.
+- [**Bilgileri Artırma:**](#weather) Veritabanları, API'ler ve bilgi tabanları gibi harici kaynaklardaki bilgilere erişin.
+- [**Yetenekleri genişletme:**](#chart) Hesaplama yapmak ve modelin sınırlamalarını genişletmek için harici araçlar kullanın (ör. hesap makinesi kullanma veya grafik oluşturma).
 
-これらのユースケースの例については、以下をご覧ください。
+Bu kullanım alanlarının örneklerine aşağıdan göz atabilirsiniz:
 
-### 会議のスケジュール
+### Toplantı planlama
 
-この例では、特定の時間に会議をスケジュールする関数を定義する方法を示します。これにより、モデルはユーザー リクエストを解析し、構造化された引数を返して外部システムでアクションをトリガーできます。
+Bu örnekte, katılımcılarla belirli bir zamanda toplantı planlayan bir işlevin nasıl tanımlanacağı gösterilmektedir. Bu işlev, modelin kullanıcı isteklerini ayrıştırmasına ve harici sistemlerde işlemleri tetiklemek için yapılandırılmış bağımsız değişkenler döndürmesine olanak tanır.
 
 ### Python
 
@@ -277,9 +279,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 天気情報を取得
+### Hava Durumu'nu alma
 
-この例では、ある場所の気温データを取得する関数を定義する方法を示します。これにより、モデルはリアルタイムまたは外部情報を必要とするクエリに回答するために外部 API を呼び出すことができます。
+Bu örnekte, bir konumun sıcaklık verilerini alan bir işlevin nasıl tanımlanacağı gösterilmektedir. Bu sayede model, gerçek zamanlı veya harici bilgi gerektiren sorgulara yanıt vermek için harici API'leri çağırabilir.
 
 ### Python
 
@@ -495,9 +497,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### グラフを作成
+### Grafik oluşturma
 
-この例では、構造化データから棒グラフを生成する関数を定義する方法を示します。これは、モデルが外部ツールを使用して計算を実行したり、ビジュアル アセットを作成したりする方法を示しています。
+Bu örnekte, yapılandırılmış verilerden çubuk grafik oluşturan bir işlevin nasıl tanımlanacağı gösterilmektedir. Bu sayede, modelin hesaplama yapmak veya görsel öğeler oluşturmak için harici araçları nasıl kullanabileceği gösterilmektedir:
 
 ### Python
 
@@ -732,20 +734,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 関数呼び出しの仕組み
+## İşlev çağrısının işleyiş şekli
 
-![関数呼び出しの概要](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=ja)
+![İşlev çağrısına genel bakış](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=tr)
 
-関数呼び出しでは、アプリケーション、モデル、外部関数の間で構造化されたやり取りが行われます。
+İşlev çağırma, uygulamanız, model ve harici işlevler arasında yapılandırılmış bir etkileşim içerir:
 
-1. **関数宣言を定義する:** モデルに関数名、パラメータ、目的を定義します。
-2. **関数宣言を使用して LLM を呼び出す:** ユーザーのプロンプトと関数宣言をモデルに送信します。
-3. **関数コードの実行（ユーザーの責任）:** モデルは関数自体を実行しません。名前と引数を抽出し、アプリケーションで実行します。
-4. **ユーザー フレンドリーなレスポンスを作成する:** 最終的なユーザー フレンドリーなレスポンスを得るために、結果をモデルに送り返します。
+1. **İşlev Bildirimini Tanımla:** İşlevin adını, parametrelerini ve amacını modele tanımlayın.
+2. **İşlev bildirimleriyle LLM'yi çağırma:** Kullanıcı istemini, işlev bildirimiyle birlikte modele gönderin.
+3. **İşlev Kodunu Yürütme (Sizin Sorumluluğunuz):** Model, işlevi *yürütmez*. Adı ve bağımsız değişkenleri ayıklayıp uygulamanızda yürütün.
+4. **Kullanıcı dostu yanıt oluşturma:** Son ve kullanıcı dostu bir yanıt için sonucu modele geri gönderin.
 
-このプロセスは複数回繰り返すことができます。このモデルは、1 回のターンで複数の関数を並列（[並列関数呼び出し](#parallel_function_calling)）または順番（[コンポジション関数呼び出し](#compositional_function_calling)）に呼び出すことをサポートしています。
+Bu işlem birden fazla dönüşte tekrarlanabilir. Model, tek bir dönüşte ([paralel fonksiyon çağırma](#parallel_function_calling)) ve sırayla ([bileşik fonksiyon çağırma](#compositional_function_calling)) birden fazla fonksiyon çağırmayı destekler.
 
-### ステップ 1: 関数宣言を定義する
+### 1. adım: Bir fonksiyon bildirimi tanımlayın
 
 ### Python
 
@@ -882,7 +884,7 @@ func main() {
 }
 ```
 
-### ステップ 2: 関数宣言を使用してモデルを呼び出す
+### 2. adım: İşlev beyanlarıyla modeli çağırın
 
 ### Python
 
@@ -1049,7 +1051,7 @@ func main() {
 }
 ```
 
-モデルは、`type`、`name`、`arguments` を含む `function_call` ステップを返します。
+Model, `type`, `name` ve `arguments` ile `function_call` adımını döndürüyor:
 
 ```
 type='function_call'
@@ -1057,7 +1059,7 @@ name='set_light_values'
 arguments={'color_temp': 'warm', 'brightness': 25}
 ```
 
-### ステップ 3: 関数を実行する
+### 3. adım: İşlevi yürütün
 
 ### Python
 
@@ -1242,7 +1244,7 @@ func main() {
 }
 ```
 
-### ステップ 4: 結果をモデルに送り返す
+### 4. adım: Sonucu modele geri gönderin
 
 ### Python
 
@@ -1474,12 +1476,14 @@ func main() {
 }
 ```
 
-### ステートレス関数呼び出し
+### Durum bilgisiz işlev çağırma
 
-クライアント側で会話履歴を管理し、`store=false` を設定することで、ステートレス モードで関数呼び出しを使用することもできます。
+Ayrıca, istemci tarafında sohbet geçmişini yönetip `store=false` değerini ayarlayarak işlev çağrısını durumsuz modda da kullanabilirsiniz.
 
-ステートレス モードでは、後続の各リクエストの `input` フィールドで会話の履歴全体を渡す必要があります。この履歴には、以下の情報を含める必要があります。
-1. 最初の `user_input` ステップ。2. ターン 1 で返されたモデル生成のすべてのステップ（`thought` ステップと `function_call` ステップを含む）を、受信したとおりに返します。3. 実行された関数の出力を含む `function_result` ステップ。
+Durum bilgisiz modda, görüşmenin tam geçmişini sonraki her isteğin `input` alanına iletmeniz gerekir. Bu geçmiş şunları içermelidir:
+1. İlk `user_input` adım.
+2. 1. dönüşte döndürülen tüm model tarafından oluşturulan adımlar (`thought` ve `function_call` adımları dahil) alındığı gibi.
+3. Çalıştırılan işlevinizin çıkışını içeren `function_result` adımı.
 
 ### Python
 
@@ -1870,25 +1874,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## 関数宣言
+## İşlev beyanları
 
-関数宣言はツールとして渡され、次のものが含まれます。
+İşlev bildirimi, araç olarak iletilir ve şunları içerir:
 
-- `type`（文字列）: カスタム関数では `"function"` である必要があります。
-- `name`（文字列）: 一意の関数名（アンダースコアまたは camelCase を使用）。
-- `description`（文字列）: 関数の目的についての明確な説明。
-- `parameters`（オブジェクト）: 関数が想定する入力パラメータ。
-  - `type`（文字列）: 全体的なデータ型（`object` など）。
-  - `properties`（オブジェクト）: 型と説明を含む個々のパラメータ。
-  - `required`（配列）: 必須パラメータ名。
+- `type` (dize): Özel işlevler için `"function"` olmalıdır.
+- `name` (dize): Benzersiz işlev adı (alt çizgi veya camelCase kullanın).
+- `description` (dize): İşlevin amacının net açıklaması.
+- `parameters` (nesne): İşlevin beklediği giriş parametreleri.
+  - `type` (dize): Genel veri türü (ör. `object`).
+  - `properties` (nesne): Tür ve açıklama içeren bireysel parametreler.
+  - `required` (dizi): Zorunlu parametre adları.
 
-## 思考モデルを使用した関数呼び出し
+## Düşünebilen modellerle işlev çağrısı
 
-Gemini 3 シリーズのモデルは、関数呼び出しを改善する内部の「思考」プロセスを使用します。SDK は、[思考シグネチャ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ja)を自動的に処理します。
+Gemini 3 serisi modeller, işlev çağrısını iyileştiren dahili bir ["düşünme"](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) süreci kullanır. SDK'lar, [düşünce imzalarını](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=tr) sizin için otomatik olarak işler.
 
-## 並列関数呼び出し
+## Paralel işlev çağırma
 
-独立した複数の関数を一度に呼び出す:
+Bağımsız olduklarında aynı anda birden fazla işlevi çağırma:
 
 ### Python
 
@@ -2160,9 +2164,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## コンポジション関数呼び出し
+## Bileşik işlev çağrısı
 
-複雑なリクエスト（最初に位置情報を取得してから、その位置情報の天気を取得するなど）のために、複数の関数呼び出しを連結します。
+Karmaşık istekler için birden fazla işlev çağrısını birlikte zincirleyin (ör. önce konumu alın, ardından bu konumun hava durumunu alın).
 
 ### Python
 
@@ -2486,14 +2490,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 関数呼び出しモード
+## İşlev çağırma modları
 
-`generation_config` の `tool_choice` を使用して、モデルがツールを使用する方法を制御します。
+`generation_config`'daki `tool_choice` seçeneğini kullanarak modelin araçları nasıl kullanacağını kontrol edin:
 
-- `auto`（デフォルト）: 関数を呼び出すか、直接応答するかをモデルが決定します。
-- `any`: モデルは常に関数呼び出しを予測するように制約されます。
-- `none`: モデルは関数呼び出しを行うことが禁止されています。
-- `validated`: モデルは関数スキーマの準拠を保証します。
+- `auto` (Varsayılan): Model, bir işlevi çağırmaya mı yoksa doğrudan yanıt vermeye mi karar verir.
+- `any`: Model, her zaman bir işlev çağrısı tahmin edecek şekilde sınırlandırılmıştır.
+- `none`: Modelin işlev çağrıları yapması yasaktır.
+- `validated`: Model, işlev şemasına uygunluğu sağlar.
 
 ### Python
 
@@ -2600,9 +2604,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## マルチツールの使用
+## Çok amaçlı araç kullanımı
 
-複数のツールを有効にして、同じリクエストで組み込みツールと関数呼び出しを組み合わせることができます。Gemini 3 モデルでは、インタラクションで組み込みツールと関数呼び出しをすぐに組み合わせることができます。`previous_interaction_id` を渡すと、組み込みツール コンテキストが自動的に循環します。
+Yerleşik araçları işlev çağrısıyla birleştirerek aynı istekte birden fazla aracı etkinleştirebilirsiniz. Gemini 3 modelleri, etkileşimlerde yerleşik araçları kullanıma hazır işlev çağrısıyla birleştirebilir. `previous_interaction_id` iletildiğinde yerleşik araç bağlamı otomatik olarak dolaşıma girer.
 
 ### Python
 
@@ -2963,13 +2967,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## マルチモーダル関数レスポンス
+## Çok formatlı işlev yanıtları
 
-Gemini 3 シリーズのモデルでは、モデルに送信する関数レスポンス部分にマルチモーダル コンテンツを含めることができます。モデルは、次のターンでこのマルチモーダル コンテンツを処理して、より多くの情報に基づいたレスポンスを生成できます。
+Gemini 3 serisi modellerde, modele gönderdiğiniz işlev yanıtı bölümlerine çok formatlı içerik ekleyebilirsiniz. Model, daha bilinçli bir yanıt üretmek için bu çok formatlı içeriği bir sonraki turda işleyebilir.
 
-関数レスポンスにマルチモーダル データを含めるには、`function_result` ステップの `result` フィールドに 1 つ以上のコンテンツ ブロックとしてデータを含めます。各コンテンツ ブロックで `type`（`"text"`、`"image"` など）を指定する必要があります。
+Bir işlev yanıtına çok formatlı veriler eklemek için bu verileri `function_result` adımının `result` alanına bir veya daha fazla içerik bloğu olarak ekleyin. Her içerik bloğu `type` değerini belirtmelidir (ör. `"text"`, `"image"`).
 
-次の例は、画像データを含む関数レスポンスをやり取りでモデルに送信する方法を示しています。
+Aşağıdaki örnekte, etkileşimde görüntü verileri içeren bir işlev yanıtının modele nasıl geri gönderileceği gösterilmektedir:
 
 ### Python
 
@@ -3244,28 +3248,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 構造化出力を使用した関数呼び出し
+## Yapılandırılmış çıkışla işlev çağırma
 
-Gemini 3 シリーズのモデルでは、関数呼び出しと[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を組み合わせて、一貫した形式のレスポンスを取得します。
+Gemini 3 serisi modellerde, tutarlı biçimlendirilmiş yanıtlar için işlev çağrısını [yapılandırılmış çıkışla](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) birleştirin.
 
-## リモート MCP（Model Context Protocol）
+## Uzak MCP (Model Context Protocol)
 
-Interactions API は、リモート MCP サーバーへの接続をサポートしており、モデルが外部ツールやサービスにアクセスできるようにします。ツール構成でサーバーの `name` と `url` を指定します。
+Etkileşimler API'si, modele harici araçlara ve hizmetlere erişim sağlamak için uzak MCP sunucularına bağlanmayı destekler. Araç yapılandırmasında sunucuyu `name` ve `url` sağlarsınız.
 
-リモート MCP を使用する場合は、次の制約事項に注意してください。
+Uzak MCP'yi kullanırken aşağıdaki kısıtlamalara dikkat edin:
 
-- **サーバータイプ**: リモート MCP はストリーミング可能な HTTP サーバーでのみ動作します。SSE（サーバー送信イベント）サーバーは対象外です。
-- **命名**: MCP サーバー名に `-` 文字を含めないでください。代わりに `snake_case` サーバー名を使用してください。
+- **Sunucu türleri**: Uzak MCP yalnızca akışa uygun HTTP sunucularıyla çalışır. SSE (Server-Sent Events) sunucuları desteklenmez.
+- **Adlandırma**: MCP sunucu adları `-` karakterini içermemelidir. Bunun yerine `snake_case` sunucu adlarını kullanın.
 
-| フィールド | 型 | 必須 / 省略可 | 説明 |
+| Alan | Tür | Zorunlu | Açıklama |
 | --- | --- | --- | --- |
-| `type` | `string` | ○ | `"mcp_server"` を指定します。 |
-| `name` | `string` | いいえ | MCP サーバーの表示名。 |
-| `url` | `string` | いいえ | MCP サーバー エンドポイントの完全な URL。 |
-| `headers` | `object` | いいえ | サーバーへのすべてのリクエストとともに HTTP ヘッダーとして送信される Key-Value ペア（認証トークンなど）。 |
-| `allowed_tools` | `array` | いいえ | エージェントが呼び出すことができるサーバーのツールを制限します。 |
+| `type` | `string` | Evet | `"mcp_server"` olmalıdır. |
+| `name` | `string` | Hayır | MCP sunucusunun görünen adı. |
+| `url` | `string` | Hayır | MCP sunucusu uç noktasının tam URL'si. |
+| `headers` | `object` | Hayır | Sunucuya yapılan her istekle birlikte HTTP başlıkları olarak gönderilen anahtar/değer çiftleri (örneğin, kimlik doğrulama jetonları). |
+| `allowed_tools` | `array` | Hayır | Ajanın sunucudan hangi araçları çağırabileceğini kısıtlayın. |
 
-### 例
+### Örnek
 
 ### Python
 
@@ -3398,9 +3402,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## ストリーム ツールの呼び出し
+## Araç çağrılarını yayınlama
 
-ストリーミングでツールを使用する場合、モデルはストリーム上の `step.delta` イベントのシーケンスとして関数呼び出しを生成します。ツールの引数は、`arguments` を使用して部分引数としてストリーミングできます。これらの差分を集計して、ツール呼び出しを実行する前に完全なツール呼び出しを再構築する必要があります。
+Model, akışla birlikte kullanılan araçlarda akış üzerinde `step.delta` etkinlikleri dizisi olarak işlev çağrıları oluşturur. Araç bağımsız değişkenleri, `arguments` kullanılarak kısmi bağımsız değişkenler olarak yayınlanabilir. Bu farkları, tam araç çağrılarını yeniden oluşturmak için toplamanız gerekir.
 
 ### Python
 
@@ -3777,42 +3781,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
 }'
 ```
 
-## ベスト プラクティス
+## En iyi uygulamalar
 
-- **関数とパラメータの説明:** 明確かつ具体的に記述します。
-- **命名:** スペースや特殊文字を含まない説明的な名前を使用します。
-- **強い型付け:** 特定の型（整数、文字列、列挙型）を使用します。
-- **ツールの選択:** アクティブなセットを最大 10 ～ 20 個のツールに保ちます。
-- **プロンプト エンジニアリング:** コンテキストと指示を提供します。
-- **検証:** 実行前に関数呼び出しを検証します。
-- **エラー処理:** 堅牢なエラー処理を実装します。
-- **セキュリティ:** 外部 API に適切な認証を使用します。
+- **İşlev ve Parametre Açıklamaları:** Net ve spesifik olun.
+- **Adlandırma:** Boşluk veya özel karakter içermeyen açıklayıcı adlar kullanın.
+- **Güçlü Tür Belirleme:** Belirli türleri (tam sayı, dize, enum) kullanın.
+- **Araç Seçimi:** Etkin araç sayısını en fazla 10-20 olarak ayarlayın.
+- **İstem Mühendisliği:** Bağlam ve talimatlar sağlayın.
+- **Doğrulama:** İşlev çağrılarını yürütmeden önce doğrulayın.
+- **Hata İşleme:** Hataların etkili bir şekilde yönetilmesini sağlayın.
+- **Güvenlik:** Harici API'ler için uygun kimlik doğrulama yöntemini kullanın.
 
-## ツール前のテキスト要件の回避策
+## Araç öncesi metin şartları için geçici çözümler
 
-**問題:** プロンプトで、モデルに構造化テキスト（XML、YAML、JSON など）の出力を要求している場合。（例: `<UPDATE>...</UPDATE>`）をツール呼び出しの直前に実行すると、ツール呼び出しが `Malformed_Function_Call` で失敗することがあります。
+**Sorun:** İsteminizde modelin yapılandırılmış metin (XML, YAML, JSON vb.) çıkışı vermesi gerekiyorsa (ör. `<UPDATE>...</UPDATE>`) hemen önce yapıldığında araç çağrısı zaman zaman `Malformed_Function_Call` ile başarısız olabilir.
 
-**解決策:** この問題を解決するには、次の回避策を使用します。
+**Çözümler:** Aşağıdaki geçici çözümler bu sorunu giderir:
 
-- **推奨:** モデルに、ツール前のメモを未加工のテキストではなく専用の `update()` 関数呼び出し内に配置するよう指示します（詳細は下記を参照）。
-- 構造化テキストではなく、マークダウン ヘッダー（`# UPDATE`、`## PLAN`）としてメモを作成するようにモデルに指示します。
-- モデルがツール呼び出しの前にテキストを出力することを要求しないでください。
+- **TERCİH EDİLEN:** Modele, araç öncesi notlarını ham metin yerine özel bir `update()` işlev çağrısının içine yerleştirmesini söyleyin (ayrıntılar aşağıda).
+- Modele, notları yapılandırılmış metin yerine Markdown başlıkları (`# UPDATE`, `## PLAN`) olarak yazmasını söyleyin.
+- Modelin, araç çağrılarından önce metin çıkışı yapmasını gerektirmeyin.
 
-### 推奨される回避策: 作業メモを専用の関数呼び出しでラップする
+### Tercih edilen geçici çözüm: Çalışma notlarını özel bir işlev çağrısına sarmalama
 
-元の手順の代わりに、次の手順を行います。
+Orijinal talimat yerine:
 
 ```
 Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags within `<UPDATE>`.
 ```
 
-更新された手順は次のとおりです。
+Güncellenen bu talimatı kullanın:
 
 ```
 Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
 ```
 
-また、顧客リクエスト内の古い `<UPDATE>` XML 形式への参照をすべて更新します。次に、更新関数に対応する関数宣言を追加します。
+Ayrıca, müşteri isteğindeki eski `<UPDATE>` XML biçimine yapılan tüm referansları güncelleyin. Ardından, güncelleme işlevi için ilgili işlev beyanını ekleyin:
 
 ```
 {
@@ -3848,20 +3852,20 @@ Before calling any other tool, in every response you MUST first call `update` wi
 }
 ```
 
-次に、モデルは同じステップで 2 つの呼び出しを行います。構造化された XML を置き換える `update()` 呼び出しと、実際に行う関数呼び出しです。
+Ardından model, aynı adımda iki çağrı yapar: yapılandırılmış XML'nin yerini alan `update()` çağrısı ve yapmak istediği gerçek işlev çağrısı.
 
-## 注意と制限事項
+## Notlar ve sınırlamalar
 
-- サポートされているのは、[OpenAPI スキーマのサブセット](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=ja#FunctionDeclaration)のみです。
-- `any` モードの場合、API は非常に大きなスキーマやネストが深いスキーマを拒否することがあります。
-- Python でサポートされているパラメータの型は限られています。
+- Yalnızca [OpenAPI şemasının bir alt kümesi](https://ai.google.dev/api/rest/v1beta/cachedContents?hl=tr#FunctionDeclaration) desteklenir.
+- `any` modunda API, çok büyük veya derin iç içe yerleştirilmiş şemaları reddedebilir.
+- Python'da desteklenen parametre türleri sınırlıdır.
 
-フィードバックを送信
+Geri bildirim gönderin
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-最終更新日 2026-09-24 UTC。
+Son güncelleme tarihi: 2026-09-24 UTC.
 
-ご意見をお聞かせください
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-24 UTC。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]

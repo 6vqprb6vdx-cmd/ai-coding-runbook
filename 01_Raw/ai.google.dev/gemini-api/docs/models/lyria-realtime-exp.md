@@ -1,48 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=he
-fetched_at: 2026-10-05T06:34:36.990060+00:00
-title: "\u202bLyria RealTime experimental \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/lyria-realtime-exp?hl=ru
+fetched_at: 2026-10-12T07:17:12.283403+00:00
+title: "\u042d\u043a\u0441\u043f\u0435\u0440\u0438\u043c\u0435\u043d\u0442\u0430\u043b\u044c\u043d\u0430\u044f \u0444\u0443\u043d\u043a\u0446\u0438\u044f Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Флэш-память Gemini 3.8 теперь доступна. [Попробуйте!](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
 
-שליחת משוב
+Отправить отзыв
 
-# ‫Lyria RealTime experimental
+# Экспериментальная функция Lyria RealTime
 
-מנוע ניסיוני לסינתזה מוזיקלית באיכות גבוהה, שמציע יכולות חדשניות ליצירה ולשינוי של תוכן אודיו. ‫Lyria RealTime
-הוא הכלי הכי טוב לכתיבת שירים בעזרת AI, ליצירת מוזיקה אינסטרומנטלית ייחודית ולתהליכי עבודה יצירתיים עם אודיו שדורשים שליטה מלאה במלודיה ובקצב, ללא שירה.
+Экспериментальный движок для синтеза музыки с высоким качеством звука, предлагающий инновационные возможности для создания и преобразования аудиоконтента. Lyria RealTime лучше всего подходит для написания песен с помощью ИИ, создания уникальных инструментальных композиций и творческих аудиопроектов, требующих глубокого контроля над мелодией и ритмом, без вокала.
 
-[איך משתמשים ב-Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=he)
+[Попробовать Lyria RealTime](https://deepmind.google/models/lyria/lyria-realtime/?hl=ru)
 
-## מאמרי עזרה
+## Документация
 
-למידע מלא על התכונות והיכולות, אפשר לעבור לדף [יצירת מוזיקה בזמן אמת](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=he).
+Подробную информацию о функциях и возможностях можно найти на странице [Генерация музыки в реальном времени](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ru).
 
 ## lyria-realtime-exp
 
-| נכס | תיאור |
+| Свойство | Описание |
 | --- | --- |
-| id\_cardקוד מודל | ‫**Gemini API**  `lyria-realtime-exp` |
-| saveסוגי נתונים נתמכים | **קלט**  טקסט (הנחיות עם משקל)  **פלט**  אודיו (PCM גולמי של 16 ביט) |
-| token\_autoהגבלות סטרימינג | **תדירות הדגימה**  ‫48kHz (סטריאו)  **שליטה בזמן האחזור**  עד 2 שניות |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - ניסיוני: `lyria-realtime-exp` |
-| calendar\_monthהעדכון האחרון | מאי 2025 |
+| Код модели id\_card | **Gemini API**  `lyria-realtime-exp` |
+| saveПоддерживаемые типы данных | **Ввод данных**  Текст (взвешенные запросы)  **Выходные данные**  Аудио (Raw 16-bit PCM) |
+| token\_autoОграничения трансляций | **Частота дискретизации**  48 кГц (стерео)  **Как управлять задержкой**  не более двух секунд. |
+| 123Версии | Подробнее [о шаблонах версий моделей](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ru#model-versions)…  - Экспериментальная функция: `lyria-realtime-exp` |
+| calendar\_monthПоследнее обновление | Май 2025 г. |
 
-שליחת משוב
+Отправить отзыв
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+Последнее обновление: 2026-10-08 UTC.
 
-רוצה לתת לנו משוב?
+Хотите рассказать подробнее?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-08 UTC."],[],[]]

@@ -1,139 +1,139 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=ja
-fetched_at: 2026-10-05T06:26:54.727194+00:00
-title: "AI Studio \u30d7\u30ec\u30a4\u30b0\u30e9\u30a6\u30f3\u30c9\u306e\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=pt-BR
+fetched_at: 2026-10-12T06:53:17.646895+00:00
+title: "Agentes no playground do AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-フィードバックを送信
+Envie comentários
 
-# AI Studio プレイグラウンドのエージェント
+# Agentes no playground do AI Studio
 
-Google AI Studio Playground には、API 呼び出しを作成して記述することなく、マネージド エージェントをプロトタイピングして構築する方法を学習できるビジュアル インターフェースが用意されています。
+O ambiente de testes do Google AI Studio oferece uma interface visual para criar protótipos e aprender a criar agentes gerenciados sem precisar criar e escrever chamadas de API.
 
-まず、Google AI Studio のナビゲーション パネルで [**Playground**] タブに移動し、切り替えを [**Agents**] に切り替えます。
+Para começar, acesse a guia **Ambiente de testes** no painel de navegação do Google AI Studio e ative a opção **Agentes**.
 
-## 事前構築済みのテンプレート
+## Modelos pré-criados
 
-[**Agents**] タブには、ツールと環境の構成を設定してベースの Antigravity Agent を事前構成する一連のテンプレートがあります。すべてのテンプレートはオープンソースで、
-[google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/) リポジトリで公開されています。これらのテンプレートを確認すると、独自のマネージド エージェントを構築して構造化する方法を学ぶことができます。
+A guia **Agentes** tem uma série de modelos que pré-configuram o agente Antigravity definindo configurações de ferramentas e ambiente. Todos os modelos são de código aberto e publicados no
+repositório [google-gemini/gemini-managed-agents-templates](https://github.com/google-gemini/gemini-managed-agents-templates/). Explorar esses modelos é uma ótima maneira de aprender a criar e estruturar seu próprio agente gerenciado.
 
-たとえば、AI Radio テンプレートを選択すると、許可されているすべてのツールが有効になり、ラジオ番組制作用の専用の `AGENTS.md` ファイルとスキルがリンクされます。これらの設定は、[**Sources**] ボタンをクリックすると、[**Environment**] セクションの Playground UI で確認できます。
+Por exemplo, ao escolher o modelo de rádio de IA, todas as ferramentas permitidas são ativadas e um arquivo `AGENTS.md` especializado e habilidades para produção de programas de rádio são vinculados. Você pode conferir essas configurações na interface do ambiente de testes na seção **Ambiente** clicando no botão **Fontes**.
 
-## ツール構成
+## Configuração da ferramenta
 
-Playground の [Agent settings] で、次の組み込みツールへのアクセスを切り替えることができます。
+Nas configurações do agente no ambiente de testes, é possível ativar ou desativar o acesso às seguintes ferramentas integradas:
 
-- **Google 検索:** オープンウェブにアクセスして、リアルタイム情報のグラウンディングを行います。
-- **URL コンテキスト:** 特定のウェブページ URL のテキスト コンテンツを取得して解析します。
-- **コード実行:** 分離されたサンドボックス環境内で Bash コマンドと Python コマンドを直接実行します。
-- **ファイル システム ツール:** ワークスペース内のファイルの読み取り、書き込み、一覧表示、削除を行います。
+- **Pesquisa Google**:acesse a Web aberta para informações em tempo real.
+- **Contexto de URL**:busque e analise o conteúdo de texto de URLs de páginas da Web específicas.
+- **Execução de código**:execute comandos Bash e Python diretamente no ambiente de sandbox isolado.
+- **Ferramentas do sistema de arquivos**:leia, grave, liste e exclua arquivos no espaço de trabalho.
 
-## 環境の設定
+## Configuração do ambiente
 
-マネージド エージェントは、安全なエフェメラル Linux サンドボックス（環境）内で実行されます。このサンドボックスには、オペレーションに必要なワークスペースとツールが用意されています。詳細については、[マネージド エージェント環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja)ガイドをご覧ください。
+Os agentes gerenciados são executados em um sandbox Linux seguro e efêmero (o ambiente) que fornece o espaço de trabalho e as ferramentas necessárias para operar. Para saber mais, consulte o guia do ambiente de agentes gerenciados [gerenciados](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br).
 
-### エージェントの動作の制御
+### Como controlar o comportamento do agente
 
-エージェントの動作、ペルソナ、機能は、主に環境内のファイルによって決まります。エージェントは、特別な `.agents` フォルダから構成を自動的に検出して読み込みます。
+O comportamento, a personalidade e os recursos do agente são determinados principalmente pelos arquivos presentes no ambiente dele. O agente detecta e carrega automaticamente as configurações de uma pasta `.agents` especial:
 
-- **`AGENTS.md`**: システム指示とペルソナを定義するために、エージェントのコンテキストに事前読み込みされます。
-- **`SKILL.md`**: 特定の機能とワークフローを定義するために、それぞれのスキルフォルダ（例: `.agents/skills/my-skill/SKILL.md`）に配置されます。
+- **`AGENTS.md`**: pré-carregado no contexto do agente para definir instruções e personalidade do sistema.
+- **`SKILL.md`**: localizado nas pastas de habilidades respectivas (por exemplo, `.agents/skills/my-skill/SKILL.md`) para definir recursos e fluxos de trabalho específicos.
 
-### 環境のプロビジョニング
+### Como provisionar o ambiente
 
-セッションを開始する前にファイルを環境にマウントすることで、エージェントが使用する環境を構成できます。ソースをマウントして新しい環境を構築することも、以前の環境を復元することもできます。
+É possível configurar o ambiente a ser usado pelo agente montando arquivos nele antes de iniciar uma sessão. Você pode criar um novo ambiente montando fontes ou restaurar um anterior:
 
-- ****新しい環境を作成するには**、[\*\*Add Sources\*\*] を [Environment settings] パネルでクリックし、次のソースタイプから選択します。**
+- **Para criar um novo ambiente**, clique em **Adicionar fontes** no painel de configurações do ambiente e escolha entre os seguintes tipos de origem:
 
-| ソースタイプ | 説明 | マウントパス |
+| Tipo de origem | Descrição | Caminho de montagem |
 | --- | --- | --- |
-| **インライン ファイル** | 構成ファイル、モック データセット、ユーティリティ スクリプト（最大 100 KB）を Playground UI に直接書き込むか貼り付けます。 | ユーザー定義の宛先パス（例: `/workspace/scripts/parser.py`）。 |
-| **Google Cloud Storage** | 公開または非公開の Cloud Storage バケットをマウントします。  非公開バケットには、標準の OAuth 2.0 ベアラー トークンが必要です。詳細については、[非公開ソース](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#private-sources)をご覧ください。 | GCS バケットパス（例: `gs://your-bucket-name/data/`）をワークスペース ディレクトリ（例: `/workspace/data/`）にマッピングします。 |
-| **GitHub リポジトリ** | 公開または非公開のコードベースをクローンします。  非公開リポジトリには、GitHub 個人用アクセス トークン（PAT）を使用した基本認証が必要です。詳細については、[非公開ソース](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#private-sources)をご覧ください。 | `/workspace/` に直接クローンされます（通常は `/workspace/<repo-name>` の下）。 |
+| **Arquivos inline** | Escreva ou cole arquivos de configuração, conjuntos de dados de simulação ou scripts de utilitários (até 100 KB) diretamente na interface do ambiente de testes. | Caminho de destino definido pelo usuário (por exemplo, `/workspace/scripts/parser.py`). |
+| **Google Cloud Storage** | Monte um bucket público ou privado do Cloud Storage.  Os buckets particulares exigem um token do portador OAuth 2.0 padrão. Para mais informações, consulte [Fontes particulares](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br#private-sources). | Mapeia um caminho de bucket do GCS (por exemplo, `gs://your-bucket-name/data/`) para um diretório do espaço de trabalho (por exemplo, `/workspace/data/`). |
+| **Repositórios do GitHub** | Clone bases de código públicas ou privadas.  Os repositórios particulares exigem autenticação básica com seu token de acesso pessoal (PAT) do GitHub. Para mais informações, consulte [Fontes particulares](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br#private-sources). | Clonado diretamente em `/workspace/` (normalmente em `/workspace/<repo-name>`). |
 
-- **以前の環境を復元するには**、[既存の環境 ID を再利用して](#reusing-an-existing-environment-id)、その正確な状態をクローンしてフォークできます。
+- **Para restaurar um ambiente anterior**, você pode [reutilizar um ID de ambiente existente](#reusing-an-existing-environment-id) para clonar e ramificar o estado exato dele.
 
-### 既存の環境 ID を再利用する
+### Como reutilizar um ID de ambiente existente
 
-サンドボックス環境の設定にすでに時間を費やしている場合は、最初からやり直す必要はありません。既存の環境を使用するには:
+Se você já dedicou tempo à configuração de um ambiente de sandbox, não precisa começar do zero. Para usar um ambiente existente:
 
-1. AI Studio の [Environments] パネルに移動し、[**Type**] を [**Existing**] に切り替えます。
-2. **Environment ID** （例: `env_abc123`）を入力します。
+1. Acesse o painel "Ambientes" no AI Studio e ative a opção **Tipo** para **Existente**.
+2. Insira o **ID do ambiente** (por exemplo, `env_abc123`).
 
-詳細については、[環境を構成する](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#configure-an-environment)をご覧ください。現在のセッションの環境 ID は、UI の [Environment] タブから取得することもできます。
+Para mais informações, consulte [Configurar um ambiente](https://ai.google.dev/gemini-api/docs/agent-environment?hl=pt-br#configure-an-environment). Também é possível recuperar o ID do ambiente da sessão atual na guia "Ambiente" da interface.
 
-エージェントに最初のメッセージを送信すると、そのセッションの環境構成が確定します。インタラクションがアクティブに実行されている間は、新しいソースをマウントしたり、ネットワーク許可リストを変更したりすることはできません。
+Depois de enviar sua primeira mensagem ao agente, a configuração do ambiente será corrigida para essa sessão. Não é possível montar novas fontes ou modificar a lista de permissões de rede enquanto a interação estiver em execução.
 
-## 環境をダウンロードする
+## Fazer o download do ambiente
 
-環境が作成されたら、AI Studio Playground の [Environment settings] の [**Download**] ボタンを使用して、環境スナップショットをいつでもダウンロードし、環境ファイルを tarball として取得できます。
+Depois que um ambiente é criado, é possível fazer o download do snapshot dele a qualquer momento usando o botão **Fazer o download** nas configurações do ambiente de testes do AI Studio para recuperar arquivos de ambiente como um arquivo tar.
 
-## 安全性と費用管理
+## Segurança e gerenciamento de custos
 
-### トークン消費量の管理
+### Como gerenciar o consumo de tokens
 
-単一の出力を生成する標準のチャット リクエストとは異なり、Antigravity Agent は自律的なワークフローを実行します。計画、コードの実行、結果の観察、反復を行います。つまり、1 つのプロンプトで無制限のトークン消費が発生する可能性があります。
+Ao contrário de uma solicitação de chat padrão que produz uma única saída, o agente Antigravity executa um fluxo de trabalho autônomo. Ele planeja, executa o código, observa os resultados e itera. Isso significa que um único comando pode resultar em um consumo ilimitado de tokens.
 
-費用を管理するには、**プロンプトで明確な終了条件を指定し、エージェントのタスクの範囲を絞ります** 。たとえば、「 *プルリクエストを確認し、Markdown の概要を生成したら停止してください。
-自分で修正を記述しようとしないでください* 」のようなプロンプトを使用できます。
+Para gerenciar os custos, **forneça critérios de encerramento claros nos comandos e limite as tarefas para o agente**. Um bom exemplo pode ser um comando como *Analise a solicitação de pull e pare depois de gerar o resumo do Markdown.
+Não tente escrever a correção por conta própria*.
 
-### 追加費用
+### Custos adicionais
 
-デフォルトでは、Playground のすべてのエージェント テンプレートが Gemini API サービスにアクセスでき、リクエストを満たすために環境から API 呼び出しを行うことができます。これにより、トークン消費量に反映されない追加費用が発生する可能性があります。
+Por padrão, todos os modelos de agente no ambiente de testes têm acesso ao serviço da API Gemini e podem fazer chamadas de API do ambiente para atender às solicitações. Isso pode gerar custos adicionais que não serão refletidos no consumo de tokens.
 
-同様に、他の外部サービスを追加すると、エージェントがユーザーに代わってこれらのサービスを呼び出すことで、追加費用が発生する可能性があります。
+Da mesma forma, se você adicionar outros serviços externos, o agente poderá gerar custos adicionais chamando esses serviços em seu nome.
 
-### ネットワーク許可リスト
+### Lista de permissões de rede
 
-デフォルトでは、AI Studio では、エージェントのサンドボックス環境内からのすべての送信ネットワーク リクエストが厳密に制御され、セキュリティを確保するために制限されています。エージェントに外部 API、ウェブサービス、パッケージ マネージャーにアクセスできるようにするには、明示的に宣言する必要があります。
+Por padrão, no AI Studio, todas as solicitações de rede de saída do ambiente de sandbox do agente são controladas e restritas para garantir a segurança. Para conceder ao agente a capacidade de acessar APIs externas, serviços da Web ou gerenciadores de pacotes, é necessário declará-los explicitamente:
 
-1. AI Studio の [Environments] パネルに移動します。
-2. [**Network**] の横にある**ルール** ボタンを選択します。
-3. [**Network configuration**] パネルで、[**Add to allowlist**] をクリックし、関連する詳細を入力します。
-   - **ドメイン制限:** リストに追加された特定のドメインまたはワイルドカード パターンにのみ、エージェントの仮想マシンからアクセスできます。たとえば、`api.github.com` などの正確なドメインや、`*.googleapis.com` などの広範なパターンを入力できます。
-   - **HTTP ヘッダーとトークン インジェクションの追加:** [**Add HTTP header**] オプションを使用して、特定のドメインに必要な認証情報（API トークンなど）を安全に挿入します。これらの認証情報は、エグレス プロキシを介して安全に渡され、エージェント サンドボックス内の未加工テキストとして直接公開されることはありません。
+1. Acesse o painel "Ambientes" no AI Studio.
+2. Selecione o botão **regras** ao lado de **Rede**.
+3. No painel **Configuração de rede**, clique em **Adicionar à lista de permissões** e preencha os detalhes relevantes:
+   - **Restrição de domínio**:somente os domínios específicos ou padrões curinga adicionados à lista podem ser acessados pela máquina virtual do agente. Por exemplo, é possível inserir domínios exatos como `api.github.com` ou padrões amplos como `*.googleapis.com`.
+   - **Adicionar cabeçalho HTTP e injeção de token**:use a opção **Adicionar cabeçalho HTTP** para injetar com segurança as credenciais necessárias (como um token de API) para um domínio específico. Essas credenciais são transmitidas com segurança por um proxy de saída e nunca são expostas diretamente como texto bruto dentro do sandbox do agente.
 
-許可リストにドメインを追加する場合は、常に注意してください。エージェントに認証済みサービスへのアクセス権を付与すると、エージェントがユーザーに代わって操作できるようになります。注意深くモニタリングしないと、意図しない操作につながる可能性があります。
+Sempre tenha cuidado ao adicionar domínios à lista de permissões. Conceder acesso do agente a serviços autenticados significa que ele pode agir em seu nome, o que pode levar a ações não intencionais se não for monitorado com cuidado.
 
-### 認証情報のベスト プラクティス
+### Práticas recomendadas para credenciais
 
-ワークフローでエージェントが外部サービスに対して認証を行う必要がある場合は、これらの認証情報のプロビジョニングとスコープ設定を行う必要があります。リスクを軽減するには、次のガイドラインに従ってください。
+Se o fluxo de trabalho exigir que o agente seja autenticado com serviços externos, você será responsável por provisionar e definir o escopo dessas credenciais. Siga estas diretrizes para reduzir o risco:
 
-- **最小権限の認証情報を使用する:** エージェントに必要な権限のみを持つサービス アカウントまたは API キーを作成します。広範なアクセス権または管理者権限を持つ認証情報を渡さないでください。
-- **有効期間の短いトークンを優先する:** 可能な場合は、有効期間の長い API キーではなく、有効期限のある時間制限付きの認証情報またはトークンを使用します。
-- **完全なアクセス権を想定する:** エージェントは、与えられたタスクを完了するために、アクセスできる任意の認証情報を使用する可能性があります。完全なアクセス権を付与してもよい認証情報のみを指定してください。
-- **認証情報を定期的にローテーションする:** エージェントと共有する認証情報は、プログラムによる認証情報と同じように扱い、定期的にローテーションします。
+- **Use credenciais de privilégio mínimo**:crie contas de serviço ou chaves de API com apenas as permissões necessárias para o agente. Evite transmitir credenciais com acesso amplo ou administrativo.
+- **Prefira tokens de curta duração**:sempre que possível, use credenciais ou tokens com limite de tempo que expiram em vez de chaves de API de longa duração.
+- **Suponha acesso total**:o agente pode usar qualquer credencial a que tiver acesso para concluir a tarefa que você atribuiu a ele. Forneça apenas credenciais cujo escopo completo de acesso você esteja disposto a conceder.
+- **Gire as credenciais regularmente**:trate as credenciais compartilhadas com o agente da mesma forma que qualquer credencial programática; gire-as em uma programação regular.
 
-### 外部ツールと API を接続する
+### Como conectar ferramentas e APIs externas
 
-外部ツールと API（Model Context Protocol / MCP サーバーなど）を接続して、エージェントの機能を拡張できます。その場合、次のようになります。
+É possível conectar ferramentas e APIs externas (como servidores do Protocolo de Contexto de Modelo / MCP) para ampliar os recursos do agente. Ao fazer isso:
 
-- 信頼できる提供元のツールのみを接続してください。悪意のあるツールや不適切なツールは、データを公開したり、意図しない操作を実行したりする可能性があります。
-- ユースケースに必要な最小限の権限でツールを構成します。ツールが読み取り専用モードをサポートしている場合は、書き込みが厳密に必要な場合を除き、読み取り専用モードを優先します。
-- ツールを本番環境のデータソースに接続する前に、サンプルデータまたは合成データに対してテストし、エージェントが想定どおりに使用することを確認します。
+- Conecte apenas ferramentas de fontes confiáveis. Uma ferramenta maliciosa ou mal escrita pode expor dados ou realizar ações não intencionais.
+- Configure as ferramentas com as permissões mínimas necessárias para seu caso de uso. Se uma ferramenta oferece suporte ao modo somente leitura, prefira-o, a menos que as gravações sejam estritamente necessárias.
+- Antes de conectar uma ferramenta a uma fonte de dados de produção, teste-a com dados de amostra ou sintéticos para verificar se o agente a usa conforme o esperado.
 
-### 人間による監視
+### Supervisão humana
 
-エージェントは、高度な自律性で複数ステップのワークフローを推論、計画、実行できます。これは強力ですが、適切な監視を適用する必要があります。特に、データを変更したり、外部システムとやり取りしたりするタスクの場合は注意が必要です。
+Os agentes podem raciocinar, planejar e executar fluxos de trabalho com várias etapas com um alto grau de autonomia. Embora isso seja poderoso, também significa que você precisa aplicar a supervisão adequada, especialmente para tarefas que modificam dados ou interagem com sistemas externos.
 
-生成されたコード、データ変換、構成変更などの重要な出力は、デプロイする前に必ず確認してください。
+Sempre verifique as saídas críticas, como código gerado, transformações de dados ou mudanças de configuração, antes de implantá-las.
 
-フィードバックを送信
+Envie comentários
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最終更新日 2026-08-19 UTC。
+Última atualização 2026-08-19 UTC.
 
-ご意見をお聞かせください
+Quer enviar seu feedback?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-08-19 UTC。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-08-19 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419
-fetched_at: 2026-10-05T06:26:43.313831+00:00
+fetched_at: 2026-10-12T07:07:14.902270+00:00
 title: "Generaci\u00f3n de m\u00fasica en tiempo real con Lyria RealTime \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

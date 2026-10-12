@@ -1,24 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/openai?hl=tr
-fetched_at: 2026-10-05T06:37:25.796696+00:00
-title: "OpenAI uyumlulu\u011fu \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/openai?hl=zh-CN
+fetched_at: 2026-10-12T06:49:38.708920+00:00
+title: "OpenAI \u517c\u5bb9\u6027 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Geri bildirim gönderin
+发送反馈
 
-# OpenAI uyumluluğu
+# OpenAI 兼容性
 
-Gemini modellerine, OpenAI kitaplıkları (Python ve TypeScript/JavaScript) ile REST API kullanılarak erişilebilir. Bunun için üç satır kodu güncellemeniz ve [Gemini API anahtarınızı](https://aistudio.google.com/apikey?hl=tr) kullanmanız gerekir. OpenAI kitaplıklarını kullanmıyorsanız [Gemini API'yi doğrudan](https://ai.google.dev/gemini-api/docs/get-started?hl=tr) çağırmanızı öneririz.
+您可以使用 OpenAI 库（Python 和 TypeScript /
+JavaScript）以及 REST API 来访问 Gemini 模型，只需更新三行代码
+并使用您的 [Gemini API 密钥](https://aistudio.google.com/apikey?hl=zh-cn)即可。如果您尚未使用 OpenAI 库，我们建议您直接调用
+[Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=zh-cn)。
 
 ### Python
 
@@ -89,17 +92,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-Neler değişti? Yalnızca üç satır!
+有何变化？只有三行！
 
-- **`api_key="GEMINI_API_KEY"`**: "`GEMINI_API_KEY`" yerine [Google AI Studio](https://aistudio.google.com?hl=tr)'dan alabileceğiniz gerçek Gemini API anahtarınızı girin.
-- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** Bu, OpenAI kitaplığına istekleri varsayılan URL yerine Gemini API uç noktasına göndermesini söyler.
-- **`model="gemini-3.6-flash"`**: Uyumlu bir Gemini modeli seçin
+- **`api_key="GEMINI_API_KEY"`**：将“`GEMINI_API_KEY`”替换为您的实际 Gemini
+  API 密钥，您可以在[Google AI Studio](https://aistudio.google.com?hl=zh-cn)中获取该密钥。
+- **`base_url="https://generativelanguage.googleapis.com/v1beta/openai/"`:** 这会告知 OpenAI 库将请求发送到 Gemini API 端点，而不是默认网址。
+- **`model="gemini-3.6-flash"`**：选择兼容的 Gemini 模型
 
-## Düşünen
+## 思考
 
-Gemini modelleri, karmaşık sorunlar üzerinde düşünmek üzere eğitilir. Bu sayede akıl yürütme yetenekleri önemli ölçüde gelişir. Gemini API, modelin ne kadar düşüneceği üzerinde ayrıntılı kontrol sağlayan [düşünme parametreleriyle](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) birlikte gelir.
+Gemini 模型经过专门训练，能够思考复杂问题，从而大幅提升推理能力。Gemini API 附带 [思考
+参数](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)，可用于精细
+控制模型的思考量。
 
-Farklı Gemini modellerinin farklı muhakeme yapılandırmaları vardır. Bu modellerin OpenAI'ın muhakeme çalışmalarına nasıl karşılık geldiğini aşağıdaki tabloda görebilirsiniz:
+不同的 Gemini 模型具有不同的推理配置，您可以按如下方式查看它们如何映射到 OpenAI 的推理工作：
 
 | `reasoning_effort` (OpenAI) | `thinking_level` (Gemini 3.1 Pro) | `thinking_level` (Gemini 3.1 Flash-Lite) | `thinking_level` (Gemini 3 Flash) | `thinking_budget` (Gemini 2.5) |
 | --- | --- | --- | --- | --- |
@@ -108,9 +114,12 @@ Farklı Gemini modellerinin farklı muhakeme yapılandırmaları vardır. Bu mod
 | `medium` | `medium` | `medium` | `medium` | `8,192` |
 | `high` | `high` | `high` | `high` | `24,576` |
 
-`reasoning_effort` belirtilmemişse Gemini, modelin varsayılan [düzeyini](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#levels) veya [bütçesini](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#set-budget) kullanır.
+如果未指定 `reasoning_effort`，Gemini 会使用模型的
+默认 [级别](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn#levels) 或 [预算](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn#set-budget)。
 
-Düşünme özelliğini devre dışı bırakmak istiyorsanız 2.5 modellerinde `reasoning_effort` değerini `"none"` olarak ayarlayabilirsiniz. Gemini 2.5 Pro veya 3 modellerinde akıl yürütme özelliği devre dışı bırakılamaz.
+如果您想停用思考功能，可以为
+2.5 模型将 `reasoning_effort` 设置为 `"none"`。对于 Gemini 2.5 Pro 或 3
+模型，无法关闭推理功能。
 
 ### Python
 
@@ -184,10 +193,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
   }'
 ```
 
-Gemini düşünme modelleri [düşünce özetleri](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#summaries) de oluşturur.
-İsteğinize Gemini alanları eklemek için [`extra_body`](#extra-body) alanını kullanabilirsiniz.
+Gemini 思考模型还会生成[思考摘要](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn#summaries)。
+您可以使用 [`extra_body`](#extra-body) 字段在请求中添加 Gemini 字段
+在您的请求中。
 
-`reasoning_effort` ve `thinking_level`/`thinking_budget` işlevlerinin çakıştığını, bu nedenle aynı anda kullanılamayacağını unutmayın.
+请注意，`reasoning_effort` 和 `thinking_level`/`thinking_budget` 的功能重叠，因此不能同时使用。
 
 ### Python
 
@@ -263,11 +273,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
       }'
 ```
 
-Gemini 3, sohbet tamamlama API'lerinde düşünce imzaları için OpenAI uyumluluğunu destekler. Tam örneği [düşünce imzaları](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=tr#openai) sayfasında bulabilirsiniz.
+Gemini 3 支持在聊天补全 API 中使用 OpenAI 兼容的思考签名。您可以在[思考签名](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-cn#openai)页面上找到完整示例。
 
-## Canlı Yayın
+## 流式
 
-Gemini API, [akış yanıtlarını](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=tr#generate-a-text-stream) destekler.
+Gemini API 支持[流式回答](https://ai.google.dev/gemini-api/docs/text-generation?lang=python&hl=zh-cn#generate-a-text-stream)。
 
 ### Python
 
@@ -346,9 +356,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
     }'
 ```
 
-## İşlev çağırma
+## 函数调用
 
-İşlev çağrısı, üretken modellerden yapılandırılmış veri çıkışları almanızı kolaylaştırır ve [Gemini API'de desteklenir](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=tr).
+函数调用功能可让您更轻松地从
+生成式模型获取结构化数据输出，并且在 Gemini API 中[受支持](https://ai.google.dev/gemini-api/docs/function-calling/tutorial?hl=zh-cn)。
 
 ### Python
 
@@ -479,9 +490,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/chat/completions" 
 }'
 ```
 
-## Görüntü anlama
+## 图片理解
 
-Gemini modelleri, yerel olarak çok formatlıdır ve [birçok yaygın görüntü görevinde](https://ai.google.dev/gemini-api/docs/vision?hl=tr) sınıfının en iyisi performansı sunar.
+Gemini 模型是原生多模态模型，在
+[许多常见的视觉任务中](https://ai.google.dev/gemini-api/docs/vision?hl=zh-cn)可提供出色的性能。
 
 ### Python
 
@@ -610,9 +622,9 @@ bash -c '
 '
 ```
 
-## Resim üretin
+## 生成图片
 
-`gemini-2.5-flash-image` veya `gemini-3-pro-image-preview` kullanarak resim oluşturun. Desteklenen parametreler arasında `prompt`, `model`, `n`, `size` ve `response_format` yer alır. Burada veya [`extra_body`](#extra-body) bölümünde listelenmeyen diğer tüm parametreler, uyumluluk katmanı tarafından sessizce yoksayılır.
+使用 `gemini-2.5-flash-image` 或 `gemini-3-pro-image-preview` 生成图片。支持的参数包括 `prompt`、`model`、`n`、`size` 和 `response_format`。兼容性层会默默忽略此处或 [`extra_body`](#extra-body) 部分中未列出的任何其他参数。
 
 ### Python
 
@@ -679,11 +691,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/images/generations
       }'
 ```
 
-## Video oluşturma
+## 生成视频
 
-Sora ile uyumlu `veo-3.1-generate-preview` uç noktasını kullanarak `/v1/videos` ile video oluşturun. Desteklenen üst düzey parametreler `prompt` ve `model`'dir. `duration_seconds`, `image` ve `aspect_ratio` gibi ek parametreler `extra_body` ile birlikte iletilmelidir. Kullanılabilir tüm parametreler için [`extra_body`](#extra-body) bölümüne bakın.
+通过与 Sora 兼容的 `/v1/videos` 端点使用 `veo-3.1-generate-preview` 生成视频。支持的顶级参数包括
+`prompt` 和 `model`。其他参数（例如 `duration_seconds`、`image` 和 `aspect_ratio`）必须通过
+`extra_body` 传递。如需查看所有可用参数，请参阅 [`extra_body`](#extra-body) section
+。
 
-Video oluşturma, tamamlanma durumunu kontrol etmek için yoklayabileceğiniz bir işlem kimliği döndüren uzun süreli bir işlemdir.
+视频生成是一项长时间运行的操作，会返回一个操作 ID，您可以轮询该 ID 以检查操作是否完成。
 
 ### Python
 
@@ -738,9 +753,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos" \
   -F "prompt=A cinematic drone shot of a waterfall"
 ```
 
-### Video durumunu kontrol etme
+### 检查视频状态
 
-Video üretme işlemi asenkron olarak yapılır. Durumu yoklamak ve tamamlandığında nihai video URL'sini almak için `GET /v1/videos/{id}` kullanın:
+视频生成是异步的。使用 `GET /v1/videos/{id}` 轮询状态并在完成后检索最终视频网址：
 
 ### Python
 
@@ -804,9 +819,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/videos/VIDEO_ID" \
   -H "Authorization: Bearer $GEMINI_API_KEY"
 ```
 
-## Ses yorumlama
+## 音频理解
 
-Ses girişini analiz etme:
+分析音频输入：
 
 ### Python
 
@@ -919,9 +934,9 @@ bash -c '
 '
 ```
 
-## Yapılandırılmış çıkış
+## 结构化输出
 
-Gemini modelleri, JSON nesnelerini [tanımladığınız herhangi bir yapıda](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr) çıkış olarak verebilir.
+Gemini 模型可以输出采用您定义的任何 [结构的 JSON 对象](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
 
 ### Python
 
@@ -982,9 +997,11 @@ const event = completion.choices[0].message.parsed;
 console.log(event);
 ```
 
-## Yerleştirmeler
+## Embeddings
 
-Metin yerleştirmeleri, metin dizelerinin ilişkisini ölçer ve [Gemini API](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr) kullanılarak oluşturulabilir. Çok formatlı yerleştirmeler için `gemini-embedding-2-preview`, yalnızca metin içeren yerleştirmeler için `gemini-embedding-001` kullanabilirsiniz.
+文本嵌入用于衡量文本字符串的相关性，可以使用
+[Gemini API](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)生成。您可以将 `gemini-embedding-2-preview`
+用于多模态嵌入，或将 `gemini-embedding-001` 用于仅限文本的嵌入。
 
 ### Python
 
@@ -1040,18 +1057,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/openai/embeddings" \
 
 ## Batch API
 
-OpenAI kitaplığını kullanarak [toplu işler](https://ai.google.dev/gemini-api/docs/batch-mode?hl=tr) oluşturabilir, bunları gönderebilir ve durumlarını kontrol edebilirsiniz.
+您可以使用 OpenAI 库创建 [批处理作业](https://ai.google.dev/gemini-api/docs/batch-mode?hl=zh-cn)、提交作业并检查
+作业状态。
 
-JSONL dosyasını OpenAI giriş biçiminde hazırlamanız gerekir. Örneğin:
+您需要以 OpenAI 输入格式准备 JSONL 文件。例如：
 
 ```
 {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.6-flash", "messages": [{"role": "user", "content": "Tell me a one-sentence joke."}]}}
 {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "gemini-3.6-flash", "messages": [{"role": "user", "content": "Why is the sky blue?"}]}}
 ```
 
-Batch için OpenAI uyumluluğu, toplu iş oluşturmayı, iş durumunu izlemeyi ve toplu iş sonuçlarını görüntülemeyi destekler.
+Batch 的 OpenAI 兼容性支持创建批处理、监控作业状态和查看批处理结果。
 
-Yükleme ve indirme için uyumluluk şu anda desteklenmemektedir. Bunun yerine, aşağıdaki örnekte [Gemini Batch API](https://ai.google.dev/gemini-api/docs/batch-mode?hl=tr#input-file) kullanılırken olduğu gibi [dosya](https://ai.google.dev/gemini-api/docs/files?hl=tr) yükleme ve indirme için `genai` istemcisi kullanılmaktadır.
+目前不支持上传和下载的兼容性。相反，以下示例使用 `genai` 客户端上传和下载
+[文件](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn)，这与使用 Gemini [Batch API](https://ai.google.dev/gemini-api/docs/batch-mode?hl=zh-cn#input-file) 时相同。
 
 ### Python
 
@@ -1097,7 +1116,8 @@ for line in file_content.splitlines():
     print(line)
 ```
 
-OpenAI SDK, [Batch API ile yerleştirme oluşturmayı](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr#batch-embeddings) da destekler. Bunu yapmak için `create` yönteminin `endpoint` alanını bir yerleştirme uç noktasıyla, JSONL dosyasındaki `url` ve `model` anahtarlarını da değiştirin:
+OpenAI SDK 还支持[使用 Batch API 生成嵌入](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn#batch-embeddings)。为此，请将 `create` 方法的 `endpoint` 字段替换为嵌入端点，并将
+JSONL 文件中的 `url` 和 `model` 键替换为：
 
 ```
 # JSONL file using embeddings model and endpoint
@@ -1114,11 +1134,13 @@ batch = openai_client.batches.create(
 )
 ```
 
-Tam örnek için OpenAI uyumluluk çözüm kitabının [Toplu yerleştirme oluşturma](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb) bölümüne bakın.
+如需查看完整示例，请参阅 OpenAI 兼容性 Cookbook 的[批量嵌入生成](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb)
+部分。
 
-## Esnek ve öncelikli çıkarım
+## Flex 和 Priority 推理
 
-Gemini API, ad ve mantık açısından OpenAI'ın `service_tier` parametresiyle eşleşir. Hem Flex hem de Priority çıkarım katmanları için sınırları zorlar ve trafiği sorunsuz bir şekilde yönlendirir.
+Gemini API 在名称和逻辑上与 OpenAI 的 `service_tier` 参数匹配，对 Flex 和 Priority
+推理层强制执行限制并妥善引导流量。
 
 ### Python
 
@@ -1141,38 +1163,38 @@ completion = client.chat.completions.create(
 print(completion)
 ```
 
-Açıkça atanmadığında `service_tier` varsayılan olarak `standard` olur. Bu, OpenAI için `default` değerine eşittir.
-[Optimizasyon](https://ai.google.dev/gemini-api/docs/optimization?hl=tr) belgelerinden çıkarım katmanları hakkında daha fazla bilgi edinin.
+如果未明确分配，`service_tier` 默认为 `standard`，相当于 OpenAI 的 `default`。
+如需详细了解推理层，请参阅[优化](https://ai.google.dev/gemini-api/docs/optimization?hl=zh-cn)文档。
 
-## `extra_body` ile Gemini özelliklerini etkinleştirme
+## 使用 `extra_body` 启用 Gemini 功能
 
-Gemini tarafından desteklenen ve OpenAI modellerinde bulunmayan ancak `extra_body` alanı kullanılarak etkinleştirilebilen çeşitli özellikler vardır.
+Gemini 支持多项 OpenAI 模型中没有的功能，但可以使用 `extra_body` 字段启用这些功能。
 
-| Parametre | Tür | Uç nokta | Açıklama |
+| 参数 | 类型 | 端点 | 说明 |
 | --- | --- | --- | --- |
-| **`cached_content`** | Metin | Sohbet | Gemini'ın genel içerik önbelleğine karşılık gelir. |
-| **`thinking_config`** | Nesne | Sohbet | Gemini'ın ThinkingConfig'ine karşılık gelir. |
-| **`aspect_ratio`** | Metin | Resimler | Çıkış en boy oranı (ör. `"16:9"`, `"1:1"`, `"9:16"`). |
-| **`generation_config`** | Nesne | Resimler | Gemini oluşturma yapılandırma nesnesi (ör. `{"responseModalities": ["IMAGE"], "candidateCount": 2}`). |
-| **`safety_settings`** | Liste | Resimler | Özel güvenlik eşiği filtreleri (ör. `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`). |
-| **`tools`** | Liste | Resimler | Temellendirmeyi (ör. `[{"google_search": {}}]`) etkinleştirir. Yalnızca `gemini-3-pro-image-preview` için geçerlidir. |
-| **`aspect_ratio`** | Metin | Video | Çıkış videosunun boyutları (yatay için `16:9`, dikey için `9:16`). Belirtilmezse `size` kaynağındaki haritalar. |
-| **`resolution`** | Metin | Video | Çıkış çözünürlüğü (`720p`, `1080p`, `4K`). Not: `1080p` ve `4K`, yükseltme işlem hattını tetikler. |
-| **`duration_seconds`** | Tamsayı | Video | Üretim uzunluğu (değerler: `4`, `6`, `8`). `reference_images`, enterpolasyon veya uzatma kullanılırken `8` olmalıdır. |
-| **`frame_rate`** | Metin | Video | Video çıkışı için kare hızı (ör. `"24"`). |
-| **`input_reference`** | Metin | Video | Video üretimi için referans girişi. |
-| **`extend_video_id`** | Metin | Video | Uzatılacak mevcut videonun kimliği. |
-| **`negative_prompt`** | Metin | Video | Hariç tutulacak öğeler (ör. `"shaky camera"`). |
-| **`seed`** | Tamsayı | Video | Belirgin oluşturma için tam sayı. |
-| **`style`** | Metin | Video | Görsel stil (`cinematic` varsayılan, `creative` sosyal medya için optimize edilmiş). |
-| **`person_generation`** | Metin | Video | İnsanların oluşturulmasını kontrol eder (`allow_adult`, `allow_all`, `dont_allow`). |
-| **`reference_images`** | Liste | Video | Stil/karakter referansı için en fazla 3 resim (base64 öğeleri). |
-| **`image`** | Metin | Video | Video oluşturma işlemini koşullandırmak için Base64 kodlu ilk giriş resmi. |
-| **`last_frame`** | Nesne | Video | Ara değer bulma için son resim (ilk kare olarak `image` gerektirir). |
+| **`cached_content`** | 文本 | 聊天 | 对应于 Gemini 的常规内容缓存。 |
+| **`thinking_config`** | 对象 | 聊天 | 对应于 Gemini 的 ThinkingConfig。 |
+| **`aspect_ratio`** | 文本 | Google 图片 | 输出宽高比（例如 `"16:9"`、`"1:1"`、`"9:16"`）。 |
+| **`generation_config`** | 对象 | Google 图片 | Gemini 生成配置对象（例如 `{"responseModalities": ["IMAGE"], "candidateCount": 2}`）。 |
+| **`safety_settings`** | 列表 | Google 图片 | 自定义安全阈值过滤器（例如 `[{"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"}]`）。 |
+| **`tools`** | 列表 | Google 图片 | 启用 Grounding（例如 `[{"google_search": {}}]`）。仅适用于 `gemini-3-pro-image-preview`。 |
+| **`aspect_ratio`** | 文本 | 视频 | 输出视频的尺寸（横向为 `16:9`，纵向为 `9:16`）。如果未指定，则从 `size` 映射。 |
+| **`resolution`** | 文本 | 视频 | 输出分辨率（`720p`、`1080p`、`4K`）。注意：`1080p` 和 `4K` 会触发升采样器流水线。 |
+| **`duration_seconds`** | 整数 | 视频 | 生成时长（值：`4`、`6`、`8`）。使用 `reference_images`、插值或扩展程序时，必须为 `8`。 |
+| **`frame_rate`** | 文本 | 视频 | 视频输出的帧速率（例如 `"24"`）。 |
+| **`input_reference`** | 文本 | 视频 | 用于生成视频的参考输入。 |
+| **`extend_video_id`** | 文本 | 视频 | 要延长的现有视频的 ID。 |
+| **`negative_prompt`** | 文本 | 视频 | 要排除的项目（例如 `"shaky camera"`）。 |
+| **`seed`** | 整数 | 视频 | 用于确定性生成的整数。 |
+| **`style`** | 文本 | 视频 | 视觉样式（默认 `cinematic`，针对社交媒体优化的 `creative`）。 |
+| **`person_generation`** | 文本 | 视频 | 控制人物的生成（`allow_adult`、`allow_all`、`dont_allow`）。 |
+| **`reference_images`** | 列表 | 视频 | 最多 3 张图片，用于样式/人物参考（base64 资源）。 |
+| **`image`** | 文本 | 视频 | 经过 base64 编码的初始输入图片，用于调节视频生成。 |
+| **`last_frame`** | 对象 | 视频 | 用于插值的最终图片（需要将 `image` 作为第一帧）。 |
 
-### `extra_body` ile ilgili örnek
+### 使用 `extra_body` 的示例
 
-`extra_body` kullanarak `cached_content` ayarlama örneğini aşağıda bulabilirsiniz:
+以下示例展示了如何使用 `extra_body` 设置 `cached_content`：
 
 ### Python
 
@@ -1210,9 +1232,9 @@ for chunk in stream:
     print(chunk.usage.to_dict())
 ```
 
-## Modelleri listeleyin
+## 列出模型
 
-Kullanılabilir Gemini modellerinin listesini alma:
+获取可用 Gemini 模型的列表：
 
 ### Python
 
@@ -1256,9 +1278,9 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models \
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## Model alma
+## 检索模型
 
-Gemini modelini alma:
+检索 Gemini 模型：
 
 ### Python
 
@@ -1299,22 +1321,24 @@ curl https://generativelanguage.googleapis.com/v1beta/openai/models/gemini-3.6-f
 -H "Authorization: Bearer GEMINI_API_KEY"
 ```
 
-## Mevcut sınırlamalar
+## 当前限制
 
-Özellik desteğini genişletirken OpenAI kitaplıkları için destek hâlâ beta sürümündedir.
+在扩展功能支持的同时，对 OpenAI 库的支持仍处于 Beta 版阶段。
 
-Desteklenen parametreler, yakında kullanıma sunulacak özellikler veya Gemini'ı kullanmaya başlarken karşılaştığınız sorunlar hakkında sorularınız varsa [Geliştirici Forumumuza](https://discuss.ai.google.dev/c/gemini-api/4?hl=tr) katılın.
+如果您对支持的参数、即将推出的功能有疑问，或者在开始使用 Gemini 时遇到
+任何问题，请加入我们的 [开发者论坛](https://discuss.ai.google.dev/c/gemini-api/4?hl=zh-cn)。
 
-## Sırada ne var?
+## 后续步骤
 
-Daha ayrıntılı örnekler için [OpenAI Compatibility Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=tr)'imizi deneyin.
+请尝试我们的 [OpenAI 兼容性 Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_OpenAI_Compatibility.ipynb?hl=zh-cn)，以了解更详细的
+示例。
 
-Geri bildirim gönderin
+发送反馈
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Son güncelleme tarihi: 2026-09-12 UTC.
+最后更新时间 (UTC)：2026-09-12。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+需要向我们提供更多信息？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]

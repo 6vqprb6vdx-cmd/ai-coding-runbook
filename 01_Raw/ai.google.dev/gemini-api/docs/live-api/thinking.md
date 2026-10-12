@@ -1,79 +1,94 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=ko
-fetched_at: 2026-10-05T06:34:30.486720+00:00
-title: "Live API\uc5d0\uc11c \uc0dd\uac01\ud558\uae30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=id
+fetched_at: 2026-10-12T07:15:31.903634+00:00
+title: "Berpikir dalam Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-의견 보내기
+Kirim masukan
 
-# Live API에서 생각하기
+# Berpikir dalam Live API
 
-Gemini Live API는 Gemini 모델과의 실시간 양방향 음성 대화를 지원합니다.
+Gemini Live API memungkinkan percakapan suara dua arah secara real-time dengan model Gemini.
 
-표준 음성 모델은 즉각적인 대화에 적합합니다. 모델에 말을 걸면 모델이 즉시 음성 답장을 생성합니다. 하지만 요청에 계획, 복잡한 분석 또는 외부 도구가 필요한 경우 직접 응답에는 한계가 있습니다. 모델은 추론 없이 대답하거나 도구가 완료될 때까지 조용히 일시중지해야 합니다.
+Model suara standar berfungsi dengan baik untuk dialog bolak-balik langsung. Anda berbicara
+kepada model, dan model akan langsung menghasilkan respons lisan. Namun, saat permintaan
+memerlukan perencanaan, analisis yang kompleks, atau alat eksternal, respons langsung akan mencapai
+batasnya. Model harus menjawab tanpa memberikan penalaran atau berhenti sejenak tanpa bersuara sambil menunggu alat selesai.
 
-Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 세션에 백그라운드 추론이 추가됩니다. 모델은 상호작용을 활성 상태로 유지하기 위해 자연스러운 대화형 필러를 말하는 동안 백그라운드에서 비동기 도구를 계획하고 호출합니다.
+Berpikir di Live API (`gemini-3.8-live-extended-thinking`) menambahkan penalaran
+latar belakang ke sesi suara real-time. Model ini merencanakan dan memanggil alat asinkron di latar belakang sambil mengucapkan pengisi percakapan alami untuk menjaga interaksi tetap aktif.
 
-이 아키텍처는 다음과 같은 두 가지 주요 방식으로 대화 수명 주기를 변경합니다.
+Arsitektur ini mengubah siklus proses percakapan dalam dua cara utama:
 
-- **대화형 필러**: 모델이 백그라운드에서 도구를 실행하는 동안 중간 업데이트('항공편 옵션을 확인하는 중입니다' 등)를 말합니다.
-- **상호작용 상태 추적**: 모델은 단일 요청 중에 여러 번 말할 수 있으므로 서버는 백그라운드 처리 중에 `interaction_status: "IN_PROGRESS"`를 내보내고 전체 작업이 완료되면 `interaction_status: "IDLE"`를 내보냅니다.
+- **Pengisi percakapan**: Model mengucapkan pembaruan sementara (seperti
+  "Sedang memeriksa opsi penerbangan") saat menjalankan alat di latar belakang.
+- **Pelacakan status interaksi**: Karena model dapat berbicara beberapa kali
+  selama satu permintaan, server memancarkan `interaction_status: "IN_PROGRESS"`
+  selama pemrosesan di latar belakang dan `interaction_status: "IDLE"` saat tugas
+  keseluruhan selesai.
 
-다음 다이어그램은 표준 Live 음성 세션과 백그라운드 추론을 사용한 생각하기 간의 상호작용 수명 주기를 비교합니다.
+Diagram berikut membandingkan siklus proses interaksi antara sesi Live Voice standar dan Berpikir dengan penalaran latar belakang:
 
-![Live API 함수 호출 및 상태 추적 비교](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=ko)
+![Perbandingan panggilan fungsi API langsung dan pelacakan status](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=id)
 
-## 적절한 모델 선택
+## Memilih model yang tepat
 
-`gemini-3.8-live`와 `gemini-3.8-live-extended-thinking` 중에서 선택할 때는 응답 지연 시간, 작업 복잡성, 클라이언트 상태 처리라는 세 가지 주요 고려사항을 고려하세요.
+Saat memutuskan antara `gemini-3.8-live` dan `gemini-3.8-live-extended-thinking`,
+pertimbangkan tiga hal utama: latensi respons, kompleksitas tugas, dan penanganan status klien.
 
-### Gemini 3.8 Live를 사용해야 하는 경우
+### Kapan menggunakan Gemini 3.8 Live
 
-즉각적인 턴 테이킹이 필수이고 작업이 직접적인 지연 시간이 짧은 대화형 음성 에이전트에는 `gemini-3.8-live`를 사용하세요.
+Gunakan `gemini-3.8-live` untuk agen suara percakapan latensi rendah yang memerlukan pergantian giliran secara langsung dan tugas yang jelas.
 
-- **대화형 음성 어시스턴트**: 고객 서비스 분류, 언어 연습, 음성 검색, 대화형 스토리텔링
-- **빠른 도구 실행**: 외부 도구가 밀리초 내에 반환되는 워크플로 (예: 센서 값 읽기 또는 스마트 기기 제어)
-- **간단한 클라이언트 로직**: 각 사용자 턴에서 단일 모델 응답을 수신하고 `turnComplete: true`가 세션이 유휴 상태일 때 안정적으로 신호를 보내는 애플리케이션
+- **Asisten suara percakapan**: Triase layanan pelanggan, latihan bahasa, penelusuran suara, dan bercerita interaktif.
+- **Eksekusi alat yang cepat**: Alur kerja saat alat eksternal ditampilkan dalam
+  milidetik (seperti membaca nilai sensor atau mengontrol perangkat smart).
+- **Logika klien sederhana**: Aplikasi yang setiap giliran pengguna menerima satu respons model, dan `turnComplete: true` memberi sinyal yang andal saat sesi tidak aktif.
 
-### Gemini 3.8 Live Extended Thinking을 사용해야 하는 경우
+### Kapan menggunakan Gemini 3.8 Live Extended Thinking
 
-에이전트가 복잡한 데이터를 평가하거나, 여러 단계를 계획하거나, 실행하는 데 몇 초가 걸리는 도구를 처리해야 하는 경우 `gemini-3.8-live-extended-thinking`를 사용하세요.
+Gunakan `gemini-3.8-live-extended-thinking` saat agen Anda harus mengevaluasi data yang kompleks, merencanakan beberapa langkah, atau menangani alat yang memerlukan waktu beberapa detik untuk dijalankan.
 
-- **다단계 진단 및 지원**: 기술 지원 상담사가 여러 로그, 오류 코드, 구성 확인을 통해 시스템 문제를 진단합니다.
-- **조정된 데이터 검색**: 항공편을 검색하고, 호텔을 쿼리하고, 병렬 API 호출 전반에서 가격을 비교하는 여행 및 예약 에이전트
-- **STEM 및 코드 튜터링**: 공식을 확인하거나, 코드를 디버그하거나, 다단계 로직을 실행한 후 설명을 말하는 교육 에이전트
-- **마스킹 도구 지연 시간**: 장기 실행 함수로 인해 청취자에게 어색한 침묵이 발생하는 음성 환경
+- **Diagnostik dan dukungan multi-langkah**: Agen dukungan teknis mendiagnosis masalah sistem di beberapa log, kode error, dan pemeriksaan konfigurasi.
+- **Pengambilan data yang terkoordinasi**: Agen perjalanan dan pemesanan yang menelusuri penerbangan, mengkueri hotel, dan membandingkan harga di seluruh panggilan API paralel.
+- **Bimbingan STEM dan coding**: Agen pendidikan yang memverifikasi formula, men-debug
+  kode, atau memproses logika multi-langkah sebelum memberikan penjelasan.
+- **Latensi alat masking**: Pengalaman suara yang fungsi jangka panjangnya akan
+  menciptakan keheningan yang canggung bagi pendengar.
 
-### 주요 차이점 요약
+### Ringkasan perbedaan utama
 
-다음 표에는 두 모델의 기술적 차이점이 요약되어 있습니다.
+Tabel berikut merangkum perbedaan teknis antara kedua model:
 
-| 기능 | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
+| Fitur | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
 | --- | --- | --- |
-| **주된 사용 사례** | 지연 시간이 짧은 음성 에이전트, 직접 명령, 빠른 도구 | 다단계 문제 해결, 복잡한 계획, 멀티 도구 워크플로 |
-| **모델 엔드포인트** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
-| **추론 아키텍처** | 고정 지연 시간 프로필을 사용한 인터리브 추론 (`thinking_level` 지원되지 않음) | 구성 가능한 백그라운드 추론 (`thinking_level`: `low`, `medium`, `high`; `MINIMAL` 지원되지 않음) |
-| **경계 켜기** | `turnComplete: true`는 턴을 닫고 유휴 상태로 돌아갑니다. | `turnComplete: true`: 발화를 종료합니다. `interaction_status`: 세션 수명 주기를 제어합니다. |
-| **대화형 필러** | 모델이 말하기 전에 도구 실행을 기다림 | 모델이 처리하는 동안 중간 대화형 필러를 스트리밍합니다. |
-| **도구 실행** | 동기 (`BLOCKING`) 및 비동기 (`NON_BLOCKING`) 도구 지원 | 비동기 (`NON_BLOCKING`) 도구 선언 필요 |
+| **Kasus penggunaan utama** | Agen suara latensi rendah, perintah langsung, alat cepat | Pemecahan masalah multi-langkah, perencanaan kompleks, alur kerja multialat |
+| **Endpoint model** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
+| **Arsitektur penalaran** | Penalaran berselang-seling dengan profil latensi tetap (`thinking_level` tidak didukung) | Alasan latar belakang yang dapat dikonfigurasi (`thinking_level`: `low`, `medium`, `high`; `MINIMAL` tidak didukung) |
+| **Belokan batas** | `turnComplete: true` menutup giliran dan kembali ke status tidak ada aktivitas | `turnComplete: true` menyelesaikan ucapan; `interaction_status` mengontrol siklus proses sesi |
+| **Pengisi percakapan** | Model menunggu eksekusi alat sebelum berbicara | Model mengalirkan pengisi percakapan sementara saat memproses |
+| **Eksekusi alat** | Mendukung alat sinkron (`BLOCKING`) dan asinkron (`NON_BLOCKING`) | Memerlukan deklarasi alat asinkron (`NON_BLOCKING`) |
 
-## 마이그레이션 및 통합 경로
+## Jalur migrasi dan integrasi
 
-다음 단계에 따라 기존 음성 애플리케이션을 업그레이드하거나 Thinking을 Live API 세션에 통합하세요.
+Ikuti langkah-langkah berikut untuk mengupgrade aplikasi suara yang ada atau mengintegrasikan Thinking ke sesi Live API Anda.
 
-### Gemini 3.1 Flash Live에서 업그레이드
+### Mengupgrade dari Gemini 3.1 Flash Live
 
-`gemini-3.1-flash-live-preview`를 사용하는 기존 음성 애플리케이션의 경우 `gemini-3.8-live`로 업그레이드하려면 모델 문자열을 업데이트하고 설정 구성에서 `thinking_level` (또는 `thinking_config`)를 생략해야 합니다. `thinking_level`는 `gemini-3.8-live`에서 지원되지 않기 때문입니다.
+Untuk aplikasi suara yang sudah ada yang menggunakan `gemini-3.1-flash-live-preview`, mengupgrade
+ke `gemini-3.8-live` memerlukan pembaruan string model dan penghapusan
+`thinking_level` (atau `thinking_config`) dari konfigurasi penyiapan Anda, karena
+`thinking_level` tidak didukung untuk `gemini-3.8-live`:
 
 ```
 {
@@ -83,13 +98,13 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
 }
 ```
 
-턴 수명 주기와 `turnComplete` 신호는 동일하게 유지됩니다.
+Siklus proses belokan dan sinyal `turnComplete` tetap identik.
 
-### 사고 채택
+### Mengadopsi Pemikiran
 
-`gemini-3.8-live-extended-thinking`을 채택하려면 다음 세 가지 통합 지점을 업데이트하세요.
+Untuk menerapkan `gemini-3.8-live-extended-thinking`, perbarui tiga titik integrasi:
 
-1. **`turnComplete` 대신 `interaction_status` 추적**: 사고 세션에서 모델은 추론하는 동안 중간 대화형 필러를 내보낼 수 있습니다. 수신 서버 메시지의 `interaction_status` 필드를 검사하여 UI 상태를 관리합니다. `interaction_status`이 `IDLE`인 경우에만 유휴 상태로 돌아갑니다.
+1. **Melacak `interaction_status`, bukan `turnComplete`**: Dalam sesi Berpikir, model dapat mengeluarkan pengisi percakapan perantara saat melakukan penalaran. Periksa kolom `interaction_status` pada pesan server masuk untuk mengelola status UI. Hanya kembali ke status tidak ada aktivitas saat `interaction_status` adalah `IDLE`.
 
    ### Python
 
@@ -103,7 +118,7 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
        set_ui_state("thinking")
    ```
 
-   ### 자바스크립트
+   ### JavaScript
 
    ```
    if (message.interactionStatus === 'IDLE') {
@@ -114,7 +129,8 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
      setUiState('thinking');
    }
    ```
-2. **차단되지 않는 함수 선언**: 모든 함수 선언에서 `"behavior": "NON_BLOCKING"`를 설정합니다. 사고 모델은 언어 업데이트를 스트리밍하는 동안 백그라운드에서 비동기식으로 도구를 실행합니다. 동기 차단 도구는 오류를 반환합니다.
+2. **Mendeklarasikan fungsi non-blocking**: Tetapkan `"behavior": "NON_BLOCKING"` pada semua
+   deklarasi fungsi. Model pemikiran menjalankan alat secara asinkron di latar belakang sambil melakukan streaming pembaruan verbal. Alat pemblokiran sinkron menampilkan error.
 
    ### Python
 
@@ -133,7 +149,7 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
    )
    ```
 
-   ### 자바스크립트
+   ### JavaScript
 
    ```
    const searchFlights = {
@@ -149,7 +165,7 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
      },
    };
    ```
-3. **추론 깊이 구성**: 세션 구성에서 `thinking_config`를 설정하여 추론 수준 (`low`, `medium` 또는 `high`, `MINIMAL`는 지원되지 않음)을 조정합니다.
+3. **Mengonfigurasi kedalaman penalaran**: Tetapkan `thinking_config` di konfigurasi sesi Anda untuk menyesuaikan tingkat penalaran (`low`, `medium`, atau `high`; `MINIMAL` tidak didukung).
 
    ### Python
 
@@ -163,7 +179,7 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
    )
    ```
 
-   ### 자바스크립트
+   ### JavaScript
 
    ```
    const config = {
@@ -175,22 +191,25 @@ Live API (`gemini-3.8-live-extended-thinking`)를 사용하면 실시간 음성 
    };
    ```
 
-## 프로토콜 나란히 비교
+## Perbandingan protokol berdampingan
 
-이 섹션에서는 Live API 세션의 각 단계에서 교환되는 WebSocket 메시지를 비교합니다.
+Bagian ini membandingkan pesan WebSocket yang dipertukarkan selama setiap fase sesi Live API.
 
-### 1단계: 세션 설정
+### Langkah 1: Penyiapan sesi
 
-두 모델 모두 동일한 WebSocket 엔드포인트에 연결됩니다.
+Kedua model terhubung ke endpoint WebSocket yang sama:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=$API_KEY
 ```
 
-- **동일**: WebSocket URL 및 API 키 인증입니다.
-- **모델 문자열**: `gemini-3.8-live` 대 `gemini-3.8-live-extended-thinking`
-- **사고 구성**: 사고 모델은 `thinkingConfig`를 추가하여 추론 깊이를 조정합니다.
-- **도구 동작**: 생각하려면 함수 선언에 `"behavior": "NON_BLOCKING"`이 필요합니다.
+- **Identik**: Autentikasi URL WebSocket dan kunci API.
+- **String model**: `gemini-3.8-live` versus
+  `gemini-3.8-live-extended-thinking`.
+- **Konfigurasi penalaran**: Penalaran menambahkan `thinkingConfig` untuk menyesuaikan
+  kedalaman penalaran.
+- **Perilaku alat**: Pemikiran memerlukan `"behavior": "NON_BLOCKING"` pada
+  deklarasi fungsi.
 
 ### Gemini 3.8 Live
 
@@ -249,7 +268,7 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-두 모델 모두 연결 시 동일한 서버 확인을 수신합니다.
+Kedua model menerima pengakuan server yang sama saat terhubung:
 
 ```
 {
@@ -257,9 +276,10 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-### 2단계: 사용자 오디오 입력
+### Langkah 2: Input audio pengguna
 
-오디오 스트리밍은 두 모델 모두 동일합니다. 실시간 16kHz 원시 PCM 오디오 청크는 `realtimeInput`를 사용하여 스트리밍됩니다.
+Streaming audio identik di kedua model. Chunk audio PCM mentah 16 kHz real-time
+di-streaming menggunakan `realtimeInput`:
 
 ```
 {
@@ -272,14 +292,14 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-### 3단계: 모델 응답 및 상태 수명 주기
+### Langkah 3: Respons model dan siklus proses status
 
-두 모델 모두 `serverContent.modelTurn`에서 24kHz PCM 오디오 청크를 스트리밍합니다. 하지만 수명 주기 관리는 다음과 같이 다릅니다.
+Kedua model ini melakukan streaming potongan audio PCM 24 kHz dalam `serverContent.modelTurn`. Namun, pengelolaan siklus proses berbeda:
 
-#### Gemini 3.8 실시간 대답 흐름
+#### Alur respons Gemini 3.8 Live
 
-1. 서버는 턴의 오디오 청크를 스트리밍합니다.
-2. 서버는 모델의 음성 출력이 완료되었고 세션이 유휴 상태임을 나타내는 `turnComplete: true`를 전송합니다.
+1. Server melakukan streaming potongan audio untuk giliran.
+2. Server mengirim `turnComplete: true`, yang menunjukkan bahwa model telah selesai berbicara dan sesi tidak aktif.
 
 ```
 // 1. Audio stream chunks
@@ -306,12 +326,17 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-#### Gemini 3.8 Live Extended Thinking 대답 흐름
+#### Alur respons Penalaran yang Diperluas Gemini 3.8 Live
 
-1. **구어체 필러**: 모델이 `turnComplete: true` 및 `interactionStatus: "IN_PROGRESS"`를 사용하여 중간 음성 (예: *'시애틀행 항공편을 확인하는 중입니다…'*)을 내보냅니다.
-2. **비동기 도구 호출**: 서버가 `interactionStatus`이 `"IN_PROGRESS"`로 유지되는 동안 도구 호출을 내보냅니다. 이는 서버가 다단계 턴을 적극적으로 처리하고 도구 응답을 기다리고 있음을 나타냅니다.
-3. **도구 응답**: 클라이언트가 함수를 실행하고 출력을 반환합니다.
-4. **최종 응답**: 서버가 `turnComplete: true` 및 `interactionStatus: "IDLE"`로 완전한 답변을 제공합니다.
+1. **Pengisi lisan**: Model mengeluarkan ucapan perantara (seperti
+   *"Memeriksa penerbangan ke Seattle..."*) dengan `turnComplete: true` dan
+   `interactionStatus: "IN_PROGRESS"`.
+2. **Panggilan alat asinkron**: Server memancarkan panggilan alat saat
+   `interactionStatus` tetap `"IN_PROGRESS"`, yang menunjukkan bahwa server
+   secara aktif memproses giliran multi-langkah dan menunggu respons alat.
+3. **Respons alat**: Klien menjalankan fungsi dan menampilkan output.
+4. **Respons akhir**: Server memberikan jawaban lengkap dengan
+   `turnComplete: true` dan `interactionStatus: "IDLE"`.
 
 ```
 // 1. Spoken verbal filler while background reasoning proceeds
@@ -384,9 +409,10 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-## SDK 구현 예
+## Contoh penerapan SDK
 
-다음 예시에서는 Google 생성형 AI SDK를 사용하여 사고를 구성하고 `interaction_status`을 처리하는 방법을 보여줍니다.
+Contoh berikut menunjukkan cara mengonfigurasi Pemikiran dan menangani
+`interaction_status` menggunakan Google GenAI SDK.
 
 ### Python
 
@@ -459,7 +485,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-### 자바스크립트
+### JavaScript
 
 ```
 import { GoogleGenAI, Modality } from '@google/genai';
@@ -525,19 +551,20 @@ async function main() {
 main();
 ```
 
-## 다음 단계
+## Langkah berikutnya
 
-- [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ko) 및 [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ko) 모델 페이지를 읽습니다.
-- [모델 비교](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ko#model-comparison) 표에서 모든 Live API 모델의 자세한 기능 비교를 확인하세요.
-- [Live API 도구 사용](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ko) 가이드에서 함수 호출에 대해 자세히 알아보세요.
-- [세션 관리](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko)를 검토하여 세션 재개 및 컨텍스트 수명 주기를 처리합니다.
+- Baca halaman model [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=id) dan
+  [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=id).
+- Periksa tabel [Perbandingan model](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=id#model-comparison) untuk mengetahui perbandingan fitur mendetail di semua model Live API.
+- Pelajari lebih lanjut panggilan fungsi dalam panduan [penggunaan Alat API Langsung](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=id).
+- Tinjau [Pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id) untuk menangani kelanjutan sesi dan siklus proses konteks.
 
-의견 보내기
+Kirim masukan
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-최종 업데이트: 2026-09-17(UTC)
+Terakhir diperbarui pada 2026-09-17 UTC.
 
-의견을 전달하고 싶나요?
+Ada masukan untuk kami?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-17(UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-17 UTC."],[],[]]

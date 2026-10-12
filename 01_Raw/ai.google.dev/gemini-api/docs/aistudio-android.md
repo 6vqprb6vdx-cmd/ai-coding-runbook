@@ -1,134 +1,143 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=de
-fetched_at: 2026-10-05T06:39:01.858584+00:00
-title: "Android-Apps in Google\u00a0AI Studio entwickeln \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=pl
+fetched_at: 2026-10-12T06:58:38.227808+00:00
+title: "Tworzenie aplikacji na Androida w\u00a0Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Feedback geben
+Prześlij opinię
 
-# Android-Apps in Google AI Studio entwickeln
+# Tworzenie aplikacji na Androida w Google AI Studio
 
-Mit Google AI Studio können Sie native Android-Apps aus einem Prompt in natürlicher Sprache erstellen. Beschreiben Sie die gewünschte App und der [Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=de#antigravity-agent) generiert ein vollständiges Kotlin- und [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=de)-Projekt. Im Browser können Sie sich eine Vorschau Ihrer App in einem browserbasierten Android-Emulator ansehen, sie auf einem physischen Gerät installieren und sie zum Testen veröffentlichen.
+Google AI Studio umożliwia tworzenie natywnych aplikacji na Androida na podstawie prompta w języku naturalnym. Opisz aplikację, którą chcesz utworzyć, a
+[Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=pl#antigravity-agent)
+wygeneruje kompletny projekt w Kotlinie i [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=pl). W przeglądarce możesz wyświetlić podgląd aplikacji w emulatorze Androida, zainstalować ją na urządzeniu fizycznym i opublikować na potrzeby testowania.
 
-## Jetzt starten
+## Rozpocznij
 
-So erstellen Sie eine Android-App:
+Aby zacząć tworzyć aplikację na Androida:
 
-1. Rufen Sie über den linken Navigationsbereich den [Build-Modus](https://aistudio.google.com/apps?hl=de) in Google AI Studio auf.
-2. Wählen Sie in der Plattformauswahl **Android** aus.
-3. Geben Sie einen Prompt ein, der die App beschreibt, die Sie erstellen möchten, z. B. *„Erstelle einen Aufgaben-Tracker für tägliche Aufgaben mit lokaler Speicherung“* oder *„Erstelle einen einfachen Taschenrechner“*.
-4. Der Agent generiert das Projekt und startet es im browserbasierten Android-Emulator.
+1. W panelu użytkownika po lewej stronie otwórz tryb [tworzenia](https://aistudio.google.com/apps?hl=pl) w Google AI Studio.
+2. W selektorze platform wybierz **Android**.
+3. Wpisz prompta opisującego aplikację, którą chcesz utworzyć (np. *„Utwórz element śledzenia codziennych zadań z pamięcią lokalną”* lub *„Utwórz prosty Kalkulator”*).
+4. Agent wygeneruje projekt i uruchomi go w emulatorze Androida w przeglądarce.
 
-Anschließend können Sie Ihre App über den Chatbereich iterieren, genau wie in der Webversion. Der Agent verwaltet alle Dateien in Ihrem Android-Projekt und überträgt Änderungen in der gesamten Codebasis.
+Następnie możesz iterować aplikację za pomocą panelu czatu, tak jak w przypadku aplikacji internetowych. Agent zarządza wszystkimi plikami w projekcie aplikacji na Androida i propaguje zmiany w bazie kodu.
 
-## Browserbasierter Android-Emulator
+## Emulator Androida w przeglądarce
 
-Der Android-Emulator wird vollständig in der Cloud ausgeführt und in Ihren Browser gestreamt.
-Sie müssen das Android SDK, Android Studio oder einen lokalen Emulator nicht installieren.
+Emulator Androida działa w całości w chmurze i przesyła strumieniowo dane do przeglądarki.
+Nie musisz instalować pakietu Android SDK, Android Studio ani emulatora lokalnego.
 
-Der Emulator bietet:
+Emulator zapewnia:
 
-- **Pixel-ähnliche Gerätesimulation**: Tippen, scrollen und interagieren Sie mit Ihrer App wie auf einem echten Gerät.
-- **Unterstützung für Drehung**: Sie können zwischen Hoch- und Querformat wechseln.
-- **Live-Vorschau**: Wenn der Agent Codeänderungen vornimmt, wird die App neu erstellt und der Emulator automatisch aktualisiert.
+- **Symulację urządzenia podobnego do Pixela**: możesz dotykać, przewijać i wchodzić w interakcję z aplikacją
+  tak jak na prawdziwym urządzeniu.
+- **Obsługę obracania**: możesz przełączać się między orientacją pionową a poziomą.
+- **Podgląd na żywo**: gdy agent wprowadzi zmiany w kodzie, aplikacja zostanie ponownie skompilowana, a
+  emulator automatycznie się odświeży.
 
-### Einschränkungen bei Emulatoren
+### Ograniczenia emulatora
 
-Der browserbasierte Emulator unterstützt nicht alle Hardwarefunktionen. Folgendes ist im Emulator nicht verfügbar:
+Emulator w przeglądarce nie obsługuje wszystkich funkcji sprzętowych. W emulatorze nie są dostępne te funkcje:
 
-- Kamera- und Fotoaufnahmen
-- NFC und Bluetooth
-- GPS (Standort wird simuliert)
-- Google Play-Dienste (Google Log‑in, Maps und andere Play-Dienste-Funktionen funktionieren auf einem echten Gerät, aber nicht im Emulator)
+- Aparat i robienie zdjęć
+- NFC i Bluetooth
+- GPS (lokalizacja jest symulowana)
+- Usługi Google Play (Logowanie przez Google, Mapy i inne funkcje usług Play działają na prawdziwym urządzeniu, ale nie w emulatorze)
 
-## Installation auf einem Gerät mit ADB
+## Instalacja na urządzeniu za pomocą ADB
 
-Sie können die erstellte APK direkt auf einem physischen Android-Gerät installieren, das über USB mit Ihrem Computer verbunden ist. Dabei wird [WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=de) verwendet, um über den Browser mit Ihrem Gerät zu kommunizieren. Es ist keine lokale ADB-Installation erforderlich.
+Skompilowany plik APK możesz zainstalować bezpośrednio na fizycznym urządzeniu z Androidem podłączonym do komputera przez USB. Do komunikacji z urządzeniem przez przeglądarkę używana jest funkcja
+[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=pl). Nie musisz instalować lokalnie narzędzia ADB.
 
-### Vorbereitung
+### Wymagania wstępne
 
-- Einen Chrome- oder Edge-Browser, der WebUSB unterstützt.
-- Ein Android-Gerät, auf dem [Entwickleroptionen und USB-Debugging](https://developer.android.com/studio/debug/dev-options?hl=de) aktiviert sind.
-- Ein USB-Kabel, mit dem Sie Ihr Gerät mit Ihrem Computer verbinden.
+- Przeglądarka Chrome lub Edge obsługująca WebUSB.
+- Urządzenie z Androidem, na którym włączono
+  [opcje programisty i debugowanie USB](https://developer.android.com/studio/debug/dev-options?hl=pl).
+- Kabel USB łączący urządzenie z komputerem.
 
-### App auf dem Gerät installieren
+### Instalowanie aplikacji na urządzeniu
 
-1. Klicken Sie im Vorschaufenster auf **Auf Gerät installieren**.
-2. Wählen Sie Ihr Android-Gerät in der USB-Geräteauswahl des Browsers aus.
-3. Die APK wird übertragen und auf Ihrem Gerät installiert.
-4. Die App wird automatisch gestartet.
+1. W panelu podglądu kliknij **Zainstaluj na urządzeniu**.
+2. W selektorze urządzeń USB w przeglądarce wybierz urządzenie z Androidem.
+3. Plik APK zostanie przesłany i zainstalowany na urządzeniu.
+4. Aplikacja uruchomi się automatycznie.
 
-## Im Google Play Store veröffentlichen
+## Publikowanie w Sklepie Play
 
-Sie können Ihre Android-App im [Google Play Console](https://play.google.com/console?hl=de)-Track für interne Tests veröffentlichen und so an bis zu 100 Tester verteilen.
+Aplikację na Androida możesz opublikować na
+[ścieżce testów wewnętrznych w Konsoli Google Play](https://play.google.com/console?hl=pl), co pozwoli Ci udostępnić ją maksymalnie 100 testerom.
 
-### Vorbereitung
+### Wymagania wstępne
 
-- Ein [Google Play-Entwicklerkonto](https://play.google.com/console/signup?hl=de) (dafür ist eine einmalige Registrierungsgebühr von 25 $ erforderlich).
-- Ein vollständiges Entwicklerprofil in der Play Console.
+- Konto dewelopera w [Google Play](https://play.google.com/console/signup?hl=pl) (wymaga jednorazowej opłaty rejestracyjnej w wysokości 25 USD).
+- Uzupełniony profil dewelopera w Konsoli Play.
 
-### App veröffentlichen
+### Publikowanie aplikacji
 
-1. Öffnen Sie in Google AI Studio **Einstellungen > Veröffentlichen**.
-2. Klicken Sie auf **Im Google Play Store veröffentlichen**.
-3. Authentifizieren Sie sich mit Ihrem Google Play-Entwicklerkonto.
-4. AI Studio signiert das APK, erstellt den App-Eintrag (oder lädt eine neue Version hoch) und veröffentlicht die App im internen Test-Track.
-5. Sie erhalten einen Link, den Sie mit Ihren Testern teilen können.
+1. W Google AI Studio otwórz **Ustawienia > Opublikuj**.
+2. Kliknij **Opublikuj w Sklepie Play**.
+3. Zaloguj się na konto dewelopera w Google Play.
+4. AI Studio podpisze plik APK, utworzy stronę aplikacji (lub prześle nową wersję) i opublikuje ją na ścieżce testów wewnętrznych.
+5. Otrzymasz link, który możesz udostępnić testerom.
 
-In AI Studio wird die APK-Signierung automatisch über einen verwalteten Keystore verwaltet. Sie können den App-Eintrag (Symbol, Screenshots, Beschreibung) später in der Play Console anpassen.
+AI Studio automatycznie zarządza podpisywaniem plików APK za pomocą zarządzanego magazynu kluczy. Stronę aplikacji (ikonę, zrzuty ekranu, opis) możesz dostosować później w Konsoli Play.
 
-## Was wird generiert?
+## Co jest generowane
 
-Wenn Sie eine Android-App erstellen, generiert der Agent ein standardmäßiges Gradle-basiertes Projekt mit der folgenden Struktur:
+Gdy tworzysz aplikację na Androida, agent generuje standardowy projekt oparty na Gradle o tej strukturze:
 
-- **Build-Konfiguration**: `build.gradle.kts`-Dateien (Projekt- und App-Ebene) mit Kotlin DSL.
-- **UI-Ebene**: [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=de)-Komponenten mit [Material 3](https://m3.material.io/)-Theming.
-- **Architektur**: Architektur mit einer einzelnen Aktivität mit ViewModels und Datenklassen.
-- **Ressourcen**: `AndroidManifest.xml`, Drawables, Strings und andere Android-Ressourcen.
+- **Konfiguracja kompilacji**: `build.gradle.kts` pliki (na poziomie projektu i aplikacji)
+  z użyciem Kotlin DSL.
+- **Warstwa interfejsu**: [komponenty](https://developer.android.com/develop/ui/compose?hl=pl)
+  Jetpack Compose z [motywem Material 3](https://m3.material.io/).
+- **Architektura**: architektura z jednym działaniem z klasami ViewModel i klasami danych.
+- **Zasoby**: `AndroidManifest.xml`, grafiki, ciągi znaków i inne zasoby Androida.
 
-Der Agent verwaltet Gradle-Abhängigkeiten automatisch und fügt bei Bedarf Pakete aus Maven- und Google-Repositories hinzu.
+Agent automatycznie zarządza zależnościami Gradle, dodając w razie potrzeby pakiety z repozytoriów Maven i Google.
 
-Sie können den generierten Code auf dem Tab **Code** im Vorschaufenster ansehen und bearbeiten. Wenn Sie die Entwicklung in Android Studio fortsetzen möchten, laden Sie das Projekt als **ZIP-Datei** herunter.
+Wygenerowany kod możesz wyświetlić i edytować na karcie **Kod** w panelu podglądu. Aby kontynuować tworzenie w Android Studio, pobierz projekt jako **plik ZIP**.
 
-## Beschränkungen
+## Ograniczenia
 
-Für das Erstellen von Android-Apps in AI Studio gelten die folgenden Einschränkungen:
+Tworzenie aplikacji na Androida w AI Studio ma te ograniczenia:
 
-### Plattformeinschränkungen
+### Ograniczenia platform
 
-- **Nur clientseitig**: Android-Apps enthalten keine serverseitige Komponente.
-  Funktionen, für die eine Serverlaufzeit erforderlich ist (Secrets-Verwaltung, Multiplayer, Firebase, Google Workspace APIs), sind nicht verfügbar.
-- **Architektur mit nur einer Aktivität**: Es werden nur Projekte mit einer Aktivität und einem Modul unterstützt.
-- **Nur Jetpack Compose**: Apps verwenden Kotlin und Jetpack Compose. Java- und XML-Layouts werden nicht unterstützt.
-- **Kein NDK oder nativer Code**: C- und C++-Code wird nicht unterstützt.
-- **Kein Wear OS oder Android TV**: Es werden nur Smartphone- und Tablet-Formfaktoren unterstützt.
+- **Tylko po stronie klienta**: aplikacje na Androida nie zawierają komponentu po stronie serwera.
+  Funkcje wymagające środowiska wykonawczego po stronie serwera (zarządzanie tajnymi danymi, tryb wieloosobowy, Firebase, interfejsy Google Workspace API) są niedostępne.
+- **Architektura z jednym działaniem**: obsługiwane są tylko projekty z jednym działaniem i jednym modułem.
+- **Tylko Jetpack Compose**: aplikacje używają Kotlina i Jetpack Compose. Układy Java i XML nie są obsługiwane.
+- **Brak NDK i kodu natywnego**: kod C i C++ nie jest obsługiwany.
+- **Brak Wear OS i Androida TV**: obsługiwane są tylko telefony i tablety.
 
-### Exportbeschränkungen
+### Ograniczenia eksportu
 
-- **Nur ZIP-Download**: Sie können das Projekt als ZIP-Datei herunterladen. Der GitHub-Export ist für Android-Projekte noch nicht verfügbar.
+- **Tylko pobieranie ZIP**: projekt możesz pobrać jako plik ZIP. Eksport do GitHub nie jest jeszcze dostępny w przypadku projektów na Androida.
 
-## Nächste Schritte
+## Co dalej?
 
-- [Apps in Google AI Studio entwickeln](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=de)
-- [Full-Stack-Apps entwickeln](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=de) (Web)
-- Beispiele finden Sie in der [App-Galerie](https://aistudio.google.com/apps?source=showcase&hl=de).
+- [Tworzenie aplikacji w Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=pl)
+- [Tworzenie aplikacji pełnostosowych](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=pl) (internetowych)
+- Przykłady znajdziesz w [Galerii aplikacji](https://aistudio.google.com/apps?source=showcase&hl=pl).
 
-Feedback geben
+Prześlij opinię
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Zuletzt aktualisiert: 2026-08-19 (UTC).
+Ostatnia aktualizacja: 2026-08-19 UTC.
 
-Haben Sie Feedback für uns?
+Chcesz przekazać coś jeszcze?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-08-19 (UTC)."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-08-19 UTC."],[],[]]

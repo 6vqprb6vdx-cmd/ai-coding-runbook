@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/zdr?hl=id
-fetched_at: 2026-10-05T06:37:31.795192+00:00
+fetched_at: 2026-10-12T07:17:27.239835+00:00
 title: "Retensi data nol di Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

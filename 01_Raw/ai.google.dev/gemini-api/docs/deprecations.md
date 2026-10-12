@@ -1,191 +1,207 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deprecations?hl=ko
-fetched_at: 2026-10-05T06:29:46.665426+00:00
-title: "Gemini \uc9c0\uc6d0 \uc911\ub2e8 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deprecations?hl=fa
+fetched_at: 2026-10-12T07:06:27.768432+00:00
+title: "\u0645\u0646\u0633\u0648\u062e \u0634\u062f\u0646 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 3.8 Flash اکنون در دسترس است. [آن را امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fa) .
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-의견 보내기
+ارسال بازخورد
 
-# Gemini 지원 중단
+# منسوخ شدن Gemini
 
-이 페이지에는 Gemini API의 [안정 (GA)](https://ai.google.dev/gemini-api/docs/models?hl=ko#stable) 및 [미리보기](https://ai.google.dev/gemini-api/docs/models?hl=ko#preview) 모델과 관리형 에이전트의 알려진 지원 중단 일정이 나와 있습니다. '**지원 중단**'은 더 이상 모델을 지원하지 않으며 가까운 시일 내에 '**종료**'될 것이라는 발표입니다. 모델이 '**shutdown**'되면 완전히 꺼지고 엔드포인트를 더 이상 사용할 수 없습니다.
+این صفحه فهرست زمان‌بندی‌های منسوخ شدن شناخته‌شده برای مدل‌های [پایدار (GA)](https://ai.google.dev/gemini-api/docs/models?hl=fa#stable) و [پیش‌نمایش](https://ai.google.dev/gemini-api/docs/models?hl=fa#preview)
+و برای عامل‌های مدیریت‌شده در Gemini API را ارائه می‌دهد. «**منسوخ شدن**» یعنی اعلام کنیم که دیگر از مدلی پشتیبانی نمی‌کنیم و آن مدل در آینده نزدیک «**تعطیل خواهد شد**». وقتی مدلی «**خاموش**» می‌شود، کاملاً خاموش می‌شود و نقطه پایان دیگر دردسترس نیست.
 
-지원 중단 공지는 [출시 노트](https://ai.google.dev/gemini-api/docs/changelog?hl=ko) 페이지에 게시되며, 공지된 가장 빠른 종료 날짜는 이 페이지에서 추적됩니다.
-이미 종료된 모델은 회색 배경으로 표시됩니다.
+اعلامیه‌های منسوخ شدن در صفحه
+[یادداشت‌های انتشار](https://ai.google.dev/gemini-api/docs/changelog?hl=fa) منتشر می‌شوند و
+زودترین تاریخ‌های خاموش شدن اعلام‌شده در این صفحه پیگیری می‌شوند.
+مدل‌هایی که قبلاً خاموش شده‌اند با پس‌زمینه‌های خاکستری نشان داده می‌شوند.
 
-## Gemini 3 모델
+## مدل‌های Gemini 3
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-3.8-flash-tts` | 2026년 9월 22일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.8-flash-lite-tts` | 2026년 9월 22일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.8-live` | 2026년 9월 15일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.8-live-extended-thinking` | 2026년 9월 15일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.8-flash` | 2026년 9월 2일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.7-flash` | 2026년 8월 13일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.6-flash` | 2026년 7월 21일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.5-flash-lite` | 2026년 7월 21일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.5-flash` | 2026년 5월 19일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.1-flash-image` | 2026년 5월 28일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3-pro-image` | 2026년 5월 28일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.1-flash-lite` | 2026년 5월 7일 | 2027년 5월 7일 | `gemini-3.5-flash-lite` |
-| 프리뷰 모델 | | | |
-| `gemini-3.1-flash-tts-preview` | 2026년 2월 26일 | 종료 날짜가 공지되지 않음 | `gemini-3.8-flash-tts` 또는 `gemini-3.8-flash-lite-tts` |
-| `gemini-3.1-flash-image-preview` | 2026년 2월 26일 | 2026년 6월 25일 | `gemini-3.1-flash-image` |
-| `gemini-3.1-pro-preview` | 2026년 2월 19일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3-pro-image-preview` | 2025년 11월 20일 | 2026년 6월 25일 | `gemini-3-pro-image` |
-| `gemini-3-flash-preview` | 2025년 12월 17일 | 종료 날짜가 공지되지 않음 | `gemini-3.6-flash` |
-| `gemini-3-pro-preview` | 2025년 11월 18일 | 2026년 3월 9일 | `gemini-3.1-pro-preview` |
-| `gemini-3.1-flash-lite-preview` | 2026년 3월 3일 | 2026년 5월 25일 | `gemini-3.1-flash-lite` |
+| `gemini-3.8-flash-tts` | ‫۲۲ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.8-flash-lite-tts` | ‫۲۲ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.8-live` | ‫۱۵ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.8-live-extended-thinking` | ‫۱۵ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.8-flash` | ‫۲ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.7-flash` | ‫۱۳ اوت ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است | ‫`gemini-3.8-flash` (درخواست‌های `gemini-3.7-flash` به‌طور خودکار به `gemini-3.8-flash` هدایت می‌شود) |
+| `gemini-3.6-flash` | ۲۱ ژوئیه ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.5-flash-lite` | ۲۱ ژوئیه ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.5-flash` | ‫۱۹ مه ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است | ‫`gemini-3.6-flash` (درخواست‌های `gemini-3.5-flash` به‌طور خودکار به `gemini-3.6-flash` هدایت می‌شود) |
+| `gemini-3.1-flash-lite` | ۷ مه ۲۰۲۶ | ۷ مه ۲۰۲۷ | `gemini-3.5-flash-lite` |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-3.1-flash-tts-preview` | ۲۶ فوریه ۲۰۲۶ | ۱۷ نوامبر ۲۰۲۶ | ‫`gemini-3.8-flash-tts` یا `gemini-3.8-flash-lite-tts` |
+| `gemini-3.1-pro-preview` | ‫۱۹ فوریه ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3-flash-preview` | ‫۱۷ دسامبر ۲۰۲۵ | تاریخی برای تعطیلی اعلام نشده است | `gemini-3.6-flash` |
+| `gemini-3-pro-preview` | ‫۱۸ نوامبر ۲۰۲۵ | ۹ مارس ۲۰۲۶ | `gemini-3.1-pro-preview` |
+| `gemini-3.1-flash-lite-preview` | ۳ مارس ۲۰۲۶ | ۲۵ مه ۲۰۲۶ | `gemini-3.1-flash-lite` |
 
-## Gemini 2.5 Pro 모델
+## مدل‌های Gemini 2.5 Pro
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-2.5-pro` | 2025년 6월 17일 | 종료 날짜가 공지되지 않음 |  |
-| 프리뷰 모델 | | | |
-| `gemini-2.5-computer-use-preview-10-2025` | 2025년 10월 7일 | 2026년 7월 28일 | `gemini-3.8-flash` |
-| `gemini-2.5-pro-preview-03-25` | 2025년 3월 3일 | 2025년 12월 2일 | `gemini-3.1-pro-preview` |
-| `gemini-2.5-pro-preview-05-06` | 2025년 5월 6일 | 2025년 12월 2일 | `gemini-3.1-pro-preview` |
-| `gemini-2.5-pro-preview-06-05` | 2025년 6월 5일 | 2025년 12월 2일 | `gemini-3.1-pro-preview` |
+| `gemini-2.5-pro` | ‫۱۷ ژوئن ۲۰۲۵ | تاریخی برای تعطیلی اعلام نشده است |  |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-2.5-computer-use-preview-10-2025` | ۷ اکتبر ۲۰۲۵ | ۲۸ ژوئیه ۲۰۲۶ | `gemini-3.8-flash` |
+| `gemini-2.5-pro-preview-03-25` | ۳ مارس ۲۰۲۵ | ‫۲ دسامبر ۲۰۲۵ | `gemini-3.1-pro-preview` |
+| `gemini-2.5-pro-preview-05-06` | ‫۶ مه ۲۰۲۵ | ‫۲ دسامبر ۲۰۲۵ | `gemini-3.1-pro-preview` |
+| `gemini-2.5-pro-preview-06-05` | ۵ ژوئن ۲۰۲۵ | ‫۲ دسامبر ۲۰۲۵ | `gemini-3.1-pro-preview` |
 
-## Gemini 2.5 Flash 모델
+## مدل‌های Gemini 2.5 Flash
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-2.5-flash` | 2025년 6월 17일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-2.5-flash-image` | 2025년 10월 2일 | 2026년 10월 2일 | `gemini-3.1-flash-image-preview` |
-| `gemini-2.5-flash-lite` | 2025년 7월 22일 | 종료 날짜가 공지되지 않음 |  |
-| 프리뷰 모델 | | | |
-| `gemini-2.5-flash-lite-preview-09-2025` | 2025년 9월 25일 | 2026년 3월 31일 | `gemini-3.1-flash-lite` |
-| `gemini-2.5-flash-preview-05-20` | 2025년 5월 20일 | 2025년 11월 18일 | `gemini-3.6-flash` |
-| `gemini-2.5-flash-image-preview` | 2025년 5월 7일 | 2026년 1월 15일 | `gemini-2.5-flash-image` |
-| `gemini-2.5-flash-preview-09-25` | 2025년 9월 25일 | 2026년 2월 17일 | `gemini-3.6-flash` |
+| `gemini-2.5-flash` | ‫۱۷ ژوئن ۲۰۲۵ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-2.5-flash-lite` | ‫۲۲ ژوئیه ۲۰۲۵ | تاریخی برای تعطیلی اعلام نشده است |  |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-2.5-flash-lite-preview-09-2025` | ‫۲۵ سپتامبر ۲۰۲۵ | ‫۳۱ مارس ۲۰۲۶ | `gemini-3.1-flash-lite` |
+| `gemini-2.5-flash-preview-05-20` | ‫۲۰ مه ۲۰۲۵ | ‫۱۸ نوامبر ۲۰۲۵ | `gemini-3.6-flash` |
+| `gemini-2.5-flash-preview-09-25` | ‫۲۵ سپتامبر ۲۰۲۵ | ‫۱۷ فوریه ۲۰۲۶ | `gemini-3.6-flash` |
 
-## Gemini 2.0 모델
+## مدل‌های Gemini 2.0
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-2.0-flash` | 2025년 2월 5일 | 2026년 6월 1일 | `gemini-3.6-flash` |
-| `gemini-2.0-flash-001` | 2025년 2월 5일 | 2026년 6월 1일 | `gemini-3.6-flash` |
-| `gemini-2.0-flash-lite` | 2025년 2월 25일 | 2026년 6월 1일 | `gemini-3.1-flash-lite` |
-| `gemini-2.0-flash-lite-001` | 2025년 2월 25일 | 2026년 6월 1일 | `gemini-3.1-flash-lite` |
-| 프리뷰 모델 | | | |
-| `gemini-2.0-flash-preview-image-generation` | 2025년 5월 7일 | 2025년 11월 14일 | `gemini-2.5-flash-image` |
-| `gemini-2.0-flash-lite-preview` | 2025년 2월 5일 | 2025년 12월 9일 | `gemini-2.5-flash-lite` |
-| `gemini-2.0-flash-lite-preview-02-05` | 2025년 2월 5일 | 2025년 12월 9일 | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash` | ۵ فوریه ۲۰۲۵ | ‫۱ ژوئن ۲۰۲۶ | `gemini-3.6-flash` |
+| `gemini-2.0-flash-001` | ۵ فوریه ۲۰۲۵ | ‫۱ ژوئن ۲۰۲۶ | `gemini-3.6-flash` |
+| `gemini-2.0-flash-lite` | ۲۵ فوریه ۲۰۲۵ | ‫۱ ژوئن ۲۰۲۶ | `gemini-3.1-flash-lite` |
+| `gemini-2.0-flash-lite-001` | ۲۵ فوریه ۲۰۲۵ | ‫۱ ژوئن ۲۰۲۶ | `gemini-3.1-flash-lite` |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-2.0-flash-lite-preview` | ۵ فوریه ۲۰۲۵ | ‫۹ دسامبر ۲۰۲۵ | `gemini-2.5-flash-lite` |
+| `gemini-2.0-flash-lite-preview-02-05` | ۵ فوریه ۲۰۲۵ | ‫۹ دسامبر ۲۰۲۵ | `gemini-2.5-flash-lite` |
 
-## Live API 모델
+## مدل‌های Live API
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-3.8-live` | 2026년 9월 15일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.8-live-extended-thinking` | 2026년 9월 15일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.5-transcribe-live` | 2026년 8월 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-2.0-flash-live-001` | 2025년 4월 9일 | 2025년 12월 9일 | `gemini-3.8-live` |
-| 프리뷰 모델 | | | |
-| `gemini-3.5-live-translate-preview` | 2026년 6월 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-3.1-flash-live-preview` | 2026년 3월 11일 | 종료 날짜가 공지되지 않음 | `gemini-3.8-live` |
-| `gemini-2.5-flash-native-audio-preview-12-2025` | 2025년 12월 12일 | 종료 날짜가 공지되지 않음 | `gemini-3.8-live` |
-| `gemini-live-2.5-flash-preview` | 2025년 6월 17일 | 2025년 12월 9일 | `gemini-3.8-live` |
+| `gemini-3.8-live` | ‫۱۵ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.8-live-extended-thinking` | ‫۱۵ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.5-transcribe-live` | اوت ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-2.0-flash-live-001` | ‫۹ آوریل ۲۰۲۵ | ‫۹ دسامبر ۲۰۲۵ | `gemini-3.8-live` |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-3.5-live-translate-preview` | ژوئن ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.1-flash-live-preview` | ۱۱ مارس ۲۰۲۶ | ۱۷ نوامبر ۲۰۲۶ | `gemini-3.8-live` |
+| `gemini-2.5-flash-native-audio-preview-12-2025` | ‫۱۲ دسامبر ۲۰۲۵ | ۱۷ نوامبر ۲۰۲۶ | `gemini-3.8-live` |
+| `gemini-live-2.5-flash-preview` | ‫۱۷ ژوئن ۲۰۲۵ | ‫۹ دسامبر ۲۰۲۵ | `gemini-3.8-live` |
 
-## 오디오 모델
+## مدل‌های صوتی
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-3.5-transcribe` | 2026년 8월 | 종료 날짜가 공지되지 않음 |  |
-| 프리뷰 모델 | | | |
-| `gemini-2.5-flash-preview-tts` | 2025년 5월 20일 | 종료 날짜가 공지되지 않음 | `gemini-3.8-flash-tts` 또는 `gemini-3.8-flash-lite-tts` |
-| `gemini-2.5-pro-preview-tts` | 2025년 5월 20일 | 종료 날짜가 공지되지 않음 | `gemini-3.8-flash-tts` 또는 `gemini-3.8-flash-lite-tts` |
+| `gemini-3.5-transcribe` | اوت ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-2.5-flash-preview-tts` | ‫۲۰ مه ۲۰۲۵ | ۱۷ نوامبر ۲۰۲۶ | ‫`gemini-3.8-flash-tts` یا `gemini-3.8-flash-lite-tts` |
+| `gemini-2.5-pro-preview-tts` | ‫۲۰ مه ۲۰۲۵ | ۱۷ نوامبر ۲۰۲۶ | ‫`gemini-3.8-flash-tts` یا `gemini-3.8-flash-lite-tts` |
 
-## 임베딩 모델
+## مدل‌های جاسازی
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-embedding-2` | 2026년 4월 22일 | 종료 날짜가 공지되지 않음 |  |
-| `gemini-embedding-001` | 2025년 7월 14일 | 2028년 5월 14일 | `gemini-embedding-2` |
-| `text-embedding-004` | 2024년 4월 9일 | 2026년 1월 14일 | `gemini-embedding-2` |
-| 프리뷰 모델 | | | |
-| `embedding-2-preview` | 2026년 3월 10일 | 2026년 8월 10일 | `gemini-embedding-2` |
-| `embedding-001` | 2024년 4월 9일 | 2025년 10월 30일 | `gemini-embedding-2` |
-| `embedding-gecko-001` |  | 2025년 10월 30일 | `gemini-embedding-2` |
-| `gemini-embedding-exp` |  | 2025년 10월 30일 | `gemini-embedding-2` |
-| `gemini-embedding-exp-03-07` |  | 2025년 10월 30일 | `gemini-embedding-2` |
+| `gemini-embedding-2` | ‫۲۲ آوریل ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-embedding-001` | ‫۱۴ ژوئیه ۲۰۲۵ | ‫۱۴ مه ۲۰۲۸ | `gemini-embedding-2` |
+| `text-embedding-004` | ۹ آوریل ۲۰۲۴ | ‫۱۴ ژانویه ۲۰۲۶ | `gemini-embedding-2` |
+| پیش‌نمایش مدل‌ها | | | |
+| `embedding-2-preview` | ۱۰ مارس ۲۰۲۶ | ‫۱۰ اوت ۲۰۲۶ | `gemini-embedding-2` |
+| `embedding-001` | ۹ آوریل ۲۰۲۴ | ‫۳۰ اکتبر ۲۰۲۵ | `gemini-embedding-2` |
+| `embedding-gecko-001` |  | ‫۳۰ اکتبر ۲۰۲۵ | `gemini-embedding-2` |
+| `gemini-embedding-exp` |  | ‫۳۰ اکتبر ۲۰۲۵ | `gemini-embedding-2` |
+| `gemini-embedding-exp-03-07` |  | ‫۳۰ اکتبر ۲۰۲۵ | `gemini-embedding-2` |
 
-## Imagen 모델
+## مدل‌های Nano Banana
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `imagen-4.0-generate-001` | 2025년 6월 24일 | 2026년 8월 17일 | `gemini-3.1-flash-image` |
-| `imagen-4.0-ultra-generate-001` | 2025년 6월 24일 | 2026년 8월 17일 | `gemini-3.1-flash-image` |
-| `imagen-4.0-fast-generate-001` | 2025년 6월 24일 | 2026년 8월 17일 | `gemini-3.1-flash-image` |
-| `imagen-3.0-generate-002` | 2025년 2월 6일 | 2025년 11월 10일 | `imagen-4.0-generate-001` |
-| 프리뷰 모델 | | | |
-| `imagen-4.0-generate-preview-06-06` | 2025년 6월 24일 | 2026년 2월 17일 | `imagen-4.0-generate-001` |
-| `imagen-4.0-ultra-generate-preview-06-06` | 2025년 6월 24일 | 2026년 2월 17일 | `imagen-4.0-ultra-generate-001` |
+| `gemini-nano-banana-2.1` | ‫۶ اکتبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.1-flash-lite-image` | ‫۳۰ ژوئن ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-3.1-flash-image` | ۲۸ مه ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است | `gemini-nano-banana-2.1` |
+| `gemini-3-pro-image` | ۲۸ مه ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `gemini-2.5-flash-image` | ‫۲ اکتبر ۲۰۲۵ | ۱۵ مارس ۲۰۲۷ | `gemini-3.1-flash-lite-image` |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-3.1-flash-image-preview` | ۲۶ فوریه ۲۰۲۶ | ۲۵ ژوئن ۲۰۲۶ | `gemini-nano-banana-2.1` |
+| `gemini-3-pro-image-preview` | ‫۲۰ نوامبر ۲۰۲۵ | ۲۵ ژوئن ۲۰۲۶ | `gemini-3-pro-image` |
+| `gemini-2.5-flash-image-preview` | ۷ مه ۲۰۲۵ | ‫۱۵ ژانویه ۲۰۲۶ | `gemini-nano-banana-2.1` |
+| `gemini-2.0-flash-preview-image-generation` | ۷ مه ۲۰۲۵ | ‫۱۴ نوامبر ۲۰۲۵ | `gemini-nano-banana-2.1` |
 
-## Veo 모델
+## مدل‌های Imagen
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `veo-3.0-generate-001` | 2025년 9월 9일 | 2026년 6월 30일 | `veo-3.1-generate-preview` 또는 [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=ko)의 정식 버전 모델 |
-| `veo-3.0-fast-generate-001` | 2025년 9월 9일 | 2026년 6월 30일 | `veo-3.1-fast-generate-preview` 또는 [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=ko)의 정식 버전 모델 |
-| `veo-2.0-generate-001` | 2025년 4월 9일 | 2026년 6월 30일 | `veo-3.1-generate-preview` 또는 [Gemini Enterprise Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=ko)의 정식 버전 모델 |
-| 프리뷰 모델 | | | |
-| `veo-3.1-lite-generate-preview` | 2026년 3월 31일 | 2026년 10월 22일 | `gemini-omni-1.1-flash` |
-| `veo-3.1-generate-preview` | 2025년 10월 15일 | 2026년 10월 22일 | `gemini-omni-1.1-flash` |
-| `veo-3.1-fast-generate-preview` | 2025년 10월 15일 | 2026년 10월 22일 | `gemini-omni-1.1-flash` |
-| `veo-3.0-generate-preview` | 2025년 7월 31일 | 2025년 11월 12일 | `veo-3.1-generate-preview` |
-| `veo-3.0-fast-generate-preview` | 2025년 7월 31일 | 2025년 11월 12일 | `veo-3.1-fast-generate-preview` |
+| `imagen-4.0-generate-001` | ۲۴ ژوئن ۲۰۲۵ | ۱۷ اوت ۲۰۲۶ | `gemini-nano-banana-2.1` |
+| `imagen-4.0-ultra-generate-001` | ۲۴ ژوئن ۲۰۲۵ | ۱۷ اوت ۲۰۲۶ | `gemini-nano-banana-2.1` |
+| `imagen-4.0-fast-generate-001` | ۲۴ ژوئن ۲۰۲۵ | ۱۷ اوت ۲۰۲۶ | `gemini-nano-banana-2.1` |
+| `imagen-3.0-generate-002` | ۶ فوریه ۲۰۲۵ | ۱۰ نوامبر ۲۰۲۵ | `imagen-4.0-generate-001` |
+| پیش‌نمایش مدل‌ها | | | |
+| `imagen-4.0-generate-preview-06-06` | ۲۴ ژوئن ۲۰۲۵ | ‫۱۷ فوریه ۲۰۲۶ | `imagen-4.0-generate-001` |
+| `imagen-4.0-ultra-generate-preview-06-06` | ۲۴ ژوئن ۲۰۲۵ | ‫۱۷ فوریه ۲۰۲۶ | `imagen-4.0-ultra-generate-001` |
 
-## Gemini Omni Flash 모델
+## مدل‌های Veo
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `gemini-omni-1.1-flash` | 2026년 8월 27일 | 종료 날짜가 공지되지 않음 |  |
+| `veo-3.0-generate-001` | ‫۹ سپتامبر ۲۰۲۵ | ‫۳۰ ژوئن ۲۰۲۶ | `veo-3.1-generate-preview` یا مدل‌های GA در [پلاتفرم Gemini Enterprise Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=fa) |
+| `veo-3.0-fast-generate-001` | ‫۹ سپتامبر ۲۰۲۵ | ‫۳۰ ژوئن ۲۰۲۶ | `veo-3.1-fast-generate-preview` یا مدل‌های GA در [پلاتفرم Gemini Enterprise Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=fa) |
+| `veo-2.0-generate-001` | ‫۹ آوریل ۲۰۲۵ | ‫۳۰ ژوئن ۲۰۲۶ | `veo-3.1-generate-preview` یا مدل‌های GA در [پلاتفرم Gemini Enterprise Agent](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/veo/3-1-generate?hl=fa) |
+| پیش‌نمایش مدل‌ها | | | |
+| `veo-3.1-lite-generate-preview` | ‫۳۱ مارس ۲۰۲۶ | ‫۲۲ اکتبر ۲۰۲۶ | `gemini-omni-1.1-flash` |
+| `veo-3.1-generate-preview` | ‫۱۵ اکتبر ۲۰۲۵ | ‫۲۲ اکتبر ۲۰۲۶ | `gemini-omni-1.1-flash` |
+| `veo-3.1-fast-generate-preview` | ‫۱۵ اکتبر ۲۰۲۵ | ‫۲۲ اکتبر ۲۰۲۶ | `gemini-omni-1.1-flash` |
+| `veo-3.0-generate-preview` | ۳۱ ژوئیه ۲۰۲۵ | ‫۱۲ نوامبر ۲۰۲۵ | `veo-3.1-generate-preview` |
+| `veo-3.0-fast-generate-preview` | ۳۱ ژوئیه ۲۰۲۵ | ‫۱۲ نوامبر ۲۰۲۵ | `veo-3.1-fast-generate-preview` |
 
-## Lyria 모델
+## مدل‌های Gemini Omni Flash
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| `lyria-3.5` | 2026년 9월 3일 | 종료 날짜가 공지되지 않음 |  |
-| 프리뷰 모델 | | | |
-| `lyria-3-clip-preview` | 2026년 3월 25일 | 종료 날짜가 공지되지 않음 |  |
-| `lyria-3-pro-preview` | 2026년 3월 25일 | 종료 날짜가 공지되지 않음 | `lyria-3.5` |
-| `lyria-realtime-exp` | 2025년 5월 20일 | 종료 날짜가 공지되지 않음 |  |
+| `gemini-omni-1.1-flash` | ‫۲۷ اوت ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-omni-flash-preview` | ‫۳۰ ژوئن ۲۰۲۶ | ‫۲۲ اکتبر ۲۰۲۶ | `gemini-omni-1.1-flash` |
 
-## 로봇 모델
+## مدل‌های Lyria
 
-| **모델** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| 프리뷰 모델 | | | |
-| `gemini-robotics-er-1.6-preview` | 2026년 4월 14일 | 2026년 8월 31일 | gemini-robotics-er-2-preview |
-| `gemini-robotics-er-1.5-preview` | 2025년 9월 25일 | 2026년 4월 30일 | `gemini-robotics-er-1.6-preview` |
+| `lyria-3.5` | ‫۳ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| پیش‌نمایش مدل‌ها | | | |
+| `lyria-3-clip-preview` | ۲۵ مارس ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `lyria-3-pro-preview` | ۲۵ مارس ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است | `lyria-3.5` |
+| `lyria-realtime-exp` | ‫۲۰ مه ۲۰۲۵ | تاریخی برای تعطیلی اعلام نشده است |  |
 
-## 관리형 에이전트
+## مدل‌های روباتیک
 
-| **Agent** | **출시일** | **종료일** | **권장 교체** |
+| **مدل** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
 | --- | --- | --- | --- |
-| 에이전트 미리보기 | | | |
-| `antigravity-preview-09-2026` | 2026년 9월 17일 | 종료 날짜가 공지되지 않음 |  |
-| `antigravity-preview-05-2026` | 2026년 5월 19일 | 2026년 10월 5일 | `antigravity-preview-09-2026` |
+| پیش‌نمایش مدل‌ها | | | |
+| `gemini-robotics-er-1.6-preview` | ‫۱۴ آوریل ۲۰۲۶ | ۳۱ اوت ۲۰۲۶ | gemini-robotics-er-2-preview |
+| `gemini-robotics-er-1.5-preview` | ‫۲۵ سپتامبر ۲۰۲۵ | ۳۰ آوریل ۲۰۲۶ | `gemini-robotics-er-1.6-preview` |
 
-의견 보내기
+## عامل‌های مدیریت‌شده
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+| **Agent** | **تاریخ انتشار** | **تاریخ توقف** | **جایگزین توصیه‌شده** |
+| --- | --- | --- | --- |
+| پیش‌نمایش عامل‌ها | | | |
+| `antigravity-preview-09-2026` | ‫۱۷ سپتامبر ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `antigravity-preview-05-2026` | ‫۱۹ مه ۲۰۲۶ | ۵ اکتبر ۲۰۲۶ | `antigravity-preview-09-2026` |
+| `deep-research-preview-04-2026` | ۲۱ آوریل ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `deep-research-max-preview-04-2026` | ۲۱ آوریل ۲۰۲۶ | تاریخی برای تعطیلی اعلام نشده است |  |
+| `deep-research-pro-preview-12-2025` | ‫۱۱ دسامبر ۲۰۲۵ | ‫۲۳ اکتبر ۲۰۲۶ | `deep-research-preview-04-2026` |
 
-최종 업데이트: 2026-10-01(UTC)
+ارسال بازخورد
 
-의견을 전달하고 싶나요?
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-01(UTC)"],[],[]]
+تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی.
+
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی."],[],[]]

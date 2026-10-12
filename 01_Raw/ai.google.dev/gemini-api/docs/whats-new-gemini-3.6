@@ -1,0 +1,296 @@
+---
+source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=fa
+fetched_at: 2026-10-12T07:12:16.206697+00:00
+title: "\u0648\u06cc\u0698\u06af\u06cc\u200c\u0647\u0627\u06cc \u062c\u062f\u06cc\u062f \u062f\u0631 Gemini 3.6 Flash \u0648 3.5 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+---
+
+Gemini 3.8 Flash اکنون در دسترس است. [آن را امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fa) .
+
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
+
+ارسال بازخورد
+
+# ویژگی‌های جدید در Gemini 3.6 Flash و 3.5 Flash-Lite
+
+[جدیدترین مدل](https://ai.google.dev/gemini-api/docs/latest-model?hl=fa)
+[مدل‌های دیگر](#other-models)
+
+‫Gemini 3.6 Flash (`gemini-3.6-flash`) و Gemini 3.5 Flash-Lite
+(`gemini-3.5-flash-lite`) نسخه‌های نسل قبلی در سری Gemini 3
+هستند و همچنان برای استفاده در تولید دردسترس هستند. برای جدیدترین مدل Flash ما،
+[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=fa) را ببینید.
+
+- **Gemini 3.6 Flash**: عملکرد قوی‌تر در کارگزاری پیچیده و چندوجهی
+  درعین کاهش استفاده از نشان، با قیمت پایین‌تر از 3.5 Flash.
+- **‫Gemini 3.5 Flash-Lite**: سریع‌ترین و کم‌هزینه‌ترین مدل در خانواده ۳.۵.
+  برای اجرای با توان عملیاتی بالا، عملکرد بهتری نسبت‌به نسل‌های قبلی Flash-Lite دارد.
+
+این راهنما توضیح می‌دهد که در هر مدل چه چیزهایی معرفی شده است، چه تغییراتی در API بر کد شما تأثیر می‌گذارد، و چگونه مهاجرت کنید.
+
+### Gemini 3.6 Flash
+
+1. نصب مهارت:
+
+   ```
+   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
+   ```
+2. اعمال کردن مهارت:
+
+   ```
+   /gemini-interactions-api migrate my app to Gemini 3.6 Flash
+   ```
+
+### Gemini 3.5 Flash-Lite
+
+1. نصب مهارت:
+
+   ```
+   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
+   ```
+2. اعمال کردن مهارت:
+
+   ```
+   /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
+   ```
+
+## مدل‌های جدید
+
+| مدل | شناسه مدل | سطح پیش‌فرض «اندیشگر» | قیمت‌گذاری | شرح |
+| --- | --- | --- | --- | --- |
+| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | ۱٫۵۰ دلار به‌ازای هر ۱ میلیون داده‌واحد ورودی و ۷٫۵۰ دلار به‌ازای هر ۱ میلیون داده‌واحد برونداد | برای تکالیف عامل‌گرا و چندوجهی، بین سرعت و هوش تعادل برقرار می‌کند. |
+| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | ۰٫۳۰ دلار به‌ازای هر ۱ میلیون داده‌واحد ورودی و ۲٫۵۰ دلار به‌ازای هر ۱ میلیون داده‌واحد برونداد | سریع‌ترین مدل ۳.۵ با کمترین هزینه برای اجرای با توان عملیاتی بالا. |
+
+هر دو مدل از پنجره زمینه‌ای ۱ میلیون داده‌واحد، حداکثر ۶۴ هزار داده‌واحد برونداد،
+تفکر، و مجموعه کامل ابزارهای داخلی شامل
+[استفاده از رایانه](https://ai.google.dev/gemini-api/docs/computer-use?hl=fa) پشتیبانی می‌کنند.
+
+برای مشخصات کامل، به صفحه‌های مدل مراجعه کنید:
+
+- [صفحه مدل Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fa)
+- [صفحه مدل Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fa)
+
+برای قیمت‌گذاری دقیق، [صفحه قیمت‌گذاری](https://ai.google.dev/gemini-api/docs/pricing?hl=fa) را ببینید.
+
+## راه‌اندازی سریع
+
+### Python
+
+```
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-3.6-flash",
+    input="Write a three.js script that renders an interactive 3D robot."
+)
+
+print(interaction.output_text)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const ai = new GoogleGenAI({});
+
+async function main() {
+  const interaction = await ai.interactions.create({
+    model: "gemini-3.6-flash",
+    input: "Write a three.js script that renders an interactive 3D robot.",
+  });
+  console.log(interaction.outputText);
+}
+
+main();
+```
+
+### REST
+
+```
+curl "https://generativelanguage.googleapis.com/v1beta/interactions"       -H "x-goog-api-key: $GEMINI_API_KEY"       -H 'Content-Type: application/json'       -X POST       -d '{
+    "model": "gemini-3.6-flash",
+    "input": "Write a three.js script that renders an interactive 3D robot."
+  }'
+```
+
+## ویژگی‌های جدید Gemini 3.6 Flash
+
+- **کاهش نوبت و نشان:** گردش‌های کار چندمرحله‌ای را با مراحل استدلال، نوبت‌های مکالمه، و فراخوانی ابزار کمتر از Gemini 3.5 تکمیل می‌کند. این کار همچنین از مارپیچ شدن حلقه اجرا جلوگیری می‌کند.
+- **تولید کد بهبودیافته:** کد آماده تولید با کیفیت بالاتر و با ویرایش‌های ناخواسته کمتر و حلقه‌های اشکال‌زدایی کمتر تولید می‌کند.
+- **بهتر از دستورالعمل‌ها پیروی می‌کند**: تغییرات ناخواسته فایل را درطول وظایف تشخیص خرابی کاهش می‌دهد.
+- **استدلال فضایی و چندحالته قوی:** عملکرد بهبودیافته در تفسیر نمودار، تبدیل طرح اولیه دیداری، و تولید چیدمان وب چندعنصری.
+- **بازرسی برنامه‌ریزی‌شده پیشاپیش:** ترجیح می‌دهد که پیش‌از اعمال تغییرات،
+  کدهای تشخیصی را بیشتر از Gemini 3.5 Flash اجرا کند. این کار دقت را در تکالیف پیچیده بهبود می‌بخشد، اما می‌تواند مراحل اکتشافی اضافی به کارهای معمول در
+  پیش‌زمینه اضافه کند.
+- **پشتیبانی از «استفاده از رایانه»:** به‌عنوان ابزار داخلی برای خودکارسازی واسط کاربر عامل پشتیبانی می‌شود.
+- **اولویت سبک واسط کاربر**: در ایجاد کد کاربردی بهتر است، اگرچه ارزیابان انسانی مدل‌های قبلی را برای چیدمان دیداری و سبک ترجیح می‌دادند. می‌توانید با ارائه دستورالعمل‌های طراحی صریح، این مشکل را کاهش دهید.
+- **تلاش اندیشیدن پیش‌فرض (متوسط):** از همان سطح اندیشیدن پیش‌فرض `medium` مانند Gemini 3.5 Flash استفاده می‌کند.
+- **قیمت‌گذاری کاهش‌یافته**: هزینه کمتر برای داده‌واحد برونداد (۷٫۵۰ دلار برای ۱ میلیون در مقایسه با ۹٫۰۰ دلار برای ۱ میلیون در
+  ‫۳.۵ Flash). قیمت داده‌واحدهای ورودی همچنان ۱٫۵۰ دلار برای ۱ میلیون داده‌واحد است.
+
+## ویژگی‌های جدید Gemini 3.5 Flash-Lite
+
+- **تأخیر کمتر در اجرای تکلیف:** بالاترین توان عملیاتی در خانواده ۳.۵ برای تجزیه داده‌های با حجم بالا و استخراج سند.
+- **استدلال بهبودیافته و عملکرد چندحالته:** مسیر انتقال قوی از
+  ‫Gemini 2.5 Flash، با امتیازهای بالاتر در تکالیف استدلالی مثل HLE (۱۸٫۰٪ دربرابر
+  ۱۱٫۰٪) و محک‌های چندحالته مثل CharXIV (۷۴٫۵٪ دربرابر ۶۳٫۷٪).
+- **هماهنگ‌سازی کارگزار فرعی و قابلیت اطمینان ابزار:** قابلیت اطمینان اجرای ابزار را برای اجرای کد، جستجو، و گردش‌های کار MCP بهبود می‌بخشد. سطح تفکر را برای برنامه‌ریزی خودکار و تکالیف پیچیده زیرعامل افزایش دهید.
+- **درک بهبودیافته سند:** دقت تجزیه سند و استخراج داده‌های ساختاریافته را بهبود می‌بخشد. بسته به پیچیدگی سند، سطوح تفکر حداقلی و بالا را آزمایش کنید.
+- **کدنویسی وب تعاملی و پردازش داده‌های جدولی:** با برنامه‌ریزی بااستفاده از اجرای کد سبک، در جاوا اسکریپت واسط کاربری و پردازش داده‌های جدولی عملکرد قوی‌ای دارد.
+- **ماندگاری روبات گپ و شخصیت:** پیروی از دستورالعمل‌های چند مرحله‌ای و ثبات شخصیت در Gemini 3.1 Flash-Lite قوی‌تر است.
+- **پشتیبانی از «استفاده از رایانه»:** به‌عنوان ابزار داخلی برای خودکارسازی واسط کاربر عامل پشتیبانی می‌شود.
+
+## انتخاب مدل Flash یا Flash-Lite مناسب
+
+از این جدول برای انتخاب مدل و مسیر انتقال مناسب برای حجم‌های کاری‌تان استفاده کنید.
+
+هر دو مدل نیازمند برداشتن پارامترهای نمونه‌گیری منسوخ‌شده (`temperature`،
+`top_p`، `top_k`) و نوبت‌های مدل ازپیش تکمیل‌شده است. برای جزئیات، به
+[تغییرات میانای برنامه‌سازی کاربردی](#api-changes-and-parameter-updates) مراجعه کنید.
+
+| مدل | موارد استفاده اصلی | هدف انتقال توصیه‌شده |
+| --- | --- | --- |
+| **Gemini 3.6 Flash** `gemini-3.6-flash` | تولید کد، استدلال فضایی/چندحالته، گردش کارهای عامل‌گرای چندمرحله‌ای | **Gemini 3.5 Flash**،‏ **Gemini 3 Flash (پیش‌نمایش)**، یا **Gemini 3.1 Pro** |
+| **Gemini 3.5 Flash-Lite** `gemini-3.5-flash-lite` | اجرای خودکارسازی زیرعامل، تجزیه‌وتحلیل داده‌های حجم بالا و استخراج سند، تجزیه ساختاریافته JSON | **Gemini 3.1 Flash-Lite** یا **Gemini 2.5 Flash** |
+
+## پشتیبانی عامل Antigravity
+
+‫Gemini 3.6 Flash از [عامل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa) در «عامل‌های مدیریت‌شده Gemini» پشتیبانی می‌کند.
+
+برای نمونه‌های کد فعلی و جدیدترین پیکربندی عامل پیش‌فرض، [راهنمای عامل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa) و [راهنمای Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=fa#updated-antigravity-agent) را ببینید.
+
+## تغییرات «میانای برنامه‌سازی کاربردی» و به‌روزرسانی‌های پارامتر
+
+با شروع Gemini 3.6 Flash و Gemini 3.5 Flash-Lite، تغییرات زیر در API
+برای این مدل‌ها و همه نسخه‌های آینده مدل Gemini اعمال می‌شود.
+
+- **منسوخ شدن پارامتر نمونه‌برداری**: `temperature`، `top_p`، و `top_k` منسوخ شده‌اند. این API این پارامترها را نادیده می‌گیرد و در نسل‌های مدل آینده خطا برمی‌گرداند.
+- **اعتبارسنجی نوبت مدل ازپیش تکمیل‌شده**: ازپیش تکمیل کردن نوبت‌های مدل دیگر پشتیبانی نمی‌شود. اگر آخرین نوبت غیرخالی در درخواست نوبت `model` باشد، API خطای `400` برمی‌گرداند.
+
+بخش‌های زیر توضیحات مفصل و نمونه‌های کد برای هر تغییر در API ارائه می‌دهند.
+
+### ۱. منسوخ شدن پارامتر نمونه‌برداری (`temperature`،‏ `top_p`،‏ `top_k`)
+
+‫`temperature`،‏ `top_p`، و `top_k` منسوخ شده‌اند و نادیده گرفته می‌شوند. در نسل‌های آینده مدل،
+ارائه این پارامترها خطای HTTP 400 برمی‌گرداند. **این پارامترها را از همه درخواست‌ها بردارید.**
+
+```
+# ⚠️ Remove these parameters (deprecated)
+generation_config = {
+     "temperature": 0.7,
+     "top_p": 0.9,
+     "top_k": 40,
+}
+```
+
+برای بهبود قطعیت، دستور سیستم را با قوانین صریح برای مورد استفاده خاص خود تعریف کنید.
+
+### ۲. اعتبارسنجی نوبت ازپیش تکمیل‌شده مدل
+
+درخواست‌های API که با نوبت نقش مدل غیرخالی پایان می‌یابند مجاز نیستند و
+**خطای HTTP 400** برمی‌گردانند.
+
+#### ⚠️ پرهیز شود
+
+در `generateContent` قدیمی یا داده‌برهای خام REST، پایان دادن به نوبت نقش مدل
+اکنون مجاز نیست:
+
+```
+/* ❌ DO NOT: End payload contents with a 'model' role turn */
+{
+  "contents": [
+    {"role": "user", "parts": [{"text": "Translate 'Hello world' to Spanish."}]},
+    {"role": "model", "parts": [{"text": "Translation:"}]}  /* ❌ Returns error */
+  ]
+}
+```
+
+#### ✅ انتقال توصیه‌شده (میانای برنامه‌سازی کاربردی تعاملات)
+
+در «میانای برنامه‌سازی کاربردی تعاملات»، نوبت‌های مدل به‌صورت دستی ازپیش تکمیل نمی‌شوند. اگر برنامه شما قبلاً نوبت مدلی را برای سرکوب پیش‌گفتارها یا اجبار قالب‌بندی JSON ازپیش تکمیل می‌کرد، به‌جای آن از system\_instruction یا [بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa) استفاده کنید.
+
+```
+# ✅ RECOMMENDED: Use system_instruction in the Interactions API to specify output format
+interaction = client.interactions.create(
+    model="gemini-3.6-flash",
+    input="Translate 'Hello world' to Spanish.",
+    system_instruction="Output only the translation without introductory text.",
+)
+```
+
+## بازبینه انتقال
+
+### Gemini 3.6 Flash
+
+1. نصب مهارت:
+
+   ```
+   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
+   ```
+2. اعمال کردن مهارت:
+
+   ```
+   /gemini-interactions-api migrate my app to Gemini 3.6 Flash
+   ```
+
+### Gemini 3.5 Flash-Lite
+
+1. نصب مهارت:
+
+   ```
+   npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
+   ```
+2. اعمال کردن مهارت:
+
+   ```
+   /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
+   ```
+
+### انتقال به gemini-3.6-flash
+
+- **به‌روزرسانی شناسه مدل:** رشته مدل هدف را به `gemini-3.6-flash` تغییر دهید.
+- **اعمال به‌روزرسانی‌های پارامتر:** پارامترهای نمونه‌گیری منسوخ‌شده (`temperature`، `top_p`، `top_k`)، `candidate_count` (در Gemini 3 و نسخه‌های جدیدتر پشتیبانی نمی‌شود)، و نوبت‌های مدل پیش‌تکمیل‌شده را همان‌طور که در [تغییرات API و به‌روزرسانی‌های پارامتر](#api-changes-and-parameter-updates) به‌تفصیل شرح داده شده است بردارید.
+- **پیکربندی سطح تفکر:** `thinking_budget` را با `thinking_level` (`"medium"` یا `"high"`) جایگزین کنید.
+- **فراخوانی تابع ممیزی:**
+  - دارایی‌های چندوجهی را در محتوای پاسخ قرار دهید.
+  - دستورالعمل‌های درون‌خطی را بااستفاده از `\n\n` قالب‌بندی کنید.
+  - اگر `Malformed_Function_Call` خطای مربوط به نوشتار پیش‌ابزار مشاهده کردید، [راهکارهای دور زدن الزامات نوشتار پیش‌ابزار](https://ai.google.dev/gemini-api/docs/function-calling?hl=fa#workarounds-for-pre-tool-text-requirements) را ببینید.
+- **ملزومات پایه Gemini نسخه ۳.x:** برای به‌روزرسانی‌های «کیت توسعه نرم‌افزار» و حفظ امضای فکر، [امضاهای فکر](https://ai.google.dev/gemini-api/docs/thinking?hl=fa#signatures) را ببینید.
+
+### انتقال به gemini-3.5-flash-lite
+
+- **به‌روزرسانی شناسه مدل:** رشته مدل هدف را به `gemini-3.5-flash-lite` تغییر دهید.
+- **پیکربندی سطح تلاش برای فکر کردن:**
+  - برای استخراج، مسیریابی، یا طبقه‌بندی با حجم بالا: `thinking_level` را روی `"minimal"` (پیش‌فرض) بگذارید تا حداکثر توان عملیاتی را داشته باشید.
+  - برای کارگزاران فرعی خودکار با فراخوانی ابزار، اجرای کد، یا استدلال چندمرحله‌ای: `thinking_level` را روی `"medium"` یا `"high"` تنظیم کنید تا از پایان زودهنگام ابزار جلوگیری شود.
+- **برداشتن پارامترهای منسوخ و اعتبارسنجی فراخوانی تابع:** [همان قوانین 3.6 Flash](#migrate-to-gemini-3-6-flash) را اعمال کنید.
+- **الزامات Gemini 3.x پایه:** به [امضاهای فکری](https://ai.google.dev/gemini-api/docs/thinking?hl=fa#signatures) مراجعه کنید.
+
+## مدل‌های دیگر
+
+- [Gemini 3.8 Flash (جدیدترین)](https://ai.google.dev/gemini-api/docs/latest-model?hl=fa)
+- [دیدن همه مدل‌ها](https://ai.google.dev/gemini-api/docs/models?hl=fa)
+
+## قدم بعدی چیست
+
+- مشخصات «میانای برنامه‌سازی کاربردی» را در [نمای کلی مدل‌ها](https://ai.google.dev/gemini-api/docs/models?hl=fa) مرور کنید.
+- هماهنگی چند عامل را در [راهنمای میانای برنامه‌سازی کاربردی تعاملات](https://ai.google.dev/gemini-api/docs/interactions?hl=fa) کاوش کنید.
+- پیام‌واره‌ها را در [Google AI Studio](https://aistudio.google.com/?hl=fa) آزمایش و پالایش کنید.
+
+ارسال بازخورد
+
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+
+تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی.
+
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی."],[],[]]

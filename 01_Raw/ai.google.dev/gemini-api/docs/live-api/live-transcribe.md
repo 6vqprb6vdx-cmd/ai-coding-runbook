@@ -1,56 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=it
-fetched_at: 2026-10-05T06:38:03.088762+00:00
-title: "Trascrizione in tempo reale con l'API Gemini Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=hi
+fetched_at: 2026-10-12T06:52:53.300175+00:00
+title: "Gemini Live API \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, \u0932\u093e\u0907\u0935 \u091f\u094d\u0930\u093e\u0902\u0938\u0915\u094d\u0930\u093f\u092a\u094d\u0936\u0928 \u0915\u0940 \u0938\u0941\u0935\u093f\u0927\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Invia feedback
+सुझाव भेजें
 
-# Trascrizione in tempo reale con l'API Gemini Live
+# Gemini Live API की मदद से, लाइव ट्रांसक्रिप्शन की सुविधा
 
-L'API Gemini Live supporta la trascrizione della conversione della voce in testo in tempo reale e a bassa latenza utilizzando il modello [`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=it). Se ti connetti all'API Live tramite WebSocket o utilizzi l'SDK Google Gen AI, puoi trasmettere in streaming l'input audio continuo e ricevere trascrizioni di testo incrementali in tempo reale man mano che viene pronunciato il discorso.
+Gemini Live API, [`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=hi) मॉडल का इस्तेमाल करके, कम समय में बोली को लिखाई में बदलने की सुविधा देता है. WebSockets के ज़रिए Live API से कनेक्ट करके या Google Gen AI SDK का इस्तेमाल करके, लगातार ऑडियो इनपुट स्ट्रीम किया जा सकता है. साथ ही, बोली गई बातों को रीयल-टाइम में टेक्स्ट में बदला जा सकता है.
 
-[Prova la Trascrizione in tempo reale in Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-transcribe-live&hl=it)
-[Apri il cookbook di Colabcode](https://github.com/google-gemini/cookbook)
-[Utilizza le competenze dell'agente di codificaterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#gemini-live-api-dev)
+[Google AI Studio में लाइव ट्रांसक्रिप्शन की सुविधा आज़माएँmic](https://aistudio.google.com/live?model=gemini-3.5-transcribe-live&hl=hi)
+[Colab कुकबुक खोलेंcode](https://github.com/google-gemini/cookbook)
+[कोडिंग एजेंट की क्षमताओं का इस्तेमाल करेंterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi#gemini-live-api-dev)
 
-Sfruttando l'API Gemini Live, piattaforme per sviluppatori come
-[Agora](https://docs.agora.io/en/ai/models/asr/gemini),
-[Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration),
-[LiveKit](https://docs.livekit.io/agents/models/stt/gemini/),
-[Pipecat](https://docs.pipecat.ai/api-reference/server/services/stt/google),
-[Vercel](https://vercel.com/docs/ai-gateway/modalities/speech-to-text) e
-[Vision Agents](https://visionagents.ai/integrations/stt/gemini)
-consentono agli sviluppatori di creare e implementare interfacce vocali ad alte prestazioni
-con facilità. Queste piattaforme gestiscono un'infrastruttura complessa di streaming multimediale in tempo reale
-dietro le quinte, consentendo agli sviluppatori di concentrarsi interamente sulla
-creazione dell'esperienza utente.
+Gemini Live API का इस्तेमाल करके, डेवलपर प्लैटफ़ॉर्म जैसे कि [Agora](https://docs.agora.io/en/ai/models/asr/gemini), [Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration), [LiveKit](https://docs.livekit.io/agents/models/stt/gemini/), [Pipecat](https://docs.pipecat.ai/api-reference/server/services/stt/google), [Vercel](https://vercel.com/docs/ai-gateway/modalities/speech-to-text), और [Vision Agents](https://visionagents.ai/integrations/stt/gemini), डेवलपर को आसानी से, आवाज़ से कंट्रोल होने वाले बेहतरीन इंटरफ़ेस बनाने और उन्हें डिप्लॉय करने की सुविधा देते हैं. ये प्लैटफ़ॉर्म, पर्दे के पीछे जटिल रीयल-टाइम मीडिया स्ट्रीमिंग इंफ़्रास्ट्रक्चर को मैनेज करते हैं. इससे डेवलपर, उपयोगकर्ता अनुभव को बेहतर बनाने पर पूरी तरह से फ़ोकस कर पाते हैं.
 
-## Operatore e trascrizione in tempo reale
+## लाइव एजेंट और लाइव ट्रांसक्रिप्शन की सुविधा के बीच अंतर
 
-Sebbene entrambi utilizzino la connessione di streaming bidirezionale dell'API Live, la trascrizione in tempo reale funziona come una pipeline di riconoscimento vocale dedicata a bassa latenza anziché come un agente conversazionale.
+दोनों ही Live API के द्विदिशीय स्ट्रीमिंग कनेक्शन का इस्तेमाल करते हैं. हालांकि, लाइव ट्रांसक्रिप्शन, बातचीत करने वाले एजेंट के बजाय, कम समय में बोली को पहचानने वाली पाइपलाइन के तौर पर काम करता है.
 
-| Funzionalità | Agente | Trascrizione Istantanea |
+| सुविधा | लाइव एजेंट | बोले जा रहे शब्दों को रीयल-टाइम में टेक्स्ट में बदलने की सुविधा |
 | --- | --- | --- |
-| **Ruolo principale** | Assistente conversazionale che ascolta, ragiona e risponde. | Pipeline di conversione della voce in testo in tempo reale che trascrive l'audio in entrata. |
-| **Modalità di risposta** | Audio e testo parlati (`response_modalities=["AUDIO"]`). | Trascrizioni di testo dello streaming (`response_modalities=["TEXT"]`). |
-| **Stile di interazione** | Dialogo a turni con rilevamento di pause e interruzioni. | Elaborazione continua del flusso mentre l'oratore parla. |
-| **Funzionalità supportate** | Chiamata di funzione, Ricerca Google, istruzioni di sistema. | Bias del parlato (`custom_vocabulary`), rilevamento della lingua, VAD manuale e ibrido, trascrizione intelligente. |
-| **Stream di input** | Multimodale: audio, video, immagini, testo. | Input audio (PCM a 16 bit non elaborato). |
+| **मुख्य भूमिका** | बातचीत करने वाली Assistant, जो सुनती है, वजह बताती है, और जवाब देती है. | रीयल-टाइम में बोली को लिखाई में बदलने वाली पाइपलाइन, जो इनकमिंग ऑडियो को ट्रांसक्राइब करती है. |
+| **जवाब देने का तरीका** | बोला गया ऑडियो और टेक्स्ट (`response_modalities=["AUDIO"]`). | स्ट्रीम किए जा रहे टेक्स्ट की ट्रांसक्रिप्ट (`response_modalities=["TEXT"]`). |
+| **इंटरैक्शन स्टाइल** | बारी-बारी से बातचीत करने की सुविधा, जिसमें रुकने और बीच में बोलने का पता लगाया जाता है. | स्पीकर के बोलते समय, स्ट्रीम की लगातार प्रोसेसिंग होती है. |
+| **उपलब्ध सुविधाएं** | फ़ंक्शन कॉलिंग, Google Search, सिस्टम के निर्देश. | बोली को प्राथमिकता देना (`custom_vocabulary`), भाषा का पता लगाना, मैन्युअल और हाइब्रिड वीएडी, स्मार्ट ट्रांसक्रिप्शन. |
+| **इनपुट स्ट्रीम** | मल्टीमोडल: ऑडियो, वीडियो, इमेज, टेक्स्ट. | ऑडियो इनपुट (रॉ 16-बिट पीसीएम). |
 
-## Inizia
+## अपनी प्रोफ़ाइल बनाना शुरू करें
 
-I seguenti esempi mostrano come aprire una sessione di streaming bidirezionale con `gemini-3.5-transcribe-live` e ricevere trascrizioni in tempo reale.
+यहां दिए गए उदाहरणों में, `gemini-3.5-transcribe-live` के साथ दोनों दिशाओं में काम करने वाला स्ट्रीमिंग सेशन खोलने और रीयल-टाइम ट्रांसक्रिप्शन पाने का तरीका बताया गया है.
 
 ### Python
 
@@ -154,14 +144,14 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Trascrizioni provvisorie e definitive
+## अस्थायी और फ़ाइनल ट्रांसक्रिप्ट
 
-Man mano che gli stream audio vengono inseriti nell'API Live, il server emette due campi di trascrizione complementari all'interno di `server_content`:
+ऑडियो को Live API में स्ट्रीम करने पर, सर्वर `server_content` में दो ट्रांसक्रिप्शन फ़ील्ड दिखाता है:
 
-- **`interim_input_transcription`**: ipotesi parziali speculative a bassa latenza aggiornate mentre l'oratore parla attivamente. Questi aggiornamenti parziali vengono eseguiti rapidamente con un ritardo minimo. Utilizza `interim_input_transcription` per visualizzare in anteprima i sottotitoli codificati o i sottotitoli codificati in tempo reale reattivi dell'interfaccia utente.
-- **`input_transcription`**: la trascrizione finalizzata emessa quando l'oratore si ferma, il turno termina o il discorso viene finalizzato. Una volta emesso, questo testo rappresenta la trascrizione autorevole del modello del segmento vocale. In modalità di trascrizione intelligente, verrà inclusa la risposta pulita e formattata.
+- **`interim_input_transcription`**: कम समय में नतीजे मिलते हैं. साथ ही, स्पीकर के बोलते समय, अनुमानित तौर पर कुछ शब्दों को अपडेट किया जाता है. ये आंशिक अपडेट, बहुत कम समय में हो जाते हैं. `interim_input_transcription` का इस्तेमाल करके, लाइव यूज़र इंटरफ़ेस (यूआई) के रिस्पॉन्सिव सबटाइटल या कैप्शन की झलक रेंडर करें.
+- **`input_transcription`**: यह स्पीकर के रुकने, बारी पूरी होने या स्पीच के फ़ाइनल होने पर जारी की गई फ़ाइनल ट्रांसक्रिप्ट होती है. यह टेक्स्ट, मॉडल के उस स्पीच सेगमेंट की आधिकारिक ट्रांसक्रिप्ट को दिखाता है. स्मार्ट ट्रांसक्रिप्शन मोड में, इसमें साफ़ तौर पर फ़ॉर्मैट किया गया जवाब शामिल होगा.
 
-L'esempio seguente mostra come visualizzare i risultati parziali intermedi dello streaming e inviare le trascrizioni finali:
+यहां दिए गए उदाहरण में, स्ट्रीमिंग के दौरान मिलने वाले इंटरिम पार्शियल को दिखाने और फ़ाइनल ट्रांसक्रिप्ट को सेव करने का तरीका बताया गया है:
 
 ### Python
 
@@ -217,13 +207,13 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Invio di audio
+## ऑडियो भेजना
 
-Trasmetti in streaming blocchi audio tramite la connessione attiva come audio PCM a 16 bit non elaborato.
+ऐक्टिव कनेक्शन पर, ऑडियो के हिस्सों को 16-बिट पीसीएम ऑडियो के तौर पर स्ट्रीम करें.
 
-- **Formato audio**:PCM a 16 bit non elaborato a 16 kHz (mono, little-endian).
-- **Dimensioni chunk**:invia l'audio in chunk di 100 ms (da 1024 a 2048 frame).
-- **Tipo MIME:** `audio/pcm;rate=16000` (o la frequenza di campionamento corrispondente).
+- **ऑडियो फ़ॉर्मैट:** रॉ 16-बिट पीसीएम, 16 किलोहर्ट्ज़ पर (मोनो, लिटिल-एंडियन).
+- **चंक का साइज़:** ऑडियो को 100 मि॰से॰ (1,024 से 2,048 फ़्रेम) के चंक में भेजें.
+- **एमआईएमई टाइप:** `audio/pcm;rate=16000` (या मैचिंग सैंपलिंग रेट).
 
 ### Python
 
@@ -278,11 +268,11 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-## Funzionalità di trascrizione
+## बोले जा रहे शब्दों को टेक्स्ट में बदलने की सुविधाएं
 
-### Rilevamento automatico della lingua
+### अपने-आप भाषा पहचानने की सुविधा
 
-Per impostazione predefinita, l'omissione di `language_codes` o l'impostazione di `language_codes=[]` attiva l'identificazione automatica della lingua. Il modello rileva dinamicamente la lingua parlata in tutte le espressioni, incluse le conversazioni multilingue e il cambio di codice.
+डिफ़ॉल्ट रूप से, `language_codes` को शामिल न करने या `language_codes=[]` को सेट करने पर, भाषा की अपने-आप पहचान होने की सुविधा चालू हो जाती है. यह मॉडल, अलग-अलग भाषाओं में की गई बातचीत और कोड-स्विचिंग के साथ-साथ, अलग-अलग भाषाओं में बोले गए शब्दों का पता लगाता है.
 
 ### Python
 
@@ -323,9 +313,9 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Suggerimento per una lingua specifica
+### किसी खास भाषा के बारे में जानकारी
 
-Fornisci codici lingua BCP-47 espliciti (ad esempio, `["es-ES"]` per lo spagnolo o `["fr-FR"]` per il francese) per orientare il riconoscimento verso lingue specifiche (vedi [Lingue supportate](#supported-languages)).
+BCP-47 के भाषा कोड (उदाहरण के लिए, स्पैनिश के लिए `["es-ES"]` या फ़्रेंच के लिए `["fr-FR"]`) साफ़ तौर पर दें, ताकि पहचान करने की सुविधा को खास भाषाओं के लिए बेहतर बनाया जा सके. [सुविधा के साथ काम करने वाली भाषाएं](#supported-languages) देखें.
 
 ### Python
 
@@ -366,9 +356,9 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Bias del vocabolario personalizzato
+### कस्टम शब्दावली के हिसाब से पक्षपात करना
 
-Fornisci un elenco di massimo 1000 frasi, nomi propri, nomi di brand o termini tecnici in `custom_vocabulary` per orientare il riconoscimento vocale verso una terminologia specifica (i risultati migliori si ottengono in genere con un massimo di 100 termini).
+`custom_vocabulary` में ज़्यादा से ज़्यादा 1,000 वाक्यांश, व्यक्तिवाचक संज्ञाएं, ब्रैंड के नाम या तकनीकी शब्द जोड़ें, ताकि बोली की पहचान करने वाली सुविधा, खास शब्दावली पर फ़ोकस कर सके. आम तौर पर, ज़्यादा से ज़्यादा 100 शब्दों का इस्तेमाल करने पर सबसे अच्छे नतीजे मिलते हैं.
 
 ### Python
 
@@ -412,17 +402,17 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Trascrizione intelligente
+### स्मार्ट ट्रांसक्रिप्शन
 
-Configura la formattazione dell'output della trascrizione utilizzando il parametro `mode` in `input_audio_transcription`:
+`input_audio_transcription` में `mode` पैरामीटर का इस्तेमाल करके, ट्रांसक्रिप्शन के आउटपुट फ़ॉर्मैट को कॉन्फ़िगर करें:
 
-- **`VERBATIM` (impostazione predefinita)**: produce una trascrizione letterale esatta di tutto ciò che viene detto, conservando le parole di riempimento grezze ("um", "uh", "tipo"), le ripetizioni e le false partenze.
-- **`SMART` (Trascrizione intelligente)**: pulisce e struttura la trascrizione per renderla più leggibile:
+- **`VERBATIM` (डिफ़ॉल्ट)**: इसमें बोले गए हर शब्द की सटीक ट्रांसक्रिप्ट तैयार की जाती है. इसमें फ़िलर शब्दों ("अम", "अह", "जैसे"), दोहराए गए शब्दों, और गलत शुरुआत को भी शामिल किया जाता है.
+- **`SMART` (स्मार्ट ट्रांसक्रिप्शन)**: यह ट्रांसक्रिप्ट को पढ़ने में आसान बनाने के लिए, उसे साफ़-सुथरा और व्यवस्थित करता है:
 
-  - **Rimozione delle disfluenze**: rimuove gli intercalari, le balbuzie e gli avvii errati.
-  - **Correzioni automatiche in linea**: risolve le correzioni vocali in modo naturale.
-  - **Formattazione strutturata**: formatta automaticamente elenchi, punti elenco, numeri, date e interruzioni di paragrafo.
-  - **Grammatica e maiuscole**: applica la punteggiatura e le maiuscole naturali.
+  - **बोलने में होने वाली रुकावटों को हटाना**: इससे फ़िलर शब्द, हकलाना, और गलत शुरुआत को हटाया जाता है.
+  - **बोले गए शब्दों में सुधार करने की सुविधा**: यह सुविधा, बोले गए शब्दों में सुधार करने की सुविधा को नैचुरल तरीके से काम करने देती है.
+  - **स्ट्रक्चर्ड फ़ॉर्मैटिंग**: यह सुविधा, सूचियों, बुलेट पॉइंट, संख्याओं, तारीखों, और पैराग्राफ़ ब्रेक को अपने-आप फ़ॉर्मैट करती है.
+  - **व्याकरण और केसिंग**: इसमें नैचुरल कैपिटल लेटर और विराम चिह्न को बेहतर बनाया जाता है.
 
 ### Python
 
@@ -463,20 +453,20 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-## Strategie di rilevamento di attività vocale (VAD)
+## आवाज़ का पता लगाने की तकनीक (वीएडी) से जुड़ी रणनीतियां
 
-### Rilevamento automatico dell'attività vocale (impostazione predefinita)
+### अपने-आप वीएडी की सुविधा चालू होना (डिफ़ॉल्ट)
 
-Per impostazione predefinita, il rilevamento automatico dell'attività vocale lato server rileva quando un oratore inizia e smette di parlare.
+डिफ़ॉल्ट रूप से, सर्वर-साइड पर मौजूद वॉइस ऐक्टिविटी डिटेक्शन की सुविधा यह पता लगाती है कि स्पीकर ने बोलना कब शुरू किया और कब बंद किया.
 
-### VAD ibrido
+### हाइब्रिड वीएडी
 
-[VAD ibrido](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=it#hybrid-vad) combina il rilevamento automatico dell'inizio del discorso lato server con il rilevamento della fine del discorso lato client per la finalizzazione del turno a latenza zero:
+[हाइब्रिड वीएडी](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=hi#hybrid-vad), सर्वर-साइड पर अपने-आप बातचीत शुरू होने का पता लगाने की सुविधा को क्लाइंट-साइड पर बातचीत खत्म होने का पता लगाने की सुविधा के साथ जोड़ता है, ताकि बिना किसी रुकावट के जवाब दिया जा सके:
 
-1. **Il rilevamento automatico dell'attività vocale lato server rimane attivo** per rilevare con precisione l'inizio del parlato con il padding audio del prefisso, evitando il troncamento delle parole iniziali.
-2. **Rilevamento dell'attività vocale lato client rileva il silenzio**: quando il rilevamento dell'attività vocale locale sul dispositivo rileva che l'oratore ha smesso di parlare, il client invia immediatamente un segnale `audio_stream_end`.
-3. **Finalizzazione rapida**: il server considera `audio_stream_end` come un prompt di finalizzazione immediata, ignorando il tempo di attesa predefinito del silenzio lato server e restituendo la trascrizione finalizzata con una latenza minima.
-4. **Fallback**: se la VAD lato client non viene attivata, la VAD lato server funge da fallback automatico.
+1. **सर्वर-साइड पर वीएडी की सुविधा अपने-आप चालू रहती है**, ताकि प्रीफ़िक्स ऑडियो पैडिंग की मदद से, स्पीच की शुरुआत का सटीक पता लगाया जा सके. इससे पहले शब्द के कुछ हिस्से के कटने की समस्या नहीं होती.
+2. **क्लाइंट-साइड वीएडी को आवाज़ न होने का पता चलता है**: जब उपयोगकर्ता के डिवाइस पर मौजूद लोकल वीएडी को पता चलता है कि बोलने वाले व्यक्ति ने बोलना बंद कर दिया है, तो क्लाइंट तुरंत `audio_stream_end` सिग्नल भेजता है.
+3. **जल्दी फ़ाइनल करना**: सर्वर, `audio_stream_end` को तुरंत फ़ाइनल करने के प्रॉम्प्ट के तौर पर लेता है. इससे सर्वर साइड से मिलने वाले जवाब के लिए इंतज़ार करने का डिफ़ॉल्ट समय कम हो जाता है. साथ ही, फ़ाइनल की गई ट्रांसक्रिप्ट कम से कम समय में मिल जाती है.
+4. **फ़ॉलबैक**: अगर क्लाइंट वीएडी ट्रिगर नहीं होता है, तो सर्वर-साइड वीएडी अपने-आप फ़ॉलबैक के तौर पर काम करता है.
 
 ### Python
 
@@ -544,9 +534,9 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-### VAD manuale (premi per parlare)
+### मैन्युअल वीएडी (पुश-टू-टॉक)
 
-Per le interfacce walkie-talkie o i pulsanti push-to-talk, disattiva completamente il VAD automatico e controlla i limiti di turno in modo esplicito utilizzando `activity_start` e `activity_end`:
+वॉकी-टॉकी इंटरफ़ेस या पुश-टू-टॉक बटन के लिए, वीएडी की सुविधा को पूरी तरह से बंद करें. साथ ही, `activity_start` और `activity_end` का इस्तेमाल करके, बोलने की सीमा को कंट्रोल करें:
 
 ### Python
 
@@ -635,11 +625,11 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-## Token effimeri nelle applicazioni client
+## क्लाइंट ऐप्लिकेशन में कुछ समय के लिए उपलब्ध टोकन
 
-Per le applicazioni client-server (come le app web o mobile che trasmettono in streaming direttamente da un microfono), utilizza i [token effimeri](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=it) per evitare di esporre la chiave API nel codice client.
+क्लाइंट-टू-सर्वर ऐप्लिकेशन (जैसे कि सीधे माइक्रोफ़ोन से स्ट्रीम करने वाले मोबाइल या वेब ऐप्लिकेशन) के लिए, [अस्थायी टोकन](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=hi) का इस्तेमाल करें. इससे क्लाइंट कोड में आपकी एपीआई कुंजी को ज़ाहिर होने से रोका जा सकेगा.
 
-Crea un token effimero vincolato sul server prima di avviare la connessione client:
+क्लाइंट कनेक्शन शुरू करने से पहले, अपने सर्वर पर सीमित समय के लिए मान्य टोकन बनाएं:
 
 ### Python
 
@@ -713,95 +703,95 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-## Lingue supportate
+## इस्तेमाल की जा सकने वाली भाषाएं
 
-Le seguenti lingue e i seguenti codici lingua BCP-47 sono supportati per Gemini 3.5 Transcribe Live:
+Gemini 3.5 की Live बातचीत को ट्रांसक्रिप्ट करने की सुविधा के लिए, ये भाषाएँ और BCP-47 भाषा कोड उपलब्ध हैं:
 
-| Lingua | Codice BCP-47 | Lingua | Codice BCP-47 |
+| भाषा | BCP-47 कोड | भाषा | BCP-47 कोड |
 | --- | --- | --- | --- |
-| Afrikaans | `af-ZA` | Giapponese | `ja-JP` |
-| Amarico | `am-ET` | Giavanese | `jv-ID` |
-| Arabo (Egitto) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| Armeno | `hy-AM` | Kannada | `kn-IN` |
-| Assamese | `as-IN` | Kazako | `kk-KZ` |
-| Azero | `az-AZ` | Coreano | `ko-KR` |
-| Bielorusso | `be-BY` | Kirgizo | `ky-KG` |
-| Bengalese (Bangladesh) | `bn-BD` | Lettone | `lv-LV` |
-| Bengalese (India) | `bn-IN` | Lingala | `ln-CD` |
-| Bosniaco | `bs-BA` | Lituano | `lt-LT` |
-| Bulgaro | `bg-BG` | Macedone | `mk-MK` |
-| Bulgaro (aromeno) | `rup-BG` | Malese | `ms-MY` |
-| Birmano | `my-MM` | Malayalam | `ml-IN` |
-| Cantonese (tradizionale) | `yue-Hant-HK` | Maltese | `mt-MT` |
-| Catalano | `ca-ES` | Cinese mandarino (semplificato) | `cmn-Hans-CN` |
-| Cebuano | `ceb` | Marathi | `mr-IN` |
-| Khmer centrale | `km-KH` | Mongolo | `mn-MN` |
-| Croato | `hr-HR` | Nepalese | `ne-NP` |
-| Ceco | `cs-CZ` | Norvegese | `nb-NO` |
-| Danese | `da-DK` | Oriya | `or-IN` |
-| Olandese | `nl-NL` | Polacco | `pl-PL` |
-| Inglese (Gran Bretagna) | `en-GB` | Portoghese (Brasile) | `pt-BR` |
-| Inglese (India) | `en-IN` | Portoghese (Portogallo) | `pt-PT` |
-| Inglese (Stati Uniti) | `en-US` | Punjabi | `pa-IN` |
-| Estone | `et-EE` | Punjabi (Gurmukhi script) | `pa-Guru-IN` |
-| Farsi | `fa-IR` | Rumeno | `ro-RO` |
-| Filippino | `fil-PH` | Russo | `ru-RU` |
-| Finlandese | `fi-FI` | Serbo | `sr-RS` |
-| Francese | `fr-FR` | Sindhi (alfabeto arabo) | `sd-Arab-IN` |
-| Galiziano | `gl-ES` | Slovacco | `sk-SK` |
-| Georgiano | `ka-GE` | Sloveno | `sl-SI` |
-| Tedesco | `de-DE` | Spagnolo (America Latina) | `es-419` |
-| Greek | `el-GR` | Spagnolo (Stati Uniti) | `es-US` |
-| Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
-| Hausa | `ha-NG` | Svedese | `sv-SE` |
-| Ebraico | `he-IL` | Tagico | `tg-TJ` |
-| Hindi | `hi-IN` | Telugu | `te-IN` |
-| Ungherese | `hu-HU` | Thailandese | `th-TH` |
-| Islandese | `is-IS` | Turco | `tr-TR` |
-| Inglese indiano | `en-IN` | Ucraino | `uk-UA` |
-| Indonesiano | `id-ID` | Uzbeco | `uz-UZ` |
-| Italiano | `it-IT` | Vietnamita | `vi-VN` |
+| अफ़्रीकान्स | `af-ZA` | जापानी | `ja-JP` |
+| अमहैरिक | `am-ET` | जावानीज़ | `jv-ID` |
+| अरबी (मिस्र) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| आर्मीनियन | `hy-AM` | कन्नड़ | `kn-IN` |
+| असमिया | `as-IN` | कज़ाक | `kk-KZ` |
+| अज़रबैजानी | `az-AZ` | कोरियन | `ko-KR` |
+| बेलारूसी | `be-BY` | किर्गिज़ | `ky-KG` |
+| बांग्ला (बांग्लादेश) | `bn-BD` | लातवियन | `lv-LV` |
+| बांग्ला (भारत) | `bn-IN` | लिंगाला | `ln-CD` |
+| बोस्नियन | `bs-BA` | लिथुएनियन | `lt-LT` |
+| बल्गैरियन | `bg-BG` | मैसेडोनियन | `mk-MK` |
+| बल्गेरियन (ऐरोमेनियन) | `rup-BG` | मलय | `ms-MY` |
+| बर्मीज़ | `my-MM` | मलयालम | `ml-IN` |
+| कैंटोनीज़ (ट्रेडिशनल) | `yue-Hant-HK` | मोल्टीज़ | `mt-MT` |
+| कैटलैन | `ca-ES` | मैंडरिन चाइनीज़ (सिंप्लिफ़ाइड) | `cmn-Hans-CN` |
+| सेबुआनो | `ceb` | मराठी | `mr-IN` |
+| सेंट्रल खमेर | `km-KH` | मंगोलियन | `mn-MN` |
+| क्रोएशियन | `hr-HR` | नेपाली | `ne-NP` |
+| चेक | `cs-CZ` | नॉर्वीजन | `nb-NO` |
+| डैनिश | `da-DK` | ओड़िया | `or-IN` |
+| डच | `nl-NL` | पोलिश | `pl-PL` |
+| अंग्रेज़ी (ग्रेट ब्रिटेन) | `en-GB` | पॉर्चुगीज़ (ब्राज़ील) | `pt-BR` |
+| अंग्रेज़ी (भारत) | `en-IN` | पॉर्चगीज़ (पुर्तगाल) | `pt-PT` |
+| अंग्रेज़ी (संयुक्त राज्य अमेरिका) | `en-US` | पंजाबी | `pa-IN` |
+| एस्टोनियन | `et-EE` | पंजाबी (गुरमुखी लिपि) | `pa-Guru-IN` |
+| फ़ारसी | `fa-IR` | रोमानियन | `ro-RO` |
+| फ़िलिपीनी | `fil-PH` | रूसी | `ru-RU` |
+| फ़िनिश | `fi-FI` | सर्बियन | `sr-RS` |
+| फ़्रांसीसी | `fr-FR` | सिंधी (अरबी लिपि) | `sd-Arab-IN` |
+| गैलिशियन | `gl-ES` | स्लोवाक | `sk-SK` |
+| जॉर्जियन | `ka-GE` | स्लोवेनियन | `sl-SI` |
+| जर्मन | `de-DE` | स्पैनिश (लैटिन अमेरिका) | `es-419` |
+| ग्रीक | `el-GR` | स्पैनिश (संयुक्त राज्य अमेरिका) | `es-US` |
+| गुजराती | `gu-IN` | स्वाहिली (केन्या) | `sw-KE` |
+| हौसा | `ha-NG` | स्वीडिश | `sv-SE` |
+| हिब्रू | `he-IL` | ताजिक | `tg-TJ` |
+| हिन्दी | `hi-IN` | तेलुगु | `te-IN` |
+| हंगेरियन | `hu-HU` | थाई | `th-TH` |
+| आइसलैंडिक | `is-IS` | टर्किश | `tr-TR` |
+| इंडियन इंग्लिश | `en-IN` | यूक्रेनियन | `uk-UA` |
+| इंडोनेशियन | `id-ID` | उज़्बेक | `uz-UZ` |
+| इटैलियन | `it-IT` | वियतनामीज़ | `vi-VN` |
 
-## Riferimento ai parametri
+## पैरामीटर का रेफ़रंस
 
-Configura la trascrizione in tempo reale utilizzando i campi in `input_audio_transcription` e `realtime_input_config`:
+`input_audio_transcription` और `realtime_input_config` में मौजूद फ़ील्ड का इस्तेमाल करके, बोली को लेख में बदलने की सुविधा को कॉन्फ़िगर करें:
 
-| Parametro | Tipo | Descrizione |
+| पैरामीटर | टाइप | ब्यौरा |
 | --- | --- | --- |
-| `language_codes` | Array di stringhe | Codici lingua BCP-47 (ad es. `["en-US"]`). Se omesso o vuoto (`[]`), il modello rileva automaticamente la lingua e gestisce la voce multilingue. |
-| `custom_vocabulary` | Array di stringhe | Fino a 1000 termini personalizzati, acronimi, nomi di brand o nomi propri per orientare il riconoscimento vocale. |
-| `mode` | Stringa | Modalità di trascrizione: `"VERBATIM"` (predefinita) o `"SMART"` (Trascrizione intelligente). Se impostato su `"SMART"`, il modello rimuove gli intercalari, formatta gli elenchi e corregge le disfluenze. |
-| `automatic_activity_detection.disabled` | Booleano | Imposta su `true` per disattivare il rilevamento di attività vocale automatico e inviare manualmente i segnali `activityStart` e `activityEnd`. |
+| `language_codes` | स्ट्रिंग का कलेक्शन | BCP-47 भाषा कोड (जैसे, `["en-US"]`). अगर इसे शामिल नहीं किया जाता है या यह खाली (`[]`) है, तो मॉडल अपने-आप भाषा का पता लगाता है और एक से ज़्यादा भाषाओं में बोले गए शब्दों को प्रोसेस करता है. |
+| `custom_vocabulary` | स्ट्रिंग का कलेक्शन | ज़्यादा से ज़्यादा 1,000 कस्टम शब्द, संक्षिप्त नाम, ब्रैंड के नाम या व्यक्तिवाचक संज्ञाएं, ताकि स्पीच रिकग्निशन को बेहतर बनाया जा सके. |
+| `mode` | स्ट्रिंग | बोली को लेख में बदलने का मोड: `"VERBATIM"` (डिफ़ॉल्ट) या `"SMART"` (स्मार्ट ट्रांसक्रिप्शन). `"SMART"` पर सेट होने पर, मॉडल फ़िलर शब्दों को हटा देता है, सूचियों को फ़ॉर्मैट करता है, और बोलने में होने वाली गलतियों को ठीक करता है. |
+| `automatic_activity_detection.disabled` | बूलियन | आवाज़ की गतिविधि का अपने-आप पता लगने की सुविधा बंद करने के लिए, इसे `true` पर सेट करें. साथ ही, `activityStart` और `activityEnd` सिग्नल मैन्युअल तरीके से भेजें. |
 
-### Campi di risposta del server
+### सर्वर के जवाब वाले फ़ील्ड
 
-| Campo | Descrizione |
+| फ़ील्ड | ब्यौरा |
 | --- | --- |
-| `server_content.interim_input_transcription` | Ipotesi di trascrizione parziale provvisoria a bassa latenza emessa continuamente mentre l'utente parla. |
-| `server_content.input_transcription` | Trascrizione autorevole e finalizzata emessa al termine di un turno di parola. |
+| `server_content.interim_input_transcription` | कम समय में, कुछ समय के लिए आंशिक ट्रांसक्रिप्शन का अनुमान लगाया जाता है. यह अनुमान तब तक लगातार लगाया जाता है, जब तक उपयोगकर्ता बोलता रहता है. |
+| `server_content.input_transcription` | जब कोई व्यक्ति बोलना बंद कर देता है, तब यह ट्रांसक्रिप्ट जारी की जाती है. यह ट्रांसक्रिप्ट, भरोसेमंद इनपुट पर आधारित होती है. |
 
-## Limitazioni
+## सीमाएं
 
-- **Durata della sessione**:le sessioni di trascrizione in tempo reale supportano lo streaming continuo fino a 10 minuti.
-- **Diarizzazione degli oratori**:la diarizzazione degli oratori non è supportata nelle sessioni di live streaming. Per la diarizzazione degli oratori, utilizza l'endpoint [Trascrizione audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=it#speaker-diarization) non in streaming.
-- **Timestamp a livello di parola**:i timestamp a livello di parola non sono supportati tramite l'API Live. L'API Live emette timestamp a livello di enunciato (`interim_input_transcription` e `input_transcription`).
-- **Vocabolario personalizzato**:puoi fornire fino a 1000 termini in `custom_vocabulary`, ma in genere i risultati migliori si ottengono con un massimo di 100 termini.
-- **Compatibilità delle modalità**:la trascrizione intelligente (`"mode": "SMART"`) rimuove le parole di riempimento e formatta il testo in base all'intent, ma non può essere combinata con le annotazioni delle parole.
+- **सेशन कितनी देर चला:** लाइव ट्रांसक्रिप्शन की सुविधा के साथ, लगातार 10 मिनट तक स्ट्रीमिंग की जा सकती है.
+- **स्पीकर डायराइज़ेशन:** स्पीकर डायराइज़ेशन की सुविधा, लाइव स्ट्रीमिंग सेशन में काम नहीं करती. स्पीकर के हिसाब से ऑडियो को टेक्स्ट में बदलने के लिए, नॉन-स्ट्रीमिंग [ऑडियो ट्रांसक्रिप्शन](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi#speaker-diarization) एंडपॉइंट का इस्तेमाल करें.
+- **शब्द के लेवल पर टाइमस्टैंप:** Live API पर, शब्द के लेवल पर टाइमस्टैंप की सुविधा काम नहीं करती. Live API, बोले गए शब्दों के लेवल के टाइमस्टैंप (`interim_input_transcription` और `input_transcription`) दिखाता है.
+- **कस्टम शब्दावली:** `custom_vocabulary` में ज़्यादा से ज़्यादा 1,000 शब्द जोड़े जा सकते हैं. हालांकि, आम तौर पर 100 शब्दों से ही सबसे अच्छे नतीजे मिलते हैं.
+- **मोड के साथ काम करने की सुविधा:** स्मार्ट ट्रांसक्रिप्शन (`"mode": "SMART"`) की सुविधा, फ़ालतू शब्दों को हटाती है और इंटेंट के हिसाब से टेक्स्ट को फ़ॉर्मैट करती है. हालांकि, इसे शब्द के एनोटेशन के साथ इस्तेमाल नहीं किया जा सकता.
 
-## Passaggi successivi
+## आगे क्या करना है
 
-- Leggi la [documentazione di Gemini Transcribe](https://ai.google.dev/gemini-api/docs/transcribe?hl=it) per i file audio non in streaming.
-- Leggi la [panoramica dell'API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it) per gli agenti vocali conversazionali.
-- Leggi la [guida alla traduzione live](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=it) per la traduzione vocale in tempo reale.
-- Consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-3.5-transcribe-live) per i prezzi dello streaming dell'API Live.
-- Esplora la [guida alle funzionalità dell'API Live](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=it).
+- स्ट्रीम नहीं की जा रही ऑडियो फ़ाइलों के लिए, [Gemini Transcribe से जुड़ा दस्तावेज़](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi) पढ़ें.
+- बातचीत करने वाले वॉइस एजेंट के लिए, [Live API की खास जानकारी](https://ai.google.dev/gemini-api/docs/live-api?hl=hi) पढ़ें.
+- बोले जा रहे शब्दों का रीयल-टाइम में अनुवाद पाने के लिए, [लाइव ट्रांसलेशन गाइड](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=hi) पढ़ें.
+- लाइव एपीआई स्ट्रीमिंग की कीमत जानने के लिए, [कीमत तय करने से जुड़ा पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-3.5-transcribe-live) देखें.
+- [Live API की सुविधाओं के बारे में जानकारी देने वाली गाइड](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=hi) देखें.
 
-Invia feedback
+सुझाव भेजें
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Ultimo aggiornamento 2026-09-10 UTC.
+आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया.
 
-Vuoi dirci altro?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-10 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया."],[],[]]

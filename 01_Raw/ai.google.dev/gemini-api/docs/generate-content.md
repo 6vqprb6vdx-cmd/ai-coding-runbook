@@ -1,23 +1,23 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content?hl=he
-fetched_at: 2026-10-05T06:33:46.360210+00:00
+source_url: https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-TW
+fetched_at: 2026-10-12T06:58:30.114518+00:00
 title: "Gemini API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
 
 # Gemini API
 
-‫Gemini API היא הדרך הכי מהירה להפוך הנחיה למוצר מוגמר באמצעות Gemini,‏ Veo,‏ Nano Banana ועוד. הוא מאפשר לכם לשלב את המודלים הגנרטיביים האלה באפליקציות שלכם כדי ליצור טקסט ותמונות, לנתח קלט מולטי-מודאלי ולבנות סוכנים שיכולים לנהל שיחות.
+Gemini API 是從提示到製作的最快途徑，可使用 Gemini、Veo、Nano Banana 等模型。您可將這些生成模型整合至應用程式，生成文字和圖片、分析多模態輸入內容，以及建構對話式代理程式。
 
 ### Python
 
@@ -107,7 +107,7 @@ public class GenerateTextFromTextInput {
 }
 ```
 
-### C#‎
+### C#
 
 ```
 using System.Threading.Tasks;
@@ -145,128 +145,124 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-[אני רוצה להתחיל לפתח](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+[開始建構](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
 
 ---
 
-## היכרות עם המודלים
+## 認識各種機型
 
-[הצג הכול](https://ai.google.dev/gemini-api/docs/models?hl=he)
+[查看全部](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)
 
 [auto\_awesome
 Gemini 3.1 Pro
-חדש
+新推出
 
-המודל הכי חכם שלנו, הכי טוב בעולם בהבנה מולטימודלית, והכול מבוסס על יכולות רציונליות מתקדמות.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=he)
+這是 Google 最聰明的模型，也是全球最出色的多模態理解模型，一切都建立在最先進的推論技術基礎。](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw)
 [spark
 Gemini 3.6 Flash
-חדש
+新模型
 
-המודל העדכני שלנו, שמשלב בין מהירות לבין יכולות AI חכמות כדי לספק ביצועים טובים במשימות אקטיביות ומולטי-מודאליות.](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=he)
-[spark
-Gemini 3.5 Flash
-
-ביצועים ברמה של Frontier, שמתחרים במודלים גדולים יותר בעלות נמוכה בהרבה.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=he)
+這是 Google 最新的模型，兼具速度與智慧，可在代理功能和多模態工作提供強大效能。](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw)
 [graphic\_eq
 Gemini 3.8 Flash TTS
-חדש
+新推出
 
-מודל להמרת טקסט לדיבור ברמה של אולפן, עם משחק אקספרסיבי, עיצוב קול מותאם אישית ושכפול קול.](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=he)
+工作室等級的文字轉語音模型，可提供富有表現力的演繹、自訂語音設計和語音複製功能。](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=zh-tw)
 [spark
 Gemini 3.5 Flash-Lite
-חדש
+新
 
-מודל בנפח גבוה ובעלות נמוכה, שעבר אופטימיזציה למשימות של סוכני משנה עם זמן אחזור נמוך וקצב העברה גבוה.](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=he)
+這個模型專為低延遲高處理量的子代理工作設計，適合處理大量工作，且具備成本效益。](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw)
 [spark
 Gemini 3.1 Flash-Lite
 
-מודל שמתאים לעיבוד נפחים גדולים של נתונים, רגיש לעלויות וכולל את הביצועים והאיכות של סדרת Gemini 3.](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=he)
+這款模型具備 Gemini 3 系列的效能和品質，適合處理大量資料，且成本效益高。](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw)
 [spark
-‫Gemini 3 Flash
+Gemini 3 Flash
 
-ביצועים ברמה של Frontier, שמתחרים במודלים גדולים יותר בעלות נמוכה בהרבה.](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=he)
+效能可與大型模型匹敵，但成本遠低於大型模型。](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw)
 [🍌
-‫Nano Banana 2 ו-Nano Banana Pro
+Nano Banana
 
-מודלים חדשניים ומתקדמים ליצירה ולעריכה של תמונות.](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)
+最先進的圖像生成和編輯模型。](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)
 [video\_library
 Veo 3.1
 
-מודל ליצירת וידאו המתקדם ביותר שלנו, עם אודיו מובנה.](https://ai.google.dev/gemini-api/docs/video?hl=he)
+Google 最先進的影片生成模型，支援原生音訊。](https://ai.google.dev/gemini-api/docs/video?hl=zh-tw)
 [spark
 Gemini Robotics
 
-מודל ראייה-שפה (VLM) שמביא את יכולות אג'נטיות של Gemini לרובוטיקה ומאפשר חשיבה רציונלית משופרת בעולם הפיזי.](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=he)
+這款視覺語言模型 (VLM) 可將 Gemini 的代理功能帶入機器人領域，並在實體世界中進行進階推理。](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-tw)
 
-## פרטים על היכולות
+## 探索各種功能
 
 [imagesmode
 
-יצירת תמונות באופן מובנה (Nano Banana)
+原生圖像生成 (Nano Banana)
 
-אתם יכולים ליצור ולערוך תמונות עם הקשר רחב באמצעות Gemini 2.5 Flash Image.](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)
+使用 Gemini 2.5 Flash Image 原生生成及編輯高度相關的圖片。](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)
 [article
 
-הקשר רחב
+長脈絡
 
-להזין מיליוני טוקנים למודלים של Gemini ולקבל תובנות מתמונות, סרטונים ומסמכים לא מובנים.](https://ai.google.dev/gemini-api/docs/long-context?hl=he)
+將數百萬個權杖輸入 Gemini 模型，從非結構化圖片、影片和文件中取得理解。](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw)
 [code
 
-פלט מובנה
+結構化輸出內容
 
-מגבילים את Gemini לתגובה ב-JSON, שהוא פורמט נתונים מובְנה שמתאים לעיבוד אוטומטי.](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)
+限制 Gemini 只能以 JSON 格式回覆，這種結構化資料格式適合自動處理。](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)
 [functions
 
-בקשה להפעלת פונקציה
+呼叫函式
 
-אפשר לבנות תהליכי עבודה מבוססי-סוכנים על ידי חיבור של Gemini לממשקי API ולכלים חיצוניים.](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
+將 Gemini 連結至外部 API 和工具，建構代理工作流程。](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
 [videocam
 
-יצירת סרטונים באמצעות Veo 3.1
+使用 Veo 3.1 生成影片
 
-אתם יכולים ליצור תוכן וידאו באיכות גבוהה מפרומפטים של טקסט או תמונה באמצעות המודל המתקדם ביותר (SOTA) שלנו.](https://ai.google.dev/gemini-api/docs/video?hl=he)
+使用最先進的模型，根據文字或圖像提示詞製作高品質影片內容。](https://ai.google.dev/gemini-api/docs/video?hl=zh-tw)
 [android\_recorder
 
-סוכנים קוליים עם Live API
+使用 Live API 的語音代理
 
-אתם יכולים ליצור סוכנים ואפליקציות קוליות בזמן אמת באמצעות ממשק Live API.](https://ai.google.dev/gemini-api/docs/live-api?hl=he)
+使用 Live API 建構即時語音應用程式和代理。](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw)
 [build
 
-כלים
+工具
 
-אפשר לחבר את Gemini לעולם באמצעות כלים מובנים כמו חיפוש Google, הקשר של כתובת URL, מפות Google, הפעלת קוד ושימוש במחשב.](https://ai.google.dev/gemini-api/docs/tools?hl=he)
+透過 Google 搜尋、網址背景資訊、Google 地圖、程式碼執行和電腦使用等內建工具，讓 Gemini 連結到世界。](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw)
 [stacks
 
-הבנת מסמכים
+文件解讀
 
-לעבד עד 1,000 דפים של קובצי PDF עם הבנה מולטי-מודאלית מלאה או סוגים אחרים של קבצים מבוססי-טקסט.](https://ai.google.dev/gemini-api/docs/document-processing?hl=he)
+處理最多 1000 頁的 PDF 檔案，並充分理解多模態內容或其他文字型檔案。](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)
 [cognition\_2
 
-מעמיק
+思考中
 
-כדאי לבדוק איך יכולות החשיבה משפרות את ההיגיון במשימות מורכבות ובסוכנים.](https://ai.google.dev/gemini-api/docs/thinking?hl=he)
+瞭解思考能力如何提升複雜工作和代理程式的推論能力。](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)
 
 [Google AI Studio
 
-אפשר לבדוק הנחיות, לנהל את מפתחות ה-API, לעקוב אחרי השימוש וליצור אבות טיפוס.](https://aistudio.google.com?hl=he)
+測試提示、管理 API 金鑰、監控用量及建構原型。](https://aistudio.google.com?hl=zh-tw)
 [group
 
-קהילת המפתחים
+開發人員社群
 
-לשאול שאלות ולמצוא פתרונות ממפתחים אחרים וממהנדסי Google.](https://discuss.ai.google.dev/c/gemini-api/4?hl=he)
+向其他開發人員和 Google 工程師提問及尋求解決方案。](https://discuss.ai.google.dev/c/gemini-api/4?hl=zh-tw)
 [menu\_book
 
-הפניית API
+API 參考資料
 
-מידע מפורט על Gemini API זמין במסמכי העזרה הרשמיים.](https://ai.google.dev/api?hl=he)
+如要進一步瞭解 Gemini API，請參閱官方參考文件。](https://ai.google.dev/api?hl=zh-tw)
 [sensors
 
-סטטוס
+狀態
 
-בדיקת הסטטוס של Gemini API,‏ Google AI Studio ושירותי המודלים שלנו.](https://aistudio.google.com/status?hl=he)
+查看 Gemini API、Google AI Studio 和模型服務的狀態。](https://aistudio.google.com/status?hl=zh-tw)
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-עדכון אחרון: 2026-09-24 (שעון UTC).
+上次更新時間：2026-10-09 (世界標準時間)。
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-09 (世界標準時間)。"],[],[]]

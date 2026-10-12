@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=zh-CN
-fetched_at: 2026-10-05T06:33:36.403800+00:00
-title: "\u4f7f\u7528 Google \u641c\u7d22\u5efa\u7acb\u4f9d\u636e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=ja
+fetched_at: 2026-10-12T07:06:07.502633+00:00
+title: "Google \u691c\u7d22\u306b\u3088\u308b\u30b0\u30e9\u30a6\u30f3\u30c7\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-发送反馈
+フィードバックを送信
 
-# 使用 Google 搜索建立依据
+# Google 検索によるグラウンディング
 
-依托 Google 搜索进行接地可将 Gemini 模型与实时 Web 内容连接起来，该功能支持所有可用语言。这使 Gemini 能够提供更准确的回答，并引用其知识截点之外的可验证来源。
+Google 検索によるグラウンディングは、Gemini モデルをリアルタイムのウェブ コンテンツに接続し、利用可能なすべての言語で機能します。これで、Gemini はより正確な回答を提供して、ナレッジ カットオフ以降の検証可能な情報源を引用することができます。
 
-接地有助于您构建可执行以下操作的应用：
+グラウンディングは、次のことができるアプリケーションの構築に役立ちます。
 
-- **提高事实准确性**：通过以真实世界的信息为依据来减少模型幻觉。
-- **获取实时信息**：回答有关近期活动和主题的问题。
-- **提供引用**：通过显示模型声明的来源来建立用户信任。
+- **事実の正確性を高める:** 回答を実世界の情報に基づいて生成することで、モデルのハルシネーションを減らします。
+- **リアルタイムの情報にアクセスする:** 最近の出来事やトピックに関する質問に答えます。
+- **引用を提供する:** モデルの主張の出典を示すことで、ユーザーの信頼を築きます。
 
 ### Python
 
@@ -44,7 +44,7 @@ config = types.GenerateContentConfig(
 )
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents="Who won the euro 2024?",
     config=config,
 )
@@ -68,7 +68,7 @@ const config = {
 };
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: "Who won the euro 2024?",
   config,
 });
@@ -79,7 +79,7 @@ console.log(response.text);
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H "Content-Type: application/json" \
   -X POST \
@@ -99,23 +99,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-如需了解详情，请尝试使用[搜索工具笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=zh-cn)。
+詳しくは、[検索ツール ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ja)をお試しください。
 
-## “依托 Google 搜索进行接地”功能的运作方式
+## Google 検索によるグラウンディングの仕組み
 
-启用 `google_search` 工具后，模型会自动处理搜索、处理和引用信息的整个工作流程。
+`google_search` ツールを有効にすると、モデルは情報の検索、処理、引用のワークフロー全体を自動的に処理します。
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=zh-cn)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=ja)
 
-1. **用户提示**：您的应用在启用 `google_search` 工具的情况下，将用户提示发送到 Gemini API。
-2. **提示分析**：模型分析提示，确定 Google 搜索是否可以改进回答。
-3. **Google 搜索**：如果需要，模型会自动生成一个或多个搜索查询并执行这些查询。
-4. **搜索结果处理**：模型处理搜索结果，整合信息并生成回答。
-5. **以搜索结果为依据的回答**：API 会返回以搜索结果为依据的最终且用户友好的回答。此响应包含模型的文本回答以及 `groundingMetadata`，其中包含搜索查询、网页结果和引用。
+1. **ユーザー プロンプト:** アプリケーションは、`google_search` ツールを有効にして、ユーザーのプロンプトを Gemini API に送信します。
+2. **プロンプトの分析:** モデルがプロンプトを分析し、Google 検索で回答を改善できるかどうかを判断します。
+3. **Google 検索:** 必要に応じて、モデルは 1 つ以上の検索クエリを自動的に生成して実行します。
+4. **検索結果の処理:** モデルが検索結果を処理し、情報を合成して回答を作成します。
+5. **根拠のある回答:** API は、検索結果に基づいて最終的なユーザー フレンドリーな回答を返します。このレスポンスには、モデルのテキスト回答と、検索クエリ、ウェブ検索結果、引用を含む `groundingMetadata` が含まれます。
 
-## 了解接地响应
+## グラウンディング レスポンスについて
 
-如果成功进行了事实依据核查，响应中会包含 `groundingMetadata` 字段。此结构化数据对于验证声明和在应用中打造丰富的引用体验至关重要。
+レスポンスが正常にグラウンディングされると、レスポンスに `groundingMetadata` フィールドが含まれます。この構造化データは、請求を検証し、アプリケーションでリッチな引用エクスペリエンスを構築するために不可欠です。
 
 ```
 {
@@ -157,18 +157,18 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }
 ```
 
-Gemini API 会通过 `groundingMetadata` 返回以下信息：
+Gemini API は、`groundingMetadata` で次の情報を返します。
 
-- `webSearchQueries`：所用搜索查询的数组。这有助于调试和了解模型的推理过程。
-- `searchEntryPoint`：包含用于呈现所需搜索建议的 HTML 和 CSS。如需了解完整的使用要求，请参阅[《服务条款》](https://ai.google.dev/gemini-api/terms?hl=zh-cn#grounding-with-google-search)。
-- `groundingChunks`：包含 Web 来源（`uri` 和 `title`）的对象数组。
-- `groundingSupports`：用于将模型响应 `text` 与 `groundingChunks` 中的来源相关联的块数组。每个块都将文本 `segment`（由 `startIndex` 和 `endIndex` 定义）与一个或多个 `groundingChunkIndices` 相关联。这是构建内嵌引文的关键。
+- `webSearchQueries` : 使用された検索クエリの配列。これは、モデルの推論プロセスをデバッグして理解するのに役立ちます。
+- `searchEntryPoint` : 必要な検索候補をレンダリングするための HTML と CSS が含まれます。使用要件の詳細は、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#grounding-with-google-search)をご覧ください。
+- `groundingChunks` : ウェブソース（`uri` と `title`）を含むオブジェクトの配列。
+- `groundingSupports` : モデル レスポンス `text` を `groundingChunks` のソースに接続するチャンクの配列。各チャンクは、テキスト `segment`（`startIndex` と `endIndex` で定義）を 1 つ以上の `groundingChunkIndices` にリンクします。これが、インライン引用を作成する鍵となります。
 
-依托 Google 搜索进行接地还可以与[网址上下文工具](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)搭配使用，以便根据公开的 Web 数据和您提供的特定网址来生成回答。
+Google 検索によるグラウンディングは、[URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)と組み合わせて使用することもできます。これにより、一般公開されているウェブデータと指定した特定の URL の両方でレスポンスをグラウンディングできます。
 
-## 使用内嵌引用注明来源
+## インライン引用によるソースの帰属
 
-该 API 会返回结构化引用数据，让您可以完全控制在界面中显示来源的方式。您可以使用 `groundingSupports` 和 `groundingChunks` 字段将模型的陈述直接关联到其来源。以下是一种常见模式，用于处理元数据以创建包含内嵌可点击引用的回答。
+API は構造化された引用データを返し、ユーザー インターフェースでソースを表示する方法を完全に制御できます。`groundingSupports` フィールドと `groundingChunks` フィールドを使用して、モデルのステートメントをソースに直接リンクできます。メタデータを処理して、クリック可能なインラインの引用を含むレスポンスを作成する一般的なパターンは次のとおりです。
 
 ### Python
 
@@ -243,57 +243,59 @@ const textWithCitations = addCitations(response);
 console.log(textWithCitations);
 ```
 
-包含内嵌引用的新回答如下所示：
+インライン引用を含む新しい回答は次のようになります。
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final.[1](https:/...), [2](https:/...), [4](https:/...), [5](https:/...) This victory marks Spain's record-breaking fourth European Championship title.[5]((https:/...), [2](https:/...), [3](https:/...), [4](https:/...)
 ```
 
-## 价格
+## 料金
 
-如果您将“依托 Google 搜索进行接地”与 Gemini 3 搭配使用，则系统会针对模型决定执行的每项搜索查询向您的项目收取费用。如果模型决定执行多个搜索查询来回答单个提示（例如，在同一次 API 调用中搜索 `"UEFA Euro 2024 winner"` 和 `"Spain vs England Euro 2024 final
-score"`），则该请求会产生两次工具使用费。出于结算目的，我们在统计唯一查询时会忽略空白的网页搜索查询。此结算模式仅适用于 Gemini 3 模型；如果您将搜索关联标准答案功能与 Gemini 2.5 或更旧的模型搭配使用，系统会按提示向您的项目收取费用。
+Gemini 3 以降のモデルで Google 検索によるグラウンディングを使用すると、モデルが実行すると判断した検索クエリ**ごと**にプロジェクトに課金されます。このクエリごとの課金モデルには、すべての Gemini 3 以降のモデルで共有される 1 か月あたり 5,000 件の無料検索リクエストが含まれており、その後は **1,000 件の検索リクエストあたり$14** の費用が発生します。
 
-如需详细了解价格信息，请参阅 [Gemini API 价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
+たとえば、モデルが 1 つのプロンプトに回答するために複数の検索クエリを実行すると判断した場合（同じ API 呼び出し内で `"UEFA Euro 2024 winner"` と `"Spain vs
+England Euro 2024 final score"` を検索するなど）、そのリクエストに対してツールの使用が 2 回課金対象としてカウントされます。課金目的で、一意のクエリをカウントする際に、空のウェブ検索クエリは無視されます。
 
-## 支持的模型
+Gemini 2.5 以前のモデルで検索グラウンディングを使用すると、プロジェクトはプロンプトごとに課金されます。
 
-您可以在[模型概览](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)页面上找到完整的功能。
+詳しい料金情報については、[Gemini API の料金ページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)をご覧ください。
 
-| 模型 | 依托 Google 搜索进行接地 |
+## サポートされているモデル
+
+完全な機能については、[モデルの概要](https://ai.google.dev/gemini-api/docs/models?hl=ja)ページをご覧ください。
+
+| モデル | Google 検索によるグラウンディング |
 | --- | --- |
+| Gemini 3.8 Flash | ✔️ |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
-| Gemini 3.5 Flash | ✔️ |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Flash Image 预览版 | ✔️ |
-| Gemini 3 Pro 预览版 | ✔️ |
-| Gemini 3 Pro Image 预览版 | ✔️ |
-| Gemini 3 Flash 预览版 | ✔️ |
-| Gemini 3.1 Flash-Lite 预览版 | ✔️ |
+| Gemini 3.1 Flash Image プレビュー版 | ✔️ |
+| Gemini 3.1 Pro プレビュー版 | ✔️ |
+| Gemini 3 Pro Image プレビュー | ✔️ |
+| Gemini 3 Flash プレビュー | ✔️ |
+| Gemini 3.1 Flash-Lite プレビュー版 | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## 支持的工具组合
+## サポートされているツールの組み合わせ
 
-您可以将“依托 Google 搜索进行接地”与其他工具（例如[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)和[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)）搭配使用，以实现更复杂的用例。
+Google 検索によるグラウンディングは、[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)、[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)、[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)（Gemini 3.5 Flash-Lite 以降のモデルでサポート）などの他のツールと組み合わせて、より複雑なユースケースを実現できます。Gemini 3 モデルは、これらの組み込みツールとカスタムツール（関数呼び出し）の組み合わせもサポートしています。詳しくは、[ツールの組み合わせ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)のページをご覧ください。
 
-Gemini 3 模型支持将内置工具（例如“使用 Google 搜索进行接地”）与自定义工具（函数调用）相结合。如需了解详情，请参阅[工具组合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)页面。
+## 次のステップ
 
-## 后续步骤
+- [Gemini API クックブックの Google 検索によるグラウンディング](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ja)を試す。
+- [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)など、その他の利用可能なツールについて学習する。
+- [URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)を使用して、特定の URL でプロンプトを補強する方法について説明します。
 
-- 不妨试试 [Gemini API 实战宝典中的“依托 Google 搜索进行接地”](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=zh-cn)。
-- 了解其他可用工具，例如[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
-- 了解如何使用 [网址 上下文工具](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)通过特定网址扩充提示。
+フィードバックを送信
 
-发送反馈
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+最終更新日 2026-10-09 UTC。
 
-最后更新时间 (UTC)：2026-09-12。
+ご意見をお聞かせください
 
-需要向我们提供更多信息？
-
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-09 UTC。"],[],[]]

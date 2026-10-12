@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=ja
-fetched_at: 2026-10-05T06:32:50.058019+00:00
-title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=fa
+fetched_at: 2026-10-12T07:15:08.580977+00:00
+title: "\u0642\u0644\u0627\u0628\u200c\u0647\u0627 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 3.8 Flash اکنون در دسترس است. [آن را امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fa) .
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-フィードバックを送信
+ارسال بازخورد
 
-# Hooks
+# قلاب‌ها
 
-フックを使用すると、エージェントがコードを実行したり、リモート サンドボックス内のファイルを変更する直前または直後に、カスタム スクリプトや外部 HTTP リクエストを実行できます。フックを使用して、次のような自動化されたガードレールとバックグラウンド ワークフローでエージェント ループを拡張します。
+قلاب‌ها به شما امکان می‌دهند درست قبل یا بعداز اینکه کارگزار کد را اجرا می‌کند یا فایل‌ها را در جعبه امن از دور اصلاح می‌کند، پلاتین‌های سفارشی یا درخواست‌های HTTP خارجی را اجرا کنید. از قلاب‌ها برای گسترش حلقه عامل با نرده‌های محافظ خودکار و گردش‌های کار پس‌زمینه‌ای استفاده کنید، مثلاً:
 
-- リスクの高いシェル コマンドや制限付きファイル読み取りが実行される前に、**安全性とアクセスに関するガードレールを適用**します。
-- エージェントがファイルを作成または変更した直後に**データ パイプラインの変換を自動化**します。
-- ツールの実行後に、外部モニタリング システムに**企業監査テレメトリーをストリーミング**します。
+- **اجرای محافظ‌های ایمنی و دسترسی** قبل‌از اجرای دستورات پوسته پرخطر یا خواندن فایل‌های محدودشده.
+- **خودکارسازی تبدیل‌های خط لوله داده** بلافاصله پس‌از اینکه کارگزاری فایل‌ها را ایجاد یا اصلاح می‌کند.
+- **جاری‌سازی داده‌های تله‌متری ممیزی سازمانی** به سیستم‌های پایش خارجی پس‌از اجرای ابزار.
 
 ### Python
 
@@ -139,7 +139,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -211,7 +211,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -320,20 +320,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## サポートされているライフサイクル イベント
+## رویدادهای چرخه حیات پشتیبانی‌شده
 
-フックはサンドボックス内で 2 つのイベントをサポートしています。
+قلاب‌ها از ۲ رویداد در جعبه شنی پشتیبانی می‌کنند:
 
-| イベント | 発火のタイミング | 機能 |
+| رویداد | وقتی فعال می‌شود | کارکرد |
 | --- | --- | --- |
-| `pre_tool_execution` | ツールの実行直前 | ツールが実行される前に、ツールを承認（`allow`）またはブロック（`deny`）できます。ブロックされると、モデルは拒否の理由を認識して適応します。 |
-| `post_tool_execution` | ツールの完了直後 | コードのフォーマット、単体テストの実行、テレメトリーのロギングなどのフォローアップ タスクを実行します。完了したアクションをブロックしたり、元に戻したりすることはできません。 |
+| `pre_tool_execution` | درست قبل‌از اجرای ابزار | می‌تواند ابزار را قبل‌از اجرا تأیید (`allow`) یا مسدود (`deny`) کند. وقتی مسدود شود، مدل دلیل رد کردن شما را می‌بیند و خود را تطبیق می‌دهد. |
+| `post_tool_execution` | بلافاصله پس‌از پایان ابزار | تکالیف پیگیری مانند قالب‌بندی کد، اجرای آزمون‌های واحد، یا ثبت تله‌متری را اجرا می‌کند. نمی‌توانید کنش‌های تکمیل‌شده را مسدود یا واگرد کنید. |
 
 ### `pre_tool_execution`
 
-ツールが実行される直前に発生します。スクリプトは `stdin` からツール呼び出しの詳細を読み取り、決定 JSON（`allow` または `deny`）を `stdout` に出力します。
+درست قبل‌از اجرای ابزار فعال می‌شود. نوشتار شما جزئیات تماس ابزار را از `stdin` می‌خواند و تصمیم JSON آن (`allow` یا `deny`) را در `stdout` برونداد می‌کند.
 
-**入力ペイロード（`stdin`）:**
+**واحد داده ورودی (`stdin`):**
 
 ```
 {
@@ -348,9 +348,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-**出力レスポンス（`stdout`）:**
+**پاسخ برونداد (`stdout`):**
 
-ツール呼び出しを承認するには:
+برای تأیید فراخوانی ابزار:
 
 ```
 {
@@ -358,7 +358,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-ツール呼び出しをブロックしてモデルにフィードバックを返すには:
+برای مسدود کردن فراخوانی ابزار و برگرداندن بازخورد به مدل:
 
 ```
 {
@@ -367,15 +367,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-フックがコマンドを拒否すると、ツール呼び出しはすぐにスキップされます。エージェントは、現在のターン内に拒否理由を含むエラー結果を表示します。モデルは、別のコマンドを選択するか、ブロックについてユーザーに説明することで、自己修正できます。
+وقتی قلابی فرمانی را رد می‌کند، تماس ابزار بلافاصله رد می‌شود. عامل نتیجه خطایی را که حاوی دلیل رد شما است درست در نوبت فعلی‌اش می‌بیند. سپس مدل می‌تواند با انتخاب فرمان جایگزین یا توضیح دادن مسدودسازی به کاربر، خود را اصلاح کند.
 
-スクリプトが認識できない JSON、プレーン テキスト、または `{"decision": "deny"}` 以外のものを出力すると、ランタイムはレスポンスを承認（`allow`）として扱います。
+اگر دستورگان شما JSON ناشناخته، نوشتار ساده، یا هر چیزی به‌جز `{"decision": "deny"}` را برون‌برد کند، زمان اجرا پاسخ را به‌عنوان تأیید (`allow`) درنظر می‌گیرد.
 
 ### `post_tool_execution`
 
-ツールが完了した直後に発生します。スクリプトは、`stdin` から実行の詳細とエラー ステータスを読み取ります。
+بلافاصله پس‌از تکمیل ابزار اجرا می‌شود. نوشتار شما جزئیات اجرا و وضعیت خطا را از `stdin` می‌خواند.
 
-**入力ペイロード（`stdin`）:**
+**واحد داده ورودی (`stdin`):**
 
 ```
 {
@@ -390,27 +390,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-シェル コマンドが標準エラー（`stderr`）にエラーを出力した場合、またはファイルシステム オペレーションが失敗した場合、エラーテキストを含む `"error"` フィールドがペイロードに含まれます。コマンドがエラーなしで成功すると、`"error"` フィールドは完全に省略されます。
+اگر فرمان پوسته خطاها را در خطای استاندارد (`stderr`) چاپ کند یا عملیات سیستم فایل ناموفق باشد، فیلد `"error"` حاوی نوشتار خطا در بار گنجانده می‌شود. وقتی فرمان بدون خطا موفقیت‌آمیز باشد، فیلد `"error"` به‌طور کامل حذف می‌شود.
 
-**出力レスポンス（`stdout`）:**
+**پاسخ برونداد (`stdout`):**
 
 ```
 {}
 ```
 
-ツール後のフックは、コードのフォーマットやロギングなどのバックグラウンド タスクに対して厳密に実行されるため、ランタイムは `stdout` で返された決定値を無視します。
+ازآنجایی‌که قلاب‌های پس‌ابزار فقط برای کارهای پس‌زمینه‌ای مثل قالب‌بندی کد یا ثبت گزارش اجرا می‌شوند، زمان اجرا هر مقدار تصمیم برگشتی در `stdout` را نادیده می‌گیرد.
 
-## 構成の検出
+## کاوش پیکربندی
 
-ランタイムは、サンドボックス環境内の `.agents/hooks.json` または `/.agents/hooks.json` からフック定義を自動的に検出します。サポートされている任意の[環境ソース](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#mount_from_a_source)を使用して、カスタム スクリプトとともに `hooks.json` を指定できます。
+زمان اجرا به‌طور خودکار تعریف‌های قلاب را از `.agents/hooks.json` یا `/.agents/hooks.json` در محیط جعبه شنی پیدا می‌کند. می‌توانید `hooks.json` را درکنار دستورگان‌های سفارشی‌تان بااستفاده از هر [منبع محیط](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#mount_from_a_source) پشتیبانی‌شده‌ای ارائه دهید:
 
-- **リポジトリ マウント**: `AGENTS.md` とともに `.agents/hooks.json` を含む Git リポジトリ。
-- **Cloud Storage（`gcs`）**: 環境にコピーされた `hooks.json` を含む GCS バケット。
-- **インライン ソース**: `client.interactions.create` を呼び出すときに `environment.sources` で渡される未加工の JSON 文字列とスクリプトの内容。
+- **نصب مخزن**: مخزن Git حاوی `.agents/hooks.json` در کنار `AGENTS.md`.
+- **Cloud Storage‏ (`gcs`)**: مخزن GCS حاوی `hooks.json` که در محیط کپی شده است.
+- **منابع درون‌خطی**: رشته JSON خام و محتوای دستورگان که هنگام فراخوانی `client.interactions.create` در `environment.sources` ارسال می‌شود.
 
-### `hooks.json` 個のスキーマ
+### ‫`hooks.json` طرح‌واره
 
-`hooks.json` ファイルは、イベント定義（`pre_tool_execution` または `post_tool_execution`）をカスタム名でグループ化します。各グループを個別に有効または無効にできます。
+فایل `hooks.json` تعاریف رویداد (`pre_tool_execution` یا `post_tool_execution`) را تحت نام‌های سفارشی گروه‌بندی می‌کند. می‌توانید هر گروه را به‌طور مستقل فعال یا غیرفعال کنید:
 
 ```
 {
@@ -446,71 +446,71 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### マッチャーの構文とルール
+### قواعد و نحو تطبیق‌دهنده
 
-`hooks.json` の各ルールグループは、`matcher` プロパティと `hooks` プロパティを使用して、ハンドラを起動するタイミングと方法を定義します。
+هر گروه قانون در `hooks.json` تعریف می‌کند که کنترل‌کننده‌ها بااستفاده از ویژگی‌های `matcher` و `hooks` چه زمانی و چگونه فعال شوند:
 
-| フィールド | タイプ | 説明 |
+| فیلد | نوع | شرح |
 | --- | --- | --- |
-| `enabled` | `boolean` | 省略可。グループを無効にするには、`false` に設定します（デフォルトは `true`）。 |
-| `matcher` | `string` | コンテナ内のターゲット ツールの名前を照合する正規表現パターン。 |
-| `hooks` | `array` | ハンドラ定義の順序付きリスト（`command` または `http`）。ハンドラは宣言順に実行されます。 |
+| `enabled` | `boolean` | اختیاری. برای غیرفعال کردن گروه، روی `false` تنظیم کنید (به‌طور پیش‌فرض `true` است). |
+| `matcher` | `string` | الگوی عبارت باقاعده که با نام‌های ابزار هدف در داخل محتوی مطابقت دارد. |
+| `hooks` | `array` | فهرست مرتب‌شده تعریف‌های کنترل‌کننده (`command` یا `http`). کنترل‌کننده‌ها به‌ترتیب در ترتیب بیانیه اجرا می‌شوند. |
 
-#### 正規表現の評価の仕組み
+#### نحوه عملکرد ارزیابی عبارت باقاعده
 
-エージェントがサンドボックス内のツールを呼び出すと、ランタイムは標準の RE2 正規表現を使用して、ツールのコンテナ名を `matcher` パターンに対して評価します。正規表現がツール名と一致する場合、`hooks` 配列内のすべてのハンドラが順番に実行されます。複数のルールグループが同じツールに一致する場合、対応するすべてのハンドラ配列が実行されます。
+وقتی عامل ابزاری را در محیط امن فراخوانی می‌کند، زمان اجرا نام ظرف ابزار را با الگوی `matcher` شما بااستفاده از عبارات منظم استاندارد RE2 ارزیابی می‌کند. اگر عبارت باقاعده با نام ابزار مطابقت داشته باشد، همه کنترل‌کننده‌های موجود در آرایه `hooks` به‌ترتیب اجرا می‌شوند. اگر چند گروه قانون با ابزار یکسانی مطابقت داشته باشند، همه آرایه‌های گرداننده مربوطه اجرا می‌شوند.
 
-コード実行（`code_execution`）またはファイル システム オペレーション（`view_file`、`write_to_file`、`replace_file_content`、`list_dir`、`delete_file`）の任意の組み込みコンテナ ツール名をターゲットにできます。
+می‌توانید هر نام ابزار داخلی ظرف را هدف‌یابی کنید: اجرای کد (`code_execution`) یا عملیات سیستم فایل (`view_file`،‏ `write_to_file`،‏ `replace_file_content`،‏ `list_dir`، و `delete_file`).
 
-#### 一般的なマッチャー式
+#### عبارت‌های تطبیق‌دهنده رایج
 
-- `"code_execution"`: シェル コマンドとスクリプト実行の完全一致文字列。
-- `"write_to_file"`: ファイル システムのファイル作成とディスク書き込みの完全一致。
-- `"view_file|write_to_file"`: パイプ区切りが、単一のルール内の複数の特定のツール名と一致します。
-- `".*_file"`: `_file` で終わるツール（`view_file`、`write_to_file`、`delete_file` など）に一致する正規表現ワイルドカード。これはファイル システム ツールセットの一部のみを対象としています。`replace_file_content` と `list_dir` は `_file` で終わらないため、必要な場合は明示的に名前を指定してください。標準の RE2 正規表現には `.*` が必要です。`*_file` などの単純なシェル グロブは無効な正規表現構文であり、一致しません。
-- `".*"` または `"*"` または `""`: コンテナ内のすべてのツール呼び出しをインターセプトする包括的なパターン。
+- `"code_execution"`: مطابقت دقیق رشته برای دستورات پوسته و اجرای دستورگان.
+- ‫`"write_to_file"`: مطابقت دقیق برای ایجاد فایل سیستم فایل و نوشتن روی دیسک.
+- ‫`"view_file|write_to_file"`: جداسازی با خط لوله با چندین نام ابزار خاص در یک قانون مطابقت دارد.
+- ‫`".*_file"`: مطابقت گل‌دار Regex با هر ابزاری که به `_file` ختم می‌شود (مثل `view_file`،‏ `write_to_file`، یا `delete_file`). این فقط بخشی از مجموعه ابزار سیستم فایل را پوشش می‌دهد، `replace_file_content` و `list_dir` به `_file` ختم نمی‌شوند، بنابراین وقتی به آن‌ها نیاز دارید، نامشان را به‌طور صریح ذکر کنید. عبارت‌های باقاعده RE2 استاندارد به `.*` نیاز دارند؛ globهای پوسته ساده مثل `*_file` ساختار عبارت باقاعده نامعتبر هستند و مطابقت پیدا نمی‌کنند.
+- `".*"` یا `"*"` یا `""`: الگوی فراگیری که هر تماس ابزاری را در محتوی رهگیری می‌کند.
 
-## ハンドラのタイプ
+## انواع مدیریت‌کننده
 
-### コマンドフック
+### قلاب‌های فرمان
 
-コマンドフックは、サンドボックス内でシェルコマンドまたはスクリプトを実行します。スクリプトは `stdin` でイベント JSON を受け取り、`stdout` で決定 JSON を出力します。
+قلاب‌های فرمان، فرمان یا متن پوسته‌ای را در محیط امن اجرا می‌کنند. نوشتار JSON رویداد را در `stdin` دریافت می‌کند و JSON تصمیم خود را در `stdout` برون‌برد می‌کند.
 
-| フィールド | タイプ | 説明 |
+| فیلد | نوع | شرح |
 | --- | --- | --- |
-| `type` | `string` | `"command"` を指定します。 |
-| `command` | `string` | サンドボックス内で実行するコマンドライン（`python3 /.agents/hooks-scripts/gate.py` など）。 |
-| `timeout` | `integer` | タイムアウト（秒）。デフォルト: `30`。 |
+| `type` | `string` | باید `"command"` باشد. |
+| `command` | `string` | خط فرمان برای اجرا در جعبه شنی (برای مثال، `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | مهلت زمانی برحسب ثانیه. پیش‌فرض: `30`. |
 
-### HTTP フック
+### قلاب‌های HTTP
 
-HTTP フックは、イベント JSON を POST リクエストとしてサンドボックス ネットワーク内から外部 HTTPS URL に直接送信します。ターゲット サーバーは、まったく同じ JSON 形式（`{"decision": "allow"}` または `{"decision": "deny", "reason": "..."}`）を使用して、HTTP レスポンス本文で決定を返します。
+قلاب‌های HTTP رویداد JSON را به‌عنوان درخواست POST مستقیماً از داخل شبکه sandbox به نشانی وب HTTPS خارجی ارسال می‌کنند. کارساز هدف تصمیم خود را در بدنه پاسخ HTTP بااستفاده از همان قالب JSON (`{"decision": "allow"}` یا `{"decision": "deny", "reason": "..."}`) برمی‌گرداند.
 
-| フィールド | タイプ | 説明 |
+| فیلد | نوع | شرح |
 | --- | --- | --- |
-| `type` | `string` | `"http"` を指定します。 |
-| `url` | `string` | イベント ペイロードを POST する外部 HTTPS エンドポイント。 |
-| `headers` | `object` | 機密情報を含まないカスタム ヘッダー（`{"X-Event-Source": "agent-sandbox"}` など）の省略可能な Key-Value ペア。認証には、ネットワーク許可リストの[認証情報](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ja)を代わりに使用します。 |
-| `timeout` | `integer` | タイムアウト（秒単位）。デフォルト: `30`。 |
+| `type` | `string` | باید `"http"` باشد. |
+| `url` | `string` | نقطه پایانی HTTPS خارجی برای ارسال محتوای رویداد. |
+| `headers` | `object` | جفت‌های کلید-مقدار اختیاری برای سرایندهای سفارشی غیرحساس (مثل `{"X-Event-Source": "agent-sandbox"}`). برای اصالت‌سنجی، به‌جای آن از [اطلاعات اعتباری](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) در فهرست مجاز شبکه استفاده کنید. |
+| `timeout` | `integer` | مهلت زمانی برحسب ثانیه. پیش‌فرض: `30`. |
 
-#### 下り（外向き）プロキシとトークン変換
+#### پراکسی خروجی و تبدیل کد
 
-HTTP フックはサンドボックス ネットワーク名前空間内から直接実行されるため、送信リクエストは透過的な下り（外向き）プロキシを通過します。このアーキテクチャには、2 つの重要なセキュリティ上の利点があります。
+ازآنجایی‌که قلاب‌های HTTP مستقیماً از داخل فضای نام شبکه sandbox اجرا می‌شوند، درخواست‌های خروجی ازطریق پراکسی خروجی شفاف ارسال می‌شوند. این معماری ۲ مزیت امنیتی مهم به شما می‌دهد:
 
-- **ネットワークの許可リスト:** 移行先のエンドポイントは、環境の `network.allowlist` で明示的に許可されている必要があります。ループバック トラフィック（`127.0.0.1` または `localhost`）はプロキシによってブロックされます。常に許可リストに登録された外部エンドポイントをターゲットにします。
-- **認証情報の挿入:** API キーやシークレット ベアラートークンを `.agents/hooks.json` 内に保存したり、コンテナにマウントしたりする必要はありません。シークレットを[認証情報](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ja)として 1 回保存し、環境の `network.allowlist` から ID で参照します。上り（内向き）プロキシは、上り（内向き）の HTTP フック トラフィックを自動的にインターセプトし、サンドボックスを離れる前に、実際の認証ヘッダーをワイヤに挿入します。インライン `transform` ルールは、ワイヤ上で同じ方法でヘッダーを設定します。認証情報は、プロジェクト全体でシークレットを再利用し、1 か所でローテーションする場合に使用するものです。[ネットワーク構成](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#network-configuration)をご覧ください。
+- **فهرست مجاز شبکه:** نقاط پایانی هدف باید به‌طور صریح در `network.allowlist` محیط شما مجاز باشند. ترافیک حلقه برگشتی (`127.0.0.1` یا `localhost`) توسط پراکسی مسدود شده است؛ همیشه نقطه‌های پایانی خارجی فهرست مجازها را هدف‌یابی کنید.
+- **تزریق اطلاعات اعتباری:** نیازی نیست کلیدهای میانای برنامه‌سازی کاربردی یا کد حامل مخفی را در `.agents/hooks.json` ذخیره کنید یا آن‌ها را در محتوی نصب کنید. رمز را یک‌بار به‌عنوان [اطلاعات اعتباری](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) ذخیره کنید و بااستفاده از شناسه آن در `network.allowlist` محیطتان به آن ارجاع دهید. کارگزار خروجی به‌طور خودکار ترافیک قلاب HTTP خروجی را رهگیری می‌کند و سرصفحه اصالت‌سنجی واقعی را قبل‌از خروج از محیط آزمایشی به سیم تزریق می‌کند. قوانین `transform` درون‌خطی سرصفحه‌ها را به همان روش در سیم تنظیم می‌کند، اعتبارنامه‌ای که باید هنگام استفاده مجدد از رمز در سراسر پروژه و چرخش آن در یک مکان استفاده کنید. به [پیکربندی شبکه](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#network-configuration) مراجعه کنید.
 
-## ランタイムによる決定と失敗の処理方法
+## نحوه مدیریت تصمیمات و خطاها توسط زمان اجرا
 
-- **同期待機:** エージェントは一時停止し、フックが完了するまで待機してから続行します。
-- **ツールの実行をブロックする:** 事前ツールフックが `{"decision": "deny", "reason": "<your reason>"}` を返すと、ランタイムはツール呼び出しを直ちにキャンセルします。モデルは、会話履歴で拒否理由を確認し、安全な代替案を選択するか、ブロックについてユーザーに説明することで適応します。
-- **スクリプトのクラッシュ、HTTP エラー、タイムアウトの処理:** コマンド スクリプトがクラッシュした場合（ゼロ以外の終了ステータス）、HTTP フックが 2xx 以外のステータス コード（4xx や 5xx サーバーエラーなど）を返した場合、オペレーションがタイムアウトした場合、または認識できない JSON を返した場合、ランタイムは承認（`allow`）として扱います。ツールの実行は通常どおり続行されるため、破損したスクリプトや到達不能なテレメトリー サーバーによってアプリケーションがデッドロックすることはありません。
+- **انتظار هم‌زمان:** نماینده متوقف می‌شود و منتظر می‌ماند تا قلاب‌های شما تمام شود و سپس ادامه می‌دهد.
+- **مسدود کردن اجرای ابزار:** اگر قلاب پیش‌ابزار شما `{"decision": "deny", "reason": "<your reason>"}` برگرداند، زمان اجرا بلافاصله تماس ابزار را لغو می‌کند. مدل دلیل رد کردن شما را در سابقه مکالمه‌اش می‌بیند و با انتخاب جایگزین ایمن یا توضیح دادن مسدود شدن به کاربر، خود را تطبیق می‌دهد.
+- **مدیریت خرابی‌های دستورگان، خطاهای HTTP، و زمان‌های اتمام:** اگر دستورگان فرمان خراب شود (وضعیت خروج غیرصفر)، قلاب HTTP کد وضعیت غیر2xx (مثل خطای سرور 4xx یا 5xx) برگرداند، یا عملیات زمان اتمام داشته باشد یا JSON غیرقابل‌تشخیص برگرداند، زمان اجرا آن را به‌عنوان تأیید درنظر می‌گیرد (`allow`). اجرای ابزار به‌طور عادی ادامه می‌یابد، بنابراین دستورگان خراب یا سرور تله‌متری غیرقابل‌دسترس هرگز باعث توقف برنامه شما نمی‌شود.
 
-## 一般的なユースケース
+## موارد استفاده رایج
 
-### データ プライバシーとコンプライアンスのためのマルチターンの復元
+### بازیابی چند مرحله‌ای برای حریم خصوصی داده‌ها و رعایت استانداردها
 
-フックが制限付きリソース（個人情報（PII）や機密の財務記録を含むディレクトリなど）へのアクセスをブロックした場合、次の呼び出しで `previous_interaction_id` を渡して、同じ環境でターンを続行できます。エージェントは拒否の説明を読み取り、承認済みの公開テーブルをクエリして自動的に復元します。
+وقتی قلابی دسترسی به منابع محدودشده را مسدود می‌کند—مثلاً فهرستگان حاوی «اطلاعات شناساننده شخصی» (PII) یا سوابق مالی محرمانه—می‌توانید `previous_interaction_id` را در تماس بعدی ارسال کنید تا چرخش در همان محیط ادامه یابد. کارگزار توضیح رد را می‌خواند و به‌جای آن با پُرسمان کردن از جدول‌های عمومی تأییدشده به‌طور خودکار بازیابی می‌کند.
 
 ### Python
 
@@ -675,7 +675,7 @@ const int2 = await client.interactions.create({
 console.log(int2.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -771,7 +771,7 @@ Interaction int2 = client.interactions.create(CreateInteractionRequestBody.of(pa
 System.out.println(int2.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -932,12 +932,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### 外部監査ロギングとテレメトリー
+### گزارش‌گیری و تله‌متری ممیزی خارجی
 
-ファイルが読み取りまたは変更されるたびに、サンドボックス内から外部モニタリング サーバーにリアルタイムの監査イベントを送信します。
+هرگاه فایل‌ها خوانده یا اصلاح می‌شوند، رویدادهای ممیزی هم‌زمان را از داخل محیط آزمایشی به سرور پایش خارجی ارسال کنید.
 
-- **複数のツールを照合する:** マッチャーは標準の正規表現を使用するため、パイプ（`view_file|write_to_file|replace_file_content`）またはワイルドカード（`.*_file`）を使用して、複数のツールを 1 つのルールに組み合わせることができます。
-- **シークレットを構成から除外する:** 認証トークンを[認証情報](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ja)として保存し、環境の[ネットワーク構成](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja#network-configuration)（`network.allowlist.credential`）から ID で参照します。下り（外向き）プロキシは、送信リクエストに実際のベアラートークンを挿入します。この例では、ヘッダーを `transform` とインラインで設定しています。これは同じプロキシで保護され、トークンがこの 1 つの構成に属する場合に適しています。
+- **مطابقت با چندین ابزار:** ازآنجایی‌که مطابقت‌دهنده‌ها از عبارت باقاعده استاندارد استفاده می‌کنند، می‌توانید چندین ابزار را بااستفاده از خط لوله (`view_file|write_to_file|replace_file_content`) یا نویسه‌های عام (`.*_file`) در یک قانون ترکیب کنید.
+- **رمزها را از پیکربندی‌تان خارج کنید:** نشان اصالت‌سنجی را به‌عنوان [اطلاعات اعتباری](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) ذخیره کنید و آن را با شناسه از [پیکربندی شبکه](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#network-configuration) محیطتان (`network.allowlist.credential`) ارجاع دهید. کارگزار خروجی نشان حامل واقعی را در درخواست‌های خروجی تزریق می‌کند. این مثال سرایند را به‌جای آن با `transform` درخط تنظیم می‌کند که با همان پراکسی محافظت می‌شود و وقتی که نشان به این پیکربندی تعلق داشته باشد، مناسب است.
 
 ### Python
 
@@ -1046,7 +1046,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1097,9 +1097,9 @@ Environment env = Environment.builder()
             .content(hooksConfig)
             .build()
     ))
-    .network(Network.of(EnvironmentNetworkEgressAllowlist.of(
-        Allowlist.builder()
-            .allowlist(List.of(
+    .network(Network.of(
+        EnvironmentNetworkEgressAllowlist.builder()
+            .allowlist(Allowlist.of(List.of(
                 AllowlistEntry.builder()
                     .domain("telemetry.example.com")
                     .transform(Transform.of(Map.of(
@@ -1107,9 +1107,9 @@ Environment env = Environment.builder()
                     )))
                     .build(),
                 AllowlistEntry.builder().domain("*").build()
-            ))
+            )))
             .build()
-    )))
+    ))
     .build();
 
 CreateAgentInteraction params = CreateAgentInteraction.builder()
@@ -1122,7 +1122,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1170,8 +1170,8 @@ func main() {
                 Content: genai.Ptr(hooksConfig),
             },
         },
-        Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
-            Allowlist: []interactions.AllowlistEntry{
+        Network: genai.Ptr(interactions.NewNetwork(interactions.EnvironmentNetworkEgressAllowlist{
+            Allowlist: genai.Ptr(interactions.NewAllowlist([]interactions.AllowlistEntry{
                 {
                     Domain: "telemetry.example.com",
                     Transform: genai.Ptr(interactions.NewTransform(map[string]string{
@@ -1181,8 +1181,8 @@ func main() {
                 {
                     Domain: "*",
                 },
-            },
-        }))),
+            })),
+        })),
     }
 
     res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
@@ -1234,25 +1234,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 制限事項
+## محدودیت‌ها
 
-- **サンドボックス ツールのスコープ:** フックは、サンドボックス内の組み込みツール（コード実行（`code_execution`）とファイル システム オペレーション（`view_file`、`write_to_file`、`replace_file_content`、`list_dir`、`delete_file`））をインターセプトします。カスタム関数呼び出し（`function`）や、コンテナ外で処理される外部 Model Context Protocol（`mcp_server`）ツールではトリガーされません。
-- **ネットワーク許可リスト:** HTTP フックはコンテナ ネットワーク内で実行されます。環境の `network.allowlist` でターゲット URL を明示的に許可する必要があります。ループバック アドレス（`localhost`、`127.0.0.1`）はプロキシによってブロックされます。
-- **エラー時の自動承認:** フック スクリプトがクラッシュ（ゼロ以外の終了ステータス）、タイムアウト、または失敗した場合、ランタイムは失敗をログに記録し、ツール呼び出しを続行します。これにより、壊れたリンタースクリプトやハングしたプロセスによってアプリケーションがデッドロックされることはありません。
-- **サンドボックス構成の保護:** フックはコンテナ サンドボックス内で実行されるため、ファイル システム書き込みツールまたはシェルコード実行権限を持つエージェントは、書き込み可能なワークスペース内のローカル `.agents/hooks.json` またはスクリプトを変更できます。コンテナフックを自動化されたポリシー ガイダンスと運用ガードレールとして使用します。信頼できないモデル実行に対する厳格な改ざん防止が必要な場合は、読み取り専用リポジトリから構成ソースをマウントします。
+- **محدوده ابزار جعبه امن:** قلاب‌ها ابزارهای داخلی را در جعبه امن رهگیری می‌کنند: اجرای کد (`code_execution`) و عملیات سیستم فایل (`view_file`،‏ `write_to_file`،‏ `replace_file_content`،‏ `list_dir`، و `delete_file`). این قلاب‌ها برای فراخوانی تابع سفارشی (`function`) یا ابزارهای خارجی «پروتکل بافتار مدل» (`mcp_server`) که در خارج از محتوی مدیریت می‌شوند فعال نمی‌شوند.
+- **فهرست‌های مجاز شبکه:** قلاب‌های HTTP در شبکه محتوی اجرا می‌شوند. باید نشانی‌های وب هدف را به‌طور صریح در `network.allowlist` محیطتان مجاز کنید. نشانی‌های مسیریابی بازگشتی (`localhost`، `127.0.0.1`) توسط پراکسی مسدود شده است.
+- **تأیید خودکار درصورت بروز خطا:** اگر یک دستورگان قلاب ازکار بیفتد (وضعیت خروجی غیرصفر)، زمان آن تمام شود، یا ناموفق باشد، زمان اجرا این خرابی را ثبت می‌کند و به تماس ابزار اجازه می‌دهد ادامه یابد. این کار تضمین می‌کند که برنامه‌های شما هرگز به‌دلیل خراب شدن دستورگان‌های linter یا فرایندهای معلق دچار بن‌بست نمی‌شوند.
+- **محافظت از پیکربندی جعبه امن:** ازآنجایی‌که قلاب‌ها در جعبه امن محتوی اجرا می‌شوند، کارگزاران دارای ابزارهای نوشتن سیستم فایل یا اجازه‌های اجرای کد پوسته می‌توانند `.agents/hooks.json` محلی یا دستورگان‌های موجود در فضای کاری نوشتنی را تغییر دهند. از قلاب‌های محتوی به‌عنوان راهنمایی خودکارسازی‌شده خط‌مشی و نرده‌های محافظ عملیاتی استفاده کنید؛ اگر مقاومت دربرابر دستکاری سخت دربرابر اجرای مدل‌های غیرقابل‌اعتماد لازم است، منابع پیکربندی را از مخازن فقط‌خواندنی نصب کنید.
 
-## 次のステップ
+## قدم بعدی چیست
 
-- 永続的な[リモート サンドボックスと環境](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ja)を構成する方法を学習します。
-- [Antigravity エージェント](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ja)の機能と組み込みツールについて説明します。
-- マルチターンのセッションとストリーミングについては、[Interactions API の概要](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja)をご覧ください。
+- با نحوه پیکربندی [محیط‌ها و جعبه‌های ایمنی از راه دور](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa) ماندگار آشنا شوید.
+- توانمندی‌ها و ابزارهای داخلی [عامل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa) را کاوش کنید.
+- برای جلسات چند نوبتی و جاری‌سازی، [نمای کلی «میانای برنامه‌سازی کاربردی تعامل‌ها»](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fa) را مرور کنید.
 
-フィードバックを送信
+ارسال بازخورد
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-最終更新日 2026-09-24 UTC。
+تاریخ آخرین به‌روزرسانی 2026-10-07 به‌وقت ساعت هماهنگ جهانی.
 
-ご意見をお聞かせください
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-24 UTC。"],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-07 به‌وقت ساعت هماهنگ جهانی."],[],[]]

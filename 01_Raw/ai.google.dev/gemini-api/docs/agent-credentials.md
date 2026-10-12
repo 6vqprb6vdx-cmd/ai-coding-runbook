@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr
-fetched_at: 2026-10-05T06:29:11.093134+00:00
+fetched_at: 2026-10-12T07:01:15.786873+00:00
 title: "Y\u00f6netilen arac\u0131lardaki kimlik bilgileri \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -170,12 +170,12 @@ func main() {
             Agent: interactions.AgentOption("antigravity-preview-09-2026"),
             Input: interactions.NewInteractionsInput("Triage the open issues in my-org/my-repo."),
             Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(interactions.Environment{
-                Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
-                    Allowlist: []interactions.AllowlistEntry{
+                Network: genai.Ptr(interactions.NewNetwork(interactions.EnvironmentNetworkEgressAllowlist{
+                    Allowlist: genai.Ptr(interactions.NewAllowlist([]interactions.AllowlistEntry{
                         {Domain: "api.github.com", Credential: genai.Ptr("github-production")},
                         {Domain: "*"},
-                    },
-                }))),
+                    })),
+                })),
             })),
         }),
     })
@@ -312,13 +312,13 @@ func main() {
                         Target: genai.Ptr("/backend-app"),
                     },
                 },
-                Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
-                    Allowlist: []interactions.AllowlistEntry{
+                Network: genai.Ptr(interactions.NewNetwork(interactions.EnvironmentNetworkEgressAllowlist{
+                    Allowlist: genai.Ptr(interactions.NewAllowlist([]interactions.AllowlistEntry{
                         {Domain: "github.com", Credential: genai.Ptr("github-production")},
                         {Domain: "api.atlassian.com", Credential: genai.Ptr("jira-oauth")},
                         {Domain: "*.googleapis.com"},
-                    },
-                }))),
+                    })),
+                })),
             })),
         }),
     })
@@ -451,11 +451,11 @@ func main() {
             Agent: interactions.AgentOption("antigravity-preview-09-2026"),
             Input: interactions.NewInteractionsInput("Create a new issue in my-org/my-repo"),
             Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment(interactions.Environment{
-                Network: genai.Ptr(interactions.NewNetwork(interactions.NewEnvironmentNetworkEgressAllowlist(interactions.Allowlist{
-                    Allowlist: []interactions.AllowlistEntry{
+                Network: genai.Ptr(interactions.NewNetwork(interactions.EnvironmentNetworkEgressAllowlist{
+                    Allowlist: genai.Ptr(interactions.NewAllowlist([]interactions.AllowlistEntry{
                         {Domain: "api.githubcopilot.com", Credential: genai.Ptr("github-production")},
-                    },
-                }))),
+                    })),
+                })),
             })),
             Tools: []interactions.Tool{
                 interactions.NewTool(interactions.MCPServer{
@@ -1479,8 +1479,8 @@ Geri bildirim gönderin
 
 Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Son güncelleme tarihi: 2026-09-24 UTC.
+Son güncelleme tarihi: 2026-10-07 UTC.
 
 Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-07 UTC."],[],[]]

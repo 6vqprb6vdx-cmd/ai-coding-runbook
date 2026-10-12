@@ -1,98 +1,115 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=zh-CN
-fetched_at: 2026-10-05T06:41:07.862519+00:00
-title: "\u5c06\u5de5\u5177\u4e0e Gemini API \u642d\u914d\u4f7f\u7528 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=it
+fetched_at: 2026-10-12T06:50:51.285886+00:00
+title: "Utilizzo degli strumenti con l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-发送反馈
+Invia feedback
 
-# 将工具与 Gemini API 搭配使用
+# Utilizzo degli strumenti con l'API Gemini
 
-工具扩展了 Gemini 模型的功能，使其能够在现实世界中采取行动、访问实时信息并执行复杂的计算任务。模型可以通过 [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=zh-cn) 在标准请求-响应互动和实时流式传输会话中使用工具。
+Gli strumenti estendono le funzionalità dei modelli Gemini, consentendo loro di agire nel mondo, accedere a informazioni in tempo reale ed eseguire attività di calcolo complesse. I modelli possono utilizzare gli strumenti sia nelle interazioni standard di richiesta-risposta sia nelle
+sessioni di streaming in tempo reale utilizzando l'[API Live](https://ai.google.dev/gemini-api/docs/live-tools?hl=it).
 
-工具是模型可用于回答查询的特定功能（例如 Google 搜索或代码执行）。Gemini API 提供了一套全托管式内置工具，您也可以使用[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)定义自定义工具。
+Gli strumenti sono funzionalità specifiche (come la Ricerca Google o l'esecuzione di codice) che un modello può utilizzare per rispondere alle query. L'API Gemini fornisce una suite di strumenti integrati completamente
+gestiti oppure puoi definire strumenti personalizzati utilizzando [la chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
 
-如需构建多步骤、以目标为导向的系统，请参阅[代理概览](https://ai.google.dev/gemini-api/docs/agents?hl=zh-cn)。
+Per creare sistemi multi-step orientati agli obiettivi, consulta la [Panoramica
+sugli agenti](https://ai.google.dev/gemini-api/docs/agents?hl=it).
 
-## 可用的内置工具
+## Strumenti integrati disponibili
 
-| 工具 | 说明 | 使用场景 |
+| Strumento | Descrizione | Casi d'uso |
 | --- | --- | --- |
-| [Google 搜索](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn) | 以当前事件和网络上的事实为依据来提供回答，从而减少幻觉。 | 回答有关近期事件的问题，通过各种来源验证事实。 |
-| [Google 地图](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn) | 构建位置感知助理，该助理可以查找地点、获取路线，并提供丰富的本地背景信息。 | 规划包含多个经停点的旅游行程，根据用户条件查找本地商家。 |
-| [代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn) | 允许模型编写和运行 Python 代码，以准确解决数学问题或处理数据。 | 解决复杂的数学方程式，精确处理和分析文本数据。 |
-| [网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn) | 指示模型读取和分析特定网页或文档中的内容。 | 根据特定网址或文档回答问题，检索不同网页中的信息。 |
-| [计算机使用（预览版）](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-cn) | 使 Gemini 能够查看屏幕并生成与 Web 浏览器界面互动的操作（客户端执行）。 | 自动执行重复性基于 Web 的工作流，测试 Web 应用界面。 |
-| [文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn) | 为自己的文档编制索引并进行搜索，以启用检索增强生成 (RAG)。 | 搜索技术手册，基于专有数据回答问题。 |
+| [la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) | Basare le risposte su eventi e fatti attuali del web per ridurre le allucinazioni. | Rispondere a domande su eventi recenti, verificare i fatti con diverse fonti. |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it) | Crea assistenti basati sulla posizione in grado di trovare luoghi, ottenere indicazioni stradali e fornire un contesto locale ricco. | Pianificare itinerari di viaggio con più tappe, trovare attività locali in base ai criteri dell'utente. |
+| [Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) | Consenti al modello di scrivere ed eseguire codice Python per risolvere problemi matematici o elaborare i dati con precisione. | Risolvere equazioni matematiche complesse, elaborare e analizzare con precisione i dati di testo. |
+| [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) | Indica al modello di leggere e analizzare i contenuti di pagine web o documenti specifici. | Rispondere a domande basate su URL o documenti specifici, recuperare informazioni su diverse pagine web. |
+| [Utilizzo del computer (anteprima)](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) | Consenti a Gemini di visualizzare uno schermo e generare azioni per interagire con le UI del browser web (esecuzione lato client). | Automatizzare i flussi di lavoro ripetitivi basati sul web, testare le interfacce utente delle applicazioni web. |
+| [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it) | Indicizza e cerca i tuoi documenti per abilitare la Retrieval-Augmented Generation (RAG). | Cercare manuali tecnici, rispondere a domande su dati proprietari. |
 
-如需详细了解与特定工具相关的费用，请参阅[价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#pricing_for_tools)。
+Per informazioni dettagliate
+sui costi associati a strumenti specifici, consulta la pagina dei [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#pricing_for_tools).
 
-## 工具执行方式
+## Come funziona l'esecuzione degli strumenti
 
-借助工具，模型可以在对话期间请求执行操作。具体流程因工具是内置（由 Google 管理）还是自定义（由您管理）而有所不同。
+Gli strumenti consentono al modello di richiedere azioni durante una conversazione. Il flusso varia a seconda che lo strumento sia integrato (gestito da Google) o personalizzato (gestito da te).
 
-### 内置工具流程
+### Flusso degli strumenti integrati
 
-对于内置工具（Google 搜索、Google 地图、网址上下文、文件搜索、代码执行），整个流程都在一次 API 调用中完成：
+Per gli strumenti integrati (Ricerca Google, Google Maps, Contesto URL, Ricerca file, Esecuzione di codice), l'intero processo avviene all'interno di una chiamata API:
 
-1. **您**发送提示：“GOOG 最新股价的平方根是多少？”
-2. **Gemini** 确定需要使用工具，并在 Google 的服务器上执行这些工具（例如，搜索股票价格，然后运行 Python 代码来计算平方根）。
-3. **Gemini** 会根据工具结果发送最终答案。
+1. **Tu** invii un prompt: "Qual è la radice quadrata dell'ultimo prezzo delle azioni di GOOG?".
+2. **Gemini** decide di aver bisogno di strumenti e li esegue sui server di Google (ad es. cerca il prezzo delle azioni, quindi esegue codice Python per calcolare la radice quadrata).
+3. **Gemini** invia la risposta finale basata sui risultati dello strumento.
 
-### 自定义工具流程（函数调用）
+### Flusso degli strumenti personalizzati (chiamata di funzione)
 
-对于自定义工具和“计算机使用”，您的应用会处理执行：
+Per gli strumenti personalizzati e l'utilizzo del computer, l'applicazione gestisce l'esecuzione:
 
-1. **您**发送提示以及函数（工具）声明。
-2. **Gemini** 可能会发回结构化 JSON 来调用特定函数（例如 `{"name": "get_order_status", "args": {"order_id": "123"}}`），并且始终带有唯一的 `id`。
-3. **您**可以在应用或环境中执行该函数。
-4. **您**将函数结果（与函数调用具有相同的 `id`）发送回 Gemini。
-5. **Gemini** 会使用这些结果来生成最终回答或其他工具调用。
+1. **Tu** invii un prompt insieme alle dichiarazioni delle funzioni (strumenti).
+2. **Gemini** potrebbe restituire JSON strutturato per chiamare una funzione specifica
+   (ad esempio, `{"name": "get_order_status", "args": {"order_id": "123"}}`),
+   sempre con un `id` univoco.
+3. **Tu** esegui la funzione nella tua applicazione o nel tuo ambiente.
+4. **Tu** invii i risultati della funzione a Gemini, con lo stesso `id` della chiamata di funzione.
+5. **Gemini** utilizza i risultati per generare una risposta finale o un'altra chiamata di strumento.
 
-如需了解详情，请参阅[函数调用指南](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
+Scopri di più nella [guida alla chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
 
-### 结合使用内置工具和自定义工具的流程
+### Combinazione del flusso di strumenti integrati e personalizzati
 
-对于结合使用内置工具和自定义工具（函数调用）的请求，模型会使用[工具上下文循环](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)来协调不同环境中的执行：
+Per le richieste che combinano strumenti integrati e strumenti personalizzati (chiamate di funzione), il
+modello utilizza [la circolazione del contesto dello strumento](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it) per
+coordinare l'esecuzione in ambienti diversi:
 
-1. **您**发送提示并声明要启用的内置工具和自定义函数，同时设置一个标志以开启组合支持。
-2. **Gemini** 会执行内置工具，并在生成任何客户端函数调用时将控制权交给用户（先执行哪个取决于提示和模型做出的决定）。它会返回包含以下内容的响应：
-   - 确认工具调用
-   - 工具响应的结果（如果模型生成了两个并行函数调用，则此结果可能位于 JSON 之后）
-   - 用于调用函数的结构化 JSON
-   - 加密的思考特征，用于保留上下文
-3. **您**可以在应用或环境中执行该函数。
-4. **您**返回 Gemini 回答的所有部分，以及您的函数调用结果。
-5. **Gemini** 会使用所有组合的上下文生成最终回答。
+1. **Tu** invii un prompt e dichiari gli strumenti integrati e le funzioni personalizzate che vuoi abilitare, impostando un flag per attivare il supporto della combinazione.
+2. **Gemini** esegue gli strumenti integrati e cede il controllo all'utente se vengono generate chiamate di funzione lato client (l'esecuzione dipende dal prompt e da ciò che decide il modello). Restituisce una risposta con:
+   - Conferma della chiamata di strumento
+   - Risultati della risposta dello strumento (potrebbe essere visualizzata dopo il JSON se il modello ha generato due chiamate di funzione parallele)
+   - JSON strutturato per chiamare la funzione
+   - Firme di pensiero criptate per preservare il contesto
+3. **Tu** esegui la funzione nella tua applicazione o nel tuo ambiente.
+4. **Tu** restituisci tutte le parti della risposta di Gemini, oltre ai risultati della chiamata di funzione.
+5. **Gemini** genera la risposta finale utilizzando tutto il contesto combinato.
 
-请参阅[工具组合指南](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)，了解如何启用对内置工具和自定义工具组合的支持，以及上下文循环的示例。
+Leggi la [guida alla combinazione di strumenti](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it) per scoprire
+come attivare il supporto per la combinazione di strumenti integrati e personalizzati ed esempi di
+circolazione del contesto.
 
-## 结构化输出与函数调用
+## Output strutturati e chiamata di funzione
 
-Gemini 提供了两种生成结构化输出的方法。当模型需要通过连接到您自己的工具或数据系统来执行中间步骤时，请使用[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。如果您严格要求模型的最终回答遵循特定架构（例如用于呈现自定义界面），请使用[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)。
+Gemini offre due metodi per generare output strutturati. Utilizza la [chiamata di
+funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) quando il modello deve eseguire un
+passaggio intermedio collegandosi ai tuoi strumenti o sistemi di dati. Utilizza
+[gli output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it) quando hai bisogno che
+la risposta finale del modello rispetti uno schema specifico, ad esempio per il rendering
+di un'UI personalizzata.
 
-## 使用工具生成结构化输出
+## Output strutturati con strumenti
 
-您可以将[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)与内置工具相结合，以确保基于外部数据或计算的模型回答仍遵循严格的架构。
+Puoi combinare gli [output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it) con
+gli strumenti integrati per assicurarti che le risposte del modello basate su dati o
+calcoli esterni rispettino comunque uno schema rigoroso.
 
-如需查看代码示例，请参阅[使用工具生成结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=zh-cn#structured_outputs_with_tools)。
+Per esempi di codice, consulta [Output strutturati con strumenti](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=it#structured_outputs_with_tools).
 
-发送反馈
+Invia feedback
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-最后更新时间 (UTC)：2026-09-11。
+Ultimo aggiornamento 2026-09-11 UTC.
 
-需要向我们提供更多信息？
+Vuoi dirci altro?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-11。"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-11 UTC."],[],[]]

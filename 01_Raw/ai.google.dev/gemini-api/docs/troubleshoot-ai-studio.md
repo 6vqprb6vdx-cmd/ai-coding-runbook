@@ -1,86 +1,84 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=id
-fetched_at: 2026-10-05T06:30:07.459159+00:00
-title: "Memecahkan masalah Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=ja
+fetched_at: 2026-10-12T07:08:23.955220+00:00
+title: "Google AI Studio \u306e\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Memecahkan masalah Google AI Studio
+# Google AI Studio のトラブルシューティング
 
-Halaman ini memberikan saran untuk memecahkan masalah Google AI Studio jika Anda
-mengalami masalah.
+このページでは、Google AI Studio で問題が発生した場合のトラブルシューティング方法について説明します。
 
-## Memahami error 403 Akses Dibatasi
+## 403 アクセス制限エラーについて
 
-Jika Anda melihat error 403 Akses Dibatasi, Anda menggunakan Google AI Studio dengan cara yang tidak mematuhi [Persyaratan Layanan](https://ai.google.dev/terms?hl=id). Salah satu alasan umumnya adalah Anda tidak berada di [wilayah yang didukung](https://ai.google.dev/available_regions?hl=id).
+[403 アクセス制限エラーが表示される場合は、
+利用規約](https://ai.google.dev/terms?hl=ja)に準拠しない方法で Google AI Studio を使用しています。一般的な理由の 1 つは、
+[サポートされているリージョン](https://ai.google.dev/available_regions?hl=ja)に居住していないことです。
 
-## Menyelesaikan respons Tanpa Konten di Google AI Studio
+## Google AI Studio でコンテンツなしのレスポンスを解決する
 
-Pesan warning **Tidak Ada Konten** muncul di
-Google AI Studio jika konten diblokir karena alasan apa pun. Untuk melihat detail selengkapnya,
-arahkan kursor ke **Tidak Ada Konten** dan klik
-warning **Keamanan**.
+コンテンツが何らかの理由でブロックされると、warning **コンテンツなし** メッセージが
+Google AI Studio に表示されます。詳細を確認するには、
+[**コンテンツなし**] にポインタを合わせて、
+warning [**安全性**] をクリックします。
 
-Jika respons diblokir karena [setelan keamanan](https://ai.google.dev/docs/safety_setting?hl=id) dan
-Anda mempertimbangkan [risiko keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id) untuk kasus penggunaan Anda, Anda
-dapat mengubah
-[setelan keamanan](https://ai.google.dev/docs/safety_setting?hl=id#safety_settings_in_makersuite)
-untuk memengaruhi respons yang ditampilkan.
+[[[安全設定によりレスポンスがブロックされ、ユースケースの安全上のリスクを考慮した場合は、安全設定を変更して返されるレスポンスに影響を与えることができます。](https://ai.google.dev/docs/safety_setting?hl=ja)](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja)](https://ai.google.dev/docs/safety_setting?hl=ja#safety_settings_in_makersuite)
 
-Jika respons diblokir, tetapi bukan karena setelan keamanan, kueri atau respons mungkin melanggar [Persyaratan Layanan](https://ai.google.dev/terms?hl=id) atau tidak didukung.
+レスポンスがブロックされたが、安全設定が原因ではない場合、クエリまたは
+レスポンスが[利用規約](https://ai.google.dev/terms?hl=ja)に違反しているか、サポートされていない可能性があります。
 
-## Memeriksa penggunaan dan batas token
+## トークンの使用量と上限を確認する
 
-Saat Anda membuka perintah, tombol **Pratinjau Teks** di bagian bawah layar akan menampilkan token saat ini yang digunakan untuk konten perintah Anda dan jumlah token maksimum untuk model yang digunakan.
+プロンプトを開くと、画面下部の [**テキスト プレビュー**] ボタンに、プロンプトのコンテンツに使用されている現在のトークン数と、使用されているモデルの最大トークン数が表示されます。
 
-## Izin IAM Google Cloud untuk AI Studio
+## AI Studio の Google Cloud IAM 権限
 
-Anggota project Google Cloud memerlukan izin Identity and Access Management (IAM) tertentu untuk melakukan tindakan di Google AI Studio. Untuk mengetahui informasi selengkapnya tentang identitas ini, lihat [Ringkasan principal IAM](https://docs.cloud.google.com/iam/docs/principals-overview?hl=id).
+Google Cloud プロジェクトのメンバーが Google AI Studio で操作を行うには、特定の Identity and Access Management（IAM）権限が必要です。これらの ID の詳細については、[IAM プリンシパルの概要](https://docs.cloud.google.com/iam/docs/principals-overview?hl=ja)をご覧ください。
 
-Pengguna dengan peran **Editor** atau **Pemilik** di project Google Cloud terkait memiliki izin penuh untuk melihat dasbor dan mengelola kunci API Gemini. Pengguna dengan peran **Pelihat** dapat melihat dasbor dan kunci API, tetapi tidak dapat membuat, memperbarui, atau menghapusnya.
+関連付けられた Google Cloud プロジェクトで**編集者** または**オーナー** のロールを持つユーザーは、ダッシュボードを表示して Gemini API キーを管理するための完全な権限を持ちます。**閲覧者** のロールを持つユーザーは、ダッシュボードと API キーを表示できますが、作成、更新、削除はできません。
 
-Untuk kontrol yang lebih terperinci, lihat tabel berikut untuk mengetahui izin spesifik yang diperlukan untuk setiap fitur AI Studio. Untuk mengetahui petunjuk tentang cara memberikan izin ini, lihat [Memberikan, mengubah, dan mencabut akses ke resource](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=id) dalam dokumentasi Google Cloud.
+より詳細な制御を行うには、次の表で、AI Studio の各機能に必要な特定の権限を確認してください。これらの権限を付与する方法については、Google Cloud ドキュメントの[リソースへのアクセス権の付与、変更、取り消し](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ja)をご覧ください。
 
-| Fitur AI Studio | Izin IAM yang diperlukan | Persyaratan tambahan |
+| AI Studio の機能 | 必要な IAM 権限 | その他の要件 |
 | --- | --- | --- |
-| **Telusuri project** (impor project) | `resourcemanager.projects.get` |  |
-| **Mengganti nama project** | `resourcemanager.projects.update` |  |
-| **Menampilkan tingkat kuota** | T/A |  |
-| **Buat kunci API** | Memiliki izin **Cari project**, dan:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **Mencantumkan kunci API** | Memiliki izin **Telusuri project**, dan:  `apikeys.keys.list` `serviceusage.services.get` | Project Google Cloud harus mengaktifkan [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=id). |
-| **Mengganti nama kunci API** | `apikeys.keys.update` |  |
-| **Menghapus kunci API** | `apikeys.keys.delete` |  |
-| **Dasbor penggunaan** | Memiliki izin **Cari project**, dan:  `monitoring.timeSeries.list` |  |
-| **Dasbor batas kecepatan** | Memiliki izin **Dasbor penggunaan**, dan:  `cloudquotas.quotas.get` |  |
-| **Pengeluaran (Batas penagihan)** | `billing.resourceCosts.get` (untuk melihat pembelanjaan) `billing.resourcebudgets.read` (untuk melihat batas) `billing.resourcebudgets.write` (untuk menetapkan batas) |  |
-| **Dasbor penagihan** | `billing.accounts.get` |  |
+| **プロジェクトを検索** （プロジェクトをインポート） | `resourcemanager.projects.get` |  |
+| **プロジェクトの名前を変更** | `resourcemanager.projects.update` |  |
+| **割り当て階層を表示** | なし |  |
+| **API キーを作成** | **プロジェクトを検索** 権限があること、および  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **API キーを一覧表示** | **プロジェクトを検索** 権限があること、および  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud プロジェクトで [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=ja) が有効になっている必要があります。 |
+| **API キーの名前を変更** | `apikeys.keys.update` |  |
+| **API キーを削除** | `apikeys.keys.delete` |  |
+| **使用状況ダッシュボード** | **プロジェクトを検索** 権限があること、および  `monitoring.timeSeries.list` |  |
+| **レート制限ダッシュボード** | **使用状況ダッシュボード** 権限があること、および  `cloudquotas.quotas.get` |  |
+| **費用（請求上限）** | `billing.resourceCosts.get`（費用を表示） `billing.resourcebudgets.read`（上限を表示） `billing.resourcebudgets.write`（上限を設定） |  |
+| **請求ダッシュボード** | `billing.accounts.get` |  |
 
-### Pemeriksaan akses lainnya
+### その他のアクセス チェック
 
-Selain izin IAM Google Cloud, AI Studio juga melakukan pemeriksaan keamanan dan kepatuhan. Anda mungkin mengalami error `PERMISSION_DENIED` atau error pembatasan akses di antarmuka AI Studio atau dalam respons API jika Anda tidak memenuhi persyaratan berikut:
+Google Cloud IAM 権限に加えて、AI Studio ではセキュリティとコンプライアンスのチェックも行われます。次の要件を満たしていない場合、AI Studio インターフェースまたは API レスポンスで `PERMISSION_DENIED` エラーまたはアクセス制限エラーが発生することがあります。
 
-- **Pemeriksaan keamanan:** Permintaan Anda harus lulus pemeriksaan keamanan otomatis.
-- **Persyaratan Layanan:** Anda harus menyetujui Persyaratan Layanan Google dan Persyaratan Layanan Tambahan AI Generatif.
-- **Wilayah yang didukung:** Anda harus berada di [wilayah yang didukung](https://ai.google.dev/gemini-api/docs/available-regions?hl=id).
-- **Kepercayaan & Keamanan:** Project Google Cloud tidak boleh ditandai karena penyalahgunaan.
+- **セキュリティ チェック:** リクエストは自動セキュリティ チェックに合格する必要があります。
+- **利用規約:** Google 利用規約と生成 AI の追加利用規約に同意する必要があります。
+- **サポートされているリージョン:** サポートされている[リージョン](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)に居住している必要があります。
+- **信頼と安全性:** Google Cloud プロジェクトに不正使用のフラグが設定されていない必要があります。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-09-12 UTC.
+最終更新日 2026-09-12 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-12 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]

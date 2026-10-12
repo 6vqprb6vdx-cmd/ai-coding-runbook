@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=zh-CN
-fetched_at: 2026-10-05T06:36:50.736747+00:00
-title: "\u8fc1\u79fb\u5230 Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=ar
+fetched_at: 2026-10-12T07:04:01.452530+00:00
+title: "\u0646\u0642\u0644 \u0627\u0644\u0628\u064a\u0627\u0646\u0627\u062a \u0625\u0644\u0649 Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-发送反馈
+إرسال ملاحظات
 
-# 迁移到 Interactions API
+# نقل البيانات إلى Interactions API
 
-本指南可帮助您从 `generateContent` API 迁移到 Interactions API。
+يساعدك هذا الدليل في نقل البيانات من واجهة برمجة التطبيقات `generateContent` إلى Interactions API.
 
-Interactions API 是使用 Gemini 模型和智能体进行构建的最简单、最出色的方式。虽然 `generateContent` 仍完全受支持，但我们建议所有新开发项目都使用 Interactions API。
+‫Interactions API هي أبسط وأفضل طريقة للتصميم باستخدام نماذج Gemini وبرامج Gemini. مع أنّ `generateContent` ستظل متاحة بالكامل، ننصح باستخدام Interactions API في جميع عمليات التطوير الجديدة.
 
-### 为什么迁移？
+### لماذا يجب نقل البيانات؟
 
-Interactions API 是使用 Gemini 模型和智能体进行构建的最简单、最出色的方式：
+‫Interactions API هي أبسط وأفضل طريقة للتصميم باستخدام نماذج Gemini وبرامج Gemini:
 
-- **服务器端历史记录管理**：通过 `previous_interaction_id` 简化多轮对话流程。服务器默认启用状态 (`store=true`)，但您可以通过设置 `store=false` 选择无状态行为。
-- **可观测的执行步骤**：类型化步骤可轻松调试复杂流程，并为中间事件（例如想法或搜索 widget）呈现界面。
-- **工具使用和智能体工作流**：通过类型化的执行步骤，原生支持多步骤工具使用、编排和复杂的推理流程。
-- **长时间运行的任务和后台任务**：支持使用 `background=true` 将耗时的操作（例如 Deep Think 和 Deep Research）分流到后台进程。
+- **إدارة السجلّ من جهة الخادم**: تبسيط مسارات المحادثات المترابطة من خلال `previous_interaction_id` يتم تفعيل الحالة تلقائيًا على الخادم (`store=true`)، ولكن يمكنك اختيار السلوك غير المرتبط بحالة من خلال ضبط `store=false`.
+- **خطوات التنفيذ القابلة للمراقبة**: تسهّل الخطوات المكتوبة تصحيح الأخطاء في التدفقات المعقّدة وعرض واجهة المستخدم للأحداث الوسيطة (مثل الأفكار أو أدوات البحث).
+- **استخدام الأدوات وسير العمل المستند إلى الوكلاء**: إتاحة استخدام الأدوات المتعدّدة الخطوات وتنظيمها وعمليات الاستدلال المعقّدة من خلال خطوات التنفيذ المكتوبة
+- **المهام الطويلة والمهام التي يتم تنفيذها في الخلفية**: تتيح هذه الميزة تفويض العمليات التي تستغرق وقتًا طويلاً، مثل Deep Think وDeep Research، إلى العمليات التي يتم تنفيذها في الخلفية باستخدام `background=true`.
 
-## 基本输入/输出
+## الإدخال/الإخراج الأساسي
 
-本部分展示了如何迁移简单的文本生成请求。
+يوضّح هذا القسم كيفية نقل طلب بسيط لإنشاء نص.
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-`generateContent` API 是无状态的，可直接返回响应。响应结构将输出封装在 `candidates` 列表中，每个都包含一个 `content`，其中包含要解析的 `parts` 列表。
+إنّ واجهة برمجة التطبيقات `generateContent` لا تحتفظ بأي حالة وتعرض الردّ مباشرةً. يغلّف بنية الردّ الناتج في قائمة `candidates`، يحتوي كل منها على `content` مع قائمة `parts` لتحليلها.
 
 ### Python
 
@@ -66,7 +66,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -151,9 +151,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-Interactions API 会返回具有 `steps` 时间轴的已存储互动资源。虽然您可以手动检查 `steps` 数组来查找中间事件，但 Google GenAI SDK 会在返回的 `Interaction` 对象上直接提供便捷的属性来访问最终输出。
+تعرض Interactions API مورد تفاعل مخزّنًا مع `steps`مخطط زمني. على الرغم من أنّه يمكنك فحص مصفوفة `steps` يدويًا للعثور على الأحداث الوسيطة، توفّر حِزم تطوير البرامج (SDK) من Google GenAI خصائص ملائمة مباشرةً في عنصر `Interaction` الذي يتم عرضه للوصول إلى الناتج النهائي.
 
-最常用的便捷属性是 **`.output_text`**（字符串），它会自动提取并联接模型回答末尾的连续 `TextContent` 代码块。虽然这对于简单回答来说非常有效，但它不包括被非文本内容（例如想法、图片、音频或工具调用）分隔的早期文本块。对于复杂或交错的多模态回答，您必须手动迭代 `steps`。
+إنّ أكثر الخصائص شيوعًا هي **`.output_text`** (String)، والتي تستخرج تلقائيًا وتدمج كتل `TextContent` متتالية في نهاية ردّ النموذج. في حين أنّ هذه الطريقة تعمل بشكل مثالي مع الردود البسيطة، إلا أنّها لا تتضمّن كتل النصوص السابقة المفصولة بمحتوى غير نصي (مثل الأفكار أو الصور أو الصوت أو طلبات استخدام الأدوات). بالنسبة إلى الردود المعقّدة أو المتداخلة المتعدّدة الوسائط، عليك تكرار `steps` يدويًا بدلاً من ذلك.
 
 ### Python
 
@@ -184,7 +184,7 @@ let interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -286,17 +286,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 多轮对话
+## محادثات مترابطة
 
-默认情况下，Interactions API 会存储互动，从而实现多轮对话的服务器端状态管理。
+تخزّن Interactions API التفاعلات تلقائيًا، ما يتيح إدارة الحالة من جهة الخادم للمحادثات المترابطة.
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-在 `generateContent` 中，您必须使用 `contents` 数组或客户端聊天辅助程序手动管理对话历史记录。
+في `generateContent`، عليك إدارة سجلّ المحادثات يدويًا باستخدام مصفوفة `contents` أو أداة مساعدة للمحادثة من جهة العميل.
 
 ### Python
 
-**使用聊天帮助程序（推荐）**
+**استخدام أداة مساعدة الدردشة (يُنصح به)**
 
 ```
 from google import genai
@@ -311,7 +311,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**手动管理历史记录**
+**إدارة السجلّ يدويًا**
 
 ```
 from google import genai
@@ -339,7 +339,7 @@ print(response.text)
 
 ### JavaScript
 
-**使用聊天帮助程序（推荐）**
+**استخدام أداة مساعدة الدردشة (يُنصح به)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -354,7 +354,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**手动管理历史记录**
+**إدارة السجلّ يدويًا**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -372,7 +372,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Chat;
@@ -498,9 +498,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-Interactions API 在服务器上管理状态。您可以通过引用 `previous_interaction_id` 继续对话。
+تتولّى واجهة برمجة التطبيقات Interactions API إدارة الحالة على الخادم. يمكنك مواصلة المحادثة من خلال الإشارة إلى `previous_interaction_id`.
 
 ### Python
 
@@ -543,7 +543,7 @@ interaction = await client.interactions.create({
 console.log("Response 2:", interaction.output_text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -678,13 +678,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 多模态输入
+## إدخالات متعددة الوسائط
 
-这两个 API 都支持多模态输入（文本、图片、视频等）。
+تتيح كلتا واجهتَي برمجة التطبيقات إدخال بيانات متعددة الوسائط (نصوص وصور وفيديوهات وما إلى ذلك).
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-在 `generateContent` 中，您可以在 `contents` 数组中传递 `parts` 的列表。响应会在第一个候选对象的 `parts` 中返回输出。
+في `generateContent`، يمكنك تمرير قائمة `parts` ضمن مصفوفة `contents`. تعرض الاستجابة الناتج في `parts` للمرشّح الأول.
 
 ### Python
 
@@ -732,7 +732,7 @@ const response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -836,9 +836,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-在 Interactions API 中，您需要将数组传递给 `input` 字段。您可以在时间轴中找到 `model_output` 步骤，以检索输出内容。
+في Interactions API، يمكنك تمرير مصفوفة إلى الحقل `input`. يمكنك استرداد محتوى الناتج من خلال العثور على الخطوة `model_output` في المخطط الزمني.
 
 ### Python
 
@@ -893,7 +893,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1041,13 +1041,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 结构化输出
+## الناتج المنظَّم
 
-如需让模型返回符合特定架构的 JSON，请配置回答格式。
+لجعل النموذج يعرض JSON مطابقًا لمخطط معيّن، اضبط تنسيق الرد.
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-在 `generateContent` 中，您可以使用嵌套在 `config`（或 `generationConfig`）对象内的 `response_mime_type` 和 `response_schema` 字段来配置输出格式。
+في `generateContent`، يمكنك ضبط تنسيق الإخراج باستخدام الحقلَين `response_mime_type` و`response_schema` المضمّنَين في الكائن `config` (أو `generationConfig`).
 
 ### Python
 
@@ -1101,7 +1101,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1233,9 +1233,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-在 Interactions API 中，输出格式控制移至顶级 `response_format` 数组。
+في Interactions API، يتم نقل عناصر التحكّم في تنسيق الإخراج إلى مصفوفة `response_format` ذات مستوى أعلى.
 
 ### Python
 
@@ -1295,7 +1295,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1449,13 +1449,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 多模态生成
+## إنشاء محتوى متعدد الوسائط
 
-当生成文本以外的模态内容（例如图片或音频）时，主要区别在于回答如何构建生成的媒体。
+عند إنشاء محتوى بتنسيقات أخرى غير النص (مثل الصور أو الصوت)، يكمن الاختلاف الأساسي في طريقة تنظيم الرد للوسائط التي تم إنشاؤها.
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-在 `generateContent` 中，响应直接在候选对象的 `parts` 中返回生成的媒体，通常以 `inlineData` 中的 base64 数据形式返回。
+في `generateContent`، يعرض الردّ الوسائط التي تم إنشاؤها مباشرةً في `parts` للمرشّح، وعادةً ما تكون على شكل بيانات base64 في `inlineData`.
 
 ```
 # Response structure concept
@@ -1480,9 +1480,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-在 Interactions API 中，生成的媒体会显示为时间轴中 `model_output` 步骤的 `content` 数组中的不同项，从而保持互动的按时间顺序排列的流程。
+في Interactions API، تظهر الوسائط التي تم إنشاؤها كعناصر مميّزة ضمن مصفوفة `content` في خطوة `model_output` في المخطّط الزمني، ما يحافظ على التسلسل الزمني للتفاعل.
 
 ```
 # Response structure concept
@@ -1508,15 +1508,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-这样可确保响应解析与输入和文本输出的处理方式保持一致，即所有内容都是时间轴中的一个步骤。
+يساعد ذلك في الحفاظ على اتساق تحليل الردود مع طريقة التعامل مع المدخلات ومخرجات النصوص، فكل شيء يمثّل خطوة في المخطط الزمني.
 
-## 服务器端工具
+## الأدوات من جهة الخادم
 
-Gemini 支持内置的服务器端工具，例如 Google 搜索接地。主要区别在于响应如何表示工具执行。
+يتوافق Gemini مع أدوات مضمّنة من جهة الخادم، مثل ميزة تحديد مصدر المعلومات الخاصة بـ "بحث Google". ويكمن الاختلاف الأساسي في كيفية تمثيل الردّ لتنفيذ الأداة.
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-在 `generateContent` 中，服务器端工具在很大程度上是不透明的。您启用该工具，并获得包含单独 `groundingMetadata` 对象的最终回答。至关重要的是，引用不是内嵌的；`groundingSupports` 使用字符索引将文本段映射回 `groundingChunks` 中的网页来源。
+في `generateContent`، تكون أدوات جهة الخادم غير شفافة إلى حد كبير. يمكنك تفعيل الأداة والحصول على إجابة نهائية باستخدام عنصر `groundingMetadata` منفصل. الأهم من ذلك أنّ الاقتباسات ليست مضمّنة، بل تستخدم `groundingSupports` فهارس الأحرف لربط مقاطع النص بالمصادر على الويب في `groundingChunks`.
 
 ### Python
 
@@ -1566,7 +1566,7 @@ for (const support of metadata.groundingSupports) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1714,11 +1714,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-在 Interactions API 中，服务器端工具可提供完全的时间轴透明度。该 API 会将调用和结果记录为不同的执行 `steps`（`google_search_call` 和 `google_search_result`），从而准确显示模型检索到的数据。
+في Interactions API، توفّر الأدوات من جهة الخادم شفافية كاملة للمخطط الزمني. تسجّل واجهة برمجة التطبيقات الطلب والنتيجة كتنفيذين منفصلين `steps` (`google_search_call` و`google_search_result`)، ما يوضّح البيانات التي استردّها النموذج بالضبط.
 
-此外，该 API 还会**内嵌**返回引用。`model_output` 步骤中的文本项包含自己的 `annotations` 数组，可直接链接到来源，而不是从单独的元数据对象映射索引。
+بالإضافة إلى ذلك، تعرض واجهة برمجة التطبيقات الاقتباسات **ضمن النص**. بدلاً من ربط الفهارس من عنصر بيانات وصفية منفصل، يحتوي عنصر النص ضمن الخطوة `model_output` على مصفوفة `annotations` خاصة به ترتبط مباشرةً بالمصدر.
 
 ### Python
 
@@ -1770,7 +1770,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -1945,13 +1945,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 函数调用
+## استدعاء الدالة
 
-函数调用和结果的结构也已更改，以适应步骤架构。
+تغيّرت أيضًا بنية طلبات الدوال ونتائجها لتتلاءم مع مخطط الخطوات.
 
-### 之前 (`generateContent`)
+### قبل (`generateContent`)
 
-在 `generateContent` 中，响应会返回候选对象中的函数调用。\* {Python}
+في `generateContent`، يعرض الردّ طلبات الدوال ضمن المرشّحين.\* {Python}
 
 ```
 ```python
@@ -2035,7 +2035,7 @@ response = await client.models.generateContent({
 console.log(response.text);
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -2219,9 +2219,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-工具调用和结果现在是时间轴中的不同步骤。
+أصبحت عمليات استدعاء الأدوات ونتائجها خطوات منفصلة في المخطط الزمني.
 
 ### Python
 
@@ -2319,7 +2319,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -2563,15 +2563,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## 流式
+## البث
 
-流式传输的一个主要区别在于，Interactions API 使用的端点与 `generateContent` API 相同，但前者在请求正文中包含 `"stream": true`，而后者需要调用专用端点 (`:streamGenerateContent`)。
+أحد الاختلافات الرئيسية في البث هو أنّ Interactions API تستخدم نقطة النهاية نفسها مع `"stream": true` في نص الطلب، بينما كانت واجهة `generateContent` API تتطلّب استدعاء نقطة نهاية مخصّصة (`:streamGenerateContent`).
 
-此外，流式事件现在使用专用类型来监控互动生命周期，并沿时间轴跟踪执行步骤。
+بالإضافة إلى ذلك، تستخدم أحداث البث الآن أنواعًا متخصصة لمراقبة دورة حياة التفاعل وتتبُّع خطوات التنفيذ على طول المخطط الزمني.
 
-### 之前 (`generateContentStream`)
+### قبل (`generateContentStream`)
 
-借助 `generateContent`，您可以接收响应块的流。
+باستخدام `generateContent`، يمكنك استهلاك مجموعة من أجزاء الردود.
 
 ### Python
 
@@ -2599,7 +2599,7 @@ for await (const chunk of responseStream) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -2680,9 +2680,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### 之后（Interactions API）
+### After (واجهة Interactions API)
 
-在 Interactions API 中，流式传输使用服务器发送的事件 (SSE) 和专门的增量类型来表示执行步骤。
+في Interactions API، تستخدم ميزة البث أحداثًا يتم إرسالها من الخادم (SSE) وأنواعًا متخصّصة من دلتا لتمثيل خطوات التنفيذ أثناء حدوثها.
 
 ### Python
 
@@ -2729,7 +2729,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -2825,7 +2825,7 @@ func main() {
 
 ### REST
 
-# SSE 流输出示例
+# Example SSE stream output
 **event: interaction.created
 data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
 event: interaction.in\_progress
@@ -2846,13 +2846,13 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
 ```
 
-### 流式工具和函数调用
+### أدوات البث المباشر واستدعاء الدوال
 
-信息流中工具的行为方式已从 `generateContent` 发生显著变化，可提供更精细的控制和可见性。
+لقد تغيّرت طريقة عمل الأدوات في البث بشكل كبير من `generateContent` لتوفير تحكّم أكثر دقة وإمكانية وصول أكبر.
 
-#### 之前 (`generateContent`)
+#### قبل (`generateContent`)
 
-使用 `generateContent` 时，流式函数调用会以单个块的形式完整到达。您无法实时看到正在生成的实参，因此处理程序只是检查是否存在完整的 `functionCall` 对象。
+باستخدام `generateContent`، تصل عمليات استدعاء الدوال التي يتم نقلها بالبث كاملةً في جزء واحد. لم يكن بإمكانك رؤية الوسيطات التي يتم إنشاؤها في الوقت الفعلي، لذا كان المعالج يتحقّق ببساطة من اكتمال العنصر `functionCall`.
 
 ### Python
 
@@ -2900,7 +2900,7 @@ for await (const chunk of stream) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -3018,9 +3018,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### 之后（Interactions API）
+#### After (واجهة Interactions API)
 
-Interactions API 会以字符为单位将函数调用实参作为 `arguments` 事件进行流式传输。整个工具生命周期（思考、调用、结果和输出）以一系列不同的步骤呈现。
+تبث واجهة برمجة التطبيقات Interactions API وسيطات استدعاء الدوال حرفًا بحرف كأحداث `arguments`. تتضمّن دورة حياة الأداة بأكملها سلسلة من الخطوات المميّزة، وهي: الفكرة، والمكالمة، والنتيجة، والإخراج.
 
 ### Python
 
@@ -3080,7 +3080,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -3312,12 +3312,12 @@ event: interaction.completed
 data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
 ```
 
-发送反馈
+إرسال ملاحظات
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最后更新时间 (UTC)：2026-09-24。
+تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)
 
-需要向我们提供更多信息？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-24。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

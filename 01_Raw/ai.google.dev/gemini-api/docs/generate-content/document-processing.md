@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=fr
-fetched_at: 2026-10-05T06:31:41.892588+00:00
-title: "Compr\u00e9hension des documents \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=hi
+fetched_at: 2026-10-12T07:07:03.584710+00:00
+title: "\u0926\u0938\u094d\u0924\u093e\u0935\u0947\u091c\u093c \u0915\u094b \u0938\u092e\u091d\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-Envoyer des commentaires
+सुझाव भेजें
 
-# Compréhension des documents
+# दस्तावेज़ को समझना
 
-Les modèles Gemini peuvent traiter des documents au format PDF à l'aide de la vision native pour comprendre l'intégralité du contexte des documents. Cela va au-delà de l'extraction de texte et permet à Gemini de :
+Gemini मॉडल, PDF फ़ॉर्मैट में मौजूद दस्तावेज़ों को प्रोसेस कर सकते हैं. इसके लिए, वे नेटिव विज़न का इस्तेमाल करते हैं, ताकि पूरे दस्तावेज़ के कॉन्टेक्स्ट को समझा जा सके. यह सिर्फ़ टेक्स्ट निकालने से ज़्यादा काम करता है. इससे Gemini ये काम कर सकता है:
 
-- Analyser et interpréter du contenu, y compris du texte, des images, des diagrammes, des graphiques et des tableaux, même dans des documents longs (jusqu'à 1 000 pages).
-- Extraire des informations dans des formats de [sortie structurée](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr).
-- Résumer et répondre à des questions en se basant à la fois sur les éléments visuels et textuels d'un document.
-- Transcrivez le contenu d'un document (par exemple, au format HTML), en conservant la mise en page et la mise en forme, pour l'utiliser dans des applications en aval.
+- टेक्स्ट, इमेज, डायग्राम, चार्ट, और टेबल जैसे कॉन्टेंट का विश्लेषण करें और उसे समझें. यह सुविधा, 1, 000 पेजों तक के लंबे दस्तावेज़ों के लिए भी उपलब्ध है.
+- जानकारी को [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) फ़ॉर्मैट में एक्सट्रैक्ट करें.
+- किसी दस्तावेज़ में मौजूद विज़ुअल और टेक्स्ट एलिमेंट, दोनों के आधार पर खास जानकारी देना और सवालों के जवाब देना.
+- दस्तावेज़ के कॉन्टेंट को ट्रांसक्राइब करना.जैसे, एचटीएमएल में. साथ ही, लेआउट और फ़ॉर्मैटिंग को बनाए रखना, ताकि इसका इस्तेमाल डाउनस्ट्रीम ऐप्लिकेशन में किया जा सके.
 
-Vous pouvez également transmettre des documents non PDF de la même manière, mais Gemini les considérera comme du texte normal, ce qui éliminera le contexte, comme les graphiques ou la mise en forme.
+इसी तरह, PDF फ़ॉर्मैट के अलावा अन्य फ़ॉर्मैट वाले दस्तावेज़ भी पास किए जा सकते हैं. हालांकि, Gemini उन्हें सामान्य टेक्स्ट के तौर पर देखेगा. इससे चार्ट या फ़ॉर्मैटिंग जैसे कॉन्टेक्स्ट नहीं दिखेंगे.
 
-## Transmettre des données PDF de manière intégrée
+## पीडीएफ़ डेटा को इनलाइन पास करना
 
-Vous pouvez transmettre des données PDF intégrées dans la requête à `generateContent`. Cette méthode est particulièrement adaptée aux documents peu volumineux ou au traitement temporaire, lorsque vous n'avez pas besoin de faire référence au fichier dans les demandes ultérieures. Nous vous recommandons d'utiliser l'[API Files](https://ai.google.dev/gemini-api/docs/document-processing?hl=fr#large-pdfs) pour les documents volumineux auxquels vous devez vous référer dans les interactions multitours afin d'améliorer la latence des requêtes et de réduire l'utilisation de la bande passante.
+`generateContent` को किए गए अनुरोध में, PDF डेटा को इनलाइन पास किया जा सकता है. यह सुविधा, छोटे दस्तावेज़ों या कुछ समय के लिए प्रोसेस किए जाने वाले दस्तावेज़ों के लिए सबसे सही है. इसमें आपको बाद के अनुरोधों में फ़ाइल का रेफ़रंस देने की ज़रूरत नहीं होती. हमारा सुझाव है कि बड़े दस्तावेज़ों के लिए, [Files API](https://ai.google.dev/gemini-api/docs/document-processing?hl=hi#large-pdfs) का इस्तेमाल करें. इससे आपको एक से ज़्यादा बार बातचीत करने के दौरान, इन दस्तावेज़ों का रेफ़रंस देने में मदद मिलेगी. साथ ही, इससे अनुरोध के जवाब मिलने में लगने वाला समय कम होगा और बैंडविथ का इस्तेमाल भी कम होगा.
 
-L'exemple suivant montre comment extraire un PDF à partir d'une URL et le convertir en octets pour le traitement :
+यहां दिए गए उदाहरण में, किसी यूआरएल से PDF फ़ेच करने और उसे प्रोसेस करने के लिए बाइट में बदलने का तरीका बताया गया है:
 
 ### Python
 
@@ -50,7 +50,7 @@ doc_data = httpx.get(doc_url).content
 
 prompt = "Summarize this document"
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=[
         types.Part.from_bytes(
             data=doc_data,
@@ -85,7 +85,7 @@ async function main() {
     ];
 
     const response = await ai.models.generateContent({
-        model: "gemini-3.6-flash",
+        model: "gemini-3.8-flash",
         contents: contents
     });
     console.log(response.text);
@@ -94,7 +94,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -139,7 +139,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         contents,
         nil,
     )
@@ -169,7 +169,7 @@ fi
 ENCODED_PDF=$(base64 $B64FLAGS "${DISPLAY_NAME}.pdf")
 
 # Generate content using the base64 encoded PDF
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -190,7 +190,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-Vous pouvez également lire un PDF à partir d'un fichier local pour le traiter :
+प्रोसेसिंग के लिए, किसी लोकल फ़ाइल से PDF भी पढ़ा जा सकता है:
 
 ### Python
 
@@ -206,7 +206,7 @@ filepath = pathlib.Path('file.pdf')
 
 prompt = "Summarize this document"
 response = client.models.generate_content(
-  model="gemini-3.6-flash",
+  model="gemini-3.8-flash",
   contents=[
       types.Part.from_bytes(
         data=filepath.read_bytes(),
@@ -236,7 +236,7 @@ async function main() {
     ];
 
     const response = await ai.models.generateContent({
-        model: "gemini-3.6-flash",
+        model: "gemini-3.8-flash",
         contents: contents
     });
     console.log(response.text);
@@ -245,7 +245,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -282,7 +282,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         contents,
         nil,
     )
@@ -291,13 +291,13 @@ func main() {
 }
 ```
 
-## Importer des PDF à l'aide de l'API Files
+## Files API का इस्तेमाल करके PDF फ़ाइलें अपलोड करना
 
-Nous vous recommandons d'utiliser l'API Files pour les fichiers volumineux ou lorsque vous prévoyez de réutiliser un document dans plusieurs requêtes. Cela améliore la latence des requêtes et réduit l'utilisation de la bande passante en dissociant l'importation de fichiers des requêtes de modèle.
+हमारा सुझाव है कि बड़ी फ़ाइलों के लिए या जब आपको एक दस्तावेज़ का इस्तेमाल कई अनुरोधों में करना हो, तब Files API का इस्तेमाल करें. इससे अनुरोध पूरा होने में लगने वाला समय कम हो जाता है. साथ ही, मॉडल के अनुरोधों से फ़ाइल अपलोड करने की प्रोसेस को अलग करने से, बैंडविड्थ का इस्तेमाल कम हो जाता है.
 
-### PDF volumineux à partir d'URL
+### यूआरएल से मिली बड़ी PDF फ़ाइलें
 
-Utilisez l'API File pour simplifier l'importation et le traitement de fichiers PDF volumineux à partir d'URL :
+यूआरएल से बड़ी PDF फ़ाइलों को आसानी से अपलोड और प्रोसेस करने के लिए, File API का इस्तेमाल करें:
 
 ### Python
 
@@ -324,7 +324,7 @@ sample_doc = client.files.upload(
 prompt = "Summarize this document"
 
 response = client.models.generate_content(
-  model="gemini-3.6-flash",
+  model="gemini-3.8-flash",
   contents=[sample_doc, prompt])
 print(response.text)
 ```
@@ -376,7 +376,7 @@ async function main() {
     }
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         contents: content,
     });
 
@@ -387,7 +387,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -433,7 +433,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         contents,
         nil,
     )
@@ -485,7 +485,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo "file_uri: ${file_uri}"
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -505,7 +505,7 @@ jq ".candidates[].content.parts[].text" response.json
 rm "${DISPLAY_NAME}.pdf"
 ```
 
-### PDF volumineux stockés localement
+### डिवाइस में सेव की गई बड़ी PDF फ़ाइलें
 
 ### Python
 
@@ -528,7 +528,7 @@ sample_file = client.files.upload(
 prompt="Summarize this document"
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=[sample_file, "Summarize this document"])
 print(response.text)
 ```
@@ -574,7 +574,7 @@ async function main() {
     }
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         contents: content,
     });
 
@@ -585,7 +585,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -619,7 +619,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         contents,
         nil,
     )
@@ -660,7 +660,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -677,7 +677,8 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Vous pouvez vérifier que l'API a bien stocké le fichier importé et obtenir ses métadonnées en appelant [`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=fr). Seuls les `name` (et par extension, les `uri`) sont uniques.
+[`files.get`](https://ai.google.dev/api/rest/v1beta/files/get?hl=hi) को कॉल करके, यह पुष्टि की जा सकती है कि एपीआई ने अपलोड की गई फ़ाइल को सेव कर लिया है. साथ ही, इसका मेटाडेटा भी पाया जा सकता है. सिर्फ़ `name`
+(और `uri`) यूनीक होते हैं.
 
 ### Python
 
@@ -709,9 +710,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Transmettre plusieurs PDF
+## एक से ज़्यादा PDF फ़ाइलें पास करना
 
-L'API Gemini est capable de traiter plusieurs documents PDF (jusqu'à 1 000 pages) dans une seule requête, à condition que la taille combinée des documents et de l'invite textuelle reste dans la fenêtre de contexte du modèle.
+Gemini API, एक अनुरोध में कई PDF दस्तावेज़ों (1,000 पेजों तक) को प्रोसेस कर सकता है. हालांकि, इसके लिए ज़रूरी है कि दस्तावेज़ों और टेक्स्ट प्रॉम्प्ट का कुल साइज़, मॉडल की कॉन्टेक्स्ट विंडो के अंदर हो.
 
 ### Python
 
@@ -741,7 +742,7 @@ sample_pdf_2 = client.files.upload(
 prompt = "What is the difference between each of the main benchmarks between these two papers? Output these in a table."
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=[sample_pdf_1, sample_pdf_2, prompt]
 )
 
@@ -803,7 +804,7 @@ async function main() {
     }
 
     const response = await ai.models.generateContent({
-        model: 'gemini-3.6-flash',
+        model: 'gemini-3.8-flash',
         contents: content,
     });
 
@@ -813,7 +814,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -871,7 +872,7 @@ func main() {
         genai.NewContentFromParts(promptParts, genai.RoleUser),
     }
 
-    modelName := "gemini-3.6-flash"
+    modelName := "gemini-3.8-flash"
     result, _ := client.Models.GenerateContent(
         ctx,
         modelName,
@@ -944,7 +945,7 @@ file_uri_1=$(upload_pdf "${DOC_URL_1}" "${DISPLAY_NAME_1}")
 file_uri_2=$(upload_pdf "${DOC_URL_2}" "${DISPLAY_NAME_2}")
 
 # Now generate content using both files
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=$GOOGLE_API_KEY" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=$GOOGLE_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
     -d '{
@@ -963,50 +964,51 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Détails techniques
+## तकनीकी जानकारी
 
-Gemini accepte les fichiers PDF d'une taille maximale de 50 Mo ou de 1 000 pages. Cette limite s'applique aux données intégrées et aux importations via l'API Files. Chaque page de document équivaut à 258 jetons.
+Gemini, 50 एमबी या 1,000 पेजों तक की PDF फ़ाइलों के साथ काम करता है. यह सीमा, इनलाइन डेटा और Files API से अपलोड किए गए डेटा, दोनों पर लागू होती है. दस्तावेज़ का हर पेज, 258 टोकन के बराबर होता है.
 
-Bien qu'il n'y ait pas de limite spécifique au nombre de pixels dans un document en dehors de la [fenêtre de contexte](https://ai.google.dev/gemini-api/docs/long-context?hl=fr) du modèle, les pages plus grandes sont réduites à une résolution maximale de 3 072 x 3 072 tout en conservant leur format d'origine, tandis que les pages plus petites sont agrandies à 768 x 768 pixels. Il n'y a pas de réduction des coûts pour les pages de taille inférieure, à l'exception de la bande passante, ni d'amélioration des performances pour les pages de résolution supérieure.
+किसी दस्तावेज़ में पिक्सल की संख्या के लिए कोई खास सीमा नहीं है. हालांकि, मॉडल की [कॉन्टेक्स्ट विंडो](https://ai.google.dev/gemini-api/docs/long-context?hl=hi) के अलावा, बड़े पेजों को उनके मूल आसपेक्ट रेशियो (लंबाई-चौड़ाई का अनुपात) को बनाए रखते हुए, ज़्यादा से ज़्यादा 3072 x 3072 के रिज़ॉल्यूशन तक छोटा किया जाता है. वहीं, छोटे पेजों को 768 x 768 पिक्सल तक बड़ा किया जाता है. कम साइज़ वाले पेजों के लिए, बैंडविथ के अलावा लागत में कोई कमी नहीं होती. साथ ही, ज़्यादा रिज़ॉल्यूशन वाले पेजों के लिए, परफ़ॉर्मेंस में कोई सुधार नहीं होता.
 
-### Modèles Gemini 3
+### Gemini 3 के मॉडल
 
-Gemini 3 introduit un contrôle précis sur le traitement de la vision multimodale avec le paramètre `media_resolution`. Vous pouvez désormais définir la résolution sur "basse", "moyenne" ou "haute" pour chaque partie multimédia. Avec cet ajout, le traitement des documents PDF a été mis à jour :
+Gemini 3 में, `media_resolution` पैरामीटर की मदद से, मल्टीमॉडल विज़न प्रोसेसिंग को ज़्यादा बारीकी से कंट्रोल करने की सुविधा मिलती है. अब हर मीडिया पार्ट के लिए, रिज़ॉल्यूशन को कम, मीडियम या ज़्यादा पर सेट किया जा सकता है. इस सुविधा के जुड़ने से, PDF दस्तावेज़ों को प्रोसेस करने की सुविधा अपडेट हो गई है:
 
-1. **Inclusion du texte natif** : le texte intégré de manière native au PDF est extrait et fourni au modèle.
-2. **Facturation et rapports sur les jetons** :
-   - Les jetons provenant du **texte natif** extrait des PDF **ne vous sont pas facturés**.
-   - Dans la section `usage_metadata` de la réponse de l'API, les jetons générés à partir du traitement des pages PDF (en tant qu'images) sont désormais comptabilisés dans la modalité `IMAGE`, et non dans une modalité `DOCUMENT` distincte comme dans certaines versions antérieures.
+1. **नेटिव टेक्स्ट शामिल करना:** PDF में नेटिव तौर पर एम्बेड किए गए टेक्स्ट को एक्सट्रैक्ट किया जाता है और मॉडल को उपलब्ध कराया जाता है.
+2. **बिलिंग और टोकन की रिपोर्टिंग:**
+   - PDF में मौजूद निकाले गए **नेटिव टेक्स्ट** से जनरेट होने वाले टोकन के लिए, आपसे **कोई शुल्क नहीं लिया जाता**.
+   - एपीआई से मिली जानकारी के `usage_metadata` सेक्शन में, PDF पेजों को इमेज के तौर पर प्रोसेस करके जनरेट किए गए टोकन को अब `IMAGE` मोडेलिटी में गिना जाता है. इन्हें पहले के कुछ वर्शन की तरह, अलग `DOCUMENT` मोडेलिटी में नहीं गिना जाता.
 
-Pour en savoir plus sur le paramètre de résolution du contenu multimédia, consultez le guide [Résolution du contenu multimédia](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=fr).
+मीडिया रिज़ॉल्यूशन पैरामीटर के बारे में ज़्यादा जानने के लिए, [मीडिया रिज़ॉल्यूशन](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=hi) गाइड देखें.
 
-### Types de documents
+### दस्तावेज़ के टाइप
 
-Techniquement, vous pouvez transmettre d'autres types MIME pour la compréhension des documents, comme TXT, Markdown, HTML, XML, etc. Toutefois, la vision des documents ***ne comprend que les PDF***. Les autres types seront extraits sous forme de texte brut, et le modèle ne pourra pas interpréter ce que nous voyons dans le rendu de ces fichiers. Toutes les spécificités liées au type de fichier (graphiques, diagrammes, balises HTML, mise en forme Markdown, etc.) seront perdues.
+तकनीकी तौर पर, दस्तावेज़ को समझने की सुविधा के लिए, TXT, Markdown, HTML, XML वगैरह जैसे अन्य एमआईएमई टाइप पास किए जा सकते हैं. हालांकि, दस्तावेज़ विज़न ***सिर्फ़ PDF को अच्छी तरह से समझता है***. अन्य टाइप के डेटा को सिर्फ़ टेक्स्ट के तौर पर निकाला जाएगा. साथ ही, मॉडल उन फ़ाइलों की रेंडरिंग में दिखने वाले डेटा को समझ नहीं पाएगा. चार्ट, डायग्राम, एचटीएमएल टैग, मार्कडाउन फ़ॉर्मैटिंग वगैरह जैसे किसी भी फ़ाइल टाइप की खास जानकारी मिट जाएगी.
 
-Pour en savoir plus sur les autres méthodes de saisie de fichiers, consultez le guide [Méthodes de saisie de fichiers](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=fr).
+फ़ाइल इनपुट करने के अन्य तरीकों के बारे में जानने के लिए, [फ़ाइल इनपुट करने के तरीके](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=hi) गाइड देखें.
 
-### Bonnes pratiques
+### सबसे सही तरीके
 
-Pour des résultats optimaux, procédez comme suit :
+सर्वोत्तम परिणामों के लिएः
 
-- Faites pivoter les pages dans la bonne orientation avant de les importer.
-- Évitez les pages floues.
-- Si vous utilisez une seule page, placez la requête textuelle après la page.
+- अपलोड करने से पहले, पेजों को सही ओरिएंटेशन में घुमाएं.
+- धुंधले पेजों से बचें.
+- अगर एक ही पेज का इस्तेमाल किया जा रहा है, तो पेज के बाद टेक्स्ट प्रॉम्प्ट डालें.
 
-## Étape suivante
+## आगे क्या करना है
 
-Pour en savoir plus, consultez les ressources suivantes :
+ज़्यादा जानने के लिए, यहां दिए गए संसाधन देखें:
 
-- [Stratégies de prompt pour les fichiers](https://ai.google.dev/gemini-api/docs/files?hl=fr#prompt-guide) : l'API Gemini est compatible avec le prompting utilisant des données textuelles, d'image, audio et vidéo, également appelées prompting multimodal.
-- [Instructions système](https://ai.google.dev/gemini-api/docs/text-generation?hl=fr#system-instructions) : elles vous permettent d'orienter le comportement du modèle en fonction de vos besoins et de vos cas d'utilisation spécifiques.
+- [फ़ाइल प्रॉम्प्ट करने की रणनीतियां](https://ai.google.dev/gemini-api/docs/files?hl=hi#prompt-guide): Gemini API में टेक्स्ट, इमेज, ऑडियो, और वीडियो डेटा के साथ प्रॉम्प्ट करने की सुविधा उपलब्ध है. इसे मल्टीमॉडल प्रॉम्प्टिंग भी कहा जाता है.
+- [सिस्टम के लिए निर्देश](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi#system-instructions):
+  सिस्टम के लिए निर्देश देने पर, मॉडल को आपकी खास ज़रूरतों और इस्तेमाल के उदाहरणों के हिसाब से काम करने के लिए कहा जा सकता है.
 
-Envoyer des commentaires
+सुझाव भेजें
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Dernière mise à jour le 2026/09/12 (UTC).
+आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया.
 
-Voulez-vous nous donner plus d'informations ?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/12 (UTC)."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया."],[],[]]

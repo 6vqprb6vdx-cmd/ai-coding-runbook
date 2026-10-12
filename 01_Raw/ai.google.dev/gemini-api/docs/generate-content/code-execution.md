@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=pl
-fetched_at: 2026-10-05T06:30:44.735014+00:00
-title: "Wykonanie kodu \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/code-execution?hl=pt-BR
+fetched_at: 2026-10-12T07:00:03.005264+00:00
+title: "Execu\u00e7\u00e3o de c\u00f3digo \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-# Wykonanie kodu
+# Execução de código
 
-Interfejs Gemini API udostępnia narzędzie do wykonywania kodu, które umożliwia modelowi generowanie i uruchamianie kodu w Pythonie. Model może następnie iteracyjnie uczyć się na podstawie wyników wykonania kodu, aż uzyska ostateczne dane wyjściowe. Możesz używać wykonywania kodu do tworzenia aplikacji, które korzystają z rozumowania opartego na kodzie. Możesz na przykład używać wykonywania kodu do rozwiązywania równań lub przetwarzania tekstu. Możesz też używać [bibliotek](#supported-libraries) dołączonych do środowiska wykonywania kodu, aby wykonywać bardziej wyspecjalizowane zadania.
+A API Gemini oferece uma ferramenta de execução de código que permite que o modelo gere e execute código Python. Em seguida, o modelo pode aprender de forma iterativa com os resultados da execução de código até chegar a uma saída final. Você pode usar a execução de código para criar aplicativos que se beneficiam do raciocínio baseado em código. Por exemplo, é possível usar a execução de código para resolver equações ou processar texto. Você também pode usar as [bibliotecas](#supported-libraries) incluídas no ambiente de execução de código para realizar tarefas mais especializadas.
 
-Gemini może wykonywać kod tylko w języku Python. Nadal możesz poprosić Gemini o wygenerowanie kodu w innym języku, ale model nie może użyć narzędzia do wykonywania kodu, aby go uruchomić.
+O Gemini só pode executar código em Python. Ainda é possível pedir ao Gemini para gerar código em outro idioma, mas o modelo não pode usar a ferramenta de execução de código para executá-lo.
 
-## Włączanie wykonywania kodu
+## Ativar a execução de código
 
-Aby włączyć wykonywanie kodu, skonfiguruj narzędzie do wykonywania kodu w modelu. Dzięki temu model może generować i uruchamiać kod.
+Para ativar a execução de código, configure a ferramenta de execução de código no modelo. Isso permite que o modelo gere e execute código.
 
 ### Python
 
@@ -143,7 +143,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-Dane wyjściowe mogą wyglądać mniej więcej tak (sformatowane dla lepszej czytelności):
+A saída pode ser semelhante à seguinte, que foi formatada para facilitar a leitura:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -192,27 +192,31 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-Te dane wyjściowe łączą kilka części treści, które model zwraca podczas wykonywania kodu:
+Essa saída combina várias partes de conteúdo que o modelo retorna ao usar a execução de código:
 
-- `text`: tekst wbudowany wygenerowany przez model
-- `executableCode`: kod wygenerowany przez model, który ma zostać wykonany.
-- `codeExecutionResult`: wynik wykonania kodu
+- `text`: texto inline gerado pelo modelo
+- `executableCode`: código gerado pelo modelo que deve ser executado
+- `codeExecutionResult`: resultado do código executável
 
-Konwencje nazewnictwa tych części różnią się w zależności od języka programowania.
+As convenções de nomenclatura dessas partes variam de acordo com a linguagem de programação.
 
-## Wykonanie kodu z obrazami (Gemini 3)
+## Execução de código com imagens (Gemini 3)
 
-Model Gemini 3 Flash może teraz pisać i uruchamiać kod Pythona, aby aktywnie manipulować obrazami i je sprawdzać.
+O modelo Gemini 3 Flash agora pode escrever e executar código Python para manipular e inspecionar imagens ativamente.
 
-**Przypadki użycia**
+**Casos de uso**
 
-- **Powiększanie i sprawdzanie:** model automatycznie wykrywa, kiedy szczegóły są zbyt małe (np. odczytywanie odległego wskaźnika), i pisze kod, aby przyciąć i ponownie zbadać obszar w wyższej rozdzielczości.
-- **Matematyka wizualna:** model może wykonywać wieloetapowe obliczenia za pomocą kodu (np. sumować pozycje na paragonie).
-- **Adnotacje do obrazów:** model może dodawać adnotacje do obrazów, aby odpowiadać na pytania, np. rysować strzałki wskazujące relacje.
+- **Zoom e inspeção**: o modelo detecta implicitamente quando os detalhes são muito pequenos
+  (por exemplo, ler um medidor distante) e escreve código para cortar e reexaminar a área
+  em resolução mais alta.
+- **Matemática visual**: o modelo pode executar cálculos de várias etapas usando código (por exemplo,
+  somar itens de linha em um recibo).
+- **Anotação de imagem**: o modelo pode anotar imagens para responder a perguntas, como
+  desenhar setas para mostrar relacionamentos.
 
-### Włączanie wykonywania kodu za pomocą obrazów
+### Ativar a execução de código com imagens
 
-Wykonywanie kodu z obrazami jest oficjalnie obsługiwane w Gemini 3 Flash. Możesz aktywować to działanie, włączając zarówno wykonywanie kodu jako narzędzia, jak i myślenie.
+A execução de código com imagens é oficialmente compatível com o Gemini 3 Flash. Você pode ativar esse comportamento ativando a execução de código como uma ferramenta e o raciocínio.
 
 ### Python
 
@@ -427,9 +431,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/$MODEL:generateCon
     }'
 ```
 
-## Korzystanie z wykonywania kodu na czacie
+## Usar a execução de código no chat
 
-Możesz też używać wykonywania kodu w ramach czatu.
+Também é possível usar a execução de código como parte de um chat.
 
 ### Python
 
@@ -587,73 +591,81 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
 }'
 ```
 
-## Wejście/wyjście (I/O)
+## Entrada/saída (E/S)
 
-Wykonywanie kodu obsługuje dane wejściowe w postaci plików i dane wyjściowe w postaci wykresów. Dzięki tym możliwościom wprowadzania i wyprowadzania danych możesz przesyłać pliki CSV i tekstowe, zadawać pytania dotyczące tych plików i generować wykresy [Matplotlib](https://matplotlib.org/) w ramach odpowiedzi. Pliki wyjściowe są zwracane w odpowiedzi jako obrazy w treści.
+A execução de código oferece suporte à entrada de arquivos e à saída de gráficos. Usando esses recursos de entrada e
+saída, você pode fazer upload de arquivos CSV e de texto, fazer perguntas sobre os
+arquivos e gerar gráficos do [Matplotlib](https://matplotlib.org/) como parte
+da resposta. Os arquivos de saída são retornados como imagens inline na resposta.
 
-### Ceny operacji wejścia/wyjścia
+### Preços de E/S
 
-W przypadku korzystania z wejścia/wyjścia wykonywania kodu naliczane są opłaty za tokeny wejściowe i wyjściowe:
+Ao usar a E/S de execução de código, você recebe cobranças por tokens de entrada e saída:
 
-**Tokeny wejściowe:**
+**Tokens de entrada** :
 
-- Prompt użytkownika
+- Comando do usuário
 
-**Tokeny wyjściowe:**
+**Tokens de saída** :
 
-- Kod wygenerowany przez model
-- Wynik wykonania kodu w środowisku kodu
-- Tokeny myślenia
-- Podsumowanie wygenerowane przez model
+- Código gerado pelo modelo
+- Saída de execução de código no ambiente de código
+- Tokens de raciocínio
+- Resumo gerado pelo modelo
 
-### Szczegóły wejścia/wyjścia
+### Detalhes de E/S
 
-Podczas pracy z operacjami wejścia-wyjścia związanymi z wykonywaniem kodu pamiętaj o tych szczegółach technicznych:
+Ao trabalhar com a E/S de execução de código, esteja ciente dos seguintes detalhes técnicos:
 
-- Maksymalny czas działania środowiska kodu to 30 sekund.
-- Jeśli środowisko kodu wygeneruje błąd, model może zdecydować się na ponowne wygenerowanie kodu. Może się to zdarzyć maksymalnie 5 razy.
-- Maksymalny rozmiar pliku wejściowego jest ograniczony przez okno tokenów modelu. W AI Studio maksymalny rozmiar pliku wejściowego to 1 milion tokenów (w przypadku plików tekstowych obsługiwanych typów wejściowych to około 2 MB). Jeśli prześlesz zbyt duży plik, AI Studio nie pozwoli Ci go wysłać.
-- Wykonywanie kodu działa najlepiej w przypadku plików tekstowych i CSV.
-- Plik wejściowy można przekazać w formacie `part.inlineData` lub `part.fileData` (przesłany za pomocą [interfejsu Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl)), a plik wyjściowy jest zawsze zwracany w formacie `part.inlineData`.
+- O tempo máximo de execução do ambiente de código é de 30 segundos.
+- Se o ambiente de código gerar um erro, o modelo poderá decidir regenerar a saída de código. Isso pode acontecer até cinco vezes.
+- O tamanho máximo de entrada de arquivo é limitado pela janela de token do modelo. No AI Studio, o tamanho máximo do arquivo de entrada é de 1 milhão de tokens (aproximadamente 2 MB para arquivos de texto dos tipos de entrada compatíveis). Se você fizer upload de um arquivo muito grande, o AI Studio não vai permitir que você o envie.
+- A execução de código funciona melhor com arquivos de texto e CSV.
+- O arquivo de entrada pode ser transmitido em `part.inlineData` ou `part.fileData` (enviado
+  por upload pela [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br)), e o arquivo de saída é sempre
+  retornado como `part.inlineData`.
 
-## Płatności
+## Faturamento
 
-Włączenie wykonywania kodu z interfejsu Gemini API nie wiąże się z dodatkowymi opłatami.
-Opłata zostanie naliczona według aktualnej stawki za tokeny wejściowe i wyjściowe na podstawie używanego modelu Gemini.
+Não há cobrança adicional para ativar a execução de código na API Gemini.
+Você vai receber cobranças pela taxa atual de tokens de entrada e saída com base no modelo do Gemini que estiver usando.
 
-Oto kilka dodatkowych informacji o płatnościach za wykonywanie kodu:
+Confira outras informações sobre o faturamento da execução de código:
 
-- Opłata jest naliczana tylko raz za tokeny wejściowe przekazywane do modelu i za tokeny wyjściowe zwracane przez model.
-- Tokeny reprezentujące wygenerowany kod są liczone jako tokeny wyjściowe. Wygenerowany kod może zawierać tekst i wyniki multimodalne, takie jak obrazy.
-- Wyniki wykonania kodu są również liczone jako tokeny wyjściowe.
+- Você só recebe cobranças uma vez pelos tokens de entrada transmitidos ao modelo e pelos tokens de saída finais retornados pelo modelo.
+- Os tokens que representam o código gerado são contados como tokens de saída. O código gerado pode incluir texto e saída multimodal, como imagens.
+- Os resultados da execução de código também são contados como tokens de saída.
 
-Model rozliczeń przedstawia ten diagram:
+O modelo de faturamento é mostrado no diagrama a seguir:
 
-![model rozliczeniowy wykonania kodu,](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=pl)
+![modelo de faturamento de execução de código](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=pt-br)
 
-- Opłaty są naliczane według aktualnej stawki za tokeny wejściowe i wyjściowe na podstawie używanego modelu Gemini.
-- Jeśli Gemini używa wykonania kodu podczas generowania odpowiedzi, oryginalny prompt, wygenerowany kod i wynik wykonania kodu są oznaczone jako *tokeny pośrednie* i rozliczane jako *tokeny wejściowe*.
-- Gemini generuje podsumowanie i zwraca wygenerowany kod, wynik wykonania kodu oraz ostateczne podsumowanie. Są one rozliczane jako *tokeny wyjściowe*.
-- Interfejs Gemini API uwzględnia w odpowiedzi API pośrednią liczbę tokenów, dzięki czemu wiesz, dlaczego otrzymujesz dodatkowe tokeny wejściowe poza początkowym promptem.
+- Você vai receber cobranças pela taxa atual de tokens de entrada e saída com base no modelo do Gemini que estiver usando.
+- Se o Gemini usar a execução de código ao gerar sua resposta, o comando original, o código gerado e o resultado do código executado serão rotulados como *tokens intermediários* e faturados como *tokens de entrada*.
+- Em seguida, o Gemini gera um resumo e retorna o código gerado, o resultado do código executado e o resumo final. Esses itens são faturados como *tokens de saída*.
+- A API Gemini inclui uma contagem de tokens intermediários na resposta da API para que você saiba por que está recebendo tokens de entrada adicionais além do comando inicial.
 
-## Ograniczenia
+## Limitações
 
-- Model może tylko generować i wykonywać kod. Nie może zwracać innych artefaktów, takich jak pliki multimedialne.
-- W niektórych przypadkach włączenie wykonywania kodu może prowadzić do regresji w innych obszarach danych wyjściowych modelu (np. w pisaniu opowiadań).
-- Różne modele mają różną zdolność do skutecznego wykonywania kodu.
+- O modelo só pode gerar e executar código. Ele não pode retornar outros artefatos, como arquivos de mídia.
+- Em alguns casos, ativar a execução de código pode levar a regressões em outras áreas da saída do modelo (por exemplo, escrever uma história).
+- Há algumas variações na capacidade dos diferentes modelos de usar a execução de código com sucesso.
 
-## Obsługiwane kombinacje narzędzi
+## Combinações de ferramentas compatíveis
 
-Narzędzie do wykonywania kodu można połączyć z [powiązaniem ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl), aby obsługiwać bardziej złożone przypadki użycia.
+A ferramenta de execução de código pode ser combinada com
+[o embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) para
+oferecer suporte a casos de uso mais complexos.
 
-Modele Gemini 3 obsługują łączenie wbudowanych narzędzi (takich jak wykonywanie kodu) z narzędziami niestandardowymi (wywoływanie funkcji). Aby połączenie narzędzi działało, musisz przekazać pola `id` i `thought_signature`. Więcej informacji znajdziesz na stronie [kombinacje narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+Os modelos do Gemini 3 oferecem suporte à combinação de ferramentas integradas (como a execução de código) com ferramentas personalizadas (chamada de função). Você precisa transmitir os campos `id` e `thought_signature` para que a combinação de ferramentas funcione. Saiba mais na
+[página de combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
 
-## Obsługiwane biblioteki
+## Bibliotecas permitidas
 
-Środowisko wykonawcze kodu zawiera te biblioteki:
+O ambiente de execução de código inclui as seguintes bibliotecas:
 
 - attrs
-- szachy
+- xadrez
 - contourpy
 - fpdf
 - geopandas
@@ -668,9 +680,9 @@ Modele Gemini 3 obsługują łączenie wbudowanych narzędzi (takich jak wykony
 - numpy
 - opencv-python
 - openpyxl
-- przygotowywanie pakietów
-- pandy
-- poduszka
+- empacotamento
+- pandas
+- pillow
 - protobuf
 - pylatex
 - pyparsing
@@ -682,29 +694,30 @@ Modele Gemini 3 obsługują łączenie wbudowanych narzędzi (takich jak wykony
 - scikit-learn
 - scipy
 - seaborn
-- sześć
+- six
 - striprtf
 - sympy
-- tabelaryzować
+- tabulate
 - tensorflow
 - toolz
 - xlrd
 
-Nie możesz instalować własnych bibliotek.
+Não é possível instalar suas próprias bibliotecas.
 
-## Co dalej?
+## A seguir
 
-- Wypróbuj [Colab do wykonywania kodu](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=pl).
-- Dowiedz się więcej o innych narzędziach Gemini API:
-  - [Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)
-  - [Powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pl)
+- Teste o
+  [Colab de execução de código](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Code_Execution.ipynb?hl=pt-br).
+- Saiba mais sobre outras ferramentas da API Gemini:
+  - [Chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br)
+  - [Embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pt-br)
 
-Prześlij opinię
+Envie comentários
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Ostatnia aktualizacja: 2026-09-12 UTC.
+Última atualização 2026-09-12 UTC.
 
-Chcesz przekazać coś jeszcze?
+Quer enviar seu feedback?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-12 UTC."],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-12 UTC."],[],[]]
