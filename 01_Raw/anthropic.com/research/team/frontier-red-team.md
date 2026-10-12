@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/team/frontier-red-team
-fetched_at: 2026-10-05T06:25:33.989192+00:00
+fetched_at: 2026-10-12T06:47:05.357759+00:00
 title: "Frontier Red Team Research \\ Anthropic"
 ---
 
@@ -28,6 +28,9 @@ Search
 
 DateCategoryTitle
 
+- [Oct 8, 2026Frontier Red Team
+
+  Launching an opt-in vulnerability-finding service for open-source software](https://www.anthropic.com/research/launching-opt-in-vuln-finding-service-for-open-source)
 - [Sep 29, 2026Frontier Red Team
 
   GLM-5.3 and the spread of advanced cyber capabilities](https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities)
@@ -55,8 +58,5 @@ DateCategoryTitle
 - [Jun 3, 2026Frontier Red Team
 
   Mapping AI-enabled cyber threats: Insights from the LLM ATT&CK Navigator](https://www.anthropic.com/research/attack-navigator)
-- [Jun 3, 2026Announcements
-
-  What we learned mapping a year’s worth of AI-enabled cyber threats](https://www.anthropic.com/news/AI-enabled-cyber-threats-mitre-attack)
 
 [See more](#)
