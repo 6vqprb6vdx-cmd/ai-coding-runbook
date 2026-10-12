@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/managed-agents/self-hosted-sandboxes
-fetched_at: 2026-10-05T06:25:24.969662+00:00
+fetched_at: 2026-10-12T06:47:12.234006+00:00
 fetch_method: mintlify_md
 ---
 
@@ -196,7 +196,7 @@ This quickstart runs one always-on worker with the `ant` CLI, sends it a session
         For Linux environments, download the release binary directly.
 
         ```bash
-        VERSION=1.37.0
+        VERSION=1.40.0
         OS=$(uname -s | tr '[:upper:]' '[:lower:]')
         case $(uname -m) in
           x86_64) ARCH=amd64 ;;

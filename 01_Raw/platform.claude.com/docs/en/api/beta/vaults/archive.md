@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/vaults/archive
-fetched_at: 2026-10-05T06:25:34.204152+00:00
+fetched_at: 2026-10-12T06:47:25.388681+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Archive Vault
   Unique identifier of the vault to archive.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

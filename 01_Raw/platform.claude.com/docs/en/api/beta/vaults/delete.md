@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/vaults/delete
-fetched_at: 2026-10-05T06:25:34.186889+00:00
+fetched_at: 2026-10-12T06:47:25.376446+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Delete Vault
   Unique identifier of the vault to delete.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

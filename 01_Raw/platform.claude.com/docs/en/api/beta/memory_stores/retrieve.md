@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/memory_stores/retrieve
-fetched_at: 2026-10-05T06:25:34.640580+00:00
+fetched_at: 2026-10-12T06:47:25.818055+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Retrieve a memory store
   ID of the memory store to retrieve (a `memstore_...` identifier). Required. Enumerate IDs via `GET /v1/memory_stores`.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

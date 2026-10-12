@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/user_profiles/list
-fetched_at: 2026-10-05T06:25:35.532613+00:00
+fetched_at: 2026-10-12T06:47:26.976056+00:00
 fetch_method: mintlify_md
 ---
 
@@ -54,6 +54,8 @@ List User Profiles
   Leave it out to get the first page.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

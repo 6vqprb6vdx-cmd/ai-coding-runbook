@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/invites/list
-fetched_at: 2026-10-05T06:25:30.567648+00:00
+fetched_at: 2026-10-12T06:47:20.795359+00:00
 fetch_method: mintlify_md
 ---
 
@@ -54,6 +54,14 @@ List the organization's invites.
   - `"expired"`
 
   - `"pending"`
+
+## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 ## Returns
 

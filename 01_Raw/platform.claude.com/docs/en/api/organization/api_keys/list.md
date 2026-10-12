@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/api_keys/list
-fetched_at: 2026-10-05T06:25:29.864617+00:00
+fetched_at: 2026-10-12T06:47:19.678190+00:00
 fetch_method: mintlify_md
 ---
 
@@ -52,6 +52,14 @@ List API Keys
 - `workspace_id: optional string`
 
   Filter by Workspace ID.
+
+## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 ## Returns
 

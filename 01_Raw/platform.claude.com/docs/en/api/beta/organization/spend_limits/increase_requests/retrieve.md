@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/spend_limits/increase_requests/retrieve
-fetched_at: 2026-10-05T06:25:39.689689+00:00
+fetched_at: 2026-10-12T06:47:32.366589+00:00
 fetch_method: mintlify_md
 ---
 
@@ -23,6 +23,14 @@ requester at the request's period.
 - `spend_limit_increase_request_id: string`
 
   ID of the spend limit increase request.
+
+## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 ## Returns
 

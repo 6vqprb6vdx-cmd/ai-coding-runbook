@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/deployments/archive
-fetched_at: 2026-10-05T06:25:33.906853+00:00
+fetched_at: 2026-10-12T06:47:25.022349+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Archive Deployment
   Unique identifier of the deployment to archive.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

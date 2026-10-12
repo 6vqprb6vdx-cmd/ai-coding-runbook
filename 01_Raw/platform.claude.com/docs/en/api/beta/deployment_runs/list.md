@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/deployment_runs/list
-fetched_at: 2026-10-05T06:25:34.000228+00:00
+fetched_at: 2026-10-12T06:47:25.110020+00:00
 fetch_method: mintlify_md
 ---
 
@@ -72,6 +72,8 @@ List Deployment Runs
     The run was started manually by creating a session directly against the deployment.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

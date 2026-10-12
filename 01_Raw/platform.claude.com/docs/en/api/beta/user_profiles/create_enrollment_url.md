@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/user_profiles/create_enrollment_url
-fetched_at: 2026-10-05T06:25:35.652362+00:00
+fetched_at: 2026-10-12T06:47:27.128810+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Create Enrollment URL
   The ID of the user profile to create an enrollment URL for (`uprof_...`).
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

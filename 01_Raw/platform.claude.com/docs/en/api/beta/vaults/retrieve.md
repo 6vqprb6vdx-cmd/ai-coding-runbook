@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/vaults/retrieve
-fetched_at: 2026-10-05T06:25:34.100646+00:00
+fetched_at: 2026-10-12T06:47:25.288350+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Get Vault
   Unique identifier of the vault to retrieve.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

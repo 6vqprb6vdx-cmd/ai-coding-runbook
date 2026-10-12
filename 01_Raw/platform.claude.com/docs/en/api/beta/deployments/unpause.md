@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/deployments/unpause
-fetched_at: 2026-10-05T06:25:33.856357+00:00
+fetched_at: 2026-10-12T06:47:25.051551+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Unpause Deployment
   Unique identifier of the deployment to unpause.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

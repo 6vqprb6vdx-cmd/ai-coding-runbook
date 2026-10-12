@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/rbac_groups/members/add
-fetched_at: 2026-10-05T06:25:40.003917+00:00
+fetched_at: 2026-10-12T06:47:32.772003+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,14 @@ The RBAC Groups API is available to Claude Enterprise organizations only.
 - `rbac_group_id: string`
 
   ID of the RBAC Group.
+
+## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 ## Body parameters
 

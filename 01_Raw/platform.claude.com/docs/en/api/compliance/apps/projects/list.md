@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/compliance/apps/projects/list
-fetched_at: 2026-09-28T06:07:05.848463+00:00
+fetched_at: 2026-10-12T06:47:35.336037+00:00
 fetch_method: mintlify_md
 ---
 
@@ -89,6 +89,12 @@ are sorted chronologically (time ascending) by created_at.
   Filter by user IDs. Enumerate IDs via `GET /v1/compliance/organizations/{org_uuid}/users`.
 
 ## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 - `"x-api-key": optional string`
 

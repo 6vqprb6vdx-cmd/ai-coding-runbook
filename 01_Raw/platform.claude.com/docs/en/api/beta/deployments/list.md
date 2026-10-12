@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/deployments/list
-fetched_at: 2026-10-05T06:25:33.749196+00:00
+fetched_at: 2026-10-12T06:47:24.843605+00:00
 fetch_method: mintlify_md
 ---
 
@@ -60,6 +60,8 @@ List Deployments
     The deployment is paused. Autonomous triggers are suppressed; manual runs are still permitted.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

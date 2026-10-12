@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/deployments/update
-fetched_at: 2026-10-05T06:25:33.750958+00:00
+fetched_at: 2026-10-12T06:47:24.896421+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Update Deployment
   Unique identifier of the deployment to update.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

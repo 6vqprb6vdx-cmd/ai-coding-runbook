@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/memory_stores/archive
-fetched_at: 2026-10-05T06:25:34.696558+00:00
+fetched_at: 2026-10-12T06:47:25.979096+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,8 @@ Archive a memory store
   ID of the memory store to archive (a `memstore_...` identifier). Required. Archiving is one-way and idempotent; archived stores cannot be unarchived. Enumerate IDs via `GET /v1/memory_stores`.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

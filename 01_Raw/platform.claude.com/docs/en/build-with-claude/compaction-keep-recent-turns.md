@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/build-with-claude/compaction-keep-recent-turns
-fetched_at: 2026-10-05T06:25:23.951507+00:00
+fetched_at: 2026-10-12T06:47:10.442548+00:00
 fetch_method: mintlify_md
 ---
 
@@ -25,10 +25,10 @@ featureMetadata:
     - claude-sonnet-5-5
     - claude-sonnet-5
     - claude-sonnet-4-6
+    - claude-haiku-5-5
   supportedPlatforms:
     Claude API: beta
     Claude Platform on AWS: beta
-    Amazon Bedrock: not available
     Google Cloud: beta
     Microsoft Foundry: beta
 ---

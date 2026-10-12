@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/files/delete
-fetched_at: 2026-09-28T06:06:56.284538+00:00
+fetched_at: 2026-10-12T06:47:19.209652+00:00
 fetch_method: mintlify_md
 ---
 
@@ -22,6 +22,12 @@ Delete File
   ID of the File.
 
 ## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 - `"anthropic-workspace-id": optional string`
 

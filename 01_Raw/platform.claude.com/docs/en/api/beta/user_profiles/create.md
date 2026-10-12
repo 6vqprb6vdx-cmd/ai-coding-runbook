@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/user_profiles/create
-fetched_at: 2026-10-05T06:25:35.508584+00:00
+fetched_at: 2026-10-12T06:47:27.028310+00:00
 fetch_method: mintlify_md
 ---
 
@@ -16,6 +16,8 @@ url: https://platform.claude.com/docs/en/api/beta/user_profiles/create
 Create User Profile
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

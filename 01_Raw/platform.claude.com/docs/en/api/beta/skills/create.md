@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/skills/create
-fetched_at: 2026-10-05T06:25:35.278892+00:00
+fetched_at: 2026-10-12T06:47:26.609033+00:00
 fetch_method: mintlify_md
 ---
 
@@ -16,6 +16,12 @@ url: https://platform.claude.com/docs/en/api/beta/skills/create
 Create Skill
 
 ## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

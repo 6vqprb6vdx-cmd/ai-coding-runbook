@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/members/update
-fetched_at: 2026-09-14T05:35:02.008041+00:00
+fetched_at: 2026-10-12T06:47:30.112375+00:00
 fetch_method: mintlify_md
 ---
 
@@ -24,6 +24,14 @@ Update Workspace Member
 - `user_id: string`
 
   ID of the User.
+
+## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 ## Body parameters
 

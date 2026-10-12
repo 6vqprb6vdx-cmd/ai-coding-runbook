@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/tunnels/list
-fetched_at: 2026-10-05T06:25:35.993054+00:00
+fetched_at: 2026-10-12T06:47:27.437904+00:00
 fetch_method: mintlify_md
 ---
 
@@ -34,6 +34,8 @@ Lists tunnels. Results are ordered by creation time, newest first; archived tunn
   Opaque pagination cursor from a previous `list_tunnels` response.
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

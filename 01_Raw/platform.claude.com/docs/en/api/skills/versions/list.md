@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/skills/versions/list
-fetched_at: 2026-09-28T06:06:56.476436+00:00
+fetched_at: 2026-10-12T06:47:19.537927+00:00
 fetch_method: mintlify_md
 ---
 
@@ -38,6 +38,12 @@ List Skill Versions
   Optionally set to the `next_page` token from the previous response.
 
 ## Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 - `"anthropic-workspace-id": optional string`
 

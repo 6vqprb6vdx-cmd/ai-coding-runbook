@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/tunnels/retrieve
-fetched_at: 2026-10-05T06:25:35.872772+00:00
+fetched_at: 2026-10-12T06:47:27.447868+00:00
 fetch_method: mintlify_md
 ---
 
@@ -24,6 +24,8 @@ Fetches a tunnel by ID.
   ID of the tunnel (`tnl_...`).
 
 ## Headers
+
+- `"anthropic-version": optional string`
 
 - `"anthropic-beta": optional array of AnthropicBeta`
 

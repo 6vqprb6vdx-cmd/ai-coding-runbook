@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/workspaces/rate_limits
-fetched_at: 2026-10-05T06:25:31.247839+00:00
+fetched_at: 2026-10-12T06:47:21.591543+00:00
 fetch_method: mintlify_md
 ---
 
@@ -68,6 +68,14 @@ the remaining entries.
 - `page: optional string`
 
   Opaque cursor from a previous response's `next_page`.
+
+### Headers
+
+- `"anthropic-version": optional string`
+
+  The version of the Claude API you want to use.
+
+  Read more about versioning and our version history [here](https://platform.claude.com/docs/en/api/versioning?sdk_languages=http).
 
 ### Returns
 
