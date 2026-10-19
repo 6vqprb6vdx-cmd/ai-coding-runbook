@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/federation/issuers/create
-fetched_at: 2026-10-12T06:47:28.351760+00:00
+fetched_at: 2026-10-19T05:30:17.134658+00:00
 fetch_method: mintlify_md
 ---
 
@@ -140,6 +140,8 @@ matched as the JWT's `iss` claim and is not fetched.
   - `"ce-plugins-2026-09-01"`
 
   - `"spend-limit-reads-2026-09-26"`
+
+  - `"telemetry-destinations-2026-08-11"`
 
 ## Body parameters
 

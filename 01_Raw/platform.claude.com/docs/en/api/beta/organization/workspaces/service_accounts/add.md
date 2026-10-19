@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/workspaces/service_accounts/add
-fetched_at: 2026-10-12T06:47:30.268269+00:00
+fetched_at: 2026-10-19T05:30:19.016322+00:00
 fetch_method: mintlify_md
 ---
 
@@ -145,6 +145,8 @@ accounts cannot be added and are rejected.
   - `"ce-plugins-2026-09-01"`
 
   - `"spend-limit-reads-2026-09-26"`
+
+  - `"telemetry-destinations-2026-08-11"`
 
 ## Body parameters
 

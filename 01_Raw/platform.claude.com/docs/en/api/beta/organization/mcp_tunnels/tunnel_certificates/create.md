@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/mcp_tunnels/tunnel_certificates/create
-fetched_at: 2026-10-12T06:47:30.985539+00:00
+fetched_at: 2026-10-19T05:30:19.737139+00:00
 fetch_method: mintlify_md
 ---
 
@@ -143,6 +143,8 @@ holds at most two non-archived certificates.
   - `"ce-plugins-2026-09-01"`
 
   - `"spend-limit-reads-2026-09-26"`
+
+  - `"telemetry-destinations-2026-08-11"`
 
 ## Body parameters
 
