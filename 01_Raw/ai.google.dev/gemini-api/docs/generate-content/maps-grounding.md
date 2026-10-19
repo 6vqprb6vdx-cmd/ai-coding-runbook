@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=sq
-fetched_at: 2026-10-12T06:48:21.943200+00:00
-title: "Argumentimi me Google Maps \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=zh-TW
+fetched_at: 2026-10-19T05:38:37.608309+00:00
+title: "\u5229\u7528 Google \u5730\u5716\u5efa\u7acb\u57fa\u6e96 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash është tani në dispozicion. [Provojeni](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=sq) .
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs/generate-content?hl=sq)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
 
-Dërgo komente
+提供意見
 
-# Argumentimi me Google Maps
+# 利用 Google 地圖建立基準
 
-Argumentimi me Google Maps lidh aftësitë gjeneruese të Gemini me të dhënat e pasura, faktike dhe të përditësuara të Google Maps. Kjo veçori u mundëson zhvilluesve të integrojnë me lehtësi funksionalitetin e bazuar te vendndodhja në aplikacionet e tyre. Kur një pyetje e përdoruesit ka një kontekst në lidhje me të dhënat e Maps, modeli i Gemini përdor Google Maps për të ofruar përgjigje të sakta dhe të përditësuara që janë të përshtatshme për vendndodhjen e specifikuar të përdoruesit ose zonën e përgjithshme.
+「利用 Google 地圖建立基準」功能可將 Gemini 的生成功能，與 Google 地圖豐富、真實且最新的資料連結。開發人員可以利用這項功能，輕鬆將位置感知功能整合到應用程式中。如果使用者查詢的內容與 Maps 資料相關，Gemini 模型會利用 Google 地圖，提供與使用者指定位置或大概區域相關、符合事實且最新的答案。
 
-- **Përgjigje të sakta që njohin vendndodhjen:** Përfito nga të dhënat e gjera dhe aktuale të Google Maps për pyetje specifike gjeografike.
-- **Personalizim i përmirësuar:** Personalizo rekomandimet dhe informacionet bazuar në vendndodhjet e dhëna nga përdoruesit.
+- **準確且考量位置的回覆：**運用 Google 地圖廣泛且最新的資料，處理特定地理位置的查詢。
+- **強化個人化功能：**根據使用者提供的所在位置，量身打造推薦內容和資訊。
 
-## Fillo
+## 開始使用
 
-Ky shembull demonstron se si të integrosh Grounding me Google Maps në aplikacionin tënd për të ofruar përgjigje të sakta dhe të ndërgjegjshme për vendndodhjen për pyetjet e përdoruesve. Kërkesa kërkon rekomandime lokale me një vendndodhje opsionale të përdoruesit, duke bërë të mundur që modeli i Gemini të përdorë të dhënat e Google Maps.
+本範例說明如何將 Grounding with Google Maps 整合至應用程式，根據使用者查詢提供準確的回覆，並加入位置資訊。提示會要求提供當地建議，並可選用使用者位置資訊，讓 Gemini 模型使用 Google 地圖資料。
 
 ### Python
 
@@ -106,7 +106,7 @@ async function generateContentWithMapsGrounding() {
 generateContentWithMapsGrounding();
 ```
 
-### QETËSI
+### REST
 
 ```
 curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent' \
@@ -128,37 +128,34 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Si funksionon argumentimi me Google Maps
+## 「利用 Google 地圖建立基準」的運作方式
 
-"Argumentimi me Google Maps" integron Gemini API me ekosistemin e Google Geo duke përdorur Maps API si burim argumentimi. Kur kërkesa e një përdoruesi përfshin kontekst gjeografik, modeli i Gemini mund të aktivizojë veglën e "Argumentimit me Google Maps". Më pas, modeli mund të gjenerojë përgjigje të bazuara në të dhënat e Google Maps që janë të përshtatshme për vendndodhjen e dhënë.
+利用 Google 地圖建立基準，將 Gemini API 與 Google 地理生態系統整合，並使用 Maps API 做為基準來源。當使用者的查詢包含地理位置背景資訊時，Gemini 模型可以叫用「利用 Google 地圖建立基準」工具。模型接著就能根據與所提供位置相關的 Google 地圖資料，生成回覆。
 
-Procesi zakonisht përfshin:
+整個程序通常涵蓋下列工作：
 
-1. **Kërkesa e përdoruesit:** Një përdorues dërgon një kërkesë në aplikacionin tënd, ndoshta duke përfshirë kontekstin gjeografik (p.sh. "kafene në afërsi", "muze në San-Francisko").
-2. **Aktivizimi i veglës:** Modeli i Gemini, duke njohur qëllimin gjeografik, aktivizon veglën "Argumentimi me Google Maps". Kjo vegël mund të ofrohet në mënyrë opsionale me `latitude` dhe `longitude` të përdoruesit. Vegla është një vegël kërkimi me tekst dhe funksionon në mënyrë të ngjashme me kërkimin në Maps, në atë që kërkesat lokale ("pranë meje") do të përdorin koordinatat, ndërsa kërkesat specifike ose jolokale ka të ngjarë që të mos ndikohen nga vendndodhja e qartë.
-3. **Marrja e të dhënave:** Shërbimi i "Kërkimit në terren" me Google Maps kërkon në Google Maps për informacione përkatëse (p.sh. vende, komente, fotografi, adresa, orare hapjeje).
-4. **Gjenerimi i bazuar në të dhëna:** Të dhënat e marra nga Maps përdoren për të informuar përgjigjen e modelit Gemini, duke siguruar saktësinë faktike dhe përshtatshmërinë.
-5. **Përgjigjja:** Modeli kthen një përgjigje me tekst, e cila
-   përfshin citime për burimet e Google Maps.
+1. **使用者查詢：**使用者向應用程式提交查詢，可能包含地理位置背景資訊 (例如「附近的咖啡店」、「舊金山的博物館」)。
+2. **叫用工具：**Gemini 模型辨識出地理意圖，叫用「利用 Google 地圖建立基準」工具。這項工具可選擇提供使用者的 `latitude` 和 `longitude`。這項工具是文字搜尋工具，運作方式與在 Google 地圖上搜尋類似，也就是說，本地查詢 (「附近」) 會使用座標，而特定或非本地查詢則不太可能受到明確位置的影響。
+3. **資料擷取：**「利用 Google 地圖建立基準」服務會查詢 Google 地圖，取得相關資訊 (例如地點、評論、相片、地址、營業時間)。
+4. **建立基準生成：**系統會使用檢索到的 Maps 資料，提供 Gemini 模型回覆，確保事實準確性和關聯性。
+5. **回覆：**模型會傳回文字回覆，其中包含 Google 地圖來源的引用內容。
 
-## Pse dhe kur të përdorësh "Argumentimin me Google Maps"
+## 使用 Google 地圖建立基準的原因和時機
 
-"Vendosja në tokë" me Google Maps është ideale për aplikacionet që kërkojnë informacione të sakta, të përditësuara dhe specifike për vendndodhjen. Ai përmirëson përvojën e përdoruesit duke ofruar përmbajtje të personalizuara dhe të përshtatshme të mbështetura nga baza e gjerë e të dhënave e Google Maps me mbi 250 milionë vende në mbarë botën.
+如果應用程式需要準確、最新且特定地點的資訊，就非常適合使用「利用 Google 地圖建立基準」功能。這項功能會根據 Google 地圖全球超過 2.5 億個地點的龐大資料庫，提供相關且個人化的內容，提升使用者體驗。
 
-Duhet të përdorësh "Argumentimin me Google Maps" kur aplikacioni yt ka nevojë që:
+如果應用程式需要執行下列操作，請使用「利用 Google 地圖建立基準」功能：
 
-- Të japësh përgjigje të plota dhe të sakta për pyetjet specifike për vendndodhjen gjeografike.
-- Krijo planifikues udhëtimi dhe udhëzues lokalë nëpërmjet bisedës.
-- Rekomando pika interesi bazuar në vendndodhje dhe preferencat e përdoruesit, si p.sh. restorante ose dyqane.
-- Krijo përvoja të ndërgjegjshme për vendndodhjen për shërbimet sociale, të shitjes me pakicë ose të dërgesave të ushqimeve.
+- 完整且如實回答特定地區的問題。
+- 打造對話式行程規劃工具和當地導覽。
+- 根據位置和使用者偏好 (例如餐廳或商店)，推薦搜尋點。
+- 為社群、零售或餐飲外送服務打造位置感知體驗。
 
-"Bazimi" me Google Maps shkëlqen në rastet e përdorimit ku afërsia dhe të dhënat aktuale faktike janë kritike, si p.sh. për të gjetur "kafenenë më të mirë në afërsi" ose për të marrë udhëzime.
+如果用途需要考量距離和最新事實資料，例如尋找「附近最棒的咖啡店」或規劃路線，利用 Google 地圖建立基準就是絕佳選擇。
 
-## Metodat dhe parametrat e API-së
+## API 方法和參數
 
-"Argumentimi me Google Maps" ekspozohet nëpërmjet Gemini API si një veglë brenda metodës [`generateContent`](https://ai.google.dev/api/generate-content?hl=sq). Ti aktivizon dhe konfiguron
-Grounding me Google Maps duke përfshirë një objekt
-[`googleMaps`](https://ai.google.dev/api/caching?hl=sq#GoogleMaps) në parametrin `tools` të kërkesës sate.
+透過 Gemini API，您可以使用 [`generateContent`](https://ai.google.dev/api/generate-content?hl=zh-tw) 方法，將 Google 地圖做為工具建立基準。如要啟用及設定利用 Google 地圖建立基準，請在要求的 `tools` 參數中加入 [`googleMaps`](https://ai.google.dev/api/caching?hl=zh-tw#GoogleMaps) 物件。
 
 ### JSON
 
@@ -173,7 +170,7 @@ Grounding me Google Maps duke përfshirë një objekt
 }
 ```
 
-Përveç kësaj, vegla mbështet kalimin e vendndodhjes kontekstuale si `toolConfig`.
+此外，這項工具支援以 `toolConfig` 形式傳遞情境位置。
 
 ### JSON
 
@@ -196,11 +193,9 @@ Përveç kësaj, vegla mbështet kalimin e vendndodhjes kontekstuale si `toolCon
 }
 ```
 
-### Kuptimi i përgjigjes së bazuar
+### 瞭解基準回覆
 
-Kur një përgjigje bazohet me sukses në të dhënat e Google Maps, përgjigjja
-përfshin një fushë [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=sq#GroundingMetadata).
-Këto të dhëna të strukturuara janë thelbësore për verifikimin e pretendimeve dhe krijimin e një përvoje të pasur citimi në aplikacionin tënd, si dhe për përmbushjen e kërkesave për përdorimin e shërbimit.
+如果回覆成功以 Google 地圖資料建立基準，回覆會包含 [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-tw#GroundingMetadata) 欄位。這類結構化資料對於驗證聲明、在應用程式中建立豐富的引用體驗，以及符合服務使用規定至關重要。
 
 ### JSON
 
@@ -247,23 +242,21 @@ Këto të dhëna të strukturuara janë thelbësore për verifikimin e pretendim
 }
 ```
 
-Gemini API kthen informacionet e mëposhtme me
-[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=sq#GroundingMetadata):
+Gemini API 會傳回下列資訊：
+[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-tw#GroundingMetadata)：
 
-- `groundingChunks`: Vargu i objekteve që përmbajnë burimet e `maps` (`uri`,
-  `placeId` dhe `title`).
-- `groundingSupports`: Vargu i pjesëve për të lidhur tekstin e përgjigjes së modelit me burimet në `groundingChunks`. Çdo pjesë lidh një shtrirje teksti (të përcaktuar nga
-  `startIndex` dhe `endIndex`) me një ose më shumë `groundingChunkIndices`. Ky është çelësi për të ndërtuar citime të ndërfutura.
+- `groundingChunks`：包含 `maps` 來源 (`uri`、`placeId` 和 `title`) 的物件陣列。
+- `groundingSupports`：區塊陣列，用於將模型回覆文字連結至 `groundingChunks` 中的來源。每個區塊都會將文字範圍 (由 `startIndex` 和 `endIndex` 定義) 連結至一或多個 `groundingChunkIndices`。這是建立內嵌引用的關鍵。
 
-Për një fragment kodi që tregon se si të paraqiten citimet e integruara në tekst, shiko [shembullin](https://ai.google.dev/gemini-api/docs/google-search?hl=sq#attributing_sources_with_inline_citations) në dokumentet e "Themelimit me 'Kërko në Google'".
+如需顯示如何以文字呈現文內引用的程式碼片段，請參閱「以 Google 搜尋強化事實基礎」文件中的[範例](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw#attributing_sources_with_inline_citations)。
 
-## Rastet e përdorimit
+## 用途
 
-Argumentimi me Google Maps mbështet një sërë rastesh përdorimi që kanë parasysh vendndodhjen. Shembujt e mëposhtëm demonstrojnë se si kërkesa dhe parametra të ndryshëm mund të shfrytëzojnë "Bazimin" me Google Maps. Informacionet në "Rezultatet e bazuara në vendndodhje" të Google Maps mund të ndryshojnë nga kushtet aktuale.
+「利用 Google 地圖建立基準」功能支援多種位置感知用途。以下範例說明如何透過不同的提示詞和參數，利用 Google 地圖建立基準。Google 地圖基準結果中的資訊可能與實際情況不同。
 
-### Trajtimi i pyetjeve specifike për vendin
+### 處理地點相關問題
 
-Bëj pyetje të detajuara për një vend specifik për të marrë përgjigje bazuar në komentet e përdoruesve të Google dhe të dhëna të tjera të Maps.
+詢問特定地點的詳細問題，根據 Google 使用者評論和其他地圖資料取得解答。
 
 ### Python
 
@@ -347,7 +340,7 @@ async function run() {
 run();
 ```
 
-### QETËSI
+### REST
 
 ```
 curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent' \
@@ -369,9 +362,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-### Ofrimi i personalizimit bazuar në vendndodhje
+### 提供適地性個人化服務
 
-Merr rekomandime të personalizuara për preferencat e një përdoruesi dhe një zonë specifike gjeografike.
+根據使用者的偏好和特定地理區域，取得專屬建議。
 
 ### Python
 
@@ -451,7 +444,7 @@ async function run() {
 run();
 ```
 
-### QETËSI
+### REST
 
 ```
 curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent' \
@@ -473,10 +466,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-### Ndihmon për planifikimin e itinerarit
+### 協助規劃行程
 
-Gjenero plane shumëditore me udhëzime dhe informacione për
-lokacione të ndryshme, të përsosura për aplikacionet e udhëtimeve.
+生成多日計畫，提供路線和各個地點的資訊，非常適合旅遊應用程式。
 
 ### Python
 
@@ -558,7 +550,7 @@ async function run() {
 run();
 ```
 
-### QETËSI
+### REST
 
 ```
 curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent' \
@@ -580,74 +572,70 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Kërkesat për përdorimin e shërbimit
+## 服務使用規定
 
-Ky seksion përshkruan kërkesat për përdorimin e shërbimit për "Argumentimin me Google
-Maps".
+本節說明使用「利用 Google 地圖建立基準」服務時須遵守的規定。
 
-### Informo përdoruesin për përdorimin e burimeve të Google Maps
+### 告知使用者 Google 地圖來源的使用方式
 
-Me çdo rezultat të bazuar në Google Maps, do të marrësh burimet në `groundingChunks` që mbështesin çdo përgjigje. Metadatat e mëposhtme kthehen gjithashtu:
+每筆 Google 地圖基準結果都會提供 `groundingChunks` 中的來源，佐證各項回覆。系統也會傳回下列中繼資料：
 
-- uri i burimit
-- titulli
-- ID-ja
+- 來源 URI
+- title
+- ID
 
-Kur paraqet rezultate nga "Argumentimi me Google Maps", duhet të specifikosh burimet përkatëse të Google Maps dhe të informosh përdoruesit e tu për sa më poshtë:
+呈現利用 Google 地圖建立基準的結果時，您必須指定相關聯的 Google 地圖來源，並告知使用者下列事項：
 
-- Burimet e Google Maps duhet të ndjekin menjëherë përmbajtjen e gjeneruar që mbështesin burimet. Kjo përmbajtje e gjeneruar referohet gjithashtu si rezultat i bazuar në terren i Google Maps.
-- Burimet e Google Maps duhet të jenë të shikueshme brenda një ndërveprimi të përdoruesit.
+- Google 地圖來源必須緊接在來源支援的生成內容之後。這類生成內容也稱為 Google 地圖基準結果。
+- Google 地圖來源必須在一次使用者互動中可供查看。
 
-### Shfaq burimet e Google Maps me lidhjet e Google Maps
+### 顯示 Google 地圖來源和 Google 地圖連結
 
-Për çdo burim në `groundingChunks` dhe në
-`grounding_chunks.maps.placeAnswerSources.reviewSnippets`, duhet të gjenerohet një pamje paraprake e lidhjes sipas këtyre kërkesave:
+針對 `groundingChunks` 和 `grounding_chunks.maps.placeAnswerSources.reviewSnippets` 中的每個來源，都必須按照下列規定產生連結預覽畫面：
 
-- Atribuo çdo burim te Google Maps duke ndjekur [udhëzimet e atribuimit](#maps-attribution-guidelines) të tekstit të Google Maps.
-- Shfaq titullin e burimit të dhënë në përgjigje.
-- Lidhja për te burimi duke përdorur `uri` ose `googleMapsUri` nga përgjigjja.
+- 請按照 Google 地圖文字[出處指南](#maps-attribution-guidelines)，將每個來源歸功於 Google 地圖。
+- 顯示回覆中提供的來源標題。
+- 使用回覆中的 `uri` 或 `googleMapsUri` 連結至來源。
 
-Këto imazhe tregojnë kërkesat minimale për shfaqjen e burimeve dhe lidhjeve të Google
-Maps.
+這些圖片顯示來源和 Google 地圖連結的最低顯示要求。
 
-![Kërkesa me përgjigjen që shfaq burimet](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=sq)
+![提示和回覆，並顯示來源](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=zh-tw)
 
-Mund ta palosësh pamjen e burimeve.
+您可以收合來源檢視畫面。
 
-![Kërkesa me përgjigjen dhe burimet u palosën](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=sq)
+![提示詞與回覆和來源 (收合)](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=zh-tw)
 
-Opsionale: Përmirëso pamjen paraprake të lidhjes me përmbajtje shtesë, si p.sh.:
+選用：加入其他內容 (例如：) 來強化連結預覽畫面：
 
-- Një [favicon i Google Maps](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=sq)
-  futet para atribuimit me tekst të Google Maps.
-- Një fotografi nga URL-ja e burimit (`og:image`).
+- Google 地圖文字出處標示前方會插入 [Google 地圖網站小圖示](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=zh-tw)。
+- 來源網址 (`og:image`) 的相片。
 
-Për më shumë informacione rreth disa prej ofruesve të të dhënave të Google Maps dhe kushteve të tyre të licencës, shiko [njoftimet ligjore të Google Maps dhe Google Earth](https://www.google.com/help/legalnotices_maps/?hl=sq).
+如要進一步瞭解部分 Google 地圖資料供應商及其授權條款，請參閱「[Google 地圖和 Google 地球法律聲明](https://www.google.com/help/legalnotices_maps/?hl=zh-tw)」。
 
-### Udhëzimet për atribuimin me tekst të Google Maps
+### Google 地圖文字出處資訊規範
 
-Kur u atribuon burime Google Maps në tekst, ndiq këto udhëzime:
+在文字中將來源歸給 Google 地圖時，請遵循下列規範：
 
-- Mos e modifiko tekstin Google Maps në asnjë mënyrë:
-  - Mos e ndrysho kapitalizimin e Google Maps.
-  - Mos e mbështill Google Maps në disa rreshta.
-  - Mos e lokalizo Google Maps në një gjuhë tjetër.
-  - Parandalo përkthimin e Google Maps nga shfletuesit duke përdorur atributin translate="no" të HTML.
-- Stilizo tekstin e Google Maps siç përshkruhet në tabelën e mëposhtme:
+- 請勿以任何方式修改「Google 地圖」文字：
+  - 請勿變更 Google 地圖的大小寫。
+  - 請勿將 Google 地圖分成多行。
+  - 請勿將 Google 地圖本地化為其他語言。
+  - 使用 HTML 屬性 translate="no"，防止瀏覽器翻譯 Google 地圖。
+- 請按照下表說明設定 Google 地圖文字樣式：
 
-| Prona | Stili |
+| 屬性 | 樣式 |
 | --- | --- |
-| `Font family` | Roboto. Ngarkimi i fontit është opsional. |
-| `Fallback font family` | Çdo font sans serif i trupit të tekstit që përdoret tashmë në produktin tënd ose "Sans-Serif" për të aktivizuar fontin e parazgjedhur të sistemit |
-| `Font style` | Normale |
+| `Font family` | Roboto。載入字型為選用步驟。 |
+| `Fallback font family` | 產品中已使用的任何 Sans Serif 內文字型，或「Sans-Serif」以叫用預設系統字型 |
+| `Font style` | 一般 |
 | `Font weight` | 400 |
-| `Font color` | E bardhë, e zezë (#1F1F1F) ose gri (#5E5E5E). Mbaj kontrast të arritshëm (4,5:1) me sfondin. |
-| `Font size` | - Madhësia minimale e fontit: 12sp - Madhësia maksimale e fontit: 16 sp - Për të mësuar rreth sp, shiko "Njësitë e madhësisë së fontit" në [uebsajtin e Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
-| `Spacing` | Normale |
+| `Font color` | 白色、黑色 (#1F1F1F) 或灰色 (#5E5E5E)。與背景保持無障礙對比度 (4.5:1)。 |
+| `Font size` | - 字型大小下限：12sp - 字型大小上限：16sp - 如要瞭解 sp，請參閱 [Material Design 網站](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc)上的字型大小單位。 |
+| `Spacing` | 一般 |
 
-#### Shembull i CSS-së
+#### CSS 範例
 
-Kodi i mëposhtëm CSS e paraqet Google Maps me stilin e duhur tipografik dhe ngjyrën në një sfond të bardhë ose të lehtë.
+下列 CSS 會在白色或淺色背景上，以適當的字體排版樣式和顏色顯示 Google 地圖。
 
 ### CSS
 
@@ -666,92 +654,78 @@ color: #5e5e5e;
 }
 ```
 
-### ID-ja e vendit dhe ID-ja e komentit
+### 地點 ID 和評論 ID
 
-Të dhënat e Google Maps përfshijnë ID-në e vendit dhe ID-në e komenteve. Mund të ruash në memorien specifike, të ruash dhe të eksportosh të dhënat e mëposhtme të përgjigjes:
+Google 地圖資料包括地點 ID 和評論 ID。您可以快取、儲存及匯出下列回應資料：
 
 - `placeId`
 - `reviewId`
 
-Kufizimet kundër ruajtjes në memorien specifike te "Kushtet e 'Argumentimit me Google Maps'" nuk zbatohen.
+《利用 Google 地圖建立基準條款》中的快取限制不適用。
 
-### Aktiviteti dhe territori i ndaluar
+### 禁止的活動和地域
 
-"Qëndrimi në tokë" me Google Maps ka kufizime shtesë për përmbajtje dhe aktivitete të caktuara për të ruajtur një platformë të sigurt dhe të besueshme. Përveç kufizimeve të përdorimit në [Kushtet](https://ai.google.dev/gemini-api/terms?hl=sq#grounding-with-google-maps):
+利用 Google 地圖建立基準時，某些內容和活動會受到額外限制，以維護安全可靠的平台。除了《[條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#grounding-with-google-maps)》中的使用限制外，您也同意不從事下列行為：
 
-- Nuk do ta përdorësh Grounding me Google Maps për aktivitete me rrezik të lartë, duke përfshirë shërbimet e reagimit ndaj urgjencave.
-- Nuk do ta shpërndash apo tregtosh aplikacionin tënd që ofron "Argumentimin me Google Maps" në një territor të ndaluar. Për më shumë informacione, shiko
-  [Territoret e ndaluara të Google Maps Platform](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=sq).
-  Lista e Territoreve të Ndaluara mund të përditësohet herë pas here.
+- 您不會將「利用 Google 地圖建立基準」功能用於高風險活動，包括緊急應變服務。
+- 您不得在禁止地區發行或行銷提供「利用 Google 地圖建立基準」功能的應用程式。詳情請參閱「[Google Maps Platform 禁止地區](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=zh-tw)」一文。「禁止地域」清單可能會不時更新。
 
-## Praktikat më të mira
+## 最佳做法
 
-- **Jep vendndodhjen e përdoruesit:** Për përgjigjet më të përshtatshme dhe të personalizuara,
-  përfshi gjithmonë `user_location` (gjerësinë dhe gjatësinë gjeografike) në konfigurimin e `googleMapsGrounding` kur dihet vendndodhja e përdoruesit.
-- **Informo përdoruesit fundorë:** Informo në mënyrë të qartë përdoruesit fundorë që të dhënat e Google Maps po përdoren për t'iu përgjigjur pyetjeve të tyre, sidomos kur vegla është e aktivizuar.
-- **Monitoro vonesën:** Për aplikacionet bisedore, sigurohu që vonesa P95
-  për përgjigjet e bazuara në njohuri të mbetet brenda pragjeve të pranueshme për të
-  ruajtur një përvojë të qetë të përdoruesit.
-- **Çaktivizoje kur nuk është e nevojshme:** Argumentimi me Google Maps është joaktiv si parazgjedhje. Aktivizoje atë (`"tools": [{"googleMaps": {}}]`) vetëm kur një kërkesë ka një kontekst të qartë gjeografik, për të optimizuar performancën dhe koston.
+- **提供使用者位置資訊：**如要取得最相關的個人化回覆，請在知道使用者位置資訊時，務必在 `googleMapsGrounding` 設定中加入 `user_location` (經緯度)。
+- **告知使用者：**明確告知使用者，系統會使用 Google 地圖資料回答查詢，尤其是在啟用工具時。
+- **監控延遲時間：**如果是對話式應用程式，請確保基準回覆的 P95 延遲時間維持在可接受的門檻內，以維持流暢的使用者體驗。
+- **在不需要時關閉：**預設會關閉利用 Google 地圖建立基準的功能。只有在查詢有明確的地理位置脈絡時，才啟用這項功能 (`"tools": [{"googleMaps": {}}]`)，以提升效能並節省費用。
 
-## Kufizimet
+## 限制
 
-- **Fushëveprimi gjeografik:** "Argumentimi me Google Maps" ofrohet në nivel global
-- **Mbështetja e modelit:** Shiko seksionin [Modelet e mbështetura](#supported-models).
-- **Hyrjet/daljet multimodale:** "Bazimi" me Google Maps nuk mbështet aktualisht hyrjet ose daljet multimodale përveç tekstit.
-- **Gjendja e parazgjedhur:** Vegla "Argumentimi me Google Maps" është joaktive si parazgjedhje.
-  Duhet ta aktivizosh në mënyrë të qartë në kërkesat e tua të API-së.
+- **適用地區：**利用 Google 地圖建立基準的功能已在全球推出
+- **支援的機型：**請參閱「[支援的機型](#supported-models)」一節。
+- **多模態輸入/輸出：**目前「利用 Google 地圖建立基準」功能不支援文字以外的多模態輸入或輸出內容。
+- **預設狀態：**「利用 Google 地圖建立基準」工具預設為關閉。您必須在 API 要求中明確啟用這項功能。
 
-## Çmimet dhe kufijtë e normës
+## 定價和頻率限制
 
-Çmimi i "Argumentimit me Google Maps" ndryshon në varësi të gjeneratës së modelit:
+利用 Google 地圖建立基準的定價因模型世代而異：
 
-- **Gemini 3 dhe modelet më të reja:** Projekti yt faturohet për çdo kërkesë kërkimi që modeli vendos të ekzekutojë, me 5000 kërkesa falas në muaj të ndara në të gjitha modelet Gemini 3 dhe më të reja dhe më pas **14 USD për 1000 kërkesa kërkimi**. Një kërkesë e vetme kërkimi (kërkesa jote e API-së për modelin) mund të rezultojë në ekzekutimin e disa kërkesave kërkimi nga modeli për të gjetur informacionet e nevojshme. Secila nga këto kërkesa llogaritet si një përdorim i faturueshëm i veglës.
-- **Gemini 2.5 dhe modelet më të vjetra:** Projekti yt faturohet për çdo kërkesë kërkimi
-  (25 USD për 1000 kërkesa të bazuara në kontekst). Një kërkesë faturohet vetëm nëse kërkesa
-  kthehet me sukses me të paktën një rezultat të bazuar në Google Maps, pavarësisht
-  se sa kërkesa individuale kërkimi ka kryer modeli në mënyrë të brendshme për të marrë
-  atë rezultat.
+- **Gemini 3 和更新的模型：**模型決定執行的每項搜尋查詢都會計入專案費用，所有 Gemini 3 和更新的模型每月共用 5,000 次免費要求，之後**每 1,000 次搜尋查詢收費$14 美元**。單一搜尋提示 (您對模型發出的 API 要求) 可能會導致模型執行多項搜尋查詢，以找出必要資訊。這些查詢都會計為工具的付費使用次數。
+- **Gemini 2.5 和舊版模型：**系統會根據搜尋提示向專案收費 (每 1,000 個基礎提示 $25 美元)。只有在提示成功傳回至少一個 Google 地圖錨定結果時，才會針對要求收費，無論模型在內部執行多少個別搜尋查詢來取得該結果，皆是如此。
 
-Kuota për argumentimin me Google Maps përputhet zakonisht me kufijtë e normës së modelit bazë të Gemini. Për informacion të detajuar për çmimet, shiko [faqen e çmimeve të Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=sq).
+「利用 Google 地圖建立基準」的配額通常與基礎 Gemini 模型的頻率限制一致。如需詳細的定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
 
-## Modelet e mbështetura
+## 支援的模型
 
-Modelet e mëposhtme mbështesin "Argumentimin me Google Maps":
+下列機型支援「利用 Google 地圖建立基準」：
 
-| Modeli | Argumentimi me Google Maps |
+| 模型 | 利用 Google 地圖建立基準 |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=sq) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=sq) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=sq) | ✔️ |
-| [Versioni paraprak i Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=sq) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=sq) | ✔️ |
-| [Pamja paraprake e Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=sq) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=sq) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=sq) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=sq) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-tw) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-tw) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ |
 
-## Kombinimet e mbështetura të veglave
+## 支援的工具組合
 
-Mund të përdorësh "Argumentimin me Google Maps" me veglat e tjera të integruara, si p.sh.
-[Argumentimi me "Kërko në Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=sq) (mbështetet në
-Gemini 3.5 Flash-Lite dhe modelet e mëvonshme) për të mundësuar raste përdorimi më kompleks.
-Modelet e Gemini 3
-mbështesin gjithashtu kombinimin e këtyre veglave të integruara me vegla të personalizuara (thirrja e funksioneve). Mëso më shumë në faqen e
-[kombinimeve të veglave](https://ai.google.dev/gemini-api/docs/tool-combination?hl=sq).
+您可以將「利用 Google 地圖建立基準」與其他內建工具搭配使用，例如[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw) (Gemini 3.5 Flash-Lite 和後續模型支援)，以支援更複雜的用途。Gemini 3 模型也支援將這些內建工具與自訂工具 (函式呼叫) 結合。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
 
-## Çfarë ka më pas
+## 後續步驟
 
-- Provo [Argumentimin me "Kërko në Google" në "Librin e gatimeve" të Gemini API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=sq).
-- Mëso rreth [veglave të tjera të disponueshme](https://ai.google.dev/gemini-api/docs/tools?hl=sq).
-- Për të mësuar më shumë rreth praktikave më të mira të IA-së së përgjegjshme dhe filtrave të sigurisë të Gemini API, shiko [udhëzuesin e cilësimeve të sigurisë](https://ai.google.dev/gemini-api/docs/safety-settings?hl=sq).
+- 請參閱 [Gemini API 教戰手冊中的「以 Google 搜尋強化事實基礎」一節](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=zh-tw)。
+- 瞭解其他[可用工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw)。
+- 如要進一步瞭解負責任的 AI 最佳做法和 Gemini API 的安全篩選器，請參閱[安全設定指南](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-tw)。
 
-Dërgo komente
+提供意見
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Përditësimi i fundit: 2026-10-09 UTC.
+上次更新時間：2026-10-15 (世界標準時間)。
 
-Duhet të na tregosh më shumë?
+想進一步說明嗎？
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-09 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-15 (世界標準時間)。"],[],[]]

@@ -1,94 +1,106 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=es-419
-fetched_at: 2026-10-12T06:59:24.796120+00:00
-title: "Gu\u00eda de inicio r\u00e1pido de Authentication con OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=id
+fetched_at: 2026-10-19T05:42:58.881706+00:00
+title: "Panduan memulai Authentication dengan OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Enviar comentarios
+Kirim masukan
 
-# Guía de inicio rápido de Authentication con OAuth
+# Panduan memulai Authentication dengan OAuth
 
-La forma más sencilla de autenticarse en la API de Gemini es configurar una clave de API, como se describe en la [guía de introducción a la API de Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419). Si necesitas controles de acceso más estrictos, puedes usar OAuth en su lugar. Esta guía te ayudará a configurar la autenticación con OAuth.
+Cara termudah untuk mengautentikasi Gemini API adalah dengan mengonfigurasi kunci API, seperti yang dijelaskan dalam [panduan memulai Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=id). Jika memerlukan kontrol akses yang lebih ketat,
+Anda dapat menggunakan OAuth. Panduan ini akan membantu
+Anda menyiapkan autentikasi dengan OAuth.
 
-En esta guía, se usa un enfoque de autenticación simplificado que es adecuado para un entorno de pruebas. Para un entorno de producción, obtén información
-sobre
-[la autenticación y la autorización](https://developers.google.com/workspace/guides/auth-overview?hl=es-419)
-antes de
-[elegir las credenciales de acceso](https://developers.google.com/workspace/guides/create-credentials?hl=es-419#choose_the_access_credential_that_is_right_for_you)
-adecuadas para tu app.
+Panduan ini menggunakan pendekatan autentikasi yang disederhanakan dan sesuai
+untuk lingkungan pengujian. Untuk lingkungan produksi, pelajari
+[autentikasi dan otorisasi](https://developers.google.com/workspace/guides/auth-overview?hl=id)
+sebelum
+[memilih kredensial akses](https://developers.google.com/workspace/guides/create-credentials?hl=id#choose_the_access_credential_that_is_right_for_you)
+yang sesuai untuk aplikasi Anda.
 
-## Objetivos
+## Tujuan
 
-- Configurar tu proyecto de la nube para OAuth
-- Configurar credenciales predeterminadas de la aplicación
-- Administrar credenciales en tu programa en lugar de usar `gcloud auth`
+- Menyiapkan project cloud untuk OAuth
+- Menyiapkan kredensial default aplikasi
+- Mengelola kredensial dalam program Anda, bukan menggunakan `gcloud auth`
 
-## Requisitos previos
+## Prasyarat
 
-Para ejecutar esta guía de inicio rápido, necesitas lo siguiente:
+Untuk menjalankan quickstart ini, Anda memerlukan:
 
-- [Un proyecto de Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=es-419)
-- [Una instalación local de gcloud CLI](https://cloud.google.com/sdk/docs/install?hl=es-419)
+- [Project Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=id)
+- [Penginstalan gcloud CLI lokal](https://cloud.google.com/sdk/docs/install?hl=id)
 
-## Configura tu proyecto de la nube
+## Menyiapkan project cloud
 
-Para completar esta guía de inicio rápido, primero debes configurar tu proyecto de Cloud.
+Untuk menyelesaikan panduan memulai ini, Anda harus menyiapkan project Cloud terlebih dahulu.
 
-### 1. Habilita la API
+### 1. Mengaktifkan API
 
-Antes de usar las APIs de Google, debes activarlas en un proyecto de Google Cloud.
+Sebelum menggunakan Google API, Anda harus mengaktifkannya di project Google Cloud.
 
-- En la consola de Google Cloud, habilita la API de Google Generative Language.
+- Di Konsol Google Cloud, aktifkan Google Generative Language API.
 
-  [Habilitar la API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=es-419)
+  [Mengaktifkan API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=id)
 
-### 2. Cómo configurar la pantalla de consentimiento de OAuth
+### 2. Mengonfigurasi layar izin OAuth
 
-Luego, configura la pantalla de consentimiento de OAuth del proyecto y agrégate como usuario de prueba. Si ya completaste este paso para tu proyecto de Cloud, ve a la siguiente sección.
+Selanjutnya, konfigurasi layar izin OAuth project dan tambahkan diri Anda sebagai pengguna pengujian. Jika Anda telah menyelesaikan langkah ini untuk project Cloud, lewati ke bagian berikutnya.
 
-1. En la consola de Google Cloud, ve a **Menú** > **Plataforma de autenticación de Google** > **Descripción general**.
+1. Di Konsol Google Cloud, buka **Menu** >
+   **Google Auth platform** > **Overview**.
 
-   [Ir a la plataforma de autenticación de Google](https://console.developers.google.com/auth/overview?hl=es-419)
-2. Completa el formulario de configuración del proyecto y establece el tipo de usuario en **Externo** en la sección **Público**.
-3. Completa el resto del formulario, acepta las condiciones de la Política de Datos del Usuario y, luego, haz clic en **Crear**.
-4. Por ahora, puedes omitir la adición de permisos y hacer clic en **Guardar y continuar**. En el futuro, cuando crees una app para usar fuera de tu organización de Google Workspace, debes agregar y verificar los permisos de autorización que requiere tu app.
-5. Agrega usuarios de prueba:
+   [Buka platform Google Auth](https://console.developers.google.com/auth/overview?hl=id)
+2. Isi formulir konfigurasi project dan tetapkan jenis pengguna ke **Eksternal**
+   di bagian **Audiens**.
+3. Lengkapi formulir lainnya, setujui persyaratan Kebijakan Data Pengguna, lalu
+   klik **Buat**.
+4. Untuk saat ini, Anda dapat melewati penambahan cakupan dan mengklik **Simpan dan Lanjutkan**. Pada
+   masa mendatang, saat membuat aplikasi untuk digunakan di luar organisasi Google Workspace, Anda harus menambahkan dan memverifikasi cakupan otorisasi yang diperlukan aplikasi Anda.
+5. Tambahkan pengguna pengujian:
 
-   1. Navega a la
-      [página Público](https://console.developers.google.com/auth/audience?hl=es-419) de la
-      plataforma de autenticación de Google.
-   2. En **Usuarios de prueba**, haz clic en **Agregar usuarios**.
-   3. Ingresa tu dirección de correo electrónico y los demás usuarios de prueba autorizados, y haz clic en **Guardar**.
+   1. Buka
+      [halaman Audiens](https://console.developers.google.com/auth/audience?hl=id) di
+      platform Google Auth.
+   2. Di bagian **Pengguna pengujian**, klik **Tambahkan pengguna**.
+   3. Masukkan alamat email Anda dan pengguna uji resmi lainnya, lalu
+      klik **Simpan**.
 
-### 3. Autoriza credenciales para una aplicación de escritorio
+### 3. Mengizinkan kredensial untuk aplikasi desktop
 
-Para autenticarte como usuario final y acceder a los datos del usuario en tu app, debes crear uno o más IDs de cliente de OAuth 2.0. Un ID de cliente se usa con el fin de identificar una sola app para los servidores de OAuth de Google. Si la app se ejecuta en varias plataformas, debes crear un ID de cliente independiente para cada plataforma.
+Untuk mengautentikasi sebagai pengguna akhir dan mengakses data pengguna di aplikasi Anda, Anda perlu membuat satu atau beberapa Client ID OAuth 2.0. Client ID digunakan untuk mengidentifikasi
+satu aplikasi ke server OAuth Google. Jika aplikasi Anda berjalan di beberapa platform, Anda harus membuat ID klien terpisah untuk setiap platform.
 
-1. En la consola de Google Cloud, ve a **Menú** > **Plataforma de autenticación de Google** > **Clientes**.
+1. Di Konsol Google Cloud, buka **Menu** > **Google Auth platform** >
+   **Clients**.
 
-   [Ir a Credenciales](https://console.developers.google.com/auth/clients?hl=es-419)
-2. Haz clic en **Crear cliente**.
-3. Haz clic en **Tipo de aplicación** > **Aplicación de escritorio**.
-4. En el campo **Nombre**, escribe un nombre para la credencial. Este nombre solo se muestra en la consola de Google Cloud.
-5. Haz clic en **Crear**. Aparecerá la pantalla Se creó el cliente de OAuth, que muestra tu nuevo ID de cliente y el secreto del cliente.
-6. Haz clic en **OK**. La credencial recién creada aparece en **IDs de cliente de OAuth 2.0.**
-7. Haz clic en el botón de descarga para guardar el archivo JSON. Se guardará como
-   `client_secret_<identifier>.json`. Cambia su nombre a `client_secret.json`
-   y muévelo a tu directorio de trabajo.
+   [Buka Kredensial](https://console.developers.google.com/auth/clients?hl=id)
+2. Klik **Buat Klien**.
+3. Klik **Jenis aplikasi** > **Aplikasi desktop**.
+4. Di kolom **Name**, ketik nama untuk kredensial. Nama ini hanya
+   ditampilkan di Konsol Google Cloud.
+5. Klik **Buat**. Layar OAuth client created akan muncul, menampilkan Client ID dan Client secret baru Anda.
+6. Klik **Oke**. Kredensial yang baru dibuat akan muncul di bagian **Client ID OAuth 2.0.**
+7. Klik tombol download untuk menyimpan file JSON. File akan disimpan sebagai
+   `client_secret_<identifier>.json`, lalu ganti namanya menjadi `client_secret.json`
+   dan pindahkan ke direktori kerja Anda.
 
-## Configura credenciales predeterminadas de la aplicación
+## Menyiapkan Kredensial Default Aplikasi
 
-Para convertir el archivo `client_secret.json` en credenciales utilizables, pasa su ubicación al argumento `--client-id-file` del comando `gcloud auth application-default login`.
+Untuk mengonversi file `client_secret.json` menjadi kredensial yang dapat digunakan, teruskan
+lokasinya ke argumen
+`--client-id-file` perintah `gcloud auth application-default login`.
 
 ```
 gcloud auth application-default login \
@@ -96,10 +108,10 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-La configuración simplificada del proyecto en este instructivo activa un diálogo **"Google no
-verificó esta app"**. Esto es normal. Elige **"continuar"**.
+Penyiapan project yang disederhanakan dalam tutorial ini memicu dialog **"Google belum memverifikasi aplikasi ini"**. Hal ini normal, pilih **"continue"**.
 
-Esto coloca el token resultante en una ubicación conocida para que `gcloud` o las bibliotecas cliente puedan acceder a él.
+Hal ini menempatkan token yang dihasilkan di lokasi yang sudah dikenal sehingga dapat diakses
+oleh `gcloud` atau library klien.
 
 ```` ```
 gcloud auth application-default login   
@@ -110,11 +122,12 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-Una vez que configures las credenciales predeterminadas de la aplicación (ADC), las bibliotecas cliente en la mayoría de los lenguajes necesitarán poca o ninguna ayuda para encontrarlas.
+Setelah Anda menyetel Kredensial Default Aplikasi (ADC), library
+klien dalam sebagian besar bahasa hanya memerlukan sedikit atau tidak memerlukan bantuan untuk menemukannya.
 
 ### Curl
 
-La forma más rápida de probar que esto funciona es usarlo para acceder a la API de REST con curl:
+Cara tercepat untuk menguji apakah ini berfungsi adalah dengan menggunakannya untuk mengakses REST API menggunakan curl:
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -127,13 +140,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-En Python, las bibliotecas cliente deberían encontrarlas automáticamente:
+Di Python, library klien akan menemukannya secara otomatis:
 
 ```
 pip install google-genai
 ```
 
-Una secuencia de comandos mínima para probarla podría ser la siguiente:
+Skrip minimal untuk mengujinya mungkin adalah:
 
 ```
 from google import genai
@@ -142,26 +155,26 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## Administra las credenciales por tu cuenta [Python]
+## Mengelola kredensial sendiri [Python]
 
-En muchos casos, no tendrás disponible el comando `gcloud` para crear el token de acceso desde el ID de cliente (`client_secret.json`). Google proporciona bibliotecas en muchos lenguajes para permitirte administrar ese proceso dentro de tu app. En esta sección, se muestra el proceso en Python. Hay ejemplos equivalentes de este tipo
-de procedimiento, para otros lenguajes, disponibles en la
-[documentación de la API de Drive](https://developers.google.com/drive/api/quickstart/python?hl=es-419).
+Dalam banyak kasus, Anda tidak akan memiliki perintah `gcloud` yang tersedia untuk membuat token akses dari ID Klien (`client_secret.json`). Google menyediakan library dalam banyak bahasa untuk memungkinkan Anda mengelola proses tersebut dalam aplikasi. Bagian ini menunjukkan prosesnya, dalam Python. Ada contoh prosedur serupa yang setara untuk bahasa lain, yang tersedia di [dokumentasi Drive API](https://developers.google.com/drive/api/quickstart/python?hl=id)
 
-### 1. Instala las bibliotecas necesarias
+### 1. Instal library yang diperlukan
 
-Instala la biblioteca cliente de Google para Python y la biblioteca cliente de Gemini.
+Instal library klien Google untuk Python, dan library klien Gemini.
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. Escribe el administrador de credenciales
+### 2. Menulis pengelola kredensial
 
-Para minimizar la cantidad de veces que debes hacer clic en las pantallas de autorización, crea un archivo llamado `load_creds.py` en tu directorio de trabajo para almacenar en caché un archivo `token.json` que pueda volver a usar más tarde o actualizar si vence.
+Untuk meminimalkan jumlah klik yang harus Anda lakukan di layar otorisasi, buat file bernama `load_creds.py` di direktori kerja Anda untuk menyimpan file `token.json` yang dapat digunakan kembali nanti, atau diperbarui jika masa berlakunya habis.
 
-Comienza con el siguiente código para convertir el archivo `client_secret.json` en un token que se pueda usar con `genai.configure`:
+Mulai dengan
+kode berikut untuk mengonversi file `client_secret.json` menjadi token yang dapat digunakan dengan
+`genai.configure`:
 
 ```
 import os.path
@@ -198,9 +211,9 @@ def load_creds():
     return creds
 ```
 
-### 3. Escribe tu programa
+### 3. Menulis program Anda
 
-Ahora crea tu `script.py`:
+Sekarang buat `script.py` Anda:
 
 ```
 import pprint
@@ -215,27 +228,30 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. Ejecuta el programa
+### 4. Menjalankan program Anda
 
-En tu directorio de trabajo, ejecuta la muestra:
+Di direktori kerja Anda, jalankan contoh:
 
 ```
 python script.py
 ```
 
-La primera vez que ejecutas la secuencia de comandos, se abre una ventana del navegador y se te solicita que autorices el acceso.
+Saat pertama kali dijalankan, skrip akan membuka jendela browser dan meminta Anda
+untuk mengizinkan akses.
 
-1. Si aún no accediste a tu Cuenta de Google, se te solicitará que lo hagas. Si accediste a varias cuentas, **asegúrate de seleccionar la cuenta que configuraste como "Cuenta de prueba" cuando configures tu proyecto.**
-2. La información de autorización se almacena en el sistema de archivos, por lo que la próxima vez que ejecutes el código de muestra, no se te solicitará autorización.
+1. Jika belum login ke Akun Google, Anda akan diminta untuk
+   login. Jika Anda login ke beberapa akun, **pastikan untuk memilih
+   akun yang Anda tetapkan sebagai "Akun Pengujian" saat mengonfigurasi project.**
+2. Informasi otorisasi disimpan dalam sistem file, sehingga saat Anda menjalankan kode contoh pada lain waktu, Anda tidak akan dimintai otorisasi.
 
-Configuraste la autenticación correctamente.
+Anda telah berhasil menyiapkan autentikasi.
 
-Enviar comentarios
+Kirim masukan
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última actualización: 2026-09-10 (UTC)
+Terakhir diperbarui pada 2026-09-10 UTC.
 
-¿Quieres brindar más información?
+Ada masukan untuk kami?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-10 (UTC)"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]

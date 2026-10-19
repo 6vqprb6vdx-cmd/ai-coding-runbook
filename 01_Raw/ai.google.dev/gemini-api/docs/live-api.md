@@ -1,147 +1,142 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api?hl=it
-fetched_at: 2026-10-12T07:13:18.765921+00:00
-title: "Panoramica dell'API Gemini Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api?hl=sq
+fetched_at: 2026-10-19T05:30:32.974250+00:00
+title: "P\u00ebrmbledhja e Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-Invia feedback
+Dërgo komente
 
-# Panoramica dell'API Gemini Live
+# Përmbledhja e Gemini Live API
 
-L'API Live consente interazioni vocali e visive a bassa latenza e in tempo reale con
-Gemini. Elabora flussi continui di audio, immagini e testo per fornire risposte parlate immediate e simili a quelle umane, creando un'esperienza conversazionale naturale per gli utenti.
+API-ja e transmetimit të drejtpërdrejtë mundëson ndërveprime me zë dhe pamje në kohë reale me vonesë të ulët me Gemini. Ai përpunon transmetime të vazhdueshme të audios, imazheve dhe tekstit për të ofruar përgjigje të menjëhershme të ligjëruara si nga një njeri, duke krijuar një përvojë natyrale bisedore për përdoruesit e tu.
 
-![Panoramica dell'API Live](https://ai.google.dev/static/gemini-api/docs/images/live-api-overview.png?hl=it)
+![Përmbledhja e API-së së transmetimit të drejtpërdrejtë](https://ai.google.dev/static/gemini-api/docs/images/live-api-overview.png?hl=sq)
 
-[Prova l'API Live in Google AI Studiomic](https://aistudio.google.com/live?hl=it)
-[Clona app di esempio da GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[Utilizza le skill dell'agente di codificaterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it)
+[Provo API-n e transmetimit të drejtpërdrejtë në Google AI Studiomic](https://aistudio.google.com/live?hl=sq)
+[Klonizo shembuj të aplikacioneve nga GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[Përdor aftësitë e agjentit të kodimitterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=sq)
 
-## Casi d'uso
+## Rastet e përdorimit
 
-L'API Live può essere utilizzata per creare agenti vocali in tempo reale per una
-varietà di settori, tra cui:
+API-ja e Live mund të përdoret për të ndërtuar agjentë zanorë në kohë reale për një
+larmi industrish, duke përfshirë:
 
-- **E-commerce e vendita al dettaglio:** assistenti per gli acquisti che offrono consigli personalizzati e agenti di assistenza che risolvono i problemi dei clienti.
-- **Gaming**:personaggi non giocanti (NPC) interattivi, assistenti di aiuto in-game e traduzione in tempo reale dei contenuti in-game.
-- **Interfacce di nuova generazione**:esperienze abilitate per voce e video in robotica,
-  occhiali smart e veicoli.
-- **Sanità**:compagni di salute per l'assistenza e l'educazione dei pazienti.
-- **Servizi finanziari**:consulenti AI per la gestione patrimoniale e la consulenza
-  sugli investimenti.
-- **Istruzione**:mentori AI e compagni di apprendimento che forniscono istruzioni e feedback personalizzati.
-- **Traduzione e localizzazione**:traduzione in tempo reale e a bassa latenza di conversazioni parlate, che consente una comunicazione multilingue senza problemi.
-- **Trascrizione e sottotitoli codificati in tempo reale**:streaming della conversione della voce in testo in tempo reale per
-  sottotitoli codificati in tempo reale, trascrizione delle riunioni, dettatura vocale e registrazione delle chiamate dei clienti.
+- **Tregtia online dhe shitësit me pakicë:** Asistentë për blerjet që ofrojnë rekomandime të personalizuara dhe agjentë të mbështetjes që zgjidhin problemet e klientëve.
+- **Lojëra:** Personazhe ndërveprues që nuk mund të luhen (NPC), ndihmës brenda lojës dhe përkthim në kohë reale të përmbajtjeve brenda lojës.
+- **Ndërfaqet e gjeneratës së ardhshme:** Përvojat e aktivizuara me zë dhe video në robotikë, syze inteligjente dhe automjete.
+- **Kujdesi shëndetësor:** Shoqëruesit shëndetësorë për mbështetjen dhe edukimin e pacientëve.
+- **Shërbimet financiare:** Këshilltarë të IA-së për menaxhimin e pasurisë dhe udhëzime për investimet.
+- **Edukimi:** Mentorë me IA dhe shoqërues të nxënësve që ofrojnë udhëzime dhe komente të personalizuara.
+- **Përkthimi dhe lokalizimi:** Përkthimi në kohë reale me vonesë të ulët i bisedave të folura, duke mundësuar komunikimin e pandërprerë në shumë gjuhë.
+- **Transkriptimi dhe titrat e drejtpërdrejta:** Transmetimi i ligjërimit në tekst në kohë reale për titrat e drejtpërdrejta, transkriptimin e takimeve, diktimin me zë dhe regjistrimin e telefonatave me klientët.
 
-## Funzionalità principali
+## Veçoritë kryesore
 
-L'API Live offre un insieme completo di funzionalità per la creazione di
-agenti vocali robusti:
+API-ja e drejtpërdrejtë ofron një grup gjithëpërfshirës veçorish për ndërtimin e
+agjentëve të fuqishëm zanorë:
 
-- [**Supporto multilingue**](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#supported-languages):
-  Conversa in 70 lingue supportate.
-- [**Interruzione**](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#interruptions):
-  Gli utenti possono interrompere il modello in qualsiasi momento per interazioni reattive.
-- [**Uso di strumenti**](https://ai.google.dev/gemini-api/docs/live-tools?hl=it):
-  integra strumenti come le chiamate di funzione e la Ricerca Google per interazioni dinamiche.
-- [**Trascrizioni audio**](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#audio-transcription):
-  Fornisce trascrizioni di testo sia dell'input dell'utente che dell'output del modello.
-- [**Audio proattivo**](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#proactive-audio):
-  Ti consente di controllare quando e in quali contesti il modello risponde.
-- [**Dialogo empatico**](https://ai.google.dev/gemini-api/docs/live-guide?hl=it#affective-dialog):
-  Adatta lo stile e il tono della risposta in base all'espressione dell'input dell'utente.
-- [**Trascrizione Istantanea**](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=it):
-  Streaming continuo della conversione della voce in testo in tempo reale con rilevamento automatico della lingua e vocabolario personalizzato.
-- [**Traduzione dal vivo**](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=it):
-  Traduzione vocale in tempo reale in oltre 70 lingue.
+- [**Mbështetja shumëgjuhëshe**](https://ai.google.dev/gemini-api/docs/live-guide?hl=sq#supported-languages):
+  Bisedo në 70 gjuhë të mbështetura.
+- [**Ndërhyrja**](https://ai.google.dev/gemini-api/docs/live-guide?hl=sq#interruptions):
+  Përdoruesit mund ta ndërpresin modelin në çdo kohë për ndërveprime të përgjegjshme.
+- [**Përdorimi i veglës**](https://ai.google.dev/gemini-api/docs/live-tools?hl=sq):
+  Integron veglat si telefonatat e funksioneve dhe "Kërko në Google" për ndërveprime dinamike.
+- [**Transkriptimet e audios**](https://ai.google.dev/gemini-api/docs/live-guide?hl=sq#audio-transcription):
+  Ofron transkriptet me tekst të hyrjes së përdoruesit dhe daljes së modelit.
+- [**Audio proaktiv**](https://ai.google.dev/gemini-api/docs/live-guide?hl=sq#proactive-audio):
+  Të lejon të kontrollosh se kur përgjigjet modeli dhe në çfarë kontekstesh.
+- [**Dialogu afektiv**](https://ai.google.dev/gemini-api/docs/live-guide?hl=sq#affective-dialog):
+  Përshtat stilin dhe tonin e përgjigjes për t'iu përshtatur shprehjes së hyrjes së përdoruesit.
+- [**Transkriptimi në çast**](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=sq):
+  Transmetimi i vazhdueshëm i ligjërimit në tekst në kohë reale me zbulimin automatik të gjuhës dhe fjalorin e personalizuar.
+- [**Përkthimi në çast**](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=sq):
+  Përkthimi zë-zë në kohë reale në mbi 70 gjuhë.
 
-## Specifiche tecniche
+## Specifikimet teknike
 
-La tabella seguente descrive le specifiche tecniche dell'API Live:
+Tabela e mëposhtme përcakton specifikimet teknike për
+API-në e transmetimit të drejtpërdrejtë:
 
-| Categoria | Dettagli |
+| Kategoria | Detajet |
 | --- | --- |
-| Modalità di input | Audio (audio PCM a 16 bit non elaborato, 16 kHz, little-endian), immagini (JPEG <= 1 FPS), testo |
-| Modalità di output | Audio (audio PCM a 16 bit non elaborato, 24 kHz, little-endian) |
-| Protocollo | Connessione WebSocket con stato (WSS) |
+| Modalitetet e hyrjes | Audio (audio PCM 16-bitëshe e papërpunuar, 16 kHz, little-endian), imazhe (JPEG <= 1 FPS), tekst |
+| Modalitetet e daljes | Audio (audio PCM 16-bit i papërpunuar, 24 kHz, little-endian) |
+| Protokolli | Lidhje me gjendje të WebSocket (WSS) |
 
-## Scegliere un approccio di implementazione
+## Zgjidh një qasje zbatimi
 
-Quando esegui l'integrazione con l'API Live, devi scegliere uno dei seguenti approcci di implementazione:
+Kur integrohesh me API-në e transmetimit të drejtpërdrejtë, do të duhet të zgjedhësh një nga qasjet e mëposhtme të
+zbatimit:
 
-- **Da server a server**: il backend si connette all'API Live utilizzando
-  [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). In genere, il client invia i dati dello stream (audio, video,
-  testo) al server, che a sua volta li inoltra all'API Live.
-- **Da client a server**: il codice frontend si connette direttamente all'API Live
-  utilizzando [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) per trasmettere i dati, bypassando il backend.
+- **Server-to-server**: Backend-i yt lidhet me Live API duke përdorur
+  [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API). Zakonisht, klienti yt dërgon të dhëna transmetimi (audio, video, tekst) në serverin tënd, i cili më pas i transferon ato te Live API.
+- **Klient-te-server**: Kodi yt i frontend-it lidhet drejtpërdrejt me Live API
+  duke përdorur [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) për të transmetuar të dhëna, duke anashkaluar backend-in tënd.
 
-## Inizia
+## Fillo
 
-Seleziona la guida che corrisponde al tuo ambiente di sviluppo:
+Zgjidh udhëzuesin që përputhet me mjedisin tënd të zhvillimit:
 
-Server-to-server
+Nga serveri te serveri
 
-### [Tutorial sull'SDK GenAI](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=it)
+### [Udhëzuesi i GenAI SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=sq)
 
-Connettiti all'API Gemini Live utilizzando l'SDK GenAI per creare un'applicazione multimodale in tempo reale con un backend Python.
+Lidhu me Gemini Live API duke përdorur GenAI SDK për të ndërtuar një aplikacion multimodal në kohë reale me një sistem fundor në Python.
 
-Client-to-server
+Klient-te-server
 
-### [Tutorial su WebSocket](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=it)
+### [Udhëzuesi i WebSocket](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=sq)
 
-Connettiti all'API Gemini Live utilizzando WebSockets per creare un'applicazione multimodale in tempo reale con un frontend JavaScript e token effimeri.
+Lidhu me API-në e Gemini Live duke përdorur WebSockets për të ndërtuar një aplikacion multimodal në kohë reale me një frontend në JavaScript dhe kode qasjeje të përkohshme.
 
-Agent Development Kit
+Paketa e zhvillimit të agjentit
 
-### [Tutorial ADK](https://google.github.io/adk-docs/streaming/)
+### [Udhëzuesi i ADK-së](https://google.github.io/adk-docs/streaming/)
 
-Crea un agente e utilizza lo streaming dell'Agent Development Kit (ADK) per attivare la comunicazione vocale e video.
+Krijo një agjent dhe përdor transmetimin e Agent Development Kit (ADK) për të aktivizuar komunikimin zanor dhe me video.
 
-## Integrazioni con i partner
+## Integrimet e partnerëve
 
-Per semplificare lo sviluppo di app audio e video in tempo reale, puoi utilizzare
-un'integrazione di terze parti che supporta l'API Gemini Live
-tramite WebRTC o WebSockets.
+Për të thjeshtuar zhvillimin e aplikacioneve të audios dhe videos në kohë reale, mund të përdorësh një integrim të një pale të tretë që mbështet API-n e Gemini Live nëpërmjet WebRTC ose WebSockets.
 
 [LiveKit
 
-Utilizza l'API Gemini Live con LiveKit Agents.](https://docs.livekit.io/agents/models/realtime/plugins/gemini/)
-[Pipecat di Daily
+Përdor Gemini Live API me LiveKit Agents.](https://docs.livekit.io/agents/models/realtime/plugins/gemini/)
+[Pipecat nga Daily
 
-Crea un chatbot AI in tempo reale utilizzando Gemini Live e Pipecat.](https://docs.pipecat.ai/guides/features/gemini-live)
-[Fishjam di Software Mansion
+Krijo një robot bisede me IA në kohë reale duke përdorur Gemini Live dhe Pipecat.](https://docs.pipecat.ai/guides/features/gemini-live)
+[Fishjam nga Software Mansion
 
-Crea applicazioni di streaming video e audio in diretta con Fishjam.](https://docs.fishjam.io/tutorials/gemini-live-integration)
-[Agenti di visione di Stream
+Krijoni aplikacione të transmetimit të drejtpërdrejtë të videos dhe audios me Fishjam.](https://docs.fishjam.io/tutorials/gemini-live-integration)
+[Agjentët e vizionit sipas transmetimit
 
-Crea applicazioni AI vocali e video in tempo reale con Vision Agents.](https://visionagents.ai/integrations/gemini)
+Krijo aplikacione të IA-së për zërin dhe videon në kohë reale me Vision Agents.](https://visionagents.ai/integrations/gemini)
 [Voximplant
 
-Collega le chiamate in entrata e in uscita all'API Live con Voximplant.](https://voximplant.com/products/gemini-client)
+Lidh telefonatat hyrëse dhe dalëse me Live API me Voximplant.](https://voximplant.com/products/gemini-client)
 [Agora
 
-Crea applicazioni di AI conversazionale in tempo reale con Agora.](https://docs.agora.io/en/conversational-ai/models/mllm/gemini)
-[SDK Firebase AI
+Krijo aplikacione bisedare në kohë reale me IA-në me Agora.](https://docs.agora.io/en/conversational-ai/models/mllm/gemini)
+[Firebase AI SDK
 
-Inizia a utilizzare l'API Gemini Live con Firebase AI Logic.](https://firebase.google.com/docs/ai-logic/live-api?api=dev&hl=it)
+Fillo me Gemini Live API duke përdorur Firebase AI Logic.](https://firebase.google.com/docs/ai-logic/live-api?api=dev&hl=sq)
 
-Invia feedback
+Dërgo komente
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Ultimo aggiornamento 2026-10-07 UTC.
+Përditësimi i fundit: 2026-10-07 UTC.
 
-Vuoi dirci altro?
+Duhet të na tregosh më shumë?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-07 UTC."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-07 UTC."],[],[]]

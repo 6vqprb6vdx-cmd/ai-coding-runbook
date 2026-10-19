@@ -1,64 +1,71 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=zh-CN
-fetched_at: 2026-10-12T07:05:05.607394+00:00
-title: "\u4e86\u89e3\u8bcd\u5143\u5e76\u8ba1\u7b97\u8bcd\u5143\u6570\u91cf \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=it
+fetched_at: 2026-10-19T05:35:01.523322+00:00
+title: "Comprendi e conteggia i token \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
 
-发送反馈
+Invia feedback
 
-# 了解词元并计算词元数量
+# Comprendi e conteggia i token
 
-Gemini 和其他生成式 AI 模型会以一种称为“token”的粒度处理输入和输出。
+Gemini e altri modelli di AI generativa elaborano input e output con una granularità chiamata *token*.
 
-**对于 Gemini 模型，一个 token 大致相当于 4 个字符。
-100 个 token 大约相当于 60-80 个英文单词。**
+**Per i modelli Gemini, un token equivale a circa 4 caratteri.
+100 token equivalgono a circa 60-80 parole in inglese.**
 
-## 令牌简介
+## Informazioni sui token
 
-词元可以是单个字符（例如 `z`），也可以是整个字词（例如 `cat`）。长字词会被拆分为多个 token。模型使用的所有 token 的集合称为词汇，将文本拆分为 token 的过程称为 *token 化*。
+I token possono essere singoli caratteri come `z` o intere parole come `cat`. Le parole lunghe vengono suddivise in più token. L'insieme di tutti i token utilizzati dal modello è chiamato vocabolario e il processo di suddivisione del testo in token è chiamato *tokenizzazione*.
 
-启用结算功能后，[对 Gemini API 的调用费用](https://ai.google.dev/pricing?hl=zh-cn)部分取决于输入和输出 token 的数量，因此了解如何计算 token 数量会很有帮助。
+Quando la fatturazione è abilitata, il [costo di una chiamata all'API Gemini](https://ai.google.dev/pricing?hl=it) è
+determinato in parte dal numero di token di input e output, quindi sapere come
+contare i token può essere utile.
 
-您可以在我们的 Colab 中尝试统计令牌。
+Puoi provare a contare i token nel nostro Colab.
 
 |  |  |  |
 | --- | --- | --- |
-| [在 ai.google.dev 上查看](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | [试用 Colab 笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=zh-cn) | [在 GitHub 上查看笔记本](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=zh-cn) |
+| [Visualizza su ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | [Prova un notebook di Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=it) | [Visualizza il notebook su GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=it) |
 
-## 统计 token 数量
+## Contare i token
 
-Gemini API 的所有输入和输出（包括文本、图片文件和其他非文本模态）都会进行分词。
+Tutti gli input e gli output dell'API Gemini vengono tokenizzati, inclusi testo, file immagine e altre modalità non testuali.
 
-您可以通过以下方式统计令牌数量：
+Puoi contare i token nei seguenti modi:
 
-- **使用请求的输入调用 [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=zh-cn)。**  
-   这会返回*仅输入*中的令牌总数。您可以在将输入内容发送给模型之前进行此调用，以检查请求的大小。
-- **在调用 `generate_content` 后，对 `response` 对象使用 `usage_metadata` 属性。**  
-   这会返回*输入和输出*中的令牌总数：`total_token_count`。  
-   它还会分别返回输入和输出的 token 数：`prompt_token_count`（输入 token）和 `candidates_token_count`（输出 token）。
+- **Chiama [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=it) con l'input
+  della richiesta.**  
+   Viene restituito il numero totale di token *solo nell'input*. Puoi effettuare questa chiamata prima di inviare l'input al modello per verificare le dimensioni delle richieste.
+- **Utilizza l'attributo `usage_metadata` dell'oggetto `response` dopo
+  aver chiamato `generate_content`.**  
+   Viene restituito il numero totale di
+  token *sia nell'input che nell'output*: `total_token_count`.  
+   Vengono restituiti anche i conteggi dei token di input e output separatamente: `prompt_token_count` (token di input) e `candidates_token_count` (token di output).
 
-  如果您使用的是[思考模型](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)，则思考过程中使用的 token 会在 `thoughts_token_count` 中返回。如果您使用的是[上下文缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)，缓存的令牌数量将位于 `cached_content_token_count` 中。
+  Se utilizzi un [modello di ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it), i token utilizzati durante il processo di ragionamento vengono restituiti in `thoughts_token_count`. Se utilizzi
+  [la memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it), il conteggio dei token memorizzati nella cache
+  sarà in `cached_content_token_count`.
 
-### 统计文本 token
+### Contare i token di testo
 
-如果您使用仅包含文本的输入调用 `count_tokens`，它会返回*仅包含输入内容* (`total_tokens`) 的文本的 token 数量。您可以在调用 `generate_content` 之前进行此调用，以检查请求的大小。
+Se chiami `count_tokens` con un input di solo testo, viene restituito il conteggio dei token del testo *solo nell'input* (`total_tokens`). Puoi effettuare questa chiamata prima di chiamare `generate_content` per verificare le dimensioni delle richieste.
 
-另一种方法是调用 `generate_content`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Un'altra opzione è chiamare `generate_content` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
 
-- 输入 (`prompt_token_count`)、缓存内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数
-- 思考过程的 token 数 (`thoughts_token_count`)
-- *输入和输出*中的 token 总数 (`total_token_count`)
+- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
+- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
+- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`)
 
 ### Python
 
@@ -69,12 +76,12 @@ client = genai.Client()
 prompt = "The quick brown fox jumps over the lazy dog."
 
 total_tokens = client.models.count_tokens(
-    model="gemini-3.6-flash", contents=prompt
+    model="gemini-3.8-flash", contents=prompt
 )
 print("total_tokens: ", total_tokens)
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=prompt
+    model="gemini-3.8-flash", contents=prompt
 )
 
 print(response.usage_metadata)
@@ -90,13 +97,13 @@ const prompt = "The quick brown fox jumps over the lazy dog.";
 
 async function main() {
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: prompt,
   });
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: prompt,
   });
   console.log(generateResponse.usageMetadata);
@@ -105,7 +112,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 ctx := context.Background()
@@ -115,13 +122,13 @@ client, err := genai.NewClient(ctx, nil)
 contents := []*genai.Content{
   genai.NewContentFromText(prompt, genai.RoleUser),
 }
-countResp, err := client.Models.CountTokens(ctx, "gemini-3.6-flash", contents, nil)
+countResp, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   return err
 }
 fmt.Println("total_tokens:", countResp.TotalTokens)
 
-response, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -133,17 +140,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### 统计多轮（聊天）对话的 token 数量
+### Contare i token di chat a più turni
 
-如果您使用聊天记录调用 `count_tokens`，它会返回聊天中每个角色的文本的总 token 数 (`total_tokens`)。
+Se chiami `count_tokens` con la cronologia chat, viene restituito il conteggio totale dei token del testo di ogni ruolo nella chat (`total_tokens`).
 
-另一种方法是调用 `send_message`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Un'altra opzione è chiamare `send_message` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
 
-- 输入 (`prompt_token_count`)、缓存内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数
-- 思考过程的 token 数 (`thoughts_token_count`)
-- *输入和输出*中的 token 总数 (`total_token_count`)
+- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
+- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
+- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`)
 
-如需了解下一个对话轮次的大小，您需要在调用 `count_tokens` 时将其附加到历史记录中。
+Per capire quanto sarà grande il prossimo turno di conversazione, devi aggiungerlo alla cronologia quando chiami `count_tokens`.
 
 ### Python
 
@@ -154,7 +161,7 @@ from google.genai import types
 client = genai.Client()
 
 chat = client.chats.create(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     history=[
         types.Content(
             role="user", parts=[types.Part(text="Hi my name is Bob")]
@@ -165,7 +172,7 @@ chat = client.chats.create(
 
 print(
     client.models.count_tokens(
-        model="gemini-3.6-flash", contents=chat.get_history()
+        model="gemini-3.8-flash", contents=chat.get_history()
     )
 )
 
@@ -182,7 +189,7 @@ extra = types.UserContent(
     ]
 )
 history = [*chat.get_history(), extra]
-print(client.models.count_tokens(model="gemini-3.6-flash", contents=history))
+print(client.models.count_tokens(model="gemini-3.8-flash", contents=history))
 ```
 
 ### JavaScript
@@ -198,12 +205,12 @@ async function main() {
     { role: "model", parts: [{ text: "Hi Bob!" }] },
   ];
   const chat = ai.chats.create({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     history: history,
   });
 
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: chat.getHistory(),
   });
   console.log(countTokensResponse.totalTokens);
@@ -219,7 +226,7 @@ async function main() {
   };
   const combinedHistory = [...chat.getHistory(), extraMessage];
   const combinedCountTokensResponse = await ai.models.countTokens({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: combinedHistory,
   });
   console.log(
@@ -231,7 +238,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 ctx := context.Background()
@@ -241,12 +248,12 @@ history := []*genai.Content{
   {Role: genai.RoleUser, Parts: []*genai.Part({Text: "Hi my name is Bob"})},
   {Role: genai.RoleModel, Parts: []*genai.Part({Text: "Hi Bob!"})},
 }
-chat, err := client.Chats.Create(ctx, "gemini-3.6-flash", nil, history)
+chat, err := client.Chats.Create(ctx, "gemini-3.8-flash", nil, history)
 if err != nil {
   log.Fatal(err)
 }
 
-firstTokenResp, err := client.Models.CountTokens(ctx, "gemini-3.6-flash", chat.History(false), nil)
+firstTokenResp, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", chat.History(false), nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -262,37 +269,40 @@ extra := genai.NewContentFromText("What is the meaning of life?", genai.RoleUser
 hist := chat.History(false)
 hist = append(hist, extra)
 
-secondTokenResp, err := client.Models.CountTokens(ctx, "gemini-3.6-flash", hist, nil)
+secondTokenResp, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", hist, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### 统计多模态 token
+### Contare i token multimodali
 
-Gemini API 的所有输入内容（包括文本、图片文件和其他非文本模态）都会被分词。请注意以下关于 Gemini API 在处理多模态输入时进行分词的高级关键点：
+Tutti gli input dell'API Gemini vengono tokenizzati, inclusi testo, file immagine e altre modalità non testuali. Tieni presente i seguenti punti chiave di alto livello sulla tokenizzazione dell'input multimodale durante l'elaborazione da parte dell'API Gemini:
 
-- 如果图片输入的两个维度均小于或等于 384 像素，则计为 258 个 token。如果图片在某个或两个维度上较大，则会根据需要将其剪裁并缩放为 768x768 像素的图块，每个图块计为 258 个 token。
-- 视频和音频文件会按以下固定费率转换为 token：视频为每秒 263 个 token，音频为每秒 32 个 token。
+- Gli input immagine con entrambe le dimensioni <= 384 pixel vengono conteggiati come 258 token. Le immagini più grandi in una o entrambe le dimensioni vengono ritagliate e scalate in base alle esigenze in riquadri di 768 x 768 pixel, ognuno conteggiato come 258 token.
+- I file audio e video vengono convertiti in token alle seguenti tariffe fisse: video a 263 token al secondo e audio a 32 token al secondo. Questa tariffa si applica all'elaborazione statica (impostazione predefinita). Per l'elaborazione agentica, l'utilizzo dei token varia. Consulta [Utilizzo dei token video per modalità di elaborazione](#video-token-usage).
 
-#### 媒体分辨率
+#### Risoluzioni dei contenuti multimediali
 
-[Gemini 3 模型](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn#gemini-3)通过 `media_resolution` 参数引入了对多模态视觉处理的精细控制。`media_resolution` 参数用于确定**为每个输入图片或视频帧分配的 token 数量上限**。分辨率越高，模型读取细小文字或识别细微细节的能力就越强，但 token 用量和延迟时间也会增加。
+[I modelli Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-3) introducono un controllo granulare sull'
+elaborazione della visione multimodale con il parametro `media_resolution`. Il parametro `media_resolution` determina il **numero massimo di token allocati per ogni immagine di input o fotogramma video**.
+Le risoluzioni più elevate migliorano la capacità del modello di leggere il testo fine o identificare piccoli dettagli, ma aumentano l'utilizzo dei token e la latenza.
 
-如需详细了解该参数及其对令牌计算的影响，请参阅[媒体分辨率](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=zh-cn)指南。
+Per maggiori dettagli sul parametro e su come può influire sui calcoli dei token,
+consulta la [guida alla risoluzione dei contenuti multimediali](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=it).
 
-#### 图片文件
+#### File immagine
 
-如果您使用文本和图片输入调用 `count_tokens`，它会返回*输入中*文本和图片的组合令牌数量 (`total_tokens`)。您可以在调用 `generate_content` 之前进行此调用，以检查请求的大小。您还可以选择性地分别对文本和文件调用 `count_tokens`。
+Se chiami `count_tokens` con un input di testo e immagine, viene restituito il conteggio combinato dei token del testo e dell'immagine *solo nell'input* (`total_tokens`). Puoi effettuare questa chiamata prima di chiamare `generate_content` per verificare le dimensioni delle richieste. Puoi anche chiamare facoltativamente `count_tokens` sul testo e sul file separatamente.
 
-另一种方法是调用 `generate_content`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Un'altra opzione è chiamare `generate_content` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
 
-- 输入 (`prompt_token_count`)、缓存内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数
-- 思考过程的 token 数 (`thoughts_token_count`)
-- *输入和输出*中的 token 总数 (`total_token_count`)
+- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
+- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
+- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`)
 
-使用 File API 上传的图片的示例：
+Esempio che utilizza un'immagine caricata dall'API File:
 
 ### Python
 
@@ -305,12 +315,12 @@ your_image_file = client.files.upload(file=media / "organ.jpg")
 
 print(
     client.models.count_tokens(
-        model="gemini-3.6-flash", contents=[prompt, your_image_file]
+        model="gemini-3.8-flash", contents=[prompt, your_image_file]
     )
 )
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=[prompt, your_image_file]
+    model="gemini-3.8-flash", contents=[prompt, your_image_file]
 )
 print(response.usage_metadata)
 ```
@@ -330,7 +340,7 @@ async function main() {
   });
 
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(organ.uri, organ.mimeType),
@@ -339,7 +349,7 @@ async function main() {
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(organ.uri, organ.mimeType),
@@ -351,7 +361,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 ctx := context.Background()
@@ -375,13 +385,13 @@ contents := []*genai.Content{
   genai.NewContentFromParts(parts, genai.RoleUser),
 }
 
-tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.6-flash", contents, nil)
+tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println("Multimodal image token count:", tokenResp.TotalTokens)
 
-response, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -392,7 +402,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-以内嵌数据形式提供图片的示例：
+Esempio che fornisce l'immagine come dati in linea:
 
 ### Python
 
@@ -406,12 +416,12 @@ your_image_file = PIL.Image.open(media / "organ.jpg")
 
 print(
     client.models.count_tokens(
-        model="gemini-3.6-flash", contents=[prompt, your_image_file]
+        model="gemini-3.8-flash", contents=[prompt, your_image_file]
     )
 )
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=[prompt, your_image_file]
+    model="gemini-3.8-flash", contents=[prompt, your_image_file]
 )
 print(response.usage_metadata)
 ```
@@ -434,13 +444,13 @@ const contents = createUserContent([
 
 async function main() {
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: contents,
   });
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: contents,
   });
   console.log(generateResponse.usageMetadata);
@@ -449,7 +459,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 ctx := context.Background()
@@ -472,13 +482,13 @@ contents := []*genai.Content{
   genai.NewContentFromParts(parts, genai.RoleUser),
 }
 
-tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.6-flash", contents, nil)
+tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println("Multimodal image token count:", tokenResp.TotalTokens)
 
-response, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -489,20 +499,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### 视频或音频文件
+#### File audio o video
 
-音频和视频会分别按以下固定费率转换为 token：
+L'audio e il video vengono convertiti in token alle seguenti tariffe fisse:
 
-- 视频：每秒 263 个 token
-- 音频：每秒 32 个 token
+- Video: 263 token al secondo
+- Audio: 32 token al secondo
 
-如果您使用文本和视频/音频输入调用 `count_tokens`，它会返回*输入中*文本和视频/音频文件的总令牌数 (`total_tokens`)。您可以在调用 `generate_content` 之前进行此调用，以检查请求的大小。您还可以选择分别对文本和文件调用 `count_tokens`。
+Se chiami `count_tokens` con un input di testo e video/audio, viene restituito il conteggio combinato dei token del testo e del file video/audio *solo nell'input* (`total_tokens`). Puoi effettuare questa chiamata prima di chiamare `generate_content` per verificare le dimensioni delle richieste. Puoi anche chiamare facoltativamente `count_tokens` sul testo e sul file separatamente.
 
-另一种方法是调用 `generate_content`，然后使用 `response` 对象上的 `usage_metadata` 属性来获取以下信息：
+Un'altra opzione è chiamare `generate_content` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
 
-- 输入 (`prompt_token_count`)、缓存内容 (`cached_content_token_count`) 和输出 (`candidates_token_count`) 的单独 token 数
-- 思考过程的 token 数 (`thoughts_token_count`)
-- *输入和输出*中的 token 总数 (`total_token_count`)。
+- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
+- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
+- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`).
 
 ### Python
 
@@ -522,12 +532,12 @@ while not your_file.state or your_file.state.name != "ACTIVE":
 
 print(
     client.models.count_tokens(
-        model="gemini-3.6-flash", contents=[prompt, your_file]
+        model="gemini-3.8-flash", contents=[prompt, your_file]
     )
 )
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=[prompt, your_file]
+    model="gemini-3.8-flash", contents=[prompt, your_file]
 )
 print(response.usage_metadata)
 ```
@@ -554,7 +564,7 @@ async function main() {
   }
 
   const countTokensResponse = await ai.models.countTokens({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(videoFile.uri, videoFile.mimeType),
@@ -563,7 +573,7 @@ async function main() {
   console.log(countTokensResponse.totalTokens);
 
   const generateResponse = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       prompt,
       createPartFromUri(videoFile.uri, videoFile.mimeType),
@@ -575,7 +585,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 ctx := context.Background()
@@ -611,12 +621,12 @@ contents := []*genai.Content{
   genai.NewContentFromParts(parts, genai.RoleUser),
 }
 
-tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.6-flash", contents, nil)
+tokenResp, err := client.Models.CountTokens(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
 fmt.Println("Multimodal video/audio token count:", tokenResp.TotalTokens)
-response, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", contents, nil)
+response, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", contents, nil)
 if err != nil {
   log.Fatal(err)
 }
@@ -627,9 +637,27 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-### 统计思考 token 数
+#### Utilizzo dei token video per modalità di elaborazione
 
-开启思考功能后，回答价格是输出 token 和思考 token 的总和。您可以从 `thoughtsTokenCount` 字段（或 SDK 等效字段）检索生成的思考 token 总数。
+L'utilizzo dei token per i video dipende dalla modalità di elaborazione:
+
+| **Modalità di elaborazione** | **Calcolo dei token** | **Utilizzo tipico** |
+| --- | --- | --- |
+| **Statica** (impostazione predefinita) | ~100 token/secondo per impostazione predefinita (bassa risoluzione) o ~300 token/secondo (alta risoluzione). Tutti i fotogrammi campionati a 1 FPS. | Prevedibile, proporzionale alla durata del video. |
+| **Agentica** | Varia in base alla complessità dei contenuti. Il modello carica solo la trascrizione e/o i fotogrammi e/o l'audio necessari per rispondere al prompt. | Fino all'88% in meno di token per i contenuti in formato lungo. |
+
+Con l'elaborazione agentica, una lezione di 1 ora che utilizzerebbe ~1,08 milioni di token in modalità statica potrebbe utilizzare ~108.000 token, a seconda del prompt e dei contenuti.
+
+Per verificare l'utilizzo effettivo dei token per una richiesta, utilizza il campo `usage_metadata` nella risposta. In `UsageMetadata`, i token video agentici vengono segnalati nei seguenti campi:
+
+- **Prompt iniziale** (riferimento video + prompt utente): `prompt_token_count`
+- **Ragionamento di navigazione**: `thoughts_token_count`
+- **Trascrizione, fotogrammi e audio caricati on demand**: `tool_use_prompt_token_count`
+- **Risposta finale**: `candidates_token_count`
+
+### Contare i token di ragionamento
+
+Quando attivi il ragionamento, il prezzo della risposta è la somma dei token di output e dei token di ragionamento. Puoi recuperare il numero totale di token di ragionamento generati dal campo `thoughtsTokenCount` (o dall'equivalente SDK).
 
 ### Python
 
@@ -647,7 +675,7 @@ console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
 console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
 ```
 
-### Go
+### Vai
 
 ```
 // ...
@@ -655,13 +683,18 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-思考模型会生成完整的想法，以提高最终回答的质量，然后输出[摘要](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn#summaries)，以便深入了解思考过程。因此，即使 API 仅输出摘要，也会根据模型为创建摘要而生成的完整思路令牌来确定价格。
+I modelli di ragionamento generano ragionamenti completi per migliorare la qualità della risposta finale e poi restituiscono [riepiloghi](https://ai.google.dev/gemini-api/docs/thinking?hl=it#summaries) per fornire informazioni sul processo di ragionamento. Pertanto, l'API basa i prezzi sui token di ragionamento completi che il modello genera per creare un riepilogo, anche se l'API restituisce solo il riepilogo.
 
-如需详细了解如何配置思考，请参阅 [Gemini 思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)指南。
+Puoi scoprire di più su come configurare il ragionamento nella guida al ragionamento di [Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
 
-## 上下文窗口
+## Finestre contestuali
 
-通过 Gemini API 提供的模型具有以 token 衡量的上下文窗口。上下文窗口定义了您可以提供的输入量以及模型可以生成的输出量。您可以通过调用 [`models.get` 端点](https://ai.google.dev/api/rest/v1/models/get?hl=zh-cn)或查看[模型文档](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn)来确定上下文窗口的大小。
+I modelli disponibili tramite l'API Gemini hanno finestre contestuali misurate in token. La finestra contestuale definisce la quantità di input che puoi fornire e la quantità di output che il modello può generare. Puoi determinare le dimensioni della
+finestra contestuale chiamando l'endpoint [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=it)
+o consultando la [documentazione dei modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
+
+- **Modelli Gemini 4 (`gemini-4-argon`):** condividono una singola finestra contestuale di 1 milione di token (`1,048,576` token) tra token di input, ragionamento e output. Le singole richieste sono limitate a `65,536` token di output per lo streaming (`streamGenerateContent`) e `32,768` token di output per il non streaming (`generateContent`), oppure puoi generare fino a `1,048,576` token utilizzando [la decodifica lunga](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it). Se i token di input più `max_output_tokens` superano 1.048.576 token, l'API limita automaticamente l'output allo spazio rimanente nella finestra contestuale (`1,048,576` meno i token di input).
+- **Modelli Gemini 3 e 2.5:** utilizzano budget di input (`1,048,576` token) e output (`65,536` token) separati.
 
 ### Python
 
@@ -669,7 +702,7 @@ fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 from google import genai
 
 client = genai.Client()
-model_info = client.models.get(model="gemini-3.6-flash")
+model_info = client.models.get(model="gemini-3.8-flash")
 print(f"{model_info.input_token_limit=}")
 print(f"{model_info.output_token_limit=}")
 ```
@@ -682,7 +715,7 @@ import { GoogleGenAI } from '@google/genai';
 const ai = new GoogleGenAI({});
 
 async function main() {
-  const modelInfo = await ai.models.get({model: 'gemini-3.6-flash'});
+  const modelInfo = await ai.models.get({model: 'gemini-3.8-flash'});
   console.log(modelInfo.inputTokenLimit);
   console.log(modelInfo.outputTokenLimit);
 }
@@ -690,7 +723,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### Vai
 
 ```
 ctx := context.Background()
@@ -698,7 +731,7 @@ client, err := genai.NewClient(ctx, nil)
 if err != nil {
   log.Fatal(err)
 }
-modelInfo, err := client.ModelInfo(ctx, "models/gemini-3.6-flash")
+modelInfo, err := client.ModelInfo(ctx, "models/gemini-3.8-flash")
 if err != nil {
   log.Fatal(err)
 }
@@ -706,12 +739,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-发送反馈
+Invia feedback
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-最后更新时间 (UTC)：2026-09-12。
+Ultimo aggiornamento 2026-10-13 UTC.
 
-需要向我们提供更多信息？
+Vuoi dirci altro?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]

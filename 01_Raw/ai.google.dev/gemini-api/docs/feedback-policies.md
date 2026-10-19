@@ -1,62 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=he
-fetched_at: 2026-10-12T06:49:42.431195+00:00
-title: "\u05de\u05e9\u05d5\u05d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=id
+fetched_at: 2026-10-19T05:43:27.445815+00:00
+title: "Masukan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-# משוב
+# Masukan
 
-ב-Google AI Studio יש כמה דרכים לשלוח משוב על פלט של מודלים, על ארטיפקטים שנוצרו ועל יומני בקשות API. המדיניות הזו חלה על כל המשוב שנשלח ב-Google AI Studio – כולל דירוג תשובות (למשל, לייק או דיסלייק), תגובות כתובות והצבעה על העדפות (למשל, הצבעה על העדפות בתוך השורה ומצב Build Arena).
+Google AI Studio menyediakan beberapa cara bagi Anda untuk mengirimkan masukan tentang output model, artefak yang dihasilkan, dan log permintaan API. Kebijakan ini berlaku untuk semua
+masukan yang dikirimkan di Google AI Studio - termasuk rating respons (seperti
+suka dan tidak suka), komentar tertulis, dan pemungutan suara preferensi (seperti
+Pemungutan Suara Preferensi Inline dan mode Build Arena).
 
-## למה אנחנו עושים את זה?
+## Mengapa kita melakukan hal ini?
 
-אנחנו פועלים כל הזמן כדי לשפר את מודלי ה-AI והשירותים שלנו. המשוב שלכם עוזר לנו לספק, לשפר ולפתח מוצרים, שירותים וטכנולוגיות למידת מכונה של Google, כולל תכונות, מוצרים ושירותים ארגוניים של Google, בהתאם ל[תנאים והגבלות נוספים למתן שירות של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות הפרטיות](https://policies.google.com/privacy?hl=he).
+Kami terus berupaya meningkatkan kualitas model dan layanan AI kami. Masukan Anda membantu kami menyediakan, meningkatkan kualitas, dan mengembangkan produk serta layanan Google dan teknologi machine learning, termasuk fitur, produk, dan layanan perusahaan Google, sesuai dengan [Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id) dan [Kebijakan Privasi](https://policies.google.com/privacy?hl=id).
 
-## אילו נתונים נכללים במשוב?
+## Data apa yang disertakan dalam Masukan?
 
-כדי שנוכל לקבל החלטות מושכלות לגבי המודלים והתכונות שלנו, אנחנו אוספים נתונים מסוימים כשאתם שולחים משוב ב-Google AI Studio:
+Untuk membuat keputusan yang tepat tentang model dan fitur kami, kami mengumpulkan data tertentu saat Anda mengirimkan masukan di Google AI Studio:
 
-- **פרומפטים ותשובות:** אנחנו מתעדים את הפרומפטים והתשובות, כולל קבצים או מדיה שהועלו, מהאינטראקציה או מהשיחה ששלחתם עליה משוב. כשאתם משתתפים בהערכות השוואתיות של העדפות, אנחנו גם מתעדים את האפשרויות הרבות לתגובה שמוצגות לכם, כדי להבין את ההקשר של הבחירה שלכם.
-- **הדירוג, ההצבעה או התגובות שלכם:** אנחנו מתעדים את הדירוג שנתתם (למשל, לייק או דיסלייק), את התשובה שהעדפתם בהצבעה, את קטגוריות המשוב שבחרתם ואת התגובות הכתובות ששלחתם.
-- **פרטי השימוש:** כולל פרטים טכניים ותפעוליים מהאינטראקציה או מהשיחה, כמו מידע על המודל שיצר את התשובה, פרמטרים של המודל ומטא-נתונים של המערכת.
+- **Perintah dan Respons:** Kami mencatat perintah dan respons, termasuk file atau media yang diupload, dari interaksi atau percakapan yang Anda kirimkan masukan tentangnya. Saat Anda berpartisipasi dalam evaluasi preferensi komparatif, kami juga mencatat beberapa opsi respons yang ditampilkan agar kami dapat memahami konteks pilihan Anda.
+- **Rating, Suara, atau Komentar Anda:** Kami mencatat rating yang Anda berikan (seperti suka atau tidak suka), respons yang Anda pilih dalam pemungutan suara, kategori masukan yang dipilih, dan komentar tertulis yang Anda kirimkan.
+- **Detail Penggunaan:** Hal ini mencakup detail teknis dan operasional dari interaksi atau percakapan Anda, seperti informasi tentang model mana yang menghasilkan respons, parameter model, dan metadata sistem.
 
-### משוב לפי פלטפורמה
+### Masukan menurut platform
 
-אפשר לשלוח משוב בפלטפורמות שונות ב-Google AI Studio, עם הבדלים קלים בהקשר שמתועד:
+Masukan dapat dikirimkan di berbagai platform di Google AI Studio, dengan sedikit perbedaan dalam konteks yang diambil:
 
-- **הסביבה הניסיונית של AI Studio:** בסביבה הניסיונית, אפשר לשלוח משוב באמצעות דירוג התגובות (לייק או דיסלייק) או באמצעות הצבעה להעדפה מוטבעת זו לצד זו. הנתונים המוקלטים כוללים את היסטוריית השיחות, ההנחיות, התשובות של המודל, קבצים או מדיה שהועלו, הגדרות הפרמטרים, משוב ופרטי השימוש.
-- ‫**AI Studio Build:** ב-Build (כולל Build Arena), אפשר לשלוח משוב על קוד שנוצר, על פלט של אפליקציות ועל הערכות השוואתיות של מודלים.
-  הנתונים שתועדו כוללים את הוראות הבנייה וההנחיות, קוד האפליקציה והתוצרים שנוצרו, הצבעות או דירוגים השוואתיים, כל ההערות הנלוות ופרטי השימוש.
-- **יומנים של Gemini API:** בכלי לצפייה ביומנים ובמערכי נתונים, אפשר לשלוח משוב על יומנים של בקשות API ספציפיות ל-Gemini API. הנתונים שתועדו כוללים את רשומת היומן הספציפית של ה-API (כולל מטען ייעודי לבקשה, תגובת המודל, פרמטרים ומטא-נתונים), וגם משוב ופרטים על השימוש. פרטים נוספים על אחסון נתוני יומן ושיתוף מערכי נתונים זמינים במדיניות בנושא [רישום נתונים ושיתוף נתונים](https://ai.google.dev/gemini-api/docs/logs-policy?hl=he).
+- **Playground AI Studio:** Di Playground, masukan dapat dikirimkan menggunakan rating respons (suka atau tidak suka), atau Pemungutan Suara Preferensi Inline berdampingan. Data yang direkam mencakup histori percakapan, perintah, respons model, media atau file yang diupload, setelan parameter, masukan, dan detail penggunaan.
+- **Build AI Studio:** Di Build (termasuk Build Arena), masukan dapat
+  dikirimkan terkait kode yang dihasilkan, output aplikasi, dan evaluasi model komparatif.
+  Data yang direkam mencakup petunjuk dan perintah build, kode dan output aplikasi yang dihasilkan, suara atau rating komparatif, komentar yang menyertai dan detail penggunaan.
+- **Log Gemini API:** Di penampil Log dan Set Data, masukan dapat dikirimkan pada setiap log permintaan Gemini API. Data yang direkam mencakup entri log API tertentu (termasuk payload permintaan, respons model, parameter, dan metadata) beserta masukan dan detail penggunaan. Untuk mengetahui detail selengkapnya tentang
+  penyimpanan data log dan berbagi set data, lihat kebijakan
+  [Pencatatan dan Berbagi Data](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id).
 
-## הצבעה על העדפות בתוך הטקסט
+## Pemungutan Suara Preferensi Inline
 
-ב-Google AI Studio, יכול להיות שמדי פעם תראו השוואה בין שתי תשובות שונות להנחיה שלכם. זה חלק ממערכת ההצבעה לפי העדפות. תתבקשו לבחור איזו תשובה אתם מעדיפים, כדי לעזור לנו להבין אילו תוצאות של המודל הכי מועילות למשתמשים.
+Di Google AI Studio, Anda mungkin sesekali melihat perbandingan berdampingan dari dua respons yang berbeda terhadap perintah Anda. Hal ini merupakan bagian dari sistem pemungutan suara preferensi kami. Anda akan diminta untuk memilih respons mana yang lebih Anda sukai, yang membantu kami memahami output model mana yang paling bermanfaat bagi pengguna.
 
-## הפרטיות שלך
+## Privasi Anda
 
-**אל תשלחו משוב על שיחות, הנחיות, תשובות או יומנים שכוללים מידע רגיש, סודי או אישי.** שליחת משוב היא תמיד וולונטרית.
+**Jangan mengirimkan masukan tentang percakapan, perintah, respons, atau log yang menyertakan informasi sensitif, rahasia, atau pribadi.** Memberikan masukan
+selalu bersifat sukarela.
 
-תודה שעזרת לנו לשפר את Google AI Studio.
+Terima kasih telah membantu kami meningkatkan kualitas Google AI Studio.
 
-שליחת משוב
+Kirim masukan
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-עדכון אחרון: 2026-09-25 (שעון UTC).
+Terakhir diperbarui pada 2026-09-25 UTC.
 
-רוצה לתת לנו משוב?
+Ada masukan untuk kami?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-25 (שעון UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-25 UTC."],[],[]]

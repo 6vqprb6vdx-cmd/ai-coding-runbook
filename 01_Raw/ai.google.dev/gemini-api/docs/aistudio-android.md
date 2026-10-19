@@ -1,143 +1,145 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=pl
-fetched_at: 2026-10-12T06:58:38.227808+00:00
-title: "Tworzenie aplikacji na Androida w\u00a0Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-android?hl=ar
+fetched_at: 2026-10-19T05:42:48.452167+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u062a\u0637\u0628\u064a\u0642\u0627\u062a Android \u0641\u064a Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Prześlij opinię
+إرسال ملاحظات
 
-# Tworzenie aplikacji na Androida w Google AI Studio
+# إنشاء تطبيقات Android في Google AI Studio
 
-Google AI Studio umożliwia tworzenie natywnych aplikacji na Androida na podstawie prompta w języku naturalnym. Opisz aplikację, którą chcesz utworzyć, a
-[Antigravity Agent](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=pl#antigravity-agent)
-wygeneruje kompletny projekt w Kotlinie i [Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=pl). W przeglądarce możesz wyświetlić podgląd aplikacji w emulatorze Androida, zainstalować ją na urządzeniu fizycznym i opublikować na potrzeby testowania.
+يتيح لك Google AI Studio إنشاء تطبيقات Android أصلية من خلال طلب مكتوب بلغة طبيعية. يمكنك وصف التطبيق الذي تريده، وسينشئ
+[وكيل Antigravity](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=ar#antigravity-agent)
+مشروعًا كاملاً بلغتَي Kotlin و[Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=ar). من المتصفّح، يمكنك معاينة تطبيقك في محاكي Android مستند إلى المتصفّح وتثبيته على جهاز فعلي ونشره للاختبار.
 
-## Rozpocznij
+## البدء
 
-Aby zacząć tworzyć aplikację na Androida:
+لبدء إنشاء تطبيق Android:
 
-1. W panelu użytkownika po lewej stronie otwórz tryb [tworzenia](https://aistudio.google.com/apps?hl=pl) w Google AI Studio.
-2. W selektorze platform wybierz **Android**.
-3. Wpisz prompta opisującego aplikację, którą chcesz utworzyć (np. *„Utwórz element śledzenia codziennych zadań z pamięcią lokalną”* lub *„Utwórz prosty Kalkulator”*).
-4. Agent wygeneruje projekt i uruchomi go w emulatorze Androida w przeglądarce.
+1. انتقِل إلى [وضع "الإنشاء"](https://aistudio.google.com/apps?hl=ar) في Google AI Studio باستخدام لوحة التنقّل على يمين الشاشة.
+2. اختَر **Android** من أداة اختيار النظام الأساسي.
+3. أدخِل طلبًا يصف التطبيق الذي تريد إنشاءه (مثلاً، *"إنشاء أداة لتتبُّع المهام اليومية مع مساحة تخزين محلية"* أو *"إنشاء آلة حاسبة بسيطة"*).
+4. ينشئ الوكيل المشروع ويشغّله في محاكي Android المستند إلى المتصفّح.
 
-Następnie możesz iterować aplikację za pomocą panelu czatu, tak jak w przypadku aplikacji internetowych. Agent zarządza wszystkimi plikami w projekcie aplikacji na Androida i propaguje zmiany w bazie kodu.
+يمكنك بعد ذلك تكرار عملية إنشاء تطبيقك باستخدام لوحة المحادثة، تمامًا كما في تجربة الويب. يدير الوكيل جميع الملفات في مشروع Android وينشر التغييرات في قاعدة التعليمات البرمجية.
 
-## Emulator Androida w przeglądarce
+## محاكي Android المستند إلى المتصفّح
 
-Emulator Androida działa w całości w chmurze i przesyła strumieniowo dane do przeglądarki.
-Nie musisz instalować pakietu Android SDK, Android Studio ani emulatora lokalnego.
+يعمل محاكي Android بالكامل في السحابة الإلكترونية ويتم بثّه إلى متصفّحك.
+لست بحاجة إلى تثبيت حزمة تطوير البرامج (SDK) لنظام التشغيل Android أو "استوديو Android" أو محاكي محلي.
 
-Emulator zapewnia:
+يوفّر المحاكي ما يلي:
 
-- **Symulację urządzenia podobnego do Pixela**: możesz dotykać, przewijać i wchodzić w interakcję z aplikacją
-  tak jak na prawdziwym urządzeniu.
-- **Obsługę obracania**: możesz przełączać się między orientacją pionową a poziomą.
-- **Podgląd na żywo**: gdy agent wprowadzi zmiany w kodzie, aplikacja zostanie ponownie skompilowana, a
-  emulator automatycznie się odświeży.
+- **محاكاة جهاز يشبه Pixel**: يمكنك النقر على تطبيقك والتمرير فيه والتفاعل معه
+  تمامًا كما لو كنت تستخدم جهازًا فعليًا.
+- **إمكانية تدوير الشاشة**: يمكنك التبديل بين الوضعَين العمودي والأفقي.
+- **معاينة مباشرة**: عندما يُجري الوكيل تغييرات في التعليمات البرمجية، تتم إعادة إنشاء التطبيق و
+  يتم تحديث المحاكي تلقائيًا.
 
-### Ograniczenia emulatora
+### قيود المحاكي
 
-Emulator w przeglądarce nie obsługuje wszystkich funkcji sprzętowych. W emulatorze nie są dostępne te funkcje:
+لا يتوافق المحاكي المستند إلى المتصفّح مع جميع ميزات الأجهزة. لا تتوفّر الميزات التالية في المحاكي:
 
-- Aparat i robienie zdjęć
-- NFC i Bluetooth
-- GPS (lokalizacja jest symulowana)
-- Usługi Google Play (Logowanie przez Google, Mapy i inne funkcje usług Play działają na prawdziwym urządzeniu, ale nie w emulatorze)
+- الكاميرا والتقاط الصور
+- الاتصال عبر NFC والبلوتوث
+- نظام تحديد المواقع العالمي (يتم محاكاة الموقع الجغرافي)
+- خدمات Google Play (تعمل ميزات "تسجيل الدخول باستخدام حساب Google" و"خرائط Google" وميزات خدمات Play الأخرى على جهاز فعلي، ولكن لا تعمل في المحاكي)
 
-## Instalacja na urządzeniu za pomocą ADB
+## التثبيت على جهاز باستخدام ADB
 
-Skompilowany plik APK możesz zainstalować bezpośrednio na fizycznym urządzeniu z Androidem podłączonym do komputera przez USB. Do komunikacji z urządzeniem przez przeglądarkę używana jest funkcja
-[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=pl). Nie musisz instalować lokalnie narzędzia ADB.
+يمكنك تثبيت ملف APK الذي تم إنشاؤه مباشرةً على جهاز Android فعلي متصل بجهاز الكمبيوتر باستخدام USB. يستخدم هذا الإجراء
+[WebUSB](https://developer.chrome.com/docs/capabilities/usb?hl=ar) للتواصل مع جهازك من خلال المتصفّح. لست بحاجة إلى تثبيت ADB محليًا.
 
-### Wymagania wstępne
+### المتطلبات الأساسية
 
-- Przeglądarka Chrome lub Edge obsługująca WebUSB.
-- Urządzenie z Androidem, na którym włączono
-  [opcje programisty i debugowanie USB](https://developer.android.com/studio/debug/dev-options?hl=pl).
-- Kabel USB łączący urządzenie z komputerem.
+- متصفّح Chrome أو Edge يتيح استخدام WebUSB
+- جهاز Android تم تفعيل
+  [خيارات المطوّرين وتصحيح الأخطاء عبر USB](https://developer.android.com/studio/debug/dev-options?hl=ar)
+  عليه
+- كابل USB يربط جهازك بجهاز الكمبيوتر
 
-### Instalowanie aplikacji na urządzeniu
+### تثبيت التطبيق على جهازك
 
-1. W panelu podglądu kliknij **Zainstaluj na urządzeniu**.
-2. W selektorze urządzeń USB w przeglądarce wybierz urządzenie z Androidem.
-3. Plik APK zostanie przesłany i zainstalowany na urządzeniu.
-4. Aplikacja uruchomi się automatycznie.
+1. انقر على **التثبيت على الجهاز** في لوحة المعاينة.
+2. اختَر جهاز Android من أداة اختيار أجهزة USB في المتصفّح.
+3. يتم نقل ملف APK وتثبيته على جهازك.
+4. يتم تشغيل التطبيق تلقائيًا.
 
-## Publikowanie w Sklepie Play
+## النشر على "متجر Play"
 
-Aplikację na Androida możesz opublikować na
-[ścieżce testów wewnętrznych w Konsoli Google Play](https://play.google.com/console?hl=pl), co pozwoli Ci udostępnić ją maksymalnie 100 testerom.
+يمكنك نشر تطبيق Android في
+[مسار الاختبار الداخلي](https://play.google.com/console?hl=ar) على Google Play Console، ما يتيح لك توزيع التطبيق على ما يصل إلى 100 مختبِر.
 
-### Wymagania wstępne
+### المتطلبات الأساسية
 
-- Konto dewelopera w [Google Play](https://play.google.com/console/signup?hl=pl) (wymaga jednorazowej opłaty rejestracyjnej w wysokości 25 USD).
-- Uzupełniony profil dewelopera w Konsoli Play.
+- حساب مطوّر على [Google Play](https://play.google.com/console/signup?hl=ar)
+  (يتطلّب دفع رسوم تسجيل لمرة واحدة بقيمة 25 دولارًا أمريكيًا)
+- ملف شخصي مكتمل للمطوّر في Play Console
 
-### Publikowanie aplikacji
+### نشر تطبيقك
 
-1. W Google AI Studio otwórz **Ustawienia > Opublikuj**.
-2. Kliknij **Opublikuj w Sklepie Play**.
-3. Zaloguj się na konto dewelopera w Google Play.
-4. AI Studio podpisze plik APK, utworzy stronę aplikacji (lub prześle nową wersję) i opublikuje ją na ścieżce testów wewnętrznych.
-5. Otrzymasz link, który możesz udostępnić testerom.
+1. افتح **الإعدادات > النشر** في Google AI Studio.
+2. انقر على **النشر على "متجر Play"**.
+3. أثبِت هويتك باستخدام حساب المطوّر على Google Play.
+4. يوقّع AI Studio ملف APK وينشئ بيانات التطبيق (أو يحمِّل إصدارًا جديدًا) وينشر التطبيق في مسار الاختبار الداخلي.
+5. ستتلقّى رابطًا لمشاركته مع المختبِرين.
 
-AI Studio automatycznie zarządza podpisywaniem plików APK za pomocą zarządzanego magazynu kluczy. Stronę aplikacji (ikonę, zrzuty ekranu, opis) możesz dostosować później w Konsoli Play.
+يدير AI Studio عملية توقيع ملف APK تلقائيًا باستخدام مخزن مفاتيح مُدار. يمكنك تخصيص بيانات التطبيق (الرمز ولقطات الشاشة والوصف) لاحقًا في Play Console.
 
-## Co jest generowane
+## العناصر التي يتم إنشاؤها
 
-Gdy tworzysz aplikację na Androida, agent generuje standardowy projekt oparty na Gradle o tej strukturze:
+عند إنشاء تطبيق Android، ينشئ الوكيل مشروعًا عاديًا يستند إلى Gradle ويتضمّن البنية التالية:
 
-- **Konfiguracja kompilacji**: `build.gradle.kts` pliki (na poziomie projektu i aplikacji)
-  z użyciem Kotlin DSL.
-- **Warstwa interfejsu**: [komponenty](https://developer.android.com/develop/ui/compose?hl=pl)
-  Jetpack Compose z [motywem Material 3](https://m3.material.io/).
-- **Architektura**: architektura z jednym działaniem z klasami ViewModel i klasami danych.
-- **Zasoby**: `AndroidManifest.xml`, grafiki, ciągi znaków i inne zasoby Androida.
+- **إعدادات الإصدار**: `build.gradle.kts` ملفات (على مستوى المشروع والتطبيق)
+  باستخدام لغة Kotlin الخاصة بالنطاق (DSL)
+- **طبقة واجهة المستخدم**: [مكوّنات Jetpack Compose](https://developer.android.com/develop/ui/compose?hl=ar)
+  مع تخصيص التصميم المتعدد الأبعاد [3](https://m3.material.io/)
+- **البنية**: بنية نشاط واحد مع ViewModels وفئات البيانات
+- **الموارد**: `AndroidManifest.xml` والرسومات المتجهة والسلاسل وموارد Android الأخرى
 
-Agent automatycznie zarządza zależnościami Gradle, dodając w razie potrzeby pakiety z repozytoriów Maven i Google.
+يدير الوكيل تلقائيًا تبعيات Gradle، ويضيف الحِزم من مستودعَي Maven وGoogle حسب الحاجة.
 
-Wygenerowany kod możesz wyświetlić i edytować na karcie **Kod** w panelu podglądu. Aby kontynuować tworzenie w Android Studio, pobierz projekt jako **plik ZIP**.
+يمكنك عرض التعليمات البرمجية التي تم إنشاؤها وتعديلها باستخدام علامة التبويب **التعليمات البرمجية** في لوحة المعاينة. لمتابعة التطوير في "استوديو Android"، نزِّل المشروع كـ **ملف ZIP**.
 
-## Ograniczenia
+## القيود
 
-Tworzenie aplikacji na Androida w AI Studio ma te ograniczenia:
+يخضع إنشاء تطبيقات Android في AI Studio للقيود التالية:
 
-### Ograniczenia platform
+### قيود النظام الأساسي
 
-- **Tylko po stronie klienta**: aplikacje na Androida nie zawierają komponentu po stronie serwera.
-  Funkcje wymagające środowiska wykonawczego po stronie serwera (zarządzanie tajnymi danymi, tryb wieloosobowy, Firebase, interfejsy Google Workspace API) są niedostępne.
-- **Architektura z jednym działaniem**: obsługiwane są tylko projekty z jednym działaniem i jednym modułem.
-- **Tylko Jetpack Compose**: aplikacje używają Kotlina i Jetpack Compose. Układy Java i XML nie są obsługiwane.
-- **Brak NDK i kodu natywnego**: kod C i C++ nie jest obsługiwany.
-- **Brak Wear OS i Androida TV**: obsługiwane są tylko telefony i tablety.
+- **من جهة العميل فقط**: لا تتضمّن تطبيقات Android مكوّنًا من جهة الخادم.
+  لا تتوفّر الميزات التي تتطلّب وقت تشغيل على جانب الخادم (إدارة الأسرار والوضع المتعدّد اللاعبين وFirebase وواجهات برمجة التطبيقات في Google Workspace).
+- **بنية نشاط واحد**: لا تتوفّر إلا المشاريع التي تتضمّن نشاطًا واحدًا ووحدة واحدة.
+- **‫Jetpack Compose فقط**: تستخدم التطبيقات لغتَي Kotlin وJetpack Compose. لا تتوفّر تنسيقات Java وXML.
+- **لا تتوفّر حزمة NDK أو رموز برمجية أصلية**: لا تتوفّر الرموز البرمجية بلغتَي C وC++‎.
+- **لا تتوفّر Wear OS أو Android TV**: لا تتوفّر إلا أشكال الهواتف والأجهزة اللوحية.
 
-### Ograniczenia eksportu
+### قيود التصدير
 
-- **Tylko pobieranie ZIP**: projekt możesz pobrać jako plik ZIP. Eksport do GitHub nie jest jeszcze dostępny w przypadku projektów na Androida.
+- **تنزيل ملف ZIP فقط**: يمكنك تنزيل المشروع كملف ZIP. لا تتوفّر بعد ميزة التصدير إلى GitHub لمشاريع Android.
 
-## Co dalej?
+## الخطوات التالية
 
-- [Tworzenie aplikacji w Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=pl)
-- [Tworzenie aplikacji pełnostosowych](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=pl) (internetowych)
-- Przykłady znajdziesz w [Galerii aplikacji](https://aistudio.google.com/apps?source=showcase&hl=pl).
+- [إنشاء تطبيقات في Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=ar)
+- [تطوير تطبيقات متكاملة](https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=ar) (ويب)
+- الاطّلاع على أمثلة في [معرض التطبيقات](https://aistudio.google.com/apps?source=showcase&hl=ar).
 
-Prześlij opinię
+إرسال ملاحظات
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ostatnia aktualizacja: 2026-08-19 UTC.
+تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Chcesz przekazać coś jeszcze?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-08-19 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

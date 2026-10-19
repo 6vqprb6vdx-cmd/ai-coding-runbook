@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=pl
-fetched_at: 2026-10-12T07:16:41.946328+00:00
-title: "Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=hi
+fetched_at: 2026-10-19T05:45:51.089141+00:00
+title: "Gemini \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u0938\u094b\u091a \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-Prześlij opinię
+सुझाव भेजें
 
-# Gemini
+# Gemini के बारे में सोच
 
-[Modele z serii Gemini 3 i 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pl) wykorzystują wewnętrzny „proces myślowy”, który znacznie poprawia ich zdolność do rozumowania i planowania wieloetapowego, dzięki czemu są bardzo skuteczne w przypadku złożonych zadań, takich jak kodowanie, zaawansowana matematyka i analiza danych.
+[Gemini मॉडल](https://ai.google.dev/gemini-api/docs/models?hl=hi), "सोचने की प्रोसेस" का इस्तेमाल करते हैं. इससे, तर्क करने और कई चरणों वाली प्लानिंग करने की उनकी क्षमता बेहतर होती है. इसलिए, ये मॉडल कोडिंग, ऐडवांस गणित, और डेटा विश्लेषण जैसे मुश्किल कामों को बेहतर तरीके से कर पाते हैं.
 
-Ten przewodnik pokazuje, jak korzystać z możliwości myślenia Gemini za pomocą interfejsu Gemini API.
+इस गाइड में, Gemini API का इस्तेमाल करके, Gemini की सोचने-समझने की क्षमताओं का इस्तेमाल करने का तरीका बताया गया है.
 
-## Generowanie treści z myśleniem
+## सोच-समझकर कॉन्टेंट जनरेट करना
 
-Inicjowanie żądania za pomocą modelu myślącego jest podobne do każdego innego żądania generowania treści. Kluczowa różnica polega na określeniu w polu `model` jednego z [modeli z obsługą myślenia](#tools), jak pokazano w tym przykładzie [generowania tekstu](https://ai.google.dev/gemini-api/docs/text-generation?hl=pl):
+सोचने वाले मॉडल से अनुरोध करना, कॉन्टेंट जनरेट करने के किसी अन्य अनुरोध की तरह ही होता है. मुख्य अंतर यह है कि `model` फ़ील्ड में, [सोचने की क्षमता वाले मॉडल](#tools) में से किसी एक को तय किया जाता है. इसे [टेक्स्ट जनरेट करने](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi) के इस उदाहरण में दिखाया गया है:
 
 ### Python
 
@@ -63,7 +63,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -92,7 +92,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -113,13 +113,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
  ```
 ```
 
-## Podsumowania procesu myślowego
+## सूझ-बूझ से बनाई गई खास जानकारी
 
-Podsumowania procesu myślowego to skrócone wersje pierwotnych myśli modelu, które zawierają informacje o jego wewnętrznym procesie rozumowania. Pamiętaj, że poziomy myślenia i budżety dotyczą surowych myśli modelu, a nie podsumowań myśli.
+मॉडल के रॉ थॉट को कम शब्दों में पेश करने पर, थॉट की खास जानकारी मिलती है. इससे मॉडल के इंटरनल रीज़निंग प्रोसेस के बारे में अहम जानकारी मिलती है. ध्यान दें कि थिंकिंग लेवल और बजट, मॉडल के रॉ थॉट पर लागू होते हैं, न कि थॉट की खास जानकारी पर.
 
-Aby włączyć podsumowania myśli, ustaw w konfiguracji żądania wartość `includeThoughts` na `true`. Następnie możesz uzyskać dostęp do podsumowania, iterując parametr `response``parts` i sprawdzając wartość logiczną `thought`.
+अनुरोध के कॉन्फ़िगरेशन में `includeThoughts` को `true` पर सेट करके, सोच-विचार की खास जानकारी पाने की सुविधा चालू की जा सकती है. इसके बाद, `response` पैरामीटर के `parts` को दोहराकर और `thought` बूलियन की जांच करके, खास जानकारी को ऐक्सेस किया जा सकता है.
 
-Oto przykład pokazujący, jak włączyć i pobrać podsumowania myśli bez przesyłania strumieniowego, które zwraca pojedyncze, końcowe podsumowanie myśli w odpowiedzi:
+यहां एक उदाहरण दिया गया है, जिसमें बताया गया है कि स्ट्रीमिंग के बिना, सोच-विचार की खास जानकारी को कैसे चालू किया जाए और उसे कैसे वापस पाया जाए. इससे जवाब के साथ, सोच-विचार की एक खास जानकारी मिलती है:
 
 ### Python
 
@@ -188,7 +188,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -229,7 +229,7 @@ func main() {
 }
 ```
 
-A to przykład użycia myślenia strumieniowego, które podczas generowania zwraca stopniowe podsumowania:
+यहां स्ट्रीमिंग के साथ थिंकिंग मोड का इस्तेमाल करने का एक उदाहरण दिया गया है. इसमें जनरेशन के दौरान, रोलिंग और इंक्रीमेंटल समरी मिलती हैं:
 
 ### Python
 
@@ -327,7 +327,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -382,25 +382,25 @@ func main() {
 }
 ```
 
-## Kontrolowanie myślenia
+## सोच-विचार करने की प्रोसेस को कंट्रोल करना
 
-Modele Gemini domyślnie angażują się w dynamiczne myślenie, automatycznie dostosowując poziom rozumowania do złożoności zapytania użytkownika.
-Jeśli jednak masz konkretne ograniczenia dotyczące opóźnienia lub wymagasz, aby model przeprowadzał bardziej złożone rozumowanie niż zwykle, możesz opcjonalnie użyć parametrów do kontrolowania sposobu myślenia.
+Gemini मॉडल, डिफ़ॉल्ट रूप से डाइनैमिक थिंकिंग का इस्तेमाल करते हैं. ये उपयोगकर्ता के अनुरोध की जटिलता के आधार पर, तर्क करने की कोशिश को अपने-आप अडजस्ट करते हैं.
+हालांकि, अगर आपके पास इंतज़ार के समय से जुड़ी कुछ खास पाबंदियाँ हैं या आपको मॉडल से सामान्य से ज़्यादा गहराई से तर्क करने की ज़रूरत है, तो आपके पास सोच-विचार करने के व्यवहार को कंट्रोल करने के लिए पैरामीटर इस्तेमाल करने का विकल्प है.
 
-### Poziomy myślenia (Gemini 3)
+### सूझ-बूझ वाले लेवल (Gemini 4 और Gemini 3)
 
-Parametr `thinkingLevel`, zalecany w przypadku modeli Gemini 3 i nowszych, pozwala kontrolować zachowanie związane z rozumowaniem.
+`thinkingLevel` पैरामीटर, Gemini 4 के लिए ज़रूरी है और Gemini 3 मॉडल के लिए सुझाया गया है. इसकी मदद से, रीज़निंग के व्यवहार को कंट्रोल किया जा सकता है. Gemini 4 (`gemini-4-argon`) में `low`, `medium` (डिफ़ॉल्ट), और `high` का इस्तेमाल किया जा सकता है.
 
-W tabeli poniżej znajdziesz szczegółowe informacje o ustawieniach `thinkingLevel` dla każdego typu modelu:
+यहां दी गई टेबल में, हर तरह के मॉडल के लिए `thinkingLevel` की सेटिंग के बारे में बताया गया है:
 
-| Poziom myślenia | Gemini 3.8 Flash | Gemini 3.6 Flash | Gemini 3.1 Pro | Gemini 3.5 i 3.1 Flash-Lite | Obraz Gemini 3.1 Flash-Lite | Gemini 3 Flash | Gemini Robotics ER 2 | Opis |
+| सूझ-बूझ वाले मॉडल का लेवल | Gemini 3.8 Flash | Gemini 3.6 Flash | Gemini 4 Argon | Gemini 3.5 और 3.1 Flash-Lite | Gemini 3.1 Flash-Lite Image | Gemini 3 Flash | Gemini Robotics ER 2 | ब्यौरा |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | Nieobsługiwane (błąd) | Obsługiwane | Nieobsługiwane | Obsługiwane (domyślnie) | Obsługiwane (domyślnie) | Obsługiwane | Obsługiwane | W przypadku większości zapytań odpowiada ustawieniu „bez myślenia”. Pamiętaj, że `minimal` nie gwarantuje wyłączenia myślenia. Model może w minimalnym stopniu rozumować w przypadku złożonych zadań. |
-| **`low`** | Obsługiwane | Obsługiwane | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane | Minimalizuje czas oczekiwania i koszty. |
-| **`medium`** | Obsługiwane (domyślnie) | Obsługiwane (domyślnie) | Obsługiwane | Obsługiwane | Nieobsługiwane | Obsługiwane | Obsługiwane | Zrównoważone myślenie w przypadku większości zadań. |
-| **`high`** | Obsługiwane (dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Obsługiwane (domyślne, dynamiczne) | Zwiększa głębokość rozumowania. Model może potrzebować znacznie więcej czasu, aby wygenerować pierwszy token wyjściowy (niebędący przemyśleniem), ale wynik będzie bardziej przemyślany. |
+| **`minimal`** | इस्तेमाल नहीं किया जा सकता (गड़बड़ी) | काम करता है | इस्तेमाल नहीं किया जा सकता (गड़बड़ी) | काम करता है (डिफ़ॉल्ट) | इस्तेमाल किया जा सकता है (डिफ़ॉल्ट) | काम करता है | काम करता है | ज़्यादातर क्वेरी के लिए, "कोई थिंकिंग मोड नहीं" सेटिंग से मैच करता है. ध्यान दें, `minimal` से यह गारंटी नहीं मिलती कि सोचने की प्रोसेस बंद हो गई है. ऐसा हो सकता है कि मॉडल, मुश्किल कामों के लिए बहुत कम तर्क दे. |
+| **`low`** | काम करता है | काम करता है | काम करता है | काम करता है | यह सुविधा उपलब्ध नहीं है | काम करता है | काम करता है | इससे इंतज़ार का समय और लागत कम होती है. |
+| **`medium`** | इस्तेमाल किया जा सकता है (डिफ़ॉल्ट) | इस्तेमाल किया जा सकता है (डिफ़ॉल्ट) | इस्तेमाल किया जा सकता है (डिफ़ॉल्ट) | काम करता है | काम नहीं करता है | काम करता है | काम करता है | ज़्यादातर टास्क के लिए, सोच-विचार करने का संतुलित तरीका. |
+| **`high`** | Supported (Dynamic) | उपलब्ध है (डाइनैमिक) | उपलब्ध है (डाइनैमिक) | उपलब्ध है (डाइनैमिक) | Supported (Dynamic) | Supported (Default, Dynamic) | सपोर्ट किया गया (डिफ़ॉल्ट, डाइनैमिक) | इससे रीज़निंग की गहराई बढ़ जाती है. मॉडल को पहला (नॉन थिंकिंग) आउटपुट टोकन जनरेट करने में ज़्यादा समय लग सकता है. हालांकि, आउटपुट में ज़्यादा सटीक जानकारी मिलेगी. |
 
-Przykład poniżej pokazuje, jak ustawić poziom myślenia.
+यहां दिए गए उदाहरण में, थिंकिंग लेवल सेट करने का तरीका बताया गया है.
 
 ### Python
 
@@ -445,7 +445,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -478,7 +478,7 @@ fmt.Println(resp.Text())
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -503,38 +503,40 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }'
 ```
 
-Nie możesz wyłączyć myślenia w przypadku Gemini 3.1 Pro. Modele Gemini 3 Flash i Flash-Lite
-również nie obsługują pełnego wyłączenia myślenia.
-Jeśli nie określisz poziomu myślenia, Gemini użyje domyślnego poziomu myślenia modeli Gemini 3 (np. `"high"` w przypadku Gemini 3.1 Pro i `"medium"` w przypadku
-Gemini 3.8 Flash i Gemini 3.6 Flash).
+Gemini 4 Argon के लिए, सोच-समझकर जवाब देने की सुविधा को बंद नहीं किया जा सकता. Gemini 3 Flash और Flash-Lite में भी, सूझ-बूझ वाले मॉडल को पूरी तरह से बंद नहीं किया जा सकता. अगर आपने सूझ-बूझ वाला लेवल नहीं चुना है, तो Gemini, मॉडल के डिफ़ॉल्ट लेवल का इस्तेमाल करेगा. जैसे, Gemini 4 Argon, Gemini 3.8 Flash, और Gemini 3.6 Flash के लिए `"medium"`.
 
-Modele z serii Gemini 2.5 nie obsługują tego typu pliku: `thinkingLevel`. Zamiast tego użyj `thinkingBudget`.
+Gemini 2.5 सीरीज़ के मॉडल, `thinkingLevel` के साथ काम नहीं करते; इसके बजाय, `thinkingBudget` का इस्तेमाल करें.
 
-### Limity tokenów i `max_output_tokens`
+### टोकन की सीमाएं और `max_output_tokens`
 
-Parametr generowania [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=pl#v1beta.GenerationConfig) określa maksymalną liczbę tokenów, które może wygenerować odpowiedź, w tym tokeny myśli.
+[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=hi#v1beta.GenerationConfig) जनरेशन पैरामीटर, किसी जवाब में जनरेट किए जा सकने वाले टोकन की ज़्यादा से ज़्यादा संख्या सेट करता है. इसमें थॉट टोकन भी शामिल हैं.
 
-Gdy ten parametr jest ustawiony, działa jako sztywne ograniczenie wymuszane przez infrastrukturę, nie zmieniając sposobu, w jaki model przydziela budżet na przetwarzanie (`thinking_level`).
+सेट किए जाने पर, यह पैरामीटर इंफ़्रास्ट्रक्चर की ओर से लागू किए गए हार्ड कटऑफ़ के तौर पर काम करता है. इससे मॉडल के थिंकिंग बजट (`thinking_level`) को तय करने के तरीके में कोई बदलाव नहीं होता.
 
-Jeśli podczas rozumowania model osiągnie ten limit, przestanie generować odpowiedź z `finish_reason: MAX_TOKENS` i zwróci obcięty lub pusty wynik (ale nadal będzie naliczać opłaty za wygenerowane tokeny myślenia). Aby zmniejszyć koszt lub czas oczekiwania bez obcinania odpowiedzi, zmniejsz wartość `thinking_level` (`low` lub `medium`) zamiast ustawiać małą wartość `max_output_tokens`.
+अगर मॉडल, रीज़निंग के दौरान इस सीमा तक पहुंच जाता है, तो वह `finish_reason: MAX_TOKENS` के साथ आउटपुट जनरेट करना बंद कर देता है. साथ ही, अधूरा या खाली आउटपुट दिखाता है. हालांकि, जनरेट किए गए सभी थिंकिंग टोकन के लिए बिलिंग जारी रहती है. जवाबों को छोटा किए बिना लागत या इंतज़ार का समय कम करने के लिए, `max_output_tokens` की वैल्यू को कम करने के बजाय, `thinking_level` (`low` या `medium`) की वैल्यू को कम करें.
 
-### Budżety na myślenie
+Gemini 4 के मॉडल (`gemini-4-argon`) के लिए, कॉन्टेक्स्ट और आउटपुट की इन सीमाओं को ध्यान में रखें:
 
-Parametr `thinkingBudget`, wprowadzony w serii Gemini 2.5, określa liczbę tokenów myślenia, których model ma użyć do rozumowania.
+- **10 लाख टोकन वाली कॉन्टेक्स्ट विंडो:** इनपुट, सोचने, और आउटपुट के लिए इस्तेमाल किए जाने वाले टोकन, 10 लाख टोकन वाली एक ही कॉन्टेक्स्ट विंडो (`1,048,576` टोकन) शेयर करते हैं. अगर आपके इनपुट टोकन और `max_output_tokens` की संख्या 10,48,576 से ज़्यादा है, तो एपीआई, आउटपुट की सीमा को कॉन्टेक्स्ट विंडो में बची हुई जगह (`1,048,576` माइनस आपके इनपुट टोकन) के हिसाब से अपने-आप तय कर देता है.
+- **हर अनुरोध के लिए आउटपुट की सीमाएं (64 हज़ार स्ट्रीमिंग / 32 हज़ार नॉन-स्ट्रीमिंग) और लॉन्ग डिकोड (ज़्यादा से ज़्यादा 10 लाख टोकन):** एक स्ट्रीमिंग अनुरोध (`streamGenerateContent`) से ज़्यादा से ज़्यादा `65,536` टोकन मिलते हैं. वहीं, एक नॉन-स्ट्रीमिंग अनुरोध (`generateContent`) से ज़्यादा से ज़्यादा `32,768` टोकन मिलते हैं. हर अनुरोध के लिए तय की गई सीमा (`1,048,576` टोकन में से आपके इनपुट को घटाकर) से ज़्यादा टोकन जनरेट करने के लिए, `max_output_tokens` को सीमा से ज़्यादा पर सेट करें. Google GenAI के नए SDK टूल, डिफ़ॉल्ट रूप से (`automatic_continuation=True`) हॉप के दौरान अपने-आप काम करते रहते हैं. इसके अलावा, जब कोई हॉप `finish_reason: "CONTINUATION"` के साथ रुकता है, तो `continuation_token` का इस्तेमाल करके क्लाइंट लूप चलाया जा सकता है. कोड के उदाहरणों के लिए, [लॉन्ग डिकोड](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=hi) देखें.
 
-Poniżej znajdziesz `thinkingBudget` szczegóły konfiguracji poszczególnych typów modeli.
-Możesz wyłączyć myślenie, ustawiając wartość `thinkingBudget` na 0.
-Ustawienie wartości `thinkingBudget` na -1 włącza **dynamiczne myślenie**, co oznacza, że model dostosuje budżet do złożoności żądania.
+### सूझ-बूझ से बनाए गए बजट
 
-| Model | Ustawienie domyślne (budżet na myślenie nie jest ustawiony) | Zakres | Wyłącz myślenie | Włącz myślenie dynamiczne |
+`thinkingBudget` पैरामीटर को Gemini 2.5 सीरीज़ के साथ लॉन्च किया गया था. यह मॉडल को बताता है कि तर्क करने के लिए कितने थिंकिंग टोकन इस्तेमाल करने हैं.
+
+यहां हर तरह के मॉडल के लिए, `thinkingBudget` कॉन्फ़िगरेशन की जानकारी दी गई है.
+`thinkingBudget` को 0 पर सेट करके, सोचने की सुविधा को बंद किया जा सकता है.
+`thinkingBudget` को -1 पर सेट करने से, **डाइनैमिक थिंकिंग** चालू हो जाती है. इसका मतलब है कि मॉडल, अनुरोध की जटिलता के आधार पर बजट को अडजस्ट करेगा.
+
+| मॉडल | डिफ़ॉल्ट सेटिंग (थिंकिंग बजट सेट नहीं है) | रेंज | गहराई से विचार करने की सुविधा बंद करना | डाइनैमिक थिंकिंग की सुविधा चालू करना |
 | --- | --- | --- | --- | --- |
-| **2.5 Pro** | Myślenie dynamiczne | Od `128` do `32768` | Nie dotyczy: nie można wyłączyć myślenia | `thinkingBudget = -1` (wartość domyślna) |
-| **2.5 Flash** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
-| **2.5 Flash – wersja testowa** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
-| **2.5 Flash Lite** | Model nie myśli | Od `512` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **2.5 Flash Lite – wersja testowa** | Model nie myśli | Od `512` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
-| **Robotics-ER 1.6 Preview** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
-| **2.5 Flash Live Native Audio Preview (09-2025)** | Myślenie dynamiczne | Od `0` do `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (wartość domyślna) |
+| **2.5 Pro** | डाइनैमिक थिंकिंग | `128` से `32768` | लागू नहीं: गहराई से विचार करने की सुविधा बंद नहीं की जा सकती | `thinkingBudget = -1` (डिफ़ॉल्ट) |
+| **2.5 Flash** | डाइनैमिक थिंकिंग | `0` से `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (डिफ़ॉल्ट) |
+| **2.5 Flash Preview** | डाइनैमिक थिंकिंग | `0` से `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (डिफ़ॉल्ट) |
+| **2.5 Flash Lite** | मॉडल सोच-विचार नहीं करता | `512` से `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **2.5 Flash Lite Preview** | मॉडल सोच-विचार नहीं करता | `512` से `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` |
+| **Robotics-ER 1.6 Preview** | डाइनैमिक थिंकिंग | `0` से `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (डिफ़ॉल्ट) |
+| **2.5 Flash Live Native Audio Preview (09-2025)** | डाइनैमिक थिंकिंग | `0` से `24576` | `thinkingBudget = 0` | `thinkingBudget = -1` (डिफ़ॉल्ट) |
 
 ### Python
 
@@ -587,7 +589,7 @@ async function main() {
 main();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -649,29 +651,27 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:g
 }'
 ```
 
-W zależności od promptu model może przekroczyć lub nie wykorzystać w pełni budżetu tokenów.
+प्रॉम्प्ट के हिसाब से, मॉडल टोकन बजट से ज़्यादा या कम टोकन जनरेट कर सकता है.
 
-## Podpisy myśli
+## थॉट सिग्नेचर
 
-Gemini API jest bezstanowy, więc model traktuje każde żądanie do interfejsu API niezależnie i nie ma dostępu do kontekstu myślowego z poprzednich tur w interakcjach wieloetapowych.
+Gemini API, स्टेटलेस है. इसलिए, मॉडल हर एपीआई अनुरोध को अलग-अलग मानता है. साथ ही, सिलसिलेवार बातचीत के दौरान, पिछले चरणों के कॉन्टेक्स्ट को ऐक्सेस नहीं करता.
 
-Aby umożliwić zachowanie kontekstu myślowego w wieloetapowych interakcjach, Gemini zwraca sygnatury myśli, które są zaszyfrowanymi reprezentacjami wewnętrznego procesu myślowego modelu.
+सिलसिलेवार बातचीत के दौरान, Gemini को बातचीत के कॉन्टेक्स्ट को बनाए रखने में मदद करने के लिए, थॉट सिग्नेचर मिलते हैं. ये मॉडल की इंटरनल थॉट प्रोसेस के एन्क्रिप्ट (सुरक्षित) किए गए वर्शन होते हैं.
 
-- **Modele Gemini 2.5** zwracają sygnatury myśli, gdy myślenie jest włączone, a żądanie obejmuje [wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#thinking), a konkretnie [deklaracje funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#step-2).
-- **Modele Gemini 3** mogą zwracać sygnatury myśli dla wszystkich typów [części](https://ai.google.dev/api/caching?hl=pl#Part).
-  Zalecamy zawsze przekazywanie wszystkich sygnatur w takiej postaci, w jakiej zostały otrzymane, ale w przypadku sygnatur wywoływania funkcji jest to *wymagane*. Więcej informacji znajdziesz na stronie [Podpisy myśli](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=pl).
+- **Gemini 2.5 मॉडल**, थॉट सिग्नेचर तब दिखाते हैं, जब थिंकिंग की सुविधा चालू हो और अनुरोध में [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi#thinking) शामिल हो. खास तौर पर, [फ़ंक्शन के बारे में जानकारी](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi#step-2).
+- **Gemini 4 और Gemini 3 मॉडल**, सभी तरह के [पार्ट](https://ai.google.dev/api/caching?hl=hi#Part) के लिए थॉट सिग्नेचर दिखा सकते हैं. हमारा सुझाव है कि आपको सभी हस्ताक्षर उसी तरह वापस भेजने चाहिए जैसे आपको मिले थे. हालांकि, फ़ंक्शन कॉल करने के लिए हस्ताक्षर *ज़रूरी* हैं. ज़्यादा जानने के लिए, [थॉट सिग्नेचर](https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=hi) पेज पर जाएं.
 
-Inne limity wykorzystania, o których warto pamiętać w przypadku wywoływania funkcji:
+फ़ंक्शन कॉलिंग की सुविधा का इस्तेमाल करने से जुड़ी अन्य सीमाएं:
 
-- Sygnatury są zwracane przez model w innych częściach odpowiedzi, np. w wywołaniach funkcji lub częściach tekstowych.
-  [Zwróć całą odpowiedź](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl#step-4)
-  ze wszystkimi częściami do modelu w kolejnych turach.
-- Nie łącz części z sygnaturami.
-- Nie łącz części z podpisem z częścią bez podpisu.
+- जवाब के अन्य हिस्सों में मॉडल से सिग्नेचर मिलते हैं. उदाहरण के लिए, फ़ंक्शन कॉल करना या टेक्स्ट वाले हिस्से.
+  [पूरे जवाब को वापस मॉडल को भेजें](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi#step-4), ताकि वह अगले टर्न में सभी हिस्सों को शामिल कर सके.
+- हस्ताक्षर वाले हिस्सों को एक साथ न जोड़ें.
+- हस्ताक्षर वाले हिस्से को बिना हस्ताक्षर वाले हिस्से के साथ मर्ज न करें.
 
-## Ceny
+## कीमत
 
-Gdy myślenie jest włączone, cena odpowiedzi to suma tokenów wyjściowych i tokenów myślenia. Łączną liczbę wygenerowanych tokenów myślenia możesz uzyskać z pola `thoughtsTokenCount`.
+थिंकिंग की सुविधा चालू होने पर, जवाब की कीमत आउटपुट टोकन और थिंकिंग टोकन की कुल संख्या के हिसाब से तय होती है. जनरेट किए गए थिंकिंग टोकन की कुल संख्या, `thoughtsTokenCount` फ़ील्ड से देखी जा सकती है.
 
 ### Python
 
@@ -689,7 +689,7 @@ console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
 console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 // ...
@@ -697,54 +697,54 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-Modele myślenia generują pełne myśli, aby poprawić jakość ostatecznej odpowiedzi, a następnie wyświetlają [podsumowania](#summaries), które pozwalają zrozumieć proces myślowy. Ceny są więc oparte na pełnych tokenach myśli, których model potrzebuje do wygenerowania podsumowania, mimo że z interfejsu API wychodzi tylko podsumowanie.
+सूझ-बूझ वाले मॉडल, फ़ाइनल जवाब की क्वालिटी को बेहतर बनाने के लिए पूरी जानकारी जनरेट करते हैं. इसके बाद, वे [खास जानकारी](#summaries) आउटपुट करते हैं, ताकि जवाब जनरेट करने की प्रोसेस के बारे में अहम जानकारी दी जा सके. इसलिए, कीमत इस बात पर निर्भर करती है कि खास जानकारी जनरेट करने के लिए, मॉडल को कितने थॉट टोकन की ज़रूरत है. भले ही, एपीआई से सिर्फ़ खास जानकारी आउटपुट की जाती हो.
 
-Więcej informacji o tokenach znajdziesz w przewodniku [Liczenie tokenów](https://ai.google.dev/gemini-api/docs/tokens?hl=pl).
+[टोकन की गिनती](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) गाइड में, टोकन के बारे में ज़्यादा जानकारी दी गई है.
 
-## Sprawdzone metody
+## सबसे सही तरीके
 
-W tej sekcji znajdziesz wskazówki dotyczące efektywnego korzystania z modeli myślowych.
-Jak zawsze, najlepsze wyniki uzyskasz, jeśli będziesz postępować zgodnie z naszymi [wskazówkami i sprawdzonymi metodami dotyczącymi promptów](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=pl).
+इस सेक्शन में, सूझ-बूझ वाले मॉडल का बेहतर तरीके से इस्तेमाल करने के बारे में कुछ सलाह दी गई है.
+हमेशा की तरह, [प्रॉम्प्ट देने से जुड़े हमारे दिशा-निर्देशों और सबसे सही तरीकों](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=hi) का पालन करने से आपको सबसे अच्छे नतीजे मिलेंगे.
 
-### Debugowanie i sterowanie
+### डीबग करना और स्टीयर करना
 
-- **Sprawdź uzasadnienie:** jeśli modele myślowe nie udzielają oczekiwanej odpowiedzi, warto dokładnie przeanalizować podsumowania myśli Gemini.
-  Możesz zobaczyć, jak podzielił zadanie i doszedł do wniosku, a także wykorzystać te informacje, aby poprawić wyniki.
-- **Podaj wskazówki dotyczące rozumowania:** jeśli oczekujesz szczególnie długiego wyniku, możesz podać w prompcie wskazówki, aby ograniczyć [ilość myślenia](#set-budget), jakiej używa model. Dzięki temu możesz zarezerwować więcej tokenów na swoją odpowiedź.
+- **जवाब देने के तरीके की समीक्षा करना**: जब आपको थिंकिंग मॉडल से अपनी उम्मीद के मुताबिक जवाब नहीं मिलता है, तो Gemini के जवाब देने के तरीके की खास जानकारी को ध्यान से देखने से मदद मिल सकती है.
+  आपको यह पता चल सकता है कि Gemini ने टास्क को कैसे पूरा किया और नतीजे पर कैसे पहुंचा. साथ ही, इस जानकारी का इस्तेमाल करके, सही नतीजे पाने के लिए Gemini को बेहतर निर्देश दिए जा सकते हैं.
+- **जवाब के लिए दिशा-निर्देश देना**: अगर आपको कोई लंबा जवाब चाहिए, तो अपने प्रॉम्प्ट में दिशा-निर्देश दें. इससे मॉडल को [सोचने-समझने में लगने वाले समय](#set-budget) को कम करने में मदद मिलेगी. इससे आपको अपने जवाब के लिए, ज़्यादा टोकन आउटपुट रिज़र्व करने की सुविधा मिलती है.
 
-### Złożoność zadania
+### टास्क की जटिलता
 
-- **Proste zadania (myślenie może być wyłączone):** w przypadku prostych żądań, które nie wymagają złożonego rozumowania, np. wyszukiwania faktów lub klasyfikacji, myślenie nie jest potrzebne. Przykłady:
-  - „Gdzie powstała firma DeepMind?”
-  - „Czy ten e-mail zawiera prośbę o spotkanie, czy tylko informacje?”
-- **Średnio złożone zadania (domyślne/wymagające pewnego zastanowienia):** wiele typowych żądań wymaga przetwarzania krok po kroku lub głębszego zrozumienia. Gemini może elastycznie wykorzystywać funkcję myślenia w przypadku takich zadań jak:
-  - Porównaj fotosyntezę i dorastanie.
-  - Porównaj samochody elektryczne i samochody hybrydowe.
-- **Trudne zadania (maksymalne możliwości myślenia):** w przypadku naprawdę złożonych wyzwań, takich jak rozwiązywanie skomplikowanych problemów matematycznych lub zadań związanych z kodowaniem, zalecamy ustawienie wysokiego budżetu na myślenie. Tego typu zadania wymagają od modelu pełnego wykorzystania możliwości rozumowania i planowania, co często wiąże się z wieloma wewnętrznymi krokami przed udzieleniem odpowiedzi. Przykłady:
-  - Rozwiąż zadanie 1 z AIME 2025: znajdź sumę wszystkich podstaw całkowitych b > 9, dla których 17b jest dzielnikiem liczby 97b.
-  - Napisz kod w Pythonie dla aplikacji internetowej, która wizualizuje dane giełdowe w czasie rzeczywistym, w tym uwierzytelnianie użytkowników. Zadbaj o jak największą wydajność.
+- **आसान टास्क (सोचने की प्रोसेस बंद हो सकती है):** ऐसे सीधे-सादे अनुरोधों के लिए सोचने की प्रोसेस की ज़रूरत नहीं होती जिनमें जटिल तर्क की ज़रूरत नहीं होती. जैसे, तथ्यों को ढूंढना या उन्हें कैटगरी में बांटना. उदाहरण के लिए:
+  - "DeepMind की स्थापना कहां हुई थी?"
+  - "क्या इस ईमेल में मीटिंग के लिए कहा गया है या सिर्फ़ जानकारी दी गई है?"
+- **सामान्य टास्क (डिफ़ॉल्ट/कुछ सोच-विचार):** कई सामान्य अनुरोधों के लिए, सिलसिलेवार तरीके से प्रोसेस करने या बेहतर तरीके से समझने की ज़रूरत होती है. Gemini, सोचने की क्षमता का इस्तेमाल इन कामों के लिए कर सकता है:
+  - प्रकाश संश्लेषण और बड़े होने की प्रक्रिया के बीच समानताएं बताओ.
+  - इलेक्ट्रिक कारों और हाइब्रिड कारों की तुलना करें और उनके बीच अंतर बताएं.
+- **मुश्किल टास्क (सोचने-समझने की ज़्यादा क्षमता):** मुश्किल टास्क के लिए, जैसे कि गणित की मुश्किल समस्याओं को हल करना या कोडिंग से जुड़े टास्क, हमारा सुझाव है कि आप ज़्यादा थिंकिंग बजट सेट करें. इस तरह के टास्क के लिए, मॉडल को अपनी पूरी रीज़निंग और प्लानिंग की क्षमताओं का इस्तेमाल करना पड़ता है. जवाब देने से पहले, अक्सर कई इंटरनल स्टेप शामिल होते हैं. उदाहरण के लिए:
+  - AIME 2025 में पहला सवाल हल करें: उन सभी पूर्णांक आधारों b > 9 का योग निकालें जिनके लिए 17b, 97b का भाजक है.
+  - किसी वेब ऐप्लिकेशन के लिए Python कोड लिखो. यह ऐप्लिकेशन, शेयर बाज़ार के रीयल-टाइम डेटा को विज़ुअलाइज़ करता हो. साथ ही, इसमें उपयोगकर्ता की पुष्टि करने की सुविधा भी शामिल हो. इसे ज़्यादा से ज़्यादा असरदार बनाएं.
 
-## Obsługiwane modele, narzędzia i możliwości
+## इस्तेमाल किए जा सकने वाले मॉडल, टूल, और सुविधाएँ
 
-Funkcje myślenia są obsługiwane we wszystkich modelach z serii 3 i 2.5.
-Wszystkie możliwości modelu znajdziesz na stronie [przeglądu modelu](https://ai.google.dev/gemini-api/docs/models?hl=pl).
+सोच-विचार करने की सुविधाएँ, 4, 3, और 2.5 सीरीज़ के सभी मॉडल पर उपलब्ध हैं.
+आपको [मॉडल की खास जानकारी](https://ai.google.dev/gemini-api/docs/models?hl=hi) पेज पर, मॉडल की सभी क्षमताओं के बारे में जानकारी मिलेगी.
 
-Modele myślące działają ze wszystkimi narzędziami i funkcjami Gemini. Umożliwia to modelom interakcję z systemami zewnętrznymi, wykonywanie kodu lub dostęp do informacji w czasie rzeczywistym, a także uwzględnianie wyników w procesie rozumowania i odpowiedzi końcowej.
+सूझ-बूझ वाले मॉडल, Gemini के सभी टूल और सुविधाओं के साथ काम करते हैं. इससे मॉडल, बाहरी सिस्टम के साथ इंटरैक्ट कर सकते हैं, कोड को एक्ज़ीक्यूट कर सकते हैं या रीयल-टाइम जानकारी को ऐक्सेस कर सकते हैं. साथ ही, नतीजों को अपनी रीजनिंग और फ़ाइनल जवाब में शामिल कर सकते हैं.
 
-Przykłady użycia narzędzi z modelami myślowymi znajdziesz w [książce kucharskiej dotyczącej myślenia][Colab].
+सूझ-बूझ वाले मॉडल के साथ टूल इस्तेमाल करने के उदाहरण, [सूझ-बूझ वाले मॉडल के लिए कुकबुक][Colab] में देखे जा सकते हैं.
 
-## Co dalej?
+## आगे क्या करना है?
 
-- Informacje o zakresie myślenia znajdziesz w naszym przewodniku [Zgodność z OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pl#thinking).
+- सोचने की क्षमता वाले मॉडल की उपलब्धता के बारे में जानकारी, [OpenAI के साथ काम करने वाले मॉडल](https://ai.google.dev/gemini-api/docs/openai?hl=hi#thinking) की हमारी गाइड में उपलब्ध है.
 
 [Colab]: https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get\_started\_thinking.ipynb
 
-Prześlij opinię
+सुझाव भेजें
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Ostatnia aktualizacja: 2026-10-09 UTC.
+आखिरी बार 2026-10-14 (UTC) को अपडेट किया गया.
 
-Chcesz przekazać coś jeszcze?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-09 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-14 (UTC) को अपडेट किया गया."],[],[]]

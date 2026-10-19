@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=tr
-fetched_at: 2026-10-12T06:56:52.772352+00:00
-title: "Dosyalar API'si \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=ja
+fetched_at: 2026-10-19T05:43:31.922860+00:00
+title: "Files API \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-Geri bildirim gönderin
+フィードバックを送信
 
-# Dosyalar API'si
+# Files API
 
-Gemini, metin, resim ve ses gibi çeşitli giriş verilerini aynı anda işleyebilir.
+Gemini は、テキスト、画像、音声など、さまざまな種類の入力データを同時に処理できます。
 
-Bu kılavuzda, Files API'yi kullanarak medya dosyalarıyla nasıl çalışacağınız gösterilmektedir. Ses dosyaları, resimler, videolar, dokümanlar ve desteklenen diğer dosya türleri için temel işlemler aynıdır.
+このガイドでは、Files API を使用してメディア ファイルを操作する方法について説明します。音声ファイル、画像、動画、ドキュメント、その他のサポートされているファイル形式の基本操作は同じです。
 
-Dosya istemiyle ilgili rehberlik için [Dosya istem rehberi](https://ai.google.dev/gemini-api/docs/files?hl=tr#prompt-guide) bölümüne göz atın.
+ファイル プロンプトのガイダンスについては、[ファイル プロンプト ガイド](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide)のセクションをご覧ください。
 
-## Dosya yükleyin
+## ファイルをアップロード
 
-Medya dosyası yüklemek için Files API'yi kullanabilirsiniz. Toplam istek boyutu (dosyalar, metin istemi, sistem talimatları vb. dahil) 100 MB'tan büyük olduğunda her zaman Files API'yi kullanın. Bu sınır, PDF dosyaları için 50 MB'tır.
+Files API を使用してメディア ファイルをアップロードできます。リクエストの合計サイズ（ファイル、テキスト プロンプト、システム指示などを含む）が 100 MB を超える場合は、常に Files API を使用します。PDF ファイルの上限は 50 MB です。
 
-Aşağıdaki kod, bir dosyayı yükler ve ardından `generateContent` çağrısında dosyayı kullanır.
+次のコードは、ファイルをアップロードしてから、`generateContent` の呼び出しでそのファイルを使用します。
 
 ### Python
 
@@ -41,7 +41,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.8-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -65,7 +65,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -86,7 +86,7 @@ if err != nil {
 }
 defer client.Files.Delete(ctx, file.Name)
 
-resp, err := client.Models.GenerateContent(ctx, "gemini-3.6-flash", []*genai.Content{
+resp, err := client.Models.GenerateContent(ctx, "gemini-3.8-flash", []*genai.Content{
   {
     Parts: []*genai.Part{
       genai.NewPartFromFile(*file),
@@ -138,7 +138,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -156,9 +156,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Dosyanın meta verilerini alma
+## ファイルのメタデータを取得する
 
-`files.get` işlevini çağırarak API'nin yüklenen dosyayı başarıyla depoladığını doğrulayabilir ve dosyanın meta verilerini alabilirsiniz.
+`files.get` を呼び出すことで、API がアップロードされたファイルを正常に保存したことを確認し、そのメタデータを取得できます。
 
 ### Python
 
@@ -226,9 +226,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## Yüklenen dosyaları listeleme
+## アップロードされたファイルを一覧表示する
 
-Aşağıdaki kod, yüklenen tüm dosyaların listesini alır:
+次のコードは、アップロードされたすべてのファイルのリストを取得します。
 
 ### Python
 
@@ -281,9 +281,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Yüklenen dosyaları silme
+## アップロードしたファイルを削除する
 
-Dosyalar 48 saat sonra otomatik olarak silinir. Yüklenen bir dosyayı manuel olarak da silebilirsiniz:
+ファイルは 48 時間後に自動的に削除されます。アップロードしたファイルを手動で削除することもできます。
 
 ### Python
 
@@ -335,191 +335,190 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Kullanım bilgileri
+## 利用情報
 
-Medya dosyalarını yüklemek ve bu dosyalarla etkileşim kurmak için Files API'yi kullanabilirsiniz. Files API, proje başına 20 GB'a kadar dosya depolamanıza olanak tanır. Dosya başına maksimum boyut 2 GB'tır. Dosyalar 48 saat boyunca saklanır. Bu süre zarfında, dosyalarla ilgili meta verileri almak için API'yi kullanabilirsiniz ancak dosyaları indiremezsiniz.
-Files API, Gemini API'nin kullanılabildiği tüm bölgelerde ücretsiz olarak kullanılabilir.
+Files API を使用すると、メディア ファイルをアップロードして操作できます。Files API を使用すると、プロジェクトごとに最大 20 GB のファイルを保存できます。ファイルあたりの最大サイズは 2 GB です。ファイルは 48 時間保存されます。
 
-## Dosya istemi stratejileri
+この間、API を使用してファイルに関するメタデータを取得できます。ただし、ユーザーがアップロードしたファイルをダウンロードすることはできません。`files.download` メソッドを使用すると、モデルによって生成されたファイル（動画など）をダウンロードできます。Files API は、Gemini API が利用可能なすべてのリージョンで無料で利用できます。
 
-Bu bölümde, Gemini API için istemlerle medya dosyalarını kullanmayla ilgili rehberlik ve en iyi uygulamalar yer almaktadır.
+## ファイル プロンプト戦略
 
-İstemlerinizde çeşitli veri türlerini kullanabilmek, Gemini API ile hangi görevleri yapabileceğiniz konusunda daha fazla esneklik sağlar. Örneğin, modele lezzetli bir yemeğin fotoğrafını gönderip yemekle ilgili kısa bir blog yazmasını isteyebilirsiniz.
+このセクションでは、Gemini API のプロンプトでメディア ファイルを使用する際のガイダンスとベスト プラクティスについて説明します。
+
+プロンプトでさまざまな種類のデータを使用できるため、Gemini API で処理できるタスクの柔軟性が高まります。たとえば、美味しい料理の写真をモデルに送信し、その料理に関する短いブログを書くように依頼できます。
 
 |  |  |
 | --- | --- |
-| **İstem** | **Yanıt** |
-| Bu resme dayalı olarak kısa ve ilgi çekici bir blog yayını yaz. Fotoğraftaki yemeğin açıklamasını içermeli ve yemek hazırlama yolculuğumdan bahsetmelidir.   Çerezler | Yemek hazırlığı, zamandan ve paradan tasarruf etmenin yanı sıra daha sağlıklı beslenmenize de yardımcı olur. Bu yemek, önceden kolayca hazırlanabilen sağlıklı ve lezzetli bir yemeğin harika bir örneğidir.  Bu öğünde kahverengi pirinç, fırında sebzeler ve teriyaki soslu tavuk bulunur. Esmer pirinç, size uzun süreli enerji verecek sağlıklı ve kompleks bir karbonhidrattır. Kızartılmış sebzeler, günlük vitamin ve mineral ihtiyacınızı karşılamak için harika bir seçenektir. Teriyaki soslu tavuk ise lezzetli ve protein açısından zengin bir seçenektir.  Bu yemeği hazırlamak da çok kolaydır. Kahverengi pirinci pişirin, sebzeleri fırında kızartın ve teriyaki soslu tavuğu pişirin. Her şey piştikten sonra yemek hazırlama kaplarına bölüp buzdolabında saklayın. Ardından, yoğun sabahlarınızda bir kap alıp çıkabilirsiniz.  Önceden kolayca hazırlanabilen sağlıklı ve lezzetli bir öğün arıyorsanız bu yemek tam size göre. Besinler ve lezzetlerle dolu bu yemek, sizi tok ve memnun hissettirecek.  Sağlıklı ve lezzetli yemek hazırlama! |
+| **プロンプト** | **レスポンス** |
+| この写真に基づいて、魅力的な短いブログ投稿を書いてください。写真に写っている食事の説明と、私がミールプレップ（食事の作り置き）を始めた経緯について説明する必要があります。   クッキー | ミールプレップは、時間とお金を節約するだけでなく、健康的な食生活にもつながります。この食事は、事前に簡単に準備できる、健康的でおいしい食事の好例です。  この食事は、玄米、ロースト野菜、照り焼きチキンが特徴です。 玄米は、エネルギーを維持するのに役立つ、健康的で複雑な炭水化物です。焼き野菜は、1 日に必要なビタミンとミネラルを摂取するのに最適です。鶏肉の照り焼きは、おいしくてタンパク質が豊富なオプションです。  この食事は準備も非常に簡単です。玄米を炊き、野菜をローストし、鶏肉の照り焼きを作ります。すべて調理したら、食事準備用の容器に分けて冷蔵庫に保存します。忙しい朝でも、容器を持ってすぐに外出できます。  健康的で美味しい食事を簡単に事前に準備したいなら、この食事がおすすめです。栄養と風味が豊富で、満腹感と満足感が得られます。  健康的でおいしいミールプレップを楽しみましょう。 |
 
-Medya dosyalarının kullanıldığı istemlerden istediğiniz çıkışı almakta zorlanıyorsanız istediğiniz sonuçları elde etmenize yardımcı olabilecek bazı stratejiler vardır. Aşağıdaki bölümlerde, çok formatlı giriş kullanan istemleri iyileştirmeye yönelik tasarım yaklaşımları ve sorun giderme ipuçları verilmektedir.
+メディア ファイルを使用するプロンプトから目的の出力を取得できない場合は、いくつかの戦略を試すことで、目的の結果を得ることができます。以降のセクションでは、マルチモーダル入力を使用するプロンプトを改善するための設計アプローチとトラブルシューティングのヒントを紹介します。
 
-Aşağıdaki en iyi uygulamaları izleyerek çok formatlı istemlerinizi iyileştirebilirsiniz:
+マルチモーダル プロンプトは、次のベスト プラクティスに沿って改善できます。
 
-- ### [İstem tasarımıyla ilgili temel bilgiler](#specific-instructions)
+- ### [プロンプト設計の基礎](#specific-instructions)
 
-  - **Talimatlarınızda net olun**: Yanlış yorumlamaya en az yer bırakacak şekilde net ve kısa talimatlar oluşturun.
-  - **İsteminize birkaç örnek ekleyin:** Ne elde etmek istediğinizi göstermek için gerçekçi birkaç görev örneği kullanın.
-  - **Adım adım ilerleyin**: Karmaşık görevleri yönetilebilir alt hedeflere ayırarak modele süreç boyunca rehberlik edin.
-  - **Çıkış biçimini belirtin**: İsteminizde, çıkışın istediğiniz biçimde (ör. Markdown, JSON, HTML) olmasını isteyin.
-  - **Tek resimli istemlerde resminizi önce girin**: Gemini, resim ve metin girişlerini herhangi bir sırada işleyebilse de tek resim içeren istemlerde, resim (veya video) metin isteminden önce yerleştirilirse daha iyi performans gösterebilir. Ancak, anlamlı olması için resimlerin metinlerle yoğun bir şekilde iç içe geçmesini gerektiren istemlerde en doğal olan sırayı kullanın.
-- ### [Çok formatlı isteminizle ilgili sorunları giderme](#troubleshooting)
+  - **指示を具体的にする**: 誤解を招かないように明確で簡潔な指示を記述します。
+  - **プロンプトにいくつかの例を加える:** 現実的な数個の例を使用して実現したいことを示します。
+  - **小さいステップに分ける**: 複雑なタスクを扱いやすい中間目標に分割して、プロセスに沿ってモデルを導きます。
+  - **出力形式を指定する**: プロンプトで、必要とする形式（マークダウン、JSON、HTML など）で出力することを指示します。
+  - **単一画像のプロンプトではまず画像を配置する**: Gemini は、画像とテキストの入力をどのような順序でも処理できますが、単一画像のプロンプトの場合は、対象の画像（または動画）をテキストのプロンプトよりも前に配置することでパフォーマンスが向上する可能性があります。ただし、その画像がテキストと複雑に絡み合っている場合は、最も自然に意味を捉えることができる順序を使用してください。
+- ### [マルチモーダル プロンプトのトラブルシューティング](#troubleshooting)
 
-  - **Model, resmin alakalı kısmından bilgi almıyorsa:** İstemden, resmin hangi yönleriyle ilgili bilgi almasını istediğinize dair ipuçları verin.
-  - **Model çıktısı çok genel ise (resim/video girişine yeterince uyarlanmamışsa):** İstemin başında, görev talimatını vermeden önce modelden resimleri veya videoyu açıklamasını ya da modelden resimdeki içeriğe atıfta bulunmasını isteyin.
-  - **Hangi bölümün başarısız olduğunu belirlemek için:** Modelin ilk anlayışını ölçmek üzere modelden resmi açıklamasını veya gerekçesini açıklamasını isteyin.
-  - **İsteminiz halüsinasyon içeren içeriklerle sonuçlanıyorsa:** Sıcaklık ayarını düşürmeyi veya modelden daha kısa açıklamalar istemeyi deneyin. Böylece modelin ek ayrıntılar üretme olasılığı azalır.
-  - **Örnekleme parametrelerini ayarlama:** Modelin yaratıcılığını ayarlamak için farklı sıcaklık ayarları ve top-k seçimleriyle denemeler yapın.
+  - **モデルが画像の該当箇所から情報を抽出していない場合:** プロンプトで画像のどの部分から情報を引き出してほしいかについてのヒントを出してください。
+  - **モデルの出力内容が一般的すぎる（入力した画像 / 動画に十分対応していない）場合:** プロンプトの冒頭で、タスクの指示を出す前にモデルに画像や動画について説明するよう求めるか、画像の内容に言及するよう求めてみてください。
+  - **失敗した部分のトラブルシューティングを行うには:** モデルの最初の理解度を測るために、モデルに画像の説明を求めるか、モデルに推論についての説明を求めます。
+  - **プロンプトによりハルシネーションが生じたコンテンツが生成された場合:** 温度設定を下げるか、モデルに短い説明を求め、追加の詳細情報が推定されないようにしてみます。
+  - **サンプリング パラメータのチューニング:** さまざまな温度設定とトップ K 選択を試して、モデルの創造性を調整します。
 
-### Talimatlarınızda net olun
+### 指示を具体的にする
 
-İstemler en iyi sonucu net ve ayrıntılı olduğunda verir. Aklınızda belirli bir çıktı varsa istediğiniz çıktıyı elde etmek için bu şartı isteme eklemeniz daha iyi olur.
+プロンプトは、明確かつ詳細である場合に最も良い結果が出ます。特定の出力を想定している場合は、必要な出力を確実に得られるように、その要件をプロンプトに含めることをおすすめします。
 
-Havaalanı panosunun yer aldığı bu resim için modele yalnızca "bu resmi açıkla" komutunu verdiğinizde genel bir açıklama oluşturulabilir. Modelin resimdeki saati ve şehri ayrıştırmasını istiyorsanız bu isteği doğrudan isteminize ekleyebilirsiniz.
+下に示す空港の発着表示板の画像の場合、「この画像について説明する」ようにモデルにリクエストすると、漠然とした説明が生成される可能性があります。モデルによって画像から時刻と都市が抽出されることを必要とする場合は、そのリクエストをプロンプトに直接追加します。
 
-| İstem | Model yanıtı |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Bu resmi tanımla. | Resimde, havalimanındaki gelen ve giden uçuşlar tabelası gösteriliyor. |
+| この画像を説明してください。 | この画像は、空港の発着表示板を示しています。 |
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Seyahat zaman çizelgesi Bu resimde gösterilen havaalanı panosundaki saati ve şehri ayrıştırarak listeleyin. | - 10:50 Moskova - 11:05 Edinburgh - 11:05 Londra - 11:10 Bükreş - 11:30 Kiev - 11:35 Dublin - 11:45 East Midlands - 12:15 Sofya - 12:30 Londra - 12:30 Newcastle - 12:40 St Petersburg - 12:40 Londra - 12:45 Manchester |
+| 運行時刻表 この画像にある空港の発着表示板の時刻と都市を抽出してリストにしてください。 | - 10:50 モスクワ - 11:05 エディンバラ - 11:05 ロンドン - 11:10 ブカレスト - 11:30 キーウ - 11:35 ダブリン - 11:45 イースト ミッドランズ - 12:15 ソフィア - 12:30 ロンドン - 12:30 ニューカッスル - 12:40 サンクトペテルブルク - 12:40 ロンドン - 12:45 マンチェスター |
 
-### Birkaç örnek ekleyin
+### 例をいくつか追加する
 
-Gemini modeli, istediğiniz çıktıyı anlamak için örnek olarak kullanabileceği birden fazla giriş kabul edebilir. Bu örnekleri eklemek, modelin kalıpları belirlemesine ve verilen resimler ile yanıtlar arasındaki ilişkiyi yeni örneğe uygulamasına yardımcı olabilir. Buna "az görevli öğrenme" de denir.
+この Gemini モデルはさまざまな入力を受け付け、その入力を例として使用するとユーザーが必要とする出力を理解できます。こうした例を追加することでモデルがパターンを識別できるようになり、指定された画像と回答の関係を新しい例に適用できます。これは「少数ショット」学習とも呼ばれます。
 
-Aşağıdaki örnekte, ilk çıkış cümle şeklinde yazılmış ve ülke (Brezilya) bilgisi de eklenmiştir. Çıkışın farklı bir biçimde veya tarzda olmasını ve yalnızca şehri, ülkeyi değil istediğinizi varsayalım. İsteminize az örnekli örnekler eklemek, modelin istediğiniz şekilde yanıt vermesini sağlayabilir.
+下の例では、最初の出力が文章形式で記述されており、国（ブラジル）も含まれています。別の形式やスタイルで出力し、国ではなく都市のみを出力したいとします。プロンプトに少数ショットの例を追加すると、モデルを意図したとおりに応答するように誘導できます。
 
-| **İstem** | **Model yanıtı** |
+| **プロンプト** | **モデルのレスポンス** |
 | --- | --- |
-| Seyahat zaman çizelgesi Simge yapıyla birlikte şehri belirleyin. | Bu simge yapı, Brezilya'nın Rio de Janeiro şehrindeki Kurtarıcı İsa heykelidir. |
+| 運行時刻表 ランドマークに一致する都市を特定してください。 | このランドマークは、ブラジルのリオデジャネイロにあるコルコバードのキリスト像です。 |
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Simge yapıyla birlikte şehri belirleyin. colosseum | city: Rome, landmark: the Colosseum. |
-| Yasak Şehir | city: Beijing, landmark: Forbidden City |
-| forbidden-city | city: Rio de Janeiro, landmark: Christ the Redeemer statue |
+| ランドマークに一致する都市を特定してください。 コロッセオ | 都市: ローマ、ランドマーク: コロッセオ。 |
+| 紫禁城 | 都市: 北京、ランドマーク: 紫禁城 |
+| 紫禁城 | 都市: リオデジャネイロ、ランドマーク: コルコバードのキリスト像 |
 
-### Adım adım inceleme
+### 順を追って説明する
 
-Hem görsel anlama hem de muhakeme gerektiren görevler gibi karmaşık görevlerde, görevi daha küçük ve basit adımlara bölmek faydalı olabilir. Alternatif olarak, isteminizde doğrudan modelden "adım adım düşünmesini" istemek de etkili olabilir.
+視覚的な理解と推論の両方を必要とするような複雑なタスクの場合は、タスクをより小さく、より簡単なステップに分割することが有効です。また、プロンプトの中でモデルに直接「順を追って考える」ように指示することも効果的な場合があります。
 
-| İstem | Model yanıtı |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Tuvalet kağıdım ne zaman bitecek? | Çok yakında yalnızca 3 makara hakkınız kalacak. |
+| トイレット ペーパーは、いつ使い切りますか？ | 間もなくです。あと 3 ロールしかありません。 |
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| 1. Öncelikle, bu resimde kaç rulo tuvalet kağıdı olduğunu sayın.  2. Ardından, bir kişinin günde ne kadar tuvalet kağıdı kullandığını belirleyin.  3. Bu tuvalet kağıdı rulolarının ne kadar süre dayanacağını hesaplayın. | 1. Bu resimde 3 rulo tuvalet kağıdı var.  2. Tipik bir kişi günde yaklaşık 20 yaprak tuvalet kağıdı kullanır.  3. Her ruloda 200 yaprak varsa her rulo yaklaşık 10 gün dayanır. Bu nedenle, 3 rulo yaklaşık bir ay dayanır. |
+| 1. まず、この写真に写っているトイレット ペーパーのロールを数えてください。  2. 次に、標準的な人が 1 日に使用するトイレット ペーパーの量を定めます。  3. そのトイレット ペーパーがどのくらいの期間使用できるかを算出します。 | 1. この写真には、トイレット ペーパーのロールが 3 つ写っています。  2. 標準的な人は、1 日に約 20 枚のトイレット ペーパーを使用します。  3. 1 ロールに 200 枚入っているとすると、1 ロールで約 10 日間使用できます。したがって、3 ロールでは約 1 か月使用できます。 |
 
-Matematik problemleri veya diğer sözel problemler, modelden adım adım düşünmesini istemek için idealdir.
+数学の問題や他の種類の言葉の問題は、モデルに順を追って考えることを求めるのに適しています。
 
-| **İstem** | **Yanıt** |
+| **プロンプト** | **レスポンス** |
 | --- | --- |
-| Dizideki 4. terim nedir? | -135 |
+| 数列の第 4 項は何ですか？ | -135 |
 
-Modelin yanıtı yanlış. Bunu iyileştirmenin bazı yolları, modelden isteme yanıt vermeden önce sorunu ayrıştırmasını istemektir.
+モデルからのレスポンスが正しくありません。これを改善するには、プロンプトに答える前に問題を解析するようにモデルに求める方法があります。
 
-| **İstem** | **Yanıt** |
+| **プロンプト** | **レスポンス** |
 | --- | --- |
-| Önce resimdeki formülü ayrıştırın.  Ardından formüle göre "Dizideki 4. terim nedir?" sorusunu yanıtlayın. | *Sonucu genişletmek için tıklayın* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. n = 4 değerini formülde yerine koyun:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. b(3) değerini bilmiyoruz. Bu nedenle, n = 3 değerini formülde yerine koyun:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. b(2) değerini bilmiyoruz. Bu nedenle, n = 2 değerini formülde yerine koyun:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. b(1) değerinin 15 olduğunu biliyoruz. Bu nedenle, formülde yerine koyalım:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. b(2) değerini bildiğimize göre bunu b(3) formülünde yerine koyalım:  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Artık b(3) değerini bildiğimize göre bu değeri b(4) formülünde yerine koyabiliriz:  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Bu nedenle, dizideki 4. terim -405'tir. |
+| まず、画像内の数式を解析します。  次に、数式に基づいて、「数列の第 4 項は何ですか？」に答えます。 | クリックして結果を拡大 $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. n = 4 を式に代入します。  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. b(3) の値がわからないため、式に n = 3 を代入します。  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. b(2) の値がわからないため、式に n = 2 を代入します。  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. b(1) の値は 15 であるとわかっているため、それを式に代入します。  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. b(2) の値がわかったので、それを b(3) の式に代入します。  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. b(3) の値がわかったので、それを b(4) の式に代入します。  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   したがって、数列の第 4 項は -405 です。 |
 
-Bu model yanıt doğru. Yanıtı daha da kolaylaştırmak için modelden adım adım düşünmesini isteyebilirsiniz.
+このモデルのレスポンスは正確ですが、レスポンスをさらに合理化するには、モデルに順を追って考えるように依頼します。
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Dizideki 4. terim nedir? Adım adım düşünün. | İlk terim 15'tir.  İkinci terim b(1) \* (-3) = 15 \* (-3) = -45'tir.  Üçüncü terim b(2) \* (-3) = -45 \* (-3) = 135'tir.  Dördüncü terim b(3) \* (-3) = 135 \* (-3) = -405'tir. |
+| 数列の第 4 項は何ですか？順を追って考えてください。 | 最初の項は 15 です。  第 2 項は、b(1) × (-3) = 15 × (-3) = -45 です。  第 3 項は、b(2) × (-3) = -45 × (-3) = 135 です。  第 4 項は、b(3) × (-3) = 135 × (-3) = -405 です。 |
 
-### Çıkış biçimini belirtin
+### 出力形式を指定する
 
-Model çıkışının belirli bir biçimde (ör.Markdown, JSON, HTML) olması gerektiğinde yaygın bir sorunla karşılaşılır. Bu durum, özellikle model çıkışının sonraki bir görevde kullanılması gerektiğinde geçerlidir. İstemde modeli bu biçimde çıkış üretmeye yönlendirerek bu biçimde çıkış üretmeyi deneyebilirsiniz. Aşağıda iki örnek verilmiştir:
+よくある問題は、モデル出力を特定の形式（マークダウン、JSON、HTML など）にする必要があることです。特に、モデルの出力を下流のタスクで取り込む必要がある場合に発生します。プロンプトの中でモデルにそのように指示することで、その形式での出力を試みることができます。以下に 2 つの例を示します。
 
-| İstem | Model yanıtı |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Bu resimdeki tabloyu Markdown biçiminde ayrıştır | | Konu | Durum | Saat | Başlangıç tarihi | Son tarih |  | ------- | ------ | ---- | ---------- | ------ |  | Matematik | Tamamlandı | 1,5 saat | 29.11.2023 | 01.12.2023 |  | Coğrafya | Tamamlandı | 30 dakika | 2.12.2023 | 4.12.2023 |  | Fizik | Devam ediyor | 2 saat | 3.12.2023 | 5.12.2023 |  | Biyoloji | Başlamadı | 6 saat | 2.11.2016 | 6.12.2023 | |
+| この画像の表を解析してマークダウン形式に変換してください。 | | 科目 | ステータス | 時間 | 開始日 | 期限 |  | ------- | ------ | ---- | ---------- | ------ |  | 数学 | 完了 | 1.5 時間 | 2023 年 11 月 29 日 | 2023 年 12 月 1 日 |  | 地理 | 完了 | 30 分 | 2023 年 12 月 2 日 | 2023 年 12 月 4 日 |  | 物理 | 進行中 | 2 時間 | 2023 年 12 月 3 日 | 2023 年 12 月 5 日 |  | 生物 | 未開始 | 6 時間 | 2016 年 11 月 2 日 | 2023 年 12 月 6 日 | |
 
-| **İstem** | **Model yanıtı** |
+| **プロンプト** | **モデルのレスポンス** |
 | --- | --- |
-| Aşağıdaki tüm özelliklerin listesini sağlayın:  Malzemeler, mutfak türü, vejetaryen olup olmadığı (JSON biçiminde) | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| 次の属性をすべてリストアップしてください。  材料、料理の種類、ベジタリアンかどうか、JSON 形式 | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### Tek resim içeren istemlerde resminizi ön plana çıkarın
+### 単一画像のプロンプトではまず画像を配置する
 
-Gemini, istemdeki görüntü ve metni herhangi bir sırada yorumlayabilir ancak metin isteminden önce tek bir görüntü yerleştirmek daha iyi sonuçlar verebilir.
-Aşağıdaki örneklerde, her istemde önce resmin, ardından metnin geldiğini göreceksiniz.
+Gemini は、プロンプト内の画像とテキストをどのような順序でも解釈できますが、テキスト プロンプトの前に画像を 1 つ配置するとより良い結果が得られる場合があります。以下の例では、それぞれのプロンプトにおいて、テキストの前に画像があることを確認できます。
 
-### Çok formatlı isteminizle ilgili sorunları giderme
+### マルチモーダル プロンプトのトラブルシューティング
 
-Faydalı bir yanıt alamıyorsanız isteminizle ilgili sorunları gidermeniz gerekebilir. Deneyebileceğiniz birkaç strateji:
+役に立つ回答が得られない場合は、プロンプトのトラブルシューティングが必要かもしれません。以下にいくつかの方法を示します。
 
-#### Model, resmin ilgili bölümünden bilgi almıyorsa
+#### モデルが画像の該当部分から情報を引き出していない場合
 
-Daha ayrıntılı bir yanıt almak için istemin, yanıtını oluştururken hangi resim öğelerinden bilgi almasını istediğinizi belirtebilirsiniz.
+より具体的なレスポンスを得るには、プロンプトへのレスポンスに必要な情報を、画像のどの部分から引き出すかを指定します。
 
-| İstem | Model yanıtı |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Bu bezler bir bebeğe kaç gün yeter? | Bezler bitmeden 198 gün boyunca kullanılabilir. |
+| このおむつは赤ちゃんに何日使えますか？ | おむつは、なくなるまで 198 日使用できます。 |
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Bu bezler bitmeden ne kadar süre dayanır?  Çocuğun yaşını belirlemek için kutunun üzerinde gösterilen ağırlığı ve kutudaki toplam bebek bezi sayısını kullanın.  Toplam sayıyı, çocuğun günde kullandığı bez sayısına bölün. | Kutuda 198 adet bez bulunur. Kutuda, bezlerin 10-17 kg ağırlığındaki çocuklar için olduğu belirtiliyor.  Bu ağırlık aralığındaki ortalama bir çocuk muhtemelen 1-2 yaşlarındadır.  2 yaşındaki bir çocuk genellikle günde 6 bez kullanır. Bu nedenle, bezler yaklaşık 33 gün (198/6) dayanır. |
+| この紙おむつは、どのくらいで使い切りますか？  箱に記載されている体重から子どもの年齢を割り出し、箱に入っているおむつの総数を使用してください。  合計数を、子どもが 1 日あたりに使用するおむつの数で割ってください。 | 箱には 198 枚のおむつが入っています。箱には、おむつが 22～37 ポンドの子ども用であると書かれています。  この体重の範囲にある子どもの平均年齢は 1～2 歳であると考えられます。  通常、2 歳の子どもは 1 日あたり 6 枚のおむつを使用するため、おむつは約 33 日間（198÷6）使用できます。 |
 
-#### Model çıkışı çok genel ve resim girişine yeterince uyarlanmamışsa
+#### モデル出力が漠然としすぎて、画像入力に十分対応できない場合
 
-Modelin yanıtını resimlere göre uyarlamasına yardımcı olmak için akıl yürütme görevini gerçekleştirmeden önce resimleri açıklamasını isteyin.
+モデルが画像に対するレスポンスを調整できるように、推論タスクを実行する前に、画像について説明するように求めてみます。
 
-| İstem | Model yanıtı |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Bu resimlerin ortak noktası nedir? | Dört resmin tamamı manzara fotoğrafı örnekleridir. |
+| これらの画像の共通点は何ですか？ | 4 枚の画像はいずれも風景写真のサンプルです。 |
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Öncelikle her resimde ne olduğunu ayrıntılı olarak açıklayın. Bu resimlerin ortak noktası nedir? | İlk resimde, bir kişinin bavul hazırladığı gösteriliyor. İkinci resimde, bir alışveriş merkezindeki boş koridor gösteriliyor. Üçüncü resimde bir rulo tuvalet kağıdı gösteriliyor. Dördüncü resimde karanlık ve fırtınalı bir deniz gösteriliyor.  Bu resimlerin ortak özelliği, hepsinin geçiş alanlarına örnek olmasıdır. Geçiş alanları, iki yer veya durum arasında kalan yerler ya da durumlardır. Genellikle belirsizlik veya muğlaklık hissiyle karakterize edilirler.  İlk resimde, kişinin evde ve seyahatte olduğu gösteriliyor. İkinci resimde, iki mağaza arasındaki koridor gösteriliyor. Üçüncü resimde, banyoyu temsil edebilecek tuvalet kağıdı gösteriliyor. Banyo, özel ve kamusal alanlar arasında geçiş yapılan bir yerdir. Dış dünyaya girmeye veya dış dünyadan ayrılmaya hazırlandığımız bir yerdir.  Dördüncü resimde, sakin ve fırtınalı deniz arasında bir geçiş gösteriliyor.  Geçiş alanları hem heyecan verici hem de rahatsız edici olabilir. Yeni başlangıçların veya sonların yeri olabilirler. Bunlar, düşünme veya harekete geçme yeri olabilir. |
+| まず、それぞれの画像の内容を詳しく説明してください。これらの画像の共通点は何ですか？ | 1 つ目の画像にはスーツケースに荷物を詰めている人物が写っています。2 つ目の画像にはショッピング モールの何もない廊下が写っています。3 つ目の画像にはトイレット ペーパーが写っています。4 つ目の画像には暗く荒れ狂う海が写っています。  これらの画像の共通点は、どれもリミナル スペースの例であるということです。リミナル スペースとは、他の 2 つの場所や状況の間にある場所や状況のことです。多くの場合、不確実性やあいまいさによって特徴付けられます。  1 つ目の画像は、自宅にいるときと旅行中の人物を写しています。2 つ目の画像は 2 つの店舗の間にある廊下が写されています。3 つ目の画像はトイレット ペーパーの画像で、バスルームの可能性もあります。トイレは、プライベートなスペースと共用スペースの間の過渡的なスペースです。そこは、外の世界に出入りするための準備をする場所です。  4 つ目の画像は、凪の状態と嵐の状態の間にある海を示しています。  リミナル スペースは刺激的でもあり、不安でもあります。新たな始まりの場所にもなれば、終わりの場所にもなります。内省の場所にもなれば、行動の場所にもなります。 |
 
-Ayrıca modelden, resimdeki içeriğe açıkça atıfta bulunmasını da isteyebilirsiniz.
+また、画像の内容に言及するように明示的にモデルに指示することもできます。
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Bu resimlerin ortak noktası nedir? Yanıtınızda resimlerdeki içeriklere atıfta bulunun. | Resimlerin tamamı seyahatle ilgili. İlk resimde valiz hazırlayan bir kişi, ikinci resimde alışveriş merkezindeki boş bir koridor, üçüncü resimde bir rulo tuvalet kağıdı, dördüncü resimde ise karanlık ve fırtınalı bir deniz gösteriliyor.  Bu resimlerin hepsi seyahatle ilgili çünkü seyahat edenlerin ihtiyaç duyduğu veya kullandığı şeyler. İlk resimde, bir kişinin valiz hazırladığı görülüyor. Bu, insanların seyahate çıkarken yaptığı bir şeydir. İkinci resimde, insanların seyahatleri için eşya satın almak üzere sık sık gittiği bir yer olan alışveriş merkezindeki boş bir koridor gösteriliyor. Üçüncü resimde, insanların seyahat ederken sıkça kullandığı bir ürün olan tuvalet kağıdı rulosu gösteriliyor. Dördüncü resimde, insanların seyahat ederken sıklıkla karşılaştığı karanlık ve fırtınalı bir deniz gösteriliyor. |
+| これらの画像の共通点は何ですか？レスポンスでは、画像の内容を参考にしてください。 | 画像はすべて旅行に関連しています。1 つ目の画像にはスーツケースに荷物を詰めている人物が写っています。2 つ目の画像にはショッピング モールの何もない廊下が写っています。3 つ目の画像には積み重ねたトイレット ペーパーが写っています。4 つ目の画像には暗く荒れ狂う海が写っています。  これらの画像はすべて、人々が旅行するときに必要なもの、または使用するものであるため、すべて旅行に関連しています。1 つ目の画像には、スーツケースに荷物を詰めている人が写っています。これは、旅行に出かける人が行うことです。2 つ目の画像には、ショッピング モール内の何もない廊下が写っています。ショッピング モールは、旅行用品を購入するために訪れることが多い場所です。3 つ目の画像には、積み重ねたトイレット ペーパーが写っています。トイレット ペーパーは、人が旅行中によく使用するものです。4 つ目の画像には、暗い荒れ狂う海が写っています。これは、人が旅行中によく遭遇する場面です。 |
 
-Aynı ipuçları, resimlerden elde edilen reklam öğesi çıkışları için de geçerlidir. Tavşanın yer aldığı aşağıdaki örnekte, modelden resimdeki unsurları dahil etmesini açıkça istemek çıkışı iyileştirebilir.
+画像からクリエイティブな出力を得る場合にも、同じヒントが有効です。ウサギを使った次の例では、画像の特徴を含めるようにモデルに明示的に依頼すると、出力を改善できます。
 
-| İstem | Model yanıtı |
+| プロンプト | モデルのレスポンス |
 | --- | --- |
-| Bu görsel hakkında bir şiir yazabilir misin? | Küçük tavşan, yumuşacık ve kahverengi,  Tarlada zıplıyor, yukarı ve aşağı.  Kulakların uzun, kuyruğun küçük,  Sen hepsinin en tatlısısın.  Yeşil ve tatlı çimleri yersin,  Beni görünce de zıplayarak uzaklaşırsın.  Ama her zaman arkadaşın olacağım,  Küçük tavşan, sonuna kadar. |
+| この画像について詩を書いてもらえますか？ | 柔らかくて茶色い小さなウサギ、 野原を飛び跳ね、上へ下へ。  耳はとても長く、しっぽはとても小さい、  君は一番かわいい生き物だ。  君は草をかじってる、とても青々としていて甘い、 私を見たらぴょんぴょん跳ねて逃げて行ったね。 でも私はいつも君の友だち。 小さなウサギさんが生きている限り。 |
 
-| **Güncellenen istem** | **İyileştirilmiş yanıt** |
+| **更新されたプロンプト** | **改善されたレスポンス** |
 | --- | --- |
-| Bu görsel hakkında, konumu da içeren, açıklayıcı ve dramatik bir şiir yazabilir misin? | Çimlerde küçük bir tavşan,  Kulakları çok uzun, çok keskin.  Uzakta, baktığın yerde  Ne görüyorsun?  Is it the ocean blue,  Sparkling in the sun's hue?  Ya da dalgaların çarpıp kükremesi,  Bayıldığınız bir ritim?  Küçük tavşan, doğruyu söyle bana,  İlginizi bu kadar çeken şey ne?  Tuzlu esinti mi,  Yoksa martıların çığlıkları mı hoşunuza gidiyor?  Belki de her şeyin büyüklüğüdür,  Dünya hem çok büyük hem de çok küçük.  Hayallerin dolaşabileceği,  Maceraların tohumlarının atılabileceği bir yer.  Küçük tavşan, ne hayal ettiğini merak ediyorum,  Çimlerin üzerinde otururken, çok sakinsin.  Derinlikleri keşfetmek mi istersin,  Yoksa karada kalıp zıplamayı mı?  Ne olursa olsun, küçük tavşan,  Merak kıvılcımını parlak bir şekilde yakmaya devam et.  Çünkü hayallerinizde ve arzularınızda,  Yaratılmayı bekleyen bir dünya var. |
+| この画像について、叙述的で印象的な詩を書き、場所も含めてもらえますか？ | 草原にいる小さなウサギ、 長い耳、鋭い耳。 何を見ているの？ 遠くを見つめて。  それは海の青、 太陽に照らされて輝く海か？ それとも打ち寄せて響く波、 そのリズムに夢中なの？  小さいウサギさん、本当のことを教えてください、 君の心を捉えるものは？ 潮風、 それとも楽しいカモメの鳴き声かい？  きっと、あらゆる存在の壮大さだね、 とても大きくて小さな世界。 夢が広がる場所、 冒険の種がまかれる場所。  小さなウサギさん、どんな夢を見ているの？ 草の上に座って、とても穏やかに。 深い穴を掘りたいの？ それとも飛び跳ねられる大地にいたいの？  君の夢が何であれ、小さいウサギさん、 明るく輝く不思議さをなくさないでね。 夢と願望の中に、 君の創造を待っている世界があるから。 |
 
-#### İstemin hangi bölümünün başarısız olduğunu belirleme
+#### プロンプトの失敗した部分に対するトラブルシューティング
 
-Bir istemin başarısız olmasının nedeni, modelin **görüntüyü anlamaması** mı yoksa görüntüyü anlamasına rağmen doğru **akıl yürütme adımlarını** uygulamaması mı, bunu anlamak zor olabilir.
-Bu nedenleri netleştirmek için modele resimde ne olduğunu sorun.
+プロンプトが失敗したのは、モデルがそもそも**画像を理解**していなかったからなのか、それとも画像は理解していたものの、その後に正しい**推論の手順**を実行しなかったからなのかを判断することは困難です。このような理由を見極めるには、画像に何が写っているかを説明するようモデルに指示します。
 
-Aşağıdaki örnekte, model çayla birlikte şaşırtıcı görünen bir atıştırmalıkla (ör. patlamış mısır) yanıt verirse önce modelin resimde çay olduğunu doğru tanıyıp tanımadığını belirlemek için sorun giderme işlemi yapabilirsiniz.
+次の例では、お茶と組み合わせると意外に思えるおやつ（ポップコーンなど）をモデルが返す場合に、まずトラブルシューティングを行い、画像にお茶が含まれていることをモデルが正しく認識しているかどうかを判断します。
 
-| İstem | Sorun giderme istemi |
+| プロンプト | トラブルシューティング用のプロンプト |
 | --- | --- |
-| Bununla iyi gidecek, 1 dakikada hazırlayabileceğim bir atıştırmalık önerir misin? | Bu resimde ne olduğunu açıklayın. |
+| 1 分で作ることができるおやつで、これに合うものは何ですか？ | この画像にあるものを説明してください。 |
 
-Diğer bir strateji ise modelden gerekçesini açıklamasını istemektir. Bu, muhakemenin hangi kısmının (varsa) bozulduğunu daraltmanıza yardımcı olabilir.
+もう 1 つの方法は、モデルにその推論を説明してもらうことです。そうすることで、推論が破綻した部分を絞り込むことができます。
 
-| İstem | Sorun giderme istemi |
+| プロンプト | トラブルシューティング用のプロンプト |
 | --- | --- |
-| Bununla iyi gidecek, 1 dakikada hazırlayabileceğim bir atıştırmalık önerir misin? | Bununla iyi gidecek, 1 dakikada hazırlayabileceğim bir atıştırmalık önerir misin? Lütfen nedeniyle birlikte açıklayın. |
+| 1 分で作ることができるおやつで、これに合うものは何ですか？ | 1 分で作ることができるおやつで、これに合うものは何ですか？理由を説明してください。 |
 
-## Sırada ne var?
+## 次のステップ
 
-- [Google AI Studio](http://aistudio.google.com?hl=tr)'yu kullanarak kendi çok formatlı istemlerinizi yazmayı deneyin.
-- Medya dosyalarını yüklemek ve istemlerinize dahil etmek için Gemini Files API'yi kullanma hakkında bilgi edinmek üzere [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=tr), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=tr) ve [Document processing](https://ai.google.dev/gemini-api/docs/document-processing?hl=tr) kılavuzlarına bakın.
-- İstem tasarımıyla ilgili daha fazla bilgi (ör. örnekleme parametrelerini ayarlama) için [İstem stratejileri](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=tr) sayfasına bakın.
+- [Google AI Studio](http://aistudio.google.com?hl=ja) を使用して、独自のマルチモーダル プロンプトを作成してみてください。
+- Gemini Files API を使用してメディア ファイルをアップロードし、プロンプトに含める方法については、[Vision](https://ai.google.dev/gemini-api/docs/vision?hl=ja)、[音声](https://ai.google.dev/gemini-api/docs/audio?hl=ja)、[ドキュメント処理](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)のガイドをご覧ください。
+- サンプリング パラメータのチューニングなど、プロンプト設計に関するその他のガイダンスについては、[プロンプト戦略](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)のページをご覧ください。
 
-Geri bildirim gönderin
+フィードバックを送信
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Son güncelleme tarihi: 2026-09-12 UTC.
+最終更新日 2026-10-14 UTC。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+ご意見をお聞かせください
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-14 UTC。"],[],[]]

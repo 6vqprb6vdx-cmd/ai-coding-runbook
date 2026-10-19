@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=pt-BR
-fetched_at: 2026-10-12T06:51:20.696702+00:00
-title: "Pr\u00e9-lan\u00e7amento do Veo 3.1 Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=id
+fetched_at: 2026-10-19T05:33:22.690246+00:00
+title: "Pratinjau Veo 3.1 Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Envie comentários
+Kirim masukan
 
-# Pré-lançamento do Veo 3.1 Lite
+# Pratinjau Veo 3.1 Lite
 
-O pré-lançamento do Veo 3.1 Lite é um modelo de vídeo de alta eficiência e focado em desenvolvedores que oferece geração de vídeo, edição e controle cinematográfico de alta fidelidade. Ele usa o modelo Veo 3.1 de última geração para democratizar o Video AI de nível profissional, oferecendo uma interface escalonável e programável para criadores de conteúdo e empresas.
+Pratinjau Veo 3.1 Lite adalah model video yang efisien dan mengutamakan developer, yang menyediakan pembuatan dan pengeditan video dengan fidelitas tinggi, serta kontrol sinematik. Platform ini memanfaatkan model Veo 3.1 tercanggih untuk mendemokratisasi AI video tingkat profesional dengan menawarkan antarmuka yang skalabel dan dapat diprogram bagi kreator dan perusahaan.
 
-[Testar no Google AI Studio](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=pt-br)
+[Coba di Google AI Studio](https://aistudio.google.com?model=veo-3.1-lite-generate-preview&hl=id)
 
-## Documentação
+## Dokumentasi
 
-O Veo 3.1 Lite oferece os melhores preços para desenvolvedores e empresas que criam aplicativos e fluxos de trabalho de vídeo de alto volume em escala. Acesse a página de [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#veo-3.1) para mais detalhes e uma comparação com outros modelos do Veo 3.1.
+Veo 3.1 Lite menawarkan harga terbaik bagi developer dan perusahaan yang membangun aplikasi dan alur kerja video bervolume tinggi dalam skala besar. Buka halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#veo-3.1) untuk mengetahui detail dan perbandingan dengan model Veo 3.1 lainnya.
 
-Acesse a página [Geração de vídeo](https://ai.google.dev/gemini-api/docs/video?hl=pt-br) para conferir a cobertura completa de recursos e funcionalidades. O pré-lançamento do Veo 3.1 Lite não é compatível com
-[saídas em 4K](https://ai.google.dev/gemini-api/docs/veo?hl=pt-br#resolution) nem com
-[extensões](https://ai.google.dev/gemini-api/docs/veo?hl=pt-br#extending-veo-videos).
+Buka halaman [Pembuatan video](https://ai.google.dev/gemini-api/docs/video?hl=id) untuk mengetahui liputan lengkap tentang fitur dan kemampuan. Perhatikan bahwa Pratinjau Veo 3.1 Lite tidak mendukung
+[output 4K](https://ai.google.dev/gemini-api/docs/veo?hl=id#resolution) atau
+[Ekstensi](https://ai.google.dev/gemini-api/docs/veo?hl=id#extending-veo-videos).
 
 ## veo-3.1-lite-generate-preview
 
-| Propriedade | Descrição |
+| Properti | Deskripsi |
 | --- | --- |
-| Código do modelo id\_card | **API Gemini**  `veo-3.1-lite-generate-preview` |
-| saveTipos de dados aceitos | **Entrada**  Texto, imagem  **Saída**  Vídeo com áudio |
-| Limites de token\_auto | **Entrada de texto**  1.024 tokens  **Vídeo de saída**  1 |
-| calendar\_monthÚltima atualização | Março de 2026 |
+| Kode model id\_card | **Gemini API**  `veo-3.1-lite-generate-preview` |
+| saveJenis data yang didukung | **Input**  Teks, Gambar  **Output**  Video dengan audio |
+| Batas token\_auto | **Input teks**  1.024 token  **Video output**  1 |
+| calendar\_monthPembaruan terbaru | Maret 2026 |
 
-Envie comentários
+Kirim masukan
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Última atualização 2026-10-08 UTC.
+Terakhir diperbarui pada 2026-10-08 UTC.
 
-Quer enviar seu feedback?
+Ada masukan untuk kami?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-08 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-08 UTC."],[],[]]

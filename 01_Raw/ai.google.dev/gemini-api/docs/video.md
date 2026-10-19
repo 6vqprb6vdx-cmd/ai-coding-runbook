@@ -1,49 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=zh-TW
-fetched_at: 2026-10-12T07:13:31.772209+00:00
-title: "Gemini API \u5f71\u7247\u751f\u6210\u529f\u80fd \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=tr
+fetched_at: 2026-10-19T05:46:50.209703+00:00
+title: "Gemini API'de video \u00fcretme \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-提供意見
+Geri bildirim gönderin
 
-# Gemini API 影片生成功能
+# Gemini API'de video üretme
 
-Gemini API 提供兩種影片生成模型：[Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=zh-tw) 和 [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=zh-tw)。兩者適用於不同的工作流程。
+Gemini API, video oluşturmak için iki model sunar: [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=tr) ve [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=tr).
+Her biri farklı iş akışları için tasarlanmıştır.
 
-將 Gemini Omni Flash 設為影片生成的預設模型。這項模型可提供優異的影片連貫性、多輸入推論 (同時支援文字、圖片、音訊和影片輸入)、角色一致性、事實準確度，以及多輪對話式編輯 (例如更換元素或變更視角)。使用 Veo 3.1 處理特定功能，例如場景擴充、最後一格控制，或整合舊版管道。
+Video üretimi için varsayılan modeliniz olarak Gemini Omni Flash'i kullanın. Üstün video tutarlılığı, çoklu giriş akıl yürütme (aynı anda metin, resim, ses ve video girişlerini destekler), karakter tutarlılığı, olgusal doğruluk ve çok turlu sohbete dayalı düzenleme (ör. öğe değiştirme veya perspektif değişiklikleri) sunar. Sahne genişletme, son kare kontrolü veya eski işlem hatlarıyla entegrasyon gibi belirli özellikler için Veo 3.1'in kullanılması gerekir.
 
 ## Gemini Omni Flash
 
-Gemini Omni Flash 是快速的多模態模型，可生成影片及透過對話編輯影片。這項 API 擅長快速將文字提示和圖片轉換為短片，並可讓您使用 Interactions API，在多個回合中修正結果。
+Gemini Omni Flash, video üretimi ve sohbet tarzında video düzenleme için hızlı, çok formatlı bir modeldir. Metin istemlerini ve resimleri hızlı bir şekilde kısa videolara dönüştürme konusunda başarılıdır. Ayrıca, Etkileşimler API'sini kullanarak sonuçları birden fazla dönüşte iyileştirmenize olanak tanır.
 
-[開始使用 Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=zh-tw)
+[Gemini Omni Flash'ı kullanmaya başlayın →](https://ai.google.dev/gemini-api/docs/omni?hl=tr)
 
 ## Veo 3.1
 
-Veo 3.1 是一種模型，可生成含有原生音訊的影片。透過 `generateContent` API，這項功能支援影片擴充、特定影格生成，以及以圖片為基礎的導向等功能。
+Veo 3.1, tümleşik ses içeren videolar üretmek için kullanılan bir modeldir. `generateContent` API aracılığıyla video uzantısı, kareye özel üretim ve resme dayalı yönlendirme gibi özellikleri destekler.
 
-[開始使用 Veo 3.1 →](https://ai.google.dev/gemini-api/docs/veo?hl=zh-tw)
+[Veo 3.1'i kullanmaya başlama →](https://ai.google.dev/gemini-api/docs/veo?hl=tr)
 
-## 影片解讀
+## Video anlama
 
-如要擷取及分析現有影片內容，而非生成新影片，請參閱[影片理解指南](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)。
+Yeni video oluşturmak yerine mevcut video içeriklerini alıp analiz etmeniz gerekiyorsa [Video anlama kılavuzu](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr)'na bakın.
 
-提供意見
+Geri bildirim gönderin
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-上次更新時間：2026-06-30 (世界標準時間)。
+Son güncelleme tarihi: 2026-06-30 UTC.
 
-想進一步說明嗎？
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-30 (世界標準時間)。"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-30 UTC."],[],[]]

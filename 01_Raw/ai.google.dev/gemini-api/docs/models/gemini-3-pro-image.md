@@ -1,51 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=th
-fetched_at: 2026-10-12T06:55:29.648551+00:00
-title: "\u0e23\u0e39\u0e1b\u0e20\u0e32\u0e1e Gemini 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-CN
+fetched_at: 2026-10-19T05:37:49.682489+00:00
+title: "Gemini 3 Pro Image \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-ส่งความคิดเห็น
+发送反馈
 
-# รูปภาพ Gemini 3 Pro
+# Gemini 3 Pro Image
 
-**Nano Banana Pro** เป็นเครื่องมือที่ซับซ้อนซึ่งขับเคลื่อนด้วยการให้เหตุผลสำหรับการแก้ไขและสร้างรูปภาพระดับมืออาชีพ โดยมีความแม่นยำระดับสตูดิโอและการควบคุมความคิดสร้างสรรค์ขั้นสูง Nano Banana Pro เหมาะที่สุดสำหรับการออกแบบกราฟิกที่ซับซ้อน การจำลองผลิตภัณฑ์ที่มีความสมจริงสูง และการแสดงข้อมูลที่เป็นข้อเท็จจริงซึ่งต้องมีการแสดงข้อความที่ถูกต้องและการเชื่อมโยงกับโลกแห่งความเป็นจริงผ่าน Google Search
+**Nano Banana Pro** 是一款由推理驱动的精密引擎，可用于专业级图片编辑和生成，提供专业工作室级的精准度和高级创意控制。Nano Banana Pro 最适合用于复杂的图形设计、高保真产品视觉稿以及需要准确文本渲染和通过 Google 搜索进行真实世界接地的实际数据可视化。
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com?model=gemini-3-pro-image&hl=th)
+[在 Google AI Studio 中试用](https://aistudio.google.com?model=gemini-3-pro-image&hl=zh-cn)
 
-## เอกสารประกอบ
+## 文档
 
-ไปที่หน้า[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)เพื่อดู
-ฟีเจอร์และความสามารถทั้งหมด
+如需全面了解功能，请访问[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)页面。
 
 ## gemini-3-pro-image
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardรหัสโมเดล | `gemini-3-pro-image` |
-| saveประเภทข้อมูลที่รองรับ | **อินพุต**  รูปภาพและข้อความ  **เอาต์พุต**  รูปภาพและข้อความ |
-| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  65,536  **ขีดจำกัดโทเค็นเอาต์พุต**  32,768 |
-| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  ไม่รองรับ  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  ไม่รองรับ  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  ไม่รองรับ  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  ไม่รองรับ  **[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  ไม่รองรับ  **[การเชื่อมโยงแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  ไม่รองรับ  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  สิ่งที่ทำได้  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  ไม่รองรับ  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  สิ่งที่ทำได้  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  ไม่รองรับ  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  สิ่งที่ทำได้  **[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  ไม่รองรับ |
-| speedตัวเลือกการใช้งาน | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  สิ่งที่ทำได้  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  ไม่รองรับ  **[Priority Inference](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  ไม่รองรับ |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - เสถียร: `gemini-3-pro-image` |
-| calendar\_monthการอัปเดตล่าสุด | พฤศจิกายน 2025 |
-| id\_cardการ์ดโมเดล | [การ์ดโมเดล](https://deepmind.google/models/model-cards/gemini-3-pro-image/?hl=th) |
+| id\_card模型代码 | `gemini-3-pro-image` |
+| save支持的数据类型 | **输入**  图片和文本  **输出**  图片和文本 |
+| token\_autoToken 限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入 token 限制**  65,536  **输出 token 限制**  32,768 |
+| handyman功能 | **[音频生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)**  不支持  **[缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)**  不支持  **[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)**  不支持  **[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)**  不支持  **[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)**  不支持  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)**  不支持  **[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)**  支持  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn)**  不支持  **[搜索接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)**  支持  **[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)**  不支持  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)**  支持  **[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)**  不支持 |
+| speed使用选项 | **[批量 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)**  支持  **[Flex 推理](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-cn)**  不支持  **[优先推理](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)**  不支持 |
+| 123版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 稳定版：`gemini-3-pro-image` |
+| calendar\_month最新更新 | 2025 年 11 月 |
+| id\_card模型卡片 | [模型卡片](https://deepmind.google/models/model-cards/gemini-3-pro-image/?hl=zh-cn) |
 
-ส่งความคิดเห็น
+发送反馈
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-อัปเดตล่าสุด 2026-09-08 UTC
+最后更新时间 (UTC)：2026-09-08。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+需要向我们提供更多信息？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-08 UTC"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-08。"],[],[]]

@@ -1,35 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=pt-BR
-fetched_at: 2026-10-12T07:13:28.427484+00:00
-title: "Vis\u00e3o ag\u00eantica \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=hi
+fetched_at: 2026-10-19T05:42:35.785080+00:00
+title: "\u090f\u091c\u0947\u0902\u091f\u093f\u0915 \u0935\u093f\u091c\u093c\u0928 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envie comentários
+सुझाव भेजें
 
-# Visão agêntica
+# एजेंटिक विज़न
 
-Os modelos do Gemini Robotics ER podem escrever e executar código Python para manipular imagens e aplicar lógica antes de responder. Esta página aborda exemplos de execução de código: detecção de objetos com zoom e corte, leitura de instrumentos, medição de fluidos, leitura de placas de circuito e anotação de imagens.
+Gemini Robotics ER मॉडल, इमेज में बदलाव करने के लिए Python कोड लिख सकते हैं और उसे लागू कर सकते हैं. साथ ही, जवाब देने से पहले लॉजिक लागू कर सकते हैं. इस पेज पर, कोड को लागू करने के उदाहरण दिए गए हैं. जैसे, ज़ूम और क्रॉप करके ऑब्जेक्ट का पता लगाना, इंस्ट्रूमेंट रीडिंग, फ़्लूड मेज़रमेंट, सर्किट बोर्ड रीडिंग, और इमेज एनोटेशन.
 
-Para adaptar esses exemplos ao seu caso de uso, substitua o texto do comando e o arquivo de imagem enviado pelos seus. Você também pode ajustar o esquema JSON solicitado no comando para corresponder à estrutura de saída de que seu aplicativo precisa ou adicionar uma `system_instruction` para aplicar o formato e a precisão da saída.
+इन उदाहरणों को अपने इस्तेमाल के हिसाब से बनाने के लिए, प्रॉम्प्ट टेक्स्ट और अपलोड की गई इमेज फ़ाइल को अपनी फ़ाइल से बदलें. आपके पास प्रॉम्प्ट में अनुरोध किए गए JSON स्कीमा में बदलाव करने का विकल्प भी होता है, ताकि वह आपके ऐप्लिकेशन की ज़रूरत के हिसाब से आउटपुट स्ट्रक्चर से मेल खाए. इसके अलावा, आउटपुट फ़ॉर्मैट और सटीक जानकारी देने के लिए, `system_instruction` जोड़ा जा सकता है.
 
-Para conferir o código executável completo, consulte o
-[livro de receitas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+पूरे रन करने लायक कोड के लिए, [रोबोटिक्स कुकबुक](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) देखें.
 
-## Nível de raciocínio
+## सूझ-बूझ वाले मॉडल का लेवल
 
-Você pode controlar o nível de raciocínio do modelo para trocar latência por precisão. Tarefas espaciais, como detecção de objetos, têm bom desempenho com um nível de raciocínio baixo. Tarefas complexas, como contagem ou estimativa de peso, se beneficiam de um nível de raciocínio mais alto.
+मॉडल के सोचने के लेवल को कंट्रोल किया जा सकता है, ताकि सटीक जवाब पाने के लिए इंतज़ार का समय कम किया जा सके. स्पेशल टास्क, जैसे कि ऑब्जेक्ट डिटेक्शन, कम थिंकिंग लेवल पर अच्छी तरह से काम करते हैं. गिनती करने या वज़न का अनुमान लगाने जैसे मुश्किल टास्क के लिए, सूझ-बूझ वाले मॉडल का इस्तेमाल करना फ़ायदेमंद होता है.
 
-O exemplo a seguir define o nível de raciocínio como `high` para uma tarefa de contagem complexa:
+यहां दिए गए उदाहरण में, गिनती के मुश्किल टास्क के लिए, सोचने का लेवल `high` पर सेट किया गया है:
 
 ### Python
 
@@ -58,11 +57,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Consulte [Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para mais detalhes.
+ज़्यादा जानकारी के लिए, [सोचना](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) सेक्शन देखें.
 
-## Detecção de objetos (zoom e corte)
+## ऑब्जेक्ट का पता लगाने की सुविधा (ज़ूम और क्रॉप करें)
 
-O exemplo a seguir usa a execução de código para aplicar zoom e cortar uma imagem para uma visualização mais clara ao detectar objetos e retornar caixas delimitadoras.
+यहां दिए गए उदाहरण में, कोड एक्ज़ीक्यूशन का इस्तेमाल करके किसी इमेज को ज़ूम और क्रॉप किया गया है. इससे ऑब्जेक्ट का पता लगाने और बाउंडिंग बॉक्स दिखाने के दौरान, इमेज को ज़्यादा साफ़ तौर पर देखा जा सकता है.
 
 ### Python
 
@@ -96,7 +95,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-A saída do modelo seria semelhante à seguinte resposta JSON:
+मॉडल आउटपुट, इस JSON रिस्पॉन्स से मिलता-जुलता होगा:
 
 ```
 [
@@ -108,13 +107,13 @@ A saída do modelo seria semelhante à seguinte resposta JSON:
 ]
 ```
 
-A imagem a seguir mostra as caixas retornadas do modelo.
+इस इमेज में, मॉडल से मिले बॉक्स दिखाए गए हैं.
 
-![Exemplo mostrando caixas delimitadoras para objetos encontrados](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=pt-br)
+![पहचाने गए ऑब्जेक्ट के लिए बाउंडिंग बॉक्स दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=hi)
 
-## Ler um medidor analógico e aplicar lógica
+## एनालॉग गेज को पढ़ना और लॉजिक लागू करना
 
-O exemplo a seguir demonstra como usar o modelo para ler um medidor analógico e realizar cálculos de tempo. Ele usa uma instrução do sistema para aplicar uma saída JSON.
+यहां दिए गए उदाहरण में, मॉडल का इस्तेमाल करके ऐनलॉग गेज को पढ़ने और समय की गणना करने का तरीका बताया गया है. यह JSON आउटपुट को लागू करने के लिए, सिस्टम के निर्देश का इस्तेमाल करता है.
 
 ### Python
 
@@ -145,9 +144,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Medir fluido em um contêiner
+## किसी कंटेनर में मौजूद तरल पदार्थ को मापना
 
-O exemplo a seguir demonstra como usar a execução de código para medir o nível de fluido em um contêiner.
+इस उदाहरण में बताया गया है कि किसी कंटेनर में मौजूद फ़्लूड के लेवल का पता लगाने के लिए, कोड एक्ज़ीक्यूशन का इस्तेमाल कैसे किया जाता है.
 
 ### Python
 
@@ -177,9 +176,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## Ler marcações em uma placa de circuito
+## सर्किट बोर्ड पर मौजूद मार्किंग को पढ़ना
 
-O exemplo a seguir demonstra como usar a execução de código para ler as marcações em uma placa de circuito.
+यहां दिए गए उदाहरण में, सर्किट बोर्ड पर मौजूद मार्किंग को पढ़ने के लिए, कोड को लागू करने का तरीका बताया गया है.
 
 ### Python
 
@@ -209,11 +208,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-![Exemplo mostrando marcações em uma placa de circuito](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=pt-br)
+![सर्किट बोर्ड पर मार्किंग दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=hi)
 
-## Anotação da imagem
+## इमेज एनोटेशन
 
-O exemplo a seguir demonstra como usar a execução de código para anotar uma imagem (por exemplo, desenhar setas para instruções de descarte) e retornar a imagem modificada.
+नीचे दिए गए उदाहरण में बताया गया है कि कोड को एक्ज़ीक्यूट करने की सुविधा का इस्तेमाल करके, किसी इमेज में एनोटेशन कैसे जोड़ा जाता है.जैसे, डिस्पोज़ल के निर्देशों के लिए ऐरो बनाना. साथ ही, बदली गई इमेज को वापस पाना.
 
 ### Python
 
@@ -247,11 +246,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-A seguir, um exemplo de entrada de imagem.
+इमेज के तौर पर दिए गए इनपुट का एक उदाहरण यहां दिया गया है.
 
-![Um exemplo mostrando um relógio para leitura](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=pt-br)
+![पढ़ने के लिए घड़ी दिखाने वाला उदाहरण](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=hi)
 
-A saída do modelo seria semelhante a esta:
+मॉडल का आउटपुट इस तरह का होगा:
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -260,18 +259,18 @@ A saída do modelo seria semelhante a esta:
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## A seguir
+## आगे क्या करना है
 
-- [Orquestração de tarefas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-br): tarefas de longo prazo com APIs de robôs personalizadas.
-- [Robótica com streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br): streaming bidirecional em tempo real (somente no Gemini Robotics ER 2).
-- [Compreensão de vídeo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=pt-br): localização de momentos e classificação de progresso (somente no Gemini Robotics ER 2).
+- [टास्क ऑर्केस्ट्रेशन](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=hi) — कस्टम रोबोट एपीआई के साथ लंबे समय तक चलने वाले टास्क.
+- [स्ट्रीमिंग के साथ रोबोटिक्स](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=hi) — रीयल-टाइम में दोनों तरफ़ से स्ट्रीमिंग (सिर्फ़ Gemini Robotics ER 2 के लिए).
+- [वीडियो को समझना](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=hi) — वीडियो में किसी खास पल को ढूंढना और प्रोग्रेस को कैटगरी में बांटना (सिर्फ़ Gemini Robotics ER 2 के लिए).
 
-Envie comentários
+सुझाव भेजें
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última atualização 2026-09-08 UTC.
+आखिरी बार 2026-09-08 (UTC) को अपडेट किया गया.
 
-Quer enviar seu feedback?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-08 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-08 (UTC) को अपडेट किया गया."],[],[]]

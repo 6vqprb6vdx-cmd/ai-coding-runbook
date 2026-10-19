@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=he
-fetched_at: 2026-10-12T07:00:37.675906+00:00
-title: "\u05d4\u05d1\u05e0\u05ea \u05d0\u05d5\u05d3\u05d9\u05d5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=vi
+fetched_at: 2026-10-19T05:46:05.064966+00:00
+title: "Hi\u1ec3u \u00e2m thanh \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
 
-שליחת משוב
+Gửi ý kiến phản hồi
 
-# הבנת אודיו
+# Hiểu âm thanh
 
-‫Gemini יכול לנתח קלט אודיו וליצור תשובות טקסט.
+Gemini có thể phân tích thông tin đầu vào bằng âm thanh và tạo câu trả lời bằng văn bản.
 
 ### Python
 
@@ -31,7 +31,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.8-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -55,7 +55,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -103,7 +103,7 @@ func main() {
 
     result, _ := client.Models.GenerateContent(
         ctx,
-        "gemini-3.6-flash",
+        "gemini-3.8-flash",
         contents,
         nil,
     )
@@ -148,7 +148,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -166,22 +166,22 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## סקירה כללית
+## Tổng quan
 
-‫Gemini יכול לנתח ולהבין קלט אודיו וליצור תשובות טקסט לקלט הזה, וכך לאפשר תרחישי שימוש כמו:
+Gemini có thể phân tích và hiểu dữ liệu đầu vào là âm thanh, đồng thời tạo câu trả lời bằng văn bản cho dữ liệu đó, từ đó hỗ trợ các trường hợp sử dụng như sau:
 
-- לתאר, לסכם או לענות על שאלות לגבי תוכן אודיו.
-- לספק תמליל ותרגום של האודיו (המרת דיבור לטקסט).
-- זיהוי רגשות בדיבור ובמוזיקה.
-- לנתח קטעים ספציפיים באודיו ולספק חותמות זמן.
+- Mô tả, tóm tắt hoặc trả lời câu hỏi về nội dung âm thanh.
+- Cung cấp bản chép lời và bản dịch của âm thanh (chuyển lời nói thành văn bản).
+- Phát hiện cảm xúc trong lời nói và âm nhạc.
+- Phân tích các đoạn âm thanh cụ thể và cung cấp dấu thời gian.
 
-נכון לעכשיו, Gemini API לא תומך בתרחישי שימוש בתמלול בזמן אמת.
-לשיחות קוליות ושיחות וידאו בזמן אמת, אפשר לעיין ב-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=he).
-כדי להשתמש במודלים ייעודיים של תמלול דיבור לטקסט עם תמיכה בתמלול בזמן אמת, צריך להשתמש ב-[Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=he).
+Hiện tại, Gemini API chưa hỗ trợ các trường hợp sử dụng tính năng chép lời theo thời gian thực.
+Để biết thông tin về hoạt động tương tác bằng giọng nói và video theo thời gian thực, hãy tham khảo [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
+Đối với các mô hình chuyển lời nói thành văn bản chuyên dụng có hỗ trợ tính năng phiên âm theo thời gian thực, hãy sử dụng [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=vi).
 
-## תמלול דיבור לטקסט
+## Chuyển lời nói thành văn bản
 
-באפליקציה לדוגמה הזו מוצגות הנחיות ל-Gemini API לתמלול, לתרגום ולסיכום של דיבור, כולל חותמות זמן וזיהוי רגשות באמצעות [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he).
+Ứng dụng mẫu này cho biết cách nhắc Gemini API phiên âm, dịch và tóm tắt lời nói, bao gồm cả dấu thời gian và tính năng phát hiện cảm xúc bằng cách sử dụng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi).
 
 ### Python
 
@@ -206,7 +206,7 @@ def main():
   """
 
   response = client.models.generate_content(
-    model="gemini-3.6-flash",
+    model="gemini-3.8-flash",
     contents=[
       types.Content(
         parts=[
@@ -222,7 +222,7 @@ def main():
       )
     ],
     config=types.GenerateContentConfig(
-      response_format={"text": {"mime_type": "application/json"}},
+      response_mime_type="application/json",
       response_schema=types.Schema(
         type=types.Type.OBJECT,
         properties={
@@ -293,7 +293,7 @@ async function main() {
   };
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: {
       parts: [
         {
@@ -307,7 +307,7 @@ async function main() {
       ],
     },
     config: {
-      responseFormat: { text: { mimeType: "application/json" } },
+      responseMimeType: "application/json",
       responseSchema: {
         type: Type.OBJECT,
         properties: {
@@ -349,7 +349,7 @@ await main();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -370,7 +370,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
         }
       ],
       "generation_config": {
-        "response_format": {"text": {"mime_type": "application/json"}},
+        "response_mime_type": "application/json",
         "response_schema": {
           "type": "OBJECT",
           "properties": {
@@ -409,27 +409,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-אתם יכולים להנחות את [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=he) ליצור אפליקציה כמו [אפליקציית התמלול הזו לדוגמה](https://aistudio.google.com/apps/bundled/echoscript?hl=he) בלחיצת כפתור.
+Bạn có thể yêu cầu [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=vi) tạo một ứng dụng giống như [ứng dụng phiên âm mẫu này](https://aistudio.google.com/apps/bundled/echoscript?hl=vi) chỉ bằng một nút nhấp.
 
-![אפליקציית Gemini רב-לשונית לתמלול אודיו](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=he)
+![Ứng dụng Gemini có tính năng chuyển âm thanh thành văn bản bằng nhiều ngôn ngữ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=vi)
 
-## קלט אודיו
+## Âm thanh đầu vào
 
-יש כמה דרכים לספק ל-Gemini נתוני אודיו:
+Bạn có thể cung cấp dữ liệu âm thanh cho Gemini theo những cách sau:
 
-- [מעלים קובץ אודיו](#upload-audio) לפני ששולחים בקשה אל
-  `generateContent`.
-- [העברת נתוני אודיו מוטבעים](#inline-audio) עם הבקשה אל
-  `generateContent`.
+- [Tải tệp âm thanh lên](#upload-audio) trước khi đưa ra yêu cầu cho `generateContent`.
+- [Truyền dữ liệu âm thanh nội tuyến](#inline-audio) bằng yêu cầu đến `generateContent`.
 
-מידע על שיטות אחרות להזנת קבצים זמין במדריך בנושא [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
+Để tìm hiểu về các phương thức nhập tệp khác, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
 
-### העלאה של קובץ אודיו
+### Tải tệp âm thanh lên
 
-אפשר להשתמש ב-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he) כדי להעלות קובץ אודיו.
-תמיד צריך להשתמש ב-Files API כשגודל הבקשה הכולל (כולל הקבצים, הנחיית הטקסט, הוראות המערכת וכו') גדול מ-20 MB.
+Bạn có thể dùng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) để tải một tệp âm thanh lên.
+Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, câu lệnh văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB.
 
-הקוד הבא מעלה קובץ אודיו ואז משתמש בקובץ בשיחה אל `generateContent`.
+Đoạn mã sau đây tải một tệp âm thanh lên rồi dùng tệp đó trong một lệnh gọi đến `generateContent`.
 
 ### Python
 
@@ -441,7 +439,7 @@ client = genai.Client()
 myfile = client.files.upload(file="path/to/sample.mp3")
 
 response = client.models.generate_content(
-    model="gemini-3.6-flash", contents=["Describe this audio clip", myfile]
+    model="gemini-3.8-flash", contents=["Describe this audio clip", myfile]
 )
 
 print(response.text)
@@ -465,7 +463,7 @@ async function main() {
   });
 
   const response = await ai.models.generateContent({
-    model: "gemini-3.6-flash",
+    model: "gemini-3.8-flash",
     contents: createUserContent([
       createPartFromUri(myfile.uri, myfile.mimeType),
       "Describe this audio clip",
@@ -513,7 +511,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.8-flash",
       contents,
       nil,
   )
@@ -558,7 +556,7 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 
 # Now generate content using that file
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
     -H "x-goog-api-key: $GEMINI_API_KEY" \
     -H 'Content-Type: application/json' \
     -X POST \
@@ -576,11 +574,11 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-מידע נוסף על עבודה עם קובצי מדיה זמין במאמר בנושא [Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
+Để tìm hiểu thêm về cách làm việc với các tệp nội dung nghe nhìn, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
 
-### העברת נתוני אודיו בתוך השורה
+### Truyền dữ liệu âm thanh cùng dòng
 
-במקום להעלות קובץ אודיו, אפשר להעביר נתוני אודיו מוטבעים בבקשה אל `generateContent`:
+Thay vì tải tệp âm thanh lên, bạn có thể truyền dữ liệu âm thanh nội tuyến trong yêu cầu đến `generateContent`:
 
 ### Python
 
@@ -593,7 +591,7 @@ with open('path/to/small-sample.mp3', 'rb') as f:
 
 client = genai.Client()
 response = client.models.generate_content(
-  model='gemini-3.6-flash',
+  model='gemini-3.8-flash',
   contents=[
     'Describe this audio clip',
     types.Part.from_bytes(
@@ -628,7 +626,7 @@ const contents = [
 ];
 
 const response = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: contents,
 });
 console.log(response.text);
@@ -670,7 +668,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.8-flash",
       contents,
       nil,
   )
@@ -679,14 +677,14 @@ func main() {
 }
 ```
 
-כמה דברים שחשוב לזכור לגבי נתוני אודיו מוטמעים:
+Một số điều cần lưu ý về dữ liệu âm thanh nội tuyến:
 
-- הגודל המקסימלי של הבקשה הוא 20MB, כולל הנחיות טקסט, הוראות מערכת וקבצים שסופקו בשורה. אם גודל הקובץ יגרום ל*גודל הבקשה הכולל* לחרוג מ-20MB, צריך להשתמש ב-Files API כדי [להעלות קובץ אודיו](#upload-audio) לשימוש בבקשה.
-- אם אתם משתמשים בדגימת אודיו כמה פעמים, עדיף [להעלות קובץ אודיו](#upload-audio).
+- Kích thước yêu cầu tối đa là 20 MB, bao gồm cả câu lệnh dạng văn bản, chỉ dẫn hệ thống và các tệp được cung cấp nội tuyến. Nếu kích thước tệp của bạn khiến *tổng kích thước yêu cầu* vượt quá 20 MB, hãy dùng Files API để [tải tệp âm thanh lên](#upload-audio) để dùng trong yêu cầu.
+- Nếu bạn đang sử dụng một mẫu âm thanh nhiều lần, thì việc [tải một tệp âm thanh lên](#upload-audio) sẽ hiệu quả hơn.
 
-## קבלת תמליל
+## Lấy bản chép lời
 
-כדי לקבל תמליל של נתוני אודיו, פשוט מבקשים אותו בהנחיה:
+Để nhận bản chép lời của dữ liệu âm thanh, bạn chỉ cần yêu cầu trong câu lệnh:
 
 ### Python
 
@@ -698,7 +696,7 @@ myfile = client.files.upload(file='path/to/sample.mp3')
 prompt = 'Generate a transcript of the speech.'
 
 response = client.models.generate_content(
-  model='gemini-3.6-flash',
+  model='gemini-3.8-flash',
   contents=[prompt, myfile]
 )
 
@@ -721,7 +719,7 @@ const myfile = await ai.files.upload({
 });
 
 const result = await ai.models.generateContent({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: createUserContent([
     createPartFromUri(myfile.uri, myfile.mimeType),
     "Generate a transcript of the speech.",
@@ -766,7 +764,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.8-flash",
       contents,
       nil,
   )
@@ -775,12 +773,12 @@ func main() {
 }
 ```
 
-## עיון בחותמות זמן
+## Tham khảo dấu thời gian
 
-אפשר להפנות לקטעים ספציפיים בקובץ אודיו באמצעות חותמות זמן מהצורה `MM:SS`. לדוגמה, ההנחיה הבאה מבקשת תמליל
+Bạn có thể tham chiếu đến các phần cụ thể của tệp âm thanh bằng cách sử dụng dấu thời gian có dạng `MM:SS`. Ví dụ: câu lệnh sau đây yêu cầu một bản chép lời
 
-- ההפעלה מתחילה אחרי 2 דקות ו-30 שניות מתחילת הקובץ.
-- הסרטון מסתיים אחרי 3 דקות ו-29 שניות מתחילת הקובץ.
+- Bắt đầu từ 2 phút 30 giây tính từ đầu tệp.
+- Kết thúc ở phút thứ 3 và giây thứ 29 kể từ khi bắt đầu tập tin.
 
 ### Python
 
@@ -833,7 +831,7 @@ func main() {
 
   result, _ := client.Models.GenerateContent(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.8-flash",
       contents,
       nil,
   )
@@ -842,9 +840,9 @@ func main() {
 }
 ```
 
-## ספירת טוקנים
+## Đếm mã thông báo
 
-כדי לקבל את מספר הטוקנים בקובץ אודיו, קוראים ל-method‏ `countTokens`. לדוגמה:
+Gọi phương thức `countTokens` để đếm số lượng mã thông báo trong một tệp âm thanh. Ví dụ:
 
 ### Python
 
@@ -853,7 +851,7 @@ from google import genai
 
 client = genai.Client()
 response = client.models.count_tokens(
-  model='gemini-3.6-flash',
+  model='gemini-3.8-flash',
   contents=[myfile]
 )
 
@@ -876,7 +874,7 @@ const myfile = await ai.files.upload({
 });
 
 const countTokensResponse = await ai.models.countTokens({
-  model: "gemini-3.6-flash",
+  model: "gemini-3.8-flash",
   contents: createUserContent([
     createPartFromUri(myfile.uri, myfile.mimeType),
   ]),
@@ -919,7 +917,7 @@ func main() {
 
   tokens, _ := client.Models.CountTokens(
       ctx,
-      "gemini-3.6-flash",
+      "gemini-3.8-flash",
       contents,
       nil,
   )
@@ -928,41 +926,49 @@ func main() {
 }
 ```
 
-## פורמטים נתמכים של אודיו
+## Định dạng âm thanh được hỗ trợ
 
-‫Gemini תומך בסוגי ה-MIME הבאים של פורמטים של אודיו:
+Gemini hỗ trợ các loại MIME sau đây cho định dạng âm thanh:
 
-- ‫WAV – `audio/wav`
-- MP3 - `audio/mp3`
-- AIFF - `audio/aiff`
-- ‫AAC – `audio/aac`
-- OGG Vorbis - `audio/ogg`
-- ‫FLAC – `audio/flac`
+- WAV – `audio/wav`
+- MP3 – `audio/mp3`
+- AIFF – `audio/aiff`
+- AAC – `audio/aac`
+- OGG – `audio/ogg`
+- FLAC – `audio/flac`
+- MPEG – `audio/mpeg`
+- M4A – `audio/m4a`
+- L16 – `audio/l16`
+- Opus – `audio/opus`
+- ALAW – `audio/alaw`
+- MULAW – `audio/mulaw`
+- WebM – `audio/webm`
 
-## פרטים טכניים על אודיו
+Để xem danh sách đầy đủ các loại MIME và giản đồ tham số được hỗ trợ, hãy xem [tài liệu tham khảo về Interactions API](https://ai.google.dev/api/interactions-api?hl=vi#Resource:Content).
 
-- ‫Gemini מייצג כל שנייה של אודיו באמצעות 32 טוקנים. לדוגמה, דקה אחת של אודיו מיוצגת באמצעות 1,920 טוקנים.
-- ‫Gemini יכול 'להבין' רכיבים שאינם דיבור, כמו שירת ציפורים או סירנות.
-- האורך המקסימלי של נתוני אודיו בהנחיה אחת הוא 9.5 שעות.
-  ‫Gemini לא מגביל את *מספר* קובצי האודיו בהנחיה אחת, אבל האורך הכולל של כל קובצי האודיו בהנחיה אחת לא יכול להיות יותר מ-9.5 שעות.
-- ‫Gemini מבצע דגימת יתר של קובצי אודיו לרזולוציית נתונים של 16Kbps.
-- אם מקור האודיו מכיל כמה ערוצים, Gemini משלב את הערוצים האלה לערוץ אחד.
+## Thông tin kỹ thuật về âm thanh
 
-## המאמרים הבאים
+- Gemini biểu thị mỗi giây âm thanh dưới dạng 32 mã thông báo; ví dụ: một phút âm thanh được biểu thị dưới dạng 1.920 mã thông báo.
+- Gemini có thể "hiểu" các thành phần không phải lời nói, chẳng hạn như tiếng chim hót hoặc tiếng còi báo động.
+- Độ dài tối đa được hỗ trợ của dữ liệu âm thanh trong một câu lệnh là 9,5 giờ.
+  Gemini không giới hạn *số lượng* tệp âm thanh trong một câu lệnh; tuy nhiên, tổng thời lượng kết hợp của tất cả tệp âm thanh trong một câu lệnh không được vượt quá 9,5 giờ.
+- Gemini giảm độ phân giải dữ liệu của tệp âm thanh xuống 16 Kbps.
+- Nếu nguồn âm thanh có nhiều kênh, Gemini sẽ kết hợp các kênh đó thành một kênh duy nhất.
 
-במדריך הזה מוסבר איך ליצור טקסט בתגובה לנתוני אודיו. מידע נוסף זמין במקורות המידע הבאים:
+## Bước tiếp theo
 
-- [אסטרטגיות לכתיבת הנחיות לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך בכתיבת הנחיות עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראות גם כתיבת הנחיות מולטי-מודאליות.
-- [System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
-  הוראות מערכת מאפשרות לכם לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
-- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים תוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. עיבוד תמונה (Post Processing) והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
+Hướng dẫn này cho biết cách tạo văn bản để phản hồi dữ liệu âm thanh. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
 
-שליחת משוב
+- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
+- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều chỉnh hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
+- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Hậu xử lý và đánh giá của con người là những yếu tố cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Gửi ý kiến phản hồi
 
-עדכון אחרון: 2026-09-12 (שעון UTC).
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-רוצה לתת לנו משוב?
+Cập nhật lần gần đây nhất: 2026-10-19 UTC.
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]
+Bạn muốn chia sẻ thêm với chúng tôi?
+
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-19 UTC."],[],[]]

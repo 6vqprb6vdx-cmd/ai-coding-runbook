@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=tr
-fetched_at: 2026-10-12T06:57:37.538889+00:00
-title: "Video anlama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=zh-CN
+fetched_at: 2026-10-19T05:35:46.812107+00:00
+title: "\u89c6\u9891\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Geri bildirim gönderin
+发送反馈
 
-# Video anlama
+# 视频理解
 
-Gemini Robotics ER 2, iki özelliği kullanarak sürekli video feed'lerinden görev ilerlemesini takip edebilir:
+Gemini Robotics ER 2 可以使用以下两种功能跟踪连续视频馈送中的任务进度：
 
-- An bulma: Önemli bir etkinliğin gerçekleştiği tam zaman damgasını belirler.
-- Tamamlama sınıflandırması: Her videoyu beş tamamlama aralığından birine atar (%0-20, %20-40, %40-60, %60-80, %80-100).
+- 时刻查找：识别关键事件发生的精确时间戳。
+- 进度分类：将每个视频分配到五个完成度范围之一（0-20%、20-40%、40-60%、60-80%、80-100%）。
 
-## An bulma
+## 时刻查找
 
-An bulma özelliği, önemli bir olayın gerçekleştiği tam video karesini (ör. bir kupanın dolduğu veya bir düğümün bağlandığı an) belirler. Robotlar, başarıyı doğrulamak, adımları sıralamak ve düzeltmeleri tetiklemek için bunu kullanır.
+时刻查找功能可以识别关键事件发生的精确视频帧，例如杯子装满或结被系好时。机器人使用此功能来验证成功、按顺序执行步骤和触发更正。
 
-Aşağıdaki örnek istemde modelden, videodaki belirli bir görevin tamamlanma anını belirlemesi isteniyor:
+以下示例提示要求模型识别视频中给定任务的完成时刻：
 
 ```
 from google import genai
@@ -57,15 +57,16 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Aşağıda, bir an bulma videosundan örnek kareler gösterilmektedir. Model, görevin tamamlanma zaman damgasını tanımlamaktadır:
+以下示例展示了时刻查找视频中的示例帧，模型识别了任务完成时间戳：
 
-![Zaman damgası yerleşimiyle an bulma çıktısını gösteren örnek video kareleri](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=tr)
+![示例视频帧，显示了带有时间戳叠加层的精彩瞬间查找输出](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=zh-cn)
 
-## İlerleme sınıflandırması
+## 进度分类
 
-İlerleme sınıflandırması, bir videoyu beş tamamlama aralığından birine atar: 0-20%, 20-40%, 40-60%, 60-80% veya 80-100%. Bu sayede robotlar, tüm iş akışını yeniden başlatmadan eylemleri ayarlayabilir veya başarısız olan adımları yeniden deneyebilir.
+进度分类功能会将视频分配到五个完成度范围之一：0-20%、20-40%、40-60%、60-80% 或
+80-100%。这使机器人能够实时了解情况，以便调整操作或重试失败的步骤，而无需重启整个工作流。
 
-Aşağıdaki örnek istemde modelden, bir videodaki mevcut ilerleme düzeyini sınıflandırması isteniyor:
+以下示例提示要求模型对视频中的当前进度级别进行分类：
 
 ```
 from google import genai
@@ -95,26 +96,27 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-Aşağıda, modelin ilerleme aralığı atadığı bir ilerleme sınıflandırması videosundan örnek kareler gösterilmektedir:
+以下示例展示了进度分类视频中的示例帧，模型分配了进度范围：
 
-![İlerleme aralığı etiketiyle ilerleme sınıflandırma çıkışını gösteren örnek video kareleri](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=tr)
+![示例视频帧，显示了带有进度括号标签的进度分类输出](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=zh-cn)
 
-## Örnekler
+## 示例
 
-Çok adımlı görev izleme de dahil olmak üzere tam olarak çalıştırılabilir örnekler için [Robotik çözüm kitabına](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb) bakın.
+如需查看包含多步任务跟踪的完整可运行示例，请参阅
+[机器人技术 Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)。
 
-## Sırada ne var?
+## 后续步骤
 
-- [Robotik için Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=tr): Gerçek zamanlı çift yönlü yayın.
-- [Görev düzenleme](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=tr): Uzamsal akıl yürütme içeren uzun vadeli görevler.
-- [Gemini Robotics ER'ye genel bakış](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=tr): Model karşılaştırması ve özellikleri.
+- [机器人技术 Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=zh-cn) - 实时双向流式传输。
+- [任务编排](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=zh-cn) - 具有空间推理的长时程任务。
+- [Gemini Robotics ER 概览](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-cn) - 模型比较和功能。
 
-Geri bildirim gönderin
+发送反馈
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Son güncelleme tarihi: 2026-09-08 UTC.
+最后更新时间 (UTC)：2026-09-08。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+需要向我们提供更多信息？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-08。"],[],[]]

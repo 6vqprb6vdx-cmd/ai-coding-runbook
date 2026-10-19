@@ -1,56 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ja
-fetched_at: 2026-10-12T07:15:51.722328+00:00
-title: "Gemini 3.1 Pro \u30d7\u30ec\u30d3\u30e5\u30fc\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=sq
+fetched_at: 2026-10-19T05:38:27.371747+00:00
+title: "Pamja paraprake e Gemini 3.1 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-フィードバックを送信
+Dërgo komente
 
-# Gemini 3.1 Pro プレビュー版
+# Pamja paraprake e Gemini 3.1 Pro
 
-Gemini 3 Pro シリーズのパフォーマンスと信頼性を向上させるために構築された Gemini 3.1 Pro プレビュー版は、より優れた思考、トークン効率の向上、より根拠のある事実と一貫性のあるエクスペリエンスを提供します。ソフトウェア エンジニアリングの動作とユーザビリティ、および現実世界のドメインで正確なツールの使用と信頼性の高い複数ステップの実行を必要とする Agentic Workflows 向けに最適化されています。
+Krijuar për të përmirësuar performancën dhe besueshmërinë e serisë Gemini 3 Pro, Gemini 3.1 Pro Preview ofron arsyetim më të mirë, efikasitet të përmirësuar të kodeve dhe një përvojë më të bazuar dhe më të qëndrueshme në lidhje me faktet. Ai është optimizuar për sjelljen dhe përdorshmërinë e inxhinierisë softuerike, si dhe për flukset e punës të agjentëve që kërkojnë përdorim të saktë të veglave dhe ekzekutim të besueshëm me shumë hapa në domenet e botës reale.
 
-[Google AI Studio で試す](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=ja)
+[Provoje në Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=sq)
 
-## ドキュメント
+## Dokumentacioni
 
-機能と機能の完全な一覧については、[Gemini 3 デベロッパー ガイド](https://ai.google.dev/gemini-api/docs/latest-model?hl=ja)のページをご覧ください。
+Vizito faqen [Udhëzuesi i zhvilluesit të Gemini 3](https://ai.google.dev/gemini-api/docs/latest-model?hl=sq) për mbulim të plotë të veçorive dhe aftësive.
 
 ## gemini-3.1-pro-preview
 
-| プロパティ | 説明 |
+| Prona | Përshkrimi |
 | --- | --- |
-| id\_cardモデルコード | `gemini-3.1-pro-preview` |
-| save でサポートされているデータ型 | **入力**  テキスト、画像、動画、音声、PDF  **出力**  テキスト |
-| token\_autoトークンの上限[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ja) | **入力トークンの上限**  1,048,576  **出力トークンの上限**  65,536 |
-| handyman機能 | **[音声生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ja)**  サポート対象外  **[キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)**  サポート対象  **[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)**  サポート対象  **[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)**  サポート対象（AI Studio のみ）  **[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)**  サポート対象  **[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)**  サポート対象  **[画像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=ja)**  サポート対象外  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ja)**  サポート対象外  **[検索によるグラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)**  サポート対象  **[構造化出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**  サポート対象  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**  サポート対象  **[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)**  サポート対象 |
-| speed使用オプション | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)**  サポート対象  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ja)**  サポート対象  **[優先度推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ja)**  サポート対象 |
-| 123 バージョン | 詳しくは、[モデル バージョンのパターン](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja#model-versions)をご覧ください。  - プレビュー: `gemini-3.1-pro-preview` - プレビュー: `gemini-3.1-pro-preview-customtools` \* |
-| calendar\_month最新の更新 | 2026 年 2 月 |
-| id\_cardモデルカード | [モデルカード](https://deepmind.google/models/model-cards/gemini-3-1-pro/?hl=ja) |
+| id\_cardKodi i modelit | `gemini-3.1-pro-preview` |
+| Llojet e të dhënave të mbështetura për ruajtjen | **Hyrjet**  Tekst, imazh, video, audio dhe PDF  **Rezultati**  Teksti |
+| token\_autoKufijtë e kodeve qasëse[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=sq) | **Kufiri i tokenëve të hyrjes**  1,048,576  **Kufiri i tokenëve të rezultatit**  65 536 |
+| handymanAftësitë | **[Gjenerimi i audios](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq)**  Nuk mbështetet  **[Ruajtja në memorien specifike](https://ai.google.dev/gemini-api/docs/caching?hl=sq)**  Mbështetur  **[Ekzekutimi i kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq)**  Mbështetur  **[Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq)**  Mbështetur (vetëm AI Studio)  **[Thirrja e funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq)**  Mbështetur  **[Argumentimi me Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq)**  Mbështetur  **[Gjenerimi i imazheve](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq)**  Nuk mbështetet  **[API-ja e transmetimit të drejtpërdrejtë](https://ai.google.dev/gemini-api/docs/live-api?hl=sq)**  Nuk mbështetet  **[Bazat e "Kërko"](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)**  Mbështetur  **[Rezultatet e strukturuara](https://ai.google.dev/gemini-api/docs/structured-output?hl=sq)**  Mbështetur  **[Po mendohem](https://ai.google.dev/gemini-api/docs/thinking?hl=sq)**  Mbështetur  **[Konteksti i URL-së](https://ai.google.dev/gemini-api/docs/url-context?hl=sq)**  Mbështetur |
+| speedOpsionet e konsumit | **[API-ja e grupeve](https://ai.google.dev/gemini-api/docs/batch-api?hl=sq)**  Mbështetur  **[Deduksioni Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=sq)**  Mbështetur  **[Përfundimi i përparësisë](https://ai.google.dev/gemini-api/docs/priority-inference?hl=sq)**  Mbështetur |
+| 123Versionet | Lexo [modelet e versioneve](https://ai.google.dev/gemini-api/docs/models/gemini?hl=sq#model-versions) për më shumë detaje.  - Pamja paraprake: `gemini-3.1-pro-preview` - Pamja paraprake: `gemini-3.1-pro-preview-customtools` \* |
+| calendar\_monthPërditësimi i fundit | Shkurt 2026 |
+| Kartë modeli id\_card | [Kartë modeli](https://deepmind.google/models/model-cards/gemini-3-1-pro/?hl=sq) |
 
 #### gemini-3.1-pro-preview-customtools
 
-\* *bash とカスタムツールの両方を使用して構築しているユーザー向けに、Gemini 3.1 Pro プレビュー版には、`gemini-3.1-pro-preview-customtools` という API を介して利用できる個別のエンドポイントが用意されています。このエンドポイントは、カスタムツール（`view_file` や `search_code` など）の優先順位付けに適しています。*
+\* *Për ata që krijojnë me një përzierje të bash dhe veglave të personalizuara, Gemini 3.1 Pro Preview
+ofrohet me një pikë përfundimtare të veçantë që ofrohet nëpërmjet API-së të quajtur
+`gemini-3.1-pro-preview-customtools`. Ky endpoint është më i mirë në përparësi
+veglat e tua të personalizuara (p.sh. `view_file` ose `search_code`).*
 
-*`gemini-3.1-pro-preview-customtools` はカスタムツールと bash を使用するエージェント ワークフロー向けに最適化されていますが、このようなツールを利用しないユースケースでは品質の変動が見られることがあります。*
+*Ki parasysh se ndërkohë që `gemini-3.1-pro-preview-customtools` është optimizuar për flukse pune me agjentë që përdorin vegla të personalizuara dhe bash, mund të shohësh luhatje të cilësisë në disa raste përdorimi që nuk përfitojnë nga vegla të tilla.*
 
-フィードバックを送信
+Dërgo komente
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-最終更新日 2026-10-09 UTC。
+Përditësimi i fundit: 2026-10-09 UTC.
 
-ご意見をお聞かせください
+Duhet të na tregosh më shumë?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-09 UTC。"],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-09 UTC."],[],[]]

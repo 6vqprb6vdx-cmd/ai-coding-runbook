@@ -1,30 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=es-419
-fetched_at: 2026-10-12T07:06:16.681094+00:00
-title: "Grounding with Google Search \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-search?hl=fa
+fetched_at: 2026-10-19T05:39:47.087929+00:00
+title: "\u067e\u0627\u06cc\u0647\u200c\u0645\u0646\u062f\u0633\u0627\u0632\u06cc \u0628\u0627 \u00ab\u062c\u0633\u062a\u062c\u0648\u06cc Google\u00bb \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-Enviar comentarios
+ارسال بازخورد
 
-# Grounding with Google Search
+# پایه‌مندسازی با «جستجوی Google»
 
-La Fundamentación con la Búsqueda de Google conecta el modelo de Gemini con contenido web en tiempo real y funciona con todos los idiomas disponibles. Esto permite que Gemini proporcione respuestas más precisas y cite fuentes verificables más allá de su fecha límite de conocimiento.
+«پایه‌گذاری با جستجوی Google» مدل Gemini را به محتوای وب هم‌زمان متصل می‌کند
+و با همه زبان‌های دردسترس کار می‌کند. این کار به Gemini امکان می‌دهد پاسخ‌های دقیق‌تری ارائه دهد و منابع قابل‌تأیید را فراتر از تاریخ برش دانش خود نقل کند.
 
-La fundamentación te ayuda a crear aplicaciones que pueden hacer lo siguiente:
+زمینه‌سازی به شما کمک می‌کند برنامه‌هایی بسازید که می‌توانند:
 
-- **Aumentar la precisión fáctica:** Reduce las alucinaciones del modelo basando las respuestas en información del mundo real.
-- **Acceder a información en tiempo real:** Responder preguntas sobre eventos y temas recientes
-- **Proporciona citas:** Genera confianza en los usuarios mostrando las fuentes de las afirmaciones del modelo.
+- **افزایش دقت واقعی:** با قرار دادن اطلاعات دنیای واقعی به‌عنوان مبنای پاسخ‌ها، توهمات مدل را کاهش دهید.
+- **دسترسی به اطلاعات هم‌زمان:** به سؤالات مربوط به رویدادها و موضوعات اخیر پاسخ دهید.
+- **ارائه استناد:** با نشان دادن منابع ادعاهای مدل، اعتماد کاربر را جلب کنید.
 
 ### Python
 
@@ -58,7 +59,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -85,7 +86,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -139,21 +140,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cómo funciona la fundamentación con la Búsqueda de Google
+## نحوه عملکرد پایه‌مندسازی با «جستجوی Google»
 
-Cuando habilitas la herramienta `google_search`, el modelo controla todo el flujo de trabajo de búsqueda, procesamiento y citación de información de forma automática.
+وقتی ابزار `google_search` را فعال می‌کنید، مدل کل گردش کار جستجو، پردازش، و استناد به اطلاعات را به‌طور خودکار انجام می‌دهد.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=es-419)
+![نمای کلی پایه‌مندسازی](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=fa)
 
-1. **Instrucción del usuario:** Tu aplicación envía una instrucción del usuario a la API de Gemini con la herramienta `google_search` habilitada.
-2. **Análisis de instrucciones:** El modelo analiza la instrucción y determina si la Búsqueda de Google puede mejorar la respuesta.
-3. **Búsqueda de Google:** Si es necesario, el modelo genera automáticamente una o varias búsquedas y las ejecuta.
-4. **Procesamiento de los resultados de la búsqueda:** El modelo procesa los resultados de la búsqueda, sintetiza la información y formula una respuesta.
-5. **Respuesta fundamentada:** La API devuelve una respuesta final y fácil de usar que se fundamenta en los resultados de la búsqueda. Esta respuesta incluye la respuesta de texto del modelo con `annotations` intercalados que contienen las citas, así como los pasos de `google_search_call` y `google_search_result` con las búsquedas y las sugerencias de búsqueda.
+1. **پیام‌واره کاربر:** برنامه شما پیام‌واره کاربر را به Gemini API
+   با ابزار `google_search` فعال ارسال می‌کند.
+2. **تحلیل پیام‌واره:** مدل پیام‌واره را تحلیل می‌کند و تعیین می‌کند که آیا «جستجوی Google» می‌تواند پاسخ را بهبود بخشد یا نه.
+3. **جستجوی Google:** درصورت نیاز، مدل به‌طور خودکار یک یا چند پرسمان جستجو تولید و اجرا می‌کند.
+4. **پردازش نتایج جستجو:** مدل نتایج جستجو را پردازش می‌کند،
+   اطلاعات را ترکیب می‌کند، و پاسخی را فرمول‌بندی می‌کند.
+5. **پاسخ پایه‌مند:** میانای برنامه‌سازی کاربردی پاسخ نهایی کاربرپسندی را برمی‌گرداند که
+   بر نتایج جستجو پایه‌مند شده است. این پاسخ شامل پاسخ نوشتاری مدل با `annotations` درون‌خطی حاوی استنادها، و همچنین `google_search_call` و `google_search_result` مرحله با پُرسمان‌های جستجو و پیشنهادهای جستجو است.
 
-## Cómo comprender la respuesta de fundamentación
+## آشنایی با پاسخ مستندسازی
 
-Cuando una respuesta se fundamenta correctamente, el texto de salida del modelo incluye `annotations` intercalado directamente en el bloque de contenido de texto. Estas anotaciones proporcionan información de citas que vincula partes de la respuesta a sus fuentes.
+وقتی پاسخ باموفقیت زمینه‌دار می‌شود، برونداد نوشتاری مدل شامل
+`annotations` به‌خط مستقیم در بلوک محتوای نوشتاری است. این گزارمان‌ها
+اطلاعات استنادی ارائه می‌دهند که بخش‌های پاسخ را به منابع آن‌ها پیوند می‌دهد.
 
 ```
 {
@@ -212,18 +218,22 @@ Cuando una respuesta se fundamenta correctamente, el texto de salida del modelo 
 }
 ```
 
-Los campos clave de la respuesta son los siguientes:
+فیلدهای کلیدی در پاسخ:
 
-- `google_search_call` : Contiene la búsqueda `queries` que ejecutó el modelo.
-- `google_search_result` : Contiene `search_suggestions`, un fragmento HTML para renderizar sugerencias de búsqueda en tu IU. Los requisitos de uso completos se detallan en las [Condiciones del Servicio](https://ai.google.dev/gemini-api/terms?hl=es-419#grounding-with-google-search).
-- `text` con `annotations` : Es la respuesta sintetizada del modelo con citas intercaladas. Cada anotación `url_citation` vincula un segmento de texto (definido por `start_index` y `end_index`) a una URL de origen. Esta es la clave para crear citas intercaladas.
+- ‫`google_search_call` : شامل جستجویی است که مدل `queries` اجرا کرده است.
+- `google_search_result` : حاوی `search_suggestions`، یک قطعه HTML
+  برای ارائه پیشنهادهای جستجو در واسط کاربر شما. جزئیات کامل شرایط استفاده در [شرایط خدمات](https://ai.google.dev/gemini-api/terms?hl=fa#grounding-with-google-search) آمده است.
+- `text` با `annotations` : پاسخ ترکیبی مدل با استنادهای درون‌خطی. هر حاشیه‌نویسی `url_citation` یک بخش نوشتار (تعریف‌شده
+  توسط `start_index` و `end_index`) را به نشانی وب منبع پیوند می‌دهد. این کلید ساختن
+  نقل‌قول‌های درون‌خطی است.
 
-La fundamentación con la Búsqueda de Google también se puede usar en combinación con la [herramienta de contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419) para fundamentar las respuestas en datos web públicos y en las URLs específicas que proporciones.
+از «پایه‌مندسازی با جستجوی Google» می‌توان در ترکیب با [ابزار بافت نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa) نیز استفاده کرد تا پاسخ‌ها هم براساس داده‌های وب عمومی و هم براساس نشانی‌های وب خاصی که ارائه می‌دهید پایه‌مندسازی شوند.
 
-## Cómo atribuir fuentes con citas intercaladas
+## نسبت دادن منابع با استنادهای به‌خط
 
-La API devuelve anotaciones `url_citation` intercaladas en el bloque de contenido de texto, lo que te brinda control total sobre cómo mostrar las fuentes en tu interfaz de usuario.
-Cada anotación incluye `start_index` y `end_index` para identificar qué parte del texto cita. A continuación, te mostramos cómo extraerlos y mostrarlos.
+این API حاشیه‌نویسی‌های `url_citation` درون‌خطی را در بلوک محتوای نوشتاری برمی‌گرداند،
+و به شما کنترل کامل بر نحوه نمایش منابع در میانای کاربر می‌دهد.
+هر گل‌نویسی شامل `start_index` و `end_index` است تا مشخص کند به کدام بخش از نوشتار ارجاع می‌دهد. در اینجا نحوه استخراج و نمایش آن‌ها آورده شده است.
 
 ### Python
 
@@ -266,7 +276,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -332,7 +342,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -412,7 +422,7 @@ func main() {
 }
 ```
 
-El resultado mostrará el texto seguido de sus citas:
+برونداد نوشتار را به‌همراه فهرست منابع آن نشان می‌دهد:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final. This victory marks Spain's record fourth European Championship title.
@@ -424,52 +434,61 @@ Citations:
     Cited text: "This victory marks Spain's record fourth European Championship title."
 ```
 
-## Precios
+## قیمت‌گذاری
 
-Cuando usas la Fundamentación con la Búsqueda de Google con Gemini 3 y modelos más recientes, a tu proyecto se le factura **cada** búsqueda que el modelo decide ejecutar.
-Este modelo de facturación por consulta incluye 5,000 solicitudes de búsqueda gratuitas por mes, que se comparten entre todos los modelos de Gemini 3 y versiones posteriores, y luego cuesta **USD 14 por cada 1,000 solicitudes de búsqueda**.
+وقتی از «پایه‌مندسازی با جستجوی Google» با Gemini 3 و مدل‌های جدیدتر استفاده می‌کنید،
+پروژه شما برای **هر** پرسمان جستجویی که مدل تصمیم به اجرای آن می‌گیرد صورت‌حساب دریافت می‌کند.
+این مدل صورت‌حساب براساس پُرسمان شامل ۵٬۰۰۰ درخواست جستجوی رایگان در ماه است که بین همه مدل‌های Gemini 3 و جدیدتر مشترک است و سپس هزینه آن **۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست جستجو** است.
 
-Por ejemplo, si el modelo decide ejecutar varias búsquedas para responder una sola instrucción (p.ej., buscar `"UEFA Euro 2024 winner"` y `"Spain vs
-England Euro 2024 final score"` en la misma llamada a la API), esto se considera como dos usos facturables de la herramienta para esa solicitud. Para fines de facturación, ignoramos las búsquedas web vacías cuando contamos las búsquedas únicas.
+برای مثال، اگر مدل تصمیم بگیرد برای پاسخ دادن به یک پیام‌واره واحد، چندین پُرسمان جستجو اجرا کند (برای نمونه، جستجوی `"UEFA Euro 2024 winner"` و `"Spain vs
+England Euro 2024 final score"` در همان فراخوانی API)، این به‌عنوان دو استفاده صورت‌حساب‌پذیر از ابزار برای آن درخواست محاسبه می‌شود. برای اهداف صورت‌حساب،
+پرسمان‌های جستجوی وب خالی را هنگام شمارش پرسمان‌های یکتا نادیده می‌گیریم.
 
-Cuando usas la fundamentación en la búsqueda con Gemini 2.5 o modelos anteriores, se te factura el proyecto por instrucción.
+وقتی از «پایه جستجو» با Gemini 2.5 یا مدل‌های قدیمی‌تر استفاده می‌کنید، هزینه پروژه شما براساس هر پیام‌واره محاسبه می‌شود.
 
-Para obtener información detallada sobre los precios, consulta la [página de precios de la API de Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419).
+برای اطلاعات دقیق درباره قیمت‌گذاری، به [صفحه قیمت‌گذاری Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=fa) مراجعه کنید.
 
-## Modelos compatibles
+## مدل‌های پشتیبانی‌شده
 
-Puedes encontrar todas las capacidades en la página de [descripción general del modelo](https://ai.google.dev/gemini-api/docs/models?hl=es-419).
+می‌توانید قابلیت‌های کامل را در صفحه [نمای کلی
+مدل](https://ai.google.dev/gemini-api/docs/models?hl=fa) پیدا کنید.
 
-| Modelo | Fundamentación con la Búsqueda de Google |
+| مدل | پایه‌مندسازی با جستجوی Google |
 | --- | --- |
+| ‫Gemini 4 Argon | ✔️ |
 | Gemini 3.8 Flash | ✔️ |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
-| Versión preliminar de Gemini 3.1 Flash Image | ✔️ |
-| Versión preliminar de Gemini 3.1 Pro | ✔️ |
-| Versión preliminar de Gemini 3 Pro Image | ✔️ |
-| Versión preliminar de Gemini 3 Flash | ✔️ |
-| Gemini 2.5 Pro | ✔️ |
-| Gemini 2.5 Flash | ✔️ |
+| پیش‌نمایش تصویر Gemini 3.1 Flash | ✔️ |
+| پیش‌نمایش Gemini 3.1 Pro | ✔️ |
+| پیش‌نمایش تصویر Gemini 3 Pro | ✔️ |
+| Gemini 3 Flash Preview | ✔️ |
+| ‫Gemini 2.5 Pro | ✔️ |
+| ‫Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## Combinaciones de herramientas compatibles
+## ترکیب‌های ابزار پشتیبانی‌شده
 
-Puedes usar la fundamentación con la Búsqueda de Google con otras herramientas, como la [ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419), el [contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419) y la [fundamentación con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419) (compatible con Gemini 3.5 Flash-Lite y modelos posteriores) para potenciar casos de uso más complejos.
-Los modelos de Gemini 3 también admiten la combinación de estas herramientas integradas con herramientas personalizadas (llamadas a funciones). Obtén más información en la página de [combinaciones de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
+می‌توانید از «پایه با جستجوی Google» با ابزارهای دیگر مثل
+[اجرای کد](https://ai.google.dev/gemini-api/docs/code-execution?hl=fa)،
+[زمینه نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa)، و
+[پایه با Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fa) (پشتیبانی‌شده در
+Gemini 3.5 Flash-Lite و مدل‌های جدیدتر) برای تقویت موارد استفاده پیچیده‌تر استفاده کنید.
+مدل‌های Gemini 3 همچنین از ترکیب این ابزارهای داخلی با ابزارهای سفارشی (فراخوانی تابع) پشتیبانی می‌کنند. در صفحه
+[ترکیب‌های ابزار](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fa) بیشتر بدانید.
 
-## ¿Qué sigue?
+## قدم بعدی چیست
 
-- Obtén información sobre otras herramientas disponibles, como [Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
-- Aprende a aumentar las instrucciones con URLs específicas usando la [herramienta de contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419).
+- با ابزارهای دردسترس دیگر، مثل [فراخوانی تابع](https://ai.google.dev/gemini-api/docs/function-calling?hl=fa)، آشنا شوید.
+- با نحوه تقویت پیام‌واره‌ها با نشانی‌های وب خاص بااستفاده از [ابزار بافت نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa) آشنا شوید.
 
-Enviar comentarios
+ارسال بازخورد
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Última actualización: 2026-10-09 (UTC)
+تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی.
 
-¿Quieres brindar más información?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-09 (UTC)"],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی."],[],[]]

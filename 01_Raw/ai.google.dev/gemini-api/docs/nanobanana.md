@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/nanobanana?hl=es-419
-fetched_at: 2026-09-14T05:48:59.506308+00:00
+fetched_at: 2026-10-19T05:34:54.872347+00:00
 title: "Nano Banana (generaci\u00f3n de im\u00e1genes) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 

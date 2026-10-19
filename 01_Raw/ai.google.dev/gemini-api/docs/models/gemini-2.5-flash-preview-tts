@@ -1,49 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=tr
-fetched_at: 2026-10-12T06:55:25.594527+00:00
-title: "Gemini 2.5 Flash metin okuma \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=sq
+fetched_at: 2026-10-19T05:46:21.701938+00:00
+title: "Tekst n\u00eb ligj\u00ebrim me Gemini 2.5 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-Geri bildirim gönderin
+Dërgo komente
 
-# Gemini 2.5 Flash metin okuma
+# Tekst në ligjërim me Gemini 2.5 Flash
 
-Düşük gecikme süresi ve uygun maliyetli ses üretimi sunan, yüksek kaliteli konuşma sentezi için en hızlı motorumuz. Gemini 2.5 Flash TTS, anlık asistanlar, yüksek hacimli anlatım ve ses tarzı ile hız üzerinde ayrıntılı kontrol gerektiren sohbet kullanım alanları için en uygun modeldir.
+Motorri ynë më i shpejtë për sintezën e të folurit me besnikëri të lartë, që ofron gjenerim audio me kosto efikase dhe vonesë të ulët. Gemini 2.5 Flash TTS është më i miri për asistentët në kohë reale, rrëfimet me volum të lartë dhe rastet e përdorimit të bisedave që kërkojnë kontroll të detajuar mbi stilin dhe ritmin e zërit.
 
-[Google AI Studio'da deneme](https://aistudio.google.com?model=gemini-2.5-flash-preview-tts&hl=tr)
+[Provo në Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-preview-tts&hl=sq)
 
-## Belgeler
+## Dokumentacioni
 
-Özellikler ve işlevler hakkında kapsamlı bilgi için [Metin Okuma](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr) kılavuzunu ziyaret edin.
+Vizito udhëzuesin e [Tekstit në ligjërim](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq) për mbulimin e plotë të veçorive dhe aftësive.
 
 ## gemini-2.5-flash-preview-tts
 
-| Mülk | Açıklama |
+| Prona | Përshkrimi |
 | --- | --- |
-| id\_cardModel kodu | `gemini-2.5-flash-preview-tts` |
-| saveDesteklenen veri türleri | **Girişler**  Metin  **Çıkış**  Ses |
-| token\_autoJeton sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş jetonu sınırı**  8.192  **Çıkış jetonu sınırı**  16.384 |
-| handymanÖzellikler | **[Ses üretme](https://ai.google.dev/gemini-api/docs/speech-generation?hl=tr)**  Destekleniyor  **[Önbelleğe alma](https://ai.google.dev/gemini-api/docs/caching?hl=tr)**  Desteklenmiyor  **[Kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr)**  Desteklenmiyor  **[Dosya arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr)**  Desteklenmiyor  **[İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)**  Desteklenmiyor  **[Google Haritalar ile Temellendirme](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr)**  Desteklenmiyor  **[Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)**  Desteklenmiyor  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=tr)**  Desteklenmiyor  **[Arama temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)**  Desteklenmiyor  **[Yapılandırılmış çıkışlar](https://ai.google.dev/gemini-api/docs/structured-output?hl=tr)**  Desteklenmiyor  **[Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr)** (Thinking)  Desteklenmiyor  **[URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr)**  Desteklenmiyor |
-| speedTüketim seçenekleri | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=tr)**  Destekleniyor  **[Esnek çıkarım](https://ai.google.dev/gemini-api/docs/flex-inference?hl=tr)**  Desteklenmiyor  **[Öncelik çıkarımı](https://ai.google.dev/gemini-api/docs/priority-inference?hl=tr)**  Desteklenmiyor |
-| 123Sürümler | Daha fazla bilgi için [model sürümü kalıpları](https://ai.google.dev/gemini-api/docs/models/gemini?hl=tr#model-versions) başlıklı makaleyi inceleyin.  - `gemini-2.5-flash-preview-tts` |
-| calendar\_monthSon güncelleme | Aralık 2025 |
+| id\_cardKodi i modelit | `gemini-2.5-flash-preview-tts` |
+| Llojet e të dhënave të mbështetura për ruajtjen | **Hyrjet**  Teksti  **Rezultati**  Audio |
+| token\_autoKufijtë e token-ëve[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=sq) | **Kufiri i tokenëve të hyrjes**  8 192  **Kufiri i tokenëve të rezultatit**  16 384 |
+| handymanAftësitë | **[Gjenerimi i audios](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq)**  Mbështetur  **[Ruajtja në memorien specifike](https://ai.google.dev/gemini-api/docs/caching?hl=sq)**  Nuk mbështetet  **[Ekzekutimi i kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq)**  Nuk mbështetet  **[Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq)**  Nuk mbështetet  **[Thirrja e funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq)**  Nuk mbështetet  **[Argumentimi me Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq)**  Nuk mbështetet  **[Gjenerimi i imazheve](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq)**  Nuk mbështetet  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=sq)**  Nuk mbështetet  **[Bazat e "Kërko"](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)**  Nuk mbështetet  **[Rezultatet e strukturuara](https://ai.google.dev/gemini-api/docs/structured-output?hl=sq)**  Nuk mbështetet  **[Arsyetuesi](https://ai.google.dev/gemini-api/docs/thinking?hl=sq)**  Nuk mbështetet  **[Konteksti i URL-së](https://ai.google.dev/gemini-api/docs/url-context?hl=sq)**  Nuk mbështetet |
+| speedOpsionet e konsumit | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=sq)**  Nuk mbështetet  **[Deduksioni Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=sq)**  Nuk mbështetet  **[Konkluzioni i përparësisë](https://ai.google.dev/gemini-api/docs/priority-inference?hl=sq)**  Nuk mbështetet |
+| 123Versionet | Lexo [modelet e versioneve](https://ai.google.dev/gemini-api/docs/models/gemini?hl=sq#model-versions) për më shumë detaje.  - `gemini-2.5-flash-preview-tts` |
+| calendar\_monthPërditësimi më i fundit | Dhjetor 2025 |
 
-Geri bildirim gönderin
+Dërgo komente
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Son güncelleme tarihi: 2026-08-19 UTC.
+Përditësimi i fundit: 2026-10-13 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Duhet të na tregosh më shumë?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-08-19 UTC."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]

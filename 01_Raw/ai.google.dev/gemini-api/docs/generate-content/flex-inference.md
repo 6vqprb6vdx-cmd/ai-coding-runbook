@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=zh-CN
-fetched_at: 2026-10-12T06:54:37.035942+00:00
-title: "Flex \u63a8\u7406 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=ar
+fetched_at: 2026-10-19T05:36:46.082211+00:00
+title: "\u0627\u0644\u0627\u0633\u062a\u0646\u062a\u0627\u062c \u0627\u0644\u0645\u0631\u0646 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 现已正式发布。我们建议使用此 API 来访问所有最新功能和模型。
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
 
-发送反馈
+إرسال ملاحظات
 
-# Flex 推理
+# الاستنتاج المرن
 
-说明：了解如何使用 Flex 推理层优化费用
+الوصف: تعرَّف على كيفية تحسين التكاليف باستخدام مستوى الاستنتاج المرن
 
-Gemini Flex API 是一种推理层级，与标准费率相比，可将成本降低 50%，但延迟时间不确定，并且仅提供尽力而为的可用性。它专为需要同步处理但不需要标准 API 的实时性能的延迟容忍型工作负载而设计。
+‫Gemini Flex API هو مستوى استنتاج يقدّم خصمًا بنسبة% 50 على التكلفة مقارنةً بالأسعار العادية، مقابل وقت استجابة متغيّر وتوفّر بأفضل جهد. تم تصميم هذا المستوى لأحمال العمل التي تتحمّل وقت الاستجابة وتتطلّب معالجة متزامنة ولكن لا تحتاج إلى الأداء في الوقت الفعلي الذي توفّره واجهة برمجة التطبيقات العادية.
 
-## 如何使用 Flex
+## كيفية استخدام مستوى الاستنتاج المرن
 
-如需使用 Flex 层级，请在请求正文中将 `service_tier` 指定为 `flex`。默认情况下，如果省略此字段，请求将使用标准层级。
+لاستخدام مستوى الاستنتاج المرن، حدِّد `service_tier` على أنّه `flex` في نص الطلب. تستخدم الطلبات تلقائيًا المستوى العادي إذا تم حذف هذا الحقل.
 
 ### Python
 
@@ -68,7 +68,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -116,57 +116,60 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Flex 推理的运作方式
+## آلية عمل الاستنتاج المرن
 
-Gemini Flex 推理弥合了标准 API 与 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn) 的 24 小时周转时间之间的差距。它利用非高峰时段的“可分流”计算容量，为后台任务和顺序工作流提供经济高效的解决方案。
+يسدّ الاستنتاج المرن في Gemini الفجوة بين واجهة برمجة التطبيقات العادية ومدة المعالجة التي تبلغ 24 ساعة
+في واجهة برمجة التطبيقات [للمعالجة المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar). ويستخدِم هذا المستوى سعة الحوسبة "القابلة للتخفيض" في أوقات انخفاض الطلب لتوفير حلّ منخفض التكلفة للمهام في الخلفية ومهام سير العمل المتسلسلة.
 
-| 功能 | Flex | 优先级 | 标准 | 批量 |
+| الميزة | التعبير | الأولوية | خطة "الرزمة العادية" | مجمّعة |
 | --- | --- | --- | --- | --- |
-| **价格** | 5 折优惠 | 比标准版多 75-100% | 全价票 | 5 折优惠 |
-| **延迟时间** | 分钟数（目标为 1-15 分钟） | 低（秒） | 秒到分钟 | 最长 24 小时 |
-| **可靠性** | 尽力而为（可舍弃） | 高（不可脱落） | 高 / 中高 | 高（针对吞吐量） |
-| **接口** | 同步 | 同步 | 同步 | 异步 |
+| **الأسعار** | خصم بنسبة% 50 | أعلى بنسبة %75 إلى %100 من الخطة "الرزمة العادية" | السعر الكامل | خصم بنسبة% 50 |
+| **وقت الاستجابة** | دقائق (الهدف: من دقيقة واحدة إلى 15 دقيقة) | منخفض (ثوانٍ) | من ثوانٍ إلى دقائق | ما يصل إلى 24 ساعة |
+| **الموثوقية** | بأفضل جهد (قابلة للتخفيض) | عالية (غير قابلة للتخفيض) | عالية / متوسطة عالية | عالية (بالنسبة إلى معدّل النقل) |
+| **الواجهة** | متزامن | متزامن | متزامن | غير متزامن |
 
-### 主要优势
+### المزايا الرئيسية
 
-- **成本效益**：可大幅节省非生产评估、后台代理和数据丰富化的费用。
-- **低摩擦**：无需管理批处理对象、任务 ID 或轮询；只需向现有请求添加一个参数即可。
-- **同步工作流**：非常适合顺序 API 链，其中下一个请求取决于上一个请求的输出，因此比批量工作流更灵活，适合智能体工作流。
+- **الكفاءة من حيث التكلفة**: وفورات كبيرة لعمليات التقييم غير الإنتاجية والوكلاء في الخلفية وإثراء البيانات
+- **سهولة الاستخدام**: ما عليك سوى إضافة مَعلمة واحدة إلى طلباتك الحالية، بدون الحاجة إلى إدارة كائنات مجمّعة أو أرقام تعريف الوظائف أو عمليات الاقتراع.
+- **مهام سير العمل المتزامنة**: مثالية لسلاسل واجهات برمجة التطبيقات المتسلسلة التي يعتمد فيها الطلب التالي على ناتج الطلب السابق، ما يجعلها أكثر مرونة من واجهة برمجة التطبيقات للمعالجة المجمّعة لمهام سير العمل المستندة إلى الوكلاء
 
-### 使用场景
+### حالات الاستخدام
 
-- **离线评估**：运行“LLM-as-a-judge”回归测试或排行榜。
-- **后台代理**：可接受延迟几分钟的顺序任务，例如 CRM 更新、个人资料构建或内容审核。
-- **受预算限制的研究**：需要在有限的预算下使用大量令牌的学术实验。
+- **التقييمات بلا إنترنت**: إجراء اختبارات الانحدار أو لوحات الصدارة باستخدام نموذج لغوي كبير كحكم
+- **الوكلاء في الخلفية**: مهام متسلسلة مثل تعديلات نظام إدارة علاقات العملاء أو إنشاء الملفات الشخصية أو الإشراف على المحتوى، حيث تكون دقائق التأخير مقبولة
+- **الأبحاث المقيّدة بالميزانية**: التجارب الأكاديمية التي تتطلّب حجمًا كبيرًا من الرموز المميّزة بميزانية محدودة
 
-### 速率限制
+### حدود معدّل الاستخدام
 
-Flex 推理流量会计入常规[速率限制](https://aistudio.google.com/rate-limit?hl=zh-cn)；它不会像 [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn) 那样提供扩展的速率限制。
+يتم احتساب عدد الزيارات الناتجة عن الاستنتاج المرن ضمن حدود [معدّل الاستخدام](https://aistudio.google.com/rate-limit?hl=ar) العامة، ولا يقدّم هذا المستوى
+حدودًا معدّل استخدام موسّعة مثل واجهة برمجة التطبيقات للمعالجة [المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar).
 
-### 可减少的容量
+### السعة القابلة للتخفيض
 
-Flex 流量的处理优先级较低。如果标准流量出现高峰，为了确保高优先级用户的容量，可能会抢占或逐出 Flex 请求。如果您需要高优先级的推理，请查看[优先推理](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)
+يتم التعامل مع عدد الزيارات الناتجة عن الاستنتاج المرن بأولوية أقل. في حال حدوث ارتفاع مفاجئ في عدد الزيارات العادية، قد يتم إيقاف طلبات الاستنتاج المرن أو إزالتها لضمان توفّر السعة للمستخدمين ذوي الأولوية العالية. إذا كنت تبحث عن استنتاج ذي أولوية عالية، اطّلِع على
+[الاستنتاج ذي الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)
 
-### 错误代码
+### رموز الخطأ
 
-当 Flex 容量不可用或系统拥塞时，API 将返回标准错误代码：
+عندما تكون سعة الاستنتاج المرن غير متاحة أو يكون النظام مزدحمًا، ستعرض واجهة برمجة التطبيقات رموز الخطأ العادية:
 
-- **503 服务不可用**：系统目前已达配额上限。
-- **429 请求过多**：速率限制或资源耗尽。
+- **\*\*503 الخدمة غير متاحة\*\***: يتلقّى النظام عدد طلبات كبير جدًا في الوقت الحالي.
+- **\*\*429 عدد كبير جدًا من الطلبات\*\***: تم تجاوز حدود معدّل الاستخدام أو استنفاد الموارد.
 
-### 客户责任
+### مسؤولية العميل
 
-- **无服务器端回退**：为避免产生意外费用，如果灵活型容量已满，系统不会自动将灵活型请求升级为标准型。
-- **重试**：您必须实现自己的客户端重试逻辑，并使用指数退避算法。
-- **超时**：由于 Flex 请求可能会排队，我们建议将客户端超时时间增加到 10 分钟或更长时间，以避免过早关闭连接。
+- **لا يوجد خيار احتياطي من جهة الخادم**: لمنع حدوث رسوم غير متوقّعة، لن يرقّي النظام تلقائيًا طلب الاستنتاج المرن إلى المستوى العادي إذا كانت سعة الاستنتاج المرن ممتلئة.
+- **إعادة المحاولات**: عليك تنفيذ منطق إعادة المحاولة من جهة العميل باستخدام خوارزمية الرقود الأسي الثنائي.
+- **مهلات الانتظار**: بما أنّ طلبات الاستنتاج المرن قد تبقى في قائمة الانتظار، ننصحك بزيادة مهلات الانتظار من جهة العميل إلى 10 دقائق أو أكثر لتجنُّب إغلاق الاتصال قبل الأوان.
 
-## 调整超时窗口
+## تعديل فترات مهلة الانتظار
 
-您可以为 REST API 和客户端库配置单次请求超时，并且只能在使用客户端库时配置全局超时。
+يمكنك ضبط مهلات الانتظار لكل طلب في REST API ومكتبات العميل، ومهلات الانتظار العامة فقط عند استخدام مكتبات العميل.
 
-请务必确保客户端超时时间涵盖预期的服务器耐心等待时间（例如，对于 Flex 等待队列，超时时间应为 600 秒以上）。SDK 需要以毫秒为单位的超时值。
+احرص دائمًا على أن تغطي مهلة الانتظار من جهة العميل فترة الانتظار المقصودة من جهة الخادم (مثل 600 ثانية أو أكثر لقوائم انتظار الاستنتاج المرن). تتوقّع حِزم تطوير البرامج (SDK) قيم مهلة الانتظار بالملّي ثانية.
 
-### 每个请求的超时时间
+### مهلات الانتظار لكل طلب
 
 ### Python
 
@@ -247,7 +250,7 @@ except Exception as e:
  await main();
 ```
 
-### Go
+### انتقال
 
 ```
 package main
@@ -313,11 +316,12 @@ func main() {
 
 ### REST
 
-进行 REST 调用时，您可以使用 HTTP 标头和 `curl` 选项的组合来控制超时：
+عند إجراء طلبات REST، يمكنك التحكّم في مهلات الانتظار باستخدام مجموعة من عناوين HTTP وخيارات `curl`:
 
-- **`X-Server-Timeout` 标头（服务器端超时）**：此标头向 Gemini API 服务器建议首选的超时时长（默认值为 600 秒）。服务器会尝试遵循此设置，但不能保证一定能做到。该值应以秒为单位。
-- **`curl` 中的 `--max-time`（客户端超时）**：`curl --max-time
-  <seconds>` 选项可为 `curl` 等待整个操作完成的总时间（以秒为单位）设置硬性限制。这是一项客户端安全措施。
+- **العنوان `X-Server-Timeout` (مهلة الانتظار من جهة الخادم)**: يشير هذا العنوان إلى مدة مهلة الانتظار المفضّلة (600 ثانية تلقائيًا) لخادم Gemini API. سيحاول الخادم الالتزام بهذه المدة، ولكن لا يمكن ضمان ذلك. يجب أن تكون القيمة بالثواني.
+- **`--max-time` في `curl` (مهلة الانتظار من جهة العميل)**: يضبط الخيار `curl --max-time
+  <seconds>` حدًا أقصى للوقت الإجمالي (بالثواني) الذي ستنتظره `curl`
+  حتى تكتمل العملية بأكملها. هذا إجراء وقائي من جهة العميل.
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -333,9 +337,9 @@ func main() {
  }'
 ```
 
-### 全局超时
+### مهلات الانتظار العامة
 
-如果您希望通过特定 `genai.Client` 实例（仅限客户端库）发出的所有 API 调用都具有默认超时时间，可以在使用 `http_options` 和 `genai.types.HttpOptions` 初始化客户端时配置此设置。
+إذا كنت تريد أن تتضمّن جميع طلبات بيانات من واجهة برمجة التطبيقات التي يتم إجراؤها من خلال مثيل `genai.Client` معيّن (مكتبات العميل فقط) مهلة انتظار تلقائية، يمكنك ضبط ذلك عند تهيئة العميل باستخدام `http_options` و`genai.types.HttpOptions`.
 
 ### Python
 
@@ -425,7 +429,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### انتقال
 
 ```
  package main
@@ -482,9 +486,9 @@ await main();
  }
 ```
 
-## 实现重试
+## تنفيذ عمليات إعادة المحاولة
 
-由于 Flex 是可舍弃的，并且会因失败而返回 503 错误，因此以下示例展示了如何选择性地实现重试逻辑，以继续处理失败的请求：
+بما أنّ الاستنتاج المرن قابل للتخفيض ويتعذّر إجراؤه مع ظهور أخطاء 503، إليك مثال على تنفيذ منطق إعادة المحاولة اختياريًا لمتابعة الطلبات التي تعذّر إجراؤها:
 
 ### Python
 
@@ -567,7 +571,7 @@ print(response.text)
  await main();
 ```
 
-### Go
+### انتقال
 
 ```
  package main
@@ -626,42 +630,44 @@ print(response.text)
  }
 ```
 
-## 价格
+## الأسعار
 
-Flex 推理的价格为[标准 API](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn) 的 50%，按 token 计费。
+يتم تسعير الاستنتاج المرن بنسبة% 50 من [واجهة برمجة التطبيقات العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)
+، ويتم تحصيل الرسوم لكل رمز مميّز.
 
-## 支持的模型
+## النماذج المتوافقة
 
-以下模型支持 Flex 推理：
+تتوفّر ميزة الاستنتاج المرن في النماذج التالية:
 
-| 模型 | 弹性推理 |
+| الطراز | الاستنتاج المرن |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3 Pro Image 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash 图片](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
+| [‫Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=ar) | ✔️ |
+| [‫Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ar) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ar) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ar) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
+| [‫Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
+| [‫Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
+| [‫Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ar) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
+| [‫Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
 
-## 后续步骤
+## الخطوات التالية
 
-不妨了解 Gemini 的其他[推理和优化](https://ai.google.dev/gemini-api/docs/optimization?hl=zh-cn)选项：
+يمكنك الاطّلاع على خيارات [الاستنتاج والتحسين](https://ai.google.dev/gemini-api/docs/optimization?hl=ar) الأخرى في Gemini:
 
-- [优先推理](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)，实现超低延迟。
-- [批量 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)，可在 24 小时内异步处理。
-- 利用[上下文缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)，降低输入 token 费用。
+- [الاستنتاج ذو الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar) لوقت الاستجابة الفائق السرعة
+- [واجهة برمجة التطبيقات للمعالجة المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) للمعالجة غير المتزامنة في غضون 24 ساعة
+- [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar) لتقليل تكاليف الرموز المميّزة للإدخال
 
-发送反馈
+إرسال ملاحظات
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最后更新时间 (UTC)：2026-10-09。
+تاريخ التعديل الأخير: 2026-10-13 (حسب التوقيت العالمي المتفَّق عليه)
 
-需要向我们提供更多信息？
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-09。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

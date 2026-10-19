@@ -1,79 +1,94 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=fr
-fetched_at: 2026-10-12T06:51:57.678828+00:00
-title: "Forfaits Google\u00a0AI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=es-419
+fetched_at: 2026-10-19T05:45:10.335293+00:00
+title: "Planes Google AI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Envoyer des commentaires
+Enviar comentarios
 
-# Forfaits Google AI
+# Planes Google AI
 
-Utilisez votre forfait Google AI dans AI Studio.
+Usa tu plan de suscripción a Google AI en AI Studio.
 
-Les forfaits Google AI Pro et Ultra offrent un accès plus étendu aux modèles et des limites de débit plus élevées pour le prototypage et le développement dans AI Studio par rapport au niveau sans frais.
+Los planes de suscripción Google AI Pro y Ultra proporcionan un mayor acceso a los modelos y
+límites de frecuencia más altos para la creación de prototipos y el desarrollo en AI Studio en comparación con
+el nivel gratuito.
 
-Pour souscrire un forfait Google AI, vous pouvez passer à un forfait supérieur directement depuis Google AI Studio en cliquant sur le bouton **Changer de forfait** dans le menu de navigation de gauche. Vous pouvez également vous inscrire en accédant à la
-[page Forfaits Google AI](https://one.google.com/about/google-ai-plans/?hl=fr).
+Para registrarte en un plan Google AI, puedes actualizarlo directamente desde
+Google AI Studio haciendo clic en el botón **Actualizar** en el menú de navegación
+izquierdo. Como alternativa, puedes registrarte visitando la
+[página de planes Google AI](https://one.google.com/about/google-ai-plans/?hl=es-419).
 
-## Présentation
+## Descripción general
 
-Les abonnements Google AI Pro et Ultra permettent aux développeurs de débloquer des modèles payants
-et des limites de débit plus élevées dans le Playground de Google AI Studio, ainsi que des fonctionnalités
-telles que l'assistant de code en [mode "Compilation"](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=fr)
-pour le codage Vibe. Les abonnés bénéficient de quotas quotidiens de base
-plus élevés que ceux du niveau sans frais pour une utilisation dans les interfaces
-[Playground](https://aistudio.google.com/prompts/new_chat?hl=fr) et
-[Compilation](https://aistudio.google.com/apps?hl=fr). Les limites quotidiennes sont appliquées à l'aide de réinitialisations plutôt que de fenêtres temporelles glissantes, ce qui garantit une expérience de développement fluide avant de passer au développement à l'échelle de la production avec Cloud Billing.
+Las suscripciones a Google AI Pro y Ultra permiten a los desarrolladores acceder a modelos
+pagados y límites de frecuencia más altos en Google AI Studio Playground y a funciones
+como el asistente de programación en el [modo de compilación](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=es-419)
+para la programación por vibración. Los suscriptores reciben asignaciones de cuota diaria de referencia
+más altas que las del nivel gratuito para usarlas en las interfaces de
+[Playground](https://aistudio.google.com/prompts/new_chat?hl=es-419) y
+[Build](https://aistudio.google.com/apps?hl=es-419). Los límites diarios se
+aplican mediante restablecimientos en lugar de períodos continuos, lo que garantiza una experiencia de desarrollo
+fluida antes de pasar al desarrollo a escala de producción
+con la Facturación de Cloud.
 
-| Plan | Utilisation d'AI Studio | Accès aux modèles et avantages |
+| Plan | Uso de AI Studio | Acceso a modelos y beneficios |
 | --- | --- | --- |
-| **Free** | Quota modeste | Limites et accès de base, avec possibilité de passer à un forfait supérieur pour en bénéficier davantage. |
-| **AI Pro** | Quota plus élevé | Accès à des modèles premium tels que Gemini Pro, Nano Banana et Lyria. |
-| **AI Ultra** | Quota le plus élevé | Limites les plus élevées pour le prototypage, le développement et les modèles de pointe avancés. |
+| **Gratis** | Cuota moderada | Límites y acceso básicos, con la opción de actualizar para obtener más. |
+| **AI Pro** | Cuota más alta | Acceso a modelos premium, como [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419), Gemini Pro, Nano Banana y Lyria |
+| **AI Ultra** | Cuota más alta | Los límites más altos para creación de prototipos, desarrollo y modelos de frontera avanzados, como [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419). |
 
-## Utilisation de l'API Gemini
+## Uso de la API de Gemini
 
-Lorsque les quotas d'abonnement de base quotidiens sont épuisés dans AI Studio, vous pouvez poursuivre vos workflows à l'aide d'une clé API Gemini avec la facturation Cloud activée pour une utilisation directe de l'API Gemini avec paiement à la requête.
-L'utilisation de l'API Gemini pour les projets et les clés API peut être observée dans le
-[tableau de bord AI Studio](https://aistudio.google.com/projects?hl=fr).
+Cuando se agotan las cuotas de suscripción de referencia diarias en AI Studio,
+puedes continuar con tus flujos de trabajo usando una clave de API de Gemini con la Facturación de Cloud
+habilitada para el uso de pago por solicitud de la API de Gemini directamente.
+El uso de la API de Gemini para proyectos y claves de API se puede observar en el
+[panel de AI Studio](https://aistudio.google.com/projects?hl=es-419).
 
-Les abonnés disposant de projets Google Cloud Platform (GCP) et de Cloud Billing
-activé peuvent recevoir des crédits Cloud mensuels du
-[Google Developer Program](https://developers.google.com/program?hl=fr)
-pour les services Cloud, y compris l'API Gemini. L'utilisation et la facturation prépayées et postpayées restent inchangées. Pour les utilisateurs ayant une facturation prépayée, un solde payant supérieur à 0 $ est requis dans AI Studio pour activer les crédits promotionnels. Les crédits Google Cloud éligibles, s'il y en a, sont appliqués en premier.
-[En savoir plus](https://ai.google.dev/gemini-api/docs/billing?hl=fr#billing-plans).
+Los suscriptores con proyectos de Google Cloud Platform (GCP) y la Facturación de Cloud
+habilitada reúnen los requisitos para recibir créditos mensuales de Cloud del
+[Google Developer Program](https://developers.google.com/program?hl=es-419)
+para los servicios de Cloud, incluida la API de Gemini. El uso y la facturación de prepago y pospago
+no cambian. En el caso de los usuarios que usan la facturación prepaga, se requiere un
+saldo pagado superior a USD 0 en AI Studio para activar los créditos
+promocionales. Si hay créditos de Google Cloud elegibles, se aplicarán primero.
+[Obtén más información](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#billing-plans).
 
-L'intégration de l'abonnement Google AI facilite l'expérimentation et le développement avancés. Toutefois, pour les déploiements en production à grande échelle, nous vous recommandons d'utiliser les projets Google Cloud, le [niveau Starter Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=fr), et les clés API Gemini.
+La integración de la suscripción a la IA de Google reduce la barrera de entrada para
+la experimentación y el desarrollo avanzados. Sin embargo, para las implementaciones de producción a gran escala, se recomiendan los proyectos de Google Cloud, el [nivel Inicial de Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=es-419) y las claves de API de Gemini.
 
-## Limites et compatibilité
+## Limitaciones y compatibilidad
 
-- **Interface utilisateur AI Studio uniquement** : les avantages du forfait Google AI pour l'utilisation par les développeurs ne s'appliquent que dans l'interface Web de Google AI Studio. L'utilisation directe de l'API Gemini (par exemple, à l'aide de clés API ou d'applications externes) est facturée et gérée séparément. Vous pouvez toutefois utiliser votre abonnement dans d'autres produits Google (voir [Forfaits Google AI](https://one.google.com/about/google-ai-plans/?hl=fr)).
-- **Différent de la facturation de l'API** : les forfaits Google AI pour AI Studio sont distincts
-  des [niveaux d'utilisation de l'API Gemini](https://ai.google.dev/gemini-api/docs/billing?hl=fr), qui couvrent
-  l'utilisation de l'API pour le développement et la production.
-- **Crédits Google One** : [les crédits Google One AI](https://support.google.com/googleone/answer/16287445?hl=fr) sont un
-  système de crédits distinct qui n'est pas compatible avec AI Studio et ne
-  chevauche pas les crédits Google Cloud.
-- **Accès aux agents** : l'accès aux agents (Deep Research et Antigravity Preview)
-  dans AI Studio n'est pas inclus dans les forfaits Google AI et nécessite une
-  [clé API payante](https://ai.google.dev/gemini-api/docs/billing?hl=fr#setup-billing).
+- **Solo para la IU de AI Studio:** Los beneficios del plan Google AI para el uso de desarrolladores solo se aplican en la interfaz web de Google AI Studio. El uso directo de la API de Gemini
+  (como el uso de claves de API o aplicaciones externas) se factura y administra
+  por separado. Sin embargo, puedes usar tu suscripción en otros productos de Google (consulta [Planes Google AI](https://one.google.com/about/google-ai-plans/?hl=es-419)).
+- **Diferente de la facturación de la API:** Los planes de Google AI para AI Studio son independientes
+  de los [niveles de uso de la API de Gemini](https://ai.google.dev/gemini-api/docs/billing?hl=es-419), que abarcan
+  el uso de la API de desarrollo y producción.
+- **Créditos de Google One:** Los [créditos de IA de Google One](https://support.google.com/googleone/answer/16287445?hl=es-419) son un
+  sistema de créditos independiente que no se admite en AI Studio y no
+  se superponen con los créditos de Google Cloud.
+- **Acceso a Gemini 4 Argon:** [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419)
+  no está disponible en el plan gratuito.
+- **Acceso a agentes:** El acceso a agentes (Deep Research y Antigravity Preview) en AI Studio no se incluye en los planes Google AI y requiere una [clave de API pagada](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#setup-billing).
 
-Envoyer des commentaires
+Enviar comentarios
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Dernière mise à jour le 2026/08/19 (UTC).
+Última actualización: 2026-10-16 (UTC)
 
-Voulez-vous nous donner plus d'informations ?
+¿Quieres brindar más información?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/08/19 (UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-16 (UTC)"],[],[]]

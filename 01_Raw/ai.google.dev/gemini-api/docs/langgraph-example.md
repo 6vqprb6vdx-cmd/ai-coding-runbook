@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=th
-fetched_at: 2026-10-12T06:56:15.031344+00:00
+fetched_at: 2026-10-19T05:38:48.656165+00:00
 title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e2d\u0e40\u0e08\u0e19\u0e15\u0e4c ReAct \u0e15\u0e31\u0e49\u0e07\u0e41\u0e15\u0e48\u0e15\u0e49\u0e19\u0e14\u0e49\u0e27\u0e22 Gemini \u0e41\u0e25\u0e30 LangGraph \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 

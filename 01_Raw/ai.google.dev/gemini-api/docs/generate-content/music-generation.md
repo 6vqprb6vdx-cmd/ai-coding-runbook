@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=es-419
-fetched_at: 2026-10-12T06:50:03.507716+00:00
-title: "Genera m\u00fasica con Lyria 3.5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=ko
+fetched_at: 2026-10-19T05:46:47.608277+00:00
+title: "Lyria 3.5\ub85c \uc74c\uc545 \uc0dd\uc131\ud558\uae30 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
 
-Enviar comentarios
+의견 보내기
 
-# Genera música con Lyria 3.5
+# Lyria 3.5로 음악 생성하기
 
-Lyria 3.5 es la familia de modelos de generación de música de Google, disponible a través de la API de Gemini. Con Lyria 3.5, puedes generar audio estéreo de alta calidad a 44.1 kHz a partir de instrucciones de texto o imágenes. Estos modelos ofrecen coherencia estructural, incluidas las voces, las letras sincronizadas y los arreglos instrumentales completos.
+Lyria 3.5는 Gemini API를 통해 사용할 수 있는 Google의 음악 생성 모델 제품군입니다. Lyria 3.5를 사용하면 텍스트 프롬프트나 이미지에서 고품질 44.1kHz 스테레오 오디오를 생성할 수 있습니다. 이 모델은 보컬, 타이밍에 맞춘 가사, 전체 악기 편곡을 포함한 구조적 일관성을 제공합니다.
 
-La familia de Lyria incluye los siguientes modelos:
+Lyria 제품군에는 다음 모델이 포함됩니다.
 
-| Modelo | ID de modelo | Ideal para | Duración | Salida |
+| 모델 | 모델 ID | 권장 용도 | 기간 | 출력 |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | Clips cortos, bucles y adelantos | 30 segundos | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | Canciones completas con versos, estribillos y puentes | Un par de minutos (se puede controlar con instrucciones) | MP3 |
+| **Lyria 3 클립** | `lyria-3-clip-preview` | Shorts 동영상, 연속 재생, 미리보기 | 30초 | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | 절, 후렴, 브리지가 포함된 전체 길이 노래 | 몇 분 (프롬프트를 통해 제어 가능) | MP3 |
 
-Ambos modelos se pueden usar con el método `generateContent` estándar y la nueva [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), admiten entradas multimodales (texto e imágenes) y producen audio **estéreo de alta fidelidad de 44.1 kHz**.
+두 모델 모두 표준 `generateContent` 메서드와 새로운 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)를 사용하여 사용할 수 있으며, 멀티모달 입력 (텍스트 및 이미지)을 지원하고 **44.1kHz 고품질 스테레오** 오디오를 생성합니다.
 
-## Genera un clip musical
+## 음악 클립 생성
 
-El modelo Lyria 3 Clip siempre genera un clip de **30 segundos**. Para generar un clip, llama al método `generateContent` con una instrucción de texto. La respuesta siempre incluye la letra y la estructura de la canción generadas junto con el audio.
+Lyria 3 Clip 모델은 항상 **30초** 길이의 클립을 생성합니다. 클립을 생성하려면 텍스트 프롬프트로 `generateContent` 메서드를 호출합니다. 응답에는 항상 생성된 가사와 노래 구조가 오디오와 함께 포함됩니다.
 
 ### Python
 
@@ -133,7 +133,7 @@ func main() {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -213,9 +213,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## Genera una canción completa
+## 전체 길이 노래 생성
 
-Usa el modelo `lyria-3.5` para generar canciones de larga duración que duren un par de minutos. El modelo Pro comprende la estructura musical y puede crear composiciones con versos, estribillos y puentes distintos. Puedes influir en la duración especificándola en la instrucción (p.ej., "crea una canción de 2 minutos") o usando [marcas de tiempo](#timing) para definir la estructura.
+`lyria-3.5` 모델을 사용하여 몇 분 길이의 전체 노래를 생성합니다. Pro 모델은 음악 구조를 이해하고, 고유한 절, 후렴, 브릿지가 있는 곡을 만들 수 있습니다. 프롬프트에 길이를 지정하거나 (예: '2분 길이의 노래 만들기') [타임스탬프](#timing)를 사용하여 구조를 정의하면 길이에 영향을 줄 수 있습니다.
 
 ### Python
 
@@ -253,7 +253,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### Java
+### 자바
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -290,82 +290,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## Selecciona el formato de salida
+## 출력 형식 선택
 
-De forma predeterminada, los modelos de Lyria 3.5 generan audio en formato **MP3**. En Lyria 3.5, también puedes solicitar el resultado en formato **WAV** configurando `response_format` en `generationConfig`.
-
-### Python
-
-```
-from google.genai import types
-
-response = client.models.generate_content(
-    model="lyria-3.5",
-    contents="An atmospheric ambient track.",
-    config=types.GenerateContentConfig(
-        response_modalities=["AUDIO", "TEXT"],
-        response_format={"audio": {"mime_type": "audio/wav"}},
-    ),
-)
-```
-
-### JavaScript
-
-```
-const response = await ai.models.generateContent({
-  model: "lyria-3.5",
-  contents: "An atmospheric ambient track.",
-  config: {
-    responseModalities: ["AUDIO", "TEXT"],
-    responseFormat: { audio: { mimeType: "audio/wav" } },
-  },
-});
-```
-
-### Go
-
-```
-config := &genai.GenerateContentConfig{
-    ResponseModalities: []string{"AUDIO", "TEXT"},
-    ResponseMIMEType:   "audio/wav",
-}
-
-result, err := client.Models.GenerateContent(
-    ctx,
-    "lyria-3.5",
-    genai.Text("An atmospheric ambient track."),
-    config,
-)
-```
-
-### Java
-
-```
-GenerateContentConfig config = GenerateContentConfig.builder()
-    .responseModalities("AUDIO", "TEXT")
-    .responseFormat(ResponseFormat.builder().audio(AudioFormat.builder().mimeType("audio/wav").build()).build())
-    .build();
-
-GenerateContentResponse response = client.models.generateContent(
-    "lyria-3.5",
-    "An atmospheric ambient track.",
-    config);
-```
-
-### C#
-
-```
-var config = new GenerateContentConfig {
-  ResponseModalities = { "AUDIO", "TEXT" },
-  ResponseMimeType = "audio/wav"
-};
-
-var response = await client.Models.GenerateContentAsync(
-  model: "lyria-3.5",
-  contents: "An atmospheric ambient track.",
-  config: config
-);
-```
+기본적으로 Lyria 3.5 모델은 **MP3** 형식으로 오디오를 생성합니다. Lyria 3.5의 경우 `generationConfig.responseFormat.audio.mimeType`를 `"AUDIO_WAV"`로 설정하여 **WAV** (`AUDIO_WAV`) 형식으로 출력을 요청할 수도 있습니다.
 
 ### REST
 
@@ -382,14 +309,14 @@ curl -s -X POST \
     }],
     "generationConfig": {
       "responseModalities": ["AUDIO", "TEXT"],
-      "responseFormat": { "audio": { "mimeType": "audio/wav" } }
+      "responseFormat": { "audio": { "mimeType": "AUDIO_WAV" } }
     }
   }'
 ```
 
-## Analiza la respuesta
+## 응답 파싱
 
-La respuesta de Lyria 3.5 contiene varias partes. Las partes de texto contienen la letra generada o una descripción en formato JSON de la estructura de la canción. Las partes con `inline_data` contienen los bytes de audio.
+Lyria 3.5의 응답에는 여러 부분이 포함됩니다. 텍스트 부분에는 생성된 가사 또는 노래 구조의 JSON 설명이 포함됩니다. `inline_data`가 있는 부분에는 오디오 바이트가 포함됩니다.
 
 ### Python
 
@@ -515,9 +442,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## Genera música a partir de imágenes
+## 이미지에서 음악 생성
 
-Lyria 3.5 admite entradas multimodales: puedes proporcionar hasta **10 imágenes** junto con tu instrucción de texto, y el modelo compondrá música inspirada en el contenido visual.
+Lyria 3.5는 멀티모달 입력을 지원합니다. 텍스트 프롬프트와 함께 최대 **10개의 이미지**를 제공하면 모델이 시각적 콘텐츠에서 영감을 받아 음악을 작곡합니다.
 
 ### Python
 
@@ -589,7 +516,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### Java
+### 자바
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -638,9 +565,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## Proporciona letras personalizadas
+## 맞춤 가사 제공
 
-Puedes escribir tu propia letra y agregarla a la instrucción. Usa etiquetas de sección, como `[Verse]`, `[Chorus]` y `[Bridge]`, para ayudar al modelo a comprender la estructura de la canción:
+가사를 직접 작성하여 프롬프트에 포함할 수 있습니다. `[Verse]`, `[Chorus]`, `[Bridge]`와 같은 섹션 태그를 사용하여 모델이 노래 구조를 이해하도록 합니다.
 
 ### Python
 
@@ -819,9 +746,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## Controla la sincronización y la estructura
+## 타이밍 및 구조 제어
 
-Puedes especificar exactamente lo que sucede en momentos específicos de la canción con marcas de tiempo. Esto es útil para controlar cuándo entran los instrumentos, cuándo se entregan las letras y cómo progresa la canción:
+타임스탬프를 사용하여 노래의 특정 순간에 어떤 일이 일어나는지 정확하게 지정할 수 있습니다. 이는 악기가 들어오는 시점, 가사가 전달되는 시점, 노래가 진행되는 방식을 제어하는 데 유용합니다.
 
 ### Python
 
@@ -936,9 +863,9 @@ curl -s -X POST \
   }'
 ```
 
-## Genera pistas instrumentales
+## 연주곡 트랙 생성
 
-Para la música de fondo, las bandas sonoras de juegos o cualquier caso de uso en el que no se requieran voces, puedes indicarle al modelo que produzca pistas solo instrumentales:
+배경 음악, 게임 사운드트랙 또는 보컬이 필요하지 않은 사용 사례의 경우 모델에 연주곡 트랙만 생성하도록 프롬프트를 작성할 수 있습니다.
 
 ### Python
 
@@ -1008,9 +935,9 @@ curl -s -X POST \
   }'
 ```
 
-## Genera música en diferentes idiomas
+## 다양한 언어로 음악 생성하기
 
-Lyria 3.5 genera letras en el idioma de tu instrucción. Para generar una canción con letra en francés, escribe la instrucción en ese idioma. El modelo adapta su estilo vocal y pronunciación para que coincidan con el idioma.
+Lyria 3.5는 프롬프트의 언어로 가사를 생성합니다. 프랑스어 가사가 있는 노래를 생성하려면 프랑스어로 프롬프트를 작성하세요. 모델은 언어에 맞게 음성 스타일과 발음을 조정합니다.
 
 ### Python
 
@@ -1085,14 +1012,16 @@ curl -s -X POST \
   }'
 ```
 
-## Inteligencia del modelo
+## 모델 인텔리전스
 
-Lyria 3.5 analiza el proceso de instrucción en el que el modelo razona a través de la estructura musical (introducción, estrofa, coro, puente, etc.) según tu instrucción.
-Esto sucede antes de que se genere el audio y garantiza la coherencia estructural y la musicalidad.
+Lyria 3.5는 프롬프트를 분석하는 과정에서
+프롬프트를 기반으로 음악 구조 (인트로, 벌스, 코러스, 브리지 등)를
+추론합니다.
+이 작업은 오디오가 생성되기 전에 이루어지며 구조적 일관성과 음악성을 보장합니다.
 
-## API de Interactions
+## Interactions API
 
-Puedes usar los modelos de Lyria 3.5 con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), una interfaz unificada para interactuar con modelos y agentes de Gemini. Simplifica la administración del estado y las tareas de larga duración para casos de uso multimodales complejos.
+Gemini 모델 및 에이전트와 상호작용하기 위한 통합 인터페이스인 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)와 함께 Lyria 3.5 모델을 사용할 수 있습니다. 복잡한 멀티모달 사용 사례의 상태 관리와 장기 실행 작업을 간소화합니다.
 
 ### Python
 
@@ -1159,42 +1088,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Guía de instrucciones
+## 프롬프트 작성 가이드
 
-Para obtener información sobre cómo crear instrucciones eficaces para géneros musicales, instrumentos, estructura de canciones, letras personalizadas y estilos de interpretación vocal, consulta la [guía de instrucciones de Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=es-419).
+음악 장르, 악기, 노래 구조, 커스텀 가사, 보컬 전달 스타일에 효과적인 프롬프트를 작성하는 방법은 [Lyria 프롬프트 가이드](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=ko)를 참조하세요.
 
-## Prácticas recomendadas
+## 권장사항
 
-- **Primero, itera con Clip.** Usa el modelo `lyria-3-clip-preview` más rápido para experimentar con instrucciones antes de generar un video completo con `lyria-3.5`.
-- **Sea específico.** Las instrucciones vagas producen resultados genéricos. Menciona los instrumentos, los BPM, la clave, el estado de ánimo y la estructura para obtener el mejor resultado.
-- **Utiliza el mismo idioma.** Escribe la instrucción en el idioma en el que quieres la letra.
-- **Usa etiquetas de sección.** Las etiquetas `[Verse]`, `[Chorus]` y `[Bridge]` le brindan al modelo una estructura clara que debe seguir.
-- **Separa la letra de las instrucciones.** Cuando proporciones letras personalizadas, sepáralas claramente de las instrucciones de dirección musical.
+- **클립으로 먼저 반복합니다.** `lyria-3.5`로 전체 길이 생성을 커밋하기 전에 더 빠른 `lyria-3-clip-preview` 모델을 사용하여 프롬프트를 실험합니다.
+- **자세히 설명합니다.** 모호한 프롬프트는 일반적인 결과를 생성합니다. 최상의 결과를 얻으려면 악기, BPM, 키, 분위기, 구조를 언급하세요.
+- **언어와 일치해야 합니다.** 가사를 원하는 언어로 프롬프트를 입력합니다.
+- **섹션 태그를 사용합니다.** `[Verse]`, `[Chorus]`, `[Bridge]` 태그는 모델이 따를 수 있는 명확한 구조를 제공합니다.
+- **가사와 요청 사항을 구분합니다.** 맞춤 가사를 제공할 때는 음악 방향에 관한 요청 사항과 명확하게 구분하세요.
 
-## Limitaciones
+## 제한사항
 
-- **Seguridad**: Todos los mensajes se verifican con filtros de seguridad. Se bloquearán las instrucciones que activen los filtros. Esto incluye las instrucciones que solicitan voces de artistas específicos o la generación de letras protegidas por derechos de autor.
-- **Marcas de agua**: Todo el audio generado incluye una [marca de agua de audio de SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=es-419) para su identificación. Esta marca de agua es imperceptible para el oído humano y no afecta la experiencia de escucha.
-- **Edición conversacional continua**: La generación de música es un proceso de un solo turno.
-  La edición o el perfeccionamiento iterativos de un clip generado a través de múltiples instrucciones no se admiten en la versión actual de Lyria 3.5.
-- **Duración**: El modelo de Clip siempre genera clips de 30 segundos. El modelo Pro genera canciones que duran un par de minutos. La duración exacta se puede influir a través de la instrucción.
-- **Determinismo**: Los resultados pueden variar entre las llamadas, incluso con la misma instrucción.
+- **안전**: 모든 프롬프트는 안전 필터로 확인됩니다. 필터를 트리거하는 프롬프트는 차단됩니다. 여기에는 특정 아티스트의 음성이나 저작권 보호를 받는 가사의 생성을 요청하는 프롬프트가 포함됩니다.
+- **워터마크**: 생성된 모든 오디오에는 식별을 위한 [SynthID 오디오 워터마크](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ko)가 포함됩니다. 이 워터마크는 사람의 귀에 들리지 않으며 청취 환경에 영향을 미치지 않습니다.
+- **멀티턴 편집**: 음악 생성은 싱글턴 프로세스입니다.
+  여러 프롬프트를 통해 생성된 클립을 반복적으로 수정하거나 미세 조정하는 기능은 현재 Lyria 3.5 버전에서 지원되지 않습니다.
+- **길이**: 클립 모델은 항상 30초 길이의 클립을 생성합니다. Pro 모델은 몇 분 길이의 노래를 생성하며, 정확한 길이는 프롬프트를 통해 영향을 받을 수 있습니다.
+- **결정론**: 동일한 프롬프트라도 호출마다 결과가 다를 수 있습니다.
 
-## ¿Qué sigue?
+## 다음 단계
 
-- Consulta los [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) de los modelos de Lyria 3.5.
-- Prueba la [generación de música en tiempo real y por transmisión](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=es-419) con Lyria RealTime.
-- Genera conversaciones con varios oradores con los [modelos de TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419).
-- Descubre cómo generar [imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) o [videos](https://ai.google.dev/gemini-api/docs/video?hl=es-419).
-- Descubre cómo Gemini puede [comprender archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
-- Mantén una conversación en tiempo real con Gemini usando la [API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419).
+- Lyria 3.5 모델의 [가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)을 확인하세요.
+- Lyria RealTime으로 [실시간 스트리밍 음악 생성](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ko)을 사용해 보세요.
+- [TTS 모델](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)을 사용하여 여러 화자가 포함된 대화를 생성합니다.
+- [이미지](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko) 또는 [동영상](https://ai.google.dev/gemini-api/docs/video?hl=ko)을 생성하는 방법을 알아보세요.
+- Gemini가 [오디오 파일을 이해](https://ai.google.dev/gemini-api/docs/audio?hl=ko)하는 방법을 알아보세요.
+- [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)를 사용하여 Gemini와 실시간으로 대화합니다.
 
-Enviar comentarios
+의견 보내기
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última actualización: 2026-10-09 (UTC)
+최종 업데이트: 2026-10-19(UTC)
 
-¿Quieres brindar más información?
+의견을 전달하고 싶나요?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-09 (UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-19(UTC)"],[],[]]

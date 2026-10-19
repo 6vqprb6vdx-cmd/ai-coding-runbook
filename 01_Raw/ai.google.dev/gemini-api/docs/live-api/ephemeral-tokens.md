@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=zh-CN
-fetched_at: 2026-10-12T06:49:24.986810+00:00
+fetched_at: 2026-10-19T05:33:40.493547+00:00
 title: "\u4e34\u65f6\u4ee4\u724c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 

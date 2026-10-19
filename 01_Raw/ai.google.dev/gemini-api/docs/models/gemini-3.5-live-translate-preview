@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=vi
-fetched_at: 2026-10-12T07:09:23.541843+00:00
-title: "Gemini 3.5 Live Translate \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=zh-CN
+fetched_at: 2026-10-19T05:42:56.622102+00:00
+title: "Gemini 3.5 \u5b9e\u65f6\u7ffb\u8bd1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gửi ý kiến phản hồi
+发送反馈
 
-# Gemini 3.5 Live Translate
+# Gemini 3.5 实时翻译
 
-Gemini 3.5 Live Translate là mô hình âm thanh sang âm thanh có độ trễ thấp, được tối ưu hoá để dịch theo thời gian thực các cuộc trò chuyện bằng giọng nói. Tính năng này cho phép dịch hai chiều liền mạch với độ chính xác cao và đầu ra giọng nói tự nhiên.
+Gemini 3.5 实时翻译是一款低延迟的音频转音频模型，经过优化，可实时翻译语音对话。它可实现无缝的双向翻译，准确度高，语音输出自然。
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=vi)
+[在 Google AI Studio 中试用](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=zh-cn)
 
-## Tài liệu
+## 文档
 
-Hãy xem hướng dẫn về tính năng [Dịch trực tiếp](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=vi) để biết toàn bộ thông tin về các tính năng và chức năng.
+如需全面了解相关特性和功能，请参阅[实时翻译](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=zh-cn)指南。
 
 ## gemini-3.5-live-translate-preview
 
-| Thuộc tính | Mô tả |
+| 属性 | 说明 |
 | --- | --- |
-| Mã kiểu id\_card | `gemini-3.5-live-translate-preview` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Âm thanh (lời nói)  **Đầu ra**  Âm thanh (lời nói đã dịch) và Văn bản (bản chép lời) |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  131.072  **Giới hạn mã thông báo đầu ra**  65.536 |
-| handymanChức năng | **[Tạo âm thanh](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)**  Được hỗ trợ  **[Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi)**  Không được hỗ trợ  **[Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi)**  Không được hỗ trợ  **[Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)**  Không được hỗ trợ  **[Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)**  Không được hỗ trợ  **[Neo bám vào Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)**  Không được hỗ trợ  **[Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi)**  Không được hỗ trợ  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi)**  Được hỗ trợ  **[Tìm trong phần liên kết thực tế](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)**  Không được hỗ trợ  **[Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi)**  Không được hỗ trợ  **[Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)**  Không được hỗ trợ  **[Bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)**  Không được hỗ trợ |
-| speedCác lựa chọn thưởng thức nội dung | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi)**  Không được hỗ trợ  **[Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi)**  Không được hỗ trợ  **[Suy luận mức độ ưu tiên](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi)**  Không được hỗ trợ |
-| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Xem trước: `gemini-3.5-live-translate-preview` |
-| calendar\_monthThông tin cập nhật mới nhất | Tháng 6/2026 |
-| Thẻ mô hình id\_card | [Thẻ mô hình](https://deepmind.google/models/model-cards/gemini-3-5-audio/?hl=vi) |
+| id\_card 模型代码 | `gemini-3.5-live-translate-preview` |
+| 保存支持的数据类型 | **输入源**  音频（语音）  **输出**  音频（翻译后的语音）和文本（转写内容） |
+| token\_auto令牌限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入 token 限制**  131,072  **输出 token 限制**  65536 |
+| handyman功能 | **[音频生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)**  支持  **[缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)**  不受支持  **[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)**  不受支持  **[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)**  不受支持  **[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)**  不受支持  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)**  不受支持  **[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)**  不受支持  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn)**  支持  **[搜索接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)**  不受支持  **[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)**  不受支持  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)**  不受支持  **[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)**  不受支持 |
+| speed使用选项 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)**  不受支持  **[Flex 推理](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-cn)**  不受支持  **[优先推断](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)**  不受支持 |
+| 123 版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn#model-versions)。  - 预览：`gemini-3.5-live-translate-preview` |
+| calendar\_month最新更新 | 2026 年 6 月 |
+| id\_card模型卡片 | [模型卡片](https://deepmind.google/models/model-cards/gemini-3-5-audio/?hl=zh-cn) |
 
-Gửi ý kiến phản hồi
+发送反馈
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Cập nhật lần gần đây nhất: 2026-08-19 UTC.
+最后更新时间 (UTC)：2026-08-19。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+需要向我们提供更多信息？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-08-19 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-08-19。"],[],[]]

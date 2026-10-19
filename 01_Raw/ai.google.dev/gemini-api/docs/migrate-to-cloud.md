@@ -1,38 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=ru
-fetched_at: 2026-10-12T07:10:18.771873+00:00
-title: "Gemini Developer API \u0438 \u043f\u043b\u0430\u0442\u0444\u043e\u0440\u043c\u0430 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=th
+fetched_at: 2026-10-19T05:31:07.085331+00:00
+title: "Gemini Developer API \u0e40\u0e17\u0e35\u0e22\u0e1a\u0e01\u0e31\u0e1a\u0e41\u0e1e\u0e25\u0e15\u0e1f\u0e2d\u0e23\u0e4c\u0e21 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Флэш-память Gemini 3.8 теперь доступна. [Попробуйте!](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ru)
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Главная](https://ai.google.dev/?hl=ru)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
-- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Отправить отзыв
+ส่งความคิดเห็น
 
-# Gemini Developer API и платформа Gemini
+# Gemini Developer API เทียบกับแพลตฟอร์ม Gemini
 
-При разработке решений на основе генеративного искусственного интеллекта с помощью Gemini Google предлагает два API-продукта: [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=ru) и [Gemini platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=ru).
+เมื่อพัฒนาโซลูชัน Generative AI ด้วย Gemini ทาง Google มีผลิตภัณฑ์ API 2 รายการ ได้แก่ [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=th) และ [Gemini Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=th)
 
-Gemini Developer API – это самый быстрый способ создавать, запускать и масштабировать приложения на основе Gemini. Большинству разработчиков следует использовать Gemini Developer API, если только им не нужны специальные корпоративные средства управления.
+Gemini Developer API เป็นเส้นทางที่เร็วที่สุดในการสร้าง ทำให้พร้อมใช้งานจริง และ
+ปรับขนาดแอปพลิเคชันที่ทำงานด้วย Gemini นักพัฒนาแอปส่วนใหญ่ควรใช้ Gemini Developer
+API เว้นแต่จะจำเป็นต้องใช้การควบคุมเฉพาะสำหรับองค์กร
 
-Платформа Gemini предлагает комплексную экосистему готовых к использованию в корпоративной среде функций и сервисов для создания и развертывания приложений на основе генеративного искусственного интеллекта с поддержкой Google Cloud.
+แพลตฟอร์ม Gemini มีระบบนิเวศที่ครอบคลุมของฟีเจอร์และบริการที่พร้อมใช้งานในองค์กร
+สำหรับการสร้างและติดตั้งใช้งานแอปพลิเคชัน Generative AI ที่ขับเคลื่อนโดย
+Google Cloud
 
-Недавно мы упростили перенос данных между этими сервисами. Теперь Gemini Developer API и Gemini Platform API доступны через единый [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=ru) и [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ru).
+เมื่อเร็วๆ นี้ เราได้ทำให้การย้ายข้อมูลระหว่างบริการเหล่านี้ง่ายขึ้น ตอนนี้คุณเข้าถึงทั้ง Gemini
+Developer API และ Gemini Platform API ได้แล้ว
+ผ่าน [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=th) แบบรวมและ
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
 
-## Сравнение кода: API взаимодействий (рекомендуется)
+## การเปรียบเทียบโค้ด: Interactions API (แนะนํา)
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ru) – это рекомендуемый способ создания приложений с использованием моделей и агентов Gemini. В приведенных ниже примерах сравнивается генерация текста с помощью Gemini Developer API и платформы Gemini.
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) เป็นวิธีที่แนะนําในการสร้างด้วยโมเดลและเอเจนต์ของ Gemini
+ตัวอย่างต่อไปนี้
+เปรียบเทียบการสร้างข้อความระหว่าง Gemini Developer API กับแพลตฟอร์ม Gemini
 
 ### Python
 
-Вы можете получить доступ к Gemini Developer API и сервисам платформы Gemini через библиотеку `google-genai` (`>= 2.3.0`). Инструкции по установке `google-genai` приведены на странице [библиотек](https://ai.google.dev/gemini-api/docs/libraries?hl=ru).
+คุณเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
+ได้ผ่านไลบรารี `google-genai` (`>= 2.3.0`) ดูวิธีการติดตั้ง
+`google-genai` ได้ในหน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
 
 ### Gemini Developer API
 
@@ -48,7 +59,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### Gemini platform API
+### Gemini Platform API
 
 ```
 from google import genai
@@ -64,9 +75,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript и TypeScript
+### JavaScript และ TypeScript
 
-Вы можете получить доступ к Gemini Developer API и сервисам платформы Gemini через библиотеку `@google/genai` (`>= 2.3.0`). Инструкции по установке `@google/genai` приведены на странице [библиотек](https://ai.google.dev/gemini-api/docs/libraries?hl=ru).
+คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
+ผ่านไลบรารี `@google/genai` (`>= 2.3.0`) ดูวิธีการติดตั้ง
+`@google/genai` ได้ในหน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
 
 ### Gemini Developer API
 
@@ -82,7 +95,7 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Gemini platform API
+### Gemini Platform API
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -100,13 +113,15 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## Сравнение кода: API generateContent
+## การเปรียบเทียบโค้ด: API ของ generateContent
 
-Мы рекомендуем использовать Interactions API для новых проектов, но API `generateContent` по-прежнему поддерживается.
+แม้ว่าเราจะแนะนำให้ใช้ Interactions API สำหรับโปรเจ็กต์ใหม่ แต่ระบบจะยังคงรองรับ `generateContent` API ต่อไป
 
 ### Python
 
-Вы можете получить доступ к Gemini Developer API и сервисам платформы Gemini с помощью библиотеки `google-genai`. Инструкции по установке `google-genai` приведены на странице [библиотек](https://ai.google.dev/gemini-api/docs/libraries?hl=ru).
+คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
+ได้ผ่านไลบรารี `google-genai` ดูวิธีการติดตั้ง
+`google-genai`ได้ที่หน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
 
 ### Gemini Developer API
 
@@ -121,7 +136,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Gemini platform API
+### Gemini Platform API
 
 ```
 from google import genai
@@ -136,9 +151,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript и TypeScript
+### JavaScript และ TypeScript
 
-Вы можете получить доступ к Gemini Developer API и сервисам платформы Gemini с помощью библиотеки `@google/genai`. Инструкции по установке `@google/genai` приведены на странице [библиотек](https://ai.google.dev/gemini-api/docs/libraries?hl=ru).
+คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
+ผ่าน`@google/genai` ได้ ดูวิธีการติดตั้ง
+`@google/genai` ได้ที่หน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
 
 ### Gemini Developer API
 
@@ -158,7 +175,7 @@ async function main() {
 main();
 ```
 
-### Gemini platform API
+### Gemini Platform API
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -179,9 +196,11 @@ async function main() {
 main();
 ```
 
-### Проложить маршрут
+### Go
 
-Вы можете получить доступ к Gemini Developer API и сервисам платформы Gemini с помощью библиотеки `google.golang.org/genai`. Инструкции по установке `google.golang.org/genai` приведены на странице [библиотек](https://ai.google.dev/gemini-api/docs/libraries?hl=ru).
+คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
+ผ่าน`google.golang.org/genai` library ดูวิธีการติดตั้ง
+`google.golang.org/genai` ได้ที่หน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
 
 ### Gemini Developer API
 
@@ -210,7 +229,7 @@ func main() {
 }
 ```
 
-### Gemini platform API
+### Gemini Platform API
 
 ```
 import (
@@ -242,41 +261,51 @@ func main() {
 }
 ```
 
-### Другие варианты использования и платформы
+### กรณีการใช้งานและแพลตฟอร์มอื่นๆ
 
-Информацию о других платформах и примерах использования можно найти в [документации по Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=ru) и [документации по платформе Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=ru).
+ดูคำแนะนำเฉพาะสำหรับ Use Case ใน[เอกสารประกอบเกี่ยวกับ Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=th)
+และ[เอกสารประกอบเกี่ยวกับแพลตฟอร์ม Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=th)
+สำหรับแพลตฟอร์มและ Use Case อื่นๆ
 
-## Что нужно учитывать при переносе
+## ข้อควรพิจารณาในการย้ายข้อมูล
 
-При переносе:
+สิ่งที่จะเกิดขึ้นเมื่อคุณย้ายข้อมูล
 
-- Для аутентификации необходимо использовать сервисные аккаунты Google Cloud. Дополнительную информацию можно найти в [документации по платформе Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=ru).
-- Вы можете использовать существующий облачный проект Google Cloud (тот же, который вы использовали для создания ключа API) или [создать новый облачный проект Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=ru).
-- Поддерживаемые регионы могут различаться для Gemini Developer API и Gemini Platform API. В предварительной версии [Interactions API на платформе Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=ru) поддерживается только конечная точка `global` (`location="global"`). Ознакомьтесь со списком [поддерживаемых регионов для генеративного искусственного интеллекта в Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=ru).
-- Все модели, созданные в Google AI Studio, необходимо переобучить на платформе Gemini.
+- คุณจะต้องใช้บัญชีบริการของ Google Cloud เพื่อตรวจสอบสิทธิ์ ดูข้อมูลเพิ่มเติมได้ที่
+  [เอกสารประกอบเกี่ยวกับแพลตฟอร์ม Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=th)
+- คุณสามารถใช้โปรเจ็กต์ Google Cloud ที่มีอยู่
+  (โปรเจ็กต์เดียวกับที่ใช้สร้างคีย์ API) หรือจะ[สร้างโปรเจ็กต์ Google Cloud ใหม่](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=th)ก็ได้
+- ภูมิภาคที่รองรับอาจแตกต่างกันระหว่าง Gemini Developer API กับ
+  Gemini Platform API ในระหว่างเวอร์ชันตัวอย่าง [Interactions API ในแพลตฟอร์ม Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=th) รองรับเฉพาะปลายทาง `global` (`location="global"`) โปรดดูรายการ[ภูมิภาคที่รองรับสำหรับ Generative AI ใน Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=th)
+- คุณต้องฝึกโมเดลที่สร้างใน Google AI Studio อีกครั้งในแพลตฟอร์ม Gemini
 
-Если вам больше не нужен ключ Gemini API для Gemini Developer API, удалите его в соответствии с рекомендациями по обеспечению безопасности.
+หากไม่จำเป็นต้องใช้คีย์ Gemini API สำหรับ Gemini Developer API อีกต่อไป
+โปรดทำตามแนวทางปฏิบัติแนะนำด้านความปลอดภัยและลบคีย์ดังกล่าว
 
-Чтобы удалить ключ API, выполните следующие действия:
+วิธีลบคีย์ API
 
-1. Откройте страницу [Google Cloud API Credentials (Учетные данные API Google Cloud)](https://console.cloud.google.com/apis/credentials?hl=ru).
-2. Найдите ключ API, который хотите удалить, и нажмите на значок **Действия**.
-3. Выберите **Удалить ключ API**.
-4. В модальном окне **Delete credential (Удаление учетных данных)** выберите **Delete (Удалить)**.
+1. เปิดหน้า
+   [ข้อมูลเข้าสู่ระบบของ Google Cloud API](https://console.cloud.google.com/apis/credentials?hl=th)
+2. ค้นหาคีย์ API ที่ต้องการลบ แล้วคลิกไอคอน**การดำเนินการ**
+3. เลือก**ลบคีย์ API**
+4. ในโมดัล**ลบข้อมูลเข้าสู่ระบบ** ให้เลือก**ลบ**
 
-   После удаления ключа API может пройти несколько минут, прежде чем изменение распространится в системе. Когда процесс завершится, трафик, использующий удаленный ключ API, будет отклоняться.
+   การลบคีย์ API จะใช้เวลาสักครู่ในการเผยแพร่ หลังจาก
+   การเผยแพร่เสร็จสมบูรณ์แล้ว ระบบจะปฏิเสธการเข้าชมที่ใช้คีย์ API ที่ลบไปแล้ว
 
-## Дальнейшие действия
+## ขั้นตอนถัดไป
 
-- Изучите [руководство для разработчиков по Interactions API на платформе Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=ru).
-- Подробнее [о решениях на основе генеративного искусственного интеллекта на платформе Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=ru)…
+- ดูข้อมูลเพิ่มเติมได้ในคู่มือนักพัฒนาซอฟต์แวร์เกี่ยวกับ
+  [Interactions API บนแพลตฟอร์ม Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=th)
+- ดูข้อมูลเพิ่มเติมเกี่ยวกับโซลูชัน Generative AI บนแพลตฟอร์ม Gemini ได้ที่
+  [ภาพรวมของ Generative AI บนแพลตฟอร์ม Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=th)
 
-Отправить отзыв
+ส่งความคิดเห็น
 
-Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Последнее обновление: 2026-10-08 UTC.
+อัปเดตล่าสุด 2026-10-08 UTC
 
-Хотите рассказать подробнее?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-08 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-08 UTC"],[],[]]

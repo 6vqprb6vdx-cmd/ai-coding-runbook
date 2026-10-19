@@ -1,40 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=zh-TW
-fetched_at: 2026-10-12T07:01:27.614206+00:00
-title: "\u4f7f\u7528 Imagen \u751f\u6210\u5716\u7247 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/imagen?hl=pt-BR
+fetched_at: 2026-10-19T05:37:21.271512+00:00
+title: "Gerar imagens usando o Imagen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
 
-提供意見
+Envie comentários
 
-# 使用 Imagen 生成圖片
+# Gerar imagens usando o Imagen
 
-Imagen 是 Google 的舊版圖像生成模型。這項服務現已關閉，且不再支援 Gemini API。
+O Imagen é o modelo legado de geração de imagens do Google. Ele foi desativado e não está mais disponível na API Gemini.
 
-## 遷移至 Nano Banana
+## Migrar para o Nano Banana
 
-改用 Nano Banana 生成圖像：
+Migre para o Nano Banana para geração de imagens:
 
-- **模型名稱**：使用 `gemini-2.5-flash-image` (或 Nano Banana 2 模型，例如 `gemini-3.1-flash-image`) 取代 Imagen 模型名稱。
-- **方法**：請使用 `client.models.generate_content`，不要使用 `client.models.generate_images`。
-- **回應處理**：Nano Banana 會傳回含有圖片資料的內容部分，而非特定圖片回應物件。
+- **Nome do modelo**: use `gemini-2.5-flash-image` (ou modelos do Nano Banana 2, como `gemini-3.1-flash-image`) em vez dos nomes de modelos do Imagen.
+- **Método**: use `client.models.generate_content` em vez de
+  `client.models.generate_images`.
+- **Processamento de respostas**: o Nano Banana retorna partes de conteúdo com dados de imagem
+  em vez de um objeto de resposta de imagem específico.
 
-詳情和範例請參閱[圖片生成指南](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)。
+Consulte o [guia de geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br) para mais detalhes e exemplos.
 
-提供意見
+Envie comentários
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-上次更新時間：2026-09-18 (世界標準時間)。
+Última atualização 2026-09-18 UTC.
 
-想進一步說明嗎？
+Quer enviar seu feedback?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-18 (世界標準時間)。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-18 UTC."],[],[]]

@@ -1,122 +1,122 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=vi
-fetched_at: 2026-10-12T06:47:47.158313+00:00
-title: "H\u01b0\u1edbng d\u1eabn v\u1ec1 c\u00e2u l\u1ec7nh cho Lyria \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=ja
+fetched_at: 2026-10-19T05:43:57.702624+00:00
+title: "Lyria \u30d7\u30ed\u30f3\u30d7\u30c8 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-# Hướng dẫn về câu lệnh cho Lyria
+# Lyria プロンプト ガイド
 
-Gemini API cung cấp 2 cách để tạo nhạc bằng Lyria:
+Gemini API には、Lyria で音楽を生成する 2 つの方法があります。
 
-- **Lyria 3.5 và Lyria 3 Clip**: Tạo nội dung không phát trực tuyến cho các đoạn video dài 30 giây hoặc bài hát trọn vẹn có lời bài hát và giọng hát. Xem phần [Tạo nhạc bằng Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=vi).
-- **Lyria RealTime**: Phát nhạc trực tuyến và điều khiển trực tiếp theo thời gian thực qua WebSockets. Xem [Tính năng tạo nhạc theo thời gian thực bằng Lyria RealTime](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi).
+- **Lyria 3.5 と Lyria 3 Clip**: 30 秒のクリップまたは歌詞とボーカルを含むフルレングスの楽曲をストリーミングなしで生成します。[Lyria 3.5 で音楽を生成する](https://ai.google.dev/gemini-api/docs/music-generation?hl=ja)をご覧ください。
+- **Lyria RealTime**: WebSocket 経由のリアルタイムのインタラクティブな音楽ストリーミングとライブ ステアリング。[Lyria RealTime によるリアルタイムの音楽生成](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ja)をご覧ください。
 
-Cả hai mô hình đều phản hồi các câu lệnh bằng văn bản mô tả, thuật ngữ âm nhạc và hướng dẫn về cấu trúc. Hướng dẫn này trình bày cách viết câu lệnh hiệu quả cho cả hoạt động tạo hàng loạt và điều hướng theo thời gian thực.
+どちらのモデルも、説明的なテキスト プロンプト、音楽用語、構造的な指示に応答します。このガイドでは、バッチ生成とリアルタイム ステアリングの両方で効果的なプロンプトを作成する方法について説明します。
 
-## Kiến thức cơ bản về câu lệnh
+## プロンプトの基本
 
-Câu lệnh của bạn có thể là một cụm từ ngắn:
+プロンプトは短いフレーズにすることができます。
 
 ```
 A folk song about cute cats avoiding puddles, female vocals, acoustic guitar, sound of rain
 ```
 
-Hoặc nội dung mô tả chi tiết có cấu trúc:
+または、構造化された詳細な説明:
 
 ```
 A 1980s-style synth-pop track with a driving beat, shimmering synthesizers, and a catchy, anthemic chorus. The song should have a retro-futuristic feel with modern production polish. Upbeat tempo around 120 BPM, clear verse-chorus structure, and a memorable instrumental hook. The lyrics describe getting ready for a party.
 ```
 
-Cả câu lệnh ngắn và câu lệnh chi tiết đều mang lại kết quả tốt. Hãy sử dụng các chiến lược sau để hướng mô hình đến âm thanh chính xác mà bạn muốn.
+短いプロンプトと詳細なプロンプトのどちらでも、優れた結果が得られます。次の戦略を使用して、モデルを目的のサウンドに導きます。
 
-## Thể loại và phong cách
+## ジャンルとスタイル
 
-Bắt đầu câu lệnh bằng thể loại chính. Bạn có thể kết hợp các thể loại để tạo ra những thể loại kết hợp độc đáo:
+プロンプトの先頭にメインのジャンルを入力します。ジャンルを組み合わせて、独自のハイブリッドを作成できます。
 
-- Sự kết hợp giữa nhạc metal và hip-hop
-- Nhạc death metal kết hợp với giọng hát opera
-- Nhạc thính phòng cổ điển kết hợp với các yếu tố âm thanh điện tử tối
-- Nhạc dance điện tử (EDM) hiện đại kết hợp với nhạc Europop
+- メタルとヒップホップの融合
+- デス メタルとオペラ調のボーカルを組み合わせた音楽
+- クラシックな室内楽にダークなエレクトロニック ドローン要素を加えた音楽
+- モダンなエレクトロニック ダンス ミュージック（EDM）とユーロポップをミックス
 
-Bạn cũng có thể chỉ định một kỷ nguyên âm nhạc hoặc biến thể theo khu vực:
+音楽の時代や地域バリエーションを指定することもできます。
 
-- Nhạc hip-hop boom-bap đầu thập niên 1990
-- Nhạc pop yé-yé của Pháp những năm 1960
-- Nhạc post-punk và new wave thập niên 1980
-- Nhạc R&B phổ biến của những năm 2000
-- Nhạc techno tối giản của Berlin hoặc nhạc hyphy của Vùng Vịnh
+- 1990 年代初頭のブームバップ ヒップホップ
+- 1960 年代のフランスのイエイエ ポップ
+- 1980 年代のポストパンクとニューウェーブ
+- 2000 年代のメインストリーム R&B
+- ベルリンのミニマル テクノか、ベイエリアのハイフィー
 
-### Từ khoá theo thể loại
+### ジャンルのキーワード
 
-Hãy sử dụng những thuật ngữ thể loại được công nhận này trong câu lệnh của bạn cho Lyria 3.5 và Lyria RealTime:
+Lyria 3.5 と Lyria RealTime のプロンプトでは、次のジャンル用語を使用できます。
 
-- **Nhạc điện tử và nhạc nhảy**: `Acid House, Breakbeat, Chillout, Chiptune, Deep House, Drum & Bass, Dubstep, EDM, Electro Swing, Glitch Hop, Hyperpop, Minimal Techno, Moombahton, Psytrance, Synthpop, Techno, Trance, Trip Hop, Vaporwave`
-- **Hip-Hop và R&B**: `808 Hip Hop, Boom-Bap, Contemporary R&B, G-funk, Grime, Lo-Fi Hip Hop, Neo-Soul, New Jack Swing, Trap Beat`
-- **Rock và Alternative**: `Alternative Country, Blues Rock, Classic Rock, Funk Metal, Garage Rock, Indie Folk, Indie Pop, Post-Punk, 60s Psychedelic Rock, Shoegaze, Surf Rock`
-- **Nhạc Jazz, Soul và Funk**: `Acid Jazz, Afrobeat, Bossa Nova, Disco Funk, Funk, Jazz Fusion, Latin Jazz`
-- **Dân ca và nhạc cổ truyền**: `Bengal Baul, Bhangra, Bluegrass, Celtic Folk, Cumbia, Indian Classical, Irish Folk, Merengue, Polka, Reggae, Reggaeton, Renaissance Music, Salsa`
-- **Nhạc cổ điển và nhạc mộc**: `Baroque, Orchestral Score, Piano Ballad`
+- **エレクトロニック＆ダンス**: `Acid House, Breakbeat, Chillout, Chiptune, Deep House, Drum & Bass, Dubstep, EDM, Electro Swing, Glitch Hop, Hyperpop, Minimal Techno, Moombahton, Psytrance, Synthpop, Techno, Trance, Trip Hop, Vaporwave`
+- **ヒップホップ、R&B**: `808 Hip Hop, Boom-Bap, Contemporary R&B, G-funk, Grime, Lo-Fi Hip Hop, Neo-Soul, New Jack Swing, Trap Beat`
+- **ロックとオルタナティブ**: `Alternative Country, Blues Rock, Classic Rock, Funk Metal, Garage Rock, Indie Folk, Indie Pop, Post-Punk, 60s Psychedelic Rock, Shoegaze, Surf Rock`
+- **ジャズ、ソウル、ファンク**: `Acid Jazz, Afrobeat, Bossa Nova, Disco Funk, Funk, Jazz Fusion, Latin Jazz`
+- **フォーク＆トラディショナル**: `Bengal Baul, Bhangra, Bluegrass, Celtic Folk, Cumbia, Indian Classical, Irish Folk, Merengue, Polka, Reggae, Reggaeton, Renaissance Music, Salsa`
+- **クラシック & アコースティック**: `Baroque, Orchestral Score, Piano Ballad`
 
-## Nhạc cụ và kết cấu
+## 楽器とテクスチャー
 
-Lyria tự động chọn nhạc cụ phù hợp cho thể loại được yêu cầu. Nếu bạn muốn nhạc cụ cụ thể hoặc tổ hợp nhạc cụ bất thường, hãy khai báo rõ ràng:
+Lyria は、リクエストされたジャンルに適切な楽器を自動的に選択します。特定の楽器や珍しい組み合わせが必要な場合は、明示的に宣言します。
 
 ```
 A dance track with a driving beat, shimmering synthesizers, and a catchy, anthemic chorus. A saxophone solo enters during the bridge.
 ```
 
-Mô tả âm thanh và cách các nhạc cụ tương tác với nhau để tạo ra tâm trạng và kết cấu:
+楽器の音と相互作用を説明して、ムードとテクスチャを設定します。
 
-- Một đường bass 303 méo mó xuyên qua tiếng hi-hat sắc nét, mạnh mẽ
-- Tiếng synth analog ấm áp, vang vọng dưới tiếng guitar mộc mạc, gần gũi
-- Một bức tường âm thanh được tạo nên từ nhiều lớp guitar fuzz, với giọng hát vang vọng từ xa
+- 歪んだ 303 ベースラインが、歯切れのよいタイトなハイハットを切り裂く
+- 暖かく親しみのあるアコースティック ギターの下で、アナログ シンセパッドが盛り上がっていく
+- 複数のファズギターのレイヤーで構築された音の壁と、遠くでリバーブが効いたボーカル
 
-### Từ khoá về nhạc cụ
+### インストゥルメント キーワード
 
-- **Bàn phím và đàn synthesizer**: `Buchla Synths, Clavichord, Dirty Synths, Harpsichord, Mellotron, Moog Oscillations, Ragtime Piano, Rhodes Piano, Smooth Pianos, Spacey Synths, Synth Pads`
+- **キーボードとシンセサイザー**: `Buchla Synths, Clavichord, Dirty Synths, Harpsichord, Mellotron, Moog Oscillations, Ragtime Piano, Rhodes Piano, Smooth Pianos, Spacey Synths, Synth Pads`
 - **Bass & Drums**: `303 Acid Bass, 808 Hip Hop Beat, Boomy Bass, Conga Drums, Drumline, Funk Drums, Precision Bass, Tabla, TR-909 Drum Machine`
-- **Đàn ghi-ta và dây đàn**: `Banjo, Balalaika, Bouzouki, Cello, Charango, Dulcimer, Fiddle, Flamenco Guitar, Guitar, Harp, Koto, Lyre, Mandolin, Pipa, Shamisen, Shredding Guitar, Sitar, Slide Guitar, Viola Ensemble, Warm Acoustic Guitar`
-- **Nhạc cụ hơi và nhạc cụ đồng**: `Alto Saxophone, Bagpipes, Bass Clarinet, Didgeridoo, Harmonica, Ocarina, Trumpet, Tuba, Woodwinds`
-- **Nhạc cụ gõ**: `Bongos, Djembe, Glockenspiel, Hang Drum, Kalimba, Maracas, Marimba, Mbira, Steel Drum, Vibraphone`
+- **ギターと弦**: `Banjo, Balalaika, Bouzouki, Cello, Charango, Dulcimer, Fiddle, Flamenco Guitar, Guitar, Harp, Koto, Lyre, Mandolin, Pipa, Shamisen, Shredding Guitar, Sitar, Slide Guitar, Viola Ensemble, Warm Acoustic Guitar`
+- **Wind & Brass**: `Alto Saxophone, Bagpipes, Bass Clarinet, Didgeridoo, Harmonica, Ocarina, Trumpet, Tuba, Woodwinds`
+- **パーカッション**: `Bongos, Djembe, Glockenspiel, Hang Drum, Kalimba, Maracas, Marimba, Mbira, Steel Drum, Vibraphone`
 
-## Cấu trúc và thời gian của bài hát
+## 曲の構成とタイミング
 
-Đối với Lyria 3.5, hãy xác định tiến trình của bài hát bằng cách sử dụng thẻ hoặc mũi tên:
+Lyria 3.5 では、タグまたは矢印を使用して曲の進行を定義します。
 
 - `[Intro] -> [Verse 1] -> [Chorus] -> [Verse 2] -> [Chorus] -> [Bridge] -> [Outro]`
-- Bắt đầu bằng một đoạn nhạc piano nhẹ nhàng, chuyển sang một đoạn nhạc có nhịp điệu mạnh mẽ, tạm dừng một chút rồi bùng nổ ở đoạn điệp khúc.
+- 静かなピアノのイントロから始まり、エネルギッシュなバースへと展開し、一瞬の静寂を挟んで、サビへと爆発的に盛り上がります。
 
-Bạn có thể điều chỉnh động lực và quá trình chuyển đổi năng lượng:
+エネルギーのダイナミクスと移行を指示できます。
 
-- Tạo cao trào qua đoạn tiền điệp khúc, sau đó giảm âm lượng xuống mức im lặng trước khi điệp khúc bùng nổ
-- Tăng dần âm lượng trong suốt bài hát, thêm một nhạc cụ cho mỗi phần
-- Một đoạn nhạc đột ngột dừng lại sau đoạn chuyển, tiếp theo là một đoạn điệp khúc hát a cappella
+- プリコーラスで緊張感を高め、コーラスの直前に静寂に落とす
+- 曲全体を通して徐々にクレッシェンドし、セクションごとに楽器を追加する
+- ブリッジの後の突然の停止、アカペラのコーラス
 
-Bạn cũng có thể nhắc các dấu thời gian cụ thể:
+特定のタイミング マーカーを求めることもできます。
 
-- Tạo hiệu ứng tăng dần đến khi nhịp điệu mạnh xuất hiện ở giây thứ 12
-- Mẫu giọng hát lặp lại sau mỗi 4 ô nhịp
-- Đoạn điệp khúc bắt đầu ở giây thứ 22
+- 12 秒でビートがドロップするようビルドする
+- 歌声のサンプルが 4 小節ごとに繰り返される
+- 22 秒でサビが始まる
 
-## Lời bài hát và giọng hát
+## 歌詞とボーカル
 
-Theo mặc định, Lyria 3.5 sẽ tạo các bản nhạc có giọng hát và lời bài hát. Bạn có thể cung cấp lời bài hát của riêng mình, yêu cầu mô hình tạo lời bài hát hoặc yêu cầu một bản nhạc không lời.
+Lyria 3.5 は、デフォルトで歌詞付きのボーカル トラックを生成します。独自の歌詞を指定したり、モデルに歌詞の生成を依頼したり、インストゥルメンタル トラックをリクエストしたりできます。
 
-### Sử dụng lời bài hát của riêng bạn
+### 独自の歌詞を使用する
 
-Thêm lời bài hát trực tiếp vào câu lệnh bên dưới tiêu đề `Lyrics:`. Gắn thẻ cho từng phần để hướng dẫn cách truyền tải giọng nói:
+`Lyrics:` ヘッダーの下のプロンプトに歌詞を直接含めます。各セクションにタグを付けて、音声の配信をガイドします。
 
 ```
 Lyrics:
@@ -135,56 +135,56 @@ Until the morning light
 Everything will be alright
 ```
 
-Sử dụng dấu ngoặc đơn cho giọng hát bè, tiếng vọng hoặc câu ứng tác, chẳng hạn như `(moving on)`.
+バッキング ボーカル、エコー、アドリブには、`(moving on)` のようにかっこを使用します。
 
-### Chỉ đạo lời bài hát được tạo
+### 生成された歌詞の指示
 
-Khi yêu cầu Lyria 3.5 viết lời bài hát, hãy phác thảo cốt truyện, cảm xúc hoặc các cụm từ chính:
+Lyria 3.5 に歌詞の作成を依頼する場合は、物語、感情、キーフレーズの概要を説明します。
 
 ```
 The lyrics describe driving down the Pacific Coast Highway at sunset. The mood is nostalgic and reflective. Include an uplifting, anthemic chorus about second chances and starting over.
 ```
 
-Đối với thể loại nhạc điện tử và nhạc dance, hãy yêu cầu đoạn hát trước khi vào điệp khúc ngắn lặp lại:
+エレクトロニックやダンスのジャンルでは、短いボーカル フックの繰り返しをリクエストします。
 
 ```
 An upbeat dance-pop track with a repetitive, high-energy vocal hook: "Feel the rhythm all night long."
 ```
 
-### Cách thể hiện giọng hát và hồ sơ ca sĩ
+### ボーカルの配信と歌手のプロフィール
 
-Chỉ định giới tính, quãng giọng và âm sắc để có bản phối chính xác:
+正確な配信のために、性別、音域、音色を指定します。
 
-- **Nữ cao**: Âm sắc trong trẻo, tinh khiết, có khả năng truyền tải linh hoạt và cao vút. Âm sắc tươi sáng, có khả năng tạo ra những kết cấu thoáng đãng, có hơi thở.
-- **Nữ trung**: Giọng trầm, ấm áp và khàn. Giọng khàn đặc trưng với giọng ngực vang vọng, đầy cảm xúc.
-- **Nam cao**: Sáng, chói và tràn đầy năng lượng. Âm sắc trẻ trung với khả năng hát cao và vang, nổi bật trong các bản phối dày đặc.
-- **Giọng nam trung**: Giọng ngực trầm, mượt mà như nhung, ấm áp, êm dịu và ngân nga.
-- **Weathered Rocker** (Người chơi nhạc rock từng trải): Âm sắc khàn, thô ráp gợi nhớ đến nhạc rock thay thế của những năm 1990. Cường độ cảm xúc thô mộc với những nốt cao căng thẳng.
+- **女性ソプラノ**: 澄んだクリスタルのような音色で、軽快で伸びのある歌声。軽やかで息遣いのあるテクスチャを表現できる明るいトーン。
+- **女性アルト**: 豊かで温かみのあるハスキーな低音域。スモーキーな音色と、ソウルフルで響きのあるチェスト ボイス。
+- **男性テノール**: 明るく、鋭く、エネルギッシュ。若々しい音色と、密度の高いミックスを突き抜ける高いベルティング パワー。
+- **男性バリトン**: 深く、ベルベットのように滑らかな胸声で、温かく、心地よく、クルーニングのような歌い方。
+- **Weathered Rocker**: 1990 年代のオルタナティブ ロックを彷彿とさせる、かすれたざらざらした音色。感情の強さがむき出しで、高音は張り詰めている。
 
-### Hiệu ứng giọng hát không lời
+### 歌詞のないボーカル エフェクト
 
-Bạn cũng có thể đưa ra câu lệnh cho đoạn hội thoại, đoạn nhạc có giọng hát và hiệu ứng lấy mẫu:
+会話、ボーカル チョップ、サンプリング効果を求めることもできます。
 
-- Giọng nói của một chương trình phát thanh cổ điển giới thiệu bài hát trước khi nhịp điệu bắt đầu
-- Một giọng nói thì thầm ngay trước đoạn nhạc cao trào, sau đó là những âm thanh điện tử sôi động
-- Các mẫu giọng hát bị cắt và thay đổi cao độ lặp lại như một yếu tố nhịp điệu nhạc cụ
+- ビンテージ ラジオ放送の音声が曲を紹介してからビートが始まる
+- ドロップの直前にささやくような音声が流れ、続いてエネルギッシュなシンセサイザーの音が流れます
+- 楽器のリズム要素としてループする、チョップされピッチシフトされたボーカル サンプル
 
-## Thông số âm nhạc
+## 音楽パラメータ
 
-Tinh chỉnh câu lệnh bằng các thuộc tính âm nhạc tiêu chuẩn:
+標準の音楽プロパティを使用してプロンプトを調整します。
 
-- **Nhịp độ (BPM)**: Đặt trực tiếp nhịp độ (ví dụ: `120 BPM`, `slow tempo around 72 BPM`, `fast 160 BPM`).
-- **Khoá và điệu thức**: Chỉ định khoá gốc và điệu thức (ví dụ: `in G major`, `in D minor`, `in C pentatonic`).
-- **Tâm trạng và bầu không khí**: Sử dụng các tính từ mô tả cảm xúc:
+- **テンポ（BPM）**: テンポを直接設定します（`120 BPM`、`slow tempo around 72 BPM`、`fast 160 BPM` など）。
+- **キーとスケール**: ルートキーと調性（`in G major`、`in D minor`、`in C pentatonic` など）を指定します。
+- **ムードと雰囲気**: 説明的な感情を表す形容詞を使用します。
   `Ambient, Bright, Chill, Dark, Dreamy, Emotional, Ethereal, Euphoric, Funky, Groovy, Melancholic, Nostalgic, Ominous, Psychedelic, Relaxed, Soulful, Triumphant, Upbeat, Whimsical`
 
-## Sử dụng câu lệnh cho Lyria RealTime
+## Lyria RealTime のプロンプト
 
-Lyria RealTime sử dụng **câu lệnh có trọng số** thay vì một chuỗi câu lệnh nguyên khối duy nhất. Nhờ đó, bạn có thể kết hợp nhiều nguồn cảm hứng âm nhạc một cách linh hoạt và liên tục điều chỉnh nhạc thông qua kết nối WebSocket.
+Lyria RealTime は、単一のモノリシックなプロンプト文字列ではなく、**重み付けされたプロンプト**を使用します。これにより、複数の音楽的影響を動的にブレンドし、WebSocket 接続を介して音楽を継続的に操作できます。
 
-### Cấu trúc câu lệnh có trọng số
+### 重み付けされたプロンプト構造
 
-Mỗi câu lệnh có trọng số bao gồm một cụm từ văn bản mô tả và một trọng số dấu phẩy động:
+重み付けされた各プロンプトは、説明的なテキスト フレーズと浮動小数点数の重みで構成されます。
 
 ```
 prompts = [
@@ -194,35 +194,35 @@ prompts = [
 ]
 ```
 
-### Chiến lược điều hướng theo thời gian thực
+### リアルタイムのステアリング戦略
 
-- **Kết hợp các thể loại**: Kết hợp các phong cách riêng biệt bằng cách chỉ định trọng số cân bằng:
+- **ジャンルのブレンド**: バランスの取れた重みを割り当てることで、異なるスタイルをブレンドします。
   - `ambient synth pads (weight: 0.8)` + `lo-fi hip-hop drums (weight: 0.6)`
   - `flamenco guitar (weight: 0.7)` + `deep house groove (weight: 0.5)`
-- **Chuyển cảnh linh hoạt**: Để chuyển nhạc một cách mượt mà, hãy điều chỉnh trọng số của câu lệnh theo thời gian:
-  1. Bắt đầu với `chill jazz piano (weight: 1.0)`
-  2. Thêm dần `electronic breakbeat (weight: 0.3)`.
-  3. Tăng `electronic breakbeat` lên `0.8` trong khi giảm `chill jazz piano` xuống `0.3`.
-- **Xếp lớp các phần tử**: Tách riêng thẻ nhạc cụ và thẻ tâm trạng để bạn có thể điều chỉnh từng thẻ một cách độc lập:
-  - Câu lệnh 1: `bossa nova guitar (weight: 0.9)`
-  - Câu lệnh 2: `warm acoustic bass (weight: 0.7)`
-  - Câu lệnh 3: `subtle vinyl crackle (weight: 0.3)`
+- **動的なトランジション**: 音楽をスムーズにトランジションするには、プロンプトの重みを時間とともに調整します。
+  1. `chill jazz piano (weight: 1.0)` で始まるチェーン。
+  2. `electronic breakbeat (weight: 0.3)` を徐々に追加します。
+  3. `electronic breakbeat` を `0.8` に増やし、`chill jazz piano` を `0.3` に減らします。
+- **要素のレイヤリング**: 楽器タグとムードタグを別々に保持して、個別に調整できるようにします。
+  - プロンプト 1: `bossa nova guitar (weight: 0.9)`
+  - プロンプト 2: `warm acoustic bass (weight: 0.7)`
+  - プロンプト 3: `subtle vinyl crackle (weight: 0.3)`
 
-## Câu lệnh mẫu
+## プロンプトの例
 
-### Ví dụ về Lyria 3.5
+### Lyria 3.5 の例
 
 - **Lo-Fi Study Beat**:
   `none
   A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes piano chords, a relaxed boom-bap drum groove at 82 BPM, and a warm upright bassline. Instrumental only.`
-- **Pop Anthem** (Bài hát pop truyền cảm hứng):
+- **ポップ アンセム**:
   `none
   An upbeat, feel-good indie-pop song in G major at 122 BPM. Bright acoustic guitar strumming, driving kick drum, handclaps, and warm female vocal harmonies. The lyrics describe an unforgettable summer road trip with friends.`
-- **Cyberpunk điện ảnh**:
+- **シネマティック サイバーパンク**:
   `none
   Dark, cinematic cyberpunk synthwave at 110 BPM in D minor. Heavy distorted bass, ominous arpeggiated analog synthesizers, distant metallic percussion, and an ethereal female vocalise swelling during the climax.`
 
-### Bộ điều khiển Lyria RealTime
+### Lyria RealTime ステアリング セット
 
 ```
 # Initial high-energy groove
@@ -243,17 +243,17 @@ await session.set_weighted_prompts(
 )
 ```
 
-## Bước tiếp theo
+## 次のステップ
 
-- [Tạo nhạc bằng Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=vi): Tạo các bài hát hoàn chỉnh và đoạn nhạc dài 30 giây bằng Interactions API.
-- [Tạo nhạc theo thời gian thực bằng Lyria RealTime](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi): Tạo các ứng dụng phát nhạc trực tuyến, tương tác theo thời gian thực qua WebSockets.
+- [Lyria 3.5 で音楽を生成する](https://ai.google.dev/gemini-api/docs/music-generation?hl=ja): Interactions API を使用して、フルソングと 30 秒のクリップを生成します。
+- [Lyria RealTime によるリアルタイムの音楽生成](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ja): WebSocket 経由でリアルタイムのインタラクティブな音楽ストリーミング アプリケーションを構築します。
 
-Gửi ý kiến phản hồi
+フィードバックを送信
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Cập nhật lần gần đây nhất: 2026-09-18 UTC.
+最終更新日 2026-09-18 UTC。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+ご意見をお聞かせください
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-18 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-18 UTC。"],[],[]]

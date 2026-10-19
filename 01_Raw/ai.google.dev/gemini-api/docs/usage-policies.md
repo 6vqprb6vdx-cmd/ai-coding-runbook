@@ -1,65 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=zh-TW
-fetched_at: 2026-10-12T06:50:20.455602+00:00
-title: "\u76e3\u63a7\u6feb\u7528\u60c5\u5f62 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/usage-policies?hl=he
+fetched_at: 2026-10-19T05:31:43.640007+00:00
+title: "\u05de\u05e2\u05e7\u05d1 \u05d0\u05d7\u05e8 \u05de\u05e7\u05e8\u05d9\u05dd \u05e9\u05dc \u05e9\u05d9\u05de\u05d5\u05e9 \u05dc\u05e8\u05e2\u05d4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-提供意見
+שליחת משוב
 
-# 監控濫用情形
+# מעקב אחר מקרים של שימוש לרעה
 
-Google 致力於以負責任的方式開發及使用 AI。為確保 Gemini API 的安全性與完整性，我們制定了這些政策規範。使用 Gemini API 即表示您同意遵守下列規範、《[Gemini API 附加服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw)》和《[生成式 AI 使用限制政策](https://policies.google.com/terms/generative-ai/use-policy?hl=zh-tw)》。
+‫Google מחויבת לפיתוח ולשימוש אחראיים ב-AI. כדי להבטיח את הבטיחות והיושרה של Gemini API, יצרנו את הנחיות המדיניות האלה.
+השימוש ב-Gemini API כפוף להנחיות הבאות, [לתנאים ולהגבלות הנוספים של Gemini API](https://ai.google.dev/gemini-api/terms?hl=he) ול[מדיניות בנושא שימוש אסור](https://policies.google.com/terms/generative-ai/use-policy?hl=he) ב-AI גנרטיבי.
 
-## 我們如何監控濫用情形
+## איך אנחנו עוקבים אחרי שימוש לרעה
 
-Google 信任與安全團隊會採用自動化和手動程序，偵測 Gemini API 和 Google AI Studio 的潛在濫用情形，以利執行政策。
+צוות האמון והבטיחות של Google משתמש בשילוב של תהליכים אוטומטיים וידניים כדי לזהות שימוש לרעה פוטנציאלי ב-Gemini API וב-Google AI Studio, במטרה לאכוף את המדיניות שלנו.
 
-- **自動偵測：**自動化系統會掃描 API 使用情形，找出違反《使用限制政策》的行為，例如散布仇恨言論、騷擾、情色露骨內容和危險內容。
-- **手動偵測：**如果專案持續出現可疑活動，授權的 Google 人員可能會標記該專案，以進行手動審查。
+- **זיהוי אוטומטי:** מערכות אוטומטיות סורקות את השימוש ב-API כדי לזהות הפרות של המדיניות שלנו בנושא שימוש אסור, כמו דברי שטנה, הטרדה, תוכן מיני בוטה ותוכן מסוכן.
+- **זיהוי ידני:** אם בפרויקט מסוים מזוהה פעילות חשודה באופן עקבי, יכול להיות שהוא יסומן לבדיקה ידנית על ידי צוות מורשה של Google.
 
-## 我們如何處理資料
+## איך אנחנו מטפלים בנתונים
 
-為偵測及防範違反《禁止用途政策》的行為，維護服務安全，以及因應任何法律或法規揭露要求，Google 會保留下列資料 55 天：
+‫Google שומרת את הנתונים הבאים למשך חמישים וחמישה (55) ימים למטרות זיהוי ומניעה של הפרות של מדיניות השימוש האסור, כדי לשמור על הבטיחות והאבטחה של השירותים, ולכל גילוי נאות משפטי או רגולטורי שנדרש:
 
-- **提示：**您提交給 API 的文字提示。
-- **背景資訊：**您在提示中提供的任何其他背景資訊。
-- **輸出：**Gemini API 生成的回覆。
+- **הנחיות:** הנחיות הטקסט שאתם שולחים ל-API.
+- **מידע הקשרי:** כל הקשר נוסף שאתם מספקים בהנחיות.
+- **פלט:** התשובות שנוצרו על ידי Gemini API.
 
-## 我們如何調查潛在問題
+## איך אנחנו בודקים בעיות פוטנציאליות
 
-如果提示或模型輸出內容遭到上述安全篩選器和濫用偵測系統標記，授權的 Google 員工可能會根據預先定義的規範和政策評估遭標記的內容，並確認或修正分類或判斷結果。只有獲得授權的 Google 員工，才能透過內部治理評估和審查管理平台，存取資料以供人工審查。系統記錄資料以監控濫用行為時，只會用於執行政策和防止違規行為。不會用於訓練或微調任何 AI/機器學習模型，但專門用於執行政策的模型除外。
+כשמסנני הבטיחות ומערכות זיהוי ההתנהלות הפוגעת שתוארו למעלה מסמנים הנחיות או פלט של מודלים, עובדי Google מורשים יכולים להעריך את התוכן המסומן, ולאשר או לתקן את הסיווג או את ההחלטה על סמך הנחיות ומדיניות מוגדרות מראש. רק עובדי Google מורשים יכולים לגשת לנתונים לצורך בדיקה אנושית, באמצעות פלטפורמה פנימית לניהול הערכות ובדיקות. כשנתונים נרשמים לצורך מעקב אחרי התנהלות פוגעת, הם משמשים אך ורק לאכיפת מדיניות ולמניעת הפרות מדיניות. הם לא משמשים לאימון או לשיפור של מודלים של AI/ML, מלבד אלה שמשמשים ספציפית לאכיפת מדיניות.
 
-## 與您攜手落實政策遵循
+## עבודה איתכם בנושא עמידה בדרישות המדיניות
 
-如果使用 Gemini 時違反政策，我們可能會採取下列措施：
+אם השימוש שלכם ב-Gemini לא תואם למדיניות שלנו, יכול להיות שננקוט את הפעולות הבאות:
 
-- **與您聯絡：**我們可能會透過電子郵件與您聯絡，瞭解您的用途，並探討如何讓您的使用情況符合規定。
-- **暫時性用量限制：**我們可能會調整速率限制，或變更特定要求的回覆模型，藉此限制你對 Gemini API 的存取權。
-- **暫時暫停：**我們可能會暫時暫停你的 Gemini API 存取權。
-- **帳戶停用：**如果嚴重違規，我們可能會永久停用您對 Gemini API 和其他 Google 服務的存取權。
+- **יצירת קשר:** יכול להיות שנפנה אליך באימייל כדי להבין את תרחיש השימוש שלך ולבדוק דרכים להבטיח שהשימוש שלך יעמוד בדרישות.
+- **מגבלות שימוש זמניות:** יכול להיות שנצטרך להגביל את הגישה שלכם ל-Gemini API על ידי התאמת המכסות לקצב שליחת בקשות או שינוי המודל שמשיב לבקשה ספציפית, למשל.
+- **השעיה זמנית:** יכול להיות שנשהה באופן זמני את הגישה שלכם ל-Gemini API.
+- **סגירת החשבון:** כמוצא אחרון, ובמקרים של הפרות חמורות, אנחנו עשויים לסגור באופן סופי את הגישה שלכם ל-Gemini API ולשירותי Google אחרים.
 
-如果我們因停權或停用帳戶事宜與您聯絡，也會提供申訴連結。
+אם ניצור איתכם קשר לגבי השעיה או סגירה של חשבון, נספק גם קישור שדרכו תוכלו לערער.
 
-## 範圍
+## היקף
 
-使用 Gemini API 和 AI Studio 時，必須遵守這些政策規範。
+ההנחיות האלה בנושא מדיניות חלות על השימוש ב-Gemini API וב-AI Studio.
 
-提供意見
+שליחת משוב
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-上次更新時間：2026-06-09 (世界標準時間)。
+עדכון אחרון: 2026-06-09 (שעון UTC).
 
-想進一步說明嗎？
+רוצה לתת לנו משוב?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-06-09 (世界標準時間)。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-06-09 (שעון UTC)."],[],[]]

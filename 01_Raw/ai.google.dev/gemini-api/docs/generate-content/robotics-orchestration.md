@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=ar
-fetched_at: 2026-10-12T07:02:31.145182+00:00
-title: "\u062a\u0646\u0638\u064a\u0645 \u0627\u0644\u0645\u0647\u0627\u0645 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=ko
+fetched_at: 2026-10-19T05:42:32.194915+00:00
+title: "\ud0dc\uc2a4\ud06c \uc870\uc815 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
 
-إرسال ملاحظات
+의견 보내기
 
-# تنظيم المهام
+# 태스크 조정
 
-يمكن لنماذج Gemini Robotics ER التخطيط للمهام والاستدلال بشأن المساحة، واستنتاج الإجراءات التي يجب اتّخاذها والأشياء التي يجب نقلها لإكمال هدف معيّن. تعرض هذه الصفحة
-مثالاً على [تنفيذ عملية اختيار ونقل](#calling-custom-robot-api)
-من خلال واجهة برمجة تطبيقات مخصّصة للروبوتات لتنظيم مهمة وضع عنصر
-في وعاء.
+Gemini Robotics ER 모델은 작업을 계획하고 공간에 대해 추론하여 목표를 달성하기 위해 취해야 할 작업과 이동할 객체를 추론할 수 있습니다. 이 페이지
+에서는 맞춤 로봇 API를 통해 [집어 들고 놓는](#calling-custom-robot-api)
+작업을 실행하여 항목을
+그릇에 넣는 작업을 오케스트레이션하는 예를 보여줍니다.
 
-للاطّلاع على رمز قابل للتنفيذ بالكامل، يُرجى مراجعة دليل
-[Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+실행 가능한 전체 코드는
+[로봇공학 Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)을 참고하세요.
 
-## استخدام واجهة برمجة تطبيقات مخصّصة للروبوتات
+## 맞춤 로봇 API 사용
 
-يوضّح هذا المثال عملية تنظيم المهام باستخدام واجهة برمجة تطبيقات مخصّصة للروبوتات. ويقدّم واجهة برمجة تطبيقات وهمية مصمّمة لعملية اختيار ونقل. المهمة هي التقاط مكعّب أزرق ووضعه في وعاء برتقالي:
+이 예에서는 맞춤 로봇 API를 사용한 작업 오케스트레이션을 보여줍니다. 집어 들고 놓는 작업을 위해 설계된 모의 API를 소개합니다. 작업은 파란색 블록을 집어 주황색 그릇에 놓는 것입니다.
 
-![صورة للكتلة والوعاء](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=ar)
+![블록과 그릇의 이미지](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=ko)
 
-يستخدم هذا المثال واجهة برمجة التطبيقات الوهمية للروبوتات وتعريفات الأدوات التالية:
+이 예에서는 다음 모의 로봇 API 및 도구 정의를 사용합니다.
 
 ### Python
 
@@ -81,7 +81,7 @@ set_gripper_state_declaration = types.FunctionDeclaration(
 robot_tools = types.Tool(function_declarations=[move_declaration, set_gripper_state_declaration])
 ```
 
-يرسل المثال التالي الطلب والصورة إلى النموذج مع تعريفات الأدوات. ثم يتم تشغيل حلقة وكيل: بعد كل استجابة من النموذج، يتم تنفيذ أي استدعاءات مطلوبة للدوال (`move` و`setGripperState`)، ويتم عرض النتائج مرة أخرى على النموذج، وتتكرر العملية إلى أن يتوقف النموذج عن استدعاء الدوال أو يتم بلوغ الحد الأقصى للخطوات.
+다음 예에서는 도구 정의와 함께 프롬프트와 이미지를 모델에 전송합니다. 그런 다음 에이전트 루프를 실행합니다. 각 모델 응답 후 요청된 함수 호출 (`move`, `setGripperState`)을 실행하고 결과를 모델에 다시 반환하며 모델이 함수 호출을 중지하거나 단계 제한에 도달할 때까지 반복합니다.
 
 ### Python
 
@@ -155,7 +155,7 @@ while step_count < max_steps:
     contents.append(types.Content(role="user", parts=function_response_parts))
 ```
 
-يعرض ما يلي ناتجًا محتملاً للنموذج استنادًا إلى الطلب وواجهة برمجة التطبيقات الوهمية للروبوتات. يشمل الناتج نتائج استدعاءات دالة الروبوت التي رتّبها النموذج معًا.
+다음은 프롬프트와 모의 로봇 API를 기반으로 모델의 가능한 출력을 보여줍니다. 출력에는 모델이 함께 시퀀싱한 로봇 함수 호출의 출력이 포함됩니다.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -172,18 +172,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## الخطوات التالية
+## 다음 단계
 
-- [الروبوتات مع البث](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): البث في الوقت الفعلي مع ميزة استدعاء الدوال (Gemini Robotics ER 2 فقط)
-- [فهم الفيديو](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): تتبُّع تقدّم المهام من الفيديو (ER 2 فقط)
-- [الاستدلال المكاني](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ar): أمثلة على الإشارة والتتبُّع ومربع الإحاطة
+- [스트리밍을 통한 로봇공학](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko): 함수 호출을 통한 실시간 스트리밍 (Gemini Robotics ER 2만 해당)
+- [동영상 이해](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ko): 동영상에서 작업 진행 상황 추적 (ER 2만 해당)
+- [공간 추론](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ko): 가리키기, 추적, 경계 상자 예
 
-إرسال ملاحظات
+의견 보내기
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)
+최종 업데이트: 2026-09-08(UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+의견을 전달하고 싶나요?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-08(UTC)"],[],[]]

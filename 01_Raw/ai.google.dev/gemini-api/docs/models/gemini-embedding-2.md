@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=th
-fetched_at: 2026-10-12T07:06:21.809620+00:00
-title: "\u0e42\u0e21\u0e40\u0e14\u0e25 Gemini Embedding 2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=hi
+fetched_at: 2026-10-19T05:49:03.259378+00:00
+title: "Gemini Embedding 2 \u092e\u0949\u0921\u0932 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-ส่งความคิดเห็น
+सुझाव भेजें
 
-# โมเดล Gemini Embedding 2
+# Gemini Embedding 2 मॉडल
 
-โมเดลการฝังแบบหลายรูปแบบตัวแรกของเรา ซึ่งให้การแมปตัวเลขที่มีประสิทธิภาพของ
-ข้อความ รูปภาพ วิดีโอ เสียง และ PDF ลงในพื้นที่การฝังแบบรวมเดียว โมเดล Gemini Embedding 2 เหมาะที่สุดสำหรับการค้นหาเชิงความหมายแบบข้ามโมดอล การดึงข้อมูลเอกสาร และระบบคำแนะนำที่ต้องมีการคำนวณความคล้ายคลึงที่รวดเร็วและปรับขนาดได้ในชุดข้อมูลมัลติโมดอลขนาดใหญ่
+यह हमारा पहला मल्टीमॉडल एम्बेडिंग मॉडल है. यह टेक्स्ट, इमेज, वीडियो, ऑडियो, और PDF को एक ही एम्बेडिंग स्पेस में असरदार तरीके से मैप करता है. Gemini Embedding 2 मॉडल, क्रॉस-मॉडल सिमैंटिक सर्च, दस्तावेज़ खोजने, और सुझाव देने वाले सिस्टम के लिए सबसे अच्छा है. इन सिस्टम को बड़े मल्टीमॉडल डेटासेट में, तेज़ी से और बड़े पैमाने पर समानता की कैलकुलेशन करने की ज़रूरत होती है.
 
-## เอกสารประกอบ
+## दस्तावेज़
 
-ไปที่หน้า[การฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)เพื่อดูฟีเจอร์และความสามารถทั้งหมด
+सुविधाओं और क्षमताओं के बारे में पूरी जानकारी पाने के लिए, [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi) पेज पर जाएं.
 
 ## gemini-embedding-2
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| รหัสโมเดล id\_card | **Gemini API**  `gemini-embedding-2` |
-| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ, รูปภาพ, วิดีโอ, เสียง, PDF  **เอาต์พุต**  การฝังข้อความ |
-| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  8,192  **ขนาดมิติข้อมูลเอาต์พุต**  ยืดหยุ่น รองรับ: 128 - 3072, แนะนำ: 768, 1536, 3072 |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - เสถียร: `gemini-embedding-2` |
-| calendar\_monthการอัปเดตล่าสุด | เมษายน 2026 |
+| id\_cardमॉडल कोड | **Gemini API**  `gemini-embedding-2` |
+| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज, वीडियो, ऑडियो, PDF  **आउटपुट**  टेक्स्ट एम्बेडिंग |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट टोकन की सीमा**  8,192  **आउटपुट डाइमेंशन का साइज़**  लचीला, इन साइज़ के साथ काम करता है: 128 - 3072, सुझाया गया साइज़: 768, 1536, 3072 |
+| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - स्थिर: `gemini-embedding-2` |
+| calendar\_monthनया अपडेट | अप्रैल 2026 |
 
-ส่งความคิดเห็น
+सुझाव भेजें
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-อัปเดตล่าสุด 2026-04-29 UTC
+आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+क्या आपको हमें और कुछ बताना है?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-04-29 UTC"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]

@@ -1,52 +1,58 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=es-419
-fetched_at: 2026-10-12T06:56:26.337780+00:00
-title: "Versi\u00f3n preliminar de Gemini 3.1 Flash TTS (texto a voz) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=bn
+fetched_at: 2026-10-19T05:45:01.852692+00:00
+title: "Gemini 3.1 Flash TTS (\u099f\u09c7\u0995\u09cd\u09b8\u099f-\u099f\u09c1-\u09b8\u09cd\u09aa\u09bf\u099a) \u09aa\u09cd\u09b0\u09bf\u09ad\u09bf\u0989 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-Enviar comentarios
+মতামত জানান
 
-# Versión preliminar de Gemini 3.1 Flash TTS (texto a voz)
+# Gemini 3.1 Flash TTS (টেক্সট-টু-স্পিচ) প্রিভিউ
 
-El modelo de versión preliminar de Gemini 3.1 Flash TTS proporciona una potente generación de voz con baja latencia y resultados naturales, instrucciones controlables y etiquetas de audio expresivas para un control preciso de la narración.
+Gemini 3.1 Flash TTS প্রিভিউ মডেল, প্রাকৃতিক আউটপুট, স্টিয়ারেবল প্রম্পট ও স্পষ্ট বর্ণনা নিয়ন্ত্রণের জন্য ভাবপূর্ণ অডিও
+ট্যাগ সহ শক্তিশালী, কম-লেটেন্সি স্পিচ
+জেনারেশন প্রদান করে।
 
-[Probar en Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-tts-preview&hl=es-419)
+[Google AI Studio-তে চেষ্টা করুন](https://aistudio.google.com?model=gemini-3.1-flash-tts-preview&hl=bn)
 
-## Documentación
+## ডকুমেন্টেশন
 
-El modelo de versión preliminar de Gemini 3.1 Flash TTS introduce [etiquetas de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419#controllable) expresivas para controlar la narración, así como mejoras generales en la naturalidad, la capacidad de control y la capacidad multilingüe.
+Gemini 3.1 Flash TTS প্রিভিউ মডেলে বর্ণনা কন্ট্রোল করার জন্য
+[অডিও ট্যাগ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn#controllable) সহ
+এক্সপ্রেসিভ ফিচার যোগ করা হয়েছে। এছাড়াও, এতে স্বাভাবিকতা,
+কন্ট্রোল করার ক্ষমতা ও একাধিক ভাষা সংক্রান্ত বিষয়ে সামগ্রিক উন্নতি করা হয়েছে।
 
-Visita la guía de [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419) para obtener una cobertura completa de las funciones y capacidades.
+ফিচার ও কার্যকারিতা সম্পর্কে সম্পূর্ণ
+তথ্য পেতে [টেক্সট-টু-স্পিচ](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn) নির্দেশিকা দেখুন।
 
 ## gemini-3.1-flash-tts-preview
 
-| Propiedad | Descripción |
+| প্রপার্টি | বিবরণ |
 | --- | --- |
-| Código del modelo id\_card | `gemini-3.1-flash-tts-preview` |
-| saveTipos de datos admitidos | **Entradas**  Texto  **Resultado**  Audio |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  8,192  **Límite de tokens de salida**  16,384 |
-| handymanFunciones | **[Generación de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)**  Admitido  **[Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**  No compatible  **[Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)**  No compatible  **[Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)**  No compatible  **[Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)**  No compatible  **[Fundamentación con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)**  No compatible  **[Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)**  No compatible  **[API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419)**  No compatible  **[Fundamentación con la Búsqueda](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)**  No compatible  **[Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419)**  No compatible  **[Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419)**  No compatible  **[Contexto de la URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)**  No compatible |
-| speedOpciones de consumo | **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**  Admitido  **[Inferencia flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)**  No compatible  **[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)**  No compatible |
-| Versiones123 | Lee los [patrones de versiones del modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - `gemini-3.1-flash-tts-preview` |
-| calendar\_monthÚltima actualización | Abril de 2026 |
-| Ficha del modelo de id\_card | [Ficha del modelo](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/?hl=es-419) |
+| id\_cardমডেল কোড | `gemini-3.1-flash-tts-preview` |
+| সেভ করাডেটার ধরন | **ইনপুট**  টেক্সট  **আউটপুট**  অডিও |
+| token\_autoটোকেন সীমা[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) | **ইনপুট টোকেনের সীমা**  ৮,১৯২  **আউটপুট টোকেনের সীমা**  ১৬,৩৮৪ |
+| handymanকেপেবিলিটি | **[অডিও জেনারেশন](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn)**  কাজ করে  **[ক্যাশিং](https://ai.google.dev/gemini-api/docs/caching?hl=bn)**  কাজ করে না  **[কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn)**  কাজ করে না  **[ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)**  কাজ করে না  **[ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)**  কাজ করে না  **[Google Maps-এর মাধ্যমে গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)**  কাজ করে না  **[ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn)**  কাজ করে না  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=bn)**  কাজ করে না  **[সার্চ গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)**  কাজ করে না  **[স্ট্রাকচার্ড আউটপুট](https://ai.google.dev/gemini-api/docs/structured-output?hl=bn)**  কাজ করে না  **[ভাবছি](https://ai.google.dev/gemini-api/docs/thinking?hl=bn)**  কাজ করে না  **[URL প্রসঙ্গ](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)**  কাজ করে না |
+| speedব্যবহারের বিকল্প | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=bn)**  কাজ করে  **[Flex ইনফারেন্স](https://ai.google.dev/gemini-api/docs/flex-inference?hl=bn)**  কাজ করে না  **[অগ্রাধিকার সংক্রান্ত অনুমান](https://ai.google.dev/gemini-api/docs/priority-inference?hl=bn)**  কাজ করে না |
+| 123ভার্সন | আরও বিবরণের জন্য [মডেল ভার্সন প্যাটার্ন](https://ai.google.dev/gemini-api/docs/models/gemini?hl=bn#model-versions) পড়ুন।  - `gemini-3.1-flash-tts-preview` |
+| calendar\_monthলেটেস্ট আপডেট | এপ্রিল ২০২৬ |
+| id\_cardমডেল কার্ড | [মডেল কার্ড](https://deepmind.google/models/model-cards/gemini-3-1-flash-audio/?hl=bn) |
 
-Enviar comentarios
+মতামত জানান
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-Última actualización: 2026-10-09 (UTC)
+2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-¿Quieres brindar más información?
+আমাদের আরও কিছু জানাতে চান?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-09 (UTC)"],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

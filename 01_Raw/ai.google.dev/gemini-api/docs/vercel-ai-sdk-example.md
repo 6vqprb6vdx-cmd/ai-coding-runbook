@@ -1,42 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=zh-CN
-fetched_at: 2026-10-12T07:09:13.007333+00:00
-title: "Vercel \u57fa\u4e8e Gemini \u548c AI SDK \u6784\u5efa\u7684\u5e02\u573a\u7814\u7a76\u4ee3\u7406 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=hi
+fetched_at: 2026-10-19T05:39:43.033883+00:00
+title: "Gemini \u0914\u0930 Vercel \u0915\u0947 \u090f\u0906\u0908 \u090f\u0938\u0921\u0940\u0915\u0947 \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947 \u092e\u093e\u0930\u094d\u0915\u0947\u091f \u0930\u093f\u0938\u0930\u094d\u091a \u0915\u0930\u0928\u0947 \u0935\u093e\u0932\u093e \u090f\u091c\u0947\u0902\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-发送反馈
+सुझाव भेजें
 
-# Vercel 基于 Gemini 和 AI SDK 构建的市场研究代理
+# Gemini और Vercel के एआई एसडीके की मदद से मार्केट रिसर्च करने वाला एजेंट
 
-[Vercel 的 AI SDK](https://ai-sdk.dev) 是一个强大的开源库，可用于在 TypeScript 中构建 AI 赋能的应用、界面和智能体。
+[Vercel का एआई एसडीके](https://ai-sdk.dev), TypeScript में एआई की मदद से काम करने वाले ऐप्लिकेशन, यूज़र इंटरफ़ेस, और एजेंट बनाने के लिए
+, एक बेहतरीन ओपन-सोर्स लाइब्रेरी है.
 
-本指南将引导您构建一个使用 TypeScript 的 Node.js 应用，该应用使用 AI SDK 通过 [Google 生成式 AI Provider](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) 连接到 Gemini API，并执行自动化市场趋势分析。最终应用将：
+इस गाइड में, TypeScript
+की मदद से Node.js ऐप्लिकेशन बनाने का तरीका बताया गया है. यह ऐप्लिकेशन, [Google Generative AI Provider](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai) के ज़रिए Gemini API से कनेक्ट होने और मार्केट ट्रेंड का विश्लेषण ऑटोमेट करने के लिए, एआई एसडीके का इस्तेमाल करता है. फ़ाइनल ऐप्लिकेशन:
 
-1. 将 Gemini 与 Google 搜索搭配使用，研究当前的市场趋势。
-2. 从研究中提取结构化数据以生成图表。
-3. 将研究和图表合并为专业的 HTML 报告，并将其另存为 PDF。
+1. मार्केट के मौजूदा ट्रेंड के बारे में रिसर्च करने के लिए, Google Search के साथ Gemini का इस्तेमाल करेगा.
+2. चार्ट जनरेट करने के लिए, रिसर्च से स्ट्रक्चर्ड डेटा एक्सट्रैक्ट करेगा.
+3. रिसर्च और चार्ट को मिलाकर, एचटीएमएल फ़ॉर्मैट में एक पेशेवर रिपोर्ट बनाएगा और उसे PDF के तौर पर सेव करेगा.
 
-## 前提条件
+## ज़रूरी शर्तें
 
-如需完成本指南，您需要：
+इस गाइड में दिए गए निर्देशों को पूरा करने के लिए, आपको इनकी ज़रूरत होगी:
 
-- Gemini API 密钥。您可以在 [Google AI Studio](https://aistudio.google.com/apikey?hl=zh-cn) 中免费创建 API 密钥。
-- [Node.js](https://nodejs.org/en/download) 18 或更高版本。
-- 软件包管理系统，例如 `npm`、`pnpm` 或 `yarn`。
+- Gemini API पासकोड. इसे [Google AI Studio](https://aistudio.google.com/apikey?hl=hi) में मुफ़्त में बनाया जा सकता है.
+- [Node.js](https://nodejs.org/en/download) का वर्शन 18 या इसके बाद का वर्शन.
+- कोई पैकेज मैनेजर, जैसे कि `npm`, `pnpm`, या `yarn`.
 
-## 设置应用
+## अपना ऐप्लिकेशन सेट अप करना
 
-首先，为您的项目创建一个新目录并对其进行初始化。
+सबसे पहले, अपने प्रोजेक्ट के लिए एक नई डायरेक्ट्री बनाएं और उसे शुरू करें.
 
 ### npm
 
@@ -54,7 +56,7 @@ cd market-trend-app
 pnpm init
 ```
 
-### 纱线
+### yarn
 
 ```
 mkdir market-trend-app
@@ -62,9 +64,9 @@ cd market-trend-app
 yarn init -y
 ```
 
-### 安装依赖项
+### डिपेंडेंसी इंस्टॉल करना
 
-接下来，安装 AI SDK、Google 生成式 AI 提供程序和其他必需的依赖项。
+इसके बाद, एआई एसडीके, Google Generative AI Provider, और अन्य ज़रूरी डिपेंडेंसी इंस्टॉल करें.
 
 ### npm
 
@@ -73,7 +75,7 @@ npm install ai @ai-sdk/google zod
 npm install -D @types/node tsx typescript && npx tsc --init
 ```
 
-为防止出现 TypeScript 编译器错误，请在生成的 `tsconfig.json` 中将以下行添加为注释：
+TypeScript कंपाइलर की गड़बड़ी से बचने के लिए, जनरेट की गई `tsconfig.json` में यह लाइन जोड़ें:
 
 ```
 //"verbatimModuleSyntax": true,
@@ -86,20 +88,22 @@ pnpm add ai @ai-sdk/google zod
 pnpm add -D @types/node tsx typescript
 ```
 
-### 纱线
+### yarn
 
 ```
 yarn add ai @ai-sdk/google zod
 yarn add -D @types/node tsx typescript && yarn tsc --init
 ```
 
-为防止出现 TypeScript 编译器错误，请在生成的 `tsconfig.json` 中将以下行添加为注释：
+TypeScript कंपाइलर की गड़बड़ी से बचने के लिए, जनरेट की गई `tsconfig.json` में यह लाइन जोड़ें:
 
 ```
 //"verbatimModuleSyntax": true,
 ```
 
-此应用还将使用第三方软件包 [Puppeteer](https://pptr.dev/) 和 [Chart.js](https://www.chartjs.org) 来渲染图表和创建 PDF：
+यह ऐप्लिकेशन, चार्ट रेंडर करने और
+PDF बनाने के लिए, तीसरे पक्ष के [Puppeteer](https://pptr.dev/)
+और [Chart.js](https://www.chartjs.org) पैकेज का भी इस्तेमाल करेगा:
 
 ### npm
 
@@ -115,18 +119,18 @@ pnpm add puppeteer chart.js
 pnpm add -D @types/chart.js
 ```
 
-### 纱线
+### yarn
 
 ```
 yarn add puppeteer chart.js
 yarn add -D @types/chart.js
 ```
 
-`puppeteer` 软件包需要运行脚本才能下载 Chromium 浏览器。您的软件包管理器可能会要求您批准，因此请确保在出现提示时批准脚本。
+`puppeteer` पैकेज के लिए, Chromium ब्राउज़र डाउनलोड करने के लिए एक स्क्रिप्ट चलाने की ज़रूरत होती है. आपका पैकेज मैनेजर, अनुमति मांग सकता है. इसलिए, स्क्रिप्ट के लिए अनुमति दें.
 
-### 配置 API 密钥
+### अपना एपीआई पासकोड कॉन्फ़िगर करना
 
-使用 Gemini API 密钥设置 `GOOGLE_GENERATIVE_AI_API_KEY` 环境变量。Google 生成式 AI 提供程序会自动在此环境变量中查找您的 API 密钥。
+`GOOGLE_GENERATIVE_AI_API_KEY` एनवायरमेंट वैरिएबल को अपने Gemini API पासकोड के साथ सेट करें. Google Generative AI Provider, इस एनवायरमेंट वैरिएबल में आपके एपीआई पासकोड को अपने-आप ढूंढ लेता है.
 
 ### MacOS/Linux
 
@@ -134,17 +138,17 @@ yarn add -D @types/chart.js
 export GOOGLE_GENERATIVE_AI_API_KEY="YOUR_API_KEY_HERE"
 ```
 
-### PowerShell
+### Powershell
 
 ```
 setx GOOGLE_GENERATIVE_AI_API_KEY "YOUR_API_KEY_HERE"
 ```
 
-## 打造您的应用
+## अपना ऐप्लिकेशन बनाना
 
-现在，我们来创建应用的主文件。在项目目录中创建一个名为 `main.ts` 的新文件。您将在此文件中逐步构建逻辑。
+अब अपने ऐप्लिकेशन के लिए, मुख्य फ़ाइल बनाते हैं. अपने प्रोजेक्ट की डायरेक्ट्री में, `main.ts` नाम की एक नई फ़ाइल बनाएं. इस फ़ाइल में, लॉजिक को चरण दर चरण बनाया जाएगा.
 
-如需进行快速测试以确保一切设置正确无误，请将以下代码添加到 `main.ts`。此基本示例使用 `generateText` 从 Gemini 获取简单回答。
+यह पक्का करने के लिए कि सब कुछ सही तरीके से सेट अप किया गया है, `main.ts` में यह कोड जोड़ें. इस बुनियादी उदाहरण में, Gemini से सामान्य जवाब पाने के लिए `generateText` का इस्तेमाल किया गया है.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -162,7 +166,7 @@ async function main() {
 main().catch(console.error);
 ```
 
-在添加更多复杂性之前，请运行此脚本以验证您的环境是否已正确配置。在终端中运行以下命令：
+ज़्यादा जटिलता जोड़ने से पहले, यह स्क्रिप्ट चलाकर देखें कि आपका एनवायरमेंट सही तरीके से कॉन्फ़िगर किया गया है या नहीं. अपने टर्मिनल में यह कमांड चलाएं:
 
 ### npm
 
@@ -176,19 +180,20 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### 纱线
+### yarn
 
 ```
 yarn tsc && node main.js
 ```
 
-如果一切设置正确无误，您会在控制台中看到 Gemini 的回答。
+अगर सब कुछ सही तरीके से सेट अप किया गया है, तो आपको कंसोल में Gemini का जवाब दिखेगा.
 
-## 使用 Google 搜索开展市场调研
+## Google Search की मदद से मार्केट रिसर्च करना
 
-如需获取最新信息，您可以为 Gemini 启用 [Google 搜索](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)工具。启用此工具后，模型可以搜索网络来回答提示，并会返回其使用的来源。
+अप-टू-डेट जानकारी पाने के लिए, Gemini के लिए
+[Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) टूल चालू किया जा सकता है. यह टूल चालू होने पर, मॉडल, प्रॉम्प्ट का जवाब देने के लिए वेब पर खोज कर सकता है. साथ ही, यह उन सोर्स को भी दिखाएगा जिनका इस्तेमाल किया गया है.
 
-将 `main.ts` 的内容替换为以下代码，以执行分析的第一步。
+अपने विश्लेषण का पहला चरण पूरा करने के लिए, `main.ts` के कॉन्टेंट की जगह यह कोड डालें.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -214,13 +219,13 @@ async function main() {
 main().catch(console.error);
 ```
 
-## 提取图表数据
+## चार्ट का डेटा एक्सट्रैक्ट करना
 
-接下来，我们来处理研究文本，提取适合图表的结构化数据。使用 AI SDK 的 `generateObject` 函数以及 `zod` 架构来定义确切的数据结构。
+इसके बाद, चार्ट के लिए सही स्ट्रक्चर्ड डेटा एक्सट्रैक्ट करने के लिए, रिसर्च के टेक्स्ट को प्रोसेस करते हैं. डेटा के स्ट्रक्चर को तय करने के लिए, एआई एसडीके के `generateObject` फ़ंक्शन के साथ-साथ `zod` स्कीमा का इस्तेमाल करें.
 
-此外，还要创建一个辅助函数，用于将此结构化数据转换为 `Chart.js` 可以理解的配置。
+साथ ही, इस स्ट्रक्चर्ड डेटा को ऐसे कॉन्फ़िगरेशन में बदलने के लिए एक हेल्पर फ़ंक्शन बनाएं जिसे `Chart.js` समझ सके.
 
-将以下代码添加到 `main.ts`。请注意新导入项和新增的“第 2 步”。
+`main.ts` में यह कोड जोड़ें. नए इंपोर्ट और जोड़े गए "Step 2" पर ध्यान दें.
 
 ```
 import { google } from "@ai-sdk/google";
@@ -302,11 +307,13 @@ ${marketTrends}
 main().catch(console.error);
 ```
 
-## 生成最终报告
+## फ़ाइनल रिपोर्ट जनरेट करना
 
-在最后一步中，指示 Gemini 充当专业的报告撰写者。向其提供市场研究、图表配置以及用于构建 HTML 报告的一组明确说明。然后，使用 [Puppeteer](https://pptr.dev/) 渲染此 HTML 并将其另存为 PDF。
+आखिरी चरण में, Gemini को रिपोर्ट लिखने वाले विशेषज्ञ के तौर पर काम करने का निर्देश दें.
+उसे मार्केट रिसर्च, चार्ट के कॉन्फ़िगरेशन, और एचटीएमएल रिपोर्ट बनाने के लिए निर्देशों का एक साफ़ सेट दें. इसके बाद, इस एचटीएमएल को रेंडर करने और इसे PDF के तौर पर सेव करने के लिए,
+[Puppeteer](https://pptr.dev/) का इस्तेमाल करें.
 
-将最终的 `puppeteer` 导入和“步骤 3”添加到 `main.ts` 文件中。
+अपनी `main.ts` फ़ाइल में, `puppeteer` का फ़ाइनल इंपोर्ट और "Step 3" जोड़ें.
 
 ```
 // ... (imports from previous step)
@@ -367,9 +374,9 @@ async function main() {
 main().catch(console.error);
 ```
 
-## 运行您的应用
+## अपना ऐप्लिकेशन चलाना
 
-您现在可以运行应用了。在终端中执行以下命令：
+अब ऐप्लिकेशन चलाने के लिए तैयार हैं. अपने टर्मिनल में यह कमांड चलाएं:
 
 ### npm
 
@@ -383,33 +390,33 @@ npx tsc && node main.js
 pnpm tsx main.ts
 ```
 
-### 纱线
+### yarn
 
 ```
 yarn tsc && node main.js
 ```
 
-当脚本执行每个步骤时，您会在终端中看到日志记录。
-完成后，系统会在项目目录中创建一个包含市场分析的 `report.pdf` 文件。
+स्क्रिप्ट का हर चरण पूरा होने पर, आपको अपने टर्मिनल में लॉगिंग दिखेगी.
+पूरा होने के बाद, आपकी प्रोजेक्ट डायरेक्ट्री में `report.pdf` फ़ाइल बनेगी. इसमें मार्केट के विश्लेषण की जानकारी होगी.
 
-下面显示的是 PDF 报告示例的前两页：
+यहां, आपको PDF फ़ॉर्मैट में बनी रिपोर्ट के पहले दो पेज दिखेंगे:
 
-![市场分析报告](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=zh-cn)
+![मार्केट ऐनलिसिस रिपोर्ट](https://ai.google.dev/static/gemini-api/docs/images/market-research-pdf.jpg?hl=hi)
 
-## 更多资源
+## अतिरिक्त संसाधन
 
-如需详细了解如何使用 Gemini 和 AI SDK 进行构建，请探索以下资源：
+Gemini और एआई एसडीके की मदद से ऐप्लिकेशन बनाने के बारे में ज़्यादा जानने के लिए, ये संसाधन देखें:
 
-- [AI SDK 文档](https://ai-sdk.dev/docs)
-- [AI SDK Google 生成式 AI 文档](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
-- [AI SDK 食谱：Gemini 使用入门](https://ai-sdk.dev/cookbook/guides/gemini)
+- [एआई एसडीके के दस्तावेज़](https://ai-sdk.dev/docs)
+- [एआई एसडीके के Google Generative AI से जुड़े दस्तावेज़](https://ai-sdk.dev/providers/ai-sdk-providers/google-generative-ai)
+- [एआई एसडीके कुकबुक: Gemini का इस्तेमाल शुरू करना](https://ai-sdk.dev/cookbook/guides/gemini)
 
-发送反馈
+सुझाव भेजें
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最后更新时间 (UTC)：2026-09-12。
+आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
 
-需要向我们提供更多信息？
+क्या आपको हमें और कुछ बताना है?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]

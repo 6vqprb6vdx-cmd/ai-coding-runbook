@@ -1,143 +1,136 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=ar
-fetched_at: 2026-10-12T07:08:19.701137+00:00
-title: "Gemini 3.8 Flash TTS \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=es-419
+fetched_at: 2026-10-19T05:32:20.700155+00:00
+title: "TTS de Gemini 3.8 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-إرسال ملاحظات
+Enviar comentarios
 
-# Gemini 3.8 Flash TTS
+# TTS de Gemini 3.8 Flash
 
-‫Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`) هو نموذج رائد من Google لتحويل النص إلى كلام، وهو مصمّم لتقديم صوت عالي الجودة، وأداء معبّر، ولهجات محلية أصيلة، وثبات قوي في المحادثات الطويلة المتعددة الأدوار.
+Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`) es el modelo insignia de texto a voz creativo de Google, diseñado para ofrecer una fidelidad de voz con calidad de estudio, actuación expresiva, acentos regionales auténticos y una estabilidad sólida de varias respuestas en formato largo.
 
-[تجربة الميزة في Google AI Studio](https://aistudio.google.com?model=gemini-3.8-flash-tts&hl=ar)
+[Probar en Google AI Studio](https://aistudio.google.com?model=gemini-3.8-flash-tts&hl=es-419)
 
-## نظرة عامة والإمكانات
+## Descripción general y capacidades
 
-يضع نظام إنشاء الصوت (TTS) من Gemini 3.8 Flash معيارًا جديدًا لإنشاء محتوى صوتي معبّر:
+Gemini 3.8 Flash TTS establece un nuevo parámetro de referencia para la generación de audio expresivo:
 
-- **دقة صوتية عالية وتفاصيل دقيقة في الأداء:** توفّر هذه الميزة نطاقًا عاطفيًا غنيًا، وإيقاعًا طبيعيًا، والتزامًا دقيقًا بالتعليمات `style`
-  على مستوى الجمل والأحداث الصوتية المضمّنة (`<laugh>` و`<sigh>` و`<short pause>`).
-- **ثبات المحتوى الطويل المتعدد الجلسات:** الحفاظ على اتساق هوية الصوت وطبقة الصوت ومستوى الصوت ونبرة الغرفة الصوتية خلال الحوارات الطويلة والسرد الذي يستغرق عدة دقائق بدون حدوث أي انحراف في الصوت
-- **اللهجات واللفظ الإقليميان الأصيلان:** تتوافق هذه الميزة مع اللهجات الإقليمية واللهجات الخاصة بالأقليات.
-- **التوافق الكامل مع منظومة الصوت المتكاملة:** تتوافق هذه الميزة بسلاسة مع الأصوات الجاهزة،
-  و"مكتبة الأصوات الموسّعة" (`GET /v1beta/voices`)،
-  و[تصميم الأصوات](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar) المخصّصة،
-  و[استنساخ الأصوات](https://ai.google.dev/gemini-api/docs/voice-replication?hl=ar) (يتم تلقائيًا تخزين الأصوات بشكل دائم، بالإضافة إلى مفاتيح اختيارية بدون حالة). يمكنك أيضًا تصميم أصوات ونسخها بشكل تفاعلي في [Google AI Studio](https://aistudio.google.com/generate-speech?hl=ar).
+- **Alta fidelidad acústica y matices de actuación:** Ofrece un amplio rango emocional, una cadencia natural y una adhesión precisa a las indicaciones de giro `style` y a los eventos vocales intercalados (`<laugh>`, `<sigh>`, `<short pause>`).
+- **Estabilidad de varias respuestas de formato largo:** Mantiene la identidad de voz, el timbre, el volumen y el tono acústico de la sala coherentes en diálogos extensos y narraciones de varios minutos sin desviación de la voz.
+- **Acentos y pronunciación regionales auténticos:** Admite acentos regionales y dialectos minoritarios.
+- **Compatibilidad total con el ecosistema de voz:** Funciona sin problemas con voces prediseñadas, la Biblioteca de voces extendida (`GET /v1beta/voices`), arquetipos de [diseño de voz](https://ai.google.dev/gemini-api/docs/voice-design?hl=es-419) personalizados y la [replicación de voz](https://ai.google.dev/gemini-api/docs/voice-replication?hl=es-419) (voces almacenadas persistentes de forma predeterminada, además de claves sin estado opcionales). También puedes diseñar y replicar voces de forma interactiva en [Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419).
 
-يمكنك الانتقال إلى دليل [تحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar) للحصول على تغطية كاملة للميزات وأفضل الممارسات المتعلقة بتقديم الطلبات وأمثلة على الرموز البرمجية.
+Visita la guía de [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419) para obtener una cobertura completa de las funciones, las prácticas recomendadas para las instrucciones y los ejemplos de código.
 
-## حالات استخدام نماذج تحويل النص إلى كلام
+## Cuándo usar cada modelo de TTS
 
-يتشارك كلا النموذجين Gemini 3.8 لتحويل النص إلى كلام مخطط واجهة برمجة التطبيقات وبنية الطلبات نفسها.
-اختَر النموذج الذي يناسب حجم عملك:
+Ambos modelos de Gemini 3.8 TTS comparten el mismo esquema de API y estructura de instrucciones.
+Elige el modelo que se adapte a tu carga de trabajo:
 
-| الميزة أو حجم المعالجة | Gemini 3.8 Flash TTS (`gemini-3.8-flash-tts`) | Gemini 3.8 Flash-Lite TTS (`gemini-3.8-flash-lite-tts`) |
+| Función o carga de trabajo | TTS de Gemini 3.8 Flash (`gemini-3.8-flash-tts`) | TTS de Gemini 3.8 Flash-Lite (`gemini-3.8-flash-lite-tts`) |
 | --- | --- | --- |
-| **قوة الإعلان الأساسية** | أقصى دقة صوتية وأداء تمثيلي دقيق وتغطية لهجات متنوعة | معدّل أعلى لنقل البيانات ووقت استجابة سريع وفعالية من حيث التكلفة |
-| **أفضل حالات الاستخدام** | الكتب المسموعة، والتعليق الصوتي في الاستوديو، والحوارات المعقّدة بين عدة أشخاص، والأداء الصوتي المكثّف، وطريقة اللفظ الصعبة، واللهجات المحلية | الإنتاج بكميات كبيرة، وتتالي وكلاء الصوت في الوقت الفعلي، وميزات القراءة بصوت عالٍ، وتكرار الصوت، وإنشاء محتوى يومي باستخدام مكبّر صوت واحد |
-| **اللغات المتاحة** | ‫130 لغة | ‫101 لغة |
-| **البديل المقترَح لـ** | فئة جديدة من المواد الإبداعية الرئيسية | `gemini-3.1-flash-tts-preview` |
+| **Principal fortaleza** | Máxima fidelidad de voz, matices de actuación y cobertura de dialectos | Alta capacidad de procesamiento, baja latencia y rentabilidad |
+| **Mejores casos de uso** | Audiolibros, narración de estudio, diálogos complejos con varios interlocutores, actuación con muchos fragmentos vocales, pronunciación difícil, dialectos regionales | Producción de gran volumen, cascadas de agentes de voz en tiempo real, funciones de lectura en voz alta, replicación de voz, generación cotidiana de un solo orador |
+| **Idiomas compatibles** | 130 idiomas | 101 idiomas |
+| **Reemplazo recomendado para** | Nuevo nivel de creatividad principal | `gemini-3.1-flash-tts-preview` |
 
-## دليل نقل البيانات
+## Guía de migración
 
-إذا كنت تنقل البيانات من إصدار `gemini-3.1-flash-tts-preview` أو إصدار أقدم من نماذج Gemini لتحويل النص إلى كلام، عدِّل طلباتك لتتوافق مع مخطط Gemini 3.8 لتحويل النص إلى كلام:
+Si migras desde `gemini-3.1-flash-tts-preview` o modelos anteriores de Gemini TTS, actualiza tus solicitudes para el esquema de Gemini 3.8 TTS:
 
-1. **نقل التوجيهات على مستوى المنعطف إلى `speech_metadata`:** يعامل محرك تحويل النص إلى كلام 3.8 من Gemini النص المدخل على أنّه نسخة طبق الأصل. قد تتم قراءة توجيهات النص المضمّنة، مثل
-   `"Say cheerfully: Hello!"` أو `"Speaker 1: Hello!"`، بصوت عالٍ.
-   نقل تعليمات التسليم المستدام (`style`) وتصنيفات المتحدّثين (`speaker`) إلى البيانات الوصفية المنظَّمة:
-   - **واجهة Interactions API:** أرفِق تعليقًا توضيحيًا يتضمّن `"type":
-     "speech_metadata"` و`"speaker"` و`"style"` بكل فقرة من المحتوى النصي.
-   - **‫GenerateContent API:** أرفِق `"speech_metadata": {"speaker": "...",
-     "style": "..."}` بكل `part`.
-2. **استخدام علامات مضمّنة بين قوسين زاويين فقط للأحداث الصوتية في نقطة زمنية محددة:** يجب تضمين التعبيرات الصوتية غير الكلامية المؤقتة والفواصل في نص الفيديو باستخدام قوسين زاويين (مثل `<laugh>` أو `<sigh>` أو `<cough>` أو `<breath>` أو `<short pause>`). يجب وضع أساليب الأداء، مثل الهمس، بين `speech_metadata.style`.
-3. **تحديد `speaker` في كل منعطف في طلبات المتحدثين المتعددين:** يجب أن يتضمّن كل منعطف في طلب المتحدثين المتعددين `speaker` بشكل صريح داخل `speech_metadata` بما يتطابق مع أحد المتحدثين الذين تم ضبطهم.
-4. **تصميم شخصيات مسبقًا باستخدام "تصميم الصوت":** استبدِل فقرات "ملف الصوت" / "ملاحظات المخرج" الطويلة القديمة بصوت مخصّص تم إنشاؤه في [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar)، ثم استخدِم معرّف `voice_...`
-   في طلبات تحويل النص إلى كلام مع سلاسل `style` فارغة أو بأقل قدر من المحتوى.
-5. **احتساب الناتج التلقائي بتنسيق WAV (`audio/wav`) في الطلبات الأحادية:** على عكس إصدارات `gemini-3.1-flash-tts-preview` والإصدارات الأقدم من نماذج تحويل النص إلى كلام (التي كانت تعرض `audio/l16` بتنسيق PCM الأولي بدون عنوان تلقائيًا)، يعرض الإصدار 3.8 من ميزة "تحويل النص إلى كلام" في Gemini صوت WAV (`audio/wav` / `AUDIO_WAV`) مع عنوان RIFF عادي تلقائيًا للطلبات الأحادية.
-   - إذا كان الرمز البرمجي يغلّف وحدات بايت PCM الأولية في رأس WAV (على سبيل المثال، باستخدام الوحدة `wave` أو `ffmpeg` في Python)، عليك إزالة غلاف الرأس اليدوي وكتابة وحدات البايت التي تم إرجاعها مباشرةً في ملف `.wav`.
-   - إذا كان مسار التعلّم يتطلّب صوت PCM الأولي بدون عنوان أو صوت mu-law أو A-law، اضبط `response_format.mime_type` بشكل صريح على `"audio/l16"` أو `"audio/mulaw"` أو `"audio/alaw"` (على سبيل المثال، `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}` في Interactions API أو `AUDIO_L16` أو `AUDIO_MULAW` أو `AUDIO_ALAW` في `generateContent`). راجِع [تنسيقات إخراج الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#audio-output-formats).
+1. **Mueve las indicaciones a nivel de giros hacia `speech_metadata`:** Gemini 3.8 TTS trata el texto de entrada estrictamente como una transcripción literal. Las indicaciones de texto intercaladas, como `"Say cheerfully: Hello!"` o `"Speaker 1: Hello!"`, se pueden leer en voz alta.
+   Mueve las instrucciones de entrega sostenida (`style`) y las etiquetas de interlocutor (`speaker`) a los metadatos estructurados:
+   - **API de Interactions:** Adjunta una anotación con `"type":
+     "speech_metadata"`, `"speaker"` y `"style"` a cada bloque de contenido de texto.
+   - **API de GenerateContent:** Adjunta `"speech_metadata": {"speaker": "...",
+     "style": "..."}` a cada `part`.
+2. **Usa etiquetas intercaladas con corchetes angulares solo para eventos vocales puntuales:** Mantén las vocalizaciones y las pausas momentáneas que no sean de voz intercaladas en la transcripción con corchetes angulares (como `<laugh>`, `<sigh>`, `<cough>`, `<breath>` o `<short pause>`). Coloca los estilos de entrega, como susurrar, en `speech_metadata.style`.
+3. **Especifica `speaker` en cada turno de las solicitudes con varios interlocutores:** Cada turno de una solicitud con varios interlocutores debe incluir de forma explícita `speaker` dentro de `speech_metadata`, que coincida con uno de los interlocutores configurados.
+4. **Diseña arquetipos con anticipación con Diseño de voz:** Reemplaza los bloques largos heredados de Audio Profile o Director's Notes con una voz personalizada creada en [Diseño de voz](https://ai.google.dev/gemini-api/docs/voice-design?hl=es-419) y, luego, lleva ese ID de `voice_...` a través de tus solicitudes de TTS con cadenas de `style` mínimas o vacías.
+5. **Ten en cuenta la salida WAV predeterminada (`audio/wav`) en las solicitudes unarias:** A diferencia de `gemini-3.1-flash-tts-preview` y los modelos de TTS anteriores (que devolvían PCM sin procesar y sin encabezado `audio/l16` de forma predeterminada), Gemini 3.8 TTS devuelve audio WAV (`audio/wav` / `AUDIO_WAV`) con un encabezado RIFF estándar de forma predeterminada para las solicitudes unarias.
+   - Si tu código anteriormente encapsulaba bytes de PCM sin procesar en un encabezado WAV (por ejemplo, con el módulo `wave` de Python o `ffmpeg`), quita el encapsulador de encabezado manual y escribe los bytes devueltos directamente en un archivo `.wav`.
+   - Si tu canalización requiere audio PCM sin procesar, mu-law o A-law sin encabezado, establece `response_format.mime_type` de forma explícita en `"audio/l16"`, `"audio/mulaw"` o `"audio/alaw"` (por ejemplo, `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}` en la API de Interactions, o `AUDIO_L16`, `AUDIO_MULAW` o `AUDIO_ALAW` en `generateContent`). Consulta [Formatos de salida de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419#audio-output-formats).
 
 ## gemini-3.8-flash-tts
 
-| الموقع | الوصف |
+| Propiedad | Descripción |
 | --- | --- |
-| رمز النموذج id\_card | `gemini-3.8-flash-tts` |
-| saveأنواع البيانات المتوافقة | **المدخلات**  نص  **الناتج**  الصوت |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لرموز الإدخال المميزة**  8,192  **الحدّ الأقصى لرموز الناتج المميزة**  ‫16,384 (الحد الأقصى لعدد الرموز المميزة التي يمكن أن تعرضها Gemini API) |
-| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  غير متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  غير متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  غير متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  غير متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  غير متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  غير متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  غير متاح |
-| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  متاح  **[استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  متاح |
-| 123Versions | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - `gemini-3.8-flash-tts` |
-| calendar\_monthآخر تعديل | سبتمبر 2026 |
+| Código del modelo id\_card | `gemini-3.8-flash-tts` |
+| saveTipos de datos admitidos | **Entradas**  Texto  **Resultado**  Audio |
+| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  8,192  **Límite de tokens de salida**  16,384 (límite de publicación de la API de Gemini) |
+| handymanFunciones | **[Generación de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)**  Admitido  **[Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**  No compatible  **[Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)**  No compatible  **[Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)**  No compatible  **[Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)**  No compatible  **[Fundamentación con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)**  No compatible  **[Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)**  No compatible  **[API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419)**  No compatible  **[Fundamentación con la Búsqueda](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)**  No compatible  **[Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419)**  No compatible  **[Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419)**  No compatible  **[Contexto de la URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)**  No compatible |
+| speedOpciones de consumo | **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**  Admitido  **[Inferencia flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)**  Admitido  **[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)**  Admitido |
+| Versiones123 | Lee los [patrones de versiones del modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - `gemini-3.8-flash-tts` |
+| calendar\_monthÚltima actualización | Septiembre de 2026 |
 
-## اللغات المتاحة
+## Idiomas admitidos
 
-يرصد `gemini-3.8-flash-tts` لغة الإدخال تلقائيًا ويتيح استخدام
-**أكثر من 130 لغة**:
+`gemini-3.8-flash-tts` detecta automáticamente el idioma de entrada y admite **más de 130 idiomas**:
 
-| اللغة | اللغة | اللغة |
+| Idioma | Idioma | Idioma |
 | --- | --- | --- |
-| الأتشيهية (نص عربي) | اليونانية | النيبالية (لغة فردية) |
-| الأفريقانية | الجورانية | الفولانية النيجيرية |
-| الأكانية | الغوجاراتية | الأذربيجانية الشمالية |
-| الأمهرية | الكريولية الهايتية | السوتو الشمالية |
-| الأرمينية | Halh Mongolian | الأوزبكية الشمالية |
-| الأسامية | الهوسا | البوكمالية النرويجية |
-| الأوادية | العبرية | النرويجية الجديدة |
-| باليني | الهندية | النيانجا |
-| البنغالية | الهنغارية | الأوكسيتانية |
-| البنجرية (الخط العربي) | الأيسلندية | الأورية (لغة فردية) |
-| البنجرية (نص لاتيني) | الإيجبو | البانغاسينية |
-| الباشكيرية | الايلوكو | الفارسية (أفغانستان) |
-| الباسك | الإندونيسية | البولندية |
-| Belarusian | الفارسية الإيرانية | البرتغالية |
-| البيمبا | الإيطالية | البنجابية |
-| البهوجبورية | اليابانية | الرومانية |
-| البوسنية | الجافانية | الروسية |
-| بوغينيز | القبائلية | السنتالية |
-| البلغارية | الكامبا | الصربية |
-| البورمية | الكانادا | السندية |
-| الكَنْتونية | الكشميرية (نص عربي) | السنهالية |
-| الكتالانية | الكشميرية (نص ديفا) | السلوفاكية |
-| السيبيوانية | الكازاخستانية | السلوفينية |
-| الكردية الوسطى | الخميرية | الصومالية |
-| التشاتيسغارهية | الكيكويو | الأذربيجانية الجنوبية |
-| الصينية (نص هان) | الكينيارواندا | باشتو جنوبية |
-| الصينية (نص هان) | كونغو | السوتو الجنوبية |
-| التتارية القرمية | الكورية | الإسبانية |
-| الكرواتية | القيرغيزية | العربية العادية (نص عربي) |
-| التشيكية | لاو | العربية الفصحى (نص لاتيني) |
-| الدانماركية | اللاتغالية | اللاتفية العادية |
-| الهولندية | اللينجالا | الماليزية المعيارية |
-| الدايلا | الليتوانية | السواحيلية (لغة فردية) |
-| الدزونغا | اللكسمبورغية | السواتي |
-| العربية المصرية | المقدونية | السويدية |
-| الإنجليزية | ماجادهي | الطاجيكية |
-| الإستونية | المايثيلية | التاميلية |
-| الفلبينية | المالايالامية | التيلوغوية |
-| الفنلندية | المالطية | التايلاندية |
-| الفرنسية | المانيبورية | التيجرينيا |
-| الغليشيانية | المراثية | الألبانية التوسكية |
-| الجاندا | المينانجكاباو (الخط العربي) | التركية |
-| الجورجية | المينانجكاباو (نص لاتيني) | الأويغورية |
-| الألمانية | ميزو | الفيتنامية |
+| Acehnés (alfabeto árabe) | Griego | Nepalí (idioma individual) |
+| Afrikaans | Guaraní | Fulfulde nigeriano |
+| Akan | Gujarati | Azerí del norte |
+| Amárico | Criollo haitiano | Sotho norteño |
+| Armenio | Mongol de Halh | Uzbeko del norte |
+| Asamés | Hausa | Bokmål |
+| Awadhi | Hebreo | Noruego (Nynorsk) |
+| Balinés | Hindi | Nyanja |
+| Bengalí | Húngaro | Occitano |
+| Banjar (escritura árabe) | Islandés | Odia (idioma individual) |
+| Banjar (alfabeto latino) | Igbo | Pangasinán |
+| Baskir | Ilocano | Persa (Afganistán) |
+| Euskara | Indonesio | Polaco |
+| Bielorruso | Persa iraní | Portugués |
+| Bemba | Italiano | Punyabí |
+| Bhojpuri | Japonés | Rumano |
+| Bosnio | Javanés | Ruso |
+| Buginés | Kabyle | Santali |
+| Búlgaro | Kamba | Serbio |
+| Birmano | Canarés | Sindhi |
+| Cantonés | Cachemir (alfabeto árabe) | Cingalés |
+| Catalán | Cachemir (alfabeto Deva) | Eslovaco |
+| Cebuano | Kazajo | Esloveno |
+| Kurdo | Jemer | Somalí |
+| Chatisgarí | Kikuyu | Azerí del sur |
+| Chino (secuencia de comandos Hans) | Kiñarwanda | Pastún meridional |
+| Chino (secuencia de comandos Hant) | Congo | Sesoto meridional |
+| Tártaro de Crimea | Coreano | Español |
+| Croata | Kirguís | Árabe estándar (alfabeto árabe) |
+| Checo | Laosiano | Árabe estándar (alfabeto latino) |
+| Danés | Latgaliano | Letón estándar |
+| Holandés | Lingala | Malayo estándar |
+| Diula | Lituano | Suajili (idioma individual) |
+| Dzongkha | Luxemburgués | Suazi |
+| Árabe egipcio | Macedonio | Sueco |
+| Inglés | Magahi | Tayiko |
+| Estonio | Maithili | Tamil |
+| Filipino | Malayalam | Telugu |
+| Finlandés | Maltés | Tailandés |
+| Francés | Manipuri | Tigrinya |
+| Gallego | Maratí | Albanés tosk |
+| luganda | Minangkabau (escritura árabe) | Turco |
+| Georgiano | Minangkabau (alfabeto latino) | Uigur |
+| Alemán | Mizo | Vietnamita |
 
-إرسال ملاحظات
+Enviar comentarios
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)
+Última actualización: 2026-10-09 (UTC)
 
-هل تريد مشاركة ملاحظاتك معنا؟
+¿Quieres brindar más información?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-09 (UTC)"],[],[]]

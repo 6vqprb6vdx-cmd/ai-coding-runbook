@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=th
-fetched_at: 2026-10-12T07:01:06.203900+00:00
-title: "\u0e40\u0e23\u0e34\u0e48\u0e21\u0e15\u0e49\u0e19\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19 Gemini Live API \u0e42\u0e14\u0e22\u0e43\u0e0a\u0e49 Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=tr
+fetched_at: 2026-10-19T05:45:17.938101+00:00
+title: "Google GenAI SDK'y\u0131 kullanarak Gemini Live API'yi kullanmaya ba\u015flama \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-# เริ่มต้นใช้งาน Gemini Live API โดยใช้ Google GenAI SDK
+# Google GenAI SDK'yı kullanarak Gemini Live API'yi kullanmaya başlama
 
-Gemini Live API ช่วยให้โต้ตอบกับโมเดล Gemini ได้แบบเรียลไทม์และสองทาง โดยรองรับอินพุตเสียง วิดีโอ และข้อความ รวมถึงเอาต์พุตเสียงแบบเนทีฟ คู่มือนี้อธิบายวิธีผสานรวมกับ API โดยใช้ Google GenAI SDK บนเซิร์ฟเวอร์
+Gemini Live API, Gemini modelleriyle anlık ve çift yönlü etkileşime olanak tanır. Ses, video ve metin girişlerinin yanı sıra doğal ses çıkışlarını destekler. Bu kılavuzda, sunucunuzda Google GenAI SDK'yı kullanarak API ile nasıl entegrasyon yapacağınız açıklanmaktadır.
 
-[ลองใช้ Live API ใน Google AI Studiomic](https://aistudio.google.com/live?hl=th)
-[Clone the example app from GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[Use coding agent skillsterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=th)
+[Google AI Studio'da Live API'yi deneyinmic](https://aistudio.google.com/live?hl=tr)
+[Örnek uygulamayı GitHub'dan klonlayıncode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Kodlama aracısı becerilerini kullanınterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr)
 
-## ภาพรวม
+## Genel Bakış
 
-Gemini Live API ใช้ WebSockets สำหรับการสื่อสารแบบเรียลไทม์ SDK `google-genai` มีอินเทอร์เฟซแบบอะซิงโครนัสระดับสูงสำหรับการจัดการการเชื่อมต่อเหล่านี้
+Gemini Live API, anlık iletişim için WebSocket'leri kullanır. `google-genai` SDK, bu bağlantıları yönetmek için üst düzey bir eşzamansız arayüz sağlar.
 
-แนวคิดหลัก
+Temel kavramlar:
 
-- **เซสชัน**: การเชื่อมต่อกับโมเดลแบบต่อเนื่อง
-- **การกำหนดค่า**: การตั้งค่าโมดัลลิตี (เสียง/ข้อความ) เสียง และคำแนะนำของระบบ
-- **อินพุตแบบเรียลไทม์**: การส่งเฟรมเสียงและวิดีโอเป็น Blob
+- **Oturum**: Modele kalıcı bağlantı.
+- **Yapılandırma**: Modları (ses/metin), sesi ve sistem talimatlarını ayarlama.
+- **Anlık Giriş**: Ses ve video karelerini blob olarak gönderme.
 
-## การเชื่อมต่อกับ Live API
+## Live API'ye bağlanma
 
-เริ่มเซสชัน Live API ด้วยคีย์ API โดยทำดังนี้
+API anahtarıyla Live API oturumu başlatma:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## การส่งข้อความ
+## Kısa mesaj gönderiliyor
 
-คุณสามารถส่งข้อความได้โดยใช้ `send_realtime_input` (Python) หรือ `sendRealtimeInput` (JavaScript)
+Metin, `send_realtime_input` (Python) veya `sendRealtimeInput` (JavaScript) kullanılarak gönderilebilir.
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## การส่งเสียง
+## Ses gönderme
 
-คุณต้องส่งเสียงเป็นข้อมูล PCM ดิบ (เสียง PCM ดิบ 16 บิต, 16kHz, little-endian)
+Ses, ham PCM verileri (ham 16 bit PCM ses, 16 kHz, little-endian) olarak gönderilmelidir.
 
 ### Python
 
@@ -143,12 +143,11 @@ session.sendRealtimeInput({
 });
 ```
 
-ดูตัวอย่างวิธีรับเสียงจากอุปกรณ์ไคลเอ็นต์ (เช่น เบราว์เซอร์)
-ได้ที่ตัวอย่างแบบครบวงจรใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70)
+İstemci cihazdan (ör. tarayıcı) sesi alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70)'daki uçtan uca örneğe bakın.
 
-## การส่งวิดีโอ
+## Video gönderiliyor
 
-ระบบจะส่งเฟรมวิดีโอเป็นรูปภาพแต่ละรูป (เช่น JPEG หรือ PNG) ที่อัตราเฟรมที่เฉพาะเจาะจง (สูงสุด 1 เฟรมต่อวินาที)
+Video kareleri, belirli bir kare hızında (saniyede en fazla 1 kare) ayrı resimler (ör. JPEG veya PNG) olarak gönderilir.
 
 ### Python
 
@@ -174,12 +173,11 @@ session.sendRealtimeInput({
 });
 ```
 
-ดูตัวอย่างวิธีรับวิดีโอจากอุปกรณ์ไคลเอ็นต์ (เช่น เบราว์เซอร์)
-ได้ที่ตัวอย่างแบบครบวงจรใน [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120)
+Videoyu istemci cihazdan (ör. tarayıcı) alma örneği için [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120)'daki uçtan uca örneğe bakın.
 
-## การรับเสียง
+## Ses alma
 
-ระบบจะรับคำตอบเสียงของโมเดลเป็นข้อมูลแบบเป็นช่วงๆ
+Modelin sesli yanıtları veri parçaları olarak alınır.
 
 ### Python
 
@@ -207,11 +205,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-ดูแอปตัวอย่างใน GitHub เพื่อดูวิธี[รับเสียงบนเซิร์ฟเวอร์](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98)และ[เล่นเสียงในเบราว์เซอร์](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174)
+[Sunucunuzda sesi nasıl alacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) ve [tarayıcıda nasıl çalacağınızı](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174) öğrenmek için GitHub'daki örnek uygulamaya bakın.
 
-## การรับข้อความ
+## Kısa mesaj alınıyor
 
-การถอดเสียงสำหรับทั้งข้อมูลจากผู้ใช้และเอาต์พุตโมเดลจะอยู่ในเนื้อหาของเซิร์ฟเวอร์
+Hem kullanıcı girişi hem de model çıkışı için transkriptler sunucu içeriğinde mevcuttur.
 
 ### Python
 
@@ -238,9 +236,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## การจัดการการเรียกใช้เครื่องมือ
+## Araç çağrılarını işleme
 
-API รองรับการเรียกใช้เครื่องมือ (การเรียกใช้ฟังก์ชัน) เมื่อโมเดลขอการเรียกใช้เครื่องมือ คุณต้องเรียกใช้ฟังก์ชันและส่งคำตอบกลับ
+API, araç çağrısını (işlev çağrısı) destekler. Model bir araç çağrısı istediğinde işlevi yürütmeniz ve yanıtı geri göndermeniz gerekir.
 
 ### Python
 
@@ -281,20 +279,20 @@ if (response.toolCall) {
 }
 ```
 
-## ขั้นตอนถัดไป
+## Sırada ne var?
 
-- อ่านคู่มือความสามารถของ Live API [ฉบับเต็ม](https://ai.google.dev/gemini-api/docs/live-guide?hl=th) เพื่อดูความสามารถและการกำหนดค่าที่สำคัญ ซึ่งรวมถึงการตรวจจับกิจกรรมเสียงและฟีเจอร์เสียงแบบเนทีฟ
-- อ่านคู่มือ[การใช้เครื่องมือ](https://ai.google.dev/gemini-api/docs/live-tools?hl=th)เพื่อดูวิธีผสานรวม Live API กับเครื่องมือและการเรียกใช้ฟังก์ชัน
-- อ่านคู่มือ[การจัดการเซสชัน](https://ai.google.dev/gemini-api/docs/live-session?hl=th)เพื่อดูวิธีจัดการการสนทนาที่ใช้เวลานาน
-- อ่านคู่มือ[โทเค็นชั่วคราว](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=th)เพื่อดูการตรวจสอบสิทธิ์ที่ปลอดภัยในแอปพลิเคชันแบบ[ไคลเอ็นต์ต่อเซิร์ฟเวอร์](https://ai.google.dev/gemini-api/docs/live-api?hl=th#implementation-approach)
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ WebSockets API ที่อยู่เบื้องหลังได้ที่[ข้อมูลอ้างอิง WebSockets API](https://ai.google.dev/api/live?hl=th)
+- Konuşma Etkinliği Algılama ve yerel ses özellikleri de dahil olmak üzere temel özellikler ve yapılandırmalar için Live API [Özellikleri](https://ai.google.dev/gemini-api/docs/live-guide?hl=tr) kılavuzunun tamamını okuyun.
+- Live API'yi araçlarla ve işlev çağrısıyla nasıl entegre edeceğinizi öğrenmek için [Araç kullanımı](https://ai.google.dev/gemini-api/docs/live-tools?hl=tr) kılavuzunu okuyun.
+- Uzun süren görüşmeleri yönetmek için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-session?hl=tr) kılavuzunu okuyun.
+- [İstemciden sunucuya](https://ai.google.dev/gemini-api/docs/live-api?hl=tr#implementation-approach) uygulamalarda güvenli kimlik doğrulama için [Geçici jetonlar](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=tr) kılavuzunu okuyun.
+- Temel alınan WebSockets API hakkında daha fazla bilgi için [WebSockets API referansı](https://ai.google.dev/api/live?hl=tr) başlıklı makaleyi inceleyin.
 
-ส่งความคิดเห็น
+Geri bildirim gönderin
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-อัปเดตล่าสุด 2026-09-17 UTC
+Son güncelleme tarihi: 2026-09-17 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-17 UTC"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-17 UTC."],[],[]]

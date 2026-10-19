@@ -1,30 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=it
-fetched_at: 2026-10-12T07:13:38.998663+00:00
-title: "Combinare strumenti integrati e chiamata di funzione \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=sq
+fetched_at: 2026-10-19T05:30:39.979867+00:00
+title: "Kombino veglat e integruara dhe telefonatat e funksioneve \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs/generate-content?hl=sq)
 
-Invia feedback
+Dërgo komente
 
-# Combinare strumenti integrati e chiamata di funzione
+# Kombino veglat e integruara dhe telefonatat e funksioneve
 
-Gemini consente la combinazione di [strumenti integrati](https://ai.google.dev/gemini-api/docs/tools?hl=it), come `google_search`, e [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) (note anche come *strumenti personalizzati*) in una singola generazione, preservando ed esponendo la cronologia del contesto delle chiamate di strumenti. Le combinazioni di strumenti integrati e personalizzati consentono
-workflow complessi e basati su agenti in cui, ad esempio, il modello può basarsi
-su dati web in tempo reale prima di chiamare la logica di business specifica.
+Gemini lejon kombinimin e [veglave të integruara](https://ai.google.dev/gemini-api/docs/tools?hl=sq), si p.sh. `google_search`, dhe [thirrjes së funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) (e njohur gjithashtu si *veglat e personalizuara*) në një gjenerim të vetëm duke ruajtur dhe ekspozuar historikun e kontekstit të thirrjeve të veglave. Kombinimet e integruara dhe të personalizuara të veglave lejojnë flukse pune komplekse dhe të drejtuara nga agjentët ku, për shembull, modeli mund të bazohet në të dhënat e uebit në kohë reale para se të thërrasë logjikën tënde specifike të biznesit.
 
-Ecco un esempio che consente combinazioni di strumenti integrati e personalizzati con
-`google_search` e una funzione personalizzata `getWeather`:
+Këtu është një shembull që aktivizon kombinimet e veglave të integruara dhe të personalizuara me
+`google_search` dhe një funksion të personalizuar `getWeather`:
 
 ### Python
 
@@ -391,74 +389,66 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Come funziona
+## Si funksionon
 
-I modelli Gemini 3 utilizzano la *circolazione del contesto degli strumenti* per consentire combinazioni di strumenti
-integrati e personalizzati. La circolazione del contesto degli strumenti consente di preservare ed esporre il contesto degli strumenti integrati e condividerlo con gli strumenti personalizzati nella stessa chiamata da turno a turno.
+Modelet e Gemini 3 përdorin *qarkullimin e kontekstit të veglave* për të mundësuar kombinime të veglave të personalizuara dhe të integruara. Qarkullimi i kontekstit të veglës bën të mundur ruajtjen dhe ekspozimin e kontekstit të veglave të integruara dhe ndarjen e tij me veglat e personalizuara në të njëjtin telefonatë nga një raund në tjetrin.
 
-### Abilitare la combinazione di strumenti
+### Aktivizo kombinimin e veglave
 
-- Devi impostare il flag `include_server_side_tool_invocations` su `true` per
-  attivare la circolazione del contesto dello strumento.
-- Includi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function-declarations), insieme agli strumenti integrati che vuoi utilizzare, per attivare il comportamento di combinazione.
-  - Se non includi `function_declarations`, la circolazione del contesto degli strumenti
-    agirà comunque sugli strumenti integrati inclusi, a condizione che il flag sia impostato.
+- Duhet të caktosh flamurin `include_server_side_tool_invocations` në `true` për të aktivizuar qarkullimin e kontekstit të veglës.
+- Përfshi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq#function-declarations), si dhe veglat e integruara që dëshiron të përdorësh, për të aktivizuar sjelljen e kombinimit.
+  - Nëse nuk përfshin `function_declarations`, qarkullimi i kontekstit të veglës do të veprojë përsëri në veglat e integruara të përfshira, për aq kohë sa është caktuar flamuri.
 
-### L'API restituisce le parti
+### API-ja kthen pjesë
 
-In una singola risposta, l'API restituisce le parti `toolCall` e `toolResponse`
-per la chiamata allo strumento integrato. Per la chiamata di funzione (strumento personalizzato), l'API
-restituisce la parte di chiamata `functionCall`, a cui l'utente fornisce la parte
-`functionResponse` nel turno successivo.
+Në një përgjigje të vetme, API-ja kthen pjesët `toolCall` dhe `toolResponse` për thirrjen e veglës së integruar. Për thirrjen e funksionit (vegla e personalizuar), API-ja kthen pjesën e thirrjes `functionCall`, për të cilën përdoruesi jep pjesën `functionResponse` në radhën tjetër.
 
-- `toolCall` e `toolResponse`: l'API restituisce queste parti per preservare il contesto degli strumenti eseguiti sul lato server e il risultato della loro esecuzione per il turno successivo.
-- `functionCall` e `functionResponse`: l'API invia la chiamata di funzione
-  all'utente da compilare e l'utente restituisce il risultato nella
-  risposta della funzione (queste parti sono standard per tutte le [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) nell'API Gemini, non uniche per la
-  funzionalità di combinazione di strumenti).
-- (Solo strumento [Esecuzione del codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it))
-  `executableCode` e `codeExecutionResult`:
-  Quando utilizzi lo strumento Esecuzione del codice, anziché `functionCall` e
-  `functionResponse`, l'API restituisce `executableCode` (il codice generato
-  dal modello che deve essere eseguito) e `codeExecutionResult` (il
-  risultato del codice eseguibile).
+- `toolCall` dhe `toolResponse`: API-ja i kthen këto pjesë për të ruajtur kontekstin se cilat vegla ekzekutohen në anën e serverit dhe rezultatin e ekzekutimit të tyre për radhën tjetër.
+- `functionCall` dhe `functionResponse`: API-ja i dërgon thirrjen e funksionit përdoruesit për ta plotësuar dhe përdoruesi dërgon mbrapsht rezultatin në përgjigjen e funksionit (këto pjesë janë standarde për të gjitha [thirrjet e funksioneve](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) në Gemini API, jo unike për veçorinë e kombinimit të veglave).
+- (Vetëm veglat e [ekzekutimit të kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq))
+  `executableCode` dhe `codeExecutionResult`:
+  Kur përdor veglën e ekzekutimit të kodit, në vend të `functionCall` dhe
+  `functionResponse`, API-ja kthen `executableCode` (kodi i gjeneruar
+  nga modeli që synohet të ekzekutohet) dhe `codeExecutionResult` (rezultati i
+  kodit të ekzekutueshëm).
 
-Devi restituire tutte le parti, inclusi tutti i [campi](#critical-fields) che contengono, al modello a ogni turno per mantenere il contesto e consentire le combinazioni di strumenti.
+Duhet t'i kthesh të gjitha pjesët, duke përfshirë të gjitha [fushat](#critical-fields) që ato përmbajnë, përsëri te modeli në çdo radhë për të ruajtur kontekstin dhe për të aktivizuar kombinimet e veglave.
 
-### Campi critici nelle parti restituite
+### Fushat kritike në pjesët e kthyera
 
-Alcune [parti restituite dall'API](#api-returns-parts) includeranno i campi `id`,
-`tool_type` e `thought_signature`. Questi campi sono fondamentali per
-mantenere il contesto dello strumento (e quindi fondamentali per le combinazioni di strumenti); devi
-restituire tutte le parti *come indicato nella risposta* nelle richieste successive.
+[Pjesë të caktuara të kthyera nga API](#api-returns-parts) do të përfshijnë fushat `id`,
+`tool_type` dhe `thought_signature`. Këto fusha janë kritike për
+mbajtjen e kontekstit të veglës (dhe prandaj kritike për kombinimet e veglave); duhet të kthesh të gjitha pjesët *siç jepen në përgjigje* në kërkesat e tua vijuese.
 
-- `id`: un identificatore univoco che mappa una chiamata alla relativa risposta. `id` è **impostato su
-  tutte le risposte di chiamata di funzione**, indipendentemente dalla circolazione del contesto dello strumento.
-  *Devi* fornire lo stesso `id` nella risposta della funzione
-  che l'API fornisce nella chiamata di funzione. Gli strumenti integrati condividono automaticamente il `id` tra la chiamata allo strumento e la risposta dello strumento.
-  - Presente in tutte le parti relative allo strumento: `toolCall`, `toolResponse`,
+- `id`: Një identifikues unik që lidh një telefonatë me përgjigjen e saj. `id` është **caktuar në
+  të gjitha përgjigjet e thirrjeve të funksioneve**, pavarësisht nga qarkullimi i kontekstit të veglës.
+  *Duhet* të japësh të njëjtën `id` në përgjigjen e funksionit
+  që ofron API-ja në thirrjen e funksionit. Veglat e integruara ndajnë automatikisht `id` mes thirrjes së veglës dhe përgjigjes së veglës.
+  - Gjenden në të gjitha pjesët në lidhje me veglat: `toolCall`, `toolResponse`,
     `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
-- `tool_type`: identifica lo strumento specifico utilizzato; il nome dello strumento o della funzione letterale integrata (ad es. `URL_CONTEXT`) o della funzione (ad es. `getWeather`).
-  - Trovato nelle parti `toolCall` e `toolResponse`.
-- `thought_signature`: il contesto criptato effettivo incorporato in **ogni
-  parte restituita dall'API**. Il contesto non può essere ricostruito senza le firme del pensiero; se non restituisci le firme del pensiero per tutte le parti in ogni turno, il modello genererà un errore.
-  - Trovato in *tutte* le parti.
+- `tool_type`: Identifikon veglën specifike që po përdoret; vegla e integruar fjalë për fjalë ose (p.sh. `URL_CONTEXT`) ose emri i funksionit (p.sh. `getWeather`).
+  - U gjet në `toolCall` dhe `toolResponse` pjesë.
+- `thought_signature`: Konteksti aktual i enkriptuar i integruar në **secilën
+  pjesë të kthyer nga API-ja**. Context can't be
+  reconstructed without thought signatures; if you don't return the thought
+  signatures for all parts in every turn, the model will error out.
+  - Gjendet në *të gjitha* pjesët.
 
-### Dati specifici dello strumento
+### Të dhënat specifike për veglën
 
-Alcuni strumenti integrati restituiscono argomenti di dati visibili all'utente specifici per il tipo di strumento.
+Disa vegla të integruara kthejnë argumente të të dhënave të dukshme për përdoruesin që janë specifike për llojin e veglës.
 
-| Strumento | Argomenti della chiamata allo strumento visibili all'utente (se presenti) | Risposta dello strumento visibile all'utente (se presente) |
+| Vegla | Argumentet e thirrjes së veglës të dukshme për përdoruesin (nëse ka) | Përgjigjja e veglës e dukshme për përdoruesin (nëse ka) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` URL da visitare | `url_metadata` `retrieved_url`: URL sfogliati `url_retrieval_status`: Stato di navigazione |
-| **FILE\_SEARCH** | Nessuno | Nessuno |
+| **URL\_CONTEXT** | `urls` URL-të që do të shfletohen | `url_metadata` `retrieved_url`: URL-të e shfletuara `url_retrieval_status`: Statusi i shfletimit |
+| **FILE\_SEARCH** | Asnjë | Asnjë |
 
-## Esempio di struttura della richiesta di combinazione di strumenti
+## Shembull i strukturës së kërkesës për kombinimin e veglave
 
-La seguente struttura della richiesta mostra la struttura della richiesta del prompt: "Qual è la città più settentrionale degli Stati Uniti? Che tempo fa lì oggi?". Combina tre strumenti: gli strumenti Gemini integrati `google_search`
-e `code_execution` e una funzione personalizzata `get_weather`.
+Struktura e mëposhtme e kërkesës tregon strukturën e kërkesës së kërkesës: "Cili është qyteti më verior në Shtetet e Bashkuara? Si është moti atje sot?". Ajo kombinon tre vegla: veglat e integruara të Gemini `google_search`
+dhe `code_execution`, si dhe një funksion të personalizuar `get_weather`.
 
 ```
 {
@@ -527,55 +517,51 @@ e `code_execution` e una funzione personalizzata `get_weather`.
 }
 ```
 
-## Token e prezzi
+## Tokenët dhe çmimet
 
-Tieni presente che le parti `toolCall` e `toolResponse` nelle richieste vengono conteggiate ai fini di
-`prompt_token_count`. Poiché questi passaggi intermedi dello strumento ora sono visibili e
-ti vengono restituiti, fanno parte della cronologia della conversazione. Questo vale solo per le *richieste*, non per le *risposte*.
+Ki parasysh se pjesët `toolCall` dhe `toolResponse` në kërkesa llogariten për `prompt_token_count`. Duke qenë se këta hapa të ndërmjetëm të veglës tani janë të dukshëm dhe të kthehen ty, ata janë pjesë e historikut të bisedës. Kjo vlen vetëm për *kërkesat*, jo për *përgjigjet*.
 
-Lo strumento Ricerca Google è un'eccezione a questa regola. La Ricerca Google applica già il proprio modello di prezzi a livello di query, quindi i token non vengono addebitati due volte (vedi la pagina [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it)).
+Vegla e "Kërko në Google" është një përjashtim nga ky rregull. "Kërko në Google" e zbaton tashmë modelin e vet të çmimeve në nivel kërkese, kështu që tokenat nuk tarifohen dy herë (shiko faqen [Çmimet](https://ai.google.dev/gemini-api/docs/pricing?hl=sq)).
 
-Per saperne di più, consulta la pagina [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
+Lexo faqen [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=sq) për më shumë informacion.
 
-## Limitazioni
+## Kufizimet
 
-- Impostare la modalità `VALIDATED` per impostazione predefinita (la modalità `AUTO` non è supportata) quando
-  il flag `include_server_side_tool_invocations` è abilitato
-- Gli strumenti integrati come `google_search` si basano sulla posizione e sull'ora corrente, quindi se `system_instruction` o
-  `function_declaration.description` hanno informazioni su posizione e ora
-  in conflitto, la funzionalità di combinazione degli strumenti potrebbe non funzionare correttamente.
+- Parazgjidhet modaliteti `VALIDATED` (modaliteti `AUTO` nuk mbështetet) kur
+  aktivizohet flamuri `include_server_side_tool_invocations`
+- Veglat e integruara si `google_search` mbështeten te informacionet e vendndodhjes dhe orës aktuale, kështu që nëse `system_instruction` ose `function_declaration.description` kanë informacione të papërputhshme të vendndodhjes dhe orës, veçoria e kombinimit të veglave mund të mos funksionojë mirë.
 
-## Strumenti supportati
+## Veglat e mbështetura
 
-La circolazione del contesto degli strumenti standard si applica agli strumenti lato server (integrati).
-Code Execution è anche uno strumento lato server, ma ha una propria soluzione integrata per la circolazione del contesto. L'utilizzo del computer e la chiamata di funzioni sono strumenti lato client
-e dispongono anche di soluzioni integrate per la circolazione del contesto.
+Qarkullimi standard i kontekstit të veglës zbatohet për veglat në anën e serverit (të integruara).
+"Ekzekutimi i kodit" është gjithashtu një vegël nga ana e serverit, por ka zgjidhjen e vet të integruar për qarkullimin e kontekstit. "Përdorimi i kompjuterit" dhe thirrja e funksionit janë vegla në anën e klientit,
+si dhe kanë zgjidhje të integruara për qarkullimin e kontekstit.
 
-| Strumento | Lato di esecuzione | Supporto per la circolazione del contesto |
+| Vegla | Ana e ekzekutimit | Context Circulation Support |
 | --- | --- | --- |
-| [la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) | Lato server | Supportato |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it) | Lato server | Supportato |
-| [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) | Lato server | Supportato |
-| [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it) | Lato server | Supportato |
-| [Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) | Lato server | Supportato (integrato, utilizza le parti `executableCode` e `codeExecutionResult`) |
-| [Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) | Lato client | Supportato (integrato, utilizza le parti `functionCall` e `functionResponse`) |
-| [Funzioni personalizzate](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) | Lato client | Supportato (integrato, utilizza le parti `functionCall` e `functionResponse`) |
+| [Kërko në Google](https://ai.google.dev/gemini-api/docs/google-search?hl=sq) | Në anën e serverit | Mbështetet |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq) | Nga ana e serverit | Mbështetet |
+| [Konteksti i URL-së](https://ai.google.dev/gemini-api/docs/url-context?hl=sq) | Nga ana e serverit | Mbështetet |
+| [Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq) | Në anën e serverit | Mbështetet |
+| [Ekzekutimi i kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq) | Në anën e serverit | Mbështetur (i integruar, përdor pjesë të `executableCode` dhe `codeExecutionResult`) |
+| [Përdorimi i kompjuterit](https://ai.google.dev/gemini-api/docs/computer-use?hl=sq) | Në anën e klientit | Mbështetur (i integruar, përdor pjesë të `functionCall` dhe `functionResponse`) |
+| [Funksionet e personalizuara](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) | Nga ana e klientit | Mbështetur (i integruar, përdor pjesë të `functionCall` dhe `functionResponse`) |
 
-## Passaggi successivi
+## Çfarë ka më pas
 
-- Scopri di più sulla [chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) nell'API Gemini.
-- Esplora gli strumenti supportati:
-  - [la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)
-  - [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)
-  - [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)
+- Mëso më shumë rreth [Thirrjes së funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) në Gemini API.
+- Eksploro veglat e mbështetura:
+  - [Kërko në Google](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq)
+  - [Konteksti me URL](https://ai.google.dev/gemini-api/docs/url-context?hl=sq)
+  - [Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq)
 
-Invia feedback
+Dërgo komente
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Ultimo aggiornamento 2026-10-05 UTC.
+Përditësimi i fundit: 2026-10-13 UTC.
 
-Vuoi dirci altro?
+Duhet të na tregosh më shumë?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-05 UTC."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]

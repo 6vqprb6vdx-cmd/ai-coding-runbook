@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/voice-design?hl=es-419
-fetched_at: 2026-10-12T06:57:12.647109+00:00
-title: "Dise\u00f1o de voz \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/voice-design?hl=de
+fetched_at: 2026-10-19T05:33:56.269694+00:00
+title: "Sprachdesign \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Enviar comentarios
+Feedback geben
 
-# Diseño de voz
+# Sprachdesign
 
-El diseño de voz te permite crear una personificación vocal persistente y completamente nueva a partir de una descripción en lenguaje natural con el extremo Voices de la API de Gemini (`POST /v1beta/voices`). En lugar de limitarte a voces prediseñadas o a grabar audio de referencia, puedes describir la edad, el timbre, el acento y la forma de hablar de un personaje, y recibir un ID de `voice_...` reutilizable que se guarda en tu proyecto.
+Mit Voice Design können Sie mithilfe des Gemini API-Endpunkts „Voices“ (`POST /v1beta/voices`) eine völlig neue, dauerhafte stimmliche Persona aus einer natürlichsprachlichen Beschreibung erstellen. Anstatt auf vorgefertigte Stimmen beschränkt zu sein oder Referenz-Audio aufzunehmen, können Sie das Alter, das Stimm-Timbre, den Akzent und die grundlegende Sprechweise einer Figur beschreiben und erhalten eine wiederverwendbare `voice_...`-ID, die in Ihrem Projekt gespeichert wird.
 
-La forma más rápida de diseñar, probar y realizar iteraciones en voces personalizadas es con el estudio interactivo **Voice Design** en [Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419). Puedes generar arquetipos personalizados a partir de instrucciones de texto, probarlos con muestras de secuencias de comandos y copiar el ID de `voice_...` resultante directamente en el código de la aplicación.
+Die schnellste Möglichkeit, benutzerdefinierte Stimmen zu entwerfen, zu testen und zu iterieren, ist das interaktive **Voice Design**-Studio in [Google AI Studio](https://aistudio.google.com/generate-speech?hl=de). Sie können benutzerdefinierte Identitäten aus Text-Prompts generieren, sie mit Beispielskripts testen und die resultierende `voice_...`-ID direkt in Ihren Anwendungscode kopieren.
 
-[Probar en Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419)
+[In Google AI Studio ausprobieren](https://aistudio.google.com/generate-speech?hl=de)
 
-Tanto [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=es-419) (`gemini-3.8-flash-tts`) como [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=es-419) (`gemini-3.8-flash-lite-tts`) admiten el diseño de voz.
+Sowohl [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=de) (`gemini-3.8-flash-tts`) als auch [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=de) (`gemini-3.8-flash-lite-tts`) unterstützen Voice Design.
 
-## Crea una voz diseñada
+## Design-Stimme erstellen
 
-Usa el SDK de GenAI de Google (`google-genai` 2.25.0 o posterior / `@google/genai` 2.24.0 o posterior) o la API de REST para crear una voz personalizada a partir de una descripción de texto. En el caso de las voces de `"prompted"`, tanto `voices.create` (`CreateVoice`) como `voices.get` (`GetVoice`) devuelven un campo `sample_audio` de solo salida (`mime_type: "audio/wav"`, `data` codificado en base64) para que puedas escuchar de inmediato la voz generada:
+Mit dem Google GenAI SDK (`google-genai` 2.25.0+ / `@google/genai` 2.24.0+) oder der REST API können Sie eine benutzerdefinierte Stimme aus einer Textbeschreibung erstellen. Bei `"prompted"`-Stimmen geben sowohl `voices.create` (`CreateVoice`) als auch `voices.get` (`GetVoice`) ein reines Ausgabefeld `sample_audio` (`mime_type: "audio/wav"`, base64-codiertes `data`) zurück, sodass Sie die generierte Stimme sofort anhören können:
 
 ### Python
 
@@ -121,15 +121,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/voices" \
   }' | tee created_voice.json | jq -r '.sample_audio.data' | base64 --decode > voice_preview.wav
 ```
 
-## Cómo funciona el diseño de voz
+## So funktioniert das Voice-Design
 
-1. **Crea una voz guiada:** Llama a `voices.create` (`POST /v1beta/voices`) con `type="prompted"` y `store=True`.
-2. **Recibe una vista previa persistente de `voice_id` y `sample_audio`:** La API genera la identidad vocal, la almacena en tu proyecto y devuelve un ID permanente (por ejemplo, `voice_abc123...`) junto con `sample_audio` (`mime_type: "audio/wav"`, `data` codificado en base64) que contiene el audio de vista previa generado para la voz.
-3. **Sintetiza voz:** Pasa el `voice_id` en cualquier lugar donde se acepte un nombre de voz en tus solicitudes de síntesis.
+1. **Sprache mit Prompt erstellen**:Rufen Sie `voices.create` (`POST /v1beta/voices`) mit `type="prompted"` und `store=True` auf.
+2. **Dauerhafte `voice_id`- und `sample_audio`-Vorschau erhalten**:Die API generiert die stimmliche Identität, speichert sie in Ihrem Projekt und gibt eine dauerhafte ID (z. B. `voice_abc123...`) zusammen mit `sample_audio` (`mime_type: "audio/wav"`, base64-codiertes `data`) zurück, das die generierte Vorschau-Audio für die Stimme enthält.
+3. **Sprache synthetisieren**:Übergeben Sie `voice_id` überall dort, wo in Ihren Syntheseanfragen ein Sprachname akzeptiert wird.
 
-## Sintetiza la voz con la voz que diseñaste
+## Sprache mit Ihrer benutzerdefinierten Stimme synthetisieren
 
-Una vez que hayas creado una voz, pasa su `id` (`voice_...`) a la API de Interactions para generar voz:
+Nachdem Sie eine Stimme erstellt haben, übergeben Sie deren `id` (`voice_...`) an die Interactions API, um Sprache zu generieren:
 
 ### Python
 
@@ -228,13 +228,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' | jq -r '[.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio")] | last | .data' | base64 --decode > out.wav
 ```
 
-## Administra tus voces
+## Stimmen verwalten
 
-Puedes enumerar, filtrar, inspeccionar y borrar tus voces almacenadas en cualquier momento con la API de Voices (consulta [Biblioteca de voces extendida y filtrado](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419#voice-library) para ver todos los parámetros de filtro).
+Sie können Ihre gespeicherten Stimmen jederzeit mit der Voices API auflisten, filtern, prüfen und löschen (alle Filterparameter finden Sie unter [Erweiterte Stimmenbibliothek und Filterung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de#voice-library)).
 
-- **Límites de almacenamiento y TTL:** Las voces con estado (`store=True`, compartidas entre las voces replicadas y las generadas a partir de instrucciones) tienen un límite de **200 voces por proyecto** y un **TTL de 1 año** (tiempo de actividad).
-- **Disponibilidad de `sample_audio`:** `voices.create()` (`CreateVoice`) y `voices.get()` (`GetVoice`) completan `sample_audio` (`mime_type:
-  "audio/wav"`, `data` codificado en base64) para las voces de `"prompted"`. Para que la lista sea liviana, `voices.list()` (`ListVoices`) omite `sample_audio` (y `sample_audio` no se establece para las voces `"replicated"` y `"prebuilt"`).
+- **Speicherlimits und TTL**:Für zustandsbehaftete Stimmen (`store=True`, die für angeforderte und replizierte Stimmen freigegeben sind) gilt ein Limit von **200 Stimmen pro Projekt** und eine **Gültigkeitsdauer von 1 Jahr** (Time-to-Live, TTL).
+- **Verfügbarkeit von `sample_audio`**:`voices.create()` (`CreateVoice`) und `voices.get()` (`GetVoice`) füllen `sample_audio` (`mime_type:
+  "audio/wav"`, base64-codiertes `data`) für `"prompted"`-Stimmen aus. Damit der Eintrag übersichtlich bleibt, wird in `voices.list()` (`ListVoices`) `sample_audio` ausgelassen (und `sample_audio` ist für `"replicated"`- und `"prebuilt"`-Stimmen nicht festgelegt).
 
 ### Python
 
@@ -300,23 +300,23 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/voices/voice_YO
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Prácticas recomendadas para la creación de instrucciones para el diseño de voz
+## Best Practices für Prompts für das Voice-Design
 
-- **Coloca rasgos vocales permanentes en el diseño de voz, no en `style`:** Define características inmutables, como la edad, el género, el timbre, la textura vocal y el acento regional, cuando crees la voz en `voices.create`.
-- **Reserva `speech_metadata.style` para la emoción situacional:** Una vez que se cree tu voz personalizada, usa instrucciones `style` cortas (por ejemplo, `"whispered urgently"` o `"cheerful and energetic"`) para dirigir la actuación paso a paso sin alterar la identidad principal del orador.
-- **Sé específico y conciso:** Una descripción clara de 1 o 2 oraciones (como *"Una locutora deportiva enérgica y nítida de unos 30 años con un ligero acento del Medio Oeste"*) produce resultados más limpios y coherentes que los párrafos contradictorios o demasiado largos.
+- **Dauerhafte stimmliche Merkmale im Voice-Design festlegen, nicht in `style`**:Lege unveränderliche Merkmale wie Alter, Geschlecht, Klangfarbe, stimmliche Textur und regionalen Akzent beim Erstellen der Stimme in `voices.create` fest.
+- **`speech_metadata.style` für situationsbezogene Emotionen reservieren**:Nachdem Sie Ihre benutzerdefinierte Stimme erstellt haben, verwenden Sie kurze `style`-Prompts (z. B. `"whispered urgently"` oder `"cheerful and energetic"`), um die schrittweise Darstellung zu steuern, ohne die grundlegende Identität des Sprechers zu ändern.
+- **Spezifisch und prägnant sein**:Eine klare Beschreibung in ein bis zwei Sätzen (z. B. *„Eine dynamische Sportmoderatorin in den Dreißigern mit leichtem Akzent aus dem Mittleren Westen“*) führt zu besseren, konsistenteren Ergebnissen als widersprüchliche oder zu lange Absätze.
 
-## ¿Qué sigue?
+## Nächste Schritte
 
-- Obtén información para replicar la voz de un orador existente en [Replicación de voz](https://ai.google.dev/gemini-api/docs/voice-replication?hl=es-419).
-- Explora el diseño a nivel de turnos, las etiquetas intercaladas y el diálogo de varios oradores en la [guía de Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419).
+- [Weitere Informationen zur Stimmreplikation](https://ai.google.dev/gemini-api/docs/voice-replication?hl=de)
+- Weitere Informationen zu Stil auf Turn-Ebene, Inline-Tags und Dialogen mit mehreren Sprechern finden Sie im [Leitfaden zur Sprachsynthese](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de).
 
-Enviar comentarios
+Feedback geben
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Última actualización: 2026-09-24 (UTC)
+Zuletzt aktualisiert: 2026-09-24 (UTC).
 
-¿Quieres brindar más información?
+Haben Sie Feedback für uns?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-24 (UTC)."],[],[]]

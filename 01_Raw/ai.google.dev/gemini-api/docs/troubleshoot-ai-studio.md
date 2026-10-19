@@ -1,84 +1,87 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=ja
-fetched_at: 2026-10-12T07:08:23.955220+00:00
-title: "Google AI Studio \u306e\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=zh-CN
+fetched_at: 2026-10-19T05:33:47.251036+00:00
+title: "\u6392\u67e5 Google AI Studio \u95ee\u9898 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-フィードバックを送信
+发送反馈
 
-# Google AI Studio のトラブルシューティング
+# 排查 Google AI Studio 问题
 
-このページでは、Google AI Studio で問題が発生した場合のトラブルシューティング方法について説明します。
+本页提供了一些建议，可帮助您在遇到问题时排查 Google AI Studio 的问题。
 
-## 403 アクセス制限エラーについて
+## 了解 403 访问受限错误
 
-[403 アクセス制限エラーが表示される場合は、
-利用規約](https://ai.google.dev/terms?hl=ja)に準拠しない方法で Google AI Studio を使用しています。一般的な理由の 1 つは、
-[サポートされているリージョン](https://ai.google.dev/available_regions?hl=ja)に居住していないことです。
+如果您看到 403 访问受限错误，则表示您使用 Google AI Studio 的方式不符合[服务条款](https://ai.google.dev/terms?hl=zh-cn)。一个常见原因是
+您所在的地区不受[支持](https://ai.google.dev/available_regions?hl=zh-cn)。
 
-## Google AI Studio でコンテンツなしのレスポンスを解決する
+## 解决 Google AI Studio 上“无内容”响应的问题
 
-コンテンツが何らかの理由でブロックされると、warning **コンテンツなし** メッセージが
-Google AI Studio に表示されます。詳細を確認するには、
-[**コンテンツなし**] にポインタを合わせて、
-warning [**安全性**] をクリックします。
+如果内容因任何原因被屏蔽，
+Google AI Studio 上会显示warning **无内容** 消息。如需查看更多详细信息，
+请将指针悬停在 **无内容** 上，然后点击
+warning **安全**。
 
-[[[安全設定によりレスポンスがブロックされ、ユースケースの安全上のリスクを考慮した場合は、安全設定を変更して返されるレスポンスに影響を与えることができます。](https://ai.google.dev/docs/safety_setting?hl=ja)](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ja)](https://ai.google.dev/docs/safety_setting?hl=ja#safety_settings_in_makersuite)
+如果响应因[安全设置](https://ai.google.dev/docs/safety_setting?hl=zh-cn)而被屏蔽，并且
+您已考虑了用例的[安全风险](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-cn)，则您
+可以修改
+[安全设置](https://ai.google.dev/docs/safety_setting?hl=zh-cn#safety_settings_in_makersuite)
+以影响返回的响应。
 
-レスポンスがブロックされたが、安全設定が原因ではない場合、クエリまたは
-レスポンスが[利用規約](https://ai.google.dev/terms?hl=ja)に違反しているか、サポートされていない可能性があります。
+如果响应被屏蔽但不是因为安全设置，则查询或
+响应可能违反了[服务条款](https://ai.google.dev/terms?hl=zh-cn)，或者不受支持。
 
-## トークンの使用量と上限を確認する
+## 检查 token 使用情况和限制
 
-プロンプトを開くと、画面下部の [**テキスト プレビュー**] ボタンに、プロンプトのコンテンツに使用されている現在のトークン数と、使用されているモデルの最大トークン数が表示されます。
+当您打开提示时，屏幕底部的**文本预览** 按钮会显示当前用于提示内容的 token 数，以及所用模型的最大 token 数。
 
-## AI Studio の Google Cloud IAM 権限
+## AI Studio 的 Google Cloud IAM 权限
 
-Google Cloud プロジェクトのメンバーが Google AI Studio で操作を行うには、特定の Identity and Access Management（IAM）権限が必要です。これらの ID の詳細については、[IAM プリンシパルの概要](https://docs.cloud.google.com/iam/docs/principals-overview?hl=ja)をご覧ください。
+Google Cloud 项目的成员需要特定的 Identity and Access Management (IAM) 权限才能在 Google AI Studio 中执行操作。如需详细了解这些身份，请参阅 [IAM 主账号概览](https://docs.cloud.google.com/iam/docs/principals-overview?hl=zh-cn)。
 
-関連付けられた Google Cloud プロジェクトで**編集者** または**オーナー** のロールを持つユーザーは、ダッシュボードを表示して Gemini API キーを管理するための完全な権限を持ちます。**閲覧者** のロールを持つユーザーは、ダッシュボードと API キーを表示できますが、作成、更新、削除はできません。
+在关联的 Google Cloud 项目中具有**编辑者** 或**所有者** 角色的用户拥有查看信息中心和管理 Gemini API 密钥的完整权限。具有**查看者** 角色的用户可以查看信息中心和 API 密钥，但无法创建、更新或删除它们。
 
-より詳細な制御を行うには、次の表で、AI Studio の各機能に必要な特定の権限を確認してください。これらの権限を付与する方法については、Google Cloud ドキュメントの[リソースへのアクセス権の付与、変更、取り消し](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=ja)をご覧ください。
+如需进行更精细的控制，请参阅下表，了解每个 AI Studio 功能所需的特定权限。如需了解如何授予这些权限，请参阅 Google Cloud 文档中的[授予、更改和撤消对资源的访问权限](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=zh-cn)。
 
-| AI Studio の機能 | 必要な IAM 権限 | その他の要件 |
+| AI Studio 功能 | 必需的 IAM 权限 | 其他要求 |
 | --- | --- | --- |
-| **プロジェクトを検索** （プロジェクトをインポート） | `resourcemanager.projects.get` |  |
-| **プロジェクトの名前を変更** | `resourcemanager.projects.update` |  |
-| **割り当て階層を表示** | なし |  |
-| **API キーを作成** | **プロジェクトを検索** 権限があること、および  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **API キーを一覧表示** | **プロジェクトを検索** 権限があること、および  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud プロジェクトで [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=ja) が有効になっている必要があります。 |
-| **API キーの名前を変更** | `apikeys.keys.update` |  |
-| **API キーを削除** | `apikeys.keys.delete` |  |
-| **使用状況ダッシュボード** | **プロジェクトを検索** 権限があること、および  `monitoring.timeSeries.list` |  |
-| **レート制限ダッシュボード** | **使用状況ダッシュボード** 権限があること、および  `cloudquotas.quotas.get` |  |
-| **費用（請求上限）** | `billing.resourceCosts.get`（費用を表示） `billing.resourcebudgets.read`（上限を表示） `billing.resourcebudgets.write`（上限を設定） |  |
-| **請求ダッシュボード** | `billing.accounts.get` |  |
+| **搜索项目** （导入项目） | `resourcemanager.projects.get` |  |
+| **重命名项目** | `resourcemanager.projects.update` |  |
+| **显示配额层级** | 不适用 |  |
+| **创建 API 密钥** | 拥有**搜索项目** 权限，并且：  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **列出 API 密钥** | 拥有**搜索项目** 权限，并且：  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud 项目必须启用 [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=zh-cn)。 |
+| **重命名 API 密钥** | `apikeys.keys.update` |  |
+| **删除 API 密钥** | `apikeys.keys.delete` |  |
+| **使用情况信息中心** | 拥有**搜索项目** 权限，并且：  `monitoring.timeSeries.list` |  |
+| **速率限制信息中心** | 拥有**使用情况信息中心** 权限，并且：  `cloudquotas.quotas.get` |  |
+| **支出（结算上限）** | `billing.resourceCosts.get`（查看支出） `billing.resourcebudgets.read`（查看上限） `billing.resourcebudgets.write`（设置上限） |  |
+| **结算信息中心** | `billing.accounts.get` |  |
 
-### その他のアクセス チェック
+### 其他访问权限检查
 
-Google Cloud IAM 権限に加えて、AI Studio ではセキュリティとコンプライアンスのチェックも行われます。次の要件を満たしていない場合、AI Studio インターフェースまたは API レスポンスで `PERMISSION_DENIED` エラーまたはアクセス制限エラーが発生することがあります。
+除了 Google Cloud IAM 权限之外，AI Studio 还会执行安全和合规性检查。如果您不符合以下要求，可能会在 AI Studio 界面或 API 响应中遇到 `PERMISSION_DENIED` 或访问限制错误：
 
-- **セキュリティ チェック:** リクエストは自動セキュリティ チェックに合格する必要があります。
-- **利用規約:** Google 利用規約と生成 AI の追加利用規約に同意する必要があります。
-- **サポートされているリージョン:** サポートされている[リージョン](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)に居住している必要があります。
-- **信頼と安全性:** Google Cloud プロジェクトに不正使用のフラグが設定されていない必要があります。
+- **安全检查**： 您的请求必须通过自动化安全检查。
+- **服务条款**： 您必须接受《Google 服务条款》和《生成式 AI 附加服务条款》。
+- **受支持的区域**： 您必须位于[受支持的区域](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-cn)。
+- **信任与安全**： Google Cloud 项目不得因滥用行为而被标记。
 
-フィードバックを送信
+发送反馈
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最終更新日 2026-09-12 UTC。
+最后更新时间 (UTC)：2026-09-12。
 
-ご意見をお聞かせください
+需要向我们提供更多信息？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-12 UTC。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]

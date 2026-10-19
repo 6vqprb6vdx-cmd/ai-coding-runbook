@@ -1,37 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=pt-BR
-fetched_at: 2026-10-12T06:54:23.344258+00:00
-title: "Pensamento do Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=bn
+fetched_at: 2026-10-19T05:32:29.486500+00:00
+title: "Gemini \u09ad\u09be\u09ac\u099b\u09c7 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-Envie comentários
+মতামত জানান
 
-# Pensamento do Gemini
+# Gemini ভাবছে
 
-Os [modelos da série Gemini 3 e 2.5](https://ai.google.dev/gemini-api/docs/models?hl=pt-br) usam um "processo de pensamento" que melhora significativamente as habilidades de raciocínio e planejamento de várias etapas, tornando-os altamente eficazes para tarefas complexas, como programação, matemática avançada e análise de dados.
+[Gemini মডেল](https://ai.google.dev/gemini-api/docs/models?hl=bn) একটি
+"চিন্তা করার প্রসেস" ব্যবহার করে যা এর রিজনিং ও মাল্টি-স্টেপ
+প্ল্যানিংয়ের ক্ষমতাকে উল্লেখযোগ্যভাবে উন্নত করে, যার ফলে কোডিং, উন্নত গণিত ও ডেটা বিশ্লেষণের মতো
+জটিল টাস্কের ক্ষেত্রে এটি অত্যন্ত কার্যকর হয়ে ওঠে।
 
-Quando você usa um modelo de pensamento, o Gemini raciocina internamente antes de responder. A API Interactions mostra esse raciocínio usando etapas `thought`, que aparecem em ordem cronológica junto com chamadas de função, entradas do usuário ou saídas do modelo na matriz `steps`.
+আপনি থিঙ্কিং মডেল ব্যবহার করলে, Gemini উত্তর দেওয়ার আগে ইন্টার্নালি যুক্তি দেয়। Interactions API এই যুক্তি `thought` ধাপের মাধ্যমে দেখায়, এগুলি হল নির্দিষ্ট ধাপ যা `steps` অ্যারেতে ফাংশন কল, ব্যবহারকারীর ইনপুট বা মডেল আউটপুটের পাশাপাশি ক্রমানুসারে দেখানো হয়।
 
-Cada etapa de pensamento contém dois campos:
+প্রতিটি চিন্তার ধাপে দুটি ফিল্ড থাকে:
 
-| Campo | Obrigatório | Descrição |
+| ফিল্ড | প্রয়োজনীয় | বিবরণ |
 | --- | --- | --- |
-| `signature` | ✅ Sim | Uma representação criptografada do estado de raciocínio interno do modelo. Sempre presente, mesmo quando o modelo realiza um raciocínio mínimo. |
-| `summary` | ❌ Não | Uma matriz de conteúdo (texto e/ou imagens) que resume o raciocínio. Pode estar vazio dependendo da configuração [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=pt-br), se o modelo fez raciocínio suficiente ou do tipo de conteúdo. Por exemplo, latentes de imagem podem não ter resumos de texto. |
+| `signature` | ✅ হ্যাঁ | মডেলের ইন্টার্নাল রিজনিং স্টেট এনক্রিপ্ট করে দেখানো হয়েছে। মডেলটি ন্যূনতম যুক্তি সম্পাদন করলেও সর্বদা উপস্থিত থাকে। |
+| `summary` | ❌ না | যুক্তিকে সংক্ষিপ্তসার করে এমন কন্টেন্টের (টেক্সট এবং/অথবা ছবি) একটি অ্যারে। [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=bn) কনফিগারেশনের উপর নির্ভর করে খালি থাকতে পারে, মডেলটি যথেষ্ট যুক্তি দেখিয়েছে কিনা বা কন্টেন্টের ধরন (যেমন, ইমেজ লেটেন্টে টেক্সট সারসংক্ষেপ নাও থাকতে পারে)। |
 
-## Interações com o pensamento
+## Thinking-এর সাথে ইন্টার‍্যাকশন
 
-Iniciar uma interação com um modelo de pensamento é semelhante a qualquer outra solicitação de interação. Especifique um dos [modelos com suporte de pensamento](#thinking-levels) no campo `model`:
+থিংকিং মডেলের সাথে ইন্টার‍্যাকশন শুরু করা, অন্য যেকোনও ইন্টার‍্যাকশন অনুরোধের মতোই। `model` ফিল্ডে [চিন্তাভাবনা সংক্রান্ত সহায়তা সহ মডেল](#thinking-levels)গুলির মধ্যে একটি নির্দিষ্ট করুন:
 
 ### Python
 
@@ -47,7 +50,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -87,7 +90,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -111,7 +114,7 @@ func main() {
 
     res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.8-pro"),
+            Model: interactions.Model("gemini-3.8-flash"),
             Input: interactions.NewInteractionsInput("Explain the concept of Occam's Razor and provide a simple, everyday example."),
         }),
     })
@@ -125,7 +128,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -137,11 +140,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Resumos de raciocínio
+## চিন্তাভাবনার সারসংক্ষেপ
 
-Os resumos de pensamento fornecem insights sobre o processo de raciocínio interno do modelo.
-Por padrão, apenas a saída final é retornada. É possível ativar os resumos de ideias
-com `thinking_summaries`:
+চিন্তার সারসংক্ষেপ মডেলের ইন্টার্নাল রিজনিং প্রসেস সম্পর্কে ইনসাইট প্রদান করে।
+ডিফল্ট হিসেবে, শুধু চূড়ান্ত আউটপুটই রিটার্ন করা হয়। আপনি `thinking_summaries`-এর মাধ্যমে
+থট সামারি চালু করতে পারবেন:
 
 ### Python
 
@@ -174,7 +177,7 @@ for step in interaction.steps:
                 print()
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -261,7 +264,7 @@ for (Step step : interaction.steps().orElse(Collections.emptyList())) {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -302,7 +305,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -317,24 +320,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Um bloco de pensamento pode conter **apenas uma assinatura sem resumo** nestes casos:
+এইসব ক্ষেত্রে, একটি থট ব্লকে **সারসংক্ষেপ ছাড়া শুধুমাত্র একটি স্বাক্ষর** থাকতে পারে:
 
-- Solicitações simples, em que o modelo não raciocinou o suficiente para gerar um resumo
-- `thinking_summaries: "none"`, em que os resumos estão explicitamente desativados
-- Alguns tipos de conteúdo de pensamento, como imagens, podem não ter resumos de texto
+- সহজ অনুরোধ, যেখানে মডেলটি সারসংক্ষেপ তৈরি করার জন্য যথেষ্ট যুক্তি দেয়নি
+- `thinking_summaries: "none"`, যেখানে সারসংক্ষেপ স্পষ্টভাবে বন্ধ করা আছে
+- ছবির মতো নির্দিষ্ট কিছু থট কন্টেন্টের টেক্সট সারসংক্ষেপ নাও থাকতে পারে
 
-Seu código sempre precisa processar blocos de pensamento em que `summary` está vazio ou ausente.
+আপনার কোডকে সবসময় এমন থট ব্লক ম্যানেজ করতে হবে যেখানে `summary` খালি বা অনুপস্থিত।
 
-## Streaming com raciocínio
+## থিঙ্কিং সহ স্ট্রিমিং
 
-Use o streaming para receber resumos incrementais de ideias durante a geração.
-Os blocos de pensamento são entregues usando eventos enviados pelo servidor (SSE) com dois tipos
-de delta distintos:
+জেনারেট করার সময় ইনক্রিমেন্টাল চিন্তার সারসংক্ষেপ পেতে স্ট্রিমিং ব্যবহার করুন।
+Server-Sent Events (SSE) ব্যবহার করে থট ব্লক ডেলিভার করা হয়, যার মধ্যে দুটি আলাদা
+ডেল্টা টাইপ থাকে:
 
-| Tipo de delta | Contém | Quando enviado |
+| ডেল্টার ধরন | এর মধ্যে আছে | কখন পাঠানো হয়েছে |
 | --- | --- | --- |
-| `thought_summary` | Conteúdo de resumo de texto ou imagem | Um ou mais deltas com resumo incremental |
-| `thought_signature` | A assinatura criptográfica | o último delta antes de `step.stop` |
+| `thought_summary` | টেক্সট বা ছবির সারসংক্ষেপ কন্টেন্ট | ক্রমবর্ধমান সারসংক্ষেপ সহ এক বা একাধিক ডেল্টা |
+| `thought_signature` | ক্রিপ্টোগ্রাফিক স্বাক্ষর | `step.stop`-এর আগে শেষ ডেল্টা |
 
 ### Python
 
@@ -378,7 +381,7 @@ for event in stream:
             answer += event.delta.text
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -494,7 +497,7 @@ try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -546,7 +549,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -563,8 +566,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-A resposta de streaming usa eventos enviados pelo servidor (SSE) e é composta de etapas
-e eventos, por exemplo:
+স্ট্রিমিং রেসপন্স Server-Sent Events (SSE) ব্যবহার করে এবং এটি বিভিন্ন ধাপ ও ইভেন্ট নিয়ে গঠিত, যেমন:
 
 ```
 event: interaction.created
@@ -595,23 +597,25 @@ event: done
 data: [DONE]
 ```
 
-## Controle do pensamento
+## নিয়ন্ত্রণকারী চিন্তাভাবনা
 
-Os modelos do Gemini usam o pensamento dinâmico por padrão, ajustando automaticamente a quantidade de esforço de raciocínio com base na complexidade da solicitação. É possível controlar esse comportamento usando o parâmetro `thinking_level`.
+Gemini মডেলগুলি ডিফল্ট হিসেবে ডায়নামিক চিন্তাভাবনা করে, অনুরোধের জটিলতার উপর ভিত্তি করে যুক্তির পরিমাণ অটোমেটিক অ্যাডজাস্ট করে।
+আপনি `thinking_level` প্যারামিটার ব্যবহার করে এই আচরণ নিয়ন্ত্রণ করতে পারবেন।
 
-| Modelo | Raciocínio padrão | Níveis compatíveis |
+| মডেল | ডিফল্ট থিঙ্কিং | লেভেল কাজ করে |
 | --- | --- | --- |
-| gemini-3.8-flash | Ativada (média) | baixa, média, alta |
-| gemini-3.6-flash | Ativada (média) | mínima, baixa, média, alta |
-| gemini-3.5-flash-lite | Ativado (mínimo) | mínima, baixa, média, alta |
-| gemini-3.1-pro-preview | Ligado (alto) | baixa, média, alta |
-| gemini-3.1-flash-lite-image | Ativado (mínimo) | mínima, alta |
-| gemini-3-flash-preview | Ligado (alto) | mínima, baixa, média, alta |
-| gemini-3-pro-preview | Ligado (alto) | baixo, alto |
-| gemini-2.5-pro | Ativado | baixa, média, alta |
-| gemini-2.5-flash | Ativado | baixa, média, alta |
-| gemini-2.5-flash-lite | Desativada | baixa, média, alta |
-| gemini-robotics-er-2-preview | Ligado (alto) | mínima, baixa, média, alta |
+| gemini-4-argon | চালু আছে (মাঝারি) | কম, মাঝারি, বেশি |
+| gemini-3.8-flash | চালু আছে (মাঝারি) | কম, মাঝারি, বেশি |
+| gemini-3.6-flash | চালু আছে (মাঝারি) | ন্যূনতম, কম, মাঝারি, বেশি |
+| gemini-3.5-flash-lite | চালু আছে (মিনিমাল) | ন্যূনতম, কম, মাঝারি, বেশি |
+| gemini-3.1-pro-preview | চালু (বেশি) | কম, মাঝারি, বেশি |
+| gemini-3.1-flash-lite-image | চালু আছে (মিনিমাল) | মিনিমাল, হাই |
+| gemini-3-flash-preview | চালু (বেশি) | ন্যূনতম, কম, মাঝারি, বেশি |
+| gemini-3-pro-preview | চালু (বেশি) | কম, বেশি |
+| gemini-2.5-pro | চালু আছে | কম, মাঝারি, বেশি |
+| gemini-2.5-flash | চালু আছে | কম, মাঝারি, বেশি |
+| gemini-2.5-flash-lite | বন্ধ আছে | কম, মাঝারি, বেশি |
+| gemini-robotics-er-2-preview | চালু আছে (হাই) | ন্যূনতম, কম, মাঝারি, বেশি |
 
 ### Python
 
@@ -630,7 +634,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -676,7 +680,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -749,37 +753,50 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Limites de tokens e `max_output_tokens`
+### টোকেন সীমা ও `max_output_tokens`
 
-O parâmetro de geração [`max_output_tokens`](https://ai.google.dev/api/interactions-api?hl=pt-br#request-body) define o número máximo de tokens que uma resposta pode gerar, incluindo tokens de pensamento.
+[`max_output_tokens`](https://ai.google.dev/api/interactions-api?hl=bn#request-body) জেনারেশন
+প্যারামিটার, কোনও উত্তর সর্বাধিক কতগুলি টোকেন জেনারেট করতে পারবে তা সেট করে, এর মধ্যে
+থট টোকেনও অন্তর্ভুক্ত।
 
-Quando definido, esse parâmetro atua como um corte rígido imposto pela infraestrutura sem mudar a forma como o modelo aloca o orçamento de pensamento (`thinking_level`).
+সেট করা হলে, এই প্যারামিটারটি ইনফ্রাস্ট্রাকচার দ্বারা প্রয়োগ করা একটি হার্ড কাটঅফ হিসাবে কাজ করে
+মডেল কীভাবে তার থিঙ্কিং বাজেট বরাদ্দ করে তা পরিবর্তন না করেই
+(`thinking_level`)।
 
-Se o modelo atingir esse limite durante o raciocínio, ele vai parar de gerar com o status
-`"incomplete"` e retornar uma saída truncada ou vazia (mas ainda cobrando por
-todos os tokens de raciocínio gerados). Para reduzir o custo ou a latência sem truncar as respostas, diminua `thinking_level` (`low` ou `medium`) em vez de definir um `max_output_tokens` pequeno.
+রিজনিং করার সময় মডেল এই সীমায় পৌঁছে গেলে, এটি
+`"incomplete"` স্ট্যাটাস সহ জেনারেট করা বন্ধ করে দেয় এবং ট্রাঙ্কেট করা বা খালি আউটপুট রিটার্ন করে (যদিও জেনারেট করা যেকোনও থিঙ্কিং টোকেনের জন্য
+বিলিং করা হয়)। উত্তর ট্রাঙ্কেট না করে খরচ বা লেটেন্সি কমাতে, ছোট `max_output_tokens` সেট করার পরিবর্তে `thinking_level` (`low` বা `medium`)
+কমান।
 
-## Assinaturas de raciocínio
+Gemini 4 মডেলের (`gemini-4-argon`) জন্য, নিম্নলিখিত কনটেক্সট ও আউটপুট সীমা মনে রাখবেন:
 
-As assinaturas de pensamento são representações criptografadas do raciocínio interno do modelo. Elas precisam manter a continuidade do raciocínio em interações de várias etapas.
+- **শেয়ার করা 1M কন্টেক্সট উইন্ডো:** ইনপুট, থিঙ্কিং ও আউটপুট টোকেন একটি 1M-টোকেন কন্টেক্সট উইন্ডো (`1,048,576` টোকেন) শেয়ার করে। আপনার ইনপুট টোকেন এবং `max_output_tokens`-এর যোগফল 1,048,576 টোকেনের বেশি হলে, API অটোমেটিক আউটপুট সীমা কন্টেক্সট উইন্ডোর বাকি স্পেসে (`1,048,576` থেকে আপনার ইনপুট টোকেন বিয়োগ করে) সীমাবদ্ধ করে দেয়।
+- **ডিফল্ট সিঙ্ক্রোনাস আউটপুট ক্যাপ (64K):** যখন `background=False` (স্ট্রিমিং এবং নন-স্ট্রিমিং অনুরোধের জন্য), ডিফল্ট এবং সর্বাধিক `max_output_tokens` ক্যাপ হল `65,536` টোকেন। `background=False` সহ `max_output_tokens > 65536` সেট করলে `400` সমস্যা হয়।
+- **লং ডিকোড (সর্বাধিক ১ মিলিয়ন টোকেন):** Gemini 4-কে `65,536` টোকেনের (সর্বাধিক `1,048,576` টোকেন) বাইরে রিজনিং ও জেনারেট করার অনুমতি দিতে, `background=True` সেট করুন এবং `max_output_tokens`-কে `65,536`-এর থেকে বেশি হিসেবে কনফিগার করুন। বিবরণের জন্য [লং ডিকোড](https://ai.google.dev/gemini-api/docs/long-decode?hl=bn) দেখুন।
 
-A API Interactions simplifica muito mais o processamento de assinaturas de pensamento do que a API `generateContent`.
+## থট সিগনেচার
 
-### Modo com estado (recomendado)
+থট সিগনেচার হল মডেলের ইন্টার্নাল যুক্তির এনক্রিপ্টেড উপস্থাপনা। মাল্টি-টার্ন ইন্টার‍্যাকশন জুড়ে রিজনিংয়ের ধারাবাহিকতা বজায় রাখার জন্য এগুলি প্রয়োজন।
 
-Por padrão, quando você usa a API Interactions no modo com estado (definindo `store: true` e transmitindo `previous_interaction_id` em turnos subsequentes), o servidor gerencia automaticamente o estado da conversa, incluindo todos os blocos de pensamento e assinaturas. Nesse modo, você não precisa fazer nada em relação às assinaturas. Eles são processados totalmente no lado do servidor.
+Interactions API, `generateContent` API-এর চেয়ে অনেক সহজে থট সিগনেচার ম্যানেজ করে।
 
-### Modo sem estado
+### স্টেটফুল মোড (সাজেস্ট করা হয়েছে)
 
-Se você estiver gerenciando o estado da conversa (modo sem estado) e transmitindo o histórico completo de entradas e saídas em cada solicitação:
+ডিফল্ট হিসেবে, আপনি যখন স্টেটফুল মোডে Interactions API ব্যবহার করেন (`store: true` সেট করে এবং পরবর্তী টার্নে `previous_interaction_id` পাস করে), তখন সার্ভার অটোমেটিক কথোপকথনের স্টেট ম্যানেজ করে, যার মধ্যে সব থট ব্লক ও সিগনেচার অন্তর্ভুক্ত থাকে। এই মোডে, আপনাকে স্বাক্ষর সংক্রান্ত কোনও কিছু করতে হবে না। এগুলি সম্পূর্ণভাবে সার্ভার সাইডে ম্যানেজ করা হয়।
 
-- Você **PRECISA** sempre reenviar todos os blocos `thought` exatamente como foram recebidos do modelo.
-- **NÃO** remova nem modifique os blocos de pensamento do histórico, porque eles contêm as assinaturas obrigatórias para que o modelo continue raciocinando.
-- Ao trocar de modelo em uma sessão, ainda é necessário reenviar os blocos de pensamento do modelo anterior. O back-end gerencia a compatibilidade.
+### স্টেটলেস মোড
 
-## Preços
+আপনি যদি নিজে কথোপকথনের স্টেট ম্যানেজ করেন (স্টেটলেস মোড) এবং প্রতিটি অনুরোধে ইনপুট ও আউটপুটের সম্পূর্ণ ইতিহাস পাস করেন:
 
-Quando o raciocínio está ativado, o preço da resposta é a soma dos tokens de saída e de raciocínio. É possível conferir o número total de tokens de pensamento gerados no campo `total_thought_tokens`.
+- মডেল থেকে যেভাবে `thought` ব্লক পেয়েছেন, আপনাকে **অবশ্যই** ঠিক সেইভাবেই সেগুলি আবার পাঠাতে হবে।
+- ইতিহাস থেকে আপনার চিন্তাভাবনার ব্লক সরানো বা পরিবর্তন করা **উচিত নয়**, কারণ এতে মডেলের যুক্তি চালিয়ে যাওয়ার জন্য প্রয়োজনীয় স্বাক্ষর থাকে।
+- একটি সেশনের মধ্যে মডেল পরিবর্তন করার সময়, আপনাকে আগের মডেলের থট ব্লক আবার পাঠাতে হবে। ব্যাকএন্ড কম্প্যাটিবিলিটি ম্যানেজ করে।
+
+## দাম
+
+থিঙ্কিং চালু করা থাকলে, রেসপন্সের দাম হল আউটপুট টোকেন এবং থিঙ্কিং টোকেনের
+যোগফল। আপনি `total_thought_tokens` ফিল্ড থেকে জেনারেট করা থিঙ্কিং টোকেনের মোট সংখ্যা
+পেতে পারেন।
 
 ### Python
 
@@ -788,7 +805,7 @@ print("Thoughts tokens:", interaction.usage.total_thought_tokens)
 print("Output tokens:", interaction.usage.total_output_tokens)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 console.log(`Thoughts tokens: ${interaction.usage.total_thought_tokens}`);
@@ -824,7 +841,7 @@ if (interaction.usage().isPresent()) {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -881,32 +898,34 @@ func main() {
 }
 ```
 
-Os modelos de pensamento geram ideias completas para melhorar a qualidade da resposta final e, em seguida, produzem [resumos](#summaries) para fornecer insights sobre o processo de pensamento. O preço se baseia nos tokens de pensamento completos que o modelo precisa gerar, embora apenas o resumo seja gerado pela API.
+থিঙ্কিং মডেল চূড়ান্ত উত্তরের কোয়ালিটি উন্নত করতে সম্পূর্ণ চিন্তাভাবনা জেনারেট করে এবং তারপর চিন্তাভাবনার প্রসেস সম্পর্কে ইনসাইট প্রদান করতে [সারসংক্ষেপ](#summaries) আউটপুট করে। API থেকে শুধুমাত্র সারসংক্ষেপ আউটপুট হিসেবে পাওয়া গেলেও, মডেলের সম্পূর্ণ থট টোকেন জেনারেট করার উপর ভিত্তি করে দাম নির্ধারণ করা হয়।
 
-Saiba mais sobre tokens no guia [Contagem de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br).
+[টোকেন গণনা](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) সংক্রান্ত নির্দেশিকা থেকে টোকেন সম্পর্কে আরও জানতে পারবেন।
 
-## Práticas recomendadas
+## পেশাদার পদ্ধতি
 
-Siga estas diretrizes para usar modelos de pensamento de forma eficiente.
+এইসব নির্দেশিকা অনুসরণ করে থিঙ্কিং মডেল দক্ষতার সাথে ব্যবহার করুন।
 
-- **Revisar o raciocínio**: analise os resumos de pensamento para entender as falhas e melhorar os comandos.
-- **Controle o orçamento de pensamento**: peça ao modelo para pensar menos em saídas longas e economizar tokens.
-- **Tarefas simples**: use o mínimo de raciocínio para recuperação ou classificação de fatos (por exemplo, "Onde a DeepMind foi fundada?").
-- **Tarefas moderadas**: use o pensamento padrão para comparar conceitos ou raciocínio criativo (por exemplo, "Compare carros elétricos e híbridos").
-- **Tarefas complexas**: use o pensamento máximo para programação avançada, matemática ou planejamento em várias etapas (por exemplo, resolver problemas de matemática da AIME).
+- **রিজনিং পর্যালোচনা করা**: ব্যর্থতা বুঝতে এবং প্রম্পট উন্নত করতে থট সামারি বিশ্লেষণ করুন।
+- **থিংকিং বাজেট নিয়ন্ত্রণ করা**: টোকেন বাঁচাতে, দীর্ঘ আউটপুটের জন্য মডেলকে কম ভাবতে প্রম্পট করুন।
+- **সহজ টাস্ক**: তথ্য উদ্ধার বা শ্রেণীবিন্যাসের জন্য ন্যূনতম বা কম চিন্তাভাবনা ব্যবহার করুন (যেমন, "DeepMind কোথায় প্রতিষ্ঠিত হয়েছিল?")।
+- **মাঝারি টাস্ক**: ধারণা তুলনা করা বা ক্রিয়েটিভ রিজনিংয়ের (যেমন, ইলেকট্রিক ও হাইব্রিড গাড়ির তুলনা করা) জন্য ডিফল্ট থিঙ্কিং ব্যবহার করো।
+- **জটিল টাস্ক**: উন্নত কোডিং, অঙ্ক বা মাল্টি-স্টেপ প্ল্যানিংয়ের জন্য সর্বোচ্চ থিঙ্কিং ব্যবহার করুন (যেমন, AIME অঙ্কের সমস্যার সমাধান করা)।
 
-## A seguir
+## এর পরে কী করতে হবে
 
-- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br): respostas de texto básicas
-- [Chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br): conexão com ferramentas
-- [Guia do Gemini 3](https://ai.google.dev/gemini-api/docs/gemini-3?hl=pt-br): recursos específicos do modelo
+- [টেক্সট তৈরি করা](https://ai.google.dev/gemini-api/docs/text-generation?hl=bn): প্রাথমিক টেক্সট উত্তর
+- [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn): টুলের সাথে কানেক্ট করুন
+- [Gemini 4 গাইড](https://ai.google.dev/gemini-api/docs/latest-model?hl=bn): Gemini 4-এ নতুন কী কী আছে
+- [Gemini 3 গাইড](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=bn): মডেল-নির্দিষ্ট
+  ফিচার
 
-Envie comentários
+মতামত জানান
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-Última atualização 2026-10-09 UTC.
+2026-10-14 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-Quer enviar seu feedback?
+আমাদের আরও কিছু জানাতে চান?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-09 UTC."],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-14 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

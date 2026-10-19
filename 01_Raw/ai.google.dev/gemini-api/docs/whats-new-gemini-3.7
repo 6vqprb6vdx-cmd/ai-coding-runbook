@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=he
-fetched_at: 2026-10-12T06:52:59.062462+00:00
-title: "\u05de\u05d4 \u05d7\u05d3\u05e9 \u05d1-Gemini 3.7 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=fr
+fetched_at: 2026-10-19T05:47:44.021578+00:00
+title: "Nouveaut\u00e9s de Gemini\u00a03.7 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) זמין עכשיו לכלל המשתמשים. מומלץ להשתמש ב-API הזה כדי לקבל גישה לכל התכונות והמודלים העדכניים.
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-שליחת משוב
+Envoyer des commentaires
 
-# מה חדש ב-Gemini 3.7 Flash
+# Nouveautés de Gemini 3.7 Flash
 
-[המודל הכי עדכני](https://ai.google.dev/gemini-api/docs/latest-model?hl=he)
-[מודלים אחרים](#other-models)
+[Dernier modèle](https://ai.google.dev/gemini-api/docs/latest-model?hl=fr)
+[Autres modèles](#other-models)
 
-‫Gemini 3.7 Flash (`gemini-3.7-flash`) הוא מודל Flash מהדור הקודם בסדרת Gemini 3, שהוצא משימוש ועכשיו מנותב אוטומטית אל [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he).
+Gemini 3.7 Flash (`gemini-3.7-flash`) est un modèle Flash de génération précédente de la série Gemini 3. Il est désormais obsolète et automatiquement redirigé vers [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=fr).
 
-המדריך הזה נשמר לעיון, והוא מתעד את היכולות והשינויים שהוצגו ב-Gemini 3.7 Flash.
+Ce guide est conservé à titre de référence et décrit les fonctionnalités et les modifications introduites dans Gemini 3.7 Flash.
 
-## סקירה כללית של מודל
+## Présentation du modèle
 
-| מודל | מזהה דגם | רמת ההעמקה שמוגדרת כברירת מחדל | תיאור |
+| Modèle | ID du modèle | Niveau de raisonnement par défaut | Description |
 | --- | --- | --- | --- |
-| ‫Gemini 3.7 Flash (יצא משימוש) | `gemini-3.7-flash` | `medium` | מודל Flash מהדור הקודם שנועד לתכנות, ל-Agentic Workflows ולביצוע של תהליכים מרובי-שלבים. הוחלף על ידי [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he). |
+| Gemini 3.7 Flash (obsolète) | `gemini-3.7-flash` | `medium` | Modèle Flash de génération précédente conçu pour le codage, les workflows agentiques et l'exécution en plusieurs étapes. Remplacé par [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=fr). |
 
-‫Gemini 3.7 Flash תומך בחלון הקשר של מיליון טוקנים, ב-64, 000 טוקנים מקסימליים של פלט, ברמות חשיבה שניתנות להתאמה (`low`, ‏ `medium`,‏ `high`) ובאותו חבילה של כלים מובנים כמו Gemini 3.6 Flash.
+Gemini 3.7 Flash est compatible avec une fenêtre de contexte d'un million de jetons, 64 000 jetons de sortie maximum, des niveaux de raisonnement réglables (`low`, `medium`, `high`) et la même suite d'outils intégrés que 3.6 Flash.
 
-למפרט המלא, אפשר לעיין ב[דף המודל Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=he).
+Pour obtenir les spécifications complètes, consultez la page du modèle [Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=fr).
 
-## מדריך למתחילים
+## Guide de démarrage rapide
 
 ### Python
 
@@ -100,20 +100,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## מה חדש ב-Gemini 3.7 Flash
+## Nouveautés de Gemini 3.7 Flash
 
-- **תכנות ומשימות שדורשות סוכן:** איכות גבוהה משמעותית בבדיקות השוואתיות של הנדסת תוכנה בעולם האמיתי ובבדיקות השוואתיות של סוכנים, שיפור הפתרון של בעיות והפחתה של לולאות סוכנים שנכשלו.
-- **פיתוח אתרים והתאמה טובה יותר בין עיצובים:** יצירת קוד אפליקציה באיכות גבוהה לאפליקציות אינטרנט ולמחשב ישירות מתוך מוקאפים של עיצובים, עם שיפורים משמעותיים בהתאמה לעיצוב ובביקורת של בסיסי קוד קיימים בהשוואה למוקאפים, כדי לוודא שהעיצובים זהים.
+- **Tâches de codage et agentiques** : qualité nettement supérieure pour les analyses comparatives agentiques et d'ingénierie logicielle réelles, amélioration de la résolution des problèmes et réduction des boucles d'agent ayant échoué.
+- **Développement Web et parité de conception renforcée** : génère du code d'application Web et de bureau plus fidèle directement à partir de maquettes de conception, avec des gains importants en termes de respect de la conception et d'audit des bases de code existantes par rapport aux maquettes pour vérifier la parité de conception 1:1.
 
-## הסבר על רמות החשיבה הרציונלית
+## Comprendre les niveaux de raisonnement
 
-‫Gemini 3.7 Flash מאפשר למפתחים לשלוט בגמישות בנתוני ההשהיה וברמת התבונה על ידי שינוי רמת החשיבה של המודל:
+Gemini 3.7 Flash offre aux développeurs un contrôle flexible de la latence et de l'intelligence en ajustant le niveau de raisonnement du modèle :
 
-- **מאמץ חשיבה נמוך**: מקצר את הזמן עד לקבלת תשובה למשימות שבהן חביון הוא קריטי, כמו צינורות תגובה לאירועים, צ'אט בזמן אמת, טיוטות כתיבה וניתוח נתונים מהיר.
-- **בינונית (ברירת מחדל):** האיכות הכי טובה לרוב המשימות. מומלץ לשימוש בקוד מורכב ולתרחישי שימוש שכוללים סוכנים, עם רמת דיוק גבוהה יותר במעבר הראשון.
-- **מאמץ חשיבה גבוה**: ממקסם את היכולת של המודל לחשוב ולהשתמש בכלים. הכי מתאים לחשיבה רציונלית מורכבת, למתמטיקה קשה ולמשימות תכנות וסוכנים מורכבות. מאפשר מחשבות מורחבות וקריאות לפונקציות, עם צריכה גבוהה יותר של טוקנים ועלות גבוהה יותר.
+- **Effort de réflexion faible** : réduit le délai de réponse pour les tâches critiques en termes de latence, telles que les pipelines de réponse aux incidents, le chat en temps réel, la rédaction de brouillons et l'analyse de données rapide.
+- **Moyen (par défaut)** : meilleure qualité pour la plupart des tâches. Recommandé pour le code complexe et les cas d'utilisation agentiques, avec une plus grande précision au premier passage.
+- **Effort de raisonnement élevé** : maximise la capacité du modèle à réfléchir et à utiliser des outils. Idéal pour les raisonnements complexes, les mathématiques difficiles, le codage difficile et les tâches agentiques. Permet des réflexions et des appels de fonction étendus, avec une consommation et un coût de jetons plus élevés.
 
-כדי להגדיר רמות חשיבה ב-Gemini 3.7 Flash:
+Pour configurer les niveaux de raisonnement dans Gemini 3.7 Flash :
 
 ### Python
 
@@ -133,32 +133,33 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-דוגמאות לקוד בכמה שפות (JavaScript,‏ Java,‏ Go,‏ REST) והסברים מפורטים על מושגי חשיבה רציונלית זמינים במאמר [הסבר על רמות החשיבה הרציונלית ב-Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he#understanding-reasoning-levels).
+Pour obtenir des exemples de code multilingue (JavaScript, Java, Go, REST) et des concepts de raisonnement approfondis, consultez [Comprendre les niveaux de raisonnement dans Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=fr#understanding-reasoning-levels).
 
-## תמיכה בסוכן Antigravity
+## Compatibilité avec l'agent Antigravity
 
-ב-Gemini 3.7 Flash הוספנו תמיכה בהפעלת [סוכן Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he) בסוכנים מנוהלים של Gemini וב-[Google Antigravity SDK](https://antigravity.google/docs/sdk/overview/?hl=he).
+Gemini 3.7 Flash a introduit la prise en charge de l'agent [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) dans Gemini Managed Agents et le [SDK Google Antigravity](https://antigravity.google/docs/sdk/overview/?hl=fr).
 
-דוגמאות קוד עדכניות והגדרת ברירת המחדל העדכנית של הסוכן זמינות ב[מדריך לסוכן Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he) וב[מדריך ל-Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=he#updated-antigravity-agent).
+Pour obtenir des exemples de code actuels et la dernière configuration d'agent par défaut, consultez le [guide de l'agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) et le [guide Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=fr#updated-antigravity-agent).
 
-## מודלים אחרים
+## Autres modèles
 
-- ‫[Gemini 3.8 Flash (הגרסה העדכנית)](https://ai.google.dev/gemini-api/docs/latest-model?hl=he)
-- ‫[Gemini 3.6 Flash ו-3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=he)
-- [הצגת כל המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he)
+- [Gemini 4 Argon (dernière version)](https://ai.google.dev/gemini-api/docs/latest-model?hl=fr)
+- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=fr)
+- [Gemini 3.6 Flash et 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=fr)
+- [Voir tous les modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr)
 
-## המאמרים הבאים
+## Étape suivante
 
-- אפשר לעיין במפרט ה-API ב[סקירה הכללית של המודלים](https://ai.google.dev/gemini-api/docs/models?hl=he).
-- מידע נוסף על תזמור של כמה סוכנים זמין [במדריך לשימוש ב-Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=he).
-- בודקים ומעדנים את הפרומפטים ב-[Google AI Studio](https://aistudio.google.com/?hl=he).
+- Consultez les spécifications de l'API dans la [présentation des modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr).
+- Découvrez l'orchestration multi-agent dans le [guide de l'API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=fr).
+- Testez et affinez les prompts dans [Google AI Studio](https://aistudio.google.com/?hl=fr).
 
-שליחת משוב
+Envoyer des commentaires
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-עדכון אחרון: 2026-10-09 (שעון UTC).
+Dernière mise à jour le 2026/10/13 (UTC).
 
-רוצה לתת לנו משוב?
+Voulez-vous nous donner plus d'informations ?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-09 (שעון UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/13 (UTC)."],[],[]]

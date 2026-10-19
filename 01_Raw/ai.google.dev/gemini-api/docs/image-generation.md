@@ -1,100 +1,106 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=ru
-fetched_at: 2026-10-12T07:14:59.895984+00:00
+source_url: https://ai.google.dev/gemini-api/docs/image-generation?hl=id
+fetched_at: 2026-10-19T05:35:38.492566+00:00
 title: "Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Флэш-память Gemini 3.8 теперь доступна. [Попробуйте!](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ru)
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Главная](https://ai.google.dev/?hl=ru)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
-- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Отправить отзыв
+Kirim masukan
 
-# Создание изображений с помощью Nano Banana
+# Pembuatan gambar Nano Banana
 
-Создавайте прототипы полностью функциональных приложений с готовым интерфейсом, используя запросы, и смотрите, как Nano Banana 2 интегрируется с реальными инструментами, данными и экосистемой Gemini. И все это до того, как вы напишете первую строку кода.
+Berikan perintah untuk membuat prototipe aplikasi yang berfungsi penuh dan lengkap UI-nya, serta lihat
+Nano Banana 2 yang terintegrasi dengan alat, data, dan ekosistem Gemini di dunia nyata. Semua itu dilakukan sebelum menulis satu baris kode pun.
 
-- Или создайте собственную, используя подсказки:
+- Atau buat sendiri dari perintah:
 
-- ![журнал](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+- ![majalah](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
   ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
-  ![восстановить](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
-  ![банан](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
-  ![кафе](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
-  ![статья](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
-  ![собака](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
-  ![изометрический;](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
-- ![журнал](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
+  ![pulihkan](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  ![pisang](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06-output.jpg)
+  ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  ![artikel](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  ![anjing](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  ![isometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+- ![majalah](https://storage.googleapis.com/generativeai-downloads/images/magazine-2.jpg)
 
-  Сгенерировано с помощью Nano Banana 2
+  Dibuat oleh Nano Banana 2
 
-  **Запрос:** "Фотография глянцевой обложки журнала. На минималистичной синей обложке крупными жирными буквами написано "Nano Banana". Текст написан шрифтом с засечками и занимает весь экран. Никакого другого текста. Перед текстом изображен портрет человека в элегантном минималистичном платье. Девочка игриво держит цифру 2, которая является точкой фокуса.
+  **Perintah:** "Foto sampul majalah mengkilap, sampul biru minimalis memiliki kata-kata Nano Banana yang besar dan tebal. Teks menggunakan font serif dan mengisi tampilan. Tidak ada teks lain. Di depan teks terdapat potret seseorang yang mengenakan gaun elegan dan minimalis. Dia memegang angka 2 dengan lucu, yang merupakan titik fokus.
     
-  В углу обложки разместите номер выпуска, дату "февраль 2026 г." и штрихкод. Журнал лежит на полке в дизайнерском магазине. Стена за полкой оштукатурена и окрашена в оранжевый цвет".
+  Letakkan nomor edisi dan tanggal "Feb 2026" di sudut bersama dengan kode batang. Majalah tersebut berada di rak di depan dinding yang diplester berwarna oranye, di dalam toko desainer."
 - ![london](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/05-output.jpg)
 
-  Сгенерировано с помощью Nano Banana Pro
+  Dibuat dengan Nano Banana Pro
 
-  **Запрос:** "Создай понятное изометрическое 3D-изображение в виде миниатюрной мультяшной сцены Лондона, показывающей его самые известные достопримечательности и архитектурные элементы. Вид сверху под углом 45°. Используй мягкие, изысканные текстуры с реалистичными материалами PBR и мягкое, естественное освещение и тени. Интегрируйте текущие погодные условия непосредственно в городскую среду, чтобы создать атмосферу погружения. Используйте простую композицию с однотонным фоном. Вверху по центру размести заголовок "Лондон" крупным полужирным шрифтом, под ним – заметный значок погоды, а затем дату (мелким шрифтом) и температуру (средним шрифтом). Весь текст должен быть выровнен по центру с одинаковыми интервалами и может слегка перекрывать верхнюю часть зданий".
-- ![кетсаль](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
+  **Perintah:** "Tampilkan adegan kartun 3D miniatur isometrik yang jelas, dilihat dari atas pada sudut 45°, kota London, yang menampilkan elemen arsitektur dan landmark paling ikoniknya. Gunakan tekstur lembut dan halus dengan material PBR yang realistis serta pencahayaan dan bayangan yang lembut dan tampak nyata. Integrasikan kondisi cuaca saat ini langsung ke lingkungan kota untuk menciptakan suasana atmosfer yang imersif. Gunakan komposisi yang bersih dan minimalis dengan latar belakang berwarna solid yang lembut. Di bagian tengah atas, tempatkan judul "London" dalam teks tebal besar, ikon cuaca yang terlihat jelas di bawahnya, lalu tanggal (teks kecil) dan suhu (teks sedang). Semua teks harus berada di tengah dengan jarak yang konsisten, dan mungkin sedikit tumpang-tindih dengan bagian atas bangunan."
+- ![quetzal](https://storage.googleapis.com/generativeai-downloads/images/quetzal.png)
 
-  Сгенерировано с помощью Nano Banana 2
+  Dibuat oleh Nano Banana 2
 
-  **Запрос:** "Используй поиск картинок, чтобы найти точные изображения птицы кетцаль". Создай красивые обои для экрана с соотношением сторон 3:2 с изображением этой птицы. Сделай естественный градиент сверху вниз и минималистичную композицию".
-- ![банан](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
+  **Perintah:** "Gunakan penelusuran gambar untuk menemukan gambar akurat burung quetzal yang indah. Buat wallpaper 3:2 yang indah dari burung ini, dengan gradien alami dari atas ke bawah dan komposisi minimal."
+- ![pisang](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/06.jpg)
 
-  Сгенерировано с помощью Nano Banana Pro
+  Dibuat dengan Nano Banana Pro
 
-  **Запрос:** "Помести этот логотип на рекламный баннер для элитных духов с ароматом банана. Логотип идеально вписан в дизайн бутылки".
-- ![кафе](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
+  **Perintah:** "Letakkan logo ini pada iklan kelas atas untuk parfum beraroma pisang. Logo terintegrasi sempurna ke dalam botol."
+- ![kafe](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/02-a-photo-of-an-everyday-scene-at-a-busy-cafe-servin.jpg)
 
-  Сгенерировано с помощью Nano Banana Pro
+  Dibuat dengan Nano Banana Pro
 
-  **Запрос:** "Фотография повседневной сцены в оживленном кафе, где подают завтрак. На переднем плане изображен мужчина в стиле аниме с синими волосами. Один из людей на заднем плане нарисован карандашом, другой – в технике пластилиновой анимации".
-- ![статья](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
+  **Perintah:** "Foto suasana sehari-hari di kafe ramai yang menyajikan sarapan. Di latar depan ada seorang pria anime berambut biru, salah satu orang adalah sketsa pensil, yang lain adalah orang claymation"
+- ![artikel](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/10-use-search-to-find-how-the-gemini-3-flash-launch-h.jpg)
 
-  Сгенерировано с помощью Nano Banana Pro
+  Dibuat dengan Nano Banana Pro
 
-  **Запрос:** "Найди в поиске, как пользователи отреагировали на запуск Gemini 3 Flash. Напиши на основе этой информации короткую статью с заголовками. Создай фотографию статьи, как если бы она была опубликована в глянцевом журнале. Это фотография одной сложенной страницы, на которой видна статья о Gemini 3 Flash. Одно главное фото. Заголовок шрифтом с засечками".
-- ![собака](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
+  **Perintah:** "Gunakan penelusuran untuk menemukan tanggapan terhadap peluncuran Gemini 3 Flash. Gunakan informasi ini untuk menulis artikel singkat tentangnya (dengan judul). Tampilkan foto artikel seperti yang muncul di majalah glossy yang berfokus pada desain. Foto ini menampilkan satu halaman yang dilipat, yang menampilkan artikel tentang Gemini 3 Flash. Satu foto utama. Judul dalam huruf serif."
+- ![anjing](https://storage.googleapis.com/generativeai-downloads/images/Nano%20Banana%20Pro%20outputs%20for%20docs/01-an-icon-representing-a-cute-dog-the-background-is-.jpg)
 
-  Сгенерировано с помощью Nano Banana Pro
+  Dibuat dengan Nano Banana Pro
 
-  **Запрос:** "Значок с изображением милой собаки. Фон белый. Сделай значки в красочном и тактильном 3D-стиле. Нет текста".
-- ![изометрический;](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
+  **Perintah:** "Ikon yang menggambarkan lucu. Latar belakangnya berwarna putih. Buat ikon dalam gaya 3D taktil yang berwarna-warni. Tidak ada teks."
+- ![isometrik](https://storage.googleapis.com/generativeai-downloads/images/isometric-pool.jpg)
 
-  Сгенерировано с помощью Nano Banana 2
+  Dibuat oleh Nano Banana 2
 
-  **Запрос:** "Создай фотографию, которая будет идеально изометрической. Это не миниатюра, а фотография, которая получилась идеально изометрической. Это фотография красивого современного сада. На нем изображен большой бассейн в форме цифры 2 и надпись "Nano Banana 2".
+  **Perintah:** "Buat foto yang isometrik sempurna. Ini bukan miniatur, melainkan foto yang diambil dan kebetulan isometrik sempurna. Ini adalah foto taman modern yang indah. Terdapat kolam renang besar berbentuk 2 dan kata-kata: Nano Banana 2."
 
-**Nano Banana** – это встроенные возможности Gemini для создания изображений.
-Gemini может создавать и обрабатывать изображения в диалоге с пользователем, используя текст, изображения, видео или их комбинацию. Это позволяет создавать, редактировать и дорабатывать изображения с беспрецедентным уровнем контроля.
+**Nano Banana** adalah nama untuk kemampuan pembuatan gambar native Gemini.
+Gemini dapat membuat dan memproses gambar melalui percakapan
+dengan teks, gambar, video, atau kombinasi. Dengan begitu, Anda dapat membuat, mengedit, dan melakukan iterasi pada visual dengan kontrol yang belum pernah ada sebelumnya.
 
-## Выбор модели
+## Pemilihan model
 
-Nano Banana – это следующие модели, доступные в Gemini API:
+Nano Banana mengacu pada model berikut yang tersedia di Gemini API:
 
-- **Nano Banana 2.1 ([Gemini Nano Banana 2.1](https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1?hl=ru))
-  (`gemini-nano-banana-2.1`):** обновленная версия Nano Banana 2, которая является основной высокоэффективной моделью для генерации изображений и редактирования в диалоговом режиме. Она работает так же быстро и экономично, как Flash, но при этом обеспечивает более высокое качество изображений, отрисовки текста и пошаговую согласованность, а также более точные результаты Google Поиска при разрешениях 1K, 2K и 4K.
-- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=ru))
-  (`gemini-3.1-flash-lite-image`).** Самая быстрая и недорогая модель Gemini для создания изображений, разработанная для скорости и масштабируемости, когда скорость и стоимость являются основными эксплуатационными ограничениями. Не оптимизировано для нескольких референсных входных данных или пошагового последовательного редактирования.
-- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ru))
-  (`gemini-3.1-flash-image`).** Высокоэффективная модель предыдущего поколения, которая сочетает скорость с возможностью генерировать изображения в разрешении 4K, знаниями о мире и согласованностью многореференсных изображений. Рекомендуется использовать Nano Banana 2.1 во всех новых проектах.
-- **Nano Banana Pro ([Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ru))
-  (`gemini-3-pro-image`).** Лучший выбор для самых сложных задач, связанных с изображениями. Эта модель предлагает самый высокий уровень знаний о мире, продвинутую локализацию, точное соблюдение фирменного стиля и контроль над творческим процессом.
-- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=ru))
-  (`gemini-2.5-flash-image`).** Первая модель серии Nano Banana.
-  Это надежный инструмент, но мы рекомендуем перейти на Nano Banana 2 Lite, чтобы получить более высокое качество, более высокую скорость генерации и более низкие цены на API.
+- **Nano Banana 2.1 ([Gemini Nano Banana 2.1](https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1?hl=id))
+  (`gemini-nano-banana-2.1`):** Update untuk Nano Banana 2, yang berfungsi sebagai
+  model andalan berefisiensi tinggi untuk pembuatan gambar dan
+  pengeditan via percakapan. Model ini mempertahankan kecepatan dan efisiensi biaya tingkat Flash sekaligus memberikan kualitas visual, rendering teks, konsistensi multi-turn, dan perujukan Google Penelusuran yang lebih baik di seluruh resolusi 1K, 2K, dan 4K.
+- **Nano Banana 2 Lite ([Gemini 3.1 Flash Lite Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=id))
+  (`gemini-3.1-flash-lite-image`):** Model gambar Gemini tercepat dan termurah, yang dirancang untuk kecepatan dan skala di mana kecepatan dan biaya adalah batasan operasional utama. Tidak dioptimalkan untuk beberapa input referensi
+  atau pengeditan berurutan multi-giliran.
+- **Nano Banana 2 ([Gemini 3.1 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=id))
+  (`gemini-3.1-flash-image`):** Model generasi sebelumnya yang efisien dan andal, menyeimbangkan kecepatan dengan pembuatan 4K, pengetahuan dunia, dan konsistensi gambar multi-referensi. Direkomendasikan untuk semua project baru agar menggunakan
+  Nano Banana 2.1.
+- **Nano Banana Pro ([Gambar Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=id))
+  (`gemini-3-pro-image`):** Pilihan premium untuk tugas visual paling kompleks, yang menawarkan tingkat pengetahuan dunia tertinggi, pelokalan tingkat lanjut, konsistensi merek yang akurat, dan kontrol kreatif yang presisi.
+- **Nano Banana ([Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=id))
+  (`gemini-2.5-flash-image`):** Pelopor lama seri Nano Banana.
+  Meskipun telah menjadi andalan yang andal, jalur migrasi yang direkomendasikan adalah beralih ke Nano Banana 2 Lite untuk mendapatkan kualitas yang lebih baik, kecepatan pembuatan yang lebih tinggi, dan harga API yang lebih rendah.
 
-Все сгенерированные изображения содержат [водяной знак SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ru).
+Semua gambar yang dihasilkan menyertakan [watermark SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id).
 
-## Генерация изображений (преобразование текста в изображение)
+## Pembuatan gambar (teks ke gambar)
 
 ### Python
 
@@ -176,7 +182,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -236,17 +242,19 @@ curl -s -X POST \
   }'
 ```
 
-Получить данные сгенерированного изображения можно с помощью свойства `interaction.output_image`, которое возвращает последний сгенерированный блок изображения. Подробнее [о взаимодействиях](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ru#convenience-properties)…
+Anda dapat mengambil data gambar yang dihasilkan menggunakan properti `interaction.output_image`, yang menampilkan blok gambar terakhir yang dihasilkan. Untuk mengetahui detail properti praktis, lihat
+[Ringkasan interaksi](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id#convenience-properties).
 
-## Редактирование изображений (текст и изображение в изображение)
+## Pengeditan gambar (text-and-image-to-image)
 
-**Напоминание.** Убедитесь, что обладаете всеми необходимыми правами на загружаемые изображения.
-Не создавайте контент, нарушающий права других лиц, например видео или изображения, которые вводят в заблуждение, оскорбляют или причиняют вред. Работа с этим сервисом генеративного искусственного интеллекта регулируется [Правилами в отношении запрещенного использования](https://policies.google.com/terms/generative-ai/use-policy?hl=ru).
+**Pengingat**: Pastikan Anda memiliki hak yang diperlukan atas gambar apa pun yang Anda upload.
+Jangan membuat konten yang melanggar hak orang lain, termasuk video atau gambar yang menipu, melecehkan, atau membahayakan. Penggunaan layanan AI generatif ini oleh Anda tunduk pada [Kebijakan Penggunaan Terlarang](https://policies.google.com/terms/generative-ai/use-policy?hl=id) kami.
 
-Загрузите изображение и с помощью текстовых запросов добавляйте, удаляйте или изменяйте элементы, меняйте стиль или корректируйте цветокоррекцию.
+Berikan gambar dan gunakan perintah teks untuk menambahkan, menghapus, atau mengubah elemen,
+mengubah gaya, atau menyesuaikan gradasi warna.
 
-В следующем примере показано, как загружать изображения, закодированные с помощью `base64`.
-Если вы хотите использовать несколько изображений, более крупные полезные нагрузки и поддерживаемые MIME-типы, ознакомьтесь со статьей [Распознавание изображений](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ru).
+Contoh berikut menunjukkan cara mengupload gambar yang dienkode `base64`.
+Untuk beberapa gambar, payload yang lebih besar, dan jenis MIME yang didukung, lihat halaman [Pemahaman gambar](https://ai.google.dev/gemini-api/docs/image-understanding?hl=id).
 
 ### Python
 
@@ -371,7 +379,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -450,9 +458,11 @@ curl -s -X POST \
     }"
 ```
 
-### Пошаговое редактирование изображений
+### Pengeditan gambar multi-turn
 
-Продолжайте генерировать и редактировать изображения в режиме диалога. Рекомендуем использовать многоходовые диалоги, чтобы улучшать изображения. Ниже приведен пример запроса на создание инфографики о фотосинтезе.
+Terus buat dan edit gambar melalui percakapan. Percakapan
+multi-giliran adalah cara yang direkomendasikan untuk melakukan iterasi pada gambar. Contoh
+berikut menunjukkan perintah untuk membuat infografis tentang fotosintesis.
 
 ### Python
 
@@ -535,7 +545,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -599,11 +609,11 @@ curl -s -X POST \
   }'
 ```
 
-![Инфографика о фотосинтезе, созданная ИИ](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=ru)
+![Infografis buatan AI tentang fotosintesis](https://ai.google.dev/static/gemini-api/docs/images/infographic-eng.png?hl=id)
 
-Инфографика о фотосинтезе, созданная ИИ
+Infografis buatan AI tentang fotosintesis
 
-Затем вы можете использовать `previous_interaction_id`, чтобы изменить язык на испанский.
+Kemudian, Anda dapat menggunakan `previous_interaction_id` untuk mengubah bahasa pada grafik menjadi Spanyol.
 
 ### Python
 
@@ -713,7 +723,7 @@ if (interaction2.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -801,36 +811,38 @@ curl -s -X POST \
   }'
 ```
 
-![Инфографика о фотосинтезе, сгенерированная ИИ (на испанском языке)](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=ru)
+![Infografis fotosintesis yang dibuat AI dalam bahasa Spanyol](https://ai.google.dev/static/gemini-api/docs/images/infographic-spanish.png?hl=id)
 
-Инфографика о фотосинтезе на испанском языке, созданная ИИ
+Infografik fotosintesis buatan AI dalam bahasa Spanyol
 
-## Функции Nano Banana
+## Fitur Nano Banana
 
-Модели Nano Banana позволяют создавать и редактировать изображения. Gemini Nano Banana 2.1 и Gemini 3.1 Flash Image оптимизированы для скорости и большого объема задач, а Gemini 3 Pro Image – для профессионального создания контента.
-Они предназначены для решения самых сложных рабочих процессов, требующих расширенных возможностей рассуждения, и отлично справляются с пошаговыми задачами по созданию и изменению контента.
+Model Nano Banana menawarkan pembuatan dan pengeditan gambar tercanggih. Nano Banana 2.1 dan Gemini 3.1 Flash Image dioptimalkan untuk kecepatan dan kasus penggunaan bervolume tinggi, serta Gemini 3 Pro Image dioptimalkan untuk produksi aset profesional.
+Dirancang untuk menangani alur kerja yang paling menantang melalui penalaran tingkat lanjut, model ini unggul dalam tugas pembuatan dan modifikasi multi-giliran yang kompleks.
 
-- **Выходные изображения с высоким разрешением.** Встроенные возможности создания изображений с разрешением 1K, 2K и 4K.
-  - **Gemini 3.1 Flash Image** добавляет разрешение 512 px (0,5K), которое не поддерживается в Gemini Nano Banana 2.1.
-  - **Gemini 3.1 Flash Lite Image** поддерживает только разрешение 1K.
-- **Улучшенная отрисовка текста.** Позволяет создавать читаемый стилизованный текст для инфографики, меню, диаграмм и маркетинговых материалов.
-- **Обоснование с помощью Google Поиска.** Модель может использовать Google Поиск как инструмент для проверки фактов и создания изображений на основе данных в реальном времени (например, текущих карт погоды, графиков акций, недавних событий).
-  - **Не поддерживается моделью Gemini 3.1 Flash Lite Image.**
-  - **Gemini Nano Banana 2.1 и Gemini 3.1 Flash Image** добавляют интеграцию Google Image Search Grounding вместе с веб-поиском.
-- **Режим "Думающая".** Модель использует процесс "мышления", чтобы рассуждать над сложными запросами. Он генерирует промежуточные "мыслительные образы" (видимые в серверной части, но не оплачиваемые), чтобы улучшить композицию перед созданием окончательного высококачественного результата.
-- **До 14 референсных изображений.** Вы можете использовать до 14 референсных изображений, чтобы создать финальное изображение.
-- **Новые соотношения сторон.** Gemini 3.1 Flash Lite Image добавляет `1:1`, `3:2`, `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`
-  [соотношений сторон](#aspect-ratios-and-image-size).
+- **Output resolusi tinggi**: Kemampuan pembuatan bawaan untuk visual 1K, 2K, dan 4K.
+  - **Gemini 3.1 Flash Image** menambahkan resolusi 512 px (0,5 K) yang lebih kecil (tidak didukung di Gemini Nano Banana 2.1).
+  - **Gemini 3.1 Flash Lite Image** hanya mendukung resolusi 1K.
+- **Rendering teks lanjutan**: Mampu membuat teks yang mudah dibaca dan bergaya untuk infografis, menu, diagram, dan aset pemasaran.
+- **Grounding with Google Search**: Model dapat menggunakan Google Penelusuran sebagai alat untuk memverifikasi fakta dan membuat gambar generatif berdasarkan data real-time (misalnya, peta cuaca saat ini, grafik saham, peristiwa terkini).
+  - **Tidak didukung oleh model Gemini 3.1 Flash Lite Image.**
+  - **Gemini Nano Banana 2.1 dan Gemini 3.1 Flash Image** menambahkan integrasi
+    Grounding Penelusuran Gambar Google bersama dengan Penelusuran Web.
+- **Mode penalaran**: Model menggunakan proses "penalaran" untuk menalar perintah yang kompleks. Fitur ini menghasilkan "gambar pemikiran" sementara (dapat dilihat di backend, tetapi tidak dikenai biaya) untuk menyempurnakan komposisi sebelum menghasilkan output akhir berkualitas tinggi.
+- **Hingga 14 gambar referensi**: Campurkan hingga 14 gambar referensi untuk menghasilkan gambar akhir.
+- **Rasio aspek baru**: Gemini 3.1 Flash Lite Image menambahkan `1:1`, `3:2`,
+  `2:3`, `3:4`, `4:3`, `4:5`, `5:4`, `9:16`, `16:9`, `21:9`
+  [rasio aspek](#aspect-ratios-and-image-size).
 
-### Использовать до 14 референсных изображений
+### Menggunakan hingga 14 gambar referensi
 
-Модели Nano Banana позволяют использовать до 14 референсных изображений. В эти 14 изображений могут входить:
+Model Nano Banana memungkinkan Anda memadukan hingga 14 gambar referensi. 14 gambar ini dapat mencakup hal berikut:
 
-| Образ Gemini 3.1 Flash Lite | Изображение Gemini Nano Banana 2.1 и Gemini 3.1 Flash | Gemini 3 Pro Image |
+| Gambar Gemini 3.1 Flash Lite | Gemini Nano Banana 2.1 & Gemini 3.1 Flash Image | Gemini 3 Pro Image |
 | --- | --- | --- |
-| До 14 изображений объектов с высокой точностью, которые будут включены в финальное изображение. | До 10 изображений объектов с высокой точностью, которые будут включены в финальное изображение. | До шести изображений объектов с высокой детализацией, которые будут включены в финальное изображение. |
-| Н/Д | До четырех изображений персонажей для поддержания постоянства персонажа | До пяти изображений персонажей, чтобы сохранить постоянство персонажа. |
-| Н/Д | Н/Д | До трех изображений, которые будут использоваться в качестве референсов по стилю. |
+| Hingga 14 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir | Hingga 10 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir | Hingga 6 gambar objek dengan fidelitas tinggi untuk disertakan dalam gambar akhir |
+| T/A | Hingga 4 gambar karakter untuk mempertahankan konsistensi karakter | Hingga 5 gambar karakter untuk mempertahankan konsistensi karakter |
+| T/A | T/A | Hingga 3 gambar yang akan digunakan sebagai referensi gaya |
 
 ### Python
 
@@ -1000,7 +1012,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -1103,15 +1115,15 @@ curl -s -X POST \
     }"
 ```
 
-![Фотография офисной группы, созданная ИИ](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=ru)
+![Foto grup kantor buatan AI](https://ai.google.dev/static/gemini-api/docs/images/office-group-photo.jpeg?hl=id)
 
-Групповая фотография офиса, созданная ИИ
+Foto grup kantor buatan AI
 
-### Обоснование с Google Поиском
+### Grounding dengan Google Penelusuran
 
-Используйте [инструмент Google Поиска](https://ai.google.dev/gemini-api/docs/google-search?hl=ru), чтобы создавать изображения на основе информации в реальном времени, например прогнозов погоды, графиков акций или недавних событий.
+Gunakan [alat Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) untuk membuat gambar berdasarkan informasi real-time, seperti prakiraan cuaca, grafik saham, atau peristiwa terkini.
 
-Обратите внимание, что при использовании функции Grounding with Google Search с генерацией изображений результаты поиска на основе изображений не передаются модели генерации и исключаются из ответа (см. раздел [Grounding with Google Image Search](#image-search)).
+Perhatikan bahwa saat menggunakan Grounding with Google Search dengan pembuatan gambar, hasil penelusuran berbasis gambar tidak diteruskan ke model generatif dan dikecualikan dari respons (lihat [Grounding dengan Google Penelusuran Gambar](#image-search))
 
 ### Python
 
@@ -1219,7 +1231,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -1298,20 +1310,21 @@ curl -s -X POST \
   }'
 ```
 
-![Сгенерируй таблицу погоды в Сан-Франциско на пять дней](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=ru)
+![Diagram cuaca lima hari buatan AI untuk San Francisco](https://ai.google.dev/static/gemini-api/docs/images/weather-forecast.png?hl=id)
 
-Сгенерированная ИИ диаграмма погоды в Сан-Франциско на пять дней
+Diagram cuaca lima hari yang dibuat AI untuk San Francisco
 
-Ответ содержит шаги `google_search_call` и `google_search_result`, а также встроенные аннотации `url_citation` в текстовом шаге:
+Respons mencakup langkah-langkah `google_search_call` dan `google_search_result`, serta anotasi `url_citation` inline pada langkah teks:
 
-- **`google_search_result`** – содержит `search_suggestions`, фрагмент HTML-кода для отрисовки подсказок в интерфейсе.
-- **`url_citation` – аннотации**, встроенные в текстовый шаг и связывающие части ответа с их веб-источниками.
+- **`google_search_result`**: Berisi `search_suggestions`, cuplikan HTML
+  untuk merender saran penelusuran di UI Anda.
+- **Anotasi `url_citation`**: Kutipan inline pada langkah teks yang menautkan bagian respons ke sumber webnya.
 
-### Обоснование с помощью Google Поиска для изображений (Nano Banana 2.1 и 3.1 Flash)
+### Penyesuaian dengan Google Penelusuran untuk gambar (Nano Banana 2.1 dan 3.1 Flash)
 
-Обоснование с помощью Google Поиска картинок позволяет моделям использовать изображения из интернета, полученные через Google Поиск картинок, в качестве визуального контекста для создания изображений. Поиск по изображениям – это новый тип поиска в инструменте "Обоснование с помощью Google Поиска", который работает наряду со стандартным [поиском в интернете](#use-with-grounding).
+Grounding with Google Image Search memungkinkan model menggunakan gambar web yang diambil melalui Google Penelusuran Gambar sebagai konteks visual untuk pembuatan gambar. Penelusuran Gambar adalah jenis penelusuran baru dalam alat Grounding with Google Search yang sudah ada, yang berfungsi bersama [Penelusuran Web](#use-with-grounding) standar.
 
-Чтобы включить поиск изображений, настройте инструмент `google_search` в запросе к API и укажите `image_search` в массиве `search_types`. Поиск по картинкам можно использовать отдельно или вместе с веб-поиском.
+Untuk mengaktifkan Penelusuran Gambar, konfigurasi alat `google_search` dalam permintaan API Anda dan tentukan `image_search` dalam array `search_types`. Penelusuran Gambar dapat digunakan secara terpisah atau bersama dengan Penelusuran Web.
 
 ### Python
 
@@ -1386,7 +1399,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -1444,24 +1457,28 @@ curl -s -X POST \
   }'
 ```
 
-**Требования к показу**
+**Persyaratan tampilan**
 
-При использовании поиска по изображениям в рамках обоснования с помощью Google Поиска необходимо показывать `search_suggestions` из шага `google_search_result`. Полные требования к использованию описаны в [Условиях использования](https://ai.google.dev/gemini-api/terms?hl=ru#grounding-with-google-search).
+Saat menggunakan Penelusuran Gambar dalam Grounding dengan Google Penelusuran, Anda harus menampilkan
+`search_suggestions` dari langkah `google_search_result`. Persyaratan penggunaan
+lengkap dijelaskan dalam
+[Persyaratan Layanan](https://ai.google.dev/gemini-api/terms?hl=id#grounding-with-google-search).
 
-**Ответ**
+**Respons**
 
-Для обоснованных ответов, полученных с помощью поиска картинок, API возвращает встроенные цитаты и метаданные атрибуции как часть шагов ответа:
+Untuk respons yang di-grounding menggunakan penelusuran gambar, API menampilkan kutipan langsung dan metadata atribusi sebagai bagian dari langkah-langkah respons:
 
-- **Аннотации `url_citation`** – встроенные цитаты в текстовом блоке контента `model_output`, связывающие сгенерированный контент с его источником.
-- **`google_search_result`**: содержит `search_suggestions` – фрагмент HTML-кода для отображения подсказок в вашем интерфейсе.
+- **Anotasi `url_citation`**: Kutipan inline pada blok konten teks
+  dalam `model_output`, yang menautkan konten yang dihasilkan ke sumbernya.
+- **`google_search_result`**: Berisi `search_suggestions`, cuplikan HTML untuk merender saran penelusuran di UI Anda.
 
-### Создание изображений на основе видео (Nano Banana 2.1, 3.1 Flash и 3.1 Flash Lite)
+### Pembuatan gambar dari video (Nano Banana 2.1, 3.1 Flash, dan 3.1 Flash Lite)
 
-Генерация изображений из видео позволяет создавать новые изображения, используя контекст видео в качестве мультимодальной ссылки. Это полезно для создания качественных значков видео, киноафиш, инфографики с кратким пересказом или новых изображений, вдохновленных сценой из видео.
+Pembuatan gambar dari video memungkinkan Anda membuat gambar baru menggunakan konteks video sebagai referensi multimodal. Fitur ini berguna untuk membuat thumbnail video berkualitas tinggi, poster sinematik, infografis ringkasan, atau karya seni baru yang terinspirasi dari adegan video.
 
-При создании изображения модель анализирует кадры видео в контексте, чтобы определить визуальные темы и ключевые события, а затем использует их вместе с текстовым запросом для синтеза выходного изображения.
+Selama pembuatan, model menganalisis frame video dalam konteks untuk mengekstrak tema visual dan peristiwa utama, lalu menggunakannya bersama dengan perintah teks Anda untuk menyintesis gambar output.
 
-Вы можете передавать общедоступные [URL YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ru#youtube) непосредственно в запросе к API или загружать локальные видеофайлы с помощью [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ru).
+Anda dapat meneruskan [URL YouTube](https://ai.google.dev/gemini-api/docs/video-understanding?hl=id#youtube) publik secara langsung dalam permintaan API atau mengupload file video lokal menggunakan [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
 ### Python
 
@@ -1620,7 +1637,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -1719,15 +1736,15 @@ curl -s -X POST \
   }'
 ```
 
-![Инфографика, созданная ИИ на основе видео на YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=ru)
+![Infografis buatan AI dari video YouTube](https://ai.google.dev/static/gemini-api/docs/images/youtube_infographics.png?hl=id)
 
-Инфографика, созданная ИИ на основе видео с YouTube
+Infografis buatan AI dari video YouTube
 
-### Создание изображений с разрешением до 4K
+### Membuat gambar dengan resolusi hingga 4K
 
-Модели Gemini 3 по умолчанию генерируют изображения с разрешением 1024 пикселя, но также могут создавать изображения с разрешением 2048, 4096 и 512 пикселей (только Gemini 3.1 Flash Image). Чтобы создать объекты с более высоким разрешением, укажите `image_size` в `response_format`.
+Model gambar Gemini 3 menghasilkan 1.000 gambar secara default, tetapi juga dapat menghasilkan gambar 2K, 4K, dan 512 px (05.K) (khusus Gemini 3.1 Flash Image). Untuk membuat aset dengan resolusi lebih tinggi, tentukan `image_size` di `response_format`.
 
-Используйте заглавную букву "К", например 512px (05.K), 1K, 2K, 4K. Параметры в нижнем регистре (например, 1k) будут отклонены.
+Anda harus menggunakan 'K' huruf besar (misalnya, 512 px (05.K), 1K, 2K, 4K). Parameter huruf kecil (misalnya, 1k) akan ditolak.
 
 ### Python
 
@@ -1840,7 +1857,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -1920,19 +1937,20 @@ curl -s -X POST \
   }'
 ```
 
-Ниже приведен пример изображения, созданного на основе этого запроса:
+Berikut adalah contoh gambar yang dihasilkan dari perintah ini:
 
-![Анатомический рисунок бабочки-монарха в стиле Леонардо да Винчи, созданный ИИ.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=ru)
+![Sketsa anatomi gaya Da Vinci yang dibuat AI dari kupu-kupu Raja yang dibedah.](https://ai.google.dev/static/gemini-api/docs/images/gemini3-4k-image.png?hl=id)
 
-Анатомический рисунок бабочки монарха в стиле Леонардо да Винчи, созданный ИИ.
+Sketsa anatomi gaya Da Vinci buatan AI dari kupu-kupu Raja yang dibedah.
 
-### Ход рассуждений
+### Proses berpikir
 
-Модели Gemini 3 для изображений – это думающие модели, которые используют процесс рассуждения ("Думающая") для сложных запросов. Эта функция включена по умолчанию и не может быть отключена в API. Чтобы узнать больше о процессе мышления, ознакомьтесь с руководством [Gemini Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=ru).
+Model gambar Gemini 3 adalah model pemikiran yang menggunakan proses penalaran ("Pemikiran") untuk perintah yang kompleks. Fitur ini diaktifkan secara default dan
+tidak dapat dinonaktifkan di API. Untuk mempelajari lebih lanjut proses berpikir, lihat panduan [Pemikiran Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=id).
 
-Модель генерирует до двух промежуточных изображений, чтобы проверить композицию и логику. Последнее изображение в разделе "Размышления" – это итоговое сгенерированное изображение.
+Model menghasilkan hingga dua gambar sementara untuk menguji komposisi dan logika. Gambar terakhir dalam Thinking juga merupakan gambar akhir yang dirender.
 
-Вы можете посмотреть, какие мысли привели к созданию финального изображения.
+Anda dapat memeriksa pemikiran yang menghasilkan gambar akhir.
 
 ### Python
 
@@ -2017,7 +2035,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -2071,11 +2089,13 @@ func main() {
 }
 ```
 
-#### Текст с изображениями
+#### Teks dan gambar yang diselingi
 
-Стандартные модели генерации изображений создают только изображения, но некоторые продвинутые модели Gemini 3 (например, `gemini-3-pro-image`) могут генерировать смешанный контент, например рассказы или инструкции, содержащие как текстовые блоки, так и иллюстрации в одном ответе.
+Meskipun model pembuatan gambar standar hanya menghasilkan gambar, beberapa model Gemini 3 yang canggih (seperti `gemini-3-pro-image`) dapat menghasilkan konten yang disisipkan—seperti cerita atau panduan instruksional yang berisi blok teks dan ilustrasi dalam respons yang sama.
 
-Поскольку выходные данные сложны и перемежаются, удобные свойства, такие как `.output_image` или `.output_text`, не смогут захватить всю последовательность. Чтобы получить доступ к чередующемуся контенту и сохранить его, необходимо вручную перебрать `steps`:
+Karena outputnya rumit dan saling terkait, properti praktis seperti
+`.output_image` atau `.output_text` tidak akan menangkap seluruh urutan. Untuk mengakses
+dan menyimpan konten yang disisipkan, Anda harus melakukan iterasi secara manual pada `steps`:
 
 ### Python
 
@@ -2182,7 +2202,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -2240,15 +2260,15 @@ func main() {
 }
 ```
 
-#### Как управлять уровнем рассуждений
+#### Mengontrol tingkat penalaran
 
-С помощью Gemini Nano Banana 2.1, Gemini 3.1 Flash Image и Gemini 3.1 Flash Lite Image можно контролировать объем обработки, который модель использует для баланса между качеством и задержкой:
+Dengan Gemini Nano Banana 2.1, Gemini 3.1 Flash Image, dan Gemini 3.1 Flash Lite Image, Anda dapat mengontrol jumlah pemikiran yang digunakan model untuk menyeimbangkan kualitas dan latensi:
 
-| Модель | Поддерживаемые уровни рассуждений | По умолчанию |
+| Model | Tingkat penalaran yang didukung | Default |
 | --- | --- | --- |
 | **Gemini Nano Banana 2.1** | `minimal`, `medium`, `high` | `medium` |
-| **Gemini 3.1 Flash Image** | `minimal`, `high` | `minimal` |
-| **Gemini 3.1 Flash Lite Image** | `minimal`, `high` | `minimal` |
+| **Gambar Gemini 3.1 Flash** | `minimal`, `high` | `minimal` |
+| **Gambar Gemini 3.1 Flash Lite** | `minimal`, `high` | `minimal` |
 
 ### Python
 
@@ -2336,7 +2356,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -2405,32 +2425,37 @@ curl -s -X POST \
   }'
 ```
 
-Обратите внимание, что токены мышления по умолчанию оплачиваются для моделей мышления, поскольку [процесс мышления](#thinking-process) всегда происходит по умолчанию, независимо от того, просматриваете вы его или нет.
+Perhatikan bahwa token pemikiran ditagih secara default untuk model pemikiran, karena
+[proses pemikiran](#thinking-process) selalu terjadi secara default, terlepas dari apakah Anda melihat
+proses tersebut atau tidak.
 
-## Другие режимы генерации изображений
+## Mode pembuatan gambar lainnya
 
-Хотя модели Nano Banana для создания изображений рекомендуются для большинства случаев использования, вы также можете попробовать специализированные модели для создания изображений:
+Meskipun model pembuatan gambar Nano Banana direkomendasikan untuk sebagian besar kasus penggunaan, Anda juga dapat menjelajahi model pembuatan gambar khusus:
 
-- **Imagen.** Устаревшие модели Google для генерации изображений по текстовому описанию (отключены).
-- **[Veo](https://ai.google.dev/gemini-api/docs/video?hl=ru)** – модель генерации видео от Google.
+- **Imagen**: Model pembuatan gambar dari teks lama Google (ditutup).
+- **[Veo](https://ai.google.dev/gemini-api/docs/video?hl=id)**: Model pembuatan video Google.
 
-## Как сгенерировать несколько изображений
+## Membuat gambar secara batch
 
-Все описанные на этой странице функции генерации изображений можно также использовать в пакетных заданиях с помощью [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ru#image-generation). Это идеальный вариант, если вам нужно создать много изображений. В этом случае вы получаете более высокие ограничения на количество запросов в обмен на время выполнения до 24 часов.
+Semua kemampuan pembuatan gambar yang dijelaskan di halaman ini juga dapat
+dijalankan sebagai tugas batch menggunakan
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id#image-generation), yang ideal jika Anda
+perlu membuat banyak gambar.Anda akan mendapatkan batas frekuensi yang lebih tinggi dengan waktu penyelesaian hingga 24 jam.
 
-## Руководство по запросам и стратегии
+## Panduan dan strategi penulisan perintah
 
-В этом разделе приведены примеры запросов и шаблоны для распространенных рабочих процессов создания и редактирования изображений. В каждом примере есть шаблон, который можно использовать повторно, и образец запроса для Interactions API.
+Bagian ini memberikan contoh dan template perintah untuk alur kerja umum pembuatan dan pengeditan gambar. Setiap contoh menyertakan template yang dapat digunakan kembali dan contoh perintah untuk Interactions API.
 
-### Запросы на создание изображений
+### Perintah untuk membuat gambar
 
-В примерах ниже показано, как использовать текстовые запросы для создания изображений разных типов.
+Contoh berikut menunjukkan cara menggunakan perintah teks untuk membuat berbagai jenis gambar.
 
-#### 1. Фотореалистичные сцены
+#### 1. Adegan fotorealistik
 
-Подробно опишите сцену. Чем точнее запрос, тем больше контроля над результатами.
+Deskripsikan adegan dengan detail yang kaya. Makin spesifik perintah Anda, makin besar kontrol Anda atas hasilnya.
 
-### Шаблон
+### Template
 
 ```
 A photorealistic [type of shot] of a [subject description] in a [setting
@@ -2438,7 +2463,7 @@ description]. [Description of the light]. Shot from a [camera angle]
 with a [lens type].
 ```
 
-### Запрос
+### Perintah
 
 ```
 A photorealistic wide-angle shot of a vibrant coral reef teeming with tropical fish. Crystal-clear turquoise water with sunbeams filtering down from the surface, illuminating a sea turtle gliding gracefully over the coral. Shot from a low perspective with a wide-angle lens. Aspect ratio 16:9.
@@ -2554,7 +2579,7 @@ if (interaction.outputImage().isPresent()
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -2630,11 +2655,11 @@ curl -s -X POST \
   }'
 ```
 
-#### 2. Стилизованные иллюстрации и стикеры
+#### 2. Ilustrasi & stiker bergaya
 
-Опишите художественный стиль, объект и материалы. Чтобы получать стабильные результаты, указывайте точные характеристики визуальных элементов (например, толщину линий, цвета и т. д.).
+Jelaskan gaya artistik, subjek, dan media. Tentukan detail visual (garis tebal, warna, dll.) untuk hasil yang konsisten.
 
-### Шаблон
+### Template
 
 ```
 A [style] of a [subject, with details about accessories or actions]
@@ -2642,7 +2667,7 @@ doing [activity]. The design features [visual qualities, e.g., bold outlines,
 cel-shading, etc.] and [color/background preference].
 ```
 
-### Запрос
+### Perintah
 
 ```
 A kawaii-style sticker of a happy red panda wearing a tiny bamboo hat. It's munching on a green bamboo leaf. The design features bold, clean outlines, simple cel-shading, and a vibrant color palette. The background must be white.
@@ -2754,7 +2779,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -2821,15 +2846,15 @@ curl -s -X POST \
   }'
 ```
 
-![Стикер в стиле каваи с изображением счастливого красного…](https://ai.google.dev/static/gemini-api/docs/images/red_panda_sticker.png?hl=ru)
+![Stiker gaya kawaii dari...](https://ai.google.dev/static/gemini-api/docs/images/red_panda_sticker.png?hl=id)
 
-Стикер в стиле каваи с изображением счастливой красной панды…
+Stiker bergaya kawaii dari panda merah yang sedang bahagia...
 
-#### 3. Точный текст на изображениях
+#### 3. Teks yang akurat dalam gambar
 
-Gemini отлично справляется с отрисовкой текста. Четко опишите текст, стиль шрифта и общий дизайн. Используйте Gemini 3 Pro Image для создания профессиональных объектов.
+Gemini unggul dalam merender teks. Jelaskan teks, gaya font (secara deskriptif), dan desain keseluruhan. Gunakan Gemini 3 Pro Image untuk produksi aset profesional.
 
-### Шаблон
+### Template
 
 ```
 Create a [image type] for [brand/concept] with the text "[text to render]"
@@ -2837,7 +2862,7 @@ in a [font style]. The design should be [style description], with a
 [color scheme].
 ```
 
-### Запрос
+### Perintah
 
 ```
 Create a modern, minimalist logo for a coffee shop called 'The Daily Grind'. The text should be in a clean, bold, sans-serif font. The color scheme is black and white. Put the logo in a circle. Use a coffee bean in a clever way.
@@ -2963,7 +2988,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -3041,15 +3066,15 @@ curl -s -X POST \
   }'
 ```
 
-![Создай современный минималистичный логотип для кофейни под названием &quot;Ежедневная рутина&quot;…](https://ai.google.dev/static/gemini-api/docs/images/logo_example.jpg?hl=ru)
+![Buat logo modern dan minimalis untuk kedai kopi bernama 'The Daily Grind'...](https://ai.google.dev/static/gemini-api/docs/images/logo_example.jpg?hl=id)
 
-Создай современный минималистичный логотип для кофейни "Ежедневная рутина"…
+Buat logo modern dan minimalis untuk kedai kopi bernama 'The Daily Grind'...
 
-#### 4. Макеты товаров и коммерческая фотосъемка
+#### 4. Mockup produk & fotografi komersial
 
-Идеально подходит для создания четких профессиональных фотографий товаров для электронной торговли, рекламы или брендинга.
+Sempurna untuk membuat foto produk yang bersih dan profesional untuk e-commerce, iklan, atau branding.
 
-### Шаблон
+### Template
 
 ```
 A high-resolution, studio-lit product photograph of a [product description]
@@ -3059,7 +3084,7 @@ a [angle type] to showcase [specific feature]. Ultra-realistic, with sharp
 focus on [key detail]. [Aspect ratio].
 ```
 
-### Запрос
+### Perintah
 
 ```
 A high-resolution, studio-lit product photograph of a minimalist ceramic
@@ -3176,7 +3201,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -3243,15 +3268,15 @@ curl -s -X POST \
   }'
 ```
 
-![Студийная фотография минималистичной керамической кружки для кофе в высоком разрешении…](https://ai.google.dev/static/gemini-api/docs/images/product_mockup.png?hl=ru)
+![Foto produk cangkir kopi keramik minimalis beresolusi tinggi dengan pencahayaan studio...](https://ai.google.dev/static/gemini-api/docs/images/product_mockup.png?hl=id)
 
-Студийная фотография минималистичной керамической кофейной кружки в высоком разрешении…
+Foto produk beresolusi tinggi dengan pencahayaan studio dari cangkir kopi keramik minimalis...
 
-#### 5. Минимализм и негативное пространство
+#### 5. Desain minimalis & ruang negatif
 
-Отлично подходит для создания фонов для сайтов, презентаций или маркетинговых материалов, на которые будет наложен текст.
+Sangat cocok untuk membuat latar belakang situs, presentasi, atau materi pemasaran yang akan ditumpuk dengan teks.
 
-### Шаблон
+### Template
 
 ```
 A minimalist composition featuring a single [subject] positioned in the
@@ -3260,7 +3285,7 @@ A minimalist composition featuring a single [subject] positioned in the
 [Aspect ratio].
 ```
 
-### Запрос
+### Perintah
 
 ```
 A minimalist composition featuring a single, delicate red maple leaf
@@ -3375,7 +3400,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -3442,21 +3467,21 @@ curl -s -X POST \
   }'
 ```
 
-![Минималистичная композиция с одним нежным красным кленовым листом…](https://ai.google.dev/static/gemini-api/docs/images/minimalist_design.png?hl=ru)
+![Komposisi minimalis yang menampilkan satu helai daun mapel merah yang halus...](https://ai.google.dev/static/gemini-api/docs/images/minimalist_design.png?hl=id)
 
-Минималистичная композиция с одним нежным красным кленовым листом…
+Komposisi minimalis yang menampilkan satu daun mapel merah yang halus...
 
-#### 6. Последовательное искусство (кадр комикса или раскадровка)
+#### 6. Seni berurutan (panel komik / storyboard)
 
-Создает панели для визуального повествования на основе описания персонажей и сцен. Для получения точных текстовых ответов и качественного повествования эти запросы лучше всего работают с Gemini 3 Pro и Gemini 3.1 Flash Image.
+Membangun konsistensi karakter dan deskripsi adegan untuk membuat panel penceritaan visual. Untuk akurasi dengan teks dan kemampuan bercerita, perintah ini paling cocok digunakan dengan Gemini 3 Pro dan Gemini 3.1 Flash Image.
 
-### Шаблон
+### Template
 
 ```
 Make a 3 panel comic in a [style]. Put the character in a [type of scene].
 ```
 
-### Запрос
+### Perintah
 
 ```
 Make a 3 panel comic in a gritty, noir art style with high-contrast black and white inks. Put the character in a humurous scene.
@@ -3608,7 +3633,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -3697,15 +3722,15 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Запрос | Результат |
-| Мужчина в белых очках   Входное изображение | Создай комикс из трех панелей в мрачном стиле нуар…   Создай комикс из трех панелей в мрачном стиле нуар… |
+| Input | Output |
+| Pria berkacamata putih   Gambar input | Buat komik 3 panel dengan gaya seni noir yang kasar...   Buat komik 3 panel dengan gaya seni noir yang berani... |
 
-#### 7. Обоснование с Google Поиском
+#### 7. Grounding dengan Google Penelusuran
 
-Создавайте изображения на основе актуальной информации из Google Поиска.
-Это полезно для новостей, прогноза погоды и других тем, требующих актуальности.
+Gunakan Google Penelusuran untuk membuat gambar berdasarkan informasi terbaru atau real-time.
+Hal ini berguna untuk berita, cuaca, dan topik lain yang sensitif terhadap waktu.
 
-### Запрос
+### Perintah
 
 ```
 Make a simple but stylish graphic of last night's Arsenal game in the Champion's League
@@ -3838,7 +3863,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -3920,19 +3945,20 @@ curl -s -X POST \
   }'
 ```
 
-![Сгенерированное ИИ изображение счета футбольного матча команды &quot;Арсенал&quot;](https://ai.google.dev/static/gemini-api/docs/images/football-score.jpg?hl=ru)
+![Grafik skor pertandingan sepak bola Arsenal yang dibuat AI](https://ai.google.dev/static/gemini-api/docs/images/football-score.jpg?hl=id)
 
-Изображение, сгенерированное ИИ, с результатами футбольного матча команды "Арсенал"
+Grafik buatan AI dari skor pertandingan sepak bola Arsenal
 
-### Запросы для редактирования изображений
+### Perintah untuk mengedit gambar
 
-В этих примерах показано, как добавлять изображения к текстовым запросам для редактирования, композиции и переноса стиля.
+Contoh ini menunjukkan cara memberikan gambar bersama perintah teks Anda untuk
+pengeditan, komposisi, dan transfer gaya.
 
-#### 1. Как добавлять и удалять элементы
+#### 1. Menambahkan dan menghapus elemen
 
-Загрузите изображение и опишите, что нужно изменить. Модель будет соответствовать стилю, освещению и перспективе исходного изображения.
+Berikan gambar dan deskripsikan perubahan Anda. Model akan cocok dengan gaya, pencahayaan, dan perspektif gambar asli.
 
-### Шаблон
+### Template
 
 ```
 Using the provided image of [subject], please [add/remove/modify] [element]
@@ -3940,7 +3966,7 @@ to/from the scene. Ensure the change is [description of how the change should
 integrate].
 ```
 
-### Запрос
+### Perintah
 
 ```
 "Using the provided image of my cat, please add a small, knitted wizard hat
@@ -4094,7 +4120,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -4183,14 +4209,14 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Запрос | Результат |
-| Фотореалистичное изображение пушистого рыжего кота.   Фотореалистичное изображение пушистого рыжего кота… | Используя предоставленное изображение моего кота, добавь небольшую вязаную шляпу волшебника…   Используя предоставленное изображение моего кота, добавь небольшую вязаную шляпу волшебника… |
+| Input | Output |
+| Gambar fotorealistik kucing oranye berbulu lebat.   Gambar fotorealistis kucing jahe berbulu lebat... | Menggunakan gambar kucing saya yang disediakan, tambahkan topi penyihir kecil rajutan...   Dengan menggunakan gambar kucing saya yang telah disediakan, tambahkan topi penyihir kecil rajutan... |
 
-#### 2. Ретушь (семантическая маска)
+#### 2. Lukisan (masking semantik)
 
-Определите маску, чтобы отредактировать определенную часть изображения, не затрагивая остальное.
+Tentukan "mask" secara percakapan untuk mengedit bagian tertentu dari gambar tanpa mengubah bagian lainnya.
 
-### Шаблон
+### Template
 
 ```
 Using the provided image, change only the [specific element] to [new
@@ -4198,7 +4224,7 @@ element/description]. Keep everything else in the image exactly the same,
 preserving the original style, lighting, and composition.
 ```
 
-### Запрос
+### Perintah
 
 ```
 "Using the provided image of a living room, change only the blue sofa to be
@@ -4352,7 +4378,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -4441,20 +4467,20 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Запрос | Результат |
-| Широкий план современной хорошо освещенной гостиной…   Широкоугольный снимок современной хорошо освещенной гостиной… | Используя предоставленное изображение гостиной, замени только синий диван на винтажный коричневый кожаный диван честерфилд…   Используя предоставленное изображение гостиной, замени только синий диван на коричневый кожаный диван честерфилд в винтажном стиле… |
+| Input | Output |
+| Bidikan lebar ruang tamu modern yang terang...   Bidikan lebar ruang tamu modern yang terang... | Dengan menggunakan gambar ruang keluarga yang disediakan, ubah hanya sofa biru menjadi sofa chesterfield kulit cokelat bergaya vintage...   Dengan menggunakan gambar ruang keluarga yang disediakan, ubah hanya sofa biru menjadi sofa chesterfield kulit cokelat vintage... |
 
-#### 3. Перенос стиля
+#### 3. Transfer gaya
 
-Загрузите изображение и попросите модель воссоздать его в другом художественном стиле.
+Berikan gambar dan minta model untuk membuat ulang kontennya dalam gaya artistik yang berbeda.
 
-### Шаблон
+### Template
 
 ```
 Transform the provided photograph of [subject] into the artistic style of [artist/art style]. Preserve the original composition but render it with [description of stylistic elements].
 ```
 
-### Запрос
+### Perintah
 
 ```
 "Transform the provided photograph of a modern city street at night into the artistic style of Vincent van Gogh's 'Starry Night'. Preserve the original composition of buildings and cars, but render all elements with swirling, impasto brushstrokes and a dramatic palette of deep blues and bright yellows."
@@ -4602,7 +4628,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -4691,14 +4717,14 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Запрос | Результат |
-| Фотореалистичная фотография с высоким разрешением, на которой изображена оживленная городская улица…   Фотореалистичная фотография с высоким разрешением, на которой изображена оживленная городская улица… | Преобразуй предоставленную фотографию современной городской улицы ночью…   Преобразуй предоставленную фотографию современной городской улицы ночью… |
+| Input | Output |
+| Foto fotorealistik beresolusi tinggi dari jalan kota yang ramai...   Foto realistis beresolusi tinggi dari jalan kota yang ramai... | Ubah foto jalan kota modern yang disediakan pada malam hari...   Ubah foto jalan kota modern yang disediakan pada malam hari... |
 
-#### 4. Расширенная композиция: объединение нескольких изображений
+#### 4. Komposisi lanjutan: menggabungkan beberapa gambar
 
-Добавьте несколько изображений, чтобы создать новую композицию. Это отличный вариант для макетов товаров или творческих коллажей.
+Berikan beberapa gambar sebagai konteks untuk membuat adegan komposit baru. Fitur ini sangat cocok untuk mockup produk atau kolase kreatif.
 
-### Шаблон
+### Template
 
 ```
 Create a new image by combining the elements from the provided images. Take
@@ -4706,7 +4732,7 @@ the [element from image 1] and place it with/on the [element from image 2].
 The final image should be a [description of the final scene].
 ```
 
-### Запрос
+### Perintah
 
 ```
 "Create a professional e-commerce fashion photo. Take the blue floral dress
@@ -4881,7 +4907,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -4978,14 +5004,14 @@ curl -s -X POST \
 
 |  |  |  |
 | --- | --- | --- |
-| Значение ввода 1 | Значение ввода 2 | Результат |
-| Синее летнее платье с цветочным принтом на нейтральном фоне   Синее летнее платье с цветочным принтом на нейтральном фоне | Фотография женщины в полный рост с волосами, собранными в пучок…   Фотография женщины в полный рост с волосами, собранными в пучок… | Женщина в синем летнем платье с цветочным принтом на улице   Женщина в голубом летнем платье с цветочным принтом на улице |
+| Masukan 1 | Input 2 | Output |
+| Gaun musim panas bermotif bunga biru dengan latar belakang netral   Gaun musim panas motif bunga biru dengan latar belakang netral | Foto seluruh tubuh seorang perempuan dengan rambut yang diikat...   Foto seluruh badan seorang wanita dengan rambut yang disanggul... | Seorang perempuan mengenakan gaun musim panas bermotif bunga biru di luar ruangan   Seorang wanita mengenakan gaun musim panas bermotif bunga biru di luar ruangan |
 
-#### 5. Сохранение деталей с высокой точностью
+#### 5. Mempertahankan detail dengan fidelitas tinggi
 
-Чтобы важные детали (например, лицо или логотип) сохранились при редактировании, подробно опишите их в запросе.
+Untuk memastikan detail penting (seperti wajah atau logo) dipertahankan selama pengeditan, deskripsikan detail tersebut secara mendalam bersama dengan permintaan pengeditan Anda.
 
-### Шаблон
+### Template
 
 ```
 Using the provided images, place [element from image 2] onto [element from
@@ -4994,7 +5020,7 @@ completely unchanged. The added element should [description of how the
 element should integrate].
 ```
 
-### Запрос
+### Perintah
 
 ```
 "Take the first image of the woman with brown hair, blue eyes, and a neutral
@@ -5154,7 +5180,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -5251,21 +5277,21 @@ curl -s -X POST \
 
 |  |  |  |
 | --- | --- | --- |
-| Значение ввода 1 | Значение ввода 2 | Результат |
-| Профессиональный фотопортрет женщины с каштановыми волосами и голубыми глазами…   Профессиональный фотопортрет женщины с каштановыми волосами и голубыми глазами… | Современный идентификатор бренда с буквами G и A   Современный идентификатор бренда с буквами G и A | Возьми первое изображение женщины с каштановыми волосами, голубыми глазами и нейтральным выражением лица…   Возьми первое изображение женщины с каштановыми волосами, голубыми глазами и нейтральным выражением лица… |
+| Masukan 1 | Input 2 | Output |
+| Foto profesional seorang wanita dengan rambut cokelat dan mata biru...   Pas foto profesional seorang wanita dengan rambut cokelat dan mata biru... | Pengidentifikasi merek modern dengan huruf G dan A   ID merek modern dengan huruf G dan A | Ambil gambar pertama wanita dengan rambut cokelat, mata biru, dan ekspresi netral...   Ambil gambar pertama wanita dengan rambut cokelat, mata biru, dan ekspresi netral... |
 
-#### 6. Воплощать что-либо в жизнь
+#### 6. Menghidupkan sesuatu
 
-Загрузите эскиз или рисунок и попросите модель доработать его до готового изображения.
+Upload sketsa atau gambar kasar dan minta model untuk menyempurnakannya menjadi gambar akhir.
 
-### Шаблон
+### Template
 
 ```
 Turn this rough [medium] sketch of a [subject] into a [style description]
 photo. Keep the [specific features] from the sketch but add [new details/materials].
 ```
 
-### Запрос
+### Perintah
 
 ```
 "Turn this rough pencil sketch of a futuristic car into a polished photo of the finished concept car in a showroom. Keep the sleek lines and low profile from the sketch but add metallic blue paint and neon rim lighting."
@@ -5408,7 +5434,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -5496,20 +5522,20 @@ curl -s -X POST \
 
 |  |  |
 | --- | --- |
-| Запрос | Результат |
-| Эскиз автомобиля   Грубый набросок автомобиля | Изображение концепт-кара   Отполированная фотография автомобиля |
+| Input | Output |
+| Sketsa mobil   Sketsa kasar mobil | Output yang menampilkan mobil konsep akhir   Foto mobil yang sudah diedit |
 
-#### 7. Постоянство персонажа: вид на 360 градусов
+#### 7. Konsistensi karakter: Tampilan 360
 
-Вы можете создавать изображения персонажа с разных ракурсов, отправляя запросы по очереди. Чтобы получить наилучшие результаты, включайте ранее сгенерированные изображения в последующие запросы, чтобы сохранить единообразие. Для сложных поз добавьте референсное изображение выбранной позы.
+Anda dapat membuat tampilan karakter 360 derajat dengan meminta sudut yang berbeda secara berulang. Untuk hasil terbaik, sertakan gambar yang dibuat sebelumnya dalam perintah berikutnya untuk menjaga konsistensi. Untuk pose yang rumit, sertakan gambar referensi pose yang dipilih.
 
-### Шаблон
+### Template
 
 ```
 A studio portrait of [person] against [background], [looking forward/in profile looking right/etc.]
 ```
 
-### Запрос
+### Perintah
 
 ```
 A studio portrait of this man against white, in profile looking right
@@ -5548,42 +5574,46 @@ for step in interaction.steps:
 
 |  |  |  |
 | --- | --- | --- |
-| Запрос | Выход 1 | Выход 2 |
-| Исходное изображение мужчины в белых очках   Исходное изображение | Изображение мужчины в белых очках, смотрящего вправо   Мужчина в белых очках смотрит вправо | Изображение мужчины в белых очках, смотрящего вперед   Мужчина в белых очках смотрит вперед |
+| Input | Output 1 | Output 2 |
+| Input asli seorang pria yang memakai kacamata putih   Gambar asli | Output seorang pria berkacamata putih yang melihat ke kanan   Pria berkacamata putih melihat ke kanan | Output seorang pria berkacamata putih yang melihat ke depan   Pria berkacamata putih melihat ke depan |
 
-### Рекомендации
+### Praktik terbaik
 
-Чтобы улучшить результаты, используйте в работе следующие профессиональные стратегии.
+Untuk meningkatkan hasil Anda dari baik menjadi luar biasa, masukkan strategi profesional ini ke dalam alur kerja Anda.
 
-- **Будьте максимально точны.** Чем больше деталей вы укажете, тем лучше будет результат. Вместо "фэнтезийная броня" опишите ее: "богато украшенная эльфийская броня с узорами из серебряных листьев, высоким воротником и наплечниками в форме крыльев сокола".
-- **Укажите контекст и цель.** Объясните, *для чего* нужно изображение. Понимание контекста моделью влияет на конечный результат. Например, запрос "Создай логотип для минималистичного бренда средств по уходу за кожей премиум-класса" даст более качественные результаты, чем просто "Создай логотип".
-- **Используйте итеративный подход.** Не ожидайте, что с первого раза получите идеальное изображение. Используйте разговорный характер модели, чтобы вносить небольшие изменения. Затем можно использовать дополнительные запросы, например: "Отлично, но сделай освещение немного теплее" или "Оставь все как есть, но сделай выражение лица персонажа более серьезным".
-- **Используйте пошаговые инструкции.** Если сцена сложная и содержит много элементов, разбейте запрос на несколько шагов. "Сначала создай фон с безмятежным туманным лесом на рассвете. Затем на переднем плане добавь древний каменный алтарь, покрытый мхом.
-  Наконец, положите на алтарь один светящийся меч".
-- **Используйте семантические отрицательные запросы.** Вместо того чтобы писать "без машин", опишите желаемую сцену в утвердительной форме: "пустая безлюдная улица без признаков движения".
-- **Управляйте камерой.** Используйте термины из области фотографии и кино, чтобы задать композицию. Такие термины, как `wide-angle shot`, `macro shot`, `low-angle
+- **Buat perintah yang sangat spesifik:** Semakin detail informasi yang Anda berikan, semakin besar kontrol yang Anda miliki. Daripada "armor fantasi", jelaskan: "armor pelat elf berhias, diukir dengan pola daun perak, dengan kerah tinggi dan pelindung bahu berbentuk seperti sayap elang".
+- **Berikan konteks dan maksud:** Jelaskan *tujuan* gambar. Pemahaman model tentang konteks akan memengaruhi output akhir. Misalnya, "Buat logo untuk merek perawatan kulit kelas atas yang minimalis" akan menghasilkan hasil yang lebih baik daripada hanya "Buat logo".
+- **Lakukan iterasi dan tingkatkan kualitas:** Jangan mengharapkan gambar yang sempurna pada percobaan pertama. Gunakan
+  sifat percakapan model untuk melakukan perubahan kecil. Lanjutkan dengan perintah seperti, "Bagus, tapi bisakah kamu membuat pencahayaannya sedikit lebih hangat?" atau "Biarkan semuanya sama, tetapi ubah ekspresi karakter menjadi lebih serius."
+- **Gunakan petunjuk langkah demi langkah:** Untuk adegan kompleks dengan banyak elemen,
+  pecah perintah Anda menjadi beberapa langkah. "Pertama, buat latar belakang hutan berkabut yang tenang saat fajar. Kemudian, di latar depan, tambahkan altar batu kuno yang tertutup lumut.
+  Terakhir, letakkan pedang bercahaya tunggal di atas altar."
+- **Gunakan "perintah negatif semantik":** Daripada mengatakan "tidak ada mobil", deskripsikan
+  adegan yang diinginkan secara positif: "jalan yang kosong dan sepi tanpa tanda-tanda
+  lalu lintas".
+- **Mengontrol kamera:** Gunakan bahasa fotografi dan sinematik untuk mengontrol komposisi. Istilah seperti `wide-angle shot`, `macro shot`, `low-angle
   perspective`.
 
-## Ограничения
+## Batasan
 
-- Для лучшей работы используйте следующие языки: английский, арабский (Египет), вьетнамский, индонезийский, испанский (Мексика), итальянский, китайский, корейский, немецкий, португальский (Бразилия), русский, украинский, французский, хинди (Индия) и японский.
-- Создание изображений не поддерживает аудиовход. Видеовход поддерживается только для Gemini Nano Banana 2.1, Gemini 3.1 Flash Image и Gemini 3.1 Flash Lite Image.
-- Модель не всегда создает именно столько изображений, сколько указано в запросе.
-- `gemini-2.5-flash-image` лучше всего работает с тремя изображениями, а `gemini-3-pro-image` поддерживает пять изображений с высокой точностью и до 14 изображений в целом. `gemini-nano-banana-2.1` и `gemini-3.1-flash-image`
-  поддерживают сходство до четырех символов и точность до 10 объектов в одном рабочем процессе.
-- При создании текста для изображения Gemini лучше сначала сгенерировать текст, а затем запросить изображение с этим текстом.
-- `gemini-nano-banana-2.1` и `gemini-3.1-flash-image` Grounding with Google Search пока не поддерживают использование реальных изображений людей из веб-поиска.
-- Все сгенерированные изображения содержат [водяной знак SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ru).
+- Untuk performa terbaik, gunakan bahasa berikut: EN, ar-EG, de-DE, es-MX,
+  fr-FR, hi-IN, id-ID, it-IT, ja-JP, ko-KR, pt-BR, ru-RU, ua-UA, vi-VN, zh-CN.
+- Pembuatan gambar tidak mendukung input audio. Input video hanya didukung untuk Gemini Nano Banana 2.1, Gemini 3.1 Flash Image, dan Gemini 3.1 Flash Lite Image.
+- Model tidak akan selalu mengikuti jumlah output gambar persis seperti yang diminta pengguna secara eksplisit.
+- `gemini-2.5-flash-image` paling efektif dengan maksimal 3 gambar sebagai input, sedangkan `gemini-3-pro-image` mendukung 5 gambar dengan fidelitas tinggi, dan hingga 14 gambar secara total. `gemini-nano-banana-2.1` dan `gemini-3.1-flash-image` mendukung kemiripan karakter hingga 4 karakter dan keakuratan hingga 10 objek dalam satu alur kerja.
+- Saat membuat teks untuk gambar, Gemini akan berfungsi paling baik jika Anda membuat teks terlebih dahulu, lalu meminta gambar dengan teks tersebut.
+- Penggunaan gambar orang dari dunia nyata dari penelusuran web saat ini tidak didukung oleh `gemini-nano-banana-2.1` dan `gemini-3.1-flash-image` Grounding dengan Google Penelusuran.
+- Semua gambar yang dihasilkan menyertakan [watermark SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=id).
 
-## Необязательные конфигурации
+## Konfigurasi opsional
 
-Вы можете задать формат выходного файла, соотношение сторон и размер изображения с помощью параметра `response_format`.
+Anda dapat secara opsional mengonfigurasi format output, rasio aspek, dan ukuran gambar menggunakan parameter `response_format`.
 
-### Формат вывода
+### Format output
 
-По умолчанию модель возвращает ответы в виде текста и изображений. Вы можете настроить ответ так, чтобы он содержал только сгенерированные изображения (без разговорного текста), указав формат изображения в параметре `response_format`.
+Model secara default akan menampilkan respons teks dan gambar. Anda dapat mengonfigurasi respons agar hanya menampilkan gambar yang dibuat (tidak menyertakan teks percakapan) dengan menentukan format gambar dalam parameter `response_format`.
 
-Чтобы запросить несколько типов данных (например, текст и сгенерированное изображение), передайте в `response_format` массив записей формата.
+Untuk meminta beberapa modalitas (misalnya, teks dan gambar yang dihasilkan), teruskan array entri format ke `response_format`.
 
 ### Python
 
@@ -5647,7 +5677,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -5704,9 +5734,9 @@ curl -s -X POST \
   }'
 ```
 
-### Соотношение сторон и размер изображения
+### Rasio aspek dan ukuran gambar
 
-По умолчанию модель создает изображения того же размера, что и исходные, или квадратные изображения с соотношением сторон 1:1. Вы можете задать соотношение сторон и размер выходного изображения, используя поля `aspect_ratio` и `image_size` в разделе `response_format`, если для параметра `type` задано значение `"image"`.
+Secara default, model akan mencocokkan ukuran gambar output dengan ukuran gambar input Anda, atau menghasilkan persegi 1:1. Anda dapat mengontrol rasio aspek dan ukuran gambar output menggunakan kolom `aspect_ratio` dan `image_size` di bagian `response_format` saat `type` disetel ke `"image"`.
 
 ### Python
 
@@ -5773,7 +5803,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Проложить маршрут
+### Go
 
 ```
 package main
@@ -5835,13 +5865,14 @@ curl -s -X POST \
   }'
 ```
 
-Доступные соотношения сторон и размеры создаваемых изображений указаны в таблицах ниже.
+Berbagai rasio yang tersedia dan ukuran gambar yang dihasilkan tercantum dalam
+tabel berikut:
 
 ### Nano Banana 2.1
 
-| Соотношение сторон | Разрешение 1K | 1000 токенов | Разрешение 2K | 2000 токенов | Разрешение 4K | 4K-токены |
+| Rasio aspek | Resolusi 1K | 1.000 token | Resolusi 2K | 2 ribu token | Resolusi 4K | 4K token |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1680 | 4096x4096 | 2520 |
+| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
 | **1:4** | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
 | **1:8** | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
@@ -5858,9 +5889,9 @@ curl -s -X POST \
 
 ### 3.1 Flash Image
 
-| Соотношение сторон | Разрешение 512 пкс. | 500 токенов | Разрешение 1K | 1000 токенов | Разрешение 2K | 2000 токенов | Разрешение 4K | 4K-токены |
+| Rasio aspek | Resolusi 512 piksel | 0,5 ribu token | Resolusi 1K | 1.000 token | Resolusi 2K | 2 ribu token | Resolusi 4K | 4K token |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048 x 2048 | 1680 | 4096x4096 | 2520 |
+| **1:1** | 512x512 | 747 | 1024x1024 | 1120 | 2048x2048 | 1680 | 4096x4096 | 2520 |
 | **1:4** | 256x1024 | 747 | 512x2048 | 1120 | 1024x4096 | 1680 | 2048x8192 | 2520 |
 | **1:8** | 192x1536 | 747 | 384x3072 | 1120 | 768x6144 | 1680 | 1536x12288 | 2520 |
 | **2:3** | 424x632 | 747 | 848x1264 | 1120 | 1696x2528 | 1680 | 3392x5056 | 2520 |
@@ -5877,9 +5908,9 @@ curl -s -X POST \
 
 ### 3.1 Pro Image
 
-| Соотношение сторон | Разрешение 1K | 1000 токенов | Разрешение 2K | 2000 токенов | Разрешение 4K | 4K-токены |
+| Rasio aspek | Resolusi 1K | 1.000 token | Resolusi 2K | 2 ribu token | Resolusi 4K | 4K token |
 | --- | --- | --- | --- | --- | --- | --- |
-| **1:1** | 1024x1024 | 1120 | 2048 x 2048 | 1120 | 4096x4096 | 2000 |
+| **1:1** | 1024x1024 | 1120 | 2048x2048 | 1120 | 4096x4096 | 2000 |
 | **2:3** | 848x1264 | 1120 | 1696x2528 | 1120 | 3392x5056 | 2000 |
 | **3:2** | 1264x848 | 1120 | 2528x1696 | 1120 | 5056x3392 | 2000 |
 | **3:4** | 896x1200 | 1120 | 1792x2400 | 1120 | 3584x4800 | 2000 |
@@ -5890,9 +5921,9 @@ curl -s -X POST \
 | **16:9** | 1376x768 | 1120 | 2752x1536 | 1120 | 5504x3072 | 2000 |
 | **21:9** | 1584x672 | 1120 | 3168x1344 | 1120 | 6336x2688 | 2000 |
 
-### Изображение Gemini 2.5 Flash
+### Gambar Gemini 2.5 Flash
 
-| Соотношение сторон | Разрешение | Токены |
+| Rasio aspek | Resolusi | Token |
 | --- | --- | --- |
 | 1:1 | 1024x1024 | 1290 |
 | 2:3 | 832x1248 | 1290 |
@@ -5905,22 +5936,22 @@ curl -s -X POST \
 | 16:9 | 1344x768 | 1290 |
 | 21:9 | 1536x672 | 1290 |
 
-## Когда использовать Imagen
+## Kapan harus menggunakan Imagen
 
-Imagen отключен и больше не доступен через Gemini API.
-Используйте Nano Banana для создания и редактирования изображений.
+Imagen telah dinonaktifkan dan tidak lagi tersedia melalui Gemini API.
+Gunakan Nano Banana untuk pembuatan dan pengeditan gambar.
 
-## Дальнейшие действия
+## Langkah berikutnya
 
-- Чтобы узнать, как создавать видео с помощью Gemini API, ознакомьтесь с [руководством по Veo](https://ai.google.dev/gemini-api/docs/video?hl=ru).
-- Подробнее [о моделях Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ru)…
+- Lihat [panduan Veo](https://ai.google.dev/gemini-api/docs/video?hl=id) untuk mempelajari cara membuat video dengan Gemini API.
+- Untuk mempelajari model Gemini lebih lanjut, lihat [Model Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id).
 
-Отправить отзыв
+Kirim masukan
 
-Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Последнее обновление: 2026-10-09 UTC.
+Terakhir diperbarui pada 2026-10-09 UTC.
 
-Хотите рассказать подробнее?
+Ada masukan untuk kami?
 
-[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-09 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]

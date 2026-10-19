@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/veo?hl=fr
-fetched_at: 2026-10-12T06:52:31.691607+00:00
-title: "G\u00e9n\u00e9rer des vid\u00e9os avec Veo\u00a03.1 dans l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/veo?hl=es-419
+fetched_at: 2026-10-19T05:44:16.311089+00:00
+title: "Genera videos con Veo 3.1 en la API de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Envoyer des commentaires
+Enviar comentarios
 
-# Générer des vidéos avec Veo 3.1 dans l'API Gemini
+# Genera videos con Veo 3.1 en la API de Gemini
 
-> Pour en savoir plus sur la compréhension des vidéos, consultez le guide [Comprendre les vidéos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr).
+> Para obtener información sobre la comprensión de videos, consulta la guía de [comprensión de videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419).
 
-[Veo 3.1](https://deepmind.google/models/veo/?hl=fr) est un modèle permettant de générer des vidéos de huit secondes (720p, 1080p ou 4K) avec de l'audio généré de manière native. Vous pouvez accéder à ce modèle de manière programmatique à l'aide de l'API Gemini. Pour en savoir plus sur les variantes de modèles Veo disponibles, consultez la section [Versions de modèle](#model-versions).
+[Veo 3.1](https://deepmind.google/models/veo/?hl=es-419) es un modelo para generar videos de 8 segundos (720p, 1080p o 4K) con audio generado de forma nativa. Puedes acceder a este modelo de forma programática con la API de Gemini. Para obtener más información sobre las variantes de modelos de Veo disponibles, consulta la sección [Versiones de modelos](#model-versions).
 
-Veo 3.1 excelle dans un large éventail de styles visuels et cinématographiques, et introduit plusieurs nouvelles fonctionnalités :
+Veo 3.1 se destaca en una amplia variedad de estilos visuales y cinematográficos, y presenta varias capacidades nuevas:
 
-- **Vidéos en mode portrait** : choisissez entre les vidéos en mode paysage (`16:9`) et en mode portrait (`9:16`).
-- **Extension de vidéo** : étendez les vidéos qui ont été générées précédemment à l'aide de Veo.
-- **Génération spécifique à une image** : générez une vidéo en spécifiant la première et la dernière image.
-- **Direction basée sur des images** : utilisez jusqu'à trois images de référence pour guider le contenu de votre vidéo générée.
+- **Videos verticales**: Elige entre videos horizontales (`16:9`) y verticales (`9:16`).
+- **Extensión de video**: Extiende los videos que se generaron anteriormente con Veo.
+- **Generación específica de fotogramas**: Genera un video especificando el primer y el último fotograma.
+- **Dirección basada en imágenes**: Usa hasta tres imágenes de referencia para guiar el contenido del video que generes.
 
-Pour en savoir plus sur la rédaction de prompts textuels efficaces pour la génération de vidéos, consultez le [Guide sur les prompts Veo](#prompt-guide).
+Si deseas obtener más información para escribir instrucciones de texto eficaces para la generación de videos, consulta la [guía de instrucciones de Veo](#prompt-guide).
 
-## Génération de vidéos à partir de texte
+## Generación de texto a video
 
-Les exemples suivants montrent comment générer une vidéo avec des [dialogues](#dialogue), un [réalisme cinématographique](#realism) ou une [animation créative](#style) :
+En los siguientes ejemplos, se muestra cómo puedes generar un video con [diálogo](#dialogue), [realismo cinematográfico](#realism) o [animación creativa](#style):
 
-### Dialogues et effets sonores
+### Diálogos y efectos de sonido
 
 ### Python
 
@@ -216,7 +216,7 @@ while true; do
 done
 ```
 
-### Réalisme cinématique
+### Realismo cinematográfico
 
 ### Python
 
@@ -397,7 +397,7 @@ while true; do
 done
 ```
 
-### Animation de la création
+### Animación creativa
 
 ### Python
 
@@ -572,9 +572,9 @@ while true; do
 done
 ```
 
-## Contrôler le format
+## Cómo controlar la relación de aspecto
 
-Veo 3.1 vous permet de créer des vidéos au format paysage (`16:9`, le paramètre par défaut) ou portrait (`9:16`) (). Vous pouvez indiquer au modèle celui que vous souhaitez utiliser à l'aide du paramètre `aspect_ratio` :
+Veo 3.1 te permite crear videos horizontales (`16:9`, el parámetro de configuración predeterminado) o verticales (`9:16`). Puedes indicarle al modelo cuál quieres usar con el parámetro `aspect_ratio`:
 
 ### Python
 
@@ -736,13 +736,13 @@ while true; do
 done
 ```
 
-## Contrôler la résolution
+## Cómo controlar la resolución
 
-Veo 3.1 peut également générer directement des vidéos en 720p, 1080p ou 4K (4K non disponible pour Veo 3.1 Lite).
+Veo 3.1 también puede generar directamente videos en 720p, 1080p o 4K (4K no está disponible para Veo 3.1 Lite).
 
-Notez que plus la résolution est élevée, plus la latence est importante. Les vidéos 4K sont également plus chères (voir les [tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#veo-3.1)).
+Ten en cuenta que, cuanto mayor sea la resolución, mayor será la latencia. Los videos en 4K también son más costosos (consulta los [precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#veo-3.1)).
 
-La [composante vidéo](#extending_veo_videos) est également limitée aux vidéos 720p.
+La [extensión de video](#extending_veo_videos) también se limita a videos en 720p.
 
 ### Python
 
@@ -904,9 +904,9 @@ while true; do
 done
 ```
 
-## Génération de vidéos à partir d'images
+## Generación de video a partir de imágenes
 
-Le code suivant montre comment générer une image à l'aide de [Gemini 3.1 Flash Image, alias Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr), puis comment utiliser cette image comme frame de départ pour générer une vidéo avec Veo 3.1.
+En el siguiente código, se muestra cómo generar una imagen con [Gemini 3.1 Flash Image, también conocido como Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419), y, luego, usar esa imagen como fotograma inicial para generar un video con Veo 3.1.
 
 ### Python
 
@@ -1094,15 +1094,15 @@ client.files.download(video, "veo3_with_image_input.mp4", null);
 System.out.println("Generated video saved to veo3_with_image_input.mp4");
 ```
 
-### Utiliser des images de référence
+### Cómo usar imágenes de referencia
 
-Veo 3.1 accepte désormais jusqu'à trois images de référence pour guider le contenu de votre vidéo générée. Fournissez des images d'une personne, d'un personnage ou d'un produit pour préserver l'apparence du sujet dans la vidéo générée.
+Veo 3.1 ahora acepta hasta 3 imágenes de referencia para guiar el contenido de tu video generado. Proporciona imágenes de una persona, un personaje o un producto para conservar la apariencia del sujeto en el video de salida.
 
-Par exemple, l'utilisation de ces trois images générées avec [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr) comme références avec une [requête bien rédigée](#use-reference-images) crée la vidéo suivante :
+Por ejemplo, usar estas tres imágenes generadas con [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) como referencias con una [instrucción bien escrita](#use-reference-images) crea el siguiente video:
 
 | `` `dress_image` `` | `` `woman_image` `` | `` `glasses_image` `` |
 | --- | --- | --- |
-| Robe flamant rose haute couture avec des couches de plumes roses et fuchsia | Belle femme aux cheveux foncés et aux yeux brun chaud | Lunettes de soleil roses en forme de cœur |
+| Vestido de alta costura de flamenco con capas de plumas rosas y fucsias | Mujer hermosa con cabello oscuro y ojos marrones cálidos | Gafas de sol caprichosas rosas con forma de corazón |
 
 ### Python
 
@@ -1329,9 +1329,9 @@ while true; do
 done
 ```
 
-### Utiliser les première et dernière images
+### Cómo usar el primer y el último fotograma
 
-Veo 3.1 vous permet de créer des vidéos à l'aide de l'interpolation ou en spécifiant les première et dernière images de la vidéo. Pour savoir comment rédiger des prompts textuels efficaces pour la génération de vidéo, consultez le [Guide sur les prompts Veo](#use-reference-images).
+Veo 3.1 te permite crear videos usando interpolación o especificando el primer y el último fotograma del video. Si deseas obtener información para escribir instrucciones de texto eficaces para la generación de videos, consulta la [guía de instrucciones de Veo](#use-reference-images).
 
 ### Python
 
@@ -1503,30 +1503,30 @@ done
 
 | `` `first_image` `` | `` `last_image` `` | *veo3.1\_with\_interpolation.mp4* |
 | --- | --- | --- |
-| Une femme fantomatique aux longs cheveux blancs et à la robe fluide se balance doucement sur une balançoire à corde. | La femme fantomatique disparaît de la balançoire | Vidéo cinématographique et envoûtante d'une femme étrange disparaissant d'une balançoire dans la brume |
+| Una mujer fantasmal con cabello blanco largo y un vestido ondeante se balancea suavemente en un columpio de cuerda. | La mujer fantasma desaparece del columpio | Un video cinematográfico y sobrecogedor de una mujer misteriosa que desaparece de un columpio en la niebla |
 
-## Prolonger des vidéos Veo
+## Extiende videos de Veo
 
-Utilisez Veo 3.1 pour rallonger de 7 secondes et jusqu'à 20 fois les vidéos que vous avez générées précédemment avec Veo.
+Usa Veo 3.1 para extender los videos que generaste anteriormente con Veo por 7 segundos y hasta 20 veces.
 
-Limites concernant les vidéos d'entrée :
+Limitaciones de los videos de entrada:
 
-- Les vidéos générées par Veo ne peuvent pas durer plus de 141 secondes.
-- L'API Gemini n'accepte que les extensions vidéo pour les vidéos générées par Veo.
-- La vidéo doit provenir d'une génération précédente, comme `operation.response.generated_videos[0].video`.
-- Les vidéos sont stockées pendant deux jours, mais si une vidéo est référencée pour une extension, le minuteur de stockage de deux jours se réinitialise. Vous ne pouvez prolonger que les vidéos générées ou référencées au cours des deux derniers jours.
-- Les vidéos d'entrée doivent avoir une certaine durée, un certain format et certaines dimensions :
-  - Format : 9:16 ou 16:9
-  - Résolution : 720p
-  - Durée de la vidéo : 141 secondes ou moins
+- Los videos generados por Veo solo pueden durar hasta 141 segundos.
+- La API de Gemini solo admite extensiones de video para los videos generados por Veo.
+- El video debe provenir de una generación anterior, como `operation.response.generated_videos[0].video`.
+- Los videos se almacenan durante 2 días, pero, si se hace referencia a un video para extenderlo, se restablece el temporizador de almacenamiento de 2 días. Solo puedes extender los videos que se generaron o a los que se hizo referencia en los últimos dos días.
+- Se espera que los videos de entrada tengan una cierta longitud, relación de aspecto y dimensiones:
+  - Relación de aspecto: 9:16 o 16:9
+  - Resolución: 720p
+  - Duración del video: 141 segundos o menos
 
-L'extension génère une seule vidéo combinant la vidéo fournie par l'utilisateur et la vidéo prolongée générée (jusqu'à 148 secondes de vidéo).
+El resultado de la extensión es un solo video que combina el video de entrada del usuario y el video extendido generado, con una duración de hasta 148 segundos.
 
-Cet exemple prend une vidéo générée par Veo, présentée ici avec sa requête d'origine, et l'étend à l'aide du paramètre `video` et d'une nouvelle requête :
+En este ejemplo, se toma un video generado por Veo, que se muestra aquí con su instrucción original, y se extiende con el parámetro `video` y una nueva instrucción:
 
-| Prompt | Résultat : `butterfly_video` |
+| Instrucción | Resultado: `butterfly_video` |
 | --- | --- |
-| Un papillon en origami bat des ailes et s'envole par la porte-fenêtre pour rejoindre le jardin. | Un papillon en origami bat des ailes et s'envole par la porte-fenêtre pour rejoindre le jardin. |
+| Una mariposa de origami aletea y sale por las puertas francesas hacia el jardín. | Una mariposa de origami aletea y sale volando por las puertas francesas hacia el jardín. |
 
 ### Python
 
@@ -1701,13 +1701,13 @@ while true; do
 done
 ```
 
-Pour savoir comment rédiger des prompts textuels efficaces pour la génération de vidéo, consultez le [Guide sur les prompts Veo](#extend-prompt).
+Si deseas obtener información para escribir instrucciones de texto eficaces para la generación de videos, consulta la [guía de instrucciones de Veo](#extend-prompt).
 
-## Gérer les opérations asynchrones
+## Maneja operaciones asíncronas
 
-La génération de vidéos est une tâche gourmande en ressources de calcul. Lorsque vous envoyez une requête à l'API, elle lance un job de longue durée et renvoie immédiatement un objet `operation`. Vous devez ensuite interroger l'API jusqu'à ce que la vidéo soit prête, ce qui est indiqué par l'état `done` défini sur "true".
+La generación de videos es una tarea que requiere mucha capacidad de procesamiento. Cuando envías una solicitud a la API, se inicia un trabajo de larga duración y se muestra de inmediato un objeto `operation`. Luego, debes sondear hasta que el video esté listo, lo que se indica con el estado `done` como verdadero.
 
-Le cœur de ce processus est une boucle d'interrogation qui vérifie régulièrement l'état du job.
+El núcleo de este proceso es un bucle de sondeo, que verifica periódicamente el estado del trabajo.
 
 ### Python
 
@@ -1874,285 +1874,283 @@ while true; do
 done
 ```
 
-## Paramètres et spécifications de l'API Veo
+## Parámetros y especificaciones de la API de Veo
 
-Voici les paramètres que vous pouvez définir dans votre requête API pour contrôler le processus de génération de vidéos.
+Estos son los parámetros que puedes establecer en tu solicitud a la API para controlar el proceso de generación de video.
 
-| Paramètre | Veo 3.1 et Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 et Veo 3 Fast |
+| Parámetro | Veo 3.1 y Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 y Veo 3 Fast |
 | --- | --- | --- | --- |
-| Instances | | | |
-| `prompt`: Description textuelle de la vidéo. Compatible avec les repères audio. | `string` | `string` | `string` |
-| `image` : image initiale à animer. | Objet `Image` | Objet `Image` | Objet `Image` |
-| `lastFrame` : image finale pour la transition d'une vidéo d'interpolation. Doit être utilisé avec le paramètre `image`. | Objet `Image` | Objet `Image` | Objet `Image` |
-| `referenceImages` : Jusqu'à trois images à utiliser comme références de style et de contenu. | Objet `VideoGenerationReferenceImage` | Objet `n/a` | n/a |
-| `video` : vidéo à utiliser pour l'extension vidéo. | Objet `Video` d'une génération précédente | n/a | n/a |
-| Paramètres | | | |
-| `aspectRatio` : format de la vidéo. | `"16:9"` (par défaut), `"9:16"` | `"16:9"` (par défaut), `"9:16"` | `"16:9"` (par défaut), `"9:16"` |
-| `durationSeconds` : durée de la vidéo générée. | `"4"`, `"6"`, `"8"`.   *Doit être défini sur "8" lorsque vous utilisez des extensions ou des images de référence, ou avec les résolutions 1080p et 4K* | `"4"`, `"6"`, `"8"`.   *Doit être défini sur "8" lorsque vous utilisez des images de référence ou avec une résolution de 1080p* | `"4"`, `"6"`, `"8"`.   *Doit être défini sur "8" lorsque vous utilisez des extensions ou des images de référence, ou avec les résolutions 1080p et 4K* |
-| `personGeneration` : contrôle la génération de personnes. (Consultez la section [Limites](#limitations) pour connaître les restrictions régionales.) | Texte vers vidéo et extension : `"allow_all"` uniquement   Image vers vidéo, interpolation et images de référence : `"allow_adult"` uniquement | Texte vers vidéo : `"allow_all"` uniquement   Image vers vidéo, interpolation et images de référence : `"allow_adult"` uniquement | Texte-vers-vidéo : `"allow_all"` uniquement   Image-vers-vidéo : `"allow_adult"` uniquement |
-| `resolution` : résolution de la vidéo. | `"720p"` (par défaut),  `"1080p"` (ne prend en charge que les durées de 8 s), `"4k"` (ne prend en charge que les durées de 8 s)   *`"720p"` uniquement pour l'extension* | `"720p"` (par défaut),  `"1080p"` (ne prend en charge que les durées de 8 secondes) | `"720p"` (par défaut),  `"1080p"` (ne prend en charge que les durées de 8 s), `"4k"` (ne prend en charge que les durées de 8 s)   *`"720p"` uniquement pour l'extension* |
+| Instancias | | | |
+| `prompt`: Es la descripción de texto del video. Admite pistas de audio. | `string` | `string` | `string` |
+| `image`: Una imagen inicial para animar. | Objeto `Image` | Objeto `Image` | Objeto `Image` |
+| `lastFrame`: La imagen final para la transición de un video de interpolación. Se debe usar en combinación con el parámetro `image`. | Objeto `Image` | Objeto `Image` | Objeto `Image` |
+| `referenceImages`: Hasta tres imágenes que se usarán como referencias de estilo y contenido. | Objeto `VideoGenerationReferenceImage` | Objeto `n/a` | N/A |
+| `video`: Video que se usará para la extensión de video. | Objeto `Video` de una generación anterior | N/A | N/A |
+| Parámetros | | | |
+| `aspectRatio`: Es la relación de aspecto del video. | `"16:9"` (predeterminado), `"9:16"` | `"16:9"` (predeterminado), `"9:16"` | `"16:9"` (predeterminado), `"9:16"` |
+| `durationSeconds`: Duración del video generado. | `"4"`, `"6"`, `"8"`.   *Debe ser "8" cuando se usan extensiones, imágenes de referencia o resoluciones de 1080p y 4K* | `"4"`, `"6"`, `"8"`.   *Debe ser "8" cuando se usan imágenes de referencia o con 1080p* | `"4"`, `"6"`, `"8"`.   *Debe ser "8" cuando se usan extensiones, imágenes de referencia o resoluciones de 1080p y 4K* |
+| `personGeneration`: Controla la generación de personas. (Consulta [Limitaciones](#limitations) para conocer las restricciones regionales). | Texto a video y extensión: `"allow_all"` solamente   Imágenes a video, interpolación y de referencia: `"allow_adult"` solamente | Texto a video: `"allow_all"` solamente   Imágenes de referencia, interpolación y de imagen a video: `"allow_adult"` solamente | Texto a video: `"allow_all"` solamente   Imagen a video: `"allow_adult"` solamente |
+| `resolution`: Resolución del video. | `"720p"` (predeterminado),  `"1080p"` (solo admite una duración de 8 s), `"4k"` (solo admite una duración de 8 s)   *`"720p"` solo para la extensión* | `"720p"` (predeterminado),  `"1080p"` (solo admite una duración de 8 s) | `"720p"` (predeterminado),  `"1080p"` (solo admite una duración de 8 s), `"4k"` (solo admite una duración de 8 s)   *`"720p"` solo para la extensión* |
 
-Notez que le paramètre `seed` est également disponible pour les modèles Veo 3.
-Cela ne garantit pas le déterminisme, mais l'améliore légèrement.
+Ten en cuenta que el parámetro `seed` también está disponible para los modelos de Veo 3.
+No garantiza el determinismo, pero lo mejora ligeramente.
 
-## Fonctionnalités du modèle
+## Funciones del modelo
 
-| Fonctionnalité | Veo 3.1 et Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 et Veo 3 Fast |
+| Función | Veo 3.1 y Veo 3.1 Fast | Veo 3.1 Lite | Veo 3 y Veo 3 Fast |
 | --- | --- | --- | --- |
-| **Audio** : génère l'audio de manière native avec la vidéo. | ✔️ Toujours activé | ✔️ Toujours activé | ✔️ Toujours activé |
-| **Modalités d'entrée** :  Type d'entrée utilisé pour la génération. | Texte vers vidéo, image vers vidéo, vidéo vers vidéo | Texte vers vidéo, image vers vidéo | Texte vers vidéo, image vers vidéo |
-| **Résolution** : résolution de sortie de la vidéo. | 720p, 1080p (8 s uniquement), 4K (8 s uniquement)  *720p uniquement lorsque vous utilisez l'extension de vidéo.* | 720p, 1080p (8 s uniquement) | 720p et 1080p (16:9 uniquement) |
-| **Fréquence d'images** : fréquence d'images de la vidéo de sortie. | 24 ips | 24 ips | 24 ips |
-| **Durée de la vidéo** :  durée de la vidéo générée. | 8 secondes, 6 secondes, 4 secondes  *8 secondes uniquement si la résolution est de 1080p ou 4K, ou si vous utilisez des images de référence* | 8 secondes, 6 secondes, 4 secondes  *8 secondes uniquement si la résolution est de 1080p ou si vous utilisez des images de référence* | 8 secondes |
-| **Vidéos par requête** :  nombre de vidéos générées par requête. | 1 | 1 | 1 |
-| **État** : Disponibilité du modèle | [Aperçu](https://ai.google.dev/gemini-api/docs/models?hl=fr#preview) | [Aperçu](https://ai.google.dev/gemini-api/docs/models?hl=fr#preview) | [Stable](https://ai.google.dev/gemini-api/docs/models?hl=fr#stable) |
+| **Audio:** Genera audio de forma nativa con el video. | ✔️ Siempre activada | ✔️ Siempre activada | ✔️ Siempre activada |
+| **Modalidades de entrada:** Tipo de entrada que se usa para la generación. | Texto a video, imagen a video y video a video | Texto a video, imagen a video | Texto a video, imagen a video |
+| **Resolución:** Es la resolución de salida del video. | 720p, 1080p (solo 8 s de duración), 4K (solo 8 s de duración)  *Solo 720p cuando se usa la extensión de video.* | 720p, 1080p (solo 8 s de duración) | 720p y 1080p (solo 16:9) |
+| **Velocidad de fotogramas:** Es la velocidad de fotogramas de salida del video. | 24 fotogramas | 24 fotogramas | 24 fotogramas |
+| **Duración del video:** Es la duración del video generado. | 8 segundos, 6 segundos, 4 segundos  *8 segundos solo si se usa 1080p o 4K, o si se usan imágenes de referencia* | 8 segundos, 6 segundos, 4 segundos  *8 segundos solo si la resolución es de 1080p o si se usan imágenes de referencia* | 8 segundos |
+| **Videos por solicitud:** Cantidad de videos generados por solicitud. | 1 | 1 | 1 |
+| **Estado:** Disponibilidad del modelo | [Vista previa](https://ai.google.dev/gemini-api/docs/models?hl=es-419#preview) | [Vista previa](https://ai.google.dev/gemini-api/docs/models?hl=es-419#preview) | [Estable](https://ai.google.dev/gemini-api/docs/models?hl=es-419#stable) |
 
-## Limites
+## Limitaciones
 
-- **Requêtes multividéos** : il n'est pas possible pour le moment de faire référence à plusieurs vidéos ou de raisonner sur plusieurs vidéos. Si vous essayez d'utiliser plusieurs vidéos dans un même prompt, les performances du modèle peuvent se dégrader ou les résultats peuvent être inattendus.
-- **Langues disponibles** : l'anglais (EN) est entièrement pris en charge, mais les autres langues n'ont pas été évaluées. Elles peuvent donc fonctionner, mais les résultats peuvent varier.
-- **Latence des requêtes** : min. 11 secondes ; max. 6 minutes (pendant les heures de pointe).
-- **Limites régionales** : dans l'UE, au Royaume-Uni, en Suisse et dans la région MENA, `allow_adult` est la seule valeur autorisée pour `personGeneration`.
-- **Conservation des vidéos** : les vidéos générées sont stockées sur le serveur pendant deux jours, après quoi elles sont supprimées. Pour enregistrer une copie locale, vous devez télécharger votre vidéo dans les deux jours suivant sa génération. Les vidéos prolongées sont traitées comme des vidéos nouvellement générées.
-- **Filigranes** : les vidéos créées par Veo sont marquées par un filigrane à l'aide de [SynthID](https://deepmind.google/technologies/synthid/?hl=fr), notre outil permettant d'ajouter un filigrane et d'identifier les contenus générés par l'IA. Les vidéos peuvent être vérifiées à l'aide de la plate-forme de validation [SynthID](https://deepmind.google/science/synthid/?hl=fr).
-- **Sécurité** : les vidéos générées sont soumises à des filtres de sécurité et à des processus de vérification de la mémorisation qui permettent d'atténuer les risques liés à la confidentialité, aux droits d'auteur et aux biais.
-- **Erreur audio** : Veo 3.1 bloque parfois la génération d'une vidéo en raison de filtres de sécurité ou d'autres problèmes de traitement de l'audio. Vous ne serez pas facturé si la génération de votre vidéo est bloquée.
+- **Mensajes con varios videos:** Por el momento, no se admite hacer referencia a varios videos ni razonar sobre ellos. Si intentas usar instrucciones para varios videos, es posible que se degrade el rendimiento del modelo o que se generen resultados inesperados.
+- **Idiomas admitidos:** El inglés (EN) se admite por completo, pero no se evaluaron otros idiomas, por lo que es posible que funcionen, pero los resultados pueden variar.
+- **Latencia de solicitud:** Mín.: 11 segundos; Máx.: 6 minutos (durante las horas pico).
+- **Limitaciones regionales:** En las ubicaciones de la UE, el Reino Unido, Suiza y MENA, `allow_adult` es el único valor permitido para `personGeneration`.
+- **Retención de videos:** Los videos generados se almacenan en el servidor durante 2 días y, luego, se quitan. Para guardar una copia local, debes descargar el video en un plazo de 2 días después de su generación. Los videos extendidos se consideran videos recién generados.
+- **Marcas de agua:** Los videos creados por Veo tienen una marca de agua con [SynthID](https://deepmind.google/technologies/synthid/?hl=es-419), nuestra herramienta para identificar contenido generado por IA y agregarle una marca de agua. Los videos se pueden verificar con la plataforma de verificación de [SynthID](https://deepmind.google/science/synthid/?hl=es-419).
+- **Seguridad:** Los videos generados se someten a filtros de seguridad y procesos de verificación de memorización que ayudan a mitigar los riesgos de privacidad, derechos de autor y sesgos.
+- **Error de audio:** A veces, Veo 3.1 impide la generación de un video debido a filtros de seguridad o a otros problemas de procesamiento con el audio. No se te cobrará si se bloquea la generación de tu video.
 
-## Guide sur les prompts Veo
+## Guía de instrucciones de Veo
 
-Cette section contient des exemples de vidéos que vous pouvez créer à l'aide de Veo. Elle vous montre également comment modifier les requêtes pour obtenir des résultats différents.
+En esta sección, se incluyen ejemplos de videos que puedes crear con Veo y se muestra cómo modificar instrucciones para producir resultados distintos.
 
-### Filtres de sécurité
+### Filtros de seguridad
 
-Veo applique des filtres de sécurité dans Gemini pour s'assurer que les vidéos générées et les photos importées ne contiennent pas de contenu offensant.
-Les requêtes qui ne respectent pas nos [conditions d'utilisation et nos consignes](https://ai.google.dev/gemini-api/docs/usage-policies?hl=fr#abuse-monitoring) sont bloquées.
+Veo aplica filtros de seguridad en Gemini para garantizar que los videos generados y las fotos subidas no contengan contenido ofensivo.
+Se bloquean las instrucciones que infringen nuestros [términos y lineamientos](https://ai.google.dev/gemini-api/docs/usage-policies?hl=es-419#abuse-monitoring).
 
-### Principes de base concernant l'écriture de requêtes
+### Conceptos básicos de la escritura de instrucciones
 
-Les bons prompts sont descriptifs et clairs. Pour exploiter tout le potentiel de Veo, commencez par identifier votre idée principale, affinez-la en ajoutant des mots clés et des modificateurs, et intégrez une terminologie spécifique aux vidéos dans vos requêtes.
+Las buenas instrucciones son descriptivas y claras. Para aprovechar al máximo Veo, comienza por identificar tu idea principal, agrega palabras clave y modificadores para definirla mejor, y usa terminología específica de video en tus instrucciones.
 
-Les éléments suivants doivent figurer dans votre requête :
+Los siguientes elementos deben incluirse en la instrucción:
 
-- **Sujet** : l'objet, la personne, l'animal ou le paysage que vous souhaitez voir dans votre vidéo, par exemple *paysage urbain*, *nature*, *véhicules* ou *chiots*.
-- **Action** : ce que fait le sujet (par exemple, *marcher*, *courir* ou *tourner la tête*).
-- **Style** : spécifiez l'orientation créative à l'aide de mots clés spécifiques au style de film, comme *science-fiction*, *film d'horreur*, *film noir* ou des styles d'animation comme *dessin animé*.
-- **Positionnement et mouvement de la caméra** : [Facultatif] Contrôlez l'emplacement et le mouvement de la caméra à l'aide de termes tels que *vue aérienne*, *à hauteur des yeux*, *vue de dessus*, *travelling* ou *vue de dessous*.
-- **Composition** : [facultatif] Cadrage du plan, par exemple *plan large*, *plan rapproché*, *plan séquence* ou *plan à deux*.
-- **Effets de mise au point et d'objectif** : [facultatif] utilisez des termes tels que *faible profondeur de champ*,
-  *forte profondeur de champ*, *flou artistique*, *objectif macro* et *objectif grand-angle* pour obtenir
-  des effets visuels spécifiques.
-- **Ambiance** : [facultatif] comment la couleur et la lumière contribuent à la scène, par exemple *tons bleus*, *nuit* ou *tons chauds*.
+- **Asunto**: El objeto, la persona, el animal o el paisaje que quieres que aparezca en tu video, como *paisaje urbano*, *naturaleza*, *vehículos* o *cachorros*.
+- **Acción**: Lo que hace el sujeto (por ejemplo, *caminar*, *correr* o *girar la cabeza*).
+- **Estilo**: Especifica la dirección creativa con palabras clave específicas del estilo cinematográfico, como *ciencia ficción*, *película de terror*, *cine negro* o estilos animados como *dibujos animados*.
+- **Posicionamiento y movimiento de la cámara**: [Opcional] Controla la ubicación y el movimiento de la cámara con términos como *vista aérea*, *a la altura de los ojos*, *toma desde arriba*, *toma con dolly* o *vista de gusano*.
+- **Composición**: [Opcional] Cómo se encuadra la toma, por ejemplo, *toma amplia*, *primer plano*, *toma individual* o *toma doble*.
+- **Efectos de enfoque y lente**: [Opcional] Usa términos como *enfoque superficial*, *enfoque profundo*, *enfoque suave*, *lente macro* y *lente gran angular* para lograr efectos visuales específicos.
+- **Ambiente**: [Opcional] La forma en que el color y la luz contribuyen a la escena, como *tonos azules*, *noche* o *tonos cálidos*.
 
-#### Autres conseils pour rédiger des requêtes
+#### Más sugerencias para escribir instrucciones
 
-- **Utilisez un langage descriptif** : utilisez des adjectifs et des adverbes pour donner une image claire à Veo.
-- **Améliorez les détails du visage** : spécifiez les détails du visage comme point central de la photo en utilisant le mot *portrait* dans la requête.
+- **Usa lenguaje descriptivo**: Utiliza adjetivos y adverbios para pintar una imagen clara para Veo.
+- **Mejora los detalles faciales**: Especifica los detalles faciales como el enfoque de la foto, por ejemplo, usando la palabra *retrato* en la instrucción.
 
-*Pour des stratégies de requête plus complètes, consultez [Présentation de la conception des requêtes](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=fr).*
+*Para obtener estrategias de instrucciones más completas, consulta [Introducción al diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).*
 
-### Demander de l'audio
+### Solicitud de audio
 
-Vous pouvez fournir à Veo des indications pour les effets sonores, les bruits ambiants et les dialogues.
-Le modèle capture la nuance de ces signaux pour générer une bande-son synchronisée.
+Puedes proporcionar a Veo indicaciones para efectos de sonido, ruido ambiental y diálogo.
+El modelo capta los matices de estas pistas para generar una banda sonora sincronizada.
 
-- **Dialogue** : utilisez des guillemets pour les paroles spécifiques. (Exemple : "Ce doit être la clé", murmura-t-il.)
-- **Effets sonores** : décrivez explicitement les sons. (Exemple : pneus crissant fortement, moteur rugissant.)
-- **Bruit ambiant** : décrivez l'environnement sonore. (Exemple : Un léger bourdonnement étrange résonne en arrière-plan.)
+- **Diálogo:** Usa comillas para el discurso específico. (Por ejemplo, "Esta debe ser la llave", murmuró).
+- **Efectos de sonido (SFX):** Describe los sonidos de forma explícita. (Ejemplo: Los neumáticos chirrían con fuerza, el motor ruge).
+- **Ruido ambiental:** Describe el paisaje sonoro del entorno. (Ejemplo: Un zumbido tenue y misterioso resuena en el fondo).
 
-Ces vidéos montrent comment générer de l'audio avec Veo 3 en utilisant des prompts de plus en plus détaillés.
+En estos videos, se muestra cómo solicitar la generación de audio de Veo 3 con niveles de detalle cada vez mayores.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Plus de détails (dialogues et ambiance)** Plan large d'une forêt brumeuse du nord-ouest du Pacifique. Deux randonneurs épuisés, un homme et une femme, se frayent un chemin à travers les fougères. L'homme s'arrête brusquement et fixe un arbre. Gros plan : des griffures profondes et récentes sont visibles sur l'écorce de l'arbre. Homme : (Main sur son couteau de chasse) "Ce n'est pas un ours ordinaire." Femme : (voix serrée par la peur, scrutant les bois) "Alors, qu'est-ce que c'est ?" Une écorce rugueuse, des brindilles qui craquent, des pas sur la terre humide. Un oiseau solitaire gazouille. | Deux personnes dans les bois rencontrent des traces d'ours. |
-| **Moins de détails (dialogue)** Animation en papier découpé. Nouveau bibliothécaire : "Où rangez-vous les livres interdits ?" Ancien conservateur : "Non. Ils nous gardent." | Bibliothécaires animés discutant de livres interdits |
+| **Más detalles (diálogo y ambiente)** Toma panorámica de un bosque brumoso del noroeste del Pacífico. Dos excursionistas exhaustos, un hombre y una mujer, se abren paso entre los helechos cuando el hombre se detiene abruptamente y mira un árbol. Primer plano: Marcas de garras frescas y profundas en la corteza del árbol. Hombre: (Con la mano en su cuchillo de caza) "Ese no es un oso común". Mujer: (voz tensa por el miedo, explorando el bosque) "¿Entonces qué es?" Una corteza áspera, ramas que se quiebran, pasos sobre la tierra húmeda. Un pájaro solitario gorjea. | Dos personas en el bosque se encuentran con señales de un oso. |
+| **Menos detalles (diálogo)** Animación de recorte de papel. Bibliotecario nuevo: "¿Dónde guardan los libros prohibidos?". Curador anterior: "No lo hacemos. Nos las quedamos". | Bibliotecarios animados discutiendo sobre libros prohibidos |
 
-Essayez ces requêtes pour entendre le son !
-[Essayer Veo](https://deepmind.google/models/veo/?hl=fr)
+Prueba estas instrucciones por tu cuenta para escuchar el audio.
+[Probar Veo](https://deepmind.google/models/veo/?hl=es-419)
 
-### Utiliser des images de référence dans les requêtes
+### Instrucciones con imágenes de referencia
 
-Vous pouvez utiliser une ou plusieurs images comme entrées pour guider vos vidéos générées, à l'aide des fonctionnalités [image-to-video](https://ai.google.dev/gemini-api/docs/veo?hl=fr#generate-from-images) de Veo. Veo utilise l'image d'entrée comme frame initiale. Sélectionnez l'image qui se rapproche le plus de la première scène de votre vidéo pour animer des objets du quotidien, donner vie à vos dessins et peintures, et ajouter du mouvement et du son à des scènes de nature.
+Puedes usar una o más imágenes como entradas para guiar tus videos generados con las capacidades de [imagen a video](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#generate-from-images) de Veo. Veo usa la imagen de entrada como el fotograma inicial. Selecciona una imagen que se parezca más a lo que imaginas como la primera escena de tu video para animar objetos cotidianos, dar vida a dibujos y pinturas, y agregar movimiento y sonido a escenas de la naturaleza.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Image d'entrée (générée par Nano Banana)** Macrophotographie hyperréaliste de minuscules surfeurs miniatures chevauchant les vagues de l'océan dans un lavabo rustique en pierre. Un robinet en laiton vintage coule, créant une vague perpétuelle. Surréaliste, fantaisiste, éclairage naturel lumineux. | Minuscules surfeurs miniatures chevauchant les vagues de l'océan dans un lavabo rustique en pierre. |
-| **Vidéo générée (par Veo 3.1)** Vidéo macro surréaliste de qualité cinématographique. De minuscules surfeurs chevauchent des vagues perpétuelles et ondulantes dans un lavabo en pierre. Un robinet en laiton vintage qui coule à flots génère des vagues infinies. La caméra effectue un lent panoramique sur la scène fantaisiste et ensoleillée, tandis que les figurines miniatures sculptent l'eau turquoise avec expertise. | De minuscules surfeurs font le tour des vagues dans un lavabo. |
+| **Imagen de entrada (generada por Nano Banana)** Una foto macro hiperrealista de surfistas pequeños en miniatura que surfean las olas del océano dentro de un lavabo rústico de piedra. Una canilla de bronce antigua está abierta y crea el oleaje perpetuo. Iluminación natural brillante, surrealista y caprichosa. | Pequeños surfistas en miniatura montando las olas del océano dentro de un lavabo rústico de piedra. |
+| **Video de salida (generado por Veo 3.1)** Un video macro cinematográfico y surrealista. Pequeños surfistas cabalgan olas perpetuas y ondulantes dentro de un lavamanos de piedra. Una canilla de latón antigua que funciona genera el sonido de las olas. La cámara se desplaza lentamente por la escena caprichosa y soleada mientras las figuras en miniatura tallan con destreza el agua turquesa. | Pequeños surfistas que rodean las olas en el lavamanos de un baño. |
 
-Veo 3.1 vous permet d'[utiliser des images de référence](https://ai.google.dev/gemini-api/docs/veo?hl=fr#reference-images) ou des ingrédients pour orienter le contenu de la vidéo générée. Fournissez jusqu'à trois images de ressources d'une même personne, d'un même personnage ou d'un même produit. Veo préserve l'apparence du sujet dans la vidéo générée.
+Veo 3.1 te permite [hacer referencia a imágenes](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#reference-images) o ingredientes para dirigir el contenido de tu video generado. Proporciona hasta tres imágenes de recursos de una sola persona, personaje o producto. Veo conserva la apariencia del sujeto en el video resultante.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Image de référence (générée par Nano Banana)** Une baudroie abyssale se cache dans les eaux profondes et sombres, les dents à découvert et l'appât lumineux. | Un poisson-pêcheur sombre et lumineux |
-| **Image de référence (générée par Nano Banana)** Costume de princesse rose pour enfant avec baguette et tiare, sur un fond uni. | Costume de princesse rose pour enfant |
-| **Vidéo de sortie (générée par Veo 3.1)** Crée une version dessin animé amusante du poisson portant le costume, nageant et agitant la baguette. | Une baudroie déguisée en princesse |
+| **Imagen de referencia (generada por Nano Banana)** Un pez pescador de aguas profundas acecha en las profundidades oscuras, con los dientes al descubierto y el cebo brillante. | Un pez linterna oscuro y brillante |
+| **Imagen de referencia (generada por Nano Banana)** Un disfraz de princesa rosa para niños con una varita y una tiara, sobre un fondo de producto simple. | Un disfraz de princesa rosa para niños |
+| **Video de salida (generado por Veo 3.1)** Crea una versión de dibujos animados tonta del pez con el disfraz, nadando y agitando la varita. | Un pez pescador con un disfraz de princesa |
 
-Avec Veo 3.1, vous pouvez également générer des vidéos en spécifiant les [premières et dernières images](https://ai.google.dev/gemini-api/docs/veo?hl=fr#using-first-and-last-video-frames) de la vidéo.
+Con Veo 3.1, también puedes generar videos especificando el [primer y el último cuadro](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#using-first-and-last-video-frames) del video.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Première image (générée par Nano Banana)** Image photoréaliste de haute qualité d'un chat roux conduisant une voiture de course décapotable rouge sur la Côte d'Azur. | Un chat roux conduisant une voiture de course décapotable rouge |
-| **Dernière image (générée par Nano Banana)** Montre ce qui se passe lorsque la voiture décolle d'une falaise. | Un chat roux au volant d'une décapotable rouge tombe d'une falaise |
-| **Vidéo générée par Veo 3.1** Facultatif | Un chat tombe d'une falaise et s'envole |
+| **Primera imagen (generada por Nano Banana)** Una imagen frontal fotorrealista de alta calidad de un gato jengibre conduciendo un automóvil de carreras convertible rojo en la costa de la Riviera francesa. | Un gato pelirrojo conduciendo un auto de carreras convertible rojo |
+| **Última imagen (generada por Nano Banana)** Muestra lo que sucede cuando el automóvil despega desde un acantilado. | Un gato pelirrojo que conduce un convertible rojo se cae por un acantilado |
+| **Video de salida (generado por Veo 3.1)** Opcional | Un gato se lanza desde un acantilado y despega |
 
-Cette fonctionnalité vous permet de contrôler précisément la composition de votre plan en définissant l'image de début et de fin. Importez une image ou utilisez un frame d'une génération vidéo précédente pour vous assurer que votre scène commence et se termine exactement comme vous l'imaginez.
+Esta función te brinda un control preciso sobre la composición de tu toma, ya que te permite definir el fotograma inicial y el final. Sube una imagen o usa un fotograma de una generación de video anterior para asegurarte de que tu escena comience y termine exactamente como la imaginas.
 
-### Demander une extension
+### Instrucciones para la extensión
 
-Pour [étendre](https://ai.google.dev/gemini-api/docs/veo?hl=fr#extending-veo-videos) une vidéo générée par Veo avec Veo 3.1 (non disponible pour Veo 3.1 Lite), utilisez la vidéo comme entrée avec un prompt textuel facultatif. L'option "Étendre" finalise la dernière seconde ou les 24 dernières images de votre vidéo et poursuit l'action.
+Para [extender](https://ai.google.dev/gemini-api/docs/veo?hl=es-419#extending-veo-videos) el video generado por Veo con Veo 3.1 (no disponible para Veo 3.1 Lite), usa el video como entrada junto con una instrucción de texto opcional. Extender finaliza el último segundo o los últimos 24 fotogramas del video y continúa la acción.
 
-Notez que la voix ne peut pas être étendue efficacement si elle n'est pas présente dans la dernière seconde de la vidéo.
+Ten en cuenta que la voz no se puede extender de manera efectiva si no está presente en el último segundo del video.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Vidéo d'entrée (générée par Veo 3.1)** Le parapentiste décolle du sommet de la montagne et commence à planer au-dessus des vallées fleuries en contrebas. | Parapentiste décollant du sommet d'une montagne |
-| **Vidéo de sortie (générée par Veo 3.1)** Prolonge cette vidéo avec le parapentiste qui descend lentement. | Un parapentiste décolle du sommet d'une montagne, puis redescend lentement |
+| **Video de entrada (generado por Veo 3.1)** El parapentista despega desde la cima de la montaña y comienza a descender en planeo por las montañas con vistas a los valles cubiertos de flores que se encuentran debajo. | Un parapentista despega desde la cima de una montaña |
+| **Video de salida (generado por Veo 3.1)** Extiende este video con el paracaidista que desciende lentamente. | Un parapente despega desde la cima de una montaña y, luego, desciende lentamente. |
 
-### Exemples de requêtes et de résultats
+### Ejemplos de instrucciones y resultados
 
-Cette section présente plusieurs requêtes, en soulignant comment les détails descriptifs peuvent améliorer le résultat de chaque vidéo.
+En esta sección, se presentan varias instrucciones que destacan cómo los detalles descriptivos pueden mejorar el resultado de cada video.
 
-#### Glaçons
+#### Hielos
 
-Cette vidéo vous montre comment utiliser les éléments des [principes de base de la rédaction de requêtes](#basics) dans votre requête.
+En este video, se muestra cómo puedes usar los elementos de los [conceptos básicos de la redacción de instrucciones](#basics) en tu instrucción.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| Gros plan (composition) de stalactites de glace en train de fondre (sujet) sur une paroi rocheuse gelée (contexte) avec des tons bleus froids (ambiance), zoom avant (mouvement de caméra) en conservant les détails des gouttes d'eau (action). | Des glaçons qui fondent sur fond bleu. |
+| Primer plano (composición) de carámbanos que se derriten (sujeto) en una pared de roca congelada (contexto) con tonos azules fríos (ambiente), con zoom (movimiento de cámara) que mantiene el detalle en primer plano de las gotas de agua (acción). | Estalactitas que gotean con un fondo azul. |
 
-#### Un homme au téléphone
+#### Hombre hablando por teléfono
 
-Ces vidéos montrent comment réviser votre requête en ajoutant des détails de plus en plus spécifiques pour que Veo affine le résultat à votre guise.
+En estos videos, se muestra cómo puedes revisar tu instrucción con detalles cada vez más específicos para que Veo defina mejor el resultado a tu gusto.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Moins de détails** La caméra effectue un travelling pour montrer un gros plan d'un homme désespéré portant un trench vert. Il passe un appel sur un téléphone mural à cadran avec un néon vert. On dirait une scène de film. | Homme parlant au téléphone. |
-| **Plus de détails** Un gros plan cinématographique suit un homme désespéré portant un trench-coat vert usé alors qu'il compose un numéro sur un téléphone à cadran fixé sur un mur de briques rugueux, baigné dans la lueur étrange d'un néon vert. La caméra se rapproche, révélant la tension dans sa mâchoire et le désespoir gravé sur son visage alors qu'il s'efforce de passer l'appel. La faible profondeur de champ se concentre sur ses sourcils froncés et le téléphone noir à cadran, floutant l'arrière-plan en une mer de couleurs néon et d'ombres indistinctes, créant un sentiment d'urgence et d'isolement. | Homme parlant au téléphone |
+| **Menos detalles** La cámara se desplaza para mostrar un primer plano de un hombre desesperado con un abrigo verde. Está haciendo una llamada en un teléfono de pared de disco con una luz verde neón. Parece una escena de película. | Un hombre hablando por teléfono. |
+| **Más detalles** Una toma cinematográfica en primer plano sigue a un hombre desesperado con un abrigo verde desgastado mientras marca un número en un teléfono de disco montado en una pared de ladrillos sucia, bañada en el resplandor misterioso de un letrero de neón verde. La cámara se acerca y revela la tensión en su mandíbula y la desesperación grabada en su rostro mientras lucha por hacer la llamada. La profundidad de campo superficial se enfoca en su frente arrugada y el teléfono rotatorio negro, desenfocando el fondo en un mar de colores neón y sombras indistintas, lo que crea una sensación de urgencia y aislamiento. | Un hombre hablando por teléfono |
 
-#### Léopard des neiges
+#### Leopardo de las nieves
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Prompt simple** : Une créature mignonne avec une fourrure de léopard des neiges se promène dans une forêt hivernale, rendu de style dessin animé 3D. | Le léopard des neiges est léthargique. |
-| **Requête détaillée** :  Crée une courte scène animée en 3D dans un style cartoon joyeux. Une créature mignonne avec une fourrure de léopard des neiges, de grands yeux expressifs et une forme arrondie et amicale gambade joyeusement dans une forêt hivernale fantaisiste. La scène doit représenter des arbres arrondis et enneigés, de doux flocons de neige qui tombent et une lumière chaude du soleil qui filtre à travers les branches. Les mouvements rebondissants et le large sourire de la créature doivent exprimer une joie pure. Optez pour un ton optimiste et chaleureux, avec des couleurs vives et gaies, et des animations ludiques. | Le léopard des neiges court plus vite. |
+| **Instrucción simple:** Una criatura adorable con pelaje similar al de un leopardo de las nieves camina por un bosque invernal, renderizado con estilo de dibujos animados en 3D. | El leopardo de las nieves está letárgico. |
+| **Instrucción detallada:** Crea una escena animada en 3D corta con un estilo de dibujos animados alegre. Una criatura tierna con pelaje similar al de un leopardo de las nieves, ojos grandes y expresivos, y una forma redondeada y amigable se pavonea felizmente por un bosque invernal caprichoso. La escena debe incluir árboles redondeados cubiertos de nieve, copos de nieve que caen suavemente y luz solar cálida que se filtra a través de las ramas. Los movimientos elásticos y la sonrisa amplia de la criatura deben transmitir alegría pura. Usa un tono alegre y conmovedor con colores brillantes y alegres, y animaciones divertidas. | El leopardo de las nieves corre más rápido. |
 
-### Exemples par éléments de rédaction
+### Ejemplos por elementos de escritura
 
-Ces exemples vous montrent comment affiner vos requêtes en fonction de chaque élément de base.
+En estos ejemplos, se muestra cómo definir mejor tus instrucciones con cada elemento básico.
 
-#### Sujet et contexte
+#### Asunto y contexto
 
-Spécifiez le sujet principal et l'arrière-plan ou l'environnement (contexte).
+Especifica el enfoque principal (sujeto) y el fondo o el entorno (contexto).
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| Rendu architectural d'un immeuble d'appartements en béton blanc avec des formes organiques fluides, se fondant parfaitement dans une végétation luxuriante et des éléments futuristes | Espace réservé. |
-| Un satellite flottant dans l'espace, avec la lune et quelques étoiles en arrière-plan. | Satellite flottant dans l'atmosphère. |
+| Render arquitectónico de un edificio de departamentos de hormigón blanco con formas orgánicas fluidas, que se fusiona a la perfección con la vegetación exuberante y los elementos futuristas | Marcador de posición. |
+| Un satélite flotando en el espacio exterior con la luna y algunas estrellas en el fondo. | Satélite flotando en la atmósfera. |
 
-#### Action
+#### Acción
 
-Spécifiez ce que fait le sujet (par exemple, marcher, courir ou tourner la tête).
+Especifica lo que hace el sujeto (p.ej., caminar, correr o girar la cabeza).
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| Plan large d'une femme marchant le long de la plage, l'air satisfait et détendu, regardant l'horizon au coucher du soleil. | Le coucher de soleil est absolument magnifique. |
+| Toma amplia de una mujer caminando por la playa, con una expresión de satisfacción y relajación, mirando hacia el horizonte al atardecer. | La puesta de sol es absolutamente hermosa. |
 
-#### Style
+#### Estilo
 
-Ajoutez des mots clés pour orienter la génération vers une esthétique spécifique (par exemple, surréaliste, vintage, futuriste, film noir).
+Agrega palabras clave para dirigir la generación hacia una estética específica (p.ej., surrealista, vintage, futurista, cine negro).
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| Style film noir, homme et femme marchant dans la rue, mystère, cinématographique, noir et blanc. | Le style film noir est absolument magnifique. |
+| Estilo de cine negro, hombre y mujer caminando por la calle, misterio, cinematográfico, blanco y negro. | El estilo de cine negro es absolutamente hermoso. |
 
-#### Mouvement de la caméra et composition
+#### Movimiento y composición de la cámara
 
-Précisez comment la caméra se déplace (vue subjective, vue aérienne, vue de drone en suivi) et comment la prise de vue est cadrée (plan large, gros plan, contre-plongée).
+Especifica cómo se mueve la cámara (toma en primera persona, vista aérea, vista de seguimiento con dron) y cómo se encuadra la toma (plano general, primer plano, plano contrapicado).
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| Vue subjective depuis une voiture ancienne roulant sous la pluie, Canada de nuit, style cinématographique. | Le coucher de soleil est absolument magnifique. |
-| Gros plan sur un œil avec une ville reflétée dedans. | Le coucher de soleil est absolument magnifique. |
+| Toma en primera persona desde un automóvil antiguo que conduce bajo la lluvia, Canadá de noche, cinematográfica. | La puesta de sol es absolutamente hermosa. |
+| Primer plano extremo de un ojo con la ciudad reflejada en él. | La puesta de sol es absolutamente hermosa. |
 
-#### Ambiance
+#### Ambiente
 
-Les palettes de couleurs et l'éclairage influencent l'ambiance. Essayez des termes comme "tons chauds orange sourd", "lumière naturelle", "lever du soleil" ou "tons bleus froids".
+Las paletas de colores y la iluminación influyen en el ambiente. Prueba con términos como "naranja apagado, tonos cálidos", "luz natural", "amanecer" o "tonos azules fríos".
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| Gros plan sur une fille tenant un adorable chiot golden retriever dans le parc, à la lumière du soleil. | Un chiot dans les bras d'une jeune fille. |
-| Gros plan cinématique d'une femme triste qui prend le bus sous la pluie, tons bleus froids, ambiance triste. | Une femme assise dans un bus a l'air triste. |
+| Primer plano de una niña sosteniendo un adorable cachorro de golden retriever en el parque, con luz solar. | Un cachorro en los brazos de una niña. |
+| Primer plano cinematográfico de una mujer triste que viaja en autobús bajo la lluvia, con tonos azules fríos y un ambiente melancólico. | Una mujer que viaja en un autobús y se siente triste. |
 
-### Formats
+### Relaciones de aspecto
 
-Veo vous permet de spécifier le format de votre vidéo.
+Veo te permite especificar la relación de aspecto de tu video.
 
-| **Prompt** (Requête) | **Résultat généré** |
+| **Instrucción** | **Resultados generados** |
 | --- | --- |
-| **Grand écran (16:9)** Crée une vidéo avec une vue de drone suivant un homme conduisant une voiture décapotable rouge à Palm Springs dans les années 1970, avec une lumière chaude et de longues ombres. | Un homme conduit une décapotable rouge à Palm Springs, dans le style des années 1970. |
-| **Portrait (9:16)** Créez une vidéo mettant en avant le mouvement fluide d'une majestueuse cascade hawaïenne dans une forêt tropicale luxuriante. Mettez l'accent sur un débit d'eau réaliste, un feuillage détaillé et un éclairage naturel pour transmettre un sentiment de tranquillité. Capturez l'eau vive, l'atmosphère brumeuse et la lumière du soleil filtrant à travers la canopée dense. Utilisez des mouvements de caméra fluides et cinématographiques pour mettre en valeur la cascade et ses environs. Adopte un ton paisible et réaliste, qui transporte le spectateur dans la beauté sereine de la forêt tropicale hawaïenne. | Majestueuse cascade hawaïenne dans une forêt tropicale luxuriante |
+| **Pantalla ancha (16:9)** Crea un video con una vista de seguimiento de un dron de un hombre que conduce un automóvil convertible rojo en Palm Springs, en la década de 1970, con luz solar cálida y sombras largas. | Un hombre conduce un automóvil convertible rojo en Palm Springs, con un estilo de los años 70. |
+| **Vertical (9:16)** Crea un video en el que se destaque el movimiento fluido de una majestuosa cascada hawaiana dentro de una exuberante selva tropical. Enfócate en el flujo de agua realista, el follaje detallado y la iluminación natural para transmitir tranquilidad. Captura el agua que fluye, la atmósfera brumosa y la luz del sol que se filtra a través del denso dosel. Usa movimientos de cámara cinematográficos y fluidos para mostrar la cascada y sus alrededores. Intenta lograr un tono tranquilo y realista, que transporte al usuario a la serena belleza de la selva tropical hawaiana. | Una majestuosa cascada hawaiana en una exuberante selva tropical. |
 
-## Versions de modèle
+## Versiones del modelo
 
-Pour en savoir plus sur l'utilisation spécifique au modèle Veo, consultez les pages [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#veo-3.1) et [Limites de débit](https://aistudio.google.com/rate-limit?hl=fr).
+Consulta la página [Precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#veo-3.1) y los [Límites de frecuencia](https://aistudio.google.com/rate-limit?hl=es-419) para obtener más detalles sobre el uso específico del modelo de Veo.
 
-### Preview Veo 3.1
+### Versión preliminar de Veo 3.1
 
-| Propriété | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Code du modèle id\_card | **API Gemini**  `veo-3.1-generate-preview` |
-| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
-| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
-| calendar\_monthDernière mise à jour | Janvier 2026 |
+| Código del modelo id\_card | **API de Gemini**  `veo-3.1-generate-preview` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
+| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
+| calendar\_monthÚltima actualización | Enero de 2026 |
 
-### Veo 3.1 Fast (preview)
+### Versión preliminar de Veo 3.1 Fast
 
-| Propriété | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Code du modèle id\_card | **API Gemini**  `veo-3.1-fast-generate-preview` |
-| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
-| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
-| calendar\_monthDernière mise à jour | Janvier 2026 |
+| Código del modelo id\_card | **API de Gemini**  `veo-3.1-fast-generate-preview` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
+| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
+| calendar\_monthÚltima actualización | Enero de 2026 |
 
-### Aperçu de Veo 3.1 Lite
+### Versión preliminar de Veo 3.1 Lite
 
-| Propriété | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Code du modèle id\_card | **API Gemini**  `veo-3.1-lite-generate-preview` |
-| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
-| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
-| calendar\_monthDernière mise à jour | Mars 2026 |
+| Código del modelo id\_card | **API de Gemini**  `veo-3.1-lite-generate-preview` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
+| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
+| calendar\_monthÚltima actualización | Marzo de 2026 |
 
-### Veo 3 (obsolète)
+### Veo 3 (dejó de estar disponible)
 
-| Propriété | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Code du modèle id\_card | **API Gemini**  `veo-3.0-generate-001` |
-| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
-| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
-| calendar\_monthDernière mise à jour | Juillet 2025 |
+| Código del modelo id\_card | **API de Gemini**  `veo-3.0-generate-001` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
+| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
+| calendar\_monthÚltima actualización | Julio de 2025 |
 
-### Veo 3 Fast (obsolète)
+### Veo 3 Fast (obsoleto)
 
-| Propriété | Description |
+| Propiedad | Descripción |
 | --- | --- |
-| Code du modèle id\_card | **API Gemini**  `veo-3.0-fast-generate-001` |
-| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Vidéo avec audio |
-| Limites de token\_auto | **Saisie de texte**  1 024 jetons  **Vidéo de sortie**  1 |
-| calendar\_monthDernière mise à jour | Juillet 2025 |
+| Código del modelo id\_card | **API de Gemini**  `veo-3.0-fast-generate-001` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen  **Resultado**  Video con audio |
+| Límites de token\_auto | **Entrada de texto**  1,024 tokens  **Video de salida**  1 |
+| calendar\_monthÚltima actualización | Julio de 2025 |
 
-Les versions Veo Fast permettent aux développeurs de créer des vidéos avec du son tout en conservant une qualité élevée et en optimisant la vitesse et les cas d'utilisation professionnels. Ils sont idéaux pour les services de backend qui génèrent des annonces de manière programmatique, les outils permettant d'effectuer rapidement des tests A/B sur des concepts créatifs ou les applications qui doivent produire rapidement du contenu pour les réseaux sociaux.
+Las versiones de Veo Fast permiten a los desarrolladores crear videos con sonido y mantener una alta calidad, además de optimizar la velocidad y los casos de uso comerciales. Son ideales para los servicios de backend que generan anuncios de forma programática, las herramientas para realizar pruebas A/B rápidas de conceptos creativos o las apps que necesitan producir contenido para redes sociales rápidamente.
 
-## Étape suivante
+## ¿Qué sigue?
 
-- Pour commencer à utiliser l'API Veo 3.1, faites des tests dans le [notebook Colab de démarrage rapide Veo](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=fr) et l'[applet Veo 3.1](https://aistudio.google.com/apps/bundled/veo_studio?hl=fr).
-- Découvrez comment rédiger des requêtes encore plus efficaces grâce à notre [présentation de la conception des requêtes](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=fr).
+- Comienza a usar la API de Veo 3.1 experimentando en el [Colab de inicio rápido de Veo](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Veo.ipynb?hl=es-419) y el [applet de Veo 3.1](https://aistudio.google.com/apps/bundled/veo_studio?hl=es-419).
+- Aprende a escribir instrucciones aún mejores con nuestra [Introducción al diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
 
-Envoyer des commentaires
+Enviar comentarios
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Dernière mise à jour le 2026/10/08 (UTC).
+Última actualización: 2026-10-08 (UTC)
 
-Voulez-vous nous donner plus d'informations ?
+¿Quieres brindar más información?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/08 (UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-08 (UTC)"],[],[]]

@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=th
-fetched_at: 2026-10-12T07:05:59.308401+00:00
-title: "\u0e01\u0e32\u0e23\u0e14\u0e33\u0e40\u0e19\u0e34\u0e19\u0e01\u0e32\u0e23\u0e40\u0e21\u0e37\u0e48\u0e2d\u0e2d\u0e22\u0e39\u0e48\u0e40\u0e1a\u0e37\u0e49\u0e2d\u0e07\u0e2b\u0e25\u0e31\u0e07 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=id
+fetched_at: 2026-10-19T05:44:32.448640+00:00
+title: "Eksekusi latar belakang \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-ส่งความคิดเห็น
+Kirim masukan
 
-# การดำเนินการเมื่ออยู่เบื้องหลัง
+# Eksekusi latar belakang
 
-สำหรับงานที่ใช้เวลานาน เช่น การค้นคว้าอย่างละเอียด การให้เหตุผลที่ซับซ้อน หรือการดำเนินการของเอเจนต์แบบหลายขั้นตอน การหมดเวลาการเชื่อมต่ออาจขัดขวางคำขอ HTTP มาตรฐาน (ซึ่งโดยปกติจะปิดหลังจาก 60 วินาที) [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) มี**การดำเนินการเบื้องหลัง**เพื่อเรียกใช้งานแบบไม่พร้อมกัน
+Untuk tugas yang berjalan lama seperti riset mendalam, penalaran kompleks, atau eksekusi agen multi-langkah, waktu tunggu koneksi dapat mengganggu permintaan HTTP standar (yang biasanya ditutup setelah 60 detik). [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) menyediakan **eksekusi latar belakang** untuk menjalankan tugas ini secara asinkron.
 
-หากต้องการให้การโต้ตอบทำงานจนกว่าจะทำงานบนเซิร์ฟเวอร์เสร็จสมบูรณ์ ให้ตั้งค่า `"background": true` เมื่อสร้างการโต้ตอบ API จะแสดงรหัสการโต้ตอบทันที ซึ่งแอปพลิเคชันไคลเอ็นต์สามารถใช้เพื่อสำรวจสถานะ ความคืบหน้าของสตรีม หรือเชื่อมต่อสตรีมที่ถูกตัดการเชื่อมต่ออีกครั้ง
+Untuk mengizinkan interaksi berjalan hingga menyelesaikan tugas di server, tetapkan `"background": true` saat membuat interaksi. API segera menampilkan ID interaksi, yang dapat digunakan oleh aplikasi klien untuk melakukan polling status, melakukan streaming progres, atau menghubungkan kembali ke streaming yang terputus.
 
-ระบบรองรับการดำเนินการเมื่ออยู่เบื้องหลังสำหรับโมเดล Gemini มาตรฐาน (เช่น `gemini-3.8-flash` และ `gemini-3.1-pro-preview`) และ Agent ที่ได้รับการจัดการ (เช่น `antigravity-preview-09-2026`)
+Eksekusi di latar belakang didukung untuk model Gemini standar (seperti `gemini-4-argon` dan `gemini-3.8-flash`) serta Managed Agents (seperti `antigravity-preview-09-2026`).
 
-## สร้างการโต้ตอบในเบื้องหลัง
+## Membuat interaksi latar belakang
 
-หากต้องการเริ่มการโต้ตอบในเบื้องหลัง ให้ตั้งค่าพารามิเตอร์ `background` เป็น `true` เมื่อสร้างทรัพยากร
+Untuk memulai interaksi latar belakang, tetapkan parameter `background` ke `true` saat membuat resource.
 
 ### Python
 
@@ -133,31 +133,39 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## วิธีการทำงานของการดำเนินการในเบื้องหลัง
+## Cara kerja eksekusi latar belakang
 
-เมื่อสร้างการโต้ตอบในเบื้องหลัง งานจะทำงานแบบไม่พร้อมกันในเซิร์ฟเวอร์ การโต้ตอบจะเปลี่ยนสถานะการดำเนินการต่างๆ ดังนี้
+Saat Anda membuat interaksi latar belakang, tugas akan berjalan secara asinkron di server. Interaksi bertransisi melalui berbagai status eksekusi:
 
-- `in_progress`: เซิร์ฟเวอร์กำลังดำเนินการโต้ตอบอยู่ (เช่น การเรียกใช้โค้ดหรือการค้นคว้า)
-- `requires_action`: การโต้ตอบหยุดชั่วคราวและรอข้อมูลจากไคลเอ็นต์ (เช่น การยืนยันการเรียกใช้เครื่องมือหรือตอบคำถาม)
-- `completed`: การโต้ตอบเสร็จสมบูรณ์และเอาต์พุตพร้อมใช้งานแล้ว
-- `failed`: เกิดข้อผิดพลาดในระหว่างการดำเนินการ (เช่น เครื่องมือล้มเหลวหรือเกินขีดจำกัดอัตรา)
-- `cancelled`: คำขอของไคลเอ็นต์หยุดการดำเนินการ
+- `in_progress`: Server secara aktif menjalankan interaksi (seperti menjalankan kode atau melakukan riset).
+- `requires_action`: Interaksi telah dijeda dan menunggu input klien (seperti mengonfirmasi eksekusi alat atau menjawab pertanyaan).
+- `completed`: Interaksi berhasil diselesaikan dan output tersedia.
+- `failed`: Terjadi error selama eksekusi (seperti kegagalan alat atau pembatasan kapasitas).
+- `cancelled`: Permintaan klien menghentikan eksekusi.
 
-### กรณีการใช้งาน
+### Kasus penggunaan
 
-ใช้การดำเนินการเมื่ออยู่เบื้องหลังสำหรับ
+Gunakan eksekusi latar belakang untuk:
 
-- **การดำเนินการของเอเจนต์:** งานที่ต้องมีการดำเนินการโค้ด การท่องเว็บ หรือการจัดระเบียบเอเจนต์ย่อย (เช่น `antigravity-preview-09-2026`)
-- **Deep Research:** ทำงานโดยใช้ `deep-research-preview-04-2026` หรือ `deep-research-max-preview-04-2026` ซึ่งใช้เวลาหลายนาที
-- **การให้เหตุผลแบบยาว:** งานที่ขั้นตอนการคิดของโมเดลเกินขีดจำกัดการเชื่อมต่อ HTTP มาตรฐาน
+- **Eksekusi agen:** Tugas yang memerlukan eksekusi kode, penjelajahan web, atau orkestrasi sub-agen (seperti `antigravity-preview-09-2026`).
+- **Deep Research:** Berjalan menggunakan `deep-research-preview-04-2026` atau `deep-research-max-preview-04-2026` yang memerlukan waktu beberapa menit.
+- **Penalaran panjang:** Tugas yang langkah-langkah pemikiran modelnya yang diperluas melebihi batas koneksi HTTP standar.
+- **Dekode panjang (Gemini 4):** Tugas yang menghasilkan penyelesaian yang diperluas di luar `65,536` token. Di `gemini-4-argon`, Anda dapat menyiapkan `max_output_tokens` hingga `1,048,576` token menggunakan [dekode panjang](https://ai.google.dev/gemini-api/docs/long-decode?hl=id).
 
-## เรียกดูผลลัพธ์
+### Retensi data untuk eksekusi latar belakang
 
-รับผลลัพธ์การโต้ตอบเบื้องหลังโดยใช้**การสำรวจ**หรือ**การสตรีม**
+Jika `background=True` ditetapkan, server akan menyimpan interaksi di penyimpanan project Anda sehingga Anda dapat melakukan polling atau streaming hasil. Anda dapat mengonfigurasi durasi penyimpanan interaksi dengan menetapkan parameter `store`:
 
-### รูปแบบการสำรวจ (ไม่บล็อก)
+- **`store=True` (default):** Disimpan di penyimpanan yang tahan lama untuk project Anda selama **7 hari**.
+- **`store=False`:** Disimpan untuk project Anda selama **24 jam** (TTL) untuk memungkinkan pengambilan hasil menggunakan permintaan `GET`.
 
-การสำรวจจะตรวจสอบสถานะการโต้ตอบเป็นระยะๆ โดยใช้คำขอ GET ที่ไม่บล็อกจนกว่าจะถึงสถานะสิ้นสุด
+## Mengambil hasil
+
+Dapatkan hasil interaksi latar belakang menggunakan **polling** atau **streaming**.
+
+### Pola polling (non-blocking)
+
+Polling memeriksa status interaksi secara berkala menggunakan permintaan GET non-blocking hingga mencapai status akhir.
 
 ### Python
 
@@ -293,9 +301,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### รูปแบบการสตรีม
+### Pola streaming
 
-หากเครือข่ายหยุดทำงานจนทำให้สตรีมถูกตัดขาด สตรีมมิงจะกลับมาทำงานต่อจากเหตุการณ์ล่าสุดที่ได้รับ โดยแต่ละเดลต้าจะมี `event_id` ที่ไม่ซ้ำกันในเพย์โหลด การส่งรหัสนี้เป็น `last_event_id` จะทำให้สตรีมเล่นต่อจากเหตุการณ์นั้น
+Jika gangguan jaringan memutuskan koneksi streaming, streaming dapat dilanjutkan dari peristiwa terakhir yang diterima. Setiap delta berisi `event_id` unik dalam payload-nya. Meneruskan ID ini sebagai `last_event_id` akan melanjutkan streaming dari peristiwa tersebut.
 
 ### Python
 
@@ -500,14 +508,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## การสนทนาไปมา
+## Percakapan multi-giliran
 
-การโต้ตอบในภายหลังจะเชื่อมโยงกับการสนทนาในเบื้องหลังได้โดยใช้ `previous_interaction_id` โดยขึ้นอยู่กับข้อจำกัดต่อไปนี้
+Interaksi berikutnya dapat dihubungkan ke percakapan latar belakang menggunakan `previous_interaction_id`, dengan batasan berikut:
 
-1. **การดำเนินการที่ใช้งานอยู่จะถูกบล็อก:** การเชื่อมต่อการโต้ตอบที่ตามมากับการโต้ตอบที่มี`in_progress`สถานะจะแสดงข้อผิดพลาด `400 Bad Request` รอให้การโต้ตอบถึงสถานะ `completed` ก่อนเริ่มการโต้ตอบถัดไป
-2. **พารามิเตอร์สภาพแวดล้อมสำหรับ Agent ที่ได้รับการจัดการ:** เมื่อเชื่อมโยงการโต้ตอบสำหรับ Agent ที่ได้รับการจัดการ (เช่น `antigravity-preview-09-2026`) คำขอต้องมีทั้ง `previous_interaction_id` และ `environment`
+1. **Eksekusi aktif diblokir:** Merangkai interaksi berikutnya ke interaksi dengan status `in_progress` akan menampilkan error `400 Bad Request`. Tunggu hingga interaksi mencapai status `completed` sebelum memulai interaksi berikutnya.
+2. **Parameter Lingkungan untuk Agen Terkelola:** Saat merangkai interaksi untuk Agen Terkelola (seperti `antigravity-preview-09-2026`), permintaan harus menyertakan `previous_interaction_id` dan `environment`.
 
-ตัวอย่างต่อไปนี้แสดงวิธีเชื่อมโยงการโต้ตอบ
+Contoh berikut menunjukkan cara merangkai interaksi:
 
 ### Python
 
@@ -717,12 +725,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## การยกเลิกและการลบ
+## Pembatalan dan penghapusan
 
-ควบคุมการดำเนินการที่กำลังทำงานและจัดการพื้นที่เก็บข้อมูลโดยใช้คำขอยกเลิกและลบ
+Mengontrol eksekusi yang sedang berjalan dan mengelola penyimpanan menggunakan permintaan pembatalan dan penghapusan:
 
-- **ยกเลิก (`POST /interactions/{id}/cancel`):** หยุดงานที่กำลังทำงานอยู่ สถานะจะเปลี่ยนเป็น`cancelled` การดำเนินการล้างข้อมูลในเซิร์ฟเวอร์อาจทำให้เกิดความล่าช้าเล็กน้อยก่อนที่สถานะจะอัปเดตในคำขอ GET
-- **ลบ (`DELETE /interactions/{id}`):** นำบันทึกการโต้ตอบออกจากเซิร์ฟเวอร์ คำขอ GET ที่ตามมาจะแสดงข้อผิดพลาด `404 Not Found`
+- **Batalkan (`POST /interactions/{id}/cancel`):** Menghentikan tugas yang sedang berjalan. Status akan berubah menjadi `cancelled`. Tindakan pembersihan di server dapat menyebabkan sedikit penundaan sebelum status diperbarui dalam permintaan GET.
+- **Hapus (`DELETE /interactions/{id}`):** Menghapus data interaksi dari server. Permintaan GET berikutnya akan menampilkan error `404 Not Found`.
 
 ### Python
 
@@ -818,18 +826,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## ขั้นตอนถัดไป
+## Langkah berikutnya
 
-- อ่าน[ภาพรวมของ Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) เพื่อทำความเข้าใจการจัดการเซสชันและสถานะ
-- ดูรายละเอียดเกี่ยวกับการอัปเดตกิจกรรมแบบเรียลไทม์ได้ในคำแนะนำเกี่ยวกับ[การโต้ตอบในการสตรีม](https://ai.google.dev/gemini-api/docs/streaming?hl=th)
-- สำรวจ[การเริ่มต้นใช้งานด่วนของ Agent ที่มีการจัดการ](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=th)เพื่อสร้าง Agent แบบหลายเทิร์นที่มีสถานะ
+- Baca [ringkasan Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) untuk memahami pengelolaan sesi dan status.
+- Lihat panduan [Interaksi streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=id) untuk mengetahui detail tentang update peristiwa real-time.
+- Pelajari [Panduan memulai agen terkelola](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id) untuk membangun agen multi-turn stateful.
 
-ส่งความคิดเห็น
+Kirim masukan
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-อัปเดตล่าสุด 2026-09-24 UTC
+Terakhir diperbarui pada 2026-10-14 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Ada masukan untuk kami?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-14 UTC."],[],[]]

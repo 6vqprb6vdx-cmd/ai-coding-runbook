@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=bn
-fetched_at: 2026-10-12T06:54:49.392697+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=it
+fetched_at: 2026-10-19T05:46:25.737111+00:00
 title: "Gemini 3.7 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-জেমিনি ৩.৮ ফ্ল্যাশ এখন পাওয়া যাচ্ছে। [ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=bn) ।
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [হোম](https://ai.google.dev/?hl=bn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
-- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-মতামত জানান
+Invia feedback
 
 # Gemini 3.7 Flash
 
-Gemini 3.7 Flash হল নেটিভ মাল্টিমোডাল রিজনিং মডেলের Gemini 3 সিরিজের একটি আগের জেনারেশনের মডেল, যা এখন [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=bn) দ্বারা প্রতিস্থাপিত হয়েছে।
+Gemini 3.7 Flash è un modello di generazione precedente della serie Gemini 3 di modelli di ragionamento multimodale nativo, ora sostituito da [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=it).
 
-## ডকুমেন্টেশন
+## Documentazione
 
-ফিচার ও ক্ষমতার রেফারেন্স কভারেজ পেতে [Gemini 3.7 Flash-এ নতুন কী আছে](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=bn) পৃষ্ঠা দেখুন অথবা Gemini 3.8 Flash-এর জন্য [লেটেস্ট মডেল](https://ai.google.dev/gemini-api/docs/latest-model?hl=bn) পৃষ্ঠা দেখুন।
+Visita la pagina [Novità di Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=it) per la copertura di riferimento di funzionalità e capacità o la pagina [Ultimo modello](https://ai.google.dev/gemini-api/docs/latest-model?hl=it) per Gemini 3.8 Flash.
 
 ## gemini-3.7-flash
 
-| প্রপার্টি | বিবরণ |
+| Proprietà | Descrizione |
 | --- | --- |
-| id\_cardমডেল কোড | `gemini-3.7-flash` |
-| সেভ করাডেটার ধরন | **ইনপুট**  টেক্সট, ছবি, ভিডিও, অডিও ও পিডিএফ  **আউটপুট**  টেক্সট |
-| token\_autoটোকেন সীমা[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) | **ইনপুট টোকেনের সীমা**  ১,০৪৮,৫৭৬  **আউটপুট টোকেনের সীমা**  ৬৫,৫৩৬ |
-| handymanকেপেবিলিটি | **[অডিও জেনারেশন](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn)**  কাজ করে না  **[ক্যাশিং](https://ai.google.dev/gemini-api/docs/caching?hl=bn)**  কাজ করে  **[কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn)**  কাজ করে  **[কম্পিউটার ব্যবহার](https://ai.google.dev/gemini-api/docs/computer-use?hl=bn)**  কাজ করে (প্রিভিউ)  **[ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)**  কাজ করে  **[ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)**  কাজ করে  **[Google Maps-এর মাধ্যমে গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)**  কাজ করে  **[ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn)**  কাজ করে না  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=bn)**  কাজ করে না  **[সার্চ গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)**  কাজ করে  **[স্ট্রাকচার্ড আউটপুট](https://ai.google.dev/gemini-api/docs/structured-output?hl=bn)**  কাজ করে  **[ভাবছি](https://ai.google.dev/gemini-api/docs/thinking?hl=bn)**  কাজ করে (নিম্ন, মধ্যম, উচ্চ)  মনে রাখবেন: `minimal` কাজ করে না এবং এরর দেখায়।  **[URL প্রসঙ্গ](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)**  কাজ করে |
-| speedব্যবহারের বিকল্প | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=bn)**  কাজ করে  **[Flex ইনফারেন্স](https://ai.google.dev/gemini-api/docs/flex-inference?hl=bn)**  কাজ করে  **[অগ্রাধিকার সংক্রান্ত অনুমান](https://ai.google.dev/gemini-api/docs/priority-inference?hl=bn)**  কাজ করে |
-| 123ভার্সন | আরও বিবরণের জন্য [মডেল ভার্সন প্যাটার্ন](https://ai.google.dev/gemini-api/docs/models/gemini?hl=bn#model-versions) পড়ুন।  - সচল নেই: `gemini-3.7-flash` (`gemini-3.8-flash`-এ অটোমেটিক রাউট করা হয়) |
-| calendar\_monthলেটেস্ট আপডেট | আগস্ট ২০২৬ |
-| id\_cardমডেল কার্ড | [মডেল কার্ড](https://deepmind.google/models/model-cards/gemini-3-7-flash/?hl=bn) |
+| id\_cardCodice modello | `gemini-3.7-flash` |
+| saveTipi di dati supportati | **Input**  Testo, immagine, video, audio e PDF  **Output**  Testo |
+| token\_autoLimiti di token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  1.048.576  **Limite di token di output**  65.536 |
+| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Supportato (anteprima)  **[Ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[Ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato (basso, medio, alto)  Nota: `minimal` non è supportato e restituisce un errore.  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
+| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Supportato  **[Inferenza di priorità](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Supportato |
+| 123Versioni | Per maggiori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Deprecato: `gemini-3.7-flash` (indirizzato automaticamente a `gemini-3.8-flash`) |
+| calendar\_monthUltimo aggiornamento | Agosto 2026 |
+| id\_cardScheda del modello | [Scheda del modello](https://deepmind.google/models/model-cards/gemini-3-7-flash/?hl=it) |
 
-মতামত জানান
+Invia feedback
 
-অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।
+Ultimo aggiornamento 2026-10-12 UTC.
 
-আমাদের আরও কিছু জানাতে চান?
+Vuoi dirci altro?
 
-[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-12 UTC."],[],[]]

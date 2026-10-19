@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ar
-fetched_at: 2026-10-12T07:00:56.327883+00:00
+fetched_at: 2026-10-19T05:32:50.200564+00:00
 title: "\u0641\u0647\u0645 \u0627\u0644\u0635\u0648\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 

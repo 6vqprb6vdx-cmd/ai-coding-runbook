@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=es-419
-fetched_at: 2026-10-12T06:55:55.341544+00:00
-title: "Genera y edita videos con Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=vi
+fetched_at: 2026-10-19T05:45:34.099740+00:00
+title: "T\u1ea1o v\u00e0 ch\u1ec9nh s\u1eeda video b\u1eb1ng Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-# Genera y edita videos con Gemini Omni Flash
+# Tạo và chỉnh sửa video bằng Gemini Omni Flash
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`) es un modelo multimodal de alto rendimiento diseñado para la generación y edición de videos de alta velocidad, y el control cinematográfico.
-Gemini Omni se basa en las siguientes capacidades principales que lo distinguen de los modelos de video anteriores:
+Gemini Omni Flash (`gemini-omni-1.1-flash`) là một mô hình đa phương thức hiệu suất cao, được thiết kế để tạo và chỉnh sửa video ở tốc độ cao, đồng thời kiểm soát chất lượng điện ảnh.
+Gemini Omni được xây dựng dựa trên những chức năng cốt lõi sau đây, giúp phân biệt mô hình này với các mô hình video trước đây:
 
-- **Multimodalidad nativa:** Procesa texto, imágenes, audio y video de forma simultánea, lo que te brinda resultados más cohesivos, coherentes y controlables.
-- **Edición conversacional:** Esta función, habilitada por la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419), te permite mejorar y editar tus videos de forma iterativa a través de conversaciones en lenguaje natural. Describe lo que quieres cambiar y el modelo aplicará la edición y conservará las partes del video que quieras mantener.
-- **Conocimiento del mundo:** Gemini Omni combina la comprensión de la física con el conocimiento de Gemini sobre la historia, la ciencia y el contexto cultural, lo que une la brecha entre el fotorrealismo y la narración significativa.
+- **Đa phương thức tự nhiên:** Gemini có thể xử lý đồng thời văn bản, hình ảnh, âm thanh và video, mang đến cho bạn kết quả nhất quán, mạch lạc và dễ kiểm soát hơn.
+- **Chỉnh sửa bằng ngôn ngữ tự nhiên:** được hỗ trợ bởi [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi), tính năng này cho phép bạn tinh chỉnh và chỉnh sửa video nhiều lần thông qua cuộc trò chuyện bằng ngôn ngữ tự nhiên. Mô tả nội dung bạn muốn thay đổi, mô hình sẽ áp dụng nội dung chỉnh sửa trong khi vẫn giữ lại những phần bạn muốn giữ lại trong video.
+- **Kiến thức về thế giới:** Gemini Omni kết hợp kiến thức về vật lý với kiến thức của Gemini về lịch sử, khoa học và bối cảnh văn hoá, thu hẹp khoảng cách từ tính chân thực của ảnh đến khả năng kể chuyện có ý nghĩa.
 
-## Generación de texto a video
+## Tạo video từ văn bản
 
-Generar un video a partir de una instrucción de texto El modelo genera un video con audio basado en tu descripción de texto. Escribe instrucciones con detalles como la descripción de la escena, el movimiento de la cámara, la iluminación y el ambiente para obtener los mejores resultados.
+Tạo video từ câu lệnh văn bản. Mô hình này tạo video có âm thanh dựa trên nội dung mô tả bằng văn bản của bạn. Viết câu lệnh có các thông tin chi tiết như nội dung mô tả cảnh, chuyển động của camera, ánh sáng và tâm trạng để có kết quả tốt nhất.
 
 ### Python
 
@@ -152,12 +152,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Esquema de respuesta de REST
+### Lược đồ phản hồi REST
 
-El campo de conveniencia `interaction.output_video` es **solo para el SDK**.
-Obtén el resultado de video del array `steps` cuando uses la API de REST directamente.
+Trường tiện ích `interaction.output_video` **chỉ dành cho SDK**.
+Nhận đầu ra video từ mảng `steps` khi sử dụng trực tiếp API REST.
 
-**Estructura JSON de REST sin procesar:**
+**Cấu trúc JSON REST thô:**
 
 ```
 {
@@ -182,9 +182,9 @@ Obtén el resultado de video del array `steps` cuando uses la API de REST direct
 }
 ```
 
-### Control de la relación de aspecto
+### Kiểm soát tỷ lệ khung hình
 
-Configura `aspect_ratio` en `"9:16"` para crear videos verticales. El formato horizontal (16:9) es el predeterminado.
+Đặt `aspect_ratio` thành `"9:16"` để tạo video dọc. Hướng ngang (16:9) là hướng mặc định.
 
 ### Python
 
@@ -338,16 +338,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Resolución de salida
+### Độ phân giải đầu ra
 
-Controla la resolución de salida del video generado con el parámetro `resolution` en `response_format`. La resolución predeterminada es 720p.
+Kiểm soát độ phân giải đầu ra của video được tạo bằng cách sử dụng tham số `resolution` trong `response_format`. Độ phân giải mặc định là 720p.
 
-| Valor | Descripción |
+| Giá trị | Mô tả |
 | --- | --- |
-| `360p` | Resolución de salida de 360p |
-| `720p` | Resolución de salida de 720p (predeterminada) |
-| `1080p` | Salida de 1080p (reescalado) |
-| `4k` | Salida en 4K (reescalada) |
+| `360p` | Độ phân giải đầu ra 360p |
+| `720p` | Độ phân giải đầu ra 720p (mặc định) |
+| `1080p` | Đầu ra 1080p (tăng độ phân giải) |
+| `4k` | Đầu ra 4K (đã tăng độ phân giải) |
 
 ### Python
 
@@ -499,24 +499,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Trình duyệt của bạn không hỗ trợ thẻ video này.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_misty_mountains_1080p.mp4)
 
-## Generación de video a partir de imágenes
+## Tạo video từ hình ảnh
 
-Puedes proporcionar una imagen de referencia con tu instrucción de texto. Según tu instrucción, el modelo decidirá cómo usar la imagen. Esto es útil para dar vida a las ilustraciones, las fotografías o las tomas de productos.
+Bạn có thể cung cấp một hình ảnh tham khảo cùng với câu lệnh dạng văn bản. Tuỳ thuộc vào câu lệnh của bạn, mô hình sẽ quyết định cách sử dụng hình ảnh. Tính năng này hữu ích khi bạn muốn tạo sức sống cho ảnh chụp sản phẩm, hình minh hoạ hoặc ảnh chụp.
 
-En el siguiente ejemplo, se muestra cómo usar la imagen de referencia de un dibujo de un pez que salta fuera del agua:
+Ví dụ sau đây cho thấy cách sử dụng hình ảnh tham khảo về bức vẽ một con cá nhảy ra khỏi mặt nước:
 
-![Dibujo de un pez saltando del agua](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=es-419)
+![Hình vẽ một con cá nhảy lên khỏi mặt nước](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=vi)
 
-Con la siguiente instrucción:
+Với câu lệnh sau:
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-Generar un video realista del dibujo
+Để tạo video chân thực về bản vẽ.
 
 ### Python
 
@@ -685,11 +685,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Interpolación del primer y el último fotograma
+### Nội suy khung hình đầu tiên và cuối cùng
 
-Gemini Omni Flash admite la interpolación de video, lo que te permite generar un video que realice una transición fluida entre una imagen inicial (primer fotograma) y una imagen final (último fotograma).
+Gemini Omni Flash hỗ trợ tính năng nội suy video, cho phép bạn tạo video chuyển đổi mượt mà giữa hình ảnh bắt đầu (khung hình đầu tiên) và hình ảnh kết thúc (khung hình cuối cùng).
 
-Proporciona dos imágenes en la lista `input` y describe la transición deseada en tu instrucción. El modelo animará la escena desde el primer fotograma hasta el fotograma final.
+Cung cấp 2 hình ảnh trong danh sách `input` và mô tả hiệu ứng chuyển cảnh mong muốn trong câu lệnh. Mô hình sẽ tạo ảnh động cho cảnh từ khung hình đầu tiên đến khung hình kết thúc.
 
 ### Python
 
@@ -881,13 +881,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Trình duyệt của bạn không hỗ trợ thẻ video này.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_keyframe_interpolation.mp4)
 
-### Referencia del sujeto
+### Tham chiếu chủ đề
 
-Puedes generar un video que incorpore temas específicos proporcionados como imágenes de referencia.
-Por ejemplo, el siguiente código muestra cómo proporcionar 2 imágenes de un gato y un ovillo de lana para generar un video del gato jugando con la lana.
+Bạn có thể tạo video có chứa các chủ đề cụ thể được cung cấp dưới dạng hình ảnh tham khảo.
+Ví dụ: mã sau đây cho biết cách cung cấp 2 hình ảnh về một chú mèo và cuộn len để tạo video về chú mèo đang chơi với cuộn len.
 
 ### Python
 
@@ -1074,11 +1074,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Parámetro de tareas
+### Tham số Tasks
 
-Usa el parámetro `task` en `video_config` para especificar de forma explícita el comportamiento deseado. Por ejemplo, si quieres que el modelo genere un video a partir de una imagen, puedes establecer el parámetro en `image_to_video`. Si no se configura, el modelo inferirá lo que quieres a partir de la instrucción.
+Sử dụng tham số `task` trong `video_config` để chỉ định rõ hành vi dự kiến, ví dụ: nếu bạn muốn mô hình tạo video từ một hình ảnh, bạn có thể đặt tham số thành `image_to_video`. Nếu bạn không đặt giá trị này, mô hình sẽ suy luận những gì bạn muốn từ câu lệnh.
 
-Los siguientes son los valores permitidos:
+Sau đây là các giá trị được phép:
 
 - `text_to_video`
 - `image_to_video`
@@ -1086,7 +1086,7 @@ Los siguientes son los valores permitidos:
 - `edit`
 - `extend`
 
-En el siguiente ejemplo, se muestra cómo configurar esto para el ejemplo de imagen a video que se mostró anteriormente.
+Ví dụ sau đây cho thấy cách thiết lập điều này cho ví dụ về hình ảnh thành video mà bạn thấy trước đó.
 
 ### Python
 
@@ -1294,11 +1294,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Edición de video con estado
+## Chỉnh sửa video có trạng thái
 
-Generar un video y editarlo de forma iterativa con instrucciones adicionales Cada turno se basa en el resultado anterior. El modelo recuerda el contexto del video y aplica los cambios a la vez que conserva los elementos que no mencionaste. Usa `previous_interaction_id` para hacer un seguimiento del historial de conversaciones y el estado del video generado sin volver a subir el video anterior.
+Tạo video và chỉnh sửa video đó nhiều lần bằng các câu lệnh tiếp theo. Mỗi lượt chơi đều dựa trên kết quả trước đó. Mô hình này ghi nhớ bối cảnh video, áp dụng các thay đổi của bạn trong khi vẫn giữ nguyên những phần tử mà bạn không đề cập đến. Sử dụng `previous_interaction_id` để theo dõi lịch sử cuộc trò chuyện và trạng thái video đã tạo mà không cần tải lại video trước đó.
 
-En el siguiente ejemplo, se muestra cómo generar un primer video y, luego, editarlo:
+Ví dụ sau đây minh hoạ cách tạo video đầu tiên rồi chỉnh sửa video đó:
 
 ### Python
 
@@ -1458,17 +1458,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-Ejemplo de un video inicial:
+Ví dụ về video ban đầu:
 
-Ejemplo de un video editado:
+Ví dụ về video đã chỉnh sửa:
 
-Cada turno de la conversación produce un video nuevo. El modelo comprende el contexto de los turnos anteriores, lo que te permite realizar cambios incrementales, como ajustar la iluminación y cambiar los fondos, sin tener que volver a describir toda la escena.
+Mỗi lượt trò chuyện sẽ tạo ra một video mới. Mô hình này hiểu được ngữ cảnh từ các lượt tương tác trước, cho phép bạn thực hiện các thay đổi gia tăng như điều chỉnh ánh sáng và thay đổi phông nền mà không cần mô tả lại toàn bộ cảnh.
 
-### Edita tus propios videos
+### Chỉnh sửa video của chính bạn
 
-Sube tus videos con la [API de Files](https://ai.google.dev/gemini-api/docs/files?hl=es-419) para editarlos con Gemini Omni Flash.
+Tải video lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) để chỉnh sửa bằng Gemini Omni Flash.
 
-En el siguiente ejemplo, se muestra cómo editar el siguiente video original:
+Ví dụ sau đây cho thấy cách chỉnh sửa video gốc sau đây:
 
 ### Python
 
@@ -1717,12 +1717,12 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-Ejemplo de un video editado:
+Ví dụ về video đã chỉnh sửa:
 
-## Cómo recuperar videos con un URI
+## Truy xuất video bằng URI
 
-Usa el parámetro `delivery="uri"` en `response_format` para recuperar los videos generados que superen los 4 MB.
-Devuelve un URI alojado en Google que puedes sondear hasta que el video sea `ACTIVE` antes de descargarlo.
+Sử dụng tham số `delivery="uri"` trong `response_format` để truy xuất những video được tạo có kích thước lớn hơn 4 MB.
+Thao tác này sẽ trả về một URI do Google lưu trữ mà bạn có thể thăm dò cho đến khi video ở trạng thái `ACTIVE` trước khi tải xuống.
 
 ### Python
 
@@ -1967,7 +1967,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Estructura JSON de REST sin procesar (URI):**
+**Cấu trúc JSON REST thô (URI):**
 
 ```
 {
@@ -1992,15 +1992,15 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## Extensión de video
+## Phần mở rộng về video
 
-Extiende un video existente generando una continuación fluida al final del clip. En la instrucción, describe cómo quieres que continúe el video, por ejemplo, `"Extend this video"` o `"Continue the scene: the camera pans across the mountains"`.
-El modelo analiza el video de entrada para generar una continuación de entre 3 y 10 segundos.
+Kéo dài một video hiện có bằng cách tạo phần tiếp nối liền mạch ở cuối đoạn video. Mô tả cách bạn muốn video tiếp tục trong câu lệnh, ví dụ: `"Extend this video"` hoặc `"Continue the scene: the camera pans across the mountains"`.
+Mô hình này phân tích video đầu vào để tạo một đoạn video tiếp nối dài từ 3 đến 10 giây.
 
-Puedes extender lo siguiente:
+Bạn có thể mở rộng:
 
-- **Videos generados por el modelo (varios turnos)**: Extiende un video generado anteriormente haciendo referencia a su `previous_interaction_id`.
-- **Videos subidos**: Proporciona un archivo de video subido (a través de la API de Files) junto con la instrucción de la extensión.
+- **Video do mô hình tạo (nhiều lượt)**: Mở rộng một video đã tạo trước đó bằng cách tham chiếu `previous_interaction_id` của video đó.
+- **Video đã tải lên**: Cung cấp một tệp video đã tải lên (thông qua Files API) cùng với lời nhắc về tiện ích của bạn.
 
 ### Python
 
@@ -2181,17 +2181,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Trình duyệt của bạn không hỗ trợ thẻ video này.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_base.mp4)
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Trình duyệt của bạn không hỗ trợ thẻ video này.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_extended.mp4)
 
-### Extensión con contenido multimedia de referencia
+### Mở rộng bằng nội dung nghe nhìn tham khảo
 
-Puedes proporcionar imágenes de referencia en el array `input` junto con tu instrucción para introducir nuevos personajes o elementos en el video extendido:
+Bạn có thể cung cấp hình ảnh tham khảo trong mảng `input` cùng với câu lệnh để đưa các nhân vật hoặc phần tử mới vào video mở rộng:
 
 ### Python
 
@@ -2394,123 +2394,123 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tu navegador no admite la etiqueta de video.
+Trình duyệt của bạn không hỗ trợ thẻ video này.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_traveler_extension.mp4)
 
-### Lineamientos y restricciones de extensiones
+### Nguyên tắc và hạn chế đối với tiện ích
 
-Ten en cuenta las siguientes reglas y restricciones cuando extiendas videos:
+Khi kéo dài video, hãy lưu ý những quy tắc và hạn chế sau:
 
-- **Diálogo hablado en videos subidos**: Actualmente, no puedes extender un video subido en el que alguien está hablando para agregar diálogo adicional (se admite si el personaje permanece en silencio o si la instrucción no agrega diálogo).
-- **Extensión de voz de varios turnos**: Se admite la generación de diálogo o voz hablada cuando se extienden videos generados previamente a través de varios turnos (`previous_interaction_id`).
-- **Solo al final del clip**: La extensión se limita a agregarse al final del video.
-  No puedes agregar contenido al principio ni extender la parte media de un clip.
-- **Límite de duración**: Los videos de entrada para la extensión deben tener una duración de 10 segundos o menos cuando se suben (a menos que se use la función de varios turnos).
-- **Disponibilidad regional**: Por el momento, la extensión de videos subidos no está disponible para los usuarios del Espacio Económico Europeo (EEE), Suiza ni el Reino Unido (la extensión de videos generados por el modelo se admite en todas las regiones disponibles).
+- **Lời thoại trong video được tải lên**: Hiện tại, bạn không thể kéo dài một video được tải lên có người đang nói để thêm lời thoại (tính năng này được hỗ trợ nếu nhân vật giữ im lặng hoặc nếu câu lệnh không thêm lời thoại).
+- **Tiện ích thoại nhiều lượt**: Tính năng tạo đoạn hội thoại hoặc lời nói được hỗ trợ khi bạn mở rộng video đã tạo trước đó thông qua tiện ích nhiều lượt (`previous_interaction_id`).
+- **Chỉ ở cuối đoạn video**: Tiện ích này chỉ có thể được thêm vào cuối video.
+  Bạn không thể thêm nội dung vào đầu hoặc kéo dài phần giữa của một đoạn video.
+- **Giới hạn thời lượng**: Video đầu vào cho tiện ích phải có thời lượng từ 10 giây trở xuống khi tải lên (trừ phi bạn sử dụng tính năng nhiều lượt).
+- **Phạm vi cung cấp theo khu vực**: Tính năng kéo dài video đã tải lên hiện chưa được cung cấp cho người dùng ở Khu vực kinh tế Châu Âu (EEA), Thuỵ Sĩ và Vương quốc Anh (tính năng kéo dài video do mô hình tạo được hỗ trợ ở tất cả khu vực được cung cấp).
 
-## Prácticas recomendadas
+## Các phương pháp hay nhất
 
-- **Usa la entrega de URI para videos grandes:** Para los videos de más de 4 MB (más de 720 p cuando estén disponibles), usa `delivery="uri"` en `response_format` para evitar los límites de tamaño de la carga útil.
-- **Rendimiento optimizado:** Establece `background=false`, `store=false` y `stream=false` para una generación unaria más rápida y síncrona. Ten en cuenta que el parámetro de configuración `store=false` significa que el video generado no se podrá editar en turnos posteriores con `previous_interaction_id`.
-- **Precisión de la instrucción:** Consulta la sección de [orientación sobre instrucciones](#prompt-guide) para obtener más detalles.
+- **Sử dụng phương thức phân phối URI cho video có kích thước lớn:** Đối với video có kích thước lớn hơn 4 MB (>720p khi có thể), hãy sử dụng `delivery="uri"` trong `response_format` để tránh giới hạn về kích thước tải trọng.
+- **Hiệu suất tối ưu:** Đặt `background=false`, `store=false` và `stream=false` để tạo số một ngôi nhanh hơn, đồng bộ. Xin lưu ý rằng chế độ cài đặt `store=false` có nghĩa là bạn sẽ không thể chỉnh sửa video đã tạo trong các lượt tương tác tiếp theo bằng cách sử dụng `previous_interaction_id`.
+- **Độ chính xác của câu lệnh:** Xem phần [hướng dẫn về câu lệnh](#prompt-guide) để biết thông tin chi tiết.
 
-## Limitaciones
+## Các điểm hạn chế
 
-- No se admite la carga ni la edición de imágenes que contengan a menores en el Espacio Económico Europeo, Suiza ni el Reino Unido.
-- No se admite la carga ni la edición de imágenes que contengan personas reconocibles.
-- Por el momento, la edición o extensión de videos subidos no está disponible para los usuarios del Espacio Económico Europeo (EEE), Suiza ni el Reino Unido (se admite la edición o extensión de videos generados por el modelo).
-- Los videos de entrada para la edición y la extensión deben durar 10 segundos o menos cuando se suben (a menos que se extiendan los videos generados por el modelo en varios turnos).
-- La extensión de video se limita a agregar contenido al final de un video. No se admite agregar contenido al principio ni extender la parte media de un clip.
-- No puedes extender un video subido en el que alguien está hablando para agregar diálogo adicional (los personajes pueden permanecer en silencio o se puede usar una extensión de varios turnos con `previous_interaction_id`).
-- No se admite la edición de voz.
-- La carga de referencias de audio no se admite en la versión actual de la API.
-- Las referencias de video funcionan mejor con imágenes de personas. Se ignora el audio de las referencias de video. Las referencias de video admiten un máximo de 3 clips de hasta 3 segundos cada uno.
-- No se admite hacer referencia a varios videos ni razonar sobre ellos. Si intentas usar instrucciones con varios videos, es posible que se degrade el rendimiento del modelo o que se generen resultados inesperados.
-- No se admite el procesamiento aprovisionado.
-- No se admiten instrucciones del sistema, temperatura, `top_p`, secuencias de detención ni instrucciones negativas (puedes incluir tus instrucciones negativas en la instrucción normal, p.ej., "No hagas X").
-- No se admite el uso de videos de YouTube como fuente de medios.
+- Chúng tôi không hỗ trợ việc tải lên và chỉnh sửa hình ảnh có trẻ vị thành niên ở Khu vực kinh tế Châu Âu, Thuỵ Sĩ và Vương quốc Anh.
+- Chúng tôi không hỗ trợ việc tải lên và chỉnh sửa những hình ảnh có một số người có thể nhận dạng được.
+- Tính năng chỉnh sửa hoặc kéo dài video đã tải lên hiện chưa được cung cấp cho người dùng ở Khu vực kinh tế Châu Âu (EEA), Thuỵ Sĩ và Vương quốc Anh (tính năng chỉnh sửa hoặc kéo dài video do mô hình tạo được hỗ trợ).
+- Khi tải lên, video đầu vào để chỉnh sửa và mở rộng phải có thời lượng từ 10 giây trở xuống (trừ trường hợp mở rộng video do mô hình tạo trong nhiều lượt).
+- Tiện ích video chỉ được phép thêm vào cuối video; chúng tôi không hỗ trợ việc thêm vào đầu hoặc kéo dài phần giữa của một đoạn video.
+- Bạn không thể kéo dài một video đã tải lên có người đang nói để thêm đoạn hội thoại (các nhân vật có thể giữ im lặng hoặc bạn có thể dùng tính năng kéo dài nhiều lượt bằng `previous_interaction_id`).
+- Không hỗ trợ chỉnh sửa bằng giọng nói.
+- Phiên bản API hiện tại không hỗ trợ việc tải tệp âm thanh tham chiếu lên.
+- Video tham chiếu hoạt động hiệu quả nhất với hình ảnh tương tự; mọi âm thanh trong video tham chiếu đều bị bỏ qua. Tài liệu tham khảo bằng video hỗ trợ tối đa 3 đoạn video, mỗi đoạn dài tối đa 3 giây.
+- Không hỗ trợ việc tham khảo hoặc suy luận trên nhiều video. Việc thử tạo câu lệnh cho nhiều video có thể làm giảm hiệu suất của mô hình hoặc tạo ra kết quả không mong muốn.
+- Không hỗ trợ thông lượng được cung cấp.
+- Không được hỗ trợ chỉ dẫn cho hệ thống, nhiệt độ, `top_p`, chuỗi dừng và câu lệnh phủ định (bạn có thể đặt câu lệnh phủ định vào câu lệnh thông thường: ví dụ: "Đừng làm X").
+- Không hỗ trợ việc sử dụng video trên YouTube làm nguồn nội dung nghe nhìn.
 
-## Detalles técnicos
+## Chi tiết kỹ thuật
 
-- Todos los videos generados incluyen marcas de agua de SynthID, que son invisibles para los usuarios, pero se pueden detectar de forma programática para verificar la procedencia.
-- Los tiempos de generación de video varían según la duración, la resolución y la carga actual de la API. Los videos más largos y con mayor resolución tardan más en generarse.
-- Omni aplica filtros de seguridad del contenido tanto a las instrucciones de entrada como a los videos generados (que varían según la región). Se bloquean las instrucciones que incumplen las políticas de uso.
-- El inglés (EN) es totalmente compatible, pero no se evaluaron otros idiomas, por lo que es posible que funcionen, pero los resultados pueden variar.
+- Tất cả video được tạo đều có hình mờ SynthID. Người xem không nhìn thấy hình mờ này nhưng hệ thống có thể phát hiện được để xác minh nguồn gốc.
+- Thời gian tạo video sẽ khác nhau tuỳ thuộc vào thời lượng, độ phân giải và mức tải API hiện tại. Video có thời lượng dài hơn và độ phân giải cao hơn sẽ mất nhiều thời gian hơn để tạo.
+- Omni áp dụng bộ lọc an toàn cho nội dung đối với cả câu lệnh đầu vào và video được tạo (tuỳ theo khu vực). Những câu lệnh vi phạm chính sách sử dụng sẽ bị chặn.
+- Tiếng Anh (EN) được hỗ trợ đầy đủ, nhưng các ngôn ngữ khác chưa được đánh giá, vì vậy, các ngôn ngữ này có thể hoạt động nhưng kết quả có thể khác nhau.
 
-## Guía de instrucciones de Gemini Omni Flash
+## Hướng dẫn về câu lệnh cho Gemini Omni Flash
 
-En esta sección, se incluyen sugerencias y ejemplos sobre cómo escribir instrucciones eficaces para Gemini Omni Flash.
+Phần này chứa các mẹo và ví dụ về cách đưa ra câu lệnh hiệu quả cho Gemini Omni Flash.
 
-### Escena única
+### Một cảnh
 
-De forma predeterminada, Omni Flash intentará crear un video con varias tomas diferentes.
-Intentará crear una narrativa interesante basada en la instrucción.
+Theo mặc định, Omni Flash sẽ cố gắng tạo video có một số cảnh khác nhau.
+Công cụ này sẽ cố gắng tạo ra một câu chuyện thú vị dựa trên câu lệnh.
 
-Si necesitas que el video de salida contenga una sola escena, debes indicarlo en la instrucción:
+Nếu cần video đầu ra chứa một cảnh duy nhất, bạn phải đưa ra lời nhắc cho cảnh đó:
 
-- En una sola escena continua
-- En una sola toma continua
-- Sin cortes de escena
+- Trong một cảnh duy nhất không bị gián đoạn
+- Trong một cảnh quay liên tục
+- Không có cảnh bị cắt
 
-Por ejemplo:
+Ví dụ:
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### Cómo quitar elementos no deseados
+### Xoá các phần tử không mong muốn
 
-Si el video generado contiene elementos que no quieres, incluye instrucciones negativas simples para evitarlos:
+Nếu video được tạo có những nội dung bạn không muốn, hãy thêm câu lệnh phủ định đơn giản để tránh những nội dung đó:
 
-- Sin diálogo
-- Sin adornos
-- Sin efectos de sonido adicionales
+- Không có lời thoại
+- Không có thông tin bổ sung
+- Không có hiệu ứng âm thanh bổ sung
 
-### Instrucciones para la edición
+### Câu lệnh chỉnh sửa
 
-Las instrucciones simples funcionan mejor para la edición de video. Las instrucciones demasiado descriptivas pueden generar cambios no deseados.
+Câu lệnh đơn giản sẽ cho kết quả tốt nhất khi chỉnh sửa video. Câu lệnh mô tả quá chi tiết có thể dẫn đến những thay đổi ngoài ý muốn.
 
-A continuación, se incluyen más ejemplos de instrucciones de edición simples:
+Sau đây là một số ví dụ khác về câu lệnh chỉnh sửa đơn giản:
 
-- Convierte este video en anime
-- Ponle un sombrero moderno a esta persona
-- Cambia la iluminación para que sea más dramática
-- Cambia el texto del cartel para que diga "Omni Flash".
+- Biến video này thành hoạt hình Nhật Bản
+- Đội cho người này một chiếc mũ thời trang
+- Thay đổi ánh sáng để tạo cảm giác kịch tính hơn
+- Thay đổi văn bản trên biển báo thành "Omni Flash"
 
-Cuando edites un aspecto específico del video, incluye `"Keep everything else the same"` para mantener la coherencia visual.
+Khi chỉnh sửa một khía cạnh cụ thể của video, hãy thêm `"Keep everything else the same"` để duy trì tính nhất quán về hình ảnh.
 
-A continuación, se incluyen algunos ejemplos para mostrar cómo aplicar esta técnica:
+Sau đây là một số ví dụ minh hoạ cách áp dụng kỹ thuật này:
 
-- **Evita:** `In the video of the man sitting on the sofa, please add a small
+- **Tránh:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Simplificar:** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **Đơn giản hoá:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **Evita:** `Please remove the cell phone that the person is holding in
+- **Nên tránh:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Simplificar:** `Make the phone invisible. Keep everything else the
+  - **Đơn giản hoá:** `Make the phone invisible. Keep everything else the
     same.`
 
-### Indicaciones de audio
+### Tạo câu lệnh cho âm thanh
 
-De forma predeterminada, el modelo intentará generar una pista de audio adecuada para un video. Es posible que esto no siempre sea lo que quieras. Puedes usar la instrucción para describir el tipo de audio que deseas. Esto es especialmente importante si quieres incluir música en tu video:
+Theo mặc định, mô hình sẽ cố gắng tạo một bản âm thanh phù hợp cho video. Đây có thể không phải là điều bạn muốn. Bạn có thể dùng câu lệnh để mô tả loại âm thanh bạn muốn. Điều này đặc biệt quan trọng nếu bạn muốn sử dụng nhạc trong video:
 
-- Incluye música de fondo relajante
-- El video tiene una base tecno enérgica
-- El audio es una transmisión de radio de baja calidad que se reproduce en segundo plano y en la que se escucha una canción.
+- Thêm nhạc nền nhẹ nhàng
+- Video có nhịp điệu techno sôi động
+- Âm thanh là một bản phát sóng radio có âm lượng nhỏ và chói tai ở chế độ nền, đang phát một bài hát
 
-### Tiempos de eventos
+### Sự kiện về thời gian
 
-Puedes solicitar que sucedan cosas en momentos específicos del video, no se necesita una sintaxis precisa y puedes usar lenguaje natural. Esto es especialmente útil para crear tus propios cortes de escena, ritmos o secuencias de disparos rápidos.
-Consulta los siguientes ejemplos:
+Bạn có thể yêu cầu thực hiện các thao tác vào những thời điểm cụ thể trong video mà không cần cú pháp chính xác và có thể sử dụng ngôn ngữ tự nhiên. Điều này đặc biệt hữu ích khi bạn tạo các cảnh cắt, nhịp điệu hoặc chuỗi cảnh liên tiếp của riêng mình.
+Hãy xem các ví dụ sau:
 
-- Después de 3 segundos, entra una mujer en escena.
-- A los 5 s, el coro comienza en el audio de fondo.
-- Cada 2 s, se corta a un nuevo fotograma.
-- En una secuencia de disparos rápidos, cada medio segundo (12 fotogramas a 24 FPS), cambia la escena a una nueva ubicación.
+- Sau 3 giây, một người phụ nữ xuất hiện.
+- Điệp khúc bắt đầu ở giây thứ 5 trong âm thanh nền.
+- Cứ 2 giây lại chuyển sang một khung hình mới.
+- Trong một chuỗi cảnh quay nhanh, cứ nửa giây (12 khung hình ở tốc độ 24 khung hình/giây), hãy thay đổi cảnh sang một vị trí mới.
 
-También puedes usar una sintaxis de código de tiempo:
+Bạn cũng có thể sử dụng cú pháp mã thời gian:
 
 ```
 [0-3s] A person is walking
@@ -2518,52 +2518,52 @@ También puedes usar una sintaxis de código de tiempo:
 [6-10s] They start running
 ```
 
-### Metainstrucciones
+### Đặt siêu câu lệnh
 
-Puedes pedirle a Gemini Omni Flash que preste atención a las cualidades o los principios generales de la generación de videos:
+Bạn có thể yêu cầu Gemini Omni Flash chú ý đến các phẩm chất hoặc nguyên tắc chung khi tạo video:
 
-- Ten en cuenta los microdetalles, la expresión y la sincronización para crear una escena muy detallada y enriquecida, pero completamente natural.
-- Sé muy detallado en tus descripciones de personajes y entornos.
-  Aplicar los principios del diseño de vestuario a los personajes Sé muy específico sobre las personas, los elementos y los objetos que aparecen en la escena.
-- Incluye muchos detalles adecuados en los elementos del fondo para que la escena se vea realista y natural.
-- Haz un video de preguntas rápidas que muestre un `[thing]` diferente cada 1 s, con música alegre y texto para etiquetar cada cosa.
+- Hãy cân nhắc chi tiết nhỏ, biểu cảm và thời gian để tạo ra một cảnh quay rất phong phú, chi tiết nhưng hoàn toàn tự nhiên.
+- Mô tả nhân vật và môi trường một cách cực kỳ chi tiết.
+  Áp dụng các nguyên tắc thiết kế trang phục cho nhân vật. Mô tả thật cụ thể về người, vật phẩm và đồ vật trong cảnh.
+- Thêm nhiều chi tiết phù hợp vào các thành phần nền để cảnh trông chân thực và tự nhiên.
+- Tạo một video có nhịp độ nhanh, trong đó cứ 1 giây sẽ xuất hiện một `[thing]` hiếm gặp, nhạc vui nhộn và văn bản để gắn nhãn cho vật phẩm.
 
-### Texto en videos
+### Văn bản trong video
 
-Puedes solicitar que se incluya texto en tu video, y Gemini Omni lo renderizará de una manera correcta y legible. Si habrá texto que aparecerá de forma natural en tu video, incluso en los elementos de fondo, puede ser útil definir lo que debería decir.
+Bạn có thể đưa ra câu lệnh để thêm văn bản vào video và Gemini Omni sẽ hiển thị theo cách chính xác và dễ đọc. Nếu video của bạn có văn bản xuất hiện tự nhiên, ngay cả trong các phần tử nền, thì bạn có thể xác định nội dung mà văn bản đó nên có.
 
-- Una palabra a la vez en la pantalla: "¿Sabías que Omni puede generar texto increíble?". Cada palabra aparece durante 1 s con un estilo animado diferente. Sin diálogo.
-- Hay una señal de tránsito que dice: "Esta es una generación de IA de Omni", hay una tienda que dice: "Todo lo que necesitas de la IA" y hay un automóvil con la matrícula "OMNI1.1".
+- Mỗi lần một từ trên màn hình: "did, you, know, that, Omni, can, do, awesome, text?" Mỗi từ xuất hiện trong 1 giây với một kiểu ảnh động riêng. Không có lời thoại.
+- Có một biển báo đường phố có nội dung: "Đây là nội dung do AI tạo bằng Omni", có một mặt tiền cửa hàng có nội dung: "AI cho mọi nhu cầu", có một chiếc xe hơi có biển số: "OMNI1.1"
 
-### Instrucciones para extender un video
+### Câu lệnh để kéo dài video
 
-Con Gemini Omni 1.1 Flash, puedes extender videos con instrucciones como `"Extend this video"` o `"The scene continues"`. Puedes extender los videos en 10 s, hasta una duración total de 40 s.
+Với Gemini Omni 1.1 Flash, bạn có thể mở rộng video bằng các câu lệnh như `"Extend this video"` hoặc `"The scene continues"`. Bạn có thể kéo dài video thêm 10 giây, với tổng thời lượng tối đa là 40 giây.
 
-Omni crea una extensión que mantiene la coherencia del video, el movimiento, los personajes y el audio usando los últimos 10 s del video original como contexto. Se editarán algunos de los fotogramas finales del video de entrada para que la transición sea fluida.
+Omni tạo một phần mở rộng giúp video, chuyển động, nhân vật và âm thanh nhất quán bằng cách sử dụng 10 giây cuối cùng của video gốc làm bối cảnh. Một số khung hình cuối cùng trong video đầu vào sẽ được chỉnh sửa để tạo hiệu ứng chuyển cảnh liền mạch.
 
-Cuando extiendas la instrucción, se seguirán aplicando todas las sugerencias de instrucción de Omni de esta guía:
+Khi mở rộng, tất cả các mẹo về câu lệnh Omni trong hướng dẫn này vẫn được áp dụng:
 
-- Describe el audio de tu escena extendida, en especial si necesitas que cambie: `"The music continues into the chorus"`
-- Describe si la escena continúa o si hay un corte a una escena nueva (quizás con los mismos personajes): `"Show the same characters in the next scene"`
-- Incluye imágenes y videos como referencias cuando realices extensiones para mantener la precisión de tus resultados o presentar personajes nuevos: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- Si usas marcas de tiempo o una sintaxis de código de tiempo, 0 s hace referencia al comienzo de la parte extendida del video. Si extiendes un video de 10 s, el corte de escena en esta instrucción se producirá después de 12 s: `"After 2s cut to a new scene with the same characters"`
+- Mô tả âm thanh trong cảnh mở rộng, đặc biệt là nếu bạn cần thay đổi âm thanh: `"The music continues into the chorus"`
+- Mô tả xem cảnh có tiếp tục hay không, hoặc có cảnh quay cắt sang một cảnh mới (có thể có cùng nhân vật): `"Show the same characters in the next scene"`
+- Đưa hình ảnh và video vào làm tài liệu tham khảo khi mở rộng để đảm bảo kết quả chính xác hoặc để giới thiệu nhân vật mới: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- Nếu sử dụng dấu thời gian hoặc cú pháp mã thời gian, 0 giây sẽ đề cập đến phần mở rộng của video. Nếu bạn kéo dài một video dài 10 giây, thì cảnh cắt trong câu lệnh này sẽ xuất hiện sau 12 giây: `"After 2s cut to a new scene with the same characters"`
 
-### Cómo usar etiquetas en instrucciones para establecer roles de imágenes y videos
+### Sử dụng thẻ trong câu lệnh để đặt vai trò cho hình ảnh và video
 
-Puedes usar etiquetas para vincular el contenido multimedia subido a roles de generación específicos. Esto te permite especificar si cada imagen o video es un fotograma inicial, un fotograma final o una referencia.
+Bạn có thể dùng thẻ để liên kết nội dung nghe nhìn đã tải lên với các vai trò tạo sinh cụ thể. Nhờ đó, bạn có thể chỉ định xem mỗi hình ảnh hoặc video là khung bắt đầu, khung kết thúc hay khung tham chiếu.
 
-#### 1. Etiquetas simples (recomendadas)
+#### 1. Thẻ đơn giản (nên dùng)
 
-En casos simples en los que los roles de los medios son claros a partir de la instrucción, puedes vincular imágenes y videos a roles directamente:
+Đối với những trường hợp đơn giản mà vai trò của nội dung nghe nhìn được xác định rõ ràng trong câu lệnh, bạn có thể liên kết trực tiếp hình ảnh và video với các vai trò:
 
-- **`<FIRST_FRAME>`**: Usa la imagen como el fotograma inicial del video, por ejemplo: `<FIRST_FRAME> a woman is walking`
-- **`<LAST_FRAME>`**: Usa la imagen como el fotograma final del video al que se realizará la transición. Se debe usar con `<FIRST_FRAME>`, por ejemplo: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**: Usa la imagen como referencia, por ejemplo, `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (combina la referencia de estilo de la primera imagen y la referencia de sujeto de la segunda imagen).
-  Las referencias de imágenes comienzan en 0.
-- **`<VIDEO_REF_N>`**: Usa el video como referencia de un personaje o un objeto, por ejemplo, `the person in <VIDEO_REF_0> is playing the violin`. Las referencias de video también comienzan desde 0.
+- **`<FIRST_FRAME>`**: dùng hình ảnh làm khung hình bắt đầu của video, ví dụ: `<FIRST_FRAME> a woman is walking`
+- **`<LAST_FRAME>`**: sử dụng hình ảnh làm khung hình cuối cùng của video để chuyển sang. Phải được dùng với `<FIRST_FRAME>`, ví dụ: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: sử dụng hình ảnh làm tài liệu tham khảo, ví dụ: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (kết hợp tài liệu tham khảo về phong cách từ hình ảnh đầu tiên và tài liệu tham khảo về chủ thể từ hình ảnh thứ hai).
+  Ảnh tham chiếu bắt đầu từ 0.
+- **`<VIDEO_REF_N>`**: sử dụng video làm tài liệu tham khảo về nhân vật hoặc đối tượng, ví dụ: `the person in <VIDEO_REF_0> is playing the violin`. Tệp đối chiếu video cũng bắt đầu từ 0.
 
-El siguiente es un ejemplo con 6 imágenes de referencia:
+Sau đây là ví dụ có 6 hình ảnh tham chiếu:
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -2571,54 +2571,54 @@ El siguiente es un ejemplo con 6 imágenes de referencia:
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. Cómo declarar fuentes y referencias
+#### 2. Khai báo nguồn và thông tin tham khảo
 
-Para casos más complejos con varias entradas de medios y varios roles, puedes usar etiquetas de prefijo explícitas junto con instrucciones en lenguaje natural. Debes declarar estas fuentes y referencias al comienzo de tu instrucción.
+Đối với các trường hợp phức tạp hơn có nhiều đầu vào nội dung nghe nhìn và nhiều vai trò, bạn có thể sử dụng các thẻ tiền tố rõ ràng kết hợp với hướng dẫn bằng ngôn ngữ tự nhiên. Bạn nên khai báo những nguồn và tài liệu tham khảo này khi bắt đầu câu lệnh.
 
-- `[# Sources <FIRST_FRAME>@Image1]` usará la primera imagen como fotograma inicial.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` usará la primera imagen como fotograma inicial y la segunda como fotograma final.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` usará la primera imagen como el primer y el último fotograma, lo que creará un video en bucle.
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` usará la primera imagen como fotograma inicial y la segunda como referencia.
-- `[# Sources <VIDEO_0>@Video1]` usará el video como fuente principal para editarlo o modificarlo.
-- `[# Sources <PREVIOUS_VIDEO>@Video1]` usará el video del turno anterior para extenderlo.
-- `[# References <IMAGE_REF_0>@Image1]` usará la primera imagen como referencia.
-- `[# References <IMAGE_REF_1>@Image2]` usará la segunda imagen como referencia.
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` usará ambas imágenes como referencias.
-- `[# References <VIDEO_REF_0>@Video1]` usará el primer video como referencia.
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` usará una imagen y un video como referencia.
+- `[# Sources <FIRST_FRAME>@Image1]` sẽ dùng hình ảnh đầu tiên làm khung hình bắt đầu.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` sẽ dùng hình ảnh đầu tiên làm khung hình bắt đầu và hình ảnh thứ hai làm khung hình cuối cùng.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` sẽ dùng hình ảnh đầu tiên làm cả khung hình đầu tiên và khung hình cuối cùng, tạo ra một video lặp lại.
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` sẽ dùng hình ảnh đầu tiên làm khung hình bắt đầu và hình ảnh thứ hai làm tài liệu tham khảo.
+- `[# Sources <VIDEO_0>@Video1]` sẽ dùng video này làm video nguồn chính để chỉnh sửa hoặc sửa đổi.
+- `[# Sources <PREVIOUS_VIDEO>@Video1]` sẽ dùng video từ lượt chơi trước để mở rộng.
+- `[# References <IMAGE_REF_0>@Image1]` sẽ dùng hình ảnh đầu tiên làm tài liệu tham khảo.
+- `[# References <IMAGE_REF_1>@Image2]` sẽ dùng hình ảnh thứ hai làm tài liệu tham khảo.
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` sẽ dùng cả hai hình ảnh làm tài liệu tham khảo.
+- `[# References <VIDEO_REF_0>@Video1]` sẽ dùng video đầu tiên làm tài liệu tham khảo.
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` sẽ dùng cả hình ảnh và video làm tài liệu tham khảo.
 
-Agrega instrucciones de guía al final de la instrucción:
+Thêm hướng dẫn ở cuối câu lệnh:
 
-- Para un fotograma de inicio: `"Use this image as the starting frame."`
-- Para un video en bucle a través de fotogramas de inicio y finalización: `"Use this image as the first frame and the last frame."`
-- Para las imágenes de referencia: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- En el caso de los videos de referencia, haz lo siguiente: `"Use the given video(s) as references. Do not use them as a source for video editing."`
+- Đối với khung hình bắt đầu: `"Use this image as the starting frame."`
+- Đối với video lặp lại thông qua khung hình bắt đầu và kết thúc: `"Use this image as the first frame and the last frame."`
+- Đối với hình ảnh tham khảo: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- Đối với video tham chiếu: `"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-Estos son algunos ejemplos de instrucciones con declaraciones de fuente y referencia:
+Một số ví dụ về câu lệnh có khai báo nguồn và thông tin tham khảo:
 
-**Fotograma inicial combinado con una imagen de referencia:**
+**Khung hình bắt đầu kết hợp với hình ảnh tham khảo:**
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**Video de referencia del personaje combinado con una imagen de referencia del objeto:**
+**Video đối chiếu về nhân vật kết hợp với hình ảnh tham khảo về đối tượng:**
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## ¿Qué sigue?
+## Bước tiếp theo
 
-- Comienza a usar Gemini Omni Flash experimentando en el [Colab de inicio rápido de Omni](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=es-419).
-- Obtén más información para escribir instrucciones aún mejores con nuestra [Introducción al diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
+- Làm quen với Gemini Omni Flash bằng cách thử nghiệm trong [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=vi).
+- Tìm hiểu cách viết câu lệnh hiệu quả hơn nữa qua bài viết [Giới thiệu về cách thiết kế câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=vi).
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última actualización: 2026-09-24 (UTC)
+Cập nhật lần gần đây nhất: 2026-09-24 UTC.
 
-¿Quieres brindar más información?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]

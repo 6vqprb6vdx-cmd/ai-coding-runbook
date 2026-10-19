@@ -1,36 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=ja
-fetched_at: 2026-10-12T07:10:23.635663+00:00
-title: "Gemini API \u3067\u30d5\u30a1\u30a4\u30f3\u30c1\u30e5\u30fc\u30cb\u30f3\u30b0\u3059\u308b \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=zh-CN
+fetched_at: 2026-10-19T05:42:28.416310+00:00
+title: "\u4f7f\u7528 Gemini API \u8fdb\u884c\u5fae\u8c03 \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ja) の一般提供を開始しました。この API を使用して、最新の機能とモデルにアクセスすることをおすすめします。
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
 
-フィードバックを送信
+发送反馈
 
-# Gemini API でファインチューニングする
+# 使用 Gemini API 进行微调
 
-Gemini 1.5 Flash-001 は 2025 年 5 月に非推奨となるため、Gemini API または AI Studio でのファイン チューニングをサポートする
-モデルは提供されなくなりますが、
-[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=ja)ではサポートされます。
+由于 Gemini 1.5 Flash-001 将于 2025 年 5 月被弃用，因此我们不再有任何模型支持在 Gemini API 或 AI Studio 中进行微调，但
+[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=zh-cn) 支持微调。
 
-現時点ではファイン チューニングのサポートを提供する予定はありませんが、お客様のユースケースでファイン チューニングが重要である場合は、デベロッパー フォーラムで[お知らせ
-ください](https://discuss.ai.google.dev/c/gemini-api/4?hl=ja)
+我们目前没有立即推出微调支持的计划，但如果您认为微调对您的用例非常重要，欢迎在我们的开发者论坛上[告诉
+我们](https://discuss.ai.google.dev/c/gemini-api/4?hl=zh-cn)
 。
 
-フィードバックを送信
+发送反馈
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-最終更新日 2026-04-29 UTC。
+最后更新时间 (UTC)：2026-04-29。
 
-ご意見をお聞かせください
+需要向我们提供更多信息？
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-04-29 UTC。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]

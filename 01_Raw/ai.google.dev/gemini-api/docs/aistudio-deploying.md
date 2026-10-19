@@ -1,134 +1,111 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pt-BR
-fetched_at: 2026-10-12T07:04:21.483735+00:00
-title: "Implanta\u00e7\u00e3o do Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=pl
+fetched_at: 2026-10-19T05:32:34.349624+00:00
+title: "Wdra\u017canie z Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Envie comentários
+Prześlij opinię
 
-# Implantação do Google AI Studio
+# Wdrażanie z Google AI Studio
 
-Com o Google AI Studio, você pode implantar seus aplicativos de pilha completa diretamente
-no modo de criação. Isso oferece um caminho rápido do protótipo para um ambiente de produção gerenciado e escalonável.
+Google AI Studio umożliwia wdrażanie aplikacji pełnostosowych bezpośrednio z trybu tworzenia. Umożliwia to szybkie przejście od prototypu do zarządzanego, skalowalnego środowiska produkcyjnego.
 
-## Opções de implantação
+## Opcje wdrażania
 
-Para implantar seu aplicativo no modo Build do AI Studio, os requisitos dependem
-do nível que você usa:
+Wymagania dotyczące wdrażania aplikacji w trybie tworzenia AI Studio zależą od używanego pakietu:
 
-- [**Nível Starter do Google Cloud**](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br):
-  permite que contas qualificadas publiquem até dois aplicativos full-stack sem
-  configurar um projeto na nuvem ou uma conta de faturamento do Google Cloud.
-- **Implantação padrão**: exige um projeto na nuvem do Google Cloud vinculado à sua conta do AI Studio e o faturamento ativado nesse projeto.
+- [**Poziom startowy Google Cloud:**](https://docs.cloud.google.com/docs/starter-tier?hl=pl) umożliwia kwalifikującym się kontom publikowanie maksymalnie 2 aplikacji pełnostosowych bez konfigurowania projektu w chmurze Google Cloud ani konta rozliczeniowego.
+- **Wdrożenie standardowe:** wymaga projektu Google Cloud połączonego z kontem AI Studio i włączonych płatności w tym projekcie.
 
-## Sobre o nível Starter
+## Informacje o poziomie Starter
 
-O nível Starter do Google Cloud oferece um caminho simplificado para que contas qualificadas
-implantem aplicativos no Google Cloud diretamente do Google AI Studio. Não é necessário configurar um ambiente completo do Google Cloud ou uma conta de faturamento.
+Poziom startowy Google Cloud zapewnia uproszczoną ścieżkę wdrażania aplikacji w Google Cloud bezpośrednio z Google AI Studio w przypadku kwalifikujących się kont. Nie musisz konfigurować pełnego środowiska Google Cloud ani konta rozliczeniowego.
 
-Cada implantação do Google AI Studio cria um serviço correspondente no
-Cloud Run. Para serviços implantados no Google AI Studio com o nível
-Starter, as seguintes limitações se aplicam:
+Każde wdrożenie w Google AI Studio tworzy odpowiednią usługę w Cloud Run. W przypadku usług wdrożonych w Google AI Studio w ramach pakietu Starter obowiązują te ograniczenia:
 
-- É possível implantar até dois serviços.
-- Seus serviços são implantados em uma [única região do Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=pt-br).
+- Możesz wdrożyć maksymalnie 2 usługi.
+- Usługi są wdrażane w [jednym regionie Cloud Run](https://docs.cloud.google.com/run/docs/locations?hl=pl).
 
-### Qualificação para o nível Starter
+### Kto może korzystać z poziomu startowego
 
-Nem todas as contas estão qualificadas para o nível Starter do Google Cloud. Sua conta poderá não estar qualificada se alguma das seguintes situações se aplicar:
+Nie wszystkie konta kwalifikują się do korzystania z poziomu Starter Google Cloud. Twoje konto może nie kwalifikować się do programu, jeśli spełnia którykolwiek z tych warunków:
 
-- Você fez login com uma conta do Google Workspace (incluindo assinaturas pagas ou sem custo financeiro do Google Workspace, Google Workspace for Education ou Google para organizações sem fins lucrativos).
-- Você tem uma conta de faturamento do Google Cloud ativa ou paga anteriormente.
-- No momento, não temos evidências suficientes da atividade da sua conta para conceder acesso ao nível inicial.
+- Korzystasz z konta Google Workspace (w tym płatnych lub bezpłatnych subskrypcji Google Workspace, Google Workspace for Education lub Google for Nonprofits).
+- Masz aktywne lub poprzednie płatne konto rozliczeniowe Google Cloud.
+- Nie mamy wystarczających dowodów na podstawie aktywności na Twoim koncie, aby przyznać Ci obecnie dostęp do poziomu startowego.
 
-A equipe de suporte do Google AI Studio não pode substituir a qualificação para o nível Starter. Se a sua conta não estiver qualificada, anexe uma conta de faturamento e use a [implantação padrão](#standard-deployment) para publicar apps.
+Zespół pomocy Google AI Studio nie może zmienić kwalifikacji do poziomu Starter. Jeśli Twoje konto nie spełnia wymagań, dołącz konto rozliczeniowe i użyj [standardowego wdrażania](#standard-deployment), aby opublikować aplikacje.
 
-## Implantar com o nível Starter
+## Wdrażanie na poziomie Starter
 
-Depois de criar o app no modo de criação, implante-o com o nível Starter:
+Po zaprojektowaniu aplikacji w trybie tworzenia wdróż ją na poziomie Starter:
 
-1. Clique no botão **Publicar** no canto superior direito.
-2. Clique em **Primeiros passos**.
-3. Clique em **Publicar app**.
+1. W prawym górnym rogu kliknij przycisk **Opublikuj**.
+2. Kliknij **Rozpocznij**.
+3. Kliknij **Opublikuj aplikację**.
 
-Quando a implantação for concluída, o AI Studio vai fornecer um URL do Cloud Run em que você pode
-acessar seu aplicativo ativo.
+Po zakończeniu wdrażania AI Studio udostępnia adres URL Cloud Run, pod którym możesz uzyskać dostęp do aktywnej aplikacji.
 
-## URLs personalizados para o AI Studio
+## Niestandardowe adresy URL w AI Studio
 
-Ao publicar um aplicativo no Google AI Studio, você pode definir um subdomínio personalizado e
-fácil de lembrar em `ai.studio` (por exemplo,
-`https://your-app-name.ai.studio`).
+Podczas publikowania aplikacji z Google AI Studio możesz ustawić niestandardową, łatwą do zapamiętania subdomenę w sekcji `ai.studio` (np. `https://your-app-name.ai.studio`).
 
-O Google AI Studio exige que os subdomínios sejam globalmente exclusivos em todos os projetos
-e os atribui por ordem de chegada. Se outro projeto já usar um nome, o AI Studio vai pedir para você escolher outro. Se você
-cancelar a publicação ou excluir um aplicativo, o URL personalizado dele será liberado e ficará
-disponível para outros usuários reivindicarem.
+Google AI Studio wymaga, aby subdomeny były globalnie unikalne we wszystkich projektach i przydziela je według kolejności zgłoszeń. Jeśli inna nazwa projektu jest już używana, AI Studio poprosi Cię o wybranie innej. Jeśli wycofasz publikację aplikacji lub ją usuniesz, jej niestandardowy adres URL zostanie zwolniony i będzie dostępny dla innych użytkowników.
 
-### Definir um URL personalizado
+### Ustawianie niestandardowego adresu URL
 
-Para definir ou atualizar um URL personalizado para seu aplicativo:
+Aby ustawić lub zaktualizować niestandardowy adres URL aplikacji:
 
-1. Abra seu aplicativo no Google AI Studio no modo **Criar**.
-2. Clique em **Publicar** no canto superior direito.
-3. Na configuração de implantação, insira seu subdomínio preferido no campo **URL personalizado** ou aceite o URL sugerido.
-4. Clique em **Publicar app**.
+1. Otwórz aplikację w Google AI Studio w trybie **Tworzenie**.
+2. W prawym górnym rogu kliknij **Opublikuj**.
+3. W konfiguracji wdrożenia wpisz preferowaną subdomenę w polu **Niestandardowy URL** lub zaakceptuj sugerowany adres URL.
+4. Kliknij **Opublikuj aplikację**.
 
-Para transferir um URL personalizado para outro aplicativo, primeiro
-cancele a publicação ou exclua o aplicativo que está atribuído a esse URL personalizado e depois
-publique o novo aplicativo usando o subdomínio escolhido.
+Aby przenieść istniejący niestandardowy adres URL do innej aplikacji, musisz najpierw wycofać z publikacji lub usunąć aplikację, do której jest przypisany ten niestandardowy adres URL, a następnie opublikować nową aplikację, używając wybranej subdomeny.
 
-### Denunciar problemas de direitos autorais ou marca registrada
+### Zgłaszanie problemów dotyczących znaków towarowych lub praw autorskich
 
-Os subdomínios personalizados precisam obedecer aos [Termos de Serviço do Google](https://policies.google.com/terms?hl=pt-br). Se você notar um URL personalizado que viola uma marca registrada ou usa um nome protegido por direitos autorais sem permissão, denuncie usando o [solucionador de problemas legais do Google](https://support.google.com/legal/troubleshooter/1114905?hl=pt-br).
+Niestandardowe subdomeny muszą być zgodne z [Warunkami korzystania z usług Google](https://policies.google.com/terms?hl=pl). Jeśli zauważysz niestandardowy adres URL, który narusza znak towarowy lub wykorzystuje nazwę chronioną prawem autorskim bez pozwolenia, możesz to zgłosić za pomocą [narzędzia Google do rozwiązywania problemów prawnych](https://support.google.com/legal/troubleshooter/1114905?hl=pl).
 
-## Implantação padrão
+## Wdrożenie standardowe
 
-À medida que seus aplicativos evoluem, você pode precisar de recursos além do nível Starter, como cotas mais altas, mais recursos de computação ou outros produtos do Google Cloud não disponíveis nesse nível. Para desbloquear
-essas funcionalidades, você pode converter seu projeto totalmente gerenciado do nível Starter em
-um projeto padrão do Google Cloud.
+W miarę rozwoju aplikacji możesz potrzebować funkcji wykraczających poza poziom Starter, takich jak wyższe limity, większe zasoby obliczeniowe lub inne usługi Google Cloud niedostępne na poziomie Starter. Aby odblokować te funkcje, możesz przekształcić w pełni zarządzany projekt w ramach pakietu Starter w standardowy projekt Google Cloud.
 
-Isso garante que você possa dimensionar sem perder o progresso. Siga as etapas para
-[criar uma conta do Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=pt-br#create-new-billing-account),
-aceitar formalmente os Termos de Serviço padrão do Google Cloud e
-[fazer upgrade para um projeto padrão do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br#upgradee).
-Para mais informações, consulte
-[Configuração para contas pagas](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pt-br#paid-setup).
+Dzięki temu możesz bezproblemowo skalować kampanie bez utraty postępów. Wykonaj czynności, aby [utworzyć konto rozliczeniowe Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/create-billing-account?hl=pl#create-new-billing-account), formalnie zaakceptować standardowe Warunki korzystania z usługi Google Cloud i [przejść na standardowy projekt Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pl#upgradee).
+Więcej informacji znajdziesz w artykule [Konfiguracja kont płatnych](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=pl#paid-setup).
 
-Para saber mais sobre os níveis de faturamento, consulte [Faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br).
+Więcej informacji o poziomach płatności znajdziesz w sekcji [Płatności](https://ai.google.dev/gemini-api/docs/billing?hl=pl).
 
-## Excluir sua inscrição
+## Usuwanie aplikacji
 
-Se você não precisar mais do app, siga estas instruções para excluí-lo no Google AI Studio:
+Jeśli nie potrzebujesz już aplikacji, możesz ją usunąć w Google AI Studio, wykonując te czynności:
 
-1. No Google AI Studio, acesse a
-   [página de apps](https://aistudio.google.com/app/apps?hl=pt-br).
-2. No menu à esquerda, selecione **Apps**.
-3. Passe o cursor sobre o app que você quer excluir.
-4. Clique no ícone de lixeira no lado direito da linha para excluir o app.
+1. W Google AI Studio otwórz [stronę Aplikacje](https://aistudio.google.com/app/apps?hl=pl).
+2. W menu po lewej stronie kliknij **Aplikacje**.
+3. Umieść wskaźnik nad aplikacją, którą chcesz usunąć.
+4. Aby usunąć aplikację, kliknij ikonę kosza po prawej stronie wiersza.
 
-## A seguir
+## Co dalej?
 
-- Saiba mais sobre o
-  [nível Starter do Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pt-br).
-- Leia sobre o [faturamento](https://ai.google.dev/gemini-api/docs/billing?hl=pt-br) na API Gemini.
+- Dowiedz się więcej o [poziomie startowym Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=pl).
+- Dowiedz się więcej o [płatnościach](https://ai.google.dev/gemini-api/docs/billing?hl=pl) za Gemini API.
 
-Envie comentários
+Prześlij opinię
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Última atualização 2026-09-28 UTC.
+Ostatnia aktualizacja: 2026-09-28 UTC.
 
-Quer enviar seu feedback?
+Chcesz przekazać coś jeszcze?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-28 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-28 UTC."],[],[]]

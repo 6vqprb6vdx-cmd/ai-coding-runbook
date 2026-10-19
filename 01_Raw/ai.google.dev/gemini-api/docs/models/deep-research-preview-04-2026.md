@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-preview-04-2026?hl=it
-fetched_at: 2026-10-12T06:54:40.925142+00:00
+fetched_at: 2026-10-19T05:48:23.084206+00:00
 title: "Anteprima di Deep Research \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 

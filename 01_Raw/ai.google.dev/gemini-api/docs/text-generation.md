@@ -1,27 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=bn
-fetched_at: 2026-10-12T07:16:08.537922+00:00
-title: "\u099f\u09c7\u0995\u09cd\u09b8\u099f \u09a4\u09c8\u09b0\u09bf \u0995\u09b0\u09be \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=fa
+fetched_at: 2026-10-19T05:33:31.411952+00:00
+title: "\u062a\u0648\u0644\u06cc\u062f \u0646\u0648\u0634\u062a\u0627\u0631 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-জেমিনি ৩.৮ ফ্ল্যাশ এখন পাওয়া যাচ্ছে। [ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=bn) ।
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [হোম](https://ai.google.dev/?hl=bn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
-- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-মতামত জানান
+ارسال بازخورد
 
-# টেক্সট তৈরি করা
+# تولید نوشتار
 
-Gemini API, টেক্সট, ছবি, ভিডিও ও অডিও
-ইনপুট থেকে টেক্সট আউটপুট জেনারেট করতে পারে।
+«میانای برنامه‌سازی کاربردی Gemini» می‌تواند از ورودی‌های نوشتار، تصویر، ویدیو، و صدا برونداد نوشتاری تولید کند.
 
-এখানে একটি প্রাথমিক উদাহরণ দেওয়া হল:
+در اینجا یک مثال ساده آورده شده است:
 
 ### Python
 
@@ -37,7 +36,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -55,7 +54,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -79,7 +78,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -129,25 +128,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-মডেলের উত্তর অ্যাক্সেস করার জন্য Google GenAI SDK, রিটার্ন করা `Interaction` অবজেক্টে সরাসরি
-কনভেনিয়েন্স প্রপার্টি প্রদান করে।
+«کیت‌های توسعه نرم‌افزار هوش مصنوعی زایای Google» مستقیماً در
+شیء `Interaction` برگشتی، دارایی‌های راحتی برای دسترسی به پاسخ مدل ارائه می‌دهند.
 
-সবচেয়ে সাধারণ হেল্পার হল **`interaction.output_text`** (স্ট্রিং), যা মডেলের উত্তরে
-শেষ টেক্সট ব্লক রিটার্ন করে। উত্তরটি একাধিক পরপর `TextContent` ব্লকে
-বিভক্ত করা থাকলে, এটি অটোমেটিক সেগুলিকে একত্রিত করে।
-মনে রাখবেন, `.output_text`-এ
-নন-টেক্সট কন্টেন্ট (যেমন, ভাবনা, ছবি, অডিও বা টুল কল) দ্বারা আলাদা করা আগের টেক্সট ব্লক অন্তর্ভুক্ত থাকে না। জটিল
-বা ইন্টারলিভড মাল্টিমোডাল উত্তরের ক্ষেত্রে, আপনাকে `steps`
-ম্যানুয়ালি ইটারেট করতে হবে। অন্যান্য মিডিয়া কনভেনিয়েন্স প্রপার্টি সম্পর্কে আরও জানতে, [ইন্টার‍্যাকশন ওভারভিউ](https://ai.google.dev/gemini-api/docs/interactions?hl=bn#convenience-properties) দেখুন।
+رایج‌ترین کمک‌کننده **`interaction.output_text`** (رشته) است که
+آخرین بلوک‌های نوشتاری را در پاسخ مدل برمی‌گرداند. اگر پاسخ در
+چند بلوک متوالی `TextContent` تقسیم شده باشد، به‌طور خودکار به آن‌ها می‌پیوندد.
+توجه داشته باشید که `.output_text` شامل بلوک‌های نوشتاری قبلی که با محتوای غیرنوشتاری (مثل افکار، تصاویر، صدا، یا فراخوانی ابزار) ازهم جدا شده‌اند نمی‌شود. برای پاسخ‌های چندحالتی پیچیده
+یا درهم‌تنیده، باید به‌جای آن به‌صورت دستی روی `steps`
+تکرار کنید. برای کسب اطلاعات بیشتر درباره دیگر دارایی‌های راحتی رسانه، به
+[نمای کلی تعاملات](https://ai.google.dev/gemini-api/docs/interactions?hl=fa#convenience-properties) مراجعه کنید.
 
-## Gemini-র সাথে চিন্তাভাবনা করা
+## اندیشیدن با Gemini
 
-Gemini মডেলে সাধারণত ডিফল্ট হিসেবে ["থিঙ্কিং"](https://ai.google.dev/gemini-api/docs/thinking?hl=bn)
-চালু করা থাকে, যা মডেলকে কোনও
-অনুরোধের উত্তর দেওয়ার আগে যুক্তি দেওয়ার অনুমতি দেয়।
+مدل‌های Gemini اغلب به‌طور پیش‌فرض [«تفکر»](https://ai.google.dev/gemini-api/docs/thinking?hl=fa) را فعال دارند که به مدل اجازه می‌دهد قبل‌از پاسخ دادن به درخواست، استدلال کند.
 
-প্রতিটি মডেল আলাদা আলাদা থিঙ্কিং কনফিগারেশন সাপোর্ট করে যা আপনাকে খরচ,
-লেটেন্সি ও বুদ্ধিমত্তার উপর কন্ট্রোল দেয়। আরও বিবরণের জন্য, [চিন্তন গাইড](https://ai.google.dev/gemini-api/docs/thinking?hl=bn#thinking-levels) দেখুন।
+هر مدل از پیکربندی‌های تفکر متفاوتی پشتیبانی می‌کند که به شما امکان می‌دهد
+هزینه، تأخیر، و هوش را کنترل کنید. برای جزئیات بیشتر،
+[راهنمای تفکر](https://ai.google.dev/gemini-api/docs/thinking?hl=fa#thinking-levels) را ببینید.
 
 ### Python
 
@@ -166,7 +164,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -187,7 +185,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -214,7 +212,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -255,7 +253,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -270,10 +268,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## সিস্টেম নির্দেশাবলী ও অন্যান্য কনফিগারেশন
+## دستورالعمل‌های سیستم و پیکربندی‌های دیگر
 
-সিস্টেম নির্দেশাবলীর মাধ্যমে আপনি Gemini মডেলের আচরণ গাইড করতে পারবেন। মডেলের আচরণ কনফিগার করতে
-একটি `system_instruction` প্যারামিটার পাস করুন।
+می‌توانید رفتار مدل‌های Gemini را با دستورالعمل‌های سیستم هدایت کنید. برای پیکربندی رفتار مدل،
+پارامتر `system_instruction` را ارسال کنید.
 
 ### Python
 
@@ -291,7 +289,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -310,7 +308,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -335,7 +333,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -374,7 +372,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -387,8 +385,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-এছাড়াও, আপনি `generation_config` প্যারামিটার ব্যবহার করে ডিফল্ট জেনারেশন প্যারামিটার ওভাররাইড করতে পারবেন, যেমন
-টেম্পারেচার।
+همچنین می‌توانید پارامترهای تولید پیش‌فرض، مانند
+`max_output_tokens` یا `thinking_level` را بااستفاده از پارامتر `generation_config` لغو کنید.
 
 ### Python
 
@@ -401,13 +399,13 @@ interaction = client.interactions.create(
     model="gemini-3.8-flash",
     input="Explain how AI works",
     generation_config={
-        "temperature": 1.0
+        "max_output_tokens": 500
     }
 )
 print(interaction.output_text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -419,7 +417,7 @@ async function main() {
     model: "gemini-3.8-flash",
     input: "Explain how AI works",
     generation_config: {
-      temperature: 1.0,
+      max_output_tokens: 500,
     },
   });
   console.log(interaction.output_text);
@@ -428,7 +426,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -454,7 +452,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -510,14 +508,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-কনফিগার করা যায় এমন প্যারামিটার ও সেগুলির
-বিবরণের সম্পূর্ণ তালিকা পেতে [Interaction API রেফারেন্স](https://ai.google.dev/api/interactions-api?hl=bn)
-দেখুন।
+برای فهرست کامل پارامترهای پیکربندی‌شدنی و
+توضیحات آن‌ها، به [مرجع «میانای برنامه‌سازی کاربردی تعاملات»](https://ai.google.dev/api/interactions-api?hl=fa) مراجعه کنید.
 
-## মাল্টিমোডাল ইনপুট
+## ورودی‌های چندحالته
 
-Gemini API মাল্টিমোডাল ইনপুট সাপোর্ট করে, যা আপনাকে মিডিয়া ফাইলের সাথে টেক্সট
-কম্বাইন করতে দেয়। নিচের উদাহরণে ছবি প্রদান করার বিষয়টি দেখানো হয়েছে:
+‫Gemini API از ورودی‌های چندحالته پشتیبانی می‌کند و به شما امکان می‌دهد نوشتار را با
+فایل‌های رسانه‌ای ترکیب کنید. مثال زیر نحوه ارائه تصویر را نشان می‌دهد:
 
 ### Python
 
@@ -542,7 +539,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -572,7 +569,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -615,7 +612,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -689,21 +686,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-ছবি প্রদান করার বিকল্প পদ্ধতি এবং আরও উন্নত ছবি প্রসেসিং সম্পর্কে জানতে,
-আমাদের [ছবি বোঝা সংক্রান্ত নির্দেশিকা](https://ai.google.dev/gemini-api/docs/image-understanding?hl=bn) দেখুন।
-এছাড়াও, API [ডকুমেন্ট](https://ai.google.dev/gemini-api/docs/document-processing?hl=bn), [ভিডিও](https://ai.google.dev/gemini-api/docs/video-understanding?hl=bn) এবং
-[অডিও](https://ai.google.dev/gemini-api/docs/audio?hl=bn) ইনপুট ও তা বোঝার ব্যাপারে সহায়তা করে।
+برای روش‌های جایگزین ارائه تصاویر و پردازش تصویر پیشرفته‌تر،
+به [راهنمای درک تصویر](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fa) ما مراجعه کنید.
+این API از ورودی‌ها و درک [سند](https://ai.google.dev/gemini-api/docs/document-processing?hl=fa)، [ویدیو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa)، و
+[صوت](https://ai.google.dev/gemini-api/docs/audio?hl=fa) نیز پشتیبانی می‌کند.
 
-## উত্তর স্ট্রিম করা
+## جاری‌سازی پاسخ‌ها
 
-সাধারণত, মডেলটি সম্পূর্ণ জেনারেশন
-প্রসেস সম্পূর্ণ হওয়ার পরেই উত্তর দেয়।
+به‌طور پیش‌فرض، مدل فقط پس‌از تکمیل کل فرایند تولید، پاسخ را برمی‌گرداند.
 
-আরও সাবলীল ইন্টার‍্যাকশনের জন্য, উত্তর তৈরি হওয়ার সাথে সাথেই
-সেগুলি স্ট্রিম করার মাধ্যমে ম্যানেজ করুন। ইভেন্টের ধরন,
-টুল ব্যবহার করে স্ট্রিমিং, চিন্তাভাবনা, এজেন্ট ও ছবি তৈরি করা সহ একটি বিস্তারিত নির্দেশিকার জন্য,
-ডেডিকেটেড [স্ট্রিমিং ইন্ট্যার‍্যাকশন](https://ai.google.dev/gemini-api/docs/streaming?hl=bn)
-নির্দেশিকা দেখুন।
+برای تعاملات روان‌تر، از جاری‌سازی برای مدیریت بخش‌های پاسخ
+به‌محض تولید شدن استفاده کنید. برای راهنمای جامع پوشش‌دهنده انواع رویداد،
+جاری‌سازی با ابزارها، تفکر، عامل‌ها، و تولید تصویر، به
+راهنمای اختصاصی [تعاملات جاری‌سازی](https://ai.google.dev/gemini-api/docs/streaming?hl=fa)
+مراجعه کنید.
 
 ### Python
 
@@ -723,7 +719,7 @@ for event in stream:
             print(event.delta.text, end="")
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -749,7 +745,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -790,7 +786,7 @@ try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
 }
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -839,7 +835,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
@@ -853,11 +849,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## একাধিক কথোপকথন
+## مکالمه‌های چندنوبتی
 
-Interactions API, `previous_interaction_id` ব্যবহার করে একসাথে ইন্ট্যার‍্যাকশন
-চেন করার মাধ্যমে একাধিক কথোপকথন সমর্থন করে। প্রতিটি টার্ন হল আলাদা আলাদা ইন্ট্যার‍্যাকশন,
-এবং API অটোমেটিক কথোপকথনের ইতিহাস ম্যানেজ করে।
+‫Interactions API با زنجیر کردن تعامل‌ها بااستفاده از `previous_interaction_id` از مکالمه‌های چندنوبتی پشتیبانی می‌کند. هر نوبت یک تعامل جداگانه است،
+و API به‌طور خودکار سابقه مکالمه را مدیریت می‌کند.
 
 ### Python
 
@@ -880,7 +875,7 @@ interaction2 = client.interactions.create(
 print(interaction2.output_text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -905,7 +900,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -939,7 +934,7 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -992,7 +987,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1015,8 +1010,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-এছাড়াও, স্ট্রিমিং পদ্ধতিগুলির সাথে
-`previous_interaction_id` মিলিয়ে একাধিক কথোপকথনের জন্য স্ট্রিমিং ব্যবহার করা যেতে পারে।
+جاری‌سازی را می‌توان با ترکیب کردن
+`previous_interaction_id` با روش‌های جاری‌سازی برای مکالمه‌های چندنوبتی نیز استفاده کرد.
 
 ### Python
 
@@ -1043,7 +1038,7 @@ for event in stream:
             print(event.delta.text, end="")
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1075,7 +1070,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1128,7 +1123,7 @@ try (EventStream<InteractionSSEStreamEvent> stream = response2.events()) {
 }
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -1212,14 +1207,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## স্টেটলেস কথোপকথন
+## مکالمه‌های بدون حالت
 
-সাধারণত, আপনি `previous_interaction_id` ব্যবহার করলে, Interactions API সার্ভার-সাইডে কথোপকথনের স্টেট ম্যানেজ করে। তবে, ক্লায়েন্ট সাইডে কথোপকথনের ইতিহাস ম্যানেজ করার মাধ্যমে আপনি স্টেটলেস মোডেও কাজ করতে পারবেন।
+به‌طور پیش‌فرض، وقتی از `previous_interaction_id` استفاده می‌کنید، Interactions API وضعیت مکالمه را در سمت سرور مدیریت می‌کند. بااین‌حال، می‌توانید با مدیریت سابقه مکالمه در سمت کارخواه، در حالت بی‌وضعیت نیز کار کنید.
 
-স্টেটলেস মোড ব্যবহার করতে:
-১. সার্ভার-সাইড স্টোরেজ থেকে অপ্ট-আউট করতে আপনার অনুরোধে `store=false` সেট করুন।
-২. ক্লায়েন্ট সাইডে **ধাপ** হিসেবে কথোপকথনের ইতিহাস একটি অ্যারেতে বজায় রাখুন।
-৩. পরবর্তী অনুরোধে, `input` ফিল্ডে জমা হওয়া ধাপগুলি পাস করুন এবং `user_input` ধাপ হিসেবে আপনার নতুন টার্ন যোগ করুন।
+برای استفاده از حالت بدون وضعیت:
+۱. برای انصراف دادن از ذخیره‌سازی سمت سرور، `store=false` را در درخواستتان تنظیم کنید.
+۲. سابقه مکالمه را به‌عنوان آرایه‌ای از **مراحل** در سمت کارخواه حفظ کنید.
+۳. در درخواست‌های بعدی، مراحل انباشته‌شده را در فیلد `input` ارسال کنید و نوبت جدیدتان را به‌عنوان مرحله `user_input` اضافه کنید.
 
 ### Python
 
@@ -1258,7 +1253,7 @@ interaction2 = client.interactions.create(
 print("Response 2:", interaction2.steps[-1].content[0].text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1298,7 +1293,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1352,7 +1347,7 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
-### খুলুন
+### رفتن
 
 ```
 package main
@@ -1454,30 +1449,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## প্রম্পট সংক্রান্ত পরামর্শ
+## نکته‌های پیام‌واره
 
-Gemini থেকে সবচেয়ে বেশি সুবিধা পাওয়ার ব্যাপারে সাজেশন পেতে, আমাদের [প্রম্পট ইঞ্জিনিয়ারিং গাইড](https://ai.google.dev/gemini/docs/prompting-strategies?hl=bn) দেখুন।
+برای دریافت پیشنهادهایی درباره بیشترین بهره‌برداری از Gemini، به [راهنمای مهندسی پیام‌واره](https://ai.google.dev/gemini/docs/prompting-strategies?hl=fa) ما مراجعه کنید.
 
-## এর পরে কী করতে হবে
+## قدم بعدی چیست
 
-- [Google AI Studio-তে Gemini](https://aistudio.google.com?hl=bn) ব্যবহার করে দেখুন।
-- JSON-এর মতো উত্তরের জন্য
-  [স্ট্রাকচার্ড আউটপুট](https://ai.google.dev/gemini-api/docs/structured-output?hl=bn) নিয়ে
-  এক্সপেরিমেন্ট করুন।
-- Gemini-র [ছবি](https://ai.google.dev/gemini-api/docs/image-understanding?hl=bn),
-  [ভিডিও](https://ai.google.dev/gemini-api/docs/video-understanding?hl=bn),
-  [অডিও](https://ai.google.dev/gemini-api/docs/audio?hl=bn) এবং
-  [ডকুমেন্ট](https://ai.google.dev/gemini-api/docs/document-processing?hl=bn) বোঝার
-  ক্ষমতা এক্সপ্লোর করুন।
-- মাল্টিমোডাল
-  [ফাইল প্রম্পটিং স্ট্র্যাটেজি](https://ai.google.dev/gemini-api/docs/files?hl=bn#prompt-guide) সম্পর্কে জানুন।
+- [Gemini را در Google AI Studio](https://aistudio.google.com?hl=fa) امتحان کنید.
+- با
+  [بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa) برای
+  پاسخ‌های شبیه JSON آزمایش کنید.
+- قابلیت‌های درک [تصویر](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fa)،
+  [ویدیو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa)،
+  [صدا](https://ai.google.dev/gemini-api/docs/audio?hl=fa)، و
+  [سند](https://ai.google.dev/gemini-api/docs/document-processing?hl=fa) Gemini را کاوش کنید.
+- درباره
+  [استراتژی‌های پیام‌واره فایل](https://ai.google.dev/gemini-api/docs/files?hl=fa#prompt-guide) چندوجهی بیشتر بدانید.
 
-মতামত জানান
+ارسال بازخورد
 
-অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।
+تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی.
 
-আমাদের আরও কিছু জানাতে চান?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی."],[],[]]

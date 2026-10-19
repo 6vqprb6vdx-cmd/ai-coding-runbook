@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=fa
-fetched_at: 2026-10-12T07:15:08.580977+00:00
-title: "\u0642\u0644\u0627\u0628\u200c\u0647\u0627 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=vi
+fetched_at: 2026-10-19T05:30:29.664733+00:00
+title: "M\u00f3c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash اکنون در دسترس است. [آن را امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fa) .
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ارسال بازخورد
+Gửi ý kiến phản hồi
 
-# قلاب‌ها
+# Móc
 
-قلاب‌ها به شما امکان می‌دهند درست قبل یا بعداز اینکه کارگزار کد را اجرا می‌کند یا فایل‌ها را در جعبه امن از دور اصلاح می‌کند، پلاتین‌های سفارشی یا درخواست‌های HTTP خارجی را اجرا کنید. از قلاب‌ها برای گسترش حلقه عامل با نرده‌های محافظ خودکار و گردش‌های کار پس‌زمینه‌ای استفاده کنید، مثلاً:
+Các hook cho phép bạn chạy tập lệnh tuỳ chỉnh hoặc các yêu cầu HTTP bên ngoài ngay trước hoặc sau khi tác nhân thực thi mã hoặc sửa đổi tệp trong hộp cát từ xa. Sử dụng các hook để mở rộng vòng lặp của tác nhân bằng các quy trình công việc ở chế độ nền và hàng rào tự động, chẳng hạn như:
 
-- **اجرای محافظ‌های ایمنی و دسترسی** قبل‌از اجرای دستورات پوسته پرخطر یا خواندن فایل‌های محدودشده.
-- **خودکارسازی تبدیل‌های خط لوله داده** بلافاصله پس‌از اینکه کارگزاری فایل‌ها را ایجاد یا اصلاح می‌کند.
-- **جاری‌سازی داده‌های تله‌متری ممیزی سازمانی** به سیستم‌های پایش خارجی پس‌از اجرای ابزار.
+- **Thực thi các biện pháp bảo vệ an toàn và quyền truy cập** trước khi thực thi các lệnh shell có mức độ rủi ro cao hoặc các thao tác đọc tệp bị hạn chế.
+- **Tự động hoá các hoạt động chuyển đổi quy trình dữ liệu** ngay sau khi một nhân viên tạo hoặc sửa đổi tệp.
+- **Truyền trực tuyến dữ liệu đo từ xa kiểm tra doanh nghiệp** đến các hệ thống giám sát bên ngoài sau khi thực thi công cụ.
 
 ### Python
 
@@ -139,7 +139,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -211,7 +211,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -320,20 +320,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## رویدادهای چرخه حیات پشتیبانی‌شده
+## Các sự kiện trong vòng đời được hỗ trợ
 
-قلاب‌ها از ۲ رویداد در جعبه شنی پشتیبانی می‌کنند:
+Các hook hỗ trợ 2 sự kiện trong hộp cát:
 
-| رویداد | وقتی فعال می‌شود | کارکرد |
+| Sự kiện | Thời điểm kích hoạt | Ý nghĩa |
 | --- | --- | --- |
-| `pre_tool_execution` | درست قبل‌از اجرای ابزار | می‌تواند ابزار را قبل‌از اجرا تأیید (`allow`) یا مسدود (`deny`) کند. وقتی مسدود شود، مدل دلیل رد کردن شما را می‌بیند و خود را تطبیق می‌دهد. |
-| `post_tool_execution` | بلافاصله پس‌از پایان ابزار | تکالیف پیگیری مانند قالب‌بندی کد، اجرای آزمون‌های واحد، یا ثبت تله‌متری را اجرا می‌کند. نمی‌توانید کنش‌های تکمیل‌شده را مسدود یا واگرد کنید. |
+| `pre_tool_execution` | Ngay trước khi một công cụ chạy | Có thể phê duyệt (`allow`) hoặc chặn (`deny`) công cụ này trước khi công cụ thực thi. Khi bị chặn, mô hình sẽ thấy lý do bạn từ chối và điều chỉnh. |
+| `post_tool_execution` | Ngay sau khi một công cụ hoàn tất | Chạy các tác vụ tiếp theo như định dạng mã, chạy kiểm thử đơn vị hoặc ghi nhật ký đo từ xa. Không thể chặn hoặc huỷ các thao tác đã hoàn tất. |
 
 ### `pre_tool_execution`
 
-درست قبل‌از اجرای ابزار فعال می‌شود. نوشتار شما جزئیات تماس ابزار را از `stdin` می‌خواند و تصمیم JSON آن (`allow` یا `deny`) را در `stdout` برونداد می‌کند.
+Kích hoạt ngay trước khi một công cụ thực thi. Tập lệnh của bạn đọc thông tin chi tiết về lệnh gọi công cụ từ `stdin` và xuất JSON quyết định (`allow` hoặc `deny`) sang `stdout`.
 
-**واحد داده ورودی (`stdin`):**
+**Phần tải đầu vào (`stdin`):**
 
 ```
 {
@@ -348,9 +348,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-**پاسخ برونداد (`stdout`):**
+**Phản hồi đầu ra (`stdout`):**
 
-برای تأیید فراخوانی ابزار:
+Cách phê duyệt lệnh gọi công cụ:
 
 ```
 {
@@ -358,7 +358,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-برای مسدود کردن فراخوانی ابزار و برگرداندن بازخورد به مدل:
+Để chặn lệnh gọi công cụ và trả về ý kiến phản hồi cho mô hình:
 
 ```
 {
@@ -367,15 +367,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-وقتی قلابی فرمانی را رد می‌کند، تماس ابزار بلافاصله رد می‌شود. عامل نتیجه خطایی را که حاوی دلیل رد شما است درست در نوبت فعلی‌اش می‌بیند. سپس مدل می‌تواند با انتخاب فرمان جایگزین یا توضیح دادن مسدودسازی به کاربر، خود را اصلاح کند.
+Khi một lệnh từ chối lệnh, lệnh gọi công cụ sẽ bị bỏ qua ngay lập tức. Ngay trong lượt hiện tại, tác nhân sẽ thấy một kết quả lỗi có chứa lý do từ chối của bạn. Sau đó, mô hình có thể tự điều chỉnh bằng cách chọn một lệnh thay thế hoặc giải thích cho người dùng về khối này.
 
-اگر دستورگان شما JSON ناشناخته، نوشتار ساده، یا هر چیزی به‌جز `{"decision": "deny"}` را برون‌برد کند، زمان اجرا پاسخ را به‌عنوان تأیید (`allow`) درنظر می‌گیرد.
+Nếu tập lệnh của bạn xuất ra JSON, văn bản thuần tuý hoặc bất kỳ nội dung nào khác ngoài `{"decision": "deny"}` mà không được nhận dạng, thì thời gian chạy sẽ coi phản hồi đó là một phản hồi phê duyệt (`allow`).
 
 ### `post_tool_execution`
 
-بلافاصله پس‌از تکمیل ابزار اجرا می‌شود. نوشتار شما جزئیات اجرا و وضعیت خطا را از `stdin` می‌خواند.
+Kích hoạt ngay sau khi một công cụ hoàn tất. Tập lệnh của bạn sẽ đọc thông tin chi tiết về quá trình thực thi và mọi trạng thái lỗi từ `stdin`.
 
-**واحد داده ورودی (`stdin`):**
+**Phần tải đầu vào (`stdin`):**
 
 ```
 {
@@ -390,27 +390,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-اگر فرمان پوسته خطاها را در خطای استاندارد (`stderr`) چاپ کند یا عملیات سیستم فایل ناموفق باشد، فیلد `"error"` حاوی نوشتار خطا در بار گنجانده می‌شود. وقتی فرمان بدون خطا موفقیت‌آمیز باشد، فیلد `"error"` به‌طور کامل حذف می‌شود.
+Nếu một lệnh shell in lỗi ra lỗi chuẩn (`stderr`) hoặc một thao tác trên hệ thống tệp không thành công, thì một trường `"error"` chứa văn bản lỗi sẽ được đưa vào tải trọng. Khi lệnh thành công mà không có lỗi, trường `"error"` sẽ bị bỏ qua hoàn toàn.
 
-**پاسخ برونداد (`stdout`):**
+**Phản hồi đầu ra (`stdout`):**
 
 ```
 {}
 ```
 
-ازآنجایی‌که قلاب‌های پس‌ابزار فقط برای کارهای پس‌زمینه‌ای مثل قالب‌بندی کد یا ثبت گزارش اجرا می‌شوند، زمان اجرا هر مقدار تصمیم برگشتی در `stdout` را نادیده می‌گیرد.
+Vì các lệnh gọi sau công cụ chỉ chạy cho các tác vụ trong nền như định dạng mã hoặc ghi nhật ký, nên thời gian chạy sẽ bỏ qua mọi giá trị quyết định được trả về trên `stdout`.
 
-## کاوش پیکربندی
+## Khám phá cấu hình
 
-زمان اجرا به‌طور خودکار تعریف‌های قلاب را از `.agents/hooks.json` یا `/.agents/hooks.json` در محیط جعبه شنی پیدا می‌کند. می‌توانید `hooks.json` را درکنار دستورگان‌های سفارشی‌تان بااستفاده از هر [منبع محیط](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#mount_from_a_source) پشتیبانی‌شده‌ای ارائه دهید:
+Thời gian chạy sẽ tự động phát hiện các định nghĩa về lệnh gọi từ `.agents/hooks.json` hoặc `/.agents/hooks.json` trong môi trường hộp cát. Bạn có thể cung cấp `hooks.json` cùng với các tập lệnh tuỳ chỉnh bằng cách sử dụng bất kỳ [nguồn môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#mount_from_a_source) nào được hỗ trợ:
 
-- **نصب مخزن**: مخزن Git حاوی `.agents/hooks.json` در کنار `AGENTS.md`.
-- **Cloud Storage‏ (`gcs`)**: مخزن GCS حاوی `hooks.json` که در محیط کپی شده است.
-- **منابع درون‌خطی**: رشته JSON خام و محتوای دستورگان که هنگام فراخوانی `client.interactions.create` در `environment.sources` ارسال می‌شود.
+- **Thư mục gốc của kho lưu trữ**: Kho lưu trữ Git chứa `.agents/hooks.json` cùng với `AGENTS.md`.
+- **Cloud Storage (`gcs`)**: Bộ chứa GCS chứa `hooks.json` được sao chép vào môi trường.
+- **Nguồn nội tuyến**: Chuỗi JSON thô và nội dung tập lệnh được truyền trong `environment.sources` khi gọi `client.interactions.create`.
 
-### ‫`hooks.json` طرح‌واره
+### Lược đồ `hooks.json`
 
-فایل `hooks.json` تعاریف رویداد (`pre_tool_execution` یا `post_tool_execution`) را تحت نام‌های سفارشی گروه‌بندی می‌کند. می‌توانید هر گروه را به‌طور مستقل فعال یا غیرفعال کنید:
+Tệp `hooks.json` nhóm các định nghĩa về sự kiện (`pre_tool_execution` hoặc `post_tool_execution`) theo tên tuỳ chỉnh. Bạn có thể bật hoặc tắt từng nhóm một cách độc lập:
 
 ```
 {
@@ -446,71 +446,71 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### قواعد و نحو تطبیق‌دهنده
+### Cú pháp và quy tắc của bộ so khớp
 
-هر گروه قانون در `hooks.json` تعریف می‌کند که کنترل‌کننده‌ها بااستفاده از ویژگی‌های `matcher` و `hooks` چه زمانی و چگونه فعال شوند:
+Mỗi nhóm quy tắc trong `hooks.json` xác định thời điểm và cách các trình xử lý kích hoạt bằng cách sử dụng các thuộc tính `matcher` và `hooks`:
 
-| فیلد | نوع | شرح |
+| Trường | Loại | Mô tả |
 | --- | --- | --- |
-| `enabled` | `boolean` | اختیاری. برای غیرفعال کردن گروه، روی `false` تنظیم کنید (به‌طور پیش‌فرض `true` است). |
-| `matcher` | `string` | الگوی عبارت باقاعده که با نام‌های ابزار هدف در داخل محتوی مطابقت دارد. |
-| `hooks` | `array` | فهرست مرتب‌شده تعریف‌های کنترل‌کننده (`command` یا `http`). کنترل‌کننده‌ها به‌ترتیب در ترتیب بیانیه اجرا می‌شوند. |
+| `enabled` | `boolean` | Không bắt buộc. Đặt thành `false` để tắt nhóm (`true` theo mặc định). |
+| `matcher` | `string` | Mẫu biểu thức chính quy so khớp tên công cụ mục tiêu bên trong vùng chứa. |
+| `hooks` | `array` | Danh sách có thứ tự gồm các định nghĩa về trình xử lý (`command` hoặc `http`). Các trình xử lý chạy tuần tự theo thứ tự khai báo. |
 
-#### نحوه عملکرد ارزیابی عبارت باقاعده
+#### Cách hoạt động của quy trình đánh giá biểu thức chính quy
 
-وقتی عامل ابزاری را در محیط امن فراخوانی می‌کند، زمان اجرا نام ظرف ابزار را با الگوی `matcher` شما بااستفاده از عبارات منظم استاندارد RE2 ارزیابی می‌کند. اگر عبارت باقاعده با نام ابزار مطابقت داشته باشد، همه کنترل‌کننده‌های موجود در آرایه `hooks` به‌ترتیب اجرا می‌شوند. اگر چند گروه قانون با ابزار یکسانی مطابقت داشته باشند، همه آرایه‌های گرداننده مربوطه اجرا می‌شوند.
+Khi tác nhân gọi một công cụ bên trong hộp cát, thời gian chạy sẽ đánh giá tên vùng chứa của công cụ dựa trên mẫu `matcher` bằng cách sử dụng các biểu thức chính quy RE2 tiêu chuẩn. Nếu biểu thức chính quy khớp với tên công cụ, tất cả trình xử lý trong mảng `hooks` sẽ thực thi theo thứ tự. Nếu nhiều nhóm quy tắc khớp với cùng một công cụ, thì tất cả các mảng trình xử lý tương ứng sẽ chạy.
 
-می‌توانید هر نام ابزار داخلی ظرف را هدف‌یابی کنید: اجرای کد (`code_execution`) یا عملیات سیستم فایل (`view_file`،‏ `write_to_file`،‏ `replace_file_content`،‏ `list_dir`، و `delete_file`).
+Bạn có thể nhắm đến bất kỳ tên công cụ vùng chứa tích hợp nào: thực thi mã (`code_execution`) hoặc các thao tác trên hệ thống tệp (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` và `delete_file`).
 
-#### عبارت‌های تطبیق‌دهنده رایج
+#### Các biểu thức trình khớp thường dùng
 
-- `"code_execution"`: مطابقت دقیق رشته برای دستورات پوسته و اجرای دستورگان.
-- ‫`"write_to_file"`: مطابقت دقیق برای ایجاد فایل سیستم فایل و نوشتن روی دیسک.
-- ‫`"view_file|write_to_file"`: جداسازی با خط لوله با چندین نام ابزار خاص در یک قانون مطابقت دارد.
-- ‫`".*_file"`: مطابقت گل‌دار Regex با هر ابزاری که به `_file` ختم می‌شود (مثل `view_file`،‏ `write_to_file`، یا `delete_file`). این فقط بخشی از مجموعه ابزار سیستم فایل را پوشش می‌دهد، `replace_file_content` و `list_dir` به `_file` ختم نمی‌شوند، بنابراین وقتی به آن‌ها نیاز دارید، نامشان را به‌طور صریح ذکر کنید. عبارت‌های باقاعده RE2 استاندارد به `.*` نیاز دارند؛ globهای پوسته ساده مثل `*_file` ساختار عبارت باقاعده نامعتبر هستند و مطابقت پیدا نمی‌کنند.
-- `".*"` یا `"*"` یا `""`: الگوی فراگیری که هر تماس ابزاری را در محتوی رهگیری می‌کند.
+- `"code_execution"`: So khớp chuỗi chính xác cho các lệnh shell và quá trình thực thi tập lệnh.
+- `"write_to_file"`: So khớp chính xác cho hoạt động tạo tệp hệ thống tệp và ghi vào đĩa.
+- `"view_file|write_to_file"`: Phân tách bằng dấu sổ dọc để so khớp nhiều tên công cụ cụ thể trong một quy tắc duy nhất.
+- `".*_file"`: Biểu thức chính quy có ký tự đại diện khớp với mọi công cụ kết thúc bằng `_file` (chẳng hạn như `view_file`, `write_to_file` hoặc `delete_file`). Biểu thức này chỉ bao gồm một phần của bộ công cụ hệ thống tệp, `replace_file_content` và `list_dir` không kết thúc bằng `_file`, vì vậy, hãy đặt tên rõ ràng cho chúng khi bạn cần. Biểu thức chính quy RE2 tiêu chuẩn yêu cầu `.*`; các ký tự đại diện đơn giản của shell như `*_file` là cú pháp regex không hợp lệ và sẽ không khớp.
+- `".*"` hoặc `"*"` hoặc `""`: Mẫu chung chặn mọi lệnh gọi công cụ trong vùng chứa.
 
-## انواع مدیریت‌کننده
+## Các loại trình xử lý
 
-### قلاب‌های فرمان
+### Lệnh hook
 
-قلاب‌های فرمان، فرمان یا متن پوسته‌ای را در محیط امن اجرا می‌کنند. نوشتار JSON رویداد را در `stdin` دریافت می‌کند و JSON تصمیم خود را در `stdout` برون‌برد می‌کند.
+Lệnh hook thực thi một lệnh hoặc tập lệnh shell bên trong hộp cát. Tập lệnh này nhận JSON sự kiện trên `stdin` và xuất JSON quyết định trên `stdout`.
 
-| فیلد | نوع | شرح |
+| Trường | Loại | Mô tả |
 | --- | --- | --- |
-| `type` | `string` | باید `"command"` باشد. |
-| `command` | `string` | خط فرمان برای اجرا در جعبه شنی (برای مثال، `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | مهلت زمانی برحسب ثانیه. پیش‌فرض: `30`. |
+| `type` | `string` | Phải là `"command"`. |
+| `command` | `string` | Dòng lệnh để chạy trong hộp cát (ví dụ: `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | Thời gian chờ tính bằng giây. Mặc định: `30`. |
 
-### قلاب‌های HTTP
+### Các lệnh gọi HTTP
 
-قلاب‌های HTTP رویداد JSON را به‌عنوان درخواست POST مستقیماً از داخل شبکه sandbox به نشانی وب HTTPS خارجی ارسال می‌کنند. کارساز هدف تصمیم خود را در بدنه پاسخ HTTP بااستفاده از همان قالب JSON (`{"decision": "allow"}` یا `{"decision": "deny", "reason": "..."}`) برمی‌گرداند.
+Các lệnh gọi HTTP sẽ gửi JSON sự kiện dưới dạng yêu cầu POST đến một URL HTTPS bên ngoài ngay từ bên trong mạng hộp cát. Máy chủ mục tiêu trả về quyết định của mình trong nội dung phản hồi HTTP bằng chính xác định dạng JSON (`{"decision": "allow"}` hoặc `{"decision": "deny", "reason": "..."}`).
 
-| فیلد | نوع | شرح |
+| Trường | Loại | Mô tả |
 | --- | --- | --- |
-| `type` | `string` | باید `"http"` باشد. |
-| `url` | `string` | نقطه پایانی HTTPS خارجی برای ارسال محتوای رویداد. |
-| `headers` | `object` | جفت‌های کلید-مقدار اختیاری برای سرایندهای سفارشی غیرحساس (مثل `{"X-Event-Source": "agent-sandbox"}`). برای اصالت‌سنجی، به‌جای آن از [اطلاعات اعتباری](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) در فهرست مجاز شبکه استفاده کنید. |
-| `timeout` | `integer` | مهلت زمانی برحسب ثانیه. پیش‌فرض: `30`. |
+| `type` | `string` | Phải là `"http"`. |
+| `url` | `string` | Điểm cuối HTTPS bên ngoài để gửi tải trọng sự kiện đến. |
+| `headers` | `object` | Các cặp khoá-giá trị không bắt buộc cho các tiêu đề tuỳ chỉnh không nhạy cảm (chẳng hạn như `{"X-Event-Source": "agent-sandbox"}`). Để xác thực, hãy dùng [credential](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) (thông tin đăng nhập) trong danh sách cho phép của mạng thay thế. |
+| `timeout` | `integer` | Thời gian chờ tính bằng giây. Mặc định: `30`. |
 
-#### پراکسی خروجی و تبدیل کد
+#### Uỷ quyền chuyển dữ liệu ra ngoài và chuyển đổi mã thông báo
 
-ازآنجایی‌که قلاب‌های HTTP مستقیماً از داخل فضای نام شبکه sandbox اجرا می‌شوند، درخواست‌های خروجی ازطریق پراکسی خروجی شفاف ارسال می‌شوند. این معماری ۲ مزیت امنیتی مهم به شما می‌دهد:
+Vì các lệnh gọi HTTP thực thi trực tiếp từ bên trong không gian tên mạng hộp cát, nên các yêu cầu đi ra sẽ đi qua proxy truyền tải minh bạch. Cấu trúc này mang lại cho bạn 2 lợi thế quan trọng về bảo mật:
 
-- **فهرست مجاز شبکه:** نقاط پایانی هدف باید به‌طور صریح در `network.allowlist` محیط شما مجاز باشند. ترافیک حلقه برگشتی (`127.0.0.1` یا `localhost`) توسط پراکسی مسدود شده است؛ همیشه نقطه‌های پایانی خارجی فهرست مجازها را هدف‌یابی کنید.
-- **تزریق اطلاعات اعتباری:** نیازی نیست کلیدهای میانای برنامه‌سازی کاربردی یا کد حامل مخفی را در `.agents/hooks.json` ذخیره کنید یا آن‌ها را در محتوی نصب کنید. رمز را یک‌بار به‌عنوان [اطلاعات اعتباری](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) ذخیره کنید و بااستفاده از شناسه آن در `network.allowlist` محیطتان به آن ارجاع دهید. کارگزار خروجی به‌طور خودکار ترافیک قلاب HTTP خروجی را رهگیری می‌کند و سرصفحه اصالت‌سنجی واقعی را قبل‌از خروج از محیط آزمایشی به سیم تزریق می‌کند. قوانین `transform` درون‌خطی سرصفحه‌ها را به همان روش در سیم تنظیم می‌کند، اعتبارنامه‌ای که باید هنگام استفاده مجدد از رمز در سراسر پروژه و چرخش آن در یک مکان استفاده کنید. به [پیکربندی شبکه](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#network-configuration) مراجعه کنید.
+- **Thêm mạng vào danh sách cho phép:** Bạn phải cho phép rõ ràng các điểm cuối mục tiêu trong `network.allowlist` của môi trường. Lưu lượng truy cập vòng lặp (`127.0.0.1` hoặc `localhost`) sẽ bị chặn bởi proxy; luôn nhắm đến các điểm cuối bên ngoài nằm trong danh sách cho phép.
+- **Chèn thông tin xác thực:** Bạn không cần lưu trữ khoá API hoặc mã thông báo bí mật của người mang trong `.agents/hooks.json` hoặc gắn chúng vào vùng chứa. Lưu trữ khoá bí mật một lần dưới dạng [thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) và tham chiếu khoá bí mật đó theo mã nhận dạng từ `network.allowlist` của môi trường. Proxy truyền dữ liệu ra sẽ tự động chặn lưu lượng truy cập hook HTTP đi và chèn tiêu đề xác thực thực vào đường truyền trước khi rời khỏi hộp cát. Các tiêu đề của bộ quy tắc `transform` nội tuyến được đặt theo cùng một cách trên đường truyền, thông tin đăng nhập là thông tin cần dùng khi bạn muốn sử dụng lại khoá bí mật trong dự án và xoay vòng khoá bí mật ở một nơi. Xem [cấu hình mạng](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#network-configuration).
 
-## نحوه مدیریت تصمیمات و خطاها توسط زمان اجرا
+## Cách thời gian chạy xử lý các quyết định và lỗi
 
-- **انتظار هم‌زمان:** نماینده متوقف می‌شود و منتظر می‌ماند تا قلاب‌های شما تمام شود و سپس ادامه می‌دهد.
-- **مسدود کردن اجرای ابزار:** اگر قلاب پیش‌ابزار شما `{"decision": "deny", "reason": "<your reason>"}` برگرداند، زمان اجرا بلافاصله تماس ابزار را لغو می‌کند. مدل دلیل رد کردن شما را در سابقه مکالمه‌اش می‌بیند و با انتخاب جایگزین ایمن یا توضیح دادن مسدود شدن به کاربر، خود را تطبیق می‌دهد.
-- **مدیریت خرابی‌های دستورگان، خطاهای HTTP، و زمان‌های اتمام:** اگر دستورگان فرمان خراب شود (وضعیت خروج غیرصفر)، قلاب HTTP کد وضعیت غیر2xx (مثل خطای سرور 4xx یا 5xx) برگرداند، یا عملیات زمان اتمام داشته باشد یا JSON غیرقابل‌تشخیص برگرداند، زمان اجرا آن را به‌عنوان تأیید درنظر می‌گیرد (`allow`). اجرای ابزار به‌طور عادی ادامه می‌یابد، بنابراین دستورگان خراب یا سرور تله‌متری غیرقابل‌دسترس هرگز باعث توقف برنامه شما نمی‌شود.
+- **Chờ đồng bộ:** Tác nhân tạm dừng và đợi các lệnh gọi của bạn hoàn tất rồi mới tiếp tục.
+- **Chặn quá trình thực thi công cụ:** Nếu lệnh gọi trước công cụ trả về `{"decision": "deny", "reason": "<your reason>"}`, thì thời gian chạy sẽ huỷ ngay lệnh gọi công cụ. Mô hình sẽ thấy lý do bạn từ chối trong nhật ký trò chuyện và điều chỉnh bằng cách chọn một lựa chọn thay thế an toàn hoặc giải thích cho người dùng về việc bị chặn.
+- **Xử lý sự cố tập lệnh, lỗi HTTP và hết thời gian chờ:** Nếu tập lệnh lệnh gặp sự cố (trạng thái thoát khác 0), một lệnh gọi HTTP trả về mã trạng thái không phải 2xx (chẳng hạn như lỗi máy chủ 4xx hoặc 5xx) hoặc một thao tác hết thời gian chờ hoặc trả về JSON không xác định, thì thời gian chạy sẽ coi đó là một lượt phê duyệt (`allow`). Quá trình thực thi công cụ vẫn diễn ra bình thường, vì vậy, một tập lệnh bị hỏng hoặc máy chủ đo từ xa không thể truy cập sẽ không bao giờ khiến ứng dụng của bạn bị bế tắc.
 
-## موارد استفاده رایج
+## Các trường hợp sử dụng phổ biến
 
-### بازیابی چند مرحله‌ای برای حریم خصوصی داده‌ها و رعایت استانداردها
+### Khả năng khôi phục nhiều lượt cho quyền riêng tư đối với dữ liệu và việc tuân thủ
 
-وقتی قلابی دسترسی به منابع محدودشده را مسدود می‌کند—مثلاً فهرستگان حاوی «اطلاعات شناساننده شخصی» (PII) یا سوابق مالی محرمانه—می‌توانید `previous_interaction_id` را در تماس بعدی ارسال کنید تا چرخش در همان محیط ادامه یابد. کارگزار توضیح رد را می‌خواند و به‌جای آن با پُرسمان کردن از جدول‌های عمومی تأییدشده به‌طور خودکار بازیابی می‌کند.
+Khi một lệnh gọi chặn quyền truy cập vào các tài nguyên bị hạn chế (chẳng hạn như các thư mục chứa Thông tin nhận dạng cá nhân (PII) hoặc hồ sơ tài chính bí mật), bạn có thể truyền `previous_interaction_id` trong lệnh gọi tiếp theo để tiếp tục lượt trong cùng một môi trường. Tác nhân sẽ đọc nội dung giải thích về việc từ chối và tự động khôi phục bằng cách truy vấn các bảng công khai đã được phê duyệt.
 
 ### Python
 
@@ -675,7 +675,7 @@ const int2 = await client.interactions.create({
 console.log(int2.output_text);
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -771,7 +771,7 @@ Interaction int2 = client.interactions.create(CreateInteractionRequestBody.of(pa
 System.out.println(int2.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -932,12 +932,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### گزارش‌گیری و تله‌متری ممیزی خارجی
+### Ghi nhật ký kiểm tra và đo từ xa bên ngoài
 
-هرگاه فایل‌ها خوانده یا اصلاح می‌شوند، رویدادهای ممیزی هم‌زمان را از داخل محیط آزمایشی به سرور پایش خارجی ارسال کنید.
+Gửi các sự kiện kiểm tra theo thời gian thực từ bên trong hộp cát đến một máy chủ giám sát bên ngoài bất cứ khi nào tệp được đọc hoặc sửa đổi.
 
-- **مطابقت با چندین ابزار:** ازآنجایی‌که مطابقت‌دهنده‌ها از عبارت باقاعده استاندارد استفاده می‌کنند، می‌توانید چندین ابزار را بااستفاده از خط لوله (`view_file|write_to_file|replace_file_content`) یا نویسه‌های عام (`.*_file`) در یک قانون ترکیب کنید.
-- **رمزها را از پیکربندی‌تان خارج کنید:** نشان اصالت‌سنجی را به‌عنوان [اطلاعات اعتباری](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) ذخیره کنید و آن را با شناسه از [پیکربندی شبکه](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#network-configuration) محیطتان (`network.allowlist.credential`) ارجاع دهید. کارگزار خروجی نشان حامل واقعی را در درخواست‌های خروجی تزریق می‌کند. این مثال سرایند را به‌جای آن با `transform` درخط تنظیم می‌کند که با همان پراکسی محافظت می‌شود و وقتی که نشان به این پیکربندی تعلق داشته باشد، مناسب است.
+- **So khớp nhiều công cụ:** Vì trình so khớp sử dụng biểu thức chính quy tiêu chuẩn, nên bạn có thể kết hợp nhiều công cụ trong một quy tắc bằng cách sử dụng dấu gạch dọc (`view_file|write_to_file|replace_file_content`) hoặc ký tự đại diện (`.*_file`).
+- **Không đưa các khoá bí mật vào cấu hình:** Lưu mã thông báo xác thực dưới dạng [thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) và tham chiếu mã thông báo đó theo mã nhận dạng từ [cấu hình mạng](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#network-configuration) (`network.allowlist.credential`) của môi trường. Proxy truyền dữ liệu ra sẽ chèn mã thông báo thực tế vào các yêu cầu gửi đi. Thay vào đó, ví dụ này đặt tiêu đề cùng dòng với `transform`. Tiêu đề này được bảo vệ bằng cùng một proxy và phù hợp khi mã thông báo thuộc về một cấu hình này.
 
 ### Python
 
@@ -1046,7 +1046,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1122,7 +1122,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -1234,25 +1234,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## محدودیت‌ها
+## Các điểm hạn chế
 
-- **محدوده ابزار جعبه امن:** قلاب‌ها ابزارهای داخلی را در جعبه امن رهگیری می‌کنند: اجرای کد (`code_execution`) و عملیات سیستم فایل (`view_file`،‏ `write_to_file`،‏ `replace_file_content`،‏ `list_dir`، و `delete_file`). این قلاب‌ها برای فراخوانی تابع سفارشی (`function`) یا ابزارهای خارجی «پروتکل بافتار مدل» (`mcp_server`) که در خارج از محتوی مدیریت می‌شوند فعال نمی‌شوند.
-- **فهرست‌های مجاز شبکه:** قلاب‌های HTTP در شبکه محتوی اجرا می‌شوند. باید نشانی‌های وب هدف را به‌طور صریح در `network.allowlist` محیطتان مجاز کنید. نشانی‌های مسیریابی بازگشتی (`localhost`، `127.0.0.1`) توسط پراکسی مسدود شده است.
-- **تأیید خودکار درصورت بروز خطا:** اگر یک دستورگان قلاب ازکار بیفتد (وضعیت خروجی غیرصفر)، زمان آن تمام شود، یا ناموفق باشد، زمان اجرا این خرابی را ثبت می‌کند و به تماس ابزار اجازه می‌دهد ادامه یابد. این کار تضمین می‌کند که برنامه‌های شما هرگز به‌دلیل خراب شدن دستورگان‌های linter یا فرایندهای معلق دچار بن‌بست نمی‌شوند.
-- **محافظت از پیکربندی جعبه امن:** ازآنجایی‌که قلاب‌ها در جعبه امن محتوی اجرا می‌شوند، کارگزاران دارای ابزارهای نوشتن سیستم فایل یا اجازه‌های اجرای کد پوسته می‌توانند `.agents/hooks.json` محلی یا دستورگان‌های موجود در فضای کاری نوشتنی را تغییر دهند. از قلاب‌های محتوی به‌عنوان راهنمایی خودکارسازی‌شده خط‌مشی و نرده‌های محافظ عملیاتی استفاده کنید؛ اگر مقاومت دربرابر دستکاری سخت دربرابر اجرای مدل‌های غیرقابل‌اعتماد لازم است، منابع پیکربندی را از مخازن فقط‌خواندنی نصب کنید.
+- **Phạm vi của công cụ hộp cát:** Các lệnh gọi API chặn các công cụ tích hợp sẵn bên trong hộp cát: thực thi mã (`code_execution`) và các thao tác trên hệ thống tệp (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` và `delete_file`). Các lệnh gọi API này không kích hoạt cho lệnh gọi hàm tuỳ chỉnh (`function`) hoặc các công cụ Giao thức ngữ cảnh mô hình (`mcp_server`) bên ngoài được xử lý bên ngoài vùng chứa.
+- **Danh sách cho phép mạng:** Các lệnh gọi HTTP chạy trong mạng vùng chứa. Bạn phải cho phép rõ ràng các URL đích trong `network.allowlist` của môi trường. Địa chỉ Loopback (`localhost`, `127.0.0.1`) bị chặn bởi proxy.
+- **Tự động phê duyệt khi có lỗi:** Nếu tập lệnh hook gặp sự cố (trạng thái thoát khác 0), hết thời gian chờ hoặc không thành công, thì thời gian chạy sẽ ghi nhật ký lỗi và cho phép lệnh gọi công cụ tiếp tục. Điều này đảm bảo các tập lệnh linter bị hỏng hoặc các quy trình treo không bao giờ làm ứng dụng của bạn bị tắc nghẽn.
+- **Bảo vệ cấu hình hộp cát:** Vì các lệnh gọi thực thi bên trong hộp cát vùng chứa, nên các tác nhân có công cụ ghi hệ thống tệp hoặc quyền thực thi mã shell có thể sửa đổi `.agents/hooks.json` cục bộ hoặc các tập lệnh trong không gian làm việc có thể ghi. Sử dụng các lệnh gọi vùng chứa làm hướng dẫn tự động về chính sách và biện pháp bảo vệ hoạt động; nếu cần có khả năng chống giả mạo nghiêm ngặt đối với các hoạt động thực thi mô hình không đáng tin cậy, hãy gắn các nguồn cấu hình từ kho lưu trữ chỉ đọc.
 
-## قدم بعدی چیست
+## Bước tiếp theo
 
-- با نحوه پیکربندی [محیط‌ها و جعبه‌های ایمنی از راه دور](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa) ماندگار آشنا شوید.
-- توانمندی‌ها و ابزارهای داخلی [عامل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa) را کاوش کنید.
-- برای جلسات چند نوبتی و جاری‌سازی، [نمای کلی «میانای برنامه‌سازی کاربردی تعامل‌ها»](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fa) را مرور کنید.
+- Tìm hiểu cách định cấu hình [môi trường và hộp cát từ xa liên tục](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi).
+- Khám phá các chức năng và công cụ tích hợp của [tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi).
+- Xem [Tổng quan về Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) cho các phiên nhiều lượt và truyền phát trực tuyến.
 
-ارسال بازخورد
+Gửi ý kiến phản hồi
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاریخ آخرین به‌روزرسانی 2026-10-07 به‌وقت ساعت هماهنگ جهانی.
+Cập nhật lần gần đây nhất: 2026-10-07 UTC.
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-07 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-07 UTC."],[],[]]

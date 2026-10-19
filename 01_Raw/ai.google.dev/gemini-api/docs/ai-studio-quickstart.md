@@ -1,65 +1,79 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=vi
-fetched_at: 2026-10-12T06:59:55.503812+00:00
-title: "H\u01b0\u1edbng d\u1eabn nhanh v\u1ec1 Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419
+fetched_at: 2026-10-19T05:31:46.713125+00:00
+title: "Gu\u00eda de inicio r\u00e1pido de Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-# Hướng dẫn nhanh về Google AI Studio
+# Guía de inicio rápido de Google AI Studio
 
-[Google AI Studio](https://aistudio.google.com/?hl=vi) giúp bạn nhanh chóng dùng thử các mô hình và thử nghiệm với nhiều câu lệnh. Khi đã sẵn sàng tạo, bạn có thể chọn "Lấy mã" và ngôn ngữ lập trình bạn muốn dùng để sử dụng [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi).
+[Google AI Studio](https://aistudio.google.com/?hl=es-419) te permite probar rápidamente
+modelos y experimentar con diferentes instrucciones. Cuando estés listo para compilar, puedes seleccionar "Obtener código" y tu lenguaje de programación preferido para usar la [API de Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
 
-## Câu lệnh và chế độ cài đặt
+## Instrucciones y configuración
 
-Google AI Studio cung cấp một số giao diện cho câu lệnh được thiết kế cho nhiều trường hợp sử dụng. Hướng dẫn này đề cập đến **Câu lệnh trò chuyện**, được dùng để xây dựng trải nghiệm đàm thoại. Kỹ thuật tạo câu lệnh này cho phép nhiều lượt nhập và phản hồi để tạo ra đầu ra. Bạn có thể tìm hiểu thêm qua [ví dụ về câu lệnh trò chuyện dưới đây](#chat_example).
-Các lựa chọn khác bao gồm **Phát trực tuyến theo thời gian thực**, **Video gen** và nhiều lựa chọn khác.
+Google AI Studio proporciona varias interfaces para las instrucciones que están diseñadas para diferentes casos de uso. En esta guía, se abordan las **instrucciones de chat**, que se usan para crear
+experiencias conversacionales. Esta técnica de instrucciones permite varios turnos de entrada
+y respuesta para generar resultados. Puedes obtener más información con nuestro
+[ejemplo de instrucción de chat a continuación](#chat_example).
+Otras opciones incluyen **transmisión en tiempo real**, **generación de video** y
+mucho más.
 
-AI Studio cũng cung cấp bảng điều khiển **Chế độ cài đặt chạy**. Tại đây, bạn có thể điều chỉnh [các thông số mô hình](https://ai.google.dev/docs/prompting-strategies?hl=vi#model-parameters), [chế độ cài đặt an toàn](https://ai.google.dev/gemini-api/docs/safety-settings?hl=vi) và bật các công cụ như [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi), [gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi), [thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi) và [căn cứ](https://ai.google.dev/gemini-api/docs/grounding?hl=vi).
+AI Studio también proporciona el panel **Configuración de ejecución** , en el que puedes ajustar
+los [parámetros del modelo](https://ai.google.dev/docs/prompting-strategies?hl=es-419#model-parameters),
+la [configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) y activar herramientas como el
+[resultado estructurado](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419), la [llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419), la [ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419) y la [fundamentación](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419).
 
-## Ví dụ về câu lệnh trong cuộc trò chuyện: Xây dựng một ứng dụng trò chuyện tuỳ chỉnh
+## Ejemplo de instrucción de chat: Compila una aplicación de chat personalizada
 
-Nếu đã từng sử dụng một chatbot đa năng như [Gemini](https://gemini.google.com/?hl=vi), bạn sẽ tự mình trải nghiệm được sức mạnh của các mô hình AI tạo sinh trong cuộc trò chuyện không giới hạn. Mặc dù những chatbot đa năng này rất hữu ích, nhưng thường thì chúng cần được điều chỉnh cho phù hợp với các trường hợp sử dụng cụ thể.
+Si usaste un chatbot de uso general como
+[Gemini](https://gemini.google.com/?hl=es-419), experimentaste de primera mano lo potentes que pueden ser los modelos de IA
+generativa para el diálogo abierto. Si bien estos chatbots de uso general son útiles, a menudo deben adaptarse para casos de uso particulares.
 
-Ví dụ: có thể bạn muốn tạo một chatbot dịch vụ khách hàng chỉ hỗ trợ các cuộc trò chuyện về sản phẩm của một công ty. Bạn có thể muốn tạo một chatbot có giọng điệu hoặc phong cách cụ thể: một bot hay kể chuyện cười, gieo vần như một nhà thơ hoặc sử dụng nhiều biểu tượng cảm xúc trong câu trả lời.
+Por ejemplo, es posible que quieras compilar un chatbot de atención al cliente que solo admita conversaciones sobre el producto de una empresa. Es posible que quieras compilar un chatbot que hable con un tono o estilo en particular: un bot que cuente muchos chistes, rime como un poeta o use muchos emojis en sus respuestas.
 
-Ví dụ này cho thấy cách sử dụng Google AI Studio để tạo một chatbot thân thiện giao tiếp như thể đó là một người ngoài hành tinh sinh sống trên một trong các mặt trăng của Sao Mộc, Europa.
+En este ejemplo, se muestra cómo usar Google AI Studio para compilar un chatbot amigable que se comunica como si fuera un extraterrestre que vive en una de las lunas de Júpiter, Europa.
 
-### Bước 1 – Tạo câu lệnh trò chuyện
+### Paso 1: Crea una instrucción de chat
 
-Để tạo một chatbot, bạn cần cung cấp ví dụ về các hoạt động tương tác giữa người dùng và chatbot để hướng dẫn mô hình cung cấp những câu trả lời mà bạn đang tìm kiếm.
+Para compilar un chatbot, debes proporcionar ejemplos de interacciones entre un usuario y el chatbot para guiar al modelo para que proporcione las respuestas que buscas.
 
-Cách tạo câu lệnh trò chuyện:
+Para crear una instrucción de chat, haz lo siguiente:
 
-1. Mở [Google AI Studio](https://aistudio.google.com/?hl=vi). **Playground** sẽ mở theo mặc định cùng với một câu lệnh trò chuyện mới.
-2. Nhấp vào **Chạy chế độ cài đặt** tune ở góc trên cùng bên phải để mở rộng bảng điều khiển, rồi tìm trường nhập dữ liệu [**Hướng dẫn hệ thống**](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions). Dán nội dung sau vào trường nhập dữ liệu:
+1. Abre [Google AI Studio](https://aistudio.google.com/?hl=es-419). El **Playground** se abrirá de forma predeterminada con una nueva instrucción de chat.
+2. Haz clic en **Configuración de ejecución** tune en la esquina superior derecha
+   para expandir el panel y ubica el
+   [**Instrucciones del sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#system-instructions)
+   campo de entrada. Pega lo siguiente en el campo de entrada de texto:
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-Sau khi thêm chỉ dẫn hệ thống, hãy bắt đầu kiểm thử ứng dụng bằng cách trò chuyện với mô hình:
+Después de agregar las instrucciones del sistema, comienza a probar tu aplicación chateando con el modelo:
 
-1. Trong hộp nhập văn bản có nhãn **Nhập nội dung...**, hãy nhập một câu hỏi hoặc nhận xét mà người dùng có thể đưa ra. Ví dụ:
+1. En el cuadro de entrada de texto con la etiqueta **Escribe algo...**, ingresa una pregunta u
+   observación que un usuario podría hacer. Por ejemplo:
 
-   **Người dùng:**
+   **Usuario:**
 
    ```
    What's the weather like?
    ```
-2. Nhấp vào nút **Chạy** để nhận được câu trả lời từ chatbot. Phản hồi này có thể có dạng như sau:
+2. Haz clic en el botón **Ejecutar** para obtener una respuesta del chatbot. Esta respuesta puede ser similar a la siguiente:
 
-   **Kiểu máy:**
+   **Modelo:**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -68,14 +82,14 @@ Sau khi thêm chỉ dẫn hệ thống, hãy bắt đầu kiểm thử ứng d�
 
    (gemini-2.5-pro)
 
-### Bước 2 – Dạy bot trò chuyện hiệu quả hơn
+### Paso 2: Enséñale a tu bot a chatear mejor
 
-Bằng cách đưa ra một chỉ dẫn duy nhất, bạn có thể tạo một chatbot cơ bản về người ngoài hành tinh Europa. Tuy nhiên, một chỉ dẫn duy nhất có thể không đủ để đảm bảo tính nhất quán và chất lượng trong các câu trả lời của mô hình. Nếu không có hướng dẫn cụ thể hơn, câu trả lời của mô hình cho một câu hỏi về thời tiết thường rất dài và có thể tự đưa ra ý kiến riêng.
+Si proporcionas una sola instrucción, puedes compilar un chatbot básico de extraterrestre de Europa. Sin embargo, una sola instrucción puede no ser suficiente para garantizar la coherencia y la calidad en las respuestas del modelo. Sin instrucciones más específicas, la respuesta del modelo a una pregunta sobre el clima tiende a ser muy larga y puede tener su propia opinión.
 
-Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn hệ thống:
+Para personalizar el tono de tu chatbot, agrega lo siguiente a las instrucciones del sistema:
 
-1. Bắt đầu một câu lệnh trò chuyện mới hoặc dùng câu lệnh cũ. Bạn có thể sửa đổi chỉ dẫn hệ thống sau khi phiên trò chuyện bắt đầu.
-2. Trong phần **Hướng dẫn cho hệ thống**, hãy thay đổi hướng dẫn hiện có thành hướng dẫn sau:
+1. Inicia una nueva instrucción de chat o usa la misma. Las instrucciones del sistema se pueden modificar después de que se inicia la sesión de chat.
+2. En la sección **Instrucciones del sistema**, cambia las instrucciones que ya tienes por las siguientes:
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -83,9 +97,9 @@ Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn 
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. Nhập lại câu hỏi của bạn (`What's the weather like?`) rồi nhấp vào nút **Run** (Chạy). Nếu bạn không bắt đầu cuộc trò chuyện mới, thì câu trả lời của bạn có thể trông như sau:
+3. Vuelve a ingresar tu pregunta (`What's the weather like?`) y haz clic en el botón **Ejecutar**. Si no iniciaste un chat nuevo, tu respuesta podría verse de la siguiente manera:
 
-   **Kiểu máy:**
+   **Modelo:**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -96,23 +110,25 @@ Tuỳ chỉnh giọng điệu của chatbot bằng cách thêm vào chỉ dẫn 
 
    (gemini-2.5-pro)
 
-Bạn có thể sử dụng phương pháp này để tăng thêm chiều sâu cho chatbot. Đặt thêm câu hỏi, chỉnh sửa câu trả lời và cải thiện chất lượng của chatbot. Tiếp tục thêm hoặc sửa đổi chỉ dẫn và kiểm thử xem chỉ dẫn thay đổi hành vi của chatbot như thế nào.
+Puedes usar este enfoque para agregar profundidad adicional al chatbot. Haz más preguntas, edita las respuestas y mejora la calidad de tu chatbot. Sigue agregando o modificando las instrucciones y prueba cómo cambian el comportamiento de tu chatbot.
 
-### Bước 3 – Các bước tiếp theo
+### Paso 3: Próximos pasos
 
-Tương tự như các loại câu lệnh khác, sau khi tạo mẫu câu lệnh theo ý muốn, bạn có thể dùng nút **Lấy mã** để bắt đầu viết mã hoặc lưu câu lệnh để làm việc sau và chia sẻ với người khác.
+Al igual que con los otros tipos de instrucciones, una vez que hayas creado un prototipo de tu instrucción a tu satisfacción, puedes usar el botón **Obtener código** para comenzar a programar o guardar la instrucción para trabajar en ella más adelante y compartirla con otras personas.
 
-## Tài liệu đọc thêm
+## Lecturas adicionales
 
-- Nếu bạn đã sẵn sàng chuyển sang phần lập trình, hãy xem [Hướng dẫn Bắt đầu sử dụng API](https://ai.google.dev/gemini-api/docs/get-started?hl=vi).
-- Để tìm hiểu cách viết câu lệnh hiệu quả hơn, hãy xem [Nguyên tắc thiết kế câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=vi).
+- Si estás listo para pasar al código, consulta las [guías de introducción a la
+  API](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
+- Para obtener información sobre cómo crear mejores instrucciones, consulta los [lineamientos
+  de diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
 
-Gửi ý kiến phản hồi
+Enviar comentarios
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Cập nhật lần gần đây nhất: 2026-07-30 UTC.
+Última actualización: 2026-07-30 (UTC)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+¿Quieres brindar más información?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-30 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]

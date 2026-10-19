@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=ja
-fetched_at: 2026-10-12T07:06:07.502633+00:00
-title: "Google \u691c\u7d22\u306b\u3088\u308b\u30b0\u30e9\u30a6\u30f3\u30c7\u30a3\u30f3\u30b0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/google-search?hl=hi
+fetched_at: 2026-10-19T05:44:02.229506+00:00
+title: "Google Search \u0915\u0947 \u0906\u0927\u093e\u0930 \u092a\u0930 \u091c\u093e\u0928\u0915\u093e\u0930\u0940 \u0926\u0947\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash が利用可能になりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ja)。
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-フィードバックを送信
+सुझाव भेजें
 
-# Google 検索によるグラウンディング
+# Google Search के आधार पर जानकारी देना
 
-Google 検索によるグラウンディングは、Gemini モデルをリアルタイムのウェブ コンテンツに接続し、利用可能なすべての言語で機能します。これで、Gemini はより正確な回答を提供して、ナレッジ カットオフ以降の検証可能な情報源を引用することができます。
+Google Search से सटीक जानकारी पाने की सुविधा, Gemini मॉडल को रीयल-टाइम में वेब कॉन्टेंट से कनेक्ट करती है और सभी उपलब्ध भाषाओं में काम करती है. इससे Gemini, जानकारी न मिलने की स्थिति के दायरे से बाहर निकलकर ज़्यादा सटीक जवाब और भरोसेमंद सोर्स के रेफ़रंस दे पाता है.
 
-グラウンディングは、次のことができるアプリケーションの構築に役立ちます。
+Google Search से सटीक जानकारी पाने की सुविधा की मदद से, ऐसे ऐप्लिकेशन बनाए जा सकते हैं जो:
 
-- **事実の正確性を高める:** 回答を実世界の情報に基づいて生成することで、モデルのハルシネーションを減らします。
-- **リアルタイムの情報にアクセスする:** 最近の出来事やトピックに関する質問に答えます。
-- **引用を提供する:** モデルの主張の出典を示すことで、ユーザーの信頼を築きます。
+- **तथ्यों के हिसाब से ज़्यादा सटीक जवाब दे सकते हैं:** असल दुनिया की जानकारी के आधार पर जवाब देकर, मॉडल के गलत जवाब देने की संभावना को कम किया जा सकता है.
+- **रीयल-टाइम में जानकारी ऐक्सेस कर सकते हैं:** हाल ही में हुई घटनाओं और विषयों के बारे में सवालों के जवाब दे सकते हैं.
+- **रेफ़रंस दे सकते हैं:** मॉडल के दावों के सोर्स दिखाकर, उपयोगकर्ता का भरोसा जीता जा सकता है.
 
 ### Python
 
@@ -99,23 +99,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-詳しくは、[検索ツール ノートブック](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ja)をお試しください。
+[Search टूल
+नोटबुक](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=hi) आज़माकर, ज़्यादा जानकारी पाई जा सकती है.
 
-## Google 検索によるグラウンディングの仕組み
+## Google Search से सटीक जानकारी पाने की सुविधा कैसे काम करती है
 
-`google_search` ツールを有効にすると、モデルは情報の検索、処理、引用のワークフロー全体を自動的に処理します。
+`google_search` टूल चालू करने पर, मॉडल, जानकारी खोजने, उसे प्रोसेस करने, और रेफ़रंस देने का पूरा वर्कफ़्लो अपने-आप मैनेज करता है.
 
-![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=ja)
+![grounding-overview](https://ai.google.dev/static/gemini-api/docs/images/google-search-tool-overview.png?hl=hi)
 
-1. **ユーザー プロンプト:** アプリケーションは、`google_search` ツールを有効にして、ユーザーのプロンプトを Gemini API に送信します。
-2. **プロンプトの分析:** モデルがプロンプトを分析し、Google 検索で回答を改善できるかどうかを判断します。
-3. **Google 検索:** 必要に応じて、モデルは 1 つ以上の検索クエリを自動的に生成して実行します。
-4. **検索結果の処理:** モデルが検索結果を処理し、情報を合成して回答を作成します。
-5. **根拠のある回答:** API は、検索結果に基づいて最終的なユーザー フレンドリーな回答を返します。このレスポンスには、モデルのテキスト回答と、検索クエリ、ウェブ検索結果、引用を含む `groundingMetadata` が含まれます。
+1. **उपयोगकर्ता का प्रॉम्प्ट:** आपका ऐप्लिकेशन, `google_search` टूल चालू होने पर, उपयोगकर्ता का प्रॉम्प्ट Gemini API को भेजता है.
+2. **प्रॉम्प्ट का विश्लेषण:** मॉडल, प्रॉम्प्ट का विश्लेषण करता है और यह तय करता है कि Google Search की मदद से जवाब को बेहतर बनाया जा सकता है या नहीं.
+3. **Google Search:** ज़रूरत पड़ने पर, मॉडल अपने-आप एक या एक से ज़्यादा सर्च क्वेरी जनरेट करता है और उन्हें एक्ज़ीक्यूट करता है.
+4. **सर्च के नतीजों को प्रोसेस करना:** मॉडल, सर्च के नतीजों को प्रोसेस करता है, जानकारी को सिंथेसाइज़ करता है, और जवाब तैयार करता है.
+5. **भरोसेमंद सोर्स से मिला जवाब:** एपीआई, सर्च के नतीजों के आधार पर, उपयोगकर्ता के लिए फ़ाइनल और आसान जवाब देता है. इस जवाब में, मॉडल का टेक्स्ट जवाब और `groundingMetadata` शामिल होता है. इसमें सर्च क्वेरी, वेब के नतीजे, और रेफ़रंस भी शामिल होते हैं.
 
-## グラウンディング レスポンスについて
+## भरोसेमंद स्रोतों से मिले जवाब को समझना
 
-レスポンスが正常にグラウンディングされると、レスポンスに `groundingMetadata` フィールドが含まれます。この構造化データは、請求を検証し、アプリケーションでリッチな引用エクスペリエンスを構築するために不可欠です。
+जब कोई जवाब, भरोसेमंद सोर्स से मिलता है, तो उसमें `groundingMetadata` फ़ील्ड शामिल होता है. यह स्ट्रक्चर्ड डेटा, दावों की पुष्टि करने और आपके ऐप्लिकेशन में रेफ़रंस देने की बेहतर सुविधा बनाने के लिए ज़रूरी है.
 
 ```
 {
@@ -157,18 +158,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-Gemini API は、`groundingMetadata` で次の情報を返します。
+Gemini API, `groundingMetadata` के साथ यह जानकारी दिखाता है:
 
-- `webSearchQueries` : 使用された検索クエリの配列。これは、モデルの推論プロセスをデバッグして理解するのに役立ちます。
-- `searchEntryPoint` : 必要な検索候補をレンダリングするための HTML と CSS が含まれます。使用要件の詳細は、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#grounding-with-google-search)をご覧ください。
-- `groundingChunks` : ウェブソース（`uri` と `title`）を含むオブジェクトの配列。
-- `groundingSupports` : モデル レスポンス `text` を `groundingChunks` のソースに接続するチャンクの配列。各チャンクは、テキスト `segment`（`startIndex` と `endIndex` で定義）を 1 つ以上の `groundingChunkIndices` にリンクします。これが、インライン引用を作成する鍵となります。
+- `webSearchQueries` : इस्तेमाल की गई सर्च क्वेरी का कलेक्शन. यह डीबग करने और मॉडल की तर्क देने की प्रोसेस को समझने के लिए काम का है.
+- `searchEntryPoint` : इसमें, ज़रूरी Search के सुझावों को रेंडर करने के लिए, एचटीएमएल और सीएसएस शामिल होता है. इस्तेमाल से जुड़ी पूरी ज़रूरी शर्तें, [सेवा की
+  शर्तों](https://ai.google.dev/gemini-api/terms?hl=hi#grounding-with-google-search) में बताई गई हैं.
+- `groundingChunks` : ऑब्जेक्ट का कलेक्शन. इसमें वेब सोर्स (`uri` और `title`) शामिल होते हैं.
+- `groundingSupports` : कलेक्शन. इसमें मॉडल के जवाब `text` को `groundingChunks` में मौजूद सोर्स से कनेक्ट करने के लिए, चंक शामिल होते हैं. हर चंक, `segment` (जो `startIndex` और `endIndex` से तय होता है) को एक या एक से ज़्यादा `groundingChunkIndices` से लिंक करता है. यह इनलाइन रेफ़रंस बनाने के लिए ज़रूरी है.
 
-Google 検索によるグラウンディングは、[URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)と組み合わせて使用することもできます。これにより、一般公開されているウェブデータと指定した特定の URL の両方でレスポンスをグラウンディングできます。
+Google Search से सटीक जानकारी पाने की सुविधा को, [यूआरएल
+कॉन्टेक्स्ट टूल](https://ai.google.dev/gemini-api/docs/url-context?hl=hi) के साथ भी इस्तेमाल किया जा सकता है. इससे, सार्वजनिक
+वेब डेटा और आपके दिए गए खास यूआरएल, दोनों के आधार पर जवाब दिए जा सकते हैं.
 
-## インライン引用によるソースの帰属
+## इनलाइन रेफ़रंस की मदद से सोर्स एट्रिब्यूट करना
 
-API は構造化された引用データを返し、ユーザー インターフェースでソースを表示する方法を完全に制御できます。`groundingSupports` フィールドと `groundingChunks` フィールドを使用して、モデルのステートメントをソースに直接リンクできます。メタデータを処理して、クリック可能なインラインの引用を含むレスポンスを作成する一般的なパターンは次のとおりです。
+एपीआई, रेफ़रंस का स्ट्रक्चर्ड डेटा दिखाता है. इससे आपको यह तय करने का पूरा कंट्रोल मिलता है कि अपने यूज़र इंटरफ़ेस में सोर्स कैसे दिखाए जाएं. मॉडल के स्टेटमेंट को सीधे उनके सोर्स से लिंक करने के लिए, `groundingSupports` और `groundingChunks` फ़ील्ड का इस्तेमाल किया जा सकता है. यहां, मेटाडेटा को प्रोसेस करके, इनलाइन और क्लिक किए जा सकने वाले रेफ़रंस के साथ जवाब बनाने का सामान्य तरीका बताया गया है.
 
 ### Python
 
@@ -243,59 +247,71 @@ const textWithCitations = addCitations(response);
 console.log(textWithCitations);
 ```
 
-インライン引用を含む新しい回答は次のようになります。
+इनलाइन रेफ़रंस वाला नया जवाब ऐसा दिखेगा:
 
 ```
 Spain won Euro 2024, defeating England 2-1 in the final.[1](https:/...), [2](https:/...), [4](https:/...), [5](https:/...) This victory marks Spain's record-breaking fourth European Championship title.[5]((https:/...), [2](https:/...), [3](https:/...), [4](https:/...)
 ```
 
-## 料金
+## कीमत
 
-Gemini 3 以降のモデルで Google 検索によるグラウンディングを使用すると、モデルが実行すると判断した検索クエリ**ごと**にプロジェクトに課金されます。このクエリごとの課金モデルには、すべての Gemini 3 以降のモデルで共有される 1 か月あたり 5,000 件の無料検索リクエストが含まれており、その後は **1,000 件の検索リクエストあたり$14** の費用が発生します。
+Gemini 3 और उसके बाद के मॉडल के साथ, Google Search से सटीक जानकारी पाने की सुविधा का इस्तेमाल करने पर, आपके प्रोजेक्ट के लिए **हर** उस सर्च क्वेरी का शुल्क लिया जाता है जिसे मॉडल एक्ज़ीक्यूट करता है.
+क्वेरी के हिसाब से बिलिंग वाले इस मॉडल में, हर महीने 5,000 मुफ़्त सर्च अनुरोध शामिल होते हैं. ये अनुरोध, Gemini 3 और उसके बाद के सभी मॉडल के साथ शेयर किए जाते हैं. इसके बाद, **1,000 सर्च अनुरोधों के लिए 14 डॉलर** का शुल्क लिया जाता है.
 
-たとえば、モデルが 1 つのプロンプトに回答するために複数の検索クエリを実行すると判断した場合（同じ API 呼び出し内で `"UEFA Euro 2024 winner"` と `"Spain vs
-England Euro 2024 final score"` を検索するなど）、そのリクエストに対してツールの使用が 2 回課金対象としてカウントされます。課金目的で、一意のクエリをカウントする際に、空のウェブ検索クエリは無視されます。
+उदाहरण के लिए, अगर मॉडल, किसी एक प्रॉम्प्ट का जवाब देने के लिए, एक से ज़्यादा सर्च क्वेरी एक्ज़ीक्यूट करता है (जैसे, एक ही एपीआई कॉल में `"UEFA Euro 2024 winner"` और `"Spain vs
+England Euro 2024 final score"` के लिए खोज करना), तो इस अनुरोध के लिए, टूल के दो बार इस्तेमाल का शुल्क लिया जाएगा. बिलिंग के लिए, यूनीक क्वेरी की गिनती करते समय, हम खाली वेब सर्च क्वेरी को अनदेखा करते हैं.
 
-Gemini 2.5 以前のモデルで検索グラウンディングを使用すると、プロジェクトはプロンプトごとに課金されます。
+Gemini 2.5 या उससे पुराने मॉडल के साथ, सर्च से सटीक जानकारी पाने की सुविधा का इस्तेमाल करने पर, आपके प्रोजेक्ट के लिए हर प्रॉम्प्ट का शुल्क लिया जाता है.
 
-詳しい料金情報については、[Gemini API の料金ページ](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)をご覧ください。
+कीमत की ज़्यादा जानकारी के लिए, [Gemini API की कीमत
+वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) देखें.
 
-## サポートされているモデル
+## इस्तेमाल किए जा सकने वाले मॉडल
 
-完全な機能については、[モデルの概要](https://ai.google.dev/gemini-api/docs/models?hl=ja)ページをご覧ください。
+मॉडल की सभी क्षमताओं के बारे में जानकारी, मॉडल की [खास जानकारी
+वाले पेज](https://ai.google.dev/gemini-api/docs/models?hl=hi) पर देखी जा सकती है.
 
-| モデル | Google 検索によるグラウンディング |
+| मॉडल | Google Search से सटीक जानकारी पाने की सुविधा |
 | --- | --- |
+| Gemini 4 Argon | ✔️ |
 | Gemini 3.8 Flash | ✔️ |
 | Gemini 3.6 Flash | ✔️ |
 | Gemini 3.5 Flash-Lite | ✔️ |
 | Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 3.1 Flash Image プレビュー版 | ✔️ |
-| Gemini 3.1 Pro プレビュー版 | ✔️ |
-| Gemini 3 Pro Image プレビュー | ✔️ |
-| Gemini 3 Flash プレビュー | ✔️ |
-| Gemini 3.1 Flash-Lite プレビュー版 | ✔️ |
+| Gemini 3.1 Flash Image Preview | ✔️ |
+| Gemini 3.1 Pro Preview | ✔️ |
+| Gemini 3 Pro Image Preview | ✔️ |
+| Gemini 3 Flash Preview | ✔️ |
+| Gemini 3.1 Flash-Lite Preview | ✔️ |
 | Gemini 2.5 Pro | ✔️ |
 | Gemini 2.5 Flash | ✔️ |
 | Gemini 2.5 Flash-Lite | ✔️ |
 | Gemini 2.0 Flash | ✔️ |
 
-## サポートされているツールの組み合わせ
+## टूल के इस्तेमाल के लिए उपलब्ध कॉम्बिनेशन
 
-Google 検索によるグラウンディングは、[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)、[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)、[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)（Gemini 3.5 Flash-Lite 以降のモデルでサポート）などの他のツールと組み合わせて、より複雑なユースケースを実現できます。Gemini 3 モデルは、これらの組み込みツールとカスタムツール（関数呼び出し）の組み合わせもサポートしています。詳しくは、[ツールの組み合わせ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)のページをご覧ください。
+ज़्यादा मुश्किल इस्तेमाल के मामलों के लिए, Google Search से सटीक जानकारी पाने की सुविधा को अन्य टूल के साथ इस्तेमाल किया जा सकता है. जैसे,
+[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi),
+[यूआरएल कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi), और
+[Google Maps से सटीक जानकारी पाने की सुविधा](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi). Google Maps से सटीक जानकारी पाने की सुविधा,
+Gemini 3.5 Flash-Lite और उसके बाद के मॉडल पर उपलब्ध है.
+Gemini 3 मॉडल में, इन बिल्ट-इन टूल को कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ भी इस्तेमाल किया जा सकता है. ज़्यादा जानकारी के लिए,
+[टूल के इस्तेमाल के लिए उपलब्ध कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) वाला पेज देखें.
 
-## 次のステップ
+## आगे क्या करना है
 
-- [Gemini API クックブックの Google 検索によるグラウンディング](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ja)を試す。
-- [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)など、その他の利用可能なツールについて学習する。
-- [URL コンテキスト ツール](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)を使用して、特定の URL でプロンプトを補強する方法について説明します。
+- [Gemini API की
+  कुकबुक](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=hi) में, Google Search से सटीक जानकारी पाने की सुविधा को आज़माएं.
+- उपलब्ध अन्य टूल के बारे में जानें. जैसे, [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi).
+- [यूआरएल कॉन्टेक्स्ट
+  टूल](https://ai.google.dev/gemini-api/docs/url-context?hl=hi) का इस्तेमाल करके, खास यूआरएल की मदद से प्रॉम्प्ट को बेहतर बनाने का तरीका जानें.
 
-フィードバックを送信
+सुझाव भेजें
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-最終更新日 2026-10-09 UTC。
+आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया.
 
-ご意見をお聞かせください
+क्या आपको हमें और कुछ बताना है?
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-09 UTC。"],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया."],[],[]]

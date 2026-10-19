@@ -1,42 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=it
-fetched_at: 2026-10-12T07:17:16.894385+00:00
-title: "Gemini 3 Pro (anteprima) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-preview?hl=ar
+fetched_at: 2026-10-19T05:42:18.159038+00:00
+title: "\u0645\u0639\u0627\u064a\u0646\u0629 Gemini 3 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
-# Gemini 3 Pro (anteprima)
+# معاينة Gemini 3 Pro
+
+يُرجى الترحيل إلى [معاينة Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) لتجنُّب انقطاع الخدمة.
 
 ## gemini-3-pro-preview
 
-| Proprietà | Descrizione |
+| الموقع | الوصف |
 | --- | --- |
-| Codice modello id\_card | `gemini-3-pro-preview` |
-| saveTipi di dati supportati | **Input**  Testo, immagine, video, audio e PDF  **Output**  Testo |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  1.048.576  **Limite di token di output**  65.536 |
-| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Non supportato  **[Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Non supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[Pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
-| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza flessibile](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Non supportato  **[Inferenza prioritaria](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Non supportato |
-| 123Versioni | Leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions) per maggiori dettagli.  - *Arresto*: `gemini-3-pro-preview` |
-| calendar\_monthUltimo aggiornamento | Novembre 2025 |
-| id\_cardScheda del modello | [Scheda del modello](https://deepmind.google/models/model-cards/gemini-3-pro/?hl=it) |
+| id\_cardرمز النموذج | `gemini-3-pro-preview` |
+| saveأنواع البيانات المتوافقة | **المدخلات**  النص والصورة والفيديو والصوت وملف PDF  **الناتج**  نص |
+| token\_autotoken\_autoالحدود القصوى للرموز المميّزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحد الأقصى للرموز المميّزة للإدخال**  1,048,576  **الحد الأقصى للرموز المميّزة للناتج**  65,536 |
+| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  متاح  **[استخدام الكمبيوتر](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar)**  غير متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  متاح  **[استدعاء الوظائف](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  غير متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[واجهة برمجة التطبيقات المباشرة](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[لتحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[مُخرجات منظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  متاح  **[طريقة التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  متاح |
+| خيارات الاستهلاكspeed | **[واجهة برمجة التطبيقات المجمّعة](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاحة  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  غير متاح  **[الاستنتاج حسب الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  غير متاح |
+| 123الإصدارات | يمكنك قراءة [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - *تم إيقاف*: `gemini-3-pro-preview` |
+| calendar\_monthآخر تعديل | نوفمبر 2025 |
+| id\_cardبطاقة النموذج | [بطاقة النموذج](https://deepmind.google/models/model-cards/gemini-3-pro/?hl=ar) |
 
-Invia feedback
+إرسال ملاحظات
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ultimo aggiornamento 2026-08-19 UTC.
+تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Vuoi dirci altro?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-08-19 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-08-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

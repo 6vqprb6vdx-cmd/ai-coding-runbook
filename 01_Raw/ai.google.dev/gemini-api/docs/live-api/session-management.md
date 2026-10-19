@@ -1,52 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=de
-fetched_at: 2026-10-12T07:12:20.622701+00:00
-title: "Sitzungsverwaltung mit der Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko
+fetched_at: 2026-10-19T05:34:41.011644+00:00
+title: "Live API\ub97c \uc0ac\uc6a9\ud55c \uc138\uc158 \uad00\ub9ac \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=de).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Feedback geben
+의견 보내기
 
-# Sitzungsverwaltung mit der Live API
+# Live API를 사용한 세션 관리
 
-In der Live API bezieht sich eine Sitzung auf eine persistente
-Verbindung, bei der Eingaben und Ausgaben kontinuierlich über dieselbe
-Verbindung gestreamt werden. Weitere Informationen zu [Funktionsweise](https://ai.google.dev/gemini-api/docs/live?hl=de).
-Dieses einzigartige Sitzungsdesign ermöglicht eine geringe Latenz und unterstützt einzigartige Funktionen, kann aber auch Herausforderungen mit sich bringen, z. B. Sitzungszeitlimits und vorzeitige Beendigung.
-In dieser Anleitung werden Strategien zur Bewältigung der Herausforderungen bei der Sitzungsverwaltung beschrieben, die bei der Verwendung der Live API auftreten können.
+Live API에서 세션은 입력 및 출력이 동일한
+연결을 통해 지속적으로 스트리밍되는 영구
+연결을 나타냅니다 ([작동 방식](https://ai.google.dev/gemini-api/docs/live?hl=ko)에 대해 자세히 알아보기).
+이 고유한 세션 설계는 지연 시간이 짧고 고유한 기능을 지원하지만 세션 시간 제한 및 조기 종료와 같은 문제를 일으킬 수도 있습니다.
+이 가이드에서는 Live API를 사용할 때 발생할 수 있는 세션 관리 문제를 해결하기 위한 전략을 다룹니다.
 
-## Sitzungsdauer
+## 세션 수명
 
-Ohne Komprimierung sind reine Audiositzungen auf 15 Minuten und Audio-Videositzungen auf 2 Minuten begrenzt. Wenn diese Limits
-überschritten werden, wird die Sitzung (und damit die Verbindung) beendet. Sie können jedoch die
-[Komprimierung des Kontextfensters](#context-window-compression) verwenden, um Sitzungen
-unbegrenzt zu verlängern.
+압축이 없으면 오디오 전용 세션은 15분으로 제한되고 오디오-동영상 세션은 2분으로 제한됩니다. 이러한 제한을 초과하면
+세션 (따라서 연결)이 종료되지만
+[컨텍스트 윈도우 압축](#context-window-compression)을 사용하여 세션을
+무제한으로 확장할 수 있습니다.
 
-Die Lebensdauer einer Verbindung ist ebenfalls auf etwa 10 Minuten begrenzt. Wenn die Verbindung beendet wird, wird auch die Sitzung beendet. In diesem Fall können Sie
-eine einzelne Sitzung so konfigurieren, dass sie über mehrere Verbindungen hinweg aktiv bleibt, indem Sie
-[die Sitzungswiederaufnahme](#session-resumption)verwenden.
-Sie erhalten außerdem eine [GoAway-Nachricht](#goaway-message), bevor die
-Verbindung beendet wird, damit Sie weitere Maßnahmen ergreifen können.
+연결 수명도 약 10분으로 제한됩니다. 연결이 종료되면 세션도 종료됩니다. 이 경우
+세션 재개
+[를 사용하여](#session-resumption) 여러 연결에서 활성 상태를 유지하도록 단일 세션을 구성할 수 있습니다.
+또한 연결이 종료되기 전에 [GoAway 메시지](#goaway-message)를 수신하여 추가 조치를 취할 수 있습니다.
 
-## Komprimierung des Kontextfensters
+## 컨텍스트 윈도우 압축
 
-Wenn Sie längere Sitzungen ermöglichen und ein abruptes Beenden der Verbindung vermeiden möchten, können Sie
-die Komprimierung des Kontextfensters aktivieren, indem Sie das [contextWindowCompression](https://ai.google.dev/api/live?hl=de#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression)
-Feld als Teil der Sitzungskonfiguration festlegen.
+세션을 더 길게 사용 설정하고 갑작스러운 연결 종료를 방지하려면 세션 구성의 일부로 [contextWindowCompression](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression) 필드를 설정하여 컨텍스트 윈도우 압축을 사용 설정하면 됩니다.
 
-In der [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=de#contextwindowcompressionconfig) können Sie einen
-[Mechanismus für das gleitende Fenster](https://ai.google.dev/api/live?hl=de#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
-und die [Anzahl der Token](https://ai.google.dev/api/live?hl=de#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
-konfigurieren, die die Komprimierung auslösen.
+[ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=ko#contextwindowcompressionconfig)에서
+[슬라이딩 윈도우 메커니즘](https://ai.google.dev/api/live?hl=ko#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
+과 [압축을 트리거하는 토큰 수](https://ai.google.dev/api/live?hl=ko#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
+를 구성할 수 있습니다.
 
 ### Python
 
@@ -73,19 +70,15 @@ const config = {
 };
 ```
 
-## Sitzungswiederaufnahme
+## 세션 재개
 
-Wenn Sie verhindern möchten, dass die Sitzung beendet wird, wenn der Server die WebSocket
-Verbindung regelmäßig zurücksetzt, konfigurieren Sie das [sessionResumption](https://ai.google.dev/api/live?hl=de#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption)
-Feld in der [Einrichtungskonfiguration](https://ai.google.dev/api/live?hl=de#BidiGenerateContentSetup).
+서버가 WebSocket
+연결을 주기적으로 재설정할 때 세션이 종료되지 않도록 하려면 [sessionResumption](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption)
+필드를 [설정 구성](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup) 내에서 구성합니다.
 
-Wenn Sie diese Konfiguration übergeben, sendet der
-Server [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=de#SessionResumptionUpdate)
-Nachrichten, mit denen die Sitzung wiederaufgenommen werden kann, indem Sie das letzte Wiederaufnahme
-Token als das [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=de#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle)
-der nachfolgenden Verbindung übergeben.
+이 구성을 전달하면 서버가 [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=ko#SessionResumptionUpdate) 메시지를 전송합니다. 이 메시지는 후속 연결의 마지막 재개 토큰을 [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=ko#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle)로 전달하여 세션을 재개하는 데 사용할 수 있습니다.
 
-Wiederaufnahmetoken sind nach der letzten Beendigung der Sitzung 2 Stunden lang gültig.
+재개 토큰은 마지막 세션 종료 후 2시간 동안 유효합니다.
 
 ### Python
 
@@ -220,9 +213,9 @@ async function main() {
 main();
 ```
 
-## Nachricht vor dem Trennen der Sitzung erhalten
+## 세션 연결 해제 전에 메시지 수신
 
-Der Server sendet eine [GoAway](https://ai.google.dev/api/live?hl=de#GoAway)-Nachricht, die signalisiert, dass die aktuelle Verbindung bald beendet wird. Diese Nachricht enthält die [timeLeft](https://ai.google.dev/api/live?hl=de#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left), die die verbleibende Zeit angibt. So können Sie weitere Maßnahmen ergreifen, bevor die Verbindung als „ABORTED“ beendet wird.
+서버는 현재 연결이 곧 종료됨을 알리는 [GoAway](https://ai.google.dev/api/live?hl=ko#GoAway) 메시지를 보냅니다. 이 메시지에는 남은 시간을 나타내는 [timeLeft](https://ai.google.dev/api/live?hl=ko#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left)가 포함되어 있으며 연결이 ABORTED로 종료되기 전에 추가 조치를 취할 수 있습니다.
 
 ### Python
 
@@ -245,10 +238,10 @@ for (const turn of turns) {
 }
 ```
 
-## Nachricht erhalten, wenn die Generierung abgeschlossen ist
+## 생성이 완료되면 메시지 수신
 
-Der Server sendet eine [generationComplete](https://ai.google.dev/api/live?hl=de#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
-Nachricht, die signalisiert, dass das Modell die Antwort generiert hat.
+서버는 모델이 응답 생성을 완료했음을 알리는 [generationComplete](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
+메시지를 보냅니다.
 
 ### Python
 
@@ -270,19 +263,19 @@ for (const turn of turns) {
 }
 ```
 
-## Nächste Schritte
+## 다음 단계
 
-Weitere Informationen zur Verwendung der Live API finden Sie im vollständigen
-[Leitfaden zu den Funktionen](https://ai.google.dev/gemini-api/docs/live?hl=de),
-auf der Seite zur [Toolnutzung](https://ai.google.dev/gemini-api/docs/live-tools?hl=de) oder im
-[Live API-Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=de).
+전체
+[기능](https://ai.google.dev/gemini-api/docs/live?hl=ko) 가이드,
+[도구 사용](https://ai.google.dev/gemini-api/docs/live-tools?hl=ko) 페이지 또는
+[Live API Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=ko)에서 Live API를 사용하는 다양한 방법을 알아보세요.
 
-Feedback geben
+의견 보내기
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Zuletzt aktualisiert: 2026-09-17 (UTC).
+최종 업데이트: 2026-09-17(UTC)
 
-Haben Sie Feedback für uns?
+의견을 전달하고 싶나요?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-17 (UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-17(UTC)"],[],[]]

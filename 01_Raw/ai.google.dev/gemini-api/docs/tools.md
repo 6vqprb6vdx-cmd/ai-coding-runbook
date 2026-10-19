@@ -1,115 +1,98 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=it
-fetched_at: 2026-10-12T06:50:51.285886+00:00
-title: "Utilizzo degli strumenti con l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=ru
+fetched_at: 2026-10-19T05:37:40.672514+00:00
+title: "\u041a\u0430\u043a \u0438\u0441\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u044c \u0438\u043d\u0441\u0442\u0440\u0443\u043c\u0435\u043d\u0442\u044b \u0441 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash è ora disponibile. [Mettiti alla prova](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=it).
+Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
 
-Invia feedback
+Отправить отзыв
 
-# Utilizzo degli strumenti con l'API Gemini
+# Как использовать инструменты с Gemini API
 
-Gli strumenti estendono le funzionalità dei modelli Gemini, consentendo loro di agire nel mondo, accedere a informazioni in tempo reale ed eseguire attività di calcolo complesse. I modelli possono utilizzare gli strumenti sia nelle interazioni standard di richiesta-risposta sia nelle
-sessioni di streaming in tempo reale utilizzando l'[API Live](https://ai.google.dev/gemini-api/docs/live-tools?hl=it).
+Инструменты расширяют возможности моделей Gemini, позволяя им выполнять действия в реальном мире, получать доступ к информации в реальном времени и выполнять сложные вычислительные задачи. Модели могут использовать инструменты как в стандартных взаимодействиях типа "запрос – ответ", так и в сеансах потоковой передачи в реальном времени с помощью [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=ru).
 
-Gli strumenti sono funzionalità specifiche (come la Ricerca Google o l'esecuzione di codice) che un modello può utilizzare per rispondere alle query. L'API Gemini fornisce una suite di strumenti integrati completamente
-gestiti oppure puoi definire strumenti personalizzati utilizzando [la chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
+Инструменты – это определенные функции (например, Google Поиск или выполнение кода), которые модель может использовать для ответа на запросы. Gemini API предоставляет набор полностью управляемых встроенных инструментов, но вы также можете определить собственные инструменты с помощью [вызова функций](https://ai.google.dev/gemini-api/docs/function-calling?hl=ru).
 
-Per creare sistemi multi-step orientati agli obiettivi, consulta la [Panoramica
-sugli agenti](https://ai.google.dev/gemini-api/docs/agents?hl=it).
+Чтобы создать многоступенчатые системы, ориентированные на цели, ознакомьтесь с [обзором агентов](https://ai.google.dev/gemini-api/docs/agents?hl=ru).
 
-## Strumenti integrati disponibili
+## Доступные встроенные инструменты
 
-| Strumento | Descrizione | Casi d'uso |
+| Инструмент | Описание | Примеры использования |
 | --- | --- | --- |
-| [la Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) | Basare le risposte su eventi e fatti attuali del web per ridurre le allucinazioni. | Rispondere a domande su eventi recenti, verificare i fatti con diverse fonti. |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it) | Crea assistenti basati sulla posizione in grado di trovare luoghi, ottenere indicazioni stradali e fornire un contesto locale ricco. | Pianificare itinerari di viaggio con più tappe, trovare attività locali in base ai criteri dell'utente. |
-| [Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) | Consenti al modello di scrivere ed eseguire codice Python per risolvere problemi matematici o elaborare i dati con precisione. | Risolvere equazioni matematiche complesse, elaborare e analizzare con precisione i dati di testo. |
-| [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) | Indica al modello di leggere e analizzare i contenuti di pagine web o documenti specifici. | Rispondere a domande basate su URL o documenti specifici, recuperare informazioni su diverse pagine web. |
-| [Utilizzo del computer (anteprima)](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) | Consenti a Gemini di visualizzare uno schermo e generare azioni per interagire con le UI del browser web (esecuzione lato client). | Automatizzare i flussi di lavoro ripetitivi basati sul web, testare le interfacce utente delle applicazioni web. |
-| [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it) | Indicizza e cerca i tuoi documenti per abilitare la Retrieval-Augmented Generation (RAG). | Cercare manuali tecnici, rispondere a domande su dati proprietari. |
+| [Google Поиск](https://ai.google.dev/gemini-api/docs/google-search?hl=ru) | Обосновывать ответы текущими событиями и фактами из интернета, чтобы уменьшить количество галлюцинаций. | Отвечать на вопросы о недавних событиях, проверять факты по разным источникам. |
+| [Google Карты](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ru) | Создавайте помощников с поддержкой геолокации, которые могут находить места, строить маршруты и предоставлять подробную информацию о местности. | Планирование маршрутов с несколькими остановками, поиск местных компаний по критериям пользователя. |
+| [Выполнение кода](https://ai.google.dev/gemini-api/docs/code-execution?hl=ru) | Разрешите модели писать и запускать код на Python, чтобы решать математические задачи или точно обрабатывать данные. | Решение сложных математических уравнений, точная обработка и анализ текстовых данных. |
+| [Контекст URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ru) | Указывать модели, какой контент с определенных веб-страниц или из документов нужно прочитать и проанализировать. | Отвечать на вопросы на основе определенных URL или документов, извлекать информацию с разных веб-страниц. |
+| [Использование компьютера (предварительная версия)](https://ai.google.dev/gemini-api/docs/computer-use?hl=ru) | Разрешите Gemini просматривать экран и генерировать действия для взаимодействия с интерфейсами веб-браузеров (выполнение на стороне клиента). | Автоматизация повторяющихся рабочих процессов в интернете, тестирование пользовательских интерфейсов веб-приложений. |
+| [Поиск файлов](https://ai.google.dev/gemini-api/docs/file-search?hl=ru) | Индексируйте и ищите собственные документы, чтобы включить генерацию с дополненной выборкой (RAG). | Поиск по техническим руководствам, ответы на вопросы по собственным данным. |
 
-Per informazioni dettagliate
-sui costi associati a strumenti specifici, consulta la pagina dei [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#pricing_for_tools).
+Подробную информацию о стоимости отдельных инструментов можно найти на [странице с ценами](https://ai.google.dev/gemini-api/docs/pricing?hl=ru#pricing_for_tools).
 
-## Come funziona l'esecuzione degli strumenti
+## Как работает выполнение инструментов
 
-Gli strumenti consentono al modello di richiedere azioni durante una conversazione. Il flusso varia a seconda che lo strumento sia integrato (gestito da Google) o personalizzato (gestito da te).
+Инструменты позволяют модели запрашивать действия во время разговора. Процесс зависит от того, встроенный инструмент (управляемый Google) или пользовательский (управляемый вами).
 
-### Flusso degli strumenti integrati
+### Встроенный инструмент
 
-Per gli strumenti integrati (Ricerca Google, Google Maps, Contesto URL, Ricerca file, Esecuzione di codice), l'intero processo avviene all'interno di una chiamata API:
+При использовании встроенных инструментов (Google Поиска, Google Карт, URL-контекста, поиска файлов и выполнения кода) весь процесс происходит в рамках одного вызова API:
 
-1. **Tu** invii un prompt: "Qual è la radice quadrata dell'ultimo prezzo delle azioni di GOOG?".
-2. **Gemini** decide di aver bisogno di strumenti e li esegue sui server di Google (ad es. cerca il prezzo delle azioni, quindi esegue codice Python per calcolare la radice quadrata).
-3. **Gemini** invia la risposta finale basata sui risultati dello strumento.
+1. **Вы** отправляете запрос: "Чему равен квадратный корень из последней цены акции GOOG?"
+2. **Gemini** решает, что ему нужны инструменты, и запускает их на серверах Google (например, ищет цену акций, а затем выполняет код Python, чтобы рассчитать квадратный корень).
+3. **Gemini** отправляет окончательный ответ, основанный на результатах работы инструмента.
 
-### Flusso degli strumenti personalizzati (chiamata di funzione)
+### Процесс работы с пользовательскими инструментами (вызов функций)
 
-Per gli strumenti personalizzati e l'utilizzo del computer, l'applicazione gestisce l'esecuzione:
+В случае с пользовательскими инструментами и использованием компьютера выполнение обрабатывает ваше приложение:
 
-1. **Tu** invii un prompt insieme alle dichiarazioni delle funzioni (strumenti).
-2. **Gemini** potrebbe restituire JSON strutturato per chiamare una funzione specifica
-   (ad esempio, `{"name": "get_order_status", "args": {"order_id": "123"}}`),
-   sempre con un `id` univoco.
-3. **Tu** esegui la funzione nella tua applicazione o nel tuo ambiente.
-4. **Tu** invii i risultati della funzione a Gemini, con lo stesso `id` della chiamata di funzione.
-5. **Gemini** utilizza i risultati per generare una risposta finale o un'altra chiamata di strumento.
+1. **Вы** отправляете запрос вместе с объявлениями функций (инструментов).
+2. **Gemini** может отправить обратно структурированный JSON, чтобы вызвать определенную функцию (например, `{"name": "get_order_status", "args": {"order_id": "123"}}`), всегда с уникальным `id`.
+3. **Вы** выполняете функцию в своем приложении или среде.
+4. **Вы** отправляете результаты функции с тем же `id`, что и у вызова функции, обратно в Gemini.
+5. **Gemini** использует результаты, чтобы сгенерировать окончательный ответ или вызвать другой инструмент.
 
-Scopri di più nella [guida alla chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it).
+Подробную информацию вы найдете в [руководстве по вызову функций](https://ai.google.dev/gemini-api/docs/function-calling?hl=ru).
 
-### Combinazione del flusso di strumenti integrati e personalizzati
+### Как сочетать встроенные и специальные инструменты
 
-Per le richieste che combinano strumenti integrati e strumenti personalizzati (chiamate di funzione), il
-modello utilizza [la circolazione del contesto dello strumento](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it) per
-coordinare l'esecuzione in ambienti diversi:
+Для запросов, в которых сочетаются встроенные и пользовательские инструменты (вызовы функций), модель использует [циркуляцию контекста инструментов](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ru), чтобы координировать выполнение в разных средах.
 
-1. **Tu** invii un prompt e dichiari gli strumenti integrati e le funzioni personalizzate che vuoi abilitare, impostando un flag per attivare il supporto della combinazione.
-2. **Gemini** esegue gli strumenti integrati e cede il controllo all'utente se vengono generate chiamate di funzione lato client (l'esecuzione dipende dal prompt e da ciò che decide il modello). Restituisce una risposta con:
-   - Conferma della chiamata di strumento
-   - Risultati della risposta dello strumento (potrebbe essere visualizzata dopo il JSON se il modello ha generato due chiamate di funzione parallele)
-   - JSON strutturato per chiamare la funzione
-   - Firme di pensiero criptate per preservare il contesto
-3. **Tu** esegui la funzione nella tua applicazione o nel tuo ambiente.
-4. **Tu** restituisci tutte le parti della risposta di Gemini, oltre ai risultati della chiamata di funzione.
-5. **Gemini** genera la risposta finale utilizzando tutto il contesto combinato.
+1. **Вы** отправляете запрос и указываете встроенные инструменты и специальные функции, которые хотите включить, установив флажок для поддержки комбинирования.
+2. **Gemini** выполняет встроенные инструменты и уступает пользователю, если генерируются какие-либо вызовы функций на стороне клиента (что выполняется первым, зависит от запроса и решения модели). Он возвращает ответ, содержащий:
+   - Подтверждение вызова инструмента
+   - Результаты ответа инструмента (могут быть указаны после JSON, если модель сгенерировала два параллельных вызова функции).
+   - Структурированный JSON для вызова функции
+   - Зашифрованные подписи мыслей для сохранения контекста
+3. **Вы** выполняете функцию в своем приложении или среде.
+4. **Вы** возвращаете все части ответа Gemini, а также результаты вызова функции.
+5. **Gemini** генерирует окончательный ответ, используя весь объединенный контекст.
 
-Leggi la [guida alla combinazione di strumenti](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it) per scoprire
-come attivare il supporto per la combinazione di strumenti integrati e personalizzati ed esempi di
-circolazione del contesto.
+Ознакомьтесь с [руководством по комбинированию инструментов](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ru), чтобы узнать, как включить поддержку комбинирования встроенных и пользовательских инструментов, а также посмотреть примеры передачи контекста.
 
-## Output strutturati e chiamata di funzione
+## Структурированные выходные данные и вызов функций
 
-Gemini offre due metodi per generare output strutturati. Utilizza la [chiamata di
-funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) quando il modello deve eseguire un
-passaggio intermedio collegandosi ai tuoi strumenti o sistemi di dati. Utilizza
-[gli output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it) quando hai bisogno che
-la risposta finale del modello rispetti uno schema specifico, ad esempio per il rendering
-di un'UI personalizzata.
+Gemini предлагает два метода генерации структурированных выходных данных. Используйте [вызов функций](https://ai.google.dev/gemini-api/docs/function-calling?hl=ru), когда модели нужно выполнить промежуточный шаг, подключившись к вашим инструментам или системам данных. Используйте [структурированные выходные данные](https://ai.google.dev/gemini-api/docs/structured-output?hl=ru), когда вам строго необходимо, чтобы окончательный ответ модели соответствовал определенной схеме, например для рендеринга пользовательского интерфейса.
 
-## Output strutturati con strumenti
+## Структурированные выходные данные с инструментами
 
-Puoi combinare gli [output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it) con
-gli strumenti integrati per assicurarti che le risposte del modello basate su dati o
-calcoli esterni rispettino comunque uno schema rigoroso.
+Вы можете использовать [структурированные выходные данные](https://ai.google.dev/gemini-api/docs/structured-output?hl=ru) вместе со встроенными инструментами, чтобы ответы модели, основанные на внешних данных или вычислениях, соответствовали строгой схеме.
 
-Per esempi di codice, consulta [Output strutturati con strumenti](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=it#structured_outputs_with_tools).
+Примеры кода можно найти в разделе [Структурированные ответы с использованием инструментов](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=ru#tools).
 
-Invia feedback
+Отправить отзыв
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-Ultimo aggiornamento 2026-09-11 UTC.
+Последнее обновление: 2026-10-15 UTC.
 
-Vuoi dirci altro?
+Хотите рассказать подробнее?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-11 UTC."],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-15 UTC."],[],[]]

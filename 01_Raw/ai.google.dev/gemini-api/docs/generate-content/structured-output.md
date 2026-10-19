@@ -1,39 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=ar
-fetched_at: 2026-10-12T06:47:26.758594+00:00
-title: "\u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0646\u0638\u064e\u0651\u0645\u0629 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/structured-output?hl=pl
+fetched_at: 2026-10-19T05:48:09.938271+00:00
+title: "Dane wyj\u015bciowe uporz\u0105dkowane \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 3.8 Flash متاح الآن. [جرِّبه](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ar).
+Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
 
-إرسال ملاحظات
+Prześlij opinię
 
-# النتائج المنظَّمة
+# Dane wyjściowe uporządkowane
 
-يمكنك ضبط نماذج Gemini لإنشاء ردود تتوافق مع مخطط JSON المقدَّم. يضمن ذلك الحصول على نتائج متوقّعة وآمنة من حيث النوع، كما يسهّل استخراج البيانات المنظَّمة من النصوص غير المنظَّمة.
+Możesz skonfigurować modele Gemini tak, aby generowały odpowiedzi zgodne z podanym schematem JSON. Zapewnia to przewidywalne, bezpieczne pod względem typu wyniki i upraszcza wyodrębnianie uporządkowanych danych z nieuporządkowanego tekstu.
 
-يُعدّ استخدام المُخرجات المنظَّمة مثاليًا للحالات التالية:
+Uporządkowane dane wyjściowe idealnie nadają się do:
 
-- **استخراج البيانات:** استخراج معلومات محدّدة، مثل الأسماء والتواريخ، من النص
-- **التصنيف المنظَّم:** تصنيف النص ضِمن فئات محدَّدة مسبقًا
-- **سير عمل الذكاء الاصطناعي الوكيل:** إنشاء مدخلات منظَّمة للأدوات أو واجهات برمجة التطبيقات
+- **Wyodrębnianie danych:** wyodrębnianie z tekstu konkretnych informacji, takich jak imiona i nazwiska czy daty.
+- **Klasyfikacja strukturalna:** klasyfikowanie tekstu według wstępnie zdefiniowanych kategorii.
+- **Agentic Workflows:** generowanie uporządkowanych danych wejściowych dla narzędzi lub interfejsów API.
 
-بالإضافة إلى إتاحة استخدام JSON Schema في REST API، تسهّل حِزم تطوير البرامج (SDK) من Google GenAI تحديد المخططات باستخدام [Pydantic](https://docs.pydantic.dev/latest/) (في Python) و[Zod](https://zod.dev/) (في JavaScript).
+Oprócz obsługi schematu JSON w interfejsie REST API pakiety Google GenAI SDK ułatwiają definiowanie schematów za pomocą [Pydantic](https://docs.pydantic.dev/latest/) (Python) i [Zod](https://zod.dev/) (JavaScript).
 
-## أمثلة على الناتج المنظَّم
+## Przykłady uporządkowanych danych wyjściowych
 
-### أداة استخراج وصفات الطعام
+### Ekstraktor przepisów
 
-يوضّح هذا المثال كيفية استخراج البيانات المنظَّمة من نص باستخدام أنواع أساسية من مخطط JSON، مثل `object` و`array` و`string` و`integer`.
+Ten przykład pokazuje, jak wyodrębnić dane strukturalne z tekstu za pomocą podstawowych typów schematu JSON, takich jak `object`, `array`, `string` i `integer`.
 
 ### Python
 
@@ -72,7 +72,8 @@ response = client.models.generate_content(
     model="gemini-3.8-flash",
     contents=prompt,
     config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": Recipe.model_json_schema()}},
+        "response_mime_type": "application/json",
+        "response_json_schema": Recipe.model_json_schema(),
     },
 )
 
@@ -119,7 +120,8 @@ const response = await ai.models.generateContent({
   model: "gemini-3.8-flash",
   contents: prompt,
   config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(recipeSchema) } },
+    responseMimeType: "application/json",
+    responseJsonSchema: zodToJsonSchema(recipeSchema),
   },
 });
 
@@ -228,43 +230,43 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
       "generationConfig": {
         "responseFormat": {
           "text": {
-            "mimeType": "application/json",
+            "mimeType": "APPLICATION_JSON",
             "schema": {
-          "type": "object",
-          "properties": {
-            "recipe_name": {
-              "type": "string",
-              "description": "The name of the recipe."
-            },
-            "prep_time_minutes": {
-                "type": "integer",
-                "description": "Optional time in minutes to prepare the recipe."
-            },
-            "ingredients": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "name": { "type": "string", "description": "Name of the ingredient."},
-                  "quantity": { "type": "string", "description": "Quantity of the ingredient, including units."}
-          }
-        }
-      },
-                "required": ["name", "quantity"]
-              }
-            },
-            "instructions": {
-              "type": "array",
-              "items": { "type": "string" }
+              "type": "object",
+              "properties": {
+                "recipe_name": {
+                  "type": "string",
+                  "description": "The name of the recipe."
+                },
+                "prep_time_minutes": {
+                  "type": "integer",
+                  "description": "Optional time in minutes to prepare the recipe."
+                },
+                "ingredients": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "name": { "type": "string", "description": "Name of the ingredient."},
+                      "quantity": { "type": "string", "description": "Quantity of the ingredient, including units."}
+                    },
+                    "required": ["name", "quantity"]
+                  }
+                },
+                "instructions": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                }
+              },
+              "required": ["recipe_name", "ingredients", "instructions"]
             }
-          },
-          "required": ["recipe_name", "ingredients", "instructions"]
+          }
         }
       }
     }'
 ```
 
-**مثال على الرد:**
+**Przykładowa odpowiedź:**
 
 ```
 {
@@ -319,9 +321,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-### الإشراف على المحتوى
+### Moderowanie treści
 
-يعرض هذا المثال `anyOf` للمخططات الشرطية و`enum` للتصنيف، ما يسمح بتغيير بنية الإخراج استنادًا إلى المحتوى.
+W tym przykładzie użyto `anyOf` w przypadku schematów warunkowych i `enum` w przypadku klasyfikacji, co pozwala na zmianę struktury wyjściowej w zależności od treści.
 
 ### Python
 
@@ -352,7 +354,8 @@ response = client.models.generate_content(
     model="gemini-3.8-flash",
     contents=prompt,
     config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": ModerationResult.model_json_schema()}},
+        "response_mime_type": "application/json",
+        "response_json_schema": ModerationResult.model_json_schema(),
     },
 )
 
@@ -392,7 +395,8 @@ const response = await ai.models.generateContent({
   model: "gemini-3.8-flash",
   contents: prompt,
   config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(moderationResultSchema) } },
+    responseMimeType: "application/json",
+    responseJsonSchema: zodToJsonSchema(moderationResultSchema),
   },
 });
 
@@ -500,40 +504,40 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
       "generationConfig": {
         "responseFormat": {
           "text": {
-            "mimeType": "application/json",
+            "mimeType": "APPLICATION_JSON",
             "schema": {
-          "type": "object",
-          "properties": {
-            "decision": {
-              "anyOf": [
-                {
-                  "type": "object",
-                  "title": "SpamDetails",
-                  "description": "Details for content classified as spam.",
-                  "properties": {
-                    "reason": { "type": "string", "description": "The reason why the content is considered spam." },
-                    "spam_type": { "type": "string", "enum": ["phishing", "scam", "unsolicited promotion", "other"], "description": "The type of spam." }
+              "type": "object",
+              "properties": {
+                "decision": {
+                  "anyOf": [
+                    {
+                      "type": "object",
+                      "title": "SpamDetails",
+                      "description": "Details for content classified as spam.",
+                      "properties": {
+                        "reason": { "type": "string", "description": "The reason why the content is considered spam." },
+                        "spam_type": { "type": "string", "enum": ["phishing", "scam", "unsolicited promotion", "other"], "description": "The type of spam." }
+                      },
+                      "required": ["reason", "spam_type"]
+                    },
+                    {
+                      "type": "object",
+                      "title": "NotSpamDetails",
+                      "description": "Details for content classified as not spam.",
+                      "properties": {
+                        "summary": { "type": "string", "description": "A brief summary of the content." },
+                        "is_safe": { "type": "boolean", "description": "Whether the content is safe for all audiences." }
+                      },
+                      "required": ["summary", "is_safe"]
+                    }
+                  ]
+                }
+              },
+              "required": ["decision"]
+            }
           }
         }
-      },
-                   "required": ["reason", "spam_type"]
-                 },
-                 {
-                   "type": "object",
-                   "title": "NotSpamDetails",
-                   "description": "Details for content classified as not spam.",
-                   "properties": {
-                     "summary": { "type": "string", "description": "A brief summary of the content." },
-                     "is_safe": { "type": "boolean", "description": "Whether the content is safe for all audiences." }
-                   },
-                   "required": ["summary", "is_safe"]
-                 }
-               ]
-             }
-           },
-           "required": ["decision"]
-         }
-       }
+      }
      }'
  ```
 
@@ -548,9 +552,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-### البُنى التكرارية
+### Struktury cykliczne
 
-يوضّح هذا المثال كيفية تحديد مخطط تكراري، مثل المخطط التنظيمي.
+Ten przykład pokazuje, jak zdefiniować schemat rekurencyjny, taki jak schemat organizacyjny.
 
 ### Python
 
@@ -579,7 +583,8 @@ response = client.models.generate_content(
     model="gemini-3.8-flash",
     contents=prompt,
     config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": Employee.model_json_schema()}},
+        "response_mime_type": "application/json",
+        "response_json_schema": Employee.model_json_schema(),
     },
 )
 
@@ -611,7 +616,8 @@ const response = await ai.models.generateContent({
   model: "gemini-3.8-flash",
   contents: prompt,
   config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(employeeSchema) } },
+    responseMimeType: "application/json",
+    responseJsonSchema: zodToJsonSchema(employeeSchema),
   },
 });
 
@@ -691,29 +697,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
       "generationConfig": {
         "responseFormat": {
           "text": {
-            "mimeType": "application/json",
+            "mimeType": "APPLICATION_JSON",
             "schema": {
-          "type": "object",
-          "properties": {
-            "name": { "type": "string" },
-            "employee_id": { "type": "integer" },
-            "reports": {
-              "type": "array",
-              "description": "A list of employees reporting to this employee.",
-              "items": {
-                "$ref": "#"
-              }
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" },
+                "employee_id": { "type": "integer" },
+                "reports": {
+                  "type": "array",
+                  "description": "A list of employees reporting to this employee.",
+                  "items": {
+                    "$ref": "#"
+                  }
+                }
+              },
+              "required": ["name", "employee_id", "reports"]
+            }
           }
-        }
-      }
-          },
-          "required": ["name", "employee_id", "reports"]
         }
       }
     }'
 ```
 
-**مثال على الرد:**
+**Przykładowa odpowiedź:**
 
 ```
 {
@@ -740,11 +746,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-## البث
+## Streaming
 
-يمكنك بث النتائج المنظَّمة، ما يتيح لك بدء معالجة الرد أثناء إنشائه، بدون الحاجة إلى انتظار اكتمال الناتج بالكامل. يمكن أن يؤدي ذلك إلى تحسين الأداء المُدرَك لتطبيقك.
+Możesz przesyłać strumieniowo ustrukturyzowane dane wyjściowe, co pozwala rozpocząć przetwarzanie odpowiedzi w trakcie jej generowania, bez konieczności czekania na zakończenie całego procesu. Może to poprawić postrzeganą wydajność aplikacji.
 
-ستكون الأجزاء التي يتم بثها عبارة عن سلاسل JSON جزئية صالحة، ويمكن ربطها لتكوين عنصر JSON النهائي الكامل.
+Przesyłane strumieniowo fragmenty będą prawidłowymi częściowymi ciągami JSON, które można połączyć, aby utworzyć ostateczny, kompletny obiekt JSON.
 
 ### Python
 
@@ -764,7 +770,8 @@ response_stream = client.models.generate_content_stream(
     model="gemini-3.8-flash",
     contents=prompt,
     config={
-        "response_format": {"text": {"mime_type": "application/json", "schema": Feedback.model_json_schema()}},
+        "response_mime_type": "application/json",
+        "response_json_schema": Feedback.model_json_schema(),
     },
 )
 
@@ -791,7 +798,8 @@ const stream = await ai.models.generateContentStream({
   model: "gemini-3.8-flash",
   contents: prompt,
   config: {
-    responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(feedbackSchema) } },
+    responseMimeType: "application/json",
+    responseJsonSchema: zodToJsonSchema(feedbackSchema),
   },
 });
 
@@ -800,14 +808,14 @@ for await (const chunk of stream) {
 }
 ```
 
-## مُخرجات منظَّمة باستخدام الأدوات
+## Uporządkowane dane wyjściowe z narzędziami
 
-يتيح لك Gemini 3 الجمع بين "النتائج المنظَّمة" والأدوات المضمّنة، بما في ذلك
-[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) و
-[سياق عناوين URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) و
-[تطبيق الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) و
-[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar#structured-output) و
-[استدعاء الدالة](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar).
+Gemini 3 umożliwia łączenie ustrukturyzowanych danych wyjściowych z wbudowanymi narzędziami, takimi jak:
+[powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl),
+[kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl),
+[wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl),
+[wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl#structured-output) i
+[wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl).
 
 ### Python
 
@@ -824,14 +832,15 @@ class MatchResult(BaseModel):
 client = genai.Client()
 
 response = client.models.generate_content(
-    model="gemini-3.1-pro-preview",
+    model="gemini-4-argon",
     contents="Search for all details for the latest Euro.",
     config={
         "tools": [
             {"google_search": {}},
             {"url_context": {}}
         ],
-        "response_format": {"text": {"mime_type": "application/json", "schema": MatchResult.model_json_schema()}},
+        "response_mime_type": "application/json",
+        "response_json_schema": MatchResult.model_json_schema(),
     },  
 )
 
@@ -856,14 +865,15 @@ const matchSchema = z.object({
 
 async function run() {
   const response = await ai.models.generateContent({
-    model: "gemini-3.1-pro-preview",
+    model: "gemini-4-argon",
     contents: "Search for all details for the latest Euro.",
     config: {
       tools: [
         { googleSearch: {} },
         { urlContext: {} }
       ],
-      responseFormat: { text: { mimeType: "application/json", schema: zodToJsonSchema(matchSchema) } },
+      responseMimeType: "application/json",
+      responseJsonSchema: zodToJsonSchema(matchSchema),
     },
   });
 
@@ -877,7 +887,7 @@ run();
 ### REST
 
 ```
-curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-preview:generateContent" \
+curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-4-argon:generateContent" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -X POST \
@@ -890,125 +900,126 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-pro-pre
       {"urlContext": {}}
     ],
     "generationConfig": {
-        "responseFormat": {
-          "text": {
-            "mimeType": "application/json",
-            "schema": {
+      "responseFormat": {
+        "text": {
+          "mimeType": "APPLICATION_JSON",
+          "schema": {
             "type": "object",
             "properties": {
-                "winner": {"type": "string", "description": "The name of the winner."},
-                "final_match_score": {"type": "string", "description": "The final score."},
-                "scorers": {
-                    "type": "array",
-                    "items": {"type": "string"},
-                    "description": "The name of the scorer."
-                }
+              "winner": {"type": "string", "description": "The name of the winner."},
+              "final_match_score": {"type": "string", "description": "The final score."},
+              "scorers": {
+                "type": "array",
+                "items": {"type": "string"},
+                "description": "The name of the scorer."
+              }
+            },
+            "required": ["winner", "final_match_score", "scorers"]
           }
         }
-      },
-            "required": ["winner", "final_match_score", "scorers"]
-        }
+      }
     }
   }'
 ```
 
-## إتاحة مخطّط JSON
+## Obsługa schematu JSON
 
-لإنشاء عنصر JSON، اضبط `response_format` في إعدادات الإنشاء. يجب أن يكون المخطط [مخطط JSON](https://json-schema.org/) صالحًا يصف تنسيق الإخراج المطلوب.
+Aby wygenerować obiekt JSON, ustaw `response_json_schema` (lub `responseFormat.text.schema` w REST) w konfiguracji generowania. Schemat musi być prawidłowym [schematem JSON](https://json-schema.org/), który opisuje żądany format wyjściowy.
 
-سينشئ النموذج بعد ذلك ردًا عبارة عن سلسلة JSON صالحة نحويًا وتتطابق مع المخطط المقدَّم. عند استخدام النتائج المنظَّمة، سينتج النموذج نتائج بالترتيب نفسه الذي تظهر به المفاتيح في المخطط.
+Model wygeneruje odpowiedź, która będzie ciągiem znaków JSON o prawidłowej składni, zgodnym z podanym schematem. W przypadku ustrukturyzowanych danych wyjściowych model będzie generować dane wyjściowe w tej samej kolejności co klucze w schemacie.
 
-يتوافق وضع الإخراج المنظَّم في Gemini مع مجموعة فرعية من مواصفات [مخطط JSON](https://json-schema.org).
+Tryb ustrukturyzowanych danych wyjściowych Gemini obsługuje podzbiór specyfikacji [schematu JSON](https://json-schema.org).
 
-في ما يلي القيم المسموح بها لـ `type`:
+Obsługiwane są te wartości parametru `type`:
 
-- ‫**`string`**: للنص
-- **`number`**: للأرقام ذات الفاصلة العائمة
-- ‫**`integer`**: للأعداد الصحيحة
-- ‫**`boolean`**: للقيم الصحيحة أو الخاطئة
-- **`object`**: للبيانات المنظَّمة التي تتضمّن أزواجًا من المفاتيح والقيم
-- ‫**`array`**: لقوائم العناصر
-- **`null`**: للسماح بأن تكون قيمة السمة فارغة، أدرِج `"null"` في مصفوفة النوع (مثلاً، `{"type": ["string", "null"]}`).
+- **`string`**: w przypadku tekstu.
+- **`number`**: w przypadku liczb zmiennoprzecinkowych.
+- **`integer`**: dla liczb całkowitych.
+- **`boolean`**: dla wartości prawda/fałsz.
+- **`object`**: w przypadku uporządkowanych danych z parami klucz-wartość.
+- **`array`**: do list elementów.
+- **`null`**: aby właściwość mogła mieć wartość null, uwzględnij `"null"` w tablicy typu (np. `{"type": ["string", "null"]}`).
 
-تساعد هذه الخصائص الوصفية في توجيه النموذج:
+Te właściwości opisowe pomagają modelowi:
 
-- ‫**`title`**: وصف مختصر للمكان المخصّص للاستئجار
-- ‫**`description`**: وصف أطول وأكثر تفصيلاً للمكان المخصّص للاستئجار
+- **`title`**: krótki opis właściwości.
+- **`description`**: dłuższy i bardziej szczegółowy opis obiektu.
 
-### السمات الخاصة بأنواع محدّدة
+### Właściwości związane z typem
 
-**بالنسبة إلى قيم `object`:**
+**Wartości `object`:**
 
-- **`properties`**: عنصر يكون فيه كل مفتاح هو اسم سمة وكل قيمة هي مخطط لهذه السمة.
-- استبدِل **`required`** بمصفوفة من السلاسل التي تسرد السمات الإلزامية.
-- **`additionalProperties`**: تتحكّم هذه السمة في ما إذا كان يُسمح بالسمات غير المدرَجة في `properties`. يمكن أن تكون قيمة منطقية أو مخططًا.
+- **`properties`**: obiekt, w którym każdy klucz jest nazwą właściwości, a każda wartość jest schematem tej właściwości.
+- **`required`**: tablica ciągów znaków zawierająca listę właściwości, które są obowiązkowe.
+- **`additionalProperties`**: określa, czy właściwości, których nie ma na liście `properties`, są dozwolone. Może to być wartość logiczna lub schemat.
 
-**بالنسبة إلى قيم `string`:**
+**Wartości `string`:**
 
-- ‫**`enum`**: تعرض هذه السمة مجموعة محدّدة من السلاسل المحتملة لمهام التصنيف.
-- **`format`**: تحدّد هذه السمة بنية السلسلة، مثل `date-time` أو `date` أو `time`.
+- **`enum`**: zawiera listę określonych możliwych ciągów znaków na potrzeby zadań klasyfikacji.
+- **`format`**: określa składnię ciągu znaków, np. `date-time`, `date`, `time`.
 
-**بالنسبة إلى القيمتَين `number` و`integer`:**
+**Wartości `number` i `integer`:**
 
-- **`enum`**: تعرض مجموعة معيّنة من القيم الرقمية المحتملة.
-- ‫**`minimum`**: تمثّل الحد الأدنى للقيمة الشاملة.
-- ‫**`maximum`**: تمثّل الحد الأقصى للقيمة الشاملة.
+- **`enum`**: zawiera listę konkretnych możliwych wartości liczbowych.
+- **`minimum`**: minimalna wartość (włącznie).
+- **`maximum`**: maksymalna wartość włącznie.
 
-**بالنسبة إلى قيم `array`:**
+**Wartości `array`:**
 
-- ‫**`items`**: تحدّد هذه السمة المخطط لجميع العناصر في المصفوفة.
-- ‫**`prefixItems`**: تحدّد هذه السمة قائمة بمخططات أول N عناصر، ما يتيح إنشاء بنى شبيهة بالصفوف.
-- ‫**`minItems`**: الحد الأدنى لعدد العناصر في المصفوفة
-- ‫**`maxItems`**: الحد الأقصى لعدد العناصر في المصفوفة
+- **`items`**: definiuje schemat wszystkich elementów w tablicy.
+- **`prefixItems`**: definiuje listę schematów dla pierwszych N elementów, umożliwiając tworzenie struktur podobnych do krotek.
+- **`minItems`**: minimalna liczba elementów w tablicy.
+- **`maxItems`**: maksymalna liczba elementów w tablicy.
 
-## النماذج المتوافقة
+## Obsługa modeli
 
-تتيح النماذج التالية إخراج البيانات المنظَّمة:
+Te modele obsługują uporządkowane dane wyjściowe:
 
-| الطراز | النتائج المنظَّمة |
+| Model | Uporządkowane dane wyjściowe |
 | --- | --- |
-| Gemini 3.8 Flash | ✔️ |
-| Gemini 3.6 Flash | ✔️ |
-| Gemini 3.5 Flash-Lite | ✔️ |
-| Gemini 3.1 Flash-Lite | ✔️ |
-| معاينة Gemini 3.1 Pro | ✔️ |
-| معاينة Gemini 3.1 Flash-Lite | ✔️ |
-| Gemini 2.5 Pro | ✔️ |
-| Gemini 2.5 Flash | ✔️ |
-| Gemini 2.5 Flash-Lite | ✔️ |
-| ‫Gemini 2.0 Flash | ✔️\* |
-| Gemini 2.0 Flash-Lite | ✔️\* |
+| Gemini 4 Argon | ✔️ |
+| Gemini 3.8 Flash | ✔️ |
+| Gemini 3.6 Flash | ✔️ |
+| Gemini 3.5 Flash-Lite | ✔️ |
+| Gemini 3.1 Flash-Lite | ✔️ |
+| Gemini 3.1 Pro (wersja testowa) | ✔️ |
+| Gemini 3.1 Flash-Lite (wersja testowa) | ✔️ |
+| Gemini 2.5 Pro | ✔️ |
+| Gemini 2.5 Flash | ✔️ |
+| Gemini 2.5 Flash-Lite | ✔️ |
+| Gemini 2.0 Flash | ✔️\* |
+| Gemini 2.0 Flash-Lite | ✔️\* |
 
-*\* يُرجى العِلم أنّ Gemini 2.0 يتطلّب قائمة `propertyOrdering` صريحة ضمن إدخال JSON لتحديد البنية المفضّلة. يمكنك العثور على مثال في [كتاب الطبخ](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb) هذا.*
+*\* Pamiętaj, że Gemini 2.0 wymaga wyraźnej listy `propertyOrdering` w danych wejściowych JSON, aby zdefiniować preferowaną strukturę. Przykład znajdziesz w tym [przepisie](https://github.com/google-gemini/cookbook/blob/main/examples/Pdf_structured_outputs_on_invoices_and_forms.ipynb).*
 
-## المُخرجات المنظَّمة مقارنةً باستدعاء الدالة
+## Uporządkowane dane wyjściowe a wywoływanie funkcji
 
-تستخدم كل من المخرجات المنظَّمة واستدعاء الدوال مخططات JSON، ولكنها تخدم أغراضًا مختلفة:
+Zarówno ustrukturyzowane dane wyjściowe, jak i wywoływanie funkcji używają schematów JSON, ale służą do różnych celów:
 
-| الميزة | حالة الاستخدام الأساسية |
+| Funkcja | Główny przypadek użycia |
 | --- | --- |
-| **المخرجات المنظَّمة** | **تنسيق الرد النهائي للمستخدم:** استخدِم هذه الميزة عندما تريد أن يكون *ردّ* النموذج بتنسيق محدّد (مثل استخراج البيانات من مستند لحفظها في قاعدة بيانات). |
-| **استدعاء الدوال** | **اتّخاذ إجراء أثناء المحادثة** استخدِم هذه الحالة عندما يحتاج النموذج إلى *أن يطلب منك* تنفيذ مهمة (مثل "الحصول على حالة الطقس الحالية") قبل أن يتمكّن من تقديم إجابة نهائية. |
+| **Ustrukturyzowane dane wyjściowe** | **Sformatowanie ostatecznej odpowiedzi dla użytkownika.** Użyj tej opcji, gdy chcesz, aby *odpowiedź* modelu miała określony format (np. wyodrębnianie danych z dokumentu w celu zapisania ich w bazie danych). |
+| **Wywoływanie funkcji** | **Podejmowanie działań podczas rozmowy.** Użyj tej opcji, gdy model musi *poprosić Cię* o wykonanie zadania (np. „sprawdź aktualną pogodę”), zanim będzie mógł podać ostateczną odpowiedź. |
 
-## أفضل الممارسات
+## Sprawdzone metody
 
-- **أوصاف واضحة:** استخدِم الحقل `description` في المخطط لتقديم تعليمات واضحة للنموذج بشأن ما تمثله كل سمة. هذا أمر بالغ الأهمية لتوجيه ردّ النموذج.
-- **الكتابة القوية:** استخدِم أنواعًا محدّدة (`integer` و`string` و`enum`) كلما أمكن ذلك. إذا كانت إحدى المَعلمات تتضمّن مجموعة محدودة من القيم الصالحة، استخدِم `enum`.
-- **هندسة الطلبات:** وضِّح في طلبك ما تريد أن يفعله النموذج، مثلاً "استخرِج المعلومات التالية من النص..." أو "صنِّف هذه الملاحظات وفقًا للمخطط المقدَّم...".
-- **التحقّق من الصحة:** على الرغم من أنّ الناتج المنظَّم يضمن صحة بنية JSON، إلا أنّه لا يضمن صحة القيم من الناحية الدلالية. يجب دائمًا التحقّق من صحة الناتج النهائي في الرمز البرمجي لتطبيقك قبل استخدامه.
-- **معالجة الأخطاء:** اتّخِذ إجراءات فعالة لمعالجة الأخطاء في تطبيقك من أجل إدارة الحالات التي قد لا يستوفي فيها ناتج النموذج متطلبات منطق نشاطك التجاري، على الرغم من توافقه مع المخطط.
+- **Jasne opisy:** użyj pola `description` w schemacie, aby przekazać modelowi jasne instrukcje dotyczące tego, co reprezentuje każda właściwość. Ma to kluczowe znaczenie dla kierowania wynikami modelu.
+- **Silne typowanie:** używaj konkretnych typów (`integer`, `string`, `enum`), gdy tylko jest to możliwe. Jeśli parametr ma ograniczony zestaw prawidłowych wartości, użyj `enum`.
+- **Inżynieria promptów:** jasno określ w prompcie, co model ma zrobić. Na przykład: „Wyodrębnij z tekstu te informacje…” lub „Sklasyfikuj tę opinię zgodnie z podanym schematem…”.
+- **Weryfikacja:** chociaż ustrukturyzowane dane wyjściowe gwarantują poprawność składniową kodu JSON, nie gwarantują poprawności semantycznej wartości. Zawsze sprawdzaj ostateczne wyniki w kodzie aplikacji przed ich użyciem.
+- **Obsługa błędów:** zaimplementuj w aplikacji solidną obsługę błędów, aby prawidłowo zarządzać przypadkami, w których dane wyjściowe modelu, mimo że są zgodne ze schematem, mogą nie spełniać wymagań logiki biznesowej.
 
-## القيود
+## Ograniczenia
 
-- **مجموعة فرعية من المخطط:** لا تتوفّر جميع ميزات مواصفات JSON Schema. يتجاهل النموذج الخصائص غير المتوافقة.
-- **تعقيد المخطط:** قد ترفض واجهة برمجة التطبيقات المخططات الكبيرة جدًا أو المتداخلة بشكل كبير. في حال مواجهة أخطاء، حاوِل تبسيط المخطط عن طريق تقصير أسماء السمات أو تقليل التداخل أو الحدّ من عدد القيود.
+- **Podzbiór schematu:** nie wszystkie funkcje specyfikacji schematu JSON są obsługiwane. Model ignoruje nieobsługiwane właściwości.
+- **Złożoność schematu:** interfejs API może odrzucać bardzo duże lub głęboko zagnieżdżone schematy. Jeśli wystąpią błędy, spróbuj uprościć schemat, skracając nazwy właściwości, zmniejszając zagnieżdżenie lub ograniczając liczbę ograniczeń.
 
-إرسال ملاحظات
+Prześlij opinię
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)
+Ostatnia aktualizacja: 2026-10-19 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Chcesz przekazać coś jeszcze?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-19 UTC."],[],[]]

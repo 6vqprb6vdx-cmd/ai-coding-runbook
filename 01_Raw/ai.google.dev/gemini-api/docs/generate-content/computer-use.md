@@ -1,40 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/computer-use?hl=ko
-fetched_at: 2026-10-12T07:04:17.437977+00:00
-title: "\ucef4\ud4e8\ud130 \uc0ac\uc6a9 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/computer-use?hl=zh-TW
+fetched_at: 2026-10-19T05:48:57.498058+00:00
+title: "\u64cd\u4f5c\u96fb\u8166 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
 
-의견 보내기
+提供意見
 
-# 컴퓨터 사용
+# 操作電腦
 
-Computer Use 도구를 사용하면 브라우저, 모바일, 데스크톱 제어 에이전트를 빌드하여 태스크와 상호작용하고 태스크를 자동화할 수 있습니다. 스크린샷을 사용하면 모델이 컴퓨터 화면을 '보고' 마우스 클릭 및 키보드 입력과 같은 특정 UI 작업을 생성하여 '작업'할 수 있습니다. 함수 호출과 마찬가지로 Computer Use 작업을 수신하고 실행하는 클라이언트 측 실행 환경을 구현해야 합니다.
+您可以使用電腦工具建構瀏覽器、行動裝置和電腦控制代理，與這些裝置互動並自動執行工作。模型可以透過螢幕截圖「看到」電腦畫面，並透過產生滑鼠點選和鍵盤輸入等特定 UI 動作「採取行動」。與函式呼叫類似，您需要實作用戶端執行環境，才能接收及執行電腦使用動作。
 
-지원되는 모델 목록은 [모델 버전](#model-versions)을 참고하세요. Gemini 3.x 모델은 다음과 같은 여러 고급 기능을 지원합니다.
+如需支援的模型清單，請參閱「[模型版本](#model-versions)」。Gemini 3.x 模型支援多項進階功能：
 
-- **다중 환경 지원:** [브라우저, 모바일, 데스크톱](#supported-environments) 환경용 빌드 에이전트
-- **의도를 사용한 간소화된 작업:** 작업에는 각 단계의 모델 추론을 설명하는 `intent` 필드가 포함됩니다.
-- **구성 가능한 안전 정책:** 내장 정책 카테고리 및 재정의를 사용하여 [안전 동작](#safety-policies)을 미세 조정합니다.
-- **프롬프트 인젝션 감지:** 숨겨진 적대적 명령어를 감지하려면 [스크린샷 스캔](#prompt-injection)을 선택하세요.
+- **支援多種環境：**為[瀏覽器、行動裝置和電腦](#supported-environments)環境建構代理。
+- **簡化意圖動作：**動作包含 `intent` 欄位，說明模型在每個步驟背後的推理過程。
+- **可設定的安全政策：**透過內建政策類別和覆寫，微調[安全行為](#safety-policies)。
+- **提示詞注入偵測：**選擇加入[螢幕截圖掃描](#prompt-injection)功能，偵測隱藏的對抗性指令。
 
-Computer Use를 사용하면 다음 작업을 할 수 있는 에이전트를 빌드할 수 있습니다.
+有了 Computer Use，您就能建構具備下列能力的代理：
 
-- 웹사이트에서 반복적인 데이터 입력과 양식 작성을 자동화합니다.
-- 웹 애플리케이션 및 사용자 흐름의 자동 테스트 실행
-- 다양한 웹사이트에서 조사 수행 (예: 이커머스 사이트에서 제품 정보, 가격, 리뷰를 수집하여 구매에 대한 정보 제공)
+- 自動在網站上輸入重複資料或填寫表單。
+- 對網頁應用程式和使用者流程執行自動化測試
+- 在多個網站上進行研究 (例如從電子商務網站收集產品資訊、價格和評論，做為購買依據)
 
-다음은 컴퓨터 사용 도구를 사용 설정하는 최소한의 예입니다.
+以下是啟用電腦使用工具的最小範例：
 
 ### Python
 
@@ -81,45 +81,45 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-## Computer Use의 작동 방식
+## Computer Use 的運作方式
 
-컴퓨터 사용 모델로 에이전트를 빌드하려면 애플리케이션과 API 간에 연속 루프를 설정해야 합니다. 각 단계에서 코드가 실행하는 작업은 다음과 같습니다.
+如要使用 Computer Use 模型建構代理程式，您需要在應用程式和 API 之間設定連續迴圈。以下說明程式碼在每個步驟中的作用：
 
-1. [**모델에 요청 보내기**](#send-request)
-   - 애플리케이션은 Computer Use 도구, 구성 설정 (예: 타겟 환경), 사용자 프롬프트, 현재 화면의 스크린샷이 포함된 API 요청을 전송합니다.
-2. [**모델 대답 수신**](#model-response)
-   - 모델은 화면과 프롬프트를 분석하여 UI 작업을 나타내는 추천 `function_call` (예: 클릭, 스크롤, 키 입력)이 포함된 대답을 반환합니다.
-   - **Gemini 3.x 모델**의 경우 모델이 해당 작업을 선택한 이유를 설명하는 추론 `intent`도 응답에 포함됩니다.
-   - 대답에는 작업을 일반/허용됨, `require_confirmation` (사용자 승인 필요), 차단됨으로 분류하는 내부 안전 시스템의 `safety_decision`도 포함될 수 있습니다.
-3. [**수신된 작업 실행**](#execute-actions)
-   - 작업이 허용되면 (또는 사용자가 확인하면) 클라이언트 측 코드에서 `function_call`를 파싱하고, 정규화된 좌표를 뷰포트에 맞게 조정하고, 자동화 도구 (예: Playwright)를 사용하여 대상 환경에서 작업을 실행합니다. 작업이 차단되면 클라이언트가 실행을 중지하거나 중단을 처리해야 합니다.
-4. [**새 환경 상태 캡처**](#capture-state)
-   - 작업 실행이 완료되면 애플리케이션이 새 스크린샷을 캡처하고 `function_result`에서 모델에 다시 전송하여 다음 단계를 요청합니다.
+1. [**向模型傳送要求**](#send-request)
+   - 應用程式會傳送 API 要求，其中包含電腦使用工具、設定 (例如目標環境)、使用者提示，以及目前畫面的螢幕截圖。
+2. [**接收模型回應**](#model-response)
+   - 模型會分析畫面和提示，並傳回包含建議 `function_call` 的回覆，代表 UI 動作 (例如點選、捲動或按鍵)。
+   - 如果是 **Gemini 3.x 模型**，回應也會包含推論 `intent`，說明模型選擇該動作的原因。
+   - 回應也可能包含內部安全系統的 `safety_decision`，將動作分類為一般/允許、`require_confirmation` (需要使用者核准) 或封鎖。
+3. [**執行收到的動作**](#execute-actions)
+   - 如果允許執行動作 (或使用者確認執行)，用戶端程式碼會剖析 `function_call`，縮放正規化座標以符合可視區域，並使用自動化工具 (例如 Playwright) 在目標環境中執行動作。如果動作遭到封鎖，用戶端應停止執行或處理中斷。
+4. [**擷取新環境狀態**](#capture-state)
+   - 動作執行完畢後，應用程式會擷取新的螢幕截圖，並在 `function_result` 中傳回模型，要求執行下一個步驟。
 
-그런 다음 이 프로세스는 2단계부터 반복되어 작업이 완료되거나 종료될 때까지 모델에서 다음 작업을 계속 요청합니다.
+接著，系統會從步驟 2 開始重複這個程序，持續要求模型執行下一個動作，直到工作完成或終止。
 
-![Computer Use 개요](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=ko)
+![電腦使用情況總覽](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=zh-tw)
 
-## 컴퓨터 사용 구현 방법
+## 如何導入「操作電腦」功能
 
-Computer Use 도구로 빌드하기 전에 다음을 설정해야 합니다.
+使用電腦用途工具建構內容前，請先設定：
 
-- **안전한 실행 환경:** 샌드박스 VM 또는 컨테이너에서 에이전트를 실행하여 호스트 시스템에서 격리하고 잠재적 영향을 제한합니다.
-  [참조 구현](https://github.com/google/computer-use-preview/)에는 시작점으로 사용할 수 있는 사용 준비가 완료된 Docker 기반 샌드박스가 포함되어 있습니다.
-- **클라이언트 측 작업 핸들러:** 좌표를 실행하고, 텍스트를 입력하고, 스크린샷을 찍는 클라이언트 측 로직을 구현합니다.
+- **安全執行環境：**在沙箱 VM 或容器中執行代理程式，將其與主機系統隔離，並限制潛在影響。
+  [參考實作](https://github.com/google/computer-use-preview/)包含可立即使用的 Docker 沙箱，方便您踏出第一步。
+- **用戶端動作處理常式：**導入用戶端邏輯，執行座標、輸入文字及擷取螢幕截圖。
 
-아래 예에서는 웹브라우저를 실행 환경으로 사용하고 [Playwright](https://playwright.dev/)를 클라이언트 측 핸들러로 사용합니다.
+以下範例使用網路瀏覽器做為執行環境，並使用 [Playwright](https://playwright.dev/) 做為用戶端處理常式。
 
-### 0. Playwright 설정
+### 0. 設定 Playwright
 
-먼저 필요한 패키지를 설치합니다.
+首先，請安裝必要套件：
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-그런 다음 실행에 사용할 Playwright 브라우저 인스턴스를 초기화합니다.
+接著，初始化 Playwright 瀏覽器執行個體，以便執行：
 
 ```
 from playwright.sync_api import sync_playwright
@@ -147,13 +147,13 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. 모델에 요청 보내기
+### 1. 向模型傳送要求
 
-클라이언트 라이브러리를 초기화하고 Computer Use 도구를 구성합니다. 요청을 발행할 때 디스플레이 크기를 지정할 필요는 없습니다. 모델은 화면의 높이와 너비에 맞게 조정된 픽셀 좌표를 예측합니다.
+初始化用戶端程式庫，並設定電腦使用工具。請注意，發出要求時不必指定螢幕大小，模型會預測縮放至螢幕高度和寬度的像素座標。
 
 ### Python
 
-`google-genai` Python SDK (버전 `2.7.0` 이상)를 사용하여 브라우저 환경을 타겟팅하는 요청을 구성합니다.
+使用 `google-genai` Python SDK (`2.7.0` 以上版本) 設定指定瀏覽器環境的要求：
 
 ```
 from google import genai
@@ -199,7 +199,7 @@ print(response.text)
 
 ### JavaScript
 
-`@google/genai` Node.js SDK를 사용하여 브라우저 환경을 타겟팅하는 요청을 구성합니다.
+使用 `@google/genai` Node.js SDK 設定以瀏覽器環境為目標的請求：
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -232,7 +232,7 @@ console.log(response.text);
 
 ### REST
 
-curl을 사용하여 요청을 보냅니다.
+使用 curl 傳送要求：
 
 ```
 curl -X POST \
@@ -258,9 +258,9 @@ curl -X POST \
   }'
 ```
 
-### 2. 모델 응답 수신
+### 2. 接收模型回覆
 
-모델 응답은 좌표와 맞춤형 추론 인텐트가 포함된 함수 호출을 제안하여 작업을 설명합니다.
+模型回覆會建議函式呼叫，其中包含座標和量身打造的推理意圖，說明這項動作：
 
 ```
 {
@@ -275,9 +275,9 @@ curl -X POST \
 }
 ```
 
-### 3. 수신된 작업 실행
+### 3. 執行收到的動作
 
-애플리케이션 코드는 모델 응답을 파싱하고, 작업을 실행하고, 결과를 수집해야 합니다.
+應用程式程式碼需要剖析模型回應、執行動作，並收集結果。
 
 ### Python
 
@@ -461,9 +461,9 @@ async function executeFunctionCalls(candidate, page, screenWidth, screenHeight) 
 }
 ```
 
-### 4. 새 환경 상태 캡처
+### 4. 擷取新的環境狀態
 
-화면 표현을 캡처하여 모델에 반환합니다.
+擷取畫面表示法，並傳回模型。
 
 ### Python
 
@@ -523,13 +523,13 @@ async function getFunctionResponses(page, results) {
 }
 ```
 
-환경 상태를 캡처하고 포맷하는 방법을 정의한 후에는 이러한 모든 단계를 연속 실행 루프로 결합할 수 있습니다.
+定義如何擷取及格式化環境狀態後，您可以將所有這些步驟合併為連續執行迴圈。
 
-## 에이전트 루프 빌드
+## 建構代理迴圈
 
-다단계 상호작용을 사용 설정하려면 [컴퓨터 사용 구현 방법](#implement-computer-use) 섹션의 네 단계를 단일 루프로 결합합니다. 이 루프는 작업이 완료될 때까지 작업을 요청하고 결과를 모델에 다시 제공합니다.
+如要啟用多步驟互動，請將「[如何實作電腦使用功能](#implement-computer-use)」一節中的四個步驟合併為單一迴圈。這個迴圈會持續要求動作，並將結果回饋給模型，直到工作完成為止。
 
-각 단계에서 모델 응답과 함수 응답을 모두 기록에 추가하여 대화 기록을 올바르게 관리해야 합니다.
+請記得正確管理對話記錄，在每個步驟中將模型回覆和函式回覆附加至記錄。
 
 ### Python
 
@@ -714,85 +714,85 @@ try {
 }
 ```
 
-## 지원되는 환경
+## 支援的環境
 
-Gemini 3.x 모델은 `computer_use` 구성에 지정된 세 가지 환경을 지원합니다.
+Gemini 3.x 模型支援 `computer_use` 設定中指定的三種環境：
 
-### 브라우저 환경 (`ENVIRONMENT_BROWSER`)
+### 瀏覽器環境 (`ENVIRONMENT_BROWSER`)
 
-브라우저 도구의 작업 작업:
+瀏覽器工具下的動作動作：
 
-| 명령어 이름 | 설명 | 인수 (함수 호출에서) |
+| 指令名稱 | 說明 | 引數 (在函式呼叫中) |
 | --- | --- | --- |
-| **click** | 좌표에서 왼쪽 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **double\_click** | 좌표를 더블클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **triple\_click** | 좌표를 세 번 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **middle\_click** | 좌표에서 가운데 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **right\_click** | 좌표에서 마우스 오른쪽 버튼을 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **mouse\_down** | 좌표에서 마우스 버튼을 누른 상태로 유지합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **mouse\_up** | 좌표에서 마우스 버튼을 놓습니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **move** | 커서를 지정된 위치로 이동합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **type** | 텍스트를 입력합니다. | `text`: 문자열 `press_enter`: 불리언 (선택사항, 기본값: `false`) `intent`: 문자열 |
-| **drag\_and\_drop** | 시작 좌표에서 종료 좌표로 항목을 드래그합니다. | `start_y`: int (0~999) `start_x`: int (0~999) `end_y`: int (0~999) `end_x`: int (0~999) `intent`: str |
-| **wait** | 지정된 시간(초) 동안 실행을 일시중지합니다. | `seconds`: int (선택사항, 기본값 `1`) `intent`: str |
-| **press\_key** | 지정된 키를 눌렀다가 놓습니다. | `key`: str `intent`: str |
-| **key\_down** | 지정된 키를 누른 상태로 유지합니다. | `key`: str `intent`: str |
-| **key\_up** | 지정된 키를 해제합니다. | `key`: str `intent`: str |
-| **핫키** | 지정된 키 조합을 누릅니다. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | 현재 화면의 스크린샷을 반환합니다. | `intent`: 문자열 |
-| **scroll** | 좌표에서 픽셀 거리만큼 위, 아래, 왼쪽 또는 오른쪽으로 스크롤합니다. | `y`: 정수 (0~999) `x`: 정수 (0~999) `direction`: 문자열 (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: 정수 (0~999, 선택사항, 기본값: `300`) `intent`: 문자열 |
-| **go\_back** | 브라우저 기록의 이전 웹페이지로 돌아갑니다. | `intent`: 문자열 |
-| **navigate** | 지정된 URL로 직접 이동합니다. | `url`: str `intent`: str |
-| **go\_forward** | 브라우저 기록의 다음 웹페이지로 이동합니다. | `intent`: 문자열 |
+| **click** | 在座標處按一下滑鼠左鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **double\_click** | 在座標處按兩下。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **triple\_click** | 在座標位置連按三下。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **middle\_click** | 在座標處按下滑鼠中鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **right\_click** | 在座標上按一下滑鼠右鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **mouse\_down** | 在座標位置按住滑鼠按鈕。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **mouse\_up** | 在指定座標放開滑鼠按鈕。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **移動** | 將游標移至指定位置。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **type** | 輸入文字。 | `text`：str `press_enter`：bool (選用，預設為 `false`) `intent`：str |
+| **drag\_and\_drop** | 將項目從起始座標拖曳至結束座標。 | `start_y`：int (0-999) `start_x`：int (0-999) `end_y`：int (0-999) `end_x`：int (0-999) `intent`：str |
+| **wait** | 暫停執行指定秒數。 | `seconds`：int (選用，預設為 `1`) `intent`：str |
+| **press\_key** | 按下並放開指定鍵。 | `key`：str `intent`：str |
+| **key\_down** | 按下並按住指定的按鍵。 | `key`：str `intent`：str |
+| **key\_up** | 放開指定的鍵。 | `key`: str `intent`: str |
+| **快速鍵** | 按下指定的按鍵組合。 | `keys`：`List[str]` `intent`：`str` |
+| **take\_screenshot** | 傳回目前畫面的螢幕截圖。 | `intent`：str |
+| **scroll** | 以像素距離在座標上向上、向下、向左或向右捲動。 | `y`：int (0 到 999) `x`：int (0 到 999) `direction`：str (`"up"`、`"down"`、`"left"`、`"right"`) `magnitude_in_pixels`：int (0 到 999，選用，預設為 `300`) `intent`：str |
+| **go\_back** | 返回瀏覽器記錄中的上一個網頁。 | `intent`：str |
+| **瀏覽** | 直接前往指定網址。 | `url`: str `intent`: str |
+| **go\_forward** | 在瀏覽器記錄中向前瀏覽下一個網頁。 | `intent`：str |
 
-### 모바일 환경 (`ENVIRONMENT_MOBILE`)
+### 行動環境 (`ENVIRONMENT_MOBILE`)
 
-Android 최적화 환경 작업:
+Android 最佳化環境動作：
 
-| 명령어 이름 | 설명 | 인수 (함수 호출에서) |
+| 指令名稱 | 說明 | 引數 (在函式呼叫中) |
 | --- | --- | --- |
-| **open\_app** | 이름으로 애플리케이션을 엽니다. | `app_name`: str `intent`: str |
-| **click** | 좌표에서 왼쪽 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **list\_apps** | 기기에서 사용 가능한 애플리케이션을 나열하여 이름과 패키지 이름을 반환합니다. | `intent`: 문자열 |
-| **wait** | 지정된 시간(초) 동안 실행을 일시중지합니다. | `seconds`: int (선택사항, 기본값 `1`) `intent`: str |
-| **go\_back** | 이전 화면이나 웹페이지로 돌아갑니다. | `intent`: 문자열 |
-| **type** | 텍스트를 입력합니다. | `text`: 문자열 `press_enter`: 불리언 (선택사항, 기본값: `false`) `intent`: 문자열 |
-| **drag\_and\_drop** | 시작 좌표에서 종료 좌표로 항목을 드래그합니다. | `start_y`: int (0~999) `start_x`: int (0~999) `end_y`: int (0~999) `end_x`: int (0~999) `intent`: str |
-| **long\_press** | 화면의 좌표에서 길게 누르기를 실행합니다. | `y`: 정수 (0~999) `x`: 정수 (0~999) `seconds`: 정수 (선택사항, 기본값: `2`) `intent`: 문자열 |
-| **press\_key** | 지정된 키를 눌렀다가 놓습니다. | `key`: str `intent`: str |
-| **take\_screenshot** | 현재 화면의 스크린샷을 반환합니다. | `intent`: 문자열 |
+| **open\_app** | 依名稱開啟應用程式。 | `app_name`：str `intent`：str |
+| **click** | 在座標處按一下滑鼠左鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **list\_apps** | 列出裝置上可用的應用程式，並傳回其名稱和套件名稱。 | `intent`：str |
+| **wait** | 暫停執行指定秒數。 | `seconds`：int (選用，預設為 `1`) `intent`：str |
+| **go\_back** | 返回上一個畫面或網頁。 | `intent`：str |
+| **type** | 輸入文字。 | `text`：str `press_enter`：bool (選用，預設為 `false`) `intent`：str |
+| **drag\_and\_drop** | 將項目從起始座標拖曳至結束座標。 | `start_y`：int (0-999) `start_x`：int (0-999) `end_y`：int (0-999) `end_x`：int (0-999) `intent`：str |
+| **long\_press** | 在畫面的座標上執行長按操作。 | `y`：int (0 到 999) `x`：int (0 到 999) `seconds`：int (選用，預設為 `2`) `intent`：str |
+| **press\_key** | 按下並放開指定鍵。 | `key`：str `intent`：str |
+| **take\_screenshot** | 傳回目前畫面的螢幕截圖。 | `intent`：str |
 
-### 데스크톱 환경 (`ENVIRONMENT_DESKTOP`)
+### 電腦環境 (`ENVIRONMENT_DESKTOP`)
 
-데스크톱 환경 OS 수준 커서 명령:
+桌面環境 OS 層級游標指令：
 
-| 명령어 이름 | 설명 | 인수 (함수 호출에서) |
+| 指令名稱 | 說明 | 引數 (在函式呼叫中) |
 | --- | --- | --- |
-| **click** | 좌표에서 왼쪽 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **double\_click** | 좌표를 더블클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **triple\_click** | 좌표를 세 번 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **middle\_click** | 좌표에서 가운데 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **right\_click** | 좌표에서 마우스 오른쪽 버튼을 클릭합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **mouse\_down** | 좌표에서 마우스 버튼을 누른 상태로 유지합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **mouse\_up** | 좌표에서 마우스 버튼을 놓습니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **move** | 커서를 지정된 위치로 이동합니다. | `y`: int (0~999) `x`: int (0~999) `intent`: str |
-| **type** | 텍스트를 입력합니다. | `text`: 문자열 `press_enter`: 불리언 (선택사항, 기본값: `false`) `intent`: 문자열 |
-| **drag\_and\_drop** | 시작 좌표에서 종료 좌표로 항목을 드래그합니다. | `start_y`: int (0~999) `start_x`: int (0~999) `end_y`: int (0~999) `end_x`: int (0~999) `intent`: str |
-| **wait** | 지정된 시간(초) 동안 실행을 일시중지합니다. | `seconds`: int (선택사항, 기본값 `1`) `intent`: str |
-| **press\_key** | 지정된 키를 눌렀다가 놓습니다. | `key`: str `intent`: str |
-| **key\_down** | 지정된 키를 누른 상태로 유지합니다. | `key`: str `intent`: str |
-| **key\_up** | 지정된 키를 해제합니다. | `key`: str `intent`: str |
-| **핫키** | 지정된 키 조합을 누릅니다. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | 현재 화면의 스크린샷을 반환합니다. | `intent`: 문자열 |
-| **scroll** | 좌표에서 픽셀 거리만큼 위, 아래, 왼쪽 또는 오른쪽으로 스크롤합니다. | `y`: 정수 (0~999) `x`: 정수 (0~999) `direction`: 문자열 (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: 정수 (0~999, 선택사항, 기본값: `300`) `intent`: 문자열 |
+| **click** | 在座標處按一下滑鼠左鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **double\_click** | 在座標處按兩下。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **triple\_click** | 在座標位置連按三下。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **middle\_click** | 在座標處按下滑鼠中鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **right\_click** | 在座標上按一下滑鼠右鍵。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **mouse\_down** | 在座標位置按住滑鼠按鈕。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **mouse\_up** | 在指定座標放開滑鼠按鈕。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **移動** | 將游標移至指定位置。 | `y`：int (0-999) `x`：int (0-999) `intent`：str |
+| **type** | 輸入文字。 | `text`：str `press_enter`：bool (選用，預設為 `false`) `intent`：str |
+| **drag\_and\_drop** | 將項目從起始座標拖曳至結束座標。 | `start_y`：int (0-999) `start_x`：int (0-999) `end_y`：int (0-999) `end_x`：int (0-999) `intent`：str |
+| **wait** | 暫停執行指定秒數。 | `seconds`：int (選用，預設為 `1`) `intent`：str |
+| **press\_key** | 按下並放開指定鍵。 | `key`：str `intent`：str |
+| **key\_down** | 按下並按住指定的按鍵。 | `key`：str `intent`：str |
+| **key\_up** | 放開指定的鍵。 | `key`: str `intent`: str |
+| **快速鍵** | 按下指定的按鍵組合。 | `keys`：`List[str]` `intent`：`str` |
+| **take\_screenshot** | 傳回目前畫面的螢幕截圖。 | `intent`：str |
+| **scroll** | 以像素距離在座標上向上、向下、向左或向右捲動。 | `y`：int (0 到 999) `x`：int (0 到 999) `direction`：str (`"up"`、`"down"`、`"left"`、`"right"`) `magnitude_in_pixels`：int (0 到 999，選用，預設為 `300`) `intent`：str |
 
-## 맞춤 사용자 정의 함수
+## 自訂使用者定義函式
 
-맞춤 사용자 정의 함수를 포함하여 모델의 기능을 확장할 수 있습니다. 예를 들어 인간 참여형 (HITL) 시나리오에서는 기본 사전 정의된 작업을 제외하고 맞춤 작업을 등록할 수 있습니다.
+您可以納入自訂使用者定義函式，擴充模型的函式。舉例來說，在人工介入迴路 (HITL) 情境中，您可以排除預設的預先定義動作，並註冊自訂動作。
 
 ### Python
 
-표준 사전 정의된 브라우저 작업 (예: `click`)을 제외하고 맞춤 `yield_to_user` 도구를 등록합니다.
+排除標準預先定義的瀏覽器動作 (例如 `click`)，並註冊自訂 `yield_to_user` 工具：
 
 ```
 from google import genai
@@ -832,29 +832,29 @@ response = client.models.generate_content(
 )
 ```
 
-## 사고 수준 관리
+## 管理思考程度
 
-컴퓨터 사용 에이전트의 경우 다양한 사고 수준을 구성하여 작업 품질과 실행 속도의 균형을 맞출 수 있습니다. 일반적으로 낮은 사고 수준이 표준 자동화 작업에 적합한 균형을 제공합니다.
+對於電腦使用代理，您可以設定不同的思考層級，以平衡動作品質和執行速度。較低的思考層級通常能為標準自動化工作取得良好平衡。
 
-## 안전 및 보안
+## 安全與安全性
 
-### 안전 정책 구성
+### 設定安全政策
 
-Gemini 3.x 모델에는 사용자 확인이 필요한지 판단하는 데 도움이 되는 기본 제공 안전 서비스 카테고리가 포함되어 있습니다.
+Gemini 3.x 模型內建安全服務類別，可協助判斷是否需要使用者確認。
 
-| 안전 정책 카테고리 | 설명 |
+| 安全政策類別 | 說明 |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | 결제, 소매 결제 또는 규제 상품과 관련된 작업의 확인을 차단하거나 트리거합니다. |
-| `SENSITIVE_DATA_MODIFICATION` | 건강, 금융 또는 정부 기록을 무단 수정으로부터 보호합니다. |
-| `COMMUNICATION_TOOL` | 에이전트가 이메일, 채팅 메시지 또는 초안을 자율적으로 보내지 못하도록 제한합니다. |
-| `ACCOUNT_CREATION` | 에이전트가 웹사이트에서 새 계정을 자율적으로 등록하는 것을 제한합니다. |
-| `DATA_MODIFICATION` | 전반적인 파일 시스템 수정, 데이터 공유, 스토리지 삭제를 규제합니다. |
-| `USER_CONSENT_MANAGEMENT` | 쿠키 사용 동의 배너 및 개인 정보 보호 메시지에 사용자 인계가 필요합니다. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | 모델이 서비스 약관 또는 법적 구속력이 있는 계약을 자율적으로 수락하지 못하도록 합니다. |
+| `FINANCIAL_TRANSACTIONS` | 封鎖或觸發確認程序，以進行付款、零售結帳或管制商品相關動作。 |
+| `SENSITIVE_DATA_MODIFICATION` | 防止健康、財務或政府記錄遭到未經授權的修改。 |
+| `COMMUNICATION_TOOL` | 禁止代理程式自主傳送電子郵件、即時通訊訊息或草稿。 |
+| `ACCOUNT_CREATION` | 限制代理在網站上自主註冊新帳戶。 |
+| `DATA_MODIFICATION` | 控管整體檔案系統修改、資料共用和儲存空間刪除作業。 |
+| `USER_CONSENT_MANAGEMENT` | 需要使用者接管 Cookie 同意橫幅和隱私權提示。 |
+| `LEGAL_TERMS_AND_AGREEMENTS` | 避免模型自行接受《服務條款》或具法律約束力的合約。 |
 
-#### 안전 재정의
+#### 安全覆寫
 
-재정의를 전달하여 선택한 정책을 재정의할 수 있습니다.
+您可以傳遞覆寫項目，藉此覆寫特定政策：
 
 ### Python
 
@@ -905,13 +905,13 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### 프롬프트 삽입 감지
+### 提示插入偵測
 
-Gemini 3.5 Flash-Lite 이상을 위한 Computer Use는 프롬프트 인젝션 공격을 감지하는 고급 안전 메커니즘을 지원합니다. 이 기능을 사용 설정하면 포함된 스크린샷에 숨겨진 적대적 명령어 (예: '이전 명령어 무시')가 포함되어 있는지 확인하고 감지되면 실행을 차단합니다.
+Gemini 3.5 Flash-Lite 以上版本的電腦使用功能支援進階安全機制，可偵測提示詞注入式攻擊。啟用這項功能後，系統會檢查隨附的螢幕截圖是否含有隱藏的對抗式指令 (例如「忽略先前的指令」)，並在偵測到這類指令時封鎖執行作業。
 
-프롬프트 인젝션 감지는 선택 기능입니다. 기본값은 `false`입니다.
+提示詞注入偵測屬於選擇加入功能，預設為 `false`。
 
-다음 예에서는 Computer Use 도구 구성에서 프롬프트 삽입 감지를 사용 설정하는 방법을 보여줍니다.
+以下範例說明如何在電腦使用工具設定中啟用提示詞注入偵測功能：
 
 ### Python
 
@@ -976,9 +976,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }'
 ```
 
-### 안전 결정 확인
+### 確認安全決策
 
-대답에는 함수 호출 인수에 `safety_decision` 매개변수가 포함될 수 있습니다.
+回應可能會在函式呼叫引數中包含 `safety_decision` 參數：
 
 ```
 {
@@ -996,7 +996,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-`safety_decision`이 `require_confirmation`인 경우 최종 사용자에게 메시지를 표시합니다. 사용자가 확인하면 `FunctionResponse`에서 `safety_acknowledgement`를 설정합니다.
+如果 `safety_decision` 為 `require_confirmation`，請提示使用者。如果使用者確認，請在 `FunctionResponse` 中設定 `safety_acknowledgement`。
 
 ### Python
 
@@ -1015,14 +1015,14 @@ if 'safety_decision' in function_call.args:
     action_result["safety_acknowledgement"] = True
 ```
 
-### 안전 권장사항
+### 安全性最佳做法
 
-Computer Use는 사용자를 대신하여 행동하는 모델이 화면에서 신뢰할 수 없는 콘텐츠를 접하거나 작업을 실행할 때 오류를 일으킬 수 있으므로 고유한 보안 및 운영 위험을 야기합니다. 사용자 데이터와 시스템을 보호하려면 다음 권장사항을 구현하세요.
+Computer Use 會帶來獨特的安全和操作風險，因為模型代表使用者執行操作時，可能會在螢幕上遇到不受信任的內容，或在執行操作時發生錯誤。請實行下列最佳做法，保護使用者資料和系統：
 
-1. **인간 참여형 (HITL):**
+1. **人工介入迴路 (HITL)：**
 
-   - **사용자 확인 시행:** 안전 대답에 `require_confirmation`이 표시되면 사용자에게 승인을 요청합니다.
-   - **맞춤 안전 요청 사항 제공:** 맞춤 시스템 요청 사항을 구현하여 자체 안전 경계를 정의하고 적용합니다. 예를 들면 다음과 같습니다.
+   - **強制使用者確認：**如果安全回覆指出 `require_confirmation`，請提示使用者核准。
+   - **提供自訂安全指示：**實作自訂系統指令，定義及強制執行專屬安全界線。例如：
 
      ### Python
 
@@ -1237,36 +1237,36 @@ Computer Use는 사용자를 대신하여 행동하는 모델이 화면에서 �
        }
      });
      ```
-2. **안전한 실행 환경:** 안전한 샌드박스 환경에서 에이전트를 실행하여 잠재적 영향을 제한합니다. 이는 샌드박스 가상 머신 (VM), 컨테이너 (예: Docker) 또는 권한이 제한된 전용 브라우저 프로필일 수 있습니다. Docker를 사용한 샌드박스 설정 안내는 [GitHub 참조 구현](https://github.com/google/computer-use-preview/)을 참고하세요.
-3. **입력 정제:** 의도하지 않은 요청 사항이나 프롬프트 인젝션의 위험을 완화하기 위해 프롬프트에서 사용자가 생성한 모든 텍스트를 정제합니다. 이는 유용한 보안 강화책이지만 안전한 실행 환경을 대체하지는 않습니다.
-4. **콘텐츠 가드레일:** 가드레일 및 콘텐츠 안전 API를 사용하여 적절성, 프롬프트 인젝션, 탈옥 감지에 대해 사용자 입력, 도구 입력 및 출력, 에이전트의 응답을 평가합니다.
-5. **허용 목록 및 차단 목록:** 모델에서 탐색할 수 있는 위치와 수행할 수 있는 작업을 제어하는 필터링 메커니즘을 구현합니다. 금지된 웹사이트 차단 목록이 좋은 시작점이며 더 제한적인 허용 목록이 더 안전합니다.
-6. **관측 가능성 및 로깅:** 디버깅, 감사, 사고 대응에 사용되는 자세한 로그를 유지합니다. 클라이언트는 프롬프트, 스크린샷, 모델 추천 작업 (`function_call`), 안전 대답, 클라이언트에서 최종적으로 실행한 모든 작업을 로깅해야 합니다.
-7. **환경 관리:** GUI 환경이 일관되도록 합니다.
-   예기치 않은 팝업, 알림 또는 레이아웃 변경은 모델에 혼란을 줄 수 있습니다. 가능하면 각 새 작업에 대해 알려진 깨끗한 상태에서 시작하세요.
+2. **安全執行環境：**在安全的沙箱環境中執行代理，限制潛在影響。這可以是沙箱虛擬機器 (VM)、容器 (例如 Docker)，或權限有限的專用瀏覽器設定檔。如需使用 Docker 設定沙箱的指南，請參閱 [GitHub 參考實作](https://github.com/google/computer-use-preview/)。
+3. **輸入內容清理：**清理提示詞中所有使用者生成的文字，降低無意指令或提示詞注入的風險。這項安全防護機制雖然實用，但無法取代安全執行環境。
+4. **內容防護機制：**使用防護機制和內容安全 API，評估使用者輸入內容、工具輸入和輸出內容，以及代理的回覆，偵測是否適當、是否有提示詞注入和越獄行為。
+5. **許可清單和封鎖清單：**導入篩選機制，控管模型可前往的位置和可執行的動作。禁止存取的網站封鎖清單是不錯的起點，而限制更嚴格的許可清單則更安全。
+6. **觀測能力和記錄：**保留詳細記錄，用於偵錯、稽核和事件應變。用戶端應記錄提示、螢幕截圖、模型建議動作 (`function_call`)、安全回覆，以及用戶端最終執行的所有動作。
+7. **環境管理：**確保 GUI 環境一致。如果出現非預期的彈出式視窗、通知或版面配置變更，模型可能會感到困惑。盡可能從已知、乾淨的狀態開始執行每項新工作。
 
-## 모델 버전
+## 模型版本
 
-다음 모델에서 Computer Use를 사용할 수 있습니다.
+您可以使用下列模型執行電腦操作：
 
-- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ko) (`gemini-3.8-flash`): 컴퓨터 사용에 권장되는 모델로, 정확도가 높은 UI 상호작용과 안정적인 도구 호출이 특징입니다.
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ko) (`gemini-3.5-flash-lite`): 컴퓨터 사용을 지원하는 지연 시간이 짧고 비용 효율적인 모델입니다.
-- [**Gemini 3 Flash 프리뷰**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ko) (`gemini-3-flash-preview`): 컴퓨터 사용을 지원하는 프리뷰 모델입니다.
+- [**Gemini 4 Argon**](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-tw) (`gemini-4-argon`)：Google 最強大的模型，支援電腦使用，可進行複雜推論和代理 UI 工作流程。
+- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-tw) (`gemini-3.8-flash`)：建議用於電腦，可準確進行 UI 互動，並可靠地呼叫工具。
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw) (`gemini-3.5-flash-lite`)：低延遲、符合成本效益的模型，支援電腦用途。
+- [**Gemini 3 Flash 預先發布版**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) (`gemini-3-flash-preview`)：支援電腦使用的預先發布模型。
 
-## 다음 단계
+## 後續步驟
 
-- [Browserbase 데모 환경](http://gemini.browserbase.com)에서 컴퓨터 사용을 실험해 보세요.
-- 예시 코드는 [참조 구현](https://github.com/google/computer-use-preview)을 확인하세요.
-- 다른 Gemini API 도구 알아보기:
-  - [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)
-  - [Google 검색으로 그라운딩](https://ai.google.dev/gemini-api/docs/grounding?hl=ko)
+- 在 [Browserbase 示範環境](http://gemini.browserbase.com)中試用電腦。
+- 如需程式碼範例，請參閱[參考導入方式](https://github.com/google/computer-use-preview)。
+- 瞭解其他 Gemini API 工具：
+  - [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
+  - [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)
 
-의견 보내기
+提供意見
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-최종 업데이트: 2026-10-09(UTC)
+上次更新時間：2026-10-13 (世界標準時間)。
 
-의견을 전달하고 싶나요?
+想進一步說明嗎？
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-09(UTC)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-13 (世界標準時間)。"],[],[]]

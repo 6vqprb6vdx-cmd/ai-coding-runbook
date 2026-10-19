@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=pl
-fetched_at: 2026-10-12T06:56:21.338984+00:00
-title: "T\u0142umaczenie na \u017cywo za pomoc\u0105 interfejsu Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=fr
+fetched_at: 2026-10-19T05:49:01.044008+00:00
+title: "Traduction instantan\u00e9e avec l'API Gemini\u00a0Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Prześlij opinię
+Envoyer des commentaires
 
-# Tłumaczenie na żywo za pomocą interfejsu Gemini Live API
+# Traduction instantanée avec l'API Gemini Live
 
-Interfejs Gemini Live API obsługuje tłumaczenie mowy na mowę w czasie rzeczywistym z krótkim czasem oczekiwania w ponad 70 językach za pomocą modelu [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=pl). Konfigurując interfejs Live API z ustawieniami tłumaczenia, możesz przesyłać strumieniowo dźwięk w jednym języku i otrzymywać przetłumaczony dźwięk w innym języku, co umożliwia płynne tłumaczenie głosu na głos w czasie rzeczywistym.
+L'API Gemini Live est compatible avec la traduction vocale en temps réel et à faible latence entre plus de 70 langues à l'aide du [`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=fr) modèle. En configurant l'API Live avec des paramètres de traduction, vous pouvez diffuser de l'audio dans une langue et recevoir une sortie audio traduite dans une autre langue, ce qui permet une traduction vocale en temps réel fluide.
 
-[Wypróbuj tłumaczenie na żywo w Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=pl)
-[Sklonuj przykładową aplikację z GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
-[Korzystaj z umiejętności agenta do kodowaniaterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pl#gemini-live-api-dev)
+[Essayer la traduction instantanée dans Google AI Studiomic](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=fr)
+[Cloner l'exemple d'application depuis GitHubcode](https://github.com/google-gemini/gemini-live-api-examples)
+[Utiliser les compétences de l'agent de codageterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=fr#gemini-live-api-dev)
 
-## Czat na żywo z pracownikiem obsługi klienta a tłumaczenie na żywo
+## Agent en direct ou traduction instantanée
 
-Obie funkcje korzystają z interfejsu Live API, ale model myślowy dotyczący tłumaczenia na żywo różni się od interakcji z agentem w czasie rzeczywistym.
+Bien que les deux utilisent l'API Live, le modèle mental de la traduction instantanée est différent des interactions conversationnelles en temps réel avec un agent.
 
-| Czat z pracownikiem | Tłumaczenie na żywo |
+| Agent en direct | Traduction instantanée |
 | --- | --- |
-| **Model działa jako asystent.** Słucha, analizuje i wykonuje działania w Twoim imieniu. | **Model działa jak tłumacz.** Działa jak potok tłumaczenia w czasie rzeczywistym. |
-| **Wykorzystuje interakcje oparte na turach.** Opiera się na przerwach, wykrywaniu intencji i obsłudze przerw. | **Wykorzystuje ciągłe przetwarzanie strumieniowe.** Tłumaczy wypowiedzi mówcy na bieżąco, bez czekania na swoją kolej. |
-| **Obsługuje narzędzia i agenty.** Natywna obsługa wywoływania funkcji, wyszukiwarki Google i instrukcji. | **Obsługuje tylko tłumaczenie.** Tłumaczenie z niskim opóźnieniem bez obsługi narzędzi ani instrukcji. |
-| **W pełni multimodalny** Obsługuje dane wejściowe w formie tekstu, dźwięku, filmu i obrazu. | **Dźwięk ograniczony.** Dane wejściowe są ograniczone do dźwięku, aby zapewnić ścisłe progi opóźnienia w czasie rzeczywistym. |
-| **Szczegółowa konfiguracja** Korzysta z generowania, mowy, narzędzi i instrukcji systemowych. | **Uproszczona konfiguracja** Ustaw `target_language_code` i przełączniki, takie jak `echo_target_language`. |
+| **Le modèle agit comme un assistant.** Il écoute, raisonne et effectue des actions en votre nom. | **Le modèle agit comme un interprète.** Il se comporte comme un pipeline de traduction en temps réel. |
+| **Utilise des interactions basées sur les tours de parole.** S'appuie sur les pauses, la détection d'intention et gère les interruptions. | **Utilise le traitement continu des flux.** Traduit pendant que l'orateur parle sans attendre son tour. |
+| **Compatible avec les outils et les agents.** Compatibilité native avec les appels de fonction, la recherche Google et les instructions. | **Compatible uniquement avec la traduction.** Traduction pure à faible latence, sans compatibilité avec les outils ni les instructions. |
+| **Entièrement multimodal.** Compatible avec les entrées de texte, audio, vidéo et image. | **Audio limité.** L'entrée est limitée à l'audio pour garantir des seuils de latence en temps réel stricts. |
+| **Configuration précise.** Utilise la génération, la parole, les outils et les instructions système. | **Configuration simplifiée.** Définissez `target_language_code` et des boutons à bascule comme `echo_target_language`. |
 
-## Rozpocznij
+## Premiers pas
 
-Poniższe przykłady pokazują, jak zainicjować klienta i połączyć się z interfejsem Live API za pomocą konfiguracji tłumaczenia.
+Les exemples suivants montrent comment initialiser un client et se connecter à l'API Live avec une configuration de traduction.
 
 ### Python
 
@@ -185,15 +185,15 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Wysyłanie dźwięku
+## Envoyer l'audio
 
-Aby przesyłać strumieniowo dane wejściowe głosowe do tłumaczenia, wysyłaj surowe, 16-bitowe dane audio PCM w formacie little-endian.
+Pour diffuser des entrées vocales à traduire, envoyez de l'audio PCM 16 bits brut, little-endian.
 
-- **Format dźwięku wejściowego:** surowy 16-bitowy PCM przy 16 kHz (mono, little-endian).
-- **Format dźwięku wyjściowego:** surowy 16-bitowy PCM przy 24 kHz (mono, little-endian).
-- **Rozmiar fragmentu i czas oczekiwania:** wysyłaj dźwięk w fragmentach o długości 100 ms.
+- **Format audio d'entrée** : PCM 16 bits brut à 16 kHz (mono, little-endian).
+- **Format audio de sortie** : PCM 16 bits brut à 24 kHz (mono, little-endian).
+- **Taille des blocs et latence** : envoyez l'audio par blocs de 100 ms.
 
-Poniższe przykłady pokazują, jak wysyłać do sesji fragmenty dźwięku.
+Les exemples suivants montrent comment envoyer des blocs audio à la session.
 
 ### Python
 
@@ -238,23 +238,23 @@ function sendAudioChunk(chunk) {
 }
 ```
 
-## Konfiguracja
+## Configuration
 
-Aby włączyć tłumaczenie, musisz określić `translationConfig` w ramach `generationConfig` podczas konfigurowania sesji.
+Pour activer la traduction, vous devez spécifier `translationConfig` dans `generationConfig` lors de la configuration de la session.
 
-### Konfigurowanie wiadomości dotyczących konfiguracji
+### Configurer les messages de configuration
 
-`generationConfig` obsługuje te pola, aby włączyć transkrypcje:
+`generationConfig` accepte les champs suivants pour activer les transcriptions :
 
-- **`inputAudioTranscription`**: obiekt, który po wystąpieniu umożliwia modelowi wysyłanie transkrypcji tekstowych dźwięku wejściowego.
-- **`outputAudioTranscription`**: obiekt, który po wystąpieniu umożliwia modelowi wysyłanie transkrypcji tekstowych wyjściowego (przetłumaczonego) dźwięku.
+- **`inputAudioTranscription`**: objet qui, lorsqu'il est présent, permet au modèle d'envoyer des transcriptions textuelles de l'audio d'entrée.
+- **`outputAudioTranscription`**: objet qui, lorsqu'il est présent, permet au modèle d'envoyer des transcriptions textuelles de l'audio de sortie (traduit).
 
-`translationConfig` obsługuje te pola:
+`translationConfig` accepte les champs suivants :
 
-- **`targetLanguageCode`**: [kod języka BCP-47](#supported-languages), na który ma tłumaczyć model (np. `"pl"` dla języka polskiego, `"es"` dla języka hiszpańskiego). Domyślna wartość to `"en"`.
-- **`echoTargetLanguage`**: wartość logiczna określająca, jak należy traktować dźwięk wejściowy, który jest już w języku docelowym. Jeśli ustawiona jest wartość `true`, model będzie powtarzać (papugować) wejściowy dźwięk, który jest już w języku docelowym. Jeśli ustawisz wartość `false`, model pozostanie wyciszony, gdy mowa wejściowa jest już w języku docelowym. Domyślna wartość to `false`.
+- **`targetLanguageCode`** : le [code de langue BCP-47](#supported-languages) de la langue dans laquelle vous souhaitez que le modèle traduise (par exemple, `"pl"` pour le polonais, `"es"` pour l'espagnol). La valeur par défaut est `"en"`.
+- **`echoTargetLanguage`**: valeur booléenne indiquant comment gérer l'audio d'entrée qui est déjà dans la langue cible. Si la valeur est `true`, le modèle répète l'audio d'entrée qui est déjà dans la langue cible. Si la valeur est `false`, le modèle reste silencieux lorsque la parole d'entrée est déjà dans la langue cible. La valeur par défaut est `false`.
 
-Oto przykład struktury wiadomości konfiguracyjnej:
+Voici un exemple de structure de message de configuration :
 
 ```
 "setup": {
@@ -273,19 +273,19 @@ Oto przykład struktury wiadomości konfiguracyjnej:
 }
 ```
 
-## Używanie tokenów tymczasowych w aplikacjach po stronie klienta
+## Utiliser des jetons éphémères dans les applications côté client
 
-W przypadku aplikacji działających w modelu klient-serwer możesz używać [tokenów tymczasowych](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pl) (obecnie w `v1beta`), aby uniknąć ujawnienia klucza interfejsu API.
+Pour les applications client-serveur, vous pouvez utiliser [des jetons éphémères](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=fr) (actuellement en `v1beta`) pour éviter d'exposer votre clé API.
 
-Podczas korzystania z tokenów tymczasowych z tłumaczeniem na żywo:
+Lorsque vous utilisez des jetons éphémères avec la traduction instantanée :
 
-1. Musisz użyć punktu końcowego `v1beta`.
-2. **Konfiguracja blokowania:** domyślnie w ograniczeniach tworzenia tokena na serwerze należy określić `translationConfig`. Dzięki temu konfiguracja tłumaczenia jest zablokowana i klient nie może w nią ingerować.
-3. **Odblokowywanie konfiguracji:** jeśli chcesz mieć możliwość ustawienia parametru `translationConfig` po stronie klienta (np. aby umożliwić użytkownikowi wybór języka docelowego), musisz pominąć go w żądaniu utworzenia tokena i zamiast niego ustawić parametr `"lock_additional_fields": []`. Umożliwi to ustawienie wartości `translationConfig` po stronie klienta.
+1. Vous devez utiliser le point de terminaison `v1beta`.
+2. **Verrouillage de la configuration** : par défaut, vous devez spécifier `translationConfig` dans les contraintes de création de jeton sur votre serveur. Cela garantit que la configuration de traduction est verrouillée et ne peut pas être falsifiée par le client.
+3. **Déverrouillage de la configuration** : si vous souhaitez pouvoir définir `translationConfig` côté client (par exemple, pour permettre à un utilisateur de choisir sa propre langue cible), vous devez l'omettre de la requête de création de jeton et définir `"lock_additional_fields": []` à la place. Cela déverrouillera `translationConfig` pour qu'il soit défini côté client.
 
-### Tworzenie ograniczonego tokena efemerycznego
+### Créer un jeton éphémère contraint
 
-Poniższe przykłady pokazują, jak utworzyć token tymczasowy z ograniczeniami dotyczącymi tłumaczenia.
+Les exemples suivants montrent comment créer un jeton éphémère avec des contraintes de traduction.
 
 ### Python
 
@@ -366,74 +366,74 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-## Ograniczenia
+## Limites
 
-- **Rodzaje danych wejściowych:** w przypadku tłumaczenia obsługiwane są tylko dane audio. Wpisywanie tekstu nie jest obsługiwane.
-- **Replikacja głosu:** replikacja głosu może być niespójna. Głosy mogą się zmieniać po długich przerwach, przypisywać niewłaściwą płeć na podstawie tego, jak zaczyna się mowa, lub utknąć na jednym głosie podczas szybkich rozmów z udziałem wielu osób.
-- **Wykrywanie języka:** wykrywanie języka może być utrudnione w przypadku silnego akcentu, podobnych języków (np. hiszpańskiego i portugalskiego) lub szybkiego przełączania się między językami. **Uwaga:** powinno to mieć wpływ tylko na transkrypcję danych wejściowych. Kody języków i ostateczne tłumaczenie powinny być nadal prawidłowe.
-- **Dźwięk w tle:** model został zaprojektowany tak, aby odfiltrowywać szumy i muzykę w celu uzyskania czystej mowy, ale nie wszystkie dźwięki w tle mogą być ignorowane.
-- **Echo Target Language** (Powtórz język docelowy): gdy `echoTargetLanguage: true`, szumy w tle lub muzyka mogą wprowadzać artefakty w przetłumaczonym dźwięku, jeśli dźwięk wejściowy jest już w języku docelowym.
+- **Modalités d'entrée** : seule l'entrée audio est acceptée pour la traduction. L'entrée de texte n'est pas acceptée.
+- **Réplication vocale** : la réplication vocale peut être incohérente. Les voix peuvent changer après de longues pauses, attribuer le mauvais genre en fonction du début de la parole ou rester bloquées sur une seule voix lors de conversations rapides entre plusieurs personnes.
+- **Détection de la langue** : la détection de la langue a du mal avec les accents prononcés, les langues similaires (par exemple, l'espagnol et le portugolais) ou les changements de langue rapides. **Remarque** : Cela ne devrait avoir d'impact que sur la transcription d'entrée. Les codes de langue et la traduction finale doivent toujours être précis.
+- **Audio de fond** : le modèle est conçu pour filtrer le bruit et la musique afin de produire une parole claire, mais il est possible que l'audio de fond ne soit pas entièrement ignoré.
+- **Écho de la langue cible** : lorsque `echoTargetLanguage: true`, le bruit de fond ou la musique peuvent introduire des artefacts dans l'audio traduit lorsque l'audio d'entrée est déjà dans la langue cible.
 
-## Obsługiwane języki
+## Langues disponibles
 
-Tłumaczenie na żywo jest dostępne w tych językach.
+Les langues suivantes sont disponibles pour la traduction instantanée.
 
-| Język | Kod BCP-47 | Język | Kod BCP-47 |
+| Langue | Code BCP-47 | Langue | Code BCP-47 |
 | --- | --- | --- | --- |
-| afrikaans | af | kazachski | kk |
-| akan | ak | khmerski | km |
-| albański | sq | ruanda-rundi | rw |
-| amharski | am | koreański | ko |
-| arabski | ar | laotański | lo |
-| ormiański | hy | łotewski | lv |
-| azerski | az | litewski | lt |
-| baskijski | eu | macedoński | mk |
-| białoruski | be | malajski | ms |
-| bengalski | bn | malajalam | ml |
-| bułgarski | bg | marathi | mr |
-| birmański (Mjanma) | my | mongolski | mn |
-| kataloński | ca | nepalski | ne |
-| chiński (uproszczony) | zh-Hans | norweski | no, nb |
-| chiński (tradycyjny) | zh-Hant | perski | fa |
-| chorwacki | godz. | polski | pl |
-| czeski | cs | portugalski (Brazylia) | pt-BR |
-| duński | da | portugalski (Portugalia) | pt-PT |
-| niderlandzki | nl | pendżabski | pa |
-| angielski | en | rumuński | ro |
-| estoński | et | rosyjski | ru |
-| filipiński | fil | serbski | sr |
-| fiński | fi | sindhi | sd |
-| francuski | fr | syngaleski | si |
-| galicyjski | gl | słowacki | sk |
-| gruziński | ka | słoweński | sl |
-| niemiecki | de | hiszpański | es |
-| grecki | el | sundajski | su |
-| gudżarati | gu | suahili | sw |
-| hausa | ha | szwedzki | sv |
-| hebrajski | on | tamilski | ta |
-| hindi | hi | telugu | te |
-| węgierski | hu | tajski | th |
-| islandzki | jest | turecki | tr |
-| indonezyjski | id | ukraiński | uk |
-| włoski | it | urdu | wa |
-| japoński | ja | uzbecki | uz |
-| jawajski | jv | wietnamski | vi |
-| kannada | kn | zulu | zu |
+| Afrikaans | af | Kazakh | kk |
+| Akan | ak | Khmer | km |
+| Albanais | sq | Kinyarwanda | rw |
+| Amharique | am | Coréen | ko |
+| Arabe | ar | Laotien | lo |
+| Arménien | hy | Letton | lv |
+| Azéri | az | Lituanien | lt |
+| Basque | eu | Macédonien | mk |
+| Biélorusse | be | Malaisien | ms |
+| Bengali | bn | Malayalam | ml |
+| Bulgare | bg | Marathi | mr |
+| Birman (Myanmar) | my | Mongol | mn |
+| Catalan | ca | Népalais | ne |
+| Chinois (simplifié) | zh-Hans | Norvégien | no, nb |
+| Chinois (traditionnel) | zh-Hant | Persan | fa |
+| Croate | hr | Polonais | pl |
+| Tchèque | cs | Portugais (Brésil) | pt-BR |
+| Danois | da | Portugais (Portugal) | pt-PT |
+| Néerlandais | nl | Panjabi | pa |
+| Anglais | en | Roumain | ro |
+| Estonien | et | Russe | ru |
+| Tagalog | fil | Serbe | sr |
+| Finnois | fi | Sindhî | sd |
+| Français | fr | Cingalais | si |
+| Galicien | gl | Slovaque | sk |
+| Géorgien | ka | Slovène | sl |
+| Allemand | de | Espagnol | es |
+| Grec | el | Soundanais | su |
+| Gujarati | gu | Swahili | sw |
+| Haoussa | ha | Suédois | sv |
+| Hébreu | he | Tamoul | ta |
+| Hindi | hi | Telugu | te |
+| Hongrois | hu | Thaï | th |
+| Islandais | is | Turc | tr |
+| Indonésien | id | Ukrainien | uk |
+| Italien | it | Urdu | ur |
+| Japonais | ja | Ouzbek | uz |
+| Javanais | jv | Vietnamien | vi |
+| Kannada | kn | Zoulou | zu |
 
-## Co dalej?
+## Étape suivante
 
-- Przeczytaj pełny przewodnik po [możliwościach](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=pl) interfejsu Live API.
-- Zapoznaj się z przewodnikiem [Pierwsze kroki z pakietem SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=pl).
-- Przeczytaj przewodnik [Pierwsze kroki z WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=pl).
-- Przeczytaj przewodnik [Tokeny tymczasowe](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=pl), aby dowiedzieć się, jak bezpiecznie uwierzytelniać aplikacje działające w modelu klient-serwer.
-- Sklonuj [przykłady Live API](https://github.com/google-gemini/gemini-live-api-examples) z GitHuba.
+- Consultez le guide complet sur les fonctionnalités de l'API Live [Capabilities](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=fr).
+- Consultez le guide [Premiers pas avec le SDK](https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=fr).
+- Consultez le guide [Premiers pas avec WebSockets](https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=fr).
+- Consultez le guide [Jetons éphémères](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=fr) pour une authentification sécurisée dans les applications client-serveur.
+- Clonez les [exemples d'API Live](https://github.com/google-gemini/gemini-live-api-examples) depuis GitHub.
 
-Prześlij opinię
+Envoyer des commentaires
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Ostatnia aktualizacja: 2026-07-23 UTC.
+Dernière mise à jour le 2026/07/23 (UTC).
 
-Chcesz przekazać coś jeszcze?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-07-23 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/07/23 (UTC)."],[],[]]

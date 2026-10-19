@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-BR
-fetched_at: 2026-10-12T06:52:39.890594+00:00
+fetched_at: 2026-10-19T05:30:45.050923+00:00
 title: "Orquestra\u00e7\u00e3o de tarefas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 

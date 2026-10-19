@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=es-419
-fetched_at: 2026-10-12T06:48:40.099009+00:00
-title: "Versi\u00f3n preliminar de Gemini 3.1 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-preview?hl=ru
+fetched_at: 2026-10-19T05:47:28.542196+00:00
+title: "\u041f\u0440\u0435\u0434\u0432\u0430\u0440\u0438\u0442\u0435\u043b\u044c\u043d\u0430\u044f \u0432\u0435\u0440\u0441\u0438\u044f Gemini 3.1 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
 
-Enviar comentarios
+Отправить отзыв
 
-# Versión preliminar de Gemini 3.1 Flash-Lite
+# Предварительная версия Gemini 3.1 Flash-Lite
 
 ## gemini-3.1-flash-lite-preview
 
-| Propiedad | Descripción |
+| Свойство | Описание |
 | --- | --- |
-| Código del modelo id\_card | `gemini-3.1-flash-lite-preview` |
-| saveTipos de datos admitidos | **Entradas**  Texto, imágenes, videos, audio y PDF  **Resultado**  Texto |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  1,048,576  **Límite de tokens de salida**  65,536 |
-| handymanFunciones | **[Generación de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)**  No compatible  **[Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**  Admitido  **[Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)**  Admitido  **[Uso de la computadora](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419)**  No compatible  **[Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)**  Admitido  **[Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)**  Admitido  **[Fundamentación con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)**  Admitido  **[Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)**  No compatible  **[API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419)**  No compatible  **[Fundamentación con la Búsqueda](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)**  Admitido  **[Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419)**  Admitido  **[Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419)**  Admitido  **[Contexto de la URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)**  Admitido |
-| speedOpciones de consumo | **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**  Admitido  **[Inferencia flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)**  Admitido  **[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)**  Admitido |
-| 123Versiones | Lee los [patrones de versiones del modelo](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - *Apagar*: `gemini-3.1-flash-lite-preview` |
-| calendar\_monthÚltima actualización | Marzo de 2026 |
-| Ficha del modelo de id\_card | [Ficha del modelo](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/?hl=es-419) |
+| Код модели id\_card | `gemini-3.1-flash-lite-preview` |
+| saveПоддерживаемые типы данных | **Входные данные**  Текст, изображение, видео, аудио и PDF  **Выходные данные**  Текст |
+| token\_autoОграничения на количество токенов[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ru) | **Лимит входных токенов**  1 048 576  **Лимит выходных токенов**  65 536 |
+| handymanВозможности | **[Генератор аудио](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ru)**  Чего пользователь не может  **[Кеширование](https://ai.google.dev/gemini-api/docs/caching?hl=ru)**  Что пользователь может  **[Выполнение кода](https://ai.google.dev/gemini-api/docs/code-execution?hl=ru)**  Что пользователь может  **[Работа за компьютером](https://ai.google.dev/gemini-api/docs/computer-use?hl=ru)**  Чего пользователь не может  **[Поиск файлов](https://ai.google.dev/gemini-api/docs/file-search?hl=ru)**  Что пользователь может  **[Вызов функций](https://ai.google.dev/gemini-api/docs/function-calling?hl=ru)**  Что пользователь может  **[Обоснование с Google Картами](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ru)**  Что пользователь может  **[Генерирование изображений](https://ai.google.dev/gemini-api/docs/image-generation?hl=ru)**  Чего пользователь не может  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ru)**  Чего пользователь не может  **[Находите информацию из надежных источников](https://ai.google.dev/gemini-api/docs/google-search?hl=ru)**  Что пользователь может  **[Структурированные выходные данные](https://ai.google.dev/gemini-api/docs/structured-output?hl=ru)**  Что пользователь может  **[Думаю…](https://ai.google.dev/gemini-api/docs/thinking?hl=ru)**  Что пользователь может  **[URL-контекст](https://ai.google.dev/gemini-api/docs/url-context?hl=ru)**  Что пользователь может |
+| speedВарианты использования | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ru)**  Что пользователь может  **[Гибкий инференс](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ru)**  Что пользователь может  **[Определение приоритета](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ru)**  Что пользователь может |
+| 123Версии | Подробнее [о шаблонах версий моделей](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ru#model-versions)…  - *Выключить*: `gemini-3.1-flash-lite-preview` |
+| calendar\_monthПоследнее обновление | Март 2026 г. |
+| id\_cardКарточка модели | [Карточка модели](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/?hl=ru) |
 
-Enviar comentarios
+Отправить отзыв
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-Última actualización: 2026-08-19 (UTC)
+Последнее обновление: 2026-10-15 UTC.
 
-¿Quieres brindar más información?
+Хотите рассказать подробнее?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-08-19 (UTC)"],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-15 UTC."],[],[]]

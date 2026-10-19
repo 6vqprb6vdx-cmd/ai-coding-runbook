@@ -1,34 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=hi
-fetched_at: 2026-10-12T06:51:34.404152+00:00
-title: "\u092f\u0942\u0906\u0930\u090f\u0932 \u0915\u093e \u0915\u0949\u0928\u094d\u091f\u0947\u0915\u094d\u0938\u094d\u091f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=th
+fetched_at: 2026-10-19T05:37:17.685476+00:00
+title: "\u0e1a\u0e23\u0e34\u0e1a\u0e17 URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
 
-सुझाव भेजें
+ส่งความคิดเห็น
 
-# यूआरएल का कॉन्टेक्स्ट
+# บริบท URL
 
-यूआरएल कॉन्टेक्स्ट टूल की मदद से, मॉडल को यूआरएल के तौर पर अतिरिक्त कॉन्टेक्स्ट दिया जा सकता है. अपने अनुरोध में यूआरएल शामिल करने पर, मॉडल उन पेजों के कॉन्टेंट को ऐक्सेस करेगा. हालांकि, ऐसा तब ही होगा, जब वह यूआरएल, [सीमाएं सेक्शन](#limitations) में बताए गए यूआरएल टाइप में शामिल न हो. इससे मॉडल को जवाब देने और उसे बेहतर बनाने में मदद मिलेगी.
+เครื่องมือบริบท URL ช่วยให้คุณระบุบริบทเพิ่มเติมให้กับโมเดลใน
+รูปแบบ URL ได้ การใส่ URL ไว้ในคำขอจะช่วยให้โมเดลเข้าถึง
+เนื้อหาจากหน้าเว็บเหล่านั้นได้ (ตราบใดที่เป็น URL ประเภทที่ไม่ได้ระบุไว้ใน
+[ส่วนข้อจำกัด](#limitations)) เพื่อให้ข้อมูล
+และปรับปรุงการตอบกลับ
 
-यूआरएल कॉन्टेक्स्ट टूल, इन जैसे कामों के लिए मददगार होता है:
+เครื่องมือบริบท URL มีประโยชน์สำหรับงานต่างๆ เช่น
 
-- **डेटा निकालना**: एक से ज़्यादा यूआरएल से खास जानकारी निकालना. जैसे, कीमतें, नाम या मुख्य नतीजे.
-- **दस्तावेज़ों की तुलना करना**: अंतरों का पता लगाने और रुझानों को ट्रैक करने के लिए, एक से ज़्यादा रिपोर्ट, लेख या PDF का विश्लेषण करें.
-- **कॉन्टेंट बनाना और जानकारी इकट्ठा करना**: सटीक जवाब, ब्लॉग पोस्ट या रिपोर्ट जनरेट करने के लिए, कई सोर्स यूआरएल से जानकारी इकट्ठा करें.
-- **कोड और दस्तावेज़ों का विश्लेषण करना**: कोड के बारे में जानकारी पाने, सेटअप करने के निर्देश जनरेट करने या सवालों के जवाब पाने के लिए, GitHub रिपॉज़िटरी या तकनीकी दस्तावेज़ पर जाएं.
+- **ดึงข้อมูล**: ดึงข้อมูลที่เฉพาะเจาะจง เช่น ราคา ชื่อ หรือผลการสืบค้นที่สำคัญ
+  จาก URL หลายรายการ
+- **เปรียบเทียบเอกสาร**: วิเคราะห์รายงาน บทความ หรือ PDF หลายรายการเพื่อ
+  ระบุความแตกต่างและติดตามแนวโน้ม
+- **สังเคราะห์และสร้างเนื้อหา**: รวมข้อมูลจาก URL แหล่งที่มาหลายรายการเพื่อสร้างสรุปที่ถูกต้อง โพสต์ในบล็อก หรือรายงาน
+- **วิเคราะห์โค้ดและเอกสาร**: ชี้ไปยังที่เก็บ GitHub หรือเอกสารทางเทคนิคเพื่ออธิบายโค้ด สร้างวิธีการตั้งค่า หรือตอบคำถาม
 
-यहां दिए गए उदाहरण में, अलग-अलग वेबसाइटों की दो रेसिपी की तुलना करने का तरीका बताया गया है.
+ตัวอย่างต่อไปนี้แสดงวิธีเปรียบเทียบสูตรอาหาร 2 สูตรจากเว็บไซต์ต่างๆ
 
 ### Python
 
@@ -111,20 +117,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 cat result.json
 ```
 
-## यह कैसे काम करता है
+## วิธีการทำงาน
 
-यूआरएल कॉन्टेक्स्ट टूल, डेटा को वापस पाने के लिए दो चरणों वाली प्रोसेस का इस्तेमाल करता है. इससे, तेज़ी से डेटा मिलता है, लागत कम होती है, और नए डेटा को ऐक्सेस किया जा सकता है. यूआरएल देने पर, यह टूल सबसे पहले इंटरनल इंडेक्स कैश मेमोरी से कॉन्टेंट फ़ेच करने की कोशिश करता है. यह बहुत ज़्यादा ऑप्टिमाइज़ की गई कैश मेमोरी के तौर पर काम करता है. अगर कोई यूआरएल इंडेक्स में उपलब्ध नहीं है (उदाहरण के लिए, अगर यह बहुत नया पेज है), तो टूल अपने-आप लाइव फ़ेच करने की सुविधा पर वापस चला जाता है.
-यह सीधे तौर पर यूआरएल को ऐक्सेस करता है, ताकि रीयल टाइम में उसका कॉन्टेंट वापस पाया जा सके.
+เครื่องมือบริบท URL ใช้กระบวนการดึงข้อมูล 2 ขั้นตอนเพื่อสร้างสมดุลระหว่างความเร็ว ต้นทุน และการเข้าถึงข้อมูลล่าสุด เมื่อคุณระบุ URL เครื่องมือจะพยายามดึงเนื้อหาจากแคชดัชนีภายในก่อน ซึ่งทำหน้าที่เป็นแคชที่ได้รับการเพิ่มประสิทธิภาพอย่างสูง หาก URL ไม่พร้อมใช้งานในดัชนี (เช่น หากเป็นหน้าเว็บใหม่มาก) เครื่องมือจะกลับไปดึงข้อมูลแบบสดโดยอัตโนมัติ
+ซึ่งจะเข้าถึง URL โดยตรงเพื่อดึงเนื้อหาแบบเรียลไทม์
 
-## अन्य टूल के साथ इस्तेमाल करना
+## การใช้ร่วมกับเครื่องมืออื่นๆ
 
-यूआरएल कॉन्टेक्स्ट टूल को अन्य टूल के साथ मिलाकर, ज़्यादा असरदार वर्कफ़्लो बनाए जा सकते हैं.
+คุณสามารถใช้เครื่องมือบริบท URL ร่วมกับเครื่องมืออื่นๆ เพื่อสร้างเวิร์กโฟลว์ที่มีประสิทธิภาพมากขึ้น
 
-[Gemini 3 मॉडल](#supported-models), कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ-साथ बिल्ट-इन टूल (जैसे, यूआरएल कॉन्टेक्स्ट) को एक साथ इस्तेमाल करने की सुविधा देते हैं. [टूल कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) पेज पर जाकर ज़्यादा जानें.
+[โมเดล Gemini 3](#supported-models) รองรับการใช้เครื่องมือในตัว
+(เช่น บริบท URL) ร่วมกับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ที่หน้าการใช้เครื่องมือร่วมกัน
 
-### खोज के नतीजों से जानकारी पाना
+### การเชื่อมต่อแหล่งข้อมูลกับ Search
 
-यूआरएल के कॉन्टेक्स्ट और [Google Search से मिली जानकारी का इस्तेमाल करने की सुविधा](https://ai.google.dev/gemini-api/docs/grounding?hl=hi), दोनों के चालू होने पर मॉडल, खोज से जुड़ी अपनी क्षमताओं का इस्तेमाल करके, ऑनलाइन काम की जानकारी ढूंढ सकता है. इसके बाद, यूआरएल के कॉन्टेक्स्ट टूल का इस्तेमाल करके, खोजे गए पेजों के बारे में ज़्यादा जानकारी पा सकता है. यह तरीका उन प्रॉम्प्ट के लिए बहुत कारगर है जिनमें व्यापक खोज और खास पेजों का बारीकी से विश्लेषण, दोनों की ज़रूरत होती है.
+เมื่อเปิดใช้ทั้งบริบท URL และ
+[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th) โมเดลจะใช้ความสามารถในการค้นหาเพื่อค้นหา
+ข้อมูลที่เกี่ยวข้องทางออนไลน์ แล้วใช้เครื่องมือบริบท URL เพื่อทำความเข้าใจหน้าเว็บที่พบในเชิงลึกมากขึ้น แนวทางนี้มีประสิทธิภาพสำหรับพรอมต์ที่ต้องมีการค้นหาในวงกว้างและการวิเคราะห์หน้าเว็บที่เฉพาะเจาะจงในเชิงลึก
 
 ### Python
 
@@ -209,11 +218,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 cat result.json
 ```
 
-## जवाब को समझना
+## ทำความเข้าใจการตอบกลับ
 
-जब मॉडल, यूआरएल कॉन्टेक्स्ट टूल का इस्तेमाल करता है, तब जवाब में `url_context_metadata` ऑब्जेक्ट शामिल होता है. इस ऑब्जेक्ट में, उन यूआरएल की सूची होती है जिनसे मॉडल ने कॉन्टेंट को ऐक्सेस किया है. साथ ही, इसमें हर ऐक्सेस करने की कोशिश का स्टेटस भी होता है. यह ऑब्जेक्ट, पुष्टि करने और डीबग करने के लिए काम आता है.
+เมื่อโมเดลใช้เครื่องมือบริบท URL การตอบกลับจะมีออบเจ็กต์ `url_context_metadata` ออบเจ็กต์นี้จะแสดง URL ที่โมเดลดึงเนื้อหามาและสถานะของความพยายามในการดึงข้อมูลแต่ละครั้ง ซึ่งมีประโยชน์สำหรับการยืนยันและการแก้ไขข้อบกพร่อง
 
-यहां जवाब के उस हिस्से का उदाहरण दिया गया है. जवाब के कुछ हिस्सों को छोटा करने के लिए हटा दिया गया है:
+ตัวอย่างส่วนหนึ่งของการตอบกลับ (ละบางส่วนของการตอบกลับไว้เพื่อความกระชับ)
 
 ```
 {
@@ -245,15 +254,18 @@ cat result.json
 }
 ```
 
-इस ऑब्जेक्ट के बारे में पूरी जानकारी के लिए , [`UrlContextMetadata` एपीआई का संदर्भ](https://ai.google.dev/api/generate-content?hl=hi#UrlContextMetadata) देखें.
+ดูรายละเอียดทั้งหมดเกี่ยวกับออบเจ็กต์นี้ได้ที่เอกสารอ้างอิง API ของ
+[`UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=th#UrlContextMetadata)
 
-### सुरक्षा जांच
+### การตรวจสอบความปลอดภัย
 
-सिस्टम, यूआरएल पर कॉन्टेंट मॉडरेशन की जांच करता है. इससे यह पुष्टि की जाती है कि यूआरएल, सुरक्षा मानकों के मुताबिक है. अगर आपके दिए गए यूआरएल की पुष्टि नहीं हो पाती है, तो आपको `url_retrieval_status` का `URL_RETRIEVAL_STATUS_UNSAFE` मिलेगा.
+ระบบจะตรวจสอบการกลั่นกรองเนื้อหาใน URL เพื่อยืนยันว่า URL เป็นไปตามมาตรฐานความปลอดภัย หาก URL ที่คุณระบุไม่ผ่านการตรวจสอบนี้ คุณจะได้รับ `url_retrieval_status` เป็น `URL_RETRIEVAL_STATUS_UNSAFE`
 
-### टोकन की गिनती
+### จำนวนโทเค็น
 
-आपके प्रॉम्प्ट में दिए गए यूआरएल से हासिल किए गए कॉन्टेंट को, इनपुट टोकन के तौर पर गिना जाता है. आपको मॉडल आउटपुट के [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=hi#UsageMetadata) ऑब्जेक्ट में, अपने प्रॉम्प्ट और टूल के इस्तेमाल के लिए टोकन की गिनती दिख सकती है. यहां उदाहरण के तौर पर आउटपुट दिया गया है:
+เนื้อหาที่ดึงมาจาก URL ที่คุณระบุในพรอมต์จะนับเป็นส่วนหนึ่งของโทเค็นอินพุต คุณดูจำนวนโทเค็นสำหรับพรอมต์และ
+การใช้งานเครื่องมือได้ใน [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=th#UsageMetadata)
+ออบเจ็กต์ของเอาต์พุตโมเดล ตัวอย่างเอาต์พุตมีดังนี้
 
 ```
 'usage_metadata': {
@@ -269,61 +281,66 @@ cat result.json
   }
 ```
 
-हर टोकन की कीमत, इस्तेमाल किए गए मॉडल पर निर्भर करती है. ज़्यादा जानकारी के लिए, [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज देखें.
+ราคาต่อโทเค็นจะขึ้นอยู่กับโมเดลที่ใช้ โปรดดูรายละเอียดในหน้าการกำหนดราคา
 
-## इन मॉडल के साथ काम करता है
+## โมเดลที่รองรับ
 
-| मॉडल | यूआरएल कॉन्टेक्स्ट |
+| โมเดล | บริบท URL |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=hi) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
-| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
-| [Gemini 3 Flash की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=th) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=th) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
 
-## सबसे सही तरीके
+## แนวทางปฏิบัติแนะนำ
 
-- **खास यूआरएल दें**: बेहतर नतीजे पाने के लिए, उस कॉन्टेंट के डायरेक्ट यूआरएल दें जिसका आपको मॉडल से विश्लेषण कराना है. मॉडल सिर्फ़ आपके दिए गए यूआरएल से कॉन्टेंट हासिल करेगा. वह नेस्ट किए गए लिंक से कोई कॉन्टेंट हासिल नहीं करेगा.
-- **सुलभता की जांच करें**: पुष्टि करें कि आपके दिए गए यूआरएल, ऐसे पेजों पर रीडायरेक्ट न करते हों जिनके लिए लॉग इन करना ज़रूरी है या जिनके लिए पैसे चुकाने पड़ते हैं.
-- **पूरा यूआरएल इस्तेमाल करें**: पूरा यूआरएल दें.इसमें प्रोटोकॉल भी शामिल होना चाहिए. उदाहरण के लिए, google.com के बजाय https://www.google.com का इस्तेमाल करें.
+- **ระบุ URL ที่เฉพาะเจาะจง**: เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ให้ระบุ URL โดยตรงไปยัง
+  เนื้อหาที่ต้องการให้โมเดลวิเคราะห์ โมเดลจะดึงเนื้อหาจาก URL ที่คุณระบุเท่านั้น ไม่ดึงเนื้อหาจากลิงก์ที่ซ้อนกัน
+- **ตรวจสอบการเข้าถึง**: ตรวจสอบว่า URL ที่คุณระบุไม่ได้นำไปยัง
+  หน้าเว็บที่ต้องเข้าสู่ระบบหรืออยู่หลังเพย์วอลล์
+- **ใช้ URL ที่สมบูรณ์**: ระบุ URL แบบเต็ม รวมถึงโปรโตคอล
+  (เช่น https://www.google.com แทนที่จะเป็น google.com)
 
-## सीमाएं
+## ข้อจำกัด
 
-- अनुरोध की सीमा: यह टूल, हर अनुरोध के लिए ज़्यादा से ज़्यादा 20 यूआरएल प्रोसेस कर सकता है.
-- यूआरएल के कॉन्टेंट का साइज़: किसी एक यूआरएल से फ़ेच किए गए कॉन्टेंट का साइज़ ज़्यादा से ज़्यादा 34 एमबी हो सकता है.
-- सार्वजनिक तौर पर ऐक्सेस करने की सुविधा: यूआरएल ऐसे होने चाहिए जिन्हें वेब पर सार्वजनिक तौर पर ऐक्सेस किया जा सके.
-  लोकलहोस्ट पते (जैसे, localhost, 127.0.0.1), निजी नेटवर्क, और टनलिंग सेवाओं (जैसे, ngrok, pinggy) का इस्तेमाल नहीं किया जा सकता.
+- ขีดจำกัดคำขอ: เครื่องมือสามารถประมวลผล URL ได้สูงสุด 20 รายการต่อคำขอ
+- ขนาดเนื้อหา URL: ขนาดสูงสุดของเนื้อหาที่ดึงมาจาก URL เดียวคือ 34 MB
+- การเข้าถึงแบบสาธารณะ: URL ต้องเข้าถึงได้แบบสาธารณะบนเว็บ
+  ระบบไม่รองรับที่อยู่ localhost (เช่น localhost, 127.0.0.1), เครือข่ายส่วนตัว และบริการทันเนล (เช่น ngrok, pinggy)
 
-### इस्तेमाल किए जा सकने वाले और इस्तेमाल न किए जा सकने वाले कॉन्टेंट टाइप
+### ประเภทเนื้อหาที่รองรับและไม่รองรับ
 
-यह टूल, इन तरह के कॉन्टेंट वाले यूआरएल से कॉन्टेंट निकाल सकता है:
+เครื่องมือสามารถดึงเนื้อหาจาก URL ที่มีประเภทเนื้อหาต่อไปนี้
 
-- टेक्स्ट (text/html, application/json, text/plain, text/xml, text/css,
-  text/javascript , text/csv, text/rtf)
-- इमेज (image/png, image/jpeg, image/bmp, image/webp)
+- ข้อความ (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
+- รูปภาพ (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-इस तरह के कॉन्टेंट के लिए, यह सुविधा **काम नहीं करती**:
+ระบบ**ไม่** รองรับเนื้อหาประเภทต่อไปนี้
 
-- Paywall की गई सामग्री
-- YouTube वीडियो (YouTube यूआरएल प्रोसेस करने का तरीका जानने के लिए, [वीडियो को समझना](https://ai.google.dev/gemini-api/docs/video-understanding?hl=hi#youtube) लेख पढ़ें)
-- Google Workspace की फ़ाइलें, जैसे कि Google Docs या स्प्रेडशीट
-- वीडियो और ऑडियो फ़ाइलें
+- เนื้อหาเพย์วอลล์
+- วิดีโอ YouTube (ดู
+  [การทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#youtube)เพื่อเรียนรู้วิธีประมวลผล URL ของ YouTube
+  )
+- ไฟล์ Google Workspace เช่น Google เอกสารหรือชีต
+- ไฟล์วิดีโอและไฟล์เสียง
 
-## आगे क्या करना है
+## ขั้นตอนถัดไป
 
-- ज़्यादा उदाहरणों के लिए, [यूआरएल कॉन्टेक्स्ट कुकबुक](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=hi#url-context) देखें.
+- ดูตัวอย่างเพิ่มเติมได้ที่คู่มือการใช้งานบริบท [URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=th#url-context)
 
-सुझाव भेजें
+ส่งความคิดเห็น
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया.
+อัปเดตล่าสุด 2026-10-13 UTC
 
-क्या आपको हमें और कुछ बताना है?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-09 (UTC) को अपडेट किया गया."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-13 UTC"],[],[]]

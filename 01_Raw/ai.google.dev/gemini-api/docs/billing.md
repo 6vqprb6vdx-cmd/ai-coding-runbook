@@ -1,451 +1,581 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=es-419
-fetched_at: 2026-10-12T07:08:27.829706+00:00
-title: "Facturaci\u00f3n \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=it
+fetched_at: 2026-10-19T05:43:51.618157+00:00
+title: "Fatturazione \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Enviar comentarios
+Invia feedback
 
-# Facturación
+# Fatturazione
 
-En esta guía, se proporciona una descripción general de las diferentes opciones de facturación de la API de Gemini, se explica cómo habilitar la facturación y supervisar el uso, y se brindan respuestas a las preguntas frecuentes sobre la facturación.
+Questa guida fornisce una panoramica delle diverse opzioni di fatturazione dell'API Gemini,
+spiega come attivare la fatturazione e monitorare l'utilizzo e fornisce risposte alle
+domande frequenti sulla fatturazione.
 
-## Acerca de la facturación y los niveles
+## Informazioni su fatturazione e livelli
 
-La facturación de la API de Gemini se basa en tu historial de pagos.
+La fatturazione per l'API Gemini si basa sulla tua cronologia dei pagamenti.
 
-| Nivel de uso | Calificación | [Límite del nivel de facturación](#spend-caps) |
+| Livello di utilizzo | Qualificazione | [Limite del livello di fatturazione](#spend-caps) |
 | --- | --- | --- |
-| **Gratis** | [Proyecto activo](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) o prueba gratuita | N/A |
-| **Nivel 1** | [Configura y vincula una cuenta de facturación activa](#setup-billing) | $250 |
-| **Nivel 2** | Se pagaron USD 100 y pasaron 3 días desde el primer pago exitoso. | USD 2,000 |
-| **Nivel 3** | Se pagaron USD 1,000 y pasaron 30 días desde el primer pago exitoso. | Entre USD 20,000 y más de USD 100,000 |
+| **Nessun costo** | [Progetto attivo](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) o prova senza costi | N/D |
+| **Livello 1** | [Configura e collega un account di fatturazione attivo](#setup-billing) | 250 $ |
+| **Livello 2** | Pagamento di 100 $+ 3 giorni dal primo pagamento riuscito | $ 2000 |
+| **Livello 3** | Pagamento di 1000 $+ 30 giorni dal primo pagamento riuscito | 20.000 $-100.000 $ e oltre |
 
-Las cuentas nuevas comienzan con el nivel gratuito, que permite el acceso a [ciertos modelos](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419) en la API de Gemini y AI Studio, hasta los [límites de frecuencia](https://aistudio.google.com/rate-limit?hl=es-419) del nivel gratuito de los modelos.
+I nuovi account iniziano con il Livello senza costi, che consente l'accesso a
+[determinati modelli](https://ai.google.dev/gemini-api/docs/pricing?hl=it) nell'API Gemini e in AI Studio,
+fino ai [limiti di frequenza](https://aistudio.google.com/rate-limit?hl=it) del Livello senza costi dei modelli.
 
-Para implementar tus aplicaciones directamente desde el modo de compilación, las cuentas aptas pueden usar el **nivel inicial de Google Cloud**. Este nivel te permite publicar hasta 2 aplicaciones full-stack sin configurar un proyecto de Google Cloud ni una cuenta de facturación.
-Consulta [Implementación desde Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=es-419#starter-tier-eligibility) para obtener detalles sobre la elegibilidad y consulta la [documentación del nivel básico de Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=es-419) para obtener más información.
+Per eseguire il deployment delle applicazioni direttamente dalla modalità di creazione, gli account idonei possono utilizzare
+il **livello iniziale di Google Cloud**. Questo livello ti consente di pubblicare fino a due applicazioni full-stack senza configurare un progetto Google Cloud o un account di fatturazione.
+Per i dettagli sull'idoneità, consulta [Deployment da Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=it#starter-tier-eligibility) e per saperne di più, consulta la [documentazione sul livello iniziale di Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=it).
 
-Para acceder a límites de frecuencia más altos, usar modelos avanzados y garantizar que tus instrucciones y respuestas **no** se usen para mejorar los productos de Google\*, puedes [vincular una cuenta de facturación](#setup-billing) y [pagar por adelantado](#prepay) para cambiar a los niveles pagados.
-Luego, avanzarás a niveles superiores según la inversión acumulada y la antigüedad de la cuenta.
+Per accedere a limiti di frequenza più elevati, utilizzare modelli avanzati e assicurarti che i prompt e le risposte **non** vengano utilizzati per migliorare i prodotti Google\*, puoi [collegare un account di fatturazione](#setup-billing) e [pagare in anticipo](#prepay) per passare ai Livelli a pagamento.
+Successivamente, passerai ai livelli superiori in base alla spesa cumulativa e all'età dell'account.
 
-Los niveles, los límites de frecuencia y los límites de las cuentas de facturación se determinan a nivel de la [cuenta de facturación](#cloud-billing).
+I livelli, i limiti di frequenza e i limiti dell'account di fatturazione vengono determinati a livello di [account di
+fatturazione](#cloud-billing).
 
-\* *Privacidad de los datos de nivel empresarial: Para obtener más información sobre el uso de los datos en los servicios pagados, consulta las [Condiciones del Servicio](https://ai.google.dev/gemini-api/terms?hl=es-419#data-use-paid).*
+\* *Privacy dei dati di livello aziendale: per saperne di più sull'utilizzo dei dati
+per i servizi a pagamento, consulta i [Termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it#data-use-paid).*
 
-## Configura la facturación para acceder al nivel pagado
+## Configurare la fatturazione per accedere al livello a pagamento
 
-Puedes crear un proyecto y configurar la facturación, o importar un proyecto existente, para actualizarlo al nivel pagado en [Google AI Studio](https://aistudio.google.com/projects?hl=es-419).
-Actualizar del nivel gratuito al nivel pagado significa vincular una cuenta de facturación y [pagar por adelantado](#prepay) para agregar un mínimo de USD 5 (o el equivalente en otras monedas) de créditos a tu cuenta.
+Puoi creare un progetto e configurare la fatturazione o importare un progetto esistente per
+eseguire l'upgrade al livello a pagamento in [Google AI Studio](https://aistudio.google.com/projects?hl=it).
+L'upgrade dal Livello senza costi al Livello a pagamento prevede il collegamento di un account di fatturazione
+e il [pagamento anticipato](#prepay) per aggiungere un minimo di 5 $ (o l'importo equivalente in altre
+valute) di crediti al tuo account.
 
-1. Ve a la página [Claves de API](https://aistudio.google.com/api-keys?hl=es-419) o [Proyectos](https://aistudio.google.com/projects?hl=es-419) de AI Studio, o a cualquier lugar en el que veas el botón **Configurar facturación** en AI Studio.
-   - Los usuarios nuevos tendrán un [proyecto y una clave de API](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) creados de forma predeterminada.
-   - Si necesitas una clave nueva, haz clic en [**Crear clave de API**](https://aistudio.google.com/api-keys?hl=es-419) y sigue las instrucciones del diálogo para agregar un par clave-proyecto a la tabla.
-2. Busca el proyecto del nivel gratuito que deseas actualizar al nivel pagado y haz clic en **Configurar facturación** en la columna *Nivel de facturación*.
-3. Si nunca configuraste una cuenta de facturación de Google, haz lo siguiente:
-   - Se te pedirá que selecciones tu país para aceptar las Condiciones del Servicio.
-   - Luego, completa o confirma tu información de contacto y forma de pago para continuar.
-4. Si ya configuraste cuentas de facturación de Google en el pasado, haz lo siguiente:
-   - Se te pedirá que elijas entre tus cuentas de facturación existentes.
-   - Si no quieres usar ninguna de tus cuentas existentes, haz clic en **Agregar una nueva cuenta de facturación** y completa o confirma tu información de contacto y forma de pago para continuar.
-5. A continuación, ocurrirá una de las siguientes situaciones:
-   - Se te solicitó que prepagues un mínimo de USD 5 para completar la configuración de facturación (lo que significa que tu cuenta se asignó automáticamente al plan de facturación de [prepago](#prepay)).
-   - Se te ofrece la opción de elegir entre los planes de facturación de [prepago](#prepay) y [pospago](#postpay) para tu cuenta.
-   - Se asignará a un plan de facturación de [pospago](#postpay) durante un período intermedio hasta que el nuevo sistema de prepago se propague a todos los usuarios (a partir del 23 de marzo de 2026).
-6. Después de seleccionar la opción de prepago o pospago, se completará la configuración de tu cuenta.
+1. Vai alla pagina [Chiavi API](https://aistudio.google.com/api-keys?hl=it), alla pagina [Progetti](https://aistudio.google.com/projects?hl=it) o in qualsiasi punto in cui vedi il pulsante **Configura fatturazione** in AI Studio.
+   - Per i nuovi utenti verranno creati per impostazione predefinita un [progetto e una chiave API](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects).
+   - Se hai bisogno di una nuova chiave, fai clic su [**Crea chiave API**](https://aistudio.google.com/api-keys?hl=it)
+     e segui la finestra di dialogo per aggiungere una coppia chiave-progetto alla tabella.
+2. Trova il progetto Livello senza costi che vuoi eseguire l'upgrade al livello a pagamento e fai clic su
+   **Configura fatturazione** nella colonna *Livello di fatturazione*.
+3. Se non hai mai configurato un account di fatturazione Google:
+   - Ti verrà chiesto di selezionare il tuo paese per accettare i Termini di servizio.
+   - Poi, compila o conferma i tuoi dati di contatto e il metodo di pagamento per continuare.
+4. Se hai configurato account di fatturazione Google in passato:
+   - Ti verrà chiesto di scegliere tra i tuoi account di fatturazione esistenti.
+   - Se non vuoi utilizzare nessuno dei tuoi account esistenti, fai clic su **Aggiungi nuovo
+     account di fatturazione** e compila o conferma i tuoi dati di contatto e il
+     metodo di pagamento per continuare.
+5. Successivamente, potrai:
+   - Ti è stato chiesto di pagare in anticipo un minimo di 5 $per completare la configurazione della fatturazione (il tuo account viene assegnato automaticamente al piano di fatturazione [Prepagato](#prepay)).
+   - Ti viene data la possibilità di scegliere tra i piani di fatturazione [Pagamento anticipato](#prepay) e [Pagamento posticipato](#postpay) per il tuo account.
+   - Assegnato a un piano di fatturazione [postpagamento](#postpay) per un periodo intermedio
+     fino a quando il nuovo sistema prepagato non verrà applicato a tutti gli utenti (a partire dal 23 marzo 2026).
+6. Dopo aver effettuato il pagamento anticipato o selezionato il pagamento posticipato, la configurazione dell'account è completata.
 
-### Actualiza al siguiente nivel pagado
+### Eseguire l'upgrade al livello a pagamento successivo
 
-Si ya estás en un nivel pagado y cumples con los [criterios](#about-billing) para cambiar de plan, se actualizará automáticamente al siguiente nivel (sujeto a los [tiempos de procesamiento](#processing-times)).
+Se hai già un livello a pagamento e soddisfi i [criteri](#about-billing)
+per un cambio di piano, verrà eseguito automaticamente l'upgrade al livello successivo
+(in base ai [tempi di elaborazione](#processing-times)).
 
-## Verifica el estado de la facturación
+## Verificare lo stato della fatturazione
 
-Después de [vincular una cuenta de facturación](#setup-billing) a tu proyecto, puedes supervisar su estado en la [página Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419). A diferencia del nivel gratuito, el estado del nivel pagado es dinámico. Si bien tu nivel de uso se determina según el historial de tu cuenta, la API de Gemini solo atenderá solicitudes si tienes un saldo de crédito [prepago](#prepay) positivo.
+Dopo aver [collegato un account di fatturazione](#setup-billing) al tuo progetto, puoi monitorarne lo stato nella [pagina Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). A differenza del livello senza costi, lo stato del livello a pagamento è dinamico: mentre il livello di utilizzo è determinato dalla cronologia dell'account, l'API Gemini servirà le richieste solo se hai un saldo dei crediti [prepagati](#prepay) positivo.
 
-En la página [Proyectos](https://aistudio.google.com/projects?hl=es-419), podrás ver el nivel y el plan de facturación de tu proyecto en la columna *Nivel de facturación*. En las columnas *Nivel de facturación* o *Estado*, se muestran las acciones relacionadas con el estado de facturación que tal vez debas realizar para un proyecto:
+Nella pagina [Progetti](https://aistudio.google.com/projects?hl=it), potrai visualizzare il livello e il piano di fatturazione del tuo progetto nella colonna *Livello di fatturazione*. Eventuali
+azioni relative allo stato di fatturazione che potresti dover intraprendere per un progetto vengono visualizzate nelle
+colonne *Livello di fatturazione* o *Stato*:
 
-- “***Configurar la facturación***” si el proyecto no tiene una cuenta de facturación adjunta
-- "***Configura el prepago***" si el proyecto tiene una cuenta de facturación adjunta, pero debe usar un plan de facturación de [prepago](#prepay) que debe configurarse.
-- "***No hay créditos***" si se requiere que la cuenta de facturación compre créditos, pero no se configuró la cuenta de pagos de prepago o se agotó el saldo de crédito disponible.
+- "***Configura la fatturazione***" se al progetto non è collegato un account di fatturazione.
+- "***Configura pagamento anticipato***" se il progetto ha un account di fatturazione collegato, ma
+  deve utilizzare un piano di fatturazione con [pagamento anticipato](#prepay) che deve essere configurato.
+- "***Nessun credito***" se l'account di fatturazione è tenuto ad acquistare
+  crediti, ma l'account pagamenti prepagati non è configurato o il saldo
+  disponibile è esaurito.
 
-Haz clic en cualquiera de los mensajes para continuar con las acciones necesarias.
+Fai clic su uno dei messaggi per procedere con le azioni necessarie.
 
-## Supervisa el uso
+## Monitorare l'utilizzo
 
-Puedes supervisar el uso de la API de Gemini en [Google AI Studio](https://aistudio.google.com/usage?hl=es-419) en **Panel** > **Uso**.
+Puoi monitorare l'utilizzo dell'API Gemini in
+[Google AI Studio](https://aistudio.google.com/usage?hl=it) nella **dashboard** >
+**Utilizzo**.
 
-## Planes de facturación
+## Piani di fatturazione
 
-Los planes de facturación de la API de Gemini y AI Studio se dividen en dos categorías que determinan cuándo pagas por el uso: prepago y pospago. Puedes consultar el plan de facturación asignado y administrar las formas de pago en la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419).
+I piani di fatturazione per l'API Gemini e AI Studio rientrano in due categorie che
+determinano quando paghi l'utilizzo: pagamento anticipato e pagamento posticipato. Puoi controllare il piano di fatturazione assegnato e gestire i metodi di pagamento nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it).
 
-### Prepago
+### Pagamento anticipato
 
-En el plan de facturación prepagado, compras créditos para tu saldo prepagado antes de usar la API de Gemini, y los costos de uso de la API se deducen de tu saldo de crédito prepagado [casi en tiempo real](#processing-times).
-Puedes realizar un pago por adelantado [agregando créditos](#buy-credits) a tu cuenta o configurando la [recarga automática](#auto-reload). Después de comprar créditos, los que no se usen vencerán después de 12 meses y [no serán reembolsables](#refunds), excepto después de [cambiar a una cuenta de pospago](#postpay).
+Nel piano di fatturazione con pagamento anticipato, acquisti crediti per il saldo del pagamento anticipato prima di utilizzare l'API Gemini e i costi di utilizzo dell'API vengono dedotti dal saldo dei crediti con pagamento anticipato [quasi in tempo reale](#processing-times).
+Puoi pagare in anticipo [aggiungendo crediti](#buy-credits) al tuo account o configurando la [ricarica automatica](#auto-reload). Una volta acquistati, i crediti non utilizzati
+scadono dopo 12 mesi e [non sono rimborsabili](#refunds), tranne dopo
+[il passaggio a un account Postpay](#postpay).
 
-Cuando el saldo de crédito de prepago de la cuenta de facturación llegue a USD 0, todas las claves de API de todos los proyectos vinculados a esa cuenta de facturación dejarán de funcionar simultáneamente.
-Luego, las solicitudes fallarán con un error [HTTP 402 de pago requerido](https://ai.google.dev/gemini-api/docs/api-errors?hl=es-419) hasta que agregues créditos.
-Los créditos prepagados solo se aplican a los costos de uso de la API de Gemini. No puedes usarlos para pagar otros servicios de Google Cloud.
+Quando il saldo del credito prepagato dell'account di fatturazione raggiunge 0 $, tutte le chiavi API di
+tutti i progetti collegati a quell'account di fatturazione smetteranno di funzionare contemporaneamente.
+Le richieste non vanno a buon fine e restituiscono un errore [HTTP 402 Payment
+Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=it) finché non aggiungi crediti.
+I crediti prepagati si applicano solo ai costi di utilizzo dell'API Gemini; non puoi utilizzarli per pagare altri servizi Google Cloud.
 
-Los usuarios nuevos tienen el plan de facturación de prepago de forma predeterminada. Es posible que los proyectos anteriores a la introducción de los planes de facturación de prepago y pospago deban [actualizar los detalles de facturación del proyecto](#verify-billing) antes de seguir usando la API de Gemini.
+Per impostazione predefinita, i nuovi utenti utilizzano il piano di fatturazione con pagamento anticipato. I progetti precedenti all'introduzione dei piani di fatturazione con pagamento anticipato e posticipato potrebbero dover [aggiornare i dettagli di fatturazione del progetto](#verify-billing) prima di continuare a utilizzare l'API Gemini.
 
-*Ten en cuenta que el prepago no está disponible para las cuentas [facturadas (o sin conexión)](https://docs.cloud.google.com/billing/docs/concepts?hl=es-419#billing_account_types).*
+*Tieni presente che il pagamento anticipato non è disponibile per gli account [fatturati (o offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=it#billing_account_types).*
 
-#### Cómo agregar la opción de prepago a una cuenta de pospago existente
+#### Aggiungere il prepagato a un account con pagamento posticipato esistente
 
-Si tu cuenta de Facturación de Cloud existente usa un plan de **pospago**, puedes agregar funciones de **prepago** para comprar créditos por adelantado. Estos créditos prepagados te permiten usar la API de Gemini sin crear una nueva cuenta de Facturación de Cloud.
+Se il tuo account di fatturazione Cloud esistente utilizza un piano **postpagamento**, puoi aggiungere funzionalità di **pagamento anticipato** per acquistare crediti in anticipo. Questi crediti prepagati ti consentono di utilizzare
+l'API Gemini senza creare un nuovo account di fatturazione Cloud.
 
-Durante la configuración para agregar **Prepago** a una cuenta existente, se te mostrará una pantalla de confirmación obligatoria en la que se explica que se modificará la cuenta de Facturación de Cloud seleccionada.
+Durante la configurazione per aggiungere **Pagamento anticipato** a un account esistente, viene visualizzata una schermata di conferma obbligatoria che spiega che l'account di fatturazione Cloud selezionato verrà modificato.
 
-El sistema debe modificar el estado de tu cuenta *antes* de que envíes tu prepago.
-Por lo tanto, cancelar el proceso después de confirmar la modificación, pero antes de completar la configuración del prepago, podría provocar interrupciones temporales del servicio en los proyectos que ya estén vinculados a esa cuenta de Facturación de Cloud. Asegúrate de estar listo para completar el proceso de prepago antes de confirmar la transición. Si tienes problemas, consulta [Servicios interrumpidos después de cancelar una configuración de **prepago**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419#prepay-issue).
+Il sistema deve modificare lo stato dell'account *prima* che tu invii il pagamento anticipato.
+Pertanto, l'annullamento della procedura dopo la conferma della modifica, ma prima del completamento della configurazione del pagamento anticipato, potrebbe comportare interruzioni temporanee del servizio per i progetti già collegati a quell'account di fatturazione Cloud. Assicurati di essere pronto
+a completare la procedura di pagamento anticipato prima di confermare la transizione. Se
+riscontri problemi, consulta [Servizi interrotti dopo l'annullamento di una configurazione **prepagata**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it#prepay-issue).
 
-Si cumples con los requisitos y cambias manualmente de un ciclo de **prepago** a un ciclo de **pospago**, el saldo de crédito prepagado restante se reembolsará automáticamente a la forma de pago original que se usó para el prepago. Sin embargo, si cierras tu cuenta de Facturación de Cloud por cualquier otro motivo, se perderán los créditos prepagados restantes y no se reembolsarán.
+Se hai l'idoneità e passi manualmente da un ciclo **prepagato** a un ciclo **postpagato**, l'eventuale saldo del credito prepagato rimanente viene rimborsato automaticamente sul metodo di pagamento originale utilizzato per il pagamento anticipato. Tuttavia, se chiudi il tuo account di fatturazione Cloud per qualsiasi altro motivo, i crediti prepagati rimanenti vengono persi e non vengono rimborsati.
 
-#### Compre créditos
+#### Acquista crediti
 
-Puedes comprar créditos de forma manual antes de usar la API de Gemini para cargarlos en el saldo de crédito de tu cuenta prepagada.
+Puoi acquistare manualmente i crediti in anticipo rispetto all'utilizzo dell'API Gemini per caricarli
+nel saldo del credito dell'account con pagamento anticipato.
 
-Para comprar créditos, ve a la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419) y selecciona **Comprar créditos**.
-La compra mínima es de USD 5. La cantidad máxima de créditos que puedes pagar por adelantado es de USD 5,000.
+Per acquistare crediti, vai alla pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it) e seleziona **Acquista crediti**.
+L'acquisto minimo è di 5 $. L'importo massimo di crediti che puoi pagare in anticipo è di
+5000 $.
 
-#### Volver a cargar automáticamente
+#### Ricarica automaticamente
 
-La recarga automática es una función opcional que recarga automáticamente tu saldo de crédito de prepago cuando se está agotando. Esto es útil para evitar interrupciones del servicio.
+La ricarica automatica è una funzionalità facoltativa che ricarica automaticamente il saldo dei crediti prepagati
+quando sta per esaurirsi. Ciò è utile per evitare interruzioni del servizio.
 
-Puedes configurar la recarga automática y ver su estado en la tarjeta *Créditos disponibles* de la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419). Haz clic en **Configurar la recarga automática** o en **Administrar la recarga automática** para establecer tu forma de pago, el importe de la recarga y el saldo mínimo que activa un pago de recarga.
+Puoi configurare la ricarica automatica e visualizzare lo stato della ricarica automatica nella scheda *Crediti
+disponibili* nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). Fai clic su **Configura la ricarica automatica** o
+**Gestisci la ricarica automatica** per impostare il metodo di pagamento, l'importo della ricarica e il
+saldo minimo che attiva un pagamento di ricarica.
 
-#### Límite de carga automática mensual
+#### Limite di addebito automatico mensile
 
-El límite de recarga automática mensual está disponible para los usuarios de prepago y ayuda a evitar costos inesperados por las recargas automáticas frecuentes de crédito.
-Usa esta función para establecer un límite máximo para las recargas automáticas de crédito en un solo ciclo de facturación. Una vez que el importe total de las recargas automáticas en un ciclo de facturación alcanza este límite, el sistema inhabilita la recarga automática hasta el comienzo del mes siguiente. Los pagos únicos que inicias de forma manual no se descuentan de este límite.
+Il limite di ricarica automatica mensile è disponibile per gli utenti prepagati
+e contribuisce a evitare costi imprevisti dovuti a frequenti ricariche automatiche del credito.
+Utilizza questa funzionalità per impostare un limite massimo per le ricariche automatiche dei crediti all'interno di un singolo ciclo di fatturazione. Una volta raggiunto questo limite, il sistema disattiva la ricarica automatica fino all'inizio del mese successivo. I pagamenti una tantum che avvii manualmente non vengono conteggiati ai fini di questo limite.
 
-Para establecer el límite de pago automático mensual cuando la recarga automática está habilitada, sigue estos pasos:
+Per impostare il limite di addebito automatico mensile quando la ricarica automatica è attivata:
 
-1. Ve a la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419).
-2. Haz clic en **Administrar la recarga automática**.
-3. Expande la sección **Límite mensual** y, luego, ingresa el límite mensual máximo para las recargas automáticas.
-4. Haz clic en **Guardar**.
+1. Vai alla pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it).
+2. Fai clic su **Gestisci la ricarica automatica**.
+3. Espandi la sezione **Limite mensile** e inserisci il limite mensile massimo per le ricariche automatiche.
+4. Fai clic su **Salva**.
 
-### Pospago
+### Pagamento posticipato
 
-En el plan de facturación de pospago, tu cuenta de facturación de Cloud acumula costos y se te cobra automáticamente al final del mes o cuando tus costos alcanzan un [límite de inversión asignado automáticamente](#tier-spend-caps) según el nivel de tu cuenta.
-El pago se cobra a la forma de pago adjunta a tu cuenta de pagos pospago, que puedes administrar en la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419). En la página **Facturación**, podrás ver tu saldo, las fechas de vencimiento y los pagos anteriores, así como realizar pagos y administrar las formas de pago.
+Nel piano di fatturazione postpagamento, il tuo account di fatturazione Cloud accumula costi e ti
+vengono addebitati automaticamente alla fine del mese o quando i costi raggiungono un
+[limite di spesa assegnato automaticamente](#tier-spend-caps) in base al livello del tuo account.
+Il pagamento viene addebitato sul metodo di pagamento collegato al tuo account
+Postpay, che puoi gestire nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). Nella pagina **Fatturazione** potrai
+visualizzare il saldo, le date di scadenza e i pagamenti passati, nonché effettuare pagamenti e
+gestire i metodi di pagamento.
 
-Cuando [configures la facturación](#setup-billing) para un proyecto nuevo, si cumples con los requisitos para el pospago, tendrás la opción de elegir entre prepago y pospago en el diálogo de [configuración de facturación](#setup-billing).
+Quando [configuri la fatturazione](#setup-billing) per un nuovo progetto, se hai l'idoneità
+per il pagamento posticipato, potrai scegliere tra pagamento anticipato e posticipato nella
+finestra di dialogo [configurazione della fatturazione](#setup-billing).
 
-Después de cambiar una cuenta de Facturación de Cloud para que use el plan de facturación pospago, todos los proyectos vinculados a esa cuenta de facturación se cambiarán al plan pospago. Para migrar una cuenta apta al modo de prepago, sigue los pasos que se indican en [Migra al modo de prepago](#migrate-to-prepay). También puedes mover un proyecto a una cuenta de facturación con un plan de facturación diferente para cambiar el ciclo de facturación de ese proyecto. Visita la documentación de Cloud sobre [cómo administrar la facturación de los proyectos](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419).
+Dopo aver cambiato un account di fatturazione Cloud in modo che utilizzi il piano di fatturazione postpagato, tutti
+i progetti collegati a quell'account di fatturazione vengono spostati al piano postpagato. Puoi spostare un account idoneo al pagamento anticipato seguendo i passaggi descritti in [Eseguire la migrazione al pagamento anticipato](#migrate-to-prepay). Puoi anche
+spostare un progetto in un account di fatturazione con un piano di fatturazione diverso per modificare
+il ciclo di addebito per quel progetto. Consulta la documentazione di Cloud sulla [gestione
+della fatturazione per i progetti](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it).
 
-Puedes obtener más información sobre el ciclo de cobro de Postpago en la [guía de Facturación de Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419).
+Puoi scoprire di più sul ciclo di addebito del pagamento posticipato nella [guida alla fatturazione Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it).
 
-### Migra a prepago
+### Esegui la migrazione al pagamento anticipato
 
-Google AI Studio está migrando las cuentas de desarrollador de la facturación de pospago a la de prepago para el uso de la API de Gemini. Este cambio solo se aplica a la API de Gemini. Los demás servicios de Google Cloud vinculados a tu cuenta de facturación seguirán en la modalidad de pospago.
+Google AI Studio sta eseguendo la transizione degli account sviluppatore dalla fatturazione posticipata a quella anticipata per l'utilizzo dell'API Gemini. Questa modifica si applica solo all'API Gemini; gli altri servizi Google Cloud collegati al tuo account di fatturazione rimangono in postpagamento.
 
-Cámbiate a la modalidad de prepago y agrega créditos antes de la fecha de cambio que se indica en el aviso de tu cuenta para evitar interrupciones del servicio. Las cuentas que solo usan funciones del nivel gratuito no necesitan realizar ninguna acción.
+Passa al pagamento anticipato e aggiungi crediti prima della data di transizione indicata nell'avviso dell'account per evitare interruzioni del servizio. Gli account che utilizzano solo le funzionalità del Livello senza costi non devono intraprendere alcuna azione.
 
-Para cambiar una cuenta de pospago existente a prepago, sigue estos pasos:
+Per passare da un account con pagamento posticipato esistente al pagamento anticipato:
 
-1. Ve a la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419).
-2. Selecciona **Cambiar a prepago** para tu cuenta de facturación.
-3. [Compra créditos](#buy-credits) (mínimo USD 5) para cargar tu saldo inicial.
+1. Vai alla pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it).
+2. Seleziona **Passa al prepagato** per l'account di fatturazione.
+3. [Acquista crediti](#buy-credits) (minimo 5 $) per caricare il saldo iniziale.
 
-Para evitar interrupciones del servicio después del cambio, configura la [recarga automática](#auto-reload) para recargar tu saldo de crédito cuando esté bajo.
+Per evitare interruzioni del servizio dopo il cambio, configura la [ricarica automatica](#auto-reload) per ricaricare il saldo del credito quando è in esaurimento.
 
-## Límites de gasto
+## Limiti di spesa
 
-La API de Gemini admite límites de inversión mensuales a nivel de la cuenta de facturación y del proyecto. Estos controles están diseñados para proteger tu cuenta de cargos inesperados y el ecosistema para garantizar la disponibilidad del servicio.
+L'API Gemini supporta i limiti di spesa mensili sia a livello di tier dell'account di fatturazione sia a livello di progetto. Questi controlli sono progettati per proteggere il tuo account da
+superamenti imprevisti e l'ecosistema per garantire la disponibilità del servizio.
 
-*Ten en cuenta que los límites de inversión no están disponibles para las cuentas [facturadas (o sin conexión)](https://docs.cloud.google.com/billing/docs/concepts?hl=es-419#billing_account_types).*
+*Tieni presente che i limiti di spesa non sono disponibili per gli account [fatturati (o offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=it#billing_account_types).*
 
-### Límites de inversión del proyecto
+### Limiti di spesa del progetto
 
-Puedes establecer tus propios límites de inversión a [nivel del proyecto](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) en AI Studio.
-Esto es útil si tienes varios proyectos en la misma cuenta de facturación y deseas asegurarte de que cada uno tenga acceso a una parte suficiente del límite de inversión acumulado.
+Puoi impostare i tuoi limiti di spesa [a livello di progetto](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) in AI Studio.
+Questa funzionalità è utile se hai più progetti nello stesso account di fatturazione e vuoi assicurarti che ognuno abbia accesso a una parte sufficiente del limite di spesa cumulativo.
 
-Las cuentas con los [roles](https://docs.cloud.google.com/iam/docs/roles-overview?hl=es-419) de editor, propietario o administrador del proyecto pueden establecer límites de inversión por proyecto en AI Studio en la página [Inversión](https://aistudio.google.com/spend?hl=es-419) en **Límite de inversión mensual** > **Editar límite de inversión**.
+Gli account con i [ruoli](https://docs.cloud.google.com/iam/docs/roles-overview?hl=it) di editor, proprietario o amministratore del progetto possono impostare limiti di spesa per progetto in AI Studio nella pagina [Spesa](https://aistudio.google.com/spend?hl=it) in **Limite di spesa mensile** > **Modifica limite di spesa**.
 
-Para obtener detalles sobre los permisos específicos de Cloud IAM de Google Cloud necesarios para ver o editar los límites de inversión y los datos de facturación en AI Studio, consulta la [guía de solución de problemas de AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=es-419#iam-permissions).
+Per informazioni dettagliate sulle autorizzazioni Cloud IAM di Google Cloud specifiche richieste per visualizzare o modificare i limiti di spesa e i dati di fatturazione in AI Studio, consulta la [guida alla risoluzione dei problemi di AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=it#iam-permissions).
 
-Si [trasladas un proyecto a una cuenta de facturación diferente](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#change_the_billing_account_for_a_project), se conservará cualquier límite de inversión que ya hayas establecido para ese proyecto, pero la inversión acumulada se restablecerá a USD 0 para el nuevo ciclo de facturación.
+Se [sposti un progetto in un altro account di fatturazione](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#change_the_billing_account_for_a_project),
+il limite di spesa che hai già impostato per quel progetto verrà mantenuto, ma la spesa
+accumulata verrà reimpostata su 0 € per il nuovo ciclo di fatturazione.
 
-Las tareas de larga duración, como las finalizaciones en [modo por lotes](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419) y las sesiones de agentes, pueden generar cargos por excedentes que superen el límite de inversión de tu proyecto.
+Le attività di lunga durata come i completamenti in [modalità batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) e le sessioni degli agenti potrebbero comportare superamenti del limite di spesa del progetto.
 
-Los tiempos de procesamiento de los datos de facturación pueden demorarse en AI Studio hasta alrededor de 10 minutos. Es posible que experimentes excedentes más allá del límite de tu proyecto si los datos de facturación no se procesan antes de que se acumulen más cargos.
+I tempi di elaborazione dei dati di fatturazione possono subire ritardi in AI Studio, fino a circa 10 minuti. Potresti riscontrare superamenti oltre il limite del progetto se i dati di fatturazione
+non sono stati elaborati prima dell'accumulo di ulteriori addebiti.
 
-### Límites de inversión de los niveles de la cuenta de facturación
+### Limiti di spesa per livello dell'account di fatturazione
 
-Cada [nivel](#about-billing) tiene un límite de inversión mensual máximo:
+Ogni [livello](#about-billing) ha un limite di spesa mensile massimo:
 
-| Nivel de uso | Límite de inversión |
+| Livello di utilizzo | Limite di spesa |
 | --- | --- |
-| **Gratis** | N/A |
-| **Nivel 1** | $250 |
-| **Nivel 2** | USD 2,000 |
-| **Nivel 3** | Entre USD 20,000 y USD 100,000 |
+| **Nessun costo** | N/D |
+| **Livello 1** | 250 $ |
+| **Livello 2** | $ 2000 |
+| **Livello 3** | 20.000 $-100.000 $ |
 
-Se aplican límites de uso mensuales para la API de Gemini a nivel de la [cuenta de facturación](#cloud-billing). Si bien los límites predeterminados están preestablecidos, puedes [solicitar un aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=es-419) para admitir un mayor uso. La inversión total se agrega en todos los proyectos vinculados que tienen habilitado el servicio de la API de Gemini. Después de que el total acumulado de la cuenta alcance el límite del nivel, se pausará el servicio para todos los proyectos vinculados a esa cuenta de facturación hasta el inicio del próximo ciclo de facturación (el 1 de cada mes).
+I limiti di utilizzo mensili vengono applicati all'API Gemini a livello di [account di fatturazione](#cloud-billing). Anche se i limiti predefiniti sono preimpostati, puoi [richiedere un
+aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=it)
+per adattarli a un utilizzo maggiore. La spesa totale viene aggregata in tutti i progetti collegati in cui è abilitato il servizio API Gemini. Quando il totale cumulativo dell'account
+raggiunge il limite del livello, il servizio viene messo in pausa per tutti i progetti collegati a quell'account di fatturazione fino all'inizio del ciclo di fatturazione successivo (il 1° di ogni mese).
 
-#### Evalúa la inversión de tu cuenta de facturación
+#### Valutare la spesa dell'account di fatturazione
 
-Para evaluar tu inversión mensual histórica y determinar si los nuevos [límites de inversión de nivel de la cuenta de facturación](#tier-spend-caps) afectarán tus proyectos en curso, sigue estos pasos:
+Per valutare la tua spesa mensile storica e determinare se i nuovi [limiti di spesa per livello dell'account di fatturazione](#tier-spend-caps) influiranno sui tuoi progetti in corso, segui questi passaggi:
 
-1. En la consola de Google Cloud, consulta la página [Informes de tu cuenta de Facturación de Cloud](https://console.cloud.google.com/billing/reports?hl=es-419).
-   - Si tienes más de una cuenta de facturación, en el mensaje, elige la cuenta de Facturación de Cloud de la que quieres ver informes de costos.
-2. De forma predeterminada, el informe se establece en "Agrupar por servicio" en el "Mes actual". Verás **API de Gemini** en la columna **Servicio** y la inversión total en la columna **Costo de uso** de la tabla.
-3. Para ver los costos detallados limitados al uso de la API de Gemini, configura el filtro **Agrupar por** para agrupar por **SKU** y el filtro **Servicios** en **API de Gemini**.
-4. Ajusta el filtro **Período por fecha de uso** al período que desees para evaluar tu inversión histórica en un período.
+1. Nella console Google Cloud, visualizza la pagina [Report dell'account di fatturazione Cloud](https://console.cloud.google.com/billing/reports?hl=it).
+   - Se hai più di un account di fatturazione, quando richiesto scegli l'account di fatturazione Cloud per cui vuoi visualizzare i report sui costi.
+2. Per impostazione predefinita, il report è impostato su "Raggruppa per servizio" nel "Mese corrente". Vedrai **API Gemini** nella colonna **Servizio** e la spesa totale nella colonna **Costo
+   utilizzo** della tabella.
+3. Per visualizzare i costi granulari limitati all'utilizzo dell'API Gemini, imposta il filtro **Raggruppa per**
+   in modo da raggruppare per **SKU** e il filtro **Servizi** su **API Gemini**.
+4. Modifica il filtro **Intervallo di tempo per data di utilizzo** in base all'intervallo che preferisci per
+   valutare la spesa storica in un periodo.
 
-## Tiempos de procesamiento
+## Tempi di elaborazione
 
-Los indicadores y las actualizaciones de facturación no siempre se realizan en tiempo real.
+Gli indicatori e gli aggiornamenti della fatturazione non vengono sempre eseguiti in tempo reale.
 
-- **Uso de créditos**: Por lo general, los costos de uso se deducen de tu saldo en cuestión de minutos.
-- **Confirmación del pago**: Si bien la mayoría de los pagos con tarjeta son instantáneos, algunas formas de pago (como las transferencias bancarias) pueden tardar varios días en procesarse. Los servicios solo se reanudan o actualizan después de que se confirma oficialmente la compra de créditos.
-- **Actualizaciones de nivel**: Después de un pago exitoso o cuando cumples con los [criterios de actualización](#about-billing), las actualizaciones de nivel suelen reflejarse en un plazo de 10 minutos.
-- **Gráficos de desglose del costo total**: Los gráficos que muestran el desglose del costo total en las páginas [Facturación](https://aistudio.google.com/billing?hl=es-419) y [Inversión](https://aistudio.google.com/spend?hl=es-419) pueden tardar hasta 24 horas en actualizarse.
+- **Utilizzo del credito**: i costi di utilizzo vengono in genere detratti dal saldo
+  nel giro di pochi minuti.
+- **Conferma del pagamento**: anche se la maggior parte dei pagamenti con carta è immediata, alcune forme
+  di pagamento (come i bonifici bancari) potrebbero richiedere diversi giorni per essere autorizzate. I servizi
+  vengono ripristinati o eseguiti l'upgrade solo dopo la conferma ufficiale dell'acquisto dei crediti.
+- **Upgrade di livello**: dopo un pagamento andato a buon fine o quando soddisfi i [criteri di upgrade](#about-billing), gli upgrade di livello vengono in genere visualizzati entro 10 minuti.
+- **Grafici di suddivisione del costo totale**: i grafici che mostrano la suddivisione del costo totale sia nella pagina [Fatturazione](https://aistudio.google.com/billing?hl=it) sia nella pagina [Spesa](https://aistudio.google.com/spend?hl=it) possono richiedere fino a 24 ore per l'aggiornamento.
 
-Lee las guías de Facturación de Cloud sobre el [ciclo de facturación](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419#delayed-billing) y las latencias de [transacciones](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=es-419#missing-transactions) para obtener más información sobre posibles retrasos en la facturación.
+Per saperne di più sui potenziali ritardi di fatturazione, leggi le guide alla fatturazione Cloud su [ciclo di addebito](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it#delayed-billing) e latenze delle [transazioni](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=it#missing-transactions).
 
-## Reembolsos
+## Rimborsi
 
-No se permiten reembolsos para las cuentas de facturación de **prepago**, excepto cuando se cambian los tipos de cuenta.
+I rimborsi non sono consentiti per gli account di fatturazione **prepagati**, tranne in caso di cambio
+del tipo di account.
 
-**Cuando una cuenta de prepago cambia al tipo de cuenta de pospago** (después de que cumples con los [criterios](#about-billing) y [actualizas manualmente](#postpay) tu cuenta), se cierra la cuenta de prepago y los créditos prepagados restantes se reembolsan automáticamente a la forma de pago registrada.
+**Quando un account con pagamento anticipato passa al tipo di account con pagamento posticipato** (dopo che hai soddisfatto i [criteri](#about-billing) e hai [eseguito l'upgrade manuale](#postpay) dell'account), l'account con pagamento anticipato viene chiuso e l'eventuale credito prepagato residuo viene rimborsato automaticamente sul metodo di pagamento registrato.
 
-Si [cierras](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=es-419#close-a-billing-account) tu cuenta de prepago por cualquier motivo que no sea actualizarla a pospago, se perderán los créditos prepagados restantes.
+Se [chiudi](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=it#close-a-billing-account)
+il tuo account prepagato per qualsiasi motivo diverso dall'upgrade al pagamento posticipato, i
+crediti prepagati rimanenti vengono persi.
 
-Los créditos comprados vencen después de 1 año. Después del vencimiento, los créditos se pierden y no se pueden recuperar.
+I crediti acquistati scadono dopo 1 anno. Una volta scaduti, i crediti vengono persi
+e non possono essere recuperati.
 
-Las cuentas de **pospago** cumplen con la [política de reembolsos de Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=es-419#request_a_refund).
+Gli account **postpagamento** seguono le [norme di rimborso di Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=it#request_a_refund).
 
-## Cuentas de facturación de Cloud
+## Account di fatturazione Cloud
 
-La API de Gemini usa [cuentas de Facturación de Cloud](https://cloud.google.com/billing/docs/concepts?hl=es-419) para los servicios de facturación, que puedes [configurar directamente en AI Studio](#setup-billing).
-Puedes usar AI Studio para hacer un seguimiento de los gastos, comprender los costos y realizar pagos.
+L'API Gemini utilizza [account di fatturazione Cloud](https://cloud.google.com/billing/docs/concepts?hl=it) per i servizi di fatturazione, che puoi [configurare direttamente in AI Studio](#setup-billing).
+Puoi utilizzare AI Studio per monitorare la spesa, comprendere i costi ed effettuare pagamenti.
 
-Los niveles, los límites de frecuencia y los límites de las cuentas de facturación se determinan a nivel de la cuenta de facturación.
+I livelli, i limiti di frequenza e i limiti dell'account di fatturazione vengono determinati a livello di account di fatturazione.
 
-### Proyectos y claves de API
+### Progetti e chiavi API
 
-Todos los [proyectos](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419#google-cloud-projects) vinculados a una cuenta de Facturación de Cloud heredan el nivel de uso y los límites de tarifas y topes de cuenta asociados de la cuenta de facturación. Si [cambias un proyecto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#change_the_billing_account_for_a_project) de una cuenta de facturación a otra, su nivel y, posteriormente, los límites de frecuencia y los límites de la cuenta cambiarán al nivel de la nueva cuenta de facturación.
+Tutti i [progetti](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) collegati a un account di fatturazione Cloud ereditano il livello di utilizzo e i limiti di velocità e i limiti dell'account associati. Se [modifiche un progetto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#change_the_billing_account_for_a_project)
+da un account di fatturazione a un altro, il suo livello e, di conseguenza, i limiti di frequenza e
+i limiti dell'account, passeranno al livello del nuovo account di fatturazione.
 
-El gasto acumulado (en todos los productos de Google Cloud) y la antigüedad de la cuenta en todos los proyectos vinculados a una cuenta de facturación se tienen en cuenta para las [calificaciones de nivel](#about-billing) de esa cuenta de facturación.
+La spesa cumulativa (per tutti i prodotti Google Cloud) e l'età dell'account in tutti i
+progetti collegati a un account di fatturazione vengono conteggiate ai fini delle
+[qualifiche per il livello](#about-billing) dell'account di fatturazione.
 
-Puedes [desvincular un proyecto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#disable_billing_for_a_project) de su cuenta de facturación para volver al nivel gratuito.
+Puoi [scollegare un progetto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#disable_billing_for_a_project) dal relativo account di fatturazione per tornare al livello senza costi.
 
-Las [claves de API](https://ai.google.dev/gemini-api/docs/api-key?hl=es-419) son credenciales que se generan dentro de un proyecto.
-No tienen parámetros de configuración de facturación independientes, sino que heredan los límites de nivel y el estado de facturación del proyecto. El uso acumulativo de todas las claves de un proyecto se incluye en el límite de inversión de ese proyecto y en la inversión total de la cuenta de facturación.
+Le [chiavi API](https://ai.google.dev/gemini-api/docs/api-key?hl=it) sono credenziali generate all'interno di un progetto.
+Non hanno impostazioni di fatturazione indipendenti; ereditano i limiti del livello e lo stato di fatturazione del progetto. L'utilizzo cumulativo di tutte le chiavi all'interno di un progetto viene conteggiato ai fini del limite di spesa del progetto e della spesa totale dell'account di fatturazione.
 
-## Preguntas frecuentes
+## Domande frequenti
 
-En las siguientes secciones, se proporcionan respuestas a las preguntas frecuentes.
+Le sezioni seguenti forniscono le risposte alle domande frequenti.
 
-### ¿Qué se me factura?
+### Cosa mi viene addebitato?
 
-Los precios de la API de Gemini se basan en lo siguiente:
+I prezzi dell'API Gemini si basano su quanto segue:
 
-- La cantidad de tokens de entrada
-- La cantidad de tokens de salida
-- La cantidad de tokens almacenados en caché
-- La duración del almacenamiento de los tokens en caché
+- Conteggio token di input
+- Conteggio token di output
+- Conteggio dei token memorizzati nella cache
+- Durata di archiviazione del token memorizzato nella cache
 
-Para obtener información sobre los precios, consulta la [página de precios](https://ai.google.dev/pricing?hl=es-419).
+Per informazioni sui prezzi, consulta la [pagina dei prezzi](https://ai.google.dev/pricing?hl=it).
 
-### ¿Dónde puedo ver mi cuota?
+### Dove posso visualizzare la mia quota?
 
-Puedes ver tus límites de cuota y del sistema en [AI Studio](https://aistudio.google.com/usage?hl=es-419).
+Puoi visualizzare la quota e i limiti di sistema in
+[AI Studio](https://aistudio.google.com/usage?hl=it).
 
-### ¿Cómo puedo cambiar a un nivel de límite de frecuencia más alto o solicitar más cuota?
+### Come faccio a passare a un livello di limite di frequenza più alto o a richiedere una quota maggiore?
 
-Se te otorgará automáticamente más cuota cuando tu cuenta alcance los próximos [requisitos de nivel](https://ai.google.dev/gemini-api/docs/rate-limits?hl=es-419#usage-tiers).
+Ti verrà automaticamente concessa una quota maggiore quando il tuo account raggiungerà i [requisiti del livello](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers) successivo.
 
-### ¿Puedo usar la API de Gemini de forma gratuita en el EEE (incluida la UE), el Reino Unido y Suiza?
+### Posso utilizzare l'API Gemini senza costi nel SEE (inclusa l'UE), nel Regno Unito e in Svizzera?
 
-Sí, ofrecemos el nivel gratuito y el nivel pagado en [muchas regiones](https://ai.google.dev/gemini-api/docs/available-regions?hl=es-419).
+Sì, rendiamo disponibili il livello senza costi e quello a pagamento in [molte regioni](https://ai.google.dev/gemini-api/docs/available-regions?hl=it).
 
-### Si configuro la facturación con la API de Gemini, ¿se me cobrará por mi uso de Google AI Studio?
+### Se configuro la fatturazione con l'API Gemini, mi verrà addebitato l'utilizzo di Google AI Studio?
 
-El uso de AI Studio sigue siendo gratuito, a menos que los usuarios vinculen una clave de API pagada para acceder a las funciones pagadas.
-Una vez que vincules una clave de API pagada como parte de un proyecto pagado en AI Studio, se te cobrará el uso de AI Studio para esa clave. Puedes cambiar entre proyectos del nivel pagado y proyectos del nivel gratuito según sea necesario con las claves de API respectivas vinculadas a cada tipo.
+L'utilizzo di AI Studio rimane senza costi, a meno che gli utenti non colleghino una chiave API a pagamento per accedere alle funzionalità a pagamento.
+Una volta collegata una chiave API a pagamento nell'ambito di un progetto a pagamento in AI Studio, ti verrà addebitato l'utilizzo di AI Studio per quella chiave. Puoi passare da progetti del Livello a pagamento a progetti del Livello senza costi in base alle esigenze utilizzando le rispettive chiavi API collegate a ciascun tipo.
 
-### Si estoy en el nivel gratuito, ¿cómo actualizo a niveles superiores?
+### Se utilizzo il livello senza costi, come faccio a eseguire l'upgrade a livelli superiori?
 
-Para acceder a niveles más altos, debes configurar la facturación en tu proyecto. Haz clic en [**Configurar facturación**](#setup-billing) en Google AI Studio. En este proceso, se te guiará para que selecciones o crees una cuenta de Facturación de Cloud. Si debes usar el modelo de facturación prepagada, el proceso de **configuración de la facturación** te guiará para crear tu cuenta prepagada vinculada a tu cuenta de Facturación de Cloud.
+Per accedere ai livelli superiori, devi configurare la fatturazione nel tuo progetto. Fai clic su [**Configura
+la fatturazione**](#setup-billing) in Google AI Studio. Verrà illustrata la procedura per selezionare o creare un account di fatturazione Cloud. Se devi utilizzare il modello di fatturazione prepagata, la procedura **Configura fatturazione** ti guiderà nella creazione del tuo account prepagato collegato al tuo account di fatturazione Cloud.
 
-### ¿Puedo usar 1 millón de tokens en el nivel gratuito?
+### Posso utilizzare 1 milione di token nel livello senza costi?
 
-El nivel gratuito de la API de Gemini varía según el modelo seleccionado. Por el momento, puedes probar la ventana de contexto de 1 millón de tokens de las siguientes maneras:
+Il livello senza costi per l'API Gemini varia in base al modello selezionato. Per il momento, puoi provare la finestra contestuale da 1 milione di token nei seguenti modi:
 
-- En Google AI Studio
-- Con planes sin cargo para modelos seleccionados
-- Con planes pospago
+- In Google AI Studio
+- Con piani senza costi per modelli selezionati
+- Con i piani con pagamento posticipato
 
-### ¿Puedo volver al nivel gratuito después de actualizar a niveles superiores (pagados)?
+### Posso tornare al livello senza costi dopo aver eseguito l'upgrade a livelli superiori (a pagamento)?
 
-Para cambiar al nivel gratuito, puedes [inhabilitar la facturación](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#disable_billing_for_a_project) en cada uno de los proyectos a los que quieras cambiar.
+Per eseguire il downgrade al Livello senza costi, puoi [disattivare la fatturazione](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#disable_billing_for_a_project)
+per ciascuno dei progetti per cui vuoi eseguire il downgrade.
 
-### ¿Cómo puedo calcular la cantidad de tokens que uso?
+### Come posso calcolare il numero di token che sto utilizzando?
 
-Usa el método [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=es-419#count_tokens) para contar la cantidad de tokens. Consulta la [guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) para obtener más información sobre ellos.
+Utilizza il metodo [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=it#count_tokens)
+per conteggiare il numero di token. Per saperne di più sui token, consulta la [guida ai token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
 
-### Si me registro para obtener mi primera cuenta de Facturación de Cloud a través de AI Studio, ¿seguiré obteniendo una prueba gratuita de Google Cloud?
+### Se mi registro per il mio primo account di fatturazione Cloud tramite AI Studio, riceverò comunque una prova senza costi di Google Cloud?
 
-Cuando te registras para obtener tu primera cuenta de Facturación de Cloud, comienza tu [prueba gratuita de Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=es-419#free-trial) y se te otorga un [crédito de bienvenida](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419#welcome-credits) de USD 300.
-Sin embargo, esos créditos no se pueden usar para pagar el uso de AI Studio. Puedes usar el crédito de bienvenida para pagar otros servicios aptos dentro de Google Cloud (ten en cuenta que, una vez que se consuman o venzan esos créditos (en un plazo de 90 días), los costos de uso adicionales se facturarán automáticamente a tu forma de pago establecida).
+Quando ti registri per il tuo primo account di fatturazione Cloud, inizia la [prova senza costi di Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=it#free-trial) e ti vengono concessi 300 $di [credito di benvenuto](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it#welcome-credits).
+Tuttavia, questi crediti non possono essere utilizzati per pagare l'utilizzo di AI Studio. Puoi utilizzare il
+credito di benvenuto per pagare altri servizi idonei all'interno di Google Cloud (tieni presente che
+una volta consumati o scaduti (entro 90 giorni), eventuali costi di utilizzo aggiuntivi
+vengono fatturati automaticamente al metodo di pagamento stabilito).
 
-### ¿Puedo usar mi crédito de bienvenida de Google Cloud con la API de Gemini?
+### Posso utilizzare il mio credito di benvenuto di Google Cloud con l'API Gemini?
 
-No, el [crédito de bienvenida](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419#welcome-credits) o el crédito de prueba gratuita de Google Cloud no se pueden usar para la API de Gemini ni AI Studio.
+No, il [credito di benvenuto](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it#welcome-credits) di Google Cloud
+o il credito della prova senza costi non possono essere utilizzati per l'API Gemini o AI Studio.
 
-Si se te otorgó un crédito de bienvenida de Google Cloud antes de que se volviera no apto, puedes usar los créditos restantes en la API de Gemini y AI Studio hasta que venzan (después de 90 días).
+Se ti è stato concesso un credito di benvenuto Google Cloud prima che diventasse
+non idoneo, puoi spendere i crediti rimanenti per l'API Gemini
+e AI Studio fino alla scadenza dei crediti (dopo 90 giorni).
 
-### ¿La prueba gratuita de Google Cloud se aplica al uso de la API de Gemini?
+### La prova senza costi di Google Cloud si applica all'utilizzo dell'API Gemini?
 
-No. A partir de marzo de 2026, los costos de uso de la API de Gemini se excluirán específicamente del programa de [Prueba gratuita de Google Cloud de USD 300](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=es-419#free-trial).
+No, a partire da marzo 2026, i costi di utilizzo dell'API Gemini sono specificamente esclusi dal programma [prova senza costi di Google Cloud di 300$](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=it#free-trial).
 
-### ¿Cómo funcionan los créditos de Google Cloud con la opción de prepago?
+### Come funzionano i crediti Google Cloud con il pagamento anticipato?
 
-Los usuarios prepagados primero deben [comprar créditos prepagados](#buy-credits) antes de que se puedan aplicar créditos de Google Cloud aptos al uso de la API de Gemini. Una vez que tengas un saldo de crédito prepagado activo, los créditos de Google Cloud aptos para la API de Gemini se consumirán antes que tu saldo de crédito prepagado. Cuando el saldo de crédito de prepago de la cuenta de facturación llegue a USD 0, ya no se consumirán los créditos de Google Cloud.
+Gli utenti prepagati devono prima [acquistare crediti prepagati](#buy-credits) prima che
+possano essere applicati crediti Google Cloud idonei all'utilizzo dell'API Gemini. Una volta che hai
+un saldo del credito prepagato attivo, i crediti Google Cloud idonei per l'API
+Gemini vengono utilizzati prima del saldo del credito prepagato. Quando il saldo del credito prepagato nell'account di fatturazione raggiunge 0 $, i crediti Google Cloud non verranno più utilizzati.
 
-No todos los créditos de Google Cloud, como el [crédito de bienvenida de Google Cloud](#cloud-credits), se pueden usar para la API de Gemini y AI Studio.
+Non tutti i crediti Google Cloud, come il
+[credito di benvenuto di Google Cloud](#cloud-credits), possono essere utilizzati per l'API Gemini
+e AI Studio.
 
-### ¿Cómo se maneja la facturación?
+### Come viene gestita la fatturazione?
 
-El sistema de [facturación de Cloud](https://cloud.google.com/billing/docs/concepts?hl=es-419) se encarga de la facturación de la API de Gemini. Obtén información sobre la configuración de facturación de Cloud en el producto en la [documentación de la Facturación de Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=es-419).
+La fatturazione dell'API Gemini viene gestita dal sistema di [fatturazione Cloud](https://cloud.google.com/billing/docs/concepts?hl=it). Scopri di più sulla
+configurazione della fatturazione Cloud nel prodotto nella [documentazione sulla fatturazione Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it).
 
-### ¿Se me cobra por las solicitudes con errores?
+### Mi vengono addebitati costi per le richieste non riuscite?
 
-Si tu solicitud falla con un error 400 o 500, no se te cobrarán los tokens que se usaron. Sin embargo, la solicitud se seguirá contando para tu cuota.
+Se la richiesta non va a buon fine e viene visualizzato un errore 400 o 500, non ti verranno addebitati i token utilizzati. Tuttavia, la richiesta verrà comunque conteggiata ai fini della quota.
 
-### ¿Se factura `GetTokens`?
+### `GetTokens` è fatturato?
 
-Las solicitudes a la API de `GetTokens` no se facturan y no se descuentan de la cuota de inferencia.
+Le richieste all'API `GetTokens` non vengono fatturate e non vengono conteggiate ai fini della quota di inferenza.
 
-### ¿Cómo se manejan mis datos de Google AI Studio si tengo una cuenta de API pagada?
+### Come vengono gestiti i miei dati di Google AI Studio se ho un account API a pagamento?
 
-Consulta las [Condiciones del Servicio](https://ai.google.dev/gemini-api/terms?hl=es-419#paid-services) para obtener detalles sobre cómo se manejan los datos cuando se habilita la facturación de Cloud (consulta "Cómo Google Usa sus Datos" en "Servicios Pagados"). Ten en cuenta que tus instrucciones de Google AI Studio se tratan según las mismas condiciones de "Servicios Pagados", siempre y cuando al menos 1 proyecto de API tenga habilitada la facturación, lo que puedes validar en la [página de la clave de la API de Gemini](https://aistudio.google.com/api-keys?hl=es-419) si ves algún proyecto marcado como "Pagado" en "Plan".
+Per informazioni dettagliate su come vengono gestiti i dati quando è attivata la fatturazione Cloud, consulta i [Termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it#paid-services) (vedi "In che modo Google utilizza i tuoi dati" nella sezione "Servizi a pagamento"). Tieni presente che i prompt di Google AI Studio sono
+trattati ai sensi degli stessi termini dei "Servizi a pagamento" purché almeno un progetto API
+abbia la fatturazione abilitata, che puoi convalidare nella
+[pagina della chiave API Gemini](https://aistudio.google.com/api-keys?hl=it) se vedi
+progetti contrassegnati come "A pagamento" in "Piano".
 
-### ¿Qué es la facturación de prepago y quiénes deben usar este modelo?
+### Che cos'è la fatturazione prepagata e chi è tenuto a utilizzare il modello di fatturazione prepagata?
 
-La facturación prepagada permite a los usuarios de la API de Gemini en AI Studio comprar anticipadamente créditos.
-A partir del 23 de marzo de 2026, es posible que los usuarios nuevos de AI Studio deban tener el plan de facturación prepagado. Durante el proceso de [configuración de la facturación](#setup-billing) de AI Studio, la IU te guiará por el flujo de configuración de la facturación y te indicará si debes realizar un pago por adelantado.
+La fatturazione prepagata consente agli utenti dell'API Gemini in AI Studio di pre-acquistare i crediti.
+A partire dal 23 marzo 2026, i nuovi utenti di AI Studio potrebbero dover utilizzare il piano di fatturazione prepagato. Durante la procedura di [configurazione della fatturazione](#setup-billing) di AI Studio, l'interfaccia utente ti guiderà nel flusso di configurazione della fatturazione e indicherà se è necessario effettuare un pagamento anticipato.
 
-### ¿Cómo compro créditos de prepago? ¿Hay un importe mínimo o máximo?
+### Come faccio ad acquistare i crediti prepagati? Esiste un importo minimo o massimo?
 
-Puedes [comprar créditos](#buy-credits) en la página de facturación de AI Studio. Durante el proceso de compra, la IU proporcionará el importe mínimo previo a la compra que se requiere para tu región y nivel, así como un importe máximo que puede haber en tu cuenta en un momento determinado.
+Puoi [acquistare crediti](#buy-credits) nella pagina Fatturazione di AI Studio. Durante
+la procedura di acquisto, l'interfaccia utente fornirà l'importo minimo di pre-acquisto
+richiesto per la tua regione e il tuo livello, nonché un importo massimo che può
+essere presente nel tuo account contemporaneamente.
 
-### ¿Puedo configurar mi cuenta de prepago para que compre automáticamente más créditos según sea necesario?
+### Posso configurare il mio account con pagamento anticipato in modo che acquisti automaticamente altri crediti in base alle necessità?
 
-Sí, te recomendamos que configures la [recarga automática](#auto-reload) en la configuración de facturación de AI Studio. Especificas un saldo de crédito de "activación" (p.ej., "cuando mi saldo sea inferior a USD 30") y un "valor de recarga" (p.ej., "agregar USD 100").
+Sì, ti consigliamo di configurare la [ricarica automatica](#auto-reload) nelle impostazioni di fatturazione di AI
+Studio. Specifichi un saldo del credito "trigger" (ad es. "quando il mio saldo scende al di sotto di 30 $") e un "valore di ricarica" (ad es. "aggiungi 100 $").
 
-### ¿Puedo limitar la cantidad de cargos por recarga automática?
+### Posso limitare l'importo degli addebiti per la ricarica automatica?
 
-Sí, los usuarios de Prepay pueden establecer un [límite de carga automática mensual](#monthly-auto-charge-limit) en el widget de **Recarga automática**. Cuando el importe total de las recargas automáticas en un ciclo de facturación alcanza este límite, el sistema inhabilita la recarga automática hasta el mes siguiente. Las compras de crédito manuales no se tienen en cuenta para este límite.
+Sì, gli utenti prepagati possono impostare un [limite di addebito automatico mensile](#monthly-auto-charge-limit)
+all'interno del widget **Ricarica automatica**. Quando l'importo totale delle ricariche automatiche in un ciclo di fatturazione raggiunge questo limite, il sistema disattiva la ricarica automatica fino al mese successivo. Gli acquisti manuali di crediti non vengono conteggiati ai fini di questo limite.
 
-### ¿Puedo obtener un reembolso por los créditos que no usé?
+### Posso ricevere un rimborso per i miei crediti inutilizzati?
 
-Todos los créditos de la API prepagada vencen después de 1 año y no se pueden reembolsar. Lee la [política de reembolsos para cuentas con prepago](#refunds).
+Tutti i crediti API prepagati scadono dopo 1 anno e non possono essere rimborsati. Leggi le
+[norme sui rimborsi per gli account con pagamento anticipato](#refunds).
 
-### ¿Vencen mis créditos prepagados?
+### I miei crediti prepagati scadono?
 
-Sí, los créditos vencen 12 meses después de la fecha de compra.
+Sì, i crediti scadono 12 mesi dopo la data di acquisto.
 
-### ¿Qué sucede cuando mi saldo de crédito prepagado llega a USD 0?
+### Che cosa succede quando il saldo del mio credito prepagato raggiunge 0 €?
 
-Todos los servicios de la API de Gemini en todos los proyectos pagados con esa cuenta prepagada de Facturación de Cloud se detendrán de inmediato para evitar que se generen más cargos. Tus proyectos no se cambian automáticamente al nivel gratuito.
+Tutti i servizi API Gemini in tutti i progetti pagati da quell'account di fatturazione Cloud prepagato verranno interrotti immediatamente per evitare ulteriori addebiti. I tuoi progetti
+non vengono automaticamente sottoposti a downgrade al Livello senza costi.
 
-Para restablecer el servicio en tu nivel actual de nivel pagado, debes [comprar créditos adicionales](#buy-credits). Después de comprar créditos, deberías poder usar la API de Gemini. Ten en cuenta que puede haber una [demora](#processing-times) mientras nuestros sistemas se actualizan para reflejar el saldo de tu crédito.
+Per ripristinare il servizio al tuo attuale livello di piano a pagamento, devi [acquistare
+crediti aggiuntivi](#buy-credits). Dopo aver acquistato i crediti, dovresti
+poter utilizzare l'API Gemini. Tieni presente che potrebbe verificarsi un [ritardo](#processing-times) durante l'aggiornamento dei nostri sistemi per riflettere il saldo del credito.
 
-De manera opcional, para cambiar al nivel gratuito, puedes [inhabilitar la facturación](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=es-419#disable_billing_for_a_project) en los proyectos a los que quieras cambiar.
+Se vuoi eseguire il downgrade al Livello senza costi, puoi [disattivare la fatturazione](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#disable_billing_for_a_project)
+per i progetti per cui vuoi eseguire il downgrade.
 
-### ¿Por qué se detuvo mi uso a pesar de que mi saldo de crédito de prepago es superior a USD 0?
+### Perché il mio utilizzo si è interrotto anche se il saldo del credito prepagato è superiore a 0 €?
 
-Es posible que hayas alcanzado el [límite de uso](#tier-spend-caps) de tu nivel actual.
-Los límites de uso aumentarán automáticamente a medida que avances a niveles más altos. El uso de la API de Gemini en AI Studio también puede verse afectado por [el estado de tu cuenta de Facturación de Cloud](#missed-payment).
+Potresti aver raggiunto il [limite di utilizzo](#tier-spend-caps) per il tuo livello attuale.
+I limiti di utilizzo aumenteranno automaticamente man mano che avanzi verso livelli superiori. L'utilizzo di
+Gemini API AI Studio può essere influenzato anche dallo [stato del tuo
+account di fatturazione Cloud](#missed-payment).
 
-### ¿Por qué el saldo de crédito de mi cuenta de prepago es negativo?
+### Perché il saldo del credito del mio account prepagato è negativo?
 
-Debido a la complejidad de nuestros sistemas de facturación y procesamiento, es posible que haya [demoras](#processing-times) en nuestra capacidad de cortar el uso después de que consumas todos tus créditos. Este uso adicional puede aparecer como un saldo de crédito negativo en el panel de facturación de AI Studio. Si esto sucede, se pausará tu servicio y el saldo negativo se deducirá de tu próxima compra de crédito.
+A causa della complessità dei nostri sistemi di fatturazione ed elaborazione, potrebbero verificarsi
+[ritardi](#processing-times) nella nostra capacità di interrompere l'utilizzo dopo che hai consumato
+tutti i tuoi crediti. Questo utilizzo in eccesso potrebbe essere visualizzato come saldo del credito negativo
+nella dashboard di fatturazione di AI Studio. In questo caso, il servizio viene messo in pausa e il saldo negativo verrà detratto dal tuo prossimo acquisto di crediti.
 
-Para evitar que se pause tu servicio de la API de Gemini, te recomendamos que configures la [recarga automática](#auto-reload) para comprar más créditos automáticamente cuando tu saldo de créditos sea inferior a un valor que especifiques.
+Per evitare una pausa nel servizio API Gemini, ti consigliamo di configurare la
+[ricarica automatica](#auto-reload) per acquistare automaticamente altri crediti quando il saldo
+scende al di sotto di un valore specificato.
 
-### ¿Puedo usar mis créditos de prepago para otros servicios de Google Cloud, como Gemini Enterprise Agent Platform?
+### Posso utilizzare i miei crediti prepagati per altri servizi Google Cloud, come Gemini Enterprise Agent Platform?
 
-No, los créditos prepagados están estrictamente vinculados al uso de la API de Gemini. Cualquier otro servicio de Google Cloud que uses (Compute, Storage, Gemini Enterprise Agent Platform) se facturará según el [ciclo de facturación de Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419) estándar.
+No, i crediti prepagati sono strettamente limitati all'utilizzo dell'API Gemini. Qualsiasi
+altro servizio Google Cloud che utilizzi (Compute, Storage, Gemini Enterprise Agent Platform) viene fatturato utilizzando
+il [ciclo di fatturazione di Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it) standard.
 
-### ¿Puedo cambiar de la facturación de prepago a la de pospago?
+### Posso passare dalla fatturazione con pagamento anticipato a quella con pagamento posticipato?
 
-No, no se admite el cambio de un plan de facturación prepagado a uno pospagado.
+No, il passaggio da un piano di fatturazione prepagato a un piano di fatturazione postpagato non è supportato.
 
-### ¿Puedo cambiar de la facturación pospago a la prepago?
+### Posso passare dalla fatturazione con pagamento posticipato a quella con pagamento anticipato?
 
-Sí, puedes migrar una cuenta existente de Postpay en la página [Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419). Consulta [Migra a la modalidad de prepago](#migrate-to-prepay) para obtener instrucciones.
+Sì, puoi eseguire la transizione di un account con pagamento posticipato esistente nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). Per istruzioni, vedi [Eseguire la migrazione al prepagamento](#migrate-to-prepay).
 
-### ¿Qué sucede con mis créditos prepagados si me cambio a la modalidad pospago?
+### Che cosa succede ai miei crediti prepagati se passo a Postpay?
 
-Cuando actualizas a [pospago](#postpay), la Facturación de Cloud cierra tu cuenta de pagos de prepago, desactiva la [recarga automática](#auto-reload) y te reembolsa automáticamente los créditos de prepago no utilizados (sujeto al tiempo de procesamiento estándar de los reembolsos).
+Quando esegui l'upgrade a [Pagamento posticipato](#postpay), la fatturazione Cloud chiude il tuo account pagamenti prepagato, disattiva la [ricarica automatica](#auto-reload) e ti rimborsa automaticamente eventuali crediti prepagati inutilizzati (in base ai tempi di elaborazione standard dei rimborsi).
 
-### ¿Dónde puedo ver mi saldo actual de crédito de prepago y mi historial de transacciones?
+### Dove posso visualizzare il saldo attuale del credito prepagato e la cronologia delle transazioni?
 
-Toda la administración del saldo y el historial de transacciones de la API de Gemini deben realizarse directamente en la pestaña Facturación de Google AI Studio.
+Tutta la gestione del saldo e la cronologia delle transazioni per l'API Gemini devono essere
+eseguite direttamente nella scheda Fatturazione di Google AI Studio.
 
-### ¿Por qué veo el mensaje "El tipo de cuenta de facturación está inactivo o no es compatible"?
+### Perché visualizzo il messaggio "Il tipo di account di fatturazione è inattivo o non supportato"?
 
-Es posible que se bloqueen las interacciones de pagos en la [página Facturación de AI Studio](https://aistudio.google.com/billing?hl=es-419) y se reemplacen por el mensaje "El tipo de cuenta de facturación está inactivo o no se admite" si el tipo de cuenta de facturación o el estado de la cuenta de facturación que seleccionaste no son aptos para el nivel pagado de AI Studio.
+Le interazioni di pagamento nella [pagina Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it) potrebbero essere bloccate e sostituite dal messaggio "Il tipo di account di fatturazione è inattivo o non supportato" se il tipo di account di fatturazione o lo stato dell'account di fatturazione selezionato non è idoneo per il livello a pagamento in AI Studio.
 
-Consulta la [consola de Cloud](https://console.cloud.google.com/billing/?hl=es-419) para ver el estado de tu cuenta de facturación. Un tipo no apto podría ser *Cuenta de prueba gratuita*, en cuyo caso puedes [activar la facturación](#setup-billing) en AI Studio para cumplir con los requisitos. Un estado inactivo podría ser *Cerrada*, en cuyo caso puedes [reabrir la cuenta](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=es-419).
+Controlla la [console Cloud](https://console.cloud.google.com/billing/?hl=it) per visualizzare lo stato del tuo account di fatturazione. Un tipo non idoneo potrebbe essere *account di prova senza costi*, nel
+qual caso puoi [attivare la fatturazione](#setup-billing) in AI Studio per diventare
+idoneo. Uno stato inattivo potrebbe essere *Chiuso*, nel qual caso puoi [riaprire
+l'account](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=it).
 
-### ¿Los costos de uso de la API de Gemini aparecerán en la consola de Google Cloud?
+### I costi di utilizzo dell'API Gemini verranno visualizzati nella console Google Cloud?
 
-Sí, los costos de la API de Gemini, junto con los costos asociados a cualquier otro servicio de Google Cloud que se pague con tu cuenta de Facturación de Cloud, se pueden ver en las [páginas de administración de costos](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=es-419#cost-reports) de la [consola de Facturación de Cloud](https://console.cloud.google.com/billing?hl=es-419). Ten en cuenta que solo puedes administrar tu saldo de crédito prepagado en AI Studio.
+Sì, i costi dell'API Gemini, insieme a quelli associati a qualsiasi altro servizio Google Cloud
+pagato dal tuo account di fatturazione Cloud, sono visibili nelle
+[pagine di gestione dei costi](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=it#cost-reports)
+della [console Cloud Billing](https://console.cloud.google.com/billing?hl=it). Tieni presente
+che puoi gestire il saldo del credito prepagato solo in AI Studio.
 
-### ¿Por qué no se muestra mi uso de la API de Gemini en la consola de Facturación de Cloud, cuando puedo verlo en la facturación de AI Studio, junto con el consumo de mis créditos?
+### Perché il mio utilizzo dell'API Gemini non viene visualizzato nella console Fatturazione Cloud, mentre lo vedo nella fatturazione di AI Studio, insieme al consumo dei miei crediti?
 
-Google Cloud y AI Studio informan los datos de uso a la Facturación de Cloud en intervalos variables. Debido a la complejidad de nuestros sistemas de facturación y procesamiento, es posible que haya una demora entre el uso que hagas de los servicios y la disponibilidad para ver el uso y los costos en la Facturación de Cloud. Por lo general, los detalles de tus costos están disponibles en un plazo de un día, aunque, a veces, pueden tardar más de 24 horas.
-Obtén más información sobre la facturación diferida en la [documentación de Facturación de Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=es-419#delayed-billing).
+Google Cloud e AI Studio segnalano i dati di utilizzo alla fatturazione Cloud a intervalli variabili. A causa della complessità dei nostri sistemi di fatturazione ed elaborazione, potresti riscontrare un ritardo tra l'utilizzo dei servizi e la visualizzazione dell'utilizzo e dei costi relativi in fatturazione Cloud. In genere, i dettagli dei costi sono disponibili
+entro un giorno, ma a volte possono essere necessarie più di 24 ore.
+Scopri di più sulla fatturazione posticipata nella [documentazione di Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it#delayed-billing).
 
-### Si uso otros servicios de Google Cloud con costos sujetos a un ciclo de facturación pospago, ¿qué sucede si no realizo un pago?
+### Se utilizzo altri servizi Google Cloud con costi soggetti a un ciclo di addebito postpagato, cosa succede se non effettuo un pagamento?
 
-Si no pagas otros servicios de Google Cloud, se puede suspender tu acceso a la API de Gemini en AI Studio, **independientemente de la cantidad de créditos prepagados que tengas disponibles**. El uso de AI Studio se basa en una cuenta de facturación de Google Cloud, que puede compartir la facturación prepagada para AI Studio y la facturación pospagada para otros servicios de Cloud. Si hay un problema con tu saldo de Postpay, se detendrán todos los servicios vinculados a esa cuenta. Se suspenderá tu uso de la API de Gemini si tu cuenta de Facturación de Cloud se marca por problemas como los siguientes:
+Il mancato pagamento di altri servizi Google Cloud può sospendere l'accesso all'API Gemini in AI Studio, **indipendentemente dal numero di crediti prepagati disponibili**. L'utilizzo di AI Studio è alimentato da un account di fatturazione Google Cloud, che
+può condividere sia la fatturazione prepagata per AI Studio sia la fatturazione postpagata per altri servizi
+cloud. Un problema con il saldo Postepay interrompe tutti i servizi collegati a questo
+account. L'utilizzo dell'API Gemini verrà sospeso se il tuo account di fatturazione Cloud
+viene segnalato per problemi quali:
 
-- Un saldo vencido o con morosidad
-- Un pago rechazado
-- Una forma de pago no válida o vencida
+- Un saldo insoluto o scaduto
+- Un pagamento rifiutato
+- Un metodo di pagamento non valido o scaduto
 
-Para restablecer el servicio, debes [resolver el problema de la cuenta de pospago](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=es-419#resolving-declined-payments) en la consola de Facturación de Google Cloud. Una vez que resuelvas el problema, recuperarás el acceso a tus créditos y servicios prepagados de la API de Gemini.
+Per ripristinare il servizio, devi [risolvere il problema dell'account postpagato](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=it#resolving-declined-payments)
+nella console Google Cloud Billing. Una volta risolto il problema, riavrai
+accesso ai tuoi servizi e crediti prepagati dell'API Gemini.
 
-### ¿Por qué se interrumpieron mis proyectos después de cancelar la configuración de prepago?
+### Perché i miei progetti vengono interrotti dopo l'annullamento di una configurazione di pagamento anticipato?
 
-**Problema:** Iniciaste el flujo para agregar funciones de prepago a una cuenta de facturación pospago existente, pero cerraste la ventana o cancelaste el proceso antes de completar la configuración del prepago. Otros proyectos vinculados a esa cuenta de facturación perdieron el acceso a la API de Gemini.
+**Problema:** hai avviato il flusso per aggiungere funzionalità di pagamento anticipato a un account di fatturazione postpagato esistente, ma hai chiuso la finestra o annullato la procedura prima di completare la configurazione del pagamento anticipato. Altri progetti collegati a quell'account di fatturazione
+hanno perso l'accesso all'API Gemini.
 
-**Causa:** Durante el flujo de transición, la infraestructura para admitir el prepago se crea en tu cuenta de facturación inmediatamente después de que aceptas el diálogo de confirmación. Si no completas los pasos del prepago, la configuración permanecerá en un estado no apto para cargos. Dado que este estado se aplica a nivel de la cuenta de facturación, restringe el acceso a todos los proyectos vinculados a esa cuenta de facturación que dependen de los servicios de prepago.
+**Causa:** durante il flusso di transizione, l'infrastruttura per supportare il pagamento anticipato viene
+creata nel tuo account di fatturazione immediatamente dopo che accetti la finestra di dialogo di conferma. Se non completi i passaggi per il pagamento anticipato, la configurazione rimane
+in uno stato non addebitabile. Poiché questo stato si applica a livello di account di fatturazione, limita l'accesso a tutti i progetti collegati a quell'account di fatturazione che si basano sui servizi prepagati.
 
-**Resolución:** Como el estado de la cuenta ya cambió, no hay una forma automática de revertir el estado si abandonas el flujo de pagos. Para restablecer el servicio en tus proyectos vinculados, haz una de las siguientes acciones:
+**Risoluzione**:poiché lo stato dell'account è già cambiato, non esiste un modo automatico per ripristinarlo se abbandoni il flusso di pagamento. Per ripristinare
+il servizio nei tuoi progetti collegati, esegui una delle seguenti operazioni:
 
-- **Completa la configuración:** Regresa a Google AI Studio, reinicia el flujo de configuración de la facturación y completa el proceso de prepago. Una vez que se procese el pago, se activará el plan de facturación prepago y se restablecerá el servicio.
-- **Comunícate con el equipo de asistencia:** Si no quieres usar el plan de facturación prepago y deseas revertir tu cuenta de facturación al plan pospago, [comunícate con el equipo de asistencia de Facturación de Cloud](https://cloud.google.com/support/billing?hl=es-419) para restablecer manualmente el estado de tu cuenta.
+- **Completa la configurazione:** torna a Google AI Studio, riavvia il flusso di configurazione della fatturazione e completa la procedura di pagamento anticipato. Una volta elaborato il pagamento, il piano di fatturazione prepagato diventa attivo e il servizio viene ripristinato.
+- **Contatta l'assistenza**:se non vuoi utilizzare il piano di fatturazione prepagato e vuoi ripristinare l'account di fatturazione postpagato, [contatta l'assistenza per la fatturazione Cloud](https://cloud.google.com/support/billing?hl=it) per reimpostare manualmente lo stato dell'account.
 
-### ¿Dónde puedo obtener ayuda con la facturación?
+### Dove posso ricevere assistenza per la fatturazione?
 
-Para obtener ayuda con la facturación, consulta [Obtén asistencia para la facturación de Cloud](https://cloud.google.com/support/billing?hl=es-419).
+Per ricevere assistenza in merito alla fatturazione, consulta la pagina
+[Richiedi assistenza per la fatturazione Cloud](https://cloud.google.com/support/billing?hl=it).
 
-Enviar comentarios
+Invia feedback
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última actualización: 2026-09-28 (UTC)
+Ultimo aggiornamento 2026-09-28 UTC.
 
-¿Quieres brindar más información?
+Vuoi dirci altro?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-28 (UTC)"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-28 UTC."],[],[]]

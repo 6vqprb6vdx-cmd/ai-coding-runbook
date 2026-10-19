@@ -1,94 +1,92 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=tr
-fetched_at: 2026-10-12T06:54:06.276520+00:00
-title: "Live API ile ilgili en iyi uygulamalar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=zh-TW
+fetched_at: 2026-10-19T05:48:47.056511+00:00
+title: "\u4f7f\u7528\u4e2d API \u7684\u6700\u4f73\u505a\u6cd5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Geri bildirim gönderin
+提供意見
 
-# Live API ile ilgili en iyi uygulamalar
+# 使用中 API 的最佳做法
 
-Bu kılavuzda, Live API kullanımınızı optimize etmek için uygulayabileceğiniz en iyi uygulamalar ele alınmaktadır.
-Genel bakış ve yaygın kullanım alanlarına ilişkin örnek kod için [Live API'yi kullanmaya başlama](https://ai.google.dev/gemini-api/docs/live?hl=tr) sayfasını inceleyin.
+本指南將介紹最佳做法，協助您充分運用 Live API。如需常見用途的總覽和程式碼範例，請參閱「[開始使用 Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)」頁面。
 
-## Net sistem talimatları tasarlama
+## 設計清楚的系統指令
 
-Live API'den en iyi performansı almak için, sırasıyla aracı kişiliğini, sohbet kurallarını ve koruma duvarlarını tanımlayan net bir şekilde tanımlanmış bir dizi sistem talimatı (SI) kullanmanızı öneririz.
+為充分發揮 Live API 的效能，建議您依序定義清楚的系統指令 (SI)，包括定義代理程式角色、對話規則和防護措施。
 
-En iyi sonuçları elde etmek için her bir aracıyı ayrı bir SI olarak ayırın.
+為獲得最佳結果，請將每個代理程式分別歸入不同的 SI。
 
-1. **Ajan kişiliğini belirtin:** Ajanın adı, rolü ve tercih edilen özellikleri hakkında ayrıntılı bilgi verin. Aksanı belirtmek istiyorsanız tercih edilen çıkış dilini de (ör. İngilizce konuşan biri için İngiliz aksanı) belirttiğinizden emin olun.
-2. **Sohbet kurallarını belirtin:** Bu kuralları, modelin uymasını beklediğiniz sıraya göre yerleştirin. Görüşmenin tek seferlik öğeleri ile görüşme döngüleri arasındaki farkı belirtin. Örneğin:
+1. **指定代理人物角色：**詳細說明代理的名稱、角色和任何偏好特徵。如要指定口音，請務必同時指定偏好的輸出語言 (例如說英文的人使用英國腔)。
+2. **指定對話規則：**請按照您希望模型遵循的順序，區分對話的一次性元素和對話迴圈。例如：
 
-   - **Tek seferlik öğe:** Müşterinin ayrıntılarını (ör. ad, konum, bağlılık kartı numarası) bir kez toplama.
-   - **Sohbet döngüsü:** Kullanıcı, önerileri, fiyatlandırmayı, iadeleri ve teslimatı tartışabilir ve konudan konuya geçmek isteyebilir. Modele, kullanıcı istediği sürece bu sohbet döngüsüne katılmasının sorun olmadığını bildir.
-3. **Bir akış içindeki araç çağrılarını ayrı cümlelerde belirtin:** Örneğin, bir müşterinin ayrıntılarını toplamak için tek seferlik bir adımda `get_user_info` işlevinin çağrılması gerekiyorsa şunları söyleyebilirsiniz: *İlk adımınız kullanıcı bilgilerini toplamak. Öncelikle kullanıcıdan adını, konumunu ve bağlılık kartı numarasını vermesini isteyin. Ardından, bu ayrıntılarla `get_user_info` işlevini çağırın.*
-4. **Gerekli tüm koruma önlemlerini ekleyin:** Modelin yapmasını istemediğiniz genel sohbet koruma önlemlerini sağlayın. *x* gerçekleşirse modelin *y* yapmasını istediğinize dair belirli örnekler verebilirsiniz. Hâlâ istediğiniz hassasiyet düzeyine ulaşamıyorsanız modele hassas olması için yol göstermek üzere *kesinlikle* kelimesini kullanın.
+   - **一次性元素：**收集顧客的詳細資料一次 (例如姓名、地點、會員卡號)。
+   - **對話迴圈：**使用者可以討論建議、價格、退貨和運送事宜，並可能想從一個主題轉到另一個主題。讓模型知道只要使用者願意，就可以持續進行這類對話。
+3. **在流程中以不同句子指定工具呼叫：**舉例來說，如果收集顧客詳細資料的一次性步驟需要叫用 `get_user_info` 函式，您可以說：「第一步是收集使用者資訊。*首先，請使用者提供姓名、地點和會員卡號碼。然後使用這些詳細資料叫用 `get_user_info`。*
+4. **新增任何必要的防護措施：**提供任何一般對話防護措施，避免模型做出不當行為。您可以提供具體範例，說明如果發生 *x*，您希望模型執行 *y*。如果模型仍未達到您偏好的精確度，請使用「unmistakably」一詞引導模型提高精確度。
 
-## Araçları hassas bir şekilde tanımlama
+## 精確定義工具
 
-Live API ile araçları kullanırken araç tanımlarınızda net olun.
-Gemini'a hangi koşullarda araç çağrısı yapılması gerektiğini söyleyin. Daha fazla bilgi için örnek bölümündeki [Araç tanımları](#tool-definitions-example) konusuna bakın.
+使用 Live API 工具時，請明確定義工具。
+請務必告訴 Gemini 應在何種情況下呼叫工具。詳情請參閱範例部分中的「[工具定義](#tool-definitions-example)」。
 
-## Etkili istemler oluşturma
+## 撰寫有效的提示
 
-- **Net istemler kullanın:** İstemlerde modellerin ne yapması ve ne yapmaması gerektiğine dair örnekler verin. İstemleri, her karakter veya rol için tek bir istemle sınırlamaya çalışın. Uzun ve çok sayfalı istemler yerine istem zincirleme özelliğini kullanabilirsiniz. Model, tek işlev çağrısı içeren görevlerde en iyi performansı gösterir.
-- **Başlangıç komutları ve bilgileri sağlama:** Live API, yanıt vermeden önce kullanıcı girişi bekler. Live API'nin görüşmeyi başlatması için kullanıcıyı selamlamasını veya görüşmeye başlamasını isteyen bir istem ekleyin. Canlı API'nin bu karşılama mesajını kişiselleştirmesi için kullanıcı hakkında bilgi ekleyin.
+- **使用清楚的提示：**在提示中提供模型應執行的動作和不應執行的動作範例，並盡量一次為一個角色或職務提供一個提示。建議您使用提示鏈結，而非冗長的多頁提示。模型最適合處理單一函式呼叫的工作。
+- **提供起始指令和資訊：**Live API 會先等待使用者輸入內容，再做出回應。如要讓 Live API 啟動對話，請加入提示，要求該 API 向使用者問候或開始對話。加入使用者資訊，讓 Live API 根據這些資訊個人化問候語。
 
-## Dili belirtme
+## 指定語言
 
-Live API ses modelleri, kullanıcının konuştuğu dili otomatik olarak algılayıp uyum sağlar ve açık bir dil kodu gerektirmez.
+Live API 音訊模型會自動偵測並適應使用者的口說語言，無須明確的語言代碼。
 
-Modelin belirli bir dilde yanıt vermesini istiyorsanız sistem talimatlarınıza bir talimat ekleyin:
+如要讓模型以特定語言回覆，請在系統指令中加入相關指示：
 
 ```
 RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 ```
 
-## Canlı Yayın
+## 串流
 
-Anlık ses özelliğini uygularken aşağıdaki en iyi uygulamaları göz önünde bulundurun:
+實作即時音訊時，請遵循下列最佳做法：
 
-- **Parça Boyutu ve Gecikme**: Sesi 20 ms ile 40 ms arasındaki parçalar halinde gönderin.
-- **Kesintileri İşleme**: Kullanıcı, model yanıt verirken konuştuğunda sunucu, `"interrupted": true` ile birlikte `server_content` mesajı gönderir. Aracının kullanıcıyla konuşmaya devam etmesini önlemek için istemci tarafındaki ses arabelleğinizi hemen atmanız gerekir.
+- **區塊大小和延遲時間**：以 20 毫秒到 40 毫秒的區塊傳送音訊。
+- **中斷處理**：如果使用者在模型回覆時說話，伺服器會傳送含有 `"interrupted": true` 的 `server_content` 訊息。您必須立即捨棄用戶端音訊緩衝區，避免代理程式繼續與使用者交談。
 
-## Bağlam yönetimi
+## 管理資訊脈絡
 
-Yerel ses jetonları hızla biriktiği için (yaklaşık 25 jeton/saniye) uzun oturumlarda `ContextWindowCompressionConfig` kullanın.
+如要進行長時間的對話，請使用 `ContextWindowCompressionConfig`，因為原生音訊符記會快速累積 (每秒音訊約 25 個符記)。
 
-## İstemci arabelleğe alma
+## 用戶端緩衝
 
-Göndermeden önce giriş sesini önemli ölçüde (ör. 1 saniye) arabelleğe almayın. Gecikmeyi en aza indirmek için küçük parçalar (20 ms - 100 ms) gönderin.
+請勿在傳送前大幅緩衝輸入音訊 (例如 1 秒)。傳送小區塊 (20 毫秒 - 100 毫秒)，盡量縮短延遲時間。
 
-## Yeniden örnekleme
+## 重新取樣
 
-İstemci uygulamanızın, iletimden önce mikrofon girişini (genellikle 44,1 kHz veya 48 kHz) 16 kHz'ye yeniden örneklediğinden emin olun.
+請確保用戶端應用程式在傳輸前，將麥克風輸入內容 (通常為 44.1 kHz 或 48 kHz) 重新取樣為 16 kHz。
 
-## Oturum yönetimi
+## 工作階段管理
 
-Oturum yaşam döngüsünü yönetmek ve güvenilir bir kullanıcı deneyimi sağlamak için aşağıdaki yönergeleri uygulayın:
+請按照下列指南處理工作階段生命週期，確保使用者體驗穩定可靠：
 
-- **Bağlam penceresi sıkıştırmasını etkinleştirme:** Ses jetonları saniyede yaklaşık 25 jeton hızında birikir. Sıkıştırma olmadan yalnızca sesli oturumlar 15 dakika, sesli ve görüntülü oturumlar ise 2 dakika ile sınırlıdır. Oturumları sınırsız süreye uzatmak için [bağlam penceresi sıkıştırmasını](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=tr#context-window-compression) etkinleştirin.
-- **Oturuma devam etme özelliğini uygulayın:** Sunucu, WebSocket bağlantısını düzenli olarak sıfırlayabilir. Bağlamı kaybetmeden sorunsuz bir şekilde yeniden bağlanmak için [oturum devam ettirme](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=tr#session-resumption) özelliğini kullanın. `SessionResumptionUpdate` iletilerinden en son devam ettirme jetonunu saklayın ve yeniden bağlanırken bunu işleyici olarak iletin. Devam ettirme jetonları, son oturumun sona ermesinden sonraki 2 saat boyunca geçerlidir.
-- **GoAway mesajlarını işleme:** Sunucu, bağlantıyı sonlandırmadan önce bir [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=tr#goaway-message) mesajı gönderir. Bu mesajı dinleyin ve bağlantı kapanmadan önce
-  `timeLeft` alanını kullanarak bağlantıyı düzgün bir şekilde sonlandırın veya yeniden bağlanın.
-- **Yanıt oluşturma işleminin tamamlanmasıyla ilgili sinyaller:** Modelin yanıt oluşturmayı ne zaman tamamladığını öğrenmek için [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=tr#generation-complete-message) mesajını kullanın. Böylece uygulamanız kullanıcı arayüzünü güncelleyebilir veya bir sonraki işleme geçebilir.
+- **啟用脈絡視窗壓縮功能：**音訊權杖的累積速度約為每秒 25 個權杖。如果沒有壓縮，純音訊工作階段最多只能進行 15 分鐘，音訊/視訊工作階段則為 2 分鐘。啟用[內容視窗壓縮](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#context-window-compression)，即可無限期延長工作階段。
+- **實作工作階段續傳功能：**伺服器可能會定期重設 WebSocket 連線。使用[工作階段續傳](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#session-resumption)功能，即可順暢地重新連線，不會遺失背景資訊。保留 `SessionResumptionUpdate` 訊息中的最新續傳權杖，並在重新連線時將其做為控制代碼傳遞。工作階段終止後，續傳權杖的有效期限為 2 小時。
+- **處理 GoAway 訊息：**伺服器會在終止連線前傳送 [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#goaway-message) 訊息。請監聽這則訊息，並使用 `timeLeft` 欄位順利結束或重新連線，以免連線中斷。
+- **處理 generationComplete 信號：**使用 [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw#generation-complete-message) 訊息瞭解模型何時完成生成回應，以便應用程式更新 UI 或繼續執行下一個動作。
 
-Uygulama ayrıntıları için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=tr) başlıklı makaleye bakın.
+如要瞭解實作詳情，請參閱「[工作階段管理](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=zh-tw)」。
 
-## Örnekler
+## 範例
 
-Bu örnekte, modelin kariyer koçu olarak performansını yönlendirmek için hem en iyi uygulamalar hem de [sistem talimatı tasarımıyla ilgili yönergeler](#system-instruction-guidelines) bir araya getirilmiştir.
+這個範例結合了最佳做法和[系統指令設計指南](#system-instruction-guidelines)，引導模型扮演職涯教練的角色。
 
 ```
 **Persona:**
@@ -140,10 +138,10 @@ Remember that your ultimate goal is to create a supportive environment for your
 clients to thrive.
 ```
 
-### Araç tanımları
+### 工具定義
 
-Bu JSON, kariyer koçu örneğinde çağrılan ilgili işlevleri tanımlar.
-İşlevleri tanımlarken en iyi sonuçları elde etmek için işlevlerin adlarını, açıklamalarını, parametrelerini ve çağırma koşullarını ekleyin.
+這個 JSON 會定義職業教練範例中呼叫的相關函式。
+為獲得最佳結果，請在定義函式時加入名稱、說明、參數和叫用條件。
 
 ```
 [
@@ -233,45 +231,45 @@ Bu JSON, kariyer koçu örneğinde çağrılan ilgili işlevleri tanımlar.
 ]
 ```
 
-## Fiyatlandırma ve faturalandırma
+## 價格與計費
 
-Gemini Live API, yalnızca jeton kullanımına göre faturalandırılır. Live API, kalıcı bir WebSocket oturumu sürdürdüğünden faturalandırma, etkin bağlam penceresine dayalı olarak bileşik bir modeli izler.
+Gemini Live API 會嚴格按照權杖用量計費。由於 Live API 會維護持續的 WebSocket 工作階段，因此計費方式會根據有效內容視窗，採用複合式模式。
 
-### Oturum bağlam penceresi (bileşik maliyetler)
+### 工作階段脈絡窗口 (複合成本)
 
-API, oturum bağlam penceresinde bulunan tüm jetonlar için dönüş başına ücret alır. "Dönüş", bir kullanıcı girişi ve modelin buna karşılık gelen yanıtı olarak tanımlanır.
+API 會根據工作階段情境視窗中的所有符記，按輪次向您收費。「回合」是指使用者輸入內容和模型相應的回覆。
 
-- **Birikim:** Bağlam penceresi, mevcut dönüşteki yeni jetonların yanı sıra önceki dönüşlerde birikmiş tüm jetonları içerir.
-- **Yeniden faturalandırma:** Geçmiş jetonlar yeniden işlenir ve yapılandırılmış bağlam penceresi boyutunuza kadar her yeni dönüşte hesaba katılır. Oturum uzadıkça sohbet geçmişi yeniden işlendiği için dönüş başına maliyet artar.
+- **累積：**內容視窗包含目前回合的新權杖，以及先前回合累積的所有權杖。
+- **重新計費：**系統會重新處理先前的權杖，並在每個新回合中計入，最多可達您設定的內容視窗大小。隨著工作階段時間拉長，系統會重新處理對話記錄，因此每回合的費用會增加。
 
-### Ses jetonları ve transkriptler
+### 音訊權杖和轉錄稿
 
-Live API, doğal olarak çok formatlıdır. Akustik nüansı ve tonu korumak için sohbet geçmişini ham ses jetonları olarak saklar.
+Live API 本身就是多模態 API，這項功能會以原始音訊權杖的形式保留對話記錄，以保留聲學細微差異和語氣。
 
-- **Ses faturalandırması:** API, her dönüşte biriken doğal ses jetonları için standart ses girişi oranında fatura keser.
-- **Transkripsiyon ek ücreti:** Ses-metin transkripsiyonu etkinleştirildiğinde (`inputAudioTranscription` veya `outputAudioTranscription`), API, standart ses jetonu maliyetlerine ek olarak transkripsiyon için oluşturulan tüm metin jetonlarını metin jetonu çıkış oranında ücretlendirir.
+- **語音費用：**API 會在每個回合中，按照標準語音輸入費率，針對累積的原生語音權杖向您收費。
+- **轉錄附加費用：**啟用語音轉錄功能 (`inputAudioTranscription` 或 `outputAudioTranscription`) 後，除了標準音訊權杖費用外，API 還會以文字權杖輸出費率，針對轉錄產生的所有文字權杖收費。
 
-### Bağlam sınırlarıyla maliyetleri yönetme
+### 使用脈絡限制管理費用
 
-Uzun oturumlarda sınırsız maliyet artışını önlemek için bağlam penceresi boyutunuzu `contextWindowCompression` kullanarak yapılandırın.
+如要避免長時間工作階段的費用無上限增長，請使用 `contextWindowCompression` 設定脈絡視窗大小。
 
-Bir sıkıştırma tetikleyicisi (ör.25.000 jeton) ve kayan pencere (ör.8.000 jeton) ayarlayarak eşik değerine ulaşıldığında API, eski jetonları otomatik olarak çıkarır. API, sonraki dönüşler için yalnızca saklanan geçmiş ve yeni jetonlar üzerinden faturalandırma yapar.
+設定壓縮觸發條件 (例如 25,000 個權杖) 和滑動視窗 (例如 8,000 個權杖) 後，API 會在達到門檻時自動清除較舊的權杖。接著，API 只會針對保留的記錄加上任何新權杖，收取後續回合的費用。
 
-### Proaktif ses
+### 主動式音訊
 
-Proaktif ses etkinleştirildiğinde API, Live API dinlerken giriş jetonları için tüm süre boyunca ücret alır ve çıkış jetonları için yalnızca API yanıt verdiğinde ücret alır.
+啟用主動判斷式語音功能後，只要 Live API 處於接聽狀態，API 就會收取輸入詞元費用，且只會在 API 回應時收取輸出詞元費用。
 
-- **Gemini 3.8 ile ilgili not:** Proaktif ses, `gemini-3.8-live` ve `gemini-3.8-live-extended-thinking`'de kalıcı olarak etkinleştirilir.
-- **Gemini 3.1 ile ilgili not:** Proaktif ses özelliği `gemini-3.1-flash-live-preview`'da desteklenmez. Bu modelde API, yalnızca girişi aktif olarak yayınladığınızda ses için faturalandırır.
+- **Gemini 3.8 注意事項：**主動式音訊功能會在 `gemini-3.8-live` 和 `gemini-3.8-live-extended-thinking` 中永久啟用。
+- **Gemini 3.1 注意事項：**`gemini-3.1-flash-live-preview`不支援主動式音訊功能。在這個模型中，只有在主動串流輸入音訊時，API 才會收取音訊費用。
 
-Ayrıntılı fiyatlandırma bilgileri için [Gemini API fiyatlandırma sayfasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) inceleyin.
+如需詳細定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
 
-Geri bildirim gönderin
+提供意見
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Son güncelleme tarihi: 2026-09-17 UTC.
+上次更新時間：2026-09-17 (世界標準時間)。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+想進一步說明嗎？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-17 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-17 (世界標準時間)。"],[],[]]

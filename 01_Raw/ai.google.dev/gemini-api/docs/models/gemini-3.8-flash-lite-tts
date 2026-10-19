@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=hi
-fetched_at: 2026-10-12T07:02:05.261675+00:00
+fetched_at: 2026-10-19T05:39:00.898574+00:00
 title: "Gemini 3.8 Flash-Lite TTS \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 

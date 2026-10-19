@@ -1,113 +1,113 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=hi
-fetched_at: 2026-10-12T07:02:00.738498+00:00
-title: "Gemini 3.5 Transcribe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=fr
+fetched_at: 2026-10-19T05:48:29.632472+00:00
+title: "Gemini\u00a03.5 Transcribe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) अब सामान्य तौर पर उपलब्ध है. हमारा सुझाव है कि सभी नई सुविधाओं और मॉडल का ऐक्सेस पाने के लिए, इस एपीआई का इस्तेमाल करें.
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-सुझाव भेजें
+Envoyer des commentaires
 
-# Gemini 3.5 Transcribe
+# Gemini 3.5 Transcribe
 
-Gemini 3.5 Transcribe, बोली को टेक्स्ट में बदलने वाला मॉडल है. यह Gemini की ऑडियो समझने की क्षमताओं पर आधारित है. यह सुविधा, कम समय में सटीक ट्रांसक्रिप्शन करती है. इसमें, बोले गए शब्दों के आधार पर भाषा का पता लगाने, स्पीकर के हिसाब से ट्रांसक्रिप्शन करने, शब्द-लेवल के टाइमस्टैंप, स्मार्ट ट्रांसक्रिप्शन, और कस्टम शब्दावली के हिसाब से बोली को प्राथमिकता देने जैसी सुविधाएं मिलती हैं.
+Gemini 3.5 Transcribe est un modèle de reconnaissance vocale basé sur les capacités de compréhension audio de Gemini. Il fournit une transcription précise et à faible latence avec détection de la langue basée sur les énoncés, identification du locuteur, codes temporels au niveau du mot, transcription intelligente et pondération vocale avec vocabulaire personnalisé.
 
-[Google AI Studio में आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=hi)
+[Essayer dans Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=fr)
 
-## दस्तावेज़
+## Documentation
 
-Gemini 3.5 Transcribe, ऑडियो फ़ाइलों में बोली गई बातों को टेक्स्ट में बदलता है. यह 85 से ज़्यादा भाषाओं का अपने-आप पता लगाता है. साथ ही, एक से ज़्यादा भाषाओं के बीच स्विच करने वाले कोड को मैनेज करता है, अलग-अलग वक्ताओं की पहचान करता है, शब्द-लेवल के टाइमस्टैंप दिखाता है, और कस्टम शब्दावली के आधार पर, डोमेन के हिसाब से शब्दों को प्राथमिकता देता है.
+Gemini 3.5 Transcribe convertit la parole en texte à partir de fichiers audio. Il détecte automatiquement plus de 85 langues, gère le changement de code multilingue, identifie les locuteurs individuels, génère des codes temporels au niveau des mots et s'adapte aux termes spécifiques à un domaine grâce au biais de vocabulaire personnalisé.
 
-स्ट्रीमिंग के अलावा अन्य सुविधाओं के बारे में पूरी जानकारी पाने के लिए, [ऑडियो ट्रांसक्रिप्ट](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi) गाइड पर जाएं. WebSockets पर रीयल-टाइम में, कम समय में स्ट्रीम की गई बोली को लेख में बदलने की सुविधा के बारे में जानने के लिए, `gemini-3.5-transcribe-live` का इस्तेमाल करके [बोली को लेख में बदलने की सुविधा](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=hi) गाइड पर जाएं. कीमत के बारे में ज़्यादा जानकारी के लिए, [कीमत वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-3.5-transcribe) देखें.
+Consultez le guide [Transcription audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr) pour en savoir plus sur les fonctionnalités non liées au streaming. Pour la transcription en temps réel à faible latence via WebSockets, consultez le guide [Transcription instantanée](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=fr) à l'aide de `gemini-3.5-transcribe-live`. Pour en savoir plus sur les tarifs, consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.5-transcribe).
 
 ## gemini-3.5-transcribe
 
-| प्रॉपर्टी | ब्यौरा |
+| Propriété | Description |
 | --- | --- |
-| id\_cardमॉडल कोड | `gemini-3.5-transcribe` |
-| saveइस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  ऑडियो (एक घंटे तक)  **आउटपुट**  टेक्स्ट, शब्द के तौर पर की गई व्याख्याएं |
-| token\_autoऑडियो की सीमाएं | **यूनरी ऑडियो की सीमा**  हर अनुरोध के लिए ज़्यादा से ज़्यादा एक घंटा (स्पीकर डायराइज़ेशन या शब्द-लेवल के टाइमस्टैंप की सुविधा चालू होने पर, ज़्यादा से ज़्यादा 30 मिनट) |
-| handymanसुविधाएँ | **[ऑडियो को टेक्स्ट में बदलना](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi)**  काम करता है  **[स्पीकर डायराइज़ेशन](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi#speaker-diarization)**  काम करता है  **[शब्द के लेवल पर टाइमस्टैंप](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi#word-timestamps)**  काम करता है  **[कस्टम शब्दावली](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi#custom-vocabulary)**  काम करता है  **[स्मार्ट ट्रांसक्रिप्शन](https://ai.google.dev/gemini-api/docs/transcribe?hl=hi#transcription-modes)**  काम करता है  **[कैश मेमोरी में सेव होना](https://ai.google.dev/gemini-api/docs/caching?hl=hi)**  काम नहीं करता है  **[कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi)**  काम नहीं करता है  **[फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)**  काम नहीं करता है  **[फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi)**  काम नहीं करता है  **[इमेज जनरेट करने की सुविधा](https://ai.google.dev/gemini-api/docs/image-generation?hl=hi)**  काम नहीं करता है  **[सोचना](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)**  काम नहीं करता है |
-| speedकॉन्टेंट देखने के विकल्प | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi)**  काम नहीं करता है  **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi)**  काम नहीं करता है  **[प्राथमिकता का अनुमान लगाना](https://ai.google.dev/gemini-api/docs/priority-inference?hl=hi)**  काम नहीं करता है |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - `gemini-3.5-transcribe` (यूनरी) - `gemini-3.5-transcribe-live` (Live API) |
-| calendar\_monthनया अपडेट | अगस्त 2026 |
+| Code du modèle id\_card | `gemini-3.5-transcribe` |
+| Types de données acceptés pour save | **Entrées**  Audio (jusqu'à une heure)  **Résultat**  Annotations de texte et de mots |
+| token\_autoLimites audio | **Limite audio unaire**  Jusqu'à 1 heure par requête (jusqu'à 30 minutes lorsque l'identification du locuteur ou les codes temporels au niveau du mot sont activés) |
+| handyman Fonctionnalités | **[Transcription audio](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr)**  Compatible  **[Identification du locuteur](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr#speaker-diarization)**  Compatible  **[Codes temporels au niveau du mot](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr#word-timestamps)**  Compatible  **[Vocabulaire personnalisé](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr#custom-vocabulary)**  Compatible  **[Transcription intelligente](https://ai.google.dev/gemini-api/docs/transcribe?hl=fr#transcription-modes)**  Compatible  **[Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr)**  Not supported  **[Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr)**  Not supported  **[Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr)**  Not supported  **[Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)**  Not supported  **[Génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr)**  Not supported  **[Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)**  Not supported |
+| speed Options de consommation | **[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr)**  Not supported  **[Inférence Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr)**  Not supported  **[Inférence prioritaire](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr)**  Not supported |
+| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - `gemini-3.5-transcribe` (unaire) - `gemini-3.5-transcribe-live` (API Live) |
+| calendar\_monthDernière mise à jour | Août 2026 |
 
-## सुविधा के इस्तेमाल से जुड़ी सहायता और सीमाएं
+## Compatibilité des fonctionnalités et limites
 
-Gemini 3.5 Transcribe, अपने दोनों एंडपॉइंट पर इन सुविधाओं के साथ काम करता है:
+Gemini 3.5 Transcribe est compatible avec les fonctionnalités suivantes sur ses deux points de terminaison :
 
-| सुविधा | लाइव स्ट्रीमिंग (`gemini-3.5-transcribe-live`) | ऑडियो फ़ाइल प्रोसेसिंग (`gemini-3.5-transcribe`) | ध्यान देने वाली बातें / सीमाएं |
+| Fonctionnalité | Streaming en direct (`gemini-3.5-transcribe-live`) | Traitement des fichiers audio (`gemini-3.5-transcribe`) | Remarques / Limites |
 | --- | --- | --- | --- |
-| **अपने-आप भाषा पहचानने की सुविधा** | उपलब्ध है (85 से ज़्यादा भाषाएं) | उपलब्ध है (85 से ज़्यादा भाषाएं) | इसमें सेशन के बीच में कोड-मिक्सिंग शामिल है. |
-| **शब्द के लेवल पर टाइमस्टैंप** | काम नहीं करते | समर्थित | इससे ट्रांसक्रिप्शन की क्वालिटी खराब हो जाती है. |
-| **कस्टम शब्दावली के आधार पर जवाब देना** | काम करता है (ज़्यादा से ज़्यादा 1,000 शब्द) | काम करता है (ज़्यादा से ज़्यादा 1,000 शब्द) | आम तौर पर, ग्राहकों को 100 शब्दों तक के लिए सबसे अच्छे नतीजे मिलते हैं. |
-| **स्मार्ट डिक्टेशन और फ़ॉर्मैटिंग** | समर्थित | समर्थित | इसमें फ़िलर शब्द हटाने और इंटेंट के हिसाब से अक्षरों और अंकों को फ़ॉर्मैट करने की सुविधा शामिल है. |
-| **स्पीकर डायराइज़ेशन** | काम नहीं करते | काम करता है (ज़्यादा से ज़्यादा आठ स्पीकर) | तीन या उससे ज़्यादा स्पीकर के लिए एट्रिब्यूशन की सुविधा, एक्सपेरिमेंट के तौर पर उपलब्ध है. |
-| **ऑडियो की ज़्यादा से ज़्यादा अवधि** | हर सेशन में 10 मिनट. | 1 घंटा या उससे कम | डायरराइज़ेशन या टाइमस्टैंप जैसी सुविधाएं चालू होने पर, फ़ाइल को प्रोसेस करने में ज़्यादा से ज़्यादा 30 मिनट लगते हैं. |
+| **Détection automatique de la langue** | Prise en charge (plus de 85 langues) | Prise en charge (plus de 85 langues) | Inclut le mélange de codes en cours de session. |
+| **Codes temporels au niveau du mot** | Non compatible | Compatible | Dégrade la précision de la transcription. |
+| **Pondération personnalisée du vocabulaire** | Accepté (jusqu'à 1 000 termes) | Accepté (jusqu'à 1 000 termes) | Les clients obtiennent généralement les meilleurs résultats avec un maximum de 100 termes. |
+| **Dictée et mise en forme intelligentes** | Compatible | Compatible | Inclut la suppression des mots de remplissage et la mise en forme alphanumérique en fonction de l'intention. |
+| **Identification du locuteur** | Non compatible | Pris en charge (jusqu'à huit enceintes) | L'attribution pour trois enceintes ou plus est expérimentale. |
+| **Durée audio max.** | 10 minutes par session. | Jusqu'à une heure | Le traitement des fichiers est limité à 30 minutes lorsque des fonctionnalités telles que la diarisation ou les codes temporels sont activées. |
 
-## इस्तेमाल की जा सकने वाली भाषाएं
+## Langues disponibles
 
-Gemini 3.5 Transcribe के लिए, यहाँ दी गई भाषाएँ और BCP-47 भाषा कोड इस्तेमाल किए जा सकते हैं:
+Les langues et les codes de langue BCP-47 suivants sont compatibles avec Gemini 3.5 Transcribe :
 
-| भाषा | BCP-47 कोड | भाषा | BCP-47 कोड |
+| Langue | Code BCP-47 | Langue | Code BCP-47 |
 | --- | --- | --- | --- |
-| अफ़्रीकान्स | `af-ZA` | जापानी | `ja-JP` |
-| अमहैरिक | `am-ET` | जावानीज़ | `jv-ID` |
-| अरबी (मिस्र) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| आर्मीनियन | `hy-AM` | कन्नड़ | `kn-IN` |
-| असमिया | `as-IN` | कज़ाक | `kk-KZ` |
-| अज़रबैजानी | `az-AZ` | कोरियन | `ko-KR` |
-| बेलारूसी | `be-BY` | किर्गिज़ | `ky-KG` |
-| बांग्ला (बांग्लादेश) | `bn-BD` | लातवियन | `lv-LV` |
-| बांग्ला (भारत) | `bn-IN` | लिंगाला | `ln-CD` |
-| बोस्नियन | `bs-BA` | लिथुएनियन | `lt-LT` |
-| बल्गैरियन | `bg-BG` | मैसेडोनियन | `mk-MK` |
-| बल्गेरियन (ऐरोमेनियन) | `rup-BG` | मलय | `ms-MY` |
-| बर्मीज़ | `my-MM` | मलयालम | `ml-IN` |
-| कैंटोनीज़ (ट्रेडिशनल) | `yue-Hant-HK` | मोल्टीज़ | `mt-MT` |
-| कैटलैन | `ca-ES` | मैंडरिन चाइनीज़ (सिंप्लिफ़ाइड) | `cmn-Hans-CN` |
-| सेबुआनो | `ceb` | मराठी | `mr-IN` |
-| सेंट्रल खमेर | `km-KH` | मंगोलियन | `mn-MN` |
-| क्रोएशियन | `hr-HR` | नेपाली | `ne-NP` |
-| चेक | `cs-CZ` | नॉर्वीजन | `nb-NO` |
-| डैनिश | `da-DK` | ओड़िया | `or-IN` |
-| डच | `nl-NL` | पोलिश | `pl-PL` |
-| अंग्रेज़ी (ग्रेट ब्रिटेन) | `en-GB` | पॉर्चुगीज़ (ब्राज़ील) | `pt-BR` |
-| अंग्रेज़ी (भारत) | `en-IN` | पॉर्चगीज़ (पुर्तगाल) | `pt-PT` |
-| अंग्रेज़ी (संयुक्त राज्य अमेरिका) | `en-US` | पंजाबी | `pa-IN` |
-| एस्टोनियन | `et-EE` | पंजाबी (गुरमुखी लिपि) | `pa-Guru-IN` |
-| फ़ारसी | `fa-IR` | रोमानियन | `ro-RO` |
-| फ़िलिपीनी | `fil-PH` | रूसी | `ru-RU` |
-| फ़िनिश | `fi-FI` | सर्बियन | `sr-RS` |
-| फ़्रांसीसी | `fr-FR` | सिंधी (अरबी लिपि) | `sd-Arab-IN` |
-| गैलिशियन | `gl-ES` | स्लोवाक | `sk-SK` |
-| जॉर्जियन | `ka-GE` | स्लोवेनियन | `sl-SI` |
-| जर्मन | `de-DE` | स्पैनिश (लैटिन अमेरिका) | `es-419` |
-| ग्रीक | `el-GR` | स्पैनिश (संयुक्त राज्य अमेरिका) | `es-US` |
-| गुजराती | `gu-IN` | स्वाहिली (केन्या) | `sw-KE` |
-| हौसा | `ha-NG` | स्वीडिश | `sv-SE` |
-| हिब्रू | `he-IL` | ताजिक | `tg-TJ` |
-| हिन्दी | `hi-IN` | तेलुगु | `te-IN` |
-| हंगेरियन | `hu-HU` | थाई | `th-TH` |
-| आइसलैंडिक | `is-IS` | टर्किश | `tr-TR` |
-| इंडियन इंग्लिश | `en-IN` | यूक्रेनियन | `uk-UA` |
-| इंडोनेशियन | `id-ID` | उज़्बेक | `uz-UZ` |
-| इटैलियन | `it-IT` | वियतनामीज़ | `vi-VN` |
+| Afrikaans | `af-ZA` | Japonais | `ja-JP` |
+| Amharique | `am-ET` | Javanais | `jv-ID` |
+| Arabe (Égypte) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| Arménien | `hy-AM` | Kannada | `kn-IN` |
+| Assamais | `as-IN` | Kazakh | `kk-KZ` |
+| Azéri | `az-AZ` | Coréen | `ko-KR` |
+| Biélorusse | `be-BY` | Kirghiz | `ky-KG` |
+| Bengali (Bangladesh) | `bn-BD` | Letton | `lv-LV` |
+| Bengali (Inde) | `bn-IN` | Lingala | `ln-CD` |
+| Bosniaque | `bs-BA` | Lituanien | `lt-LT` |
+| Bulgare | `bg-BG` | Macédonien | `mk-MK` |
+| Bulgare (aroumain) | `rup-BG` | Malaisien | `ms-MY` |
+| Birman | `my-MM` | Malayalam | `ml-IN` |
+| Cantonais (traditionnel) | `yue-Hant-HK` | Maltais | `mt-MT` |
+| Catalan | `ca-ES` | Chinois mandarin (simplifié) | `cmn-Hans-CN` |
+| Cebuano | `ceb` | Marathi | `mr-IN` |
+| Khmer central | `km-KH` | Mongol | `mn-MN` |
+| Croate | `hr-HR` | Népalais | `ne-NP` |
+| Tchèque | `cs-CZ` | Norvégien | `nb-NO` |
+| Danois | `da-DK` | Oriya | `or-IN` |
+| Néerlandais | `nl-NL` | Polonais | `pl-PL` |
+| Anglais (Grande-Bretagne) | `en-GB` | Portugais (Brésil) | `pt-BR` |
+| Anglais (Inde) | `en-IN` | Portugais (Portugal) | `pt-PT` |
+| Anglais (États-Unis) | `en-US` | Panjabi | `pa-IN` |
+| Estonien | `et-EE` | Panjabi (écriture gurmukhī) | `pa-Guru-IN` |
+| Farsi | `fa-IR` | Roumain | `ro-RO` |
+| Tagalog | `fil-PH` | Russe | `ru-RU` |
+| Finnois | `fi-FI` | Serbe | `sr-RS` |
+| Français | `fr-FR` | Sindhi (écriture arabe) | `sd-Arab-IN` |
+| Galicien | `gl-ES` | Slovaque | `sk-SK` |
+| Géorgien | `ka-GE` | Slovène | `sl-SI` |
+| Allemand | `de-DE` | Espagnol (Amérique latine) | `es-419` |
+| Grec | `el-GR` | Espagnol (États-Unis) | `es-US` |
+| Gujarati | `gu-IN` | Swahili (Kenya) | `sw-KE` |
+| Haoussa | `ha-NG` | Suédois | `sv-SE` |
+| Hébreu | `he-IL` | Tadjik | `tg-TJ` |
+| Hindi | `hi-IN` | Telugu | `te-IN` |
+| Hongrois | `hu-HU` | Thaï | `th-TH` |
+| Islandais | `is-IS` | Turc | `tr-TR` |
+| Anglais (Inde) | `en-IN` | Ukrainien | `uk-UA` |
+| Indonésien | `id-ID` | Ouzbek | `uz-UZ` |
+| Italien | `it-IT` | Vietnamien | `vi-VN` |
 
-सुझाव भेजें
+Envoyer des commentaires
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया.
+Dernière mise à jour le 2026/09/10 (UTC).
 
-क्या आपको हमें और कुछ बताना है?
+Voulez-vous nous donner plus d'informations ?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-10 (UTC) को अपडेट किया गया."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/10 (UTC)."],[],[]]

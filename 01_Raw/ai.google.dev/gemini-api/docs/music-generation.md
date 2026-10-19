@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-CN
-fetched_at: 2026-10-12T06:58:25.562604+00:00
-title: "\u4f7f\u7528 Lyria 3.5 \u751f\u6210\u97f3\u4e50 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/music-generation?hl=vi
+fetched_at: 2026-10-19T05:32:40.659759+00:00
+title: "T\u1ea1o nh\u1ea1c b\u1eb1ng Lyria 3.5 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-发送反馈
+Gửi ý kiến phản hồi
 
-# 使用 Lyria 3.5 生成音乐
+# Tạo nhạc bằng Lyria 3.5
 
-Lyria 3.5 是 Google 的音乐创作模型系列，现已可通过 Gemini API 调用。借助 Lyria 3.5，您可以根据文本提示或图片生成高质量的 44.1 kHz 立体声音频。这些模型可提供结构连贯的音乐，包括人声、同步歌词和完整的器乐编排。
+Lyria 3.5 là nhóm mô hình tạo nhạc của Google, có sẵn thông qua Gemini API. Với Lyria 3.5, bạn có thể tạo âm thanh nổi 44, 1 kHz chất lượng cao từ câu lệnh bằng văn bản hoặc từ hình ảnh. Các mô hình này mang đến sự nhất quán về cấu trúc, bao gồm cả giọng hát, lời bài hát có dấu thời gian và bản phối nhạc cụ hoàn chỉnh.
 
-Lyria 系列包含以下模型：
+Nhóm mô hình Lyria bao gồm:
 
-| 模型 | 模型 ID | 适用场景 | 时长 | 输出 |
+| Mô hình | Mã kiểu máy | Phù hợp nhất cho | Thời lượng | Đầu ra |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 Clip** | `lyria-3-clip-preview` | 短片、循环播放的短视频、预览 | 30 秒 | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | 包含主歌、副歌和桥段的完整歌曲 | 几分钟（可通过提示词控制） | MP3 |
+| **Đoạn video Lyria 3** | `lyria-3-clip-preview` | Đoạn video ngắn, video lặp lại, bản xem trước | 30 giây | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | Bài hát có thời lượng đầy đủ với các đoạn thơ, điệp khúc, cầu nối | Vài phút (có thể kiểm soát bằng câu lệnh) | MP3 |
 
-这两种模型均可通过新的 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn) 使用，支持多模态输入（文本和图片），并生成 **44.1 kHz 高保真立体声**音频。
+Bạn có thể sử dụng cả hai mô hình bằng [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) mới, hỗ trợ các đầu vào đa phương thức (văn bản và hình ảnh) và tạo ra âm thanh **âm thanh nổi có độ trung thực cao 44,1 kHz**.
 
-## 生成音乐片段
+## Tạo đoạn nhạc
 
-Lyria 3 Clip 模型始终会生成 **30 秒**的片段。如需生成剪辑，请使用文本提示调用 `interactions.create` 方法。响应始终包含生成的歌词和歌曲结构，以及 `steps` 架构中的音频。
+Mô hình Lyria 3 Clip luôn tạo một đoạn video dài **30 giây**. Để tạo một đoạn video, hãy gọi phương thức `interactions.create` bằng một câu lệnh văn bản. Phản hồi luôn bao gồm lời bài hát và cấu trúc bài hát được tạo cùng với âm thanh trong giản đồ `steps`.
 
 ### Python
 
@@ -174,11 +174,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-您可以使用 `interaction.output_audio` 属性检索生成的音乐数据，该属性会返回上次生成的音频块。您还可以使用 `interaction.output_text` 属性检索歌曲的歌词和结构。如需详细了解便捷属性，请参阅[互动概览](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-cn#convenience-properties)。
+Bạn có thể truy xuất dữ liệu nhạc đã tạo bằng cách sử dụng thuộc tính `interaction.output_audio`. Thuộc tính này trả về khối âm thanh được tạo gần đây nhất. Bạn cũng có thể truy xuất lời bài hát và cấu trúc của bài hát bằng cách sử dụng thuộc tính `interaction.output_text`. Để biết thông tin chi tiết về các thuộc tính tiện lợi, hãy xem bài viết [Tổng quan về các hoạt động tương tác](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi#convenience-properties).
 
-## 生成完整歌曲
+## Tạo bài hát có thời lượng đầy đủ
 
-使用 `lyria-3.5` 模型生成时长为几分钟的完整歌曲。Pro 模型能理解音乐结构，并能创作出具有鲜明主歌、副歌和桥段的乐曲。您可以在提示中指定时长（例如“创作一首 2 分钟的歌曲”），也可以使用[时间戳](#timing)来定义结构，从而影响时长。
+Sử dụng mô hình `lyria-3.5` để tạo các bài hát dài vài phút. Mô hình Pro hiểu cấu trúc âm nhạc và có thể sáng tác các bản nhạc có đoạn thơ, điệp khúc và đoạn chuyển riêng biệt. Bạn có thể điều chỉnh thời lượng bằng cách chỉ định thời lượng trong câu lệnh (ví dụ: "tạo một bài hát dài 2 phút") hoặc bằng cách sử dụng [dấu thời gian](#timing) để xác định cấu trúc.
 
 ### Python
 
@@ -270,9 +270,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 选择输出格式
+## Chọn định dạng đầu ra
 
-默认情况下，Lyria 3.5 模型会生成 **MP3** 格式的音频。对于 Lyria 3.5，您还可以通过设置 `response_format` 来请求 **WAV** 格式的输出。
+Theo mặc định, các mô hình Lyria 3.5 tạo âm thanh ở định dạng **MP3**. Đối với Lyria 3.5, bạn cũng có thể yêu cầu đầu ra ở định dạng **WAV** bằng cách đặt `response_format`.
 
 ### Python
 
@@ -376,11 +376,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 解析响应
+## Phân tích cú pháp phản hồi
 
-Lyria 3.5 的回答包含 `steps` 架构中的多个内容块。
-互动会返回一系列步骤，其中 `model_output` 步骤包含生成的内容。文本内容块包含生成的歌词或歌曲结构的 JSON 说明。
-类型为 `audio` 的内容块包含 base64 编码的音频数据。
+Phản hồi của Lyria 3.5 chứa nhiều khối nội dung trong giản đồ `steps`.
+Các lượt tương tác trả về một chuỗi các bước, trong đó các bước `model_output` chứa nội dung được tạo.
+Các khối nội dung văn bản chứa lời bài hát được tạo hoặc nội dung mô tả bằng JSON về cấu trúc bài hát.
+Các khối nội dung có loại `audio` chứa dữ liệu âm thanh được mã hoá base64.
 
 ### Python
 
@@ -508,11 +509,11 @@ func main() {
 curl ... | jq -r '.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio") | .data' | base64 -d > output.mp3
 ```
 
-#### 交错显示歌词和音乐
+#### Lời bài hát và nhạc xen kẽ
 
-由于 Lyria 3.5 的输出较为复杂，包含生成歌词（文本）和歌曲本身（音频）的单独步骤和代码块，因此便利属性可提供快速且推荐的快捷方式。
+Vì đầu ra của Lyria 3.5 rất phức tạp (chứa các bước và khối riêng biệt cho lời bài hát (văn bản) được tạo và bản thân bài hát (âm thanh)), nên các thuộc tính tiện lợi sẽ cung cấp một lối tắt nhanh chóng và được đề xuất.
 
-不过，如果您想以程序化方式完全控制服务器返回的原始步数时间轴（例如在收到各个内容块时记录它们），可以改为手动迭代 `steps`：
+Tuy nhiên, nếu muốn kiểm soát hoàn toàn, theo chương trình đối với dòng thời gian thô của các bước do máy chủ trả về (chẳng hạn như ghi nhật ký các khối nội dung riêng lẻ khi chúng được nhận), bạn có thể lặp lại `steps` theo cách thủ công:
 
 ### Python
 
@@ -693,9 +694,9 @@ func main() {
 }
 ```
 
-## 根据图片生成音乐
+## Tạo nhạc từ hình ảnh
 
-Lyria 3.5 支持多模态输入，您可以在 `input` 列表中提供最多 **10 张图片**以及文本提示，模型将根据视觉内容创作音乐。
+Lyria 3.5 hỗ trợ nhiều phương thức nhập dữ liệu. Bạn có thể cung cấp tối đa **10 hình ảnh** cùng với câu lệnh văn bản trong danh sách `input` và mô hình sẽ sáng tác nhạc dựa trên nội dung trực quan.
 
 ### Python
 
@@ -859,9 +860,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 提供自定义歌词
+## Cung cấp lời bài hát tuỳ chỉnh
 
-您可以自行撰写歌词，并将其添加到提示中。使用 `[Verse]`、`[Chorus]` 和 `[Bridge]` 等部分标记来帮助模型了解歌曲结构：
+Bạn có thể tự viết lời bài hát và đưa vào câu lệnh. Sử dụng các thẻ phần như `[Verse]`, `[Chorus]` và `[Bridge]` để giúp mô hình hiểu cấu trúc bài hát:
 
 ### Python
 
@@ -1028,9 +1029,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 控制时间和结构
+## Kiểm soát thời gian và cấu trúc
 
-您可以使用时间戳精确指定歌曲中特定时刻发生的情况。这对于控制乐器何时进入、歌词何时出现以及歌曲如何推进非常有用：
+Bạn có thể chỉ định chính xác những gì xảy ra tại các thời điểm cụ thể trong bài hát bằng cách sử dụng dấu thời gian. Điều này rất hữu ích để kiểm soát thời điểm nhạc cụ bắt đầu, thời điểm lời bài hát được gửi và cách bài hát tiến triển:
 
 ### Python
 
@@ -1149,9 +1150,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 生成乐器演奏曲目
+## Tạo bản nhạc không lời
 
-对于背景音乐、游戏配乐或不需要人声的任何应用场景，您可以提示模型生成纯乐器曲目：
+Đối với nhạc nền, nhạc trò chơi hoặc bất kỳ trường hợp sử dụng nào không yêu cầu giọng hát, bạn có thể nhắc mô hình tạo ra các bản nhạc chỉ có nhạc cụ:
 
 ### Python
 
@@ -1243,9 +1244,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 生成不同语言的音乐
+## Tạo nhạc bằng nhiều ngôn ngữ
 
-Lyria 3.5 会以提示所用的语言生成歌词。如需生成带有法语歌词的歌曲，请使用法语撰写提示。模型会调整其发音风格和发音，以匹配相应语言。
+Lyria 3.5 tạo lời bài hát bằng ngôn ngữ trong câu lệnh của bạn. Để tạo một bài hát có lời bằng tiếng Pháp, hãy viết câu lệnh bằng tiếng Pháp. Mô hình này điều chỉnh phong cách giọng nói và cách phát âm cho phù hợp với ngôn ngữ.
 
 ### Python
 
@@ -1337,46 +1338,47 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 模型智能
+## Trí tuệ của mô hình
 
-Lyria 3.5 会分析您的提示流程，其中模型会根据您的提示，通过音乐结构（前奏、主歌、副歌、桥段等）进行推理。
-此过程发生在生成音频之前，可确保结构连贯性和音乐性。
+Lyria 3.5 phân tích quy trình tạo câu lệnh, trong đó mô hình suy luận thông qua cấu trúc âm nhạc (đoạn mở đầu, đoạn thơ, điệp khúc, đoạn chuyển, v.v.) dựa trên câu lệnh của bạn.
+Việc này xảy ra trước khi âm thanh được tạo và đảm bảo tính nhất quán về cấu trúc cũng như tính nhạc.
 
-## 提示指南
+## Hướng dẫn đặt câu lệnh
 
-如需了解如何针对音乐流派、乐器、歌曲结构、自定义歌词和演唱风格编写有效的提示，请参阅 [Lyria 提示指南](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=zh-cn)。
+Để tìm hiểu cách soạn câu lệnh hiệu quả cho thể loại nhạc, nhạc cụ, cấu trúc bài hát, lời bài hát tuỳ chỉnh và phong cách thể hiện giọng hát, hãy xem [hướng dẫn về câu lệnh cho Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=vi).
 
-## 最佳做法
+## Các phương pháp hay nhất
 
-- **先使用 Clip 进行迭代。**使用速度更快的 `lyria-3-clip-preview` 模型来测试提示，然后再使用 `lyria-3.5` 生成完整内容。
-- **内容要具体。**模糊的提示会产生泛化的结果。提及乐器、BPM、调、基调和结构，以获得最佳输出。
-- **使用与您相同的语言。**以您想要的歌词语言输入提示。
-- **使用部分标记。**`[Verse]`、`[Chorus]`、`[Bridge]` 标记为模型提供了清晰的结构，以便模型遵循。
-- **将歌词与说明分开。**提供自定义歌词时，请务必将其与音乐指导指令明确分开。
+- **Lặp lại với Đoạn video trước.** Sử dụng mô hình `lyria-3-clip-preview` nhanh hơn để thử nghiệm các câu lệnh trước khi tạo một hình ảnh/video dài bằng `lyria-3.5`.
+- **Mô tả cụ thể.** Câu lệnh mơ hồ sẽ tạo ra kết quả chung chung. Đề cập đến nhạc cụ, số nhịp/phút, khoá nhạc, tâm trạng và cấu trúc để có kết quả tốt nhất.
+- **Ngôn ngữ phải phù hợp.** Câu lệnh bằng ngôn ngữ bạn muốn có lời bài hát.
+- **Sử dụng thẻ phần.** Các thẻ `[Verse]`, `[Chorus]`, `[Bridge]` giúp mô hình có cấu trúc rõ ràng để tuân theo.
+- **Tách lời bài hát khỏi hướng dẫn.** Khi cung cấp lời bài hát tuỳ chỉnh, hãy tách biệt rõ ràng lời bài hát đó với hướng dẫn về hướng đi của bản nhạc.
 
-## 限制
+## Các điểm hạn chế
 
-- **安全**：所有提示都会经过安全过滤器的检查。触发过滤条件的提示将被屏蔽。这包括要求使用特定艺术家的声音或生成受版权保护的歌词的提示。
-- **水印**：所有生成的音频都包含 [SynthID 音频水印](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=zh-cn)，以便进行识别。这种水印人耳无法察觉，不会影响聆听体验。
-- **多轮编辑**：音乐创作是一个单轮过程。当前版本的 Lyria 3.5 不支持通过多个提示迭代修改或优化生成的剪辑。
-- **时长**：Clip 模型始终生成 30 秒的片段。Pro 模型生成的歌曲时长为几分钟；确切时长会受到提示的影响。
-- **确定性**：即使使用相同的提示，每次调用得到的结果也可能有所不同。
+- **An toàn**: Tất cả câu lệnh đều được bộ lọc an toàn kiểm tra. Những câu lệnh kích hoạt bộ lọc sẽ bị chặn. Quy định này áp dụng cho cả những câu lệnh yêu cầu giọng nói của một nghệ sĩ cụ thể hoặc tạo ra lời bài hát có bản quyền.
+- **Tạo hình mờ**: Tất cả âm thanh được tạo đều có [thuỷ vân âm thanh SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=vi) để nhận dạng. Hình mờ này không thể nhận thấy bằng tai thường và không ảnh hưởng đến trải nghiệm nghe.
+- **Chỉnh sửa nhiều lượt**: Tính năng tạo nhạc là một quy trình chỉ diễn ra một lượt.
+  Phiên bản Lyria 3.5 hiện tại không được hỗ trợ việc chỉnh sửa lặp đi lặp lại hoặc tinh chỉnh một đoạn video được tạo thông qua nhiều câu lệnh.
+- **Độ dài**: Mô hình Đoạn video luôn tạo ra các đoạn video dài 30 giây. Mô hình Pro tạo ra những bài hát có thời lượng vài phút; thời lượng chính xác có thể bị ảnh hưởng thông qua câu lệnh của bạn.
+- **Tính xác định**: Kết quả có thể khác nhau giữa các lệnh gọi, ngay cả khi dùng cùng một câu lệnh.
 
-## 后续步骤
+## Bước tiếp theo
 
-- 查看 Lyria 3.5 模型的价格。
-- 试试使用 Lyria RealTime 进行[实时流式音乐生成](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)。
-- 使用 [TTS 模型](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)生成多说话人对话。
-- 了解如何生成[图片](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)或[视频](https://ai.google.dev/gemini-api/docs/video?hl=zh-cn)。
-- 了解 Gemini 如何[理解音频文件](https://ai.google.dev/gemini-api/docs/audio?hl=zh-cn)。
-- 使用 [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn) 与 Gemini 进行实时对话。
+- Xem [giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) của các mô hình Lyria 3.5.
+- Thử [tạo nhạc trực tuyến theo thời gian thực](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=vi) bằng Lyria RealTime.
+- Tạo các cuộc trò chuyện có nhiều người nói bằng [mô hình TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi).
+- Khám phá cách tạo [hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi) hoặc [video](https://ai.google.dev/gemini-api/docs/video?hl=vi).
+- Tìm hiểu cách Gemini có thể [hiểu các tệp âm thanh](https://ai.google.dev/gemini-api/docs/audio?hl=vi).
+- Trò chuyện theo thời gian thực với Gemini bằng [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi).
 
-发送反馈
+Gửi ý kiến phản hồi
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-最后更新时间 (UTC)：2026-10-01。
+Cập nhật lần gần đây nhất: 2026-10-01 UTC.
 
-需要向我们提供更多信息？
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-01。"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-01 UTC."],[],[]]

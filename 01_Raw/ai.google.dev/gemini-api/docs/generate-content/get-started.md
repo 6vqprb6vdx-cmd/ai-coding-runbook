@@ -1,58 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-TW
-fetched_at: 2026-10-12T07:07:38.678471+00:00
-title: "\u958b\u59cb\u4f7f\u7528 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he
+fetched_at: 2026-10-19T05:41:58.404510+00:00
+title: "\u05ea\u05d7\u05d9\u05dc\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
-提供意見
+שליחת משוב
 
-# 開始使用
+# תחילת העבודה
 
-本指南可協助您開始使用舊版 **generateContent** API。對於新專案和應用程式，我們強烈建議改用新的 **Interactions API**，這是使用 Gemini 模型和代理程式建構應用程式最簡單且最佳的方式。
+במדריך הזה מוסבר איך להתחיל להשתמש ב-API מדור קודם **generateContent**. בפרויקטים ובאפליקציות חדשים, מומלץ מאוד להשתמש במקום זאת ב-**Interactions API** החדש, שהוא הדרך הפשוטה והטובה ביותר שלנו לבנות באמצעות מודלים וסוכנים של Gemini.
 
-本快速入門導覽課程說明如何安裝[程式庫](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw)、提出第一項要求、串流回應、建構多輪對話，以及使用標準 `generateContent` 方法來使用工具。
+במדריך למתחילים הזה מוסבר איך להתקין את [הספריות](https://ai.google.dev/gemini-api/docs/libraries?hl=he) שלנו, לשלוח את הבקשה הראשונה, להזרים תשובות, ליצור שיחות מרובות שלבים ולהשתמש בכלים באמצעות השיטה הרגילה `generateContent`.
 
-## 取得 API 金鑰
+## קבלת מפתח API
 
-如要使用 Gemini API，您必須有 API 金鑰，才能驗證要求、強制執行安全限制，以及追蹤帳戶的使用情形。
+כדי להשתמש ב-Gemini API, צריך מפתח API כדי לאמת את הבקשות, לאכוף מגבלות אבטחה ולעקוב אחרי השימוש בחשבון.
 
-- Google AI Studio 會自動為新使用者建立專案和 API 金鑰。您可以從「[API 金鑰](https://aistudio.google.com/api-keys?hl=zh-tw)」頁面複製。
-- 如需新金鑰，請在 AI Studio 中按一下「建立 API 金鑰」，然後按照對話方塊的指示新增金鑰/專案配對。
+- מערכת Google AI Studio יוצרת באופן אוטומטי פרויקט ומפתח API למשתמשים חדשים.
+  אפשר להעתיק אותו מ[דף מפתחות ה-API](https://aistudio.google.com/api-keys?hl=he).
+- אם אתם צריכים מפתח חדש, לוחצים על **Create API key** (יצירת מפתח API) ב-AI Studio ופועלים לפי ההוראות בתיבת הדו-שיח כדי להוסיף צמד חדש של מפתח ופרויקט.
 
-[建立 Gemini API 金鑰](https://aistudio.google.com/apikey?hl=zh-tw)
+[יצירת מפתח Gemini API](https://aistudio.google.com/apikey?hl=he)
 
-將金鑰設為環境變數：
+מגדירים את המפתח כמשתנה סביבה:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### 升級至付費層級
+### שדרוג לרמה בתשלום
 
-升級至付費層級可提高頻率限制，但需要設定 Cloud Billing。
+שדרוג לתוכנית בתשלום מגדיל את מגבלות הקצב ומחייב הגדרה של חיוב ב-Cloud.
 
-- 在 AI Studio 的「API keys」(API 金鑰) 或「Projects」(專案) 頁面上，按一下「Set up billing」(設定帳單)。
-- 按照 Cloud Billing 對話方塊的指示建立或連結帳單帳戶、新增付款方式，並預付至少 $10 美元 (或等值貨幣) 的付費抵免額。
-- 在 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 中，依序點選「資訊主頁」 >「用量」，即可查看 API 用量。
+- לוחצים על **הגדרת חיוב** בדפים [מפתחות API](https://aistudio.google.com/api-keys?hl=he) או [פרויקטים](https://aistudio.google.com/projects?hl=he) ב-AI Studio.
+- פועלים לפי ההוראות בתיבת הדו-שיח של החיוב ב-Cloud כדי ליצור או לקשר חשבון לחיוב, להוסיף אמצעי תשלום ולשלם מראש לפחות 10$ (או סכום שווה ערך במטבע אחר) בקרדיטים בתשלום.
+- אפשר לראות את השימוש ב-API ב-[Google AI Studio](https://aistudio.google.com/usage?hl=he) בקטע **מרכז הבקרה** > **שימוש**.
 
-詳情請參閱「[帳單頁面](https://ai.google.dev/gemini-api/docs/billing?hl=zh-tw)」。
+מידע נוסף זמין [בדף החיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he).
 
-## 安裝 Google GenAI SDK
+## התקנה של Google GenAI SDK
 
 ### Python
 
-使用 [Python 3.9 以上版本](https://www.python.org/downloads/)，透過下列 [pip 指令](https://packaging.python.org/en/latest/tutorials/installing-packages/)安裝 [`google-genai` 套件](https://pypi.org/project/google-genai/)：
+באמצעות [Python 3.9 ואילך](https://www.python.org/downloads/), מתקינים את [החבילה `google-genai`](https://pypi.org/project/google-genai/) באמצעות [פקודת pip](https://packaging.python.org/en/latest/tutorials/installing-packages/) הבאה:
 
 ```
 pip install -q -U google-genai
@@ -60,15 +61,15 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-使用 [Node.js v18 以上版本](https://nodejs.org/en/download/package-manager)，透過下列 [npm 指令](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)安裝 [TypeScript 和 JavaScript 適用的 Google Gen AI SDK](https://www.npmjs.com/package/@google/genai)：
+באמצעות [Node.js v18+‎](https://nodejs.org/en/download/package-manager), מתקינים את [Google Gen AI SDK ל-TypeScript ול-JavaScript](https://www.npmjs.com/package/@google/genai) באמצעות [פקודת npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) הבאה:
 
 ```
 npm install @google/genai
 ```
 
-## 生成文字
+## יצירת טקסט
 
-使用 `models.generate_content` 方法[生成文字回覆](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)。
+משתמשים ב-`models.generate_content` method כדי [ליצור תשובת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he).
 
 ### Python
 
@@ -124,9 +125,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## 逐句回覆
+## הצגת התשובות באופן שוטף
 
-根據預設，整個生成程序完成後，模型才會傳回回覆。如要獲得更快速、更具互動性的體驗，可以[串流傳輸](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#stream)生成的回覆區塊。
+כברירת מחדל, המודל מחזיר תשובה רק אחרי שתהליך היצירה כולו מסתיים. כדי לקבל חוויה מהירה ואינטראקטיבית יותר, אתם יכולים [להזרים את התשובה](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#stream) בחלקים בזמן שהיא נוצרת.
 
 ### Python
 
@@ -178,9 +179,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:s
   }'
 ```
 
-## 多轉折對話
+## שיחות עם זיכרון
 
-對於多輪對話，SDK 提供有狀態的 `chats` 輔助程式，可建構[多輪對話體驗](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#chat)，自動管理對話記錄。
+בשיחות מרובות תפניות, ערכות ה-SDK מספקות `chats`עזר עם שמירת מצב כדי ליצור [חוויית צ'אט מרובת תפניות](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#chat) שמנהלת באופן אוטומטי את היסטוריית השיחות.
 
 ### Python
 
@@ -236,9 +237,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## 使用工具
+## שימוש בכלים
 
-[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)，讓模型存取即時網路內容，擴展模型功能。模型會自動決定搜尋時機、執行查詢，並綜合整理出回覆。
+להרחיב את היכולות של המודל על ידי [עיגון התשובות באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) כדי לגשת לתוכן מהאינטרנט שמתעדכן בזמן אמת. המודל מחליט באופן אוטומטי מתי לבצע חיפוש, מריץ שאילתות ומסנתז תשובה.
 
 ### Python
 
@@ -325,20 +326,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-Gemini API 也支援其他內建工具：
+‫Gemini API תומך גם בכלים מובנים אחרים:
 
-- **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**：
-  讓模型編寫及執行 Python 程式碼，解決複雜的數學問題。
-- **[網址內容](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**：根據您提供的特定網頁網址，生成回覆內容。
-- **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**：可上傳檔案，並使用語意搜尋功能，根據檔案內容提供回覆。
-- **[Google 地圖](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**：根據位置資料提供回覆，並搜尋地點、路線和地圖。
-- **[電腦使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)**：讓模型與虛擬電腦螢幕、鍵盤和滑鼠互動，以執行工作。
+- **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**:
+  מאפשרת למודל לכתוב ולהריץ קוד Python כדי לפתור בעיות מורכבות במתמטיקה.
+- **[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he)**: מאפשר להשתמש בכתובות URL ספציפיות של דפי אינטרנט שאתם מספקים כדי להוסיף הקשר לתשובות.
+- **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**: מאפשר להעלות קבצים ולבסס את התשובות על התוכן שלהם באמצעות חיפוש סמנטי.
+- ‫**[מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)**: מאפשרת להשתמש בנתוני מיקום כדי להציג תשובות, לחפש מקומות, מסלולים ומפות.
+- **[שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he)**: מאפשר למודל ליצור אינטראקציה עם מסך מחשב וירטואלי, מקלדת ועכבר כדי לבצע משימות.
 
-## 呼叫自訂函式
+## הפעלת פונקציות מותאמות אישית
 
-使用**[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**，將模型連結至自訂工具和 API。模型會判斷何時呼叫函式，並在回應中傳回 `functionCall`，供應用程式執行。
+משתמשים ב**[קריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)** כדי לחבר מודלים לכלים ולממשקי API בהתאמה אישית. המודל קובע מתי להפעיל את הפונקציה ומחזיר `functionCall` בתשובה כדי שהאפליקציה תבצע אותה.
 
-這個範例會宣告模擬溫度函式，並檢查模型是否要呼叫該函式。
+בדוגמה הזו מוגדרת פונקציית טמפרטורה מדומה ונבדק אם המודל רוצה להפעיל אותה.
 
 ### Python
 
@@ -500,25 +501,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## 後續步驟
+## המאמרים הבאים
 
-現在您已開始使用 Gemini API，請參閱下列指南，建構更進階的應用程式：
+אחרי שהתחלתם להשתמש ב-Gemini API, כדאי לעיין במדריכים הבאים כדי ליצור אפליקציות מתקדמות יותר:
 
-- [生成文字](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)
-- [圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)
-- [圖像理解](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)
-- [思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)
-- [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
-- [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)
-- [長篇脈絡資訊](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-tw)
-- [嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)
+- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he)
+- [יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)
+- [הבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he)
+- [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)
+- [בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)
+- [עיגון באמצעות חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he)
+- [הקשר רחב](https://ai.google.dev/gemini-api/docs/long-context?hl=he)
+- [הטמעות](https://ai.google.dev/gemini-api/docs/embeddings?hl=he)
 
-提供意見
+שליחת משוב
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-上次更新時間：2026-09-12 (世界標準時間)。
+עדכון אחרון: 2026-09-12 (שעון UTC).
 
-想進一步說明嗎？
+רוצה לתת לנו משוב?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-12 (世界標準時間)。"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-12 (שעון UTC)."],[],[]]

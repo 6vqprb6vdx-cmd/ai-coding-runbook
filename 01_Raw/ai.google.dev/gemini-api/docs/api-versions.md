@@ -1,67 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=zh-TW
-fetched_at: 2026-10-12T07:16:46.466558+00:00
-title: "API \u7248\u672c\u8aaa\u660e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=de
+fetched_at: 2026-10-19T05:32:23.033056+00:00
+title: "Erl\u00e4uterung der API-Versionen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 現已正式發布。建議使用這個 API，存取所有最新功能和模型。
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [API 參考資料](https://ai.google.dev/api?hl=zh-tw)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [API-Referenz](https://ai.google.dev/api?hl=de)
 
-提供意見
+Feedback geben
 
-# API 版本說明
+# Erläuterung der API-Versionen
 
-本文將概略說明 Gemini API 的 `v1` 和 `v1beta` 版本之間的差異。
+In diesem Dokument finden Sie einen allgemeinen Überblick über die Unterschiede zwischen den Versionen `v1` und `v1beta` der Gemini API.
 
-- **v1**：API 穩定版。穩定版中的功能在主要版本生命週期內完全受支援。如有任何重大變更，系統會建立新的 API 主要版本，並在一段合理時間後淘汰現有版本。API 可能會導入非破壞性變更，但不會變更主要版本。**Interactions API** 和核心功能已在 `v1` 正式推出。
-- **v1beta**：這個版本包含正在積極開發的早期功能和功能。`v1beta` 中的功能可能會根據意見回饋進行調整，但您可以在這些功能升級為穩定版之前搶先試用。
+- **v1**: Stabile Version der API. Funktionen in der stabilen Version werden während des gesamten Lebenszyklus der Hauptversion vollständig unterstützt. Bei funktionsgefährdenden Änderungen wird eine neue Hauptversion der API erstellt und die vorhandene Version nach einem angemessenen Zeitraum eingestellt.
+  Es können abwärtskompatible Änderungen an der API vorgenommen werden, ohne dass sich die Hauptversion ändert. Die **Interactions API** und ihre Kernfunktionen sind in `v1` allgemein verfügbar.
+- **v1beta**: Diese Version enthält erste Funktionen, die aktiv entwickelt werden. Funktionen in `v1beta` können sich ändern, da wir sie auf Grundlage von Feedback weiterentwickeln. Sie haben jedoch die Möglichkeit, neue Funktionen auszuprobieren, bevor sie als stabil eingestuft werden.
 
-## 支援的功能和特色
+## Unterstützung von Funktionen und Merkmalen
 
-下表詳細列出 `v1` (正式版) 和 `v1beta` (Beta 版) 的功能適用情形。核心 API 功能和工具適用於 Interactions API 和 `generateContent`，除非另有規定：
+In der folgenden Tabelle wird die Verfügbarkeit von Funktionen in `v1` (allgemein verfügbar) und `v1beta` (Beta) beschrieben. Die wichtigsten API-Funktionen und ‑Tools gelten sowohl für die Interactions API als auch für `generateContent`, sofern nicht anders angegeben:
 
-| 功能 | v1 | v1beta |
+| Funktion | v1 | v1beta |
 | --- | --- | --- |
-| **核心 API 功能** |  |  |
-| [Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=zh-tw) |  |  |
-| [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw) |  |  |
-| [結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw) |  |  |
-| [思考 / 推論](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw) |  |  |
-| [系統指令](https://ai.google.dev/gemini-api/docs/system-instructions?hl=zh-tw) |  |  |
-| [音訊輸出 (語音設定)](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw) |  |  |
-| [服務層級 (優先 / 彈性)](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-tw) |  |  |
-| **工具** |  |  |
-| [程式碼執行工具](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw) |  |  |
-| [Google 搜尋基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw) |  |  |
-| [Google 地圖基礎](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw) |  |  |
-| [網址背景資訊工具](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw) |  |  |
-| [檔案搜尋工具](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw) |  |  |
-| [電腦使用工具](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw) |  |  |
-| [MCP 伺服器工具](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#mcp) |  |  |
-| **Realtime API** |  |  |
-| [Live API (WebSockets)](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw) |  |  |
-| [Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-tw) |  |  |
-| [臨時權杖 (Live API)](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=zh-tw) |  |  |
-| **平台 API** |  |  |
-| [Models API](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw) |  |  |
-| [檔案服務路徑](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) |  |  |
-| [File Search Stores Route](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw) |  |  |
-| [Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=zh-tw) |  |  |
-| [Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=zh-tw) |  |  |
-| [脈絡快取功能](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw) |  |  |
+| **Wichtige API-Funktionen** |  |  |
+| [Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=de) |  |  |
+| [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de) |  |  |
+| [Strukturierte Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de) |  |  |
+| [Denken / Argumentation](https://ai.google.dev/gemini-api/docs/thinking?hl=de) |  |  |
+| [Systemanweisungen](https://ai.google.dev/gemini-api/docs/system-instructions?hl=de) |  |  |
+| [Audioausgabe (Sprachkonfiguration)](https://ai.google.dev/gemini-api/docs/audio?hl=de) |  |  |
+| [Service Tier (Priority / Flex)](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de) |  |  |
+| **Tools** |  |  |
+| [Tool zur Codeausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de) |  |  |
+| [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) |  |  |
+| [Google Maps-Fundierung](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de) |  |  |
+| [Tool zum URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de) |  |  |
+| [Dateisuchtool](https://ai.google.dev/gemini-api/docs/file-search?hl=de) |  |  |
+| [Tool zur Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de) |  |  |
+| [MCP-Server-Tool](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#mcp) |  |  |
+| **Echtzeit-APIs** |  |  |
+| [Live API (WebSockets)](https://ai.google.dev/gemini-api/docs/live-api?hl=de) |  |  |
+| [Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=de) |  |  |
+| [Einmal-Tokens (Live API)](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=de) |  |  |
+| **Plattform-APIs** |  |  |
+| [Models API](https://ai.google.dev/gemini-api/docs/models?hl=de) |  |  |
+| [Files Service Route](https://ai.google.dev/gemini-api/docs/files?hl=de) (Files-Dienstroute) |  |  |
+| [Dateisuche speichert Route](https://ai.google.dev/gemini-api/docs/file-search?hl=de) |  |  |
+| [Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=de) |  |  |
+| [Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=de) |  |  |
+| [Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) |  |  |
 
-- - 支援
+- – Unterstützt
 
-## 在 SDK 中設定 API 版本
+## API-Version in einem SDK konfigurieren
 
-Gemini API SDK 預設為 `v1beta`，但您可以明確指定版本，方法是設定 API 版本，如下列程式碼範例所示：
+Die Gemini API SDKs verwenden standardmäßig `v1beta`. Sie können jedoch Versionen explizit angeben, indem Sie die API-Version festlegen, wie im folgenden Codebeispiel gezeigt:
 
 ### Python
 
@@ -173,12 +174,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
   }'
 ```
 
-提供意見
+Feedback geben
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-上次更新時間：2026-09-24 (世界標準時間)。
+Zuletzt aktualisiert: 2026-09-24 (UTC).
 
-想進一步說明嗎？
+Haben Sie Feedback für uns?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-24 (世界標準時間)。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-24 (UTC)."],[],[]]

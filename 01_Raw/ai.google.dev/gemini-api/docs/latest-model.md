@@ -1,41 +1,56 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/latest-model?hl=th
-fetched_at: 2026-10-12T06:52:03.483207+00:00
-title: "\u0e21\u0e35\u0e2d\u0e30\u0e44\u0e23\u0e43\u0e2b\u0e21\u0e48\u0e43\u0e19 Gemini 3.8 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/latest-model?hl=it
+fetched_at: 2026-10-19T05:37:46.004118+00:00
+title: "Novit\u00e0 di Gemini 4 Argon \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-ส่งความคิดเห็น
+Invia feedback
 
-# มีอะไรใหม่ใน Gemini 3.8 Flash
+# Novità di Gemini 4 Argon
 
-[3.6 Flash และ 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=th)
-[โมเดลอื่นๆ](#other-models)
+Gemini 4 Argon (`gemini-4-argon`) è il nostro modello più recente e potente. Può ragionare più a lungo su problemi difficili per ottenere risultati migliori in attività complesse di programmazione, agentiche, matematiche e scientifiche. Gemini 4 Argon è disponibile tramite l'API Gemini e in Google AI Studio.
 
-Gemini 3.8 Flash (`gemini-3.8-flash`) พร้อมใช้งานสำหรับผู้ใช้ทั่วไป (GA) และพร้อมใช้งานจริงแล้ว โมเดลนี้เป็นโมเดล Flash ที่ชาญฉลาดที่สุดของเรา ซึ่งออกแบบมาเพื่อวิศวกรรมซอฟต์แวร์ระยะยาว เอเจนต์อัตโนมัติ และเวิร์กโฟลว์ที่ซับซ้อนขององค์กร
+Gemini 4 Argon supporta una finestra contestuale unificata da 1 milione di token, una decodifica lunga fino a 1 milione di token e livelli di ragionamento regolabili (`low`, `medium`, `high`).
 
-คู่มือนี้จะอธิบายสิ่งใหม่ๆ ใน Gemini 3.8 Flash, การเปลี่ยนแปลง API, ตัวอย่างโค้ด และคำแนะนำในการย้ายข้อมูล
+[experiment
 
-## โมเดลใหม่
+Prova in AI Studio
 
-| รุ่น | รหัสโมเดล | ระดับการคิดเริ่มต้น | ราคา | คำอธิบาย |
+Crea app da zero con Gemini 4 Argon e AI Studio.](https://aistudio.google.com/apps?model=gemini-4-argon&hl=it)
+[smart\_toy
+
+Galleria delle applicazioni
+
+App Play e Remix, create con Gemini 4 Argon.](https://aistudio.google.com/learn/gemini-4-argon-showcase?hl=it)
+[rocket\_launch
+
+Inizia
+
+Inizia a utilizzare Gemini 4 Argon con i prompt iniziali.](https://aistudio.google.com/learn/gemini-4-argon?hl=it)
+
+Questa guida spiega le novità di Gemini 4 Argon, le modifiche all'API, gli esempi di codice e le indicazioni per la migrazione.
+
+## Nuovo modello
+
+| Modello | ID modello | Livello di ragionamento predefinito | Prezzi | Descrizione |
 | --- | --- | --- | --- | --- |
-| Gemini 3.8 Flash | `gemini-3.8-flash` | `medium` | 3.8 Flash พร้อมให้บริการจนถึงสิ้นปีในราคาช่วงแนะนำที่ $0.75/โทเค็นอินพุต 1 ล้านโทเค็น และ $3.75/โทเค็นเอาต์พุต 1 ล้านโทเค็น ดูรายละเอียดเพิ่มเติมได้ที่[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th) | โมเดล Flash ที่ชาญฉลาดที่สุดของเรา ซึ่งออกแบบมาเพื่อวิศวกรรมซอฟต์แวร์ในระยะยาว เอเจนต์อัตโนมัติ และเวิร์กโฟลว์ที่ซับซ้อนขององค์กร |
+| Gemini 4 Argon | `gemini-4-argon` | `medium` | Disponibile fino al 30 novembre 2026 al prezzo di lancio di 2 $per milione di token di input e 10 $per milione di token di output (successivamente 4 $ per milione di token di input e 20 $per milione di token di output). Per maggiori dettagli, consulta la pagina dei [prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it). | Il nostro modello più potente, progettato per risolvere i problemi più difficili con profondità e precisione nelle attività di ingegneria del software e di lavoro sulla conoscenza nel mondo reale. |
 
-Gemini 3.8 Flash รองรับหน้าต่างบริบทขนาด 1 ล้านโทเค็น, โทเค็นเอาต์พุตสูงสุด 64, 000 โทเค็น, ระดับการคิดที่ปรับได้ (`low`, `medium`, `high`) และชุดเครื่องมือในตัวที่ครอบคลุมเหมือนเดิม
+Per informazioni dettagliate, consulta la [pagina del modello Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=it). Per i dettagli sui prezzi di lancio, consulta la [sezione Prezzi](#pricing) più avanti in questa pagina o la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
 
-ดูรายละเอียดทั้งหมดได้ที่[หน้าโมเดล Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=th) ดูรายละเอียดราคาช่วงแนะนำได้ที่[ส่วนราคา](#pricing)ด้านล่างหรือ[หน้าราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.8-flash)
+## Guida rapida
 
-## คู่มือเริ่มใช้งานฉบับย่อ
+Utilizza l'esempio seguente per inviare una richiesta a `gemini-4-argon` con il valore predefinito consigliato `thinking_level` (`medium`) e un limite di token di output di 64K:
 
 ### Python
 
@@ -45,8 +60,8 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.8-flash",
-    input="Write a three.js script that renders a realistic 3D black hole."
+    model="gemini-4-argon",
+    input="Write a three.js script that renders a realistic 3D black hole with gravitational lensing."
 )
 
 print(interaction.output_text)
@@ -60,74 +75,11 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.8-flash",
-  input: "Write a three.js script that renders a realistic 3D black hole.",
+  model: "gemini-4-argon",
+  input: "Write a three.js script that renders a realistic 3D black hole with gravitational lensing.",
 });
 
 console.log(interaction.output_text);
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-
-Client client = new Client();
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.8-flash"))
-        .input(
-            InteractionsInput.of(
-                "Write a three.js script that renders a realistic 3D black hole."))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
-        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.8-flash"),
-            Input: interactions.NewInteractionsInput("Write a three.js script that renders a realistic 3D black hole."),
-        }),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Interaction.OutputText != nil {
-        fmt.Println(*res.Interaction.OutputText)
-    }
-}
 ```
 
 ### REST
@@ -138,30 +90,147 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '{
-    "model": "gemini-3.8-flash",
-    "input": "Write a three.js script that renders a realistic 3D black hole."
+    "model": "gemini-4-argon",
+    "input": "Write a three.js script that renders a realistic 3D black hole with gravitational lensing."
   }'
 ```
 
-## มีอะไรใหม่ใน Gemini 3.8 Flash
+## Novità di Gemini 4 Argon
 
-- **วิศวกรรมซอฟต์แวร์ระยะยาว:** ให้ผลลัพธ์ที่ยอดเยี่ยมในเกณฑ์มาตรฐานการเขียนโค้ดในโลกแห่งความเป็นจริง การรีแฟคเตอร์แบบหลายไฟล์ที่ซับซ้อน และการดำเนินการเครื่องมือแบบดีเทอร์มินิสติก ดูรายละเอียดได้ที่[ระเบียบวิธีวิจัยการประเมิน](https://deepmind.google/models/evals-methodology/gemini-3-8-flash/?hl=th)
-- **Agent ที่ทำงานได้ด้วยตนเอง:** ช่วยให้คุณสร้างเวิร์กโฟลว์การวางแผนแบบหลายขั้นตอนและการจัดการเครื่องมือที่ยืดหยุ่น ซึ่งจะช่วยลดลูปและข้อผิดพลาดที่ล้มเหลวได้อย่างมาก
-- **เวิร์กโฟลว์ที่ซับซ้อนขององค์กร:** ให้ความแม่นยำที่เหนือกว่า การให้เหตุผลเชิงลึก และความเข้มงวดด้านข้อเท็จจริงสูงในงานโดเมนที่ซับซ้อนและไปป์ไลน์ข้อมูลขนาดใหญ่
-- **โมเดลเริ่มต้นสำหรับ Agent ที่ได้รับการจัดการ:** Agent เริ่มต้นสำหรับ Agent ที่ได้รับการจัดการ ซึ่งก็คือ [Agent ของ Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th) จะใช้ Gemini 3.8 Flash [Antigravity SDK](https://antigravity.google/docs/sdk/overview/?hl=th) ยังใช้ Gemini 3.8 Flash โดยค่าเริ่มต้นด้วย
-- **ราคาช่วงแนะนำ:** Gemini 3.8 Flash พร้อมให้บริการในราคาช่วงแนะนำที่ $0.75/โทเค็นอินพุต 1 ล้านโทเค็น และ $3.75/โทเค็นเอาต์พุต 1 ล้านโทเค็นจนถึงวันที่ 31 ธันวาคม 2026 ราคามาตรฐานที่ $1.50/โทเค็นขาเข้า 1 ล้านโทเค็นและ $7.50/โทเค็นขาออก 1 ล้านโทเค็นจะมีผลในวันที่ 1 มกราคม 2027
+- **Limite unificato di token di input-output di 1 milione**:input, ragionamento e output condividono una finestra di 1.048.576 token.
+- **Decodifica lunga**:una singola risposta ora può superare i 64.000 token, fino a 1 milione di token meno l'input. Vedi [Decodifica lunga](https://ai.google.dev/gemini-api/docs/long-decode?hl=it).
+- **Comprensione dei video agentica è in disponibilità generale:** la [comprensione dei video agentica](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#agentic-video-understanding) è ora in disponibilità generale.
+- **Supportato in Managed Agents**:l'[agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) in Gemini Managed Agents ora supporta Gemini 4 Argon.
 
-Gemini 3.8 Flash สามารถใช้โทเค็นมากขึ้นในงานที่ซับซ้อนและใช้เวลานานขึ้นได้ตามที่ออกแบบไว้ โมเดลจะใช้ขั้นตอนการให้เหตุผลที่สั้นลง เรียกใช้เครื่องมือซ้ำๆ และตรวจสอบงานระหว่างทางเพื่อให้ได้ผลลัพธ์ที่มีคุณภาพสูงขึ้นสำหรับเป้าหมายที่ซับซ้อนและมีหลายขั้นตอน เวิร์กโฟลว์บางอย่างไม่จำเป็นต้องมีการยืนยันในระดับนี้ สำหรับงานประจำวัน คุณสามารถลดความพยายามในการ[ให้เหตุผล](#understanding-reasoning-levels)เพื่อลดการใช้โทเค็นได้ หรือคุณจะใช้ Gemini 3.6 Flash ต่อไปก็ได้
+Per le specifiche complete, consulta la [pagina del modello Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=it). Per i dettagli sui prezzi, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
 
-## ทำความเข้าใจระดับการให้เหตุผล
+## Output più grande e decodifica lunga
 
-Gemini 3.8 Flash ช่วยให้คุณควบคุมเวลาในการตอบสนองและความชาญฉลาดได้อย่างยืดหยุ่นด้วยการปรับระดับการคิดของโมเดล ดังนี้
+Gemini 4 Argon può pensare più a lungo su problemi difficili di matematica, scienze e programmazione.
 
-- **การประมวลผลความคิดน้อย**: ลดเวลาในการตอบสำหรับงานที่สำคัญต่อเวลาในการตอบสนอง เช่น ไปป์ไลน์การตอบสนองต่อเหตุการณ์ แชทแบบเรียลไทม์ การเขียนฉบับร่าง และการวิเคราะห์ข้อมูลอย่างรวดเร็ว
-- **ปานกลาง (ค่าเริ่มต้น):** คุณภาพดีที่สุดสำหรับงานส่วนใหญ่ แนะนำสำหรับโค้ดที่ซับซ้อนและกรณีการใช้งานแบบเอเจนต์ ซึ่งให้ความแม่นยำในการตรวจสอบครั้งแรกสูงขึ้น
-- **ใช้ความคิดสูง**: เพิ่มความสามารถในการให้เหตุผลและการประสานงานเครื่องมือของโมเดลให้สูงสุด ดีที่สุดสำหรับการให้เหตุผลอย่างลึกซึ้ง คณิตศาสตร์ และงานหลายขั้นตอนที่ซับซ้อน
+- **Utilizza `thinking_level` per controllare la profondità del ragionamento**:il livello di ragionamento determina la profondità del ragionamento del modello prima di rispondere. `max_output_tokens` è un limite rigido: la risposta si interrompe quando il ragionamento e l'output raggiungono questo limite, quindi impostalo su un valore sufficientemente alto da non interrompere la risposta.
+- **Genera fino a 1 milione di token con l'esecuzione in background**:utilizza l'esecuzione in background con `max_output_tokens` maggiore di 65.536 per consentire a una singola risposta di superare i 64.000 token, fino a 1 milione di token. Il modello genera risposte lunghe in hop di massimo 64.000 token e ogni hop continua da dove si è interrotto il precedente. Con l'esecuzione in background, i nostri server eseguono questi hop di continuazione per te. Poiché ogni hop aggiunge un passaggio `model_output` a `interaction.steps`, unisci il testo di tutti i passaggi `model_output` al termine dell'interazione.
 
-ตัวอย่างต่อไปนี้จะตั้งค่า `thinking_level` เป็น `medium` สำหรับคำขอวิเคราะห์โค้ดที่ซับซ้อน
+### Python
+
+```
+import time
+from google import genai
+
+client = genai.Client()
+
+interaction = client.interactions.create(
+    model="gemini-4-argon",
+    input="Write a complete, rigorous proof of the prime number theorem.",
+    background=True,
+    generation_config={
+        "max_output_tokens": 262144,
+        "thinking_level": "high",
+    },
+)
+
+while interaction.status in ("in_progress", "queued"):
+    time.sleep(5)
+    interaction = client.interactions.get(id=interaction.id)
+
+# Each hop adds a model_output step, so join the text of all of them.
+text = "".join(
+    content.text
+    for step in interaction.steps
+    if step.type == "model_output"
+    for content in step.content
+    if content.type == "text"
+)
+print(text)
+print("Status:", interaction.status)
+print("Usage:", interaction.usage)
+```
+
+### JavaScript
+
+```
+import { GoogleGenAI } from "@google/genai";
+
+const client = new GoogleGenAI({});
+
+let interaction = await client.interactions.create({
+  model: "gemini-4-argon",
+  input: "Write a complete, rigorous proof of the prime number theorem.",
+  background: true,
+  generation_config: {
+    max_output_tokens: 262144,
+    thinking_level: "high",
+  },
+});
+
+while (interaction.status === "in_progress" || interaction.status === "queued") {
+  await new Promise((resolve) => setTimeout(resolve, 5000));
+  interaction = await client.interactions.get(interaction.id);
+}
+
+// Each hop adds a model_output step, so join the text of all of them.
+const text = interaction.steps
+  .filter((step) => step.type === "model_output")
+  .flatMap((step) => step.content ?? [])
+  .filter((content) => content.type === "text")
+  .map((content) => content.text)
+  .join("");
+console.log(text);
+console.log("Status:", interaction.status);
+console.log("Usage:", interaction.usage);
+```
+
+### REST
+
+```
+ID=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "gemini-4-argon",
+    "input": "Write a complete, rigorous proof of the prime number theorem.",
+    "background": true,
+    "generation_config": {
+      "max_output_tokens": 262144,
+      "thinking_level": "high"
+    }
+  }' | jq -r '.id')
+
+while true; do
+  RESP=$(curl -s "https://generativelanguage.googleapis.com/v1beta/interactions/$ID" \
+    -H "x-goog-api-key: $GEMINI_API_KEY")
+  STATUS=$(echo "$RESP" | jq -r '.status')
+  if [[ "$STATUS" != "in_progress" && "$STATUS" != "queued" ]]; then
+    echo "$RESP" | jq -r '[.steps[]? | select(.type == "model_output") | .content[]? | select(.type == "text") | .text] | join("")'
+    break
+  fi
+  sleep 5
+done
+```
+
+L'esecuzione in background è il modo più semplice per eseguire una decodifica lunga. Esegue il loop di continuazione lato server finché il modello non termina o non raggiunge `max_output_tokens`. Se hai bisogno di un controllo più granulare su nuovi tentativi, backoff e gestione degli errori (o se non vuoi che le tue interazioni vengano archiviate), puoi utilizzare la continuazione lato client nell'[API GenerateContent](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it). A breve sarà disponibile anche la continuazione lato client per l'API Interactions. Per lo streaming, la riconnessione, il conteggio dei token e quando utilizzare la decodifica lunga, consulta la [guida alla decodifica lunga](https://ai.google.dev/gemini-api/docs/long-decode?hl=it).
+
+### Impostazione dei limiti dei token di output
+
+`max_output_tokens` imposta i token di pensiero e di output totali per una risposta. Impostalo su un valore abbastanza alto da consentire al modello di pensare senza interrompere la risposta e abbastanza basso da limitare la spesa quando un prompt difficile utilizza tutto il budget.
+
+Utilizza questi valori come punto di partenza:
+
+- **Attività standard:** mantieni il valore predefinito di 65.536 o non impostare alcun valore.
+- **App esistenti con un limite inferiore a 32.000**:aumenta `max_output_tokens` ad almeno 32.768. Gemini 4 Argon può dedicare più tempo al ragionamento rispetto ai modelli precedenti. Per utilizzare meno token, abbassa il livello di ragionamento.
+- **Ragionamento e programmazione complessi**:imposta `background: true` e `max_output_tokens` su 131.072 o 262.144, fino a 1.048.576 meno i token di input.
+
+## Informazioni sui livelli di ragionamento
+
+Il [livello di ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it) è il tuo controllo principale su qualità, latenza e utilizzo dei token in Gemini 4 Argon:
+
+| Livello di pensiero | Utilizzo dei token | Quando utilizzarle |
+| --- | --- | --- |
+| `low` | Minor numero di token, latenza più bassa | Attività più semplici e lavoro sensibile ai costi. Funziona anche per attività di analisi e scrittura che richiedono un ragionamento semplice. La qualità può diminuire per le attività difficili. |
+| `medium` (valore predefinito) | Bilanciato | Consigliato per la maggior parte delle attività, tra cui codice complesso e casi d'uso agentici. |
+| `high` | Maggior numero di token, primo token più lento | Ragionamento complesso, matematica e scienze avanzate e le attività di programmazione o degli agenti più difficili. Si abbina bene alla decodifica lunga per output lunghi. |
+
+Esegui le valutazioni a tutti e tre i livelli, quindi scegli il livello più basso che soddisfa i tuoi standard di qualità. Per saperne di più, consulta la [guida al ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
 
 ### Python
 
@@ -171,7 +240,7 @@ from google import genai
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.8-flash",
+    model="gemini-4-argon",
     input="Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
     generation_config={
         "thinking_level": "medium"  # Balanced reasoning effort for complex tasks
@@ -189,86 +258,14 @@ import { GoogleGenAI } from "@google/genai";
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.8-flash",
+  model: "gemini-4-argon",
   input: "Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
   generation_config: {
-    thinking_level: "medium"
-  }
+    thinking_level: "medium", // Balanced reasoning effort for complex tasks
+  },
 });
 
 console.log(interaction.output_text);
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.CreateModelInteraction;
-import com.google.genai.gaos.models.interactions.GenerationConfig;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.interactions.Model;
-import com.google.genai.gaos.models.interactions.ThinkingLevel;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-
-Client client = new Client();
-
-CreateModelInteraction params =
-    CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.8-flash"))
-        .input(
-            InteractionsInput.of(
-                "Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely."))
-        .generationConfig(
-            GenerationConfig.builder()
-                .thinkingLevel(ThinkingLevel.MEDIUM) // Balanced reasoning effort for complex tasks
-                .build())
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
-        Body: operations.NewCreateInteractionRequestBody(interactions.CreateModelInteraction{
-            Model: interactions.Model("gemini-3.8-flash"),
-            Input: interactions.NewInteractionsInput("Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely."),
-            GenerationConfig: &interactions.GenerationConfig{
-                ThinkingLevel: interactions.ThinkingLevelMedium.ToPointer(), // Balanced reasoning effort for complex tasks
-            },
-        }),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Interaction.OutputText != nil {
-        fmt.Println(*res.Interaction.OutputText)
-    }
-}
 ```
 
 ### REST
@@ -279,7 +276,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H 'Content-Type: application/json' \
   -X POST \
   -d '{
-    "model": "gemini-3.8-flash",
+    "model": "gemini-4-argon",
     "input": "Analyze this payment processing pipeline for race conditions during retry attempts and rewrite the transaction locks safely.",
     "generation_config": {
       "thinking_level": "medium"
@@ -287,9 +284,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## อัปเดต Agent ของ Antigravity
+## Gemini 4 Argon in Managed Agents
 
-เนื่องจากประสิทธิภาพและการให้เหตุผลที่ดียิ่งขึ้น ตอนนี้เราจึงสร้าง[เอเจนต์ Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th) ใน Gemini Managed Agents ด้วย Gemini 3.8 Flash โดยค่าเริ่มต้น
+L'[agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) in Gemini Managed Agents supporta Gemini 4 Argon. Per utilizzarlo, imposta il modello in `agent_config`:
 
 ### Python
 
@@ -307,6 +304,10 @@ interaction = client.interactions.create(
         "Format the output as a side-by-side scorecard table with prioritized fixes."
     ),
     environment="remote",
+    agent_config={
+        "type": "antigravity",
+        "model": "gemini-4-argon",
+    },
 )
 
 print(interaction.output_text)
@@ -321,142 +322,86 @@ const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
   agent: "antigravity-preview-09-2026",
-  input: "Audit https://web.dev for performance, Core Web Vitals, and SEO. Query Google's PageSpeed Insights API for both Mobile and Desktop strategies. Check search indexing with Google Search for site:web.dev. Format the output as a side-by-side scorecard table with prioritized fixes.",
+  input:
+    "Audit https://web.dev for performance, Core Web Vitals, and SEO. " +
+    "Query Google's PageSpeed Insights API for both Mobile and Desktop strategies. " +
+    "Check search indexing with Google Search for site:web.dev. " +
+    "Format the output as a side-by-side scorecard table with prioritized fixes.",
   environment: "remote",
+  agent_config: {
+    type: "antigravity",
+    model: "gemini-4-argon",
+  },
 }, { timeout: 300000 });
 
 console.log(interaction.output_text);
-```
-
-### Java
-
-```
-import com.google.genai.Client;
-import com.google.genai.gaos.models.interactions.AgentOption;
-import com.google.genai.gaos.models.interactions.CreateAgentInteraction;
-import com.google.genai.gaos.models.interactions.CreateAgentInteractionEnvironment;
-import com.google.genai.gaos.models.interactions.Interaction;
-import com.google.genai.gaos.models.interactions.InteractionsInput;
-import com.google.genai.gaos.models.operations.CreateInteractionRequestBody;
-
-Client client = new Client();
-
-CreateAgentInteraction params =
-    CreateAgentInteraction.builder()
-        .agent(AgentOption.of("antigravity-preview-09-2026"))
-        .input(
-            InteractionsInput.of(
-                "Audit https://web.dev for performance, Core Web Vitals, and SEO. "
-                    + "Query Google's PageSpeed Insights API for both Mobile and Desktop strategies. "
-                    + "Check search indexing with Google Search for site:web.dev. "
-                    + "Format the output as a side-by-side scorecard table with prioritized fixes."))
-        .environment(CreateAgentInteractionEnvironment.of("remote"))
-        .build();
-
-Interaction interaction =
-    client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
-
-System.out.println(interaction.outputText().orElse(""));
-```
-
-### Go
-
-```
-package main
-
-import (
-    "context"
-    "fmt"
-    "log"
-
-    "google.golang.org/genai"
-    "google.golang.org/genai/interactions/models/interactions"
-    "google.golang.org/genai/interactions/models/operations"
-)
-
-func main() {
-    ctx := context.Background()
-    client, err := genai.NewClient(ctx, nil)
-    if err != nil {
-        log.Fatal(err)
-    }
-
-    res, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
-        Body: operations.NewCreateInteractionRequestBody(interactions.CreateAgentInteraction{
-            Agent: interactions.AgentOption("antigravity-preview-09-2026"),
-            Input: interactions.NewInteractionsInput(
-                "Audit https://web.dev for performance, Core Web Vitals, and SEO. " +
-                    "Query Google's PageSpeed Insights API for both Mobile and Desktop strategies. " +
-                    "Check search indexing with Google Search for site:web.dev. " +
-                    "Format the output as a side-by-side scorecard table with prioritized fixes.",
-            ),
-            Environment: genai.Ptr(interactions.NewCreateAgentInteractionEnvironment("remote")),
-        }),
-    })
-    if err != nil {
-        log.Fatal(err)
-    }
-    if res.Interaction.OutputText != nil {
-        fmt.Println(*res.Interaction.OutputText)
-    }
-}
 ```
 
 ### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
--H "Content-Type: application/json" \
--H "x-goog-api-key: $GEMINI_API_KEY" \
--d '{
+  -H "Content-Type: application/json" \
+  -H "x-goog-api-key: $GEMINI_API_KEY" \
+  -d '{
     "agent": "antigravity-preview-09-2026",
     "input": "Audit https://web.dev for performance, Core Web Vitals, and SEO. Query Google'\''s PageSpeed Insights API for both Mobile and Desktop strategies. Check search indexing with Google Search for site:web.dev. Format the output as a side-by-side scorecard table with prioritized fixes.",
-    "environment": "remote"
-}'
+    "environment": "remote",
+    "agent_config": {
+      "type": "antigravity",
+      "model": "gemini-4-argon"
+    }
+  }'
 ```
 
-[กำหนดค่า](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th#model-selection)โมเดล Gemini พื้นฐานได้โดยใช้ `agent_config`
+Per altre opzioni, consulta la sezione sulla [selezione del modello](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it#model-selection) nella guida dell'agente Antigravity.
 
-## รายการตรวจสอบการย้ายข้อมูล
+## Elenco di controllo per la migrazione
 
 ```
-  `/gemini-api-dev migrate my app to Gemini 3.8 Flash`
+  `/gemini-api-dev migrate my app to Gemini 4 Argon`
 ```
 
-### ย้ายข้อมูลไปยัง gemini-3.8-flash
+### Esegui la migrazione a gemini-4-argon
 
-- **อัปเดตรหัสโมเดล:** เปลี่ยนสตริงโมเดลเป้าหมายเป็น `gemini-3.8-flash`
-- **กำหนดค่าระดับการคิด:** แทนที่ `thinking_budget` ด้วยสตริง enum `thinking_level` โปรดทราบว่า Gemini 3.8 Flash ไม่รองรับ `minimal` ให้เลือก `low`, `medium` (ค่าเริ่มต้น) หรือ `high`
-- **ใช้การเปลี่ยนแปลงพารามิเตอร์ API ของ Gemini 3:** นำพารามิเตอร์การสุ่มตัวอย่างที่เลิกใช้งานแล้ว (`temperature`, `top_p`, `top_k`), `candidate_count` (ไม่รองรับใน Gemini 3 ขึ้นไป) และเทิร์นของโมเดลที่เติมไว้ล่วงหน้าออก ดู[การเปลี่ยนแปลงใน Gemini 3.6 API และการอัปเดตพารามิเตอร์](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=th#api-changes-and-parameter-updates)
-- **บังคับใช้กฎการตรวจสอบรอบการสนทนา:** สร้างมาตรฐานการสนทนาไปมาใน `previous_interaction_id` ฝั่งเซิร์ฟเวอร์ และนำรอบการสนทนาของโมเดลที่กรอกข้อมูลไว้ล่วงหน้าออก
-- **การตรวจสอบการเรียกใช้ฟังก์ชัน:**
-  - วางชิ้นงานมัลติโมดอลไว้ในเพย์โหลดการตอบกลับ
-  - จัดรูปแบบวิธีการในบรรทัดโดยใช้ `\n\n`
-  - หากเห็น`Malformed_Function_Call`ข้อผิดพลาดที่เชื่อมโยงกับข้อความก่อนเครื่องมือ โปรดดู[วิธีแก้ปัญหาข้อกำหนดของข้อความก่อนเครื่องมือ](https://ai.google.dev/gemini-api/docs/function-calling?hl=th#workarounds-for-pre-tool-text-requirements)
-  - เฉพาะในกรณีที่ใช้ GenerateContent API: ตรวจสอบว่าออบเจ็กต์ `FunctionResponse` ทั้งหมดมี `call_id` และ `name`
-- **ข้อกำหนดพื้นฐานของ Gemini 3:** ดูการอัปเดต SDK และการรักษาลายเซ็นความคิดได้ที่[ลายเซ็นความคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th#signatures)
+- **Aggiorna l'ID modello**:modifica la stringa del modello di destinazione in `gemini-4-argon`.
+- **Esamina `max_output_tokens`**:se la imposti esplicitamente oggi, valuta la possibilità di aumentarla. Consigliamo almeno 32.768, poiché Gemini 4 Argon può utilizzare una parte maggiore del limite per il ragionamento.
+- **Configura il livello di ragionamento:** scegli `low`, `medium` (predefinito) o `high` e testa il tuo workload con tutti e tre.
+- **Abbandona la memorizzazione nella cache del contesto esplicita:** la memorizzazione nella cache esplicita (`cachedContents` / `caches.create`) non è supportata su Gemini 4 Argon. Rimuovi dalle richieste le chiamate che creano o fanno riferimento a `cached_content`. La [memorizzazione nella cache implicita](https://ai.google.dev/gemini-api/docs/caching?hl=it) è abilitata per impostazione predefinita per i prompt di almeno 4096 token e sconta del 95% i token di input memorizzati nella cache in caso di successo della cache.
+- **Rimuovi i parametri di campionamento**:rimuovi `temperature`, `top_p` e `top_k` dalle richieste. Se vengono forniti, vengono ignorati.
+- **Utilizza l'esecuzione in background per output lunghi:** per le attività che richiedono più di 64.000 token, imposta `background` su true e `max_output_tokens` su un valore superiore a 65.536.
+- **Aumenta i timeout del client:** i prompt hard possono richiedere diversi minuti. Utilizza l'esecuzione in background o imposta i timeout del client HTTP su almeno 15 minuti.
+- **Mantieni lo stato della conversazione sul server**:utilizza `previous_interaction_id` per le conversazioni multi-turno e con chiamate di funzione.
 
-## ราคา
+## Prezzi
 
-ใช้ประโยชน์จากราคาช่วงแนะนำใน Google AI Studio และแพลตฟอร์ม Agent ของ Gemini Enterprise จนถึงวันที่ 31 ธันวาคม 2026 สำหรับ Gemini 3.8 Flash และ Gemini 3.6 Flash ราคามาตรฐานจะมีผลในวันที่ 1 มกราคม 2027 ดูระดับราคาทั้งหมดได้ที่[หน้าราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.8-flash)
+Gemini 4 Argon è disponibile a un prezzo di lancio fino al 30 novembre 2026:
 
-## รุ่นอื่นๆ
+- **Token di input:** 2,00 $per 1 milione di token (4,00 $ a partire dal 1° dicembre 2026)
+  - **Token di input memorizzati nella cache:** la memorizzazione nella cache implicita sconta del 95% l'input memorizzato nella cache, portandolo a 0,10 $per 1 milione di token (0,20 $ a partire dal 1° dicembre 2026).
+- **Token di output, inclusi i token di ragionamento:** 10,00 $per 1 milione di token (20,00 $ a partire dal 1° dicembre 2026)
 
-- [Gemini 3.6 Flash และ 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=th)
-- [ดูโมเดลทั้งหมด](https://ai.google.dev/gemini-api/docs/models?hl=th)
+Gemini 4 Argon non è disponibile nel livello senza costi. Per i livelli di prezzo completi, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
 
-## ขั้นตอนถัดไป
+## Altri modelli
 
-- ดูข้อกำหนดของ API ได้ที่[ภาพรวมของโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)
-- สํารวจการประสานงานแบบหลายเอเจนต์ใน[ภาพรวมของ Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
-- ทดสอบและปรับแต่งพรอมต์ใน [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=it)
+- [Gemini 3.6 Flash e 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=it)
+- [Visualizza tutti i modelli](https://ai.google.dev/gemini-api/docs/models?hl=it)
 
-ส่งความคิดเห็น
+## Passaggi successivi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+- Leggi la [guida alla decodifica lunga](https://ai.google.dev/gemini-api/docs/long-decode?hl=it) per lo streaming, la riconnessione e il conteggio dei token.
+- Scopri come funzionano i livelli di ragionamento e i riepiloghi dei ragionamenti nella [guida al ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+- Scopri di più sui job a lunga esecuzione nella [guida all'esecuzione in background](https://ai.google.dev/gemini-api/docs/background-execution?hl=it).
+- Testa e perfeziona i prompt in [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-อัปเดตล่าสุด 2026-10-09 UTC
+Invia feedback
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-09 UTC"],[],[]]
+Ultimo aggiornamento 2026-10-16 UTC.
+
+Vuoi dirci altro?
+
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-16 UTC."],[],[]]

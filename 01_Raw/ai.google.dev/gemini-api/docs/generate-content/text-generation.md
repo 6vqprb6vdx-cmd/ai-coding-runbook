@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=sq
-fetched_at: 2026-10-12T06:47:43.256717+00:00
-title: "Gjenerimi i tekstit \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=es-419
+fetched_at: 2026-10-19T05:36:30.605139+00:00
+title: "Generaci\u00f3n de texto \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash është tani në dispozicion. [Provojeni](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=sq) .
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs/generate-content?hl=sq)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
 
-Dërgo komente
+Enviar comentarios
 
-# Gjenerimi i tekstit
+# Generación de texto
 
-Gemini API mund të gjenerojë dalje me tekst nga hyrjet me tekst, imazhe, video dhe audio.
+La API de Gemini puede generar texto a partir de texto, imágenes, video y audio.
 
-Këtu është një shembull bazë:
+Este es un ejemplo básico:
 
 ### Python
 
@@ -105,7 +105,7 @@ public class GenerateContentWithTextInput {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -125,7 +125,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -160,12 +160,13 @@ function main() {
 }
 ```
 
-## Po mendon me Gemini
+## Pensar con Gemini
 
-Modelet e Gemini shpesh kanë të aktivizuar si parazgjedhje ["arsyetimin"](https://ai.google.dev/gemini-api/docs/thinking?hl=sq), i cili e lejon modelin të arsyetojë para se t'i përgjigjet një kërkese.
+Los modelos de Gemini suelen tener habilitada la función ["pensar"](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419) de forma predeterminada
+lo que les permite razonar antes de responder a una solicitud.
 
-Çdo model mbështet konfigurime të ndryshme të të menduarit, gjë që të jep kontroll mbi koston, vonesën dhe inteligjencën. Për më shumë detaje, shiko
-[udhëzuesin e të menduarit](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=sq#set-budget).
+Cada modelo admite diferentes configuraciones de pensamiento, lo que te brinda control sobre el costo, la latencia y la inteligencia. Para obtener más detalles, consulta la
+[guía de pensamiento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=es-419#set-budget).
 
 ### Python
 
@@ -272,7 +273,7 @@ public class GenerateContentWithThinkingConfig {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -297,7 +298,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -337,9 +338,11 @@ function main() {
 }
 ```
 
-## Udhëzimet e sistemit dhe konfigurimet e tjera
+## Instrucciones del sistema y otras configuraciones
 
-Mund të udhëzosh sjelljen e modeleve të Gemini me udhëzimet e sistemit. Për ta bërë këtë, kalo një objekt [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig)
+Puedes guiar el comportamiento de los modelos de Gemini con instrucciones del sistema. Para ello,
+pasa un [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+objeto.
 
 ### Python
 
@@ -443,7 +446,7 @@ public class GenerateContentWithSystemInstruction {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -469,7 +472,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -511,9 +514,9 @@ function main() {
 }
 ```
 
-Objekti [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig)
-të lejon gjithashtu të zëvendësosh parametrat e parazgjedhur të gjenerimit, si p.sh.
-[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig).
+El [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+objeto también te permite anular los parámetros de generación predeterminados, como
+[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig) o [`thinking_config`](https://ai.google.dev/api/generate-content?hl=es-419#ThinkingConfig).
 
 ### Python
 
@@ -612,7 +615,7 @@ public class GenerateContentWithConfig {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent \
@@ -638,7 +641,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ge
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -648,7 +651,7 @@ const apiKey = PropertiesService.getScriptProperties().getProperty('GEMINI_API_K
 function main() {
   const generationConfig = {
     maxOutputTokens: 1000,
-    responseFormat: { text: { mimeType: "text/plain" } },
+    responseFormat: { text: { mimeType: "TEXT_PLAIN" } },
   };
 
   const payload = {
@@ -679,13 +682,13 @@ function main() {
 }
 ```
 
-Referoju [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerationConfig)
-në referencën tonë të API-së për një listë të plotë të parametrave të konfigurueshëm dhe
-përshkrimet e tyre.
+Consulta [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerationConfig)
+en nuestra referencia de la API para obtener una lista completa de los parámetros configurables y sus
+descripciones.
 
-## Hyrjet multimodale
+## Entradas multimodales
 
-API-ja e Gemini mbështet hyrjet multimodale, duke të të lejuar që të kombinosh tekstin me skedarët e mediave. Shembulli i mëposhtëm demonstron dhënien e një imazhi:
+La API de Gemini admite entradas multimodales, lo que te permite combinar texto con archivos multimedia. En el siguiente ejemplo, se muestra cómo proporcionar una imagen:
 
 ### Python
 
@@ -807,7 +810,7 @@ public class GenerateContentWithMultiModalInputs {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 # Use a temporary file to hold the base64 encoded image data
@@ -846,7 +849,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   -d "@$TEMP_JSON"
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -893,19 +896,19 @@ function getImageData(url) {
 }
 ```
 
-Për metoda alternative për të ofruar imazhe dhe për përpunim më të avancuar të imazheve,
-shiko [udhëzuesin tonë për kuptimin e imazheve](https://ai.google.dev/gemini-api/docs/image-understanding?hl=sq).
-API-ja mbështet gjithashtu hyrjet dhe të kuptuarit e [dokumenteve](https://ai.google.dev/gemini-api/docs/document-processing?hl=sq),
-[videove](https://ai.google.dev/gemini-api/docs/video-understanding?hl=sq) dhe
-[audios](https://ai.google.dev/gemini-api/docs/audio?hl=sq).
+Para obtener métodos alternativos para proporcionar imágenes y un procesamiento de imágenes más avanzado,
+consulta nuestra [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
+La API también admite la comprensión y las entradas de [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419),
+[videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419), y
+[audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419).
 
-## Përgjigjet e transmetuara
+## Respuestas de transmisión
 
-Si parazgjedhje, modeli kthen një përgjigje vetëm pasi të ketë përfunduar i gjithë procesi i gjenerimit.
+De forma predeterminada, el modelo devuelve una respuesta solo después de que se completa todo el proceso de generación.
 
-Për ndërveprime më të rrjedhshme, përdor transmetimin për të marrë
-[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerateContentResponse)
-shembuj në mënyrë shtesë ndërsa gjenerohen.
+Para obtener interacciones más fluidas, usa la transmisión para recibir
+[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse)
+instancias de forma incremental a medida que se generan.
 
 ### Python
 
@@ -1004,7 +1007,7 @@ public class GenerateContentStream {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse" \
@@ -1024,7 +1027,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:s
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1059,9 +1062,9 @@ function main() {
 }
 ```
 
-## Bisedat me shumë kthesa (biseda)
+## Conversaciones de varios turnos (chat)
 
-SDK-të tona ofrojnë funksionalitetin për të mbledhur disa raunde kërkesash dhe përgjigjesh në një bisedë, duke të të dhënë një mënyrë të lehtë për të mbajtur nën kontroll historikun e bisedës.
+Nuestros SDKs proporcionan funcionalidad para recopilar varias rondas de instrucciones y respuestas en un chat, lo que te brinda una manera sencilla de hacer un seguimiento del historial de conversaciones.
 
 ### Python
 
@@ -1184,7 +1187,7 @@ public class MultiTurnConversation {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent \
@@ -1221,7 +1224,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ge
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1269,7 +1272,7 @@ function main() {
 }
 ```
 
-Transmetimi mund të përdoret gjithashtu për biseda me shumë kthesa.
+La transmisión también se puede usar para conversaciones de varios turnos.
 
 ### Python
 
@@ -1403,7 +1406,7 @@ public class MultiTurnConversationWithStreaming {
 }
 ```
 
-### QETËSI
+### REST
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse \
@@ -1440,7 +1443,7 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:st
   }'
 ```
 
-### Skripti i aplikacioneve
+### Apps Script
 
 ```
 // See https://developers.google.com/apps-script/guides/properties
@@ -1488,45 +1491,46 @@ function main() {
 }
 ```
 
-## Këshilla për kërkesat
+## Sugerencias para escribir instrucciones
 
-Konsulto [udhëzuesin tonë për hartimin e kërkesave](https://ai.google.dev/gemini/docs/prompting-strategies?hl=sq) për sugjerime për të përfituar sa më shumë nga Gemini.
+Consulta nuestra [guía de ingeniería de instrucciones](https://ai.google.dev/gemini/docs/prompting-strategies?hl=es-419) para
+obtener sugerencias sobre cómo aprovechar al máximo Gemini.
 
-## Çfarë ka më pas
+## ¿Qué sigue?
 
-- Provo [Gemini në Google AI Studio](https://aistudio.google.com?hl=sq).
-- Eksperimento me [daljet e strukturuara](https://ai.google.dev/gemini-api/docs/structured-output?hl=sq) për përgjigje të ngjashme me JSON.
-- Eksploro aftësitë e Gemini për të kuptuar [imazhet](https://ai.google.dev/gemini-api/docs/image-understanding?hl=sq),
-  [videot](https://ai.google.dev/gemini-api/docs/video-understanding?hl=sq), [audion](https://ai.google.dev/gemini-api/docs/audio?hl=sq)
-  dhe [dokumentet](https://ai.google.dev/gemini-api/docs/document-processing?hl=sq).
-- Mëso rreth
-  [strategjive të kërkesave për skedarë](https://ai.google.dev/gemini-api/docs/files?hl=sq#prompt-guide) multimodalë.
+- Prueba [Gemini en Google AI Studio](https://aistudio.google.com?hl=es-419).
+- Experimenta con [resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419) para
+  obtener respuestas similares a JSON.
+- Explora las capacidades de comprensión de [imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419),
+  [videos](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419), [audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
+  y [documentos](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419) de Gemini.
+- Obtén información sobre las estrategias de instrucciones de archivos multimodales
+  .
 
-## Gjenerimi i përmbajtjes
+## Generación de contenido
 
-Kjo është pika përfundimtare qendrore për dërgimin e kërkesave te modeli. Ka dy pika fundore për gjenerimin e përmbajtjeve. Ndryshimi kryesor është mënyra se si e merr përgjigjen:
+Este es el extremo central para enviar instrucciones al modelo. Existen dos extremos para generar contenido. La diferencia clave es cómo recibes la respuesta:
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=sq#method:-models.generatecontent)
-  (REST)**:
-  Merr një kërkesë dhe ofron një përgjigje të vetme pasi modeli ka përfunduar gjenerimin e tij të plotë.
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=sq#method:-models.streamgeneratecontent)
-  (SSE)**: Merr të njëjtën kërkesë, por modeli transmeton përsëri pjesë të përgjigjes ndërsa ato gjenerohen. Kjo ofron një përvojë më të mirë për përdoruesit për aplikacionet interaktive pasi të lejon të shfaqësh menjëherë rezultate të pjesshme.
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=es-419#method:-models.generatecontent)
+  (REST)**: Recibe una solicitud y proporciona una sola respuesta después de que el modelo termina toda su generación.
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=es-419#method:-models.streamgeneratecontent)
+  (SSE)**: Recibe exactamente la misma solicitud, pero el modelo transmite fragmentos de la respuesta a medida que se generan. Esto proporciona una mejor experiencia del usuario para las aplicaciones interactivas, ya que te permite mostrar resultados parciales de inmediato.
 
-### Struktura e trupit të kërkesës
+### Estructura del cuerpo de la solicitud
 
-[Trupi i kërkesës](https://ai.google.dev/api/generate-content?hl=sq#request-body) është një objekt JSON që është
-**identik** për modalitetet standard dhe të transmetimit dhe është ndërtuar nga disa objekte
-themelore:
+El [cuerpo de la solicitud](https://ai.google.dev/api/generate-content?hl=es-419#request-body) es un objeto JSON que es
+**idéntico** para los modos estándar y de transmisión, y se compila a partir de algunos objetos principales:
 
-- Objekti [`Content`](https://ai.google.dev/api/caching?hl=sq#Content): Përfaqëson një kthesë të vetme në një bisedë.
-- Objekti [`Part`](https://ai.google.dev/api/caching?hl=sq#Part): Një pjesë e të dhënave brenda një kthese të `Content`
-  (si teksti ose një imazh).
-- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=sq#Blob)): Një kontejner për bajtet e medias së papërpunuar
-  dhe llojin e tyre MIME.
+- [`Content`](https://ai.google.dev/api/caching?hl=es-419#Content) objeto: Representa un solo turno en una
+  conversación.
+- [`Part`](https://ai.google.dev/api/caching?hl=es-419#Part) objeto: Es una parte de los datos dentro de un turno `Content`
+  (como texto o una imagen).
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=es-419#Blob)): Es un contenedor para bytes multimedia sin procesar
+  y su tipo de MIME.
 
-Në nivelin më të lartë, trupi i kërkesës përmban një objekt `contents`, i cili është një listë e objekteve `Content`, secili prej të cilëve përfaqëson radhët në bisedë. Në shumicën e rasteve, për gjenerimin bazë të tekstit, do të kesh një objekt të vetëm `Content`, por nëse dëshiron të mbash historikun e bisedave, mund të përdorësh disa objekte `Content`.
+En el nivel más alto, el cuerpo de la solicitud contiene un objeto `contents`, que es una lista de objetos `Content`, cada uno de los cuales representa turnos en la conversación. En la mayoría de los casos, para la generación de texto básica, tendrás un solo objeto `Content`, pero, si deseas mantener el historial de conversaciones, puedes usar varios objetos `Content`.
 
-Më poshtë tregohet një trup tipik i kërkesës `generateContent`:
+A continuación, se muestra un cuerpo de solicitud `generateContent` típico:
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1551,24 +1555,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Struktura e trupit të përgjigjes
+### Estructura del cuerpo de la respuesta
 
-[Trupi i përgjigjes](https://ai.google.dev/api/generate-content?hl=sq#response-body) është i ngjashëm për të dyja modalitetet e transmetimit dhe standarde, përveç sa më poshtë:
+El [cuerpo de la respuesta](https://ai.google.dev/api/generate-content?hl=es-419#response-body) es similar para ambos
+los modos de transmisión y estándar, excepto por lo siguiente:
 
-- Modaliteti standard: Trupi i përgjigjes përmban një shembull të
-  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerateContentResponse).
-- Modaliteti i transmetimit: Trupi i përgjigjes përmban një transmetim të
-  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=sq#v1beta.GenerateContentResponse)
-  rasteve.
+- Modo estándar: El cuerpo de la respuesta contiene una instancia de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse).
+- Modo de transmisión: El cuerpo de la respuesta contiene un flujo de
+  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#v1beta.GenerateContentResponse)
+  instancias.
 
-Në nivel të lartë, trupi i përgjigjes përmban një objekt `candidates`, i cili është një listë e objekteve `Candidate`. Objekti `Candidate` përfshin një objekt `Content`
-që ka përgjigjen e gjeneruar të kthyer nga modeli.
+En un nivel alto, el cuerpo de la respuesta contiene un objeto `candidates`, que es una lista de objetos `Candidate`. El objeto `Candidate` contiene un objeto `Content` que tiene la respuesta generada que muestra el modelo.
 
-## Shembuj të REST API
+## Ejemplos de la API de REST
 
-### Kërkesë multimodale (tekst dhe imazh)
+### Instrucción multimodal (texto e imagen)
 
-Për të ofruar tekst dhe një imazh në një kërkesë, vargu `parts` duhet të përmbajë dy objekte `Part`: një për tekstin dhe një për imazhin `inline_data`.
+Para proporcionar texto y una imagen en una instrucción, el array `parts` debe contener dos objetos `Part`: uno para el texto y otro para la imagen `inline_data`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1590,11 +1594,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Bisedat me shumë kthesa (biseda)
+### Conversaciones de varios turnos (chat)
 
-Për të ndërtuar një bisedë me shumë kthesa, ti përcakton një grup `contents` me shumë objekte `Content`. API-ja do ta përdorë të gjithë këtë historik si kontekst
-për përgjigjen e radhës. `role` për çdo objekt `Content` duhet të alternohet
-midis `user` dhe `model`.
+Para crear una conversación con varios turnos, define el array `contents` con varios objetos `Content`. La API usará todo este historial como contexto para la siguiente respuesta. El `role` de cada objeto `Content` debe alternar entre `user` y `model`.
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1625,27 +1627,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### Pikat kryesore
+### Conclusiones principales
 
-- `Content` është zarfi: Është kontejneri i nivelit të lartë për një kthesë të mesazhit, pavarësisht nëse është nga përdoruesi apo modeli.
-- `Part` mundëson modalitetin e shumëfishtë: Përdor disa objekte të `Part` brenda një objekti të vetëm të `Content` për të kombinuar lloje të ndryshme të dhënash (tekst, imazh, URI videoje etj.).
-- Zgjidh metodën tënde të të dhënave:
-  - Për media të vogla të integruara drejtpërdrejt (si shumica e imazheve), përdor një `Part` me
-    `inline_data`.
-  - Për skedarë më të mëdhenj ose skedarë që dëshiron të ripërdorësh nëpër kërkesa, përdor File API për të ngarkuar skedarin dhe referoju atij me një pjesë `file_data`.
-- Menaxho historikun e bisedave: Për aplikacionet e bisedës që përdorin API-në REST, krijo
-  masivin `contents` duke shtuar objekte `Content` për çdo radhë,
-  duke alternuar rolet e `"user"` dhe `"model"`. Nëse po përdor një SDK, referoju dokumentacionit të SDK-së për mënyrën e rekomanduar për të menaxhuar historikun e bisedave.
+- `Content` es el sobre: Es el contenedor de nivel superior para un turno de mensaje, ya sea del usuario o del modelo.
+- `Part` habilita la multimodalidad: Usa varios objetos `Part` dentro de un solo objeto `Content` para combinar diferentes tipos de datos (texto, imagen, URI de video, etcétera).
+- Elige tu método de datos:
+  - Para medios pequeños y directamente incorporados (como la mayoría de las imágenes), usa un `Part` con `inline_data`.
+  - Para archivos más grandes o que quieras reutilizar en las solicitudes, usa la API de File para subir el archivo y hacer referencia a él con una parte `file_data`.
+- Administra el historial de conversaciones: Para las aplicaciones de chat que usan la API de REST, compila
+  el `contents` array agregando `Content` objetos para cada turno,
+  alternando entre `"user"` y `"model"` funciones. Si usas un SDK, consulta la documentación del SDK para conocer la forma recomendada de administrar el historial de conversaciones.
 
-## Shembuj të përgjigjeve
+## Ejemplos de respuestas
 
-Shembujt e mëposhtëm tregojnë se si këta komponentë bashkohen për lloje të ndryshme kërkesash.
+En los siguientes ejemplos, se muestra cómo se unen estos componentes para diferentes tipos de solicitudes.
 
-### Përgjigje vetëm me tekst
+### Respuesta de solo texto
 
-Një përgjigje e parazgjedhur me tekst përbëhet nga një matricë `candidates` me një ose më shumë objekte `content` që përmbajnë përgjigjen e modelit.
+Una respuesta de texto predeterminada consta de un array `candidates` con uno o más objetos `content` que contienen la respuesta del modelo.
 
-Më poshtë është një shembull i një përgjigjeje **standarde**:
+A continuación, se muestra un ejemplo de una respuesta **estándar**:
 
 ```
 {
@@ -1666,8 +1667,7 @@ Më poshtë është një shembull i një përgjigjeje **standarde**:
 }
 ```
 
-Në vijim është një seri përgjigjesh **me transmetim**. Çdo përgjigje përmban një
-`responseId` që i lidh të gjitha përgjigjet së bashku:
+La siguiente es una serie de respuestas de **transmisión**. Cada respuesta contiene un `responseId` que une la respuesta completa:
 
 ```
 {
@@ -1715,43 +1715,44 @@ Në vijim është një seri përgjigjesh **me transmetim**. Çdo përgjigje për
 }
 ```
 
-## API-ja e drejtpërdrejtë (BidiGenerateContent) WebSockets API
+## API en vivo (BidiGenerateContent) API de WebSockets
 
-Live API ofron një API me gjendje të bazuar në WebSocket për transmetim në dy drejtime për të mundësuar raste përdorimi të transmetimit në kohë reale. Mund të rishikosh
-[udhëzuesin e API-së së transmetimit të drejtpërdrejtë](https://ai.google.dev/gemini-api/docs/live?hl=sq) dhe [referencën e API-së së transmetimit të drejtpërdrejtë](https://ai.google.dev/api/live?hl=sq)
-për më shumë detaje.
+La API en vivo ofrece una API basada en WebSocket con estado para la transmisión bidireccional que permite casos de uso de transmisión en tiempo real. Puedes revisar la
+[guía de la API en vivo](https://ai.google.dev/gemini-api/docs/live?hl=es-419) y la [referencia de la API en vivo](https://ai.google.dev/api/live?hl=es-419)
+para obtener más detalles.
 
-## Modelet e specializuara
+## Modelos especializados
 
-Përveç familjes së modeleve të Gemini, Gemini API ofron pika fundore për modele të specializuara si [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq),
-[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=sq) dhe
-[modelet e integrimit](https://ai.google.dev/gemini-api/docs/embeddings?hl=sq). Mund t'i shikosh këta udhëzues te seksioni "Modelet".
+Además de la familia de modelos de Gemini, la API de Gemini ofrece extremos para
+modelos especializados, como [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419),
+[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419) y
+[modelos de embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419). Puedes consultar estas guías en la sección Modelos.
 
-## API-të e platformës
+## APIs de plataforma
 
-Pjesa tjetër e pikave fundore aktivizojnë aftësi shtesë për t'u përdorur me pikat fundore kryesore të përshkruara deri tani. Shiko temat
-[Modaliteti i grupeve](https://ai.google.dev/gemini-api/docs/batch-mode?hl=sq) dhe
-[API-ja e skedarëve](https://ai.google.dev/gemini-api/docs/files?hl=sq) në seksionin "Udhëzuesit" për të mësuar më shumë.
+El resto de los extremos habilitan capacidades adicionales para usar con los extremos principales descritos hasta ahora. Consulta los temas
+[Modo por lotes](https://ai.google.dev/gemini-api/docs/batch-mode?hl=es-419) y
+[API de File](https://ai.google.dev/gemini-api/docs/files?hl=es-419) en la sección Guías para obtener más información.
 
-## Çfarë ka më pas
+## ¿Qué sigue?
 
-Nëse sapo ke filluar, shiko udhëzuesit e mëposhtëm, të cilët do të të ndihmojnë të kuptosh modelin e programimit të Gemini API:
+Si recién comienzas, consulta las siguientes guías, que te ayudarán a comprender el modelo de programación de la API de Gemini:
 
-- [Udhëzuesi i fillimit për Gemini API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
-- [Udhëzuesi për modelin e Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=sq)
+- [Guía de introducción a la API de Gemini](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Guía del modelo de Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419)
 
-Mund të dëshirosh gjithashtu të shikosh udhëzuesit e aftësive, të cilët prezantojnë veçori të ndryshme të Gemini API dhe ofrojnë shembuj kodesh:
+También puedes consultar las guías de capacidades, que presentan diferentes funciones de la API de Gemini y proporcionan ejemplos de código:
 
-- [Gjenerimi i tekstit](https://ai.google.dev/gemini-api/docs/text-generation?hl=sq)
-- [Ruajtja në memorien specifike e kontekstit](https://ai.google.dev/gemini-api/docs/caching?hl=sq)
-- [Integrimet](https://ai.google.dev/gemini-api/docs/embeddings?hl=sq)
+- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419)
+- [Almacenamiento en caché de contexto](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)
+- [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419)
 
-Dërgo komente
+Enviar comentarios
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Përditësimi i fundit: 2026-10-09 UTC.
+Última actualización: 2026-10-19 (UTC)
 
-Duhet të na tregosh më shumë?
+¿Quieres brindar más información?
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-09 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-19 (UTC)"],[],[]]

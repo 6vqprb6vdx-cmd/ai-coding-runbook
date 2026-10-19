@@ -1,30 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=zh-CN
-fetched_at: 2026-10-12T07:05:38.982973+00:00
-title: "\u6587\u4ef6\u641c\u7d22 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=pt-BR
+fetched_at: 2026-10-19T05:31:37.158732+00:00
+title: "Pesquisa de arquivos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash 现已推出。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=zh-cn)。
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-发送反馈
+Envie comentários
 
-# 文件搜索
+# Pesquisa de arquivos
 
-Gemini API 通过文件搜索工具实现检索增强生成 ("RAG")。文件搜索会导入、分块和索引您的数据，以便根据提供的提示快速检索相关信息。然后，将检索到的信息用作模型的上下文，以便模型提供更准确且更相关的回答。文件搜索还能够提供多模态功能，其中文本嵌入由 `gemini-embedding-001` 支持，图片/多模态嵌入由 `gemini-embedding-2` 支持。
+A API Gemini permite a geração aumentada por recuperação ("RAG") com a ferramenta de pesquisa de arquivos. A Pesquisa de Arquivos importa, divide e indexa seus dados para
+permitir a recuperação rápida de informações relevantes com base em um comando fornecido. Essas
+informações recuperadas são usadas como contexto para o modelo, permitindo que ele
+forneça respostas mais precisas e relevantes. A pesquisa de arquivos também pode oferecer recursos multimodais com embeddings de texto compatíveis com `gemini-embedding-001` e embeddings de imagem/multimodais compatíveis com `gemini-embedding-2`.
 
-文件存储和查询时的嵌入生成是免费的，您只需在首次为文件编制索引时支付嵌入创建费用，以及正常的 Gemini 模型输入 / 输出 token 费用。这种新的结算模式让文件搜索工具的构建和扩展变得更简单、更经济实惠。如需了解详情，请参阅[价格](#pricing)部分。
+O armazenamento de arquivos e a geração de embeddings no momento da consulta são sem custo financeiro. Você só paga pela criação de embeddings quando indexa seus arquivos pela primeira vez e pelo custo normal dos tokens de entrada / saída do modelo do Gemini. Esse novo paradigma de faturamento torna a ferramenta de pesquisa de arquivos mais fácil e econômica de criar e dimensionar. Consulte a seção de [preços](#pricing) para mais detalhes.
 
-## 直接上传到文件搜索商店
+## Fazer upload diretamente para a loja da Pesquisa de arquivos
 
-此示例展示了如何将文件直接上传到[文件搜索存储区](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-cn#method:-media.uploadtofilesearchstore)：
+Este exemplo mostra como fazer upload de um arquivo diretamente para o
+[armazenamento de pesquisa de arquivos](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-media.uploadtofilesearchstore):
 
 ### Python
 
@@ -365,11 +369,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-如需了解详情，请参阅 [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-cn#method:-media.uploadtofilesearchstore) 的 API 参考文档。
+Consulte a referência da API para [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-media.uploadtofilesearchstore) para mais informações.
 
-## 导入文件
+## Como importar arquivos
 
-或者，您也可以上传现有文件，然后[将其导入文件搜索存储区](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-cn#method:-filesearchstores.importfile)：
+Como alternativa, você pode fazer upload de um arquivo e [importá-lo para o repositório de pesquisa de arquivos](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-filesearchstores.importfile):
 
 ### Python
 
@@ -675,11 +679,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-如需了解详情，请参阅 [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-cn#method:-filesearchstores.importfile) 的 API 参考文档。
+Consulte a referência da API para [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-filesearchstores.importfile) para mais informações.
 
-## 分块配置
+## Configuração de divisão em blocos
 
-将文件导入到文件搜索存储区后，系统会自动将其分解为多个块，然后进行嵌入、编入索引并上传到您的文件搜索存储区。如果您需要更精细地控制分块策略，可以指定 [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-cn#request-body_5) 设置，以设置每个块的 token 数上限和重叠 token 数上限。
+Quando você importa um arquivo para um repositório da Pesquisa de Arquivos, ele é automaticamente dividido
+em partes, incorporado, indexado e enviado para o repositório. Se você precisar de mais controle sobre a estratégia de divisão, especifique uma configuração [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#request-body_5) para definir um número máximo de tokens por parte e um número máximo de tokens sobrepostos.
 
 ### Python
 
@@ -857,34 +862,47 @@ curl "${upload_url}" \
 cat upload_response.json
 ```
 
-如需使用文件搜索存储区，请将其作为工具传递给 `interactions.create` 方法，如[上传](#upload)和[导入](#importing-files)示例所示。
+Para usar o armazenamento da Pesquisa de Arquivos, transmita-o como uma ferramenta para o método `interactions.create`, conforme mostrado nos exemplos de [Upload](#upload) e [Importação](#importing-files).
 
-## 运作方式
+## Como funciona
 
-文件搜索功能使用一种称为语义搜索的技术来查找与用户提示相关的信息。与基于关键字的标准搜索不同，语义搜索能够理解查询的含义和上下文。
+A Pesquisa de arquivos usa uma técnica chamada pesquisa semântica para encontrar informações relevantes para o comando do usuário. Ao contrário da pesquisa padrão baseada em palavras-chave, a pesquisa semântica
+entende o significado e o contexto da consulta.
 
-导入文件时，系统会将其转换为称为[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)的数值表示形式，用于捕捉上传内容的语义。这些嵌入会存储在专门的文件搜索数据库中。
-当您提出查询时，系统也会将其转换为嵌入。然后，系统会执行文件搜索，以从文件搜索存储区中找到最相似且最相关的文档块。
+Quando você importa um arquivo, ele é convertido em representações numéricas chamadas
+[embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br), que capturam o significado semântico do
+conteúdo enviado. Esses embeddings são armazenados em um banco de dados especializado da Pesquisa de arquivos.
+Quando você faz uma consulta, ela também é convertida em um embedding. Em seguida, o sistema realiza uma pesquisa de arquivos para encontrar os trechos de documentos mais semelhantes e relevantes no repositório de pesquisa de arquivos.
 
-嵌入向量没有存留时间 (TTL)；它们会一直留存，直到被手动删除或模型被弃用为止。不过，文件会在 48 小时后删除。
+Não há time to live (TTL) para embeddings.
+Eles persistem até serem excluídos manualmente ou quando o modelo é descontinuado. mas os arquivos são excluídos após 48 horas.
 
-下面详细介绍了使用文件搜索 `uploadToFileSearchStore` API 的流程：
+Confira os detalhes do processo de uso da API File Search
+`uploadToFileSearchStore`:
 
-1. **创建文件搜索存储区**：文件搜索存储区包含来自文件的处理后数据。它是语义搜索将使用的嵌入的持久性容器。
-2. **上传文件并导入到文件搜索存储区**：同时上传文件并将结果导入到文件搜索存储区。这会创建一个临时 `File` 对象，该对象是对原始文档的引用。然后，该数据会被分块、转换为文件搜索嵌入，并编入索引。`File`对象会在 48 小时后被删除，而导入到文件搜索存储区的数据会无限期存储，直到您选择删除为止。
-3. **使用文件搜索进行查询**：最后，您可以在 `generateContent` 调用中使用 `FileSearch` 工具。在工具配置中，您需要指定一个 `FileSearchRetrievalResource`，该文件指向您要搜索的 `FileSearchStore`。这会指示模型对该特定文件搜索存储区执行语义搜索，以查找相关信息来为回答提供依据。
+1. **Criar um repositório de pesquisa de arquivos**: um repositório de pesquisa de arquivos contém os dados processados dos seus arquivos. É o contêiner persistente para os embeddings em que a pesquisa semântica vai operar.
+2. **Fazer upload de um arquivo e importar para uma loja da Pesquisa de arquivos**: faça upload de um arquivo e importe os resultados para sua loja da Pesquisa de arquivos ao mesmo tempo. Isso cria um objeto `File` temporário, que é uma referência ao documento bruto. Esses dados são divididos em partes, convertidos em embeddings da pesquisa de arquivos e indexados. O objeto `File` é excluído após 48 horas, enquanto a importação de dados para o armazenamento da Pesquisa de Arquivos fica armazenada indefinidamente até que você decida excluí-los.
+3. **Consulta com a Pesquisa de arquivos**: por fim, use a ferramenta `FileSearch` em uma chamada `generateContent`. Na configuração da ferramenta, especifique um
+   `FileSearchRetrievalResource`, que aponta para o `FileSearchStore` que você quer
+   pesquisar. Isso instrui o modelo a realizar uma pesquisa semântica nesse repositório específico de pesquisa de arquivos para encontrar informações relevantes que embasem a resposta.
 
-![文件搜索的索引编制和查询流程](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=zh-cn)
+![O processo de indexação e consulta da Pesquisa de Arquivos](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=pt-br)
 
-文件搜索的索引和查询流程
+O processo de indexação e consulta da Pesquisa de arquivos
 
-在此图表中，从*文档*到*嵌入模型*（使用 [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-cn)）的虚线表示 `uploadToFileSearchStore` API（绕过*文件存储*）。否则，使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-cn) 分别创建文件并导入文件会将索引编制流程从 *Documents* 移至 *File storage*，然后再移至 *Embedding model*。
+Neste diagrama, a linha pontilhada de *Documentos* para *Modelo de embedding*
+(usando [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br))
+representa a API `uploadToFileSearchStore` (ignorando o *Armazenamento de arquivos*).
+Caso contrário, usar a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br) para criar e importar arquivos separadamente move o processo de indexação de *Documentos* para *Armazenamento de arquivos* e, em seguida, para *Modelo de embedding*.
 
-## 文件搜索存储区
+## Armazenamentos da Pesquisa de arquivos
 
-文件搜索存储区是文档嵌入的容器。虽然通过 File API 上传的原始文件会在 48 小时后被删除，但导入到文件搜索存储区的数据会无限期存储，直到您手动将其删除。您可以创建多个文件搜索存储区来整理文档。借助 `FileSearchStore` API，您可以创建、列出、获取和删除文件搜索存储区，从而管理这些存储区。文件搜索存储区名称的作用范围为全局。
+Um repositório de pesquisa de arquivos é um contêiner para os embeddings de documentos. Os arquivos brutos
+enviados pela API File são excluídos após 48 horas, mas os dados importados para
+um repositório da Pesquisa de Arquivos são armazenados indefinidamente até que você os exclua manualmente. É possível
+criar vários armazenamentos de pesquisa de arquivos para organizar seus documentos. A API `FileSearchStore` permite criar, listar, receber e excluir para gerenciar seus repositórios de pesquisa de arquivos. Os nomes dos repositórios da Pesquisa de Arquivos têm escopo global.
 
-以下是一些有关如何管理文件搜索存储区的示例：
+Confira alguns exemplos de como gerenciar suas lojas de pesquisa de arquivos:
 
 ### Python
 
@@ -1021,9 +1039,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123?key=${GEMINI_API_KEY}"
 ```
 
-## 文件搜索文档
+## Pesquisar documentos de arquivos
 
-您可以使用 [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=zh-cn) API 管理文件存储区中的各个文档，以`list` 文件搜索存储区中的每个文档、`get` 有关文档的信息，以及按名称`delete` 文档。
+É possível gerenciar documentos individuais nos seus repositórios de arquivos com a
+API [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=pt-br) para `list` cada documento
+em um repositório de pesquisa de arquivos, `get` informações sobre um documento e `delete` um
+documento por nome.
 
 ### Python
 
@@ -1133,9 +1154,10 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents/sampletxt123?key=${GEMINI_API_KEY}&force=true"
 ```
 
-## 文件元数据
+## Metadados do arquivo
 
-您可以向文件添加自定义元数据，以便过滤文件或提供更多背景信息。元数据是一组键值对。
+É possível adicionar metadados personalizados aos arquivos para ajudar a filtrá-los ou fornecer
+contexto adicional. Os metadados são um conjunto de pares de chave-valor.
 
 ### Python
 
@@ -1227,7 +1249,7 @@ func main() {
 }
 ```
 
-如果您在文件搜索存储区中有多个文档，并且只想搜索其中的一部分，此参数会很有用。
+Isso é útil quando você tem vários documentos em um repositório de pesquisa de arquivos e quer pesquisar apenas um subconjunto deles.
 
 ### Python
 
@@ -1395,15 +1417,18 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 cat response.json
 ```
 
-有关为 `metadata_filter` 实现列表过滤条件语法的指南，请访问 [google.aip.dev/160](https://google.aip.dev/160)
+Confira orientações sobre como implementar a sintaxe de filtro de lista para `metadata_filter`
+em [google.aip.dev/160](https://google.aip.dev/160).
 
-## 多模态文件搜索
+## Pesquisa de arquivos multimodal
 
-借助多模态文件搜索，您可以原生嵌入和搜索图片，从而实现丰富的多模态 RAG 应用。
+A Pesquisa Multimodal de Arquivos permite incorporar e pesquisar imagens de forma nativa,
+permitindo aplicativos RAG multimodais avançados.
 
-### 配置嵌入模型
+### Configurar o modelo de embedding
 
-创建 `FileSearchStore` 时，您必须替换默认的纯文本嵌入模型，以使用多模态模型。使用 `models/gemini-embedding-2` 处理文本和图片。
+Ao criar um `FileSearchStore`, é necessário substituir o modelo de embedding padrão somente de texto para usar um modelo multimodal. Use `models/gemini-embedding-2` para
+processar textos e imagens.
 
 ### Python
 
@@ -1485,20 +1510,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### 上传图片
+### Fazer upload de imagens
 
-使用多模态嵌入模型创建商店后，您可以使用[直接上传到文件搜索商店](#upload)或[导入文件](#importing-files)中所述的相同上传 API 直接上传图片文件。
+Depois de criar o armazenamento com um modelo de embedding multimodal, é possível fazer upload de arquivos de imagem diretamente usando as mesmas APIs de upload descritas em [Fazer upload diretamente para o armazenamento da Pesquisa de arquivos](#upload) ou [Importar arquivos](#importing-files).
 
-**图片文件要求**：
+**Requisitos do arquivo de imagem:**
 
-- 图片文件的分辨率不得超过 4K x 4K 像素。
-- 支持的格式包括 PNG、JPEG。
+- Os arquivos de imagem precisam ter uma resolução máxima de 4K x 4K pixels.
+- Os formatos aceitos são PNG e JPEG.
 
-## 引用
+## Citações
 
-使用文件搜索功能时，模型的回答可能包含引用，指明上传的文档中的哪些部分用于生成回答。这有助于进行事实核查和验证。
+Ao usar a Pesquisa de arquivos, a resposta do modelo pode incluir citações que especificam quais partes dos documentos enviados foram usadas para gerar a resposta. Isso ajuda na checagem de fatos e na verificação.
 
-您可以通过响应的 `model_output` 步骤的 `content` 块中的 `annotations` 属性访问引用信息。
+É possível acessar as informações de citação pelo atributo `annotations` dentro dos blocos `content` da etapa `model_output` da resposta.
 
 ### Python
 
@@ -1651,12 +1676,14 @@ func main() {
 }
 ```
 
-如需详细了解引用结构，请参阅 [Interactions API 参考文档](https://ai.google.dev/api/interactions-api?hl=zh-cn#Resource:FileCitation)。
+Para informações detalhadas sobre a estrutura das citações, consulte a
+[referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br#Resource:FileCitation).
 
-### 页码
+### Números de página
 
-如果您在搜索文件时使用了包含页面的文档（例如 PDF），模型给出的回答可能会包含找到相关信息的页码。
-您可以通过 `file_citation` 注解的 `page_number` 属性访问此信息。
+Quando você usa a Pesquisa de arquivos com documentos que têm páginas (como PDFs), a resposta do modelo pode incluir o número da página em que as informações foram encontradas.
+É possível acessar essas informações pelo atributo `page_number` de uma
+anotação `file_citation`.
 
 ### Python
 
@@ -1829,11 +1856,14 @@ func main() {
 }
 ```
 
-### 媒体引用
+### Citações de mídia
 
-当模型在生成过程中引用图片块时，API 会在注释中返回 `file_citation` 类型的注释，其中包含 `media_id`。您可以使用此 ID 下载模型引用的确切图片块。此 `media_id` 在多次搜索调用中保持不变，因此您可以可靠地检索同一图片或使用该 ID 缓存图片。
+Quando o modelo faz referência a um bloco de imagem durante a geração, a API retorna uma
+anotação do tipo `file_citation` nas anotações que incluem um `media_id`. É possível usar esse ID para baixar o trecho exato da imagem referenciado pelo modelo. Esse `media_id` é
+persistente em várias chamadas de pesquisa, o que permite recuperar de forma confiável
+a mesma imagem ou armazená-la em cache usando o ID.
 
-以下代码段是一个 REST 响应步骤示例：
+O snippet a seguir é um exemplo de etapa de resposta REST:
 
 ```
 {
@@ -1854,7 +1884,8 @@ func main() {
 }
 ```
 
-以下代码段演示了如何检索 `media_id` 并下载媒体：
+Os snippets de código abaixo demonstram como recuperar o `media_id` e
+fazer o download da mídia:
 
 ### Python
 
@@ -2019,9 +2050,10 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 自定义元数据
+## Metadados personalizados
 
-如果您已向文件添加自定义元数据，则可以在模型回答的注释中访问该元数据。这有助于将其他上下文（例如网址、页码或作者）从源文档传递到应用逻辑。类型为 `file_citation` 的每个引用注释都包含此自定义元数据。
+Se você adicionou metadados personalizados aos seus arquivos, é possível acessar essas informações nas anotações da resposta do modelo. Isso é útil para transmitir contexto adicional (como URLs, números de página ou autores) dos documentos de origem para a lógica do aplicativo. Cada anotação de citação do tipo `file_citation`
+contém esses metadados personalizados.
 
 ### Python
 
@@ -2209,9 +2241,10 @@ func main() {
 }
 ```
 
-## 结构化输出
+## Resposta estruturada
 
-从 Gemini 3 模型开始，您可以将文件搜索工具与[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)相结合。
+A partir dos modelos do Gemini 3, é possível combinar a ferramenta de pesquisa de arquivos com
+[saídas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
 
 ### Python
 
@@ -2435,24 +2468,30 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 支持的模型
+## Modelos compatíveis
 
-以下模型支持文件搜索：
+Os seguintes modelos são compatíveis com a Pesquisa de Arquivos:
 
-| 模型 | 文件搜索 |
+| Modelo | Pesquisa de arquivos |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pt-br) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
 
-## 支持的文件类型
+## Combinações de ferramentas compatíveis
 
-文件搜索支持多种文件格式，详见以下各部分。
+Os modelos Gemini 4 e Gemini 3 permitem combinar ferramentas integradas (como a Pesquisa de Arquivos) com ferramentas personalizadas (chamada de função). Saiba mais na página de
+[combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
 
-### 应用文件类型
+## Tipos de arquivo compatíveis
+
+A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados nas seções a seguir.
+
+### Tipos de arquivo de aplicativo
 
 - `application/dart`
 - `application/ecmascript`
@@ -2485,7 +2524,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `application/xml`
 - `application/zip`
 
-### 文本文件类型
+### Tipos de arquivo de texto
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -2644,40 +2683,43 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## 限制
+## Limitações
 
-- **Live API**：[Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 不支持文件搜索。
-- **工具不兼容**：内置接地工具无法相互结合使用；例如，在同一请求中，文件搜索无法同时与[依托 Google 搜索进行接地](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)或 [网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)搭配使用。
+- **API Live**:a Pesquisa de Arquivos não é compatível com a
+  [API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br).
+- **Incompatibilidade de ferramentas**:as ferramentas de embasamento integradas não podem ser combinadas.
+  Por exemplo, a Pesquisa de Arquivos não pode ser usada simultaneamente com o [embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) ou o
+  [contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br) na mesma solicitação.
 
-### 速率限制
+### Limites de taxas
 
-为了确保服务稳定性，文件搜索 API 具有以下限制：
+A API File Search tem os seguintes limites para garantir a estabilidade do serviço:
 
-- **文件大小上限 / 每个文档的限制**：100 MB
-- **项目文件搜索存储空间的总大小**（取决于用户层级）：
-  - **免费**：1 GB
-  - **第 1 级**：10 GB
-  - **第 2 级**：100 GB
-  - **第 3 级**：1 TB
-- **建议**：将每个文件搜索存储区的大小限制在 20 GB 以下，以确保最佳检索延迟时间。
+- **Tamanho máximo do arquivo / limite por documento**: 100 MB
+- **Tamanho total dos repositórios de pesquisa de arquivos do projeto** (com base no nível do usuário):
+  - **Sem custo financeiro**: 1 GB
+  - **Nível 1**: 10 GB
+  - **Nível 2**: 100 GB
+  - **Nível 3**: 1 TB
+- **Recomendação**: limite o tamanho de cada armazenamento da Pesquisa de Arquivos a menos de 20 GB para garantir latências de recuperação ideais.
 
-## 价格
+## Preços
 
-- 系统会在建立索引时根据现有的[嵌入价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-embedding-2)向您收取嵌入费用。
-- 存储空间免费。
-- 查询时嵌入是免费的。
-- 检索到的文档 token 会按常规[上下文 token](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) 计费。
+- As incorporações são cobradas no momento da indexação com base nos [preços de incorporação](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-embedding-2) atuais.
+- O armazenamento não tem custo financeiro.
+- Os embeddings de tempo de consulta não têm custo financeiro.
+- Os tokens de documento recuperados são cobrados como [tokens de contexto](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) normais.
 
-## 后续步骤
+## A seguir
 
-- 请访问 [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=zh-cn) 和 File Search [Documents](https://ai.google.dev/api/file-search/documents?hl=zh-cn) 的 API 参考文档。
+- Acesse a referência da API para [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br) e [Documents](https://ai.google.dev/api/file-search/documents?hl=pt-br) do File Search.
 
-发送反馈
+Envie comentários
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最后更新时间 (UTC)：2026-10-09。
+Última atualização 2026-10-13 UTC.
 
-需要向我们提供更多信息？
+Quer enviar seu feedback?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-09。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]

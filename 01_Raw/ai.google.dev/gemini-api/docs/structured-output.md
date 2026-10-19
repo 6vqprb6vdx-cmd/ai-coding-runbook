@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=ar
-fetched_at: 2026-10-12T07:01:56.370817+00:00
-title: "\u0627\u0644\u0646\u062a\u0627\u0626\u062c \u0627\u0644\u0645\u0646\u0638\u064e\u0651\u0645\u0629 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=tr
+fetched_at: 2026-10-19T05:46:41.685102+00:00
+title: "Yap\u0131land\u0131r\u0131lm\u0131\u015f \u00e7\u0131k\u0131\u015flar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-أصبحت [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar) متاحة الآن للجميع. ننصحك باستخدام واجهة برمجة التطبيقات هذه للوصول إلى جميع أحدث الميزات والنماذج.
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-# النتائج المنظَّمة
+# Yapılandırılmış çıkışlar
 
-يمكنك ضبط نماذج Gemini لإنشاء ردود تتوافق مع مخطط JSON مقدَّم. يضمن ذلك الحصول على نتائج متوقّعة وآمنة من حيث النوع، كما يسهّل استخراج البيانات المنظَّمة من النصوص غير المنظَّمة.
+Gemini modellerini, sağlanan bir JSON şemasına uygun yanıtlar oluşturacak şekilde yapılandırabilirsiniz. Bu sayede, tahmin edilebilir ve tür açısından güvenli sonuçlar elde edilir. Ayrıca, yapılandırılmamış metinlerden yapılandırılmış verilerin ayıklanması kolaylaşır.
 
-يُعدّ استخدام المُخرجات المنظَّمة مثاليًا للحالات التالية:
+Yapılandırılmış çıkışlar şu durumlarda idealdir:
 
-- **استخراج البيانات:** استخراج معلومات محدّدة، مثل الأسماء والتواريخ، من النص
-- **التصنيف المنظَّم:** تصنيف النص ضِمن فئات محدَّدة مسبقًا
-- **سير عمل الذكاء الاصطناعي الوكيل:** إنشاء مدخلات منظَّمة للأدوات أو واجهات برمجة التطبيقات
+- **Veri ayıklama:** Metinden ad ve tarih gibi belirli bilgileri alın.
+- **Yapılandırılmış sınıflandırma:** Metni önceden tanımlanmış kategorilere göre sınıflandırın.
+- **Ajan tabanlı iş akışları:** Araçlar veya API'ler için yapılandırılmış girişler oluşturun.
 
-بالإضافة إلى إتاحة JSON Schema في REST API، تتيح حِزم تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي تحديد المخططات باستخدام [Pydantic](https://docs.pydantic.dev/latest/) (لغة Python) و[Zod](https://zod.dev/) (لغة JavaScript).
+Google GenAI SDK'ları, REST API'de JSON şemasını desteklemenin yanı sıra [Pydantic](https://docs.pydantic.dev/latest/) (Python) ve [Zod](https://zod.dev/) (JavaScript) kullanılarak şemaların tanımlanmasına da olanak tanır.
 
-## أمثلة على الناتج المنظَّم
+## Yapılandırılmış çıkış örnekleri
 
-### أداة استخراج وصفات الطعام
+### Yemek Tarifi Ayıklayıcı
 
-يوضّح هذا المثال كيفية استخراج البيانات المنظَّمة من نص باستخدام أنواع أساسية من مخطط JSON، مثل `object` و`array` و`string` و`integer`.
+Bu örnekte, `object`, `array`, `string` ve `integer` gibi temel JSON şema türlerini kullanarak metinden yapılandırılmış verilerin nasıl çıkarılacağı gösterilmektedir.
 
 ### Python
 
@@ -150,7 +150,7 @@ const recipe = recipeSchema.parse(JSON.parse(interaction.output_text));
 console.log(recipe);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -390,7 +390,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**مثال على الرد:**
+**Örnek Yanıt:**
 
 ```
 {
@@ -418,9 +418,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### الإشراف على المحتوى
+### İçerik Denetimi
 
-يعرض هذا المثال `anyOf` للمخططات الشرطية و`enum` للتصنيف، ما يسمح بتغيير بنية الإخراج استنادًا إلى المحتوى.
+Bu örnekte, koşullu şemalar için `anyOf`, sınıflandırma için `enum` kullanılarak çıkış yapısının içeriğe göre değişmesine olanak tanınmaktadır.
 
 ### Python
 
@@ -522,7 +522,7 @@ const result = moderationResultSchema.parse(JSON.parse(interaction.output_text))
 console.log(result);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -751,7 +751,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**مثال على الرد:**
+**Örnek Yanıt:**
 
 ```
 {
@@ -762,9 +762,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### البُنى التكرارية
+### Yinelemeli Yapılar
 
-يوضّح هذا المثال كيفية تحديد مخطط تكراري، مثل مخطط تنظيمي.
+Bu örnekte, kuruluş şeması gibi yinelemeli bir şemanın nasıl tanımlanacağı gösterilmektedir.
 
 ### Python
 
@@ -849,7 +849,7 @@ const employee = employeeSchema.parse(JSON.parse(interaction.output_text));
 console.log(employee);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1016,7 +1016,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**مثال على الرد:**
+**Örnek Yanıt:**
 
 ```
 {
@@ -1043,9 +1043,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## نتائج البث
+## Akış sonuçları
 
-يمكنك بث النتائج المنظَّمة، ما يتيح لك بدء معالجة الرد أثناء إنشائه. الأجزاء التي يتم بثها هي سلاسل JSON جزئية صالحة يمكن ربطها لتكوين عنصر JSON النهائي.
+Yapılandırılmış çıkışları yayınlayarak yanıt oluşturulurken işlemeye başlamanıza olanak tanır. Yayınlanan parçalar, son JSON nesnesini oluşturmak için birleştirilebilen geçerli kısmi JSON dizeleridir.
 
 ### Python
 
@@ -1117,7 +1117,7 @@ for await (const event of stream) {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1288,14 +1288,9 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## مُخرجات منظَّمة باستخدام الأدوات
+## Araçlarla yapılandırılmış çıkışlar
 
-يتيح لك Gemini 3 الجمع بين "النتائج المنظَّمة" والأدوات المضمّنة، بما في ذلك
-[تحديد المصدر من خلال "بحث Search"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar) و
-[سياق عناوين URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar) و
-[تطبيق الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar) و
-[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar#structured-output) و
-[استدعاء الدالة](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar).
+Gemini 3, Yapılandırılmış Çıkışları [Google Arama ile Temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr), [URL Bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr), [Kod Yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr), [Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr#structured-output) ve [İşlev Çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) gibi yerleşik araçlarla birleştirmenize olanak tanır.
 
 ### Python
 
@@ -1312,7 +1307,7 @@ class MatchResult(BaseModel):
 client = genai.Client()
 
 interaction = client.interactions.create(
-    model="gemini-3.1-pro-preview",
+    model="gemini-4-argon",
     input="Search for all details for the latest Euro.",
     tools=[{"type": "google_search"}, {"type": "url_context"}],
     response_format={
@@ -1348,7 +1343,7 @@ const matchSchema = z.fromJSONSchema(matchJsonSchema);
 const client = new GoogleGenAI({});
 
 const interaction = await client.interactions.create({
-  model: "gemini-3.1-pro-preview",
+  model: "gemini-4-argon",
   input: "Search for all details for the latest Euro.",
   tools: [{type: "google_search"}, {type: "url_context"}],
   response_format: {
@@ -1362,7 +1357,7 @@ const match = matchSchema.parse(JSON.parse(interaction.output_text));
 console.log(match);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1417,7 +1412,7 @@ CreateModelInteractionResponseFormat format =
 
 CreateModelInteraction params =
     CreateModelInteraction.builder()
-        .model(Model.of("gemini-3.1-pro-preview"))
+        .model(Model.of("gemini-4-argon"))
         .input(InteractionsInput.of("Search for all details for the latest Euro."))
         .tools(Arrays.asList(GoogleSearch.builder().build(), URLContext.builder().build()))
         .responseFormat(format)
@@ -1483,7 +1478,7 @@ func main() {
     resp, err := client.Interactions.Create(ctx, operations.CreateInteractionRequest{
         Body: operations.NewCreateInteractionRequestBody(
             interactions.CreateModelInteraction{
-                Model: interactions.Model("gemini-3.1-pro-preview"),
+                Model: interactions.Model("gemini-4-argon"),
                 Input: interactions.NewInteractionsInput("Search for all details for the latest Euro."),
                 Tools: []interactions.Tool{
                     interactions.NewTool(interactions.GoogleSearch{}),
@@ -1508,7 +1503,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   -H "x-goog-api-key: $GEMINI_API_KEY" \
   -H 'Content-Type: application/json' \
   -d '{
-    "model": "gemini-3.1-pro-preview",
+    "model": "gemini-4-argon",
     "input": "Search for all details for the latest Euro.",
     "tools": [{"type": "google_search"}, {"type": "url_context"}],
     "response_format": {
@@ -1527,80 +1522,79 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## التوافق مع مخطّط JSON
+## JSON şeması desteği
 
-لإنشاء عنصر JSON، اضبط `response_format` باستخدام عنصر (أو مصفوفة تحتوي على عنصر) من النوع `text` واضبط `mime_type` على `application/json`. يجب تقديم المخطط في الحقل `schema`.
+JSON nesnesi oluşturmak için `response_format` öğesini `text` türünde bir nesneyle (veya nesne içeren bir diziyle) yapılandırın ve `mime_type` özelliğini `application/json` olarak ayarlayın. Şema, `schema` alanında sağlanmalıdır.
 
-يتوافق وضع الإخراج المنظَّم في Gemini مع مجموعة فرعية من مواصفات
-[مخطط JSON](https://json-schema.org/).
+Gemini'ın yapılandırılmış çıkış modu, [JSON şeması](https://json-schema.org/) spesifikasyonunun bir alt kümesini destekler.
 
-في ما يلي القيم المسموح بها لـ `type`:
+`type` için aşağıdaki değerler desteklenir:
 
-- ‫**`string`**: للنص
-- **`number`**: للأرقام ذات الفاصلة العائمة
-- ‫**`integer`**: للأعداد الصحيحة
-- **`boolean`**: للقيم الصحيحة أو الخاطئة
-- **`object`**: للبيانات المنظَّمة التي تتضمّن أزواجًا من المفاتيح والقيم
-- ‫**`array`**: لقوائم العناصر
-- **`null`**: للسماح بأن تكون قيمة السمة فارغة، أدرِج `"null"` في مصفوفة النوع (مثل `{"type": ["string", "null"]}`).
+- **`string`**: Metin için.
+- **`number`**: Kayan noktalı sayılar için.
+- **`integer`**: Tam sayılar için.
+- **`boolean`**: Doğru veya yanlış değerler için.
+- **`object`**: Anahtar/değer çiftleri içeren yapılandırılmış veriler için.
+- **`array`**: Öğe listeleri için.
+- **`null`**: Bir özelliğin boş olmasına izin vermek için tür dizisine `"null"` değerini ekleyin (ör. `{"type": ["string", "null"]}`).
 
-تساعد هذه الخصائص الوصفية في توجيه النموذج:
+Bu açıklayıcı özellikler, modele yol göstermeye yardımcı olur:
 
-- ‫**`title`**: وصف مختصر للمكان المخصّص للاستئجار
-- ‫**`description`**: وصف أطول وأكثر تفصيلاً للمكان المخصّص للاستئجار
+- **`title`**: Bir mülkün kısa açıklaması.
+- **`description`**: Bir mülkün daha uzun ve ayrıntılı açıklaması.
 
-### السمات الخاصة بأنواع محدّدة
+### Türe özgü özellikler
 
-**بالنسبة إلى قيم `object`:**
+**`object` değerleri için:**
 
-- ‫**`properties`**: عنصر يكون فيه كل مفتاح اسم خاصية وكل قيمة مخططًا لهذه الخاصية.
-- استبدِل **`required`** بمصفوفة من السلاسل التي تسرد السمات الإلزامية.
-- **`additionalProperties`**: تتحكّم هذه السمة في ما إذا كان يُسمح بالسمات غير المدرَجة في `properties`. يمكن أن تكون قيمة منطقية أو مخططًا.
+- **`properties`**: Her anahtarın bir özellik adı, her değerin ise söz konusu özelliğin şeması olduğu bir nesne.
+- **`required`**: Hangi özelliklerin zorunlu olduğunu listeleyen bir dizeler dizisi.
+- **`additionalProperties`**: `properties` içinde listelenmeyen özelliklere izin verilip verilmeyeceğini kontrol eder. Boole veya şema olabilir.
 
-**بالنسبة إلى قيم `string`:**
+**`string` değerleri için:**
 
-- ‫**`enum`**: تعرض هذه السمة مجموعة محدّدة من السلاسل المحتملة لمهام التصنيف.
-- **`format`**: تحدّد هذه السمة بنية السلسلة، مثل `date-time` أو `date` أو `time`.
+- **`enum`**: Sınıflandırma görevleri için olası dizelerin belirli bir kümesini listeler.
+- **`format`**: Dize için `date-time`, `date`, `time` gibi bir söz dizimi belirtir.
 
-**بالنسبة إلى القيمتَين `number` و`integer`:**
+**`number` ve `integer` değerleri için:**
 
-- **`enum`**: تعرض مجموعة معيّنة من القيم الرقمية المحتملة.
-- ‫**`minimum`**: تمثّل الحد الأدنى للقيمة الشاملة.
-- ‫**`maximum`**: تمثّل الحد الأقصى للقيمة الشاملة.
+- **`enum`**: Olası sayısal değerlerin belirli bir kümesini listeler.
+- **`minimum`**: Minimum kapsayıcı değer.
+- **`maximum`**: Maksimum dahil değer.
 
-**بالنسبة إلى قيم `array`:**
+**`array` değerleri için:**
 
-- ‫**`items`**: تحدّد هذه السمة المخطط لجميع العناصر في المصفوفة.
-- ‫**`prefixItems`**: تحدّد هذه السمة قائمة بمخططات أول N عناصر، ما يتيح إنشاء بنى شبيهة بالصفوف.
-- ‫**`minItems`**: الحد الأدنى لعدد العناصر في المصفوفة
-- ‫**`maxItems`**: الحد الأقصى لعدد العناصر في المصفوفة
+- **`items`**: Dizideki tüm öğelerin şemasını tanımlar.
+- **`prefixItems`**: İlk N öğe için bir şema listesi tanımlar ve demet benzeri yapılara izin verir.
+- **`minItems`**: Dizideki minimum öğe sayısı.
+- **`maxItems`**: Dizideki maksimum öğe sayısı.
 
-## المخرجات المنظَّمة مقابل استدعاء الدوال
+## Yapılandırılmış çıkışlar ve işlev çağrısı
 
-| الميزة | حالة الاستخدام الأساسية |
+| Özellik | Birincil Kullanım Alanı |
 | --- | --- |
-| **المُخرجات المنظَّمة** | **تنسيق الردّ النهائي** يجب استخدامها عندما تريد أن يكون *ردّ* النموذج بتنسيق معيّن. |
-| **استدعاء الدوال** | **اتّخاذ إجراء أثناء المحادثة** يُستخدَم عندما يحتاج النموذج إلى *أن يطلب منك* تنفيذ مهمة قبل تقديم إجابة نهائية. |
+| **Yapılandırılmış Çıkışlar** | **Son yanıt biçimlendiriliyor.** Modelin *yanıtının* belirli bir biçimde olmasını istediğinizde kullanılır. |
+| **İşlev Çağrısı** | **Sohbet sırasında işlem yapma** Modelin nihai yanıtı vermeden önce bir görevi gerçekleştirmenizi *istemesi* gerektiğinde kullanılır. |
 
-## أفضل الممارسات
+## En iyi uygulamalar
 
-- **أوصاف واضحة:** استخدِم الحقل `description` لتوجيه النموذج.
-- **الكتابة القوية:** استخدِم أنواعًا محدّدة (`integer` و`string` و`enum`).
-- **هندسة الطلبات:** حدِّد بوضوح ما تريد أن يفعله النموذج.
-- **التحقّق من الصحة:** على الرغم من أنّ الناتج هو JSON صحيح من الناحية النحوية، يجب دائمًا التحقّق من صحة القيم في تطبيقك.
-- **معالجة الأخطاء:** اتّخِذ إجراءات فعالة لمعالجة الأخطاء في النتائج التي تتوافق مع المخطط ولكنّها غير صحيحة دلاليًا.
+- **Net açıklamalar:** Modeli yönlendirmek için `description` alanını kullanın.
+- **Güçlü tür belirleme:** Belirli türleri (`integer`, `string`, `enum`) kullanın.
+- **İstem mühendisliği:** Modelin ne yapmasını istediğinizi net bir şekilde belirtin.
+- **Doğrulama:** Çıkış, söz dizimi açısından doğru JSON olsa da uygulamanızdaki değerleri her zaman doğrulayın.
+- **Hata yönetimi:** Şemaya uygun ancak semantik olarak yanlış çıktılar için etkili hata yönetimi uygulayın.
 
-## القيود
+## Sınırlamalar
 
-- **مجموعة فرعية من المخطط:** لا تتوفّر جميع ميزات JSON Schema.
-- **تعقيد المخطط:** قد يتم رفض المخططات الكبيرة جدًا أو المتداخلة بشكل كبير.
+- **Şema alt kümesi:** Tüm JSON şema özellikleri desteklenmez.
+- **Şema karmaşıklığı:** Çok büyük veya derin şekilde iç içe yerleştirilmiş şemalar reddedilebilir.
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)
+Son güncelleme tarihi: 2026-10-13 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-13 UTC."],[],[]]

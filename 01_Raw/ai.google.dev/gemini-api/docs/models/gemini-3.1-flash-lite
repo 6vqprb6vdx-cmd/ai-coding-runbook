@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419
-fetched_at: 2026-10-12T07:00:28.365627+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi
+fetched_at: 2026-10-19T05:44:05.194588+00:00
 title: "Gemini 3.1 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
 # Gemini 3.1 Flash-Lite
 
-Gemini 3.1 Flash-Lite es un modelo multimodal rentable y de baja latencia optimizado para tareas ligeras y de alta frecuencia. El modelo admite entradas de texto, imágenes, video, audio y PDF, y está diseñado para flujos de trabajo de agentes de gran volumen, extracción de datos simple y aplicaciones en las que la latencia y el costo de la API son las restricciones principales.
+Gemini 3.1 Flash-Lite là một mô hình đa phương thức có độ trễ thấp và tiết kiệm chi phí, được tối ưu hoá cho các tác vụ tần suất cao và dung lượng thấp. Mô hình này hỗ trợ dữ liệu đầu vào là văn bản, hình ảnh, video, âm thanh và PDF, đồng thời được thiết kế cho các quy trình làm việc có nhiều tác nhân, trích xuất dữ liệu đơn giản và các ứng dụng mà độ trễ và chi phí API là những hạn chế chính.
 
-[Probar en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=es-419)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=vi)
 
 ## gemini-3.1-flash-lite
 
-| Propiedad | Descripción |
+| Thuộc tính | Mô tả |
 | --- | --- |
-| Código del modelo id\_card | `gemini-3.1-flash-lite` |
-| saveTipos de datos admitidos | **Entradas**  Texto, imágenes, videos, audio y PDF  **Resultado**  Texto |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  1,048,576  **Límite de tokens de salida**  65,536 |
-| handymanFunciones | **[Generación de audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)**  No compatible  **[Almacenamiento en caché](https://ai.google.dev/gemini-api/docs/caching?hl=es-419)**  Admitido  **[Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)**  Admitido  **[Uso de la computadora](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419)**  No compatible  **[Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)**  Admitido  **[Llamada a función](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419)**  Admitido  **[Fundamentación con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)**  Admitido  **[Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419)**  No compatible  **[API de Live](https://ai.google.dev/gemini-api/docs/live-api?hl=es-419)**  No compatible  **[Fundamentación con la Búsqueda](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419)**  Admitido  **[Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419)**  Admitido  **[Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419)**  Admitido  **[Contexto de la URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)**  Admitido |
-| speedOpciones de consumo | **[API de Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=es-419)**  Admitido  **[Inferencia flexible](https://ai.google.dev/gemini-api/docs/flex-inference?hl=es-419)**  Admitido  **[Inferencia de prioridad](https://ai.google.dev/gemini-api/docs/priority-inference?hl=es-419)**  Admitido |
-| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - `Stable: gemini-3.1-flash-lite` |
-| calendar\_monthÚltima actualización | Mayo de 2026 |
-| Ficha del modelo de id\_card | [Ficha del modelo](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/?hl=es-419) |
+| id\_cardMã kiểu máy | `gemini-3.1-flash-lite` |
+| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản, Hình ảnh, Video, Đoạn âm thanh và PDF  **Đầu ra**  Văn bản |
+| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn mã thông báo đầu vào**  1.048.576  **Giới hạn mã thông báo đầu ra**  65.536 |
+| handymanChức năng | **[Tạo âm thanh](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)**  Không được hỗ trợ  **[Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi)**  Được hỗ trợ  **[Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi)**  Được hỗ trợ  **[Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi)**  Không được hỗ trợ  **[Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)**  Được hỗ trợ  **[Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)**  Được hỗ trợ  **[Neo bám vào Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)**  Được hỗ trợ  **[Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi)**  Không được hỗ trợ  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi)**  Không được hỗ trợ  **[Tìm trong phần liên kết thực tế](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)**  Được hỗ trợ  **[Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi)**  Được hỗ trợ  **[Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)**  Được hỗ trợ  **[Bối cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)**  Được hỗ trợ |
+| speedCác lựa chọn thưởng thức nội dung | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi)**  Được hỗ trợ  **[Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi)**  Được hỗ trợ  **[Suy luận mức độ ưu tiên](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi)**  Được hỗ trợ |
+| 123Phiên bản | Đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - `Stable: gemini-3.1-flash-lite` |
+| calendar\_monthThông tin cập nhật mới nhất | Tháng 5/2026 |
+| id\_cardThẻ mô hình | [Thẻ mô hình](https://deepmind.google/models/model-cards/gemini-3-1-flash-lite/?hl=vi) |
 
-## Guía para desarrolladores
+## Hướng dẫn cho nhà phát triển
 
-Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Estos son algunos casos de uso más adecuados para Gemini 3.1 Flash-Lite:
+Gemini 3.1 Flash-Lite hoạt động hiệu quả nhất khi xử lý các nhiệm vụ đơn giản ở quy mô lớn. Sau đây là một số trường hợp sử dụng phù hợp nhất với Gemini 3.1 Flash-Lite:
 
-- **Traducción**: Traducción rápida, económica y de gran volumen, como el procesamiento a gran escala de mensajes de chat, opiniones y tickets de asistencia. Puedes usar instrucciones del sistema para limitar el resultado solo al texto traducido sin comentarios adicionales:
+- **Dịch thuật**: Dịch thuật nhanh chóng, tiết kiệm chi phí và số lượng lớn, chẳng hạn như xử lý tin nhắn trò chuyện, bài đánh giá và phiếu yêu cầu hỗ trợ ở quy mô lớn. Bạn có thể sử dụng chỉ dẫn hệ thống để giới hạn đầu ra chỉ ở văn bản đã dịch mà không có thêm bình luận:
 
   ```
   from google import genai
@@ -57,7 +57,7 @@ Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Esto
 
   print(response.text)
   ```
-- **Transcripción**: Procesa grabaciones, notas de voz o cualquier contenido de audio en el que necesites una transcripción de texto sin iniciar una canalización independiente de voz a texto. Admite entradas multimodales, por lo que puedes pasar archivos de audio directamente para la transcripción:
+- **Chép lời**: Xử lý bản ghi âm, ghi chú bằng giọng nói hoặc mọi nội dung âm thanh mà bạn cần bản chép lời dạng văn bản mà không cần tạo một quy trình chuyển lời nói sang văn bản riêng. Hỗ trợ dữ liệu đầu vào đa phương thức, vì vậy bạn có thể truyền trực tiếp các tệp âm thanh để chép lời:
 
   ```
   from google import genai
@@ -77,7 +77,7 @@ Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Esto
 
   print(response.text)
   ```
-- **Tareas de agente y extracción de datos ligeras**: Extracción de entidades, clasificación y canalizaciones de procesamiento de datos ligeras compatibles con resultados JSON estructurados. Por ejemplo, extraer datos estructurados de una opinión de un cliente de comercio electrónico:
+- **Trích xuất dữ liệu và các tác vụ dựa trên tác nhân có quy mô nhỏ**: Trích xuất thực thể, phân loại và các quy trình xử lý dữ liệu có quy mô nhỏ được hỗ trợ bằng đầu ra JSON có cấu trúc. Ví dụ: trích xuất dữ liệu có cấu trúc từ bài đánh giá của khách hàng trên trang thương mại điện tử:
 
   ```
   from google import genai
@@ -105,7 +105,7 @@ Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Esto
 
   print(response.text)
   ```
-- **Procesamiento y resumen de documentos**: Analiza archivos PDF y devuelve resúmenes concisos, como para compilar una canalización de procesamiento de documentos o clasificar rápidamente los archivos entrantes:
+- **Xử lý và tóm tắt tài liệu**: Phân tích cú pháp tệp PDF và trả về bản tóm tắt ngắn gọn, chẳng hạn như để tạo quy trình xử lý tài liệu hoặc nhanh chóng phân loại các tệp đến:
 
   ```
   from google import genai
@@ -132,7 +132,7 @@ Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Esto
 
   print(response.text)
   ```
-- **Enrutamiento de modelos**: Usa un modelo de baja latencia y bajo costo como clasificador que enruta las búsquedas al modelo adecuado según la complejidad de la tarea. Este es un patrón real en producción: la [CLI de Gemini](https://geminicli.com/docs/core/#model-fallback) de código abierto usa Flash-Lite para clasificar la complejidad de las tareas y enrutar a Flash o Pro según corresponda.
+- **Định tuyến mô hình**: Sử dụng mô hình có độ trễ thấp và chi phí thấp làm trình phân loại để định tuyến các truy vấn đến mô hình phù hợp dựa trên độ phức tạp của tác vụ. Đây là một mẫu thực tế trong quá trình sản xuất – [Gemini CLI](https://geminicli.com/docs/core/#model-fallback) mã nguồn mở sử dụng Flash-Lite để phân loại độ phức tạp của tác vụ và định tuyến đến Flash hoặc Pro cho phù hợp.
 
   ```
   from google import genai
@@ -185,7 +185,7 @@ Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Esto
 
   print(response.text)
   ```
-- **Pensamiento**: Para mejorar la precisión en las tareas que se benefician del razonamiento paso a paso, configura el pensamiento de modo que el modelo dedique recursos de procesamiento adicionales al razonamiento interno antes de producir el resultado final:
+- **Tư duy**: Để có độ chính xác cao hơn cho những tác vụ được hưởng lợi từ quy trình suy luận từng bước, hãy định cấu hình tư duy để mô hình dành thêm thời gian tính toán cho quy trình suy luận nội bộ trước khi tạo ra kết quả cuối cùng:
 
   ```
   from google import genai
@@ -204,12 +204,12 @@ Gemini 3.1 Flash-Lite es ideal para manejar tareas sencillas a gran escala. Esto
   print(response.text)
   ```
 
-Enviar comentarios
+Gửi ý kiến phản hồi
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Última actualización: 2026-07-21 (UTC)
+Cập nhật lần gần đây nhất: 2026-07-21 UTC.
 
-¿Quieres brindar más información?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-21 (UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-07-21 UTC."],[],[]]

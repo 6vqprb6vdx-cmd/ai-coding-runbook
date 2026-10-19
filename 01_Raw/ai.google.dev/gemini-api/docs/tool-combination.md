@@ -1,26 +1,29 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=ko
-fetched_at: 2026-10-12T06:56:10.828119+00:00
-title: "\uae30\ubcf8 \uc81c\uacf5 \ub3c4\uad6c\uc640 \ud568\uc218 \ud638\ucd9c \uacb0\ud569 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=bn
+fetched_at: 2026-10-19T05:29:55.515672+00:00
+title: "\u09ac\u09bf\u09b2\u09cd\u099f-\u0987\u09a8 \u099f\u09c1\u09b2 \u0993 \u09ab\u09be\u0982\u09b6\u09a8 \u0995\u09b2\u09bf\u0982\u09df\u09c7\u09b0 \u09b8\u09c1\u09ac\u09bf\u09a7\u09be \u098f\u0995\u09a4\u09cd\u09b0\u09bf\u09a4 \u0995\u09b0\u09be \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-이제 Gemini 3.8 Flash를 사용할 수 있습니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=ko).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-의견 보내기
+মতামত জানান
 
-# 기본 제공 도구와 함수 호출 결합
+# বিল্ট-ইন টুল ও ফাংশন কলিংয়ের সুবিধা একত্রিত করা
 
-Gemini는 도구 호출의 컨텍스트 기록을 보존하고 노출하여 단일 상호작용에서 `google_search`와 같은 [내장 도구](https://ai.google.dev/gemini-api/docs/tools?hl=ko)와 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)(*맞춤 도구*라고도 함)을 결합할 수 있습니다. 기본 제공 및 맞춤 도구 조합을 사용하면 모델이 특정 비즈니스 로직을 호출하기 전에 실시간 웹 데이터를 기반으로 그라운딩할 수 있는 복잡한 에이전트 워크플로를 사용할 수 있습니다.
+Gemini, [বিল্ট-ইন টুল](https://ai.google.dev/gemini-api/docs/tools?hl=bn), যেমন `google_search` এবং [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)
+(*কাস্টম টুল* নামেও পরিচিত) একসাথে ব্যবহার করার অনুমতি দেয়। এর মাধ্যমে টুল কলের
+প্রসঙ্গের ইতিহাস সেভ ও প্রকাশ করা হয়। বিল্ট-ইন ও কাস্টম টুলের কম্বিনেশন জটিল, এজেন্টিক ওয়ার্কফ্লোর অনুমতি দেয়, যেখানে, যেমন, আপনার নির্দিষ্ট বিজনেস লজিক কল করার আগে
+মডেলটি রিয়েল-টাইম ওয়েব ডেটা থেকে নিজেকে গ্রাউন্ড করতে পারে।
 
-다음은 `google_search` 및 맞춤 함수 `getWeather`를 사용하여 기본 제공 도구와 맞춤 도구 조합을 사용 설정하는 예입니다.
+এখানে একটি উদাহরণ দেওয়া হল যা `google_search` এবং কাস্টম ফাংশন `getWeather`-এর সাথে বিল্ট-ইন ও কাস্টম টুলের কম্বিনেশন চালু করে:
 
 ### Python
 
@@ -65,7 +68,7 @@ for step in interaction.steps:
         # and provide the result back to the model.
 ```
 
-### 자바스크립트
+### জাভাস্ক্রিপ্ট
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -110,7 +113,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -150,7 +153,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -199,7 +202,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 # Specifies the API revision to avoid breaking changes when they become default
@@ -230,87 +233,97 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 작동 방식
+## এটি কীভাবে কাজ করে
 
-Gemini 3 모델은 *도구 컨텍스트 순환*을 사용하여 기본 제공 및 맞춤 도구 조합을 지원합니다. 도구 컨텍스트 순환을 사용하면 기본 제공 도구의 컨텍스트를 보존하고 노출하여 동일한 상호작용에서 커스텀 도구와 공유할 수 있습니다.
+Gemini 3 মডেল, বিল্ট-ইন ও কাস্টম টুলের কম্বিনেশন চালু করতে *টুল কন্টেক্সট সার্কুলেশন* ব্যবহার করে। টুল কনটেক্সট সার্কুলেশন বিল্ট-ইন টুলের কনটেক্সট সংরক্ষণ ও প্রকাশ করা এবং একই ইন্টার‍্যাকশনে কাস্টম টুলের সাথে তা শেয়ার করা সম্ভব করে তোলে।
 
-### 도구 조합 사용 설정
+### টুল কম্বিনেশন চালু করুন
 
-- [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#function-declarations)를 사용하려는 기본 제공 도구와 함께 포함하여 조합 동작을 트리거합니다.
+- কম্বিনেশন আচরণ ট্রিগার করতে, আপনি ব্যবহার করতে চান এমন বিল্ট-ইন টুলের সাথে [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn#function-declarations) যোগ করুন।
 
-### API 반환 단계
+### API ধাপগুলি ফেরত দেয়
 
-상호작용 응답에서 API는 기본 제공 도구 호출과 함수 (맞춤 도구) 호출에 대해 별도의 단계를 반환합니다.
+ইন্টার‍্যাকশন রেসপন্সে, API বিল্ট-ইন টুল কল ও ফাংশন (কাস্টম টুল) কলের জন্য আলাদা আলাদা ধাপ দেখায়:
 
-- **기본 제공 도구 단계**: API가 이를 자동으로 관리하여 턴 간에 컨텍스트를 유지합니다.
-- **함수 호출 단계**: API는 맞춤 함수의 `function_call` 단계를 반환합니다. 함수를 실행하고 결과를 다시 제공합니다.
+- **বিল্ট-ইন টুলের ধাপ**: API এগুলি অটোমেটিক ম্যানেজ করে, এর ফলে
+  বিভিন্ন টার্ন জুড়ে প্রসঙ্গ বজায় থাকে।
+- **ফাংশন কল করার ধাপ**: API আপনার কাস্টম ফাংশনের জন্য `function_call`টি ধাপ
+  ফেরত দেয়। আপনি ফাংশনটি এক্সিকিউট করে ফলাফল প্রদান করেন।
 
-### 반환된 단계의 중요 필드
+### ফিরে আসা ধাপের গুরুত্বপূর্ণ ফিল্ড
 
-반환된 단계의 특정 필드는 도구 컨텍스트를 유지하고 도구 조합을 사용 설정하는 데 중요합니다.
+টুল কনটেক্সট বজায় রাখতে এবং টুল কম্বিনেশন চালু করতে, ফেরত পাঠানো ধাপের কিছু ফিল্ড খুবই গুরুত্বপূর্ণ:
 
-- **`id`**: `function_call` 및 `function_response` 단계에서 찾을 수 있습니다. 호출을 응답에 매핑하는 고유 식별자입니다.
-- **`signature`**: `thought` 단계와 Gemini 3 이상 모델의 모든 도구 호출 (예: `function_call`) 및 결과 (예: `function_response`) 단계에서 찾을 수 있습니다. 이 암호화된 컨텍스트를 통해 상호작용 전반에서 **도구 컨텍스트 순환**이 가능합니다.
+- **`id`**: `function_call` এবং `function_response` ধাপে পাওয়া গেছে। একটি অনন্য শনাক্তকারী যা কোনও কলকে তার উত্তরের সাথে ম্যাপ করে।
+- **`signature`**: `thought` ধাপে পাওয়া গেছে, এর সাথে Gemini 3+ মডেলের জন্য সব টুল কল (যেমন, `function_call`) এবং ফলাফল (যেমন, `function_response`) ধাপ। এই এনক্রিপ্ট করা প্রসঙ্গ ইন্টার‍্যাকশন জুড়ে **টুল প্রসঙ্গ সার্কুলেশন** চালু করে।
 
-**이러한 필드 관리:**
+**এইসব ফিল্ড ম্যানেজ করা:**
 
-- **상태 저장 모드 (권장)**: `previous_interaction_id`를 사용하면 서버에서 `id` 및 `signature` 필드를 모두 자동으로 처리합니다.
-- **상태 비저장 모드**: 대화 기록을 수동으로 관리할 때는 진위성을 검증하고 컨텍스트를 유지하기 위해 후속 요청에서 `id` 및 `signature` 필드를 모두 모델에 다시 전달해야 합니다. 전체 응답 객체를 기록에 다시 전달하면 공식 SDK에서 이 작업을 자동으로 처리합니다.
+- **স্টেটফুল মোড (সাজেস্ট করা)**: আপনি `previous_interaction_id` ব্যবহার করলে, সার্ভার অটোমেটিক `id` ও `signature` ফিল্ড দু'টিই ম্যানেজ করে।
+- **স্টেটলেস মোড**: ম্যানুয়ালি কথোপকথনের ইতিহাস ম্যানেজ করার সময়, আপনাকে অবশ্যই নিশ্চিত করতে হবে যে আপনি পরবর্তী অনুরোধে মডেলটিকে `id` এবং `signature` ফিল্ড দু'টিই পাস করেছেন যাতে সত্যতা যাচাই করা যায় এবং প্রসঙ্গ বজায় রাখা যায়। আপনি যদি সম্পূর্ণ রেসপন্স অবজেক্টটি ইতিহাসে ফেরত পাঠান, তাহলে অফিসিয়াল SDK এটি অটোমেটিক ম্যানেজ করে।
 
-### 도구별 데이터
+### টুল-নির্দিষ্ট ডেটা
 
-일부 기본 제공 도구는 도구 유형에 따라 사용자에게 표시되는 데이터 인수를 반환합니다.
+কিছু বিল্ট-ইন টুল, টুলের
+টাইপ অনুযায়ী ব্যবহারকারীর দেখার উপযুক্ত ডেটা আর্গুমেন্ট রিটার্ন করে।
 
-| 도구 | 사용자에게 표시되는 도구 호출 인수 (있는 경우) | 사용자에게 표시되는 도구 응답 (있는 경우) |
+| টুল | ব্যবহারকারী দেখতে পাবেন এমন টুল কল আর্গুমেন্ট (যদি থাকে) | ব্যবহারকারীকে দেখানো টুলের উত্তর (যদি থাকে) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` 탐색할 URL | `status`: 탐색 상태 `retrieved_url`: 탐색된 URL |
-| **file\_search** | 없음 | 없음 |
+| **url\_context** | `urls` ব্রাউজ করার জন্য URL | `status`: ব্রাউজ করার স্ট্যাটাস `retrieved_url`: ব্রাউজ করা URL |
+| **file\_search** | কোনওটিই নয় | কোনওটিই নয় |
 
-## 토큰 및 가격
+## টোকেন ও দাম
 
-요청의 내장 도구 호출 부분은 `prompt_token_count`에 포함됩니다. 이제 이러한 중간 도구 단계가 표시되고 사용자에게 반환되므로 대화 기록의 일부가 됩니다. 이는 *응답*이 아닌 *요청*에만 해당합니다.
+মনে রাখবেন, অনুরোধে বিল্ট-ইন টুল কল পার্ট
+`prompt_token_count`-এর জন্য গণনা করা হয়। যেহেতু এই মধ্যবর্তী টুল ধাপগুলি এখন দৃশ্যমান এবং
+আপনাকে ফেরত দেওয়া হয়েছে, তাই সেগুলি কথোপকথনের ইতিহাসের অংশ। এটি শুধুমাত্র
+*অনুরোধের* ক্ষেত্রেই প্রযোজ্য, *উত্তরের* ক্ষেত্রে নয়।
 
-Google 검색 도구는 이 규칙의 예외입니다. Google 검색은 이미 쿼리 수준에서 자체 가격 책정 모델을 적용하므로 토큰이 이중 청구되지 않습니다 ([가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko) 페이지 참고).
+Google Search টুল এই নিয়মের ব্যতিক্রম। Google Search আগেই
+কোয়েরি লেভেলে নিজস্ব প্রাইসিং মডেল প্রয়োগ করে, তাই টোকেনের জন্য
+ডবল চার্জ করা হয় না ([প্রাইসিং](https://ai.google.dev/gemini-api/docs/pricing?hl=bn) পৃষ্ঠা দেখুন)।
 
-자세한 내용은 [토큰](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) 페이지를 참고하세요.
+আরও তথ্যের জন্য [টোকেন](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) পৃষ্ঠাটি পড়ুন।
 
-## 제한사항
+## সীমাবদ্ধতা
 
-- 도구 컨텍스트 순환이 사용 설정된 경우 `validated` 모드로 기본 설정됩니다 (`auto` 모드는 지원되지 않음).
-- `google_search`와 같은 내장 도구는 위치 및 현재 시간 정보를 사용하므로 `system_instruction` 또는 `function_declaration.description`에 충돌하는 위치 및 시간 정보가 있으면 도구 조합 기능이 제대로 작동하지 않을 수 있습니다.
+- টুল কন্টেক্সট সার্কুলেশন চালু থাকলে, ডিফল্ট হিসেবে `validated` মোড (`auto` মোড কাজ করে না)
+  ব্যবহার করা হয়।
+- `google_search`-এর মতো বিল্ট-ইন টুল লোকেশন ও বর্তমান সময়ের তথ্যের উপর নির্ভর করে, তাই আপনার `system_instruction` বা `function_declaration.description`-এ লোকেশন ও সময়ের তথ্য পরস্পরবিরোধী হলে, টুল কম্বিনেশন ফিচারটি ভালভাবে কাজ নাও করতে পারে।
 
-## 지원되는 도구
+## মানানসই টুল
 
-표준 도구 컨텍스트 순환은 서버 측 (내장) 도구에 적용됩니다.
-코드 실행도 서버 측 도구이지만 컨텍스트 순환을 위한 자체 내장 솔루션이 있습니다. Computer Use 및 함수 호출은 클라이언트 측 도구이며 컨텍스트 순환을 위한 내장 솔루션도 있습니다.
+সার্ভার-সাইড (বিল্ট-ইন) টুলের ক্ষেত্রে স্ট্যান্ডার্ড টুল কন্টেক্সট সার্কুলেশন প্রযোজ্য হয়।
+কোড এক্সিকিউশনও একটি সার্ভার-সাইড টুল, তবে প্রসঙ্গ সার্কুলেশনের জন্য এর নিজস্ব বিল্ট-ইন সমাধান রয়েছে। কম্পিউটার ব্যবহার ও ফাংশন কলিং হল ক্লায়েন্ট-সাইড টুল,
+এবং এতে প্রসঙ্গ সার্কুলেশনের জন্য বিল্ট-ইন সমাধানও রয়েছে।
 
-| 도구 | 실행 측 | 컨텍스트 순환 지원 |
+| টুল | এক্সিকিউশন সাইড | Context Circulation Support |
 | --- | --- | --- |
-| [Google 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko) | 서버 측 | 지원됨 |
-| [Google 지도](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko) | 서버 측 | 지원됨 |
-| [URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko) | 서버 측 | 지원됨 |
-| [파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko) | 서버 측 | 지원됨 |
-| [코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko) | 서버 측 | 지원됨 (내장, `code_execution` 및 `code_execution_result` 단계 사용) |
-| [컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko) | 클라이언트 측 | 지원됨 (내장, `function_call` 및 `function_response` 단계 사용) |
-| [커스텀 함수](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko) | 클라이언트 측 | 지원됨 (내장, `function_call` 및 `function_response` 단계 사용) |
+| [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn) | সার্ভার-সাইড | কাজ করে |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn) | সার্ভার-সাইড | কাজ করে |
+| [URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn) | সার্ভার-সাইড | কাজ করে |
+| [ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn) | সার্ভার-সাইড | কাজ করে |
+| [কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn) | সার্ভার-সাইড | কাজ করে (বিল্ট-ইন, `code_execution` ও `code_execution_result` ধাপ ব্যবহার করে) |
+| [কম্পিউটার ইউজ](https://ai.google.dev/gemini-api/docs/computer-use?hl=bn) | ক্লায়েন্ট-সাইড | কাজ করে (বিল্ট-ইন, `function_call` ও `function_response` ধাপ ব্যবহার করে) |
+| [কাস্টম ফাংশন](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn) | ক্লায়েন্ট-সাইড | কাজ করে (বিল্ট-ইন, `function_call` ও `function_response` ধাপ ব্যবহার করে) |
 
-## 다음 단계
+## এর পরে কী করতে হবে
 
-- Gemini API의 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)에 대해 자세히 알아보세요.
-- 지원되는 도구를 살펴보세요.
-  - [Google 검색](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)
-  - [Google 지도](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)
-  - [URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)
-  - [파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)
+- Gemini API-তে [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn) সম্পর্কে আরও জানুন।
+- কাজ করে এমন টুল এক্সপ্লোর করুন:
+  - [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)
+  - [URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)
+  - [ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)
 
-의견 보내기
+মতামত জানান
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-최종 업데이트: 2026-09-24(UTC)
+2026-10-13 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-의견을 전달하고 싶나요?
+আমাদের আরও কিছু জানাতে চান?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-24(UTC)"],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-13 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

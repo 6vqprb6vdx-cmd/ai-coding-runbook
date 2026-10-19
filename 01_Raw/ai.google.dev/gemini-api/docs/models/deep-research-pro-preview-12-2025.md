@@ -1,47 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=th
-fetched_at: 2026-10-12T07:07:50.500660+00:00
-title: "\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07 Deep Research Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=zh-CN
+fetched_at: 2026-10-19T05:39:33.641168+00:00
+title: "Deep Research Pro \u9884\u89c8\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash พร้อมให้บริการแล้ว [ลองเลย](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=th)
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-ส่งความคิดเห็น
+发送反馈
 
-# ตัวอย่าง Deep Research Pro
+# Deep Research Pro 预览版
 
-นักวิจัยที่มีความสามารถซึ่งออกแบบมาเพื่อการตรวจสอบแบบหลายขั้นตอนโดยอัตโนมัติ
-ที่สังเคราะห์ข้อมูลที่ซับซ้อนออกมาเป็นรายงานที่ครอบคลุมและมีการอ้างอิง โมเดลนี้ขับเคลื่อนโดย Gemini 3.1 Pro และได้รับการเพิ่มประสิทธิภาพสำหรับงานที่ใช้เวลานานและการวิเคราะห์ที่ต้องมีความแม่นยำสูงจากแหล่งข้อมูลบนเว็บสาธารณะหลายร้อยแห่งและข้อมูล Workspace ส่วนตัว เช่น Gmail และไดรฟ์
+一款强大的智能体研究员，专为自主进行多步骤调查而设计，可将复杂信息整合为内容详实、附有参考文献的报告。此模型由 Gemini 3.1 Pro 提供支持，经过优化，可处理长时间运行的任务，并对数百个公共网站来源和 Gmail、云端硬盘等私密工作区数据进行准确性至关重要的分析。
 
-## เอกสารประกอบ
+## 文档
 
-ไปที่หน้า [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=th) เพื่อดูข้อมูลทั้งหมด
-เกี่ยวกับฟีเจอร์และความสามารถ
+如需全面了解功能和特性，请访问 [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 页面。
 
 ## deep-research-pro-preview-12-2025
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| 属性 | 说明 |
 | --- | --- |
-| รหัสตัวแทน id\_card | **Interactions API**  `deep-research-pro-preview-12-2025` |
-| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ PDF เสียง วิดีโอ  **เอาต์พุต**  ข้อความ (รายงานที่อ้างอิง) |
-| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **หน้าต่างบริบทของอินพุต**  1,048,576  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `deep-research-pro-preview-12-2025` |
-| calendar\_monthการอัปเดตล่าสุด | ธันวาคม 2025 |
+| id\_card 代理机构代码 | **Interactions API**  `deep-research-pro-preview-12-2025` |
+| 保存支持的数据类型 | **输入**  文本、图片、PDF、音频、视频  **输出**  文字（引用报告） |
+| token\_auto令牌限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入上下文窗口**  1,048,576  **输出 token 限制**  65536 |
+| 123 版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 预览：`deep-research-pro-preview-12-2025` |
+| calendar\_month最新更新 | 2025 年 12 月 |
 
-ส่งความคิดเห็น
+发送反馈
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-อัปเดตล่าสุด 2026-10-09 UTC
+最后更新时间 (UTC)：2026-10-09。
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+需要向我们提供更多信息？
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-09 UTC"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-09。"],[],[]]

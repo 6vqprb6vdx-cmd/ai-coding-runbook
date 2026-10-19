@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=vi
-fetched_at: 2026-10-12T07:00:43.408609+00:00
-title: "Ng\u1eef c\u1ea3nh URL \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/url-context?hl=ar
+fetched_at: 2026-10-19T05:31:40.933031+00:00
+title: "\u0633\u064a\u0627\u0642 \u0639\u0646\u0648\u0627\u0646 URL \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) hiện đã được phát hành rộng rãi. Bạn nên sử dụng API này để truy cập vào tất cả các tính năng và mô hình mới nhất.
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-# Ngữ cảnh URL
+# سياق عنوان URL
 
-Công cụ ngữ cảnh URL cho phép bạn cung cấp thêm ngữ cảnh cho các mô hình dưới dạng URL. Bằng cách thêm URL vào yêu cầu, mô hình sẽ truy cập vào nội dung của những trang đó (chừng nào đó không phải là loại URL được liệt kê trong [phần hạn chế](#limitations)) để cung cấp thông tin và cải thiện câu trả lời của mô hình.
+تتيح لك أداة "سياق عنوان URL" تقديم سياق إضافي للنماذج في شكل عناوين URL. من خلال تضمين عناوين URL في طلبك، سيتمكّن النموذج من الوصول إلى المحتوى من تلك الصفحات (ما دام ليس من نوع عناوين URL المدرَجة في [قسم القيود](#limitations)) للاستناد إليه وتحسين رده.
 
-Công cụ ngữ cảnh URL rất hữu ích cho những việc như sau:
+تكون أداة سياق عنوان URL مفيدة في مهام مثل ما يلي:
 
-- **Trích xuất dữ liệu**: Lấy thông tin cụ thể như giá, tên hoặc phát hiện khoá từ nhiều URL.
-- **So sánh tài liệu**: Phân tích nhiều báo cáo, bài viết hoặc tệp PDF để xác định điểm khác biệt và theo dõi xu hướng.
-- **Tổng hợp và tạo nội dung**: Kết hợp thông tin từ nhiều URL nguồn để tạo bản tóm tắt, bài đăng trên blog hoặc báo cáo chính xác.
-- **Phân tích mã và tài liệu**: Chỉ đến một kho lưu trữ GitHub hoặc tài liệu kỹ thuật để giải thích mã, tạo hướng dẫn thiết lập hoặc trả lời câu hỏi.
+- **استخراج البيانات**: يمكنك استخراج معلومات محدّدة، مثل الأسعار أو الأسماء أو النتائج الرئيسية، من عناوين URL متعدّدة.
+- **مقارنة المستندات**: يمكنك تحليل تقارير أو مقالات أو ملفات PDF متعددة لتحديد الاختلافات وتتبُّع المؤشرات.
+- **تجميع المعلومات وإنشاء المحتوى**: يمكنك دمج المعلومات من عدة عناوين URL للمصادر لإنشاء ملخّصات أو منشورات مدوّنة أو تقارير دقيقة.
+- **تحليل الرموز البرمجية والمستندات**: يمكنك الإشارة إلى مستودع GitHub أو مستندات فنية لشرح الرموز البرمجية أو إنشاء تعليمات الإعداد أو الإجابة عن الأسئلة.
 
-Ví dụ sau đây cho thấy cách so sánh hai công thức nấu ăn trên các trang web khác nhau.
+يوضّح المثال التالي كيفية مقارنة وصفتَي طعام من موقعَين إلكترونيَين مختلفَين.
 
 ### Python
 
@@ -172,20 +172,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cách hoạt động
+## آلية العمل
 
-Công cụ Bối cảnh URL sử dụng quy trình truy xuất gồm hai bước để cân bằng tốc độ, chi phí và quyền truy cập vào dữ liệu mới. Khi bạn cung cấp một URL, công cụ này sẽ cố gắng tìm nạp nội dung từ bộ nhớ đệm chỉ mục nội bộ trước. Đây là bộ nhớ đệm được tối ưu hoá cao. Nếu một URL không có trong chỉ mục (ví dụ: nếu đó là một trang rất mới), thì công cụ này sẽ tự động quay lại để tìm nạp trực tiếp.
-Thao tác này truy cập trực tiếp vào URL để truy xuất nội dung theo thời gian thực.
+تستخدم أداة "سياق عناوين URL" عملية استرجاع من خطوتَين لتحقيق التوازن بين السرعة والتكلفة والوصول إلى البيانات الحديثة. عند تقديم عنوان URL، تحاول الأداة أولاً جلب المحتوى من ذاكرة تخزين مؤقت داخلية للفهرس. ويعمل هذا كذاكرة تخزين
+مؤقت محسّنة للغاية. إذا لم يكن عنوان URL متاحًا في الفهرس (على سبيل المثال، إذا كانت الصفحة جديدة جدًا)، ستعود الأداة تلقائيًا إلى إجراء جلب مباشر.
+يؤدي ذلك إلى الوصول مباشرةً إلى عنوان URL لاسترداد محتواه في الوقت الفعلي.
 
-## Kết hợp với các công cụ khác
+## الدمج مع أدوات أخرى
 
-Bạn có thể kết hợp công cụ bối cảnh URL với các công cụ khác để tạo quy trình làm việc hiệu quả hơn.
+يمكنك دمج أداة سياق عناوين URL مع أدوات أخرى لإنشاء مسارات عمل أكثر فعالية.
 
-[Các mô hình Gemini 3](#supported-models) hỗ trợ việc kết hợp các công cụ tích hợp sẵn (chẳng hạn như Bối cảnh từ URL) với các công cụ tuỳ chỉnh (gọi hàm). Tìm hiểu thêm trên trang [các tổ hợp công cụ](https://ai.google.dev/gemini-api/docs/tool-combination?hl=vi).
+تتيح [نماذج Gemini 3](#supported-models) الجمع بين الأدوات المضمّنة
+(مثل "سياق عناوين URL") والأدوات المخصّصة (استدعاء الدوال). يمكنك الاطّلاع على مزيد من المعلومات في صفحة [مجموعات الأدوات](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar).
 
-### Neo bám vào nội dung tìm kiếm
+### تحديد المصدر من خلال "بحث Google"
 
-Khi cả Bối cảnh từ URL và tính năng [Neo bám vào Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/grounding?hl=vi) đều được bật, mô hình có thể sử dụng các khả năng tìm kiếm của mình để tìm thông tin liên quan trên mạng, sau đó sử dụng công cụ Bối cảnh từ URL để hiểu rõ hơn về các trang mà mô hình tìm thấy. Phương pháp này rất hiệu quả đối với những câu lệnh yêu cầu cả tìm kiếm trên diện rộng và phân tích chuyên sâu các trang cụ thể.
+عند تفعيل كل من سياق عناوين URL و[تحديد المصدر من خلال &quot;بحث Google&quot;](https://ai.google.dev/gemini-api/docs/grounding?hl=ar)، يمكن للنموذج استخدام إمكانات البحث للعثور على المعلومات ذات الصلة على الإنترنت، ثم استخدام أداة سياق عناوين URL للحصول على فهم أكثر تعمقًا للصفحات التي يعثر عليها. هذا الأسلوب فعّال مع الطلبات التي تتطلّب بحثًا واسع النطاق وتحليلاً معمّقًا لصفحات معيّنة.
 
 ### Python
 
@@ -306,19 +308,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Tìm hiểu câu trả lời
+## فهم الردّ
 
-Khi mô hình sử dụng công cụ ngữ cảnh URL, câu trả lời bằng văn bản của mô hình sẽ có chú thích `url_citation` nội tuyến trên khối nội dung văn bản. Mỗi chú thích liên kết một đoạn văn bản phản hồi (thông qua `start_index` và `end_index`) với URL nguồn mà đoạn văn bản đó được lấy từ đó. Đây là cách chính để hiển thị trích dẫn trong ứng dụng của bạn – hãy xem [ví dụ chính ở trên](#get-started) để biết cách trích xuất các trích dẫn này.
+عندما يستخدم النموذج أداة "سياق عناوين URL"، يتضمّن ردّه النصي تعليقات توضيحية مضمّنة من النوع `url_citation` على مجموعة النصوص. يربط كل تعليق توضيحي جزءًا من نص الردّ (من خلال `start_index` و`end_index`) بعنوان URL المصدر الذي تم استخلاصه منه. هذه هي الطريقة الأساسية لعرض الاقتباسات في تطبيقك، ويمكنك الاطّلاع على [المثال الرئيسي أعلاه](#get-started) لمعرفة كيفية استخراجها.
 
-Phản hồi cũng bao gồm một bước `url_context_result` có siêu dữ liệu về từng lần truy xuất URL (trạng thái, URL đã truy xuất). Điều này chủ yếu hữu ích cho việc gỡ lỗi.
+تتضمّن الإجابة أيضًا خطوة `url_context_result` مع بيانات وصفية حول كل محاولة لاسترداد عنوان URL (الحالة وعنوان URL الذي تم استرداده). وهذا مفيد بشكل أساسي لتصحيح الأخطاء.
 
-### Kiểm tra an toàn
+### عمليات التحقّق من الأمان
 
-Hệ thống sẽ kiểm tra nội dung của URL để xác nhận rằng các URL đó đáp ứng các tiêu chuẩn an toàn. Nếu một URL không vượt qua được bước kiểm tra này, bước `url_context_result` tương ứng sẽ cho thấy `status` của `"unsafe"`.
+يُجري النظام عملية تحقّق من الإشراف على المحتوى في عناوين URL للتأكّد من أنّها تستوفي معايير الأمان. إذا لم ينجح عنوان URL في هذا الفحص، ستعرض خطوة `url_context_result` المقابلة `status` من `"unsafe"`.
 
-### Số token
+### عدد الرموز المميّزة
 
-Nội dung được truy xuất từ các URL mà bạn chỉ định trong câu lệnh sẽ được tính là một phần của mã thông báo đầu vào. Bạn có thể xem số lượng mã thông báo trong đối tượng `usage` của lượt tương tác. Sau đây là một ví dụ:
+يتم احتساب المحتوى الذي يتم استرداده من عناوين URL المحدّدة في طلبك
+كجزء من الرموز المميّزة للإدخال. يمكنك الاطّلاع على عدد الرموز المميزة في
+الكائن `usage` الخاص بالتفاعل. في ما يلي مثال على ذلك:
 
 ```
 'usage': {
@@ -332,56 +336,60 @@ Nội dung được truy xuất từ các URL mà bạn chỉ định trong câu
 }
 ```
 
-Giá mỗi mã thông báo phụ thuộc vào mô hình được dùng, hãy xem trang [định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) để biết thông tin chi tiết.
+يعتمد السعر لكل رمز مميّز على النموذج المستخدَم، ويمكنك الاطّلاع على صفحة [الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar) لمزيد من التفاصيل.
 
-## Mô hình được hỗ trợ
+## النماذج المتوافقة
 
-| Mô hình | Bối cảnh từ URL |
+| الطراز | سياق عناوين URL |
 | --- | --- |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=vi) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
-| [Bản dùng thử Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
+| [‫Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=ar) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ar) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ar) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ar) | ✔️ |
+| [‫Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ar) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar) | ✔️ |
+| [معاينة Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ar) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ar) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ar) | ✔️ |
 
-## Các phương pháp hay nhất
+## أفضل الممارسات
 
-- **Cung cấp URL cụ thể**: Để có kết quả tốt nhất, hãy cung cấp URL trực tiếp đến nội dung mà bạn muốn mô hình phân tích. Mô hình này sẽ chỉ truy xuất nội dung từ những URL mà bạn cung cấp, chứ không truy xuất nội dung nào từ các đường liên kết lồng nhau.
-- **Kiểm tra khả năng tiếp cận**: Xác minh rằng các URL bạn cung cấp không dẫn đến những trang yêu cầu đăng nhập hoặc nằm sau tường phí.
-- **Sử dụng URL đầy đủ**: Cung cấp URL đầy đủ, bao gồm cả giao thức (ví dụ: https://www.google.com thay vì chỉ google.com).
+- **تقديم عناوين URL محدّدة**: للحصول على أفضل النتائج، قدِّم عناوين URL مباشرة إلى
+  المحتوى الذي تريد أن يحلّله النموذج. سيسترد النموذج المحتوى فقط من عناوين URL التي تقدّمها، وليس أي محتوى من الروابط المضمّنة.
+- **التحقّق من إمكانية الوصول**: تأكَّد من أنّ عناوين URL التي تقدّمها لا تؤدي إلى صفحات تتطلّب تسجيل الدخول أو تقع خلف حاجز دفع.
+- **استخدام عنوان URL الكامل**: يجب تقديم عنوان URL الكامل، بما في ذلك البروتوكول (مثلاً، https://www.google.com بدلاً من google.com فقط).
 
-## Các điểm hạn chế
+## القيود
 
-- Giới hạn yêu cầu: Công cụ này có thể xử lý tối đa 20 URL cho mỗi yêu cầu.
-- Kích thước nội dung URL: Kích thước tối đa cho nội dung được truy xuất từ một URL duy nhất là 34 MB.
-- Khả năng truy cập công khai: Các URL phải truy cập được công khai trên web.
-  Không được hỗ trợ địa chỉ máy chủ cục bộ (ví dụ: localhost, 127.0.0.1), mạng riêng tư và dịch vụ tạo đường hầm (ví dụ: ngrok, pinggy).
+- حدّ الطلب: يمكن للأداة معالجة ما يصل إلى 20 عنوان URL لكل طلب.
+- حجم محتوى عنوان URL: الحد الأقصى لحجم المحتوى الذي يتم استرداده من عنوان URL واحد هو 34 ميغابايت.
+- إمكانية الوصول العلني: يجب أن تكون عناوين URL متاحة للجميع على الويب.
+  لا تتوافق عناوين المضيف المحلي (مثل localhost و127.0.0.1) والشبكات الخاصة وخدمات الأنفاق (مثل ngrok وpinggy).
 
-### Các loại nội dung được hỗ trợ và không được hỗ trợ
+### أنواع المحتوى المتوافقة وغير المتوافقة
 
-Công cụ này có thể trích xuất nội dung từ các URL có những loại nội dung sau:
+يمكن للأداة استخراج المحتوى من عناوين URL التي تتضمّن أنواع المحتوى التالية:
 
-- Văn bản (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- Hình ảnh (image/png, image/jpeg, image/bmp, image/webp)
-- PDF (application/pdf)
+- النصوص (text/html وapplication/json وtext/plain وtext/xml وtext/css وtext/javascript وtext/csv وtext/rtf)
+- صورة (image/png أو image/jpeg أو image/bmp أو image/webp)
+- ملف PDF ‏ (application/pdf)
 
-Các loại nội dung sau **không** được hỗ trợ:
+**لا** تتوافق أنواع المحتوى التالية مع ميزة "استعراض المحتوى":
 
-- Nội dung có tường phí
-- Video trên YouTube (Xem phần [hiểu video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#youtube) để tìm hiểu cách xử lý URL của YouTube)
-- Các tệp trên Google Workspace, chẳng hạn như tài liệu hoặc bảng tính trên Google
-- Tệp video và âm thanh
+- المحتوى المحمي بنظام حظر الاشتراك غير المدفوع
+- فيديوهات على YouTube (يُرجى الاطّلاع على
+  [فهم الفيديو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar#youtube) لمعرفة
+  كيفية معالجة عناوين URL على YouTube)
+- ملفات Google Workspace، مثل "مستندات Google" أو جداول البيانات
+- ملفات الفيديو والصوت
 
-Gửi ý kiến phản hồi
+إرسال ملاحظات
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Cập nhật lần gần đây nhất: 2026-10-09 UTC.
+تاريخ التعديل الأخير: 2026-10-13 (حسب التوقيت العالمي المتفَّق عليه)
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-09 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

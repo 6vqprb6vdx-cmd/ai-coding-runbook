@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=pt-BR
-fetched_at: 2026-10-12T06:55:22.869206+00:00
-title: "Intera\u00e7\u00f5es de streaming \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=tr
+fetched_at: 2026-10-19T05:38:13.142896+00:00
+title: "Ak\u0131\u015f etkile\u015fimleri \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 3.8 Flash já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pt-br).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Envie comentários
+Geri bildirim gönderin
 
-# Interações de streaming
+# Akış etkileşimleri
 
-Ao criar uma interação, é possível definir `stream: true` para transmitir a resposta de forma incremental usando [eventos enviados pelo servidor](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE).
+Etkileşim oluştururken `stream: true` değerini, [sunucu tarafından gönderilen etkinlikler](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE) kullanarak yanıtı artımlı olarak yayınlayacak şekilde ayarlayabilirsiniz.
 
 ### Python
 
@@ -200,24 +200,24 @@ event: done
 data: [DONE]
 ```
 
-## Tipos de evento
+## Etkinlik türleri
 
-Cada evento enviado pelo servidor inclui um `event_type` nomeado e dados JSON associados. A API Interactions usa um modelo de streaming simétrico em que todo o conteúdo (texto, chamadas de função, raciocínio) flui por um evento **baseado em etapas** consistente.
+Sunucu tarafından gönderilen her etkinlik, adlandırılmış bir `event_type` ve ilişkili JSON verilerini içerir. Etkileşimler API'si, tüm içeriğin (metin, araç çağrıları, düşünme) tutarlı bir **adımlara dayalı** etkinlik üzerinden aktığı simetrik bir akış modeli kullanır.
 
-Cada stream segue este fluxo de eventos:
+Her yayın şu etkinlik akışını izler:
 
-1. `interaction.created`: a interação é criada e inclui metadados (ID, modelo, status).
-2. Uma série de **etapas**, cada uma consistindo em:
-   - Um evento `step.start`, indicando o tipo de etapa (por exemplo, `model_output`, `thought`, `function_call`).
-   - Um ou mais eventos `step.delta` com dados incrementais para essa etapa.
-   - Um evento `step.stop` que marca a etapa como concluída.
-3. Um evento `interaction.completed` com estatísticas finais de `usage`.
+1. `interaction.created`: Etkileşim oluşturulur ve meta veriler (kimlik, model, durum) içerir.
+2. Her biri aşağıdakilerden oluşan bir **adımlar** dizisi:
+   - Adım türünü (ör. `model_output`, `thought`, `function_call`) belirten bir `step.start` etkinliği.
+   - Bu adım için artımlı veriler içeren bir veya daha fazla `step.delta` etkinliği.
+   - Adımı tamamlandı olarak işaretleyen bir `step.stop` etkinliği.
+3. Nihai `usage` istatistikleri içeren bir `interaction.completed` etkinliği.
 
-Quando você define `stream: false`, a API retorna um único objeto `interaction` com uma matriz `steps`. Cada elemento em `steps` é a versão totalmente montada de um ciclo `step.start` → `step.delta`(s) → `step.stop`.
+`stream: false` değerini ayarladığınızda API, `steps` dizisine sahip tek bir `interaction` nesnesi döndürür. `steps` içindeki her öğe, bir `step.start` → `step.delta`(s) → `step.stop` döngüsünün tamamen birleştirilmiş sürümüdür.
 
 ### `interaction.created`
 
-Enviado quando a interação é criada. Contém o ID da interação, o modelo e o status inicial.
+Etkileşim ilk oluşturulduğunda gönderilir. Etkileşim kimliğini, modeli ve ilk durumu içerir.
 
 ```
 event: interaction.created
@@ -226,7 +226,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3.8-flash", "status": "in_p
 
 ### `interaction.status_update`
 
-Indica uma transição de status no nível da interação. Pode aparecer entre as etapas.
+Etkileşim düzeyinde bir durum geçişini belirtir. Adımlar arasında görünebilir.
 
 ```
 event: interaction.status_update
@@ -235,23 +235,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-Marca o início de uma nova etapa. Contém as etapas `type` e `index`. O tipo de etapa determina quais tipos de delta esperar e como a etapa aparece em uma resposta sem streaming:
+Yeni bir adımın başlangıcını işaretler. `type` ve `index` adımlarını içerir. Adım türü, hangi delta türlerinin bekleneceğini ve adımın akış olmayan bir yanıtta nasıl görüneceğini belirler:
 
-| Tipo de etapa | Tipos de delta esperados | Descrição |
+| Adım Türü | Beklenen Delta Türleri | Açıklama |
 | --- | --- | --- |
-| `model_output` | `text`, `image`, `audio` | O conteúdo da resposta final do modelo. |
-| `thought` | `thought_signature`, `thought_summary` | Raciocínio da linha de raciocínio. `summary` só está presente quando `thinking_summaries` está ativado. |
-| `function_call` | `arguments_delta` | Uma solicitação para o cliente executar uma função. Define o status da interação como `requires_action`. |
-| Ferramentas do lado do servidor | Varia de acordo com a ferramenta | Ferramentas executadas pela API (por exemplo, `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
+| `model_output` | `text`, `image` ve `audio` | Modelin nihai yanıt içeriği. |
+| `thought` | `thought_signature`, `thought_summary` | Düşünce zinciriyle akıl yürütme. `summary` yalnızca `thinking_summaries` etkinleştirildiğinde gösterilir. |
+| `function_call` | `arguments_delta` | İstemcinin bir işlevi yürütme isteği. Etkileşim durumunu `requires_action` olarak ayarlar. |
+| Sunucu tarafı araçlar | Araca göre değişir | API tarafından yürütülen araçlar (ör. `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
 
-Consulte a lista completa na [referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br).
+Tam liste için [Interactions API'si referansına](https://ai.google.dev/api/interactions-api?hl=tr) bakın.
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-Para chamadas de função, a etapa inclui o nome da função, o ID e os argumentos vazios `{}`.
+İşlev çağrıları için adım, işlev adını, kimliğini ve boş bağımsız değişkenleri `{}` içerir.
 
 ```
 event: step.start
@@ -260,11 +260,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-Dados incrementais da etapa atual. O objeto `delta` contém um campo `type` que determina a forma dele.
+Mevcut adım için artımlı veriler. `delta` nesnesi, şeklini belirleyen bir `type` alanı içerir.
 
-**Exemplos**:
+**Örnekler:**
 
-**`text`**:token de texto incremental de uma etapa `model_output`:
+**`text`:** `model_output` adımından alınan artımlı metin jetonu:
 
 ```
 event: step.delta
@@ -274,43 +274,42 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`**:dados de imagem codificados em Base64 de uma etapa `model_output`:
+**`image`:** `model_output` adımından alınan Base64 ile kodlanmış resim verileri:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`**:conteúdo de resumo de pensamento de uma etapa `thought`:
+**`thought_summary`:** `thought` adımından düşünce özeti içeriği:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`**:string JSON parcial para argumentos de chamada de função. Precisa ser acumulado em deltas:
+**`arguments_delta`:** İşlev çağrısı bağımsız değişkenleri için (kısmi) JSON dizesi. Aşağıdaki değişiklikler genelinde toplanmalıdır:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-Estes são alguns dos tipos de delta mais comuns. Para conferir a lista completa de todos os tipos de delta, consulte a [referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br).
+En yaygın delta türlerinden bazıları şunlardır. Tüm delta türlerinin tam listesi için [Interactions API referansına](https://ai.google.dev/api/interactions-api?hl=tr) bakın.
 
 ### `step.stop`
 
-Marca o fim de uma etapa. Contém a etapa `index`.
+Bir adımın sonunu işaretler. `index` adımını içerir.
 
 ```
 event: step.stop
 data: {"index": 0, "event_type": "step.stop"}
 ```
 
-Ao usar o [Agente antigravidade](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br), o evento
-`step.stop` também pode incluir estatísticas de uso:
+[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr) kullanılırken `step.stop` etkinliği kullanım istatistiklerini de içerebilir:
 
-- **`usage`**: o uso acumulado (total em andamento) desde o início da interação.
-- **`step_usage`**: o uso desta etapa específica.
+- **`usage`**: Etkileşimin başlangıcından bu yana biriken kullanım (toplam).
+- **`step_usage`**: Bu özel adımın kullanımı.
 
 ```
 event: step.stop
@@ -319,7 +318,7 @@ data: {"index": 2, "event_type": "step.stop", "usage": {"total_tokens": 4650, "t
 
 ### `interaction.completed`
 
-Enviado quando a interação é concluída. Contém o objeto de interação final com estatísticas de `usage`. No modo sem streaming, esse é o próprio objeto de resposta de nível superior. Não inclui `steps` na resposta.
+Etkileşim tamamlandığında gönderilir. `usage` istatistiklerini içeren son etkileşim nesnesini içerir. Akış dışı modda bu, en üst düzey yanıt nesnesinin kendisidir. Yanıtta `steps` bulunmuyor.
 
 ```
 event: interaction.completed
@@ -328,27 +327,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-Enviado quando ocorre um erro durante a interação. Contém um objeto de erro com uma mensagem e um código.
+Etkileşim sırasında bir hata oluştuğunda gönderilir. Mesaj ve kod içeren bir hata nesnesi içerir.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## Streaming com ferramentas
+## Araçlarla canlı yayın yapma
 
-A API Interactions oferece suporte a streaming com ferramentas do lado do cliente (chamada de função) e do lado do servidor (Pesquisa Google, execução de código etc.) em uma única solicitação. Durante o streaming, as invocações de ferramentas aparecem como etapas digitadas no fluxo de eventos. Para chamadas de função, o evento `step.start` entrega o nome da função, e os eventos `step.delta` transmitem os argumentos como strings JSON (`arguments_delta`). É necessário acumular esses deltas para receber os argumentos completos.
-Ferramentas do lado do servidor, como a Pesquisa Google, são executadas automaticamente pela API,
-produzindo etapas `google_search_call` e `google_search_result`.
+Interactions API'si, tek bir istekte hem istemci taraflı araçlarla (işlev çağrısı) hem de sunucu tarafı araçlarla (Google Arama, kod yürütme vb.) akışı destekler. Yayın sırasında araç çağırmaları, etkinlik akışında yazılmış adımlar olarak görünür. İşlev çağrıları için `step.start` etkinliği işlev adını, `step.delta` etkinlikleri ise bağımsız değişkenleri JSON dizeleri olarak iletir (`arguments_delta`). Bağımsız değişkenlerin tamamını almak için bu deltaları biriktirmeniz gerekir.
+Google Arama gibi sunucu tarafı araçlar API tarafından otomatik olarak yürütülerek `google_search_call` ve `google_search_result` adımları oluşturulur.
 
-### Streaming com chamada de função
+### İşlev çağrısıyla yayın yapma
 
-Para fazer chamada de função com streaming, o cliente precisa lidar com uma conversa multiturno:
+Akışla işlev çağrısı yapmak için istemcinin çok aşamalı etkileşimli bir görüşmeyi yönetmesi gerekir:
 
-1. **Turno 1 (solicitação de função)**: chame `interactions.create` com `stream: true`
-   e seu `tools` definido. A API vai transmitir uma etapa `function_call`. Você precisa acumular as strings JSON de argumento incremental (`arguments_delta`) de eventos `step.delta` até que a interação seja concluída com o status `requires_action`.
-2. **Turno 2 (envio do resultado)**: chame `interactions.create` novamente, transmitindo o `previous_interaction_id` (correspondente ao ID da primeira interação) e enviando um bloco `function_result` na matriz `input`. Isso retoma o
-   fluxo, permitindo que o modelo gere a resposta final.
+1. **1. tur (işlev isteği):** `stream: true` ile `interactions.create` işlevini ve tanımladığınız `tools` işlevini çağırın. API, `function_call` adımını yayınlar. Etkileşim, `requires_action` durumuyla tamamlanana kadar `step.delta` etkinliklerinden artımlı bağımsız değişken JSON dizilerini (`arguments_delta`) biriktirmeniz gerekir.
+2. **2. adım (Sonucu gönderme):** `interactions.create`'ı tekrar arayın, `previous_interaction_id`'ı (ilk etkileşimin kimliğiyle eşleşen) iletin ve `input` dizisi içinde bir `function_result` bloğu gönderin. Bu işlem, akışı devam ettirerek modelin son yanıtını oluşturmasına olanak tanır.
 
 ### Python
 
@@ -687,7 +683,7 @@ func main() {
 
 ### REST
 
-**Turno 1**:solicitação de chamada de função
+**1. tur:** İşlev çağrısı isteği
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -718,7 +714,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**Turno 2**:envie o resultado da função usando `previous_interaction_id` e `call_id` do turno 1
+**2. tur:** 1. turdaki `previous_interaction_id` ve `call_id` kullanarak işlev sonucunu gönderin.
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -747,9 +743,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Transmissão com várias ferramentas
+### Birden fazla araçla yayın yapma
 
-O exemplo a seguir usa uma ferramenta `function` e `google_search` em uma solicitação:
+Aşağıdaki örnekte, tek bir istekte hem `function` aracı hem de `google_search` kullanılıyor:
 
 ### Python
 
@@ -1141,9 +1137,9 @@ event: done
 data: [DONE]
 ```
 
-## Streaming com raciocínio
+## Düşünerek yayın yapma
 
-Quando o modelo usa o pensamento, você recebe `thought` etapas com dois tipos de delta distintos: `thought_summary` (conteúdo incremental de texto ou resumo de imagem) e `thought_signature` (uma representação criptografada do raciocínio interno do modelo, enviada como o último delta antes de `step.stop`). Se `thinking_summaries` estiver ativado, os deltas `thought_summary` vão transmitir um resumo do raciocínio do modelo. Para mais detalhes sobre o pensamento, consulte o [guia de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br).
+Model düşünme sürecini kullandığında iki farklı delta türüyle `thought` adımlarını alırsınız: `thought_summary` (artımlı metin veya resim özeti içeriği) ve `thought_signature` (modelin dahili muhakemesinin şifrelenmiş temsili, `step.stop`'den önce son delta olarak gönderilir). `thinking_summaries` etkinse `thought_summary` deltaları, modelin muhakemesinin özetini yayınlar. Düşünme süreciyle ilgili daha fazla bilgi için [Düşünme kılavuzu](https://ai.google.dev/gemini-api/docs/thinking?hl=tr)'na bakın.
 
 ### Python
 
@@ -1374,9 +1370,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## Transmissão com agentes
+## Temsilcilerle yayın yapma
 
-A API Interactions é compatível com agentes como o Deep Research. Os agentes usam `background=True` e retornam resultados de forma assíncrona, mas você também pode transmitir interações do agente para receber atualizações de progresso e etapas intermediárias à medida que elas acontecem. Para mais detalhes, consulte o [Guia de execução em segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=pt-br) e o [Guia de Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br).
+Etkileşimler API'si, Deep Research gibi aracıları destekler. Aracıları `background=True` kullanır ve sonuçları eşzamansız olarak döndürür. Ancak, ilerleme durumu güncellemelerini ve ara adımları gerçekleşirken almak için aracı etkileşimlerini de yayınlayabilirsiniz. Daha fazla bilgi için [Arka planda yürütme kılavuzu](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) ve [Deep Research kılavuzu](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr)'na bakın.
 
 ### Python
 
@@ -1635,11 +1631,11 @@ event: done
 data: [DONE]
 ```
 
-## Geração de imagens por streaming
+## Akışlı görüntü üretme
 
-A API Interactions é compatível com o streaming de várias modalidades de saída simultaneamente. Ao solicitar `text` e `image` no `response_format`, você pode receber texto intercalado e imagens geradas no mesmo fluxo.
+Etkileşimler API'si, birden fazla çıkış biçiminin aynı anda yayınlanmasını destekler. `response_format` içinde hem `text` hem de `image` isteyerek aynı akışta arasına resim eklenmiş metinler ve üretilmiş resimler alabilirsiniz.
 
-O exemplo a seguir usa o `gemini-3.1-flash-image` (Nano Banana 2) para pesquisar informações e gerar uma história com ilustrações intercaladas.
+Aşağıdaki örnekte, bilgi aramak ve araya serpiştirilmiş resimlerle bir hikaye oluşturmak için `gemini-3.1-flash-image` (Nano Banana 2) kullanılıyor.
 
 ### Python
 
@@ -1946,24 +1942,24 @@ event: done
 data: [DONE]
 ```
 
-## Como processar eventos desconhecidos
+## Bilinmeyen etkinlikleri işleme
 
-De acordo com a política de controle de versões da API, novos tipos de eventos e deltas podem ser adicionados ao longo do tempo. O código precisa processar tipos de eventos desconhecidos de maneira adequada. Registre e pule os eventos que você não reconhece em vez de gerar um erro.
+API'nin sürüm oluşturma politikası uyarınca zaman içinde yeni etkinlik türleri ve delta türleri eklenebilir. Kodunuz, bilinmeyen etkinlik türlerini sorunsuz bir şekilde işlemelidir. Tanımadığınız etkinlikleri hata vermek yerine günlüğe kaydedip atlamalıdır.
 
-## A seguir
+## Sırada ne var?
 
-- Saiba mais sobre a [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=pt-br).
-- Conheça a [chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) com ferramentas.
-- Saiba mais sobre o [Pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br) para um raciocínio aprimorado.
-- Teste o [agente Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=pt-br) para tarefas de longa duração.
-- Consulte a [referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br) para todos os tipos de eventos e deltas.
+- [Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) hakkında daha fazla bilgi edinin.
+- Araçlarla [işlev çağrısını](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) keşfedin.
+- Gelişmiş akıl yürütme için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) hakkında bilgi edinin.
+- Uzun süren görevler için [Deep Research aracısını](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) deneyin.
+- Tüm etkinlik türleri ve delta türleri için [Interactions API referansını](https://ai.google.dev/api/interactions-api?hl=tr) inceleyin.
 
-Envie comentários
+Geri bildirim gönderin
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Última atualização 2026-09-24 UTC.
+Son güncelleme tarihi: 2026-09-24 UTC.
 
-Quer enviar seu feedback?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-24 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]

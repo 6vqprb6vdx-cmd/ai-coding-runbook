@@ -1,10 +1,10 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=tr
-fetched_at: 2026-10-12T06:53:07.667556+00:00
+fetched_at: 2026-10-19T05:33:37.531139+00:00
 title: "Google AI Studio'da uygulama geli\u015ftirme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
 ![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 

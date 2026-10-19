@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=pl
-fetched_at: 2026-10-12T06:49:46.745457+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=de
+fetched_at: 2026-10-19T05:40:01.550713+00:00
 title: "Gemini\u00a02.5 Flash Image (Nano Banana) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 3.8 Flash jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=pl).
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Prześlij opinię
+Feedback geben
 
 # Gemini 2.5 Flash Image (Nano Banana)
 
-Nasz najlepszy silnik do szybkiego tworzenia wizualizacji, który zapewnia najnowocześniejszą szybkość i wydajność. Gemini 2.5 Flash Image, znany też jako Nano Banana, najlepiej sprawdza się w przypadku generowania dużej liczby obrazów, konwersacyjnego edytowania obrazów i kreatywnych procesów, które wymagają natywnego rozpoznawania multimodalnego i krótkiego czasu oczekiwania.
+Unsere beste Engine für die schnelle visuelle Erstellung mit modernster Geschwindigkeit und Effizienz. Gemini 2.5 Flash Image, auch bekannt als Nano Banana, eignet sich am besten für die Erstellung großer Mengen, die konversationelle Bildbearbeitung und kreative Workflows mit geringer Latenz, die ein natives multimodales Verständnis erfordern.
 
-[Wypróbuj w Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=pl)
+[In Google AI Studio testen](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=de)
 
-## Dokumentacja
+## Dokumentation
 
-Więcej informacji o funkcjach i możliwościach znajdziesz w przewodniku po [generowaniu obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl).
+Im [Leitfaden zur Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de) finden Sie alle
+Funktionen und Möglichkeiten.
 
 ## gemini-2.5-flash-image
 
-| Właściwość | Opis |
+| Attribut | Beschreibung |
 | --- | --- |
-| id\_cardKod modelu | `gemini-2.5-flash-image` |
-| saveObsługiwane typy danych | **Dane wejściowe**  Obraz i tekst  **Dane wyjściowe**  Obraz i tekst |
-| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  65 536  **Limit tokenów wyjściowych**  32 768 |
-| handymanMożliwości | **[Generowanie dźwięku](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl)**  Nieobsługiwane  **[Zapisywanie w pamięci podręcznej](https://ai.google.dev/gemini-api/docs/caching?hl=pl)**  Nieobsługiwane  **[Wykonywanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl)**  Nieobsługiwane  **[Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl)**  Nieobsługiwane  **[Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)**  Nieobsługiwane  **[Powiązanie ze źródłami informacji przy użyciu Map Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl)**  Nieobsługiwane  **[Generowanie obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl)**  Obsługiwane  **[Interfejs API na żywo](https://ai.google.dev/gemini-api/docs/live-api?hl=pl)**  Nieobsługiwane  **[Szukaj groundingu](https://ai.google.dev/gemini-api/docs/google-search?hl=pl)**  Nieobsługiwane  **[Ustrukturyzowane dane wyjściowe](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl)**  Nieobsługiwane  **[Myślę](https://ai.google.dev/gemini-api/docs/thinking?hl=pl)**  Nieobsługiwane  **[Kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl)**  Nieobsługiwane |
-| speedOpcje zużycia | **[Interfejs API wsadowy](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl)**  Obsługiwane  **[Wnioskowanie Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl)**  Nieobsługiwane  **[Wnioskowanie priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl)**  Nieobsługiwane |
-| 123Wersje | Więcej informacji znajdziesz w artykule [Wzorce wersji modelu](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#model-versions).  - Stabilny: `gemini-2.5-flash-image` - Wycofany: `gemini-2.5-flash-image-preview` |
-| calendar\_monthOstatnia aktualizacja | Październik 2025 r. |
-| cognition\_2Granica wiedzy | Czerwiec 2025 r. |
+| id\_cardModellcode | `gemini-2.5-flash-image` |
+| saveUnterstützte Datentypen | **Eingaben**  Bild und Text  **Ausgabe**  Bild und Text |
+| token\_autoToken limits[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | **Tokenlimit für Eingaben**  65.536  **Tokenlimit für Ausgaben**  32.768 |
+| handymanFunktionen | **[Audiogenerierung](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de)**  Nicht unterstützt  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)**  Nicht unterstützt  **[Code-Ausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de)**  Nicht unterstützt  **[Dateisuche](https://ai.google.dev/gemini-api/docs/file-search?hl=de)**  Nicht unterstützt  **[Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)**  Nicht unterstützt  **[Fundierung mit Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de)**  Nicht unterstützt  **[Bildgenerierung](https://ai.google.dev/gemini-api/docs/image-generation?hl=de)**  Unterstützt  **[Live-API](https://ai.google.dev/gemini-api/docs/live-api?hl=de)**  Nicht unterstützt  **[Suchfundierung](https://ai.google.dev/gemini-api/docs/google-search?hl=de)**  Nicht unterstützt  **[Strukturierte Ausgaben](https://ai.google.dev/gemini-api/docs/structured-output?hl=de)**  Nicht unterstützt  **[Antwort wird generiert](https://ai.google.dev/gemini-api/docs/thinking?hl=de)**  Nicht unterstützt  **[URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de)**  Nicht unterstützt |
+| speedVerbrauchsoptionen | **[Batch-API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de)**  Unterstützt  **[Flex-Inferenz](https://ai.google.dev/gemini-api/docs/flex-inference?hl=de)**  Nicht unterstützt  **[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de)**  Nicht unterstützt |
+| 123Versionen | Weitere Informationen finden Sie unter [Modellversionsmuster](https://ai.google.dev/gemini-api/docs/models/gemini?hl=de#model-versions).  - Stable: `gemini-2.5-flash-image` - Veraltet: `gemini-2.5-flash-image-preview` |
+| calendar\_monthLetztes Update | Oktober 2025 |
+| cognition\_2Wissensstand | Juni 2025 |
 
-Prześlij opinię
+Feedback geben
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Ostatnia aktualizacja: 2026-09-08 UTC.
+Zuletzt aktualisiert: 2026-09-08 (UTC).
 
-Chcesz przekazać coś jeszcze?
+Haben Sie Feedback für uns?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-08 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-08 (UTC)."],[],[]]

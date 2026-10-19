@@ -1,94 +1,83 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=id
-fetched_at: 2026-10-12T07:15:31.903634+00:00
-title: "Berpikir dalam Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=ar
+fetched_at: 2026-10-19T05:34:54.143524+00:00
+title: "\u0627\u0644\u062a\u0641\u0643\u064a\u0631 \u0641\u064a \u0648\u0627\u062c\u0647\u0629 Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) kini tersedia secara umum. Sebaiknya gunakan API ini untuk mengakses semua fitur dan model terbaru.
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Kirim masukan
+إرسال ملاحظات
 
-# Berpikir dalam Live API
+# التفكير في واجهة Live API
 
-Gemini Live API memungkinkan percakapan suara dua arah secara real-time dengan model Gemini.
+تتيح واجهة برمجة التطبيقات Gemini Live إجراء محادثات صوتية ثنائية الاتجاه في الوقت الفعلي مع نماذج Gemini.
 
-Model suara standar berfungsi dengan baik untuk dialog bolak-balik langsung. Anda berbicara
-kepada model, dan model akan langsung menghasilkan respons lisan. Namun, saat permintaan
-memerlukan perencanaan, analisis yang kompleks, atau alat eksternal, respons langsung akan mencapai
-batasnya. Model harus menjawab tanpa memberikan penalaran atau berhenti sejenak tanpa bersuara sambil menunggu alat selesai.
+تعمل النماذج الصوتية العادية بشكل جيد مع الحوارات المباشرة. تتحدث مع النموذج، فينشئ ردًا صوتيًا على الفور. ولكن عندما يتطلّب الطلب تخطيطًا أو تحليلاً معقّدًا أو أدوات خارجية، تصل الردود المباشرة إلى حدّ معيّن. يجب أن يجيب النموذج بدون تقديم أسباب أو أن يتوقف مؤقتًا بدون إصدار أي صوت أثناء انتظار انتهاء الأدوات.
 
-Berpikir di Live API (`gemini-3.8-live-extended-thinking`) menambahkan penalaran
-latar belakang ke sesi suara real-time. Model ini merencanakan dan memanggil alat asinkron di latar belakang sambil mengucapkan pengisi percakapan alami untuk menjaga interaksi tetap aktif.
+تضيف ميزة &quot;التفكير باستخدام Live API&quot; (`gemini-3.8-live-extended-thinking`) عملية استنتاج في الخلفية إلى جلسات الصوت في الوقت الفعلي. يخطّط النموذج ويستدعي أدوات غير متزامنة في الخلفية، بينما يتحدث بعبارات حوارية طبيعية لإبقاء التفاعل نشطًا.
 
-Arsitektur ini mengubah siklus proses percakapan dalam dua cara utama:
+تغيّر هذه البنية دورة حياة المحادثة بطريقتَين رئيسيتَين:
 
-- **Pengisi percakapan**: Model mengucapkan pembaruan sementara (seperti
-  "Sedang memeriksa opsi penerbangan") saat menjalankan alat di latar belakang.
-- **Pelacakan status interaksi**: Karena model dapat berbicara beberapa kali
-  selama satu permintaan, server memancarkan `interaction_status: "IN_PROGRESS"`
-  selama pemrosesan di latar belakang dan `interaction_status: "IDLE"` saat tugas
-  keseluruhan selesai.
+- **عبارات الحشو الحوارية**: يعرض النموذج تحديثات مؤقتة (مثل "جارٍ التحقّق من خيارات الرحلات الجوية الآن") أثناء تنفيذ الأدوات في الخلفية.
+- **تتبُّع حالة التفاعل**: بما أنّ النموذج يمكنه التحدّث عدة مرات
+  خلال طلب واحد، يرسل الخادم `interaction_status: "IN_PROGRESS"`
+  أثناء المعالجة في الخلفية و`interaction_status: "IDLE"` عند اكتمال
+  المهمة بشكل عام.
 
-Diagram berikut membandingkan siklus proses interaksi antara sesi Live Voice standar dan Berpikir dengan penalaran latar belakang:
+يقارن المخطّط التالي بين دورات حياة التفاعل بين جلسات Live Voice العادية وميزة "التفكير مع التفسير في الخلفية":
 
-![Perbandingan panggilan fungsi API langsung dan pelacakan status](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=id)
+![مقارنة بين ميزة &quot;استدعاء الدوال&quot; في Live API وميزة &quot;تتبُّع الحالة&quot;](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=ar)
 
-## Memilih model yang tepat
+## اختيار النموذج المناسب
 
-Saat memutuskan antara `gemini-3.8-live` dan `gemini-3.8-live-extended-thinking`,
-pertimbangkan tiga hal utama: latensi respons, kompleksitas tugas, dan penanganan status klien.
+عند الاختيار بين `gemini-3.8-live` و`gemini-3.8-live-extended-thinking`، يجب مراعاة ثلاثة اعتبارات رئيسية، وهي: وقت استجابة الطلب وتعقيد المهمة وطريقة معالجة حالة العميل.
 
-### Kapan menggunakan Gemini 3.8 Live
+### حالات استخدام Gemini 3.8 Live
 
-Gunakan `gemini-3.8-live` untuk agen suara percakapan latensi rendah yang memerlukan pergantian giliran secara langsung dan tugas yang jelas.
+استخدِم `gemini-3.8-live` للوكلاء الحواريين الذين يستندون إلى الصوت ويتطلّبون زمن استجابة منخفضًا، حيث يكون تبادل الأدوار الفوري ضروريًا وتكون المهام مباشرة.
 
-- **Asisten suara percakapan**: Triase layanan pelanggan, latihan bahasa, penelusuran suara, dan bercerita interaktif.
-- **Eksekusi alat yang cepat**: Alur kerja saat alat eksternal ditampilkan dalam
-  milidetik (seperti membaca nilai sensor atau mengontrol perangkat smart).
-- **Logika klien sederhana**: Aplikasi yang setiap giliran pengguna menerima satu respons model, dan `turnComplete: true` memberi sinyal yang andal saat sesi tidak aktif.
+- **مساعدات صوتية حوارية**: تستخدم في فرز طلبات خدمة العملاء، وممارسة اللغات، والبحث الصوتي، وسرد القصص التفاعلية.
+- **تنفيذ الأدوات بسرعة**: سير العمل الذي تعرض فيه الأدوات الخارجية النتائج في غضون أجزاء من الثانية (مثل قراءة قيم المستشعر أو التحكّم في الأجهزة الذكية).
+- **منطق بسيط من جهة العميل**: التطبيقات التي تتلقّى فيها كل خطوة من المستخدم استجابة واحدة من النموذج، ويشير فيها `turnComplete: true` بشكل موثوق إلى وقت عدم النشاط في الجلسة.
 
-### Kapan menggunakan Gemini 3.8 Live Extended Thinking
+### حالات استخدام ميزة "التفكير المطوّل" في Gemini 3.8 Live
 
-Gunakan `gemini-3.8-live-extended-thinking` saat agen Anda harus mengevaluasi data yang kompleks, merencanakan beberapa langkah, atau menangani alat yang memerlukan waktu beberapa detik untuk dijalankan.
+استخدِم `gemini-3.8-live-extended-thinking` عندما يحتاج الوكيل إلى تقييم بيانات معقّدة أو التخطيط لعدة خطوات أو التعامل مع أدوات تستغرق عدة ثوانٍ لتنفيذها.
 
-- **Diagnostik dan dukungan multi-langkah**: Agen dukungan teknis mendiagnosis masalah sistem di beberapa log, kode error, dan pemeriksaan konfigurasi.
-- **Pengambilan data yang terkoordinasi**: Agen perjalanan dan pemesanan yang menelusuri penerbangan, mengkueri hotel, dan membandingkan harga di seluruh panggilan API paralel.
-- **Bimbingan STEM dan coding**: Agen pendidikan yang memverifikasi formula, men-debug
-  kode, atau memproses logika multi-langkah sebelum memberikan penjelasan.
-- **Latensi alat masking**: Pengalaman suara yang fungsi jangka panjangnya akan
-  menciptakan keheningan yang canggung bagi pendengar.
+- **بيانات التشخيص والدعم المتعدّدة الخطوات**: يقدّم وكلاء الدعم الفني بيانات تشخيصية لمشاكل النظام في عدّة سجلّات ورموز أخطاء وعمليات تحقّق من الإعدادات.
+- **استرجاع البيانات المنسَّق**: وكلاء السفر والحجز الذين يبحثون عن رحلات جوية ويطلبون معلومات عن الفنادق ويقارنون الأسعار من خلال طلبات بيانات متوازية من واجهة برمجة التطبيقات
+- **دروس خصوصية في العلوم والتكنولوجيا والهندسة والرياضيات (STEM) والبرمجة**: وكلاء تعليميون يتحقّقون من صحة الصيغ أو يصحّحون الأخطاء في الرموز البرمجية أو يحلّون المشاكل المنطقية المتعدّدة الخطوات قبل تقديم شرح.
+- **وقت استجابة أداة التمويه**: تجارب صوتية تؤدي فيها الدوال التي تستغرق وقتًا طويلاً إلى
+  حدوث صمت محرج للمستمع.
 
-### Ringkasan perbedaan utama
+### ملخّص الاختلافات الرئيسية
 
-Tabel berikut merangkum perbedaan teknis antara kedua model:
+يلخّص الجدول التالي الاختلافات الفنية بين النموذجين:
 
-| Fitur | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
+| الميزة | ‫Gemini 3.8 Live | ‫Gemini 3.8 Live Extended Thinking |
 | --- | --- | --- |
-| **Kasus penggunaan utama** | Agen suara latensi rendah, perintah langsung, alat cepat | Pemecahan masalah multi-langkah, perencanaan kompleks, alur kerja multialat |
-| **Endpoint model** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
-| **Arsitektur penalaran** | Penalaran berselang-seling dengan profil latensi tetap (`thinking_level` tidak didukung) | Alasan latar belakang yang dapat dikonfigurasi (`thinking_level`: `low`, `medium`, `high`; `MINIMAL` tidak didukung) |
-| **Belokan batas** | `turnComplete: true` menutup giliran dan kembali ke status tidak ada aktivitas | `turnComplete: true` menyelesaikan ucapan; `interaction_status` mengontrol siklus proses sesi |
-| **Pengisi percakapan** | Model menunggu eksekusi alat sebelum berbicara | Model mengalirkan pengisi percakapan sementara saat memproses |
-| **Eksekusi alat** | Mendukung alat sinkron (`BLOCKING`) dan asinkron (`NON_BLOCKING`) | Memerlukan deklarasi alat asinkron (`NON_BLOCKING`) |
+| **حالات الاستخدام الأساسية** | وكلاء صوتيون بوقت استجابة منخفض، وأوامر مباشرة، وأدوات سريعة | حلّ المشاكل المتعددة الخطوات، والتخطيط المعقّد، وسير العمل المتعدد الأدوات |
+| **نقطة نهاية النموذج** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
+| **بنية الاستدلال** | الاستدلال المتداخل مع ملف تعريف ثابت لوقت الاستجابة (`thinking_level` غير متاح) | الاستدلال في الخلفية القابل للضبط (`thinking_level`: `low`، `medium`، `high`؛ `MINIMAL` غير متاح) |
+| **عرض الحدود** | يؤدي `turnComplete: true` إلى إغلاق الدور والعودة إلى وضع الخمول | `turnComplete: true` ينهي الجملة، و`interaction_status` يتحكّم في دورة حياة الجلسة |
+| **الكلمات الحشو** | ينتظر النموذج تنفيذ الأداة قبل التحدث | تبث النماذج عبارات حوارية وسيطة أثناء المعالجة |
+| **تنفيذ الأداة** | متوافق مع الأدوات المتزامنة (`BLOCKING`) وغير المتزامنة (`NON_BLOCKING`) | يتطلّب إعدادات غير متزامنة (`NON_BLOCKING`) للأدوات |
 
-## Jalur migrasi dan integrasi
+## مسارات نقل البيانات والدمج
 
-Ikuti langkah-langkah berikut untuk mengupgrade aplikasi suara yang ada atau mengintegrasikan Thinking ke sesi Live API Anda.
+اتّبِع الخطوات التالية لترقية تطبيقات الصوت الحالية أو دمج Thinking في جلسات Live API.
 
-### Mengupgrade dari Gemini 3.1 Flash Live
+### الترقية من Gemini 3.1 Flash Live
 
-Untuk aplikasi suara yang sudah ada yang menggunakan `gemini-3.1-flash-live-preview`, mengupgrade
-ke `gemini-3.8-live` memerlukan pembaruan string model dan penghapusan
-`thinking_level` (atau `thinking_config`) dari konfigurasi penyiapan Anda, karena
-`thinking_level` tidak didukung untuk `gemini-3.8-live`:
+بالنسبة إلى تطبيقات الصوت الحالية التي تستخدم `gemini-3.1-flash-live-preview`، يتطلّب الترقية إلى `gemini-3.8-live` تعديل سلسلة النموذج وحذف `thinking_level` (أو `thinking_config`) من إعداداتك، لأنّ `thinking_level` غير متوافق مع `gemini-3.8-live`:
 
 ```
 {
@@ -98,13 +87,14 @@ ke `gemini-3.8-live` memerlukan pembaruan string model dan penghapusan
 }
 ```
 
-Siklus proses belokan dan sinyal `turnComplete` tetap identik.
+ستبقى دورة حياة المنعطف وإشارات `turnComplete` متطابقة.
 
-### Mengadopsi Pemikiran
+### اعتماد التفكير
 
-Untuk menerapkan `gemini-3.8-live-extended-thinking`, perbarui tiga titik integrasi:
+لاستخدام `gemini-3.8-live-extended-thinking`، عليك تعديل ثلاث نقاط تكامل:
 
-1. **Melacak `interaction_status`, bukan `turnComplete`**: Dalam sesi Berpikir, model dapat mengeluarkan pengisi percakapan perantara saat melakukan penalaran. Periksa kolom `interaction_status` pada pesan server masuk untuk mengelola status UI. Hanya kembali ke status tidak ada aktivitas saat `interaction_status` adalah `IDLE`.
+1. **استخدام `interaction_status` بدلاً من `turnComplete`**: في جلسات Thinking، يمكن للنموذج إصدار عبارات حشو وسيطة أثناء التفكير. افحص الحقل `interaction_status` في رسائل الخادم الواردة
+   لإدارة حالة واجهة المستخدم. لا يتم الرجوع إلى وضع الخمول إلا عندما تكون قيمة `interaction_status` هي `IDLE`.
 
    ### Python
 
@@ -129,8 +119,7 @@ Untuk menerapkan `gemini-3.8-live-extended-thinking`, perbarui tiga titik integr
      setUiState('thinking');
    }
    ```
-2. **Mendeklarasikan fungsi non-blocking**: Tetapkan `"behavior": "NON_BLOCKING"` pada semua
-   deklarasi fungsi. Model pemikiran menjalankan alat secara asinkron di latar belakang sambil melakukan streaming pembaruan verbal. Alat pemblokiran sinkron menampilkan error.
+2. **الإعلان عن دوال غير حظر**: اضبط `"behavior": "NON_BLOCKING"` على جميع تعريفات الدوال. تُشغّل نماذج التفكير الأدوات بشكل غير متزامن في الخلفية أثناء بث التحديثات الشفهية. تعرض أدوات الحظر المتزامنة خطأً.
 
    ### Python
 
@@ -165,7 +154,7 @@ Untuk menerapkan `gemini-3.8-live-extended-thinking`, perbarui tiga titik integr
      },
    };
    ```
-3. **Mengonfigurasi kedalaman penalaran**: Tetapkan `thinking_config` di konfigurasi sesi Anda untuk menyesuaikan tingkat penalaran (`low`, `medium`, atau `high`; `MINIMAL` tidak didukung).
+3. **ضبط عمق الاستدلال**: اضبط `thinking_config` في إعدادات الجلسة لتعديل مستويات الاستدلال (`low` أو `medium` أو `high`؛ `MINIMAL` غير متاح).
 
    ### Python
 
@@ -191,27 +180,24 @@ Untuk menerapkan `gemini-3.8-live-extended-thinking`, perbarui tiga titik integr
    };
    ```
 
-## Perbandingan protokol berdampingan
+## المقارنة جنبًا إلى جنب بين البروتوكولات
 
-Bagian ini membandingkan pesan WebSocket yang dipertukarkan selama setiap fase sesi Live API.
+يقارن هذا القسم رسائل WebSocket التي يتم تبادلها خلال كل مرحلة من مراحل جلسة Live API.
 
-### Langkah 1: Penyiapan sesi
+### الخطوة 1: إعداد الجلسة
 
-Kedua model terhubung ke endpoint WebSocket yang sama:
+يتصل كلا النموذجين بنقطة نهاية WebSocket نفسها:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=$API_KEY
 ```
 
-- **Identik**: Autentikasi URL WebSocket dan kunci API.
-- **String model**: `gemini-3.8-live` versus
-  `gemini-3.8-live-extended-thinking`.
-- **Konfigurasi penalaran**: Penalaran menambahkan `thinkingConfig` untuk menyesuaikan
-  kedalaman penalaran.
-- **Perilaku alat**: Pemikiran memerlukan `"behavior": "NON_BLOCKING"` pada
-  deklarasi fungsi.
+- **مطابقة**: مصادقة عنوان URL لـ WebSocket ومفتاح واجهة برمجة التطبيقات
+- **سلسلة الطراز**: `gemini-3.8-live` مقابل `gemini-3.8-live-extended-thinking`.
+- **إعدادات التفكير**: يضيف وضع "أفكاري" `thinkingConfig` لتعديل مستوى التفكير.
+- **سلوك الأداة**: يتطلّب التفكير `"behavior": "NON_BLOCKING"` في تعريفات الدوال.
 
-### Gemini 3.8 Live
+### ‫Gemini 3.8 Live
 
 ```
 {
@@ -231,7 +217,7 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-### Gemini 3.8 Live Extended Thinking
+### ‫Gemini 3.8 Live Extended Thinking
 
 ```
 {
@@ -268,7 +254,7 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-Kedua model menerima pengakuan server yang sama saat terhubung:
+يتلقّى كلا النموذجين إقرارًا من الخادم عند الاتصال:
 
 ```
 {
@@ -276,10 +262,9 @@ Kedua model menerima pengakuan server yang sama saat terhubung:
 }
 ```
 
-### Langkah 2: Input audio pengguna
+### الخطوة 2: إدخال الصوت من المستخدم
 
-Streaming audio identik di kedua model. Chunk audio PCM mentah 16 kHz real-time
-di-streaming menggunakan `realtimeInput`:
+تتطابق ميزة بث الصوت في كلا الطرازين. يتم بث أجزاء من بيانات صوتية بتنسيق PCM الأولي بمعدل 16 كيلو هرتز في الوقت الفعلي باستخدام `realtimeInput`:
 
 ```
 {
@@ -292,14 +277,14 @@ di-streaming menggunakan `realtimeInput`:
 }
 ```
 
-### Langkah 3: Respons model dan siklus proses status
+### الخطوة 3: استجابة النموذج ودورة حياة الحالة
 
-Kedua model ini melakukan streaming potongan audio PCM 24 kHz dalam `serverContent.modelTurn`. Namun, pengelolaan siklus proses berbeda:
+يبث كلا الطرازين أجزاء صوتية بتنسيق PCM بمعدّل 24 كيلوهرتز في `serverContent.modelTurn`. ومع ذلك، تختلف إدارة دورة الحياة في ما يلي:
 
-#### Alur respons Gemini 3.8 Live
+#### مسار الردّ المباشر في Gemini 3.8
 
-1. Server melakukan streaming potongan audio untuk giliran.
-2. Server mengirim `turnComplete: true`, yang menunjukkan bahwa model telah selesai berbicara dan sesi tidak aktif.
+1. يبث الخادم أجزاء صوتية للرد.
+2. يرسل الخادم `turnComplete: true`، ما يشير إلى أنّ النموذج انتهى من التحدث وأنّ الجلسة غير نشطة.
 
 ```
 // 1. Audio stream chunks
@@ -326,17 +311,14 @@ Kedua model ini melakukan streaming potongan audio PCM 24 kHz dalam `serverConte
 }
 ```
 
-#### Alur respons Penalaran yang Diperluas Gemini 3.8 Live
+#### مسار الردود في ميزة "التفكير الموسّع" في Gemini 3.8 Live
 
-1. **Pengisi lisan**: Model mengeluarkan ucapan perantara (seperti
-   *"Memeriksa penerbangan ke Seattle..."*) dengan `turnComplete: true` dan
-   `interactionStatus: "IN_PROGRESS"`.
-2. **Panggilan alat asinkron**: Server memancarkan panggilan alat saat
-   `interactionStatus` tetap `"IN_PROGRESS"`, yang menunjukkan bahwa server
-   secara aktif memproses giliran multi-langkah dan menunggu respons alat.
-3. **Respons alat**: Klien menjalankan fungsi dan menampilkan output.
-4. **Respons akhir**: Server memberikan jawaban lengkap dengan
-   `turnComplete: true` dan `interactionStatus: "IDLE"`.
+1. **الكلمات الحشو**: يصدر النموذج كلامًا وسيطًا (مثل
+   *"جارٍ البحث عن رحلات جوية إلى دبي..."*) مع `turnComplete: true` و`interactionStatus: "IN_PROGRESS"`.
+2. **استدعاء الأداة غير المتزامن**: يرسل الخادم استدعاء الأداة بينما يظل `interactionStatus` `"IN_PROGRESS"`، ما يشير إلى أنّ الخادم يعالج حاليًا الدورات المتعددة الخطوات وينتظر استجابة الأداة.
+3. **ردّ الأداة**: ينفّذ العميل الدالة ويعرض الناتج.
+4. **الردّ النهائي**: يقدّم الخادم الإجابة الكاملة مع
+   `turnComplete: true` و`interactionStatus: "IDLE"`.
 
 ```
 // 1. Spoken verbal filler while background reasoning proceeds
@@ -409,10 +391,10 @@ Kedua model ini melakukan streaming potongan audio PCM 24 kHz dalam `serverConte
 }
 ```
 
-## Contoh penerapan SDK
+## أمثلة على تنفيذ حزمة تطوير البرامج (SDK)
 
-Contoh berikut menunjukkan cara mengonfigurasi Pemikiran dan menangani
-`interaction_status` menggunakan Google GenAI SDK.
+توضّح الأمثلة التالية كيفية ضبط إعدادات ميزة &quot;أفكار جديدة&quot; والتعامل معها
+`interaction_status` باستخدام حزمة تطوير البرامج (SDK) من Google للذكاء الاصطناعي التوليدي.
 
 ### Python
 
@@ -551,20 +533,19 @@ async function main() {
 main();
 ```
 
-## Langkah berikutnya
+## الخطوات التالية
 
-- Baca halaman model [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=id) dan
-  [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=id).
-- Periksa tabel [Perbandingan model](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=id#model-comparison) untuk mengetahui perbandingan fitur mendetail di semua model Live API.
-- Pelajari lebih lanjut panggilan fungsi dalam panduan [penggunaan Alat API Langsung](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=id).
-- Tinjau [Pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=id) untuk menangani kelanjutan sesi dan siklus proses konteks.
+- اطّلِع على صفحتَي نموذجَي [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ar) و[Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ar).
+- راجِع جدول [مقارنة النماذج](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ar#model-comparison) للحصول على مقارنات تفصيلية بين الميزات في جميع نماذج Live API.
+- يمكنك الاطّلاع على مزيد من المعلومات حول ميزة "استدعاء الدوال" في دليل [استخدام أداة Live API Tool](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=ar).
+- راجِع [إدارة الجلسات](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ar) للتعامل مع استئناف الجلسة ودورة حياة السياق.
 
-Kirim masukan
+إرسال ملاحظات
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Terakhir diperbarui pada 2026-09-17 UTC.
+تاريخ التعديل الأخير: 2026-09-17 (حسب التوقيت العالمي المتفَّق عليه)
 
-Ada masukan untuk kami?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-17 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-17 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

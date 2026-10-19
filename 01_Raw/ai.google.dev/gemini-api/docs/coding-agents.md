@@ -1,47 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr
-fetched_at: 2026-10-12T06:59:30.126511+00:00
-title: "Kodlama arac\u0131s\u0131 kurulumu ve geli\u015ftirici kaynaklar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=it
+fetched_at: 2026-10-19T05:48:20.352155+00:00
+title: "Configurazione dell'agente di programmazione e risorse per sviluppatori \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-# Kodlama aracısı kurulumu ve geliştirici kaynakları
+# Configurazione dell'agente di programmazione e risorse per sviluppatori
 
-Yapay zeka kodlama aracıları, belirli bir tarihte sona eren eğitim verilerini kullanır. Bu nedenle, ajanlar genellikle desteği sonlandırılmış modeller (`gemini-1.5`), eski SDK'lar (`google-generativeai`) veya güncel olmayan kod kalıpları önerir.
+Gli agenti di programmazione AI si basano su dati di addestramento che terminano in una data prestabilita. Per questo motivo, gli agenti spesso suggeriscono modelli deprecati (`gemini-1.5`), SDK precedenti (`google-generativeai`) o pattern di codice obsoleti.
 
-Temsilcinizi resmi Gemini geliştirici kaynaklarına bağlamak, mevcut modelleri, `google-genai` SDK'sını ve [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr)'yi kullanarak doğru kod yazmasına yardımcı olur.
+Il collegamento dell'agente alle risorse ufficiali per sviluppatori Gemini consente di scrivere
+codice accurato utilizzando i modelli attuali, l'SDK `google-genai` e l'[API
+Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it).
 
-Kodlama temsilcinize dört şekilde Gemini dokümanlarına ve kurallarına erişim izni verebilirsiniz:
+Puoi concedere al tuo agente di codifica l'accesso alla documentazione e alle regole di Gemini in quattro
+modi:
 
-## Temsilci kaynaklarının özeti
+## Riepilogo delle risorse dell'agente
 
-| Kaynak | Sunduğu bilgiler | Kullanılabilirlik |
+| Risorsa | Cosa fornisce | Disponibilità |
 | --- | --- | --- |
-| **[Gemini Agent Skills](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr#available-skills)** | Belirli özellikler (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`) için adım adım kurallar, SDK kalıpları ve yardımcı komut dosyaları. | [AI Studio Build](https://ai.studio/build)'da önceden yüklenmiş olarak gelir. `skills.sh`, Context7 veya Yönetilen Ajanlar ile yükleyin. |
-| **[Gemini Docs MCP Sunucusu](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr#mcp-setup)** | Tüm dokümanlarda canlı arama (`gemini_search_docs`) ve tam sayfa okuma (`gemini_get_doc`) | Claude Code, Cursor, OpenAI Codex ve VS Code'da desteklenir. |
-| **[Gemini API Eklentisi](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr#gemini-api-plugin)** | Resmi Gemini becerileri, Dokümanlar MCP sunucusu ve API anahtarı araçlarını içeren toplu paket. | Antigravity |
-| **[Makine Tarafından Okunabilir Dokümanlar](https://ai.google.dev/gemini-api/docs/coding-agents?hl=tr#machine-readable-docs)** | Markdown sayfalarını ve `llms.txt` dizinlerini temizleyin. | `ai.google.dev/gemini-api/docs` adresindeki tüm doküman sayfaları. |
+| **[Competenze di Gemini Agent](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#available-skills)** | Regole passo passo, pattern SDK e script helper per funzionalità specifiche (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`). | Preinstallato in [AI Studio Build](https://ai.studio/build); installalo con `skills.sh`, Context7 o Managed Agents. |
+| **[Server MCP di Gemini Docs](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#mcp-setup)** | Ricerca live (`gemini_search_docs`) e lettura a schermo intero (`gemini_get_doc`) in tutta la documentazione. | Supportato in Claude Code, Cursor, OpenAI Codex e VS Code. |
+| **[Plugin API Gemini](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#gemini-api-plugin)** | Pacchetto in bundle con le competenze ufficiali di Gemini, il server MCP di Docs e gli strumenti per le chiavi API. | Antigravity. |
+| **[Documenti leggibili automaticamente](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#machine-readable-docs)** | Pulisci le pagine Markdown e gli indici `llms.txt`. | Tutte le pagine della documentazione su `ai.google.dev/gemini-api/docs`. |
 
-## Gemini ajan becerilerini yükleme
+## Installare le skill dell'agente Gemini
 
-Agent skills, kodlama aracınıza prosedür kuralları, mevcut model adları ve SDK kodu kalıpları sağlar. İsteminizde uzun talimatlar eklemek yerine, aracınız her beceriyi yalnızca gerektiğinde yükler. Bu, aracınızın desteği sonlandırılan SDK'ları kullanmasını önler ve modern Gemini kalıplarını kullanmasına yardımcı olur.
+Le competenze dell'agente forniscono all'agente di programmazione regole procedurali, nomi di modelli attuali e
+pattern di codice SDK. Anziché aggiungere istruzioni lunghe al prompt, l'agente carica ogni skill solo quando necessario. In questo modo, l'agente evita SDK ritirati
+e utilizza pattern Gemini moderni.
 
-Beceri, Gemini Dokümanlar MCP sunucusuyla birlikte çalışır. Aracınızda MCP sunucusu yüklü değilse beceri [`llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=tr)'ye geri döner. Becerilerin işleyiş şekli hakkında daha fazla bilgi edinmek için [Gemini API Becerileri Rehberi](https://aistudio.google.com/learn/gemini-api-skills?hl=tr)'ni okuyun.
+Le skill funzionano insieme al server MCP di Gemini Docs. Se l'agente non ha installato il server MCP, la skill torna a
+[`llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=it). Per scoprire di più
+su come funzionano le skill, leggi la [Guida alle skill dell'API Gemini](https://aistudio.google.com/learn/gemini-api-skills?hl=it).
 
-### KSA (`skills.sh` veya Context7) ile yükleme
+### Installazione con la CLI (`skills.sh` o Context7)
 
-[skills.sh](https://skills.sh) (önerilir) veya [Context7](https://context7.com) kullanarak beceri yükleyin:
+Installa le skill utilizzando [skills.sh](https://skills.sh) (opzione consigliata) o
+[Context7](https://context7.com):
 
 ```
 # List all available skills in the repository
@@ -54,16 +62,21 @@ npx skills add google-gemini/gemini-skills --skill <skill-name> --global
 npx ctx7 skills install /google-gemini/gemini-skills <skill-name>
 ```
 
-### Kullanılabilir beceriler
+### Skill disponibili
 
 #### `gemini-api-dev`
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) ve resmi Gemini API SDK'leri (Python için `google-genai` ve TypeScript için `@google/genai`) ile uygulama geliştirme becerisi. Bu beceri şunları kapsar:
+Competenza nella creazione di applicazioni con l'[API
+Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) e gli SDK ufficiali dell'API Gemini
+(`google-genai` per Python e `@google/genai` per TypeScript). Questa competenza
+copre:
 
-- Metin oluşturma, çok aşamalı etkileşim, yayın, yapılandırılmış çıkışlar ve işlev çağrısı
-- Görüntü oluşturma, metin okuma (TTS) ve çok formatlı girişler
-- Sunucu tarafında görüşme durumu yönetimi, arka planda yürütme, DeepResearch ve yönetilen aracılar
-- Mevcut model adları ve eski `generateContent` veya `google-generativeai` kodunu taşıma
+- Generazione di testo, chat a più turni, streaming, output strutturati e chiamata di funzione
+- Generazione di immagini, sintesi vocale (TTS) e input multimodali
+- Gestione dello stato della conversazione lato server, esecuzione in background, ricerca
+  approfondita e agenti gestiti
+- Nomi dei modelli attuali e migrazione del codice legacy `generateContent` o
+  `google-generativeai`
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
@@ -71,11 +84,13 @@ npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 
 #### `gemini-live-api-dev`
 
-[Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=tr) ile gerçek zamanlı ses ve video akışı uygulamaları oluşturma becerisi. Bu beceri şunları kapsar:
+Competenza per la creazione di applicazioni di streaming audio e video in tempo reale con l'[API Gemini Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it). Questa skill tratta i seguenti argomenti:
 
-- WebSocket oturum yönetimi, kısa ömürlü istemci jetonları ve oturuma devam etme
-- Ses etkinliği algılama (VAD) ve araya girme desteğiyle ses, video ve metin akışı
-- Arka plan muhakemesi (genişletilmiş düşünme), engellemeyen eşzamansız araç çağrıları, transkripsiyon ve canlı konuşma çevirisi
+- Gestione delle sessioni WebSocket, token client effimeri e ripresa della sessione
+- Streaming di audio, video e testo con rilevamento di attività vocale (VAD) e
+  supporto dell'interruzione
+- Ragionamento in background (pensiero esteso), chiamate asincrone non bloccanti
+  di strumenti, trascrizione e traduzione vocale in tempo reale
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
@@ -83,20 +98,22 @@ npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 
 #### `gemini-omni-flash-api`
 
-Interactions API'yi kullanarak Gemini Omni Flash ile video oluşturma ve düzenleme becerisi. Yardımcı komut dosyaları (`upload_file.py`,
-`generate_video.py`, `prep_video.py`, `inspect_video.py`) içerir ve şunları kapsar:
+Skill per generare e modificare video con Gemini Omni Flash utilizzando l'API Interactions. Include script di assistenza (`upload_file.py`,
+`generate_video.py`, `prep_video.py`, `inspect_video.py`) e copre:
 
-- Metinden video üretme ve istem oluşturma
-- İlk ve son kare geçişleri ile referans yönlendirmeli video üretimi
-- Video uzantıları ve medya ön işleme iş akışları
+- Generazione di video da testo e creazione di prompt
+- Transizioni del primo e dell'ultimo fotogramma e generazione di video guidata dai riferimenti
+- Estensioni video e flussi di lavoro di preelaborazione dei contenuti multimediali
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-omni-flash-api --global
 ```
 
-### Yönetilen Ajanlar'da becerileri kullanma
+### Montare le skill in Managed Agents
 
-Etkileşimler API'si ile uzaktan yönetilen aracıları çalıştırdığınızda `google-gemini/gemini-skills` deposunu aracının çalışma alanına bağlayabilirsiniz. Ayrıntılar için [Gemini API Skills Guide](https://aistudio.google.com/learn/gemini-api-skills?hl=tr)'ı (Gemini API Beceri Kılavuzu) inceleyin:
+Quando esegui agenti gestiti da remoto con l'API Interactions, puoi montare il repository
+`google-gemini/gemini-skills` nello spazio di lavoro dell'agente. Per maggiori dettagli, consulta la
+[guida alle competenze dell'API Gemini](https://aistudio.google.com/learn/gemini-api-skills?hl=it):
 
 ```
 from google import genai
@@ -119,34 +136,37 @@ interaction = client.interactions.create(
 )
 ```
 
-## Gemini Dokümanları MCP sunucusunu bağlama
+## Connetti il server MCP di Gemini Docs
 
-Herkese açık **Gemini Docs MCP sunucusu** (`https://gemini-api-docs-mcp.dev`), aracınıza tüm doküman sitesine canlı erişim sağlar. Ajanınız, istek şemalarını, model sınırlarını ve yeni özellikleri kontrol etmek için doküman sayfalarını arayabilir ve okuyabilir:
+Il **server MCP di Gemini Docs** pubblico (`https://gemini-api-docs-mcp.dev`) consente
+all'agente di accedere in tempo reale all'intero sito di documentazione. Il tuo agente può cercare
+e leggere le pagine della documentazione per controllare gli schemi delle richieste, i limiti del modello e le nuove
+funzionalità:
 
-- `gemini_search_docs`: Gemini API belgelerinde konuya veya sorguya göre arama yapar.
-- `gemini_get_doc`: Belirli bir dokümantasyon sayfasının Markdown içeriğinin tamamını okur.
+- `gemini_search_docs`: esegue ricerche nella documentazione dell'API Gemini per argomento o query.
+- `gemini_get_doc`: legge l'intero contenuto Markdown di una pagina di documentazione specifica.
 
-### Hızlı kurulum
+### Configurazione rapida
 
-Algılanan kodlama aracılarınızı otomatik olarak yapılandırmak için terminalinizde veya proje kökünüzde şu komutu çalıştırın:
+Esegui questo comando nel terminale o nella radice del progetto per configurare automaticamente gli agenti di codifica rilevati:
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-### Ortama göre yapılandırma
+### Configurazione per ambiente
 
 ### Claude Code
 
-Terminalinizde şunu çalıştırın:
+Esegui nel terminale:
 
 ```
 $ claude mcp add --transport http geminiDocs https://gemini-api-docs-mcp.dev
 ```
 
-### İmleç
+### Cursore
 
-`~/.cursor/mcp.json` (global) veya `.cursor/mcp.json` (proje) öğesine ekleme:
+Aggiungi a `~/.cursor/mcp.json` (globale) o `.cursor/mcp.json` (progetto):
 
 ```
 {
@@ -158,15 +178,15 @@ $ claude mcp add --transport http geminiDocs https://gemini-api-docs-mcp.dev
 }
 ```
 
-### OpenAI Codex
+### Codex di OpenAI
 
-Terminalinizde şunu çalıştırın:
+Esegui nel terminale:
 
 ```
 $ codex mcp add geminiDocs --url https://gemini-api-docs-mcp.dev
 ```
 
-Dilerseniz `~/.codex/config.toml` uygulamasına ekleyin:
+Oppure aggiungi a `~/.codex/config.toml`:
 
 ```
 [mcp_servers.geminiDocs]
@@ -175,7 +195,7 @@ url = "https://gemini-api-docs-mcp.dev"
 
 ### VS Code (Copilot)
 
-Çalışma alanınızdaki `.vscode/mcp.json` dosyasına ekleme:
+Aggiungi a `.vscode/mcp.json` nel tuo workspace:
 
 ```
 {
@@ -188,27 +208,30 @@ url = "https://gemini-api-docs-mcp.dev"
 }
 ```
 
-## Gemini API eklentisi
+## Plugin API Gemini
 
-**Antigravity**'yi kullanıyorsanız **Gemini API eklentisi**, çalışma alanınızı kurmanın en hızlı yoludur. Gemini Docs MCP sunucusu, tüm resmi Gemini becerileri (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`) ve API anahtarı araçlarını tek bir indirme işleminde bir araya getirir.
+Se utilizzi **Antigravity**, il **plug-in API Gemini** è il modo più rapido per configurare il tuo workspace. Include il server MCP di Gemini Docs, tutte le skill ufficiali di Gemini (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`) e gli strumenti per le chiavi API in un unico download.
 
-- **Antigravity'de (Kullanıcı Arayüzü) yükleme:** **Ayarlar > Özelleştirmeler > Google Eklentileri ile Oluştur**'a gidip **Gemini API**'yi indirin.
-- **KSA ile yükleme:**
+- **Installazione in Antigravity (UI):** vai a **Impostazioni > Personalizzazioni > Crea
+  con i plug-in Google** e scarica **API Gemini**.
+- **Installa con la CLI:**
   `bash
   agy plugin install https://github.com/google-gemini/gemini-skills`
 
-## Makine tarafından okunabilir belgeler
+## Documentazione leggibile da macchina
 
-Standart web sayfaları, bağlam penceresi alanını kaplayan HTML etiketleri, gezinme çubukları ve komut dosyaları içerir. `ai.google.dev`, aracıların ve komut dosyalarının doğrudan temiz Markdown getirebilmesi için makine tarafından okunabilir uç noktalar sağlar:
+Le pagine web standard includono tag HTML, barre di navigazione e script che occupano
+spazio nella finestra contestuale. `ai.google.dev` fornisce endpoint leggibili dalla macchina in modo che
+agenti e script possano recuperare direttamente Markdown pulito:
 
-- **`llms.txt` index**
-  ([`https://ai.google.dev/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=tr)):
-  Her sayfaya bağlantı içeren tüm Gemini API dokümanları sayfalarını listeler.
-- **Doğrudan Markdown URL'leri (`.md.txt`)**: Kaydedilmiş istemler, `AGENTS.md` kuralları veya otomatik komut dosyaları için temiz Markdown kaynağı almak üzere `ai.google.dev`'daki herhangi bir doküman URL'sine `.md.txt` ekleyin (örneğin, [`https://ai.google.dev/gemini-api/docs/coding-agents.md.txt`](https://ai.google.dev/gemini-api/docs/coding-agents.md.txt?hl=tr)).
+- **Indice `llms.txt`**
+  ([`https://ai.google.dev/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=it)):
+  Elenca tutte le pagine della documentazione dell'API Gemini con link a ciascuna pagina.
+- **URL Markdown diretti (`.md.txt`)**: aggiungi `.md.txt` a qualsiasi URL di documentazione su `ai.google.dev` (ad esempio, [`https://ai.google.dev/gemini-api/docs/coding-agents.md.txt`](https://ai.google.dev/gemini-api/docs/coding-agents.md.txt?hl=it)) per ottenere un'origine Markdown pulita per prompt salvati, regole `AGENTS.md` o script automatizzati.
 
-## Önerilen proje kuralları (`AGENTS.md`)
+## Regole del progetto consigliate (`AGENTS.md`)
 
-Proje kuralları dosyası (`AGENTS.md`, `.cursorrules` veya `CLAUDE.md`), her aracı oturumunun başında yüklenen temel kuralları belirler. Kodlama aracılarının varsayılan olarak mevcut modelleri ve SDK'ları kullanması için bu yönergeleri proje kökünüze ekleyin:
+Un file di regole del progetto (`AGENTS.md`, `.cursorrules` o `CLAUDE.md`) imposta le regole di base che vengono caricate all'inizio di ogni sessione dell'agente. Aggiungi queste linee guida alla radice del progetto in modo che gli agenti di codifica utilizzino per impostazione predefinita i modelli e gli SDK attuali:
 
 ```
 # Gemini API Guidelines
@@ -219,51 +242,54 @@ Proje kuralları dosyası (`AGENTS.md`, `.cursorrules` veya `CLAUDE.md`), her ar
 - Use current recommended models (see https://ai.google.dev/gemini-api/docs/models) and avoid deprecated models.
 ```
 
-## Doğrulama ve sorun giderme
+## Verifica e risolvi i problemi
 
-### Kurulumu doğrulama
+### Verificare la configurazione
 
-Ayarlarınızı test etmek için kodlama aracınıza şunu sorun:
+Per testare la configurazione, chiedi all'agente di programmazione:
 
 ```
 Look up the request schema for the Gemini Interactions API in the documentation.
 ```
 
-Yapılandırılmış bir aracı, `geminiDocs` MCP sunucusunda `gemini_search_docs` kullanır ve `google-genai` veya `@google/genai` SDK'sı ile `client.interactions.create` kullanarak kod yazar.
+Un agente configurato utilizzerà `gemini_search_docs` sul server MCP `geminiDocs` e scriverà codice utilizzando `client.interactions.create` con l'SDK `google-genai` o `@google/genai`.
 
-### Durum komutları
+### Comandi di stato
 
-| Ortam | MCP doğrulaması | Beceri doğrulama |
+| Ambiente | Verifica MCP | Verifica delle competenze |
 | --- | --- | --- |
-| **Claude Code** | `/mcp` çalıştırma | `/skills` çalıştırma |
-| **İmleç** | **Ayarlar > Özellikler > MCP**'yi açın. | **Ayarlar > Kurallar**'ı açın. |
-| **OpenAI Codex** | `codex mcp list` çalıştırma | `.codex/skills/` veya `~/.codex/skills/`'ı kontrol edin. |
-| **Antigravity** | **Özelleştirmeler > Bağlantılar**'ı açın. | **Özelleştirmeler > Kurallar**'ı açın veya `/skills list` komutunu çalıştırın. |
-| **VS Code (Copilot)** | **Uzantılar > MCP** veya Çıkış paneli'ni açın. | Copilot Chat'te **Araçları Seç**'i tıklayın. |
+| **Claude Code** | Esegui `/mcp` | Esegui `/skills` |
+| **Cursore** | Apri **Impostazioni > Funzionalità > MCP** | Apri **Impostazioni > Regole** |
+| **OpenAI Codex** | Esegui `codex mcp list` | Controlla `.codex/skills/` o `~/.codex/skills/` |
+| **Antigravity** | Apri **Personalizzazioni > Connessioni**. | Apri **Personalizzazioni > Regole** o esegui `/skills list`. |
+| **VS Code (Copilot)** | Apri **Estensioni > MCP** o il riquadro Output | Fai clic su **Seleziona strumenti** in Copilot Chat. |
 
-### Sorun giderme
+### Risoluzione dei problemi
 
-- **Beceri veya MCP sunucusu algılanmadı:** Düzenleyicinizi (Cursor veya VS Code) ya da terminal oturumunuzu (Claude Code veya Codex) yeniden başlatın. Çoğu aracı, MCP sunucularını ve becerilerini yalnızca başlatıldığında yükler.
-- **Global beceri çakışması:** Aracınız, global olarak yüklenmiş bir beceriyi yoksayarsa `--global` olmadan beceriyi proje kökünüze yükleyin:
+- **Skill o server MCP non rilevati:** riavvia l'editor (Cursor o VS Code)
+  o la sessione del terminale (Claude Code o Codex). La maggior parte degli agenti carica i server MCP e
+  le skill solo all'avvio.
+- **Conflitto di skill globale:** se l'agente ignora una skill installata a livello globale,
+  installa la skill nella radice del progetto senza `--global`:
   `bash
   npx skills add google-gemini/gemini-skills --skill gemini-api-dev`
-- **Yoksayılan kurallar:** `AGENTS.md`, `.cursorrules` veya `CLAUDE.md`
-  dosyanızın projenizin kök dizininde olduğundan emin olun.
+- **Regole ignorate**:assicurati che il file `AGENTS.md`, `.cursorrules` o `CLAUDE.md`
+  si trovi nella directory principale del progetto.
 
-## Sırada ne var?
+## Passaggi successivi
 
-- [Gemini API Skills kılavuzu](https://aistudio.google.com/learn/gemini-api-skills?hl=tr)
-- [GitHub'daki Gemini API becerileri](https://github.com/google-gemini/gemini-skills)
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr)
-- [Kullanılabilir modeller](https://ai.google.dev/gemini-api/docs/models?hl=tr)
-- [Kitaplıklar ve SDK'lar](https://ai.google.dev/gemini-api/docs/libraries?hl=tr)
+- [Guida alle competenze dell'API Gemini](https://aistudio.google.com/learn/gemini-api-skills?hl=it)
+- [Competenze dell'API Gemini su GitHub](https://github.com/google-gemini/gemini-skills)
+- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it)
+- [Modelli disponibili](https://ai.google.dev/gemini-api/docs/models?hl=it)
+- [Librerie e SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=it)
 
-Geri bildirim gönderin
+Invia feedback
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Son güncelleme tarihi: 2026-10-06 UTC.
+Ultimo aggiornamento 2026-10-06 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Vuoi dirci altro?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-06 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-06 UTC."],[],[]]

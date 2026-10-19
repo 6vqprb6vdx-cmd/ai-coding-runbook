@@ -1,64 +1,100 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=tr
-fetched_at: 2026-10-12T07:03:24.354892+00:00
-title: "Veri g\u00fcnl\u00fck kayd\u0131 ve payla\u015f\u0131m\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=th
+fetched_at: 2026-10-19T05:35:59.986025+00:00
+title: "\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e41\u0e0a\u0e23\u0e4c\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-[Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) artık genel kullanıma sunulmuştur. En yeni özelliklere ve modellere erişmek için bu API'yi kullanmanızı öneririz.
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Veri günlük kaydı ve paylaşımı
+# การบันทึกและการแชร์ข้อมูล
 
-Bu sayfada, faturalandırmanın etkinleştirildiği projeler için desteklenen Gemini API çağrılarından elde edilen ve geliştiricilere ait API verileri olan [Gemini API günlüklerinin](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) depolanması ve yönetilmesi açıklanmaktadır. Günlükler, kullanıcının isteğinden modelin yanıtına kadar olan tüm süreci kapsar.
-Google Cloud projenize özel olan bu günlükler, yalnızca [kötüye kullanımı izleme](https://ai.google.dev/gemini-api/docs/usage-policies?hl=tr) amacıyla tutulan günlüklerden ayrıdır.
+หน้านี้สรุปการจัดเก็บและการจัดการ
+[บันทึก Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=th) ซึ่งเป็นข้อมูล API ที่นักพัฒนาซอฟต์แวร์เป็นเจ้าของ
+จากการเรียก API ของ Gemini ที่รองรับสำหรับโปรเจ็กต์ที่เปิดใช้การเรียกเก็บเงิน บันทึกครอบคลุมกระบวนการทั้งหมดตั้งแต่คำขอของผู้ใช้ไปจนถึงการตอบกลับของโมเดล
+บันทึกเหล่านี้เป็นแบบส่วนตัวสำหรับโปรเจ็กต์ที่อยู่ในระบบคลาวด์ Google Cloud ของคุณและแยกจาก
+บันทึกที่เก็บไว้เพื่อวัตถุประสงค์ในการตรวจสอบ[การละเมิด](https://ai.google.dev/gemini-api/docs/usage-policies?hl=th)
+เท่านั้น
 
-## Paylaşılabilecek veriler
+## ข้อมูลที่แชร์ได้
 
-Proje sahibi olarak, Gemini API çağrılarının kendi kullanımınız için veya modellerimizi sürekli olarak iyileştirmemize yardımcı olmak üzere Google ile geri bildirim ve paylaşım amacıyla kaydedilmesini etkinleştirebilirsiniz.
+ในฐานะเจ้าของโปรเจ็กต์ คุณมีสิทธิ์เลือกเข้าร่วมการบันทึกการเรียก Gemini API เพื่อใช้เองหรือเพื่อส่งความคิดเห็นและแชร์กับ Google เพื่อช่วยให้เราปรับปรุงโมเดลอย่างต่อเนื่อง
 
-Günlük kaydı etkinleştirildiğinde, ürün iyileştirmeleri ve model eğitimi için aşağıdaki verileri göndermeyi seçerek çeşitli alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam eden yapay zeka sistemleri oluşturmamıza yardımcı olabilirsiniz:
+เมื่อเปิดใช้การบันทึก คุณสามารถช่วยเราสร้างระบบ AI ที่มีคุณค่าต่อนักพัฒนาซอฟต์แวร์ในหลากหลายสาขาและกรณีการใช้งานได้โดยเลือกให้ข้อมูลต่อไปนี้เพื่อการปรับปรุงผลิตภัณฑ์และการฝึกโมเดล
 
-- **Veri kümeleri:** Desteklenen Gemini API çağrılarından ilgilendiğiniz günlükleri (istekler, yanıtlar, meta veriler vb.) seçmek için Google AI Studio'nun Günlükler ve Veri Kümeleri arayüzünü kullanın. Veri kümelerine dahil edilerek katkıda bulunulan bu günlükler, veri kümesi oluşturma sırasında devre dışı bırakılabilir.
-- **Geri bildirim:** Günlükleri incelerken geri bildirimde bulunabilirsiniz. Beğenme ve beğenmeme puanları ile yazdığınız yorumlar da geri bildirim kapsamındadır.
+- **ชุดข้อมูล:** ใช้อินเทอร์เฟซบันทึกและชุดข้อมูลของ Google AI Studio เพื่อเลือกบันทึก (คำขอ การตอบกลับ ข้อมูลเมตา ฯลฯ) ที่คุณสนใจจากการเรียก Gemini API ที่รองรับ โดยส่งผ่านการรวมไว้ในชุดข้อมูล พร้อมตัวเลือกในการเลือกไม่เข้าร่วมระหว่างการสร้างชุดข้อมูล
+- **ความคิดเห็น:** คุณสามารถแสดงความคิดเห็นเมื่อตรวจสอบบันทึก ซึ่งรวมถึงการให้คะแนนชอบและไม่ชอบ รวมถึงความคิดเห็นที่เป็นลายลักษณ์อักษรที่คุณให้ไว้
 
-Google ile bir veri kümesi paylaştığınızda, istekler ve yanıtlar dahil olmak üzere bu veri kümesindeki günlükleriniz, "[Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid)" ile ilgili [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca işlenir. Bu, veri kümesinin modellerimizi iyileştirmek ve eğitmek de dahil olmak üzere Google ürünlerini, hizmetlerini ve makine öğrenimi teknolojilerini geliştirmek ve iyileştirmek için kullanılabileceği anlamına gelir. **Kişisel, hassas veya gizli bilgiler eklemeyin.**
+เมื่อคุณแชร์ชุดข้อมูลกับ Google ระบบจะประมวลผลบันทึกในชุดข้อมูลนั้น ซึ่งรวมถึง
+คำขอและการตอบกลับตาม
+[ข้อกำหนด](https://developers.google.com/terms?hl=th)สำหรับ
+"[บริการที่ไม่เสียค่าใช้จ่าย](https://ai.google.dev/gemini-api/terms?hl=th#data-use-unpaid),"
+ซึ่งหมายความว่าระบบอาจใช้ชุดข้อมูลเพื่อพัฒนาและปรับปรุงผลิตภัณฑ์ บริการ และเทคโนโลยีแมชชีนเลิร์นนิงของ Google
+รวมถึงการปรับปรุงและ
+ฝึกโมเดลของเรา **โปรดอย่าระบุข้อมูลส่วนบุคคล ข้อมูลที่มีความละเอียดอ่อน หรือข้อมูลลับ**
 
-## Verilerinizi nasıl kullanırız?
+## วิธีที่เราใช้ข้อมูลของคุณ
 
-Günlükler varsayılan olarak en fazla 55 gün boyunca saklanır. Bu sürenin ardından günlükler otomatik olarak silinmek üzere işaretlenir. Bir projenin depolama saklama penceresi, AI Studio'da güncellenerek günlüklerin 7, 14, 28 veya 55 gün sonra silinmek üzere otomatik olarak işaretlenmesi sağlanabilir.
+ระบบจะเก็บรักษาบันทึกไว้เป็นระยะเวลาสูงสุด 55 วันโดยค่าเริ่มต้น หลังจากระยะเวลานี้ ระบบจะทำเครื่องหมายบันทึกเพื่อลบโดยอัตโนมัติ คุณสามารถอัปเดตระยะเวลาเก็บรักษาข้อมูลของโปรเจ็กต์ใน AI Studio เพื่อทำเครื่องหมายบันทึกเพื่อลบโดยอัตโนมัติหลังจากผ่านไป 7, 14, 28 หรือ 55 วัน
 
-Aşağı akış kullanım alanları için belirlenen saklama süresinin ötesinde ilgi çekici günlükleri saklamak ve model iyileştirmelerine isteğe bağlı olarak katkıda bulunmak amacıyla [veri kümeleri](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=tr) oluşturulabilir. Veri kümelerinde depolanan günlüklerin belirli bir saklama süresi yoktur.
+[คุณสามารถสร้างชุดข้อมูล](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=th)เพื่อเก็บรักษาบันทึกที่สนใจไว้นานกว่าระยะเวลาเก็บรักษาที่กำหนดไว้สำหรับกรณีการใช้งานปลายทางและการมีส่วนร่วมในการปรับปรุงโดยประมาณ (ไม่บังคับ) บันทึกที่จัดเก็บไว้ในชุดข้อมูลจะไม่มีระยะเวลาเก็บรักษาที่กำหนดไว้
 
-Varsayılan olarak, günlük kaydı yalnızca faturalandırmanın etkinleştirildiği projelerde kullanılabilir. Bu nedenle, günlüklerdeki istemler ve yanıtlar, veri kullanımına ilişkin [Şartlarımız](https://developers.google.com/terms?hl=tr) uyarınca ürün iyileştirme veya geliştirme için kullanılmaz.
+โดยค่าเริ่มต้น ระบบจะไม่ใช้ข้อความแจ้งและการตอบกลับภายในบันทึกเพื่อการปรับปรุงหรือ
+พัฒนาผลิตภัณฑ์ เนื่องจากบันทึกมีไว้สำหรับโปรเจ็กต์ที่เปิดใช้การเรียกเก็บเงินเท่านั้น ซึ่งเป็นไปตาม[ข้อกำหนด](https://developers.google.com/terms?hl=th)
+เกี่ยวกับการใช้ข้อมูล
 
-Günlüklerinizin veri kümelerini Google ile paylaşmayı seçerseniz bu veri kümeleri, yapay zeka sistemlerinin ve uygulamalarının kullanıldığı alanların ve bağlamların çeşitliliğini daha iyi anlamak için gerçek dünya gösterim verileri olarak kullanılır. Bu veriler, model kalitesini artırmak ve gelecekteki modellerin ve hizmetlerin eğitim ve değerlendirme süreçlerine bilgi sağlamak için kullanılabilir. Bu veriler, [Ücretsiz Hizmetler](https://ai.google.dev/gemini-api/terms?hl=tr#data-use-unpaid) için veri kullanım şartlarımıza uygun olarak işlenir.
+หากคุณเลือกแชร์ชุดข้อมูลบันทึกกับ Google ระบบจะใช้ชุดข้อมูลเหล่านั้นเป็นข้อมูลการสาธิตในโลกแห่งความเป็นจริงเพื่อทำความเข้าใจความหลากหลายของโดเมนและบริบทที่ใช้ระบบและแอปพลิเคชัน AI ได้ดียิ่งขึ้น ระบบอาจใช้ข้อมูลนี้เพื่อปรับปรุงคุณภาพของโมเดล และใช้เป็นข้อมูลประกอบการฝึกและการประเมินโมเดลและบริการในอนาคต ระบบจะประมวลผลข้อมูลนี้ตามข้อกำหนดการใช้ข้อมูล
+สำหรับ [บริการที่ไม่เสียค่าใช้จ่าย](https://ai.google.dev/gemini-api/terms?hl=th#data-use-unpaid)
 
-Bu nedenle, inceleme uzmanları paylaştığınız API girişlerini ve çıkışlarını okuyabilir, işleyebilir ve bunlara açıklama ekleyebilir. Veriler model geliştirmede kullanılmadan önce Google, bu süreç kapsamında kullanıcı gizliliğini korumak için gerekli önlemleri alır. Örneğin, inceleme uzmanları görmeden veya açıklama eklemeden önce bu verilerin Google Hesabınız, API anahtarınız ve Cloud projenizle bağlantısını kaldırırız.
+ดังนั้น เจ้าหน้าที่ตรวจสอบอาจอ่าน ใส่คำอธิบายประกอบ และประมวลผลอินพุตและเอาต์พุต API ที่คุณแชร์ Google จะดำเนินการตามขั้นตอนเพื่อปกป้องความเป็นส่วนตัวของผู้ใช้ในกระบวนการนี้ก่อนที่จะใช้ข้อมูลเพื่อปรับปรุงโมเดล ซึ่งรวมถึงการยกเลิกการเชื่อมต่อข้อมูลนี้จากบัญชี Google, คีย์ API และโปรเจ็กต์ที่อยู่ในระบบคลาวด์ ก่อนที่เจ้าหน้าที่จะเห็นหรือใส่คำอธิบายประกอบ
 
-## Veri izinleri
+## สิทธิ์ของข้อมูล
 
-API verilerine katkıda bulunmayı etkinleştirerek Google'ın verileri bu dokümanda açıklandığı şekilde işlemesi ve kullanması için gerekli izinlere sahip olduğunuzu onaylarsınız. **Lütfen ücretli hizmet aracılığıyla elde edilen hassas, gizli veya özel bilgileri içeren günlükleri göndermeyin**.
-API Şartları'ndaki "[İçerik Gönderme](https://developers.google.com/terms?hl=tr#b_submission_of_content)" bölümü uyarınca Google'a verdiğiniz lisans, Hizmetler'e gönderdiğiniz tüm içerikler (ör.ilişkili sistem talimatları da dahil olmak üzere istemler, önbelleğe alınmış içerikler ve resim, video ya da doküman gibi dosyalar) ve oluşturulan tüm yanıtlar için de geçerlidir. Bu geçerlilik, kullanımımız için geçerli yasalar uyarınca gerekli olduğu ölçüde geçerlidir.
+การเลือกเข้าร่วมให้ข้อมูล API แสดงว่าคุณยืนยันว่ามีสิทธิ์ที่จำเป็นเพื่อให้ Google ประมวลผลและใช้ข้อมูลตามที่อธิบายไว้ในเอกสารนี้ **โปรดอย่าให้บันทึกที่มีข้อมูลที่ละเอียดอ่อน ข้อมูลลับ หรือข้อมูลที่เป็นกรรมสิทธิ์ซึ่งได้รับผ่านบริการที่มีค่าใช้จ่าย**
+ใบอนุญาตที่คุณมอบให้ Google ภายใต้ส่วน "[การส่ง
+เนื้อหา](https://developers.google.com/terms?hl=th#b_submission_of_content)"
+ในข้อกำหนด API จะขยายไปถึงเนื้อหาใดๆ (เช่น ข้อความแจ้ง รวมถึงคำแนะนำระบบที่เกี่ยวข้อง เนื้อหาที่แคชไว้ และไฟล์ต่างๆ เช่น รูปภาพ วิดีโอ หรือเอกสาร)
+ที่คุณส่งไปยังบริการและคำตอบที่สร้างขึ้นด้วย โดยเป็นไปตามขอบเขตที่กฎหมายที่บังคับใช้
+กำหนดไว้สำหรับการใช้งานของเรา
 
-## Veri paylaşımı ve geri bildirim
+## การแชร์ข้อมูลและความคิดเห็น
 
-Verilerinizi örnek olarak paylaşmayı kabul ederek yapay zeka araştırmalarının, Gemini API'nin ve Google AI Studio'nun sınırlarını genişletmemize yardımcı olabilirsiniz. Bu sayede, modellerimizi çeşitli bağlamlarda sürekli olarak iyileştirebilir ve farklı alanlardaki ve kullanım alanlarındaki geliştiriciler için değerli olmaya devam edecek yapay zeka sistemleri oluşturabiliriz.
+คุณสามารถช่วยเราพัฒนาการวิจัย AI, Gemini API และ Google AI Studio ได้โดยเลือกรับการแชร์ข้อมูลของคุณเป็นตัวอย่าง ซึ่งจะช่วยให้เราปรับปรุงโมเดลอย่างต่อเนื่องในบริบทต่างๆ และสร้างระบบ AI ที่มีคุณค่าต่อนักพัฒนาซอฟต์แวร์ในหลากหลายสาขาและกรณีการใช้งาน
 
-Geri bildirim gönderin
+### ระดับผู้ร่วมให้ข้อมูล Gemini API
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+ระดับผู้ร่วมให้ข้อมูล Gemini ช่วยให้นักพัฒนาซอฟต์แวร์ได้รับส่วนลดค่าใช้จ่ายโทเค็นในโมเดลที่เลือกไว้เพื่อแลกกับสิทธิ์ในการใช้ข้อมูลจากโมเดลเหล่านั้นเพื่อให้บริการ ปรับปรุง และพัฒนาผลิตภัณฑ์และบริการของ Google รวมถึงเทคโนโลยีแมชชีนเลิร์นนิง
 
-Son güncelleme tarihi: 2026-09-08 UTC.
+นักพัฒนาซอฟต์แวร์จะได้รับส่วนลดค่าใช้จ่ายโทเค็นสูงสุด 50% สำหรับโมเดลที่เลือกไว้ โดยมีประสิทธิภาพ
+แบบเรียลไทม์เช่นเดียวกับ [API มาตรฐาน](https://ai.google.dev/gemini-api/docs/optimization?hl=th) โมเดลที่รองรับมีดังนี้
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+| โมเดล | ระดับผู้ร่วมให้ข้อมูล |
+| --- | --- |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-4-argon) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.8-flash) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.5-flash-lite) | ✔️ |
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-08 UTC."],[],[]]
+**การใช้ข้อมูล:**
+
+- เมื่อเปิดใช้ระดับผู้ร่วมให้ข้อมูลสำหรับโปรเจ็กต์ ระบบจะใช้ข้อมูลของคุณจากการใช้โมเดลที่เข้าร่วมในโปรเจ็กต์ตามข้อกำหนดสำหรับ"[บริการที่ไม่เสียค่าใช้จ่าย](https://ai.google.dev/gemini-api/terms?hl=th#unpaid-services)"
+  เนื่องจากระบบจะใช้ข้อมูลของคุณเพื่อปรับปรุงผลิตภัณฑ์ของ Google และเทคโนโลยีแมชชีนเลิร์นนิง โปรดอย่าส่งข้อมูลที่ละเอียดอ่อนหรือข้อมูลส่วนบุคคล
+
+ส่งความคิดเห็น
+
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+
+อัปเดตล่าสุด 2026-10-14 UTC
+
+หากต้องการบอกให้เราทราบเพิ่มเติม
+
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-14 UTC"],[],[]]
