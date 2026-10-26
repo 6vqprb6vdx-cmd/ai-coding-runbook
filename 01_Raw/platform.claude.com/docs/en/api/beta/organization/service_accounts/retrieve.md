@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/service_accounts/retrieve
-fetched_at: 2026-10-19T05:30:17.943908+00:00
+fetched_at: 2026-10-26T05:36:59.422454+00:00
 fetch_method: mintlify_md
 ---
 
@@ -139,6 +139,8 @@ Retrieve a service account by its ID (`svac_...`).
 
   - `"telemetry-destinations-2026-08-11"`
 
+  - `"webhooks-2026-10-07"`
+
 ## Returns
 
 - `BetaServiceAccount object`
@@ -206,8 +208,8 @@ Retrieve a service account by its ID (`svac_...`).
 
 ```bash
 curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUNT_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H 'anthropic-version: 2026-10-21' \
+    -H "Authorization: Bearer $ANTHROPIC_API_KEY"
 ```
 
 ### Response (200)

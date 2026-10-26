@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/messages/batches/cancel
-fetched_at: 2026-10-12T06:47:18.829649+00:00
+fetched_at: 2026-10-26T05:36:41.617131+00:00
 fetch_method: mintlify_md
 ---
 
@@ -154,8 +154,8 @@ Learn more about the Message Batches API in our [user guide](https://platform.cl
 ```bash
 curl https://api.anthropic.com/v1/messages/batches/$MESSAGE_BATCH_ID/cancel \
     -X POST \
-    -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H 'anthropic-version: 2026-10-21' \
+    -H "Authorization: Bearer $ANTHROPIC_API_KEY"
 ```
 
 ### Response (200)

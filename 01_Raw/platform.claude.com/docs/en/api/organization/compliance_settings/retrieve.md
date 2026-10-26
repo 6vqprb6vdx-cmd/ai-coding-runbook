@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/compliance_settings/retrieve
-fetched_at: 2026-10-12T06:47:22.325945+00:00
+fetched_at: 2026-10-26T05:36:47.491906+00:00
 fetch_method: mintlify_md
 ---
 
@@ -56,8 +56,8 @@ organization reads the state inherited from the parent's configuration.
 
 ```bash
 curl https://api.anthropic.com/v1/organizations/compliance_settings \
-    -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H 'anthropic-version: 2026-10-21' \
+    -H "Authorization: Bearer $ANTHROPIC_API_KEY"
 ```
 
 ### Response (200)

@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/service_accounts/retrieve
-fetched_at: 2026-10-12T06:47:21.029741+00:00
+fetched_at: 2026-10-26T05:36:45.400911+00:00
 fetch_method: mintlify_md
 ---
 
@@ -98,8 +98,8 @@ Retrieve a service account by its ID (`svac_...`).
 
 ```bash
 curl https://api.anthropic.com/v1/organizations/service_accounts/$SERVICE_ACCOUNT_ID \
-    -H 'anthropic-version: 2023-06-01' \
-    -H "X-Api-Key: $ANTHROPIC_API_KEY"
+    -H 'anthropic-version: 2026-10-21' \
+    -H "Authorization: Bearer $ANTHROPIC_API_KEY"
 ```
 
 ### Response (200)
