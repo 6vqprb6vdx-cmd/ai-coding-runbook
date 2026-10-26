@@ -1,182 +1,185 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=id
-fetched_at: 2026-10-19T05:33:34.645623+00:00
-title: "Panduan pemecahan masalah \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ja
+fetched_at: 2026-10-26T05:53:56.246341+00:00
+title: "\u30c8\u30e9\u30d6\u30eb\u30b7\u30e5\u30fc\u30c6\u30a3\u30f3\u30b0 \u30ac\u30a4\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Kirim masukan
+フィードバックを送信
 
-# Panduan pemecahan masalah
+# トラブルシューティング ガイド
 
-Gunakan panduan ini untuk membantu Anda mendiagnosis dan menyelesaikan masalah umum yang muncul saat
-Anda memanggil Gemini API. Anda mungkin mengalami masalah dari
-layanan backend Gemini API atau SDK klien. SDK klien kami
-bersifat open source di repositori berikut:
+このガイドでは、Gemini API の呼び出し時に発生する一般的な問題の診断と解決に役立つ情報を説明します。Gemini API バックエンド サービスまたはクライアント SDK で問題が発生することがあります。クライアント SDK は、次のリポジトリでオープンソース化されています。
 
 - [python-genai](https://github.com/googleapis/python-genai)
 - [js-genai](https://github.com/googleapis/js-genai)
 - [go-genai](https://github.com/googleapis/go-genai)
 
-Jika Anda mengalami masalah kunci API, pastikan Anda telah menyiapkan
-kunci API dengan benar sesuai [panduan penyiapan kunci API](https://ai.google.dev/gemini-api/docs/api-key?hl=id).
+API キーの問題が発生した場合は、[API キーの設定ガイド](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)に沿って API キーが正しく設定されていることを確認してください。
 
-## Kode error
+## エラーコード
 
-Untuk mengetahui referensi lengkap semua kode error, termasuk kode status HTTP, kode pemblokiran pembuatan, dan kode error konten, lihat halaman [Error API](https://ai.google.dev/gemini-api/docs/api-errors?hl=id).
+HTTP ステータス コード、生成ブロックコード、コンテンツ エラーコードなど、すべてのエラーコードの完全なリファレンスについては、[API エラー](https://ai.google.dev/gemini-api/docs/api-errors?hl=ja)のページをご覧ください。
 
-## Strategi percobaan ulang
+## 再試行方法
 
-Jika Anda menerima error yang menunjukkan bahwa Anda harus mencoba lagi permintaan (seperti `429 RESOURCE_EXHAUSTED` atau `503 UNAVAILABLE`), sebaiknya terapkan strategi backoff eksponensial. Artinya, Anda menunggu sebentar sebelum percobaan ulang pertama, lalu secara bertahap meningkatkan waktu tunggu antara percobaan ulang berikutnya.
+リクエストを再試行する必要があることを示すエラー（`429 RESOURCE_EXHAUSTED` や `503 UNAVAILABLE` など）を受け取った場合は、指数バックオフ戦略を実装することをおすすめします。つまり、最初の再試行の前に少し待機し、その後、再試行間の待機時間を徐々に増やしていきます。
 
-SDK klien resmi untuk Gemini API, seperti [Python SDK](https://github.com/googleapis/python-genai), menyertakan logika coba lagi otomatis dengan backoff eksponensial secara default untuk menangani error sementara seperti waktu tunggu habis, masalah jaringan, dan pembatasan kapasitas (kode status `429` dan `5xx`). Misalnya, Python SDK secara otomatis mencoba lagi error sementara hingga empat kali dengan penundaan awal sekitar 1 detik dan penundaan maksimum 60 detik.
+Gemini API の公式クライアント SDK（[Python SDK](https://github.com/googleapis/python-genai) など）には、タイムアウト、ネットワークの問題、レート制限（`429` ステータス コードと `5xx` ステータス コード）などの一時的なエラーを処理するために、デフォルトで指数バックオフを使用した自動再試行ロジックが含まれています。たとえば、Python SDK は、一時的なエラーを最大 4 回自動的に再試行します。最初の遅延は約 1 秒で、最大遅延は 60 秒です。
 
-Jika Anda membuat permintaan REST API langsung atau menyesuaikan logika percobaan ulang, ikuti praktik terbaik berikut untuk meningkatkan kemungkinan keberhasilan permintaan dan mencegah layanan kewalahan:
+REST API リクエストを直接作成する場合や、再試行ロジックをカスタマイズする場合は、次のベスト プラクティスに沿って、リクエストが成功する可能性を高め、サービスに過剰な負荷がかからないようにします。
 
-- **Gunakan backoff eksponensial:** Tunggu sebentar sebelum percobaan ulang pertama (misalnya, 1 detik), lalu tingkatkan penundaan secara eksponensial (misalnya, 2 dtk, 4 dtk, 8 dtk).
-- **Tambahkan jitter:** Tambahkan "jitter" acak ke penundaan untuk membantu mencegah semua klien mencoba ulang pada waktu yang sama persis.
-- **Coba lagi pada error tertentu:** Hanya coba lagi pada error sementara (seperti `429`, `408`, atau `5xx`). Jangan coba lagi pada error klien (seperti `400`, `402`, atau `403`) karena error tersebut menunjukkan masalah seperti kunci API yang tidak valid, kredit Prabayar yang habis, atau sintaksis yang buruk.
-- **Menetapkan percobaan ulang maksimum:** Tentukan jumlah maksimum upaya percobaan ulang untuk mencegah loop tanpa henti.
+- **指数バックオフを使用する:** 最初の再試行の前に短い時間（1 秒など）待機し、その後、遅延を指数関数的に増やします（2 秒、4 秒、8 秒など）。
+- **ジッターを追加する:** 遅延にランダムな「ジッター」を追加して、すべてのクライアントが同時に再試行しないようにします。
+- **特定のエラーで再試行する:** 一時的なエラー（`429`、`408`、`5xx` など）でのみ再試行します。クライアント エラー（`400`、`402`、`403` など）では再試行しないでください。これらのエラーは、API キーが無効である、前払いクレジットが不足している、構文が正しくないなどの問題を示しています。
+- **最大再試行回数を設定する:** 無限ループを回避するために、再試行の最大回数を定義します。
 
-## Memeriksa panggilan API Anda untuk menemukan error parameter model
+## API 呼び出しでモデル パラメータのエラーを確認する
 
-Pastikan parameter model Anda berada dalam nilai berikut:
+モデル パラメータが次の値の範囲内であることを確認します。
 
 |  |  |
 | --- | --- |
-| **Parameter model** | **Nilai (rentang)** |
-| Jumlah kandidat | 1-8 (bilangan bulat) |
-| Suhu | 0,0-1,0 |
-| Token output maks | Gunakan [halaman model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id) untuk menentukan jumlah maksimum token untuk model yang Anda gunakan. |
-| TopP | 0.0-1.0 |
+| **モデル パラメータ** | **値（範囲）** |
+| 候補数 | 1 ～ 8（整数） |
+| 温度 | 0.0 ～ 1.0 |
+| 最大出力トークン数 | [モデルページ](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja)を使用して、使用しているモデルのトークンの最大数を決定します。 |
+| TopP | 0.0 ～ 1.0 |
 
-Selain memeriksa nilai parameter, pastikan Anda menggunakan
-[versi API](https://ai.google.dev/gemini-api/docs/api-versions?hl=id) yang benar (misalnya, `/v1` atau `/v1beta`) dan
-model yang mendukung fitur yang Anda butuhkan. Misalnya, jika fitur dalam rilis Beta, fitur tersebut hanya akan tersedia di versi API `/v1beta`.
+パラメータ値を確認するだけでなく、必要な機能をサポートする正しい [API バージョン](https://ai.google.dev/gemini-api/docs/api-versions?hl=ja)（`/v1` や `/v1beta` など）とモデルを使用していることを確認してください。たとえば、機能がベータ版リリースの場合、`/v1beta` API バージョンでのみ使用できます。
 
-## Memeriksa apakah Anda memiliki model yang tepat
+## モデルが正しいかどうかを確認する
 
-Pastikan Anda menggunakan model yang didukung yang tercantum di [halaman model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id) kami.
+[モデルページ](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ja)に記載されているサポート対象のモデルを使用していることを確認します。
 
-## Latensi atau penggunaan token yang lebih tinggi dengan model yang berbasis penalaran
+## 思考モデルでのレイテンシまたはトークン使用量の増加
 
-Latensi atau penggunaan token yang lebih tinggi sering terjadi karena model Gemini 3.x mengaktifkan kemampuan berpikir secara default. Model Gemini 2.5 yang tidak digunakan lagi juga menggunakan pemikiran
-default.
+レイテンシやトークンの使用量が増加するのは、Gemini 3.x モデルで思考がデフォルトで有効になっていることが原因です。非推奨の Gemini 2.5 モデルもデフォルトの思考を使用します。
 
-Model yang berbasis penalaran menghasilkan token penalaran internal untuk meningkatkan kualitas. Proses
-penalaran ini meningkatkan latensi respons dan total konsumsi token.
+思考モデルは、品質を向上させるために内部推論トークンを生成します。この推論プロセスにより、レスポンスのレイテンシとトークンの総消費量の両方が増加します。
 
-Jika Anda memprioritaskan latensi yang lebih rendah atau perlu meminimalkan biaya, Anda dapat menurunkan tingkat pemikiran atau menonaktifkan pemikiran.
+レイテンシの短縮を優先する場合や、費用を最小限に抑える必要がある場合は、思考レベルを下げるか、思考をオフにできます。
 
-Untuk mengetahui detail konfigurasi dan contoh kode, lihat
-[panduan penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id#thinking-levels).
+構成の詳細とコードサンプルについては、[思考ガイド](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#thinking-levels)をご覧ください。
 
-## Masalah keamanan
+## 安全性に関する問題
 
-Jika Anda melihat perintah diblokir karena setelan keamanan dalam panggilan API Anda,
-tinjau perintah tersebut sehubungan dengan filter yang Anda tetapkan dalam panggilan API.
+API 呼び出しの安全設定が原因でプロンプトがブロックされた場合は、API 呼び出しで設定したフィルタに照らしてプロンプトを確認します。
 
-Jika Anda melihat `BlockedReason.OTHER`, kueri atau respons mungkin melanggar [persyaratan
-layanan](https://ai.google.dev/terms?hl=id) atau tidak didukung.
+`BlockedReason.OTHER` が表示された場合、クエリまたはレスポンスが[利用規約](https://ai.google.dev/terms?hl=ja)に違反しているか、サポートされていない可能性があります。
 
-## Masalah pembacaan
+## 列挙の問題
 
-Jika Anda melihat model berhenti menghasilkan output karena alasan RECITATION, ini
-berarti output model mungkin menyerupai data tertentu. Untuk memperbaikinya, coba buat perintah / konteks seunik mungkin dan gunakan nilai Temperature yang lebih tinggi.
+RECITATION の理由でモデルが出力の生成を停止した場合は、モデル出力が特定のデータに類似している可能性があります。これを修正するには、プロンプト / コンテキストをできるだけ一意にし、温度を高くします。
 
-## Masalah token berulang
+## トークンの繰り返しに関する問題
 
-Jika Anda melihat token output yang berulang, coba saran berikut untuk membantu mengurangi atau menghilangkannya.
+出力トークンが繰り返し表示される場合は、次の方法を試して、繰り返しを減らすか、なくしてください。
 
-| Deskripsi | Penyebab | Solusi alternatif yang disarankan |
+| 説明 | 原因 | 推奨される回避策 |
 | --- | --- | --- |
-| Tanda hubung berulang dalam tabel Markdown | Hal ini dapat terjadi jika konten tabel panjang karena model mencoba membuat tabel Markdown yang selaras secara visual. Namun, perataan di Markdown tidak diperlukan untuk rendering yang benar. | Tambahkan petunjuk dalam perintah Anda untuk memberikan panduan khusus kepada model dalam membuat tabel Markdown. Berikan contoh yang mengikuti panduan tersebut. Anda juga dapat mencoba menyesuaikan suhu. Untuk membuat kode atau output yang sangat terstruktur seperti tabel Markdown, suhu tinggi terbukti berfungsi lebih baik (>= 0,8).  Berikut adalah contoh kumpulan panduan yang dapat Anda tambahkan ke perintah untuk mencegah masalah ini:     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
-| Token berulang dalam tabel Markdown | Mirip dengan tanda hubung berulang, hal ini terjadi saat model mencoba menyelaraskan konten tabel secara visual. Perataan di Markdown tidak diperlukan untuk rendering yang benar. | - Coba tambahkan petunjuk seperti berikut ke perintah sistem Anda:      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - Coba sesuaikan suhu. Suhu yang lebih tinggi (>= 0,8)   umumnya membantu menghilangkan pengulangan atau duplikasi dalam   output. |
-| Baris baru berulang (`\n`) dalam output terstruktur | Jika input model berisi urutan escape atau unicode seperti `\u` atau `\t`, hal ini dapat menyebabkan baris baru berulang. | - Periksa dan ganti urutan escape yang dilarang dengan karakter UTF-8   dalam perintah Anda. Misalnya, urutan escape `\u`   dalam contoh JSON dapat menyebabkan model menggunakannya   dalam outputnya juga. - Memberi petunjuk pada model tentang karakter escape yang diizinkan. Tambahkan petunjuk sistem seperti   ini:      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
-| Teks berulang dalam penggunaan output terstruktur | Jika output model memiliki urutan kolom yang berbeda dengan skema terstruktur yang ditentukan, hal ini dapat menyebabkan teks berulang. | - Jangan tentukan urutan kolom dalam perintah Anda. - Buat semua kolom output wajib diisi. |
-| Panggilan alat berulang | Hal ini dapat terjadi jika model kehilangan konteks pemikiran sebelumnya dan/atau memanggil endpoint yang tidak tersedia yang dipaksakan. | Perintahkan model untuk mempertahankan status dalam proses pemikirannya. Tambahkan ini ke akhir petunjuk sistem Anda:    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
-| Teks berulang yang bukan bagian dari output terstruktur | Hal ini dapat terjadi jika model mengalami error saat memproses permintaan yang tidak dapat diselesaikan. | - Jika fitur berpikir diaktifkan, hindari memberikan perintah eksplisit tentang cara   memecahkan masalah dalam petunjuk. Cukup minta output akhir. - Coba suhu yang lebih tinggi >= 0,8. - Tambahkan petunjuk seperti "Singkat", "Jangan mengulangi diri sendiri", atau   "Berikan jawaban satu kali". |
+| Markdown テーブル内の繰り返しのハイフン | これは、モデルが視覚的に整列されたマークダウン テーブルを作成しようとしたときに、テーブルの内容が長い場合に発生することがあります。ただし、Markdown の配置は、正しいレンダリングに必要ありません。 | プロンプトに指示を追加して、Markdown テーブルを生成するための具体的なガイドラインをモデルに提供します。これらのガイドラインに沿った例を提示します。温度を調整してみることもできます。コードや Markdown テーブルなどの構造化された出力を生成する場合は、高い温度（0.8 以上）の方が効果的であることがわかっています。  この問題を回避するためにプロンプトに追加できるガイドラインの例を次に示します。     ```           # Markdown Table Format                      * Separator line: Markdown tables must include a separator line below             the header row. The separator line must use only 3 hyphens per             column, for example: |---|---|---|. Using more hypens like             ----, -----, ------ can result in errors. Always             use |:---|, |---:|, or |---| in these separator strings.              For example:              | Date | Description | Attendees |             |---|---|---|             | 2024-10-26 | Annual Conference | 500 |             | 2025-01-15 | Q1 Planning Session | 25 |            * Alignment: Do not align columns. Always use |---|.             For three columns, use |---|---|---| as the separator line.             For four columns use |---|---|---|---| and so on.            * Conciseness: Keep cell content brief and to the point.            * Never pad column headers or other cells with lots of spaces to             match with width of other content. Only a single space on each side             is needed. For example, always do "| column name |" instead of             "| column name                |". Extra spaces are wasteful.             A markdown renderer will automatically take care displaying             the content in a visually appealing form. ``` |
+| マークダウン テーブル内の繰り返しトークン | 繰り返されるハイフンと同様に、これはモデルがテーブルの内容を視覚的に揃えようとしたときに発生します。Markdown の配置は、正しいレンダリングには必要ありません。 | - システム プロンプトに次のような指示を追加してみてください。      ```               FOR TABLE HEADINGS, IMMEDIATELY ADD ' |' AFTER THE TABLE HEADING.   ``` - 温度を調整してみてください。温度を高く（0.8 以上）すると、通常、出力の繰り返しや重複を排除できます。 |
+| 構造化出力で改行（`\n`）が繰り返される | モデル入力に `\u` や `\t` などの Unicode またはエスケープ シーケンスが含まれていると、改行が繰り返されることがあります。 | - プロンプトで禁止されているエスケープ シーケンスを確認し、UTF-8 文字に置き換えます。たとえば、JSON の例で `\u` エスケープ シーケンスを使用すると、モデルが出力でもそれを使用する可能性があります。 - 許可されるエスケープについてモデルに指示します。次のようなシステム指示を追加します。      ```               In quoted strings, the only allowed escape sequences are \\, \n, and \". Instead of \u escapes, use UTF-8.   ``` |
+| 構造化出力の使用でテキストが繰り返される | モデル出力のフィールドの順序が、定義された構造化スキーマと異なる場合、テキストが繰り返されることがあります。 | - プロンプトでフィールドの順序を指定しないでください。 - すべての出力フィールドを必須にします。 |
+| 繰り返しのツール呼び出し | これは、モデルが以前の思考のコンテキストを失った場合や、利用できないエンドポイントを呼び出すように強制された場合に発生する可能性があります。 | 思考プロセス内で状態を維持するようにモデルに指示します。 システム指示の末尾に次の指示を追加します。    ```         When thinking silently: ALWAYS start the thought with a brief         (one sentence) recap of the current progress on the task. In         particular, consider whether the task is already done. ``` |
+| 構造化出力の一部ではない繰り返しテキスト | これは、モデルが解決できないリクエストでスタックした場合に発生することがあります。 | - 思考が有効になっている場合は、指示で問題の思考方法を明示的に指示しないでください。最終的な出力をリクエストするだけです。 - 温度を 0.8 以上に上げてみてください。 - 「簡潔に」、「同じことを繰り返さない」、「回答は 1 回だけ」などの指示を追加します。 |
 
-## Kunci API yang diblokir atau tidak berfungsi
+## プロジェクトが制限されているか、利用できません
 
-Bagian ini menjelaskan cara memeriksa apakah kunci API Gemini Anda diblokir
-dan apa yang harus dilakukan.
+API リクエストが `403 PERMISSION_DENIED`（「プロジェクトへのアクセスが拒否されました」）を返す場合、またはプロジェクトのステータスが [Google AI Studio](https://aistudio.google.com/?hl=ja) で [**制限付き**]、[**無料枠は利用できません**]、[**お支払いが必要です**]、[**利用できません**] と表示される場合は、プロジェクトに該当するセクションを確認してください。
 
-### Memahami alasan kunci diblokir
+### Gemini API の無料枠が利用できない
 
-Kami telah mengidentifikasi kerentanan yang menyebabkan beberapa kunci API mungkin terekspos secara publik. Untuk melindungi data Anda dan mencegah akses tidak sah, kami telah
-secara proaktif memblokir kunci yang diketahui bocor ini agar tidak dapat mengakses Gemini API.
+すべての Google Cloud プロジェクトまたはアカウントが Gemini API の無料枠の対象となるわけではありません。プロジェクトで無料枠の使用が制限されている場合:
 
-### Memastikan apakah kunci Anda terpengaruh
+- **同じプロジェクトで新しい API キーを作成しても、エラーは解決しません。**Google は、Google Cloud プロジェクト レベルで利用資格を評価します。
+- **このプロジェクトで Gemini API を使用するには、有効な
+  [Cloud 請求先アカウント](https://aistudio.google.com/billing?hl=ja)をリンクして、有料
+  ティアにアップグレードする必要があります**。
+- 注: プロジェクトを有料ティアにアップグレードしても、無料ティアの割り当ては解除されません。Google は、[Gemini API の料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)に従って有料ティアの使用量を請求するか、対象となる Google Cloud クレジットから差し引きます。
 
-Jika kunci Anda diketahui bocor, Anda tidak dapat lagi menggunakan kunci tersebut dengan
-Gemini API. Anda dapat menggunakan [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=id) untuk melihat apakah ada kunci API Anda yang diblokir agar tidak memanggil Gemini API dan membuat kunci baru. Anda mungkin juga melihat error berikut yang ditampilkan saat mencoba menggunakan
-kunci ini:
+### Cloud 請求先アカウントのお支払いが必要です
+
+プロジェクトがすでに Cloud 請求先アカウントにリンクされていて、[**お支払いが必要です**] と表示されている場合（または、未払い残高を示す `403 PERMISSION_DENIED` が返される場合）:
+
+- [AI Studio のお支払いページ](https://aistudio.google.com/billing?hl=ja)または [Google Cloud Billing コンソール](https://console.cloud.google.com/billing?hl=ja)にアクセスして、未払い残高を解決するか、お支払い方法を更新してください。
+- 請求先アカウントが良好な状態に戻ると、プロジェクトは API アクセスを自動的に回復します。
+
+### 漏洩した API キーまたはブロックされた API キー
+
+`403 PERMISSION_DENIED` エラーで、API キーが漏洩またはブロックされたと報告されている場合:
+
+- [AI Studio の API キーページ](https://aistudio.google.com/apikeys?hl=ja)に移動して、新しい API キーを生成し、アプリケーションの認証情報を更新します。
+- API キーをクライアントサイドのコードや公開リポジトリに直接埋め込むことは絶対に避けてください。
+
+### ポリシーに基づくプロジェクトまたは請求先アカウントの停止
+
+ポリシー違反により Google Cloud プロジェクトまたは Cloud 請求先アカウントが停止された場合は、関連付けられているメールアドレスを確認してください。[Google Cloud コンソール](https://console.cloud.google.com/?hl=ja)にアクセスして、停止通知を確認し、[プロジェクト停止ガイドライン](https://cloud.google.com/resource-manager/docs/project-suspension-guidelines?hl=ja)に沿って対応してください。
+
+## ブロックされている、または機能していない API キー
+
+このセクションでは、Gemini API キーがブロックされているかどうかを確認する方法と、その対処方法について説明します。
+
+### 鍵がブロックされる理由を理解する
+
+一部の API キーが一般公開されている可能性がある脆弱性が特定されました。データを保護し、不正アクセスを防止するため、Google は、これらの既知の漏洩したキーが Gemini API にアクセスできないように事前にブロックしました。
+
+### 鍵が影響を受けるかどうかを確認する
+
+キーが漏洩していることが判明した場合、そのキーを Gemini API で使用することはできなくなります。[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) を使用して、API キーが Gemini API の呼び出しをブロックされているかどうかを確認し、新しいキーを生成できます。これらのキーを使用しようとすると、次のエラーが返されることもあります。
 
 ```
 Your API key was reported as leaked. Please use another API key.
 ```
 
-### Tindakan untuk kunci API yang diblokir
+### ブロックされた API キーに対するアクション
 
-Anda harus membuat kunci API baru untuk integrasi Gemini API menggunakan [Google
-AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=id). Sebaiknya tinjau praktik pengelolaan kunci API Anda untuk memastikan kunci baru Anda tetap aman dan tidak terekspos secara publik.
+Gemini API 統合用の新しい API キーは、[Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) を使用して生成する必要があります。新しいキーが安全に保管され、公開されないように、API キーの管理方法を見直すことを強くおすすめします。
 
-### Tagihan tak terduga karena kerentanan
+### 脆弱性による予期しない請求
 
-[Kirim kasus dukungan penagihan](https://console.cloud.google.com/support/chat?hl=id).
-Tim penagihan kami sedang menanganinya, dan kami akan menyampaikan info terbaru sesegera mungkin.
+[課金サポートケースを送信する](https://console.cloud.google.com/support/chat?hl=ja)。請求チームがこの問題に取り組んでおり、できるだけ早く最新情報をお知らせします。
 
-### Langkah-langkah keamanan Google untuk kunci yang bocor
+### 漏洩した鍵に対する Google のセキュリティ対策
 
-**Bagaimana cara Google membantu mengamankan akun saya dari kelebihan biaya dan penyalahgunaan jika kunci API saya bocor?**
+**API キーが漏洩した場合、Google はどのようにしてアカウントを費用超過や不正使用から保護しますか？**
 
-- Kami akan beralih ke penerbitan kunci API saat Anda meminta kunci baru menggunakan
-  [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=id) yang secara default akan
-  dibatasi hanya untuk Google AI Studio dan tidak menerima kunci dari layanan lain.
-  Tindakan ini akan membantu mencegah penggunaan kunci silang yang tidak diinginkan.
-- Secara default, kami memblokir kunci API yang bocor dan digunakan dengan Gemini API, sehingga membantu mencegah penyalahgunaan biaya dan data aplikasi Anda.
-- Anda akan dapat menemukan status kunci API Anda dalam [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=id) dan kami akan berupaya berkomunikasi secara proaktif saat kami mengidentifikasi bahwa kunci API Anda bocor untuk segera ditindaklanjuti.
+- [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) を使用して新しいキーをリクエストすると、デフォルトで Google AI Studio のみに制限され、他のサービスからのキーを受け入れない API キーが発行されるようになります。これにより、意図しないクロスキーの使用を防ぐことができます。
+- Gemini API で漏洩して使用された API キーは、デフォルトでブロックされます。これにより、費用やアプリケーション データの不正使用を防ぐことができます。
+- API キーのステータスは [Google AI Studio](https://ai.google.dev/gemini-api/docs/api-key?hl=ja) で確認できます。また、API キーの漏洩が検出された場合は、迅速な対応のために積極的な通知を行います。
 
-## Meningkatkan kualitas output model
+## モデル出力を改善する
 
-Untuk output model yang lebih berkualitas, pelajari cara menulis perintah yang lebih terstruktur. Halaman
-[panduan rekayasa perintah](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id)
-memperkenalkan beberapa konsep dasar, strategi, dan praktik terbaik untuk membantu Anda
-memulai.
+モデル出力の品質を高めるには、より構造化されたプロンプトを作成することを検討してください。[プロンプト エンジニアリング ガイド](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)のページでは、プロンプトの設計を開始するための基本的なコンセプト、戦略、ベスト プラクティスについて説明します。
 
-## Memahami batas token
+## トークンの上限について
 
-Baca [Panduan token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) kami untuk lebih memahami cara
-menghitung token dan batasnya.
+トークンのカウント方法と上限について詳しくは、[トークンガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)をご覧ください。
 
-## Masalah umum
+## 既知の問題
 
-- API ini hanya mendukung sejumlah bahasa tertentu. Mengirimkan perintah dalam bahasa yang tidak didukung dapat menghasilkan respons yang tidak terduga atau bahkan diblokir. Lihat
-  [bahasa yang tersedia](https://ai.google.dev/gemini-api/docs/models?hl=id#supported-languages) untuk
-  mengetahui info terbaru.
+- この API は、一部の言語のみをサポートしています。サポートされていない言語でプロンプトを送信すると、予期しないレスポンスが生成されたり、レスポンスがブロックされたりすることがあります。最新情報については、[利用可能な言語](https://ai.google.dev/gemini-api/docs/models?hl=ja#supported-languages)をご覧ください。
 
-## Laporkan bug
+## バグを報告する
 
-Bergabunglah dalam diskusi di
-[forum developer Google AI](https://discuss.ai.google.dev?hl=id)
-jika ada pertanyaan.
+ご不明な点がございましたら、[Google AI デベロッパー フォーラム](https://discuss.ai.google.dev?hl=ja)のディスカッションにご参加ください。
 
-Kirim masukan
+フィードバックを送信
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Terakhir diperbarui pada 2026-10-13 UTC.
+最終更新日 2026-10-23 UTC。
 
-Ada masukan untuk kami?
+ご意見をお聞かせください
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-13 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-23 UTC。"],[],[]]

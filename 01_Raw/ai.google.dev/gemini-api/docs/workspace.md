@@ -1,55 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=hi
-fetched_at: 2026-10-19T05:42:14.992631+00:00
-title: "\u0905\u092a\u0928\u0947 Workspace \u0916\u093e\u0924\u0947 \u0938\u0947 Google AI Studio \u0915\u094b \u0910\u0915\u094d\u0938\u0947\u0938 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/workspace?hl=ko
+fetched_at: 2026-10-26T05:54:04.758497+00:00
+title: "Workspace \uacc4\uc815\uc73c\ub85c Google AI \uc2a4\ud29c\ub514\uc624\uc5d0 \uc561\uc138\uc2a4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-सुझाव भेजें
+의견 보내기
 
-# अपने Workspace खाते से Google AI Studio को ऐक्सेस करना
+# Workspace 계정으로 Google AI 스튜디오에 액세스
 
-[Google Workspace के सभी उपयोगकर्ताओं के पास, डिफ़ॉल्ट रूप से AI
-Studio का ऐक्सेस होता है.](https://workspace.google.com?hl=hi) अगर आपके पास Workspace का खाता है और आपको
-AI Studio का इस्तेमाल करना है, तो
-[AI Studio का इस्तेमाल शुरू करने से जुड़ी गाइड पढ़ें](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=hi).
+모든 [Google Workspace](https://workspace.google.com?hl=ko) 사용자는 기본적으로 AI Studio에 액세스할 수 있습니다. Workspace 사용자이고 AI Studio를 시작하려면 [AI Studio 빠른 시작](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=ko)을 확인하세요.
 
-## समस्या का हल
+## 문제 해결
 
-अगर आपके Google Workspace खाते के लिए, AI Studio का ऐक्सेस बंद कर दिया गया है, तो आपको यह गड़बड़ी दिख सकती है:
+Google Workspace 계정에서 AI Studio 액세스가 사용 중지된 경우 다음과 같은 오류가 표시될 수 있습니다.
 
 `We are sorry, but you do not have access to Google AI Studio. Please contact
 your Organization Administrator for access.`
 
-अगर आपको लगता है कि आपके पास AI Studio का ऐक्सेस होना चाहिए, तो अपने Workspace एडमिन से संपर्क करें.
+AI Studio에 액세스할 수 있어야 한다고 생각되면 Workspace 관리자에게 문의하세요.
 
-## Workspace के उपयोगकर्ताओं के लिए AI Studio चालू करना
+## Workspace 사용자를 위한 AI Studio 사용 설정
 
-Google Workspace एडमिन के तौर पर, आपके पास यह कंट्रोल करने का विकल्प होता है कि AI Studio का इस्तेमाल कौन कर सकता है:
+Google Workspace 관리자는 AI Studio를 사용할 수 있는 사용자를 관리할 수 있습니다.
 
-- सभी वर्शन के लिए, AI Studio डिफ़ॉल्ट रूप से चालू रहता है.
-- संगठन की अलग-अलग इकाइयों के उपयोगकर्ताओं और उनके ग्रुप के लिए, AI Studio को बंद या चालू किया जा सकता है.
-- Google Workspace for Education के वर्शन: 18 साल से कम उम्र के उपयोगकर्ता, अपने Google Workspace for Education खातों से AI Studio का इस्तेमाल नहीं कर सकते. यह तब भी लागू होता है, जब AI Studio की सेटिंग चालू हो. ज़्यादा जानकारी के लिए, [उम्र के हिसाब से, Google की सेवाओं के ऐक्सेस को कंट्रोल करना
-  लेख पढ़ें](https://support.google.com/a/answer/10651918?hl=hi).
+- AI Studio는 모든 버전에서 기본적으로 사용 설정되어 있습니다.
+- 조직 단위 전체 또는 조직 단위 내에서 사용자 집합에 대해 AI Studio를 사용 중지하거나 사용 설정할 수 있습니다.
+- Google Workspace for Education 버전: 만 18세 미만의 사용자는 Google Workspace for Education 계정으로 AI Studio를 사용할 수 없습니다. AI Studio 설정이 사용 설정된 경우에도 마찬가지입니다. 자세한 내용은 [연령별로 Google 서비스에 대한 액세스 권한 관리하기](https://support.google.com/a/answer/10651918?hl=ko)를 참고하세요.
 
-अपने संगठन के उपयोगकर्ताओं के लिए, AI Studio को चालू या बंद करने के बारे में जानने के लिए,
-[उपयोगकर्ताओं के लिए Google AI Studio को चालू या बंद करना](https://support.google.com/a/answer/15004095?hl=hi) लेख पढ़ें.
+조직의 사용자에 대해 AI Studio를 사용 설정 또는 사용 중지하려면 [사용자별로 Google AI Studio 사용 설정 또는 사용 중지하기](https://support.google.com/a/answer/15004095?hl=ko)를 참고하세요.
 
-सुझाव भेजें
+의견 보내기
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया.
+최종 업데이트: 2026-04-29(UTC)
 
-क्या आपको हमें और कुछ बताना है?
+의견을 전달하고 싶나요?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-04-29 (UTC) को अपडेट किया गया."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-04-29(UTC)"],[],[]]

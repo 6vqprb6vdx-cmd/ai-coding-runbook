@@ -1,69 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=bn
-fetched_at: 2026-10-19T05:43:45.341666+00:00
-title: "Gemini 3.1 Flash-\u098f\u09b0 \u099b\u09ac\u09bf \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ru
+fetched_at: 2026-10-26T05:51:25.473635+00:00
+title: "\u0418\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435 Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
+Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [হোম](https://ai.google.dev/?hl=bn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
-- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
 
-মতামত জানান
+Отправить отзыв
 
-# Gemini 3.1 Flash-এর ছবি
+# Изображение Gemini 3.1 Flash
 
-**Nano Banana 2** খুব ভালো কোয়ালিটির ছবি তৈরি ও কথোপকথনমূলক
-এডিটিংয়ের সুবিধা দেয় এবং এর দামও বেশি নয় ও লেটেন্সি কম। এটি
-[Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=bn)-এর
-উচ্চ-দক্ষতা সম্পন্ন সমকক্ষ হিসেবে কাজ করে, যা
-স্পিড ও
-হাই-ভলিউম ডেভেলপার ব্যবহারের ক্ষেত্রে অপ্টিমাইজ করা হয়েছে।
+**Nano Banana 2** позволяет создавать высококачественные изображения и редактировать их с помощью разговорного интерфейса по доступной цене и с низкой задержкой. Она представляет собой высокоэффективный аналог [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ru), оптимизированный для скорости и использования разработчиками в больших объемах.
 
-**গুরুত্বপূর্ণ আপডেট:**
+**Основные изменения**
 
-- আউটপুট রেজোলিউশনের নতুন বিকল্প:
-  - 0.5K, 2K ও 4K-এর জন্য নতুন সহায়তা, ডিফল্ট 1K
-- নতুন Image Search গ্রাউন্ডিং:
-  - জেনারেট করা উত্তরকে
-    রিয়েল-টাইম ওয়েব ডেটা দিয়ে আরও তথ্যপূর্ণ করে তুলতে টেক্সট ও ছবি সার্চ ফলাফলকে ইন্টিগ্রেট করা
-  - 'থিঙ্কিং' চালু বা বন্ধ করা আছে
-- নতুন ১:৪, ৪:১, ১:৮ ও ৮:১ অ্যাস্পেক্ট রেশিও
-- অ্যাস্পেক্ট রেশিও মেনে চলার ব্যাপারে উন্নতি
-- উন্নত কোয়ালিটি ও ধারাবাহিকতা সহ ছবি
-- উন্নত i18n টেক্সট রেন্ডারিং
+- Новые варианты разрешения:
+  - Новая поддержка 0,5K, 2K и 4K, по умолчанию 1K
+- Новое обоснование для поиска по изображениям:
+  - Интеграция результатов поиска по тексту и результатов поиска картинок для генерации на основе веб-данных в реальном времени
+  - Поддерживается при включенном или отключенном режиме "Размышления"
+- Новые соотношения сторон: 1:4, 4:1, 1:8 и 8:1
+- Улучшенное соблюдение соотношения сторон
+- Улучшенное качество изображения и единообразие
+- Улучшенная отрисовка текста на разных языках
 
-[Google AI Studio-তে চেষ্টা করুন](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=bn)
+[Попробовать в Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=ru)
 
-## ডকুমেন্টেশন
+## Документация
 
-ফিচার ও ক্ষমতা সম্পর্কে সম্পূর্ণ
-তথ্য পেতে [ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn) পৃষ্ঠা দেখুন।
+Подробную информацию о функциях и возможностях можно найти на странице [Генерация изображений](https://ai.google.dev/gemini-api/docs/image-generation?hl=ru).
 
 ## gemini-3.1-flash-image
 
-| প্রপার্টি | বিবরণ |
+| Свойство | Описание |
 | --- | --- |
-| id\_cardমডেল কোড | `gemini-3.1-flash-image` |
-| সেভ করাডেটার ধরন | **ইনপুট**  টেক্সট, ছবি, ভিডিও ও পিডিএফ  **আউটপুট**  ছবি ও টেক্সট |
-| token\_autoটোকেন সীমা[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) | **ইনপুট টোকেনের সীমা**  ১৩১,০৭২  **আউটপুট টোকেনের সীমা**  ৩২,৭৬৮ |
-| handymanকেপেবিলিটি | **[অডিও জেনারেশন](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn)**  কাজ করে না  **[ক্যাশিং](https://ai.google.dev/gemini-api/docs/caching?hl=bn)**  কাজ করে না  **[কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn)**  কাজ করে না  **[ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)**  কাজ করে না  **[ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)**  কাজ করে না  **[Google Maps-এর মাধ্যমে গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)**  কাজ করে না  **[ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn)**  কাজ করে  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=bn)**  কাজ করে না  **[সার্চ গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)**  কাজ করে  **[স্ট্রাকচার্ড আউটপুট](https://ai.google.dev/gemini-api/docs/structured-output?hl=bn)**  কাজ করে না  **[ভাবছি](https://ai.google.dev/gemini-api/docs/thinking?hl=bn)**  কাজ করে  **[URL প্রসঙ্গ](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)**  কাজ করে না |
-| speedব্যবহারের বিকল্প | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=bn)**  কাজ করে  **[Flex ইনফারেন্স](https://ai.google.dev/gemini-api/docs/flex-inference?hl=bn)**  কাজ করে না  **[অগ্রাধিকার সংক্রান্ত অনুমান](https://ai.google.dev/gemini-api/docs/priority-inference?hl=bn)**  কাজ করে না |
-| 123ভার্সন | আরও বিবরণের জন্য [মডেল ভার্সন প্যাটার্ন](https://ai.google.dev/gemini-api/docs/models/gemini?hl=bn#model-versions) পড়ুন।  - স্থিতিশীল: `gemini-3.1-flash-image` |
-| calendar\_monthলেটেস্ট আপডেট | ফেব্রুয়ারি ২০২৬ |
-| id\_cardমডেল কার্ড | [মডেল কার্ড](https://deepmind.google/models/model-cards/gemini-3-1-flash-image/?hl=bn) |
+| Код модели id\_card | `gemini-3.1-flash-image` |
+| saveПоддерживаемые типы данных | **Входные данные**  Текст, изображение, видео и PDF  **Выходные данные**  Изображение и текст |
+| token\_autoОграничения на количество токенов[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ru) | **Лимит на количество входных токенов**  131 072  **Лимит на количество выходных токенов**  32 768 |
+| handymanВозможности | **[Генератор аудио](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ru)**  Чего пользователь не может  **[Кеширование](https://ai.google.dev/gemini-api/docs/caching?hl=ru)**  Чего пользователь не может  **[Выполнение кода](https://ai.google.dev/gemini-api/docs/code-execution?hl=ru)**  Чего пользователь не может  **[Поиск файлов](https://ai.google.dev/gemini-api/docs/file-search?hl=ru)**  Чего пользователь не может  **[Вызов функций](https://ai.google.dev/gemini-api/docs/function-calling?hl=ru)**  Чего пользователь не может  **[Обоснование с Google Картами](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ru)**  Чего пользователь не может  **[Генерирование изображений](https://ai.google.dev/gemini-api/docs/image-generation?hl=ru)**  Что пользователь может  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ru)**  Чего пользователь не может  **[Находите информацию из надежных источников](https://ai.google.dev/gemini-api/docs/google-search?hl=ru)**  Что пользователь может  **[Структурированные выходные данные](https://ai.google.dev/gemini-api/docs/structured-output?hl=ru)**  Чего пользователь не может  **[Размышления](https://ai.google.dev/gemini-api/docs/thinking?hl=ru)**  Что пользователь может  **[Контекст URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ru)**  Чего пользователь не может |
+| speedВарианты просмотра | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ru)**  Что пользователь может  **[Гибкий инференс](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ru)**  Чего пользователь не может  **[Определение приоритета](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ru)**  Чего пользователь не может |
+| 123Версии | Подробнее [о шаблонах версий моделей](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ru#model-versions)…  - Стабильная: `gemini-3.1-flash-image` |
+| calendar\_monthПоследнее обновление | Февраль 2026 г. |
+| id\_cardКарточка модели | [Карточка модели](https://deepmind.google/models/model-cards/gemini-3-1-flash-image/?hl=ru) |
 
-মতামত জানান
+Отправить отзыв
 
-অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।
+Последнее обновление: 2026-10-09 UTC.
 
-আমাদের আরও কিছু জানাতে চান?
+Хотите рассказать подробнее?
 
-[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-09 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-09 UTC."],[],[]]

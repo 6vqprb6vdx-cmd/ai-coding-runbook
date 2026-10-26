@@ -1,46 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=de
-fetched_at: 2026-10-19T05:48:50.977671+00:00
-title: "Live-Transkription mit der Gemini Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=ko
+fetched_at: 2026-10-26T05:56:53.629167+00:00
+title: "Gemini Live API\ub97c \uc0ac\uc6a9\ud55c \uc2e4\uc2dc\uac04 \uc2a4\ud06c\ub9bd\ud2b8 \uc791\uc131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Feedback geben
+의견 보내기
 
-# Live-Transkription mit der Gemini Live API
+# Gemini Live API를 사용한 실시간 스크립트 작성
 
-Die Gemini Live API unterstützt die Echtzeit-Sprach-zu-Text-Transkription mit geringer Latenz mithilfe des Modells [`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=de). Wenn Sie über WebSockets eine Verbindung zur Live API herstellen oder das Google Gen AI SDK verwenden, können Sie kontinuierliche Audioeingaben streamen und inkrementelle Texttranskriptionen in Echtzeit erhalten, während gesprochen wird.
+Gemini Live API는 [`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=ko) 모델을 사용하여 지연 시간이 짧은 실시간 음성 텍스트 변환을 지원합니다. WebSocket을 통해 Live API에 연결하거나 Google 생성형 AI SDK를 사용하면 연속 오디오 입력을 스트리밍하고 음성이 발생할 때 증분 실시간 텍스트 스크립트를 수신할 수 있습니다.
 
-[Live-Transkription in Google AI Studio ausprobierenmic](https://aistudio.google.com/live?model=gemini-3.5-transcribe-live&hl=de)
-[Colab-Cookbook öffnencode](https://github.com/google-gemini/cookbook)
-[Coding-Agent-Skills verwendenterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=de#gemini-live-api-dev)
+[Google AI Studio에서 실시간 스크립트 사용해 보기mic](https://aistudio.google.com/live?model=gemini-3.5-transcribe-live&hl=ko)
+[Colab 쿡북 열기code](https://github.com/google-gemini/cookbook)
+[코딩 에이전트 기술 사용하기terminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=ko#gemini-live-api-dev)
 
-Durch die Nutzung der Gemini Live API können Entwicklerplattformen wie [Agora](https://docs.agora.io/en/ai/models/asr/gemini), [Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration), [LiveKit](https://docs.livekit.io/agents/models/stt/gemini/), [Pipecat](https://docs.pipecat.ai/api-reference/server/services/stt/google), [Vercel](https://vercel.com/docs/ai-gateway/modalities/speech-to-text) und [Vision Agents](https://visionagents.ai/integrations/stt/gemini) ganz einfach leistungsstarke sprachgesteuerte Benutzeroberflächen erstellen und bereitstellen. Diese Plattformen verwalten im Hintergrund eine komplexe Infrastruktur für das Media-Streaming in Echtzeit, sodass sich Entwickler ganz auf die Gestaltung der Nutzererfahrung konzentrieren können.
+Gemini Live API를 활용하여 [Agora](https://docs.agora.io/en/ai/models/asr/gemini), [Fishjam](https://docs.fishjam.io/tutorials/gemini-live-integration), [LiveKit](https://docs.livekit.io/agents/models/stt/gemini/), [Pipecat](https://docs.pipecat.ai/api-reference/server/services/stt/google), [Vercel](https://vercel.com/docs/ai-gateway/modalities/speech-to-text), [Vision Agents](https://visionagents.ai/integrations/stt/gemini)와 같은 개발자 플랫폼을 통해 개발자는 고성능 음성 기반 인터페이스를 쉽게 빌드하고 배포할 수 있습니다. 이러한 플랫폼은 복잡한 실시간 미디어 스트리밍 인프라를 백그라운드에서 관리하므로 개발자는 사용자 환경을 만드는 데만 집중할 수 있습니다.
 
-## Kundenservicemitarbeiter im Vergleich zur Live-Transkription
+## 실시간 상담사와 실시간 스크립트 비교
 
-Beide nutzen die bidirektionale Streamingverbindung der Live API, aber die automatische Transkription ist eine spezielle Spracherkennungspipeline mit niedriger Latenz und kein Konversations-Agent.
+둘 다 Live API 양방향 스트리밍 연결을 사용하지만, 실시간 텍스트 변환은 대화형 에이전트가 아닌 전용의 지연 시간이 짧은 음성 인식 파이프라인으로 작동합니다.
 
-| Funktion | Frag den Kundenservice | Live-Transkription |
+| 기능 | 실제 상담사 | 실시간 스크립트 |
 | --- | --- | --- |
-| **Primäre Rolle** | Ein konversationeller Assistent, der zuhört, nachdenkt und antwortet. | Echtzeit-Spracherkennungspipeline, die eingehende Audioinhalte transkribiert. |
-| **Antwortmodalität** | Gesprochene Audioinhalte und Text (`response_modalities=["AUDIO"]`). | Transkriptionen von Streamingtext (`response_modalities=["TEXT"]`) |
-| **Interaktionsstil** | Turn-basierter Dialog mit Pausenerkennung und Unterbrechungen. | Kontinuierliche Streamverarbeitung während des Sprechens. |
-| **Unterstützte Funktionen** | Funktionsaufrufe, Google Suche, Systemanweisungen. | Sprachbias (`custom_vocabulary`), Spracherkennung, manuelle und hybride VAD, Smart Transcription. |
-| **Eingabestream** | Multimodal: Audio, Video, Bilder, Text. | Audioeingabe (rohes 16‑Bit-PCM). |
+| **기본 역할** | 듣고, 추론하고, 대답하는 대화형 어시스턴트 | 수신 오디오를 스크립트로 변환하는 실시간 음성 텍스트 변환 파이프라인 |
+| **응답 모달리티** | 음성 오디오 및 텍스트 (`response_modalities=["AUDIO"]`) | 스트리밍 텍스트 스크립트 (`response_modalities=["TEXT"]`개) |
+| **상호작용 스타일** | 일시중지 감지 및 인터럽트가 있는 턴 기반 대화 | 화자가 말할 때 연속 스트림 처리 |
+| **지원되는 기능** | 함수 호출, Google 검색, 시스템 안내 | 음성 바이어싱 (`custom_vocabulary`), 언어 감지, 수동 및 하이브리드 VAD, 스마트 텍스트 변환 |
+| **입력 스트림** | 멀티모달: 오디오, 동영상, 이미지, 텍스트 | 오디오 입력 (원시 16비트 PCM) |
 
-## Jetzt starten
+## 시작하기
 
-Die folgenden Beispiele zeigen, wie Sie mit `gemini-3.5-transcribe-live` eine bidirektionale Streaming-Sitzung öffnen und Echtzeit-Transkriptionen empfangen.
+다음 예에서는 `gemini-3.5-transcribe-live`로 양방향 스트리밍 세션을 열고 실시간 스크립트를 수신하는 방법을 보여줍니다.
 
 ### Python
 
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     asyncio.run(main())
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Modality } from '@google/genai';
@@ -109,7 +109,7 @@ async function main() {
 main();
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const API_KEY = "YOUR_API_KEY";
@@ -144,14 +144,14 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Vorläufige und endgültige Transkriptionen
+## 임시 및 최종 스크립트
 
-Wenn Audio in die Live API gestreamt wird, gibt der Server zwei sich ergänzende Transkriptionsfelder in `server_content` aus:
+오디오가 Live API로 스트리밍되면 서버는 `server_content` 내에서 두 개의 보완적인 스크립트 필드를 내보냅니다.
 
-- **`interim_input_transcription`**: Spekulative Teilhypothesen mit geringer Latenz, die aktualisiert werden, während der Sprecher aktiv spricht. Diese Teilaktualisierungen erfolgen schnell und mit minimaler Verzögerung. Verwenden Sie `interim_input_transcription`, um responsive Live-Untertitel für die Benutzeroberfläche oder Vorschauuntertitel zu rendern.
-- **`input_transcription`**: Das endgültige Transkript, das ausgegeben wird, wenn der Sprecher pausiert, der Turn abgeschlossen ist oder die Sprache fertiggestellt ist. Sobald dieser Text ausgegeben wird, stellt er die maßgebliche Transkription des Modells für dieses Sprachsegment dar. Im Modus „Intelligente Transkription“ ist die bereinigte, formatierte Antwort enthalten.
+- **`interim_input_transcription`**: 화자가 활발하게 말하는 동안 업데이트되는 지연 시간이 짧은 추측성 부분 가설입니다. 이러한 부분 업데이트는 지연이 최소화되어 빠르게 발생합니다. `interim_input_transcription`를 사용하여 반응형 라이브 UI 자막을 렌더링하거나 자막을 미리 봅니다.
+- **`input_transcription`**: 화자가 일시중지되거나, 턴이 완료되거나, 음성이 완료될 때 내보내지는 최종 스크립트입니다. 이 텍스트는 내보내진 후 해당 음성 세그먼트에 대한 모델의 공신력 있는 스크립트를 나타냅니다. 스마트 스크립트 모드에서는 정리되고 형식이 지정된 대답이 포함됩니다.
 
-Im folgenden Beispiel wird gezeigt, wie Sie Streaming-Zwischenergebnisse anzeigen und endgültige Transkripte übertragen:
+다음 예에서는 스트리밍 임시 부분 데이터를 표시하고 최종 스크립트를 커밋하는 방법을 보여줍니다.
 
 ### Python
 
@@ -173,7 +173,7 @@ async def receive_transcripts(session):
             print(f"\n[Final] {final_text}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 onmessage: (message) => {
@@ -192,7 +192,7 @@ onmessage: (message) => {
 };
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 websocket.onmessage = (event) => {
@@ -207,13 +207,13 @@ websocket.onmessage = (event) => {
 };
 ```
 
-## Audio senden
+## 오디오 전송
 
-Audio-Chunks als rohes 16‑Bit-PCM-Audio über die aktive Verbindung streamen.
+활성 연결을 통해 오디오 청크를 원시 16비트 PCM 오디오로 스트리밍합니다.
 
-- **Audioformat**:Rohes 16‑Bit-PCM mit 16 kHz (Mono, Little Endian).
-- **Blockgröße**:Senden Sie Audio in Blöcken von 100 ms (1.024 bis 2.048 Frames).
-- **MIME-Typ**:`audio/pcm;rate=16000` (oder die entsprechende Samplingrate).
+- **오디오 형식:** 16kHz의 원시 16비트 PCM (모노, little-endian)
+- **청크 크기:** 100ms (1,024~2,048프레임) 청크로 오디오를 전송합니다.
+- **MIME 유형:** `audio/pcm;rate=16000` (또는 일치하는 샘플링 속도)
 
 ### Python
 
@@ -230,7 +230,7 @@ await session.send_realtime_input(
 await session.send_realtime_input(audio_stream_end=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 // Send base64-encoded PCM audio chunk
@@ -247,7 +247,7 @@ session.sendRealtimeInput({
 });
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 // Send base64-encoded PCM audio chunk
@@ -268,11 +268,11 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-## Transkriptionsfunktionen
+## 스크립트 작성 기능
 
-### Automatische Spracherkennung
+### 언어 자동 감지
 
-Wenn Sie `language_codes` weglassen oder `language_codes=[]` festlegen, wird die Sprache standardmäßig automatisch erkannt. Das Modell erkennt die gesprochene Sprache in Äußerungen dynamisch, auch bei mehrsprachigen Unterhaltungen und Sprachwechseln.
+기본적으로 `language_codes`를 생략하거나 `language_codes=[]`를 설정하면 자동 언어 식별이 사용 설정됩니다. 이 모델은 다국어 대화와 코드 전환을 비롯한 발화 전반에서 음성 언어를 동적으로 감지합니다.
 
 ### Python
 
@@ -285,7 +285,7 @@ config = types.LiveConnectConfig(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const config = {
@@ -296,7 +296,7 @@ const config = {
 };
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const setupMessage = {
@@ -313,9 +313,9 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Spezifischer Sprachhinweis
+### 특정 언어 힌트
 
-Geben Sie explizite BCP-47-Sprachcodes an (z. B. `["es-ES"]` für Spanisch oder `["fr-FR"]` für Französisch), um die Spracherkennung auf bestimmte Sprachen auszurichten (siehe [Unterstützte Sprachen](#supported-languages)).
+특정 언어에 대한 인식 편향을 위해 명시적인 BCP-47 언어 코드 (예: 스페인어의 경우 `["es-ES"]`, 프랑스어의 경우 `["fr-FR"]`)를 제공합니다 ([지원되는 언어](#supported-languages) 참고).
 
 ### Python
 
@@ -328,7 +328,7 @@ config = types.LiveConnectConfig(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const config = {
@@ -339,7 +339,7 @@ const config = {
 };
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const setupMessage = {
@@ -356,9 +356,9 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Benutzerdefiniertes Vokabular
+### 맞춤 어휘 바이어스
 
-Geben Sie in `custom_vocabulary` eine Liste mit bis zu 1.000 Begriffen, Eigennamen, Markennamen oder Fachbegriffen an, um die Spracherkennung auf bestimmte Begriffe auszurichten. Die besten Ergebnisse werden in der Regel mit bis zu 100 Begriffen erzielt.
+`custom_vocabulary`에 최대 1,000개의 구, 고유명사, 브랜드 이름 또는 기술 용어 목록을 제공하여 음성 인식이 특정 용어를 인식하도록 편향시킵니다 (일반적으로 최대 100개의 용어로 최상의 결과를 얻을 수 있음).
 
 ### Python
 
@@ -372,7 +372,7 @@ config = types.LiveConnectConfig(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const config = {
@@ -384,7 +384,7 @@ const config = {
 };
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const setupMessage = {
@@ -402,17 +402,17 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-### Intelligente Transkription
+### 스마트 스크립트
 
-Konfigurieren Sie die Formatierung der Transkriptionsausgabe mit dem Parameter `mode` in `input_audio_transcription`:
+`input_audio_transcription`에서 `mode` 매개변수를 사용하여 스크립트 출력 형식을 구성합니다.
 
-- **`VERBATIM` (Standard)**: Erstellt ein exaktes wörtliches Transkript von allem Gesprochenen, wobei Füllwörter („ähm“, „äh“, „wie“), Wiederholungen und Falschstarts beibehalten werden.
-- **`SMART` (Smart Transcribe)**: Das Transkript wird bereinigt und strukturiert, um die Lesbarkeit zu verbessern:
+- **`VERBATIM` (기본값)**: 말한 모든 내용을 그대로 텍스트로 변환하여 원시 필러 단어 ('음', '어', 'like'), 반복, 잘못된 시작을 보존합니다.
+- **`SMART` (스마트 텍스트 변환)**: 가독성을 위해 스크립트를 정리하고 구조화합니다.
 
-  - **Entfernung von Unflüssigkeiten**: Füllwörter, Stottern und Fehlstarts werden entfernt.
-  - **Inline-Selbstkorrekturen**: Gesprochene Korrekturen werden auf natürliche Weise berücksichtigt.
-  - **Strukturierte Formatierung**: Listen, Aufzählungszeichen, Zahlen, Datumsangaben und Absatzumbrüche werden automatisch formatiert.
-  - **Grammatik und Groß-/Kleinschreibung**: Wendet natürliche Groß-/Kleinschreibung und Interpunktion an.
+  - **유창성 저해 요소 삭제**: 필러 단어, 더듬기, 잘못된 시작을 삭제합니다.
+  - **인라인 자체 수정**: 음성 수정을 자연스럽게 해결합니다.
+  - **구조화된 서식**: 목록, 글머리 기호, 숫자, 날짜, 단락 나누기를 자동으로 서식 지정합니다.
+  - **문법 및 대소문자**: 자연스러운 대문자 및 구두점 수정이 적용됩니다.
 
 ### Python
 
@@ -425,7 +425,7 @@ config = types.LiveConnectConfig(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const config = {
@@ -436,7 +436,7 @@ const config = {
 };
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const setupMessage = {
@@ -453,20 +453,20 @@ const setupMessage = {
 websocket.send(JSON.stringify(setupMessage));
 ```
 
-## Strategien zur Erkennung von Sprachaktivitäten (Voice Activity Detection, VAD)
+## 음성 활동 감지 (VAD) 전략
 
-### Automatische VAD (Standard)
+### 자동 VAD (기본값)
 
-Standardmäßig wird serverseitig automatisch erkannt, wann ein Sprecher zu sprechen beginnt und aufhört.
+기본적으로 서버 측 자동 음성 활동 감지는 화자가 말하기를 시작하고 중지하는 시점을 감지합니다.
 
-### Hybrid-VAD
+### 하이브리드 VAD
 
-[Hybrid-VAD](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de#hybrid-vad) kombiniert die serverseitige automatische Erkennung des Sprechbeginns mit der clientseitigen Erkennung des Sprechendes für die latenzfreie Finalisierung von Zügen:
+[하이브리드 VAD](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ko#hybrid-vad)는 지연 시간 없는 턴 종료를 위해 서버 측 자동 음성 시작 감지와 클라이언트 측 음성 종료 감지를 결합합니다.
 
-1. **Die serverseitige automatische VAD bleibt aktiviert**, um den Beginn der Sprache mit Prefix-Audio-Padding genau zu erkennen und so das Abschneiden von Wörtern am Anfang zu verhindern.
-2. **Clientseitige VAD erkennt Stille**: Wenn eine lokale VAD auf dem Gerät erkennt, dass der Sprecher aufgehört hat zu sprechen, sendet der Client sofort ein `audio_stream_end`-Signal.
-3. **Schnelle Finalisierung**: Der Server behandelt `audio_stream_end` als Aufforderung zur sofortigen Finalisierung des Turns. Die standardmäßige serverseitige Wartezeit für die Stille wird umgangen und das finalisierte Transkript wird mit minimaler Latenz zurückgegeben.
-4. **Fallback**: Wenn die clientseitige VAD nicht ausgelöst wird, dient die serverseitige VAD als automatischer Fallback.
+1. **서버 측 자동 VAD는 계속 사용 설정**되어 접두사 오디오 패딩으로 음성 시작을 정확하게 감지하여 앞 단어 잘림을 방지합니다.
+2. **클라이언트 측 VAD가 무음을 감지함**: 로컬 기기 내 VAD가 화자가 말을 멈춘 것을 감지하면 클라이언트가 즉시 `audio_stream_end` 신호를 보냅니다.
+3. **빠른 최종화**: 서버는 `audio_stream_end`를 즉각적인 턴 최종화 프롬프트로 취급하여 기본 서버 측 무음 대기 시간을 우회하고 지연 시간이 최소화된 최종 스크립트를 반환합니다.
+4. **대체**: 클라이언트 VAD가 트리거되지 않으면 서버 측 VAD가 자동 대체로 작동합니다.
 
 ### Python
 
@@ -486,7 +486,7 @@ async with client.aio.live.connect(model=model, config=config) as session:
     await session.send_realtime_input(audio_stream_end=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const config = {
@@ -505,7 +505,7 @@ session.sendRealtimeInput({
 });
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const setupMessage = {
@@ -534,9 +534,9 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-### Manuelle VAD (Push-to-Talk)
+### 수동 VAD (푸시-투-토크)
 
-Bei Walkie-Talkie-Schnittstellen oder Push-to-Talk-Schaltflächen sollten Sie die automatische VAD vollständig deaktivieren und die Sprechpausen explizit mit `activity_start` und `activity_end` steuern:
+무전기 인터페이스나 푸시 투 토크 버튼의 경우 자동 VAD를 완전히 사용 중지하고 `activity_start` 및 `activity_end`를 사용하여 턴 경계를 명시적으로 제어합니다.
 
 ### Python
 
@@ -562,7 +562,7 @@ async with client.aio.live.connect(model=model, config=config) as session:
     await session.send_realtime_input(activity_end=types.ActivityEnd())
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 const config = {
@@ -584,7 +584,7 @@ session.sendRealtimeInput({ activityStart: {} });
 session.sendRealtimeInput({ activityEnd: {} });
 ```
 
-### WebSockets
+### WebSocket
 
 ```
 const setupMessage = {
@@ -625,11 +625,11 @@ websocket.send(JSON.stringify({
 }));
 ```
 
-## Sitzungsspezifische Tokens in Clientanwendungen
+## 클라이언트 애플리케이션의 임시 토큰
 
-Verwenden Sie für Client-Server-Anwendungen (z. B. mobile Apps oder Web-Apps, die direkt von einem Mikrofon streamen) [ephemere Tokens](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=de), um zu vermeiden, dass Ihr API-Schlüssel im Clientcode offengelegt wird.
+클라이언트-서버 애플리케이션 (예: 마이크에서 직접 스트리밍하는 모바일 또는 웹 앱)의 경우 [일시적인 토큰](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ko)을 사용하여 클라이언트 코드에서 API 키가 노출되지 않도록 합니다.
 
-Erstellen Sie auf Ihrem Server ein eingeschränktes temporäres Token, bevor Sie die Clientverbindung initiieren:
+클라이언트 연결을 시작하기 전에 서버에서 제한된 임시 토큰을 만듭니다.
 
 ### Python
 
@@ -657,7 +657,7 @@ token = client.auth_tokens.create(
 )
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -703,95 +703,95 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-## Unterstützte Sprachen
+## 지원 언어
 
-Die folgenden Sprachen und BCP-47-Sprachcodes werden für Gemini 3.5 Transcribe Live unterstützt:
+Gemini 3.5 실시간 스크립트에서는 다음 언어와 BCP-47 언어 코드가 지원됩니다.
 
-| Sprache | BCP-47-Code | Sprache | BCP-47-Code |
+| 언어 | BCP-47 코드 | 언어 | BCP-47 코드 |
 | --- | --- | --- | --- |
-| Afrikaans | `af-ZA` | Japanisch | `ja-JP` |
-| Amharisch | `am-ET` | Javanisch | `jv-ID` |
-| Arabisch (Ägypten) | `ar-EG` | Kabuverdianu | `kea-CV` |
-| Armenisch | `hy-AM` | Kannada | `kn-IN` |
-| Assamesisch | `as-IN` | Kasachisch | `kk-KZ` |
-| Aserbaidschanisch | `az-AZ` | Koreanisch | `ko-KR` |
-| Belarussisch | `be-BY` | Kirgisisch | `ky-KG` |
-| Bengalisch (Bangladesch) | `bn-BD` | Lettisch | `lv-LV` |
-| Bengalisch (Indien) | `bn-IN` | Lingala | `ln-CD` |
-| Bosnisch | `bs-BA` | Litauisch | `lt-LT` |
-| Bulgarisch | `bg-BG` | Mazedonisch | `mk-MK` |
-| Bulgarisch (Aromanisch) | `rup-BG` | Malaiisch | `ms-MY` |
-| Burmesisch | `my-MM` | Malayalam | `ml-IN` |
-| Kantonesisch (traditionell) | `yue-Hant-HK` | Maltesisch | `mt-MT` |
-| Katalanisch | `ca-ES` | Chinesisch (Mandarin, vereinfacht) | `cmn-Hans-CN` |
-| Cebuano | `ceb` | Marathi | `mr-IN` |
-| Standard-Khmer | `km-KH` | Mongolisch | `mn-MN` |
-| Kroatisch | `hr-HR` | Nepalesisch | `ne-NP` |
-| Tschechien | `cs-CZ` | Norwegisch | `nb-NO` |
-| Dänisch | `da-DK` | Oriya | `or-IN` |
-| Niederländisch | `nl-NL` | Polnisch | `pl-PL` |
-| Englisch (Vereinigtes Königreich) | `en-GB` | Portugiesisch (Brasilien) | `pt-BR` |
-| Englisch (Indien) | `en-IN` | Portugiesisch (Portugal) | `pt-PT` |
-| Englisch (USA) | `en-US` | Punjabi | `pa-IN` |
-| Estnisch | `et-EE` | Panjabi (Gurmukhi-Schrift) | `pa-Guru-IN` |
-| Farsi | `fa-IR` | Rumänisch | `ro-RO` |
-| Filipino | `fil-PH` | Russisch | `ru-RU` |
-| Finnisch | `fi-FI` | Serbisch | `sr-RS` |
-| Französisch | `fr-FR` | Sindhi (arabische Schrift) | `sd-Arab-IN` |
-| Galizisch | `gl-ES` | Slowakisch | `sk-SK` |
-| Georgisch | `ka-GE` | Slowenisch | `sl-SI` |
-| Deutsch | `de-DE` | Spanisch (Lateinamerika) | `es-419` |
-| Griechisch | `el-GR` | Spanisch (USA) | `es-US` |
-| Gujarati | `gu-IN` | Swahili (Kenia) | `sw-KE` |
-| Hausa | `ha-NG` | Schwedisch | `sv-SE` |
-| Hebräisch | `he-IL` | Tadschikisch | `tg-TJ` |
-| Hindi | `hi-IN` | Telugu | `te-IN` |
-| Ungarisch | `hu-HU` | Thailändisch | `th-TH` |
-| Isländisch | `is-IS` | Türkisch | `tr-TR` |
-| Indisches Englisch | `en-IN` | Ukrainisch | `uk-UA` |
-| Indonesisch | `id-ID` | Usbekisch | `uz-UZ` |
-| Italienisch | `it-IT` | Vietnamesisch | `vi-VN` |
+| 아프리칸스어 | `af-ZA` | 일본어 | `ja-JP` |
+| 암하라어 | `am-ET` | 자바어 | `jv-ID` |
+| 아랍어(이집트) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| 아르메니아어 | `hy-AM` | 칸나다어 | `kn-IN` |
+| 아삼어 | `as-IN` | 카자흐어 | `kk-KZ` |
+| 아제르바이잔어 | `az-AZ` | 한국어 | `ko-KR` |
+| 벨라루스어 | `be-BY` | 키르기스어 | `ky-KG` |
+| 벵골어(방글라데시) | `bn-BD` | 라트비아어 | `lv-LV` |
+| 벵골어(인도) | `bn-IN` | 링갈라어 | `ln-CD` |
+| 보스니아어 | `bs-BA` | 리투아니아어 | `lt-LT` |
+| 불가리아어 | `bg-BG` | 마케도니아어 | `mk-MK` |
+| 불가리아어 (아로마어) | `rup-BG` | 말레이어 | `ms-MY` |
+| 버마어 | `my-MM` | 말라얄람어 | `ml-IN` |
+| 광둥어 (번체) | `yue-Hant-HK` | 몰타어 | `mt-MT` |
+| 카탈로니아어 | `ca-ES` | 중국어 (간체) | `cmn-Hans-CN` |
+| 세부아노어 | `ceb` | 마라타어 | `mr-IN` |
+| 표준 크메르어 | `km-KH` | 몽골어 | `mn-MN` |
+| 크로아티아어 | `hr-HR` | 네팔어 | `ne-NP` |
+| 체코어 | `cs-CZ` | 노르웨이어 | `nb-NO` |
+| 덴마크어 | `da-DK` | 오리야어 | `or-IN` |
+| 네덜란드어 | `nl-NL` | 폴란드어 | `pl-PL` |
+| 영어(영국) | `en-GB` | 포르투갈어(브라질) | `pt-BR` |
+| 영어(인도) | `en-IN` | 포르투갈어(포르투갈) | `pt-PT` |
+| 영어(미국) | `en-US` | 펀자브어 | `pa-IN` |
+| 에스토니아어 | `et-EE` | 펀자브어 (구르무키 문자) | `pa-Guru-IN` |
+| 페르시아어 | `fa-IR` | 루마니아어 | `ro-RO` |
+| 필리핀어 | `fil-PH` | 러시아어 | `ru-RU` |
+| 핀란드어 | `fi-FI` | 세르비아어 | `sr-RS` |
+| 프랑스어 | `fr-FR` | 신디어 (아랍 문자) | `sd-Arab-IN` |
+| 갈리시아어 | `gl-ES` | 슬로바키아어 | `sk-SK` |
+| 조지아어 | `ka-GE` | 슬로베니아어 | `sl-SI` |
+| 독일어 | `de-DE` | 스페인어(라틴 아메리카) | `es-419` |
+| 그리스어 | `el-GR` | 스페인어(미국) | `es-US` |
+| 구자라트어 | `gu-IN` | 스와힐리어(케냐) | `sw-KE` |
+| 하우사어 | `ha-NG` | 스웨덴어 | `sv-SE` |
+| 히브리어 | `he-IL` | 타지크어 | `tg-TJ` |
+| 힌디어 | `hi-IN` | 텔루구어 | `te-IN` |
+| 헝가리어 | `hu-HU` | 태국어 | `th-TH` |
+| 아이슬란드어 | `is-IS` | 튀르키예어 | `tr-TR` |
+| 인도 영어 | `en-IN` | 우크라이나어 | `uk-UA` |
+| 인도네시아어 | `id-ID` | 우즈베크어 | `uz-UZ` |
+| 이탈리아어 | `it-IT` | 베트남어 | `vi-VN` |
 
-## Parameterverweis
+## 파라미터 참조
 
-Konfigurieren Sie die Live-Transkription mithilfe von Feldern in `input_audio_transcription` und `realtime_input_config`:
+`input_audio_transcription` 및 `realtime_input_config`의 필드를 사용하여 실시간 스크립트를 구성합니다.
 
-| Parameter | Typ | Beschreibung |
+| 매개변수 | 유형 | 설명 |
 | --- | --- | --- |
-| `language_codes` | String-Array | BCP-47-Sprachcodes (z.B. `["en-US"]`). Wenn dieser Parameter weggelassen oder leer ist (`[]`), erkennt das Modell die Sprache automatisch und verarbeitet mehrsprachige Sprache. |
-| `custom_vocabulary` | String-Array | Bis zu 1.000 benutzerdefinierte Begriffe, Akronyme, Markennamen oder Eigennamen, um die Spracherkennung zu optimieren. |
-| `mode` | String | Transkriptionsmodus: `"VERBATIM"` (Standard) oder `"SMART"` (Smart-Transkription). Wenn diese Option auf `"SMART"` gesetzt ist, entfernt das Modell Füllwörter, formatiert Listen und korrigiert Unflüssigkeiten. |
-| `automatic_activity_detection.disabled` | Boolesch | Wenn Sie `true` festlegen, wird die automatische Erkennung von Sprachaktivitäten deaktiviert und Sie müssen die Signale `activityStart` und `activityEnd` manuell senden. |
+| `language_codes` | 문자열 배열 | BCP-47 언어 코드 (예: `["en-US"]`)입니다. 생략되거나 비어 있는 경우 (`[]`) 모델이 언어를 자동으로 감지하고 다국어 음성을 처리합니다. |
+| `custom_vocabulary` | 문자열 배열 | 음성 인식을 편향시킬 수 있는 최대 1,000개의 맞춤 용어, 약어, 브랜드 이름 또는 고유명사 |
+| `mode` | 문자열 | 스크립트 작성 모드: `"VERBATIM"` (기본값) 또는 `"SMART"` (스마트 스크립트 작성) `"SMART"`로 설정하면 모델이 추임새를 삭제하고, 목록을 형식화하며, 유창하지 않은 부분을 수정합니다. |
+| `automatic_activity_detection.disabled` | 불리언 | 자동 음성 활동 감지를 사용 중지하고 `activityStart` 및 `activityEnd` 신호를 수동으로 전송하려면 `true`로 설정합니다. |
 
-### Felder für Serverantworten
+### 서버 응답 필드
 
-| Feld | Beschreibung |
+| 필드 | 설명 |
 | --- | --- |
-| `server_content.interim_input_transcription` | Hypothese für die vorläufige Teiltranskription mit geringer Latenz, die kontinuierlich ausgegeben wird, während der Nutzer aktiv spricht. |
-| `server_content.input_transcription` | Finalisiertes, autoritatives Eingabetranskript, das ausgegeben wird, wenn ein Sprachabschnitt beendet ist. |
+| `server_content.interim_input_transcription` | 사용자가 적극적으로 말하는 동안 지속적으로 방출되는 지연 시간이 짧은 임시 부분 전사 가설입니다. |
+| `server_content.input_transcription` | 음성 턴이 완료되면 내보내지는 최종적이고 공신력 있는 입력 스크립트입니다. |
 
-## Beschränkungen
+## 제한사항
 
-- **Sitzungsdauer**:Livetranskriptionssitzungen unterstützen kontinuierliches Streaming für bis zu 10 Minuten.
-- **Sprecherbestimmung**:Die Sprecherbestimmung wird in Livestreaming-Sitzungen nicht unterstützt. Verwenden Sie für die Sprecherzuordnung den Nicht-Streaming-Endpunkt [Audio-Transkription](https://ai.google.dev/gemini-api/docs/transcribe?hl=de#speaker-diarization).
-- **Zeitstempel auf Wortebene**:Zeitstempel auf Wortebene werden über die Live API nicht unterstützt. Die Live API gibt Zeitstempel auf Äußerungsebene aus (`interim_input_transcription` und `input_transcription`).
-- **Benutzerdefiniertes Vokabular**:Sie können bis zu 1.000 Begriffe in `custom_vocabulary` angeben. Die besten Ergebnisse werden jedoch in der Regel mit bis zu 100 Begriffen erzielt.
-- **Kompatibilität mit Modi**:Bei der intelligenten Transkription (`"mode": "SMART"`) werden Füllwörter entfernt und der Text wird entsprechend der Intention formatiert. Sie kann jedoch nicht mit Wortanmerkungen kombiniert werden.
+- **세션 시간:** 실시간 텍스트 변환 세션은 최대 10분 동안 연속 스트리밍을 지원합니다.
+- **화자 분할:** 라이브 스트리밍 세션에서는 화자 분할이 지원되지 않습니다. 화자 분리의 경우 비스트리밍 [오디오 스크립트 작성](https://ai.google.dev/gemini-api/docs/transcribe?hl=ko#speaker-diarization) 엔드포인트를 사용합니다.
+- **단어 수준 타임스탬프:** 단어 수준 타임스탬프는 Live API를 통해 지원되지 않습니다. Live API는 발화 수준 타임스탬프 (`interim_input_transcription` 및 `input_transcription`)를 내보냅니다.
+- **맞춤 어휘:** `custom_vocabulary`에 최대 1,000개의 단어를 제공할 수 있지만 일반적으로 최대 100개의 단어로 최상의 결과를 얻을 수 있습니다.
+- **모드 호환성:** 스마트 스크립트 (`"mode": "SMART"`)는 필러 단어를 삭제하고 의도 인식 텍스트의 형식을 지정하지만 단어 주석과 결합할 수는 없습니다.
 
-## Nächste Schritte
+## 다음 단계
 
-- [Dokumentation zu Gemini Transcribe](https://ai.google.dev/gemini-api/docs/transcribe?hl=de) für nicht gestreamte Audiodateien
-- Lesen Sie die [Übersicht über die Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=de) für Konversations-Sprach-Agents.
-- Weitere Informationen zur Echtzeit-Übersetzung von Sprache zu Sprache finden Sie im [Leitfaden zur Live-Übersetzung](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=de).
-- Die Preise für das Streaming über die Live API [findest du auf der Preisseite](https://ai.google.dev/gemini-api/docs/pricing?hl=de#gemini-3.5-transcribe-live).
-- [Leitfaden zu den Funktionen der Live API](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de)
+- 스트리밍되지 않는 오디오 파일의 경우 [Gemini 스크립트 작성 문서](https://ai.google.dev/gemini-api/docs/transcribe?hl=ko)를 참고하세요.
+- 대화형 음성 에이전트를 위한 [Live API 개요](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)를 읽어보세요.
+- 실시간 음성 통역에 관한 [실시간 번역 가이드](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=ko)를 참고하세요.
+- Live API 스트리밍 가격은 [가격 책정 페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#gemini-3.5-transcribe-live)를 참고하세요.
+- [Live API 기능 가이드](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ko)를 살펴보세요.
 
-Feedback geben
+의견 보내기
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Zuletzt aktualisiert: 2026-09-10 (UTC).
+최종 업데이트: 2026-09-10(UTC)
 
-Haben Sie Feedback für uns?
+의견을 전달하고 싶나요?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-10 (UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-10(UTC)"],[],[]]

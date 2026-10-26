@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=ko
-fetched_at: 2026-10-19T05:35:56.345025+00:00
-title: "\uad00\ub9ac \uc5d0\uc774\uc804\ud2b8 \ube4c\ub4dc \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi
+fetched_at: 2026-10-26T05:46:58.240806+00:00
+title: "T\u1ea1o t\u00e1c nh\u00e2n \u0111\u01b0\u1ee3c qu\u1ea3n l\u00fd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# 관리 에이전트 빌드
+# Tạo tác nhân được quản lý
 
-Gemini API의 관리형 에이전트를 사용하면 자체 안내, 기술, 데이터로 Antigravity 에이전트를 확장할 수 있습니다. 상호작용 시 [에이전트를 인라인으로 맞춤설정](#customize-inline)하거나 ID로 호출하는 관리형 에이전트로 [구성을 저장](#save-agent)할 수 있습니다.
+Các tác nhân được quản lý trên Gemini API cho phép bạn mở rộng tác nhân Antigravity bằng các chỉ dẫn, kỹ năng và dữ liệu của riêng mình. Bạn có thể [tuỳ chỉnh tác nhân nội tuyến](#customize-inline) tại thời điểm tương tác hoặc [lưu cấu hình](#save-agent) dưới dạng một tác nhân được quản lý mà bạn gọi bằng mã nhận dạng.
 
-## Antigravity 에이전트 맞춤설정
+## Tuỳ chỉnh tác nhân Antigravity
 
-맞춤 에이전트를 빌드하는 가장 빠른 방법은 등록 단계 없이 새 상호작용을 만드는 동안 구성을 인라인으로 전달하는 것입니다. 다음과 같은 여러 가지 주요 방법으로 에이전트를 확장할 수 있습니다.
+Cách nhanh nhất để tạo một tác nhân tuỳ chỉnh là truyền cấu hình nội tuyến trong khi tạo một lượt tương tác mới mà không cần bước đăng ký. Bạn có thể mở rộng tác nhân theo một số cách chính:
 
-- **[모델 선택](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko#model-selection)**: `agent_config`를 통해 기본 Gemini 모델을 선택합니다 (기본값은 **Gemini 3.8 Flash**).
-- **시스템 요청 사항**: `system_instruction`를 통해 인라인 텍스트를 전달하여 동작을 형성합니다.
-- **도구**: 기본 도구 (코드 실행, 검색, URL 컨텍스트)를 재정의하거나, 원격 MCP 서버를 등록하거나, 맞춤 함수 (함수 호출)를 정의합니다.
-- **파일 및 스킬**: `AGENTS.md`, `SKILL.md`과 같은 파일을 환경에 마운트합니다.
+- **[Lựa chọn mô hình](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#model-selection)**: Chọn mô hình Gemini cơ bản thông qua biểu tượng `agent_config` (mặc định là **Gemini 3.8 Flash**).
+- **Hướng dẫn hệ thống**: Truyền văn bản nội tuyến qua `system_instruction` để định hình hành vi.
+- **Công cụ**: Ghi đè các công cụ mặc định (Thực thi mã, Tìm kiếm, Bối cảnh từ URL), đăng ký các máy chủ MCP từ xa hoặc xác định các hàm tuỳ chỉnh (Gọi hàm).
+- **Tệp và kỹ năng**: Gắn các tệp như `AGENTS.md` và `SKILL.md` vào môi trường.
 
-다음은 세 가지를 모두 인라인으로 전달하는 예입니다.
+Sau đây là ví dụ về việc truyền cả 3 tham số nội tuyến:
 
 ### Python
 
@@ -93,7 +93,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -218,22 +218,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-모든 것은 상호작용 시간에 정의됩니다. 먼저 등록할 필요가 없습니다. Antigravity 에이전트 하네스는 런타임 (코드 실행, 파일 관리, 웹 액세스)과 그 위에 있는 구성 레이어를 제공합니다.
+Mọi thứ đều được xác định tại thời điểm tương tác. Bạn không cần đăng ký trước. Khung vận hành tác nhân Antigravity cung cấp thời gian chạy (thực thi mã, quản lý tệp, truy cập web) và các lớp cấu hình của bạn ở trên cùng.
 
-### 도구 및 시스템 요청 사항
+### Công cụ và hướng dẫn về hệ thống
 
-`system_instruction` 및 `tools` 매개변수를 사용하여 특정 상호작용에 맞게 에이전트의 동작과 기능을 맞춤설정할 수 있습니다.
+Bạn có thể tuỳ chỉnh hành vi và các chức năng của tác nhân cho một lượt tương tác cụ thể bằng cách sử dụng các tham số `system_instruction` và `tools`.
 
-- **시스템 안내**: `system_instruction` 매개변수를 사용하여 에이전트의 동작을 형성하는 인라인 텍스트를 전달합니다. 이는 통화별로 변경하려는 빠른 조정에 적합합니다. `system_instruction` 및 `AGENTS.md`은 가산적입니다. 둘 다 있는 경우 둘 다 적용됩니다.
-- **도구**: 기본적으로 Antigravity 에이전트는 `code_execution`, `google_search`, `url_context`에 액세스할 수 있습니다. 상호작용 시 `tools` 매개변수를 전달하여 이 목록을 재정의할 수 있습니다. [원격 MCP 서버](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko#mcp-servers)를 등록하거나 [맞춤 함수 (함수 호출)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko#function-calling)를 정의하여 에이전트를 자체 API 및 데이터베이스에 연결할 수도 있습니다. 사용 가능한 도구에 관한 자세한 내용은 [Antigravity 에이전트: 지원되는 도구](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko#supported-tools)를 참고하세요.
+- **Hướng dẫn cho hệ thống**: Sử dụng tham số `system_instruction` để truyền văn bản nội tuyến định hình hành vi của tác nhân. Đây là lựa chọn lý tưởng cho những điều chỉnh nhanh mà bạn muốn thay đổi cho mỗi cuộc gọi. `system_instruction` và `AGENTS.md` là các giá trị cộng thêm; cả hai đều áp dụng khi có mặt.
+- **Công cụ**: Theo mặc định, tác nhân Antigravity có quyền truy cập vào `code_execution`, `google_search` và `url_context`. Bạn có thể ghi đè danh sách này bằng cách truyền tham số `tools` tại thời điểm tương tác. Bạn cũng có thể đăng ký [các máy chủ MCP từ xa](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#mcp-servers) hoặc xác định [các hàm tuỳ chỉnh (gọi hàm)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#function-calling) để kết nối tác nhân với các API và cơ sở dữ liệu của riêng bạn. Để biết thông tin chi tiết về các công cụ hiện có, hãy xem bài viết [Tác nhân Antigravity: Các công cụ được hỗ trợ](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#supported-tools).
 
-### 파일 기반 맞춤설정
+### Tuỳ chỉnh dựa trên tệp
 
-#### 에이전트 디렉터리 구조
+#### Cấu trúc thư mục tác nhân
 
-구성을 인라인으로 전달할 수 있지만 구조화된 디렉터리에 에이전트 파일을 정리하는 것이 좋습니다. 이렇게 하면 에이전트 환경에서 더 쉽게 관리하고, 버전 제어하고, 마운트할 수 있습니다.
+Mặc dù có thể truyền cấu hình nội tuyến, nhưng bạn nên sắp xếp các tệp của tác nhân trong một thư mục có cấu trúc. Điều này giúp bạn dễ dàng quản lý, quản lý phiên bản và gắn vào môi trường của tác nhân.
 
-일반적인 에이전트 프로젝트 디렉터리는 다음과 같습니다.
+Thư mục dự án tác nhân điển hình có dạng như sau:
 
 ```
 my-agent/
@@ -244,13 +244,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Antigravity 런타임은 이러한 파일을 위해 `.agents/` (및 환경의 루트)를 검색합니다.
+Thời gian chạy Antigravity sẽ quét `.agents/` (và gốc của môi trường) để tìm các tệp này.
 
 #### AGENTS.md
 
-에이전트는 시작 시 환경에서 `.agents/AGENTS.md` (또는 `/.agents/AGENTS.md`)을 시스템 명령어로 자동 로드합니다. 코드와 함께 버전 제어할 긴 형식의 페르소나 정의, 자세한 가이드라인, 안내에는 `AGENTS.md`를 사용하세요.
+Tác nhân sẽ tự động tải `.agents/AGENTS.md` (hoặc `/.agents/AGENTS.md`) từ môi trường dưới dạng hướng dẫn hệ thống khi khởi động. Sử dụng `AGENTS.md` cho các định nghĩa về vai trò dạng dài, hướng dẫn chi tiết và hướng dẫn mà bạn muốn quản lý phiên bản cùng với mã của mình.
 
-인라인 소스를 사용하여 `AGENTS.md`를 마운트합니다.
+Gắn `AGENTS.md` bằng nguồn cùng dòng:
 
 ### Python
 
@@ -304,7 +304,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -414,9 +414,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### 기술: SKILL.md
+#### Kỹ năng: SKILL.md
 
-스킬은 에이전트의 기능을 확장하는 파일입니다. `.agents/skills/<skill-name>/SKILL.md` 아래에 배치하면 하네스가 자동으로 검색하고 등록합니다.
+Kỹ năng là những tệp mở rộng khả năng của tác nhân. Đặt các thành phần đó trong `.agents/skills/<skill-name>/SKILL.md` và harness sẽ tự động phát hiện và đăng ký các thành phần đó.
 
 ```
 .agents/
@@ -426,7 +426,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         └── SKILL.md
 ```
 
-인라인 소스를 사용하여 스킬을 마운트합니다.
+Gắn một kỹ năng bằng nguồn cùng dòng:
 
 ### Python
 
@@ -480,7 +480,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -590,17 +590,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-`.agents/skills/` 및 `/.agents/skills/`에서 로드된 스킬은 모두 자동으로 검색됩니다.
+Các kỹ năng được tải từ `.agents/skills/` và `/.agents/skills/` đều được phát hiện tự động.
 
-## 관리형 에이전트 만들기
+## Tạo một tác nhân được quản lý
 
-구성을 반복한 후 `agents.create`를 사용하여 관리 에이전트로 만들 수 있습니다. 이렇게 하면 매번 구성을 반복하지 않고 ID로 에이전트를 호출할 수 있습니다.
+Sau khi lặp lại cấu hình, bạn có thể tạo cấu hình đó dưới dạng một tác nhân được quản lý bằng `agents.create`. Nhờ đó, bạn có thể gọi tác nhân theo mã nhận dạng mà không cần lặp lại cấu hình mỗi lần.
 
-관리 에이전트를 만들 때 지정하는 `id`는 프로젝트에 고유해야 하며 예약된 접두사 (예: `google-`, `gemini-`)로 시작해서는 안 됩니다. 제한된 접두사의 전체 목록은 [에이전트 ID 제한사항](#agent-id-restrictions)을 참고하세요.
+`id` mà bạn chỉ định khi tạo một tác nhân được quản lý phải là duy nhất đối với dự án của bạn và không được bắt đầu bằng các tiền tố dành riêng (ví dụ: `google-`, `gemini-`). Hãy xem [Các hạn chế về mã nhận dạng tác nhân](#agent-id-restrictions) để biết danh sách đầy đủ các tiền tố bị hạn chế.
 
-### 소스에서
+### Từ các nguồn
 
-소스와 함께 `base_agent`, `id`, `agent_config`, `system_instruction`, `base_environment`을 지정합니다. 플랫폼은 호출될 때마다 파일이 포함된 새 샌드박스를 프로비저닝합니다. 사용 가능한 소스 유형 (Git, GCS, 인라인)은 [환경](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ko)을 참고하세요.
+Chỉ định `base_agent`, `id`, `agent_config`, `system_instruction` và `base_environment` bằng các nguồn. Nền tảng này cung cấp một hộp cát mới chứa các tệp của bạn trên mọi lệnh gọi. Hãy xem phần [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi) để biết các loại nguồn có sẵn (Git, GCS, nội tuyến).
 
 ### Python
 
@@ -682,7 +682,7 @@ const agent = await client.agents.create({
 console.log(`Created agent: ${agent.id}`);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -832,9 +832,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### 기존 환경에서 (포크)
+### Từ một môi trường hiện có (phân nhánh)
 
-환경이 올바르게 설정될 때까지 (패키지 설치, 파일 배치) 기본 Antigravity 에이전트로 반복한 다음 관리 에이전트로 포크합니다.
+Lặp lại với tác nhân Antigravity cơ bản cho đến khi môi trường phù hợp (đã cài đặt các gói, các tệp ở đúng vị trí), sau đó phân nhánh tác nhân đó thành một tác nhân được quản lý.
 
 ### Python
 
@@ -885,7 +885,7 @@ const agent = await client.agents.create({
 console.log(`Forked agent successfully: ${agent.id}`);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -987,13 +987,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 네트워크 규칙 사용
+### Có quy tắc mạng
 
-관리 에이전트를 저장할 때 아웃바운드 액세스를 잠그거나 사용자 인증 정보를 삽입할 수 있습니다. 전체 허용 목록 스키마, 사용자 인증 정보 패턴, 와일드 카드는 [환경: 네트워크 구성](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ko#network-configuration)을 참고하세요.
+Bạn có thể khoá quyền truy cập đi hoặc chèn thông tin đăng nhập khi lưu một tác nhân được quản lý. Để biết lược đồ danh sách cho phép đầy đủ, các mẫu thông tin đăng nhập và ký tự đại diện, hãy xem phần [Môi trường: Cấu hình mạng](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#network-configuration).
 
-허용 목록 규칙 (`"credential": "github-production"`)에서 ID로 저장된 [사용자 인증 정보](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ko)를 참조하면 이그레스 프록시가 요청 시 보안 비밀을 삽입하므로 에이전트 정의에 보안 비밀이 표시되지 않습니다. 이 예시에서는 대신 `transform`를 사용하여 헤더를 인라인으로 설정합니다. 프록시는 두 형식을 동일한 방식으로 적용하며, 사용자 인증 정보를 사용하면 에이전트 간에 보안 비밀을 재사용하고 한 곳에서 순환할 수 있습니다.
+Tham chiếu một [thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) đã lưu trữ theo mã nhận dạng trên một quy tắc danh sách cho phép (`"credential": "github-production"`) và proxy truyền dữ liệu ra sẽ chèn khoá bí mật tại thời điểm yêu cầu, vì vậy, khoá này sẽ không bao giờ xuất hiện trong định nghĩa tác nhân của bạn. Ví dụ này đặt tiêu đề cùng dòng với `transform`. Proxy áp dụng cả hai biểu mẫu theo cùng một cách, ngoài ra, thông tin đăng nhập còn cho phép bạn sử dụng lại khoá bí mật trên nhiều tác nhân và xoay vòng khoá bí mật ở một nơi.
 
-다음 예에서는 GitHub에만 액세스할 수 있고 GitHub용으로 삽입된 사용자 인증 정보가 있는 `issue-resolver` 에이전트를 만듭니다.
+Ví dụ sau đây sẽ tạo một tác nhân `issue-resolver` chỉ có thể truy cập vào GitHub và PyPI, với thông tin đăng nhập được chèn cho GitHub:
 
 ### Python
 
@@ -1069,7 +1069,7 @@ const agent = await client.agents.create({
 console.log(`Created issue-resolver agent successfully: ${agent.id}`);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1218,9 +1218,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## 에이전트 호출
+## Gọi tác nhân
 
-새 상호작용을 만들어 에이전트 ID로 관리 에이전트를 호출합니다. 각 호출은 기본 환경을 포크하므로 모든 실행이 깨끗하게 시작됩니다.
+Gọi tác nhân được quản lý bằng mã nhận dạng tác nhân bằng cách tạo một lượt tương tác mới. Mỗi lệnh gọi sẽ phân nhánh môi trường cơ sở, vì vậy, mọi lượt chạy đều bắt đầu từ đầu.
 
 ### Python
 
@@ -1246,7 +1246,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1320,15 +1320,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-멀티턴 대화 및 스트리밍은 [빠른 시작](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ko)을 참고하세요. 동일한 `previous_interaction_id` 및 `environment` 패턴이 관리 에이전트에 적용됩니다.
+Để biết thông tin về cuộc trò chuyện nhiều lượt và truyền trực tuyến, hãy xem phần [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi). Các mẫu `previous_interaction_id` và `environment` tương tự cũng áp dụng cho các tác nhân được quản lý.
 
-관리 에이전트는 백그라운드 실행 및 취소도 지원합니다. 자세한 내용과 코드 예시는 [Antigravity 에이전트: 백그라운드 실행](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko#background-execution)을 참고하세요.
+Các tác nhân được quản lý cũng hỗ trợ việc thực thi và huỷ trong nền. Để biết thông tin chi tiết và ví dụ về mã, hãy xem bài viết [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#background-execution) (Tác nhân Antigravity: Thực thi ở chế độ nền).
 
-## 호출 시 구성 재정의
+## Ghi đè cấu hình khi gọi
 
-상호작용을 만들 때 에이전트의 기본 `system_instruction`, `tools`, `environment` 네트워크 구성을 재정의할 수 있습니다. 이를 통해 저장된 에이전트 정의를 변경하지 않고 특정 실행에 대해 에이전트의 동작, 기능 또는 사용자 인증 정보를 수정할 수 있습니다.
+Bạn có thể ghi đè cấu hình mạng `system_instruction`, `tools` và `environment` mặc định của tác nhân khi tạo một lượt tương tác. Điều này cho phép bạn sửa đổi hành vi, chức năng hoặc thông tin đăng nhập của tác nhân cho một lần chạy cụ thể mà không thay đổi định nghĩa tác nhân đã lưu trữ.
 
-### 시스템 요청 사항 및 도구 재정의
+### Ghi đè hướng dẫn và công cụ hệ thống
 
 ### Python
 
@@ -1357,7 +1357,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1439,11 +1439,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### 네트워크 구성 재정의 (사용자 인증 정보 새로고침)
+### Ghi đè cấu hình mạng (làm mới thông tin đăng nhập)
 
-관리 에이전트의 `base_environment`에 네트워크 사용자 인증 정보가 포함된 경우 호출 시 이를 재정의하여 만료된 토큰을 새로고침하거나 API 키를 순환할 수 있습니다. 새 `network` 구성으로 `environment` 객체를 전달합니다. 새 네트워크 규칙은 해당 상호작용의 이전 규칙을 완전히 대체합니다. 기본 환경의 소스 (파일, 저장소)는 보존됩니다.
+Nếu tác nhân được quản lý của bạn có thông tin đăng nhập mạng được tích hợp vào `base_environment`, bạn có thể ghi đè thông tin đăng nhập đó tại thời điểm gọi để làm mới mã thông báo đã hết hạn hoặc xoay khoá API. Truyền một đối tượng `environment` có cấu hình `network` mới. Các quy tắc mạng mới sẽ thay thế hoàn toàn các quy tắc trước đó cho hoạt động tương tác đó. Các nguồn (tệp, kho lưu trữ) của môi trường cơ sở sẽ được giữ nguyên.
 
-`base_environment`이 인라인 토큰 대신 저장된 [사용자 인증 정보](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=ko)를 참조하는 경우 아무것도 재정의할 필요가 없습니다. `PATCH`로 사용자 인증 정보를 순환하면 이를 참조하는 모든 에이전트가 다음 실행 시 새 보안 비밀을 선택합니다.
+Nếu `base_environment` tham chiếu đến một [chứng chỉ](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) được lưu trữ thay vì một mã thông báo nội tuyến, thì bạn không cần ghi đè bất cứ thứ gì. Xoay thông tin đăng nhập bằng `PATCH` và mọi tác nhân tham chiếu đến thông tin đăng nhập đó sẽ nhận được khoá bí mật mới vào lần chạy tiếp theo.
 
 ### Python
 
@@ -1497,7 +1497,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1626,11 +1626,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 에이전트 관리
+## Quản lý nhân viên hỗ trợ
 
-에이전트를 나열하고, 가져오고, 삭제할 수 있습니다.
+Bạn có thể liệt kê, nhận và xoá các tác nhân.
 
-### 에이전트 나열
+### Liệt kê các tác nhân
 
 ### Python
 
@@ -1651,7 +1651,7 @@ if (agents.agents) {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1707,7 +1707,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### 에이전트 가져오기
+### Nhận một tác nhân
 
 ### Python
 
@@ -1723,7 +1723,7 @@ const agent = await client.agents.get("data-analyst");
 console.log(agent);
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1774,9 +1774,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analys
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### 에이전트 삭제
+### Xoá một tác nhân
 
-삭제하면 구성이 삭제됩니다. 에이전트가 만든 기존 환경과 상호작용은 영향을 받지 않습니다.
+Thao tác xoá sẽ loại bỏ cấu hình. Các môi trường và hoạt động tương tác hiện có do tác nhân tạo ra sẽ không bị ảnh hưởng.
 
 ### Python
 
@@ -1790,7 +1790,7 @@ client.agents.delete(id="data-analyst")
 await client.agents.delete("data-analyst");
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1836,24 +1836,24 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## 에이전트 정의 참조
+## Tài liệu tham khảo về định nghĩa tác nhân
 
-| 필드 | 유형 | 필수 | 설명 |
+| Trường | Loại | Bắt buộc | Mô tả |
 | --- | --- | --- | --- |
-| `id` | 문자열 | 예 | Google Cloud 프로젝트 내의 고유한 에이전트 식별자입니다. 에이전트를 호출하는 데 사용됩니다. 예약된 접두사를 사용하면 안 됩니다. [에이전트 ID 제한사항](#agent-id-restrictions)을 참고하세요. |
-| `description` | 문자열 | 아니요 | 인간이 읽을 수 있는 에이전트 설명입니다. |
-| `base_agent` | 문자열 | 예 | 기본 에이전트 ID (예: `antigravity-preview-09-2026`) |
-| `agent_config` | 객체 | 아니요 | 모델 선택 (`{"type": "antigravity", "model": "gemini-3.8-flash"}`)을 포함한 기본 에이전트의 구성입니다. 생략된 경우 기본값은 `gemini-3.8-flash`입니다. 이름이 지정된 상담사의 경우 상호작용 시간에 재정의할 수 없습니다. |
-| `system_instruction` | 문자열 | 아니요 | 행동과 페르소나를 정의하는 시스템 프롬프트입니다. |
-| `tools` | 배열 | 아니요 | 에이전트가 사용할 수 있는 도구입니다. 생략하면 기본값은 `code_execution`, `google_search`, `url_context`입니다. 지원되는 도구에는 `code_execution`, `google_search`, `url_context`, `mcp_server`, 맞춤 `function` 정의가 포함됩니다. |
-| `base_environment` | 문자열 또는 객체 | 아니요 | `"remote"`, `environment_id` 또는 `sources` 및 `network`이 있는 구성 객체 환경을 참고하세요. |
+| `id` | chuỗi | Có | Giá trị nhận dạng riêng biệt của tác nhân trong dự án trên đám mây của Google. Được dùng để gọi tác nhân. Không được sử dụng tiền tố dành riêng. Xem [Hạn chế về mã nhận dạng tác nhân](#agent-id-restrictions). |
+| `description` | chuỗi | Không | Nội dung mô tả mà con người có thể đọc được về tác nhân. |
+| `base_agent` | chuỗi | Có | Mã tác nhân cơ sở (ví dụ: `antigravity-preview-09-2026`). |
+| `agent_config` | đối tượng | Không | Cấu hình cho tác nhân cơ sở, bao gồm cả lựa chọn mô hình (`{"type": "antigravity", "model": "gemini-3.8-flash"}`). Mặc định là `gemini-3.8-flash` nếu bị bỏ qua. Không thể ghi đè vào thời gian tương tác cho các tác nhân được đặt tên. |
+| `system_instruction` | chuỗi | Không | Câu lệnh hệ thống xác định hành vi và tính cách. |
+| `tools` | mảng | Không | Các công cụ mà tác nhân có thể sử dụng. Nếu bạn bỏ qua, giá trị mặc định sẽ là `code_execution`, `google_search` và `url_context`. Các công cụ được hỗ trợ bao gồm `code_execution`, `google_search`, `url_context`, `mcp_server` và các định nghĩa `function` tuỳ chỉnh. |
+| `base_environment` | chuỗi hoặc đối tượng | Không | `"remote"`, `environment_id` hoặc một đối tượng cấu hình có `sources` và `network`. Xem phần Môi trường. |
 
-### 에이전트 ID 제한사항
+### Các hạn chế về mã nhận dạng tác nhân
 
-관리 에이전트를 만들 때 지정하는 `id`은 다음 규칙을 따라야 합니다.
+Khi tạo một tác nhân được quản lý, `id` mà bạn chỉ định phải tuân theo các quy tắc sau:
 
-- Google Cloud 프로젝트에 고유해야 합니다.
-- 다음 예약된 접두사 (대소문자를 구분하지 않음)로 시작하면 **안** 됩니다. 그렇지 않으면 생성이 실패합니다.
+- Giá trị này phải dành riêng cho dự án trên đám mây của bạn trên Google Cloud.
+- Tên này **không** được bắt đầu bằng bất kỳ tiền tố dành riêng nào sau đây (không phân biệt chữ hoa chữ thường), nếu không, bạn sẽ không tạo được:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -1871,35 +1871,35 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-ana
   - `nest-`
   - `kaggle-`
 
-## 반복 워크플로
+## Quy trình lặp lại
 
-1. 기본 Antigravity 에이전트로 **프로토타입**을 만듭니다. 시스템 안내와 환경 소스를 인라인으로 전달합니다. 안내, 스킬, 환경 설정을 대화형으로 테스트합니다.
-2. 환경을 **안정화**합니다. 패키지를 설치하고, 소스를 마운트하고, 모든 것이 작동하는지 확인합니다.
-3. 소스에서 또는 환경을 포크하여 새 에이전트를 만들어 관리 에이전트로 **유지**합니다.
-4. 에이전트 정의를 **업데이트**합니다. 시스템 안내를 변경하거나, 스킬을 전환하거나, 소스를 추가합니다. 다음 호출에서 새 구성을 선택합니다.
+1. **Tạo nguyên mẫu** bằng tác nhân Antigravity cơ bản. Truyền hướng dẫn hệ thống và các nguồn môi trường nội tuyến. Kiểm tra hướng dẫn, kỹ năng và chế độ thiết lập môi trường một cách tương tác.
+2. **Ổn định** môi trường. Cài đặt các gói, gắn nguồn, xác minh mọi thứ đều hoạt động.
+3. **Duy trì** dưới dạng một tác nhân được quản lý bằng cách tạo một tác nhân mới, từ các nguồn hoặc bằng cách phân nhánh môi trường.
+4. **Cập nhật** định nghĩa về tác nhân. Thay đổi chỉ dẫn hệ thống, thay đổi kỹ năng hoặc thêm nguồn. Lần gọi tiếp theo sẽ chọn cấu hình mới.
 
-## 제한사항
+## Các điểm hạn chế
 
-- **미리보기 상태**: 관리 에이전트는 미리보기 상태입니다. 기능과 스키마는 변경될 수 있습니다.
-- **기본 에이전트 및 모델**: `base_agent`로 `antigravity-preview-09-2026`만 지원됩니다. `agent_config`에서 지원되는 모델 옵션은 `gemini-3.8-flash` (기본값), `gemini-3.6-flash`, `gemini-3.5-flash-lite`입니다. 이름이 지정된 에이전트의 경우 상호작용 시간에 모델을 재정의할 수 없습니다.
-- **버전 관리 없음**: 에이전트 버전 관리 및 롤백은 아직 사용할 수 없습니다.
-- **하위 에이전트 중첩 없음**: 하위 에이전트 위임은 아직 지원되지 않습니다.
-- 관리 에이전트는 최대 1,000개까지 사용할 수 있습니다.
+- **Trạng thái xem trước**: Tác nhân được quản lý đang ở giai đoạn xem trước. Các tính năng và giản đồ có thể thay đổi.
+- **Tác nhân và mô hình cơ sở**: Chỉ `antigravity-preview-09-2026` được hỗ trợ dưới dạng `base_agent`. Các lựa chọn về mô hình được hỗ trợ trong `agent_config` là `gemini-3.8-flash` (mặc định), `gemini-3.6-flash` và `gemini-3.5-flash-lite`. Đối với các tác nhân được đặt tên, bạn không thể ghi đè mô hình tại thời điểm tương tác.
+- **Không có tính năng quản lý phiên bản**: Tính năng quản lý phiên bản và khôi phục phiên bản cũ của tác nhân hiện chưa được cung cấp.
+- **Không có tính năng lồng đại lý phụ**: Tính năng uỷ quyền cho đại lý phụ chưa được hỗ trợ.
+- Bạn có thể có tối đa 1.000 nhân viên hỗ trợ được quản lý.
 
-## 다음 단계
+## Bước tiếp theo
 
-- [에이전트 개요](https://ai.google.dev/gemini-api/docs/agents?hl=ko): 관리 에이전트의 핵심 개념을 알아봅니다.
-- [빠른 시작](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=ko): 멀티턴 대화 및 스트리밍으로 빌드 시작
-- [Antigravity 에이전트](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko): 기본 에이전트의 기능, 도구, 가격을 살펴봅니다.
-- [에이전트 환경](https://ai.google.dev/gemini-api/docs/agent-environment?hl=ko): 샌드박스, 소스, 네트워킹을 구성합니다.
-- [Agent Platform의 관리형 에이전트 API](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=ko): 조직 거버넌스가 내장된 에이전트를 만드는 데 사용됩니다.
+- [Tổng quan về tác nhân](https://ai.google.dev/gemini-api/docs/agents?hl=vi): Tìm hiểu về các khái niệm cốt lõi của tác nhân được quản lý.
+- [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): Bắt đầu xây dựng bằng các cuộc trò chuyện nhiều lượt và tính năng phát trực tuyến.
+- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi): Khám phá các khả năng, công cụ và mức giá của tác nhân Antigravity mặc định.
+- [Môi trường của tác nhân](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi): Định cấu hình hộp cát, nguồn và mạng.
+- [Managed Agents API trên Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=vi): Để tạo các tác nhân có cơ chế quản trị tổ chức tích hợp.
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-최종 업데이트: 2026-10-09(UTC)
+Cập nhật lần gần đây nhất: 2026-10-09 UTC.
 
-의견을 전달하고 싶나요?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-09(UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-09 UTC."],[],[]]

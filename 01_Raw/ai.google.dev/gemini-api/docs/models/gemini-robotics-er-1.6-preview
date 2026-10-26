@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=id
-fetched_at: 2026-10-19T05:40:27.528296+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-1.6-preview?hl=bn
+fetched_at: 2026-10-26T06:00:03.080485+00:00
 title: "Gemini Robotics ER 1.6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-Kirim masukan
+মতামত জানান
 
 # Gemini Robotics ER 1.6
 
-Gemini Robotics ER 1.6 adalah model bahasa-penglihatan (VLM) yang menghadirkan kemampuan seperti agen Gemini ke robotik. Teknologi ini dirancang untuk penalaran canggih di dunia fisik, sehingga robot dapat menafsirkan data visual yang kompleks, melakukan penalaran spasial, dan merencanakan tindakan dari perintah bahasa alami.
+Gemini Robotics ER 1.6 হল একটি ভিশন-ল্যাঙ্গুয়েজ মডেল (VLM) যা রোবোটিক্সে Gemini-র
+এজেন্টসুলভ দক্ষতা নিয়ে আসে। এটি বাস্তব জগতে উন্নত রিজনিংয়ের জন্য ডিজাইন করা হয়েছে, যার ফলে রোবট জটিল ভিজ্যুয়াল ডেটা ব্যাখ্যা করতে,
+স্পেশিয়াল রিজনিং করতে এবং ন্যাচারাল ল্যাঙ্গুয়েজ কমান্ড থেকে অ্যাকশন প্ল্যান করতে পারে।
 
-[Coba di Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-robotics-er-1.6-preview&hl=id)
+## ডকুমেন্টেশন
 
-## Dokumentasi
-
-Buka halaman [Robotika](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=id) untuk mengetahui cakupan lengkap fitur dan kemampuan.
+ফিচার ও ক্ষমতার সম্পূর্ণ কভারেজের জন্য
+[রোবোটিক্স](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=bn) পৃষ্ঠা দেখুন।
 
 ## gemini-robotics-er-1.6-preview
 
-| Properti | Deskripsi |
+| প্রপার্টি | বিবরণ |
 | --- | --- |
-| Kode model id\_card | `gemini-robotics-er-1.6-preview` |
-| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio  **Output**  Teks |
-| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072  **Batas token output**  65.536 |
-| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Tidak didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Didukung  **[Penggunaan komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id)**  Didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Didukung  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Tidak didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Didukung |
-| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Didukung  **[Inferensi fleksibel](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Didukung |
-| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `gemini-robotics-er-1.6-preview` |
-| calendar\_monthPembaruan terbaru | Desember 2025 |
-| cognition\_2Batas informasi | Januari 2025 |
+| id\_cardমডেল কোড | `gemini-robotics-er-1.6-preview` |
+| সেভ করুনকাজ করে এমন ডেটার ধরন | **ইনপুট**  টেক্সট, ছবি, ভিডিও, অডিও  **আউটপুট**  টেক্সট |
+| token\_autoটোকেনের সীমা[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) | **ইনপুট টোকেনের সীমা**  ১৩১,০৭২  **আউটপুট টোকেনের সীমা**  ৬৫,৫৩৬ |
+| handymanকেপেবিলিটি | **[অডিও জেনারেশন](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn)**  কাজ করে না  **[ক্যাশিং](https://ai.google.dev/gemini-api/docs/caching?hl=bn)**  কাজ করে  **[কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn)**  কাজ করে  **[কম্পিউটারের ব্যবহার](https://ai.google.dev/gemini-api/docs/computer-use?hl=bn)**  কাজ করে  **[ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)**  কাজ করে  **[ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)**  কাজ করে  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)**  কাজ করে  **[ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn)**  কাজ করে না  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=bn)**  কাজ করে না  **[সার্চ গ্রাউন্ডিং](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)**  কাজ করে  **[স্ট্রাকচার্ড আউটপুট](https://ai.google.dev/gemini-api/docs/structured-output?hl=bn)**  কাজ করে  **[ভাবছি](https://ai.google.dev/gemini-api/docs/thinking?hl=bn)**  কাজ করে  **[URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)**  কাজ করে |
+| speedটি ব্যবহারের বিকল্প | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=bn)**  কাজ করে  **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=bn)**  কাজ করে  **[প্রায়োরিটি ইনফারেন্স](https://ai.google.dev/gemini-api/docs/priority-inference?hl=bn)**  কাজ করে |
+| ১২৩ভার্সন | আরও জানতে [মডেল ভার্সন প্যাটার্ন](https://ai.google.dev/gemini-api/docs/models/gemini?hl=bn#model-versions) পড়ুন।  - বন্ধ করুন: `gemini-robotics-er-1.6-preview` |
+| calendar\_monthলেটেস্ট আপডেট | ডিসেম্বর ২০২৫ |
+| cognition\_2নলেজ কাটঅফ | জানুয়ারি ২০২৫ |
 
-Kirim masukan
+মতামত জানান
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-Terakhir diperbarui pada 2026-10-08 UTC.
+2026-10-21 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-Ada masukan untuk kami?
+আমাদের আরও কিছু জানাতে চান?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-08 UTC."],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-21 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

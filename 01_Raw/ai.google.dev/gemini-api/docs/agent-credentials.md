@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr
-fetched_at: 2026-10-19T05:39:22.078709+00:00
-title: "Y\u00f6netilen arac\u0131lardaki kimlik bilgileri \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-credentials?hl=he
+fetched_at: 2026-10-26T05:48:45.900789+00:00
+title: "\u05e4\u05e8\u05d8\u05d9 \u05db\u05e0\u05d9\u05e1\u05d4 \u05d1\u05e1\u05d5\u05db\u05e0\u05d9\u05dd \u05de\u05e0\u05d5\u05d4\u05dc\u05d9\u05dd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Geri bildirim gönderin
+שליחת משוב
 
-# Yönetilen aracılardaki kimlik bilgileri
+# פרטי כניסה בסוכנים מנוהלים
 
-Kimlik bilgileri, sunucu tarafından yönetilen ve gizli anahtarın hiçbir zaman aracının ortamına girmediği üçüncü taraf hizmetlerine erişmesine olanak tanıyan gizli anahtarlardır. Kimlik bilgisini bir kez saklar, kimliğe göre referans verirsiniz. Çıkış proxy'si, istek sırasında kimlik bilgisini çözümler ve ekler.
+פרטי הכניסה הם סודות שמנוהלים על ידי השרת ומאפשרים לסוכנים שלכם לגשת לשירותי צד שלישי בלי שהסודות יגיעו לסביבת הסוכן. אתם מאחסנים את פרטי הכניסה פעם אחת, מפנים אליהם באמצעות מזהה, ופרוקסי היציאה מזהה אותם ומכניס אותם בזמן הבקשה.
 
-Gizli değerler yalnızca yazılabilir. Depolandıktan sonra hiçbir uç nokta tarafından döndürülmezler. Bu nedenle, güvenliği ihlal edilmiş bir aracı, kullandığı jetonları geri okuyamaz.
+ערכי סוד הם לקריאה בלבד. אחרי שהם מאוחסנים, אף נקודת קצה לא מחזירה אותם, כך שסוכן שנפרץ לא יכול לקרוא את הטוקנים שהוא משתמש בהם.
 
-Kimlik bilgisini kullandığınız birincil yer, [`environment.network`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr) üzerindeki ağ izin verilenler listesidir. Önce sırrı saklayın:
+המקום העיקרי שבו משתמשים בפרטי כניסה הוא רשימת ההיתרים של הרשת ב-[`environment.network`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he). קודם מאחסנים את הסוד:
 
 ### Python
 
@@ -105,7 +105,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Ardından, kimliğini doğruladığı alana ekleyin:
+לאחר מכן מצרפים אותו לדומיין שהוא מאמת:
 
 ### Python
 
@@ -208,23 +208,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Aracı artık `api.github.com` için kimliği doğrulanmış istekler gönderiyor ve jeton hiçbir zaman sanal alan içinde bulunmuyor.
+הסוכן שולח עכשיו בקשות מאומתות אל `api.github.com`, והטוקן אף פעם לא נמצא בארגז החול.
 
-## Yeterlilik belgesi türleri
+## סוגי פרטי כניסה
 
-Her kimlik bilgisinin, hangi alanları kabul edeceğini ve proxy'nin bunu nasıl uygulayacağını belirleyen bir `type` vardır.
+לכל אמצעי אימות יש `type` שקובע אילו שדות הוא מקבל ואיך ה-proxy מחיל אותו.
 
-| Tür | Kullanım alanı | Davranış |
+| סוג | תרחיש שימוש | התנהגות |
 | --- | --- | --- |
-| `bearer_token` | Kişisel erişim jetonları, bot jetonları, statik API anahtarları | Proxy, jetonu istek başlığı olarak yerleştirir. Yenileme mantığı yoktur. |
-| `oauth2` | OAuth uygulamaları ve kullanıcı tarafından temsil edilen akışlar | Proxy, yenileme jetonunu erişim jetonlarıyla değiştirir ve süreleri doldukça bunları yeniler. |
-| `environment_variable` | Gizli dizileri işlem ortamından okuyan istemci SDK'ları | Temsilcinin ortamı bir yer tutucu alır. Proxy, giden isteklerde gerçek sırrın yerine geçer. |
+| `bearer_token` | טוקנים של גישה אישית, טוקנים של בוטים, מפתחות סטטיים של API | שרת ה-proxy מוסיף את הטוקן כ-request header. אין לוגיקה לרענון. |
+| `oauth2` | אפליקציות OAuth ותהליכים שמוקצים למשתמשים | הפרוקסי מחליף את אסימון הרענון באסימוני גישה ומרענן אותם כשתוקף שלהם פג. |
+| `environment_variable` | ערכות SDK ללקוח שקוראות סודות מסביבת התהליך | סביבת הנציג מקבלת placeholder. ה-proxy מחליף את הסוד האמיתי בבקשות יוצאות. |
 
-## Ağın izin verilenler listesindeki kimlik bilgilerini kullanma
+## שימוש בפרטי הכניסה ברשימת ההיתרים של הרשת
 
-İzin verilenler listesi kuralına `credential` eklediğinizde proxy, bu alana yapılan her giden isteğin kimliğini doğrular. Bu yöntem, bir temsilciye özel API'ye, özel depoya veya özel pakete erişim vermek için önerilir.
+מוסיפים את `credential` לכלל ברשימת ההיתרים, והפרוקסי מאמת כל בקשה יוצאת לדומיין הזה. זו הדרך המומלצת לתת לסוכן גישה ל-API פרטי, למאגר פרטי או לדלי פרטי.
 
-Aynı izin verilenler listesinde kimliği doğrulanmış ve doğrulanmamış kuralları birlikte kullanabilirsiniz:
+אפשר לשלב כללים מאומתים ולא מאומתים באותה רשימת היתרים:
 
 ### Python
 
@@ -359,22 +359,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Proxy, kimlik bilgisini istek başına çözdüğünden `oauth2` kimlik bilgisi, erişim jetonunu şeffaf bir şekilde yeniler. Uzun süren bir etkileşim, erişim jetonunun süresi dolduğunda kesintiye uğramaz.
+מכיוון שהפרוקסי פותר את פרטי הכניסה לכל בקשה, פרטי כניסה מסוג `oauth2` מרעננים את אסימון הגישה שלהם באופן שקוף. אינטראקציה ארוכה לא תיפסק כשפג תוקף טוקן הגישה.
 
-### `credential` ve `transform`'ı birleştirme
+### שילוב של `credential` ו-`transform`
 
-İzin verilenler listesi kuralları, doğrudan kuralda başlıkları ayarlayan satır içi [`transform`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#private-sources) nesnesini de kabul eder. Her iki mekanizma da kablodaki çıkış proxy'si tarafından uygulanır. Bu nedenle, her iki durumda da üstbilgi değeri hiçbir zaman sanal alan içinde bulunmaz. Her iki alan da aynı kuralda görünebilir.
+כללי הרשימה הלבנה מקבלים גם אובייקט [`transform`](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he#private-sources) מוטבע שמגדיר כותרות ישירות בכלל. שני המנגנונים מופעלים על ידי שרת ה-proxy של היציאה (egress) בחיבור, כך שבשני המקרים ערך הכותרת אף פעם לא קיים בתוך ארגז החול. שני השדות יכולים להופיע באותו כלל.
 
-| Kural yapılandırması | Davranış |
+| הגדרת הכלל | התנהגות |
 | --- | --- |
-| Yalnızca `credential` | Proxy, kimlik bilgisini çözer ve alanla ilgili her isteğe başlığını ekler. |
-| Yalnızca `transform` | Statik başlık yerleştirme. Yazdığınız başlıklar olduğu gibi gönderilir. |
-| Her ikisi de | Önce kimlik bilgisi uygulanır, ardından `transform` üstte birleştirilir. Her ikisi de aynı anahtarı ayarlarsa açık bir `transform` başlığı öncelikli olur. |
-| Hiçbiri | Alana izin verilir ve herhangi bir başlık eklenmez. |
+| `credential` בלבד | הפרוקסי מפענח את פרטי הכניסה ומוסיף את הכותרת שלהם לכל בקשה לדומיין. |
+| `transform` בלבד | החדרה סטטית של כותרות. הכותרות שאתם כותבים נשלחות כמו שהן. |
+| שניהם | פרטי הכניסה מוחלים קודם, ואז `transform` מתמזגים מעל. אם שני סוגי הכותרות מגדירים את אותו מפתח, הכותרת `transform` מנצחת. |
+| אין לי דעה לכאן או לכאן | הדומיין מותר ולא מוחדרות כותרות. |
 
-Bir sırrı bir kez saklamak ve projenizdeki her ortamda, aracıda ve tetikleyicide buna referans vermek istediğinizde ve erişim jetonu yenileme ve döndürme işlemlerinin sizin için yapılmasını istediğinizde kimlik bilgisi kullanmak mantıklıdır. Satır içi `transform`, değer tek bir çağrıya ait olduğunda (ör. etkileşimi oluşturmadan hemen önce kendiniz oluşturduğunuz bir jeton) uygundur.
+כדאי להשתמש באמצעי אימות כשרוצים לאחסן סוד פעם אחת ולהפנות אליו מכל סביבה, סוכן וטריגר בפרויקט, וכשרוצים שהמערכת תטפל ברענון וברוטציה של אסימוני הגישה. `transform` מתאים כשמדובר בערך ששייך לקריאה יחידה, למשל טוקן שיוצרים בעצמכם ממש לפני יצירת האינטראקציה.
 
-İkisinin bir arada kullanılması yaygındır. Kimlik bilgisi, kimlik doğrulama üstbilgisini taşır ve `transform`, aynı istekte yukarı akış hizmetinin beklediği diğer her şeyi ekler:
+שילוב של שתי השיטות הוא נפוץ. פרטי הכניסה כוללים את כותרת האימות, ו-`transform` מוסיף את כל מה שהשירות במעלה הזרם מצפה לקבל באותה בקשה:
 
 ```
 {
@@ -386,11 +386,11 @@ Bir sırrı bir kez saklamak ve projenizdeki her ortamda, aracıda ve tetikleyic
 }
 ```
 
-Bir sırrı satır içi `transform` öğesinden kimlik bilgisine taşımak için `POST /credentials` ile birlikte saklayın, `transform` öğesindeki kimlik doğrulama başlığını `"credential": "<id>"` ile değiştirin ve `transform` nesnesinin geri kalanını olduğu gibi bırakın.
+כדי להעביר סוד מתוך `transform` מוטבע אל תוך פרטי כניסה, מאחסנים אותו באמצעות `POST /credentials`, מחליפים את כותרת האימות ב-`transform` ב-`"credential": "<id>"` ומשאירים את שאר האובייקט `transform` ללא שינוי.
 
-## MCP sunucularıyla kimlik bilgilerini kullanma
+## שימוש בפרטי כניסה עם שרתי MCP
 
-Uzak MCP sunucuları aynı `credential` alanını alır. `mcp_server` aracında ayarlayın. Proxy, kimlik doğrulama üst bilgisini bu sunucuya yapılan her isteğe ekler:
+שרתי MCP מרוחקים מקבלים את אותו שדה `credential`. מגדירים אותו בכלי `mcp_server`, ושרת ה-proxy מוסיף את כותרת האימות לכל בקשה לשרת הזה:
 
 ### Python
 
@@ -494,8 +494,8 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`credential` ve `headers`, izin verilenler listesiyle aynı öncelik kuralına tabidir.
-Kimlik bilgisi önce uygulanır ve `headers` üstte birleştirilir. Bu nedenle, her ikisi de aynı anahtarı ayarlarsa açık bir başlık kazanır:
+`credential` ו-`headers` פועלים לפי אותו כלל עדיפות כמו רשימת ההיתרים.
+האישורים מוחלים קודם ו`headers` מתמזג מעל, כך שכותרת מפורשת מנצחת אם שניהם מגדירים את אותו מפתח:
 
 ```
 {
@@ -509,14 +509,14 @@ Kimlik bilgisi önce uygulanır ve `headers` üstte birleştirilir. Bu nedenle, 
 }
 ```
 
-Bir sırrı satır içi `headers` öğesinden kimlik bilgisine taşımak için `POST /credentials` ile saklayın ve `headers` öğesindeki kimlik doğrulama girişini `credential` ile değiştirin.
-Diğer başlıkları olduğu gibi bırakın.
+כדי להוציא סוד מתוך `headers` ולהעביר אותו לפרטי כניסה, מאחסנים אותו באמצעות `POST /credentials` ומחליפים את רשומת האימות ב-`headers` ב-`credential`.
+משאירים את הכותרות האחרות במקומן.
 
-## Kimlik bilgilerini ortam değişkeni olarak kullanma
+## שימוש בפרטי כניסה כמשתני סביבה
 
-Bazı istemci kitaplıkları, sırları istek üstbilgisi olarak kabul etmek yerine işlem ortamından okur. Soket modu ve uzun anket istemcileri yaygın olarak kullanılır.
+חלק מספריות הלקוח קוראות סודות מסביבת התהליך במקום לקבל אותם ככותרות של בקשות. בדרך כלל, הלקוחות הם במצב Socket או במצב Long-polling.
 
-`environment_variable` kimlik bilgisini `environment.env` altındaki bir değişken adına bağlayın:
+מקשרים פרטי כניסה מסוג `environment_variable` לשם משתנה בקטע `environment.env`:
 
 ### Python
 
@@ -611,22 +611,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`env`, değişmez dizeleri ve kimlik bilgisi referanslarını yan yana kabul eder. Dize değişmezi, kapsayıcıya normal bir düz metin değişkeni olarak yerleştirilir.
+‫`env` מקבל מחרוזות מילוליות והפניות לפרטי כניסה זו לצד זו. מחרוזת מילולית מוזרקת למאגר כמשתנה רגיל של טקסט פשוט.
 
-Kimlik bilgisi referansı değildir. Değişken, yer tutucuyu (`__GEMINI_CRED_<credential-id>__`) alır ve proxy, yalnızca kimlik bilgilerinin `trusted_domains` bölümündeki bir alana giden giden istekler için gerçek gizliyi değiştirir. Başka bir alana yapılan istekler reddedilir. Böylece, gizli anahtar hiçbir zaman sınırın dışına çıkmaz ve yerine yer tutucu gönderilmez.
+הפניה לפרטי כניסה לא. המשתנה מקבל את ה-placeholder‏ `__GEMINI_CRED_<credential-id>__`, והפרוקסי מחליף אותו בסוד האמיתי רק בבקשות יוצאות שמופנות לדומיין ב-`trusted_domains` של פרטי הכניסה. בקשה לכל דומיין אחר נדחית, כך שהסוד אף פעם לא יוצא מגבולות הגזרה וה-פלייסהולדר לא נשלח במקומו.
 
-Her `environment_variable` kimlik bilgisinde `trusted_domains` ayarlayın. Bu, sırrın kullanılabileceği kapsamları belirleyen kontroldür.
+מגדירים את `trusted_domains` בכל אישורי `environment_variable`. הוא קובע את ההיקף שבו אפשר להשתמש בסוד.
 
-## Kimlik bilgisi oluşturma
+## יצירת פרטי כניסה
 
-Her oluşturma isteği için `type` ve bu türün gerektirdiği alanlar gerekir.
+כל בקשת יצירה צריכה לכלול `type`, בנוסף לשדות שנדרשים עבור הסוג הזה.
 
-REST doğrudan çağrıldığında tüm alan adları snake\_case kullanır. camelCase
-alanı göndermek `400` döndürür.
+כשקוראים ישירות ל-REST, כל שמות השדות הם בפורמט snake\_case. שליחת שדה בפורמט camelCase מחזירה `400`.
 
-### Hamiline ait jeton
+### טוקן למוכ"ז
 
-Bir taşıyıcı jeton kimlik bilgisinin yalnızca `token` olması gerekir:
+פרטי כניסה של טוקן bearer צריכים לכלול רק את `token`:
 
 ### Python
 
@@ -697,7 +696,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Yanıt yalnızca meta verileri döndürür, jetonu asla döndürmez:
+התגובה מחזירה רק מטא-נתונים, אף פעם לא את הטוקן:
 
 ```
 {
@@ -709,7 +708,7 @@ Yanıt yalnızca meta verileri döndürür, jetonu asla döndürmez:
 }
 ```
 
-Proxy varsayılan olarak `Authorization: Bearer <token>` gönderir. Başka bir şey bekleyen bir hizmeti hedeflemek için `header_name` ve `prefix` değerlerini geçersiz kılın:
+כברירת מחדל, ה-proxy שולח `Authorization: Bearer <token>`. החלפת הערך של `header_name` ושל `prefix` כדי לטרגט שירות שמצפה למשהו אחר:
 
 ### Python
 
@@ -788,11 +787,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-Bu yapılandırma, `x-goog-api-key: key_xxxxxxxxxxxx` başlığını oluşturur.
+ההגדרה הזו יוצרת את הכותרת `x-goog-api-key: key_xxxxxxxxxxxx`.
 
-Aşağıdaki tabloda `header_name` ve `prefix` değerlerinin nasıl birleştiği gösterilmektedir:
+בטבלה הבאה אפשר לראות איך `header_name` ו-`prefix` משולבים:
 
-| Yapılandırma | Yerleştirilmiş üstbilgi |
+| הגדרות אישיות | כותרת שהוחדרה |
 | --- | --- |
 | `{"token": "ghp_xxx"}` | `Authorization: Bearer ghp_xxx` |
 | `{"token": "sk_live_xxx"}` | `Authorization: Bearer sk_live_xxx` |
@@ -801,7 +800,7 @@ Aşağıdaki tabloda `header_name` ve `prefix` değerlerinin nasıl birleştiği
 
 ### OAuth2
 
-OAuth2 kimlik bilgisi için `client_id`, `client_secret`, `refresh_token` ve `token_url` gerekir. `scopes` alanı isteğe bağlıdır:
+פרטי כניסה מסוג OAuth2 דורשים `client_id`, `client_secret`, `refresh_token` ו-`token_url`. השדה `scopes` הוא אופציונלי:
 
 ### Python
 
@@ -888,9 +887,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-OAuth2 kimlik bilgisi oluşturmak, yapılandırmanın çalıştığını onaylamak için `token_url` ile canlı jeton değişimi gerçekleştirir. Kimlik bilgisi yalnızca sağlayıcı, `access_token` içeren başarılı bir jeton yanıtı döndürürse saklanır. Hem JSON hem de form-urlencoded yanıtları kabul edilir.
+יצירת פרטי כניסה של OAuth2 מבצעת החלפת אסימונים בזמן אמת מול `token_url` כדי לוודא שההגדרה פועלת. האישורים נשמרים רק אם הספק מחזיר תגובה מוצלחת של אסימון שמכילה `access_token`. המערכת מקבלת תגובות בפורמט JSON וגם בפורמט form-urlencoded.
 
-Bu, oluşturma sırasında geçerli ve süresi dolmamış bir yenileme jetonuna ihtiyacınız olduğu anlamına gelir. Sağlayıcı, değişimi reddederse hata size döndürülür:
+כלומר, צריך שיהיה לכם טוקן רענון תקף שלא פג התוקף שלו בזמן היצירה. אם הספק דוחה את ההמרה, השגיאה מוחזרת אליכם:
 
 ```
 {
@@ -901,11 +900,11 @@ Bu, oluşturma sırasında geçerli ve süresi dolmamış bir yenileme jetonuna 
 }
 ```
 
-Depolandıktan sonra proxy, erişim jetonlarının süresi doldukça bunları yeniler. Sağlayıcı, yenileme jetonlarını döndürürse ve yenileme sırasında yeni bir jeton döndürürse yeni jeton, depolanan jetonun yerini otomatik olarak alır.
+אחרי שהם נשמרים, ה-proxy מרענן את אסימוני הגישה כשהתוקף שלהם פג. אם הספק מבצע רוטציה של טוקנים לרענון ומחזיר טוקן חדש במהלך רענון, הטוקן החדש מחליף את הטוקן השמור באופן אוטומטי.
 
-### Ortam değişkeni
+### משתנה הסביבה
 
-`environment_variable` kimlik bilgisi için `value` ve `injection_location` gerekir:
+פרטי כניסה של `environment_variable` דורשים `value` ו-`injection_location`:
 
 ### Python
 
@@ -984,19 +983,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/credentials" \
 }'
 ```
 
-`injection_location` alanı, proxy'ye giden istekte sırrın nerede değiştirileceğini bildirir. Bir hizmetin birden fazla değere ihtiyacı olduğunda `header`, `query` veya `body` değerlerini tek bir dize ya da dizi olarak kabul eder:
+השדה `injection_location` מציין לשרת ה-Proxy איפה בבקשה היוצאת להחליף את הסוד. היא מקבלת את הערכים `header`,‏ `query` או `body`, כמחרוזת אחת או כמערך אם שירות מסוים צריך יותר מאחד:
 
 ```
 "injection_location": ["header", "query"]
 ```
 
-Yerine koyma işlemi yalnızca listelediğiniz konumlarda gerçekleşir. Yer tutucuyu başka bir yerde taşıyan istekler, iletilmek yerine reddedilir.
+ההחלפה מתבצעת רק במיקומים שציינתם. בקשה שכוללת את ה-placeholder במקום אחר נדחית ולא נשלחת.
 
-Kimliği bir değişken adına bağlamak için [Kimlikleri ortam değişkeni olarak kullanma](#environment-variables) başlıklı makaleyi inceleyin.
+במאמר [שימוש בפרטי כניסה כמשתני סביבה](#environment-variables) מוסבר איך לקשר את פרטי הכניסה לשם של משתנה.
 
-### Oluşturulan kimlikler
+### מזהים שנוצרו
 
-`id` alanı isteğe bağlıdır. Bu parametreyi atladığınızda hizmet bir UUID oluşturur:
+השדה `id` הוא אופציונלי. משמיטים אותו והשירות יוצר UUID:
 
 ```
 {
@@ -1008,11 +1007,11 @@ Kimliği bir değişken adına bağlamak için [Kimlikleri ortam değişkeni ola
 }
 ```
 
-Etkileşimlerde kullanmak üzere sabit ve okunabilir bir referans istediğinizde kendi kimliğinizi sağlayın. Kimlik, kaynak yolunda göründüğünden kısa çizgi veya alt çizgi içeren küçük alfanümerik karakterler tercih edilir.
+אתם יכולים לספק מזהה משלכם אם אתם רוצים הפניה קבועה וקריאה לשימוש באינטראקציות. המזהה מופיע בנתיב המשאב, ולכן מומלץ להשתמש באותיות קטנות, בספרות, במקפים או בקווים תחתונים.
 
-## Kimlik bilgilerini listeleme
+## הצגת רשימה של פרטי כניסה
 
-Projenize ait kimlik bilgilerini listeleyin. Yanıt grup boyutunu kontrol etmek için sayfalama parametrelerini kullanın.
+מציגים ברשימה את פרטי הכניסה ששייכים לפרויקט. אפשר להשתמש בפרמטרים של חלוקה לדפים כדי לשלוט בגודל אצווה של התגובות.
 
 ### Python
 
@@ -1072,7 +1071,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/credentials?page_s
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Yanıtta yalnızca meta veriler var:
+התשובה מכילה מטא-נתונים בלבד:
 
 ```
 {
@@ -1096,16 +1095,17 @@ Yanıtta yalnızca meta veriler var:
 }
 ```
 
-Sonraki sayfayı getirmek için `next_page_token` değerini `page_token` olarak geri iletin. Başka sonuç olmadığında alan atlanır.
+מעבירים את `next_page_token` בחזרה כ-`page_token` כדי לאחזר את הדף הבא. השדה
+מושמט כשאין תוצאות נוספות.
 
-| Parametre | Tür | Açıklama |
+| פרמטר | סוג | תיאור |
 | --- | --- | --- |
-| `page_size` | tam sayı | Sayfa başına maksimum kimlik bilgisi sayısı. |
-| `page_token` | dize | Önceki bir yanıttaki `next_page_token` jetonu. |
+| `page_size` | מספר שלם | המספר המקסימלי של פרטי כניסה בכל דף. |
+| `page_token` | מחרוזת | טוקן מתוך `next_page_token` של תשובה קודמת. |
 
-## Yeterlilik belgesi edinme
+## קבלת פרטי כניסה
 
-Belirli bir kimlik bilgisinin meta verilerini kimliğine göre alma
+אחזור מטא-נתונים של פרטי כניסה ספציפיים לפי המזהה שלהם.
 
 ### Python
 
@@ -1160,7 +1160,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/credentials/github
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Yanıt, aşağıdakine benzer şekilde görünür:
+התגובה אמורה להיראות כך:
 
 ```
 {
@@ -1172,7 +1172,7 @@ Yanıt, aşağıdakine benzer şekilde görünür:
 }
 ```
 
-Mevcut olmayan bir kimlik bilgisi istenirse `404` döndürülür:
+בקשה של פרטי כניסה שלא קיימים מחזירה את השגיאה `404`:
 
 ```
 {
@@ -1183,13 +1183,13 @@ Mevcut olmayan bir kimlik bilgisi istenirse `404` döndürülür:
 }
 ```
 
-## Kimlik bilgisini döndürme
+## עדכון של פרטי הכניסה
 
-İzin verilenler listesi kuralına, araç tanımına veya ona referans veren ortam değişkenine dokunmadan bir sırrı değiştirin. Rotasyon, bir sonraki proxy çözümünde geçerli olur.
+להחליף סוד בלי לשנות כלל ברשימת ההיתרים, הגדרת כלי או משתנה סביבתי שמפנה אליו. הרוטציה נכנסת לתוקף ברזולוציית ה-proxy הבאה.
 
-İstek, `type` ve değiştirmek istediğiniz alanları içermelidir. Atladığınız alanlar mevcut değerlerini korur.
+הבקשה צריכה לכלול את `type`, בנוסף לשדות שרוצים לשנות. הערכים הנוכחיים של השדות שלא מציינים נשמרים.
 
-Hamiline ait jetonu döndürme:
+סיבוב של אסימון למוכ"ז:
 
 ### Python
 
@@ -1258,7 +1258,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/credentials/gith
 }'
 ```
 
-OAuth2 yenileme jetonunu döndürme:
+החלפת טוקן רענון של OAuth2:
 
 ### Python
 
@@ -1327,7 +1327,7 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/credentials/jira
 }'
 ```
 
-Yanıt, yeni `update_time`'ı yansıtıyor:
+התשובה משקפת את `update_time` החדש:
 
 ```
 {
@@ -1339,11 +1339,11 @@ Yanıt, yeni `update_time`'ı yansıtıyor:
 }
 ```
 
-Kimlik bilgilerinin `type` oluşturma sırasında sabitlenir. Değiştirmek için kimlik bilgisini silip yenisini oluşturun.
+הערך של `type` בפרטי כניסה נקבע בזמן היצירה. כדי לשנות את האישורים, צריך למחוק אותם וליצור אישורים חדשים.
 
-## Kimlik bilgisini silme
+## מחיקת פרטי כניסה
 
-Artık ihtiyaç duyulmayan kimlik bilgilerini ve depolanmış sırlarını silin.
+למחוק פרטי כניסה ואת הסוד שמאוחסן בהם כשאין בהם יותר צורך.
 
 ### Python
 
@@ -1393,55 +1393,55 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/credentials/git
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Başarılı bir silme işlemi boş bir nesne döndürür:
+אם המחיקה בוצעה בהצלחה, מוחזר אובייקט ריק:
 
 ```
 {}
 ```
 
-Kimliğe hâlâ referans veren tüm izin verilenler listesi kuralları, araçları veya ortam değişkenleri çözümlenemez. Bu nedenle, önce bunları güncelleyin.
+כל כלל, כלי או משתנה סביבה ברשימת ההיתרים שמפנים עדיין למזהה לא יפעלו, ולכן צריך לעדכן אותם קודם.
 
-## Alan referansı
+## הפניה לשדה
 
-Her kimlik bilgisi için ortak olan alanlar:
+שדות שמשותפים לכל פרטי הכניסה:
 
-| Alan | Tür | Zorunlu | Açıklama |
+| שדה | סוג | נדרש | תיאור |
 | --- | --- | --- | --- |
-| `id` | dize | Hayır | Benzersiz tanımlayıcı. Atlandığında UUID olarak oluşturulur. |
-| `type` | dize | Evet | Şunlardan biri: `bearer_token`, `oauth2`, `environment_variable`. |
-| `status` | dize | Salt okunur | Kimlik bilgisinin mevcut durumu. |
-| `create_time` | dize | Salt okunur | RFC 3339 oluşturma zaman damgası. |
-| `update_time` | dize | Salt okunur | Son güncellemenin RFC 3339 zaman damgası. |
+| `id` | מחרוזת | לא | מזהה ייחודי. אם לא מציינים ערך, המערכת יוצרת מזהה ייחודי אוניברסלי (UUID). |
+| `type` | מחרוזת | כן | אחד מהערכים `bearer_token`, `oauth2`, `environment_variable`. |
+| `status` | מחרוזת | קריאה בלבד | הסטטוס הנוכחי של פרטי הכניסה. |
+| `create_time` | מחרוזת | קריאה בלבד | חותמת הזמן של היצירה בפורמט RFC 3339. |
+| `update_time` | מחרוזת | קריאה בלבד | חותמת הזמן של העדכון האחרון בפורמט RFC 3339. |
 
-`bearer_token` için alanlar:
+שדות ל-`bearer_token`:
 
-| Alan | Tür | Zorunlu | Açıklama |
+| שדה | סוג | נדרש | תיאור |
 | --- | --- | --- | --- |
-| `token` | dize | Evet | Salt yazma. Jeton değeri. |
-| `header_name` | dize | Hayır | Eklenecek üstbilgi. Varsayılan olarak `Authorization` değerine ayarlanır. |
-| `prefix` | dize | Hayır | Değer öneki. Varsayılan olarak `Bearer` değerine ayarlanır. Hiçbiri için `""` olarak ayarlayın. |
+| `token` | מחרוזת | כן | כתיבה בלבד. ערך הטוקן. |
+| `header_name` | מחרוזת | לא | הכותרת להחדרה. ברירת המחדל היא `Authorization`. |
+| `prefix` | מחרוזת | לא | קידומת ערך. ברירת המחדל היא `Bearer`. אם לא רוצים להגדיר אף אחד מהם, בוחרים באפשרות `""`. |
 
-`oauth2` için alanlar:
+שדות ל-`oauth2`:
 
-| Alan | Tür | Zorunlu | Açıklama |
+| שדה | סוג | נדרש | תיאור |
 | --- | --- | --- | --- |
-| `client_id` | dize | Evet | OAuth2 istemci kimliği. |
-| `client_secret` | dize | Evet | Salt yazma. OAuth2 istemci gizli anahtarı. |
-| `refresh_token` | dize | Evet | Salt yazma. Erişim jetonları almak için kullanılan yenileme jetonu. |
-| `token_url` | dize | Evet | Sağlayıcı jeton uç noktası. |
-| `scopes` | dizi | Hayır | İstek yapılacak OAuth kapsamları. |
+| `client_id` | מחרוזת | כן | מזהה לקוח ב-OAuth2. |
+| `client_secret` | מחרוזת | כן | כתיבה בלבד. סוד לקוח OAuth2. |
+| `refresh_token` | מחרוזת | כן | כתיבה בלבד. אסימון רענון שמשמש להשגת טוקנים של גישה. |
+| `token_url` | מחרוזת | כן | נקודת הקצה של הטוקן של הספק. |
+| `scopes` | מערך | לא | היקפי הרשאות OAuth לבקשה. |
 
-`environment_variable` için alanlar:
+שדות ל-`environment_variable`:
 
-| Alan | Tür | Zorunlu | Açıklama |
+| שדה | סוג | נדרש | תיאור |
 | --- | --- | --- | --- |
-| `value` | dize | Evet | Salt yazma. Gizli anahtar değeri. |
-| `injection_location` | dize veya dizi | Evet | Gizli anahtarın yerine ne yazılacağı. `header`, `query`, `body` değerlerinden biri veya daha fazlası. |
-| `trusted_domains` | dizi | Hayır | Değiştirme için yetkilendirilmiş alan adları. |
+| `value` | מחרוזת | כן | כתיבה בלבד. ערך הסוד. |
+| `injection_location` | מחרוזת או מערך | כן | איפה להחליף את הסוד. אחת או יותר מהאפשרויות הבאות: `header`, `query`, `body`. |
+| `trusted_domains` | מערך | לא | תבניות דומיין שמורשות להחלפה. |
 
-## Hatalar
+## שגיאות
 
-Hatalar, `message` ve `code` içeren bir JSON nesnesi döndürür:
+שגיאות מחזירות אובייקט JSON עם `message` ו-`code`:
 
 ```
 {
@@ -1452,13 +1452,13 @@ Hatalar, `message` ve `code` içeren bir JSON nesnesi döndürür:
 }
 ```
 
-| HTTP durumu | `code` | Neden |
+| סטטוס HTTP | `code` | סיבה |
 | --- | --- | --- |
-| 400 | `invalid_request` | Zorunlu alan eksik, bilinmeyen alan, desteklenmeyen `type` veya başarısız OAuth2 doğrulama. |
-| 404 | `not_found` | Bu kimliğe sahip kimlik bilgisi yok. |
-| 409 | `aborted` | Bu kimliğe sahip bir kimlik bilgisi zaten var. |
+| 400 | `invalid_request` | שדה חובה חסר, שדה לא ידוע, `type` לא נתמך או אימות OAuth2 נכשל. |
+| 404 | `not_found` | לא נמצאו פרטי כניסה עם המזהה הזה. |
+| 409 | `aborted` | כבר קיימים פרטי כניסה עם המזהה הזה. |
 
-Bilinmeyen alanlar yoksayılmak yerine reddedilir ve hata, alanı adlandırır:
+שדות לא מוכרים נדחים ולא מתעלמים מהם, והשגיאה מציינת את השדה:
 
 ```
 {
@@ -1469,18 +1469,18 @@ Bilinmeyen alanlar yoksayılmak yerine reddedilir ve hata, alanı adlandırır:
 }
 ```
 
-## Sırada ne var?
+## המאמרים הבאים
 
-- [Ortamlar](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr): Aracıların kodu nasıl çalıştırdığını ve dosyaları nasıl kalıcı hale getirdiğini öğrenin.
-- [Ajanlara Genel Bakış](https://ai.google.dev/gemini-api/docs/agents?hl=tr): Yönetilen ajanların temel kavramları hakkında bilgi edinin.
-- [Özel Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): `AGENTS.md` ve `SKILL.md` kullanarak kendi ajanlarınızı tanımlayın.
+- [סביבות](https://ai.google.dev/gemini-api/docs/agent-environment?hl=he): מידע על האופן שבו סוכנים מריצים קוד ושומרים קבצים.
+- [סקירה כללית על סוכנים](https://ai.google.dev/gemini-api/docs/agents?hl=he): מידע על המושגים המרכזיים של סוכנים מנוהלים.
+- [יצירת סוכנים בהתאמה אישית](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he): הגדרת סוכנים משלכם באמצעות `AGENTS.md` ו-`SKILL.md`.
 
-Geri bildirim gönderin
+שליחת משוב
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Son güncelleme tarihi: 2026-10-07 UTC.
+עדכון אחרון: 2026-10-07 (שעון UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+רוצה לתת לנו משוב?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-07 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-07 (שעון UTC)."],[],[]]

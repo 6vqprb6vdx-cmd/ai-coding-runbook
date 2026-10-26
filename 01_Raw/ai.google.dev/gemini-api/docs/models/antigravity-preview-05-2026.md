@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=fr
-fetched_at: 2026-10-19T05:43:09.787817+00:00
-title: "Aper\u00e7u Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=hi
+fetched_at: 2026-10-26T06:04:21.991102+00:00
+title: "Antigravity \u0915\u0940 \u091d\u0932\u0915 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envoyer des commentaires
+सुझाव भेजें
 
-# Aperçu Antigravity
+# Antigravity की झलक
 
-Agent géré polyvalent et puissant conçu pour les workflows autonomes en plusieurs étapes. Ce modèle planifie, raisonne, exécute du code, gère des fichiers et effectue des recherches sur le Web dans un bac à sable Linux sécurisé et isolé hébergé par Google.
+यह मैनेज किया गया एक शक्तिशाली एजेंट है, जिसे अलग-अलग कामों के लिए इस्तेमाल की जाने वाली मशीन के तौर पर डिज़ाइन किया गया है. यह कई चरणों वाले वर्कफ़्लो को अपने-आप पूरा कर सकता है. यह मॉडल, Google के होस्ट किए गए सुरक्षित और अलग Linux सैंडबॉक्स में प्लान करता है, वजहें बताता है, कोड चलाता है, फ़ाइलें मैनेज करता है, और वेब पर खोज करता है.
 
-## Documentation
+## दस्तावेज़
 
-Consultez la page [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) pour obtenir une couverture complète des fonctionnalités, des capacités et des exemples de code.
+सुविधाओं, क्षमताओं, और कोड सैंपल के बारे में पूरी जानकारी पाने के लिए, [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi) पेज पर जाएं.
 
 ## antigravity-preview-05-2026
 
-| Propriété | Description |
+| प्रॉपर्टी | ब्यौरा |
 | --- | --- |
-| id\_cardCode d'agent | **API Interactions**  `antigravity-preview-05-2026` |
-| Types de données acceptés pour save | **Entrée**  Texte, image  **Résultat**  Texte |
-| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Fenêtre de contexte d'entrée**  1 048 576 (compressé à environ 135 000)  **Limite de jetons de sortie**  65 536 |
-| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Aperçu : `antigravity-preview-05-2026` |
-| calendar\_monthDernière mise à jour | Mai 2026 |
+| id\_cardएजेंट कोड | **Interactions API**  `antigravity-preview-05-2026` |
+| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  टेक्स्ट |
+| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट कॉन्टेक्स्ट विंडो**  1,048,576 (कंप्रेस करके ~135 हज़ार)  **आउटपुट टोकन की सीमा**  65,536 |
+| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - झलक देखें: `antigravity-preview-05-2026` |
+| calendar\_monthनया अपडेट | मई 2026 |
 
-Envoyer des commentaires
+सुझाव भेजें
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Dernière mise à jour le 2026/09/24 (UTC).
+आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
 
-Voulez-vous nous donner plus d'informations ?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/24 (UTC)."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]

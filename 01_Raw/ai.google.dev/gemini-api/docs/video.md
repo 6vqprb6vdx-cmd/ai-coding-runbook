@@ -1,50 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=tr
-fetched_at: 2026-10-19T05:46:50.209703+00:00
-title: "Gemini API'de video \u00fcretme \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=sq
+fetched_at: 2026-10-26T05:48:27.276458+00:00
+title: "Gjenerimi i videove n\u00eb Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-Geri bildirim gönderin
+Dërgo komente
 
-# Gemini API'de video üretme
+# Gjenerimi i videove në Gemini API
 
-Gemini API, video oluşturmak için iki model sunar: [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=tr) ve [Veo](https://ai.google.dev/gemini-api/docs/veo?hl=tr).
-Her biri farklı iş akışları için tasarlanmıştır.
+Përdor [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=sq) si modelin tënd për gjenerimin e videove dhe modifikimin e videove nëpërmjet bisedës në Gemini API. Ai ofron koherencë superiore të videove, arsyetim me shumë hyrje (duke mbështetur hyrjet me tekst, imazhe, audio dhe video në të njëjtën kohë), konsekuencë personazhi, saktësi faktike dhe modifikime përmes bisedës me disa raunde (p.sh. zëvendësimi i elementeve ose ndryshimet e perspektivës).
 
-Video üretimi için varsayılan modeliniz olarak Gemini Omni Flash'i kullanın. Üstün video tutarlılığı, çoklu giriş akıl yürütme (aynı anda metin, resim, ses ve video girişlerini destekler), karakter tutarlılığı, olgusal doğruluk ve çok turlu sohbete dayalı düzenleme (ör. öğe değiştirme veya perspektif değişiklikleri) sunar. Sahne genişletme, son kare kontrolü veya eski işlem hatlarıyla entegrasyon gibi belirli özellikler için Veo 3.1'in kullanılması gerekir.
+Versioni paraprak i Veo 3.1 në Gemini API është mbyllur.
 
 ## Gemini Omni Flash
 
-Gemini Omni Flash, video üretimi ve sohbet tarzında video düzenleme için hızlı, çok formatlı bir modeldir. Metin istemlerini ve resimleri hızlı bir şekilde kısa videolara dönüştürme konusunda başarılıdır. Ayrıca, Etkileşimler API'sini kullanarak sonuçları birden fazla dönüşte iyileştirmenize olanak tanır.
+Gemini Omni Flash është një model i shpejtë multimodal për gjenerimin e videove dhe modifikimin e videove në formë bisede. Ai është i shkëlqyer për të shndërruar me shpejtësi kërkesat me tekst dhe imazhet në video të shkurtra dhe të lejon të rafinosh rezultatet në disa raunde duke përdorur Interactions API.
 
-[Gemini Omni Flash'ı kullanmaya başlayın →](https://ai.google.dev/gemini-api/docs/omni?hl=tr)
+[Fillo me Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=sq)
 
 ## Veo 3.1
 
-Veo 3.1, tümleşik ses içeren videolar üretmek için kullanılan bir modeldir. `generateContent` API aracılığıyla video uzantısı, kareye özel üretim ve resme dayalı yönlendirme gibi özellikleri destekler.
+## Kuptimi i videove
 
-[Veo 3.1'i kullanmaya başlama →](https://ai.google.dev/gemini-api/docs/veo?hl=tr)
+Nëse duhet të transferosh dhe të analizosh përmbajtje ekzistuese video në vend që të gjenerosh
+video të re, shiko [Udhëzuesin për kuptimin e videove](https://ai.google.dev/gemini-api/docs/video-understanding?hl=sq).
 
-## Video anlama
+Dërgo komente
 
-Yeni video oluşturmak yerine mevcut video içeriklerini alıp analiz etmeniz gerekiyorsa [Video anlama kılavuzu](https://ai.google.dev/gemini-api/docs/video-understanding?hl=tr)'na bakın.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Geri bildirim gönderin
+Përditësimi i fundit: 2026-10-22 UTC.
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Duhet të na tregosh më shumë?
 
-Son güncelleme tarihi: 2026-06-30 UTC.
-
-Bize geri bildirimde bulunmak mı istiyorsunuz?
-
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-06-30 UTC."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-22 UTC."],[],[]]

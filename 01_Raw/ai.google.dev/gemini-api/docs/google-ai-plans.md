@@ -1,94 +1,76 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=es-419
-fetched_at: 2026-10-19T05:45:10.335293+00:00
-title: "Planes Google AI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/google-ai-plans?hl=sq
+fetched_at: 2026-10-26T05:37:51.581315+00:00
+title: "Planet e IA-s\u00eb s\u00eb Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-Enviar comentarios
+Dërgo komente
 
-# Planes Google AI
+# Planet e IA-së së Google
 
-Usa tu plan de suscripción a Google AI en AI Studio.
+Përdor planin tënd të abonimit të IA-së së Google në AI Studio.
 
-Los planes de suscripción Google AI Pro y Ultra proporcionan un mayor acceso a los modelos y
-límites de frecuencia más altos para la creación de prototipos y el desarrollo en AI Studio en comparación con
-el nivel gratuito.
+Planet e abonimit të Google AI Pro dhe Ultra ofrojnë qasje më të madhe në modele dhe
+kufij më të lartë të normave për krijimin e prototipave dhe për zhvillimin në AI Studio në krahasim me
+nivelin falas.
 
-Para registrarte en un plan Google AI, puedes actualizarlo directamente desde
-Google AI Studio haciendo clic en el botón **Actualizar** en el menú de navegación
-izquierdo. Como alternativa, puedes registrarte visitando la
-[página de planes Google AI](https://one.google.com/about/google-ai-plans/?hl=es-419).
+Për t'u regjistruar për një plan të IA-së së Google, mund ta përmirësosh drejtpërdrejt nga brenda Google AI Studio duke klikuar butonin **Përmirëso** në menynë e navigimit majtas. Si alternativë, mund të regjistrohesh duke vizituar
+[faqen e planeve të IA-së së Google](https://one.google.com/about/google-ai-plans/?hl=sq).
 
-## Descripción general
+## Përmbledhja
 
-Las suscripciones a Google AI Pro y Ultra permiten a los desarrolladores acceder a modelos
-pagados y límites de frecuencia más altos en Google AI Studio Playground y a funciones
-como el asistente de programación en el [modo de compilación](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=es-419)
-para la programación por vibración. Los suscriptores reciben asignaciones de cuota diaria de referencia
-más altas que las del nivel gratuito para usarlas en las interfaces de
-[Playground](https://aistudio.google.com/prompts/new_chat?hl=es-419) y
-[Build](https://aistudio.google.com/apps?hl=es-419). Los límites diarios se
-aplican mediante restablecimientos en lugar de períodos continuos, lo que garantiza una experiencia de desarrollo
-fluida antes de pasar al desarrollo a escala de producción
-con la Facturación de Cloud.
+Abonimet e Google AI Pro dhe Ultra u mundësojnë zhvilluesve të shkyçin modelet me pagesë dhe kufij më të lartë të normave në Google AI Studio Playground dhe veçori si "Asistenti i kodit" në [modalitetin e ndërtimit](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=sq) për kodimin e vibe. Abonentët marrin kuota bazë ditore më të larta se niveli falas për përdorim në ndërfaqet e
+[Playground](https://aistudio.google.com/prompts/new_chat?hl=sq) dhe
+[Build](https://aistudio.google.com/apps?hl=sq). Kufijtë ditorë zbatohen duke përdorur rivendosjet dhe jo dritaret kohore të lëvizshme, duke siguruar një përvojë të qetë zhvillimi para kalimit në zhvillimin në shkallë prodhimi me Cloud Billing.
 
-| Plan | Uso de AI Studio | Acceso a modelos y beneficios |
+| Plani | Përdorimi i AI Studio | Qasja te modeli dhe përfitimet |
 | --- | --- | --- |
-| **Gratis** | Cuota moderada | Límites y acceso básicos, con la opción de actualizar para obtener más. |
-| **AI Pro** | Cuota más alta | Acceso a modelos premium, como [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419), Gemini Pro, Nano Banana y Lyria |
-| **AI Ultra** | Cuota más alta | Los límites más altos para creación de prototipos, desarrollo y modelos de frontera avanzados, como [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419). |
+| **Falas** | Kuotë modeste | Kufij dhe qasje bazë, me opsionin për ta përmirësuar për më shumë. |
+| **AI Pro** | Kuotë më e lartë | Qasje në modelet premium si [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=sq), Gemini Pro, Nano Banana dhe Lyria. |
+| **AI Ultra** | Kuota më e lartë | Kufijtë më të lartë për krijimin e prototipave, zhvillimin dhe modelet kufitare të përparuara si [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=sq). |
 
-## Uso de la API de Gemini
+## Përdorimi i Gemini API
 
-Cuando se agotan las cuotas de suscripción de referencia diarias en AI Studio,
-puedes continuar con tus flujos de trabajo usando una clave de API de Gemini con la Facturación de Cloud
-habilitada para el uso de pago por solicitud de la API de Gemini directamente.
-El uso de la API de Gemini para proyectos y claves de API se puede observar en el
-[panel de AI Studio](https://aistudio.google.com/projects?hl=es-419).
+Kur kuotat bazë ditore të abonimit të jenë konsumuar në AI Studio, mund të vazhdosh me flukset e tua të punës duke përdorur një çelës të Gemini API me "Faturimin në Cloud" të aktivizuar për përdorimin me pagesë për kërkesë të Gemini API drejtpërdrejt.
+Përdorimi i Gemini API për projektet dhe çelësat API mund të vëzhgohet në
+[Panelin e AI Studio](https://aistudio.google.com/projects?hl=sq).
 
-Los suscriptores con proyectos de Google Cloud Platform (GCP) y la Facturación de Cloud
-habilitada reúnen los requisitos para recibir créditos mensuales de Cloud del
-[Google Developer Program](https://developers.google.com/program?hl=es-419)
-para los servicios de Cloud, incluida la API de Gemini. El uso y la facturación de prepago y pospago
-no cambian. En el caso de los usuarios que usan la facturación prepaga, se requiere un
-saldo pagado superior a USD 0 en AI Studio para activar los créditos
-promocionales. Si hay créditos de Google Cloud elegibles, se aplicarán primero.
-[Obtén más información](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#billing-plans).
+Abonentët me projekte të Google Cloud Platform (GCP) dhe Cloud Billing të aktivizuar kualifikohen për të marrë kredite mujore të Cloud nga [Programi i zhvilluesit të Google](https://developers.google.com/program?hl=sq) për shërbimet e Cloud, duke përfshirë Gemini API. Përdorimi dhe faturimi i parapagimit dhe pagesës së mëvonshme mbeten të pandryshuara. Për përdoruesit me faturim me parapagim, kërkohet një balancë e paguar më e madhe se 0 USD në AI Studio për të aktivizuar kreditet e promocionit. Kreditet e kualifikueshme të Google Cloud, nëse ka, zbatohen në fillim.
+[Mëso më shumë](https://ai.google.dev/gemini-api/docs/billing?hl=sq#billing-plans).
 
-La integración de la suscripción a la IA de Google reduce la barrera de entrada para
-la experimentación y el desarrollo avanzados. Sin embargo, para las implementaciones de producción a gran escala, se recomiendan los proyectos de Google Cloud, el [nivel Inicial de Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=es-419) y las claves de API de Gemini.
+Integrimi i abonimit që përfshin IA-në e Google ul pengesën për hyrjen për eksperimentimin dhe zhvillimin e përparuar. Megjithatë, për nxjerrjet në prodhim në shkallë të gjerë, projektet e Google Cloud,
+[niveli fillestar i Google Cloud](https://cloud.google.com/blog/topics/developers-practitioners/the-starter-tier-for-google-ai-studio-explained?hl=sq)
+dhe çelësat e Gemini API janë rruga e rekomanduar.
 
-## Limitaciones y compatibilidad
+## Kufizimet dhe përputhshmëria
 
-- **Solo para la IU de AI Studio:** Los beneficios del plan Google AI para el uso de desarrolladores solo se aplican en la interfaz web de Google AI Studio. El uso directo de la API de Gemini
-  (como el uso de claves de API o aplicaciones externas) se factura y administra
-  por separado. Sin embargo, puedes usar tu suscripción en otros productos de Google (consulta [Planes Google AI](https://one.google.com/about/google-ai-plans/?hl=es-419)).
-- **Diferente de la facturación de la API:** Los planes de Google AI para AI Studio son independientes
-  de los [niveles de uso de la API de Gemini](https://ai.google.dev/gemini-api/docs/billing?hl=es-419), que abarcan
-  el uso de la API de desarrollo y producción.
-- **Créditos de Google One:** Los [créditos de IA de Google One](https://support.google.com/googleone/answer/16287445?hl=es-419) son un
-  sistema de créditos independiente que no se admite en AI Studio y no
-  se superponen con los créditos de Google Cloud.
-- **Acceso a Gemini 4 Argon:** [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419)
-  no está disponible en el plan gratuito.
-- **Acceso a agentes:** El acceso a agentes (Deep Research y Antigravity Preview) en AI Studio no se incluye en los planes Google AI y requiere una [clave de API pagada](https://ai.google.dev/gemini-api/docs/billing?hl=es-419#setup-billing).
+- **Vetëm ndërfaqja e përdoruesit e AI Studio:** Përfitimet e planit të IA-së së Google për përdorimin nga zhvilluesit zbatohen vetëm brenda ndërfaqes së uebit të Google AI Studio. Përdorimi i drejtpërdrejtë i Gemini API
+  (si p.sh. përdorimi i çelësave API ose aplikacioneve të jashtme) faturohet dhe menaxhohet
+  veçmas. Megjithatë, mund ta përdorësh abonimin tënd në produkte të tjera të Google (shiko [Planet e IA-së së Google](https://one.google.com/about/google-ai-plans/?hl=sq)).
+- **Ndryshe nga faturimi i API-së:** Planet e IA-së së Google për AI Studio janë të ndara nga [nivelet e përdorimit të Gemini API](https://ai.google.dev/gemini-api/docs/billing?hl=sq), të cilat mbulojnë përdorimin e API-së për zhvillimin dhe prodhimin.
+- **Kreditet e Google One:** [Kreditet e IA-së të Google One](https://support.google.com/googleone/answer/16287445?hl=sq) janë një sistem i veçantë kreditesh që nuk mbështetet brenda AI Studio dhe nuk mbivendoset me kreditet e Google Cloud.
+- **Qasja në Gemini 4 Argon:** [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=sq)
+  nuk ofrohet në planin falas.
+- **Qasja tek agjentët:** Qasja tek agjentët (Deep Research dhe Antigravity Preview)
+  brenda AI Studio nuk përfshihet në planet e IA-së së Google dhe kërkon një
+  [çelës API me pagesë](https://ai.google.dev/gemini-api/docs/billing?hl=sq#setup-billing).
 
-Enviar comentarios
+Dërgo komente
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Última actualización: 2026-10-16 (UTC)
+Përditësimi i fundit: 2026-10-16 UTC.
 
-¿Quieres brindar más información?
+Duhet të na tregosh më shumë?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-16 (UTC)"],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-16 UTC."],[],[]]

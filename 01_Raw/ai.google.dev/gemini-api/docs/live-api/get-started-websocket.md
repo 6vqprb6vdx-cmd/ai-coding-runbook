@@ -1,69 +1,69 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=pt-BR
-fetched_at: 2026-10-19T05:46:57.062072+00:00
-title: "Come\u00e7ar a usar a API Gemini Live com WebSockets \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket?hl=hi
+fetched_at: 2026-10-26T05:48:17.140625+00:00
+title: "WebSockets \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0915\u0947, Gemini Live API \u0915\u093e \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0936\u0941\u0930\u0942 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envie comentários
+सुझाव भेजें
 
-# Começar a usar a API Gemini Live com WebSockets
+# WebSockets का इस्तेमाल करके, Gemini Live API का इस्तेमाल शुरू करना
 
-A API Gemini Live permite a interação bidirecional em tempo real com os modelos do Gemini, oferecendo suporte a entradas de áudio, vídeo e texto, além de saídas de áudio nativas. Este guia explica como fazer a integração diretamente com a API usando WebSockets brutos.
+Gemini Live API की मदद से, Gemini मॉडल के साथ रीयल-टाइम में दोनों तरफ़ से बातचीत की जा सकती है. इसमें ऑडियो, वीडियो, और टेक्स्ट इनपुट के साथ-साथ नेटिव ऑडियो आउटपुट की सुविधा भी मिलती है. इस गाइड में, रॉ वेबसॉकेट का इस्तेमाल करके, सीधे तौर पर एपीआई के साथ इंटिग्रेट करने का तरीका बताया गया है.
 
-[Testar a API Live no Google AI Studiomic](https://aistudio.google.com/live?hl=pt-br)
-[Clonar o app de exemplo do GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
-[Usar habilidades do agente de codificaçãoterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=pt-br)
+[Google AI Studio में Live API आज़माएंmic](https://aistudio.google.com/live?hl=hi)
+[GitHub से उदाहरण ऐप्लिकेशन क्लोन करेंcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-ephemeral-tokens-websocket)
+[कोडिंग एजेंट की क्षमताओं का इस्तेमाल करेंterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi)
 
-## Visão geral
+## खास जानकारी
 
-A API Gemini Live usa WebSockets para comunicação em tempo real. Ao contrário do uso de um SDK, essa abordagem envolve o gerenciamento direto da conexão WebSocket e o envio/recebimento de mensagens em um formato JSON específico definido pela API.
+Gemini Live API, रीयल-टाइम में बातचीत करने के लिए WebSockets का इस्तेमाल करता है. एसडीके टूल का इस्तेमाल करने के बजाय, इस तरीके में WebSocket कनेक्शन को सीधे तौर पर मैनेज किया जाता है. साथ ही, एपीआई के तय किए गए JSON फ़ॉर्मैट में मैसेज भेजे और पाए जाते हैं.
 
-Principais conceitos:
+मुख्य कॉन्सेप्ट:
 
-- **Endpoint do WebSocket**: o URL específico para conexão.
-- **Formato da mensagem**: toda a comunicação é feita por mensagens JSON em conformidade com as estruturas [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentclientmessage) e [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentservermessage).
-- **Gerenciamento de sessões**: você é responsável por manter a conexão WebSocket.
+- **WebSocket एंडपॉइंट**: कनेक्ट करने के लिए खास यूआरएल.
+- **मैसेज का फ़ॉर्मैट**: सभी कम्यूनिकेशन, JSON मैसेज के ज़रिए किए जाते हैं. ये मैसेज, [`BidiGenerateContentClientMessage`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentclientmessage) और [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentservermessage) स्ट्रक्चर के मुताबिक होते हैं.
+- **सेशन मैनेजमेंट**: WebSocket कनेक्शन को बनाए रखने की ज़िम्मेदारी आपकी होती है.
 
-## Autenticação
+## पुष्टि करना
 
-A autenticação é processada incluindo sua chave de API como um parâmetro de consulta no URL do WebSocket.
+पुष्टि करने की प्रोसेस को मैनेज करने के लिए, WebSocket यूआरएल में अपनी एपीआई कुंजी को क्वेरी पैरामीटर के तौर पर शामिल करें.
 
-O formato do endpoint é:
+एंडपॉइंट का फ़ॉर्मैट यह है:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=YOUR_API_KEY
 ```
 
-Substitua `YOUR_API_KEY` pela sua chave de API real.
+`YOUR_API_KEY` की जगह अपनी एपीआई कुंजी डालें.
 
-## Autenticação com tokens temporários
+## कुछ समय के लिए मान्य टोकन की मदद से पुष्टि करना
 
-Se você estiver usando [tokens temporários](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=pt-br), será necessário se conectar ao endpoint `v1beta`.
-O token temporário precisa ser transmitido como um parâmetro de consulta `access_token`.
+अगर [कुछ समय के लिए मान्य टोकन](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=hi) का इस्तेमाल किया जा रहा है, तो आपको `v1beta` एंडपॉइंट से कनेक्ट करना होगा.
+अस्थायी टोकन को `access_token` क्वेरी पैरामीटर के तौर पर पास करना ज़रूरी है.
 
-O formato do endpoint para chaves temporárias é:
+अस्थायी कुंजियों के लिए एंडपॉइंट का फ़ॉर्मैट यह है:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContentConstrained?access_token={short-lived-token}
 ```
 
-Substitua `{short-lived-token}` pelo token temporário real.
+`{short-lived-token}` की जगह असल इफ़ेमरल टोकन डालें.
 
-## Conectar-se à API Live
+## Live API से कनेक्ट करना
 
-Para iniciar uma sessão ao vivo, estabeleça uma conexão WebSocket com o endpoint autenticado.
-A primeira mensagem enviada pelo WebSocket precisa ser um [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentsetup) que contenha o `config`.
-Para conferir as opções de configuração completas, consulte a [referência da API Live - WebSockets](https://ai.google.dev/api/live?hl=pt-br).
+लाइव सेशन शुरू करने के लिए, पुष्टि किए गए एंडपॉइंट से WebSocket कनेक्शन बनाएं.
+WebSocket पर भेजा गया पहला मैसेज, [`BidiGenerateContentSetup`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentsetup) होना चाहिए. इसमें `config` शामिल होना चाहिए.
+कॉन्फ़िगरेशन के सभी विकल्पों के बारे में जानने के लिए, [लाइव एपीआई - WebSockets API के बारे में जानकारी](https://ai.google.dev/api/live?hl=hi) देखें.
 
 ### Python
 
@@ -144,9 +144,9 @@ websocket.onclose = () => {
 };
 ```
 
-## Enviar texto
+## टेक्स्ट भेजें
 
-Para enviar a entrada de texto, crie uma [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentrealtimeinput) mensagem com o `text` campo.
+टेक्स्ट इनपुट भेजने के लिए, `text` फ़ील्ड के साथ [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentrealtimeinput) मैसेज बनाएं.
 
 ### Python
 
@@ -185,9 +185,9 @@ function sendTextMessage(text) {
 sendTextMessage("Hello, how are you?");
 ```
 
-## Enviar áudio
+## ऑडियो भेजें
 
-O áudio precisa ser enviado como dados PCM brutos (áudio PCM bruto de 16 bits, 16 kHz, little-endian). Crie uma [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentrealtimeinput) mensagem com os dados de áudio. O `mimeType` é essencial.
+ऑडियो को रॉ पीसीएम डेटा (रॉ 16-बिट पीसीएम ऑडियो, 16kHz, लिटिल-एंडियन) के तौर पर भेजा जाना चाहिए. ऑडियो डेटा की मदद से, [`BidiGenerateContentRealtimeInput`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentrealtimeinput) मैसेज बनाएं. `mimeType` बहुत ज़रूरी है.
 
 ### Python
 
@@ -232,12 +232,11 @@ function sendAudioChunk(chunk) {
 // Example usage: sendAudioChunk(audioBuffer);
 ```
 
-Para conferir um exemplo de como receber o áudio do dispositivo cliente (por exemplo, o navegador),
-consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74).
+क्लाइंट डिवाइस (जैसे कि ब्राउज़र) से ऑडियो पाने का उदाहरण देखने के लिए, [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L38-L74) पर एंड-टू-एंड उदाहरण देखें.
 
-## Enviar vídeo
+## वीडियो भेजें
 
-Os frames de vídeo são enviados como imagens individuais (por exemplo, JPEG ou PNG). Assim como o áudio, use `realtimeInput` com um `Blob`, especificando o `mimeType` correto.
+वीडियो फ़्रेम को अलग-अलग इमेज (जैसे, JPEG या PNG) के तौर पर भेजा जाता है. ऑडियो की तरह ही, `realtimeInput` का इस्तेमाल `Blob` के साथ करें. साथ ही, सही `mimeType` की जानकारी दें.
 
 ### Python
 
@@ -282,12 +281,11 @@ function sendVideoFrame(frame, mimeType = 'image/jpeg') {
 // Example usage: sendVideoFrame(jpegBuffer);
 ```
 
-Para conferir um exemplo de como receber o vídeo do dispositivo cliente (por exemplo, o navegador),
-consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222).
+क्लाइंट डिवाइस (जैसे कि ब्राउज़र) से वीडियो पाने का उदाहरण देखने के लिए, [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/mediaUtils.js#L185-L222) पर दिया गया पूरा उदाहरण देखें.
 
-## Receber respostas
+## जवाब पाना
 
-O WebSocket vai enviar [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentservermessage) mensagens. É necessário analisar essas mensagens JSON e processar diferentes tipos de conteúdo.
+WebSocket, [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentservermessage) मैसेज वापस भेजेगा. आपको इन JSON मैसेज को पार्स करना होगा और अलग-अलग तरह के कॉन्टेंट को मैनेज करना होगा.
 
 ### Python
 
@@ -358,11 +356,11 @@ websocket.onmessage = (event) => {
 };
 ```
 
-Para conferir um exemplo de como processar a resposta, consulte o exemplo completo no [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75).
+रिस्पॉन्स को मैनेज करने का उदाहरण देखने के लिए, [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-ephemeral-tokens-websocket/frontend/geminilive.js#L22-L75) पर दिया गया पूरा उदाहरण देखें.
 
-## Processar chamadas de ferramentas
+## टूल कॉल मैनेज करना
 
-Quando o modelo solicita uma chamada de ferramenta, o [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontentservermessage) contém um campo `toolCall`. É necessário executar a função localmente e enviar o resultado de volta ao WebSocket usando uma [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=pt-br#bidigeneratecontenttoolresponse) mensagem.
+जब मॉडल, टूल कॉल का अनुरोध करता है, तब [`BidiGenerateContentServerMessage`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontentservermessage) में `toolCall` फ़ील्ड शामिल होता है. आपको फ़ंक्शन को स्थानीय तौर पर लागू करना होगा. साथ ही, [`BidiGenerateContentToolResponse`](https://ai.google.dev/api/live?hl=hi#bidigeneratecontenttoolresponse) मैसेज का इस्तेमाल करके, नतीजे को WebSocket पर वापस भेजना होगा.
 
 ### Python
 
@@ -449,20 +447,20 @@ function handleToolCall(toolCall) {
 // This function is called within websocket.onmessage when a toolCall is detected.
 ```
 
-## A seguir
+## आगे क्या करना है
 
-- Leia o guia completo de [recursos](https://ai.google.dev/gemini-api/docs/live-guide?hl=pt-br) da API Live para conferir os principais recursos e configurações, incluindo a detecção de atividade de voz e recursos de áudio nativos.
-- Leia o [guia de uso de ferramentas](https://ai.google.dev/gemini-api/docs/live-tools?hl=pt-br) para saber como integrar a API Live com ferramentas e chamadas de função.
-- Leia o [guia de gerenciamento de sessões](https://ai.google.dev/gemini-api/docs/live-session?hl=pt-br) para gerenciar conversas longas.
-- Leia o guia de [tokens temporários](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=pt-br) para autenticação segura em aplicativos [cliente-servidor](#implementation-approach).
-- Para mais informações sobre a API WebSockets subjacente, consulte a [referência da API WebSockets](https://ai.google.dev/api/live?hl=pt-br).
+- मुख्य सुविधाओं और कॉन्फ़िगरेशन के लिए, Live API की [सुविधाओं](https://ai.google.dev/gemini-api/docs/live-guide?hl=hi) से जुड़ी पूरी गाइड पढ़ें. इसमें आवाज़ की गतिविधि का पता लगाने और नेटिव ऑडियो सुविधाओं के बारे में जानकारी शामिल है.
+- टूल और फ़ंक्शन कॉलिंग के साथ Live API को इंटिग्रेट करने का तरीका जानने के लिए, [टूल इस्तेमाल करने](https://ai.google.dev/gemini-api/docs/live-tools?hl=hi) से जुड़ी गाइड पढ़ें.
+- लंबे समय तक चलने वाली बातचीत को मैनेज करने के लिए, [सेशन मैनेजमेंट](https://ai.google.dev/gemini-api/docs/live-session?hl=hi) गाइड पढ़ें.
+- [क्लाइंट-टू-सर्वर](#implementation-approach) ऐप्लिकेशन में सुरक्षित तरीके से पुष्टि करने के लिए, [एफ़ेमरल टोकन](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=hi) गाइड पढ़ें.
+- WebSockets API के बारे में ज़्यादा जानने के लिए, [WebSockets API का रेफ़रंस](https://ai.google.dev/api/live?hl=hi) देखें.
 
-Envie comentários
+सुझाव भेजें
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última atualização 2026-09-17 UTC.
+आखिरी बार 2026-09-17 (UTC) को अपडेट किया गया.
 
-Quer enviar seu feedback?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-17 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-17 (UTC) को अपडेट किया गया."],[],[]]

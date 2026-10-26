@@ -1,38 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=ar
-fetched_at: 2026-10-19T05:32:17.227437+00:00
-title: "\u0648\u0643\u064a\u0644 \u0627\u0644\u0628\u062d\u062b \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini \u0648LlamaIndex \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/llama-index?hl=tr
+fetched_at: 2026-10-26T05:56:32.663258+00:00
+title: "Gemini ve LlamaIndex ile ara\u015ft\u0131rma temsilcisi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-# وكيل البحث باستخدام Gemini وLlamaIndex
+# Gemini ve LlamaIndex ile araştırma temsilcisi
 
-‫LlamaIndex هو إطار عمل لإنشاء وكلاء معرفة باستخدام نماذج لغوية كبيرة مرتبطة ببياناتك. يوضّح لك هذا المثال كيفية إنشاء سير عمل يتضمّن عدّة وكلاء
-لوكلاء البحث. في LlamaIndex، تشكّل [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)
-المكوّنات الأساسية للوكلاء والأنظمة المتعددة الوكلاء.
+LlamaIndex, verilerinize bağlı LLM'leri kullanarak bilgi aracıları oluşturmaya yönelik bir çerçevedir. Bu örnekte, bir Araştırma Ajanı için çoklu ajan iş akışının nasıl oluşturulacağı gösterilmektedir. LlamaIndex'te [`Workflows`](https://docs.llamaindex.ai/en/stable/module_guides/workflow/), temsilci ve çoklu temsilci sistemlerinin yapı taşlarıdır.
 
-يجب أن يكون لديك مفتاح Gemini API. إذا لم يكن لديك حساب، يمكنك
-[إنشاء حساب في Google AI Studio](https://aistudio.google.com/apikey?hl=ar).
-أولاً، ثبِّت جميع مكتبات LlamaIndex المطلوبة. تستخدم LlamaIndex حزمة `google-genai` في الخلفية.
+Gemini API anahtarına ihtiyacınız vardır. Henüz bir hesabınız yoksa [Google AI Studio'da hesap oluşturabilirsiniz](https://aistudio.google.com/apikey?hl=tr).
+Öncelikle, gerekli tüm LlamaIndex kitaplıklarını yükleyin. LlamaIndex, arka planda `google-genai` paketini kullanır.
 
 ```
 pip install llama-index llama-index-utils-workflow llama-index-llms-google-genai llama-index-tools-google
 ```
 
-## إعداد Gemini في LlamaIndex
+## LlamaIndex'te Gemini'ı kurma
 
-محرك أي وكيل LlamaIndex هو نموذج لغوي كبير (LLM) يتعامل مع الاستدلال ومعالجة النصوص. يستخدم هذا المثال Gemini 3 Flash. تأكَّد من [ضبط مفتاح واجهة برمجة التطبيقات كمتغيّر بيئة](https://ai.google.dev/gemini-api/docs/api-key?hl=ar).
+Herhangi bir LlamaIndex aracının motoru, akıl yürütme ve metin işlemeyi gerçekleştiren bir LLM'dir. Bu örnekte Gemini 3 Flash kullanılmaktadır. [API anahtarınızı ortam değişkeni olarak ayarladığınızdan](https://ai.google.dev/gemini-api/docs/api-key?hl=tr) emin olun.
 
 ```
 import os
@@ -44,11 +41,11 @@ assert 'GEMINI_API_KEY' in os.environ
 llm = GoogleGenAI(model="gemini-3.6-flash")
 ```
 
-## أدوات الإنشاء
+## Derleme araçları
 
-تستخدم البرامج الآلية الأدوات للتفاعل مع العالم الخارجي، مثل البحث على الويب أو تخزين المعلومات. يمكن أن تكون [الأدوات في LlamaIndex](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
-عبارة عن دوال Python عادية، أو يمكن استيرادها من `ToolSpecs` حالي.
-يتضمّن Gemini أداة مدمجة لاستخدام "بحث Google"، وهي الأداة المستخدَمة هنا.
+Aracı, web'de arama yapmak veya bilgi depolamak gibi dış dünyayla etkileşim kurmak için araçları kullanır. [LlamaIndex'teki araçlar](https://docs.llamaindex.ai/en/stable/module_guides/deploying/agents/tools/)
+normal Python işlevleri olabilir veya önceden var olan `ToolSpecs`'dan içe aktarılabilir.
+Gemini, Google Arama'yı kullanmak için yerleşik bir araçla birlikte gelir. Burada bu araç kullanılır.
 
 ```
 from google.genai import types
@@ -63,22 +60,21 @@ llm_with_search = GoogleGenAI(
 )
 ```
 
-اختبِر الآن مثيل النموذج اللغوي الكبير باستخدام طلب بحث يتطلّب البحث. يفترض هذا الدليل
-حلقة أحداث نشطة (مثل `python -m asyncio` أو Google Colab).
+Şimdi LLM örneğini arama gerektiren bir sorguyla test edin. Bu kılavuzda, çalışan bir etkinlik döngüsü (ör. `python -m asyncio` veya Google Colab) olduğu varsayılır.
 
 ```
 response = await llm_with_search.acomplete("What's the weather like today in Biarritz?")
 print(response)
 ```
 
-سيستخدم "وكيل البحث" دوال Python كأدوات. هناك العديد من الطرق التي يمكنك اتّباعها لإنشاء نظام ينفّذ هذه المهمة. في هذا المثال، ستستخدم ما يلي:
+Araştırma Aracısı, Python işlevlerini araç olarak kullanır. Bu görevi gerçekleştirecek bir sistem oluşturmanın birçok yolu vardır. Bu örnekte aşağıdakileri kullanacaksınız:
 
-1. تستخدم `search_web` Gemini مع "بحث Google" للبحث على الويب عن معلومات حول الموضوع المحدّد.
-2. تحفظ `record_notes` الأبحاث التي تم العثور عليها على الويب في الحالة حتى تتمكّن الأدوات الأخرى من استخدامها.
-3. تكتب `write_report` التقرير باستخدام المعلومات التي عثر عليها `ResearchAgent`
-4. `review_report` يراجع التقرير ويقدّم ملاحظات.
+1. `search_web`, verilen konuyla ilgili bilgileri web'de aramak için Google Arama ile Gemini'ı kullanır.
+2. `record_notes`, web'de bulunan araştırmaları diğer araçların kullanabilmesi için duruma kaydeder.
+3. `write_report`, `ResearchAgent` tarafından bulunan bilgileri kullanarak raporu yazar.
+4. `review_report` raporu inceler ve geri bildirim sağlar.
 
-تمرِّر فئة `Context` الحالة بين الوكلاء/الأدوات، وسيتمكّن كل وكيل من الوصول إلى الحالة الحالية للنظام.
+`Context` sınıfı, durumları aracılar/araçlar arasında aktarır ve her aracı, sistemin mevcut durumuna erişebilir.
 
 ```
 from llama_index.core.workflow import Context
@@ -113,18 +109,18 @@ async def review_report(ctx: Context, review: str) -> str:
     return "Report reviewed."
 ```
 
-## إنشاء مساعد متعدد الوكلاء
+## Birden çok temsilcinin yer aldığı bir asistan oluşturma
 
-لإنشاء نظام متعدد الوكلاء، عليك تحديد الوكلاء وتفاعلاتهم.
-سيتضمّن نظامك ثلاثة وكلاء:
+Çoklu temsilci sistemi oluşturmak için temsilcileri ve etkileşimlerini tanımlarsınız.
+Sisteminizde üç temsilci bulunur:
 
-1. تجري أداة `ResearchAgent` عمليات بحث على الويب للعثور على معلومات حول الموضوع المحدّد.
-2. يكتب `WriteAgent` التقرير باستخدام المعلومات التي يعثر عليها `ResearchAgent`.
-3. `ReviewAgent` يراجع التقرير ويقدّم ملاحظات.
+1. `ResearchAgent`, verilen konuyla ilgili bilgi için web'de arama yapar.
+2. `WriteAgent`, `ResearchAgent` tarafından bulunan bilgileri kullanarak raporu yazar.
+3. Bir `ReviewAgent` raporu inceler ve geri bildirim sağlar.
 
-يستخدم هذا المثال الفئة `AgentWorkflow` لإنشاء نظام متعدد الوكلاء سيتم تنفيذه بالترتيب. يتلقّى كل وكيل `system_prompt` يخبره بما يجب أن يفعله، ويقترح عليه كيفية العمل مع الوكلاء الآخرين.
+Bu örnekte, `AgentWorkflow` sınıfı kullanılarak bu aracıları sırayla yürütecek çok aracılı bir sistem oluşturuluyor. Her aracı, ne yapması gerektiğini söyleyen ve diğer aracılarla nasıl çalışılacağını öneren bir `system_prompt` alır.
 
-يمكنك اختياريًا مساعدة نظامك المتعدد الوكلاء من خلال تحديد الوكلاء الآخرين الذين يمكنه التحدث إليهم باستخدام `can_handoff_to` (إذا لم تفعل ذلك، سيحاول النظام تحديد ذلك بنفسه).
+İsteğe bağlı olarak, `can_handoff_to` kullanarak çoklu aracı sisteminizin hangi diğer aracılarla konuşabileceğini belirterek sisteminize yardımcı olabilirsiniz (Aksi takdirde, sistem bunu kendi başına bulmaya çalışır).
 
 ```
 from llama_index.core.agent.workflow import (
@@ -174,7 +170,7 @@ review_agent = FunctionAgent(
 )
 ```
 
-تم تحديد الوكلاء، ويمكنك الآن إنشاء `AgentWorkflow` وتشغيله.
+Aracıları tanımladığınıza göre artık `AgentWorkflow` oluşturup uygulayabilirsiniz.
 
 ```
 from llama_index.core.agent.workflow import AgentWorkflow
@@ -190,7 +186,7 @@ agent_workflow = AgentWorkflow(
 )
 ```
 
-أثناء تنفيذ سير العمل، يمكنك بث الأحداث واستدعاءات الأدوات والتحديثات إلى وحدة التحكّم.
+İş akışı yürütülürken etkinlikleri, araç çağrılarını ve güncellemeleri konsola aktarabilirsiniz.
 
 ```
 from llama_index.core.agent.workflow import (
@@ -238,7 +234,7 @@ async for event in handler.stream_events():
         print(f"  With arguments: {event.tool_kwargs}")
 ```
 
-بعد اكتمال سير العمل، يمكنك طباعة الناتج النهائي للتقرير، بالإضافة إلى حالة المراجعة النهائية من وكيل المراجعة.
+İş akışı tamamlandıktan sonra raporun nihai çıktısını ve inceleme aracısının nihai inceleme durumunu yazdırabilirsiniz.
 
 ```
 state = await handler.ctx.store.get("state")
@@ -246,24 +242,24 @@ print("Report Content:\n", state["report_content"])
 print("\n------------\nFinal Review:\n", state["review"])
 ```
 
-## الاستفادة من ميزات إضافية مع مهام سير العمل المخصّصة
+## Özel iş akışlarıyla daha fazlasını yapın
 
-تُعدّ `AgentWorkflow` طريقة رائعة للبدء باستخدام الأنظمة المتعدّدة الوكلاء. ولكن ماذا لو كنت بحاجة إلى المزيد من التحكّم؟ يمكنك إنشاء سير عمل من البداية. في ما يلي بعض الأسباب التي قد تدفعك إلى إنشاء سير عمل خاص بك:
+`AgentWorkflow`, çoklu aracı sistemlerini kullanmaya başlamak için harika bir yöntemdir. Ancak daha fazla kontrole ihtiyacınız varsa ne yapmalısınız? Sıfırdan bir iş akışı oluşturabilirsiniz. Kendi iş akışınızı oluşturmak isteyebileceğiniz bazı nedenler şunlardır:
 
-- **التحكّم بشكل أكبر في العملية**: يمكنك تحديد المسار الدقيق الذي تتّبعه برامجك. ويشمل ذلك إنشاء حلقات أو اتّخاذ قرارات في نقاط معيّنة أو جعل الوكلاء يعملون بالتوازي على مهام مختلفة.
-- **استخدام بيانات معقّدة**: يمكنك استخدام بيانات أكثر من النص العادي. تتيح لك سير العمل المخصّصة استخدام المزيد من البيانات المنظَّمة، مثل عناصر JSON أو الفئات المخصّصة، للإدخالات والمخرجات.
-- **التعامل مع وسائط مختلفة**: يمكنك إنشاء وكلاء يمكنهم فهم النصوص والصور والمحتوى الصوتي والفيديوهات ومعالجتها.
-- **تخطيط أكثر ذكاءً**: يمكنك تصميم سير عمل ينشئ أولاً خطة تفصيلية قبل أن يبدأ الموظفون العمل. ويفيد هذا في المهام المعقّدة التي تتطلّب عدّة خطوات.
-- **تفعيل ميزة "التصحيح الذاتي"**: يمكنك إنشاء وكلاء يمكنهم مراجعة عملهم. إذا لم تكن النتيجة جيدة بما فيه الكفاية، يمكن للوكيل المحاولة مرة أخرى، ما يؤدي إلى إنشاء حلقة من التحسينات إلى أن تصبح النتيجة مثالية.
+- **Süreç üzerinde daha fazla kontrol**: Temsilcilerinizin izleyeceği yolu tam olarak belirleyebilirsiniz. Buna döngüler oluşturma, belirli noktalarda kararlar alma veya temsilcilerin farklı görevler üzerinde paralel olarak çalışmasını sağlama dahildir.
+- **Karmaşık veriler kullanın**: Düz metnin ötesine geçin. Özel iş akışları, giriş ve çıkışlarınız için JSON nesneleri veya özel sınıflar gibi daha fazla yapılandırılmış veri kullanmanıza olanak tanır.
+- **Farklı medya türleriyle çalışma**: Yalnızca metni değil, resimleri, sesleri ve videoları da anlayıp işleyebilen aracılar oluşturun.
+- **Daha akıllı planlama**: Temsilciler çalışmaya başlamadan önce ayrıntılı bir plan oluşturan bir iş akışı tasarlayabilirsiniz. Bu özellik, birden fazla adım gerektiren karmaşık görevler için yararlıdır.
+- **Kendi kendini düzeltme özelliğini etkinleştirme**: Kendi çalışmalarını inceleyebilen aracılar oluşturun. Çıkış yeterince iyi değilse aracı tekrar deneyebilir ve sonuç mükemmel olana kadar iyileştirme döngüsü oluşturabilir.
 
-لمزيد من المعلومات حول LlamaIndex Workflows، اطّلِع على [مستندات LlamaIndex Workflows](https://docs.llamaindex.ai/en/stable/module_guides/workflow/).
+LlamaIndex Workflows hakkında daha fazla bilgi edinmek için [LlamaIndex Workflows Belgeleri](https://docs.llamaindex.ai/en/stable/module_guides/workflow/)'ne bakın.
 
-إرسال ملاحظات
+Geri bildirim gönderin
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
+Son güncelleme tarihi: 2026-09-12 UTC.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]

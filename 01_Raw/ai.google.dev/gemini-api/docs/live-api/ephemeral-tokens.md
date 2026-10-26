@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=zh-CN
-fetched_at: 2026-10-19T05:33:40.493547+00:00
-title: "\u4e34\u65f6\u4ee4\u724c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ko
+fetched_at: 2026-10-26T05:55:51.727088+00:00
+title: "\uc784\uc2dc \ud1a0\ud070 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-发送反馈
+의견 보내기
 
-# 临时令牌
+# 임시 토큰
 
-临时令牌是短期有效的身份验证令牌，用于通过 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API) 访问 Gemini API。它们旨在增强从用户设备直接连接到 API（[客户端到服务器](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn#implementation-approach)的实现）时的安全性。与标准 API 密钥一样，临时令牌可以从 Web 浏览器或移动应用等客户端应用中提取。不过，由于临时令牌会快速过期且可以受到限制，因此它们可显著降低生产环境中的安全风险。当您直接从客户端应用访问 Live API 时，应使用它们来增强 API 密钥安全性。
+임시 토큰은 [WebSockets](https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API)을 통해 Gemini API에 액세스하기 위한 단기 인증 토큰입니다. 사용자 기기에서 API로 직접 연결하는 경우 ([클라이언트-서버](https://ai.google.dev/gemini-api/docs/live?hl=ko#implementation-approach) 구현) 보안을 강화하도록 설계되었습니다. 표준 API 키와 마찬가지로 임시 토큰은 웹브라우저나 모바일 앱과 같은 클라이언트 측 애플리케이션에서 추출할 수 있습니다. 하지만 임시 토큰은 만료가 빠르고 제한될 수 있으므로 프로덕션 환경의 보안 위험을 크게 줄여줍니다. 클라이언트 측 애플리케이션에서 Live API에 직접 액세스하여 API 키 보안을 강화할 때 사용해야 합니다.
 
-## 临时令牌的工作原理
+## 임시 토큰의 작동 방식
 
-临时令牌的大致运作方式如下：
+일회성 토큰의 작동 방식은 다음과 같습니다.
 
-1. 您的客户端（例如 Web 应用）向后端进行身份验证。
-2. 您的后端向 Gemini API 的配置服务请求临时令牌。
-3. Gemini API 会签发短期有效的令牌。
-4. 您的后端会将令牌发送给客户端，以便通过 WebSocket 连接到 Live API。您可以通过将 API 密钥替换为临时令牌来完成此操作。
-5. 然后，客户端会像使用 API 密钥一样使用该令牌。
+1. 클라이언트 (예: 웹 앱)가 백엔드로 인증합니다.
+2. 백엔드에서 Gemini API의 프로비저닝 서비스에 임시 토큰을 요청합니다.
+3. Gemini API에서 단기 토큰을 발급합니다.
+4. 백엔드는 Live API에 대한 WebSocket 연결을 위해 클라이언트에 토큰을 전송합니다. API 키를 일시적인 토큰으로 바꾸면 됩니다.
+5. 그러면 클라이언트가 토큰을 API 키인 것처럼 사용합니다.
 
-![临时令牌概览](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=zh-cn)
+![임시 토큰 개요](https://ai.google.dev/static/gemini-api/docs/images/Live_API_01.png?hl=ko)
 
-这有助于提高安全性，因为即使令牌被提取，其有效期也很短，不像部署在客户端的长期有效的 API 密钥。由于客户端直接将数据发送给 Gemini，因此还可以缩短延迟时间，并避免后端需要代理实时数据。
+이렇게 하면 클라이언트 측에 배포된 수명이 긴 API 키와 달리 토큰이 추출되더라도 수명이 짧아 보안이 강화됩니다. 클라이언트가 데이터를 Gemini에 직접 전송하므로 지연 시간도 개선되고 백엔드에서 실시간 데이터를 프록시할 필요가 없습니다.
 
-## 创建临时令牌
+## 임시 토큰 만들기
 
-以下是一个简化示例，展示了如何从 Gemini 获取临时令牌。
-默认情况下，您将有 1 分钟的时间来使用此请求 (`newSessionExpireTime`) 中的令牌启动新的 Live API 会话，并有 30 分钟的时间通过该连接发送消息 (`expireTime`)。
+다음은 Gemini에서 임시 토큰을 가져오는 방법을 보여주는 간단한 예입니다.
+기본적으로 이 요청 (`newSessionExpireTime`)의 토큰을 사용하여 새 Live API 세션을 시작하는 데 1분이 주어지며, 해당 연결 (`expireTime`)을 통해 메시지를 전송하는 데 30분이 주어집니다.
 
 ### Python
 
@@ -61,7 +61,7 @@ token = client.auth_tokens.create(
 # You'll need to pass the value under token.name back to your client to use it
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -91,9 +91,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-如需了解 `expireTime` 值限制、默认值和其他字段规范，请参阅 [API 参考文档](https://ai.google.dev/api/live?hl=zh-cn#ephemeral-auth-tokens)。在 `expireTime` 时间范围内，您需要每 10 分钟重新连接一次通话（即使 `uses: 1`，也可以使用同一令牌完成此操作）。[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=zh-cn#session-resumption)
+`expireTime` 값 제약 조건, 기본값, 기타 필드 사양은 [API 참조](https://ai.google.dev/api/live?hl=ko#ephemeral-auth-tokens)를 참고하세요.
+`expireTime` 기간 내에 10분마다 통화를 다시 연결해야 합니다 (`uses: 1`인 경우에도 동일한 토큰으로 가능).[`sessionResumption`](https://ai.google.dev/gemini-api/docs/live-session?hl=ko#session-resumption)
 
-还可以将临时令牌锁定到一组配置。这可能有助于进一步提高应用的安全性，并将系统指令保留在服务器端。
+일련의 구성에 임시 토큰을 잠글 수도 있습니다. 이는 애플리케이션의 보안을 더욱 개선하고 시스템 명령어를 서버 측에 유지하는 데 유용할 수 있습니다.
 
 ### Python
 
@@ -118,7 +119,7 @@ token = client.auth_tokens.create(
 # You'll need to pass the value under token.name back to your client to use it
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -162,15 +163,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/auth_tokens" \
   }'
 ```
 
-您还可以锁定部分字段，如需了解详情，请参阅 [SDK 文档](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)。
+필드의 하위 집합을 잠글 수도 있습니다. 자세한 내용은 [SDK 문서](https://googleapis.github.io/python-genai/genai.html#genai.types.CreateAuthTokenConfig.lock_additional_fields)를 참고하세요.
 
-## 使用临时令牌连接到 Live API
+## 임시 토큰으로 Live API에 연결
 
-获得临时令牌后，您可以使用它，就像使用 API 密钥一样（但请注意，它仅适用于实时 API，并且仅适用于 `v1beta` 版本的 API）。
+임시 토큰이 있으면 API 키처럼 사용합니다. 단, Live API에서만 작동하며 API의 `v1beta` 버전에서만 작동합니다.
 
-仅当部署遵循[客户端到服务器实现](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn#implementation-approach)方法的应用时，使用临时令牌才有意义。
+임시 토큰 사용은 [클라이언트-서버 구현](https://ai.google.dev/gemini-api/docs/live?hl=ko#implementation-approach) 접근 방식을 따르는 애플리케이션을 배포할 때만 유용합니다.
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI, Modality } from '@google/genai';
@@ -198,29 +199,29 @@ async function main() {
 main();
 ```
 
-如需查看更多示例，请参阅 [Live API 使用入门](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn)。
+자세한 예시는 [Live API 시작하기](https://ai.google.dev/gemini-api/docs/live?hl=ko)를 참고하세요.
 
-## 最佳做法
+## 권장사항
 
-- 使用 `expire_time` 参数设置较短的过期时长。
-- 令牌会过期，需要重新启动配置流程。
-- 验证您自己的后端的安全身份验证。临时令牌的安全性仅取决于后端身份验证方法的安全性。
-- 一般来说，请避免将临时令牌用于后端到 Gemini 的连接，因为此路径通常被认为是安全的。
+- `expire_time` 매개변수를 사용하여 짧은 만료 기간을 설정합니다.
+- 토큰이 만료되어 프로비저닝 프로세스를 다시 시작해야 합니다.
+- 자체 백엔드의 보안 인증을 확인합니다. 임시 토큰은 백엔드 인증 방법만큼만 안전합니다.
+- 일반적으로 이 경로가 안전한 것으로 간주되므로 백엔드-Gemini 연결에는 임시 토큰을 사용하지 않는 것이 좋습니다.
 
-## 限制
+## 제한사항
 
-临时令牌目前仅与 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-cn) 兼容。
+현재 임시 토큰은 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ko)와만 호환됩니다.
 
-## 后续步骤
+## 다음 단계
 
-- 如需了解详情，请参阅 Live API [参考文档](https://ai.google.dev/api/live?hl=zh-cn#ephemeral-auth-tokens)中的临时令牌。
+- 자세한 내용은 임시 토큰에 관한 Live API [참조](https://ai.google.dev/api/live?hl=ko#ephemeral-auth-tokens)를 참고하세요.
 
-发送反馈
+의견 보내기
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-最后更新时间 (UTC)：2026-09-17。
+최종 업데이트: 2026-09-17(UTC)
 
-需要向我们提供更多信息？
+의견을 전달하고 싶나요?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-17。"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-17(UTC)"],[],[]]

@@ -1,28 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=vi
-fetched_at: 2026-10-19T05:30:29.664733+00:00
-title: "M\u00f3c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-hooks?hl=id
+fetched_at: 2026-10-26T06:04:13.965196+00:00
+title: "Hooks \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-# Móc
+# Hooks
 
-Các hook cho phép bạn chạy tập lệnh tuỳ chỉnh hoặc các yêu cầu HTTP bên ngoài ngay trước hoặc sau khi tác nhân thực thi mã hoặc sửa đổi tệp trong hộp cát từ xa. Sử dụng các hook để mở rộng vòng lặp của tác nhân bằng các quy trình công việc ở chế độ nền và hàng rào tự động, chẳng hạn như:
+Hook memungkinkan Anda menjalankan skrip kustom atau permintaan HTTP eksternal tepat sebelum atau setelah agen menjalankan kode atau mengubah file di dalam sandbox jarak jauhnya. Gunakan hook untuk memperluas loop agen dengan alur kerja latar belakang dan pembatasan otomatis, seperti:
 
-- **Thực thi các biện pháp bảo vệ an toàn và quyền truy cập** trước khi thực thi các lệnh shell có mức độ rủi ro cao hoặc các thao tác đọc tệp bị hạn chế.
-- **Tự động hoá các hoạt động chuyển đổi quy trình dữ liệu** ngay sau khi một nhân viên tạo hoặc sửa đổi tệp.
-- **Truyền trực tuyến dữ liệu đo từ xa kiểm tra doanh nghiệp** đến các hệ thống giám sát bên ngoài sau khi thực thi công cụ.
+- **Menerapkan pengamanan keamanan dan akses** sebelum perintah shell berisiko tinggi atau pembacaan file yang dibatasi dieksekusi.
+- **Mengotomatiskan transformasi pipeline data** tepat setelah agen membuat atau mengubah file.
+- **Mengalirkan telemetri audit perusahaan** ke sistem pemantauan eksternal setelah eksekusi alat.
 
 ### Python
 
@@ -320,20 +320,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Các sự kiện trong vòng đời được hỗ trợ
+## Peristiwa siklus proses yang didukung
 
-Các hook hỗ trợ 2 sự kiện trong hộp cát:
+Hook mendukung 2 peristiwa di dalam sandbox:
 
-| Sự kiện | Thời điểm kích hoạt | Ý nghĩa |
+| Acara | Saat diaktifkan | Fungsinya |
 | --- | --- | --- |
-| `pre_tool_execution` | Ngay trước khi một công cụ chạy | Có thể phê duyệt (`allow`) hoặc chặn (`deny`) công cụ này trước khi công cụ thực thi. Khi bị chặn, mô hình sẽ thấy lý do bạn từ chối và điều chỉnh. |
-| `post_tool_execution` | Ngay sau khi một công cụ hoàn tất | Chạy các tác vụ tiếp theo như định dạng mã, chạy kiểm thử đơn vị hoặc ghi nhật ký đo từ xa. Không thể chặn hoặc huỷ các thao tác đã hoàn tất. |
+| `pre_tool_execution` | Tepat sebelum alat berjalan | Dapat menyetujui (`allow`) atau memblokir (`deny`) alat sebelum dieksekusi. Saat diblokir, model akan melihat alasan penolakan Anda dan beradaptasi. |
+| `post_tool_execution` | Tepat setelah alat selesai | Menjalankan tugas lanjutan seperti memformat kode, menjalankan pengujian unit, atau mencatat telemetri. Tidak dapat memblokir atau mengurungkan tindakan yang telah selesai. |
 
 ### `pre_tool_execution`
 
-Kích hoạt ngay trước khi một công cụ thực thi. Tập lệnh của bạn đọc thông tin chi tiết về lệnh gọi công cụ từ `stdin` và xuất JSON quyết định (`allow` hoặc `deny`) sang `stdout`.
+Diaktifkan tepat sebelum alat dijalankan. Skrip Anda membaca detail panggilan alat dari `stdin` dan menghasilkan JSON keputusannya (`allow` atau `deny`) ke `stdout`.
 
-**Phần tải đầu vào (`stdin`):**
+**Payload input (`stdin`):**
 
 ```
 {
@@ -348,9 +348,9 @@ Kích hoạt ngay trước khi một công cụ thực thi. Tập lệnh của b
 }
 ```
 
-**Phản hồi đầu ra (`stdout`):**
+**Respons output (`stdout`):**
 
-Cách phê duyệt lệnh gọi công cụ:
+Untuk menyetujui panggilan alat:
 
 ```
 {
@@ -358,7 +358,7 @@ Cách phê duyệt lệnh gọi công cụ:
 }
 ```
 
-Để chặn lệnh gọi công cụ và trả về ý kiến phản hồi cho mô hình:
+Untuk memblokir panggilan alat dan memberikan masukan ke model:
 
 ```
 {
@@ -367,15 +367,15 @@ Cách phê duyệt lệnh gọi công cụ:
 }
 ```
 
-Khi một lệnh từ chối lệnh, lệnh gọi công cụ sẽ bị bỏ qua ngay lập tức. Ngay trong lượt hiện tại, tác nhân sẽ thấy một kết quả lỗi có chứa lý do từ chối của bạn. Sau đó, mô hình có thể tự điều chỉnh bằng cách chọn một lệnh thay thế hoặc giải thích cho người dùng về khối này.
+Jika hook menolak perintah, panggilan alat akan segera dilewati. Agen melihat hasil error yang berisi alasan penolakan Anda tepat di dalam gilirannya saat ini. Model kemudian dapat mengoreksi dirinya sendiri dengan memilih perintah alternatif atau menjelaskan pemblokiran kepada pengguna.
 
-Nếu tập lệnh của bạn xuất ra JSON, văn bản thuần tuý hoặc bất kỳ nội dung nào khác ngoài `{"decision": "deny"}` mà không được nhận dạng, thì thời gian chạy sẽ coi phản hồi đó là một phản hồi phê duyệt (`allow`).
+Jika skrip Anda menampilkan JSON yang tidak dikenali, teks biasa, atau apa pun selain `{"decision": "deny"}`, runtime akan memperlakukan respons sebagai persetujuan (`allow`).
 
 ### `post_tool_execution`
 
-Kích hoạt ngay sau khi một công cụ hoàn tất. Tập lệnh của bạn sẽ đọc thông tin chi tiết về quá trình thực thi và mọi trạng thái lỗi từ `stdin`.
+Diaktifkan tepat setelah alat selesai. Skrip Anda membaca detail eksekusi dan status error dari `stdin`.
 
-**Phần tải đầu vào (`stdin`):**
+**Payload input (`stdin`):**
 
 ```
 {
@@ -390,27 +390,27 @@ Kích hoạt ngay sau khi một công cụ hoàn tất. Tập lệnh của bạn
 }
 ```
 
-Nếu một lệnh shell in lỗi ra lỗi chuẩn (`stderr`) hoặc một thao tác trên hệ thống tệp không thành công, thì một trường `"error"` chứa văn bản lỗi sẽ được đưa vào tải trọng. Khi lệnh thành công mà không có lỗi, trường `"error"` sẽ bị bỏ qua hoàn toàn.
+Jika perintah shell mencetak error ke error standar (`stderr`) atau operasi sistem file gagal, kolom `"error"` yang berisi teks error akan disertakan dalam payload. Jika perintah berhasil tanpa error, kolom `"error"` akan dihilangkan sepenuhnya.
 
-**Phản hồi đầu ra (`stdout`):**
+**Respons output (`stdout`):**
 
 ```
 {}
 ```
 
-Vì các lệnh gọi sau công cụ chỉ chạy cho các tác vụ trong nền như định dạng mã hoặc ghi nhật ký, nên thời gian chạy sẽ bỏ qua mọi giá trị quyết định được trả về trên `stdout`.
+Karena hook pasca-alat berjalan secara ketat untuk tugas latar belakang seperti pemformatan kode atau logging, runtime mengabaikan nilai keputusan apa pun yang ditampilkan di `stdout`.
 
-## Khám phá cấu hình
+## Penemuan konfigurasi
 
-Thời gian chạy sẽ tự động phát hiện các định nghĩa về lệnh gọi từ `.agents/hooks.json` hoặc `/.agents/hooks.json` trong môi trường hộp cát. Bạn có thể cung cấp `hooks.json` cùng với các tập lệnh tuỳ chỉnh bằng cách sử dụng bất kỳ [nguồn môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#mount_from_a_source) nào được hỗ trợ:
+Runtime otomatis menemukan definisi hook dari `.agents/hooks.json` atau `/.agents/hooks.json` di dalam lingkungan sandbox. Anda dapat menyediakan `hooks.json` bersama skrip kustom menggunakan [sumber lingkungan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#mount_from_a_source) yang didukung:
 
-- **Thư mục gốc của kho lưu trữ**: Kho lưu trữ Git chứa `.agents/hooks.json` cùng với `AGENTS.md`.
-- **Cloud Storage (`gcs`)**: Bộ chứa GCS chứa `hooks.json` được sao chép vào môi trường.
-- **Nguồn nội tuyến**: Chuỗi JSON thô và nội dung tập lệnh được truyền trong `environment.sources` khi gọi `client.interactions.create`.
+- **Pemasangan repositori**: Repositori Git yang berisi `.agents/hooks.json` bersama dengan `AGENTS.md`.
+- **Cloud Storage (`gcs`)**: Bucket GCS yang berisi `hooks.json` yang disalin ke lingkungan.
+- **Sumber inline**: String JSON mentah dan konten skrip yang diteruskan dalam `environment.sources` saat memanggil `client.interactions.create`.
 
-### Lược đồ `hooks.json`
+### Skema `hooks.json`
 
-Tệp `hooks.json` nhóm các định nghĩa về sự kiện (`pre_tool_execution` hoặc `post_tool_execution`) theo tên tuỳ chỉnh. Bạn có thể bật hoặc tắt từng nhóm một cách độc lập:
+File `hooks.json` mengelompokkan definisi peristiwa (`pre_tool_execution` atau `post_tool_execution`) dengan nama kustom. Anda dapat mengaktifkan atau menonaktifkan setiap grup secara terpisah:
 
 ```
 {
@@ -446,71 +446,71 @@ Tệp `hooks.json` nhóm các định nghĩa về sự kiện (`pre_tool_executi
 }
 ```
 
-### Cú pháp và quy tắc của bộ so khớp
+### Sintaksis dan aturan pencocokan
 
-Mỗi nhóm quy tắc trong `hooks.json` xác định thời điểm và cách các trình xử lý kích hoạt bằng cách sử dụng các thuộc tính `matcher` và `hooks`:
+Setiap grup aturan di `hooks.json` menentukan kapan dan bagaimana handler diaktifkan menggunakan properti `matcher` dan `hooks`:
 
-| Trường | Loại | Mô tả |
+| Kolom | Jenis | Deskripsi |
 | --- | --- | --- |
-| `enabled` | `boolean` | Không bắt buộc. Đặt thành `false` để tắt nhóm (`true` theo mặc định). |
-| `matcher` | `string` | Mẫu biểu thức chính quy so khớp tên công cụ mục tiêu bên trong vùng chứa. |
-| `hooks` | `array` | Danh sách có thứ tự gồm các định nghĩa về trình xử lý (`command` hoặc `http`). Các trình xử lý chạy tuần tự theo thứ tự khai báo. |
+| `enabled` | `boolean` | Opsional. Tetapkan ke `false` untuk menonaktifkan grup (`true` secara default). |
+| `matcher` | `string` | Pencocokan pola ekspresi reguler untuk nama alat target di dalam penampung. |
+| `hooks` | `array` | Daftar berurutan definisi pengendali (`command` atau `http`). Pengendali berjalan secara berurutan dalam urutan deklarasi. |
 
-#### Cách hoạt động của quy trình đánh giá biểu thức chính quy
+#### Cara kerja evaluasi regex
 
-Khi tác nhân gọi một công cụ bên trong hộp cát, thời gian chạy sẽ đánh giá tên vùng chứa của công cụ dựa trên mẫu `matcher` bằng cách sử dụng các biểu thức chính quy RE2 tiêu chuẩn. Nếu biểu thức chính quy khớp với tên công cụ, tất cả trình xử lý trong mảng `hooks` sẽ thực thi theo thứ tự. Nếu nhiều nhóm quy tắc khớp với cùng một công cụ, thì tất cả các mảng trình xử lý tương ứng sẽ chạy.
+Saat agen memanggil alat di dalam sandbox, runtime akan mengevaluasi nama penampung alat terhadap pola `matcher` Anda menggunakan ekspresi reguler RE2 standar. Jika regex cocok dengan nama alat, semua handler dalam array `hooks` akan dieksekusi secara berurutan. Jika beberapa grup aturan cocok dengan alat yang sama, semua array handler yang sesuai akan berjalan.
 
-Bạn có thể nhắm đến bất kỳ tên công cụ vùng chứa tích hợp nào: thực thi mã (`code_execution`) hoặc các thao tác trên hệ thống tệp (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` và `delete_file`).
+Anda dapat menargetkan nama alat penampung bawaan: eksekusi kode (`code_execution`) atau operasi sistem file (`view_file`, `write_to_file`, `replace_file_content`, `list_dir`, dan `delete_file`).
 
-#### Các biểu thức trình khớp thường dùng
+#### Ekspresi pencocokan umum
 
-- `"code_execution"`: So khớp chuỗi chính xác cho các lệnh shell và quá trình thực thi tập lệnh.
-- `"write_to_file"`: So khớp chính xác cho hoạt động tạo tệp hệ thống tệp và ghi vào đĩa.
-- `"view_file|write_to_file"`: Phân tách bằng dấu sổ dọc để so khớp nhiều tên công cụ cụ thể trong một quy tắc duy nhất.
-- `".*_file"`: Biểu thức chính quy có ký tự đại diện khớp với mọi công cụ kết thúc bằng `_file` (chẳng hạn như `view_file`, `write_to_file` hoặc `delete_file`). Biểu thức này chỉ bao gồm một phần của bộ công cụ hệ thống tệp, `replace_file_content` và `list_dir` không kết thúc bằng `_file`, vì vậy, hãy đặt tên rõ ràng cho chúng khi bạn cần. Biểu thức chính quy RE2 tiêu chuẩn yêu cầu `.*`; các ký tự đại diện đơn giản của shell như `*_file` là cú pháp regex không hợp lệ và sẽ không khớp.
-- `".*"` hoặc `"*"` hoặc `""`: Mẫu chung chặn mọi lệnh gọi công cụ trong vùng chứa.
+- `"code_execution"`: Kecocokan string yang tepat untuk perintah shell dan eksekusi skrip.
+- `"write_to_file"`: Kecocokan persis untuk pembuatan file sistem file dan penulisan disk.
+- `"view_file|write_to_file"`: Pemisahan dengan tanda pipa mencocokkan beberapa nama alat tertentu dalam satu aturan.
+- `".*_file"`: Pencocokan karakter pengganti regex untuk alat apa pun yang diakhiri dengan `_file` (seperti `view_file`, `write_to_file`, atau `delete_file`). Ini hanya mencakup sebagian toolset sistem file, `replace_file_content` dan `list_dir` tidak diakhiri dengan `_file`, jadi sebutkan secara eksplisit saat Anda membutuhkannya. Ekspresi reguler RE2 standar memerlukan `.*`; glob shell sederhana seperti `*_file` adalah sintaksis ekspresi reguler yang tidak valid dan tidak akan cocok.
+- `".*"` atau `"*"` atau `""`: Pola umum yang mencegat setiap panggilan alat di dalam container.
 
-## Các loại trình xử lý
+## Jenis penangan
 
-### Lệnh hook
+### Hook perintah
 
-Lệnh hook thực thi một lệnh hoặc tập lệnh shell bên trong hộp cát. Tập lệnh này nhận JSON sự kiện trên `stdin` và xuất JSON quyết định trên `stdout`.
+Hook perintah menjalankan perintah atau skrip shell di dalam sandbox. Skrip menerima JSON peristiwa di `stdin` dan menampilkan JSON keputusannya di `stdout`.
 
-| Trường | Loại | Mô tả |
+| Kolom | Jenis | Deskripsi |
 | --- | --- | --- |
-| `type` | `string` | Phải là `"command"`. |
-| `command` | `string` | Dòng lệnh để chạy trong hộp cát (ví dụ: `python3 /.agents/hooks-scripts/gate.py`). |
-| `timeout` | `integer` | Thời gian chờ tính bằng giây. Mặc định: `30`. |
+| `type` | `string` | Harus berupa `"command"`. |
+| `command` | `string` | Command line untuk dijalankan di dalam sandbox (misalnya, `python3 /.agents/hooks-scripts/gate.py`). |
+| `timeout` | `integer` | Waktu tunggu dalam detik. Default: `30`. |
 
-### Các lệnh gọi HTTP
+### Hook HTTP
 
-Các lệnh gọi HTTP sẽ gửi JSON sự kiện dưới dạng yêu cầu POST đến một URL HTTPS bên ngoài ngay từ bên trong mạng hộp cát. Máy chủ mục tiêu trả về quyết định của mình trong nội dung phản hồi HTTP bằng chính xác định dạng JSON (`{"decision": "allow"}` hoặc `{"decision": "deny", "reason": "..."}`).
+Hook HTTP mengirimkan JSON peristiwa sebagai permintaan POST ke URL HTTPS eksternal langsung dari dalam jaringan sandbox. Server target menampilkan keputusannya di isi respons HTTP menggunakan format JSON yang persis sama (`{"decision": "allow"}` atau `{"decision": "deny", "reason": "..."}`).
 
-| Trường | Loại | Mô tả |
+| Kolom | Jenis | Deskripsi |
 | --- | --- | --- |
-| `type` | `string` | Phải là `"http"`. |
-| `url` | `string` | Điểm cuối HTTPS bên ngoài để gửi tải trọng sự kiện đến. |
-| `headers` | `object` | Các cặp khoá-giá trị không bắt buộc cho các tiêu đề tuỳ chỉnh không nhạy cảm (chẳng hạn như `{"X-Event-Source": "agent-sandbox"}`). Để xác thực, hãy dùng [credential](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) (thông tin đăng nhập) trong danh sách cho phép của mạng thay thế. |
-| `timeout` | `integer` | Thời gian chờ tính bằng giây. Mặc định: `30`. |
+| `type` | `string` | Harus berupa `"http"`. |
+| `url` | `string` | Endpoint HTTPS eksternal untuk mengirimkan payload peristiwa. |
+| `headers` | `object` | Pasangan nilai kunci opsional untuk header kustom yang tidak sensitif (seperti `{"X-Event-Source": "agent-sandbox"}`). Untuk autentikasi, gunakan [kredensial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=id) di daftar yang diizinkan jaringan. |
+| `timeout` | `integer` | Waktu tunggu dalam detik. Default: `30`. |
 
-#### Uỷ quyền chuyển dữ liệu ra ngoài và chuyển đổi mã thông báo
+#### Transformasi token dan proxy keluar
 
-Vì các lệnh gọi HTTP thực thi trực tiếp từ bên trong không gian tên mạng hộp cát, nên các yêu cầu đi ra sẽ đi qua proxy truyền tải minh bạch. Cấu trúc này mang lại cho bạn 2 lợi thế quan trọng về bảo mật:
+Karena hook HTTP dieksekusi langsung dari dalam namespace jaringan sandbox, permintaan keluar melewati proxy keluar transparan. Arsitektur ini memberi Anda 2 keunggulan keamanan penting:
 
-- **Thêm mạng vào danh sách cho phép:** Bạn phải cho phép rõ ràng các điểm cuối mục tiêu trong `network.allowlist` của môi trường. Lưu lượng truy cập vòng lặp (`127.0.0.1` hoặc `localhost`) sẽ bị chặn bởi proxy; luôn nhắm đến các điểm cuối bên ngoài nằm trong danh sách cho phép.
-- **Chèn thông tin xác thực:** Bạn không cần lưu trữ khoá API hoặc mã thông báo bí mật của người mang trong `.agents/hooks.json` hoặc gắn chúng vào vùng chứa. Lưu trữ khoá bí mật một lần dưới dạng [thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) và tham chiếu khoá bí mật đó theo mã nhận dạng từ `network.allowlist` của môi trường. Proxy truyền dữ liệu ra sẽ tự động chặn lưu lượng truy cập hook HTTP đi và chèn tiêu đề xác thực thực vào đường truyền trước khi rời khỏi hộp cát. Các tiêu đề của bộ quy tắc `transform` nội tuyến được đặt theo cùng một cách trên đường truyền, thông tin đăng nhập là thông tin cần dùng khi bạn muốn sử dụng lại khoá bí mật trong dự án và xoay vòng khoá bí mật ở một nơi. Xem [cấu hình mạng](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#network-configuration).
+- **Pengizinan jaringan:** Endpoint target harus diizinkan secara eksplisit dalam `network.allowlist` lingkungan Anda. Traffic loopback (`127.0.0.1` atau `localhost`) diblokir oleh proxy; selalu targetkan endpoint eksternal yang diizinkan.
+- **Penyisipan kredensial:** Anda tidak perlu menyimpan kunci API atau token pembawa rahasia di dalam `.agents/hooks.json` atau memasangnya ke dalam penampung. Simpan secret sekali sebagai [kredensial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=id) dan referensikan berdasarkan ID dari `network.allowlist` lingkungan Anda. Proxy keluar otomatis mencegat traffic hook HTTP keluar dan menyuntikkan header autentikasi sebenarnya di jaringan sebelum keluar dari sandbox. Aturan `transform` inline menetapkan header dengan cara yang sama di jaringan. Kredensial adalah yang harus digunakan saat Anda ingin menggunakan kembali rahasia di seluruh project dan merotasinya di satu tempat. Lihat [konfigurasi jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration).
 
-## Cách thời gian chạy xử lý các quyết định và lỗi
+## Cara runtime menangani keputusan dan kegagalan
 
-- **Chờ đồng bộ:** Tác nhân tạm dừng và đợi các lệnh gọi của bạn hoàn tất rồi mới tiếp tục.
-- **Chặn quá trình thực thi công cụ:** Nếu lệnh gọi trước công cụ trả về `{"decision": "deny", "reason": "<your reason>"}`, thì thời gian chạy sẽ huỷ ngay lệnh gọi công cụ. Mô hình sẽ thấy lý do bạn từ chối trong nhật ký trò chuyện và điều chỉnh bằng cách chọn một lựa chọn thay thế an toàn hoặc giải thích cho người dùng về việc bị chặn.
-- **Xử lý sự cố tập lệnh, lỗi HTTP và hết thời gian chờ:** Nếu tập lệnh lệnh gặp sự cố (trạng thái thoát khác 0), một lệnh gọi HTTP trả về mã trạng thái không phải 2xx (chẳng hạn như lỗi máy chủ 4xx hoặc 5xx) hoặc một thao tác hết thời gian chờ hoặc trả về JSON không xác định, thì thời gian chạy sẽ coi đó là một lượt phê duyệt (`allow`). Quá trình thực thi công cụ vẫn diễn ra bình thường, vì vậy, một tập lệnh bị hỏng hoặc máy chủ đo từ xa không thể truy cập sẽ không bao giờ khiến ứng dụng của bạn bị bế tắc.
+- **Penantian sinkron:** Agen akan dijeda dan menunggu hingga hook Anda selesai sebelum melanjutkan.
+- **Memblokir eksekusi alat:** Jika hook pra-alat Anda menampilkan `{"decision": "deny", "reason": "<your reason>"}`, runtime akan segera membatalkan panggilan alat. Model melihat alasan penolakan Anda dalam histori percakapannya dan beradaptasi dengan memilih alternatif yang aman atau menjelaskan pemblokiran kepada pengguna.
+- **Menangani error skrip, error HTTP, dan waktu tunggu habis:** Jika skrip perintah mengalami error (status keluar non-nol), hook HTTP menampilkan kode status non-2xx (seperti error server 4xx atau 5xx), atau operasi mengalami waktu tunggu habis atau menampilkan JSON yang tidak dikenali, runtime akan memperlakukannya sebagai persetujuan (`allow`). Eksekusi alat berlanjut secara normal sehingga skrip yang rusak atau server telemetri yang tidak dapat dijangkau tidak akan pernah membuat aplikasi Anda mengalami kebuntuan.
 
-## Các trường hợp sử dụng phổ biến
+## Kasus penggunaan umum
 
-### Khả năng khôi phục nhiều lượt cho quyền riêng tư đối với dữ liệu và việc tuân thủ
+### Pemulihan multi-turn untuk privasi dan kepatuhan data
 
-Khi một lệnh gọi chặn quyền truy cập vào các tài nguyên bị hạn chế (chẳng hạn như các thư mục chứa Thông tin nhận dạng cá nhân (PII) hoặc hồ sơ tài chính bí mật), bạn có thể truyền `previous_interaction_id` trong lệnh gọi tiếp theo để tiếp tục lượt trong cùng một môi trường. Tác nhân sẽ đọc nội dung giải thích về việc từ chối và tự động khôi phục bằng cách truy vấn các bảng công khai đã được phê duyệt.
+Jika hook memblokir akses ke resource terbatas—seperti direktori yang berisi Informasi Identitas Pribadi (PII) atau catatan keuangan rahasia—Anda dapat meneruskan `previous_interaction_id` pada panggilan berikutnya untuk melanjutkan giliran di lingkungan yang sama. Agen membaca penjelasan penolakan dan otomatis pulih dengan mengkueri tabel publik yang disetujui.
 
 ### Python
 
@@ -932,12 +932,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 #   }'
 ```
 
-### Ghi nhật ký kiểm tra và đo từ xa bên ngoài
+### Telemetri dan logging audit eksternal
 
-Gửi các sự kiện kiểm tra theo thời gian thực từ bên trong hộp cát đến một máy chủ giám sát bên ngoài bất cứ khi nào tệp được đọc hoặc sửa đổi.
+Kirim peristiwa audit real-time dari dalam sandbox ke server pemantauan eksternal setiap kali file dibaca atau diubah.
 
-- **So khớp nhiều công cụ:** Vì trình so khớp sử dụng biểu thức chính quy tiêu chuẩn, nên bạn có thể kết hợp nhiều công cụ trong một quy tắc bằng cách sử dụng dấu gạch dọc (`view_file|write_to_file|replace_file_content`) hoặc ký tự đại diện (`.*_file`).
-- **Không đưa các khoá bí mật vào cấu hình:** Lưu mã thông báo xác thực dưới dạng [thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) và tham chiếu mã thông báo đó theo mã nhận dạng từ [cấu hình mạng](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#network-configuration) (`network.allowlist.credential`) của môi trường. Proxy truyền dữ liệu ra sẽ chèn mã thông báo thực tế vào các yêu cầu gửi đi. Thay vào đó, ví dụ này đặt tiêu đề cùng dòng với `transform`. Tiêu đề này được bảo vệ bằng cùng một proxy và phù hợp khi mã thông báo thuộc về một cấu hình này.
+- **Mencocokkan beberapa alat:** Karena matcher menggunakan regex standar, Anda dapat menggabungkan beberapa alat dalam satu aturan menggunakan garis vertikal (`view_file|write_to_file|replace_file_content`) atau karakter pengganti (`.*_file`).
+- **Jaga agar rahasia tidak ada dalam konfigurasi Anda:** Simpan token autentikasi sebagai [kredensial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=id) dan rujuk berdasarkan ID dari [konfigurasi jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration) lingkungan Anda (`network.allowlist.credential`). Proxy keluar menyisipkan token pembawa yang sebenarnya pada permintaan keluar. Contoh ini menetapkan header sebaris dengan `transform`, yang dilindungi oleh proxy yang sama dan cocok saat token termasuk dalam satu konfigurasi ini.
 
 ### Python
 
@@ -1234,25 +1234,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Các điểm hạn chế
+## Batasan
 
-- **Phạm vi của công cụ hộp cát:** Các lệnh gọi API chặn các công cụ tích hợp sẵn bên trong hộp cát: thực thi mã (`code_execution`) và các thao tác trên hệ thống tệp (`view_file`, `write_to_file`, `replace_file_content`, `list_dir` và `delete_file`). Các lệnh gọi API này không kích hoạt cho lệnh gọi hàm tuỳ chỉnh (`function`) hoặc các công cụ Giao thức ngữ cảnh mô hình (`mcp_server`) bên ngoài được xử lý bên ngoài vùng chứa.
-- **Danh sách cho phép mạng:** Các lệnh gọi HTTP chạy trong mạng vùng chứa. Bạn phải cho phép rõ ràng các URL đích trong `network.allowlist` của môi trường. Địa chỉ Loopback (`localhost`, `127.0.0.1`) bị chặn bởi proxy.
-- **Tự động phê duyệt khi có lỗi:** Nếu tập lệnh hook gặp sự cố (trạng thái thoát khác 0), hết thời gian chờ hoặc không thành công, thì thời gian chạy sẽ ghi nhật ký lỗi và cho phép lệnh gọi công cụ tiếp tục. Điều này đảm bảo các tập lệnh linter bị hỏng hoặc các quy trình treo không bao giờ làm ứng dụng của bạn bị tắc nghẽn.
-- **Bảo vệ cấu hình hộp cát:** Vì các lệnh gọi thực thi bên trong hộp cát vùng chứa, nên các tác nhân có công cụ ghi hệ thống tệp hoặc quyền thực thi mã shell có thể sửa đổi `.agents/hooks.json` cục bộ hoặc các tập lệnh trong không gian làm việc có thể ghi. Sử dụng các lệnh gọi vùng chứa làm hướng dẫn tự động về chính sách và biện pháp bảo vệ hoạt động; nếu cần có khả năng chống giả mạo nghiêm ngặt đối với các hoạt động thực thi mô hình không đáng tin cậy, hãy gắn các nguồn cấu hình từ kho lưu trữ chỉ đọc.
+- **Cakupan alat sandbox:** Hook mencegat alat bawaan di dalam sandbox: eksekusi kode (`code_execution`) dan operasi sistem file (`view_file`, `write_to_file`, `replace_file_content`, `list_dir`, dan `delete_file`). Hook tidak diaktifkan untuk panggilan fungsi kustom (`function`) atau alat Model Context Protocol (`mcp_server`) eksternal yang ditangani di luar container.
+- **Daftar yang diizinkan jaringan:** Hook HTTP berjalan di dalam jaringan penampung. Anda harus mengizinkan URL target secara eksplisit di `network.allowlist` lingkungan Anda. Alamat loopback (`localhost`, `127.0.0.1`) diblokir oleh proxy.
+- **Persetujuan otomatis saat terjadi error:** Jika skrip hook mengalami error (status keluar bukan nol), waktu habis, atau gagal, runtime akan mencatat kegagalan dan mengizinkan panggilan alat untuk dilanjutkan. Hal ini memastikan skrip linter yang rusak atau proses yang terhenti tidak pernah membuat aplikasi Anda mengalami kebuntuan.
+- **Perlindungan konfigurasi sandbox:** Karena hook dijalankan di dalam sandbox penampung, agen dengan alat penulisan sistem file atau izin eksekusi kode shell dapat mengubah `.agents/hooks.json` lokal atau skrip dalam ruang kerja yang dapat ditulis. Gunakan hook penampung sebagai panduan kebijakan otomatis dan pengamanan operasional; jika diperlukan ketahanan terhadap gangguan yang ketat terhadap eksekusi model yang tidak tepercaya, pasang sumber konfigurasi dari repositori hanya baca.
 
-## Bước tiếp theo
+## Langkah berikutnya
 
-- Tìm hiểu cách định cấu hình [môi trường và hộp cát từ xa liên tục](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi).
-- Khám phá các chức năng và công cụ tích hợp của [tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi).
-- Xem [Tổng quan về Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi) cho các phiên nhiều lượt và truyền phát trực tuyến.
+- Pelajari cara mengonfigurasi [sandbox dan lingkungan jarak jauh](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id) yang persisten.
+- Jelajahi kemampuan dan alat bawaan [agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id).
+- Tinjau [Ringkasan Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) untuk sesi multi-turn dan streaming.
 
-Gửi ý kiến phản hồi
+Kirim masukan
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Cập nhật lần gần đây nhất: 2026-10-07 UTC.
+Terakhir diperbarui pada 2026-10-07 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Ada masukan untuk kami?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-07 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-07 UTC."],[],[]]

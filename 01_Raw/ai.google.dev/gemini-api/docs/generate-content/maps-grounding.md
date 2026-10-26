@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=zh-TW
-fetched_at: 2026-10-19T05:38:37.608309+00:00
-title: "\u5229\u7528 Google \u5730\u5716\u5efa\u7acb\u57fa\u6e96 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=zh-CN
+fetched_at: 2026-10-26T05:49:59.906690+00:00
+title: "\u4f9d\u6258 Google \u5730\u56fe\u8fdb\u884c\u63a5\u5730 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
 
-提供意見
+发送反馈
 
-# 利用 Google 地圖建立基準
+# 依托 Google 地图进行接地
 
-「利用 Google 地圖建立基準」功能可將 Gemini 的生成功能，與 Google 地圖豐富、真實且最新的資料連結。開發人員可以利用這項功能，輕鬆將位置感知功能整合到應用程式中。如果使用者查詢的內容與 Maps 資料相關，Gemini 模型會利用 Google 地圖，提供與使用者指定位置或大概區域相關、符合事實且最新的答案。
+Grounding with Google Maps 可将 Gemini 的生成能力与 Google 地图丰富、真实且最新的数据联系起来。借助此功能，开发者可以轻松将位置感知功能融入到自己的应用中。当用户查询的上下文与 Google 地图数据相关时，Gemini 模型会利用 Google 地图提供与用户指定位置或大致区域相关的真实且最新的回答。
 
-- **準確且考量位置的回覆：**運用 Google 地圖廣泛且最新的資料，處理特定地理位置的查詢。
-- **強化個人化功能：**根據使用者提供的所在位置，量身打造推薦內容和資訊。
+- **准确、位置感知的回答**： 利用 Google 地图广泛且最新的数据来处理特定地理位置的查询。
+- **增强的个性化体验**： 根据用户提供的位置定制推荐内容和信息。
 
-## 開始使用
+## 开始使用
 
-本範例說明如何將 Grounding with Google Maps 整合至應用程式，根據使用者查詢提供準確的回覆，並加入位置資訊。提示會要求提供當地建議，並可選用使用者位置資訊，讓 Gemini 模型使用 Google 地圖資料。
+此示例演示了如何将 Grounding with Google Maps 集成到您的应用中，以便为用户查询提供准确、位置感知的回答。提示要求提供本地推荐，并提供可选的用户位置，以便 Gemini 模型使用 Google 地图数据。
 
 ### Python
 
@@ -128,34 +128,34 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## 「利用 Google 地圖建立基準」的運作方式
+## Grounding with Google Maps 的工作原理
 
-利用 Google 地圖建立基準，將 Gemini API 與 Google 地理生態系統整合，並使用 Maps API 做為基準來源。當使用者的查詢包含地理位置背景資訊時，Gemini 模型可以叫用「利用 Google 地圖建立基準」工具。模型接著就能根據與所提供位置相關的 Google 地圖資料，生成回覆。
+“依托 Google 地图进行接地”功能使用 Google 地图 API 作为接地来源，将 Gemini API 与 Google 地理生态系统集成在一起。当用户的查询包含地理位置上下文时，Gemini 模型可以调用“依托 Google 地图进行接地”工具。然后，模型可以根据与所提供位置相关的 Google 地图数据生成回答。
 
-整個程序通常涵蓋下列工作：
+该过程通常涉及以下步骤：
 
-1. **使用者查詢：**使用者向應用程式提交查詢，可能包含地理位置背景資訊 (例如「附近的咖啡店」、「舊金山的博物館」)。
-2. **叫用工具：**Gemini 模型辨識出地理意圖，叫用「利用 Google 地圖建立基準」工具。這項工具可選擇提供使用者的 `latitude` 和 `longitude`。這項工具是文字搜尋工具，運作方式與在 Google 地圖上搜尋類似，也就是說，本地查詢 (「附近」) 會使用座標，而特定或非本地查詢則不太可能受到明確位置的影響。
-3. **資料擷取：**「利用 Google 地圖建立基準」服務會查詢 Google 地圖，取得相關資訊 (例如地點、評論、相片、地址、營業時間)。
-4. **建立基準生成：**系統會使用檢索到的 Maps 資料，提供 Gemini 模型回覆，確保事實準確性和關聯性。
-5. **回覆：**模型會傳回文字回覆，其中包含 Google 地圖來源的引用內容。
+1. **用户查询**： 用户向您的应用提交查询，其中可能包含地理位置上下文（例如“我附近的咖啡店”“旧金山的博物馆”）。
+2. **工具调用**： Gemini 模型识别出地理位置意图，并调用“Grounding with Google Maps”工具。您可以选择性地为该工具提供用户的 `latitude` 和 `longitude`。该工具是一种文本搜索工具，其行为与在 Google 地图上搜索类似，即本地查询（“我附近”）将使用坐标，而特定或非本地查询不太可能受到明确位置的影响。
+3. **数据检索**： Grounding with Google Maps 服务会查询 Google 地图以获取相关信息（例如地点、评价、照片、地址、营业时间）。
+4. **接地生成**： 检索到的 Google 地图数据用于为 Gemini 模型的回答提供信息，确保事实准确性和相关性。
+5. **回答**： 模型会返回文本回答，其中包含对 Google 地图来源的引用。
 
-## 使用 Google 地圖建立基準的原因和時機
+## 使用 Grounding with Google Maps 的原因和时机
 
-如果應用程式需要準確、最新且特定地點的資訊，就非常適合使用「利用 Google 地圖建立基準」功能。這項功能會根據 Google 地圖全球超過 2.5 億個地點的龐大資料庫，提供相關且個人化的內容，提升使用者體驗。
+Grounding with Google Maps 功能非常适合需要准确、最新且特定于位置的信息的应用。它通过提供相关且个性化的内容来提升用户体验，这些内容由 Google 地图在全球范围内超过 2.5 亿个地点的庞大数据库提供支持。
 
-如果應用程式需要執行下列操作，請使用「利用 Google 地圖建立基準」功能：
+当您的应用需要执行以下操作时，应使用 Grounding with Google Maps 功能：
 
-- 完整且如實回答特定地區的問題。
-- 打造對話式行程規劃工具和當地導覽。
-- 根據位置和使用者偏好 (例如餐廳或商店)，推薦搜尋點。
-- 為社群、零售或餐飲外送服務打造位置感知體驗。
+- 针对特定地理位置的问题提供完整且准确的回答。
+- 构建对话式行程规划师和本地向导。
+- 根据位置和用户偏好（例如餐馆或商店）推荐兴趣点。
+- 为社交、零售或外卖服务打造位置感知体验。
 
-如果用途需要考量距離和最新事實資料，例如尋找「附近最棒的咖啡店」或規劃路線，利用 Google 地圖建立基準就是絕佳選擇。
+在需要考虑邻近度和最新真实数据的使用场景中，“依托 Google 地图进行接地”功能表现出色，例如查找“我附近最好的咖啡店”或获取路线。
 
-## API 方法和參數
+## API 方法和参数
 
-透過 Gemini API，您可以使用 [`generateContent`](https://ai.google.dev/api/generate-content?hl=zh-tw) 方法，將 Google 地圖做為工具建立基準。如要啟用及設定利用 Google 地圖建立基準，請在要求的 `tools` 參數中加入 [`googleMaps`](https://ai.google.dev/api/caching?hl=zh-tw#GoogleMaps) 物件。
+Grounding with Google Maps 通过 Gemini API 作为工具在 [`generateContent`](https://ai.google.dev/api/generate-content?hl=zh-cn) 方法中公开。您可以通过在请求的 `tools` 参数中添加 [`googleMaps`](https://ai.google.dev/api/caching?hl=zh-cn#GoogleMaps) 对象来启用和配置 Grounding with Google Maps。
 
 ### JSON
 
@@ -170,7 +170,7 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }
 ```
 
-此外，這項工具支援以 `toolConfig` 形式傳遞情境位置。
+此外，该工具还支持将上下文位置作为 `toolConfig` 传递。
 
 ### JSON
 
@@ -193,9 +193,11 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }
 ```
 
-### 瞭解基準回覆
+### 了解接地回答
 
-如果回覆成功以 Google 地圖資料建立基準，回覆會包含 [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-tw#GroundingMetadata) 欄位。這類結構化資料對於驗證聲明、在應用程式中建立豐富的引用體驗，以及符合服務使用規定至關重要。
+当回答成功依托 Google 地图数据进行接地时，回答
+中会包含 [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-cn#GroundingMetadata) 字段。
+此结构化数据对于验证声明、在应用中打造丰富的引用体验以及满足服务使用要求至关重要。
 
 ### JSON
 
@@ -242,21 +244,23 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }
 ```
 
-Gemini API 會傳回下列資訊：
-[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-tw#GroundingMetadata)：
+Gemini API 会随
+[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-cn#GroundingMetadata)返回以下信息：
 
-- `groundingChunks`：包含 `maps` 來源 (`uri`、`placeId` 和 `title`) 的物件陣列。
-- `groundingSupports`：區塊陣列，用於將模型回覆文字連結至 `groundingChunks` 中的來源。每個區塊都會將文字範圍 (由 `startIndex` 和 `endIndex` 定義) 連結至一或多個 `groundingChunkIndices`。這是建立內嵌引用的關鍵。
+- `groundingChunks`：包含 `maps` 来源（`uri`、`placeId` 和 `title`）的对象数组。
+- `groundingSupports`：用于将模型回答文本连接到 `groundingChunks` 中的来源的块数组。每个块将文本范围（由 `startIndex` 和 `endIndex` 定义）链接到一个或多个 `groundingChunkIndices`。这是构建内嵌引用的关键。
 
-如需顯示如何以文字呈現文內引用的程式碼片段，請參閱「以 Google 搜尋強化事實基礎」文件中的[範例](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw#attributing_sources_with_inline_citations)。
+如需查看演示如何在文本中呈现内嵌引用的代码段，请参阅[“依托 Google 搜索进行接地”文档中的
+示例](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn#attributing_sources_with_inline_citations)
+。
 
-## 用途
+## 使用场景
 
-「利用 Google 地圖建立基準」功能支援多種位置感知用途。以下範例說明如何透過不同的提示詞和參數，利用 Google 地圖建立基準。Google 地圖基準結果中的資訊可能與實際情況不同。
+Grounding with Google Maps 支持各种位置感知应用场景。以下示例演示了不同的提示和参数如何利用 Grounding with Google Maps 功能。Google 地图接地结果中的信息可能与实际情况有所不同。
 
-### 處理地點相關問題
+### 处理特定地点的问题
 
-詢問特定地點的詳細問題，根據 Google 使用者評論和其他地圖資料取得解答。
+提出有关特定地点的详细问题，以获取基于 Google 用户评价和其他 Google 地图数据的回答。
 
 ### Python
 
@@ -362,9 +366,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-### 提供適地性個人化服務
+### 提供基于位置的个性化体验
 
-根據使用者的偏好和特定地理區域，取得專屬建議。
+获取根据用户偏好和特定地理区域量身定制的推荐。
 
 ### Python
 
@@ -466,9 +470,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-### 協助規劃行程
+### 协助规划行程
 
-生成多日計畫，提供路線和各個地點的資訊，非常適合旅遊應用程式。
+生成包含路线和各种地点信息的行程计划，非常适合旅行应用。
 
 ### Python
 
@@ -572,70 +576,74 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## 服務使用規定
+## 服务使用要求
 
-本節說明使用「利用 Google 地圖建立基準」服務時須遵守的規定。
+本部分介绍了“依托 Google 地图进行接地”功能的服务使用要求。
 
-### 告知使用者 Google 地圖來源的使用方式
+### 告知用户 Google 地图来源的使用情况
 
-每筆 Google 地圖基準結果都會提供 `groundingChunks` 中的來源，佐證各項回覆。系統也會傳回下列中繼資料：
+对于每个 Google 地图接地结果，您都会收到 `groundingChunks` 中支持相应回答的来源。系统还会返回以下元数据：
 
-- 來源 URI
-- title
+- 源 URI
+- 标题
 - ID
 
-呈現利用 Google 地圖建立基準的結果時，您必須指定相關聯的 Google 地圖來源，並告知使用者下列事項：
+呈现“Grounding with Google Maps”功能的结果时，您必须指定关联的 Google 地图来源，并告知用户以下信息：
 
-- Google 地圖來源必須緊接在來源支援的生成內容之後。這類生成內容也稱為 Google 地圖基準結果。
-- Google 地圖來源必須在一次使用者互動中可供查看。
+- Google 地图来源必须紧跟在来源支持的生成内容之后。此类生成的内容也称为 Google 地图接地结果。
+- Google 地图来源必须在一次用户互动中可见。
 
-### 顯示 Google 地圖來源和 Google 地圖連結
+### 使用 Google 地图链接显示 Google 地图来源
 
-針對 `groundingChunks` 和 `grounding_chunks.maps.placeAnswerSources.reviewSnippets` 中的每個來源，都必須按照下列規定產生連結預覽畫面：
+对于 `groundingChunks` 和 `grounding_chunks.maps.placeAnswerSources.reviewSnippets` 中的每个来源，必须按照以下要求生成链接预览：
 
-- 請按照 Google 地圖文字[出處指南](#maps-attribution-guidelines)，將每個來源歸功於 Google 地圖。
-- 顯示回覆中提供的來源標題。
-- 使用回覆中的 `uri` 或 `googleMapsUri` 連結至來源。
+- 请按照 Google 地图文字
+  [提供方指南](#maps-attribution-guidelines)，将每项来源归属至 Google 地图。
+- 显示回答中提供的来源标题。
+- 使用回答中的 `uri` 或 `googleMapsUri` 链接到来源。
 
-這些圖片顯示來源和 Google 地圖連結的最低顯示要求。
+这些图片展示了显示来源和 Google 地图链接的最低要求。
 
-![提示和回覆，並顯示來源](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=zh-tw)
+![显示来源的回答提示](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=zh-cn)
 
-您可以收合來源檢視畫面。
+您可以收起“来源”视图。
 
-![提示詞與回覆和來源 (收合)](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=zh-tw)
+![已折叠包含回答和来源的提示](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=zh-cn)
 
-選用：加入其他內容 (例如：) 來強化連結預覽畫面：
+可选：使用其他内容（例如以下内容）增强链接预览：
 
-- Google 地圖文字出處標示前方會插入 [Google 地圖網站小圖示](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=zh-tw)。
-- 來源網址 (`og:image`) 的相片。
+- 在 [Google 地图网站图标](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=zh-cn)
+  之前插入 Google 地图文字提供方。
+- 来自来源网址 (`og:image`) 的照片。
 
-如要進一步瞭解部分 Google 地圖資料供應商及其授權條款，請參閱「[Google 地圖和 Google 地球法律聲明](https://www.google.com/help/legalnotices_maps/?hl=zh-tw)」。
+如需详细了解我们的部分 Google 地图数据提供商及其
+许可条款，请参阅
+[Google 地图和 Google 地球法律声明](https://www.google.com/help/legalnotices_maps/?hl=zh-cn)。
 
-### Google 地圖文字出處資訊規範
+### Google 地图文字提供方指南
 
-在文字中將來源歸給 Google 地圖時，請遵循下列規範：
+在文本中将来源归属至 Google 地图时，请遵循以下指南：
 
-- 請勿以任何方式修改「Google 地圖」文字：
-  - 請勿變更 Google 地圖的大小寫。
-  - 請勿將 Google 地圖分成多行。
-  - 請勿將 Google 地圖本地化為其他語言。
-  - 使用 HTML 屬性 translate="no"，防止瀏覽器翻譯 Google 地圖。
-- 請按照下表說明設定 Google 地圖文字樣式：
+- 请勿以任何方式修改 Google 地图文字：
+  - 请勿更改 Google 地图的大小写。
+  - 请勿将 Google 地图换行到多行。
+  - 请勿将 Google 地图本地化为其他语言。
+  - 使用 HTML 属性 translate="no" 防止浏览器翻译 Google 地图。
+- 按照下表中的说明设置 Google 地图文字的样式：
 
-| 屬性 | 樣式 |
+| 属性 | 样式 |
 | --- | --- |
-| `Font family` | Roboto。載入字型為選用步驟。 |
-| `Fallback font family` | 產品中已使用的任何 Sans Serif 內文字型，或「Sans-Serif」以叫用預設系統字型 |
-| `Font style` | 一般 |
+| `Font family` | Roboto。您可以选择性地加载字体。 |
+| `Fallback font family` | 产品中已使用的任何无衬线正文字体，或“Sans-Serif”以调用默认系统字体 |
+| `Font style` | 正常 |
 | `Font weight` | 400 |
-| `Font color` | 白色、黑色 (#1F1F1F) 或灰色 (#5E5E5E)。與背景保持無障礙對比度 (4.5:1)。 |
-| `Font size` | - 字型大小下限：12sp - 字型大小上限：16sp - 如要瞭解 sp，請參閱 [Material Design 網站](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc)上的字型大小單位。 |
-| `Spacing` | 一般 |
+| `Font color` | 白色、黑色 (#1F1F1F) 或灰色 (#5E5E5E)。保持与背景的可访问对比度 (4.5:1)。 |
+| `Font size` | - 字体大小下限：12sp - 字体大小上限：16sp - 如需了解 sp，请参阅 [Material Design 网站](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc)上的字体大小单位。 |
+| `Spacing` | 正常 |
 
-#### CSS 範例
+#### 示例 CSS
 
-下列 CSS 會在白色或淺色背景上，以適當的字體排版樣式和顏色顯示 Google 地圖。
+以下 CSS 代码段会在白色或浅色背景上呈现具有适当排版样式和颜色的 Google 地图。
 
 ### CSS
 
@@ -654,78 +662,89 @@ color: #5e5e5e;
 }
 ```
 
-### 地點 ID 和評論 ID
+### 地点 ID 和评价 ID
 
-Google 地圖資料包括地點 ID 和評論 ID。您可以快取、儲存及匯出下列回應資料：
+Google 地图数据包括地点 ID 和评价 ID。您可能会缓存、存储和导出以下回答数据：
 
 - `placeId`
 - `reviewId`
 
-《利用 Google 地圖建立基準條款》中的快取限制不適用。
+Grounding with Google Maps 条款中针对缓存的限制不适用。
 
-### 禁止的活動和地域
+### 禁止的活动和地区
 
-利用 Google 地圖建立基準時，某些內容和活動會受到額外限制，以維護安全可靠的平台。除了《[條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#grounding-with-google-maps)》中的使用限制外，您也同意不從事下列行為：
+Grounding with Google Maps 对某些内容和活动有额外的限制，以维护安全可靠的平台。除了条款中的使用
+限制之外：
 
-- 您不會將「利用 Google 地圖建立基準」功能用於高風險活動，包括緊急應變服務。
-- 您不得在禁止地區發行或行銷提供「利用 Google 地圖建立基準」功能的應用程式。詳情請參閱「[Google Maps Platform 禁止地區](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=zh-tw)」一文。「禁止地域」清單可能會不時更新。
+- 您不得将“依托 Google 地图进行接地”功能用于高风险活动，包括应急响应服务。
+- 您不得在禁止地区分发或营销提供“依托 Google 地图进行接地”功能的应用。如需了解详情，请参阅
+  [Google Maps Platform 禁止地区](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=zh-cn)。
+  禁止地区列表可能会不时更新。
 
 ## 最佳做法
 
-- **提供使用者位置資訊：**如要取得最相關的個人化回覆，請在知道使用者位置資訊時，務必在 `googleMapsGrounding` 設定中加入 `user_location` (經緯度)。
-- **告知使用者：**明確告知使用者，系統會使用 Google 地圖資料回答查詢，尤其是在啟用工具時。
-- **監控延遲時間：**如果是對話式應用程式，請確保基準回覆的 P95 延遲時間維持在可接受的門檻內，以維持流暢的使用者體驗。
-- **在不需要時關閉：**預設會關閉利用 Google 地圖建立基準的功能。只有在查詢有明確的地理位置脈絡時，才啟用這項功能 (`"tools": [{"googleMaps": {}}]`)，以提升效能並節省費用。
+- **提供用户位置**： 为了获得最相关且个性化的回答，请务必在知道用户位置的情况下，在 `googleMapsGrounding` 配置中添加 `user_location`（纬度和经度）。
+- **告知最终用户**： 明确告知最终用户，系统正在使用 Google 地图数据来回答他们的查询，尤其是在启用该工具时。
+- **监控延迟时间**： 对于对话式应用，请确保接地回答的 P95 延迟时间保持在可接受的阈值范围内，以维持流畅的用户体验。
+- **在不需要时关闭**： Grounding with Google Maps 默认处于关闭状态。只有当查询具有
+  明确的地理位置上下文时，才启用该功能 (`"tools": [{"googleMaps": {}}]`)，以优化性能和费用。
 
 ## 限制
 
-- **適用地區：**利用 Google 地圖建立基準的功能已在全球推出
-- **支援的機型：**請參閱「[支援的機型](#supported-models)」一節。
-- **多模態輸入/輸出：**目前「利用 Google 地圖建立基準」功能不支援文字以外的多模態輸入或輸出內容。
-- **預設狀態：**「利用 Google 地圖建立基準」工具預設為關閉。您必須在 API 要求中明確啟用這項功能。
+- **地理范围**： Grounding with Google Maps 在全球范围内可用
+- **模型支持**： 请参阅[支持的模型](#supported-models)部分。
+- **多模态输入/输出**： Grounding with Google Maps 目前不支持文本以外的多模态输入或输出。
+- **默认状态**： “依托 Google 地图进行接地”工具默认处于关闭状态。
+  您必须在 API 请求中明确启用该工具。
 
-## 定價和頻率限制
+## 价格和速率限制
 
-利用 Google 地圖建立基準的定價因模型世代而異：
+Grounding with Google Maps 的价格因模型代系而异：
 
-- **Gemini 3 和更新的模型：**模型決定執行的每項搜尋查詢都會計入專案費用，所有 Gemini 3 和更新的模型每月共用 5,000 次免費要求，之後**每 1,000 次搜尋查詢收費$14 美元**。單一搜尋提示 (您對模型發出的 API 要求) 可能會導致模型執行多項搜尋查詢，以找出必要資訊。這些查詢都會計為工具的付費使用次數。
-- **Gemini 2.5 和舊版模型：**系統會根據搜尋提示向專案收費 (每 1,000 個基礎提示 $25 美元)。只有在提示成功傳回至少一個 Google 地圖錨定結果時，才會針對要求收費，無論模型在內部執行多少個別搜尋查詢來取得該結果，皆是如此。
+- **Gemini 3 及更新的模型**： 您的项目将按模型决定执行的每个搜索查询收费，所有 Gemini 3 及更新的模型每月共享 5,000 个免费请求，超出后按**每 1,000 次搜索查询 14 美元** 收费。单个搜索提示（您向模型发出的 API 请求）可能会导致模型执行多个搜索查询来查找必要的信息。每个查询都算作该工具的可计费使用。
+- **Gemini 2.5 及更旧的模型**： 您的项目将按搜索提示收费（每 1,000 条接地提示 25 美元）。只有当提示成功返回至少一个 Google 地图接地结果时，系统才会针对请求收费，无论模型在内部执行了多少个单独的搜索查询来获取该结果。
 
-「利用 Google 地圖建立基準」的配額通常與基礎 Gemini 模型的頻率限制一致。如需詳細的定價資訊，請參閱 [Gemini API 定價頁面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)。
+Grounding with Google Maps 的配额通常与底层 Gemini 模型的速率限制一致。如需了解详细的价格信息，请参阅 [Gemini API
+价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
 
-## 支援的模型
+## 支持的模型
 
-下列機型支援「利用 Google 地圖建立基準」：
+以下模型支持 Grounding with Google Maps：
 
-| 模型 | 利用 Google 地圖建立基準 |
+| 模型 | Grounding with Google Maps |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-tw) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-tw) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw) | ✔️ |
-| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ |
-| [Gemini 3 Flash 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-cn) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-cn) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-cn) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
 
-## 支援的工具組合
+## 支持的工具组合
 
-您可以將「利用 Google 地圖建立基準」與其他內建工具搭配使用，例如[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw) (Gemini 3.5 Flash-Lite 和後續模型支援)，以支援更複雜的用途。Gemini 3 模型也支援將這些內建工具與自訂工具 (函式呼叫) 結合。詳情請參閱「[工具組合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
+您可以将 Grounding with Google Maps 功能与其他内置工具（例如
+[“依托 Google 搜索进行接地”功能](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)，
+Gemini 3.5 Flash-Lite 及更新的模型支持此功能）搭配使用，以支持更复杂的使用场景。Gemini 3 模型还支持将这些内置工具与自定义工具（函数调用）相结合。如需了解详情，请参阅
+[工具组合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)页面。
 
-## 後續步驟
+## 后续步骤
 
-- 請參閱 [Gemini API 教戰手冊中的「以 Google 搜尋強化事實基礎」一節](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=zh-tw)。
-- 瞭解其他[可用工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-tw)。
-- 如要進一步瞭解負責任的 AI 最佳做法和 Gemini API 的安全篩選器，請參閱[安全設定指南](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-tw)。
+- 试试 [Gemini API 实战宝典
+  中的“依托 Google 搜索进行接地”功能](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=zh-cn)。
+- 了解其他[可用工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-cn)。
+- 如需详细了解 Responsible AI 最佳实践和 Gemini API 的安全性
+  过滤机制，请参阅[安全设置指南](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-cn)。
 
-提供意見
+发送反馈
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-上次更新時間：2026-10-15 (世界標準時間)。
+最后更新时间 (UTC)：2026-10-15。
 
-想進一步說明嗎？
+需要向我们提供更多信息？
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-15 (世界標準時間)。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-15。"],[],[]]

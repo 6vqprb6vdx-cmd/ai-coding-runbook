@@ -1,105 +1,105 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=fr
-fetched_at: 2026-10-19T05:44:26.668766+00:00
-title: "Optimisation et inf\u00e9rence de l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/optimization?hl=it
+fetched_at: 2026-10-26T05:36:51.789255+00:00
+title: "Inferenza e ottimizzazione dell'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Envoyer des commentaires
+Invia feedback
 
-# Optimisation et inférence de l'API Gemini
+# Inferenza e ottimizzazione dell'API Gemini
 
-L'API Gemini propose différents mécanismes d'optimisation pour vous aider à équilibrer la vitesse, le coût et la fiabilité en fonction des besoins spécifiques de votre charge de travail.
-Que vous créiez des bots conversationnels en temps réel ou que vous exécutiez des pipelines de traitement de données hors connexion lourds, le choix du bon paradigme peut réduire considérablement les coûts ou améliorer les performances.
+L'API Gemini offre una serie di meccanismi di ottimizzazione per aiutarti a bilanciare velocità, costi e affidabilità in base alle esigenze specifiche del tuo carico di lavoro.
+Che tu stia creando bot conversazionali in tempo reale o eseguendo pipeline di elaborazione dei dati offline pesanti, la scelta del paradigma giusto può ridurre significativamente i costi o migliorare il rendimento.
 
-| Fonctionnalité | Standard | Flex | Priorité | Lot | Mise en cache |
+| Funzionalità | Standard | Flex | Priorità | Batch | Memorizzazione nella cache |
 | --- | --- | --- | --- | --- | --- |
-| **Tarifs** | Plein tarif | 50% de remise | 75 à 100 % de plus que le tarif standard | 50% de remise | 90% de remise + stockage des jetons au prorata |
-| **Latence** | Quelques secondes à quelques minutes | Quelques minutes (1 à 15 minutes) | Quelques secondes | Jusqu'à 24 heures | Délai d'émission du premier jeton plus rapide |
-| **Fiabilité** | Élevée / Modérée à élevée | Optimisation limitée (supprimable) | Élevée (non supprimable) | Élevée (pour le débit) | N/A |
-| **Interface** | Synchrone | Synchrone | Synchrone | Asynchrone | État enregistré |
-| **Cas d'utilisation recommandé** | Workflows d'application généraux | Chaînes séquentielles non urgentes | Applications de production visibles par l'utilisateur | Ensembles de données volumineux, évaluations hors connexion | Requêtes récurrentes sur le même fichier |
+| **Prezzi** | Prezzo pieno | Sconto del 50% | Dal 75% al 100% in più rispetto allo standard | Sconto del 50% | Sconto del 90% + spazio di archiviazione dei token ripartito proporzionalmente |
+| **Latenza** | Da secondi a minuti | Minuti (target 1-15 minuti) | Secondi | Fino a 24 ore | Time to first token più rapido |
+| **Affidabilità** | Alta / medio alta | Best-effort (eliminabile) | Alta (non eliminabile) | Alta (per il throughput) | N/D |
+| **Interfaccia** | Sincrona | Sincrona | Sincrona | Asincrona | Stato salvato |
+| **Caso d'uso ideale** | Workflow di applicazioni generiche | Catene sequenziali non urgenti | App di produzione rivolte agli utenti | Set di dati di grandi dimensioni, valutazioni offline | Query ricorrenti sullo stesso file |
 
-## Niveaux de service d'inférence (synchrone)
+## Livelli di servizio di inferenza (sincroni)
 
-Vous pouvez passer d'un trafic synchrone optimisé pour la fiabilité à un trafic synchrone optimisé pour les coûts en transmettant le paramètre `service_tier` dans vos appels de génération standards.
+Puoi passare dal traffico sincrono ottimizzato per l'affidabilità a quello ottimizzato per i costi passando il parametro `service_tier` nelle chiamate di generazione standard.
 
-### Inférence standard (par défaut)
+### Inferenza standard (valore predefinito)
 
-Le niveau standard est l'option par défaut pour la génération de contenu séquentiel.
-Il offre des temps de réponse normaux sans frais supplémentaires ni mise en file d'attente importante.
+Il livello standard è l'opzione predefinita per la generazione di contenuti sequenziali.
+Fornisce tempi di risposta normali senza costi aggiuntivi o code pesanti.
 
-- **Fiabilité** : criticité standard
-- **Prix** : tarifs standards.
-- **Recommandé pour** : la plupart des applications interactives quotidiennes.
+- **Affidabilità:** criticità standard
+- **Prezzo:** prezzi standard.
+- **Ideale per:** la maggior parte delle applicazioni interattive quotidiane.
 
-### Inférence prioritaire (optimisée pour la latence)
+### Inferenza con priorità (ottimizzata per la latenza)
 
-[Le traitement](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fr)
-prioritaire achemine vos requêtes vers des files d'attente de calcul à criticité élevée.
-Ce trafic est strictement non supprimable (il n'est jamais préempté par d'autres niveaux) et offre la plus haute fiabilité. Si vous dépassez les limites dynamiques de priorité, le système rétrogradera gracieusement la requête vers un traitement standard au lieu d'échouer avec une erreur.
+[L'elaborazione con priorità](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it) indirizza le richieste
+alle code di calcolo ad alta criticità.
+Questo traffico è strettamente non eliminabile (non viene mai sostituito da altri livelli) e offre la massima affidabilità. Se superi i limiti di priorità dinamica, il sistema esegue il downgrade della richiesta all'elaborazione standard anziché generare un errore.
 
-- **Fiabilité** : criticité la plus élevée
-- **Prix** : 75 à 100 % de plus que les tarifs standards.
-- **Recommandé pour** : les chatbots clients, la détection de fraudes en temps réel et les copilotes essentiels à l'entreprise.
+- **Affidabilità:** massima criticità
+- **Prezzo:** dal 75% al 100% in più rispetto alle tariffe standard.
+- **Ideale per:** chatbot per i clienti, rilevamento delle frodi in tempo reale e copiloti mission-critical.
 
-### Inférence Flex (optimisée pour les coûts)
+### Inferenza Flex (ottimizzata per i costi)
 
-[L'inférence Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fr) offre une remise de 50% par rapport aux tarifs standards en utilisant
-une capacité de calcul opportuniste en dehors des heures de pointe. Les requêtes sont traitées de manière synchrone, ce qui signifie que vous n'avez pas besoin de réécrire le code pour gérer les objets par lot.
-Comme il s'agit d'un trafic "supprimable", les requêtes peuvent être préemptées si le système connaît des pics de trafic standards.
+[L'inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it) offre uno sconto del 50% rispetto alle tariffe standard utilizzando la capacità di calcolo
+opportunistica fuori orario di punta. Le richieste vengono elaborate in modo sincrono, il che significa che non devi riscrivere il codice per gestire gli oggetti batch.
+Poiché si tratta di traffico "eliminabile", le richieste potrebbero essere sostituite se il sistema registra picchi di traffico standard.
 
-- **Fiabilité** : criticité non garantie et supprimable
-- **Prix** : 50% du tarif standard (facturé par jeton).
-- **Recommandé pour** : les workflows agentifs en plusieurs étapes où l'appel N+1 dépend de la sortie de l'appel N, les mises à jour CRM en arrière-plan et les évaluations hors connexion.
+- **Affidabilità:** criticità non garantita, eliminabile
+- **Prezzo:** 50% del prezzo standard (fatturato per token).
+- **Ideale per:** Agentic Workflows multi-step in cui la chiamata N+1 dipende dall'output della chiamata N, aggiornamenti CRM in background e valutazioni offline.
 
-## API Batch (Bulk, asynchrone)
+## API Batch (bulk, asincrona)
 
-[L'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr) est conçue pour traiter de grands volumes
-de requêtes de manière asynchrone à
-50% du coût standard. Vous pouvez envoyer des requêtes sous forme de dictionnaires intégrés ou à l'aide d'un fichier d'entrée JSONL (jusqu'à 2 Go). Elle traite les requêtes à l'aide de files d'attente de débit en arrière-plan avec un délai de traitement cible de 24 heures.
+[L'API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) è progettata per elaborare grandi volumi
+di richieste in modo asincrono al
+50% del costo standard. Puoi inviare le richieste come dizionari in linea o utilizzando un file di input JSONL (fino a 2 GB). Elabora le richieste utilizzando le code di throughput in background con un tempo di risposta target di 24 ore.
 
-- **Fiabilité** : supprimable, mais avec des nouvelles tentatives automatisées et un système de mise en file d'attente de 24 heures
-- **Prix** : 50% du tarif standard.
-- **Recommandé pour** : le prétraitement d'ensembles de données volumineux, l'exécution de suites de tests de régression périodiques et la génération d'images ou d'intégrations à volume élevé.
+- **Affidabilità:** eliminabile, ma con tentativi automatici e sistema di accodamento di 24 ore
+- **Prezzo:** 50% del prezzo standard.
+- **Ideale per:** pre-elaborazione di set di dati di grandi dimensioni, esecuzione di suite di test di regressione periodici e generazione di immagini o incorporamenti di grandi volumi.
 
-## Mise en cache de contexte (réduction des coûts d'entrée)
+## Memorizzazione nella cache del contesto (risparmio di input)
 
-[La mise en cache de contexte](https://ai.google.dev/gemini-api/docs/caching?hl=fr) est utilisée lorsqu'un contexte initial important
-est référencé à plusieurs reprises par des requêtes plus courtes.
+[La memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it) viene utilizzata quando un contesto iniziale sostanziale
+viene referenziato ripetutamente da richieste più brevi.
 
-- **Mise en cache implicite** : activée automatiquement sur Gemini 2.5 et les modèles plus récents.
-  Le système répercute les économies si votre requête atteint des caches existants en fonction des préfixes d'invite courants.
-- **Mise en cache explicite** : vous pouvez créer manuellement un objet de cache avec une valeur TTL (Time-To-Live) spécifique. Une fois créé, vous référencez les jetons mis en cache pour les requêtes suivantes afin d'éviter de transmettre plusieurs fois la même charge utile de corpus. La mise en cache explicite n'est pas compatible avec Gemini 4 Argon et les versions ultérieures.
-- **Prix** : facturé en fonction du nombre de jetons mis en cache et de la durée de stockage (TTL).
-- **Recommandé pour** : les chatbots avec des instructions système détaillées, l'analyse répétitive de longs fichiers vidéo ou les requêtes sur des ensembles de documents volumineux.
+- **Memorizzazione nella cache implicita:** attivata automaticamente sui modelli Gemini 2.5 e successivi.
+  Il sistema trasferisce i risparmi sui costi se la richiesta raggiunge le cache esistenti in base ai prefissi di prompt comuni.
+- **Memorizzazione nella cache esplicita:** puoi creare manualmente un oggetto cache con un TTL (Time-To-Live) specifico. Una volta creati, fai riferimento ai token memorizzati nella cache per le richieste successive per evitare di passare ripetutamente lo stesso payload del corpus. La memorizzazione nella cache esplicita non è supportata per Gemini 4 Argon e versioni successive.
+- **Prezzo:** fatturato in base al conteggio dei token della cache e alla durata di archiviazione (TTL).
+- **Ideale per:** chatbot con istruzioni di sistema estese, analisi ripetitive di file video lunghi o query su set di documenti di grandi dimensioni.
 
-## Réduire les coûts d'entrée vidéo grâce au traitement agentif
+## Ridurre i costi di input video con l'elaborazione agentica
 
-Pour les contenus vidéo longs (plus de 5 à 10 minutes) ou les requêtes ciblées, le traitement agentif peut réduire les coûts des jetons d'entrée jusqu'à 88% tout en améliorant la qualité des réponses. Par défaut, tous les modèles (y compris Gemini 4) utilisent le [traitement statique](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr#agentic-video-understanding) pour extraire des frames à 1 FPS. Avec la compréhension vidéo agentique, le modèle inspecte d'abord la transcription vidéo et charge dynamiquement les segments visuels à des fréquences d'images et des résolutions plus élevées uniquement lorsque cela est nécessaire. Pour les clips courts (moins de 5 minutes) ou les résumés vidéo complets, conservez le mode de traitement statique par défaut pour un délai d'émission du premier jeton plus rapide et une surcharge de jetons inférieure. Le mode agentif entraîne un raisonnement interne (`total_thought_tokens`) et des allers-retours d'outils (`total_tool_use_tokens`) lors de la navigation dans la chronologie.
+Per i contenuti video di lunga durata (oltre 5-10 minuti) o le query mirate, l'elaborazione agentica può ridurre i costi dei token di input fino all'88% migliorando al contempo la qualità della risposta. Per impostazione predefinita, tutti i modelli (incluso Gemini 4) utilizzano l'[elaborazione statica](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#agentic-video-understanding) per estrarre i frame a 1 FPS. Con la comprensione video agentica, il modello ispeziona prima la trascrizione del video e carica dinamicamente i segmenti visivi a frequenza fotogrammi e risoluzioni più elevati solo quando necessario. Per clip brevi (meno di 5 minuti) o riepiloghi video completi, mantieni la modalità di elaborazione statica predefinita per un TTFT (Time to First Token) più rapido e un overhead dei token inferiore. La modalità agentica comporta ragionamenti interni (`total_thought_tokens`) e round trip degli strumenti (`total_tool_use_tokens`) durante la navigazione nella sequenza temporale.
 
-Pour utiliser le traitement agentif avec Gemini 4 Argon, 3.8 Flash, 3.6 Flash ou 3.5 Flash Lite,
-définissez `processing: "agentic"` (API Interactions) ou
-`media_processing: "AGENTIC"` (API GenerateContent) sur votre entrée vidéo. Si le modèle n'est pas compatible avec le traitement agentif, il renverra une erreur.
+Per utilizzare l'elaborazione agentica con Gemini 4 Argon, 3.8 Flash, 3.6 Flash o 3.5 Flash Lite,
+imposta `processing: "agentic"` (API Interactions) o
+`media_processing: "AGENTIC"` (API GenerateContent) sull'input video. Se il modello non supporta l'elaborazione agentica, restituirà un errore.
 
-Pour en savoir plus, consultez la section
-[Compréhension vidéo agentive](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fr#agentic-video-understanding).
+Per ulteriori informazioni, vedi
+[Comprensione video agentica](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it#agentic-video-understanding).
 
-Envoyer des commentaires
+Invia feedback
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Dernière mise à jour le 2026/10/13 (UTC).
+Ultimo aggiornamento 2026-10-13 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Vuoi dirci altro?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/13 (UTC)."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]

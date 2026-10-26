@@ -1,35 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=zh-CN
-fetched_at: 2026-10-19T05:42:28.416310+00:00
-title: "\u4f7f\u7528 Gemini API \u8fdb\u884c\u5fae\u8c03 \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/model-tuning?hl=fr
+fetched_at: 2026-10-26T05:55:33.504837+00:00
+title: "Affiner avec l'API\u00a0Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
 
-发送反馈
+Envoyer des commentaires
 
-# 使用 Gemini API 进行微调
+# Affiner avec l'API Gemini
 
-由于 Gemini 1.5 Flash-001 将于 2025 年 5 月被弃用，因此我们不再有任何模型支持在 Gemini API 或 AI Studio 中进行微调，但
-[Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=zh-cn) 支持微调。
+Avec l'arrêt de Gemini 1.5 Flash-001 en mai 2025, nous ne disposons plus d'un modèle compatible avec l'affinage dans l'API Gemini ou AI Studio, mais il est compatible avec la [plate-forme Gemini Enterprise Agent](https://cloud.google.com/gemini-enterprise-agent-platform/models/gemini-use-supervised-tuning?hl=fr).
 
-我们目前没有立即推出微调支持的计划，但如果您认为微调对您的用例非常重要，欢迎在我们的开发者论坛上[告诉
-我们](https://discuss.ai.google.dev/c/gemini-api/4?hl=zh-cn)
-。
+Nous ne prévoyons pas de prendre en charge le réglage fin pour le moment, mais nous aimerions [connaître votre avis sur notre forum des développeurs](https://discuss.ai.google.dev/c/gemini-api/4?hl=fr) si le réglage fin est important pour votre cas d'utilisation.
 
-发送反馈
+Envoyer des commentaires
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-最后更新时间 (UTC)：2026-04-29。
+Dernière mise à jour le 2026/04/29 (UTC).
 
-需要向我们提供更多信息？
+Voulez-vous nous donner plus d'informations ?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-04-29。"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

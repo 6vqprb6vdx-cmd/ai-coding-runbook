@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=it
-fetched_at: 2026-10-19T05:33:15.933396+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/veo-2.0-generate-001?hl=ar
+fetched_at: 2026-10-26T05:57:30.723928+00:00
 title: "Veo 2.0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Invia feedback
+إرسال ملاحظات
 
 # Veo 2.0
 
-Il nostro modello di generazione video stabile, solido e affidabile, che offre prestazioni coerenti per i workflow pronti per la produzione. Veo 2.0 è ideale per la creazione di contenuti standard a 1080p, asset per i social media e attività video ad alto volume che danno la priorità alla coerenza affidabile dei personaggi e a velocità di generazione prevedibili inferiori al secondo.
+نموذجنا القوي والموثوق لإنشاء الفيديوهات الثابتة، والذي يقدّم أداءً متّسقًا لسير العمل الجاهز للإنتاج يُعدّ Veo 2.0 الخيار الأفضل لإنشاء المحتوى العادي بدقة 1080p، وملفات وسائط لوسائل التواصل الاجتماعي، ومهام الفيديو الكبيرة التي تعطي الأولوية للاتساق في مظهر الشخصية الموثوق وسرعات إنشاء المحتوى التي يمكن توقّعها في أقل من ثانية.
 
-## Documentazione
+## الوثائق
 
-Visita la pagina [Generazione video](https://ai.google.dev/gemini-api/docs/video?hl=it) per una copertura completa di
-funzionalità e capacità.
+انتقِل إلى صفحة [إنشاء الفيديوهات](https://ai.google.dev/gemini-api/docs/video?hl=ar) للاطّلاع على تغطية كاملة
+للميزات والإمكانات.
 
 ## veo-2.0-generate-001
 
-| Proprietà | Descrizione |
+| الموقع | الوصف |
 | --- | --- |
-| id\_cardModel | **API Gemini**  `veo-2.0-generate-001` |
-| Tipi di dati saveSupported | **Input**  Testo, immagine  **Output**  Video |
-| token\_autoLimits | **Input di testo**  N/D  **Input immagine**  Qualsiasi risoluzione e proporzioni dell'immagine, dimensione dei file fino a 20 MB  **Video di output**  Fino a 2 |
-| calendar\_monthUltimo aggiornamento | Aprile 2025 |
+| id\_cardرمز الطراز | **Gemini API**  `veo-2.0-generate-001` |
+| saveأنواع البيانات المتوافقة | **الإدخال**  نص، صورة  **الناتج**  فيديو |
+| token\_autoالحدود | **إدخال النص**  لا ينطبق  **إدخال الصور**  أي دقة صورة ونسبة عرض إلى ارتفاع يصل حجم الملف إلى 20 ميغابايت  **الفيديو الناتج**  ما يصل إلى 2 |
+| calendar\_monthآخر تعديل | أبريل 2025 |
 
-Invia feedback
+إرسال ملاحظات
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ultimo aggiornamento 2026-09-07 UTC.
+تاريخ التعديل الأخير: 2026-10-19 (حسب التوقيت العالمي المتفَّق عليه)
 
-Vuoi dirci altro?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-07 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-19 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

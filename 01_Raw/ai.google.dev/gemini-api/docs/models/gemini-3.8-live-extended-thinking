@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=he
-fetched_at: 2026-10-19T05:38:02.180621+00:00
+fetched_at: 2026-10-26T05:57:39.218670+00:00
 title: "\u202bGemini 3.8 Live Extended Thinking \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,51 +18,50 @@ title: "\u202bGemini 3.8 Live Extended Thinking \u00a0|\u00a0 Gemini API \u00a0|
 
 # ‫Gemini 3.8 Live Extended Thinking
 
-‫Gemini 3.8 Live Extended Thinking הוא מודל אודיו לאודיו עם יכולות חשיבה רציונלית גבוהות. מומלץ להשתמש בו כשנדרשת חשיבה רציונלית מורכבת ברקע כדי לפתור בעיות מורכבות שכוללות כמה שלבים במהלך אינטראקציות קוליות בזמן אמת. הוא מעבד חשיבה רציונלית ברקע וקריאות אסינכרוניות לכלים בזמן שהוא מעביר בסטרימינג תגובות אודיו רציפות.
+‫Gemini 3.8 Live Extended Thinking הוא מודל אודיו-לאודיו עם יכולות חשיבה מתקדמות. מומלץ להשתמש בו כשנדרשת חשיבה מעמיקה יותר ברקע כדי לפתור בעיות מורכבות עם כמה שלבים במהלך אינטראקציות קוליות בזמן אמת. הוא מעבד חשיבה ברקע וקריאות אסינכרוניות לפונקציות, תוך כדי סטרימינג של תשובות אודיו רציפות.
 
-[לניסיון ב-Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live-extended-thinking&hl=he)
+[התנסות ב-Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live-extended-thinking&hl=he)
 
 ## מאמרי עזרה
 
-מידע מקיף על התכונות והיכולות זמין במדריך בנושא [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he).
+במדריך [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he) מפורטות כל התכונות והיכולות.
 
 ## gemini-3.8-live-extended-thinking
 
 | נכס | תיאור |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-3.8-live-extended-thinking` |
-| שמירהסוגי נתונים נתמכים | **קלטים**  טקסט, תמונות, אודיו, וידאו  **פלט**  טקסט ואודיו |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  131,072  **מגבלת טוקנים של פלט**  65,536 |
-| handymanיכולות | **[יצירת אודיו](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)**  נתמך  **[שמירת נתונים במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he)**  לא נתמך  **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**  לא נתמך  **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**  לא נתמך  **[בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)**  נתמך (אסינכרוני בלבד)  **[עיגון בעזרת מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)**  לא נתמך  **[יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)**  לא נתמך  ‫**[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he)**  נתמך  **[חיפוש עם עיגון בנתונים](https://ai.google.dev/gemini-api/docs/google-search?hl=he)**  נתמך  **[פלטים מובנים](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)**  לא נתמך  **[תהליך החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**  נתמך  **[הקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he)**  לא נתמך |
-| speedאפשרויות צריכה | ‫**[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he)**  לא נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-3.8-live-extended-thinking` |
+| id\_cardקוד המודל | `gemini-3.8-live-extended-thinking` |
+| saveסוגי נתונים נתמכים | **הנחיות**  טקסט, תמונות, אודיו  **פלט**  טקסט ואודיו |
+| token\_autoמגבלות על אסימונים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים בקלט**  131,072  **מגבלת טוקנים בפלט**  65,536 |
+| handymanיכולות | **[יצירת אודיו](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)**  נתמך  **[שמירה במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he)**  לא נתמך  **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**  לא נתמך  **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**  לא נתמך  **[בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)**  נתמך (אסינכרוני בלבד)  **[עיגון בעזרת מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)**  לא נתמך  **[יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)**  לא נתמך  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he)**  נתמך  **[חיפוש עם עיגון בנתונים](https://ai.google.dev/gemini-api/docs/google-search?hl=he)**  נתמך  **[פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)**  לא נתמך  **[בתהליך חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**  נתמך  **[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he)**  לא נתמך |
+| speedאפשרויות צריכה | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he)**  לא נתמך |
+| 123גרסאות | למידע נוסף, קראו את [תבניות גרסאות המודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-3.8-live-extended-thinking` |
 | calendar\_monthהעדכון האחרון | ספטמבר 2026 |
 | id\_cardכרטיס מודל | [כרטיס מודל](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=he) |
 
-## שדרוג ל-Gemini 3.8 Live Extended Thinking
+## משדרגים ל-Gemini 3.8 עם חשיבה מעמיקה במצב Live
 
-‫Gemini 3.8 Live Extended Thinking מציג חשיבה רציונלית ברקע במהלך סשנים של אודיו בזמן אמת. כשמשלבים את המודל הזה, צריך לעדכן את ניהול מצב הלקוח כדי לטפל באותות של חשיבה רציונלית אסינכרונית:
+‫Gemini 3.8 Live Extended Thinking מציג חשיבה מעמיקה ברקע במהלך שיחות קוליות במצב Live. כשמשלבים את המודל הזה, צריך לעדכן את ניהול המצב של הלקוח כדי לטפל באותות הסקת מסקנות אסינכרוניים:
 
-- **פרוטוקול חשיבה אסינכרוני**: כשמנהלים אינטראקציה עם מודלים שמשתמשים בחשיבה אסינכרונית, הסמל `turnComplete: true` כבר לא מציין שהמודל לא פעיל. יכול להיות שהשרת ימשיך לעבד נימוקים ברקע או קריאות לכלים. הלקוח צריך להמשיך להאזין להודעות שרת עוקבות (כמו קריאות לכלים או מסגרות אודיו) אחרי שההודעה `turnComplete: true` מגיעה.
-- **מעקב `interaction_status`**: משתמשים בשדה `interaction_status` בהודעות שרת נכנסות כדי לקבוע את מצב השרת הנוכחי:
-  - ‫`IN_PROGRESS`: השרת מעבד באופן פעיל קלט של משתמשים, מריץ חשיבה רציונלית ברקע או ממתין לתשובות לקריאות אסינכרוניות לכלים.
-    יכול להיות שיוצגו פלטים נוספים של המודל או קריאות נוספות לכלים.
-  - ‫`IDLE`: השרת סיים את כל העיבוד, ההסקה והשימוש בכלים.
+- **פרוטוקול הסקת מסקנות אסינכרוני**: כשמקיימים אינטראקציה עם מודלים שמשתמשים בהסקת מסקנות אסינכרונית, הערך `turnComplete: true` כבר לא מציין שהמודל לא פעיל. יכול להיות שהשרת ימשיך לעבד ברקע את תהליך החשיבה או את הקריאות לפונקציות. הלקוח צריך להמשיך להאזין להודעות הבאות מהשרת (כמו קריאות לפונקציות או פריימים של אודיו) אחרי שמגיעה ההודעה `turnComplete: true`.
+- **מעקב אחרי `interaction_status`**: משתמשים בשדה `interaction_status` בהודעות נכנסות מהשרת כדי לקבוע את המצב הנוכחי של השרת:
+  - ‫`IN_PROGRESS`: השרת מעבד באופן פעיל את הקלט של המשתמש, מפעיל תהליכי חשיבה ברקע או ממתין לתשובות לקריאות אסינכרוניות לכלים.
+    יכול להיות שיופיעו פלטים נוספים מהמודל או קריאות נוספות לפונקציות.
+  - ‫`IDLE`: השרת סיים את כל העיבוד, החשיבה והקריאות לפונקציות.
     הסשן לא פעיל וממתין לקלט מהמשתמש.
-- **קריאה אסינכרונית לפונקציה**: נתמך רק ביצוע אסינכרוני לא חוסם (`behavior: NON_BLOCKING`). מצב חסימה סינכרוני לא נתמך ומחזיר שגיאה קשה. אין תמיכה בהגדרות של תזמון פונקציות.
-- **הגדרת חשיבה**: הגדרת חשיבה רציונלית רקע באמצעות `thinking_config` בהגדרת ההתקנה (`thinking_level`: `low`,‏ `medium` או `high`). שימו לב ש-`MINIMAL` לא אפשרי.
-- **עדכוני תוכן מצד הלקוח**: `send_client_content` נתמך לאורך כל מחזור החיים של הסשן עם תפקידים מוגדרים (`user` או `model`). הגדרת `turn_complete=true` מפסיקה מיד את היצירה הפעילה.
-- **סינון אודיו יזום**: מופעל באופן קבוע. ההגדרה `proactive_audio: false`
-  מחזירה שגיאה.
+- **קריאה אסינכרונית להפעלת פונקציות**: יש תמיכה רק בהרצה אסינכרונית ללא חסימה (`behavior: NON_BLOCKING`). אין תמיכה במצב חסימה סינכרוני, והוא מחזיר שגיאה חמורה. אין תמיכה בהגדרות של תזמון פונקציות.
+- **הגדרת חשיבה**: מגדירים את החשיבה ברקע באמצעות `thinking_config` בהגדרות (`thinking_level`: `low`,‏ `medium` או `high`). שימו לב שאין תמיכה ב-`MINIMAL`.
+- **עדכוני תוכן מהלקוח**: אפשר להשתמש ב-`send_client_content` לאורך כל מחזור החיים של הסשן עם תפקידים מפורשים (`user` או `model`). הגדרת `turn_complete=true` קוטעת מיד את היצירה הפעילה.
+- **סינון אודיו יזום**: מופעל באופן קבוע. ההגדרה `proactive_audio: false` מחזירה שגיאה.
 
-טבלת [השוואה בין מודלים](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=he#model-comparison) מציגה השוואה בין כל המודלים של Live API.
+בטבלה [השוואה בין מודלים](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=he#model-comparison) מפורטות התכונות של כל המודלים של Live API.
 
 שליחת משוב
 
 אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-עדכון אחרון: 2026-09-17 (שעון UTC).
+עדכון אחרון: 2026-10-19 (שעון UTC).
 
 רוצה לתת לנו משוב?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-17 (שעון UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-19 (שעון UTC)."],[],[]]

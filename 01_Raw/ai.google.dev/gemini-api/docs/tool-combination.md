@@ -1,29 +1,29 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=bn
-fetched_at: 2026-10-19T05:29:55.515672+00:00
-title: "\u09ac\u09bf\u09b2\u09cd\u099f-\u0987\u09a8 \u099f\u09c1\u09b2 \u0993 \u09ab\u09be\u0982\u09b6\u09a8 \u0995\u09b2\u09bf\u0982\u09df\u09c7\u09b0 \u09b8\u09c1\u09ac\u09bf\u09a7\u09be \u098f\u0995\u09a4\u09cd\u09b0\u09bf\u09a4 \u0995\u09b0\u09be \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=it
+fetched_at: 2026-10-26T05:48:22.846940+00:00
+title: "Combinare strumenti integrati e chiamata di funzione \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [হোম](https://ai.google.dev/?hl=bn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
-- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-মতামত জানান
+Invia feedback
 
-# বিল্ট-ইন টুল ও ফাংশন কলিংয়ের সুবিধা একত্রিত করা
+# Combinare strumenti integrati e chiamata di funzione
 
-Gemini, [বিল্ট-ইন টুল](https://ai.google.dev/gemini-api/docs/tools?hl=bn), যেমন `google_search` এবং [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)
-(*কাস্টম টুল* নামেও পরিচিত) একসাথে ব্যবহার করার অনুমতি দেয়। এর মাধ্যমে টুল কলের
-প্রসঙ্গের ইতিহাস সেভ ও প্রকাশ করা হয়। বিল্ট-ইন ও কাস্টম টুলের কম্বিনেশন জটিল, এজেন্টিক ওয়ার্কফ্লোর অনুমতি দেয়, যেখানে, যেমন, আপনার নির্দিষ্ট বিজনেস লজিক কল করার আগে
-মডেলটি রিয়েল-টাইম ওয়েব ডেটা থেকে নিজেকে গ্রাউন্ড করতে পারে।
+Gemini consente la combinazione di [strumenti integrati](https://ai.google.dev/gemini-api/docs/tools?hl=it), come
+`google_search`, e [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
+(note anche come *strumenti personalizzati*) in una singola interazione, mantenendo ed esponendo
+la cronologia del contesto delle chiamate allo strumento. Le combinazioni di strumenti integrati e personalizzati consentono Agentic Workflows complessi in cui, ad esempio, il modello può fare il grounding sui dati web in tempo reale prima di chiamare la logica di business specifica.
 
-এখানে একটি উদাহরণ দেওয়া হল যা `google_search` এবং কাস্টম ফাংশন `getWeather`-এর সাথে বিল্ট-ইন ও কাস্টম টুলের কম্বিনেশন চালু করে:
+Ecco un esempio che abilita le combinazioni di strumenti integrati e personalizzati con `google_search` e una funzione personalizzata `getWeather`:
 
 ### Python
 
@@ -68,7 +68,7 @@ for step in interaction.steps:
         # and provide the result back to the model.
 ```
 
-### জাভাস্ক্রিপ্ট
+### JavaScript
 
 ```
 // This will only work for SDK newer than 2.0.0
@@ -153,7 +153,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### খুলুন
+### Vai
 
 ```
 package main
@@ -202,7 +202,7 @@ func main() {
 }
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 # Specifies the API revision to avoid breaking changes when they become default
@@ -233,97 +233,93 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## এটি কীভাবে কাজ করে
+## Come funziona
 
-Gemini 3 মডেল, বিল্ট-ইন ও কাস্টম টুলের কম্বিনেশন চালু করতে *টুল কন্টেক্সট সার্কুলেশন* ব্যবহার করে। টুল কনটেক্সট সার্কুলেশন বিল্ট-ইন টুলের কনটেক্সট সংরক্ষণ ও প্রকাশ করা এবং একই ইন্টার‍্যাকশনে কাস্টম টুলের সাথে তা শেয়ার করা সম্ভব করে তোলে।
+I modelli Gemini 3 utilizzano la *circolazione del contesto dello strumento* per abilitare le combinazioni di strumenti integrati e personalizzati. La circolazione del contesto dello strumento consente di mantenere ed esporre il contesto degli strumenti integrati e di condividerlo con gli strumenti personalizzati nella stessa interazione.
 
-### টুল কম্বিনেশন চালু করুন
+### Abilitare la combinazione di strumenti
 
-- কম্বিনেশন আচরণ ট্রিগার করতে, আপনি ব্যবহার করতে চান এমন বিল্ট-ইন টুলের সাথে [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn#function-declarations) যোগ করুন।
+- Includi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function-declarations), insieme
+  agli strumenti integrati che vuoi utilizzare, per attivare il comportamento di combinazione.
 
-### API ধাপগুলি ফেরত দেয়
+### Passaggi restituiti dall'API
 
-ইন্টার‍্যাকশন রেসপন্সে, API বিল্ট-ইন টুল কল ও ফাংশন (কাস্টম টুল) কলের জন্য আলাদা আলাদা ধাপ দেখায়:
+In una risposta di interazione, l'API restituisce passaggi separati per le chiamate allo strumento integrato e le chiamate di funzione (strumento personalizzato):
 
-- **বিল্ট-ইন টুলের ধাপ**: API এগুলি অটোমেটিক ম্যানেজ করে, এর ফলে
-  বিভিন্ন টার্ন জুড়ে প্রসঙ্গ বজায় থাকে।
-- **ফাংশন কল করার ধাপ**: API আপনার কাস্টম ফাংশনের জন্য `function_call`টি ধাপ
-  ফেরত দেয়। আপনি ফাংশনটি এক্সিকিউট করে ফলাফল প্রদান করেন।
+- **Passaggi dello strumento integrato**: l'API li gestisce automaticamente, mantenendo il
+  contesto tra i turni.
+- **Passaggi della chiamata di funzione**: l'API restituisce i passaggi `function_call` per le funzioni
+  personalizzate. Esegui la funzione e fornisci il risultato.
 
-### ফিরে আসা ধাপের গুরুত্বপূর্ণ ফিল্ড
+### Campi critici nei passaggi restituiti
 
-টুল কনটেক্সট বজায় রাখতে এবং টুল কম্বিনেশন চালু করতে, ফেরত পাঠানো ধাপের কিছু ফিল্ড খুবই গুরুত্বপূর্ণ:
+Alcuni campi nei passaggi restituiti sono fondamentali per mantenere il contesto dello strumento e abilitare le combinazioni di strumenti:
 
-- **`id`**: `function_call` এবং `function_response` ধাপে পাওয়া গেছে। একটি অনন্য শনাক্তকারী যা কোনও কলকে তার উত্তরের সাথে ম্যাপ করে।
-- **`signature`**: `thought` ধাপে পাওয়া গেছে, এর সাথে Gemini 3+ মডেলের জন্য সব টুল কল (যেমন, `function_call`) এবং ফলাফল (যেমন, `function_response`) ধাপ। এই এনক্রিপ্ট করা প্রসঙ্গ ইন্টার‍্যাকশন জুড়ে **টুল প্রসঙ্গ সার্কুলেশন** চালু করে।
+- **`id`**: si trova nei passaggi `function_call` e `function_response`. Un identificatore univoco che mappa una chiamata alla relativa risposta.
+- **`signature`**: si trova nei passaggi `thought`, nonché in tutti i passaggi di chiamata allo strumento (ad es. `function_call`) e di risultato (ad es. `function_response`) per i modelli Gemini 3+. Questo contesto criptato consente la **circolazione del contesto dello strumento** tra le interazioni.
 
-**এইসব ফিল্ড ম্যানেজ করা:**
+**Gestione di questi campi:**
 
-- **স্টেটফুল মোড (সাজেস্ট করা)**: আপনি `previous_interaction_id` ব্যবহার করলে, সার্ভার অটোমেটিক `id` ও `signature` ফিল্ড দু'টিই ম্যানেজ করে।
-- **স্টেটলেস মোড**: ম্যানুয়ালি কথোপকথনের ইতিহাস ম্যানেজ করার সময়, আপনাকে অবশ্যই নিশ্চিত করতে হবে যে আপনি পরবর্তী অনুরোধে মডেলটিকে `id` এবং `signature` ফিল্ড দু'টিই পাস করেছেন যাতে সত্যতা যাচাই করা যায় এবং প্রসঙ্গ বজায় রাখা যায়। আপনি যদি সম্পূর্ণ রেসপন্স অবজেক্টটি ইতিহাসে ফেরত পাঠান, তাহলে অফিসিয়াল SDK এটি অটোমেটিক ম্যানেজ করে।
+- **Modalità con stato (consigliata)**: quando utilizzi `previous_interaction_id`, il server gestisce automaticamente i campi `id` e `signature`.
+- **Modalità stateless**: quando gestisci manualmente la cronologia delle conversazioni, devi assicurarti di passare al modello sia il campo `id` sia il campo `signature` nelle richieste successive per convalidare l'autenticità e mantenere il contesto. Gli SDK ufficiali gestiscono automaticamente questa operazione se restituisci l'oggetto di risposta completo alla cronologia.
 
-### টুল-নির্দিষ্ট ডেটা
+### Dati specifici dello strumento
 
-কিছু বিল্ট-ইন টুল, টুলের
-টাইপ অনুযায়ী ব্যবহারকারীর দেখার উপযুক্ত ডেটা আর্গুমেন্ট রিটার্ন করে।
+Alcuni strumenti integrati restituiscono argomenti di dati visibili all'utente specifici per il tipo di strumento.
 
-| টুল | ব্যবহারকারী দেখতে পাবেন এমন টুল কল আর্গুমেন্ট (যদি থাকে) | ব্যবহারকারীকে দেখানো টুলের উত্তর (যদি থাকে) |
+| Strumento | Argomenti della chiamata allo strumento visibili all'utente (se presenti) | Risposta dello strumento visibile all'utente (se presente) |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` ব্রাউজ করার জন্য URL | `status`: ব্রাউজ করার স্ট্যাটাস `retrieved_url`: ব্রাউজ করা URL |
-| **file\_search** | কোনওটিই নয় | কোনওটিই নয় |
+| **url\_context** | `urls` URL da sfogliare | `status`: stato di navigazione `retrieved_url`: URL sfogliati |
+| **file\_search** | Nessuno | Nessuno |
 
-## টোকেন ও দাম
+## Token e prezzi
 
-মনে রাখবেন, অনুরোধে বিল্ট-ইন টুল কল পার্ট
-`prompt_token_count`-এর জন্য গণনা করা হয়। যেহেতু এই মধ্যবর্তী টুল ধাপগুলি এখন দৃশ্যমান এবং
-আপনাকে ফেরত দেওয়া হয়েছে, তাই সেগুলি কথোপকথনের ইতিহাসের অংশ। এটি শুধুমাত্র
-*অনুরোধের* ক্ষেত্রেই প্রযোজ্য, *উত্তরের* ক্ষেত্রে নয়।
+Tieni presente che le parti della chiamata allo strumento integrato nelle richieste vengono conteggiate nel valore `prompt_token_count`. Poiché questi passaggi intermedi dello strumento sono ora visibili e ti vengono restituiti, fanno parte della cronologia delle conversazioni. Questo vale solo per il
+caso per *richieste*, non per *risposte*.
 
-Google Search টুল এই নিয়মের ব্যতিক্রম। Google Search আগেই
-কোয়েরি লেভেলে নিজস্ব প্রাইসিং মডেল প্রয়োগ করে, তাই টোকেনের জন্য
-ডবল চার্জ করা হয় না ([প্রাইসিং](https://ai.google.dev/gemini-api/docs/pricing?hl=bn) পৃষ্ঠা দেখুন)।
+Lo strumento Ricerca Google è un'eccezione a questa regola. La Ricerca Google applica già
+il proprio modello di prezzi a livello di query, quindi i token non sono
+addebitati due volte (vedi la pagina [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it)).
 
-আরও তথ্যের জন্য [টোকেন](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) পৃষ্ঠাটি পড়ুন।
+Per ulteriori informazioni, consulta la pagina [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
 
-## সীমাবদ্ধতা
+## Limitazioni
 
-- টুল কন্টেক্সট সার্কুলেশন চালু থাকলে, ডিফল্ট হিসেবে `validated` মোড (`auto` মোড কাজ করে না)
-  ব্যবহার করা হয়।
-- `google_search`-এর মতো বিল্ট-ইন টুল লোকেশন ও বর্তমান সময়ের তথ্যের উপর নির্ভর করে, তাই আপনার `system_instruction` বা `function_declaration.description`-এ লোকেশন ও সময়ের তথ্য পরস্পরবিরোধী হলে, টুল কম্বিনেশন ফিচারটি ভালভাবে কাজ নাও করতে পারে।
+- Quando la circolazione del contesto dello strumento è abilitata, la modalità predefinita è `validated` (la modalità `auto` non è supportata).
+- Gli strumenti integrati come `google_search` si basano sulle informazioni relative alla posizione e all'ora corrente, quindi se `system_instruction` o `function_declaration.description` contengono informazioni su posizione e ora in conflitto, la funzionalità di combinazione degli strumenti potrebbe non funzionare correttamente.
 
-## মানানসই টুল
+## Strumenti supportati
 
-সার্ভার-সাইড (বিল্ট-ইন) টুলের ক্ষেত্রে স্ট্যান্ডার্ড টুল কন্টেক্সট সার্কুলেশন প্রযোজ্য হয়।
-কোড এক্সিকিউশনও একটি সার্ভার-সাইড টুল, তবে প্রসঙ্গ সার্কুলেশনের জন্য এর নিজস্ব বিল্ট-ইন সমাধান রয়েছে। কম্পিউটার ব্যবহার ও ফাংশন কলিং হল ক্লায়েন্ট-সাইড টুল,
-এবং এতে প্রসঙ্গ সার্কুলেশনের জন্য বিল্ট-ইন সমাধানও রয়েছে।
+La circolazione del contesto dello strumento standard si applica agli strumenti lato server (integrati).
+L'esecuzione di codice è anche uno strumento lato server, ma ha una propria soluzione integrata per la circolazione del contesto. L'utilizzo del computer e le chiamate di funzione sono strumenti lato client e hanno anche soluzioni integrate per la circolazione del contesto.
 
-| টুল | এক্সিকিউশন সাইড | Context Circulation Support |
+| Strumento | Lato di esecuzione | Supporto per la circolazione del contesto |
 | --- | --- | --- |
-| [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn) | সার্ভার-সাইড | কাজ করে |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn) | সার্ভার-সাইড | কাজ করে |
-| [URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn) | সার্ভার-সাইড | কাজ করে |
-| [ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn) | সার্ভার-সাইড | কাজ করে |
-| [কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn) | সার্ভার-সাইড | কাজ করে (বিল্ট-ইন, `code_execution` ও `code_execution_result` ধাপ ব্যবহার করে) |
-| [কম্পিউটার ইউজ](https://ai.google.dev/gemini-api/docs/computer-use?hl=bn) | ক্লায়েন্ট-সাইড | কাজ করে (বিল্ট-ইন, `function_call` ও `function_response` ধাপ ব্যবহার করে) |
-| [কাস্টম ফাংশন](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn) | ক্লায়েন্ট-সাইড | কাজ করে (বিল্ট-ইন, `function_call` ও `function_response` ধাপ ব্যবহার করে) |
+| [Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) | Lato server | Supportato |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it) | Lato server | Supportato |
+| [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) | Lato server | Supportato |
+| [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it) | Lato server | Supportato |
+| [Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) | Lato server | Supportato (integrato, utilizza i passaggi `code_execution` e `code_execution_result`) |
+| [Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) | Lato client | Supportato (integrato, utilizza i passaggi `function_call` e `function_response`) |
+| [Funzioni personalizzate](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) | Lato client | Supportato (integrato, utilizza i passaggi `function_call` e `function_response`) |
 
-## এর পরে কী করতে হবে
+## Passaggi successivi
 
-- Gemini API-তে [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn) সম্পর্কে আরও জানুন।
-- কাজ করে এমন টুল এক্সপ্লোর করুন:
-  - [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)
-  - [URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)
-  - [ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)
+- Scopri di più sulle [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) nell'API Gemini.
+- Esplora gli strumenti supportati:
+  - [Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)
+  - [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)
+  - [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)
 
-মতামত জানান
+Invia feedback
 
-অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-2026-10-13 UTC-তে শেষবার আপডেট করা হয়েছে।
+Ultimo aggiornamento 2026-10-13 UTC.
 
-আমাদের আরও কিছু জানাতে চান?
+Vuoi dirci altro?
 
-[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-13 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]

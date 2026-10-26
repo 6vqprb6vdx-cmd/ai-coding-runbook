@@ -1,36 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=fr
-fetched_at: 2026-10-19T05:43:38.558535+00:00
-title: "Capacit\u00e9s de vision agentiques \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-agentic?hl=th
+fetched_at: 2026-10-26T06:04:48.248379+00:00
+title: "\u0e04\u0e27\u0e32\u0e21\u0e2a\u0e32\u0e21\u0e32\u0e23\u0e16\u0e14\u0e49\u0e32\u0e19\u0e27\u0e34\u0e2a\u0e31\u0e22\u0e17\u0e31\u0e28\u0e19\u0e4c\u0e02\u0e2d\u0e07 Agentic AI \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
 
-Envoyer des commentaires
+ส่งความคิดเห็น
 
-# Capacités de vision agentiques
+# ความสามารถด้านวิสัยทัศน์ของ Agentic AI
 
-Les modèles Gemini Robotics ER peuvent écrire et exécuter du code Python pour manipuler des images et appliquer une logique avant de répondre. Cette page présente des exemples d'exécution de code : détection d'objets avec zoom et recadrage, lecture d'instruments, mesure de fluides, lecture de cartes de circuits imprimés et annotation d'images.
+โมเดล Gemini Robotics ER สามารถเขียนและเรียกใช้โค้ด Python เพื่อจัดการรูปภาพและใช้ตรรกะก่อนตอบคำถาม หน้านี้ครอบคลุมตัวอย่างการเรียกใช้โค้ด ได้แก่ การตรวจจับออบเจ็กต์ด้วยการซูมและครอบตัด การอ่านเครื่องมือ การวัดของเหลว การอ่านแผงวงจร และคำอธิบายประกอบรูปภาพ
 
-Pour adapter ces exemples à votre cas d'utilisation, remplacez le texte du prompt et le fichier image importé par les vôtres. Vous pouvez également ajuster le schéma JSON demandé dans le prompt pour qu'il corresponde à la structure de sortie dont votre application a besoin, ou ajouter une `system_instruction` pour appliquer le format et la précision de la sortie.
+หากต้องการปรับตัวอย่างเหล่านี้ให้เข้ากับกรณีการใช้งานของคุณเอง ให้แทนที่ข้อความพรอมต์และไฟล์รูปภาพที่อัปโหลดด้วยข้อความและไฟล์ของคุณเอง นอกจากนี้ คุณยังปรับสคีมา JSON ที่ขอในพรอมต์ให้ตรงกับโครงสร้างเอาต์พุตที่แอปพลิเคชันต้องการ หรือเพิ่ม `system_instruction` เพื่อบังคับใช้รูปแบบและความแม่นยำของเอาต์พุตได้ด้วย
 
-Pour obtenir le code exécutable complet, consultez le
-[livre de recettes Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+ดูโค้ดที่เรียกใช้ได้ทั้งหมดที่
+[คู่มือการใช้งาน Robotics](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)
 
-## Niveau de réflexion
+## ระดับการคิด
 
-Vous pouvez contrôler le niveau de réflexion pour échanger la latence contre la précision. Les tâches spatiales telles que la détection d'objets fonctionnent bien avec un faible niveau de réflexion. Les tâches complexes telles que le comptage ou l'estimation du poids bénéficient d'un niveau de réflexion plus élevé.
+คุณสามารถควบคุมระดับการคิดเพื่อแลกความหน่วงแฝงกับความแม่นยำได้ งานเชิงพื้นที่ เช่น การตรวจจับออบเจ็กต์ จะทำงานได้ดีเมื่อมีระดับการคิดต่ำ งานที่ซับซ้อน เช่น การนับหรือการประมาณน้ำหนัก จะได้ประโยชน์จากระดับการคิดที่สูงขึ้น
 
-L'exemple suivant définit le niveau de réflexion sur `high` pour une tâche de comptage complexe :
+ตัวอย่างต่อไปนี้กำหนดระดับการคิดเป็น `high` สำหรับงานการนับที่ซับซ้อน
 
 ### Python
 
@@ -60,11 +60,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Pour en savoir plus, consultez la section [Réflexion](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=fr).
+ดูรายละเอียดได้ที่[การคิด](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=th)
 
-## Détection d'objets (zoom et recadrage)
+## การตรวจจับออบเจ็กต์ (ซูมและครอบตัด)
 
-L'exemple suivant montre comment utiliser l'exécution de code pour zoomer et recadrer une image afin d'obtenir une vue plus claire lors de la détection d'objets et du renvoi de cadres de délimitation.
+ตัวอย่างต่อไปนี้แสดงวิธีใช้การเรียกใช้โค้ดเพื่อซูมและครอบตัดรูปภาพเพื่อให้เห็นชัดเจนขึ้นเมื่อตรวจจับออบเจ็กต์และแสดงกล่องขอบเขต
 
 ### Python
 
@@ -102,7 +102,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-La sortie du modèle serait semblable à la réponse JSON suivante :
+เอาต์พุตโมเดลจะมีลักษณะคล้ายกับการตอบกลับ JSON ต่อไปนี้
 
 ```
 [
@@ -114,13 +114,13 @@ La sortie du modèle serait semblable à la réponse JSON suivante :
 ]
 ```
 
-L'image suivante affiche les cadres renvoyés par le modèle.
+รูปภาพต่อไปนี้แสดงกล่องที่โมเดลแสดง
 
-![Exemple montrant les cadres de délimitation des objets trouvés](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=fr)
+![ตัวอย่างที่แสดงกรอบล้อมรอบสำหรับออบเจ็กต์ที่พบ](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=th)
 
-## Lire une jauge analogique et appliquer une logique
+## อ่านเกจแบบอนาล็อกและใช้ตรรกะ
 
-L'exemple suivant montre comment utiliser le modèle pour lire une jauge analogique et effectuer des calculs de temps. Il utilise une instruction système pour appliquer une sortie JSON.
+ตัวอย่างต่อไปนี้แสดงวิธีใช้โมเดลเพื่ออ่านเกจแบบอนาล็อกและทำการคำนวณเวลา โดยใช้คำแนะนำระบบเพื่อบังคับใช้เอาต์พุต JSON
 
 ### Python
 
@@ -156,9 +156,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Mesurer le fluide dans un conteneur
+## วัดของเหลวในภาชนะ
 
-L'exemple suivant montre comment utiliser l'exécution de code pour mesurer le niveau de fluide dans un conteneur.
+ตัวอย่างต่อไปนี้แสดงวิธีใช้การเรียกใช้โค้ดเพื่อวัดระดับของเหลวในภาชนะ
 
 ### Python
 
@@ -193,9 +193,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-## Lire les marquages sur une carte de circuit imprimé
+## อ่านเครื่องหมายบนแผงวงจร
 
-L'exemple suivant montre comment utiliser l'exécution de code pour lire les marquages sur une carte de circuit imprimé.
+ตัวอย่างต่อไปนี้แสดงวิธีใช้การเรียกใช้โค้ดเพื่ออ่านเครื่องหมายบนแผงวงจร
 
 ### Python
 
@@ -230,11 +230,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-![Exemple de marquages sur un circuit imprimé](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=fr)
+![ตัวอย่างที่แสดงเครื่องหมายบนแผงวงจร](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=th)
 
-## Annotation d'images
+## คำอธิบายประกอบรูปภาพ
 
-L'exemple suivant montre comment utiliser l'exécution de code pour annoter une image (par exemple, en dessinant des flèches pour les instructions d'élimination) et renvoyer l'image modifiée.
+ตัวอย่างต่อไปนี้แสดงวิธีใช้การเรียกใช้โค้ดเพื่อใส่คำอธิบายประกอบรูปภาพ (เช่น การวาดลูกศรสำหรับวิธีการกำจัด) และแสดงรูปภาพที่แก้ไขแล้ว
 
 ### Python
 
@@ -271,11 +271,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-Voici un exemple d'image d'entrée.
+ต่อไปนี้เป็นตัวอย่างอินพุตรูปภาพ
 
-![Exemple montrant une horloge à lire](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=fr)
+![ตัวอย่างที่แสดงนาฬิกาเพื่ออ่าน](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=th)
 
-La sortie du modèle serait semblable à ce qui suit :
+เอาต์พุตโมเดลจะมีลักษณะคล้ายกับเอาต์พุตต่อไปนี้
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -284,18 +284,18 @@ La sortie du modèle serait semblable à ce qui suit :
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## Étape suivante
+## ขั้นตอนถัดไป
 
-- [Orchestration des tâches](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=fr) : tâches à long terme avec des API de robot personnalisées.
-- [Robotique avec streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr) : streaming bidirectionnel en temps réel (Gemini Robotics ER 2 uniquement).
-- [Compréhension vidéo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr) : recherche de moments et classification de la progression (Gemini Robotics ER 2 uniquement).
+- [การจัดระเบียบงาน](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=th) - งานระยะยาวที่มี API ของหุ่นยนต์ที่กำหนดเอง
+- [Robotics พร้อมการสตรีม](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=th) - การสตรีมแบบสองทางแบบเรียลไทม์ (Gemini Robotics ER 2 เท่านั้น)
+- [ความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=th) - การค้นหาช่วงเวลาและการจัดประเภทความคืบหน้า (Gemini Robotics ER 2 เท่านั้น)
 
-Envoyer des commentaires
+ส่งความคิดเห็น
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Dernière mise à jour le 2026/09/08 (UTC).
+อัปเดตล่าสุด 2026-09-10 UTC
 
-Voulez-vous nous donner plus d'informations ?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/08 (UTC)."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-10 UTC"],[],[]]

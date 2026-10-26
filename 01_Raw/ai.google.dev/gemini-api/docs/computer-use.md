@@ -1,39 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=sq
-fetched_at: 2026-10-19T05:41:07.584207+00:00
-title: "P\u00ebrdorimi i kompjuterit \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/computer-use?hl=bn
+fetched_at: 2026-10-26T05:51:00.972682+00:00
+title: "\u0995\u09ae\u09cd\u09aa\u09bf\u0989\u099f\u09be\u09b0\u09c7\u09b0 \u09ac\u09cd\u09af\u09ac\u09b9\u09be\u09b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-Dërgo komente
+মতামত জানান
 
-# Përdorimi i kompjuterit
+# কম্পিউটারের ব্যবহার
 
-Vegla "Përdorimi i kompjuterit" të lejon të ndërtosh agjentë të kontrollit të shfletuesit, pajisjeve celulare dhe kompjuterëve që ndërveprojnë dhe automatizojnë detyrat. Duke përdorur pamjet e ekranit, modeli mund të "shikojë" një ekran kompjuteri dhe të "veprojë" duke gjeneruar veprime specifike të ndërfaqes së përdoruesit, si p.sh. klikimet e miut dhe hyrjet e tastierës. Ngjashëm me thirrjen e funksionit, do të të duhet të zbatosh mjedisin e ekzekutimit në anën e klientit për të marrë dhe ekzekutuar veprimet e "Përdorimit të kompjuterit".
+কম্পিউটার ব্যবহার টুল আপনাকে ব্রাউজার, মোবাইল এবং ডেস্কটপ কন্ট্রোল এজেন্ট তৈরি করতে দেয়
+যা ইন্টার‍্যাক্ট করে এবং টাস্ক অটোমেট করে। স্ক্রিনশট ব্যবহার করে, মডেলটি একটি কম্পিউটার স্ক্রিন "দেখতে" পারে এবং মাউস ক্লিক এবং কীবোর্ড ইনপুটের মতো নির্দিষ্ট UI অ্যাকশন তৈরি করে "কাজ" করতে পারে। ফাংশন কলিংয়ের মতোই, কম্পিউটার ব্যবহার অ্যাকশন গ্রহণ ও কার্যকর করার জন্য আপনাকে ক্লায়েন্ট-সাইড এক্সিকিউশন এনভায়রনমেন্ট প্রয়োগ করতে হবে।
 
-Për listën e modeleve të mbështetura, shiko [Versionet e modeleve](#model-versions). Modelet Gemini 3.x mbështesin disa aftësi të përparuara:
+কোন কোন মডেলে এই সুবিধা কাজ করে তার তালিকা দেখতে, [মডেলের ভার্সন](#model-versions) দেখুন। Gemini
+4 এবং Gemini 3.x মডেল বিভিন্ন উন্নত কার্যকারিতা সাপোর্ট করে:
 
-- **Mbështetje për mjedise të shumta:** krijo agjentë për mjediset e [shfletuesit, celularit dhe desktopit](#supported-environments).
-- **Veprimet e thjeshtuara me synimet:** veprimet përfshijnë një fushë `intent` që shpjegon arsyetimin e modelit pas çdo hapi.
-- **Politika të konfigurueshme të sigurisë:** rregullo [sjelljen e sigurisë](#safety-policies) me kategoritë e integruara të politikave dhe anulimet.
-- **Zbulimi i injektimit të kërkesave:** regjistrimi për [skanimin e pamjeve të ekranit](#prompt-injection) për të zbuluar udhëzimet e fshehura kundërshtuese.
+- **মাল্টি-এনভায়রনমেন্ট সাপোর্ট:** [ব্রাউজার, মোবাইল ও ডেস্কটপ](#supported-environments) এনভায়রনমেন্টের জন্য এজেন্ট তৈরি করুন।
+- **ইনটেন্ট সহ স্ট্রিমলাইন করা অ্যাকশন:** অ্যাকশনে একটি `intent` ফিল্ড অন্তর্ভুক্ত থাকে যা প্রতিটি ধাপের পিছনে মডেলের যুক্তি ব্যাখ্যা করে।
+- **কনফিগার করা যায় এমন নিরাপত্তা নীতি:** বিল্ট-ইন নীতি বিভাগ ও ওভাররাইডের মাধ্যমে [নিরাপত্তা সংক্রান্ত আচরণ](#safety-policies) ফাইন-টিউন করুন।
+- **প্রম্পট ইঞ্জেকশন ডিটেকশন:** লুকানো অ্যাডভারসেরিয়াল নির্দেশাবলী শনাক্ত করতে [স্ক্রিনশট স্ক্যানিং](#prompt-injection) অপ্ট-ইন করুন।
 
-Me "Përdorimin e kompjuterit", mund të krijosh agjentë që:
+Computer Use-এর মাধ্যমে, আপনি এমন এজেন্ট তৈরি করতে পারবেন যা:
 
-- Automatizo hyrjen e të dhënave të përsëritura ose plotësimin e formularëve në uebsajte.
-- Kryej testime të automatizuara të aplikacioneve të uebit dhe rrjedhave të përdoruesve
-- Kryej kërkime nëpër uebsajte të ndryshme (p.sh. mbledhja e informacioneve për produktet, çmimet dhe komentet nga sajtet e tregtisë në internet për të informuar për një blerje)
+- ওয়েবসাইটে বারবার করতে হয় এমন ডেটা এন্ট্রি বা ফর্ম পূরণ করার কাজ অটোমেট করুন।
+- ওয়েব অ্যাপ্লিকেশন ও ইউজার ফ্লোয়ের অটোমেটেড টেস্টিং পারফর্ম করুন
+- বিভিন্ন ওয়েবসাইট জুড়ে রিসার্চ করা (যেমন, কেনাকাটার ব্যাপারে সিদ্ধান্ত নিতে ই-কমার্স সাইট থেকে প্রোডাক্টের
+  তথ্য, দাম ও রিভিউ সংগ্রহ করা)
 
-Këtu është një shembull minimal i inicializimit të klientit dhe dërgimit të një kërkese te modeli me veglën `computer_use` të aktivizuar për një mjedis shfletuesi:
+ব্রাউজার এনভায়রনমেন্টের জন্য `computer_use` টুল চালু করে ক্লায়েন্ট শুরু করা এবং মডেলে প্রম্পট পাঠানোর একটি সংক্ষিপ্ত উদাহরণ এখানে দেওয়া হল:
 
 ### Python
 
@@ -51,7 +54,7 @@ interaction = client.interactions.create(
 print(interaction)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -96,7 +99,7 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -137,48 +140,59 @@ func main() {
 }
 ```
 
-## Si funksionon "Përdorimi i kompjuterit"
+## কম্পিউটার ইউজ কীভাবে কাজ করে
 
-Për të ndërtuar një agjent me modelin e "Përdorimit të kompjuterit", duhet të konfigurosh një cikël të vazhdueshëm midis aplikacionit tënd dhe API-së. Ja se çfarë do të bëjë kodi yt në çdo hap:
+কম্পিউটার ব্যবহার মডেলের সাহায্যে এজেন্ট তৈরি করতে, আপনার অ্যাপ্লিকেশন ও API-এর মধ্যে
+একটি কন্টিনিউয়াস লুপ সেট-আপ করতে হবে। প্রতিটি ধাপে আপনার কোড
+কী করবে তা এখানে দেওয়া হল:
 
-1. [**Dërgo një kërkesë te modeli**](#send-request)
-   - Aplikacioni yt dërgon një kërkesë për API-në që përmban veglën e "Përdorimit të kompjuterit", cilësimet e tua të konfigurimit (si p.sh. mjedisin e synuar), kërkesën e përdoruesit dhe një pamje ekrani të ekranit aktual.
-2. [**Merr përgjigjen e modelit**](#model-response)
-   - Modeli analizon ekranin dhe kërkesën, duke kthyer një përgjigje që përfshin një `function_call` të sugjeruar që përfaqëson një veprim të ndërfaqes së përdoruesit (si p.sh. një klikim, lëvizje ose shtypje tasti).
-   - Për **modelet Gemini 3.x**, përgjigjja përfshin gjithashtu një arsyetim `intent`
-     që shpjegon pse modeli e zgjodhi atë veprim.
-   - Përgjigjja mund të përfshijë gjithashtu një `safety_decision` nga një sistem i brendshëm sigurie që e klasifikon veprimin si të rregullt/të lejuar, `require_confirmation` (që kërkon miratimin e përdoruesit) ose të bllokuar.
-3. [**Ekzekuto veprimin e marrë**](#execute-actions)
-   - Nëse veprimi lejohet (ose nëse përdoruesi e konfirmon atë), kodi yt në anën e klientit analizon `function_call`, shkallëzon koordinatat e normalizuara që të përputhen me portën tënde të pamjes dhe ekzekuton veprimin në mjedisin tënd të synuar duke përdorur veglat e automatizimit (si p.sh. Playwright). Nëse veprimi është i bllokuar, klienti yt duhet të ndalojë ekzekutimin ose të menaxhojë ndërprerjen.
-4. [**Regjistro gjendjen e re të mjedisit**](#capture-state)
-   - Pasi veprimi të përfundojë së ekzekutuari, aplikacioni yt nxjerr një pamje të re ekrani dhe ia dërgon përsëri modelit në një `function_result` për të kërkuar hapin tjetër.
+1. [**মডেলকে অনুরোধ পাঠান**](#send-request)
+   - আপনার অ্যাপ্লিকেশন, কম্পিউটার ব্যবহার টুল, আপনার কনফিগারেশন সেটিংস (যেমন টার্গেট এনভায়রনমেন্ট), ব্যবহারকারীর প্রম্পট এবং বর্তমান স্ক্রিনের স্ক্রিনশট সহ একটি API অনুরোধ পাঠায়।
+2. [**মডেলের উত্তর পাওয়া**](#model-response)
+   - মডেলটি স্ক্রিন ও প্রম্পট বিশ্লেষণ করে এবং একটি উত্তর প্রদান করে
+     যার মধ্যে একটি সাজেস্ট করা `function_call` থাকে যা UI অ্যাকশন (যেমন
+     ক্লিক, স্ক্রল বা কিস্ট্রোক) দেখায়।
+   - **Gemini 4 এবং Gemini 3.x মডেলের** ক্ষেত্রে, উত্তরে একটি
+     যুক্তি `intent` অন্তর্ভুক্ত থাকে যা ব্যাখ্যা করে যে মডেলটি কেন সেই অ্যাকশন বেছে নিয়েছে।
+   - এছাড়াও, উত্তরে ইন্টার্নাল নিরাপত্তা সিস্টেম থেকে পাওয়া `safety_decision` অন্তর্ভুক্ত থাকতে পারে যা অ্যাকশনকে নিয়মিত/অনুমোদিত,
+     `require_confirmation` (ব্যবহারকারীর অনুমোদন প্রয়োজন) বা ব্লক করা হিসেবে শ্রেণীবদ্ধ করে।
+3. [**প্রাপ্ত অ্যাকশন এক্সিকিউট করুন**](#execute-actions)
+   - অ্যাকশনটি করার অনুমতি থাকলে (অথবা ব্যবহারকারী কনফার্ম করলে), আপনার ক্লায়েন্ট-সাইড
+     কোড `function_call` পার্স করে, আপনার ভিউপোর্টের সাথে ম্যাচ করার জন্য নরমালাইজ করা কোঅর্ডিনেট স্কেল করে
+     এবং অটোমেশন টুল (যেমন Playwright) ব্যবহার করে আপনার টার্গেট এনভায়রনমেন্টে
+     অ্যাকশনটি এক্সিকিউট করে। অ্যাকশন ব্লক করা হলে, আপনার
+     ক্লায়েন্টকে এক্সিকিউশন বন্ধ করতে হবে অথবা বাধা সামলাতে হবে।
+4. [**নতুন এনভায়রনমেন্ট স্টেট ক্যাপচার করুন**](#capture-state)
+   - অ্যাকশনটি সম্পূর্ণ হওয়ার পরে, আপনার অ্যাপ্লিকেশন একটি নতুন স্ক্রিনশট ক্যাপচার করে এবং পরবর্তী ধাপের জন্য অনুরোধ করতে `function_result`-এ মডেলের কাছে ফেরত পাঠায়।
 
-Ky proces më pas përsëritet nga hapi 2, duke kërkuar vazhdimisht veprimin tjetër nga modeli derisa detyra të përfundojë ose të ndërpritet.
+এই প্রসেসটি ধাপ ২ থেকে আবার শুরু হয় এবং টাস্ক সম্পূর্ণ বা বন্ধ না হওয়া পর্যন্ত মডেল থেকে পরবর্তী অ্যাকশন
+চাইতে থাকে।
 
-![Përmbledhje e përdorimit të kompjuterit](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=sq)
+![কম্পিউটার ইউজ ওভারভিউ](https://ai.google.dev/static/gemini-api/docs/images/computer_use.png?hl=bn)
 
-## Si të zbatosh "Përdorimin e kompjuterit"
+## কীভাবে Computer Use প্রয়োগ করতে হয়
 
-Para se të krijosh me veglën "Përdorimi i kompjuterit", do të duhet të konfigurosh:
+কম্পিউটার ব্যবহার টুল দিয়ে তৈরি করার আগে আপনাকে এগুলি সেট-আপ করতে হবে:
 
-- **Mjedis i sigurt ekzekutimi:** Ekzekuto agjentin tënd në një VM ose kontejner të izoluar për ta izoluar atë nga sistemi yt pritës dhe për të kufizuar ndikimin e tij të mundshëm.
-  [Zbatimi i referencës](https://github.com/google/computer-use-preview/)
-  përfshin një mjedis të gatshëm për përdorim të bazuar në Docker që mund ta përdorësh si pikënisje.
-- **Menaxheri i veprimit në anën e klientit:** Zbato logjikën në anën e klientit për të ekzekutuar koordinatat, për të shkruar tekst dhe për të bërë pamje ekrani.
+- **সুরক্ষিত এক্সিকিউশন এনভায়রনমেন্ট:** আপনার এজেন্টকে স্যান্ডবক্স করা VM বা
+  কন্টেনারে চালান যাতে এটি আপনার হোস্ট সিস্টেম থেকে আলাদা থাকে এবং এর সম্ভাব্য প্রভাব সীমিত হয়।
+  [রেফারেন্স ইমপ্লিমেন্টেশন](https://github.com/google/computer-use-preview/)
+  -এ ব্যবহার করার জন্য প্রস্তুত Docker-ভিত্তিক স্যান্ডবক্স অন্তর্ভুক্ত থাকে যা আপনি শুরুর স্থান হিসেবে ব্যবহার করতে পারেন।
+- **ক্লায়েন্ট-সাইড অ্যাকশন হ্যান্ডলার:** কোঅর্ডিনেট, টাইপ টেক্সট ও স্ক্রিনশট নেওয়ার জন্য ক্লায়েন্ট-সাইড লজিক প্রয়োগ করুন।
 
-Shembujt më poshtë përdorin një shfletues uebi si mjedis ekzekutimi dhe
-[Playwright](https://playwright.dev/) si menaxhues në anën e klientit.
+নিচের উদাহরণে এক্সিকিউশন এনভায়রনমেন্ট হিসেবে ওয়েব ব্রাউজার এবং ক্লায়েন্ট-সাইড হ্যান্ডলার হিসেবে
+[Playwright](https://playwright.dev/) ব্যবহার করা হয়েছে।
 
-### 0. Konfiguro Playwright
+### ০. Playwright সেট-আপ করা
 
-Fillimisht, instalo paketat e kërkuara:
+প্রথমে, প্রয়োজনীয় প্যাকেজ ইনস্টল করুন:
 
 ```
 pip install google-genai playwright
 playwright install chromium
 ```
 
-Më pas, inicializo një shembull të shfletuesit Playwright për ta përdorur për ekzekutimin:
+তারপর, এক্সিকিউশনের জন্য ব্যবহার করতে Playwright ব্রাউজার ইনস্ট্যান্স ইনিশিয়ালাইজ করুন:
 
 ```
 from playwright.sync_api import sync_playwright
@@ -206,13 +220,13 @@ page.goto("https://www.google.com")
 # will be used in the steps below.
 ```
 
-### 1. Dërgo një kërkesë te modeli
+### ১. মডেলকে অনুরোধ পাঠান
 
-Inicializo bibliotekën e klientit dhe konfiguro veglën "Përdorimi i kompjuterit". Ki parasysh se nuk ka nevojë të specifikosh madhësinë e ekranit kur dërgon një kërkesë; modeli parashikon koordinatat e pikselëve të shkallëzuara sipas lartësisë dhe gjerësisë së ekranit.
+ক্লায়েন্ট লাইব্রেরি শুরু করুন এবং কম্পিউটার ব্যবহার টুল কনফিগার করুন। মনে রাখবেন, অনুরোধ করার সময় ডিসপ্লে সাইজ উল্লেখ করার প্রয়োজন নেই; মডেলটি স্ক্রিনের উচ্চতা ও প্রস্থ অনুযায়ী পিক্সেল কোঅর্ডিনেট অনুমান করে।
 
 ### Python
 
-Përdor `google-genai` Python SDK (versioni `2.7.0` ose më i lartë) për të konfiguruar një kërkesë që synon mjedisin e shfletuesit:
+ব্রাউজার এনভায়রনমেন্টকে টার্গেট করে কোনও অনুরোধ কনফিগার করতে `google-genai` Python SDK (ভার্সন `2.7.0` বা তার পরবর্তী) ব্যবহার করুন:
 
 ```
 from google import genai
@@ -234,9 +248,9 @@ interaction = client.interactions.create(
 print(interaction)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
-Përdor `@google/genai` Node.js SDK për të konfiguruar një kërkesë që synon mjedisin e shfletuesit:
+ব্রাউজার এনভায়রনমেন্টকে টার্গেট করে অনুরোধ কনফিগার করতে `@google/genai` Node.js SDK ব্যবহার করুন:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -292,7 +306,7 @@ Interaction interaction =
 System.out.println(interaction);
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -334,9 +348,9 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
-Përdor curl për të dërguar një kërkesë:
+অনুরোধ পাঠাতে curl ব্যবহার করুন:
 
 ```
 curl -X POST \
@@ -356,10 +370,10 @@ curl -X POST \
   }'
 ```
 
-### 2. Merr përgjigjen e modelit
+### ২. মডেলের উত্তর পান
 
-Përgjigjja e modelit sugjeron një thirrje funksioni që përfshin koordinatat dhe një
-synim të personalizuar arsyetimi që shpjegon veprimin:
+মডেলের উত্তরে একটি ফাংশন কল সাজেস্ট করা হয়েছে যাতে কোঅর্ডিনেট এবং
+অ্যাকশন ব্যাখ্যা করার জন্য একটি কাস্টমাইজ করা রিজনিং ইনটেন্ট রয়েছে:
 
 ```
 {
@@ -377,9 +391,9 @@ synim të personalizuar arsyetimi që shpjegon veprimin:
 }
 ```
 
-### 3. Ekzekuto veprimet e marra
+### ৩. প্রাপ্ত অ্যাকশনগুলি কার্যকর করুন
 
-Aplikacioni yt duhet të analizojë koordinatat e përgjigjes, t'i shkallëzojë ato nga koordinatat e normalizuara 1000x1000 dhe të ekzekutojë veprimin:
+আপনার অ্যাপ্লিকেশনকে অবশ্যই রেসপন্স কোঅর্ডিনেট পার্স করতে হবে, নরমালাইজ করা ১০০০x১০০০ কোঅর্ডিনেট থেকে সেগুলিকে স্কেল করতে হবে এবং অ্যাকশনটি কার্যকর করতে হবে:
 
 ### Python
 
@@ -461,7 +475,7 @@ def execute_function_calls(interaction, page, screen_width, screen_height):
     return results
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 function denormalizeX(x, screenWidth) {
@@ -607,7 +621,7 @@ class ActionExecutor {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -675,9 +689,11 @@ func main() {
 }
 ```
 
-### 4. Regjistro gjendjen e re të mjedisit
+### ৪. নতুন পরিবেশের অবস্থা ক্যাপচার করুন
 
-Pas ekzekutimit të veprimeve, dërgo rezultatin e ekzekutimit të funksionit mbrapsht te modeli në mënyrë që ai të mund t'i përdorë këto informacione për të gjeneruar veprimin tjetër. Nëse janë ekzekutuar disa veprime (thirrje paralele), duhet të dërgosh një `function_result` për secilin prej tyre në radhën vijuese të përdoruesit.
+অ্যাকশনগুলি কার্যকর করার পরে, ফাংশন কার্যকর করার ফলাফলটি মডেলে ফেরত পাঠান যাতে এটি পরবর্তী অ্যাকশন তৈরি করতে এই তথ্য ব্যবহার করতে পারে। একাধিক
+অ্যাকশন (প্যারালাল কল) এক্সিকিউট করা হলে, ব্যবহারকারীর পরবর্তী টার্নে আপনাকে
+প্রতিটির জন্য একটি করে `function_result` পাঠাতে হবে।
 
 ### Python
 
@@ -709,7 +725,7 @@ def get_function_responses(page, results):
     return function_responses
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 async function getFunctionResponses(page, results) {
@@ -786,7 +802,7 @@ class StateCapturer {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -831,14 +847,17 @@ func main() {
 }
 ```
 
-Pasi të kesh përcaktuar se si të kapësh dhe formatosh gjendjen e mjedisit, mund t'i kombinosh të gjithë këta hapa në një cikël ekzekutimi të vazhdueshëm.
+এনভায়রনমেন্ট স্টেট কীভাবে ক্যাপচার ও ফর্ম্যাট করতে হবে তা নির্ধারণ করার পরে, আপনি
+এইসব ধাপকে একটি একটানা এক্সিকিউশন লুপে একত্রিত করতে পারবেন।
 
-## Krijo një përsëritje të agjentit
+## এজেন্ট লুপ তৈরি করুন
 
-Për të aktivizuar ndërveprimet me shumë hapa, kombino katër hapat nga seksioni [Si të zbatosh "Përdorimin e kompjuterit"](#implement-computer-use) në një lak të vetëm.
-Ky cikël vazhdon të kërkojë veprime dhe të dërgojë rezultatet mbrapsht te modeli derisa detyra të përfundojë.
+মাল্টি-স্টেপ ইন্টার‍্যাকশন চালু করতে, [কীভাবে
+কম্পিউটার ব্যবহার ফিচার প্রয়োগ করবেন](#implement-computer-use) বিভাগ থেকে চারটি ধাপ একটি লুপে একত্রিত করুন।
+টাস্ক সম্পূর্ণ না হওয়া পর্যন্ত এই লুপ অ্যাকশনের জন্য অনুরোধ করতে থাকে এবং ফলাফল মডেলকে
+ফিডব্যাক হিসেবে পাঠায়।
 
-Mos harro që të menaxhosh saktë historikun e bisedës duke shtuar përgjigjet e modelit dhe përgjigjet e funksionit te historiku në çdo hap.
+প্রতিটি ধাপে মডেলের উত্তর এবং আপনার ফাংশনের উত্তর, দুটিই ইতিহাসে যোগ করে কথোপকথনের ইতিহাস সঠিকভাবে ম্যানেজ করতে ভুলবেন না।
 
 ### Python
 
@@ -933,7 +952,7 @@ finally:
     playwright.stop()
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { chromium } from 'playwright';
@@ -1127,7 +1146,7 @@ for (int i = 0; i < turnLimit; i++) {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -1233,86 +1252,85 @@ func main() {
 }
 ```
 
-## Mjediset e mbështetura
+## কাজ করে এমন এনভায়রনমেন্ট
 
-Modelet e Gemini 3.x mbështesin tri mjedise të specifikuara në `computer_use`
-konfigurimet:
+Gemini 4 এবং Gemini 3.x মডেলগুলি `computer_use` কনফিগারেশনে নির্দিষ্ট করা তিনটি এনভায়রনমেন্টে কাজ করে:
 
-### Mjedisi i shfletuesit (`ENVIRONMENT_BROWSER`)
+### ব্রাউজার এনভায়রনমেন্ট (`ENVIRONMENT_BROWSER`)
 
-Veprimet e disponueshme nën veglën e shfletuesit:
+ব্রাউজার টুলের অধীনে উপলভ্য অ্যাকশন:
 
-| Emri i komandës | Përshkrimi | Argumentet (në thirrjen e funksionit) |
+| কমান্ডের নাম | বিবরণ | আর্গুমেন্ট (ফাংশন কলে) |
 | --- | --- | --- |
-| **kliko** | Klikimet majtas në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Klikime të dyfishta në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Kliko tri herë te koordinata. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Klikimet në mes në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Kliko me butonin djathtas te koordinata. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Shtyp dhe mban shtypur butonin e miut në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Lëshon butonin e miut te koordinata. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **zhvendos** | Zhvendos kursorin në pozicionin e specifikuar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **lloji** | Shkruan tekst. | `text`: str `press_enter`: bool (opsionale, parazgjedhja `false`) `intent`: str |
-| **drag\_and\_drop** | Zgjedh një artikull nga koordinata e fillimit deri te koordinata e fundit. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **prit** | Vendos në pauzë ekzekutimin për një numër të caktuar sekondash. | `seconds`: int (opsionale, parazgjedhja `1`) `intent`: str |
-| **press\_key** | Shtyp tastin e specifikuar dhe e lëshon atë. | `key`: str `intent`: str |
-| **key\_down** | Shtyp dhe mban shtypur tastin e specifikuar. | `key`: str `intent`: str |
-| **key\_up** | Lëshon çelësin e specifikuar. | `key`: str `intent`: str |
-| **tast i shkurtoreve** | Shtyp kombinimin e specifikuar të tasteve. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Kthen një pamje ekrani të ekranit aktual. | `intent`: str |
-| **lëviz** | Lëviz lart, poshtë, majtas ose djathtas në një koordinatë me një distancë pikseli. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, opsionale, parazgjedhja `300`) `intent`: str |
-| **go\_back** | Navigon prapa te faqja e mëparshme e uebit në historikun e shfletuesit. | `intent`: str |
-| **navigo** | Navigon drejtpërdrejt në një URL të specifikuar. | `url`: str `intent`: str |
-| **go\_forward** | Navigon përpara te faqja tjetër e uebit në historikun e shfletuesit. | `intent`: str |
+| **ক্লিক করুন** | স্থানাঙ্কে বাঁদিকের বোতামে ক্লিক করুন। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | স্থানাঙ্কে ডবল ক্লিক করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | স্থানাঙ্কে ট্রিপল ক্লিক করুন। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | স্থানাঙ্কে মিডল ক্লিক করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | কোঅর্ডিনেটে ডানদিকের বোতামে ক্লিক করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | কোঅর্ডিনেটে মাউস বোতাম প্রেস করে ধরে রাখে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | স্থানাঙ্কে মাউসের বোতাম রিলিজ করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **সরান** | কার্সরকে নির্দিষ্ট পজিশনে নিয়ে যায়। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | টেক্সট টাইপ করে। | `text`: str `press_enter`: bool (ঐচ্ছিক, ডিফল্ট `false`) `intent`: str |
+| **drag\_and\_drop** | শুরুর কোঅর্ডিনেট থেকে শেষের কোঅর্ডিনেট পর্যন্ত কোনও আইটেম টেনে নিয়ে যায়। | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **অপেক্ষা করুন** | নির্দিষ্ট সংখ্যক সেকেন্ডের জন্য এক্সিকিউশন পজ করে। | `seconds`: int (ঐচ্ছিক, ডিফল্ট `1`) `intent`: str |
+| **press\_key** | নির্দিষ্ট কী প্রেস করে ছেড়ে দেয়। | `key`: str `intent`: str |
+| **key\_down** | নির্দিষ্ট করা 'কী' প্রেস করে ধরে রাখে। | `key`: str `intent`: str |
+| **key\_up** | নির্দিষ্ট কী রিলিজ করে। | `key`: str `intent`: str |
+| **হটকী** | নির্দিষ্ট 'কী' কম্বিনেশন প্রেস করে। | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | বর্তমান স্ক্রিনের স্ক্রিনশট দেখায়। | `intent`: str |
+| **স্ক্রল করা** | পিক্সেল দূরত্ব অনুযায়ী কোনও কোঅর্ডিনেটে উপরে, নিচে, বাঁদিকে বা ডানদিকে স্ক্রল করে। | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, ঐচ্ছিক, ডিফল্ট `300`) `intent`: str |
+| **go\_back** | ব্রাউজার ইতিহাসে আগের ওয়েবপেজে নেভিগেট করে ফিরে যায়। | `intent`: str |
+| **নেভিগেট করো** | নির্দিষ্ট URL-এ সরাসরি নেভিগেট করে। | `url`: str `intent`: str |
+| **go\_forward** | ব্রাউজার ইতিহাসে পরবর্তী ওয়েবপেজে নেভিগেট করে। | `intent`: str |
 
-### Mjedisi për celular (`ENVIRONMENT_MOBILE`)
+### মোবাইল এনভায়রনমেন্ট (`ENVIRONMENT_MOBILE`)
 
-Veprimet e mjedisit të optimizuara për Android:
+Android-এর জন্য অপ্টিমাইজ করা এনভায়রনমেন্ট অ্যাকশন:
 
-| Emri i komandës | Përshkrimi | Argumentet (në thirrjen e funksionit) |
+| কমান্ডের নাম | বিবরণ | আর্গুমেন্ট (ফাংশন কলে) |
 | --- | --- | --- |
-| **open\_app** | Hap një aplikacion sipas emrit të tij. | `app_name`: str `intent`: str |
-| **kliko** | Klikimet majtas në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **list\_apps** | Liston aplikacionet e disponueshme në pajisje, duke kthyer emrat dhe emrat e paketave të tyre. | `intent`: str |
-| **prit** | Vendos në pauzë ekzekutimin për një numër të caktuar sekondash. | `seconds`: int (opsionale, parazgjedhja `1`) `intent`: str |
-| **go\_back** | Navigon prapa tek ekrani ose faqja e mëparshme e uebit. | `intent`: str |
-| **lloji** | Shkruan tekst. | `text`: str `press_enter`: bool (opsionale, parazgjedhja `false`) `intent`: str |
-| **drag\_and\_drop** | Zgjedh një artikull nga koordinata e fillimit deri te koordinata e fundit. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **long\_press** | Kryen një shtypje të gjatë në një koordinatë në ekran. | `y`: int (0-999) `x`: int (0-999) `seconds`: int (Opsionale, parazgjedhja `2`) `intent`: str |
-| **press\_key** | Shtyp tastin e specifikuar dhe e lëshon atë. | `key`: str `intent`: str |
-| **take\_screenshot** | Kthen një pamje ekrani të ekranit aktual. | `intent`: str |
+| **open\_app** | নাম অনুযায়ী কোনও অ্যাপ্লিকেশন খোলে। | `app_name`: str `intent`: str |
+| **ক্লিক করুন** | স্থানাঙ্কে বাঁদিকের বোতামে ক্লিক করুন। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **list\_apps** | ডিভাইসে উপলভ্য অ্যাপ্লিকেশনের তালিকা দেখায়, তাদের নাম এবং প্যাকেজের নাম ফিরিয়ে দেয়। | `intent`: str |
+| **অপেক্ষা করুন** | নির্দিষ্ট সংখ্যক সেকেন্ডের জন্য এক্সিকিউশন পজ করে। | `seconds`: int (ঐচ্ছিক, ডিফল্ট `1`) `intent`: str |
+| **go\_back** | নেভিগেট করে আগের স্ক্রিন বা ওয়েবপেজে ফিরে যান। | `intent`: str |
+| **type** | টেক্সট টাইপ করে। | `text`: str `press_enter`: bool (ঐচ্ছিক, ডিফল্ট `false`) `intent`: str |
+| **drag\_and\_drop** | শুরুর কোঅর্ডিনেট থেকে শেষের কোঅর্ডিনেট পর্যন্ত কোনও আইটেম টেনে নিয়ে যায়। | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **long\_press** | স্ক্রিনের কোনও কোঅর্ডিনেটে বেশিক্ষণ প্রেস করে রাখে। | `y`: int (0-999) `x`: int (0-999) `seconds`: int (ঐচ্ছিক, ডিফল্ট `2`) `intent`: str |
+| **press\_key** | নির্দিষ্ট কী প্রেস করে ছেড়ে দেয়। | `key`: str `intent`: str |
+| **take\_screenshot** | বর্তমান স্ক্রিনের স্ক্রিনশট দেখায়। | `intent`: str |
 
-### Mjedisi i desktopit (`ENVIRONMENT_DESKTOP`)
+### ডেস্কটপ এনভায়রনমেন্ট (`ENVIRONMENT_DESKTOP`)
 
-Komandat e kursorit në nivelin e sistemit operativ të mjediseve të desktopit:
+ডেস্কটপ এনভায়রনমেন্ট OS-লেভেল কার্সর কমান্ড:
 
-| Emri i komandës | Përshkrimi | Argumentet (në thirrjen e funksionit) |
+| কমান্ডের নাম | বিবরণ | আর্গুমেন্ট (ফাংশন কলে) |
 | --- | --- | --- |
-| **kliko** | Klikimet majtas në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **double\_click** | Klikime të dyfishta në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **triple\_click** | Kliko tri herë te koordinata. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **middle\_click** | Klikimet në mes në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **right\_click** | Kliko me butonin djathtas te koordinata. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_down** | Shtyp dhe mban shtypur butonin e miut në koordinatë. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **mouse\_up** | Lëshon butonin e miut te koordinata. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **zhvendos** | Zhvendos kursorin në pozicionin e specifikuar. | `y`: int (0-999) `x`: int (0-999) `intent`: str |
-| **lloji** | Shkruan tekst. | `text`: str `press_enter`: bool (opsionale, parazgjedhja `false`) `intent`: str |
-| **drag\_and\_drop** | Zgjedh një artikull nga koordinata e fillimit deri te koordinata e fundit. | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
-| **prit** | Vendos në pauzë ekzekutimin për një numër të caktuar sekondash. | `seconds`: int (opsionale, parazgjedhja `1`) `intent`: str |
-| **press\_key** | Shtyp tastin e specifikuar dhe e lëshon atë. | `key`: str `intent`: str |
-| **key\_down** | Shtyp dhe mban shtypur tastin e specifikuar. | `key`: str `intent`: str |
-| **key\_up** | Lëshon çelësin e specifikuar. | `key`: str `intent`: str |
-| **tast i shkurtoreve** | Shtyp kombinimin e specifikuar të tasteve. | `keys`: `List[str]` `intent`: `str` |
-| **take\_screenshot** | Kthen një pamje ekrani të ekranit aktual. | `intent`: str |
-| **lëviz** | Lëviz lart, poshtë, majtas ose djathtas në një koordinatë me një distancë pikseli. | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, opsionale, parazgjedhja `300`) `intent`: str |
+| **ক্লিক করুন** | স্থানাঙ্কে বাঁদিকের বোতামে ক্লিক করুন। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **double\_click** | স্থানাঙ্কে ডবল ক্লিক করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **triple\_click** | স্থানাঙ্কে ট্রিপল ক্লিক করুন। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **middle\_click** | স্থানাঙ্কে মিডল ক্লিক করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **right\_click** | কোঅর্ডিনেটে ডানদিকের বোতামে ক্লিক করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_down** | কোঅর্ডিনেটে মাউস বোতাম প্রেস করে ধরে রাখে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **mouse\_up** | স্থানাঙ্কে মাউসের বোতাম রিলিজ করে। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **সরান** | কার্সরকে নির্দিষ্ট পজিশনে নিয়ে যায়। | `y`: int (0-999) `x`: int (0-999) `intent`: str |
+| **type** | টেক্সট টাইপ করে। | `text`: str `press_enter`: bool (ঐচ্ছিক, ডিফল্ট `false`) `intent`: str |
+| **drag\_and\_drop** | শুরুর কোঅর্ডিনেট থেকে শেষের কোঅর্ডিনেট পর্যন্ত কোনও আইটেম টেনে নিয়ে যায়। | `start_y`: int (0-999) `start_x`: int (0-999) `end_y`: int (0-999) `end_x`: int (0-999) `intent`: str |
+| **অপেক্ষা করুন** | নির্দিষ্ট সংখ্যক সেকেন্ডের জন্য এক্সিকিউশন পজ করে। | `seconds`: int (ঐচ্ছিক, ডিফল্ট `1`) `intent`: str |
+| **press\_key** | নির্দিষ্ট কী প্রেস করে ছেড়ে দেয়। | `key`: str `intent`: str |
+| **key\_down** | নির্দিষ্ট করা 'কী' প্রেস করে ধরে রাখে। | `key`: str `intent`: str |
+| **key\_up** | নির্দিষ্ট কী রিলিজ করে। | `key`: str `intent`: str |
+| **হটকী** | নির্দিষ্ট 'কী' কম্বিনেশন প্রেস করে। | `keys`: `List[str]` `intent`: `str` |
+| **take\_screenshot** | বর্তমান স্ক্রিনের স্ক্রিনশট দেখায়। | `intent`: str |
+| **স্ক্রল করা** | পিক্সেল দূরত্ব অনুযায়ী কোনও কোঅর্ডিনেটে উপরে, নিচে, বাঁদিকে বা ডানদিকে স্ক্রল করে। | `y`: int (0-999) `x`: int (0-999) `direction`: str (`"up"`, `"down"`, `"left"`, `"right"`) `magnitude_in_pixels`: int (0-999, ঐচ্ছিক, ডিফল্ট `300`) `intent`: str |
 
-## Funksionet e personalizuara të përcaktuara nga përdoruesi
+## ব্যবহারকারীর নির্ধারণ করা কাস্টম ফাংশন
 
-Mund ta zgjerosh funksionalitetin e modelit duke përfshirë funksione të personalizuara të përcaktuara nga përdoruesi. Për shembull, në skenarët me ndërveprim njerëzor (HITL), mund të përjashtosh veprimet e parazgjedhura të paracaktuar dhe të regjistrosh veprime të personalizuara.
+আপনি কাস্টম ব্যবহারকারী-নির্ধারিত ফাংশন অন্তর্ভুক্ত করে মডেলের কার্যকারিতা বাড়াতে পারেন। যেমন, হিউম্যান-ইন-দ্য-লুপ (HITL) পরিস্থিতিতে আপনি ডিফল্ট পূর্বনির্ধারিত অ্যাকশন বাদ দিতে এবং কাস্টম অ্যাকশন রেজিস্টার করতে পারেন।
 
 ### Python
 
-Përjashto veprimet standarde të paravendosura të shfletuesit (si p.sh. `click`) dhe regjistro një vegël të personalizuar `yield_to_user`:
+স্ট্যান্ডার্ড প্রিডিফাইন করা ব্রাউজার অ্যাকশন (যেমন `click`) বাদ দিন এবং কাস্টম `yield_to_user` টুল রেজিস্টার করুন:
 
 ```
 from google import genai
@@ -1349,9 +1367,9 @@ interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
-Përjashto veprimet standarde të paravendosura të shfletuesit (si p.sh. `click`) dhe regjistro një vegël të personalizuar `yield_to_user`:
+স্ট্যান্ডার্ড প্রিডিফাইন করা ব্রাউজার অ্যাকশন (যেমন `click`) বাদ দিন এবং কাস্টম `yield_to_user` টুল রেজিস্টার করুন:
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1445,7 +1463,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -1500,29 +1518,32 @@ func main() {
 }
 ```
 
-## Menaxhimi i niveleve të arsyetimit
+## থিঙ্কিং লেভেল ম্যানেজ করা
 
-Për agjentët e përdorimit të kompjuterit, mund të konfigurosh nivele të ndryshme të të menduarit për të balancuar cilësinë e veprimit dhe shpejtësinë e ekzekutimit. Nivelet më të ulëta të arsyetimit në përgjithësi arrijnë një balancë të mirë për detyrat standarde të automatizimit.
+কম্পিউটার ব্যবহারকারী এজেন্টের জন্য, আপনি অ্যাকশনের কোয়ালিটি এবং এক্সিকিউশনের স্পিডের মধ্যে ভারসাম্য বজায় রাখতে বিভিন্ন থিঙ্কিং লেভেল কনফিগার করতে পারেন। স্ট্যান্ডার্ড অটোমেশন টাস্কের ক্ষেত্রে, থিঙ্কিং লেভেল কম হলে সাধারণত ভালো ব্যালেন্স পাওয়া যায়।
 
-## Mbrojtja dhe siguria
+## নিরাপত্তা ও সুরক্ষা
 
-### Politikat e sigurisë po konfigurohen
+### নিরাপত্তা সংক্রান্ত নীতি কনফিগার করা হচ্ছে
 
-Modelet Gemini 3.x përfshijnë kategori të integruara të shërbimit të sigurisë që ndihmojnë për të përcaktuar nëse kërkohet konfirmimi i përdoruesit.
+Gemini 4 এবং Gemini 3.x মডেলে বিল্ট-ইন নিরাপত্তা পরিষেবার বিভাগ অন্তর্ভুক্ত থাকে যা
+ব্যবহারকারীর কনফার্মেশন প্রয়োজন কিনা তা নির্ধারণ করতে সাহায্য করে।
 
-| Kategoria e politikës së sigurisë | Përshkrimi |
+| নিরাপত্তা নীতি বিভাগ | বিবরণ |
 | --- | --- |
-| `FINANCIAL_TRANSACTIONS` | Bllokon ose aktivizon konfirmimin për veprimet që përfshijnë pagesa, përfundimin e blerjes në shitje me pakicë ose mallra të rregulluara me ligj. |
-| `SENSITIVE_DATA_MODIFICATION` | Mbron regjistrat shëndetësorë, financiarë ose qeveritarë nga modifikimet e paautorizuara. |
-| `COMMUNICATION_TOOL` | Kufizon agjentin që të mos dërgojë në mënyrë autonome email-e, mesazhe bisede ose drafte. |
-| `ACCOUNT_CREATION` | Kufizon agjentin nga regjistrimi në mënyrë autonome i llogarive të reja në uebsajte. |
-| `DATA_MODIFICATION` | Rregullon modifikimet e përgjithshme të sistemit të skedarëve, ndarjen e të dhënave dhe fshirjen e hapësirës ruajtëse. |
-| `USER_CONSENT_MANAGEMENT` | Kërkon marrjen e kontrollit nga përdoruesi për banderolat e pëlqimit për kukit dhe kërkesat për privatësinë. |
-| `LEGAL_TERMS_AND_AGREEMENTS` | Parandalon modelin që të pranojë në mënyrë autonome kushtet e shërbimit ose kontratat ligjërisht të detyrueshme. |
+| `FINANCIAL_TRANSACTIONS` | পেমেন্ট, রিটেল চেক-আউট বা নিয়ন্ত্রিত প্রোডাক্টের সাথে জড়িত অ্যাকশনের জন্য কনফার্মেশন ব্লক বা ট্রিগার করে। |
+| `SENSITIVE_DATA_MODIFICATION` | অননুমোদিত পরিবর্তন থেকে স্বাস্থ্য, আর্থিক বা সরকারি রেকর্ড সুরক্ষিত রাখে। |
+| `COMMUNICATION_TOOL` | এজেন্টকে স্বয়ংক্রিয়ভাবে ইমেল, চ্যাট মেসেজ বা ড্রাফ্ট পাঠানো থেকে বিরত রাখে। |
+| `ACCOUNT_CREATION` | এজেন্টকে ওয়েবসাইটে অটোমেটিক নতুন অ্যাকাউন্ট রেজিস্টার করা থেকে আটকায়। |
+| `DATA_MODIFICATION` | সামগ্রিক ফাইল সিস্টেমের পরিবর্তন, ডেটা শেয়ারিং এবং স্টোরেজ মুছে ফেলার বিষয়টি নিয়ন্ত্রণ করে। |
+| `USER_CONSENT_MANAGEMENT` | কুকি সংক্রান্ত সম্মতি ব্যানার ও গোপনীয়তা প্রম্পটের জন্য ব্যবহারকারীর টেকওভার প্রয়োজন। |
+| `LEGAL_TERMS_AND_AGREEMENTS` | মডেলকে নিজে থেকে পরিষেবার শর্তাবলী বা আইনত বাধ্যতামূলক চুক্তিতে সম্মতি জানাতে বাধা দেয়। |
 
-#### Zëvendësimet e sigurisë
+#### নিরাপত্তা ওভাররাইড
 
-Mund të anashkalosh politikat e zgjedhura duke kaluar anashkalimet:
+আপনি ওভাররাইড পাস করে বেছে নেওয়া নীতি ওভাররাইড করতে পারবেন:
+
+with in some cases.
 
 ### Python
 
@@ -1546,7 +1567,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1600,7 +1621,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -1641,13 +1662,18 @@ func main() {
 }
 ```
 
-### Zbulimi i injektimit të kërkesës
+### প্রম্পট ইঞ্জেকশন ডিটেকশন
 
-"Përdorimi i kompjuterit" për Gemini 3.5 Flash-Lite ose versione të mëvonshme mbështet një mekanizëm të përparuar sigurie për të zbuluar sulmet me injektim kërkese. Kur është aktivizuar, kjo veçori kontrollon nëse një pamje ekrani e përfshirë përmban udhëzime të fshehura kundërshtuese (për shembull, "Shpërfill komandat e mëparshme") dhe bllokon ekzekutimin kur zbulohen.
+Gemini 3.5 Flash-Lite বা তার পরবর্তী ভার্সনের জন্য কম্পিউটার ব্যবহার, প্রম্পট ইনজেকশন অ্যাটাক শনাক্ত করার জন্য একটি উন্নত নিরাপত্তা
+মেকানিজমকে সমর্থন করে। চালু করা হলে, এই ফিচার
+চেক করে দেখে যে অন্তর্ভুক্ত স্ক্রিনশটে লুকানো অ্যাডভার্সারিয়াল
+নির্দেশ (যেমন, "আগের কমান্ড উপেক্ষা করো") আছে কিনা এবং শনাক্ত করা হলে
+এক্সিকিউশন ব্লক করে দেয়।
 
-"Zbulimi i injektimit të kërkesës" është një veçori me zgjedhje. Parazgjedhja është `false`.
+প্রম্পট ইঞ্জেকশন ডিটেকশন হল একটি অপ্ট-ইন ফিচার। ডিফল্ট হল `false`।
 
-Shembujt e mëposhtëm demonstrojnë se si të aktivizosh zbulimin e injektimit të kërkesave në konfigurimin e veglës së "Përdorimit të kompjuterit":
+আপনার কম্পিউটার ব্যবহার টুল কনফিগারেশনে কীভাবে প্রম্পট ইঞ্জেকশন ডিটেকশন চালু করবেন তা নিম্নলিখিত উদাহরণ থেকে
+জানতে পারবেন:
 
 ### Python
 
@@ -1669,7 +1695,7 @@ interaction = client.interactions.create(
 )
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -1719,7 +1745,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -1776,9 +1802,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions?key=${GEMINI
 }'
 ```
 
-### Prano vendimin për sigurinë
+### নিরাপত্তা সংক্রান্ত সিদ্ধান্তে সম্মতি জানান
 
-Përgjigjja mund të përfshijë një parametër `safety_decision` në argumentet e thirrjes së funksionit:
+উত্তরে ফাংশন কল আর্গুমেন্টে `safety_decision` প্যারামিটার অন্তর্ভুক্ত থাকতে পারে:
 
 ```
 {
@@ -1799,7 +1825,7 @@ Përgjigjja mund të përfshijë një parametër `safety_decision` në argumente
 }
 ```
 
-Nëse `safety_decision` është `require_confirmation`, kërkoji përdoruesit fundor. Nëse përdoruesi e konfirmon, cakto `safety_acknowledgement` në `function_result`.
+`safety_decision` যদি `require_confirmation` হয়, তাহলে ব্যবহারকারীকে প্রম্পট করুন। ব্যবহারকারী কনফার্ম করলে, `function_result`-এ `safety_acknowledgement` সেট করুন।
 
 ### Python
 
@@ -1818,14 +1844,17 @@ if 'safety_decision' in function_call.arguments:
     action_result["safety_acknowledgement"] = True
 ```
 
-### Praktikat më të mira të sigurisë
+### নিরাপত্তা সংক্রান্ত পেশাদার পদ্ধতি
 
-Përdorimi i kompjuterit paraqet rreziqe unike për sigurinë dhe funksionimin, pasi një model që vepron në emër të një përdoruesi mund të hasë përmbajtje të pabesueshme në ekrane ose mund të bëjë gabime në ekzekutimin e veprimeve. Zbato praktikat më të mira të mëposhtme për të mbrojtur të dhënat dhe sistemet e përdoruesve:
+কম্পিউটার ব্যবহারের ক্ষেত্রে অনন্য নিরাপত্তা ও অপারেশনাল ঝুঁকি থাকে, কারণ ব্যবহারকারীর হয়ে কাজ করা
+মডেল স্ক্রিনে বিশ্বস্ত নয় এমন কন্টেন্টের সম্মুখীন হতে পারে অথবা অ্যাকশন কার্যকর করার সময়
+ভুল করতে পারে। ব্যবহারকারীর ডেটা ও সিস্টেম সুরক্ষিত রাখতে নিম্নলিখিত পেশাদার পদ্ধতি
+প্রয়োগ করুন:
 
-1. **Me ndërveprim njerëzor (HITL):**
-   - **Zbato konfirmimin e përdoruesit:** Kur përgjigjja e sigurisë tregon
-     `require_confirmation`, kërkoji përdoruesit miratimin.
-   - **Jep udhëzime të personalizuara për sigurinë:** Zbato një udhëzim të personalizuar të sistemit për të përcaktuar dhe zbatuar kufijtë e tu të sigurisë. Për shembull:
+1. **হিউম্যান-ইন-দ্য-লুপ (HITL):**
+   - **ব্যবহারকারীর কনফার্মেশন এনফোর্স করা:** নিরাপত্তা সংক্রান্ত উত্তর
+     `require_confirmation` নির্দেশ করলে, ব্যবহারকারীকে অনুমোদনের জন্য প্রম্পট করুন।
+   - **কাস্টম নিরাপত্তা নির্দেশাবলী প্রদান করুন:** আপনার নিজস্ব নিরাপত্তা সীমানা নির্ধারণ এবং প্রয়োগ করতে একটি কাস্টম সিস্টেম নির্দেশাবলী প্রয়োগ করুন। যেমন:
 
      ### Python
 
@@ -1933,7 +1962,7 @@ Përdorimi i kompjuterit paraqet rreziqe unike për sigurinë dhe funksionimin, 
      )
      ```
 
-     ### JavaScript
+     ### জাভাস্ক্রিপ্ট
 
      ```
      import { GoogleGenAI } from '@google/genai';
@@ -2076,7 +2105,7 @@ Interaction interaction =
     client.interactions.create(CreateInteractionRequestBody.of(params)).interaction().get();
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -2123,41 +2152,49 @@ func main() {
 }
 ```
 
-1. **Mjedisi i ekzekutimit të sigurt:** Ekzekuto agjentin tënd në një mjedis të sigurt dhe të kufizuar
-   për të kufizuar ndikimin e tij të mundshëm. Kjo mund të jetë një makinë virtuale e izoluar (VM), një kontejner (p.sh. Docker) ose një profil i dedikuar shfletuesi me leje të kufizuara. Shiko
-   [zbatimin e referencës së GitHub](https://github.com/google/computer-use-preview/)
-   për udhëzime për konfigurimin e mjedisit të izoluar duke përdorur Docker.
-2. **Pastrimi i hyrjes:** Pastro të gjithë tekstin e gjeneruar nga përdoruesi në kërkesa për të
-   zbutur rrezikun e udhëzimeve të paqëllimshme ose injektimit të kërkesave. Kjo është një shtresë e dobishme sigurie, por nuk është një zëvendësim për një mjedis të sigurt ekzekutimi.
-3. **Mbrojtjet për përmbajtjet:** Përdor mbrojtjet dhe API-të e sigurisë së përmbajtjeve për të vlerësuar hyrjet e përdoruesve, hyrjet dhe daljet e veglave, si dhe përgjigjet e agjentit për përshtatshmërinë, injektimin e kërkesave dhe zbulimin e shmangies së kufizimeve.
-4. **Listat e lejimeve dhe listat e bllokimeve:** Zbato mekanizmat e filtrimit për të kontrolluar se ku mund të navigojë modeli dhe çfarë mund të bëjë ai. Një listë bllokimesh e uebsajteve të ndaluara është një pikë e mirë fillimi, ndërsa një listë lejimesh më kufizuese është edhe më e sigurt.
-5. **Vëzhgueshmëria dhe regjistrimi:** Mbaj regjistra të detajuar për korrigjimin, auditimin dhe reagimin ndaj incidenteve. Klienti yt duhet të regjistrojë kërkesat, pamjet e ekranit, veprimet e sugjeruara nga modeli (`function_call`), përgjigjet e sigurisë dhe të gjitha veprimet e ekzekutuara në fund nga klienti.
-6. **Menaxhimi i mjedisit:** Siguro që mjedisi i ndërfaqes grafike të përdoruesit është i qëndrueshëm.
-   Dritaret kërcyese, njoftimet ose ndryshimet e papritura në strukturë mund ta ngatërrojnë modelin. Nis nga një gjendje e njohur dhe e pastër për çdo detyrë të re nëse është e mundur.
+1. **নিরাপদ এক্সিকিউশন এনভায়রনমেন্ট:** আপনার এজেন্টের সম্ভাব্য প্রভাব সীমিত করতে, এটি একটি নিরাপদ, স্যান্ডবক্সড
+   এনভায়রনমেন্টে চালান। এটি স্যান্ডবক্স করা ভার্চুয়াল
+   মেশিন (VM), কন্টেনার (যেমন, Docker) বা সীমিত অনুমতি সহ
+   নির্দিষ্ট ব্রাউজার প্রোফাইল হতে পারে। Docker ব্যবহার করে স্যান্ডবক্স সেট-আপ করার নির্দেশিকার জন্য
+   [GitHub রেফারেন্স ইমপ্লিমেন্টেশন](https://github.com/google/computer-use-preview/)
+   দেখুন।
+2. **ইনপুট স্যানিটাইজেশন:** অনিচ্ছাকৃত নির্দেশাবলী বা প্রম্পট ইঞ্জেকশনের ঝুঁকি কমাতে
+   প্রম্পটে ব্যবহারকারীর তৈরি করা সব টেক্সট স্যানিটাইজ করুন। এটি সুরক্ষার একটি
+   সহায়ক স্তর, তবে এটি নিরাপদ এক্সিকিউশন এনভায়রনমেন্টের
+   বিকল্প নয়।
+3. **কন্টেন্ট গার্ডরেল:** ব্যবহারকারীর ইনপুট, টুলের ইনপুট ও আউটপুট এবং এজেন্টের উত্তর উপযুক্ত কিনা,
+   প্রম্পট ইঞ্জেকশন এবং জেলব্রেক শনাক্তকরণের জন্য গার্ডরেল এবং কন্টেন্ট সুরক্ষা API ব্যবহার করুন।
+4. **অনুমোদিত তালিকা এবং ব্লকলিস্ট:** মডেলটি কোথায় নেভিগেট করতে পারে এবং এটি কী করতে পারে তা নিয়ন্ত্রণ করতে ফিল্টারিং মেকানিজম প্রয়োগ করুন। নিষিদ্ধ ওয়েবসাইটের একটি ব্লকলিস্ট একটি ভাল সূচনা পয়েন্ট, যখন আরও সীমাবদ্ধ অনুমোদিত তালিকা আরও বেশি নিরাপদ।
+5. **পর্যবেক্ষণ ও লগিং:** ডিবাগিং, অডিটিং ও ঘটনার প্রতিক্রিয়া সংক্রান্ত বিস্তারিত লগ বজায় রাখা। আপনার ক্লায়েন্টকে প্রম্পট, স্ক্রিনশট, মডেলের সাজেস্ট করা অ্যাকশন (`function_call`), নিরাপত্তা সংক্রান্ত উত্তর এবং
+   ক্লায়েন্টের মাধ্যমে শেষ পর্যন্ত নেওয়া সব অ্যাকশন লগ করতে হবে।
+6. **এনভায়রনমেন্ট ম্যানেজমেন্ট:** GUI এনভায়রনমেন্ট সামঞ্জস্যপূর্ণ কিনা তা নিশ্চিত করুন।
+   অপ্রত্যাশিত পপ-আপ, বিজ্ঞপ্তি বা লে-আউটে পরিবর্তন মডেলকে বিভ্রান্ত করতে পারে। সম্ভব হলে, প্রতিটি নতুন টাস্কের জন্য পরিচিত, পরিষ্কার অবস্থা থেকে শুরু করুন।
 
-## Versionet e modelit
+## মডেল ভার্সন
 
-Mund ta përdorësh "Përdorimin e kompjuterit" me modelet e mëposhtme:
+আপনি নিম্নলিখিত মডেলের সাথে কম্পিউটার ব্যবহার করতে পারবেন:
 
-- [**Gemini 4 Argon**](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=sq) (`gemini-4-argon`): Modeli ynë më i aftë, i cili mbështet përdorimin e kompjuterit për arsyetim kompleks dhe flukse pune të ndërfaqes së përdoruesit të agjentit.
-- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=sq) (`gemini-3.8-flash`): Modeli i rekomanduar për përdorimin e kompjuterit, i cili përfshin ndërveprimin me saktësi të lartë me ndërfaqen e përdoruesit dhe thirrjen e besueshme të veglave.
-- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=sq) (`gemini-3.5-flash-lite`): Një model me kosto efektive dhe me vonesë të ulët që mbështet përdorimin në kompjuter.
-- [**Pamja paraprake e Gemini 3 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=sq) (`gemini-3-flash-preview`): Pamja paraprake e modelit që mbështet përdorimin në kompjuter.
+- [**Gemini 4 Argon**](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=bn) (`gemini-4-argon`): আমাদের সবচেয়ে দক্ষ মডেল, যা জটিল রিজনিং ও এজেন্টিক UI ওয়ার্কফ্লোর জন্য কম্পিউটার ব্যবহার করার সুবিধা দেয়।
+- [**Gemini 3.8 Flash**](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=bn) (`gemini-3.8-flash`): কম্পিউটার ব্যবহারের জন্য সাজেস্ট করা মডেল, এতে উচ্চ-নির্ভুল UI ইন্টার‍্যাকশন এবং নির্ভরযোগ্য টুল কলিংয়ের সুবিধা রয়েছে।
+- [**Gemini 3.5 Flash-Lite**](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=bn) (`gemini-3.5-flash-lite`): কম লেটেন্সি ও সাশ্রয়ী মডেল যা কম্পিউটার ব্যবহার
+  সমর্থন করে।
+- [**Gemini 3 Flash প্রিভিউ**](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=bn) (`gemini-3-flash-preview`): কম্পিউটার ব্যবহার
+  সমর্থনকারী প্রিভিউ মডেল।
 
-## Çfarë ka më pas
+## এর পরে কী করতে হবে
 
-- Eksperimento me "Përdorimin e kompjuterit" në [mjedisin e demonstrimit të Browserbase](http://gemini.browserbase.com).
-- Shiko [Zbatimin e referencës](https://github.com/google/computer-use-preview) për shembullin e kodit.
-- Mëso rreth veglave të tjera të Gemini API:
-  - [Thirrje funksioni](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq)
-  - [Argumentimi me "Kërko në Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)
+- [Browserbase ডেমো এনভায়রনমেন্টে](http://gemini.browserbase.com) কম্পিউটার ব্যবহার নিয়ে এক্সপেরিমেন্ট করুন।
+- উদাহরণ কোডের জন্য [রেফারেন্স প্রয়োগ](https://github.com/google/computer-use-preview) চেক করুন।
+- অন্যান্য Gemini API টুল সম্পর্কে জানুন:
+  - [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)
+  - [Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)
 
-Dërgo komente
+মতামত জানান
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-Përditësimi i fundit: 2026-10-13 UTC.
+2026-10-22 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-Duhet të na tregosh më shumë?
+আমাদের আরও কিছু জানাতে চান?
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-22 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

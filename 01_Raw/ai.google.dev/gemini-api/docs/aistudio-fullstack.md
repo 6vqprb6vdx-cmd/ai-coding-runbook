@@ -1,198 +1,167 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=it
-fetched_at: 2026-10-19T05:34:37.724971+00:00
-title: "Sviluppa app full-stack in Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/aistudio-fullstack?hl=he
+fetched_at: 2026-10-26T05:38:30.876985+00:00
+title: "\u05e4\u05d9\u05ea\u05d5\u05d7 \u05d0\u05e4\u05dc\u05d9\u05e7\u05e6\u05d9\u05d5\u05ea Full-stack \u05d1-Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Invia feedback
+שליחת משוב
 
-# Sviluppa app full-stack in Google AI Studio
+# פיתוח אפליקציות Full-stack ב-Google AI Studio
 
-Google AI Studio ora supporta lo sviluppo full-stack, consentendoti di creare
-applicazioni che vanno oltre i prototipi lato client. Con un runtime lato server, puoi gestire i segreti, connetterti ad API esterne e creare esperienze multiplayer in tempo reale.
+עכשיו Google AI Studio תומך בפיתוח full-stack, ומאפשר לכם ליצור אפליקציות שהן לא רק אבות טיפוס בצד הלקוח. בעזרת סביבת זמן ריצה בצד השרת, אתם יכולים לנהל סודות, להתחבר לממשקי API חיצוניים ולפתח חוויות של משחקים מרובי משתתפים בזמן אמת.
 
-## Runtime lato server
+## זמן ריצה בצד השרת
 
-Le applicazioni Google AI Studio ora possono includere un componente lato server (Node.js).
-In questo modo potrai:
+עכשיו אפליקציות של Google AI Studio יכולות לכלול רכיב בצד השרת (Node.js).
+בצורה כזאת, אתם יכולים:
 
-- **Esegui logica lato server**: esegui codice che non deve essere esposto al client.
-- **Accedere ai pacchetti npm**: l'[agente antigravità](https://antigravity.google/docs/agent?hl=it)
-  può installare e utilizzare pacchetti del vasto ecosistema npm.
-- **Gestisci i secret**: utilizza in modo sicuro chiavi API e credenziali.
+- **הפעלת לוגיקה בצד השרת**: הפעלת קוד שלא צריך להיחשף ללקוח.
+- **גישה לחבילות npm**: [סוכן Antigravity](https://antigravity.google/docs/agent?hl=he) יכול להתקין חבילות מהסביבה העסקית הענקית של npm ולהשתמש בהן.
+- **טיפול בסודות**: שימוש מאובטח במפתחות API ובפרטי כניסה.
 
-### Utilizzare i pacchetti npm
+### שימוש בחבילות npm
 
-Non devi eseguire manualmente `npm install`. Basta chiedere all'agente di aggiungere una funzionalità che richiede un pacchetto e l'agente gestirà l'installazione e l'importazione.
+אין צורך להפעיל את `npm install` באופן ידני. פשוט מבקשים מה-Agent להוסיף פונקציונליות שדורשת חבילה, והוא יטפל בהתקנה ובייבוא.
 
-**Esempio**: > "Utilizza `axios` per recuperare i dati dall'API esterna."
+**דוגמה**: > "Use `axios` to fetch data from the external API."
 
-## Gestire i secret in modo sicuro
+## ניהול מאובטח של סודות
 
-Con la gestione del codice e dei secret lato server, ora puoi creare app che interagiscono con il mondo.
+בעזרת קוד בצד השרת וניהול סודות, אתם יכולים עכשיו לפתח אפליקציות שמתקשרות עם העולם.
 
-### Chiave API Gemini
+### מפתח Gemini API
 
-Quando crei una nuova app che utilizza l'API Gemini, AI Studio configura automaticamente la tua `GEMINI_API_KEY` come secret lato server, senza richiedere alcuna configurazione manuale. Puoi visualizzare questa chiave nel riquadro **Secret** delle Impostazioni. Le chiamate all'API Gemini della tua app vengono effettuate dal codice lato server utilizzando questa chiave, quindi non viene mai esposta nel browser.
+כשיוצרים אפליקציה חדשה שמשתמשת ב-Gemini API,‏ AI Studio מגדיר באופן אוטומטי את `GEMINI_API_KEY` כסוד בצד השרת, בלי צורך בהגדרה ידנית. אפשר לראות את המפתח הזה בחלונית **סודות** בהגדרות. הקריאות ל-Gemini API מהאפליקציה מתבצעות מקוד בצד השרת באמצעות המפתח הזה, כך שהוא אף פעם לא נחשף בדפדפן.
 
-### Chiavi API di terze parti
+### מפתחות API של צד שלישי
 
-Per altri servizi, puoi aggiungere le chiavi API manualmente:
+בשירותים אחרים, אפשר להוסיף מפתחות API באופן ידני:
 
-- **API di terze parti**: connettiti a servizi come Stripe, SendGrid o API REST personalizzate.
-- **Database**: connettiti a database esterni (ad es. tramite Supabase, Firebase o MongoDB Atlas) per conservare i dati oltre la sessione.
+- **ממשקי API של צד שלישי**: התחברות לשירותים כמו Stripe,‏ SendGrid או ממשקי API מותאמים אישית בארכיטקטורת REST.
+- **מסדי נתונים**: חיבור למסדי נתונים חיצוניים (למשל, דרך Supabase,‏ Firebase או MongoDB Atlas) כדי לשמור נתונים מעבר לסשן.
 
-Quando crei app reali, spesso devi connetterti a servizi di terze parti
-(come Twilio, Slack o database) che richiedono chiavi API. Puoi aggiungere le chiavi
-manualmente seguendo questi passaggi:
+כשמפתחים אפליקציות, בדרך כלל צריך להתחבר לשירותים של צד שלישי (כמו Twilio,‏ Slack או מסדי נתונים) שדורשים מפתחות API. כדי להוסיף מפתחות באופן ידני:
 
-1. **Aggiungi un secret**: vai al menu **Impostazioni** in Google AI Studio e cerca la sezione Secret.
-2. **Memorizza la chiave**: aggiungi qui le tue chiavi API o i tuoi token segreti.
-3. **Accesso nel codice**: l'agente può scrivere codice lato server che accede a questi
-   segreti in modo sicuro (in genere tramite variabili di ambiente), assicurandosi che non vengano
-   mai esposti al browser lato client.
+1. **הוספת סוד**: עוברים לתפריט **Settings** ב-Google AI Studio ומחפשים את הקטע Secrets.
+2. **אחסון המפתח**: כאן מוסיפים את מפתחות ה-API או הטוקנים הסודיים.
+3. **גישה בקוד**: הנציג יכול לכתוב קוד בצד השרת שניגש לפרטים הסודיים האלה באופן מאובטח (בדרך כלל באמצעות משתני סביבה), כדי לוודא שהם אף פעם לא נחשפים לדפדפן בצד הלקוח.
 
-Se necessario, l'agente
-mostrerà anche una scheda nella chat che ti chiede di aggiungere le chiavi ogni volta che è necessario un nuovo secret
-o quando viene rilevata una nuova chiave nelle variabili di ambiente del progetto.
+במקרה הצורך, הנציג גם יציג כרטיס בצ'אט שיבקש מכם להוסיף מפתחות בכל פעם שצריך סוד חדש, או כשמזוהה מפתח חדש במשתני הסביבה של הפרויקט.
 
-### Integrazione di Firebase per database e autenticazione
+### שילוב עם Firebase למסד נתונים ולאימות
 
-Google AI Studio ora semplifica l'aggiunta di un database o dell'autenticazione alla tua
-app tramite un'
-[integrazione di Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=it).
-L'agente Antigravity può eseguire il provisioning e configurare automaticamente i seguenti servizi:
+עכשיו אפשר להוסיף בקלות מסד נתונים או אימות לאפליקציה ב-Google AI Studio באמצעות [שילוב עם Firebase](https://firebase.google.com/docs/ai-assistance/ai-studio-integration?hl=he).
+סוכן Antigravity יכול להקצות ולהגדיר בשבילכם את השירותים הבאים באופן אוטומטי:
 
-- **Database Firestore**: un database cloud NoSQL flessibile e scalabile per archiviare
-  e sincronizzare i dati per lo sviluppo lato client e lato server.
-- **Firebase Authentication**: consente agli utenti di accedere in modo sicuro alla tua
-  applicazione utilizzando i flussi "Accedi con Google".
+- **מסד נתונים של Firestore**: מסד נתונים NoSQL גמיש וניתן להרחבה בענן, שמשמש לאחסון ולסנכרון של נתונים לפיתוח בצד הלקוח ובצד השרת.
+- **אימות ב-Firebase**: מאפשר למשתמשים להיכנס לאפליקציה באופן מאובטח באמצעות תהליכי "כניסה באמצעות חשבון Google".
 
-Basta chiedere all'agente di "aggiungere un database alla mia app" o di "configurare Google Sign-in".
-L'agente gestirà la configurazione e la generazione del codice necessarie.
+פשוט מבקשים מהנציג "להוסיף מסד נתונים לאפליקציה" או "להגדיר כניסה באמצעות חשבון Google", והוא יטפל בהגדרות ובקוד שצריך בשבילכם.
+כשמפתחים [אפליקציות ל-Android](https://ai.google.dev/gemini-api/docs/aistudio-android?hl=he#firebase-integration), השילוב של Firebase מספק גם את **Firebase AI Logic** ואת **Firebase App Check** לקריאות מאובטחות ל-Gemini API בצד הלקוח.
 
-Firebase ti consente di iniziare senza costi e, se vuoi, di eseguire lo scale-up con un account a pagamento
-quando hai bisogno di una quota maggiore o di utilizzare funzionalità a pagamento.
+אתם יכולים להתחיל להשתמש ב-Firebase בחינם, ואם תרצו להגדיל את המכסה או להשתמש בתכונות בתשלום, תוכלו לעבור לחשבון בתשלום.
 
-## API Google Workspace
+## ממשקי API של Google Workspace
 
-Google AI Studio ti consente di creare app che si connettono alle API Google Workspace, in modo che i tuoi utenti possano lavorare con i loro dati reali: email, fogli di lavoro, documenti, eventi di calendario e altro ancora, tutto all'interno della tua app. Non è più necessario configurare un progetto Google Cloud, configurare OAuth o gestire manualmente l'API.
+ב-Google AI Studio אתם יכולים לפתח אפליקציות שמתחברות לממשקי ה-API של Google Workspace, כדי שהמשתמשים יוכלו לעבוד עם הנתונים האמיתיים שלהם: אימיילים, גיליונות אלקטרוניים, מסמכים, אירועים ביומן ועוד, והכול בתוך האפליקציה שלכם. אתם כבר לא צריכים להגדיר פרויקט ב-Google Cloud, להגדיר OAuth או לנהל את ה-API באופן ידני.
 
-### Come funziona
+### איך זה עובד
 
-Puoi aggiungere un'integrazione di Workspace in due modi:
+יש שתי דרכים להוסיף שילוב של Workspace:
 
-- **Descrivilo nel riquadro della chat**: basta dire all'agente cosa vuoi nel riquadro della chat in basso. Ad esempio, *"Crea un tracker delle spese che registri le ricevute nel mio foglio Google"* o *"Crea una dashboard che riepiloghi i miei messaggi Gmail non letti"*.
-- **Seleziona dal riquadro delle integrazioni**: apri il riquadro **Integrazioni** nella barra laterale destra della modalità di creazione e attiva l'app Workspace che vuoi connettere.
+- **לתאר את התמונה בחלונית הצ'אט**: פשוט אומרים לסוכן מה רוצים בחלונית הצ'אט שבתחתית המסך. לדוגמה, *"צור כלי למעקב אחרי הוצאות שמתעד קבלות בגיליון האלקטרוני שלי ב-Google Sheets"* או *"צור מרכז בקרה שמסכם את ההודעות שלא נקראו ב-Gmail".*
+- **בחירה מחלונית השילובים**: פותחים את החלונית **שילובים** בסרגל הצד השמאלי של מצב פיתוח, ומפעילים את אפליקציית Workspace שרוצים לקשר.
 
-Quando aggiungi un'app Workspace, AI Studio esegue automaticamente le seguenti operazioni:
+כשמוסיפים אפליקציה של Workspace, ‏ AI Studio מבצע באופן אוטומטי את הפעולות הבאות:
 
-1. Collega l'API Google necessaria per la tua app.
-2. Genera il codice lato server per chiamare l'API.
-3. Aggiunge un flusso sicuro di "Accedi con Google" in modo che gli utenti finali della tua app possano autorizzare l'accesso ai propri dati.
+1. מקשר את ממשק ה-API הנדרש של Google לאפליקציה.
+2. יוצר את הקוד בצד השרת כדי לשלוח קריאה ל-API.
+3. מוסיף תהליך מאובטח של "כניסה באמצעות חשבון Google" כדי שמשתמשי הקצה של האפליקציה יוכלו לאשר גישה לנתונים שלהם.
 
-### App supportate
+### אפליקציות נתמכות
 
-Sono disponibili le seguenti app Google Workspace:
+אלה האפליקציות של Google Workspace שזמינות:
 
-| App | Cosa puoi creare |
+| אפליקציה | מה אפשר ליצור |
 | --- | --- |
-| Google Calendar | Leggere, creare e gestire eventi e calendari |
-| Google Chat | Leggere e interagire con conversazioni e spazi di gruppo |
-| Documenti Google | Creare, leggere, aggiornare e formattare documenti |
-| Google Drive | Organizzare, cercare e gestire file e cartelle |
-| Moduli Google | Creare sondaggi, aggiornare le domande e recuperare le risposte |
-| Gmail | Leggere, inviare e gestire i contenuti delle email |
-| Google Keep | Gestire note, elenchi e allegati |
-| Google Meet | Pianificare e gestire le videochiamate |
-| Contatti | Sincronizzare e gestire i contatti |
-| Fogli Google | Leggere, scrivere e formattare i dati del foglio di lavoro |
-| Presentazioni Google | Creare e modificare presentazioni |
-| Google Tasks | Creare, gestire e organizzare le attività |
+| יומן Google | לקרוא, ליצור ולנהל אירועים ויומנים |
+| Google Chat | קריאה של שיחות ומרחבים קבוצתיים ואינטראקציה איתם |
+| Google Docs | ליצור, לקרוא, לעדכן ולעצב מסמכים |
+| Google Drive | ארגון, חיפוש וניהול של קבצים ותיקיות |
+| Google Forms | ליצור סקרים, לעדכן שאלות ולאחזר תשובות |
+| Gmail | לקרוא, לשלוח ולנהל תוכן של אימיילים |
+| Google Keep | ניהול פתקים, רשימות וקבצים מצורפים |
+| Google Meet | לקבוע ולנהל שיחות וידאו |
+| אנשי קשר | סנכרון וניהול של אנשי הקשר |
+| Google Sheets | לקרוא, לכתוב ולעצב נתונים בגיליון אלקטרוני |
+| Google Slides | ליצור ולשנות מצגות |
+| Google Tasks | איך יוצרים, מנהלים ומארגנים משימות |
 
-### Autenticazione e autorizzazioni
+### אימות והרשאות
 
-In qualità di builder, non devi configurare i client OAuth, gestire le credenziali
-o configurare un progetto Google Cloud. AI Studio gestisce tutto questo per te.
+כמפתחים, אתם לא צריכים להגדיר לקוחות OAuth, לנהל פרטי כניסה או להגדיר פרויקט ב-Google Cloud. ‫AI Studio מטפל בכל זה בשבילכם.
 
-Le app con le API Workspace integrate utilizzano "Accedi con Google" per autenticare
-gli utenti finali. Quando un utente apre la tua app, gli viene chiesto di accedere e concedere
-le autorizzazioni specifiche di cui la tua app ha bisogno (ad esempio, l'accesso in sola lettura al
-calendario o la possibilità di modificare un foglio di lavoro). La tua app accede solo ai dati della persona che la utilizza. Ogni utente autorizza l'accesso al proprio account.
+באפליקציות שמשולבים בהן ממשקי API של Workspace, האימות של משתמשי הקצה מתבצע באמצעות "כניסה באמצעות חשבון Google". כשהמשתמשים פותחים את האפליקציה, הם מתבקשים להיכנס לחשבון ולתת את ההרשאות הספציפיות שהאפליקציה צריכה (לדוגמה, גישה לקריאה בלבד ליומן שלהם, או אפשרות לערוך גיליון אלקטרוני). האפליקציה ניגשת רק לנתונים של המשתמשים שלה. כל משתמש מאשר גישה לחשבון שלו.
 
-### Prompt di esempio
+### הנחיות לדוגמה
 
-Ecco alcune idee per iniziare a utilizzare le integrazioni di Workspace:
+הנה כמה רעיונות שיעזרו לכם להתחיל להשתמש בשילובים עם Workspace:
 
-- *"Crea un'app che legga il mio Google Calendar e crei bozze di email di preparazione in
-  Gmail per ogni riunione".*
-- *"Crea uno strumento che prenda un documento Google e generi un riepilogo di 5 slide
-  in Presentazioni Google."*
-- *"Crea un monitoraggio delle spese in cui carico una ricevuta, Gemini estrae i
-  dettagli e registra una nuova riga nel mio Foglio Google."*
+- *"צור אפליקציה שקוראת את יומן Google שלי ומכינה טיוטות של אימיילים ב-Gmail לקראת כל פגישה".*
+- *"צור כלי שלוקח מסמך Google Docs ויוצר מצגת סיכום של 5 שקפים ב-Google Slides".*
+- *"צור כלי למעקב אחר הוצאות שבו אני מעלה קבלה, Gemini מחלץ את הפרטים ומתעד שורה חדשה בגיליון האלקטרוני שלי ב-Google Sheets".*
 
-### Configura OAuth
+### הגדרת OAuth
 
-Un caso d'uso chiave per la gestione dei secret è la configurazione di OAuth per connettersi ad altri
-siti web o app. Quando il prompt include istruzioni su come connettersi a un'app di terze parti che richiede l'autenticazione OAuth, l'agente fornirà istruzioni su come configurare OAuth per l'applicazione. Queste istruzioni
-includeranno gli URL di callback necessari per configurare l'applicazione OAuth.
-Puoi trovare gli URL di callback anche nella sezione **Integrazioni** nel pannello Impostazioni.
+אחד מהתרחישים לדוגמה העיקריים לניהול סודות הוא הגדרת OAuth כדי להתחבר לאתרים או לאפליקציות אחרים. אם ההנחיה כוללת הוראות להתחברות לאפליקציה של צד שלישי שדורשת אימות OAuth, הנציג יספק הוראות להגדרת OAuth לאפליקציה הזו. ההוראות האלה יכללו את כתובות ה-URL הנדרשות להגדרת אפליקציית OAuth.
+אפשר למצוא את כתובות ה-URL להחזרת קריאה גם בקטע **שילובים** בחלונית ההגדרות.
 
-## Creare esperienze multigiocatore
+## יצירת חוויות של משחקים מרובי משתתפים
 
-Il runtime full-stack attiva le funzionalità di collaborazione in tempo reale.
+סביבת זמן הריצה של כל הרכיבים מאפשרת תכונות של שיתוף פעולה בזמן אמת.
 
-- **Stato in tempo reale**: puoi chiedere all'agente di creare funzionalità come "una chat live", "una lavagna collaborativa" o "un gioco multiplayer".
-- **Sessioni sincronizzate**: il server gestisce lo stato, consentendo a più utenti
-  di interagire con la stessa istanza dell'applicazione in tempo reale.
+- **מצב בזמן אמת**: אתם יכולים לבקש מהסוכן ליצור תכונות כמו "צ'אט בשידור חי", "לוח שיתופי" או "משחק רב-משתתפים".
+- **סשנים מסונכרנים**: השרת מנהל את המצב, ומאפשר לריבוי משתמשים לקיים אינטראקציה עם אותו מופע של אפליקציה בזמן אמת.
 
-**Esempio di prompt**: > "Crea un gioco multiplayer in cui i giocatori possono vedere i cursori
-degli altri."
+**הנחיה לדוגמה**: > "הפוך את המשחק הזה למשחק רב-משתתפים שבו השחקנים יכולים לראות את הסמן אחד של השני".
 
-### Suggerimenti per testare le app multiplayer
+### טיפים לבדיקת אפליקציות של משחקים רבי-משתתפים
 
-Puoi testare la modalità multigiocatore in due modi prima di eseguire il deployment dell'app.
+יש שתי דרכים לבדוק את מצב רב-משתתפים לפני פריסת האפליקציה.
 
-1. Apri l'app in modalità di creazione di Google AI Studio in più schede. Quando
-   sviluppi in modalità Build, la tua app si trova in un container di sviluppo. L'apertura dell'app in più schede ti consentirà di simulare più giocatori che utilizzano la tua app.
-2. Condividi l'app con altri utilizzando il menu **Condividi** in alto a destra.
-   Poi utilizza l'**URL condiviso** della scheda **Integrazioni**
-   del menu **Condividi** per utilizzare l'app con i giocatori con cui l'hai condivisa.
+1. פותחים את האפליקציה במצב פיתוח ב-Google AI Studio בכמה כרטיסיות. כשמפתחים במצב Build, האפליקציה נמצאת בקונטיינר לפיתוח. אם תפתחו את האפליקציה בכמה כרטיסיות, תוכלו לדמות כמה שחקנים שמשתמשים באפליקציה.
+2. כדי לשתף את האפליקציה עם אחרים, משתמשים בתפריט **שיתוף** שבפינה השמאלית העליונה. אחר כך משתמשים ב**כתובת ה-URL המשותפת** מהכרטיסייה **שילובים** בתפריט **שיתוף** כדי להשתמש באפליקציה עם השחקנים שאיתם שיתפתם את האפליקציה.
 
-## Best practice
+## שיטות מומלצות
 
-- **Chiamate API Gemini**: il tuo `GEMINI_API_KEY` viene configurato automaticamente come
-  secret lato server. Esegui chiamate all'API Gemini dal codice lato server utilizzando
-  questa chiave. Puoi visualizzarlo nel riquadro **Secret**.
-- **Sicurezza dei secret**: utilizza sempre Secret Manager per le chiavi sensibili.
-  Non codificarli mai nei file.
-- **Separazione delle responsabilità**: mantieni la logica dell'interfaccia utente nel framework lato client
-  (React/Angular) e la logica di business/gestione dei dati lato server.
-- **Gestione degli errori**: assicurati che il codice lato server gestisca in modo efficace gli errori
-  delle chiamate API esterne per evitare arresti anomali dell'app.
+- **קריאות ל-Gemini API**: הערך של `GEMINI_API_KEY` מוגדר באופן אוטומטי כסוד בצד השרת. מבצעים קריאות ל-Gemini API מקוד בצד השרת באמצעות המפתח הזה. אפשר לראות אותו בחלונית **Secrets**.
+- **אבטחת סודות**: תמיד צריך להשתמש במנהל הסודות למפתחות רגישים.
+  לעולם אל תכתבו אותם בקוד של הקבצים.
+- **הפרדת תחומי האחריות**: הלוגיקה של ממשק המשתמש צריכה להיות במסגרת בצד הלקוח (React/Angular), והלוגיקה העסקית והטיפול בנתונים צריכים להיות בצד השרת.
+- **טיפול בשגיאות**: ודאו שהקוד בצד השרת מטפל בצורה יעילה בשגיאות מקריאות ל-API חיצוני כדי למנוע קריסה של האפליקציה.
 
-## Passaggi successivi
+## מה השלב הבא?
 
-- [Creare app in Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=it)
-- [Deployment da Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=it)
-- [App Gallery](https://aistudio.google.com/apps?source=showcase&hl=it)
+- [פיתוח אפליקציות ב-Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-build-mode?hl=he)
+- [פריסה מ-Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=he)
+- [גלריית האפליקציות](https://aistudio.google.com/apps?source=showcase&hl=he)
 
-Invia feedback
+שליחת משוב
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Ultimo aggiornamento 2026-08-19 UTC.
+עדכון אחרון: 2026-10-20 (שעון UTC).
 
-Vuoi dirci altro?
+רוצה לתת לנו משוב?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-08-19 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-20 (שעון UTC)."],[],[]]

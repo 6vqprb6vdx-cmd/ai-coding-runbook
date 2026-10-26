@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=zh-CN
-fetched_at: 2026-10-19T05:39:33.641168+00:00
-title: "Deep Research Pro \u9884\u89c8\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-pro-preview-12-2025?hl=id
+fetched_at: 2026-10-26T05:46:10.271244+00:00
+title: "Pratinjau Deep Research Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-发送反馈
+Kirim masukan
 
-# Deep Research Pro 预览版
+# Pratinjau Deep Research Pro
 
-一款强大的智能体研究员，专为自主进行多步骤调查而设计，可将复杂信息整合为内容详实、附有参考文献的报告。此模型由 Gemini 3.1 Pro 提供支持，经过优化，可处理长时间运行的任务，并对数百个公共网站来源和 Gmail、云端硬盘等私密工作区数据进行准确性至关重要的分析。
+Peneliti agentik yang canggih dan dirancang untuk penyelidikan multilangkah yang otonom, yang menyintesis informasi kompleks menjadi laporan komprehensif yang disertai kutipan. Didukung oleh Gemini 3.1 Pro, model ini dioptimalkan untuk tugas yang berjalan lama dan analisis yang sangat akurat di ratusan sumber web publik dan data Workspace pribadi seperti Gmail dan Drive.
 
-## 文档
+## Dokumentasi
 
-如需全面了解功能和特性，请访问 [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-cn) 页面。
+Buka halaman [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id) untuk mengetahui cakupan lengkap fitur dan kapabilitas.
 
 ## deep-research-pro-preview-12-2025
 
-| 属性 | 说明 |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_card 代理机构代码 | **Interactions API**  `deep-research-pro-preview-12-2025` |
-| 保存支持的数据类型 | **输入**  文本、图片、PDF、音频、视频  **输出**  文字（引用报告） |
-| token\_auto令牌限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入上下文窗口**  1,048,576  **输出 token 限制**  65536 |
-| 123 版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 预览：`deep-research-pro-preview-12-2025` |
-| calendar\_month最新更新 | 2025 年 12 月 |
+| Kode agen id\_card | **Interactions API**  `deep-research-pro-preview-12-2025` |
+| saveJenis data yang didukung | **Input**  Teks, Gambar, PDF, Audio, Video  **Output**  Teks (Laporan yang Dikutip) |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Jendela konteks input**  1.048.576  **Batas token output**  65.536 |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Pratinjau: `deep-research-pro-preview-12-2025` |
+| calendar\_monthPembaruan terbaru | Desember 2025 |
 
-发送反馈
+Kirim masukan
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-最后更新时间 (UTC)：2026-10-09。
+Terakhir diperbarui pada 2026-10-09 UTC.
 
-需要向我们提供更多信息？
+Ada masukan untuk kami?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-09。"],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]

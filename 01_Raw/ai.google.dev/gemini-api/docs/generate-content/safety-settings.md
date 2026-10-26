@@ -1,113 +1,113 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/safety-settings?hl=th
-fetched_at: 2026-10-19T05:43:41.787451+00:00
-title: "\u0e01\u0e32\u0e23\u0e15\u0e31\u0e49\u0e07\u0e04\u0e48\u0e32\u0e04\u0e27\u0e32\u0e21\u0e1b\u0e25\u0e2d\u0e14\u0e20\u0e31\u0e22 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/safety-settings?hl=es-419
+fetched_at: 2026-10-26T05:57:22.668363+00:00
+title: "Configuraci\u00f3n de seguridad \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-# การตั้งค่าความปลอดภัย
+# Configuración de seguridad
 
-Gemini API มีการตั้งค่าความปลอดภัยที่คุณปรับได้ในระหว่างขั้นตอนการสร้างต้นแบบเพื่อพิจารณาว่าแอปพลิเคชันของคุณต้องมีการกำหนดค่าความปลอดภัยที่เข้มงวดมากขึ้นหรือน้อยลง คุณสามารถปรับการตั้งค่าเหล่านี้ในหมวดหมู่ตัวกรอง 4 หมวดหมู่เพื่อจำกัดหรืออนุญาตเนื้อหาบางประเภท
+La API de Gemini proporciona parámetros de configuración de seguridad que puedes ajustar durante la fase de creación de prototipos para determinar si tu aplicación requiere una configuración de seguridad más o menos restrictiva. Puedes ajustar estos parámetros en cuatro categorías de filtros para restringir o permitir ciertos tipos de contenido.
 
-คู่มือนี้จะอธิบายวิธีที่ Gemini API จัดการการตั้งค่าความปลอดภัยและการกรอง รวมถึงวิธีเปลี่ยนการตั้งค่าความปลอดภัยสำหรับแอปพลิเคชัน
+En esta guía, se explica cómo la API de Gemini controla la configuración y el filtrado de seguridad, y cómo puedes cambiar la configuración de seguridad de tu aplicación.
 
-## ตัวกรองความปลอดภัย
+## Filtros de seguridad
 
-ตัวกรองความปลอดภัยที่ปรับได้ของ Gemini API ครอบคลุมหมวดหมู่ต่อไปนี้
+Los filtros de seguridad ajustables de la API de Gemini abarcan las siguientes categorías:
 
-| หมวดหมู่ | คำอธิบาย |
+| Categoría | Descripción |
 | --- | --- |
-| การคุกคาม | ความคิดเห็นเชิงลบหรือเป็นอันตรายที่มุ่งเป้าไปที่อัตลักษณ์และ/หรือแอตทริบิวต์ที่ได้รับการคุ้มครอง |
-| วาจาสร้างความเกลียดชัง | เนื้อหาที่ไม่สุภาพ ไม่ให้เกียรติ หรือหยาบคาย |
-| เกี่ยวกับเรื่องเพศอย่างโจ่งแจ้ง | มีการอ้างอิงถึงการมีเพศสัมพันธ์หรือเนื้อหาลามกอื่นๆ |
-| อันตราย | ส่งเสริม สนับสนุน หรือกระตุ้นให้เกิดการกระทำที่เป็นอันตราย |
+| Hostigamiento | Comentarios negativos o dañinos dirigidos a la identidad o a los atributos protegidos |
+| Incitación al odio o a la violencia | Contenido obsceno, grosero o irrespetuoso. |
+| Contenido sexualmente explícito | Referencias a actos sexuales o a otro contenido obsceno. |
+| Peligroso | Contenido que promueve, facilita o incita actos dañinos. |
 
-หมวดหมู่เหล่านี้กำหนดไว้ใน [`HarmCategory`](https://ai.google.dev/api/rest/v1/HarmCategory?hl=th). คุณสามารถใช้ตัวกรองเหล่านี้เพื่อปรับเนื้อหาที่เหมาะสมกับกรณีการใช้งานของคุณ เช่น หากคุณกำลังสร้างบทสนทนาในวิดีโอเกม คุณอาจพิจารณาว่าการอนุญาตเนื้อหาเพิ่มเติมที่ได้รับการจัดประเภทเป็น *อันตราย* นั้นยอมรับได้เนื่องจากลักษณะของเกม
+Estas categorías se definen en [`HarmCategory`](https://ai.google.dev/api/rest/v1/HarmCategory?hl=es-419). Puedes usar estos filtros para ajustar lo que sea apropiado para tu caso de uso. Por ejemplo, si estás creando un diálogo de videojuegos, es posible que consideres aceptable permitir más contenido clasificado como *peligroso* debido a la naturaleza del juego.
 
-นอกจากตัวกรองความปลอดภัยที่ปรับได้แล้ว Gemini API ยังมีการป้องกันในตัวจากการกระทำที่เป็นอันตรายหลักๆ เช่น เนื้อหาที่อาจเป็นอันตรายต่อความปลอดภัยของเด็ก
-ระบบจะบล็อกการกระทำที่เป็นอันตรายประเภทนี้เสมอและไม่สามารถปรับได้
+Además de los filtros de seguridad ajustables, la API de Gemini tiene protecciones integradas contra daños fundamentales, como el contenido que pone en peligro la seguridad de los niños.
+Estos tipos de daño siempre se bloquean y no se pueden ajustar.
 
-### ระดับการกรองเนื้อหาเพื่อความปลอดภัย
+### Nivel de filtrado de seguridad del contenido
 
-Gemini API จัดประเภทระดับความน่าจะเป็นที่เนื้อหาจะไม่ปลอดภัยเป็น
-`HIGH`, `MEDIUM`, `LOW`, หรือ `NEGLIGIBLE`
+La API de Gemini categoriza el nivel de probabilidad de que el contenido sea inseguro como `HIGH`, `MEDIUM`, `LOW` o `NEGLIGIBLE`.
 
-Gemini API จะบล็อกเนื้อหาตามความน่าจะเป็นที่เนื้อหาจะไม่ปลอดภัย ไม่ใช่ความรุนแรง คุณควรพิจารณาเรื่องนี้เนื่องจากเนื้อหาบางอย่างอาจมีความน่าจะเป็นต่ำที่จะไม่ปลอดภัยแม้ว่าความรุนแรงของอันตรายจะยังสูงอยู่ก็ตาม เช่น การเปรียบเทียบประโยคต่อไปนี้
+La API de Gemini bloquea el contenido en función de la probabilidad de que el contenido sea inseguro y no la gravedad. Es importante saber esto porque algunos contenidos pueden tener una baja probabilidad de ser inseguros, aunque la gravedad del daño pueda seguir siendo alta. Por ejemplo, comparemos las siguientes oraciones:
 
-1. หุ่นยนต์ชกฉัน
-2. หุ่นยนต์ฟันฉัน
+1. El robot me golpeó.
+2. El robot me acuchilló.
 
-ประโยคแรกอาจมีความน่าจะเป็นสูงกว่าที่จะไม่ปลอดภัย แต่คุณอาจพิจารณาว่าประโยคที่ 2 มีความรุนแรงสูงกว่าในแง่ของความรุนแรง
-ดังนั้น คุณจึงควรทดสอบอย่างละเอียดและพิจารณาว่าจำเป็นต้องมีระดับการบล็อกที่เหมาะสมใดบ้างเพื่อรองรับกรณีการใช้งานหลักๆ ขณะเดียวกันก็ลดอันตรายต่อผู้ใช้ปลายทางให้เหลือน้อยที่สุด
+La primera oración puede tener una mayor probabilidad de que sea contenido no seguro, pero podrías considerar que la segunda oración es de mayor gravedad en términos de violencia.
+Ahora que entendemos esto, es importante que pruebes y consideres con cuidado cuál es el nivel adecuado de bloqueo necesario para apoyar tus casos de uso clave, para así minimizar al mismo tiempo el daño a los usuarios finales.
 
-### การกรองเพื่อความปลอดภัยต่อคำขอ
+### Filtrado de seguridad por solicitud
 
-คุณสามารถปรับการตั้งค่าความปลอดภัยสำหรับคำขอแต่ละรายการที่ส่งไปยัง API เมื่อคุณส่งคำขอ ระบบจะวิเคราะห์เนื้อหาและกำหนดการจัดประเภทความปลอดภัย การจัดประเภทความปลอดภัยจะรวมถึงหมวดหมู่และความน่าจะเป็นของการจัดประเภทอันตราย เช่น หากระบบบล็อกเนื้อหาเนื่องจากหมวดหมู่การคุกคามมีความน่าจะเป็นสูง การจัดประเภทความปลอดภัยที่แสดงผลจะมีหมวดหมู่เท่ากับ `HARASSMENT` และความน่าจะเป็นของอันตรายตั้งค่าเป็น `HIGH`
+Puedes ajustar la configuración de seguridad de cada solicitud que realices a la API. Cuando haces una solicitud, el contenido se analiza y se le asigna una calificación de seguridad. La calificación de seguridad incluye la categoría y la probabilidad de la clasificación del daño. Por ejemplo, si el contenido se bloqueó debido a que la categoría de hostigamiento tenía una alta probabilidad, la calificación de seguridad que se muestra tendría una categoría igual a `HARASSMENT` y la probabilidad de daño establecida en `HIGH`.
 
-ตัวกรองเพิ่มเติมจะ**ปิด** อยู่โดยค่าเริ่มต้นเนื่องจากความปลอดภัยโดยธรรมชาติของโมเดล
-หากเลือกเปิดใช้ คุณสามารถกำหนดค่าระบบให้บล็อกเนื้อหาตามความน่าจะเป็นที่เนื้อหาจะไม่ปลอดภัย ลักษณะการทำงานเริ่มต้นของโมเดลครอบคลุมกรณีการใช้งานส่วนใหญ่ ดังนั้นคุณควรปรับการตั้งค่าเหล่านี้ก็ต่อเมื่อแอปพลิเคชันของคุณต้องใช้การตั้งค่าเหล่านี้อย่างสม่ำเสมอเท่านั้น
+Debido a la seguridad inherente del modelo, los filtros adicionales están **desactivados** de forma predeterminada.
+Si decides habilitarlos, puedes configurar el sistema para que bloquee el contenido en función de su probabilidad de ser inseguro. El comportamiento predeterminado del modelo abarca la mayoría de los casos de uso, por lo que solo debes ajustar estos parámetros si es necesario para tu aplicación.
 
-ตารางต่อไปนี้อธิบายการตั้งค่าการบล็อกที่คุณปรับได้สำหรับแต่ละหมวดหมู่ เช่น หากคุณตั้งค่าการบล็อกเป็น**บล็อกบางส่วน** สำหรับหมวดหมู่**วาจาสร้างความเกลียดชัง** ระบบจะบล็อกทุกอย่างที่มีความน่าจะเป็นสูงที่จะเป็นเนื้อหาวาจาสร้างความเกลียดชัง แต่จะอนุญาตเนื้อหาที่มีความน่าจะเป็นต่ำกว่า
+En la siguiente tabla, se describe la configuración de bloqueo que puedes ajustar para cada categoría. Por ejemplo, si estableces la configuración de bloqueo en **Bloquear pocos** para la categoría de **Incitación al odio o a la violencia**, se bloqueará todo lo que tenga una alta probabilidad de ser contenido de incitación al odio o a la violencia. Pero se permite cualquier cosa con una probabilidad menor.
 
-| เกณฑ์ (Google AI Studio) | เกณฑ์ (API) | คำอธิบาย |
+| Umbral (Google AI Studio) | Umbral (API) | Descripción |
 | --- | --- | --- |
-| ปิด | `OFF` | ปิดตัวกรองความปลอดภัย |
-| ไม่บล็อก | `BLOCK_NONE` | แสดงเสมอไม่ว่าความน่าจะเป็นที่เนื้อหาจะไม่ปลอดภัยจะเป็นเท่าใดก็ตาม |
-| บล็อกบางส่วน | `BLOCK_ONLY_HIGH` | บล็อกเมื่อมีความน่าจะเป็นสูงที่เนื้อหาจะไม่ปลอดภัย |
-| บล็อกบางส่วน | `BLOCK_MEDIUM_AND_ABOVE` | บล็อกเมื่อมีความน่าจะเป็นปานกลางหรือสูงที่เนื้อหาจะไม่ปลอดภัย |
-| บล็อกส่วนใหญ่ | `BLOCK_LOW_AND_ABOVE` | บล็อกเมื่อมีความน่าจะเป็นต่ำ ปานกลาง หรือสูงที่เนื้อหาจะไม่ปลอดภัย |
-| ไม่มี | `HARM_BLOCK_THRESHOLD_UNSPECIFIED` | ไม่ได้ระบุเกณฑ์ไว้ ให้บล็อกโดยใช้เกณฑ์เริ่มต้น |
+| Desactivado | `OFF` | Desactiva el filtro de seguridad. |
+| No bloquear | `BLOCK_NONE` | Mostrar siempre sin importar la probabilidad de que sea contenido no seguro. |
+| Bloquear pocos | `BLOCK_ONLY_HIGH` | Bloquear cuando haya una alta probabilidad de que sea contenido no seguro. |
+| Bloquear algunos | `BLOCK_MEDIUM_AND_ABOVE` | Bloquear cuando haya una probabilidad media o alta de que sea contenido no seguro. |
+| Bloquear la mayoría | `BLOCK_LOW_AND_ABOVE` | Bloquear cuando haya una probabilidad baja, media o alta de que sea contenido no seguro. |
+| N/A | `HARM_BLOCK_THRESHOLD_UNSPECIFIED` | No se especifica el umbral; se bloquea con el umbral predeterminado. |
 
-หากไม่ได้ตั้งค่าเกณฑ์ เกณฑ์การบล็อกเริ่มต้นจะเป็น**ปิด** สำหรับโมเดล Gemini 2.5 ขึ้นไป
+Si no se establece el umbral, el umbral de bloqueo predeterminado es **Desactivado** para los modelos de Gemini 2.5 y versiones posteriores.
 
-คุณสามารถตั้งค่าเหล่านี้สำหรับคำขอแต่ละรายการที่ส่งไปยังบริการแบบ Generative
-ดูรายละเอียดได้ที่เอกสารอ้างอิง API ของ [`HarmBlockThreshold`](https://ai.google.dev/api/generate-content?hl=th#harmblockthreshold)
+Puedes establecer estos parámetros para cada solicitud que realices al servicio generativo.
+Consulta la referencia de la API de [`HarmBlockThreshold`](https://ai.google.dev/api/generate-content?hl=es-419#harmblockthreshold)
+para obtener más detalles.
 
-### ความคิดเห็นด้านความปลอดภัย
+### Comentarios de seguridad
 
-[`generateContent`](https://ai.google.dev/api/generate-content?hl=th#method:-models.generatecontent)
-จะแสดงผล
-[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=th#generatecontentresponse) ซึ่ง
-รวมถึงความคิดเห็นด้านความปลอดภัย
+[`generateContent`](https://ai.google.dev/api/generate-content?hl=es-419#method:-models.generatecontent)
+muestra una
+[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=es-419#generatecontentresponse) que
+incluye comentarios de seguridad.
 
-ความคิดเห็นเกี่ยวกับพรอมต์จะรวมอยู่ใน
-[`promptFeedback`](https://ai.google.dev/api/generate-content?hl=th#promptfeedback) หากตั้งค่า `promptFeedback.blockReason` ไว้ แสดงว่าระบบบล็อกเนื้อหาของพรอมต์
+Los comentarios del mensaje se incluyen en
+[`promptFeedback`](https://ai.google.dev/api/generate-content?hl=es-419#promptfeedback). Si se establece `promptFeedback.blockReason`, se bloqueó el contenido del mensaje.
 
-ความคิดเห็นเกี่ยวกับตัวเลือกคำตอบจะรวมอยู่ใน
-[`Candidate.finishReason`](https://ai.google.dev/api/generate-content?hl=th#candidate) และ
-[`Candidate.safetyRatings`](https://ai.google.dev/api/generate-content?hl=th#candidate) หากระบบบล็อกเนื้อหาคำตอบและ `finishReason` เป็น `SAFETY` คุณสามารถตรวจสอบ `safetyRatings` เพื่อดูรายละเอียดเพิ่มเติม ระบบจะไม่แสดงผลเนื้อหาที่ถูกบล็อก
+Los comentarios de los candidatos de respuesta se incluyen en
+[`Candidate.finishReason`](https://ai.google.dev/api/generate-content?hl=es-419#candidate) y
+[`Candidate.safetyRatings`](https://ai.google.dev/api/generate-content?hl=es-419#candidate). Si se bloqueó el contenido de la respuesta y el `finishReason` fue `SAFETY`, puedes inspeccionar `safetyRatings` para obtener más detalles. No se muestra el contenido que se bloqueó.
 
-## ปรับการตั้งค่าความปลอดภัย
+## Ajusta la configuración de seguridad
 
-ส่วนนี้จะอธิบายวิธีปรับการตั้งค่าความปลอดภัยทั้งใน Google AI Studio และในโค้ด
+En esta sección, se explica cómo ajustar la configuración de seguridad en Google AI Studio y en tu código.
 
 ### Google AI Studio
 
-คุณสามารถปรับการตั้งค่าความปลอดภัยใน Google AI Studio
+Puedes ajustar la configuración de seguridad en Google AI Studio.
 
-คลิก**การตั้งค่าความปลอดภัย** ในส่วน**การตั้งค่าขั้นสูง** ในแผง**การตั้งค่าการเรียกใช้** เพื่อเปิดโมดัล**การตั้งค่าความปลอดภัยในการเรียกใช้** ในโมดัล คุณสามารถใช้แถบเลื่อนเพื่อปรับระดับการกรองเนื้อหาตามหมวดหมู่ความปลอดภัยได้ดังนี้
+Haz clic en **Configuración de seguridad** en **Configuración avanzada** en el panel **Configuración de la ejecución** para abrir el modal **Configuración de seguridad de la ejecución**. En el modal, puedes usar los controles deslizantes para ajustar el nivel de filtrado de contenido por categoría de seguridad:
 
-![](https://ai.google.dev/static/gemini-api/docs/images/safety_settings_ui.png?hl=th)
+![](https://ai.google.dev/static/gemini-api/docs/images/safety_settings_ui.png?hl=es-419)
 
-เมื่อคุณส่งคำขอ (เช่น ถามคำถามกับโมเดล) ข้อความwarning
-**ระบบบล็อกเนื้อหา** จะปรากฏขึ้นหากระบบบล็อกเนื้อหาของคำขอ หากต้องการดูรายละเอียดเพิ่มเติม ให้วางตัวชี้เหนือข้อความ**ระบบบล็อกเนื้อหา** เพื่อดูหมวดหมู่และความน่าจะเป็นของการจัดประเภทอันตราย
+Cuando envías una solicitud (por ejemplo, cuando le haces una pregunta al modelo), aparece un mensaje warning
+**Contenido bloqueado** si se bloquea el contenido de la solicitud. Para ver más detalles, mantén el puntero sobre el texto **Contenido bloqueado** para ver la categoría y la probabilidad de la clasificación del daño.
 
-### ตัวอย่างโค้ด
+### Ejemplos de código
 
-ข้อมูลโค้ดต่อไปนี้แสดงวิธีตั้งค่าความปลอดภัยในการเรียกใช้ `GenerateContent` ซึ่งจะเป็นการกำหนดเกณฑ์สำหรับหมวดหมู่วาจาสร้างความเกลียดชัง (`HARM_CATEGORY_HATE_SPEECH`) การตั้งค่าหมวดหมู่นี้เป็น `BLOCK_LOW_AND_ABOVE` จะบล็อกเนื้อหาที่มีความน่าจะเป็นต่ำหรือสูงกว่าที่จะเป็นวาจาสร้างความเกลียดชัง หากต้องการทำความเข้าใจการตั้งค่าเกณฑ์ โปรดดู [การกรองเพื่อความปลอดภัย
-ต่อคำขอ](#safety-filtering-per-request)
+En el siguiente fragmento de código, se muestra cómo establecer la configuración de seguridad en tu llamada a `GenerateContent`. Esto establece el umbral para la categoría de incitación al odio o a la violencia (`HARM_CATEGORY_HATE_SPEECH`). Si estableces esta categoría en `BLOCK_LOW_AND_ABOVE`, se bloqueará cualquier contenido que tenga una probabilidad baja o superior de ser incitación al odio o a la violencia. Para comprender la configuración del umbral, consulta [Filtrado de seguridad
+por solicitud](#safety-filtering-per-request).
 
 ### Python
 
@@ -252,26 +252,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }'
 ```
 
-## ขั้นตอนถัดไป
+## Próximos pasos
 
-- ดู[เอกสารอ้างอิง API](https://ai.google.dev/api?hl=th) เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับ API ทั้งหมด
-- อ่าน[คำแนะนำด้านความปลอดภัย](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=th)เพื่อดูภาพรวมของข้อควรพิจารณาด้านความปลอดภัย
-  เมื่อพัฒนาด้วย LLM
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับการประเมินความน่าจะเป็นเทียบกับความรุนแรงจากทีม [Jigsaw](https://developers.perspectiveapi.com/s/about-the-api-score)
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับผลิตภัณฑ์ที่ช่วยสร้างโซลูชันด้านความปลอดภัย เช่น
-  [Perspective
-  API](https://medium.com/jigsaw/reducing-toxicity-in-large-language-models-with-perspective-api-c31c39b7a4d7)
-  \* คุณสามารถใช้การตั้งค่าความปลอดภัยเหล่านี้เพื่อสร้างตัวแยกประเภทความเป็นพิษ
-  ดูตัวอย่าง[การแยกประเภท
-  เพื่อ
-  เริ่มต้นใช้งาน](https://ai.google.dev/examples/train_text_classifier_embeddings?hl=th)
+- Consulta la [referencia de la API](https://ai.google.dev/api?hl=es-419) para obtener más información sobre la API completa.
+- Revisa la [guía de seguridad](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=es-419) para obtener una descripción general de las consideraciones de seguridad
+  cuando desarrollas con LLMs.
+- Obtén más información para evaluar la probabilidad en comparación con la gravedad del equipo de [Jigsaw](https://developers.perspectiveapi.com/s/about-the-api-score).
+- Obtén más información sobre los productos que contribuyen a las soluciones de seguridad, como la
+  [API
+  de Perspective](https://medium.com/jigsaw/reducing-toxicity-in-large-language-models-with-perspective-api-c31c39b7a4d7).
+  \* Puedes usar esta configuración de seguridad para crear un clasificador de toxicidad
+  Consulta el [ejemplo
+  de clasificación](https://ai.google.dev/examples/train_text_classifier_embeddings?hl=es-419) para
+  comenzar.
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-อัปเดตล่าสุด 2026-10-15 UTC
+Última actualización: 2026-10-15 (UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+¿Quieres brindar más información?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-15 UTC"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-15 (UTC)"],[],[]]

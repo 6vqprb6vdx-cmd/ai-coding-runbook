@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=he
-fetched_at: 2026-10-19T05:39:59.127751+00:00
-title: "\u05d2\u05e8\u05e1\u05ea \u05d8\u05e8\u05d5\u05dd-\u05d4\u05e9\u05e7\u05d4 (Preview) \u05e9\u05dc Deep Research Max \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/deep-research-max-preview-04-2026?hl=fr
+fetched_at: 2026-10-26T05:49:21.594784+00:00
+title: "Aper\u00e7u de Deep\u00a0Research Max \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-שליחת משוב
+Envoyer des commentaires
 
-# גרסת טרום-השקה (Preview) של Deep Research Max
+# Aperçu de Deep Research Max
 
-היקף מקסימלי לאיסוף ולסינתזה אוטומטיים של הקשר. ‫Deep Research Max מותאם לחקירות ארוכות שבהן נדרשת רמת דיוק גבוהה. הוא מסנתז מידע מורכב ממאות מקורות ציבוריים באינטרנט ומנתונים פרטיים מ-Workspace, ויוצר דוחות מקיפים עם ציטוטים. היא תומכת בתכנון שיתופי, בתצוגה חזותית, בשרתי MCP ובחיפוש קבצים.
+Compréhension maximale pour la collecte et la synthèse automatiques du contexte. Deep Research Max est optimisé pour les investigations de longue durée et critiques en termes de précision, qui synthétisent des informations complexes provenant de centaines de sources Web publiques et de données d'espace de travail privées dans des rapports complets et cités. Il prend en charge la planification collaborative, la visualisation, les serveurs MCP et la recherche de fichiers.
 
-## מאמרי עזרה
+## Documentation
 
-מידע מלא על התכונות והיכולות זמין בדף [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he).
+Consultez la page [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=fr) pour obtenir une couverture complète
+des fonctionnalités.
 
 ## deep-research-max-preview-04-2026
 
-| נכס | תיאור |
+| Propriété | Description |
 | --- | --- |
-| id\_cardקוד הסוכן | **Interactions API**  `deep-research-max-preview-04-2026` |
-| saveסוגי נתונים נתמכים | **קלט**  טקסט, תמונה, PDF, אודיו, וידאו  **פלט**  טקסט (דוחות עם ציטוטים), תמונות |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **חלון הקשר של הקלט**  1,048,576  **מגבלת אסימונים בפלט**  65,536 |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - תצוגה מקדימה: `deep-research-max-preview-04-2026` |
-| calendar\_monthהעדכון האחרון | אפריל 2026 |
+| id\_cardCode de l'agent | **API Interactions**  `deep-research-max-preview-04-2026` |
+| saveTypes de données acceptés | **Entrée**  Texte, image, PDF, audio, vidéo  **Résultat**  Texte (rapports cités), images |
+| token\_auto[Limites de jetons[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Fenêtre de contexte d'entrée**  1 048 576  **Limite de jetons de sortie**  65 536 |
+| 123Versions | Pour en savoir plus, consultez les [modèles de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Aperçu : `deep-research-max-preview-04-2026` |
+| calendar\_monthDernière mise à jour | Avril 2026 |
 
-שליחת משוב
+Envoyer des commentaires
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-עדכון אחרון: 2026-04-29 (שעון UTC).
+Dernière mise à jour le 2026/04/29 (UTC).
 
-רוצה לתת לנו משוב?
+Voulez-vous nous donner plus d'informations ?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-04-29 (שעון UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]

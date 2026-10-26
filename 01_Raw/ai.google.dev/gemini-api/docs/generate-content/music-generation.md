@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=ko
-fetched_at: 2026-10-19T05:46:47.608277+00:00
-title: "Lyria 3.5\ub85c \uc74c\uc545 \uc0dd\uc131\ud558\uae30 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/music-generation?hl=th
+fetched_at: 2026-10-26T05:39:52.031044+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e40\u0e1e\u0e25\u0e07\u0e14\u0e49\u0e27\u0e22 Lyria 3.5 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-# Lyria 3.5로 음악 생성하기
+# สร้างเพลงด้วย Lyria 3.5
 
-Lyria 3.5는 Gemini API를 통해 사용할 수 있는 Google의 음악 생성 모델 제품군입니다. Lyria 3.5를 사용하면 텍스트 프롬프트나 이미지에서 고품질 44.1kHz 스테레오 오디오를 생성할 수 있습니다. 이 모델은 보컬, 타이밍에 맞춘 가사, 전체 악기 편곡을 포함한 구조적 일관성을 제공합니다.
+Lyria 3.5 เป็นตระกูลโมเดลการสร้างเพลงของ Google ที่พร้อมใช้งานผ่าน Gemini API Lyria 3.5 ช่วยให้คุณสร้างเสียงสเตอริโอ 44.1 kHz คุณภาพสูงจากพรอมต์ข้อความหรือรูปภาพได้ โมเดลเหล่านี้ให้ความสอดคล้องกันของโครงสร้าง ซึ่งรวมถึงเสียงร้อง เนื้อเพลงที่ตรงจังหวะ และการเรียบเรียงดนตรีบรรเลงแบบเต็มรูปแบบ
 
-Lyria 제품군에는 다음 모델이 포함됩니다.
+ตระกูล Lyria ประกอบด้วยโมเดลต่อไปนี้
 
-| 모델 | 모델 ID | 권장 용도 | 기간 | 출력 |
+| รุ่น | รหัสโมเดล | เหมาะสำหรับ | ระยะเวลา | เอาต์พุต |
 | --- | --- | --- | --- | --- |
-| **Lyria 3 클립** | `lyria-3-clip-preview` | Shorts 동영상, 연속 재생, 미리보기 | 30초 | MP3 |
-| **Lyria 3.5** | `lyria-3.5` | 절, 후렴, 브리지가 포함된 전체 길이 노래 | 몇 분 (프롬프트를 통해 제어 가능) | MP3 |
+| **คลิป Lyria 3** | `lyria-3-clip-preview` | คลิปสั้น, วนซ้ำ, ตัวอย่าง | 30 วินาที | MP3 |
+| **Lyria 3.5** | `lyria-3.5` | เพลงแบบเต็มความยาวที่มีท่อนเวิร์ส ท่อนคอรัส และท่อนบริดจ์ | 2-3 นาที (ควบคุมได้ผ่านพรอมต์) | MP3 |
 
-두 모델 모두 표준 `generateContent` 메서드와 새로운 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)를 사용하여 사용할 수 있으며, 멀티모달 입력 (텍스트 및 이미지)을 지원하고 **44.1kHz 고품질 스테레오** 오디오를 생성합니다.
+ทั้ง 2 โมเดลสามารถใช้ได้โดยใช้เมธอด `generateContent` มาตรฐานและ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) ใหม่ ซึ่งรองรับอินพุตแบบหลายโมดัล (ข้อความและรูปภาพ) และสร้างเสียง**สเตอริโอความแม่นยำสูง 44.1 kHz**
 
-## 음악 클립 생성
+## สร้างคลิปเพลง
 
-Lyria 3 Clip 모델은 항상 **30초** 길이의 클립을 생성합니다. 클립을 생성하려면 텍스트 프롬프트로 `generateContent` 메서드를 호출합니다. 응답에는 항상 생성된 가사와 노래 구조가 오디오와 함께 포함됩니다.
+โมเดล Lyria 3 Clip จะสร้างคลิปความยาว **30 วินาที**เสมอ หากต้องการสร้างคลิป ให้เรียกใช้เมธอด `generateContent` ด้วยพรอมต์ข้อความ คำตอบจะมีเนื้อเพลงและโครงสร้างเพลงที่สร้างขึ้นควบคู่ไปกับเสียงเสมอ
 
 ### Python
 
@@ -133,7 +133,7 @@ func main() {
 }
 ```
 
-### 자바
+### Java
 
 ```
 import com.google.genai.Client;
@@ -213,9 +213,9 @@ public class GenerateMusicClip {
 }
 ```
 
-## 전체 길이 노래 생성
+## สร้างเพลงแบบเต็มความยาว
 
-`lyria-3.5` 모델을 사용하여 몇 분 길이의 전체 노래를 생성합니다. Pro 모델은 음악 구조를 이해하고, 고유한 절, 후렴, 브릿지가 있는 곡을 만들 수 있습니다. 프롬프트에 길이를 지정하거나 (예: '2분 길이의 노래 만들기') [타임스탬프](#timing)를 사용하여 구조를 정의하면 길이에 영향을 줄 수 있습니다.
+ใช้โมเดล `lyria-3.5` เพื่อสร้างเพลงแบบเต็มที่มีความยาว 2-3 นาที โมเดล Pro เข้าใจโครงสร้างทางดนตรีและสามารถสร้างองค์ประกอบที่มีท่อนเวิร์ส ท่อนคอรัส และท่อนบริดจ์ที่แตกต่างกันได้ คุณสามารถกำหนดระยะเวลาได้โดยระบุไว้ในพรอมต์ (เช่น "สร้างเพลงความยาว 2 นาที") หรือใช้[การประทับเวลา](#timing)เพื่อกำหนดโครงสร้าง
 
 ### Python
 
@@ -253,7 +253,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### 자바
+### Java
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -290,9 +290,9 @@ var response = await client.Models.GenerateContentAsync(
 );
 ```
 
-## 출력 형식 선택
+## เลือกรูปแบบเอาต์พุต
 
-기본적으로 Lyria 3.5 모델은 **MP3** 형식으로 오디오를 생성합니다. Lyria 3.5의 경우 `generationConfig.responseFormat.audio.mimeType`를 `"AUDIO_WAV"`로 설정하여 **WAV** (`AUDIO_WAV`) 형식으로 출력을 요청할 수도 있습니다.
+โดยค่าเริ่มต้น โมเดล Lyria 3.5 จะสร้างเสียงในรูปแบบ **MP3** สำหรับ Lyria 3.5 คุณยังขอเอาต์พุตในรูปแบบ **WAV** (`AUDIO_WAV`) ได้ด้วยโดยตั้งค่า `generationConfig.responseFormat.audio.mimeType` เป็น `"AUDIO_WAV"`
 
 ### REST
 
@@ -314,9 +314,9 @@ curl -s -X POST \
   }'
 ```
 
-## 응답 파싱
+## แยกวิเคราะห์คำตอบ
 
-Lyria 3.5의 응답에는 여러 부분이 포함됩니다. 텍스트 부분에는 생성된 가사 또는 노래 구조의 JSON 설명이 포함됩니다. `inline_data`가 있는 부분에는 오디오 바이트가 포함됩니다.
+คำตอบจาก Lyria 3.5 ประกอบด้วยหลายส่วน ส่วนข้อความจะมีเนื้อเพลงที่สร้างขึ้นหรือคำอธิบาย JSON ของโครงสร้างเพลง ส่วนที่มี `inline_data` จะมีไบต์เสียง
 
 ### Python
 
@@ -442,9 +442,9 @@ if (audioData != null) {
 curl ... | jq -r '.candidates[0].content.parts[] | select(.inlineData) | .inlineData.data' | base64 -d > output.mp3
 ```
 
-## 이미지에서 음악 생성
+## สร้างเพลงจากรูปภาพ
 
-Lyria 3.5는 멀티모달 입력을 지원합니다. 텍스트 프롬프트와 함께 최대 **10개의 이미지**를 제공하면 모델이 시각적 콘텐츠에서 영감을 받아 음악을 작곡합니다.
+Lyria 3.5 รองรับอินพุตหลายรูปแบบ โดยคุณสามารถระบุ**รูปภาพได้สูงสุด 10 รูป**ควบคู่ไปกับพรอมต์ข้อความ แล้วโมเดลจะแต่งเพลงโดยได้รับแรงบันดาลใจจากเนื้อหาภาพ
 
 ### Python
 
@@ -516,7 +516,7 @@ result, err := client.Models.GenerateContent(
 )
 ```
 
-### 자바
+### Java
 
 ```
 GenerateContentResponse response = client.models.generateContent(
@@ -565,9 +565,9 @@ var response = await client.Models.GenerateContentAsync(
 
 ![](https://storage.googleapis.com/generativeai-downloads/images/desert_sunset.jpg)
 
-## 맞춤 가사 제공
+## ระบุเนื้อเพลงที่กำหนดเอง
 
-가사를 직접 작성하여 프롬프트에 포함할 수 있습니다. `[Verse]`, `[Chorus]`, `[Bridge]`와 같은 섹션 태그를 사용하여 모델이 노래 구조를 이해하도록 합니다.
+คุณสามารถเขียนเนื้อเพลงของคุณเองและใส่ไว้ในพรอมต์ได้ ใช้แท็กส่วนต่างๆ เช่น `[Verse]`, `[Chorus]` และ `[Bridge]` เพื่อช่วยให้โมเดลเข้าใจโครงสร้างของเพลง
 
 ### Python
 
@@ -746,9 +746,9 @@ curl -s -X POST \
 
 ](https://storage.googleapis.com/generativeai-downloads/songs/Neon%20Echoes_Lyrics.webm)
 
-## 타이밍 및 구조 제어
+## ควบคุมเวลาและโครงสร้าง
 
-타임스탬프를 사용하여 노래의 특정 순간에 어떤 일이 일어나는지 정확하게 지정할 수 있습니다. 이는 악기가 들어오는 시점, 가사가 전달되는 시점, 노래가 진행되는 방식을 제어하는 데 유용합니다.
+คุณระบุสิ่งที่เกิดขึ้นในช่วงเวลาที่เฉพาะเจาะจงในเพลงได้โดยใช้การประทับเวลา ซึ่งมีประโยชน์ในการควบคุมเวลาที่เครื่องดนตรีจะเริ่มเล่น เวลาที่เนื้อร้องจะปรากฏ และความคืบหน้าของเพลง ดังนี้
 
 ### Python
 
@@ -863,9 +863,9 @@ curl -s -X POST \
   }'
 ```
 
-## 연주곡 트랙 생성
+## สร้างแทร็กบรรเลง
 
-배경 음악, 게임 사운드트랙 또는 보컬이 필요하지 않은 사용 사례의 경우 모델에 연주곡 트랙만 생성하도록 프롬프트를 작성할 수 있습니다.
+สำหรับเพลงประกอบ ซาวด์แทร็กเกม หรือกรณีการใช้งานที่ไม่จำเป็นต้องมีเสียงร้อง คุณสามารถแจ้งให้โมเดลสร้างแทร็กที่มีเฉพาะเสียงเครื่องดนตรีได้โดยทำดังนี้
 
 ### Python
 
@@ -935,9 +935,9 @@ curl -s -X POST \
   }'
 ```
 
-## 다양한 언어로 음악 생성하기
+## สร้างเพลงในภาษาต่างๆ
 
-Lyria 3.5는 프롬프트의 언어로 가사를 생성합니다. 프랑스어 가사가 있는 노래를 생성하려면 프랑스어로 프롬프트를 작성하세요. 모델은 언어에 맞게 음성 스타일과 발음을 조정합니다.
+Lyria 3.5 จะสร้างเนื้อเพลงในภาษาของพรอมต์ หากต้องการสร้างเพลงที่มีเนื้อเพลงภาษาฝรั่งเศส ให้เขียนพรอมต์เป็นภาษาฝรั่งเศส โมเดลจะปรับสไตล์การพูดและการออกเสียงให้ตรงกับภาษา
 
 ### Python
 
@@ -1012,16 +1012,14 @@ curl -s -X POST \
   }'
 ```
 
-## 모델 인텔리전스
+## ความอัจฉริยะของโมเดล
 
-Lyria 3.5는 프롬프트를 분석하는 과정에서
-프롬프트를 기반으로 음악 구조 (인트로, 벌스, 코러스, 브리지 등)를
-추론합니다.
-이 작업은 오디오가 생성되기 전에 이루어지며 구조적 일관성과 음악성을 보장합니다.
+Lyria 3.5 จะวิเคราะห์กระบวนการพรอมต์ของคุณ โดยโมเดลจะให้เหตุผลผ่านโครงสร้างทางดนตรี (อินโทร, ท่อนเวิร์ส, ท่อนคอรัส, ท่อนบริดจ์ ฯลฯ) ตามพรอมต์ของคุณ
+ขั้นตอนนี้จะเกิดขึ้นก่อนที่จะสร้างเสียง และช่วยให้มั่นใจได้ว่าโครงสร้างจะสอดคล้องกันและมีความเป็นดนตรี
 
 ## Interactions API
 
-Gemini 모델 및 에이전트와 상호작용하기 위한 통합 인터페이스인 [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)와 함께 Lyria 3.5 모델을 사용할 수 있습니다. 복잡한 멀티모달 사용 사례의 상태 관리와 장기 실행 작업을 간소화합니다.
+คุณสามารถใช้โมเดล Lyria 3.5 กับ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) ซึ่งเป็นอินเทอร์เฟซแบบรวมสำหรับการโต้ตอบกับโมเดลและ Agent ของ Gemini ซึ่งช่วยลดความซับซ้อนในการจัดการสถานะและงานที่ใช้เวลานานสำหรับกรณีการใช้งานแบบหลายรูปแบบที่ซับซ้อน
 
 ### Python
 
@@ -1088,42 +1086,42 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 프롬프트 작성 가이드
+## คู่มือการเขียนพรอมต์
 
-음악 장르, 악기, 노래 구조, 커스텀 가사, 보컬 전달 스타일에 효과적인 프롬프트를 작성하는 방법은 [Lyria 프롬프트 가이드](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=ko)를 참조하세요.
+หากต้องการดูวิธีสร้างพรอมต์ที่มีประสิทธิภาพสำหรับแนวเพลง เครื่องดนตรี โครงสร้างเพลง เนื้อเพลงที่กำหนดเอง และสไตล์การร้อง โปรดดู[คู่มือพรอมต์ Lyria](https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=th)
 
-## 권장사항
+## แนวทางปฏิบัติแนะนำ
 
-- **클립으로 먼저 반복합니다.** `lyria-3.5`로 전체 길이 생성을 커밋하기 전에 더 빠른 `lyria-3-clip-preview` 모델을 사용하여 프롬프트를 실험합니다.
-- **자세히 설명합니다.** 모호한 프롬프트는 일반적인 결과를 생성합니다. 최상의 결과를 얻으려면 악기, BPM, 키, 분위기, 구조를 언급하세요.
-- **언어와 일치해야 합니다.** 가사를 원하는 언어로 프롬프트를 입력합니다.
-- **섹션 태그를 사용합니다.** `[Verse]`, `[Chorus]`, `[Bridge]` 태그는 모델이 따를 수 있는 명확한 구조를 제공합니다.
-- **가사와 요청 사항을 구분합니다.** 맞춤 가사를 제공할 때는 음악 방향에 관한 요청 사항과 명확하게 구분하세요.
+- **ทำซ้ำด้วยคลิปก่อน** ใช้โมเดล `lyria-3-clip-preview` ที่เร็วกว่าเพื่อทดลองใช้พรอมต์ก่อนที่จะสร้างเนื้อหาแบบเต็มด้วย `lyria-3.5`
+- **ใช้คำที่เฉพาะเจาะจง** พรอมต์ที่คลุมเครือจะให้ผลลัพธ์ทั่วไป ระบุเครื่องดนตรี, BPM, คีย์, อารมณ์ และโครงสร้างเพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
+- **ตรงกับภาษาของคุณ** ป้อนพรอมต์ในภาษาที่คุณต้องการให้เนื้อเพลงแสดง
+- **ใช้แท็กส่วน** แท็ก `[Verse]`, `[Chorus]`, `[Bridge]` ช่วยให้โมเดลมีโครงสร้างที่ชัดเจนให้ปฏิบัติตาม
+- **แยกเนื้อเพลงออกจากคำสั่ง** เมื่อระบุเนื้อเพลงที่กำหนดเอง ให้แยกเนื้อเพลงออกจากคำสั่งเกี่ยวกับแนวทางดนตรีอย่างชัดเจน
 
-## 제한사항
+## ข้อจำกัด
 
-- **안전**: 모든 프롬프트는 안전 필터로 확인됩니다. 필터를 트리거하는 프롬프트는 차단됩니다. 여기에는 특정 아티스트의 음성이나 저작권 보호를 받는 가사의 생성을 요청하는 프롬프트가 포함됩니다.
-- **워터마크**: 생성된 모든 오디오에는 식별을 위한 [SynthID 오디오 워터마크](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=ko)가 포함됩니다. 이 워터마크는 사람의 귀에 들리지 않으며 청취 환경에 영향을 미치지 않습니다.
-- **멀티턴 편집**: 음악 생성은 싱글턴 프로세스입니다.
-  여러 프롬프트를 통해 생성된 클립을 반복적으로 수정하거나 미세 조정하는 기능은 현재 Lyria 3.5 버전에서 지원되지 않습니다.
-- **길이**: 클립 모델은 항상 30초 길이의 클립을 생성합니다. Pro 모델은 몇 분 길이의 노래를 생성하며, 정확한 길이는 프롬프트를 통해 영향을 받을 수 있습니다.
-- **결정론**: 동일한 프롬프트라도 호출마다 결과가 다를 수 있습니다.
+- **ความปลอดภัย**: พรอมต์ทั้งหมดจะได้รับการตรวจสอบโดยตัวกรองความปลอดภัย ระบบจะบล็อกพรอมต์ที่เรียกให้ตัวกรองทำงาน ซึ่งรวมถึงพรอมต์ที่ขอเสียงของศิลปินที่เฉพาะเจาะจงหรือการสร้างเนื้อเพลงที่มีลิขสิทธิ์
+- **การใส่ลายน้ำ**: เสียงที่สร้างขึ้นทั้งหมดจะมี[ลายน้ำที่เป็นเสียงของ SynthID](https://ai.google.dev/responsible/docs/safeguards/synthid?hl=th) เพื่อใช้ในการระบุ ลายน้ำนี้ไม่สามารถรับรู้ได้ด้วยหูของมนุษย์และไม่ส่งผลต่อประสบการณ์การฟัง
+- **การตัดต่อแบบต่อเนื่อง**: การสร้างเพลงเป็นกระบวนการแบบครั้งเดียว
+  Lyria 3.5 เวอร์ชันปัจจุบันยังไม่รองรับการแก้ไขซ้ำหรือการปรับแต่งคลิปที่สร้างขึ้นผ่านพรอมต์หลายรายการ
+- **ความยาว**: โมเดลคลิปจะสร้างคลิปความยาว 30 วินาทีเสมอ โมเดล Pro จะสร้างเพลงที่มีความยาว 2-3 นาที โดยระยะเวลาที่แน่นอนจะขึ้นอยู่กับพรอมต์ของคุณ
+- **ความแน่นอน**: ผลลัพธ์อาจแตกต่างกันไปในแต่ละการเรียกใช้ แม้จะใช้พรอมต์เดียวกันก็ตาม
 
-## 다음 단계
+## ขั้นตอนถัดไป
 
-- Lyria 3.5 모델의 [가격 책정](https://ai.google.dev/gemini-api/docs/pricing?hl=ko)을 확인하세요.
-- Lyria RealTime으로 [실시간 스트리밍 음악 생성](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ko)을 사용해 보세요.
-- [TTS 모델](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)을 사용하여 여러 화자가 포함된 대화를 생성합니다.
-- [이미지](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko) 또는 [동영상](https://ai.google.dev/gemini-api/docs/video?hl=ko)을 생성하는 방법을 알아보세요.
-- Gemini가 [오디오 파일을 이해](https://ai.google.dev/gemini-api/docs/audio?hl=ko)하는 방법을 알아보세요.
-- [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)를 사용하여 Gemini와 실시간으로 대화합니다.
+- ตรวจสอบ[ราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th)สำหรับโมเดล Lyria 3.5
+- ลอง[สร้างเพลงแบบสตรีมมิงเรียลไทม์](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=th)ด้วย Lyria RealTime
+- สร้างการสนทนาที่มีผู้พูดหลายคนด้วย[โมเดล TTS](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)
+- ดูวิธีสร้าง[รูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)หรือ[วิดีโอ](https://ai.google.dev/gemini-api/docs/video?hl=th)
+- ดูวิธีที่ Gemini [ทำความเข้าใจไฟล์เสียง](https://ai.google.dev/gemini-api/docs/audio?hl=th)
+- สนทนาแบบเรียลไทม์กับ Gemini โดยใช้ [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-10-19(UTC)
+อัปเดตล่าสุด 2026-10-19 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-19(UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-19 UTC"],[],[]]

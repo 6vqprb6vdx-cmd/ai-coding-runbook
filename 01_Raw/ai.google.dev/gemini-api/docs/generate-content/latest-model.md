@@ -1,55 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=pt-BR
-fetched_at: 2026-10-19T05:48:04.365837+00:00
-title: "Novidades do Gemini 4 Argon \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=it
+fetched_at: 2026-10-26T05:46:28.723921+00:00
+title: "Novit\u00e0 di Gemini 4 Argon \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
 
-Envie comentários
+Invia feedback
 
-# Novidades do Gemini 4 Argon
+# Novità di Gemini 4 Argon
 
-O Gemini 4 Argon (`gemini-4-argon`) é nosso modelo mais recente e avançado. Ele pode raciocinar por mais tempo sobre problemas difíceis para gerar resultados melhores em tarefas complexas de programação, agentes, matemática e ciências. O Gemini 4 Argon está disponível pela API Gemini e no Google AI Studio.
+Gemini 4 Argon (`gemini-4-argon`) è il nostro modello più recente e potente. Può ragionare più a lungo su problemi difficili per ottenere risultati migliori in attività complesse di programmazione, agentiche, matematiche e scientifiche. Gemini 4 Argon è disponibile tramite l'API Gemini e in Google AI Studio.
 
-O Gemini 4 Argon é compatível com um limite unificado de 1 milhão de tokens de entrada e saída, decodificação longa de até 1 milhão de tokens e níveis de raciocínio ajustáveis (`low`, `medium`, `high`).
+Gemini 4 Argon supporta un limite unificato di 1 milione di token di input-output, una decodifica lunga fino a 1 milione di token e livelli di ragionamento regolabili (`low`, `medium`, `high`).
 
 [experiment
 
-Teste no AI Studio
+Prova in AI Studio
 
-Crie apps do zero com o Gemini 4 Argon e o AI Studio.](https://aistudio.google.com/apps?model=gemini-4-argon&hl=pt-br)
+Crea app da zero con Gemini 4 Argon e AI Studio.](https://aistudio.google.com/apps?model=gemini-4-argon&hl=it)
 [smart\_toy
 
-Galeria de aplicativos
+Galleria delle applicazioni
 
-Brinque e remix apps criados com o Gemini 4 Argon.](https://aistudio.google.com/learn/gemini-4-argon-showcase?hl=pt-br)
+App Play e Remix, create con Gemini 4 Argon.](https://aistudio.google.com/learn/gemini-4-argon-showcase?hl=it)
 [rocket\_launch
 
-Primeiros passos
+Inizia
 
-Comece a usar o Gemini 4 Argon com comandos iniciais.](https://aistudio.google.com/learn/gemini-4-argon?hl=pt-br)
+Inizia a utilizzare Gemini 4 Argon con i prompt iniziali.](https://aistudio.google.com/learn/gemini-4-argon?hl=it)
 
-Este guia explica as novidades do Gemini 4 Argon, as mudanças na API, exemplos de código e orientações de migração.
+Questa guida spiega le novità di Gemini 4 Argon, le modifiche all'API, gli esempi di codice e le indicazioni per la migrazione.
 
-## Novo modelo
+## Nuovo modello
 
-| Modelo | ID do modelo | Nível de raciocínio padrão | Preços | Descrição |
+| Modello | ID modello | Livello di ragionamento predefinito | Prezzi | Descrizione |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | `gemini-4-argon` | `medium` | Disponível até 30 de novembro de 2026 pelo preço inicial de US $2/1 milhão de tokens de entrada e US $10/1 milhão de tokens de saída (US$ 4/1 milhão de entrada e US $20/1 milhão de saída depois disso). Consulte os [preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) para mais detalhes. | Nosso modelo mais avançado, criado para resolver os problemas mais difíceis com profundidade e precisão em tarefas de engenharia de software e trabalho intelectual do mundo real. |
+| Gemini 4 Argon | `gemini-4-argon` | `medium` | Disponibile fino al 30 novembre 2026 al prezzo di lancio di 2 $per milione di token di input e 10 $per milione di token di output (successivamente 4 $ per milione di token di input e 20 $per milione di token di output). Per i dettagli, consulta la sezione [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it). | Il nostro modello più potente, progettato per risolvere i problemi più difficili con profondità e precisione nelle attività di ingegneria del software e di lavoro sulla conoscenza nel mondo reale. |
 
-## Guia de início rápido
+## Guida rapida
 
-Use o exemplo a seguir para enviar uma solicitação para `gemini-4-argon` com o `thinking_level` padrão recomendado (`medium`) e um limite de token de saída de 64K:
+Utilizza l'esempio seguente per inviare una richiesta a `gemini-4-argon` con il valore predefinito consigliato `thinking_level` (`medium`) e un limite di token di output di 64K:
 
 ### Python
 
@@ -120,26 +120,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-4-argon:gen
   }'
 ```
 
-## Novidades do Gemini 4 Argon
+## Novità di Gemini 4 Argon
 
-- **Limite unificado de 1 milhão de tokens de entrada e saída**:os tokens de entrada, pensamento e saída compartilham uma única janela de 1 milhão de tokens, com um limite de 32 mil por solicitação para chamadas sem streaming e de 64 mil por stream para chamadas com streaming.
-- **Decodificação longa de até 1 milhão de tokens**:o modelo pode gerar além do limite por solicitação, até 1 milhão de tokens menos sua entrada. Os SDKs mais recentes da IA generativa do Google continuam disponíveis para você por padrão.
-- **Compreensão agêntica de vídeos (GA)**: a [compreensão agêntica de vídeos](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=pt-br#agentic-video-understanding) agora está em disponibilidade geral.
-- **Disponível nos Agentes Gerenciados**:o [agente do Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=pt-br) nos Agentes Gerenciados do Gemini agora é compatível com o Gemini 4 Argon.
+- **Limite unificato di 1 milione di token di input-output:** i token di input, pensiero e output condividono un'unica finestra da 1 milione di token, con un limite di 32.000 per richiesta per le chiamate non in streaming e di 64.000 per stream per le chiamate in streaming.
+- **Decodifica lunga fino a 1 milione di token**:il modello può generare oltre il limite per richiesta, fino a 1 milione di token meno l'input. Gli SDK Google GenAI più recenti continuano a essere disponibili per impostazione predefinita.
+- **Comprensione dei video agentica (GA):** la [comprensione dei video agentica](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=it#agentic-video-understanding) è ora in disponibilità generale.
+- **Supportato in Managed Agents**:l'[agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) in Gemini Managed Agents ora supporta Gemini 4 Argon.
 
-Para mais detalhes, consulte a [página do modelo Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pt-br). Para mais detalhes, consulte a [página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-4-argon).
+Per maggiori dettagli, consulta la [pagina del modello Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=it). Per i dettagli sui prezzi, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
 
-## Saída maior e decodificação longa
+## Output più grande e decodifica lunga
 
-Quando uma tarefa exige raciocínio profundo, o Gemini 4 Argon pode pensar por mais tempo e se esforçar mais para resolver problemas complexos de matemática, ciências e programação em uma única geração.
+Quando un'attività richiede un ragionamento approfondito, Gemini 4 Argon può pensare più a lungo e lavorare di più per risolvere problemi complessi di matematica, scienze e programmazione in un'unica generazione.
 
-- **Limite unificado de 1 milhão de tokens de entrada e saída**:o Argon pode usar até 1 milhão de tokens, menos os tokens de entrada, para o raciocínio e a saída combinados.
-- **Os tokens de raciocínio são contabilizados no `max_output_tokens`**:em tarefas difíceis, o modelo usa mais do seu orçamento de `max_output_tokens` para chegar a uma resposta melhor. Use `thinking_level` para controlar o uso de tokens.
-- **Limites por solicitação (64 mil para streaming / 32 mil para não streaming)**: uma solicitação de streaming retorna até 65.536 tokens. Uma solicitação sem streaming retorna até 32.768 tokens, em comparação com 65.536 no Gemini 3.x. Para chamadas REST, esses limites também são os padrões.
+- **Limite unificato di 1 milione di token di input-output**:Argon può utilizzare fino a 1 milione di token, meno i token di input, per il ragionamento e l'output combinati.
+- **I token di ragionamento vengono conteggiati ai fini di `max_output_tokens`**:per le attività difficili, il modello utilizza una parte maggiore del tuo budget di `max_output_tokens` per fornire una risposta migliore. Utilizza `thinking_level` per controllare l'utilizzo dei token.
+- **Limiti per richiesta (64.000 in modalità flusso di dati / 32.000 in modalità non flusso di dati)**: una richiesta in modalità flusso di dati restituisce fino a 65.536 token. Una richiesta non in streaming restituisce fino a 32.768 token, rispetto ai 65.536 di Gemini 3.x. Per le chiamate REST, questi limiti sono anche i valori predefiniti.
 
-Os SDKs mais recentes da IA generativa do Google executam a decodificação longa por padrão. Use o Python `google-genai` 2.30.1 ou mais recente ou o JavaScript `@google/genai` 2.29.1 ou mais recente.
+Gli SDK di Google GenAI più recenti eseguono la decodifica lunga per impostazione predefinita. Utilizza Python `google-genai` 2.30.1 o versioni successive oppure JavaScript `@google/genai` 2.29.1 o versioni successive.
 
-Nessas versões, `automatic_continuation` é `True` por padrão, então não é necessário defini-lo. Quando você define `max_output_tokens` acima do limite por solicitação, `generate_content` e `generate_content_stream` continuam automaticamente entre as solicitações até que o modelo termine ou alcance `max_output_tokens`, retornando uma resposta combinada.
+In queste versioni, `automatic_continuation` è `True` per impostazione predefinita, quindi non è necessario impostarlo. Quando imposti `max_output_tokens` su un valore superiore al limite per richiesta, `generate_content` e `generate_content_stream` continuano automaticamente tra le richieste finché il modello non termina o non raggiunge `max_output_tokens`, restituendo una risposta combinata.
 
 ```
 response = client.models.generate_content(
@@ -153,87 +153,84 @@ response = client.models.generate_content(
 )
 ```
 
-Para executar o loop por conta própria, defina `automatic_continuation=False`. Se você chamar a REST ou usar um SDK mais antigo, as solicitações vão parar no limite por solicitação. Para loops REST, frameworks de terceiros, contagem de tokens e quando usar a decodificação longa, consulte o [guia de decodificação longa](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=pt-br).
+Per eseguire il loop autonomamente, imposta `automatic_continuation=False`. Se chiami REST o utilizzi un SDK precedente, le richieste si interrompono al limite per richiesta. Per i loop REST, i framework di terze parti, il conteggio dei token e quando utilizzare la decodifica lunga, consulta la [guida alla decodifica lunga](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it).
 
-### Como definir limites de tokens de saída
+### Impostazione dei limiti dei token di output
 
-`max_output_tokens` define o total de tokens de processamento e saída para uma geração, incluindo todas as solicitações de continuação. Defina um valor alto o suficiente para que o pensamento não interrompa a resposta. Defina um valor baixo o suficiente para limitar os gastos quando um comando fixo usar todo o orçamento.
+`max_output_tokens` imposta i token di ragionamento e di output totali per una generazione, incluse tutte le richieste di continuazione. Impostalo su un valore sufficientemente alto in modo che il ragionamento non interrompa la risposta. Impostalo su un valore sufficientemente basso da limitare la spesa quando un prompt difficile lo utilizza tutto.
 
-Use as orientações a seguir como ponto de partida:
+Utilizza le seguenti indicazioni come punto di partenza:
 
-- **Tarefas padrão**:mantenha o padrão.
-- **Apps com um limite inferior a 32 mil**:aumente `max_output_tokens` para 32.768. Para usar menos tokens, diminua `thinking_level`.
-- **Tarefas que usavam mais de 32 mil tokens antes**:defina `max_output_tokens` como 65.536.
-- **Raciocínio e programação complexos**:defina `max_output_tokens` como 131.072 ou 262.144, até 1.048.576 menos os tokens de entrada.
+- **Attività standard**:mantieni l'impostazione predefinita.
+- **App esistenti con un limite inferiore a 32.000**:aumenta `max_output_tokens` a 32.768. Per utilizzare meno token, riduci `thinking_level`.
+- **Attività che in precedenza utilizzavano più di 32.000 token:** imposta `max_output_tokens` su 65.536.
+- **Ragionamento e programmazione complessi**:imposta `max_output_tokens` su 131.072 o 262.144, fino a 1.048.576 meno i token di input.
 
-Se uma solicitação usar todo o `max_output_tokens`, ela vai retornar `finish_reason: "MAX_TOKENS"` e incluir um `continuation_token`. Você pode retomar ou começar de novo.
+Se una richiesta utilizza tutto il valore `max_output_tokens`, restituisce `finish_reason: "MAX_TOKENS"` e include un `continuation_token`. Puoi riprendere o ricominciare.
 
-- **Retomar do checkpoint**:envie a solicitação original com o `continuation_token` mais recente e um `max_output_tokens` maior. Se você não gerar `max_output_tokens`, a solicitação vai retornar `400 INVALID_ARGUMENT`.
-- **Comece de novo**:envie a solicitação original com um `max_output_tokens` maior e sem `continuation_token`.
+- **Riprendi dal checkpoint:** invia la richiesta originale con l'ultimo `continuation_token` e un `max_output_tokens` più alto. Se non generi `max_output_tokens`, la richiesta restituisce `400 INVALID_ARGUMENT`.
+- **Ricomincia**:invia la richiesta originale con un valore `max_output_tokens` più alto e senza `continuation_token`.
 
-### Entender os níveis de raciocínio
+### Informazioni sui livelli di ragionamento
 
-O [nível de raciocínio](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=pt-br) é o principal controle sobre qualidade, latência e uso de tokens no Gemini 4 Argon:
+Il [livello di ragionamento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it) è il tuo controllo principale su qualità, latenza e utilizzo dei token in Gemini 4 Argon:
 
-| Nível de raciocínio | Uso de tokens | Quando usar |
+| Livello di pensiero | Utilizzo dei token | Quando utilizzarle |
 | --- | --- | --- |
-| `low` | Menos tokens, menor latência | Tarefas mais simples e trabalho sensível a custos. Também funciona para tarefas de análise e escrita que exigem um raciocínio simples. A qualidade pode cair em tarefas difíceis. |
-| `medium` (padrão) | Equilibrada | Recomendado para a maioria das tarefas, incluindo código complexo e casos de uso agênticos. |
-| `high` | Mais tokens, primeiro token mais lento | Raciocínio complexo, matemática e ciências avançadas e as tarefas mais difíceis de código ou agente. Combina bem com a decodificação longa para saídas longas. |
+| `low` | Minor numero di token, latenza più bassa | Attività più semplici e lavoro sensibile ai costi. Funziona anche per attività di analisi e scrittura che richiedono un ragionamento semplice. La qualità può diminuire per le attività difficili. |
+| `medium` (valore predefinito) | Bilanciato | Consigliato per la maggior parte delle attività, tra cui codice complesso e casi d'uso agentici. |
+| `high` | Maggior numero di token, primo token più lento | Ragionamento complesso, matematica e scienze avanzate e le attività di programmazione o degli agenti più difficili. Si abbina bene alla decodifica lunga per output lunghi. |
 
-Execute as avaliações nos três níveis com um `max_output_tokens` alto para que o limite não corte as respostas. Em seguida, escolha o menor `thinking_level` que atenda ao seu padrão de qualidade.
+Esegui le valutazioni a tutti e tre i livelli con un valore `max_output_tokens` elevato, in modo che il limite non interrompa le risposte. Quindi scegli il valore più basso di `thinking_level` che soddisfa i tuoi standard di qualità.
 
-## Checklist de migração
+## Elenco di controllo per la migrazione
 
 ```
   `/gemini-api-dev migrate my app to Gemini 4 Argon`
 ```
 
-### Migrar para o gemini-4-argon
+### Esegui la migrazione a gemini-4-argon
 
-- **Atualize o ID do modelo**:mude a string do modelo para `gemini-4-argon`.
-- **Defina `max_output_tokens` explicitamente**:o padrão é 64 mil para chamadas de streaming e do SDK e 32 mil para chamadas REST que não são de streaming.
-- **Aumentar limites inferiores a 32 mil**:aumente qualquer limite inferior a 32 mil para pelo menos 32.768. Use `thinking_level` para reduzir o gasto de tokens.
-- **Planeje decodificações longas**:para tarefas acima do limite por solicitação, use o SDK mais recente ou adicione um loop `continuation_token`.
-- **Substitua `thinking_budget` por `thinking_level`**:`thinking_budget` ainda funciona e é mapeado para o `thinking_level` mais próximo, mas retorna um aviso. Teste sua carga de trabalho em `low`, `medium` e `high`.
-- **Remova o armazenamento em cache de contexto explícito**:o armazenamento em cache explícito (`cachedContents` /
-  `caches.create`) não é compatível com o Gemini 4 Argon e retorna um erro.
-  Remova as chamadas que criam ou transmitem `cached_content` em `GenerateContentConfig`.
-  O [armazenamento em cache implícito](https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=pt-br) é ativado por
-  padrão para comandos de pelo menos 4.096 tokens e desconta os tokens de entrada armazenados em cache
-  em 95% nas ocorrências em cache.
-- **Remover parâmetros descontinuados**:remova `temperature`, `top_p`, `top_k` e `candidate_count` das solicitações. Se fornecidos, os parâmetros de amostragem serão ignorados.
-- **Aumente os tempos limite do cliente**:defina os tempos limite do cliente HTTP para pelo menos 20 minutos por chamada.
-- **Preserve as assinaturas de pensamento**:transmita o histórico completo da conversa, incluindo as [assinaturas de pensamento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=pt-br#signatures), em solicitações de vários turnos e de chamada de função.
+- **Aggiorna l'ID modello**:modifica la stringa del modello in `gemini-4-argon`.
+- **Imposta `max_output_tokens` in modo esplicito:** il valore predefinito è 64K per le chiamate SDK e di streaming e 32K per le chiamate REST non di streaming.
+- **Aumenta i limiti inferiori a 32K**:aumenta qualsiasi limite inferiore a 32K ad almeno 32.768. Utilizza `thinking_level` per ridurre la spesa per i token.
+- **Pianifica una decodifica lunga:** per le attività che superano il limite per richiesta, utilizza l'SDK più recente o aggiungi un loop `continuation_token`.
+- **Sostituisci `thinking_budget` con `thinking_level`:** `thinking_budget` funziona ancora e viene mappato al `thinking_level` più vicino, ma restituisce un avviso. Testa il tuo workload a `low`, `medium` e `high`.
+- **Disattiva la memorizzazione nella cache del contesto esplicita**:la memorizzazione nella cache esplicita (`cachedContents`/`caches.create`) non è supportata su Gemini 4 Argon e restituisce un errore.
+  Rimuovi le chiamate che creano o trasmettono `cached_content` in `GenerateContentConfig`.
+  La [memorizzazione nella cache implicita](https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=it) è abilitata per impostazione predefinita per i prompt di almeno 4096 token e sconta del 95% i token di input memorizzati nella cache in caso di successo della cache.
+- **Rimuovi i parametri ritirati:** rimuovi `temperature`, `top_p`, `top_k` e `candidate_count` dalle richieste. Se forniti, i parametri di campionamento vengono ignorati.
+- **Aumenta i timeout del client:** imposta i timeout del client HTTP su almeno 20 minuti per chiamata.
+- **Conserva le firme di pensiero**:passa la cronologia completa della conversazione, incluse le [firme di pensiero](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it#signatures), nelle richieste multi-turn e di chiamata di funzione.
 
-## Preços
+## Prezzi
 
-O Gemini 4 Argon está disponível com preço inicial até 30 de novembro de 2026:
+Gemini 4 Argon è disponibile a un prezzo di lancio fino al 30 novembre 2026:
 
-- **Tokens de entrada**:US $2,00 por 1 milhão de tokens (US$ 4,00 a partir de 1º de dezembro de 2026)
-  - **Tokens de entrada em cache**:o armazenamento em cache implícito reduz o custo da entrada em cache em 95%, para US $0,10 por 1 milhão de tokens (US$ 0,20 a partir de 1º de dezembro de 2026).
-- **Tokens de saída, incluindo tokens de raciocínio**:US $10,00 por 1 milhão de tokens (US$ 20,00 a partir de 1º de dezembro de 2026)
+- **Token di input:** 2,00 $per 1 milione di token (4,00 $ a partire dal 1° dicembre 2026)
+  - **Token di input memorizzati nella cache:** la memorizzazione nella cache implicita sconta del 95% l'input memorizzato nella cache, portandolo a 0,10 $per 1 milione di token (0,20 $ a partire dal 1° dicembre 2026).
+- **Token di output, inclusi i token di ragionamento:** 10,00 $per 1 milione di token (20,00 $ a partire dal 1° dicembre 2026)
 
-O Gemini 4 Argon não está disponível no nível sem custo financeiro. Para ver os níveis de preços completos, consulte a [página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-4-argon).
+Gemini 4 Argon non è disponibile nel livello senza costi. Per i livelli di prezzo completi, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
 
-## Outros modelos
+## Altri modelli
 
-- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.8?hl=pt-br)
-- [Gemini 3.6 Flash e 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=pt-br)
-- [Ver todos os modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br)
+- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.8?hl=it)
+- [Gemini 3.6 Flash e 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=it)
+- [Visualizza tutti i modelli](https://ai.google.dev/gemini-api/docs/models?hl=it)
 
-## A seguir
+## Passaggi successivi
 
-- Leia o [guia para desenvolvedores sobre decodificação longa](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=pt-br) para conferir os padrões completos de streaming, reconexão e contagem de tokens.
-- Saiba como os níveis de raciocínio e os resumos de pensamento funcionam no [guia de raciocínio](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=pt-br).
-- Teste o Gemini 4 Argon no [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
+- Leggi la [guida per gli sviluppatori sulla decodifica lunga](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it) per i pattern completi di streaming, riconnessione e conteggio dei token.
+- Scopri come funzionano i livelli di ragionamento e i riepiloghi dei ragionamenti nella [guida al ragionamento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it).
+- Testa Gemini 4 Argon in [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-Envie comentários
+Invia feedback
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Última atualização 2026-10-16 UTC.
+Ultimo aggiornamento 2026-10-16 UTC.
 
-Quer enviar seu feedback?
+Vuoi dirci altro?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-16 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-16 UTC."],[],[]]

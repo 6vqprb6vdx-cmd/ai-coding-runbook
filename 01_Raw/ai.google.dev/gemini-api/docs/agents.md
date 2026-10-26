@@ -1,100 +1,127 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agents?hl=tr
-fetched_at: 2026-10-19T05:49:07.329008+00:00
-title: "Arac\u0131lara genel bak\u0131\u015f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agents?hl=id
+fetched_at: 2026-10-26T06:04:59.532259+00:00
+title: "Ringkasan agen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Geri bildirim gönderin
+Kirim masukan
 
-# Aracılara genel bakış
+# Ringkasan agen
 
-Gemini API'deki yönetilen ajanlar, yapılandırılabilir bir ajan koşumu sağlar. Tek bir API çağrısı, aracının akıl yürüttüğü, kod yürüttüğü, dosyaları yönettiği ve web'de bağımsız olarak gezindiği bir Linux sanal alanı sağlar.
+Agen terkelola di Gemini API memberi Anda platform agen
+yang dapat dikonfigurasi. Satu panggilan API menyediakan sandbox Linux tempat agen melakukan penalaran,
+mengeksekusi kode, mengelola file, dan menjelajahi web secara mandiri.
 
 [rocket\_launch
 
-Hızlı başlangıç kılavuzu
+Panduan memulai
 
-İlk ajan görüşmenizi yapın, yanıtları yayınlayın ve özel bir ajan oluşturun.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr)
+Lakukan panggilan agen pertama Anda, streaming respons, dan bangun agen kustom.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id)
 [smart\_toy
 
-Antigravity Agent
+Agen Antigravity
 
-Varsayılan aracının özellikleri, araçları, çok formatlı girişi ve fiyatlandırması.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr)
+Kemampuan, alat, input multimodal, dan harga untuk agen default.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id)
 [experiment
 
-AI Studio'daki temsilciler
+Agen di AI Studio
 
-Kod yazmadan ajan prototipi oluşturmak için görsel deneme alanı.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=tr)
+Playground visual untuk membuat prototipe agen tanpa menulis kode.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=id)
 
-## Kullanılabilir yönetilen aracıları
+## Agen terkelola yang tersedia
 
-- **[Antigravity agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr)**: Gemini 3.8 Flash ile oluşturulmuş genel amaçlı yönetilen ajan. Google tarafından barındırılan güvenli bir Linux sanal alanında kod çalıştırır, dosyaları yönetir ve web'de arama yapar. `agent_config` simgesini kullanarak temel modeli (ör. Gemini 3.6 Flash veya Gemini 3.5 Flash-Lite) yapılandırabilir ve [özel bir aracı oluşturmak](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr) için kendi talimatlarınız, becerileriniz ve verilerinizle genişletebilirsiniz.
-- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr)**: Pazar analizi, durum tespiti ve literatür incelemeleri gibi kullanım alanları için çok adımlı araştırma görevlerini planlayan, yürüten ve sentezleyen bağımsız araştırma ajanı.
+- **[Agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id)**: Agen Terkelola tujuan umum yang dibuat dengan Gemini 3.8 Flash. Menjalankan kode, mengelola file, dan
+  menelusuri web di dalam sandbox Linux yang aman dan dihosting oleh Google. Anda dapat
+  mengonfigurasi model pokok (seperti Gemini 3.6 Flash atau Gemini 3.5
+  Flash-Lite) menggunakan `agent_config`, dan memperluasnya dengan petunjuk,
+  kemampuan, dan data Anda sendiri untuk
+  [membuat agen kustom](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id).
+- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id)**: Agen riset mandiri yang merencanakan, menjalankan, dan menyintesis tugas riset multilangkah untuk kasus penggunaan seperti analisis pasar, uji tuntas, dan tinjauan literatur.
 
-## Güvenlik ve en iyi uygulamalar
+## Keamanan dan praktik terbaik
 
-Her aracı, işletim sistemi düzeyinde yalıtılmış bir korumalı alan ortamında çalışır.
-Korumalı alan, varsayılan olarak sınırsız giden ağ erişimine sahiptir. İzin verilenler listesi kullanarak ağ erişimini kısıtlayabilir veya devre dışı bırakabilirsiniz.
+Setiap agen berjalan di lingkungan sandbox yang terisolasi di tingkat OS.
+Sandbox memiliki akses jaringan keluar tanpa batas secara default. Anda dapat
+membatasi atau menonaktifkan akses jaringan menggunakan daftar yang diizinkan.
 
-### Ağ erişimi
+### Akses jaringan
 
-Varsayılan olarak, ortamların sınırsız giden ağ erişimi vardır. Giden trafiği belirli alanlarla veya joker karakter kalıplarıyla kısıtlamak için `network` izin verilenler listesini kullanın. Yapılandırma ayrıntıları için [Ağ İzin Verilenler Listesi](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=tr#network_allow_list) (AI Studio) veya [Ağ kuralları](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr#with_network_rules) (API) başlıklı makaleleri inceleyin.
+Secara default, lingkungan memiliki akses jaringan keluar yang tidak dibatasi. Gunakan daftar yang diizinkan
+`network` untuk membatasi traffic keluar ke domain tertentu atau
+pola wildcard. Untuk mengetahui detail konfigurasi, lihat
+[Daftar yang Diizinkan Jaringan](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=id#network_allow_list) (AI
+Studio) atau [Aturan jaringan](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id#with_network_rules)
+(API).
 
-### Harici araçlar ve API'ler
+### Alat dan API eksternal
 
-Ajanı genişletmek için harici araçlar ve API'ler bağlayabilirsiniz. Yalnızca güvenilir kaynaklardan gelen araçları kullanın ve izinleri gereken minimum düzeyde tutun. Gizli dizileri yönetilen kimlik bilgileri olarak saklayın ve kimliklerine göre referans verin. Böylece çıkış proxy'si bunları istek sırasında ekler ve bunlar hiçbir zaman sanal alan içinde açığa çıkmaz. Aracı, erişebildiği tüm kimlik bilgilerini kullanabilir. Bu nedenle, yalnızca tam kapsamlı erişim izni vermeye hazır olduğunuz kimlik bilgilerini sağlayın.
+Anda dapat menghubungkan alat dan API eksternal untuk memperluas agen. Hanya gunakan alat
+dari sumber tepercaya dan batasi izin ke minimum yang diperlukan. Simpan
+secret sebagai kredensial terkelola dan rujuk berdasarkan ID, sehingga proxy keluar
+memasukkannya pada waktu permintaan dan tidak pernah terekspos di dalam sandbox. Agen
+dapat menggunakan kredensial apa pun yang aksesnya telah diberikan, jadi hanya berikan kredensial yang cakupan
+penuhnya bersedia Anda berikan.
 
-- En az ayrıcalıklı hizmet hesaplarını veya API anahtarlarını kullanın.
-- Uzun ömürlü anahtarlar yerine kısa ömürlü jetonları tercih edin.
-- Yalnızca tam kapsamını vermeye istekli olduğunuz kimlik bilgilerini sağlayın.
-- Kimlik bilgilerini düzenli aralıklarla değiştirin.
+- Gunakan akun layanan atau kunci API dengan hak istimewa terendah.
+- Lebih memilih token berumur pendek daripada kunci berumur panjang.
+- Hanya berikan kredensial yang cakupan penuhnya bersedia Anda berikan.
+- Merotasi kredensial sesuai jadwal rutin.
 
-Kimlik bilgisi türleri ve yönetim işlemleri için [Kimlik bilgileri](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr) başlıklı makaleyi inceleyin. Ayrıca, izin verilenler listesi kuralında satır içi olarak başlıklar da ayarlayabilirsiniz. [Ağ yapılandırması](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#network-configuration) bölümüne bakın.
+Untuk mengetahui jenis kredensial dan operasi pengelolaan, lihat bagian
+[Kredensial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=id). Anda juga dapat menetapkan header
+secara inline pada aturan daftar yang diizinkan, lihat [Konfigurasi
+jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration).
 
-### İnsan denetimi
+### Pengawasan manusia
 
-Çıktıları (oluşturulan kod, veri dönüşümleri, yapılandırma değişiklikleri) dağıtmadan önce her zaman doğrulayın. Bu, özellikle verileri değiştiren veya harici sistemlerle etkileşimde bulunan görevler için önemlidir.
+Selalu verifikasi output (kode yang dihasilkan, transformasi data, perubahan konfigurasi) sebelum men-deploy-nya, terutama untuk tugas yang mengubah data atau berinteraksi dengan sistem eksternal.
 
-## Fiyatlandırma
+## Harga
 
-Yönetilen ajanlar, Gemini model jetonlarına ve araç kullanımına dayalı bir [kullandıkça öde modelini](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#pricing-for-agents) kullanır. Tek bir etkileşim, genellikle 100.000 ila 3.000.000 jeton tüketen birden fazla muhakeme döngüsünü tetikleyebilir. Önizleme sırasında ortam işlem ücreti **alınmaz**. Görev başına dökümler için [tahmini maliyetlere](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#availability-and-pricing) bakın. Yönetilen aracılar, ücretsiz katmanda ücretsiz sıklık sınırlaması ve kullanım kotasıyla da kullanılabilir.
+Agen terkelola menggunakan [model bayar sesuai penggunaan](https://ai.google.dev/gemini-api/docs/pricing?hl=id#pricing-for-agents)
+berdasarkan token model Gemini dan penggunaan alat. Satu interaksi dapat memicu beberapa reasoning loop, yang biasanya menggunakan 100 ribu hingga 3 juta token. Komputasi
+lingkungan **tidak ditagih** selama pratinjau. Lihat [perkiraan biaya](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#availability-and-pricing)
+untuk perincian per tugas. Agen terkelola juga tersedia di paket gratis dengan batas frekuensi dan kuota penggunaan gratis.
 
-## Sınırlar
+## Batas
 
-| Sınır | Açıklama |
+| Batas | Deskripsi |
 | --- | --- |
-| **Ortamın kullanım ömrü** | Ortamlar, 7 gün boyunca işlem yapılmadığında kalıcı olarak silinir. |
-| **VM Spin-down** | Sanal makineler, kaynakları korumak için kısa bir süre işlem yapılmadığında kapatılır. Bir sonraki istek durumu (baştan başlatma ile) geri yükler. |
-| **Önceden Yüklenmiş Yazılım** | Python 3.12 ve Node.js 22'nin bulunduğu Ubuntu tabanlı ortam. Ortamın temel görüntüsü hakkında daha fazla bilgi için [Önceden yüklenmiş yazılım](https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr#pre-installed-software) başlıklı makaleyi inceleyin. |
-| **Maksimum ajan sayısı** | En fazla 1.000 yönetilen ajana sahip olabilirsiniz. |
+| **Masa Aktif Lingkungan** | Lingkungan akan dihapus secara permanen setelah 7 hari tidak aktif. |
+| **Penonaktifan VM** | VM dimatikan setelah tidak aktif selama beberapa saat untuk menghemat resource. Permintaan berikutnya memulihkan status (dengan cold start). |
+| **Software yang Sudah Diinstal Sebelumnya** | Lingkungan berbasis Ubuntu dengan Python 3.12 dan Node.js 22. Untuk mengetahui informasi selengkapnya tentang image dasar lingkungan, lihat [Software yang telah diinstal sebelumnya](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#pre-installed-software). |
+| **Agen maksimum** | Anda dapat memiliki hingga 1.000 agen terkelola. |
 
-## Ajan çerçeveleri
+## Framework agen
 
-Ayrıca aşağıdaki çerçeveleri ve SDK'ları kullanarak Gemini ile ajanlar oluşturabilirsiniz:
+Anda juga dapat membuat agen dengan Gemini menggunakan framework dan SDK berikut:
 
-- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=tr): Grafik yapılarını kullanarak durum bilgisi olan, karmaşık uygulama akışları ve çoklu ajan sistemleri oluşturun.
-- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=tr): RAG ile geliştirilmiş iş akışları için Gemini ajanlarını özel verilerinize bağlayın.
-- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=tr): İşbirlikçi, rol oynayan otonom yapay zeka ajanlarını yönetin.
-- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=tr): JavaScript/TypeScript'te yapay zeka destekli kullanıcı arayüzleri ve temsilciler oluşturun.
-- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/): Birlikte çalışabilen yapay zeka temsilcileri oluşturmak ve düzenlemek için kullanılan açık kaynaklı bir çerçeve.
-- [**Antigravity SDK'sı**](https://antigravity.google/product/antigravity-sdk?hl=tr): Google Antigravity'yi destekleyen aynı araçları, aracı döngüsünü ve bağlam yönetimini kullanarak Python'da programlanabilen otonom yapay zeka aracıları oluşturun.
+- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=id): Bangun alur aplikasi yang kompleks dan memiliki status, serta sistem multi-agen menggunakan struktur grafik.
+- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=id): Hubungkan agen Gemini ke
+  data pribadi Anda untuk alur kerja yang ditingkatkan RAG.
+- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=id): Mengorkestrasi agen AI otonom yang kolaboratif dan memainkan peran.
+- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=id): Buat
+  antarmuka pengguna dan agen yang didukung AI di JavaScript/TypeScript.
+- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/): Framework
+  open source untuk membangun dan mengatur agen AI yang dapat beroperasi.
+- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=id): Bangun agen AI otonom menggunakan alat, loop agen, dan pengelolaan konteks yang sama dengan yang mendukung Google Antigravity, yang dapat diprogram di Python.
 
-Geri bildirim gönderin
+Kirim masukan
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Son güncelleme tarihi: 2026-10-09 UTC.
+Terakhir diperbarui pada 2026-10-09 UTC.
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Ada masukan untuk kami?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-09 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]

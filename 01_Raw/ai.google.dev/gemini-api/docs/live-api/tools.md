@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-TW
-fetched_at: 2026-10-19T05:34:17.477414+00:00
-title: "\u4f7f\u7528\u5de5\u5177\u642d\u914d Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-CN
+fetched_at: 2026-10-26T05:59:10.197613+00:00
+title: "\u4f7f\u7528 Live API \u7684\u5de5\u5177 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-提供意見
+发送反馈
 
-# 使用工具搭配 Live API
+# 使用 Live API 的工具
 
-使用工具可讓 Live API 不只是對話，還能在現實世界中執行動作，並在維持即時連線的同時，擷取外部脈絡。
-您可以使用 Live API 定義工具，例如[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)和 [Google 搜尋](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)。
+借助工具使用功能，Live API 不仅能进行对话，还能在保持实时连接的同时执行实际操作并提取外部上下文。
+您可以使用 Live API 定义工具，例如[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)和 [Google 搜索](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
 
-## 支援的工具總覽
+## 受支持的工具概览
 
-以下簡要介紹 Live API 模型可用的工具：
+以下简要介绍了适用于 Live API 模型的可用工具：
 
-| 工具 | Gemini 3.1 Flash Live 預先發布版 | Gemini 2.5 Flash Live Preview |
+| 工具 | Gemini 3.1 Flash Live 预览版 | Gemini 2.5 Flash Live 预览版 |
 | --- | --- | --- |
-| **搜尋** | 支援 | 支援 |
-| **函式呼叫** | 支援 (僅限同步) | 支援 (同步和[非同步](#async-function-calling)) |
-| **Google 地圖** | 不支援 | 不支援 |
-| **執行程式碼** | 不支援 | 不支援 |
-| **網址內容** | 不支援 | 不支援 |
+| **搜索** | 支持 | 支持 |
+| **函数调用** | 支持（仅限同步） | 支持（同步和[异步](#async-function-calling)） |
+| **Google 地图** | 不受支持 | 不受支持 |
+| **代码执行** | 不受支持 | 不受支持 |
+| **网址上下文** | 不受支持 | 不受支持 |
 
-## 函式呼叫
+## 函数调用
 
-Live API 支援函式呼叫，就像一般內容生成要求一樣。透過函式呼叫，Live API 可以與外部資料和程式互動，大幅提升應用程式的功能。
+Live API 支持函数调用，就像常规内容生成请求一样。函数调用功能可让 Live API 与外部数据和程序进行交互，从而大幅提升应用的功能。
 
-您可以在工作階段設定中定義函式宣告。收到工具呼叫後，用戶端應使用 `session.send_tool_response` 方法，以 `FunctionResponse` 物件清單回應。
+您可以将会话配置定义为函数声明的一部分。
+收到工具调用后，客户端应使用 `session.send_tool_response` 方法返回 `FunctionResponse` 对象列表。
 
-詳情請參閱[函式呼叫教學課程](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+如需了解详情，请参阅[函数调用教程](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)。
 
 ### Python
 
@@ -216,13 +217,13 @@ async function main() {
 main();
 ```
 
-模型可以從單一提示生成多個函式呼叫，以及串連輸出內容所需的程式碼。這段程式碼會在沙箱環境中執行，產生後續的 [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=zh-tw#bidigeneratecontenttoolcall) 訊息。
+根据单个提示，模型可以生成多个函数调用以及将这些函数的输出串联所需的代码。此代码在沙盒环境中执行，生成后续的 [BidiGenerateContentToolCall](https://ai.google.dev/api/live?hl=zh-cn#bidigeneratecontenttoolcall) 消息。
 
-## 非同步函式呼叫
+## 异步函数调用
 
-根據預設，函式呼叫會依序執行，也就是說，執行作業會暫停，直到每個函式呼叫的結果都可用為止。這可確保系統依序處理函式，也就是說，函式執行期間，您無法繼續與模型互動。
+函数调用默认按顺序执行，这意味着执行会暂停，直到每个函数调用的结果可用为止。这可确保按顺序处理，这意味着在运行函数时，您将无法继续与模型互动。
 
-如果不想封鎖對話，可以要求模型非同步執行函式。如要這麼做，請先在函式定義中新增 `behavior`：
+如果您不想阻塞对话，可以告知模型异步运行函数。为此，您首先需要向函数定义添加 `behavior`：
 
 ### Python
 
@@ -246,14 +247,13 @@ const turn_off_the_lights = {name: "turn_off_the_lights"}
 const tools = [{ functionDeclarations: [turn_on_the_lights, turn_off_the_lights] }]
 ```
 
-`NON-BLOCKING` 可確保函式以非同步方式執行，同時您可繼續與模型互動。
+`NON-BLOCKING` 可确保函数异步运行，同时您还可以继续与模型互动。
 
-接著，您需要使用 `scheduling` 參數，告知模型收到 `FunctionResponse` 時的行為。你可以選擇：
+然后，您需要使用 `scheduling` 参数告知模型在收到 `FunctionResponse` 时应如何运行。它可以：
 
-- 中斷目前執行的動作，並立即告知你收到的回覆 (`scheduling="INTERRUPT"`)，
-- 請等待裝置完成目前執行的作業 (`scheduling="WHEN_IDLE"`)，
-- 或者，您也可以不採取任何行動，稍後在討論中使用該知識
-  (`scheduling="SILENT"`)
+- 中断当前操作并立即告知您收到的回答 (`scheduling="INTERRUPT"`)，
+- 等待它完成当前正在执行的任务 (`scheduling="WHEN_IDLE"`)，
+- 或者不执行任何操作，稍后在讨论中使用该知识 (`scheduling="SILENT"`)
 
 ### Python
 
@@ -285,9 +285,9 @@ const functionResponse = {
 }
 ```
 
-## 以 Google 搜尋建立基準
+## 依托 Google 搜索进行接地
 
-您可以在工作階段設定中啟用「以 Google 搜尋強化事實基礎」。這可提高 Live API 的準確度，並避免產生幻覺。詳情請參閱[基礎教學課程](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)。
+您可以在会话配置中启用“依托 Google 搜索进行接地”功能。这有助于提高 Live API 的准确性并防止出现幻觉。如需了解详情，请参阅[接地教程](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-cn)。
 
 ### Python
 
@@ -446,9 +446,9 @@ async function main() {
 main();
 ```
 
-## 結合多項工具
+## 结合使用多种工具
 
-您可以在 Live API 中結合多種工具，進一步提升應用程式的功能：
+您可以在 Live API 中组合使用多种工具，从而进一步提升应用的功能：
 
 ### Python
 
@@ -496,17 +496,17 @@ const config = {
 // ... remaining model call
 ```
 
-## 後續步驟
+## 后续步骤
 
-- 如要查看更多搭配 Live API 使用工具的範例，請參閱[工具使用食譜](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=zh-tw)。
-- 如要瞭解功能和設定的完整資訊，請參閱[即時 API 功能指南](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-tw)。
+- 如需查看更多将工具与 Live API 搭配使用的示例，请参阅[工具使用实战宝典](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=zh-cn)。
+- 如需全面了解功能和配置，请参阅 [Live API 功能指南](https://ai.google.dev/gemini-api/docs/live-guide?hl=zh-cn)。
 
-提供意見
+发送反馈
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-上次更新時間：2026-09-17 (世界標準時間)。
+最后更新时间 (UTC)：2026-09-17。
 
-想進一步說明嗎？
+需要向我们提供更多信息？
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-17 (世界標準時間)。"],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-17。"],[],[]]

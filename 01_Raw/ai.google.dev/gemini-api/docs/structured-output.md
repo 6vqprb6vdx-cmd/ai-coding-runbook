@@ -1,38 +1,38 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=tr
-fetched_at: 2026-10-19T05:46:41.685102+00:00
-title: "Yap\u0131land\u0131r\u0131lm\u0131\u015f \u00e7\u0131k\u0131\u015flar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-TW
+fetched_at: 2026-10-26T05:44:58.280484+00:00
+title: "\u7d50\u69cb\u5316\u8f38\u51fa\u5167\u5bb9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Geri bildirim gönderin
+提供意見
 
-# Yapılandırılmış çıkışlar
+# 結構化輸出內容
 
-Gemini modellerini, sağlanan bir JSON şemasına uygun yanıtlar oluşturacak şekilde yapılandırabilirsiniz. Bu sayede, tahmin edilebilir ve tür açısından güvenli sonuçlar elde edilir. Ayrıca, yapılandırılmamış metinlerden yapılandırılmış verilerin ayıklanması kolaylaşır.
+您可以設定 Gemini 模型，依據提供的 JSON 結構定義生成回覆。這可確保結果可預測且類型安全，並簡化從非結構化文字中擷取結構化資料的程序。
 
-Yapılandırılmış çıkışlar şu durumlarda idealdir:
+結構化輸出內容最適合用於：
 
-- **Veri ayıklama:** Metinden ad ve tarih gibi belirli bilgileri alın.
-- **Yapılandırılmış sınıflandırma:** Metni önceden tanımlanmış kategorilere göre sınıflandırın.
-- **Ajan tabanlı iş akışları:** Araçlar veya API'ler için yapılandırılmış girişler oluşturun.
+- **資料擷取：**從文字中擷取特定資訊，例如姓名和日期。
+- **結構化分類：**將文字分類至預先定義的類別。
+- **Agentic Workflows：**為工具或 API 生成結構化輸入內容。
 
-Google GenAI SDK'ları, REST API'de JSON şemasını desteklemenin yanı sıra [Pydantic](https://docs.pydantic.dev/latest/) (Python) ve [Zod](https://zod.dev/) (JavaScript) kullanılarak şemaların tanımlanmasına da olanak tanır.
+除了在 REST API 中支援 JSON 結構定義外，Google GenAI SDK 也允許使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 定義結構定義。
 
-## Yapılandırılmış çıkış örnekleri
+## 結構化輸出內容範例
 
-### Yemek Tarifi Ayıklayıcı
+### 食譜擷取器
 
-Bu örnekte, `object`, `array`, `string` ve `integer` gibi temel JSON şema türlerini kullanarak metinden yapılandırılmış verilerin nasıl çıkarılacağı gösterilmektedir.
+這個範例說明如何使用 `object`、`array`、`string` 和 `integer` 等基本 JSON 結構定義類型，從文字中擷取結構化資料。
 
 ### Python
 
@@ -390,7 +390,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Örnek Yanıt:**
+**回應範例：**
 
 ```
 {
@@ -418,9 +418,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### İçerik Denetimi
+### 內容審核
 
-Bu örnekte, koşullu şemalar için `anyOf`, sınıflandırma için `enum` kullanılarak çıkış yapısının içeriğe göre değişmesine olanak tanınmaktadır.
+這個範例展示了用於條件式結構定義的 `anyOf`，以及用於分類的 `enum`，可讓輸出結構依據內容而有所不同。
 
 ### Python
 
@@ -751,7 +751,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Örnek Yanıt:**
+**回應範例：**
 
 ```
 {
@@ -762,9 +762,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### Yinelemeli Yapılar
+### 遞迴結構
 
-Bu örnekte, kuruluş şeması gibi yinelemeli bir şemanın nasıl tanımlanacağı gösterilmektedir.
+這個範例說明如何定義遞迴結構定義，例如組織圖。
 
 ### Python
 
@@ -1016,7 +1016,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**Örnek Yanıt:**
+**回應範例：**
 
 ```
 {
@@ -1043,9 +1043,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## Akış sonuçları
+## 串流結果
 
-Yapılandırılmış çıkışları yayınlayarak yanıt oluşturulurken işlemeye başlamanıza olanak tanır. Yayınlanan parçalar, son JSON nesnesini oluşturmak için birleştirilebilen geçerli kısmi JSON dizeleridir.
+您可以串流輸出結構化內容，在生成回覆時就開始處理。串流區塊是有效的 JSON 字串片段，可串連成最終的 JSON 物件。
 
 ### Python
 
@@ -1288,9 +1288,9 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## Araçlarla yapılandırılmış çıkışlar
+## 使用工具產生結構化輸出內容
 
-Gemini 3, Yapılandırılmış Çıkışları [Google Arama ile Temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr), [URL Bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr), [Kod Yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr), [Dosya Arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr#structured-output) ve [İşlev Çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) gibi yerleşik araçlarla birleştirmenize olanak tanır.
+Gemini 3 可讓您將結構化輸出內容與內建工具結合，包括[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)、[網址背景資訊](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)、[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)、[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw#structured-output)和[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
 
 ### Python
 
@@ -1522,79 +1522,83 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## JSON şeması desteği
+## 支援 JSON 結構定義
 
-JSON nesnesi oluşturmak için `response_format` öğesini `text` türünde bir nesneyle (veya nesne içeren bir diziyle) yapılandırın ve `mime_type` özelliğini `application/json` olarak ayarlayın. Şema, `schema` alanında sağlanmalıdır.
+如要生成 JSON 物件，請使用 `text` 類型的物件 (或包含物件的陣列) 設定 `response_format`，並將 `mime_type` 設為 `application/json`。請在 `schema` 欄位中提供結構定義。
 
-Gemini'ın yapılandırılmış çıkış modu, [JSON şeması](https://json-schema.org/) spesifikasyonunun bir alt kümesini destekler.
+Gemini 的結構化輸出模式支援 [JSON 結構定義](https://json-schema.org/)規格的部分內容。
 
-`type` için aşağıdaki değerler desteklenir:
+支援下列 `type` 值：
 
-- **`string`**: Metin için.
-- **`number`**: Kayan noktalı sayılar için.
-- **`integer`**: Tam sayılar için.
-- **`boolean`**: Doğru veya yanlış değerler için.
-- **`object`**: Anahtar/değer çiftleri içeren yapılandırılmış veriler için.
-- **`array`**: Öğe listeleri için.
-- **`null`**: Bir özelliğin boş olmasına izin vermek için tür dizisine `"null"` değerini ekleyin (ör. `{"type": ["string", "null"]}`).
+- **`string`**：文字。
+- **`number`**：用於浮點數。
+- **`integer`**：用於整數。
+- **`boolean`**：用於 true 或 false 值。
+- **`object`**：適用於含有鍵/值組合的結構化資料。
+- **`array`**：用於項目清單。
+- **`null`**：如要允許屬性為空值，請在類型陣列中加入 `"null"` (例如 `{"type": ["string", "null"]}`)。
 
-Bu açıklayıcı özellikler, modele yol göstermeye yardımcı olur:
+這些描述性屬性有助於引導模型：
 
-- **`title`**: Bir mülkün kısa açıklaması.
-- **`description`**: Bir mülkün daha uzun ve ayrıntılı açıklaması.
+- **`title`**：屬性的簡短說明。
+- **`description`**：更長、更詳細的屬性說明。
 
-### Türe özgü özellikler
+### 類型專屬屬性
 
-**`object` değerleri için:**
+**`object` 值：**
 
-- **`properties`**: Her anahtarın bir özellik adı, her değerin ise söz konusu özelliğin şeması olduğu bir nesne.
-- **`required`**: Hangi özelliklerin zorunlu olduğunu listeleyen bir dizeler dizisi.
-- **`additionalProperties`**: `properties` içinde listelenmeyen özelliklere izin verilip verilmeyeceğini kontrol eder. Boole veya şema olabilir.
+- **`properties`**：物件，其中每個鍵都是屬性名稱，每個值都是該屬性的結構定義。
+- **`required`**：字串陣列，列出必要屬性。
+- **`additionalProperties`**：控制是否允許 `properties` 中未列出的屬性。可以是布林值或結構定義。
+- **不支援的計數限制**：在限制解碼期間，系統不會強制執行 `minProperties` 和 `maxProperties`，伺服器會忽略這些限制。視需要驗證應用程式程式碼中的屬性數量。
 
-**`string` değerleri için:**
+**`string` 值：**
 
-- **`enum`**: Sınıflandırma görevleri için olası dizelerin belirli bir kümesini listeler.
-- **`format`**: Dize için `date-time`, `date`, `time` gibi bir söz dizimi belirtir.
+- **`enum`**：列出分類任務可能出現的一組特定字串。
+- **`format`**：指定字串的語法，例如 `date-time`、`date`、`time`。
+- **不支援的長度限制**：`minLength` 和 `maxLength` 在限制解碼期間不會強制執行，且會由伺服器忽略。如有需要，請在應用程式程式碼中驗證字串長度。
 
-**`number` ve `integer` değerleri için:**
+**`number` 和 `integer` 值：**
 
-- **`enum`**: Olası sayısal değerlerin belirli bir kümesini listeler.
-- **`minimum`**: Minimum kapsayıcı değer.
-- **`maximum`**: Maksimum dahil değer.
+- **`enum`**：列出一組特定的可能數值。
+- **`minimum`**：最小值 (含)。
+- **`maximum`**：最大值 (含)。
 
-**`array` değerleri için:**
+**`array` 值：**
 
-- **`items`**: Dizideki tüm öğelerin şemasını tanımlar.
-- **`prefixItems`**: İlk N öğe için bir şema listesi tanımlar ve demet benzeri yapılara izin verir.
-- **`minItems`**: Dizideki minimum öğe sayısı.
-- **`maxItems`**: Dizideki maksimum öğe sayısı.
+- **`items`**：定義陣列中所有項目的結構定義。
+- **`prefixItems`**：定義前 N 個項目的結構定義清單，允許類似元組的結構。
+- **`minItems`**：陣列中的項目數量下限。
+- **`maxItems`**：陣列中的項目數量上限。
+- **不支援的陣列限制**：`uniqueItems`、`contains`、`minContains` 和 `maxContains` 在限制解碼期間不會強制執行，且會由伺服器忽略。如有需要，請在應用程式程式碼中簡化項目或檢查陣列內容。
 
-## Yapılandırılmış çıkışlar ve işlev çağrısı
+## 結構化輸出與函式呼叫
 
-| Özellik | Birincil Kullanım Alanı |
+| 功能 | 主要用途 |
 | --- | --- |
-| **Yapılandırılmış Çıkışlar** | **Son yanıt biçimlendiriliyor.** Modelin *yanıtının* belirli bir biçimde olmasını istediğinizde kullanılır. |
-| **İşlev Çağrısı** | **Sohbet sırasında işlem yapma** Modelin nihai yanıtı vermeden önce bir görevi gerçekleştirmenizi *istemesi* gerektiğinde kullanılır. |
+| **結構化輸出** | **設定最終回覆的格式。**當您希望模型以特定格式*回答*時，可以使用這個方法。 |
+| **呼叫函式** | **在對話期間採取行動。**如果模型需要*請你*執行工作，才能提供最終答案，請使用這個選項。 |
 
-## En iyi uygulamalar
+## 最佳做法
 
-- **Net açıklamalar:** Modeli yönlendirmek için `description` alanını kullanın.
-- **Güçlü tür belirleme:** Belirli türleri (`integer`, `string`, `enum`) kullanın.
-- **İstem mühendisliği:** Modelin ne yapmasını istediğinizi net bir şekilde belirtin.
-- **Doğrulama:** Çıkış, söz dizimi açısından doğru JSON olsa da uygulamanızdaki değerleri her zaman doğrulayın.
-- **Hata yönetimi:** Şemaya uygun ancak semantik olarak yanlış çıktılar için etkili hata yönetimi uygulayın.
+- **清楚說明：**使用 `description` 欄位引導模型。
+- **強型別：**使用特定類型 (`integer`、`string`、`enum`)。
+- **提示工程：**清楚說明您希望模型執行的工作。
+- **驗證：**雖然輸出內容是語法正確的 JSON，但請務必在應用程式中驗證值。
+- **錯誤處理：**針對符合結構定義但語意不正確的輸出內容，導入完善的錯誤處理機制。
 
-## Sınırlamalar
+## 限制
 
-- **Şema alt kümesi:** Tüm JSON şema özellikleri desteklenmez.
-- **Şema karmaşıklığı:** Çok büyük veya derin şekilde iç içe yerleştirilmiş şemalar reddedilebilir.
+- **結構定義子集：**不支援部分 JSON 結構定義功能。
+- **結構定義複雜度：**如果結構定義過大或巢狀結構過深，可能會遭到拒絕，並顯示 `400 INVALID_ARGUMENT` 錯誤，指出結構定義產生的限制狀態過多，或分支過多，無法提供服務。常見原因包括 `maxItems` 限制過大 (尤其是巢狀陣列)、屬性或列舉名稱過長、列舉值過多、選用屬性過長、`anyOf` 有許多替代方案，以及數值 `minimum`/`maximum` 邊界。如要修正這個問題，請降低或移除巢狀陣列限制、縮短名稱，或在選用屬性之間穿插必要屬性。
+- **未強制執行的限制：** `minLength`、`maxLength`、`minProperties`、`maxProperties`、`uniqueItems`、`contains`、`minContains` 和 `maxContains` (及其蛇形命名法變體) 不會由受限解碼文法引擎強制執行。如果結構定義中含有這些關鍵字 (例如由 Pydantic 的 `Field(min_length=...)` 或 Zod 的 `.min()` 自動發出)，API 會在要求正規化期間自動移除並忽略這些關鍵字，而不會傳回錯誤。強制執行 `minItems` 和 `maxItems`。如要強制執行其他限制，請在用戶端驗證剖析後的輸出內容 (例如使用 Pydantic `model_validate_json()` 或 Zod `.parse()`)。
 
-Geri bildirim gönderin
+提供意見
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Son güncelleme tarihi: 2026-10-13 UTC.
+上次更新時間：2026-10-21 (世界標準時間)。
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+想進一步說明嗎？
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-13 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-21 (世界標準時間)。"],[],[]]

@@ -1,581 +1,440 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=it
-fetched_at: 2026-10-19T05:43:51.618157+00:00
-title: "Fatturazione \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=zh-TW
+fetched_at: 2026-10-26T05:44:16.938224+00:00
+title: "\u8a08\u8cbb\u65b9\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Invia feedback
+提供意見
 
-# Fatturazione
+# 計費方式
 
-Questa guida fornisce una panoramica delle diverse opzioni di fatturazione dell'API Gemini,
-spiega come attivare la fatturazione e monitorare l'utilizzo e fornisce risposte alle
-domande frequenti sulla fatturazione.
+本指南將概略說明不同的 Gemini API 計費選項、如何啟用計費和監控用量，並提供有關計費的常見問題解答。
 
-## Informazioni su fatturazione e livelli
+## 關於帳單和等級
 
-La fatturazione per l'API Gemini si basa sulla tua cronologia dei pagamenti.
+Gemini API 的計費方式會根據您的付款記錄而定。
 
-| Livello di utilizzo | Qualificazione | [Limite del livello di fatturazione](#spend-caps) |
+| 用量層級 | 資格賽 | [帳單層級上限](#spend-caps) |
 | --- | --- | --- |
-| **Nessun costo** | [Progetto attivo](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) o prova senza costi | N/D |
-| **Livello 1** | [Configura e collega un account di fatturazione attivo](#setup-billing) | 250 $ |
-| **Livello 2** | Pagamento di 100 $+ 3 giorni dal primo pagamento riuscito | $ 2000 |
-| **Livello 3** | Pagamento di 1000 $+ 30 giorni dal primo pagamento riuscito | 20.000 $-100.000 $ e oltre |
+| **免費** | [有效專案](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)或免費試用方案 | 不適用 |
+| **第 1 級** | [設定並連結有效的帳單帳戶](#setup-billing) | $250 美元 |
+| **第 2 級** | 首次付款成功後，3 天內支付 $100 美元 | $2,000 美元 |
+| **第 3 級** | 支付 $1,000 美元 + 首次付款成功後 30 天 | $20,000 美元 - $100,000 美元以上 |
 
-I nuovi account iniziano con il Livello senza costi, che consente l'accesso a
-[determinati modelli](https://ai.google.dev/gemini-api/docs/pricing?hl=it) nell'API Gemini e in AI Studio,
-fino ai [limiti di frequenza](https://aistudio.google.com/rate-limit?hl=it) del Livello senza costi dei modelli.
+新帳戶會先採用免費方案，可存取 Gemini API 和 AI Studio 中的[特定模型](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)，但須遵守模型免費方案的[速率限制](https://aistudio.google.com/rate-limit?hl=zh-tw)。
 
-Per eseguire il deployment delle applicazioni direttamente dalla modalità di creazione, gli account idonei possono utilizzare
-il **livello iniziale di Google Cloud**. Questo livello ti consente di pubblicare fino a due applicazioni full-stack senza configurare un progetto Google Cloud o un account di fatturazione.
-Per i dettagli sull'idoneità, consulta [Deployment da Google AI Studio](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=it#starter-tier-eligibility) e per saperne di più, consulta la [documentazione sul livello iniziale di Google Cloud](https://docs.cloud.google.com/docs/starter-tier?hl=it).
+如要直接從「建構」模式部署應用程式，符合資格的帳戶可以使用 **Google Cloud 入門級**。這個方案可讓您發布最多 2 個全端應用程式，不必設定 Google Cloud 雲端專案或帳單帳戶。如要瞭解資格詳情，請參閱「[從 Google AI Studio 部署](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-tw#starter-tier-eligibility)」，並參閱 [Google Cloud 入門級說明文件](https://docs.cloud.google.com/docs/starter-tier?hl=zh-tw)。
 
-Per accedere a limiti di frequenza più elevati, utilizzare modelli avanzati e assicurarti che i prompt e le risposte **non** vengano utilizzati per migliorare i prodotti Google\*, puoi [collegare un account di fatturazione](#setup-billing) e [pagare in anticipo](#prepay) per passare ai Livelli a pagamento.
-Successivamente, passerai ai livelli superiori in base alla spesa cumulativa e all'età dell'account.
+如要提高速率限制、使用進階模型，以及確保系統**不會**使用提示和回覆內容來改善 Google 產品\*，請[連結帳單帳戶](#setup-billing)並[預付](#prepay)費用，改用付費方案。然後，系統會根據累計支出和帳戶年齡，將你移至較高的層級。
 
-I livelli, i limiti di frequenza e i limiti dell'account di fatturazione vengono determinati a livello di [account di
-fatturazione](#cloud-billing).
+層級、速率限制和帳單帳戶上限，都是在[帳單帳戶](#cloud-billing)層級決定。
 
-\* *Privacy dei dati di livello aziendale: per saperne di più sull'utilizzo dei dati
-per i servizi a pagamento, consulta i [Termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it#data-use-paid).*
+\* *企業級資料隱私權：如要進一步瞭解付費服務的資料使用方式，請參閱[服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#data-use-paid)。*
 
-## Configurare la fatturazione per accedere al livello a pagamento
+## 設定帳單資訊以存取付費方案
 
-Puoi creare un progetto e configurare la fatturazione o importare un progetto esistente per
-eseguire l'upgrade al livello a pagamento in [Google AI Studio](https://aistudio.google.com/projects?hl=it).
-L'upgrade dal Livello senza costi al Livello a pagamento prevede il collegamento di un account di fatturazione
-e il [pagamento anticipato](#prepay) per aggiungere un minimo di 5 $ (o l'importo equivalente in altre
-valute) di crediti al tuo account.
+您可以建立專案並設定帳單，或匯入現有專案，在 [Google AI Studio](https://aistudio.google.com/projects?hl=zh-tw) 升級至付費層級。
+從免費方案升級至付費方案時，請連結帳單帳戶並[預付款項](#prepay)，為帳戶儲值至少 $5 美元 (或其他貨幣的等值金額)。
 
-1. Vai alla pagina [Chiavi API](https://aistudio.google.com/api-keys?hl=it), alla pagina [Progetti](https://aistudio.google.com/projects?hl=it) o in qualsiasi punto in cui vedi il pulsante **Configura fatturazione** in AI Studio.
-   - Per i nuovi utenti verranno creati per impostazione predefinita un [progetto e una chiave API](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects).
-   - Se hai bisogno di una nuova chiave, fai clic su [**Crea chiave API**](https://aistudio.google.com/api-keys?hl=it)
-     e segui la finestra di dialogo per aggiungere una coppia chiave-progetto alla tabella.
-2. Trova il progetto Livello senza costi che vuoi eseguire l'upgrade al livello a pagamento e fai clic su
-   **Configura fatturazione** nella colonna *Livello di fatturazione*.
-3. Se non hai mai configurato un account di fatturazione Google:
-   - Ti verrà chiesto di selezionare il tuo paese per accettare i Termini di servizio.
-   - Poi, compila o conferma i tuoi dati di contatto e il metodo di pagamento per continuare.
-4. Se hai configurato account di fatturazione Google in passato:
-   - Ti verrà chiesto di scegliere tra i tuoi account di fatturazione esistenti.
-   - Se non vuoi utilizzare nessuno dei tuoi account esistenti, fai clic su **Aggiungi nuovo
-     account di fatturazione** e compila o conferma i tuoi dati di contatto e il
-     metodo di pagamento per continuare.
-5. Successivamente, potrai:
-   - Ti è stato chiesto di pagare in anticipo un minimo di 5 $per completare la configurazione della fatturazione (il tuo account viene assegnato automaticamente al piano di fatturazione [Prepagato](#prepay)).
-   - Ti viene data la possibilità di scegliere tra i piani di fatturazione [Pagamento anticipato](#prepay) e [Pagamento posticipato](#postpay) per il tuo account.
-   - Assegnato a un piano di fatturazione [postpagamento](#postpay) per un periodo intermedio
-     fino a quando il nuovo sistema prepagato non verrà applicato a tutti gli utenti (a partire dal 23 marzo 2026).
-6. Dopo aver effettuato il pagamento anticipato o selezionato il pagamento posticipato, la configurazione dell'account è completata.
+1. 前往 AI Studio 的「API 金鑰」頁面、「專案」頁面，或 AI Studio 中顯示「設定帳單」按鈕的任何位置。
+   - 新使用者預設會建立[專案和 API 金鑰](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)。
+   - 如需新金鑰，請按一下「建立 API 金鑰」，然後按照對話方塊的指示，將金鑰/專案配對新增至表格。
+2. 找出要從免費方案升級至付費層級的專案，然後點選「帳單層級」欄下方的「設定帳單」。
+3. 如果你從未設定 Google 帳單帳戶：
+   - 系統會要求你選取國家/地區，並同意《服務條款》。
+   - 接著，請填寫或確認聯絡資訊和付款方式，然後繼續。
+4. 如果您過去曾設定 Google 帳單帳戶：
+   - 系統會要求你從現有帳單帳戶中選擇。
+   - 如不想使用現有帳戶，請按一下「新增帳單帳戶」，然後填寫或確認聯絡資訊和付款方式，即可繼續操作。
+5. 接下來，您會看到下列其中一個畫面：
+   - 系統要求預付至少 $5 美元，才能完成帳單設定 (表示系統已自動將您的帳戶指派至[預付](#prepay)帳單方案)。
+   - 帳戶可選擇[預付](#prepay)或[後付](#postpay)方案。
+   - 在新的預付系統向所有使用者推出前 (2026 年 3 月 23 日起)，暫時採用[後付](#postpay)結帳方案。
+6. 預付或選取後付後，帳戶設定即完成。
 
-### Eseguire l'upgrade al livello a pagamento successivo
+### 升級至下一個付費層級
 
-Se hai già un livello a pagamento e soddisfi i [criteri](#about-billing)
-per un cambio di piano, verrà eseguito automaticamente l'upgrade al livello successivo
-(in base ai [tempi di elaborazione](#processing-times)).
+如果你已訂閱付費方案，且符合[條件](#about-billing)，系統會自動將你升級至下一個方案 (升級作業的[處理時間](#processing-times)不一定)。
 
-## Verificare lo stato della fatturazione
+## 確認帳單狀態
 
-Dopo aver [collegato un account di fatturazione](#setup-billing) al tuo progetto, puoi monitorarne lo stato nella [pagina Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). A differenza del livello senza costi, lo stato del livello a pagamento è dinamico: mentre il livello di utilizzo è determinato dalla cronologia dell'account, l'API Gemini servirà le richieste solo se hai un saldo dei crediti [prepagati](#prepay) positivo.
+[將帳單帳戶連結至專案](#setup-billing)後，即可在 [AI Studio 帳單頁面](https://aistudio.google.com/billing?hl=zh-tw)監控帳戶狀態。與免費級別不同，付費級別狀態是動態的；用量級別取決於帳戶記錄，但只有在[預付](#prepay)抵免額餘額為正數時，Gemini API 才會處理要求。
 
-Nella pagina [Progetti](https://aistudio.google.com/projects?hl=it), potrai visualizzare il livello e il piano di fatturazione del tuo progetto nella colonna *Livello di fatturazione*. Eventuali
-azioni relative allo stato di fatturazione che potresti dover intraprendere per un progetto vengono visualizzate nelle
-colonne *Livello di fatturazione* o *Stato*:
+在「專案」頁面中，您可以在「帳單級別」欄下方查看專案的級別和帳單方案。您可能需要對專案採取任何帳單狀態動作，這些動作會顯示在「帳單層級」或「狀態」欄中：
 
-- "***Configura la fatturazione***" se al progetto non è collegato un account di fatturazione.
-- "***Configura pagamento anticipato***" se il progetto ha un account di fatturazione collegato, ma
-  deve utilizzare un piano di fatturazione con [pagamento anticipato](#prepay) che deve essere configurato.
-- "***Nessun credito***" se l'account di fatturazione è tenuto ad acquistare
-  crediti, ma l'account pagamenti prepagati non è configurato o il saldo
-  disponibile è esaurito.
+- 如果專案未連結至帳單帳戶，請點選「***設定帳單***」。
+- 如果專案已連結帳單帳戶，但必須使用需要設定的「***預付***」計費方案，請按照畫面上的指示操作。
+- 如果帳單帳戶必須購買點數，但預付付款帳戶尚未設定或可用點數餘額已用盡，則會顯示「***沒有點數***」。
 
-Fai clic su uno dei messaggi per procedere con le azioni necessarie.
+點選任一訊息，即可採取必要行動。
 
-## Monitorare l'utilizzo
+## 監控使用情況
 
-Puoi monitorare l'utilizzo dell'API Gemini in
-[Google AI Studio](https://aistudio.google.com/usage?hl=it) nella **dashboard** >
-**Utilizzo**.
+如要監控 Gemini API 用量，請前往 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 的「資訊主頁」 >「用量」。
 
-## Piani di fatturazione
+## 計費方案
 
-I piani di fatturazione per l'API Gemini e AI Studio rientrano in due categorie che
-determinano quando paghi l'utilizzo: pagamento anticipato e pagamento posticipato. Puoi controllare il piano di fatturazione assegnato e gestire i metodi di pagamento nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it).
+Gemini API 和 AI Studio 的帳單方案分為兩類，決定您何時支付用量費用：預付和後付。您可以在「AI Studio Billing」(AI Studio 帳單) 頁面查看已指派的帳單方案，以及管理付款方式。
 
-### Pagamento anticipato
+### 預付
 
-Nel piano di fatturazione con pagamento anticipato, acquisti crediti per il saldo del pagamento anticipato prima di utilizzare l'API Gemini e i costi di utilizzo dell'API vengono dedotti dal saldo dei crediti con pagamento anticipato [quasi in tempo reale](#processing-times).
-Puoi pagare in anticipo [aggiungendo crediti](#buy-credits) al tuo account o configurando la [ricarica automatica](#auto-reload). Una volta acquistati, i crediti non utilizzati
-scadono dopo 12 mesi e [non sono rimborsabili](#refunds), tranne dopo
-[il passaggio a un account Postpay](#postpay).
+在預付計費方案中，您會預先購買抵免額，並將抵免額計入預付餘額，而系統會[近乎即時](#processing-times)地從預付抵免額餘額中扣除 Gemini API 用量費用。你可以[在帳戶中新增額度](#buy-credits)來預付費用，或設定[自動儲值](#auto-reload)。購買抵免額後，未使用的抵免額會在 12 個月後失效，且[無法退款](#refunds) ([改用後付型帳戶](#postpay)的情況除外)。
 
-Quando il saldo del credito prepagato dell'account di fatturazione raggiunge 0 $, tutte le chiavi API di
-tutti i progetti collegati a quell'account di fatturazione smetteranno di funzionare contemporaneamente.
-Le richieste non vanno a buon fine e restituiscono un errore [HTTP 402 Payment
-Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=it) finché non aggiungi crediti.
-I crediti prepagati si applicano solo ai costi di utilizzo dell'API Gemini; non puoi utilizzarli per pagare altri servizi Google Cloud.
+當帳單帳戶的預付額度餘額達到 $0 美元時，連結至該帳單帳戶的所有專案中的所有 API 金鑰都會同時停止運作。您必須先新增點數，否則要求會失敗，並顯示 [HTTP 402 須付款](https://ai.google.dev/gemini-api/docs/api-errors?hl=zh-tw)錯誤。預付抵免額僅適用於 Gemini API 使用費用，無法用於支付其他 Google Cloud 服務費用。
 
-Per impostazione predefinita, i nuovi utenti utilizzano il piano di fatturazione con pagamento anticipato. I progetti precedenti all'introduzione dei piani di fatturazione con pagamento anticipato e posticipato potrebbero dover [aggiornare i dettagli di fatturazione del progetto](#verify-billing) prima di continuare a utilizzare l'API Gemini.
+新使用者預設會採用預付方案。如果專案是在預付和後付帳單方案推出前建立，可能需要[更新專案的帳單詳細資料](#verify-billing)，才能繼續使用 Gemini API。
 
-*Tieni presente che il pagamento anticipato non è disponibile per gli account [fatturati (o offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=it#billing_account_types).*
+*請注意，[可開立月結單的 (或離線)](https://docs.cloud.google.com/billing/docs/concepts?hl=zh-tw#billing_account_types)帳戶不適用預付功能。*
 
-#### Aggiungere il prepagato a un account con pagamento posticipato esistente
+#### 在現有的後付帳戶中新增預付方案
 
-Se il tuo account di fatturazione Cloud esistente utilizza un piano **postpagamento**, puoi aggiungere funzionalità di **pagamento anticipato** per acquistare crediti in anticipo. Questi crediti prepagati ti consentono di utilizzare
-l'API Gemini senza creare un nuovo account di fatturazione Cloud.
+如果現有的 Cloud Billing 帳戶使用**後付**方案，可以新增**預付**功能，預先購買抵免額。有了預付抵免額，您就能使用 Gemini API，不必建立新的 Cloud Billing 帳戶。
 
-Durante la configurazione per aggiungere **Pagamento anticipato** a un account esistente, viene visualizzata una schermata di conferma obbligatoria che spiega che l'account di fatturazione Cloud selezionato verrà modificato.
+在設定程序中，為現有帳戶新增**預付**款項時，系統會顯示強制確認畫面，說明所選的 Cloud Billing 帳戶將會修改。
 
-Il sistema deve modificare lo stato dell'account *prima* che tu invii il pagamento anticipato.
-Pertanto, l'annullamento della procedura dopo la conferma della modifica, ma prima del completamento della configurazione del pagamento anticipato, potrebbe comportare interruzioni temporanee del servizio per i progetti già collegati a quell'account di fatturazione Cloud. Assicurati di essere pronto
-a completare la procedura di pagamento anticipato prima di confermare la transizione. Se
-riscontri problemi, consulta [Servizi interrotti dopo l'annullamento di una configurazione **prepagata**](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it#prepay-issue).
+系統必須在您提交預付款*前*修改帳戶狀態。
+因此，如果在確認修改後但完成預付款設定前取消程序，已連結至該 Cloud Billing 帳戶的專案可能會暫時中斷服務。確認轉換前，請務必準備好完成預付款程序。如果遇到問題，請參閱「[取消**預付**設定後服務中斷](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw#prepay-issue)」。
 
-Se hai l'idoneità e passi manualmente da un ciclo **prepagato** a un ciclo **postpagato**, l'eventuale saldo del credito prepagato rimanente viene rimborsato automaticamente sul metodo di pagamento originale utilizzato per il pagamento anticipato. Tuttavia, se chiudi il tuo account di fatturazione Cloud per qualsiasi altro motivo, i crediti prepagati rimanenti vengono persi e non vengono rimborsati.
+如果符合資格，並手動從「預付」週期切換至「後付」週期，系統會自動將所有剩餘的預付抵免額餘額，退還至預付時使用的原付款方式。不過，如果因其他原因關閉 Cloud Billing 帳戶，剩餘的預付抵免額將會失效，且無法退款。
 
-#### Acquista crediti
+#### 購買抵免額
 
-Puoi acquistare manualmente i crediti in anticipo rispetto all'utilizzo dell'API Gemini per caricarli
-nel saldo del credito dell'account con pagamento anticipato.
+您可以在使用 Gemini API 前手動購買抵免額，並將抵免額存入預付帳戶的信用額度餘額。
 
-Per acquistare crediti, vai alla pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it) e seleziona **Acquista crediti**.
-L'acquisto minimo è di 5 $. L'importo massimo di crediti che puoi pagare in anticipo è di
-5000 $.
+如要購買點數，請前往「AI Studio 帳單」頁面，然後選取「購買點數」。
+最低購買金額為 $5 美元。預付抵免額的金額上限為 $5,000 美元。
 
-#### Ricarica automaticamente
+#### 自動重新載入
 
-La ricarica automatica è una funzionalità facoltativa che ricarica automaticamente il saldo dei crediti prepagati
-quando sta per esaurirsi. Ciò è utile per evitare interruzioni del servizio.
+自動儲值是選用功能，可讓系統在預付抵免額餘額不足時自動加值。這有助於避免服務中斷。
 
-Puoi configurare la ricarica automatica e visualizzare lo stato della ricarica automatica nella scheda *Crediti
-disponibili* nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). Fai clic su **Configura la ricarica automatica** o
-**Gestisci la ricarica automatica** per impostare il metodo di pagamento, l'importo della ricarica e il
-saldo minimo che attiva un pagamento di ricarica.
+你可以在「AI Studio 帳單」頁面的「可用抵免額」資訊卡中設定自動儲值，並查看自動儲值狀態。按一下「設定自動儲值」或「管理自動儲值」，設定付款方式、儲值金額，以及觸發儲值付款的最低餘額。
 
-#### Limite di addebito automatico mensile
+#### 每月自動扣款上限
 
-Il limite di ricarica automatica mensile è disponibile per gli utenti prepagati
-e contribuisce a evitare costi imprevisti dovuti a frequenti ricariche automatiche del credito.
-Utilizza questa funzionalità per impostare un limite massimo per le ricariche automatiche dei crediti all'interno di un singolo ciclo di fatturazione. Una volta raggiunto questo limite, il sistema disattiva la ricarica automatica fino all'inizio del mese successivo. I pagamenti una tantum che avvii manualmente non vengono conteggiati ai fini di questo limite.
+預付使用者可設定每月自動扣款上限，避免因頻繁自動儲值而產生意外費用。使用這項功能，即可在單一帳單週期內，設定自動加值次數上限。如果帳單週期內的自動儲值總金額達到上限，系統就會停用自動儲值功能，直到下個月初才會重新啟用。您手動發起的一次性付款不會計入這項限制。
 
-Per impostare il limite di addebito automatico mensile quando la ricarica automatica è attivata:
+啟用自動儲值功能後，如要設定每月自動扣款上限，請按照下列步驟操作：
 
-1. Vai alla pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it).
-2. Fai clic su **Gestisci la ricarica automatica**.
-3. Espandi la sezione **Limite mensile** e inserisci il limite mensile massimo per le ricariche automatiche.
-4. Fai clic su **Salva**.
+1. 前往「AI Studio 帳單」頁面。
+2. 按一下「管理自動儲值功能」。
+3. 展開「每月限額」部分，然後輸入自動儲值的每月上限。
+4. 按一下 [儲存]。
 
-### Pagamento posticipato
+### 後付
 
-Nel piano di fatturazione postpagamento, il tuo account di fatturazione Cloud accumula costi e ti
-vengono addebitati automaticamente alla fine del mese o quando i costi raggiungono un
-[limite di spesa assegnato automaticamente](#tier-spend-caps) in base al livello del tuo account.
-Il pagamento viene addebitato sul metodo di pagamento collegato al tuo account
-Postpay, che puoi gestire nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). Nella pagina **Fatturazione** potrai
-visualizzare il saldo, le date di scadenza e i pagamenti passati, nonché effettuare pagamenti e
-gestire i metodi di pagamento.
+在後付費方案中，Cloud Billing 帳戶會累積費用，並在月底或費用達到[系統根據帳戶層級自動指派的支出上限](#tier-spend-caps)時，自動扣款。系統會透過連結至後付帳戶的付款方式收費，您可以在 [AI Studio 帳單](https://aistudio.google.com/billing?hl=zh-tw)頁面管理付款方式。在「帳單」頁面中，您可以查看餘額、到期日和過往付款記錄，以及付款和管理付款方式。
 
-Quando [configuri la fatturazione](#setup-billing) per un nuovo progetto, se hai l'idoneità
-per il pagamento posticipato, potrai scegliere tra pagamento anticipato e posticipato nella
-finestra di dialogo [configurazione della fatturazione](#setup-billing).
+[為新專案設定帳單資訊](#setup-billing)時，如果符合後付資格，您可以在[帳單設定](#setup-billing)對話方塊中選擇預付或後付。
 
-Dopo aver cambiato un account di fatturazione Cloud in modo che utilizzi il piano di fatturazione postpagato, tutti
-i progetti collegati a quell'account di fatturazione vengono spostati al piano postpagato. Puoi spostare un account idoneo al pagamento anticipato seguendo i passaggi descritti in [Eseguire la migrazione al pagamento anticipato](#migrate-to-prepay). Puoi anche
-spostare un progetto in un account di fatturazione con un piano di fatturazione diverso per modificare
-il ciclo di addebito per quel progetto. Consulta la documentazione di Cloud sulla [gestione
-della fatturazione per i progetti](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it).
+將 Cloud Billing 帳戶切換為使用後付費方案後，連結至該帳單帳戶的所有專案都會切換為後付費方案。如要將符合資格的帳戶改為預付，請按照「[改為預付](#migrate-to-prepay)」一文的步驟操作。您也可以將專案移至採用不同帳單方案的帳單帳戶，藉此變更專案的收費週期；請參閱「[管理專案的帳單](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw)」一文。
 
-Puoi scoprire di più sul ciclo di addebito del pagamento posticipato nella [guida alla fatturazione Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it).
+如要進一步瞭解後付方案的收費週期，請參閱 [Cloud Billing 指南](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw)。
 
-### Esegui la migrazione al pagamento anticipato
+### 改用預付
 
-Google AI Studio sta eseguendo la transizione degli account sviluppatore dalla fatturazione posticipata a quella anticipata per l'utilizzo dell'API Gemini. Questa modifica si applica solo all'API Gemini; gli altri servizi Google Cloud collegati al tuo account di fatturazione rimangono in postpagamento.
+Google AI Studio 正在將開發人員帳戶的 Gemini API 用量帳單，從後付改為預付。這項變更只會影響 Gemini API；連結至帳單帳戶的其他 Google Cloud 服務仍會採用後付方案。
 
-Passa al pagamento anticipato e aggiungi crediti prima della data di transizione indicata nell'avviso dell'account per evitare interruzioni del servizio. Gli account che utilizzano solo le funzionalità del Livello senza costi non devono intraprendere alcuna azione.
+請在帳戶通知中的轉換日期前切換至預付方案並儲值，以免服務中斷。如果帳戶只使用免費方案功能，則不必採取任何行動。
 
-Per passare da un account con pagamento posticipato esistente al pagamento anticipato:
+如要將現有的後付帳戶改為預付，請按照下列步驟操作：
 
-1. Vai alla pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it).
-2. Seleziona **Passa al prepagato** per l'account di fatturazione.
-3. [Acquista crediti](#buy-credits) (minimo 5 $) per caricare il saldo iniziale.
+1. 前往「AI Studio 帳單」頁面。
+2. 選取帳單帳戶的「切換至預付」。
+3. [購買抵免額](#buy-credits) (最低 $5 美元)，做為起始餘額。
 
-Per evitare interruzioni del servizio dopo il cambio, configura la [ricarica automatica](#auto-reload) per ricaricare il saldo del credito quando è in esaurimento.
+為避免服務在切換後中斷，請設定[自動儲值](#auto-reload)，在抵免餘額不足時自動儲值。
 
-## Limiti di spesa
+## 支出上限
 
-L'API Gemini supporta i limiti di spesa mensili sia a livello di tier dell'account di fatturazione sia a livello di progetto. Questi controlli sono progettati per proteggere il tuo account da
-superamenti imprevisti e l'ecosistema per garantire la disponibilità del servizio.
+Gemini API 支援帳單帳戶層級和專案層級的每月支出上限。這些控制項旨在保護帳戶，避免產生預期外的超額費用，並確保生態系統的服務可用性。
 
-*Tieni presente che i limiti di spesa non sono disponibili per gli account [fatturati (o offline)](https://docs.cloud.google.com/billing/docs/concepts?hl=it#billing_account_types).*
+*請注意，[可開立月結單的 (或離線)](https://docs.cloud.google.com/billing/docs/concepts?hl=zh-tw#billing_account_types)
+帳戶不適用支出上限。*
 
-### Limiti di spesa del progetto
+### 專案支出上限
 
-Puoi impostare i tuoi limiti di spesa [a livello di progetto](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) in AI Studio.
-Questa funzionalità è utile se hai più progetti nello stesso account di fatturazione e vuoi assicurarti che ognuno abbia accesso a una parte sufficiente del limite di spesa cumulativo.
+您可以在 AI Studio 中設定[專案層級](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)的支出上限。
+如果您在同一個帳單帳戶下有多個專案，且想確保每個專案都有足夠的累計支出上限，這項功能就非常實用。
 
-Gli account con i [ruoli](https://docs.cloud.google.com/iam/docs/roles-overview?hl=it) di editor, proprietario o amministratore del progetto possono impostare limiti di spesa per progetto in AI Studio nella pagina [Spesa](https://aistudio.google.com/spend?hl=it) in **Limite di spesa mensile** > **Modifica limite di spesa**.
+如要為 AI Studio 中的每個專案設定支出上限，請使用具備專案編輯者、擁有者或管理員[角色](https://docs.cloud.google.com/iam/docs/roles-overview?hl=zh-tw)的帳戶，依序前往「Monthly spend cap」 >「Edit spend cap」，然後在「Spend」頁面中設定。
 
-Per informazioni dettagliate sulle autorizzazioni Cloud IAM di Google Cloud specifiche richieste per visualizzare o modificare i limiti di spesa e i dati di fatturazione in AI Studio, consulta la [guida alla risoluzione dei problemi di AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=it#iam-permissions).
+如要瞭解在 AI Studio 中查看或編輯支出上限和帳單資訊所需的特定 Google Cloud IAM 權限，請參閱 [AI Studio 疑難排解指南](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=zh-tw#iam-permissions)。
 
-Se [sposti un progetto in un altro account di fatturazione](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#change_the_billing_account_for_a_project),
-il limite di spesa che hai già impostato per quel progetto verrà mantenuto, ma la spesa
-accumulata verrà reimpostata su 0 € per il nuovo ciclo di fatturazione.
+如果[將專案移至其他帳單帳戶](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#change_the_billing_account_for_a_project)，專案原先設定的支出上限會保留，但累積支出會在新的帳單週期重設為 $0。
 
-Le attività di lunga durata come i completamenti in [modalità batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) e le sessioni degli agenti potrebbero comportare superamenti del limite di spesa del progetto.
+如果執行長時間執行的工作 (例如[批次模式](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)完成和代理程式工作階段)，可能會超出專案支出上限。
 
-I tempi di elaborazione dei dati di fatturazione possono subire ritardi in AI Studio, fino a circa 10 minuti. Potresti riscontrare superamenti oltre il limite del progetto se i dati di fatturazione
-non sono stati elaborati prima dell'accumulo di ulteriori addebiti.
+AI Studio 的帳單資料處理時間可能會延遲，最多約 10 分鐘。如果系統在累積更多費用前尚未處理帳單資料，您可能會超出專案上限。
 
-### Limiti di spesa per livello dell'account di fatturazione
+### 帳單帳戶層級支出上限
 
-Ogni [livello](#about-billing) ha un limite di spesa mensile massimo:
+每個[等級](#about-billing)都有每月支出上限：
 
-| Livello di utilizzo | Limite di spesa |
+| 用量層級 | 支出上限 |
 | --- | --- |
-| **Nessun costo** | N/D |
-| **Livello 1** | 250 $ |
-| **Livello 2** | $ 2000 |
-| **Livello 3** | 20.000 $-100.000 $ |
+| **免費** | 不適用 |
+| **第 1 級** | $250 美元 |
+| **第 2 級** | $2,000 美元 |
+| **第 3 級** | $20,000 美元至 $100,000 美元 |
 
-I limiti di utilizzo mensili vengono applicati all'API Gemini a livello di [account di fatturazione](#cloud-billing). Anche se i limiti predefiniti sono preimpostati, puoi [richiedere un
-aumento](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=it)
-per adattarli a un utilizzo maggiore. La spesa totale viene aggregata in tutti i progetti collegati in cui è abilitato il servizio API Gemini. Quando il totale cumulativo dell'account
-raggiunge il limite del livello, il servizio viene messo in pausa per tutti i progetti collegati a quell'account di fatturazione fino all'inizio del ciclo di fatturazione successivo (il 1° di ogni mese).
+系統會在[帳單帳戶](#cloud-billing)層級，對 Gemini API 設下每月用量上限。預設上限為預先設定，但您可以[要求提高上限](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=zh-tw)，以因應更高的用量。系統會彙整已啟用 Gemini API 服務的所有連結專案支出總額。當帳戶累計總額達到層級上限後，系統會暫停與該帳單帳戶連結的所有專案服務，直到下一個帳單週期開始 (每月 1 號) 為止。
 
-#### Valutare la spesa dell'account di fatturazione
+#### 評估帳單帳戶支出
 
-Per valutare la tua spesa mensile storica e determinare se i nuovi [limiti di spesa per livello dell'account di fatturazione](#tier-spend-caps) influiranno sui tuoi progetti in corso, segui questi passaggi:
+如要評估過往的每月支出，判斷新的[帳單帳戶層級支出上限](#tier-spend-caps)是否會影響進行中的專案，請按照下列步驟操作：
 
-1. Nella console Google Cloud, visualizza la pagina [Report dell'account di fatturazione Cloud](https://console.cloud.google.com/billing/reports?hl=it).
-   - Se hai più di un account di fatturazione, quando richiesto scegli l'account di fatturazione Cloud per cui vuoi visualizzare i report sui costi.
-2. Per impostazione predefinita, il report è impostato su "Raggruppa per servizio" nel "Mese corrente". Vedrai **API Gemini** nella colonna **Servizio** e la spesa totale nella colonna **Costo
-   utilizzo** della tabella.
-3. Per visualizzare i costi granulari limitati all'utilizzo dell'API Gemini, imposta il filtro **Raggruppa per**
-   in modo da raggruppare per **SKU** e il filtro **Servizi** su **API Gemini**.
-4. Modifica il filtro **Intervallo di tempo per data di utilizzo** in base all'intervallo che preferisci per
-   valutare la spesa storica in un periodo.
+1. 在 Google Cloud 控制台中，查看 [Cloud Billing 帳戶的「報表」](https://console.cloud.google.com/billing/reports?hl=zh-tw)頁面。
+   - 如果有多個帳單帳戶，請在系統提示時選擇要查看費用報表的 Cloud Billing 帳戶。
+2. 報表預設會依「當月」的「服務」分組。您會在表格的「服務」欄中看到「Gemini API」，並在「用量費用」欄中看到總支出。
+3. 如要查看 Gemini API 用量的詳細費用，請將「依分組」篩選器設為依 **SKU** 分組，並將「服務」篩選器設為「Gemini API」。
+4. 將「依使用日期篩選時間範圍」調整為所需範圍，即可評估特定期間的歷史支出。
 
-## Tempi di elaborazione
+## 處理時間
 
-Gli indicatori e gli aggiornamenti della fatturazione non vengono sempre eseguiti in tempo reale.
+帳單信號和更新不一定會即時顯示。
 
-- **Utilizzo del credito**: i costi di utilizzo vengono in genere detratti dal saldo
-  nel giro di pochi minuti.
-- **Conferma del pagamento**: anche se la maggior parte dei pagamenti con carta è immediata, alcune forme
-  di pagamento (come i bonifici bancari) potrebbero richiedere diversi giorni per essere autorizzate. I servizi
-  vengono ripristinati o eseguiti l'upgrade solo dopo la conferma ufficiale dell'acquisto dei crediti.
-- **Upgrade di livello**: dopo un pagamento andato a buon fine o quando soddisfi i [criteri di upgrade](#about-billing), gli upgrade di livello vengono in genere visualizzati entro 10 minuti.
-- **Grafici di suddivisione del costo totale**: i grafici che mostrano la suddivisione del costo totale sia nella pagina [Fatturazione](https://aistudio.google.com/billing?hl=it) sia nella pagina [Spesa](https://aistudio.google.com/spend?hl=it) possono richiedere fino a 24 ore per l'aggiornamento.
+- **抵免額用量**：使用費用通常會在幾分鐘內從餘額扣除。
+- **確認付款**：大多數的信用卡付款都會立即完成，但部分付款方式 (例如銀行轉帳) 可能需要數天才能完成。購買點數的交易正式確認後，服務才會恢復或升級。
+- **等級升級**：付款成功或符合[升級條件](#about-billing)後，等級通常會在 10 分鐘內升級。
+- **總費用明細圖表**：[「帳單」](https://aistudio.google.com/billing?hl=zh-tw)頁面和[「支出」](https://aistudio.google.com/spend?hl=zh-tw)頁面上的總費用明細圖表，最多需要 24 小時才會更新。
 
-Per saperne di più sui potenziali ritardi di fatturazione, leggi le guide alla fatturazione Cloud su [ciclo di addebito](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it#delayed-billing) e latenze delle [transazioni](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=it#missing-transactions).
+請參閱有關[收費週期](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw#delayed-billing)和[交易](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=zh-tw#missing-transactions)延遲的 Cloud Billing 指南，進一步瞭解可能發生的帳單延遲情形。
 
-## Rimborsi
+## 退款
 
-I rimborsi non sono consentiti per gli account di fatturazione **prepagati**, tranne in caso di cambio
-del tipo di account.
+**預付**帳單帳戶無法申請退款，但變更帳戶類型時除外。
 
-**Quando un account con pagamento anticipato passa al tipo di account con pagamento posticipato** (dopo che hai soddisfatto i [criteri](#about-billing) e hai [eseguito l'upgrade manuale](#postpay) dell'account), l'account con pagamento anticipato viene chiuso e l'eventuale credito prepagato residuo viene rimborsato automaticamente sul metodo di pagamento registrato.
+**預付帳戶切換為後付帳戶類型時** (符合[條件](#about-billing)並[手動升級](#postpay)帳戶後)，預付帳戶會關閉，剩餘的預付抵免額會自動退還至已登記的付款方式。
 
-Se [chiudi](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=it#close-a-billing-account)
-il tuo account prepagato per qualsiasi motivo diverso dall'upgrade al pagamento posticipato, i
-crediti prepagati rimanenti vengono persi.
+如果因升級為後付以外的原因[關閉](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=zh-tw#close-a-billing-account)預付帳戶，系統會停用所有預付點數餘額，
 
-I crediti acquistati scadono dopo 1 anno. Una volta scaduti, i crediti vengono persi
-e non possono essere recuperati.
+已購買抵免額的有效期限為 1 年。抵免額過期後即會失效，無法再使用。
 
-Gli account **postpagamento** seguono le [norme di rimborso di Google Cloud](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=it#request_a_refund).
+**後付**帳戶適用 [Google Cloud 退款政策](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=zh-tw#request_a_refund)。
 
-## Account di fatturazione Cloud
+## Cloud Billing 帳戶
 
-L'API Gemini utilizza [account di fatturazione Cloud](https://cloud.google.com/billing/docs/concepts?hl=it) per i servizi di fatturazione, che puoi [configurare direttamente in AI Studio](#setup-billing).
-Puoi utilizzare AI Studio per monitorare la spesa, comprendere i costi ed effettuare pagamenti.
+Gemini API 會使用 [Cloud Billing 帳戶](https://cloud.google.com/billing/docs/concepts?hl=zh-tw)支付服務費用，您可以在 [AI Studio 中直接設定](#setup-billing)。您可以使用 AI Studio 追蹤支出、瞭解費用，以及付款。
 
-I livelli, i limiti di frequenza e i limiti dell'account di fatturazione vengono determinati a livello di account di fatturazione.
+層級、速率限制和帳單帳戶上限都是在帳單帳戶層級決定。
 
-### Progetti e chiavi API
+### 專案和 API 金鑰
 
-Tutti i [progetti](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) collegati a un account di fatturazione Cloud ereditano il livello di utilizzo e i limiti di velocità e i limiti dell'account associati. Se [modifiche un progetto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#change_the_billing_account_for_a_project)
-da un account di fatturazione a un altro, il suo livello e, di conseguenza, i limiti di frequenza e
-i limiti dell'account, passeranno al livello del nuovo account di fatturazione.
+連結至 Cloud Billing 帳戶的所有[專案](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)，都會沿用該帳戶的使用量層級、相關費率限制和帳戶上限。如果[將專案從一個帳單帳戶移至另一個帳單帳戶](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#change_the_billing_account_for_a_project)，專案的層級 (以及隨後的速率限制和帳戶上限) 會切換至新帳單帳戶的層級。
 
-La spesa cumulativa (per tutti i prodotti Google Cloud) e l'età dell'account in tutti i
-progetti collegati a un account di fatturazione vengono conteggiate ai fini delle
-[qualifiche per il livello](#about-billing) dell'account di fatturazione.
+與帳單帳戶相關聯的所有專案，其累計支出 (所有 Google Cloud 產品) 和帳戶存在時間，都會計入該帳單帳戶的[層級資格](#about-billing)。
 
-Puoi [scollegare un progetto](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#disable_billing_for_a_project) dal relativo account di fatturazione per tornare al livello senza costi.
+如要返回免費層級，可以[取消專案與帳單帳戶的連結](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#disable_billing_for_a_project)。
 
-Le [chiavi API](https://ai.google.dev/gemini-api/docs/api-key?hl=it) sono credenziali generate all'interno di un progetto.
-Non hanno impostazioni di fatturazione indipendenti; ereditano i limiti del livello e lo stato di fatturazione del progetto. L'utilizzo cumulativo di tutte le chiavi all'interno di un progetto viene conteggiato ai fini del limite di spesa del progetto e della spesa totale dell'account di fatturazione.
+[API 金鑰](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw)是在專案內產生的憑證。
+沒有獨立的帳單設定，而是沿用專案的層級限制和帳單狀態。專案中所有金鑰的累計用量，都會計入該專案的支出上限和帳單帳戶的總支出。
 
-## Domande frequenti
+## 常見問題
 
-Le sezioni seguenti forniscono le risposte alle domande frequenti.
+以下各節提供常見問題的解答。
 
-### Cosa mi viene addebitato?
+### 我需要支付什麼費用？
 
-I prezzi dell'API Gemini si basano su quanto segue:
+Gemini API 的價格取決於以下因素：
 
-- Conteggio token di input
-- Conteggio token di output
-- Conteggio dei token memorizzati nella cache
-- Durata di archiviazione del token memorizzato nella cache
+- 輸入詞元數
+- 輸出詞元數
+- 快取詞元數
+- 快取權杖儲存時間
 
-Per informazioni sui prezzi, consulta la [pagina dei prezzi](https://ai.google.dev/pricing?hl=it).
+如需定價資訊，請參閱[定價頁面](https://ai.google.dev/pricing?hl=zh-tw)。
 
-### Dove posso visualizzare la mia quota?
+### 如何查看配額？
 
-Puoi visualizzare la quota e i limiti di sistema in
-[AI Studio](https://aistudio.google.com/usage?hl=it).
+您可以在 [AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 中查看配額和系統限制。
 
-### Come faccio a passare a un livello di limite di frequenza più alto o a richiedere una quota maggiore?
+### 如何升級至更高的速率限制層級，或要求更多配額？
 
-Ti verrà automaticamente concessa una quota maggiore quando il tuo account raggiungerà i [requisiti del livello](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers) successivo.
+當帳戶達到下一個[層級的規定](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-tw#usage-tiers)時，系統會自動授予更多配額。
 
-### Posso utilizzare l'API Gemini senza costi nel SEE (inclusa l'UE), nel Regno Unito e in Svizzera?
+### 在歐洲經濟區 (包括歐盟)、英國和瑞士，可以免費使用 Gemini API 嗎？
 
-Sì, rendiamo disponibili il livello senza costi e quello a pagamento in [molte regioni](https://ai.google.dev/gemini-api/docs/available-regions?hl=it).
+是的，我們在[許多區域](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-tw)提供免費和付費方案。
 
-### Se configuro la fatturazione con l'API Gemini, mi verrà addebitato l'utilizzo di Google AI Studio?
+### 如果我為 Gemini API 設定帳單，是否需要支付 Google AI Studio 的使用費用？
 
-L'utilizzo di AI Studio rimane senza costi, a meno che gli utenti non colleghino una chiave API a pagamento per accedere alle funzionalità a pagamento.
-Una volta collegata una chiave API a pagamento nell'ambito di un progetto a pagamento in AI Studio, ti verrà addebitato l'utilizzo di AI Studio per quella chiave. Puoi passare da progetti del Livello a pagamento a progetti del Livello senza costi in base alle esigenze utilizzando le rispettive chiavi API collegate a ciascun tipo.
+除非使用者連結付費 API 金鑰來存取付費功能，否則 AI Studio 仍可免費使用。在 AI Studio 中，將付費 API 金鑰連結至付費專案後，系統就會針對該金鑰的 AI Studio 用量收費。您可以視需要使用與各類型連結的 API 金鑰，在付費方案專案和免費方案專案之間切換。
 
-### Se utilizzo il livello senza costi, come faccio a eseguire l'upgrade a livelli superiori?
+### 如果我使用免費方案，如何升級至更高方案？
 
-Per accedere ai livelli superiori, devi configurare la fatturazione nel tuo progetto. Fai clic su [**Configura
-la fatturazione**](#setup-billing) in Google AI Studio. Verrà illustrata la procedura per selezionare o creare un account di fatturazione Cloud. Se devi utilizzare il modello di fatturazione prepagata, la procedura **Configura fatturazione** ti guiderà nella creazione del tuo account prepagato collegato al tuo account di fatturazione Cloud.
+如要使用較高的層級，必須先在專案中設定帳單資訊。在 Google AI Studio 中，按一下「設定帳單」。系統會引導你選取或建立 Cloud Billing 帳戶。如果必須採用預付型帳單模式，系統會透過「設定帳單」程序，引導您建立連結至 Cloud Billing 帳戶的預付帳戶。
 
-### Posso utilizzare 1 milione di token nel livello senza costi?
+### 免費方案可以使用 100 萬個權杖嗎？
 
-Il livello senza costi per l'API Gemini varia in base al modello selezionato. Per il momento, puoi provare la finestra contestuale da 1 milione di token nei seguenti modi:
+Gemini API 的免費方案會因所選模型而異。目前，您可以透過下列方式試用 100 萬個詞元的脈絡窗口：
 
-- In Google AI Studio
-- Con piani senza costi per modelli selezionati
-- Con i piani con pagamento posticipato
+- 在 Google AI Studio 中
+- 指定車款可享免付費方案
+- 後付費方案
 
-### Posso tornare al livello senza costi dopo aver eseguito l'upgrade a livelli superiori (a pagamento)?
+### 升級至較高 (付費) 層級後，可以還原為免費方案嗎？
 
-Per eseguire il downgrade al Livello senza costi, puoi [disattivare la fatturazione](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#disable_billing_for_a_project)
-per ciascuno dei progetti per cui vuoi eseguire il downgrade.
+如要降級至免費方案，請在要降級的每個專案中[停用計費功能](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#disable_billing_for_a_project)。
 
-### Come posso calcolare il numero di token che sto utilizzando?
+### 如何計算我使用的權杖數量？
 
-Utilizza il metodo [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=it#count_tokens)
-per conteggiare il numero di token. Per saperne di più sui token, consulta la [guida ai token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
+使用 [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=zh-tw#count_tokens) 方法計算權杖數量。如要進一步瞭解權杖，請參閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)。
 
-### Se mi registro per il mio primo account di fatturazione Cloud tramite AI Studio, riceverò comunque una prova senza costi di Google Cloud?
+### 如果我透過 AI Studio 申請第一個 Cloud Billing 帳戶，還能獲得 Google Cloud 免費試用方案嗎？
 
-Quando ti registri per il tuo primo account di fatturazione Cloud, inizia la [prova senza costi di Google Cloud](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=it#free-trial) e ti vengono concessi 300 $di [credito di benvenuto](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it#welcome-credits).
-Tuttavia, questi crediti non possono essere utilizzati per pagare l'utilizzo di AI Studio. Puoi utilizzare il
-credito di benvenuto per pagare altri servizi idonei all'interno di Google Cloud (tieni presente che
-una volta consumati o scaduti (entro 90 giorni), eventuali costi di utilizzo aggiuntivi
-vengono fatturati automaticamente al metodo di pagamento stabilito).
+首次註冊 Cloud Billing 帳戶時，系統會啟動 [Google Cloud 免費試用](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=zh-tw#free-trial)，並提供 $300 美元的[迎新抵免額](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw#welcome-credits)。不過，這些抵免額無法用於支付 AI Studio 用量。您可以使用歡迎抵免額支付 Google Cloud 中其他符合資格的服務費用 (請注意，一旦抵免額用完或過期 (90 天內)，系統就會自動透過您設定的付款方式，收取任何額外使用費)。
 
-### Posso utilizzare il mio credito di benvenuto di Google Cloud con l'API Gemini?
+### 我可以使用 Google Cloud 迎新抵免額搭配 Gemini API 嗎？
 
-No, il [credito di benvenuto](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it#welcome-credits) di Google Cloud
-o il credito della prova senza costi non possono essere utilizzati per l'API Gemini o AI Studio.
+否，Google Cloud [迎新抵免額](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw#welcome-credits)或免費試用抵免額無法用於 Gemini API 或 AI Studio。
 
-Se ti è stato concesso un credito di benvenuto Google Cloud prima che diventasse
-non idoneo, puoi spendere i crediti rimanenti per l'API Gemini
-e AI Studio fino alla scadenza dei crediti (dopo 90 giorni).
+如果 Google Cloud 迎新抵免額在您取得後才不符合資格，您仍可在抵免額到期前 (90 天後)，將剩餘抵免額用於 Gemini API 和 AI Studio。
 
-### La prova senza costi di Google Cloud si applica all'utilizzo dell'API Gemini?
+### Google Cloud 免費試用方案是否適用於 Gemini API 用量？
 
-No, a partire da marzo 2026, i costi di utilizzo dell'API Gemini sono specificamente esclusi dal programma [prova senza costi di Google Cloud di 300$](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=it#free-trial).
+不行。自 2026 年 3 月起，Gemini API 用量費用將不計入 [$300 美元的 Google Cloud 免費試用](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=zh-tw#free-trial)計畫。
 
-### Come funzionano i crediti Google Cloud con il pagamento anticipato?
+### Google Cloud 抵免額如何與預付方案搭配運作？
 
-Gli utenti prepagati devono prima [acquistare crediti prepagati](#buy-credits) prima che
-possano essere applicati crediti Google Cloud idonei all'utilizzo dell'API Gemini. Una volta che hai
-un saldo del credito prepagato attivo, i crediti Google Cloud idonei per l'API
-Gemini vengono utilizzati prima del saldo del credito prepagato. Quando il saldo del credito prepagato nell'account di fatturazione raggiunge 0 $, i crediti Google Cloud non verranno più utilizzati.
+預付使用者必須先[購買預付額度](#buy-credits)，才能將任何符合資格的 Google Cloud 抵免額用於 Gemini API。如果預付抵免額餘額有效，系統會先使用適用於 Gemini API 的 Google Cloud 抵免額，再使用預付抵免額餘額。當帳單帳戶的預付抵免額餘額達到 $0 時，系統將不再使用 Google Cloud 抵免額。
 
-Non tutti i crediti Google Cloud, come il
-[credito di benvenuto di Google Cloud](#cloud-credits), possono essere utilizzati per l'API Gemini
-e AI Studio.
+並非所有 Google Cloud 抵免額 (例如 [Google Cloud 迎新抵免額](#cloud-credits)) 都能用於 Gemini API 和 AI Studio。
 
-### Come viene gestita la fatturazione?
+### 如何計費？
 
-La fatturazione dell'API Gemini viene gestita dal sistema di [fatturazione Cloud](https://cloud.google.com/billing/docs/concepts?hl=it). Scopri di più sulla
-configurazione della fatturazione Cloud nel prodotto nella [documentazione sulla fatturazione Cloud](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=it).
+Gemini API 的帳單事務是由 [Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=zh-tw) 系統處理。如要瞭解如何透過產品設定 Cloud Billing，請參閱 [Cloud Billing 說明文件](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw)。
 
-### Mi vengono addebitati costi per le richieste non riuscite?
+### 系統會對失敗的要求收費嗎？
 
-Se la richiesta non va a buon fine e viene visualizzato un errore 400 o 500, non ti verranno addebitati i token utilizzati. Tuttavia, la richiesta verrà comunque conteggiata ai fini della quota.
+如果要求失敗並傳回 400 或 500 錯誤，系統不會收取使用的權杖費用。不過，這類要求仍會計入配額。
 
-### `GetTokens` è fatturato?
+### 「`GetTokens`」是否已結算？
 
-Le richieste all'API `GetTokens` non vengono fatturate e non vengono conteggiate ai fini della quota di inferenza.
+對 `GetTokens` API 的要求不會產生費用，也不會計入推論配額。
 
-### Come vengono gestiti i miei dati di Google AI Studio se ho un account API a pagamento?
+### 如果我使用付費 API 帳戶，Google AI Studio 資料會如何處理？
 
-Per informazioni dettagliate su come vengono gestiti i dati quando è attivata la fatturazione Cloud, consulta i [Termini di servizio](https://ai.google.dev/gemini-api/terms?hl=it#paid-services) (vedi "In che modo Google utilizza i tuoi dati" nella sezione "Servizi a pagamento"). Tieni presente che i prompt di Google AI Studio sono
-trattati ai sensi degli stessi termini dei "Servizi a pagamento" purché almeno un progetto API
-abbia la fatturazione abilitata, che puoi convalidare nella
-[pagina della chiave API Gemini](https://aistudio.google.com/api-keys?hl=it) se vedi
-progetti contrassegnati come "A pagamento" in "Piano".
+如要瞭解啟用 Cloud 帳單後資料的處理方式，請參閱《[服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#paid-services)》的「付費服務」部分，並查看「Google 如何使用您的資料」。請注意，只要至少有 1 個 API 專案啟用帳單功能，Google AI Studio 提示就會適用相同的「付費服務」條款。如要驗證，請前往 [Gemini API 金鑰頁面](https://aistudio.google.com/api-keys?hl=zh-tw)，查看「方案」下方是否有任何專案標示為「付費」。
 
-### Che cos'è la fatturazione prepagata e chi è tenuto a utilizzare il modello di fatturazione prepagata?
+### 什麼是預付結算？哪些人必須使用預付結算模式？
 
-La fatturazione prepagata consente agli utenti dell'API Gemini in AI Studio di pre-acquistare i crediti.
-A partire dal 23 marzo 2026, i nuovi utenti di AI Studio potrebbero dover utilizzare il piano di fatturazione prepagato. Durante la procedura di [configurazione della fatturazione](#setup-billing) di AI Studio, l'interfaccia utente ti guiderà nel flusso di configurazione della fatturazione e indicherà se è necessario effettuare un pagamento anticipato.
+預付帳單功能可讓 AI Studio 中的 Gemini API 使用者預購抵免額。2026 年 3 月 23 日起，AI Studio 新使用者可能必須採用預付方案。在 AI Studio 的「設定帳單」過程中，使用者介面會引導您完成帳單設定流程，並指出是否需要預付款。
 
-### Come faccio ad acquistare i crediti prepagati? Esiste un importo minimo o massimo?
+### 如何購買預付抵免額？是否有最低或最高金額限制？
 
-Puoi [acquistare crediti](#buy-credits) nella pagina Fatturazione di AI Studio. Durante
-la procedura di acquisto, l'interfaccia utente fornirà l'importo minimo di pre-acquisto
-richiesto per la tua regione e il tuo livello, nonché un importo massimo che può
-essere presente nel tuo account contemporaneamente.
+你可以在 AI Studio 的「帳單」頁面[購買點數](#buy-credits)。在購買過程中，使用者介面會顯示您所在區域和層級的最低預付金額，以及帳戶一次可儲值的最高金額。
 
-### Posso configurare il mio account con pagamento anticipato in modo che acquisti automaticamente altri crediti in base alle necessità?
+### 我可以設定預付帳戶，在需要時自動購買更多點數嗎？
 
-Sì, ti consigliamo di configurare la [ricarica automatica](#auto-reload) nelle impostazioni di fatturazione di AI
-Studio. Specifichi un saldo del credito "trigger" (ad es. "quando il mio saldo scende al di sotto di 30 $") e un "valore di ricarica" (ad es. "aggiungi 100 $").
+建議您在 AI Studio 帳單設定中設定[自動重新載入](#auto-reload)。您指定「觸發」抵免額餘額 (例如「當餘額低於 $30 美元時」) 和「儲值金額」(例如「加值 $100 美元」)。
 
-### Posso limitare l'importo degli addebiti per la ricarica automatica?
+### 我可以限制自動儲值金額嗎？
 
-Sì, gli utenti prepagati possono impostare un [limite di addebito automatico mensile](#monthly-auto-charge-limit)
-all'interno del widget **Ricarica automatica**. Quando l'importo totale delle ricariche automatiche in un ciclo di fatturazione raggiunge questo limite, il sistema disattiva la ricarica automatica fino al mese successivo. Gli acquisti manuali di crediti non vengono conteggiati ai fini di questo limite.
+可以。預付型方案使用者可以在「自動儲值」小工具中設定「每月自動扣款上限」。當帳單週期內的自動儲值總金額達到這個上限時，系統會停用自動儲值功能，直到下個月為止。手動購買的點數不會計入這項限制。
 
-### Posso ricevere un rimborso per i miei crediti inutilizzati?
+### 未使用的點數可以退款嗎？
 
-Tutti i crediti API prepagati scadono dopo 1 anno e non possono essere rimborsati. Leggi le
-[norme sui rimborsi per gli account con pagamento anticipato](#refunds).
+所有預付 API 點數的有效期限為 1 年，且無法退款。詳閱[預付帳戶的退款政策](#refunds)。
 
-### I miei crediti prepagati scadono?
+### 預付抵免額會過期嗎？
 
-Sì, i crediti scadono 12 mesi dopo la data di acquisto.
+會，抵免額會在購買日起 12 個月後到期。
 
-### Che cosa succede quando il saldo del mio credito prepagato raggiunge 0 €?
+### 預付額度用完會怎麼樣？
 
-Tutti i servizi API Gemini in tutti i progetti pagati da quell'account di fatturazione Cloud prepagato verranno interrotti immediatamente per evitare ulteriori addebiti. I tuoi progetti
-non vengono automaticamente sottoposti a downgrade al Livello senza costi.
+為避免產生更多費用，由該 Cloud Billing 預付帳戶支付的所有專案中，所有 Gemini API 服務都會立即停止。專案不會自動降級為免費方案。
 
-Per ripristinare il servizio al tuo attuale livello di piano a pagamento, devi [acquistare
-crediti aggiuntivi](#buy-credits). Dopo aver acquistato i crediti, dovresti
-poter utilizzare l'API Gemini. Tieni presente che potrebbe verificarsi un [ritardo](#processing-times) durante l'aggiornamento dei nostri sistemi per riflettere il saldo del credito.
+如要恢復目前付費層級的服務，請[購買額外點數](#buy-credits)。購買抵免額後，您應該就能使用 Gemini API。請注意，系統更新以反映信用額度時，可能會有[延遲](#processing-times)。
 
-Se vuoi eseguire il downgrade al Livello senza costi, puoi [disattivare la fatturazione](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=it#disable_billing_for_a_project)
-per i progetti per cui vuoi eseguire il downgrade.
+如要降級至免費方案，可以選擇在要降級的專案中[停用計費功能](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#disable_billing_for_a_project)。
 
-### Perché il mio utilizzo si è interrotto anche se il saldo del credito prepagato è superiore a 0 €?
+### 為什麼預付額度大於 $0，但使用量卻停止了？
 
-Potresti aver raggiunto il [limite di utilizzo](#tier-spend-caps) per il tuo livello attuale.
-I limiti di utilizzo aumenteranno automaticamente man mano che avanzi verso livelli superiori. L'utilizzo di
-Gemini API AI Studio può essere influenzato anche dallo [stato del tuo
-account di fatturazione Cloud](#missed-payment).
+你可能已達到目前方案的[用量上限](#tier-spend-caps)。
+隨著你升級至較高的級別，用量限制也會自動增加。[Cloud Billing 帳戶狀態](#missed-payment)也可能影響 Gemini API AI Studio 用量。
 
-### Perché il saldo del credito del mio account prepagato è negativo?
+### 為什麼我的預付帳戶信用額度餘額為負值？
 
-A causa della complessità dei nostri sistemi di fatturazione ed elaborazione, potrebbero verificarsi
-[ritardi](#processing-times) nella nostra capacità di interrompere l'utilizzo dopo che hai consumato
-tutti i tuoi crediti. Questo utilizzo in eccesso potrebbe essere visualizzato come saldo del credito negativo
-nella dashboard di fatturazione di AI Studio. In questo caso, il servizio viene messo in pausa e il saldo negativo verrà detratto dal tuo prossimo acquisto di crediti.
+由於帳單和處理系統相當複雜，因此在您用完所有抵免額後，我們可能[延遲](#processing-times)停止服務。這類超額用量可能會在 AI Studio 帳單資訊主頁中顯示為負值抵免餘額。如果發生這種情況，服務會暫停，而負餘額會從您下次購買的抵免額中扣除。
 
-Per evitare una pausa nel servizio API Gemini, ti consigliamo di configurare la
-[ricarica automatica](#auto-reload) per acquistare automaticamente altri crediti quando il saldo
-scende al di sotto di un valore specificato.
+為避免 Gemini API 服務暫停，建議您設定[自動儲值](#auto-reload)，在抵免餘額低於指定值時自動購買更多抵免額。
 
-### Posso utilizzare i miei crediti prepagati per altri servizi Google Cloud, come Gemini Enterprise Agent Platform?
+### 預付抵免額是否可用於其他 Google Cloud 服務，例如 Gemini Enterprise Agent Platform？
 
-No, i crediti prepagati sono strettamente limitati all'utilizzo dell'API Gemini. Qualsiasi
-altro servizio Google Cloud che utilizzi (Compute, Storage, Gemini Enterprise Agent Platform) viene fatturato utilizzando
-il [ciclo di fatturazione di Cloud](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it) standard.
+不行，預付抵免額只能用於 Gemini API。您使用的任何其他 Google Cloud 服務 (Compute、Storage、Gemini Enterprise Agent Platform) 都會按照標準 [Cloud 計費週期](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw)計費。
 
-### Posso passare dalla fatturazione con pagamento anticipato a quella con pagamento posticipato?
+### 可以從預付改為後付嗎？
 
-No, il passaggio da un piano di fatturazione prepagato a un piano di fatturazione postpagato non è supportato.
+否，系統不支援從預付帳單方案切換至後付帳單方案。
 
-### Posso passare dalla fatturazione con pagamento posticipato a quella con pagamento anticipato?
+### 可以從後付切換為預付帳單嗎？
 
-Sì, puoi eseguire la transizione di un account con pagamento posticipato esistente nella pagina [Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it). Per istruzioni, vedi [Eseguire la migrazione al prepagamento](#migrate-to-prepay).
+可以，您可以在 [AI Studio 帳單](https://aistudio.google.com/billing?hl=zh-tw)頁面轉換現有的後付帳戶。如需操作說明，請參閱「[改用預付方案](#migrate-to-prepay)」。
 
-### Che cosa succede ai miei crediti prepagati se passo a Postpay?
+### 如果改用月結方案，預付額度會怎麼樣？
 
-Quando esegui l'upgrade a [Pagamento posticipato](#postpay), la fatturazione Cloud chiude il tuo account pagamenti prepagato, disattiva la [ricarica automatica](#auto-reload) e ti rimborsa automaticamente eventuali crediti prepagati inutilizzati (in base ai tempi di elaborazione standard dei rimborsi).
+升級至[後付](#postpay)後，Cloud Billing 會關閉預付付款帳戶、停用[自動儲值](#auto-reload)，並自動將任何未使用的預付抵免額退還給您 (退款處理時間依標準程序而定)。
 
-### Dove posso visualizzare il saldo attuale del credito prepagato e la cronologia delle transazioni?
+### 我可以在哪裡查看目前的預付額度餘額和交易記錄？
 
-Tutta la gestione del saldo e la cronologia delle transazioni per l'API Gemini devono essere
-eseguite direttamente nella scheda Fatturazione di Google AI Studio.
+如要管理 Gemini API 餘額和交易記錄，請直接前往 Google AI Studio 的「帳單」分頁。
 
-### Perché visualizzo il messaggio "Il tipo di account di fatturazione è inattivo o non supportato"?
+### 為什麼會看到「帳單帳戶類型無效或不受支援」？
 
-Le interazioni di pagamento nella [pagina Fatturazione di AI Studio](https://aistudio.google.com/billing?hl=it) potrebbero essere bloccate e sostituite dal messaggio "Il tipo di account di fatturazione è inattivo o non supportato" se il tipo di account di fatturazione o lo stato dell'account di fatturazione selezionato non è idoneo per il livello a pagamento in AI Studio.
+如果所選帳單帳戶類型或帳單帳戶狀態不符合 AI Studio 付費層級的資格，系統可能會封鎖 [AI Studio 帳單頁面](https://aistudio.google.com/billing?hl=zh-tw)的付款互動，並顯示「帳單帳戶類型無效或不支援」訊息。
 
-Controlla la [console Cloud](https://console.cloud.google.com/billing/?hl=it) per visualizzare lo stato del tuo account di fatturazione. Un tipo non idoneo potrebbe essere *account di prova senza costi*, nel
-qual caso puoi [attivare la fatturazione](#setup-billing) in AI Studio per diventare
-idoneo. Uno stato inattivo potrebbe essere *Chiuso*, nel qual caso puoi [riaprire
-l'account](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=it).
+請前往 [Cloud Console](https://console.cloud.google.com/billing/?hl=zh-tw) 查看帳單帳戶狀態。其中一種不符合資格的類型可能是*免費試用帳戶*，在這種情況下，您可以在 AI Studio 中[啟用帳單](#setup-billing)，即可符合資格。其中一種閒置狀態是「已關閉」，在這種情況下，您可以[重新開啟帳戶](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=zh-tw)。
 
-### I costi di utilizzo dell'API Gemini verranno visualizzati nella console Google Cloud?
+### Google Cloud 控制台會顯示 Gemini API 用量費用嗎？
 
-Sì, i costi dell'API Gemini, insieme a quelli associati a qualsiasi altro servizio Google Cloud
-pagato dal tuo account di fatturazione Cloud, sono visibili nelle
-[pagine di gestione dei costi](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=it#cost-reports)
-della [console Cloud Billing](https://console.cloud.google.com/billing?hl=it). Tieni presente
-che puoi gestire il saldo del credito prepagato solo in AI Studio.
+可以。Gemini API 費用以及 Cloud Billing 帳戶支付的任何其他 Google Cloud 服務相關費用，都會顯示在 [Cloud Billing 控制台](https://console.cloud.google.com/billing?hl=zh-tw)的[費用管理頁面](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=zh-tw#cost-reports)。請注意，你只能在 AI Studio 中管理預付額度餘額。
 
-### Perché il mio utilizzo dell'API Gemini non viene visualizzato nella console Fatturazione Cloud, mentre lo vedo nella fatturazione di AI Studio, insieme al consumo dei miei crediti?
+### 為什麼我在 AI Studio 帳單中可以看到 Gemini API 用量和抵免額用量，但 Cloud Billing Console 中卻沒有顯示？
 
-Google Cloud e AI Studio segnalano i dati di utilizzo alla fatturazione Cloud a intervalli variabili. A causa della complessità dei nostri sistemi di fatturazione ed elaborazione, potresti riscontrare un ritardo tra l'utilizzo dei servizi e la visualizzazione dell'utilizzo e dei costi relativi in fatturazione Cloud. In genere, i dettagli dei costi sono disponibili
-entro un giorno, ma a volte possono essere necessarie più di 24 ore.
-Scopri di più sulla fatturazione posticipata nella [documentazione di Cloud Billing](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=it#delayed-billing).
+Google Cloud 和 AI Studio 會按照不同間隔，將用量資料回報給 Cloud Billing。由於帳單和處理系統較為複雜，您可能需要等待一段時間，才能在 Cloud Billing 中查看服務用量和費用。費用明細通常會在一天內顯示，但有時可能超過 24 小時。如要進一步瞭解延遲結算，請參閱 [Cloud Billing 說明文件](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw#delayed-billing)。
 
-### Se utilizzo altri servizi Google Cloud con costi soggetti a un ciclo di addebito postpagato, cosa succede se non effettuo un pagamento?
+### 如果我使用其他 Google Cloud 服務，且費用適用於後付費週期，如果我未付款會發生什麼情況？
 
-Il mancato pagamento di altri servizi Google Cloud può sospendere l'accesso all'API Gemini in AI Studio, **indipendentemente dal numero di crediti prepagati disponibili**. L'utilizzo di AI Studio è alimentato da un account di fatturazione Google Cloud, che
-può condividere sia la fatturazione prepagata per AI Studio sia la fatturazione postpagata per altri servizi
-cloud. Un problema con il saldo Postepay interrompe tutti i servizi collegati a questo
-account. L'utilizzo dell'API Gemini verrà sospeso se il tuo account di fatturazione Cloud
-viene segnalato per problemi quali:
+如果其他 Google Cloud 服務的款項未繳清，即使**預付抵免額充足**，系統仍會暫停您在 AI Studio 中存取 Gemini API。AI Studio 的用量會透過 Google Cloud Billing 帳戶計費，該帳戶可同時用於 AI Studio 的預付帳單，以及其他 Cloud 服務的後付帳單。如果後付餘額有問題，與該帳戶相關的所有服務都會停止運作。如果 Cloud Billing 帳戶因下列問題遭到標記，Gemini API 用量就會遭到停權：
 
-- Un saldo insoluto o scaduto
-- Un pagamento rifiutato
-- Un metodo di pagamento non valido o scaduto
+- 逾期或未繳的餘額
+- 已遭拒的付款
+- 付款方式無效或過期
 
-Per ripristinare il servizio, devi [risolvere il problema dell'account postpagato](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=it#resolving-declined-payments)
-nella console Google Cloud Billing. Una volta risolto il problema, riavrai
-accesso ai tuoi servizi e crediti prepagati dell'API Gemini.
+如要恢復服務，請前往 Google Cloud Billing 控制台[解決後付費帳戶問題](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=zh-tw#resolving-declined-payments)。解決問題後，您就能重新使用預付型 Gemini API 抵免額和服務。
 
-### Perché i miei progetti vengono interrotti dopo l'annullamento di una configurazione di pagamento anticipato?
+### 取消預付設定後，為什麼專案會中斷？
 
-**Problema:** hai avviato il flusso per aggiungere funzionalità di pagamento anticipato a un account di fatturazione postpagato esistente, ma hai chiuso la finestra o annullato la procedura prima di completare la configurazione del pagamento anticipato. Altri progetti collegati a quell'account di fatturazione
-hanno perso l'accesso all'API Gemini.
+**問題：**您已啟動程序，要為現有的後付帳單帳戶新增預付功能，但尚未完成預付設定，就關閉視窗或取消程序。與該帳單帳戶連結的其他專案將無法存取 Gemini API。
 
-**Causa:** durante il flusso di transizione, l'infrastruttura per supportare il pagamento anticipato viene
-creata nel tuo account di fatturazione immediatamente dopo che accetti la finestra di dialogo di conferma. Se non completi i passaggi per il pagamento anticipato, la configurazione rimane
-in uno stato non addebitabile. Poiché questo stato si applica a livello di account di fatturazione, limita l'accesso a tutti i progetti collegati a quell'account di fatturazione che si basano sui servizi prepagati.
+**原因：**在轉換流程中，接受確認對話方塊後，系統會立即在帳單帳戶中建立支援預付的基礎架構。如果未完成預付步驟，設定會維持無法收費的狀態。由於這項狀態適用於帳單帳戶層級，因此凡是連結至該帳單帳戶且依賴預付服務的專案，都會受到存取限制。
 
-**Risoluzione**:poiché lo stato dell'account è già cambiato, non esiste un modo automatico per ripristinarlo se abbandoni il flusso di pagamento. Per ripristinare
-il servizio nei tuoi progetti collegati, esegui una delle seguenti operazioni:
+**解決方法：**由於帳戶狀態已變更，如果放棄付款流程，系統不會自動還原狀態。如要還原連結專案的服務，請執行下列任一操作：
 
-- **Completa la configurazione:** torna a Google AI Studio, riavvia il flusso di configurazione della fatturazione e completa la procedura di pagamento anticipato. Una volta elaborato il pagamento, il piano di fatturazione prepagato diventa attivo e il servizio viene ripristinato.
-- **Contatta l'assistenza**:se non vuoi utilizzare il piano di fatturazione prepagato e vuoi ripristinare l'account di fatturazione postpagato, [contatta l'assistenza per la fatturazione Cloud](https://cloud.google.com/support/billing?hl=it) per reimpostare manualmente lo stato dell'account.
+- **完成設定：**返回 Google AI Studio，重新啟動帳單設定流程，然後完成預付款程序。付款處理完畢後，預付帳單方案就會啟用，服務也會恢復。
+- **聯絡支援團隊：**如果您不想使用預付計費方案，並想將帳單帳戶還原為後付方案，請[聯絡 Cloud Billing 支援團隊](https://cloud.google.com/support/billing?hl=zh-tw)，手動重設帳戶狀態。
 
-### Dove posso ricevere assistenza per la fatturazione?
+### 如何取得帳單相關協助？
 
-Per ricevere assistenza in merito alla fatturazione, consulta la pagina
-[Richiedi assistenza per la fatturazione Cloud](https://cloud.google.com/support/billing?hl=it).
+如需帳單相關協助，請參閱「[取得 Cloud Billing 支援](https://cloud.google.com/support/billing?hl=zh-tw)」。
 
-Invia feedback
+提供意見
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Ultimo aggiornamento 2026-09-28 UTC.
+上次更新時間：2026-09-28 (世界標準時間)。
 
-Vuoi dirci altro?
+想進一步說明嗎？
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-28 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-28 (世界標準時間)。"],[],[]]

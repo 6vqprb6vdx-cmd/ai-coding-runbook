@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=vi
-fetched_at: 2026-10-19T05:45:34.099740+00:00
-title: "T\u1ea1o v\u00e0 ch\u1ec9nh s\u1eeda video b\u1eb1ng Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=tr
+fetched_at: 2026-10-26T05:41:31.243278+00:00
+title: "Gemini Omni Flash ile video \u00fcretme ve d\u00fczenleme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Tạo và chỉnh sửa video bằng Gemini Omni Flash
+# Gemini Omni Flash ile video üretme ve düzenleme
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`) là một mô hình đa phương thức hiệu suất cao, được thiết kế để tạo và chỉnh sửa video ở tốc độ cao, đồng thời kiểm soát chất lượng điện ảnh.
-Gemini Omni được xây dựng dựa trên những chức năng cốt lõi sau đây, giúp phân biệt mô hình này với các mô hình video trước đây:
+Gemini Omni Flash (`gemini-omni-1.1-flash`), yüksek hızlı video üretimi, düzenleme ve sinematik kontrol için tasarlanmış yüksek performanslı bir çok formatlı modeldir.
+Gemini Omni, önceki video modellerinden ayıran aşağıdaki temel özellikler üzerine kurulmuştur:
 
-- **Đa phương thức tự nhiên:** Gemini có thể xử lý đồng thời văn bản, hình ảnh, âm thanh và video, mang đến cho bạn kết quả nhất quán, mạch lạc và dễ kiểm soát hơn.
-- **Chỉnh sửa bằng ngôn ngữ tự nhiên:** được hỗ trợ bởi [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=vi), tính năng này cho phép bạn tinh chỉnh và chỉnh sửa video nhiều lần thông qua cuộc trò chuyện bằng ngôn ngữ tự nhiên. Mô tả nội dung bạn muốn thay đổi, mô hình sẽ áp dụng nội dung chỉnh sửa trong khi vẫn giữ lại những phần bạn muốn giữ lại trong video.
-- **Kiến thức về thế giới:** Gemini Omni kết hợp kiến thức về vật lý với kiến thức của Gemini về lịch sử, khoa học và bối cảnh văn hoá, thu hẹp khoảng cách từ tính chân thực của ảnh đến khả năng kể chuyện có ý nghĩa.
+- **Doğal çok formatlılık:** Metin, resim, ses ve videoyu aynı anda işleyerek daha tutarlı, tutarlı ve kontrol edilebilir bir çıkış sağlar.
+- **Etkileşimli düzenleme:** [Etkileşimler API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) ile etkinleştirilen bu özellik, doğal dil sohbeti aracılığıyla videolarınızı yinelemeli olarak iyileştirmenize ve düzenlemenize olanak tanır. Değiştirmek istediğiniz şeyi açıklayın. Model, düzenlemeyi uygularken videonun korumak istediğiniz kısımlarını da korur.
+- **Dünya bilgisi:** Gemini Omni, fizik anlayışını Gemini'ın tarih, bilim ve kültürel bağlam bilgisiyle birleştirerek fotorealizm ile anlamlı hikaye anlatımı arasındaki boşluğu doldurur.
 
-## Tạo video từ văn bản
+## Metinden video üretme
 
-Tạo video từ câu lệnh văn bản. Mô hình này tạo video có âm thanh dựa trên nội dung mô tả bằng văn bản của bạn. Viết câu lệnh có các thông tin chi tiết như nội dung mô tả cảnh, chuyển động của camera, ánh sáng và tâm trạng để có kết quả tốt nhất.
+Metin isteminden video oluşturma Model, metin açıklamanıza göre sesli bir video oluşturur. En iyi sonuçları almak için sahne açıklaması, kamera hareketi, ışıklandırma ve atmosfer gibi ayrıntıları içeren istemler yazın.
 
 ### Python
 
@@ -152,12 +152,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Lược đồ phản hồi REST
+### REST yanıt şeması
 
-Trường tiện ích `interaction.output_video` **chỉ dành cho SDK**.
-Nhận đầu ra video từ mảng `steps` khi sử dụng trực tiếp API REST.
+Kolaylık alanı `interaction.output_video` **yalnızca SDK**'dır.
+REST API'yi doğrudan kullanırken `steps` dizisinden video çıkışını alın.
 
-**Cấu trúc JSON REST thô:**
+**Ham REST JSON yapısı:**
 
 ```
 {
@@ -182,9 +182,9 @@ Nhận đầu ra video từ mảng `steps` khi sử dụng trực tiếp API RES
 }
 ```
 
-### Kiểm soát tỷ lệ khung hình
+### En boy oranını kontrol etme
 
-Đặt `aspect_ratio` thành `"9:16"` để tạo video dọc. Hướng ngang (16:9) là hướng mặc định.
+Dikey videolar oluşturmak için `aspect_ratio` simgesini `"9:16"` olarak ayarlayın. Varsayılan olarak yatay (16:9) kullanılır.
 
 ### Python
 
@@ -338,16 +338,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Độ phân giải đầu ra
+### Çıkış çözünürlüğü
 
-Kiểm soát độ phân giải đầu ra của video được tạo bằng cách sử dụng tham số `resolution` trong `response_format`. Độ phân giải mặc định là 720p.
+`response_format` uygulamasında `resolution` parametresini kullanarak oluşturulan videonuzun çıkış çözünürlüğünü kontrol edin. Varsayılan çözünürlük 720p'dir.
 
-| Giá trị | Mô tả |
+| Değer | Açıklama |
 | --- | --- |
-| `360p` | Độ phân giải đầu ra 360p |
-| `720p` | Độ phân giải đầu ra 720p (mặc định) |
-| `1080p` | Đầu ra 1080p (tăng độ phân giải) |
-| `4k` | Đầu ra 4K (đã tăng độ phân giải) |
+| `360p` | 360p çıkış çözünürlüğü |
+| `720p` | 720p çıkış çözünürlüğü (varsayılan) |
+| `1080p` | 1080p çıkış (çözünürlüğü artırılmış) |
+| `4k` | 4K çıkış (yukarı ölçeklenmiş) |
 
 ### Python
 
@@ -499,24 +499,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Trình duyệt của bạn không hỗ trợ thẻ video này.
+Tarayıcınız video etiketini desteklemiyor.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_misty_mountains_1080p.mp4)
 
-## Tạo video từ hình ảnh
+## Görüntüden video üretme
 
-Bạn có thể cung cấp một hình ảnh tham khảo cùng với câu lệnh dạng văn bản. Tuỳ thuộc vào câu lệnh của bạn, mô hình sẽ quyết định cách sử dụng hình ảnh. Tính năng này hữu ích khi bạn muốn tạo sức sống cho ảnh chụp sản phẩm, hình minh hoạ hoặc ảnh chụp.
+Metin isteminizle birlikte bir referans görsel sağlayabilirsiniz. Model, isteminize bağlı olarak görüntüyü nasıl kullanacağına karar verir. Bu özellik, ürün çekimlerine, illüstrasyonlara veya fotoğraflara hayat vermek için kullanışlıdır.
 
-Ví dụ sau đây cho thấy cách sử dụng hình ảnh tham khảo về bức vẽ một con cá nhảy ra khỏi mặt nước:
+Aşağıdaki örnekte, sudan çıkan bir balık çiziminin referans görselinin nasıl kullanılacağı gösterilmektedir:
 
-![Hình vẽ một con cá nhảy lên khỏi mặt nước](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=vi)
+![Sudan zıplayan balık çizimi](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=tr)
 
-Với câu lệnh sau:
+Aşağıdaki istemle:
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-Để tạo video chân thực về bản vẽ.
+Çizimin gerçekçi bir videosunu oluşturmak için.
 
 ### Python
 
@@ -685,11 +685,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Nội suy khung hình đầu tiên và cuối cùng
+### İlk ve son kare interpolasyonu
 
-Gemini Omni Flash hỗ trợ tính năng nội suy video, cho phép bạn tạo video chuyển đổi mượt mà giữa hình ảnh bắt đầu (khung hình đầu tiên) và hình ảnh kết thúc (khung hình cuối cùng).
+Gemini Omni Flash, video ara karesi oluşturmayı destekler. Bu sayede, başlangıç resmi (ilk kare) ile bitiş resmi (son kare) arasında sorunsuz geçiş yapan bir video oluşturabilirsiniz.
 
-Cung cấp 2 hình ảnh trong danh sách `input` và mô tả hiệu ứng chuyển cảnh mong muốn trong câu lệnh. Mô hình sẽ tạo ảnh động cho cảnh từ khung hình đầu tiên đến khung hình kết thúc.
+`input` listesinde iki resim sağlayın ve isteminizde istediğiniz geçişi açıklayın. Model, sahneyi ilk kareden son kareye kadar animasyona dönüştürür.
 
 ### Python
 
@@ -881,13 +881,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Trình duyệt của bạn không hỗ trợ thẻ video này.
+Tarayıcınız video etiketini desteklemiyor.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_keyframe_interpolation.mp4)
 
-### Tham chiếu chủ đề
+### Konu referansı
 
-Bạn có thể tạo video có chứa các chủ đề cụ thể được cung cấp dưới dạng hình ảnh tham khảo.
-Ví dụ: mã sau đây cho biết cách cung cấp 2 hình ảnh về một chú mèo và cuộn len để tạo video về chú mèo đang chơi với cuộn len.
+Referans resim olarak sağlanan belirli konuları içeren videolar oluşturabilirsiniz.
+Örneğin, aşağıdaki kodda, kedinin iple oynadığı bir video oluşturmak için kedi ve ipin 2 resminin nasıl sağlanacağı gösterilmektedir.
 
 ### Python
 
@@ -1074,11 +1074,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Tham số Tasks
+### Görev parametresi
 
-Sử dụng tham số `task` trong `video_config` để chỉ định rõ hành vi dự kiến, ví dụ: nếu bạn muốn mô hình tạo video từ một hình ảnh, bạn có thể đặt tham số thành `image_to_video`. Nếu bạn không đặt giá trị này, mô hình sẽ suy luận những gì bạn muốn từ câu lệnh.
+`video_config` içinde `task` parametresini kullanarak amaçlanan davranışı açıkça belirtebilirsiniz. Örneğin, modelin bir resimden video oluşturmasını istiyorsanız parametreyi `image_to_video` olarak ayarlayabilirsiniz. Bu ayar yapılmazsa
+model, istemden ne istediğinizi çıkarır.
 
-Sau đây là các giá trị được phép:
+İzin verilen değerler şunlardır:
 
 - `text_to_video`
 - `image_to_video`
@@ -1086,7 +1087,7 @@ Sau đây là các giá trị được phép:
 - `edit`
 - `extend`
 
-Ví dụ sau đây cho thấy cách thiết lập điều này cho ví dụ về hình ảnh thành video mà bạn thấy trước đó.
+Aşağıdaki örnekte, daha önce gösterilen resimden videoya örneği için bu ayarın nasıl yapılacağı gösterilmektedir.
 
 ### Python
 
@@ -1294,11 +1295,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Chỉnh sửa video có trạng thái
+## Durumlu video düzenleme
 
-Tạo video và chỉnh sửa video đó nhiều lần bằng các câu lệnh tiếp theo. Mỗi lượt chơi đều dựa trên kết quả trước đó. Mô hình này ghi nhớ bối cảnh video, áp dụng các thay đổi của bạn trong khi vẫn giữ nguyên những phần tử mà bạn không đề cập đến. Sử dụng `previous_interaction_id` để theo dõi lịch sử cuộc trò chuyện và trạng thái video đã tạo mà không cần tải lại video trước đó.
+Video oluşturun ve takip istemlerini kullanarak videoyu yinelemeli olarak düzenleyin. Her dönüş, önceki sonucun üzerine kurulur. Model, video bağlamını hatırlar ve değişikliklerinizi uygularken bahsetmediğiniz öğeleri korur. Önceki videoyu yeniden yüklemeden sohbet geçmişini ve oluşturulan video durumunu izlemek için `previous_interaction_id` simgesini kullanın.
 
-Ví dụ sau đây minh hoạ cách tạo video đầu tiên rồi chỉnh sửa video đó:
+Aşağıdaki örnekte, önce video oluşturup ardından düzenlemenin nasıl yapılacağı gösterilmektedir:
 
 ### Python
 
@@ -1458,17 +1459,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-Ví dụ về video ban đầu:
+İlk video örneği:
 
-Ví dụ về video đã chỉnh sửa:
+Düzenlenmiş video örneği:
 
-Mỗi lượt trò chuyện sẽ tạo ra một video mới. Mô hình này hiểu được ngữ cảnh từ các lượt tương tác trước, cho phép bạn thực hiện các thay đổi gia tăng như điều chỉnh ánh sáng và thay đổi phông nền mà không cần mô tả lại toàn bộ cảnh.
+Sohbetteki her dönüş yeni bir video oluşturur. Model, önceki dönüşlerdeki bağlamı anlar. Bu sayede, sahnenin tamamını yeniden tanımlamadan ışığı ayarlama ve arka planları değiştirme gibi küçük değişiklikler yapabilirsiniz.
 
-### Chỉnh sửa video của chính bạn
+### Kendi videolarınızı düzenleme
 
-Tải video lên bằng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) để chỉnh sửa bằng Gemini Omni Flash.
+Videolarınızı [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanarak yükleyip Gemini Omni Flash ile düzenleyin.
 
-Ví dụ sau đây cho thấy cách chỉnh sửa video gốc sau đây:
+Aşağıdaki örnekte, orijinal videonun nasıl düzenleneceği gösterilmektedir:
 
 ### Python
 
@@ -1717,12 +1718,12 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-Ví dụ về video đã chỉnh sửa:
+Düzenlenmiş video örneği:
 
-## Truy xuất video bằng URI
+## URI ile video alma
 
-Sử dụng tham số `delivery="uri"` trong `response_format` để truy xuất những video được tạo có kích thước lớn hơn 4 MB.
-Thao tác này sẽ trả về một URI do Google lưu trữ mà bạn có thể thăm dò cho đến khi video ở trạng thái `ACTIVE` trước khi tải xuống.
+4 MB'tan büyük olan oluşturulmuş videoları almak için `delivery="uri"` parametresini `response_format` içinde kullanın.
+Bu, indirmeden önce video `ACTIVE` olana kadar yoklayabileceğiniz Google tarafından barındırılan bir URI döndürür.
 
 ### Python
 
@@ -1967,7 +1968,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Cấu trúc JSON REST thô (URI):**
+**Ham REST JSON yapısı (URI):**
 
 ```
 {
@@ -1992,15 +1993,15 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## Phần mở rộng về video
+## Video uzantısı
 
-Kéo dài một video hiện có bằng cách tạo phần tiếp nối liền mạch ở cuối đoạn video. Mô tả cách bạn muốn video tiếp tục trong câu lệnh, ví dụ: `"Extend this video"` hoặc `"Continue the scene: the camera pans across the mountains"`.
-Mô hình này phân tích video đầu vào để tạo một đoạn video tiếp nối dài từ 3 đến 10 giây.
+Klipin sonuna kesintisiz bir devam niteliğinde içerik oluşturarak mevcut bir videoyu uzatın. İsteminizde videonun nasıl devam etmesini istediğinizi açıklayın. Örneğin, `"Extend this video"` veya `"Continue the scene: the camera pans across the mountains"`.
+Model, 3-10 saniyelik bir devam oluşturmak için giriş videosunu analiz eder.
 
-Bạn có thể mở rộng:
+Şunları uzatabilirsiniz:
 
-- **Video do mô hình tạo (nhiều lượt)**: Mở rộng một video đã tạo trước đó bằng cách tham chiếu `previous_interaction_id` của video đó.
-- **Video đã tải lên**: Cung cấp một tệp video đã tải lên (thông qua Files API) cùng với lời nhắc về tiện ích của bạn.
+- **Model tarafından oluşturulan videolar (çok aşamalı etkileşim)**: Daha önce oluşturulmuş bir videoyu `previous_interaction_id` referans alarak genişletin.
+- **Yüklenen videolar**: Uzantı isteminizle birlikte yüklenen bir video dosyası (Files API aracılığıyla) sağlayın.
 
 ### Python
 
@@ -2181,17 +2182,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Trình duyệt của bạn không hỗ trợ thẻ video này.
+Tarayıcınız video etiketini desteklemiyor.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_base.mp4)
 
 [
 
-Trình duyệt của bạn không hỗ trợ thẻ video này.
+Tarayıcınız video etiketini desteklemiyor.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_extended.mp4)
 
-### Mở rộng bằng nội dung nghe nhìn tham khảo
+### Referans medyayla genişletme
 
-Bạn có thể cung cấp hình ảnh tham khảo trong mảng `input` cùng với câu lệnh để đưa các nhân vật hoặc phần tử mới vào video mở rộng:
+Genişletilmiş videoya yeni karakterler veya öğeler eklemek için isteminizle birlikte `input` dizisinde referans görseller sağlayabilirsiniz:
 
 ### Python
 
@@ -2394,123 +2395,123 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Trình duyệt của bạn không hỗ trợ thẻ video này.
+Tarayıcınız video etiketini desteklemiyor.
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_traveler_extension.mp4)
 
-### Nguyên tắc và hạn chế đối với tiện ích
+### Uzantı kısıtlamaları ve yönergeleri
 
-Khi kéo dài video, hãy lưu ý những quy tắc và hạn chế sau:
+Videoları uzatırken aşağıdaki kuralları ve kısıtlamaları göz önünde bulundurun:
 
-- **Lời thoại trong video được tải lên**: Hiện tại, bạn không thể kéo dài một video được tải lên có người đang nói để thêm lời thoại (tính năng này được hỗ trợ nếu nhân vật giữ im lặng hoặc nếu câu lệnh không thêm lời thoại).
-- **Tiện ích thoại nhiều lượt**: Tính năng tạo đoạn hội thoại hoặc lời nói được hỗ trợ khi bạn mở rộng video đã tạo trước đó thông qua tiện ích nhiều lượt (`previous_interaction_id`).
-- **Chỉ ở cuối đoạn video**: Tiện ích này chỉ có thể được thêm vào cuối video.
-  Bạn không thể thêm nội dung vào đầu hoặc kéo dài phần giữa của một đoạn video.
-- **Giới hạn thời lượng**: Video đầu vào cho tiện ích phải có thời lượng từ 10 giây trở xuống khi tải lên (trừ phi bạn sử dụng tính năng nhiều lượt).
-- **Phạm vi cung cấp theo khu vực**: Tính năng kéo dài video đã tải lên hiện chưa được cung cấp cho người dùng ở Khu vực kinh tế Châu Âu (EEA), Thuỵ Sĩ và Vương quốc Anh (tính năng kéo dài video do mô hình tạo được hỗ trợ ở tất cả khu vực được cung cấp).
+- **Yüklenen videolardaki konuşma**: Şu anda, konuşan birinin yer aldığı yüklenmiş bir videoyu ek diyalog eklemek için uzatamazsınız (karakter sessiz kalırsa veya istem diyalog eklemezse bu özellik desteklenir).
+- **Çok aşamalı etkileşimli ses uzantısı**: Daha önce oluşturulan videoları çok aşamalı etkileşimli (`previous_interaction_id`) olarak genişletirken konuşma diyaloğu veya konuşma oluşturma desteklenir.
+- **Yalnızca klibin sonu**: Uzantı, yalnızca videonun sonuna ekleme yapmakla sınırlıdır.
+  İçerik ekleyemez veya klibin ortasını genişletemezsiniz.
+- **Süre sınırı**: Uzantı için giriş videoları, yüklenirken (çok aşamalı etkileşim kullanılmadığı sürece) 10 saniye veya daha kısa olmalıdır.
+- **Bölgesel kullanılabilirlik**: Yüklenen videoları uzatma özelliği şu anda Avrupa Ekonomik Alanı (AEA), İsviçre ve Birleşik Krallık'taki kullanıcılar tarafından kullanılamamaktadır (model tarafından oluşturulan videoları uzatma özelliği, kullanılabilir olan tüm bölgelerde desteklenir).
 
-## Các phương pháp hay nhất
+## En iyi uygulamalar
 
-- **Sử dụng phương thức phân phối URI cho video có kích thước lớn:** Đối với video có kích thước lớn hơn 4 MB (>720p khi có thể), hãy sử dụng `delivery="uri"` trong `response_format` để tránh giới hạn về kích thước tải trọng.
-- **Hiệu suất tối ưu:** Đặt `background=false`, `store=false` và `stream=false` để tạo số một ngôi nhanh hơn, đồng bộ. Xin lưu ý rằng chế độ cài đặt `store=false` có nghĩa là bạn sẽ không thể chỉnh sửa video đã tạo trong các lượt tương tác tiếp theo bằng cách sử dụng `previous_interaction_id`.
-- **Độ chính xác của câu lệnh:** Xem phần [hướng dẫn về câu lệnh](#prompt-guide) để biết thông tin chi tiết.
+- **Büyük videolar için URI teslimini kullanın:** 4 MB'tan büyük videolar için (varsa >720p) yük boyutu sınırlarını aşmamak amacıyla `response_format` içinde `delivery="uri"` kullanın.
+- **Optimize edilmiş performans:** Daha hızlı ve senkronize tekli oluşturma için `background=false`, `store=false` ve `stream=false` değerlerini ayarlayın. `store=false` ayarının, oluşturulan videonun sonraki dönüşlerde `previous_interaction_id` kullanılarak düzenlenemeyeceği anlamına geldiğini unutmayın.
+- **İstem hassasiyeti:** Ayrıntılar için [istem rehberliği](#prompt-guide) bölümüne bakın.
 
-## Các điểm hạn chế
+## Sınırlamalar
 
-- Chúng tôi không hỗ trợ việc tải lên và chỉnh sửa hình ảnh có trẻ vị thành niên ở Khu vực kinh tế Châu Âu, Thuỵ Sĩ và Vương quốc Anh.
-- Chúng tôi không hỗ trợ việc tải lên và chỉnh sửa những hình ảnh có một số người có thể nhận dạng được.
-- Tính năng chỉnh sửa hoặc kéo dài video đã tải lên hiện chưa được cung cấp cho người dùng ở Khu vực kinh tế Châu Âu (EEA), Thuỵ Sĩ và Vương quốc Anh (tính năng chỉnh sửa hoặc kéo dài video do mô hình tạo được hỗ trợ).
-- Khi tải lên, video đầu vào để chỉnh sửa và mở rộng phải có thời lượng từ 10 giây trở xuống (trừ trường hợp mở rộng video do mô hình tạo trong nhiều lượt).
-- Tiện ích video chỉ được phép thêm vào cuối video; chúng tôi không hỗ trợ việc thêm vào đầu hoặc kéo dài phần giữa của một đoạn video.
-- Bạn không thể kéo dài một video đã tải lên có người đang nói để thêm đoạn hội thoại (các nhân vật có thể giữ im lặng hoặc bạn có thể dùng tính năng kéo dài nhiều lượt bằng `previous_interaction_id`).
-- Không hỗ trợ chỉnh sửa bằng giọng nói.
-- Phiên bản API hiện tại không hỗ trợ việc tải tệp âm thanh tham chiếu lên.
-- Video tham chiếu hoạt động hiệu quả nhất với hình ảnh tương tự; mọi âm thanh trong video tham chiếu đều bị bỏ qua. Tài liệu tham khảo bằng video hỗ trợ tối đa 3 đoạn video, mỗi đoạn dài tối đa 3 giây.
-- Không hỗ trợ việc tham khảo hoặc suy luận trên nhiều video. Việc thử tạo câu lệnh cho nhiều video có thể làm giảm hiệu suất của mô hình hoặc tạo ra kết quả không mong muốn.
-- Không hỗ trợ thông lượng được cung cấp.
-- Không được hỗ trợ chỉ dẫn cho hệ thống, nhiệt độ, `top_p`, chuỗi dừng và câu lệnh phủ định (bạn có thể đặt câu lệnh phủ định vào câu lệnh thông thường: ví dụ: "Đừng làm X").
-- Không hỗ trợ việc sử dụng video trên YouTube làm nguồn nội dung nghe nhìn.
+- Küçükleri içeren resimlerin yüklenmesi ve düzenlenmesi Avrupa Ekonomik Alanı, İsviçre ve Birleşik Krallık'ta desteklenmez.
+- Tanınabilir kişilerin yer aldığı resimlerin yüklenmesi ve düzenlenmesi desteklenmez.
+- Yüklenen videoları düzenleme veya uzatma özelliği şu anda Avrupa Ekonomik Alanı (AEA), İsviçre ve Birleşik Krallık'taki kullanıcılar tarafından kullanılamamaktadır (model tarafından oluşturulan videoları düzenleme veya uzatma özelliği desteklenir).
+- Düzenleme ve uzatma için giriş videoları, yüklenirken 10 saniye veya daha kısa olmalıdır (çok aşamalı etkileşimde model tarafından oluşturulan videolar uzatılmadığı sürece).
+- Video uzantısı, videonun sonuna ekleme yapmakla sınırlıdır. Klibin başına ekleme veya klibin ortasını uzatma desteklenmez.
+- Yüklenen ve birinin konuştuğu videolara ek diyalog eklemek için videoyu uzatamazsınız (karakterler sessiz kalabilir veya `previous_interaction_id` ile çok aşamalı etkileşim uzatma kullanılabilir).
+- Ses düzenleme desteklenmez.
+- Ses referanslarının yüklenmesi, API'nin mevcut sürümünde desteklenmemektedir.
+- Video referansları, benzerlikler için en iyi sonucu verir. Video referansındaki sesler dikkate alınmaz. Video referansları, her biri en fazla 3 saniye uzunluğunda olmak üzere en fazla 3 klip destekler.
+- Birden fazla videoda referans verme veya akıl yürütme desteklenmez. Çok videolu istem denemek, model performansının düşmesine veya beklenmedik çıktılara neden olabilir.
+- Sağlanan işleme hızı desteklenmez.
+- Sistem talimatları, sıcaklık, `top_p`, durdurma dizileri ve olumsuz istemler desteklenmez (olumsuz istemlerinizi normal isteme ekleyebilirsiniz: ör. "X yapma").
+- YouTube videolarının medya kaynağı olarak kullanılması desteklenmez.
 
-## Chi tiết kỹ thuật
+## Teknik ayrıntılar
 
-- Tất cả video được tạo đều có hình mờ SynthID. Người xem không nhìn thấy hình mờ này nhưng hệ thống có thể phát hiện được để xác minh nguồn gốc.
-- Thời gian tạo video sẽ khác nhau tuỳ thuộc vào thời lượng, độ phân giải và mức tải API hiện tại. Video có thời lượng dài hơn và độ phân giải cao hơn sẽ mất nhiều thời gian hơn để tạo.
-- Omni áp dụng bộ lọc an toàn cho nội dung đối với cả câu lệnh đầu vào và video được tạo (tuỳ theo khu vực). Những câu lệnh vi phạm chính sách sử dụng sẽ bị chặn.
-- Tiếng Anh (EN) được hỗ trợ đầy đủ, nhưng các ngôn ngữ khác chưa được đánh giá, vì vậy, các ngôn ngữ này có thể hoạt động nhưng kết quả có thể khác nhau.
+- Üretilen tüm videolarda, izleyiciler tarafından görünmeyen ancak kaynağın doğrulanması için programatik olarak algılanabilen SynthID filigranı bulunur.
+- Video oluşturma süreleri; süreye, çözünürlüğe ve mevcut API yüküne bağlı olarak değişir. Daha uzun ve daha yüksek çözünürlüklü videoların oluşturulması daha uzun sürer.
+- Omni, hem giriş istemlerine hem de oluşturulan videolara içerik güvenliği filtreleri uygular (bölgeye göre değişiklik gösterir). Kullanım politikalarını ihlal eden istemler engellenir.
+- İngilizce (EN) tam olarak desteklenir ancak diğer diller değerlendirilmediğinden çalışabilir ancak sonuçlar değişebilir.
 
-## Hướng dẫn về câu lệnh cho Gemini Omni Flash
+## Gemini Omni Flash istem rehberi
 
-Phần này chứa các mẹo và ví dụ về cách đưa ra câu lệnh hiệu quả cho Gemini Omni Flash.
+Bu bölümde, Gemini Omni Flash'i etkili şekilde isteme ile ilgili ipuçları ve örnekler yer almaktadır.
 
-### Một cảnh
+### Tek sahne
 
-Theo mặc định, Omni Flash sẽ cố gắng tạo video có một số cảnh khác nhau.
-Công cụ này sẽ cố gắng tạo ra một câu chuyện thú vị dựa trên câu lệnh.
+Omni Flash, varsayılan olarak birkaç farklı çekimden oluşan bir video oluşturmaya çalışır.
+İstemden yola çıkarak ilgi çekici bir anlatı oluşturmaya çalışır.
 
-Nếu cần video đầu ra chứa một cảnh duy nhất, bạn phải đưa ra lời nhắc cho cảnh đó:
+Çıkış videosunun tek bir sahne içermesini istiyorsanız bunu istemeniz gerekir:
 
-- Trong một cảnh duy nhất không bị gián đoạn
-- Trong một cảnh quay liên tục
-- Không có cảnh bị cắt
+- Tek bir kesintisiz sahnede
+- Tek bir kesintisiz çekimde
+- Sahne kesintisi yok
 
-Ví dụ:
+Örneğin:
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### Xoá các phần tử không mong muốn
+### İstenmeyen öğeleri kaldırma
 
-Nếu video được tạo có những nội dung bạn không muốn, hãy thêm câu lệnh phủ định đơn giản để tránh những nội dung đó:
+Oluşturulan videoda istemediğiniz şeyler varsa bunları önlemek için basit olumsuz istemler ekleyin:
 
-- Không có lời thoại
-- Không có thông tin bổ sung
-- Không có hiệu ứng âm thanh bổ sung
+- Diyalog yok
+- Süsleme yok
+- Ek ses efektleri yok
 
-### Câu lệnh chỉnh sửa
+### Düzenleme istemleri
 
-Câu lệnh đơn giản sẽ cho kết quả tốt nhất khi chỉnh sửa video. Câu lệnh mô tả quá chi tiết có thể dẫn đến những thay đổi ngoài ý muốn.
+Video düzenleme için en iyi sonucu basit istemler verir. Aşırı açıklayıcı istemler, istenmeyen değişikliklere yol açabilir.
 
-Sau đây là một số ví dụ khác về câu lệnh chỉnh sửa đơn giản:
+Aşağıda, basit düzenleme istemlerine dair daha fazla örnek verilmiştir:
 
-- Biến video này thành hoạt hình Nhật Bản
-- Đội cho người này một chiếc mũ thời trang
-- Thay đổi ánh sáng để tạo cảm giác kịch tính hơn
-- Thay đổi văn bản trên biển báo thành "Omni Flash"
+- Bu videoyu animeye dönüştür
+- Bu kişiye şık bir şapka tak
+- Işıklandırmayı daha dramatik hale getirme
+- Tabeladaki metni "Omni Flash" olarak değiştir.
 
-Khi chỉnh sửa một khía cạnh cụ thể của video, hãy thêm `"Keep everything else the same"` để duy trì tính nhất quán về hình ảnh.
+Videonun belirli bir yönünü düzenlerken görsel tutarlılığı korumak için `"Keep everything else the same"` simgesini ekleyin.
 
-Sau đây là một số ví dụ minh hoạ cách áp dụng kỹ thuật này:
+Bu tekniğin nasıl uygulanacağını gösteren bazı örnekleri aşağıda bulabilirsiniz:
 
-- **Tránh:** `In the video of the man sitting on the sofa, please add a small
+- **Kaçınılması gerekenler:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Đơn giản hoá:** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **Basitleştir:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **Nên tránh:** `Please remove the cell phone that the person is holding in
+- **Kaçınılması gerekenler:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Đơn giản hoá:** `Make the phone invisible. Keep everything else the
+  - **Basitleştir:** `Make the phone invisible. Keep everything else the
     same.`
 
-### Tạo câu lệnh cho âm thanh
+### Ses istemi
 
-Theo mặc định, mô hình sẽ cố gắng tạo một bản âm thanh phù hợp cho video. Đây có thể không phải là điều bạn muốn. Bạn có thể dùng câu lệnh để mô tả loại âm thanh bạn muốn. Điều này đặc biệt quan trọng nếu bạn muốn sử dụng nhạc trong video:
+Model, varsayılan olarak bir video için uygun bir ses parçası oluşturmaya çalışır. Bu her zaman istediğiniz sonuç olmayabilir. İsteminizi kullanarak istediğiniz ses türünü açıklayabilirsiniz. Bu durum, özellikle videonuzda müzik kullanmak istiyorsanız önemlidir:
 
-- Thêm nhạc nền nhẹ nhàng
-- Video có nhịp điệu techno sôi động
-- Âm thanh là một bản phát sóng radio có âm lượng nhỏ và chói tai ở chế độ nền, đang phát một bài hát
+- Sakinleştirici arka plan müziği ekleyin
+- Videoda yüksek enerjili bir tekno ritmi var
+- Arka planda, şarkı çalan düşük kaliteli bir radyo yayını var.
 
-### Sự kiện về thời gian
+### Zamanlama etkinlikleri
 
-Bạn có thể yêu cầu thực hiện các thao tác vào những thời điểm cụ thể trong video mà không cần cú pháp chính xác và có thể sử dụng ngôn ngữ tự nhiên. Điều này đặc biệt hữu ích khi bạn tạo các cảnh cắt, nhịp điệu hoặc chuỗi cảnh liên tiếp của riêng mình.
-Hãy xem các ví dụ sau:
+Videoda belirli zamanlarda gerçekleşmesini istediğiniz olayları istem olarak girebilirsiniz. Kesin bir söz dizimi gerekmez ve doğal dil kullanabilirsiniz. Bu özellik, özellikle kendi sahne kesimlerinizi, ritminizi veya hızlı çekim dizilerinizi oluştururken kullanışlıdır.
+Örnekler için aşağıya bakın:
 
-- Sau 3 giây, một người phụ nữ xuất hiện.
-- Điệp khúc bắt đầu ở giây thứ 5 trong âm thanh nền.
-- Cứ 2 giây lại chuyển sang một khung hình mới.
-- Trong một chuỗi cảnh quay nhanh, cứ nửa giây (12 khung hình ở tốc độ 24 khung hình/giây), hãy thay đổi cảnh sang một vị trí mới.
+- 3 saniye sonra bir kadın sahneye giriyor.
+- 5. saniyede arka plan sesinde koro başlıyor.
+- Her 2 saniyede bir yeni kareye geçiş yapın.
+- Hızlı çekim dizisinde, her yarım saniyede (24 kare/sn hızında 12 kare) sahneyi yeni bir konuma değiştirin.
 
-Bạn cũng có thể sử dụng cú pháp mã thời gian:
+Ayrıca zaman kodu söz dizimi de kullanabilirsiniz:
 
 ```
 [0-3s] A person is walking
@@ -2518,52 +2519,53 @@ Bạn cũng có thể sử dụng cú pháp mã thời gian:
 [6-10s] They start running
 ```
 
-### Đặt siêu câu lệnh
+### Meta istem
 
-Bạn có thể yêu cầu Gemini Omni Flash chú ý đến các phẩm chất hoặc nguyên tắc chung khi tạo video:
+Gemini Omni Flash'ten video oluşturmayla ilgili genel niteliklere veya ilkelere dikkat etmesini isteyebilirsiniz:
 
-- Hãy cân nhắc chi tiết nhỏ, biểu cảm và thời gian để tạo ra một cảnh quay rất phong phú, chi tiết nhưng hoàn toàn tự nhiên.
-- Mô tả nhân vật và môi trường một cách cực kỳ chi tiết.
-  Áp dụng các nguyên tắc thiết kế trang phục cho nhân vật. Mô tả thật cụ thể về người, vật phẩm và đồ vật trong cảnh.
-- Thêm nhiều chi tiết phù hợp vào các thành phần nền để cảnh trông chân thực và tự nhiên.
-- Tạo một video có nhịp độ nhanh, trong đó cứ 1 giây sẽ xuất hiện một `[thing]` hiếm gặp, nhạc vui nhộn và văn bản để gắn nhãn cho vật phẩm.
+- Çok zengin ve ayrıntılı ancak tamamen doğal bir sahne oluşturmak için mikro ayrıntıları, ifadeyi ve zamanlamayı göz önünde bulundurun.
+- Karakter ve ortam açıklamalarınızda son derece ayrıntılı olun.
+  Karakterlere kostüm tasarım ilkelerini uygulama Sahnedeki kişiler, öğeler ve nesneler hakkında çok net olun.
+- Sahnenin gerçekçi ve doğal görünmesi için arka plan öğelerine uygun ayrıntılar ekleyin.
+- Her saniyede farklı bir nadir `[thing]` gösteren, hızlı tempolu müzik içeren ve öğeleri etiketlemek için metin eklenmiş bir video oluştur.
 
-### Văn bản trong video
+### Videolardaki metinler
 
-Bạn có thể đưa ra câu lệnh để thêm văn bản vào video và Gemini Omni sẽ hiển thị theo cách chính xác và dễ đọc. Nếu video của bạn có văn bản xuất hiện tự nhiên, ngay cả trong các phần tử nền, thì bạn có thể xác định nội dung mà văn bản đó nên có.
+Videonuzda metin olmasını isteyebilirsiniz. Gemini Omni, metni doğru ve okunabilir şekilde oluşturur. Videonuzda arka plan öğelerinde bile doğal olarak oluşan metinler varsa ne söylemesi gerektiğini tanımlamak faydalı olabilir.
 
-- Mỗi lần một từ trên màn hình: "did, you, know, that, Omni, can, do, awesome, text?" Mỗi từ xuất hiện trong 1 giây với một kiểu ảnh động riêng. Không có lời thoại.
-- Có một biển báo đường phố có nội dung: "Đây là nội dung do AI tạo bằng Omni", có một mặt tiền cửa hàng có nội dung: "AI cho mọi nhu cầu", có một chiếc xe hơi có biển số: "OMNI1.1"
+- Ekranda tek seferde bir kelime: "Biliyor, muydunuz, ki, Omni, harika, metinler, oluşturabilir?" Her kelime, farklı bir animasyon stiliyle 1 saniye boyunca görünür. Diyalog yok.
+- "Bu içerik Omni tarafından üretken yapay zeka ile oluşturuldu" yazan bir sokak tabelası, "İhtiyacınız olan tüm yapay zeka" yazan bir vitrin ve "OMNI1.1" plakalı bir araba var.
 
-### Câu lệnh để kéo dài video
+### Videoları uzatmaya yönelik istemler
 
-Với Gemini Omni 1.1 Flash, bạn có thể mở rộng video bằng các câu lệnh như `"Extend this video"` hoặc `"The scene continues"`. Bạn có thể kéo dài video thêm 10 giây, với tổng thời lượng tối đa là 40 giây.
+Gemini Omni 1.1 Flash ile `"Extend this video"` veya `"The scene continues"` gibi istemlerle videoları uzatabilirsiniz. Videoları 10 saniye uzatarak toplamda 40 saniyeye çıkarabilirsiniz.
 
-Omni tạo một phần mở rộng giúp video, chuyển động, nhân vật và âm thanh nhất quán bằng cách sử dụng 10 giây cuối cùng của video gốc làm bối cảnh. Một số khung hình cuối cùng trong video đầu vào sẽ được chỉnh sửa để tạo hiệu ứng chuyển cảnh liền mạch.
+Omni, orijinal videonuzun son 10 saniyesini bağlam olarak kullanarak video, hareket, karakter ve sesin tutarlı olmasını sağlayan bir uzantı oluşturur. Giriş videonuzdaki son karelerden bazıları, geçişin sorunsuz olması için düzenlenir.
 
-Khi mở rộng, tất cả các mẹo về câu lệnh Omni trong hướng dẫn này vẫn được áp dụng:
+Genişletme yaparken bu kılavuzdaki tüm Omni istemi ipuçları geçerliliğini korur:
 
-- Mô tả âm thanh trong cảnh mở rộng, đặc biệt là nếu bạn cần thay đổi âm thanh: `"The music continues into the chorus"`
-- Mô tả xem cảnh có tiếp tục hay không, hoặc có cảnh quay cắt sang một cảnh mới (có thể có cùng nhân vật): `"Show the same characters in the next scene"`
-- Đưa hình ảnh và video vào làm tài liệu tham khảo khi mở rộng để đảm bảo kết quả chính xác hoặc để giới thiệu nhân vật mới: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- Nếu sử dụng dấu thời gian hoặc cú pháp mã thời gian, 0 giây sẽ đề cập đến phần mở rộng của video. Nếu bạn kéo dài một video dài 10 giây, thì cảnh cắt trong câu lệnh này sẽ xuất hiện sau 12 giây: `"After 2s cut to a new scene with the same characters"`
+- Genişletilmiş sahnenizdeki sesi açıklayın. Özellikle değiştirilmesi gerekiyorsa bu açıklamayı yapın: `"The music continues into the chorus"`
+- Sahnenin devam edip etmediğini veya yeni bir sahneye geçiş yapılıp yapılmadığını (belki aynı karakterlerle) açıklayın: `"Show the same characters in the next scene"`
+- Çıkışlarınızın doğru olmasını sağlamak veya yeni karakterler tanıtmak için genişletme yaparken referans olarak resim ve video ekleyin: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- Zaman damgaları veya zaman kodu söz dizimi kullanılıyorsa 0s, videonun uzatılmış kısmının başlangıcını ifade eder. 10 saniyelik bir video uzatılıyorsa bu istemdeki sahne kesimi 12 saniye sonra gerçekleşir: `"After 2s cut to a new scene with the same characters"`
 
-### Sử dụng thẻ trong câu lệnh để đặt vai trò cho hình ảnh và video
+### Görüntü ve video rollerini ayarlamak için istemlerde etiket kullanma
 
-Bạn có thể dùng thẻ để liên kết nội dung nghe nhìn đã tải lên với các vai trò tạo sinh cụ thể. Nhờ đó, bạn có thể chỉ định xem mỗi hình ảnh hoặc video là khung bắt đầu, khung kết thúc hay khung tham chiếu.
+Yüklenen medyaları belirli üretim rollerine bağlamak için etiketleri kullanabilirsiniz. Bu sayede her resmin veya videonun başlangıç karesi, son kare ya da referans olup olmadığını belirleyebilirsiniz.
 
-#### 1. Thẻ đơn giản (nên dùng)
+#### 1. Basit etiketler (önerilen)
 
-Đối với những trường hợp đơn giản mà vai trò của nội dung nghe nhìn được xác định rõ ràng trong câu lệnh, bạn có thể liên kết trực tiếp hình ảnh và video với các vai trò:
+Medya rollerinin istemden açıkça anlaşıldığı basit durumlarda, resimleri ve videoları doğrudan rollere bağlayabilirsiniz:
 
-- **`<FIRST_FRAME>`**: dùng hình ảnh làm khung hình bắt đầu của video, ví dụ: `<FIRST_FRAME> a woman is walking`
-- **`<LAST_FRAME>`**: sử dụng hình ảnh làm khung hình cuối cùng của video để chuyển sang. Phải được dùng với `<FIRST_FRAME>`, ví dụ: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**: sử dụng hình ảnh làm tài liệu tham khảo, ví dụ: `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (kết hợp tài liệu tham khảo về phong cách từ hình ảnh đầu tiên và tài liệu tham khảo về chủ thể từ hình ảnh thứ hai).
-  Ảnh tham chiếu bắt đầu từ 0.
-- **`<VIDEO_REF_N>`**: sử dụng video làm tài liệu tham khảo về nhân vật hoặc đối tượng, ví dụ: `the person in <VIDEO_REF_0> is playing the violin`. Tệp đối chiếu video cũng bắt đầu từ 0.
+- **`<FIRST_FRAME>`**: Örneğin, `<FIRST_FRAME> a woman is walking` gibi durumlarda videonun başlangıç karesi olarak görseli kullanın.
+- **`<LAST_FRAME>`**: Geçiş yapılacak videonun son karesi olarak kullanın. `<FIRST_FRAME>` ile birlikte kullanılmalıdır. Örneğin: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: Resmi referans olarak kullanın. Örneğin: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (ilk resimdeki stil referansını ve ikinci resimdeki özne referansını birleştirir).
+  Resim referansları 0'dan başlar.
+- **`<VIDEO_REF_N>`**: Videoyu karakter veya nesne referansı olarak kullanma (örneğin:
+  `the person in <VIDEO_REF_0> is playing the violin`). Video referansları da 0'dan başlar.
 
-Sau đây là ví dụ có 6 hình ảnh tham chiếu:
+Aşağıda, 6 referans resimli bir örnek verilmiştir:
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -2571,54 +2573,54 @@ Sau đây là ví dụ có 6 hình ảnh tham chiếu:
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. Khai báo nguồn và thông tin tham khảo
+#### 2. Kaynakları ve referansları belirtme
 
-Đối với các trường hợp phức tạp hơn có nhiều đầu vào nội dung nghe nhìn và nhiều vai trò, bạn có thể sử dụng các thẻ tiền tố rõ ràng kết hợp với hướng dẫn bằng ngôn ngữ tự nhiên. Bạn nên khai báo những nguồn và tài liệu tham khảo này khi bắt đầu câu lệnh.
+Birden fazla medya girişi ve birden fazla rol içeren daha karmaşık durumlarda, doğal dil talimatlarıyla eşleştirilmiş açık önek etiketlerini kullanabilirsiniz. Bu kaynakları ve referansları isteminizin başında belirtmeniz gerekir.
 
-- `[# Sources <FIRST_FRAME>@Image1]` sẽ dùng hình ảnh đầu tiên làm khung hình bắt đầu.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` sẽ dùng hình ảnh đầu tiên làm khung hình bắt đầu và hình ảnh thứ hai làm khung hình cuối cùng.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` sẽ dùng hình ảnh đầu tiên làm cả khung hình đầu tiên và khung hình cuối cùng, tạo ra một video lặp lại.
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` sẽ dùng hình ảnh đầu tiên làm khung hình bắt đầu và hình ảnh thứ hai làm tài liệu tham khảo.
-- `[# Sources <VIDEO_0>@Video1]` sẽ dùng video này làm video nguồn chính để chỉnh sửa hoặc sửa đổi.
-- `[# Sources <PREVIOUS_VIDEO>@Video1]` sẽ dùng video từ lượt chơi trước để mở rộng.
-- `[# References <IMAGE_REF_0>@Image1]` sẽ dùng hình ảnh đầu tiên làm tài liệu tham khảo.
-- `[# References <IMAGE_REF_1>@Image2]` sẽ dùng hình ảnh thứ hai làm tài liệu tham khảo.
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` sẽ dùng cả hai hình ảnh làm tài liệu tham khảo.
-- `[# References <VIDEO_REF_0>@Video1]` sẽ dùng video đầu tiên làm tài liệu tham khảo.
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` sẽ dùng cả hình ảnh và video làm tài liệu tham khảo.
+- `[# Sources <FIRST_FRAME>@Image1]`, başlangıç karesi olarak ilk resmi kullanır.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]`, ilk resmi başlangıç karesi, ikinci resmi ise son kare olarak kullanır.
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]`, ilk resmi hem ilk kare hem de son kare olarak kullanarak döngüye giren bir video oluşturur.
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]`, ilk resmi başlangıç karesi, ikinci resmi ise referans olarak kullanır.
+- `[# Sources <VIDEO_0>@Video1]`, düzenlemek veya değiştirmek için videoyu birincil kaynak video olarak kullanır.
+- `[# Sources <PREVIOUS_VIDEO>@Video1]`, önceki dönüşteki videoyu uzatmak için kullanır.
+- `[# References <IMAGE_REF_0>@Image1]`, ilk resmi referans olarak kullanır.
+- `[# References <IMAGE_REF_1>@Image2]`, ikinci resmi referans olarak kullanır.
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]`, her iki resmi de referans olarak kullanır.
+- `[# References <VIDEO_REF_0>@Video1]`, ilk videoyu referans olarak kullanır.
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` hem resmi hem de videoyu referans olarak kullanır.
 
-Thêm hướng dẫn ở cuối câu lệnh:
+İsteminize yönlendirici talimatlar ekleyin:
 
-- Đối với khung hình bắt đầu: `"Use this image as the starting frame."`
-- Đối với video lặp lại thông qua khung hình bắt đầu và kết thúc: `"Use this image as the first frame and the last frame."`
-- Đối với hình ảnh tham khảo: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- Đối với video tham chiếu: `"Use the given video(s) as references. Do not use them as a source for video editing."`
+- Başlangıç karesi için: `"Use this image as the starting frame."`
+- Başlangıç ve bitiş kareleriyle döngüye alınan videolar için: `"Use this image as the first frame and the last frame."`
+- Referans görseller için: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- Referans videolar için: `"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-Một số ví dụ về câu lệnh có khai báo nguồn và thông tin tham khảo:
+Kaynak ve referans beyanları içeren istemlere bazı örnekler:
 
-**Khung hình bắt đầu kết hợp với hình ảnh tham khảo:**
+**Başlangıç karesi, referans resimle birleştirildi:**
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**Video đối chiếu về nhân vật kết hợp với hình ảnh tham khảo về đối tượng:**
+**Karakter referans videosu ve nesne referans görselinin birleştirilmesi:**
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## Bước tiếp theo
+## Sırada ne var?
 
-- Làm quen với Gemini Omni Flash bằng cách thử nghiệm trong [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=vi).
-- Tìm hiểu cách viết câu lệnh hiệu quả hơn nữa qua bài viết [Giới thiệu về cách thiết kế câu lệnh](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=vi).
+- [Omni Hızlı Başlangıç Colab'inde](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=tr) denemeler yaparak Gemini Omni Flash'i kullanmaya başlayın.
+- [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) adlı makalemizle daha da iyi istemler yazmayı öğrenin.
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-09-24 UTC.
+Son güncelleme tarihi: 2026-09-24 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]

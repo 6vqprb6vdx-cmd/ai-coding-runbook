@@ -1,49 +1,39 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=ko
-fetched_at: 2026-10-19T05:34:41.011644+00:00
-title: "Live API\ub97c \uc0ac\uc6a9\ud55c \uc138\uc158 \uad00\ub9ac \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=vi
+fetched_at: 2026-10-26T06:04:51.718809+00:00
+title: "Qu\u1ea3n l\u00fd phi\u00ean b\u1eb1ng Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-# Live API를 사용한 세션 관리
+# Quản lý phiên bằng Live API
 
-Live API에서 세션은 입력 및 출력이 동일한
-연결을 통해 지속적으로 스트리밍되는 영구
-연결을 나타냅니다 ([작동 방식](https://ai.google.dev/gemini-api/docs/live?hl=ko)에 대해 자세히 알아보기).
-이 고유한 세션 설계는 지연 시간이 짧고 고유한 기능을 지원하지만 세션 시간 제한 및 조기 종료와 같은 문제를 일으킬 수도 있습니다.
-이 가이드에서는 Live API를 사용할 때 발생할 수 있는 세션 관리 문제를 해결하기 위한 전략을 다룹니다.
+Trong Live API, phiên là một kết nối liên tục, trong đó dữ liệu đầu vào và đầu ra được truyền trực tuyến liên tục qua cùng một kết nối (đọc thêm về [cách hoạt động](https://ai.google.dev/gemini-api/docs/live?hl=vi)).
+Thiết kế phiên duy nhất này cho phép độ trễ thấp và hỗ trợ các tính năng duy nhất, nhưng cũng có thể gây ra các thách thức, chẳng hạn như giới hạn thời gian phiên và việc chấm dứt sớm.
+Hướng dẫn này đề cập đến các chiến lược để khắc phục những thách thức về quản lý phiên có thể phát sinh khi sử dụng Live API.
 
-## 세션 수명
+## Thời gian tồn tại của phiên
 
-압축이 없으면 오디오 전용 세션은 15분으로 제한되고 오디오-동영상 세션은 2분으로 제한됩니다. 이러한 제한을 초과하면
-세션 (따라서 연결)이 종료되지만
-[컨텍스트 윈도우 압축](#context-window-compression)을 사용하여 세션을
-무제한으로 확장할 수 있습니다.
+Nếu không nén, các phiên chỉ có âm thanh sẽ bị giới hạn ở 15 phút và các phiên có cả âm thanh và video sẽ bị giới hạn ở 2 phút. Nếu vượt quá các giới hạn này, phiên sẽ kết thúc (và do đó, kết nối cũng kết thúc), nhưng bạn có thể sử dụng [tính năng nén cửa sổ ngữ cảnh](#context-window-compression) để kéo dài phiên đến một khoảng thời gian không giới hạn.
 
-연결 수명도 약 10분으로 제한됩니다. 연결이 종료되면 세션도 종료됩니다. 이 경우
-세션 재개
-[를 사용하여](#session-resumption) 여러 연결에서 활성 상태를 유지하도록 단일 세션을 구성할 수 있습니다.
-또한 연결이 종료되기 전에 [GoAway 메시지](#goaway-message)를 수신하여 추가 조치를 취할 수 있습니다.
+Thời gian tồn tại của một kết nối cũng bị giới hạn, khoảng 10 phút. Khi kết nối chấm dứt, phiên cũng sẽ chấm dứt. Trong trường hợp này, bạn có thể định cấu hình một phiên duy nhất để duy trì trạng thái hoạt động trên nhiều kết nối bằng cách sử dụng tính năng [tiếp tục phiên](#session-resumption).
+Bạn cũng sẽ nhận được [thông báo GoAway](#goaway-message) trước khi kết thúc kết nối, cho phép bạn thực hiện các hành động khác.
 
-## 컨텍스트 윈도우 압축
+## Nén cửa sổ ngữ cảnh
 
-세션을 더 길게 사용 설정하고 갑작스러운 연결 종료를 방지하려면 세션 구성의 일부로 [contextWindowCompression](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression) 필드를 설정하여 컨텍스트 윈도우 압축을 사용 설정하면 됩니다.
+Để cho phép các phiên dài hơn và tránh tình trạng kết nối bị chấm dứt đột ngột, bạn có thể bật tính năng nén cửa sổ ngữ cảnh bằng cách đặt trường [contextWindowCompression](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentSetup.FIELDS.ContextWindowCompressionConfig.BidiGenerateContentSetup.context_window_compression) trong cấu hình phiên.
 
-[ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=ko#contextwindowcompressionconfig)에서
-[슬라이딩 윈도우 메커니즘](https://ai.google.dev/api/live?hl=ko#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window)
-과 [압축을 트리거하는 토큰 수](https://ai.google.dev/api/live?hl=ko#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens)
-를 구성할 수 있습니다.
+Trong [ContextWindowCompressionConfig](https://ai.google.dev/api/live?hl=vi#contextwindowcompressionconfig), bạn có thể định cấu hình [cơ chế cửa sổ trượt](https://ai.google.dev/api/live?hl=vi#ContextWindowCompressionConfig.FIELDS.ContextWindowCompressionConfig.SlidingWindow.ContextWindowCompressionConfig.sliding_window) và [số lượng mã thông báo](https://ai.google.dev/api/live?hl=vi#ContextWindowCompressionConfig.FIELDS.int64.ContextWindowCompressionConfig.trigger_tokens) kích hoạt tính năng nén.
 
 ### Python
 
@@ -70,15 +60,13 @@ const config = {
 };
 ```
 
-## 세션 재개
+## Tiếp tục phiên
 
-서버가 WebSocket
-연결을 주기적으로 재설정할 때 세션이 종료되지 않도록 하려면 [sessionResumption](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption)
-필드를 [설정 구성](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentSetup) 내에서 구성합니다.
+Để ngăn việc kết thúc phiên khi máy chủ định kỳ đặt lại kết nối WebSocket, hãy định cấu hình trường [sessionResumption](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentSetup.FIELDS.SessionResumptionConfig.BidiGenerateContentSetup.session_resumption) trong [cấu hình thiết lập](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentSetup).
 
-이 구성을 전달하면 서버가 [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=ko#SessionResumptionUpdate) 메시지를 전송합니다. 이 메시지는 후속 연결의 마지막 재개 토큰을 [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=ko#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle)로 전달하여 세션을 재개하는 데 사용할 수 있습니다.
+Việc truyền cấu hình này khiến máy chủ gửi thông báo [SessionResumptionUpdate](https://ai.google.dev/api/live?hl=vi#SessionResumptionUpdate). Bạn có thể dùng thông báo này để tiếp tục phiên bằng cách truyền mã thông báo tiếp tục gần đây nhất dưới dạng [`SessionResumptionConfig.handle`](https://ai.google.dev/api/live?hl=vi#SessionResumptionConfig.FIELDS.string.SessionResumptionConfig.handle) của kết nối tiếp theo.
 
-재개 토큰은 마지막 세션 종료 후 2시간 동안 유효합니다.
+Mã thông báo tiếp tục có hiệu lực trong 2 giờ sau khi phiên gần đây nhất kết thúc.
 
 ### Python
 
@@ -213,9 +201,9 @@ async function main() {
 main();
 ```
 
-## 세션 연결 해제 전에 메시지 수신
+## Nhận được thông báo trước khi phiên kết nối bị ngắt
 
-서버는 현재 연결이 곧 종료됨을 알리는 [GoAway](https://ai.google.dev/api/live?hl=ko#GoAway) 메시지를 보냅니다. 이 메시지에는 남은 시간을 나타내는 [timeLeft](https://ai.google.dev/api/live?hl=ko#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left)가 포함되어 있으며 연결이 ABORTED로 종료되기 전에 추가 조치를 취할 수 있습니다.
+Máy chủ gửi một thông báo [GoAway](https://ai.google.dev/api/live?hl=vi#GoAway) cho biết rằng kết nối hiện tại sẽ sớm bị chấm dứt. Thông báo này bao gồm [timeLeft](https://ai.google.dev/api/live?hl=vi#GoAway.FIELDS.google.protobuf.Duration.GoAway.time_left), cho biết thời gian còn lại và cho phép bạn thực hiện thêm hành động trước khi kết nối bị chấm dứt ở trạng thái ABORTED.
 
 ### Python
 
@@ -238,10 +226,9 @@ for (const turn of turns) {
 }
 ```
 
-## 생성이 완료되면 메시지 수신
+## Nhận thông báo khi quá trình tạo hoàn tất
 
-서버는 모델이 응답 생성을 완료했음을 알리는 [generationComplete](https://ai.google.dev/api/live?hl=ko#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete)
-메시지를 보냅니다.
+Máy chủ gửi thông báo [generationComplete](https://ai.google.dev/api/live?hl=vi#BidiGenerateContentServerContent.FIELDS.bool.BidiGenerateContentServerContent.generation_complete) cho biết mô hình đã hoàn tất việc tạo phản hồi.
 
 ### Python
 
@@ -263,19 +250,16 @@ for (const turn of turns) {
 }
 ```
 
-## 다음 단계
+## Bước tiếp theo
 
-전체
-[기능](https://ai.google.dev/gemini-api/docs/live?hl=ko) 가이드,
-[도구 사용](https://ai.google.dev/gemini-api/docs/live-tools?hl=ko) 페이지 또는
-[Live API Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=ko)에서 Live API를 사용하는 다양한 방법을 알아보세요.
+Khám phá thêm các cách sử dụng Live API trong hướng dẫn đầy đủ về [Các chức năng](https://ai.google.dev/gemini-api/docs/live?hl=vi), trang [Cách sử dụng công cụ](https://ai.google.dev/gemini-api/docs/live-tools?hl=vi) hoặc [sổ tay Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=vi).
 
-의견 보내기
+Gửi ý kiến phản hồi
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-최종 업데이트: 2026-09-17(UTC)
+Cập nhật lần gần đây nhất: 2026-09-17 UTC.
 
-의견을 전달하고 싶나요?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-17(UTC)"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-17 UTC."],[],[]]

@@ -1,214 +1,227 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl
-fetched_at: 2026-10-19T05:31:22.352849+00:00
-title: "Ograniczenia liczby \u017c\u0105da\u0144 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=it
+fetched_at: 2026-10-26T05:46:19.058457+00:00
+title: "Limiti di frequenza \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Prześlij opinię
+Invia feedback
 
-# Ograniczenia liczby żądań
+# Limiti di frequenza
 
-Limity liczby żądań określają, ile żądań możesz wysłać do interfejsu Gemini API w danym okresie. Te limity pomagają zapewnić uczciwe korzystanie z usługi, chronić przed nadużyciami i utrzymać wydajność systemu dla wszystkich użytkowników.
+I limiti di frequenza regolano il numero di richieste che puoi effettuare all'API Gemini
+in un determinato periodo di tempo. Questi limiti contribuiscono a mantenere un utilizzo equo, a proteggere dagli abusi e a mantenere le prestazioni del sistema per tutti gli utenti.
 
-[Wyświetlanie aktywnych limitów w AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=pl)
+[Visualizzare i limiti di frequenza attivi in AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=it)
 
-## Jak działają limity szybkości
+## Come funzionano i limiti di frequenza
 
-Limity zwykle mierzy się w 3 wymiarach:
+I limiti di frequenza vengono in genere misurati in tre dimensioni:
 
-- Żądania na minutę (**RPM**)
-- Tokeny na minutę (dane wejściowe) (**TPM**)
-- Żądania dziennie (**RPD**)
+- Richieste al minuto (**RPM**)
+- Token al minuto (input) (**TPM**)
+- Richieste al giorno (**RPD**)
 
-Wykorzystanie jest oceniane pod kątem każdego limitu, a przekroczenie dowolnego z nich spowoduje błąd limitu liczby żądań. Jeśli na przykład limit zapytań na minutę wynosi 20, wysłanie 21 zapytań w ciągu minuty spowoduje błąd, nawet jeśli nie przekroczysz limitu zapytań na miesiąc ani innych limitów.
+Il tuo utilizzo viene valutato in base a ciascun limite e il superamento di uno di questi attiverà un errore di limitazione di frequenza. Ad esempio, se il limite di RPM è 20, l'invio di 21 richieste entro un minuto genererà un errore, anche se non hai superato il TPM o altri limiti.
 
-Limity liczby żądań są stosowane na poziomie projektu, a nie klucza interfejsu API. Limity liczby żądań dziennie (**RPD**) są resetowane o północy czasu pacyficznego.
+I limiti di frequenza vengono applicati per progetto, non per chiave API. Le quote di richieste al giorno (**RPD**) vengono reimpostate alla mezzanotte del fuso orario del Pacifico.
 
-Limity różnią się w zależności od używanego modelu, a niektóre limity dotyczą tylko konkretnych modeli. Na przykład liczba obrazów na minutę (IPM) jest obliczana tylko w przypadku modeli, które mogą generować obrazy (Nano Banana), ale jest podobna do liczby tokenów na minutę. Inne modele mogą mieć limit tokenów na dzień (TPD).
+I limiti variano a seconda del modello specifico utilizzato e alcuni limiti si applicano solo a modelli specifici. Ad esempio, le immagini al minuto (IPM) vengono calcolate solo per i modelli in grado di generare immagini (Nano Banana), ma sono concettualmente simili ai TPM. Altri modelli potrebbero avere un limite di token al giorno (TPD).
 
-W przypadku modeli eksperymentalnych i wersji zapoznawczych limity liczby żądań są bardziej restrykcyjne.
+I limiti di frequenza sono più restrittivi per i modelli sperimentali e di anteprima.
 
-### Limity oparte na wydatkach
+### Limiti di frequenza basati sulla spesa
 
-Oprócz limitów żądań na minutę (RPM) i tokenów na minutę (TPM) interfejs Gemini API stosuje limity oparte na wydatkach, aby chronić przed nieoczekiwanymi opłatami. To, czy te limity obowiązują na Twoim koncie, zależy od historii płatności i [poziomu wykorzystania](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl#usage-tiers).
+Oltre ai limiti di richieste al minuto (RPM) e token al minuto (TPM), l'API Gemini applica limiti di frequenza basati sulla spesa per proteggerti da addebiti imprevisti. L'applicazione di questi limiti al tuo account dipende dalla cronologia
+della fatturazione e dal [livello di utilizzo](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers).
 
-W tabeli poniżej znajdziesz limity liczby żądań oparte na wydatkach dla poszczególnych [poziomów wykorzystania](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl#usage-tiers). Te limity są oceniane w 10-minutowym oknie kroczącym. To, czy te limity dotyczą Twojego konta, zależy od historii płatności i stanu konta.
+La tabella seguente mostra i limiti di frequenza basati sulla spesa per ogni
+[livello di utilizzo](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers). Questi limiti vengono valutati in una finestra mobile di 10 minuti. L'applicazione di questi limiti al tuo
+account dipende dalla cronologia della fatturazione e dallo stato dell'account.
 
-| Poziom wykorzystania | Limit wydatków (na 10 minut) |
+| Livello di utilizzo | Limite di frequenza di spesa (per 10 minuti) |
 | --- | --- |
-| **Free** | Nie dotyczy |
-| **Poziom 1** | 10 USD |
-| **Poziom 2** | 50 USD |
-| **Poziom 3** | 200 HKD |
+| **Nessun costo** | N/D |
+| **Livello 1** | 10 $ |
+| **Livello 2** | 50 $ |
+| **Livello 3** | 200 $ |
 
-Jeśli osiągniesz limit oparty na wydatkach, interfejs API zwróci błąd `429 RESOURCE_EXHAUSTED`. Aby rozwiązać ten problem:
+Se raggiungi un limite di frequenza basato sulla spesa, l'API restituisce un errore `429 RESOURCE_EXHAUSTED`. Per risolvere questo problema:
 
-- **Poczekaj i spróbuj ponownie** po krótkim czasie.
-- **Zmniejsz liczbę kosztownych żądań**, na przykład przez używanie mniejszych okien kontekstu lub krótszych danych wyjściowych.
-- Jeśli stale osiągasz ten limit podczas normalnego użytkowania, [poproś o jego zwiększenie](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl#request-rate-limit-increase).
+- **Attendi e riprova** dopo un breve periodo.
+- **Riduci la frequenza delle richieste costose**, ad esempio utilizzando finestre di contesto più piccole o output più brevi.
+- Se raggiungi costantemente questo limite durante il normale utilizzo, [richiedi un aumento del limite di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#request-rate-limit-increase).
 
-## Poziomy wykorzystania
+## Livelli di utilizzo
 
-Limity liczby żądań są powiązane z poziomem wykorzystania projektu. W miarę wzrostu wykorzystania interfejsu API i wydatków automatycznie przejdziesz na wyższy poziom z wyższymi limitami liczby żądań.
+I limiti di frequenza sono legati al livello di utilizzo del progetto. Man mano che l'utilizzo e la spesa per l'API aumentano, verrà eseguito automaticamente l'upgrade a un livello superiore con limitazioni di frequenza più elevate.
 
-Kwalifikacje do poziomów 2 i 3 są oparte na łącznych wydatkach na usługi Google Cloud (w tym na interfejs Gemini API) na koncie rozliczeniowym połączonym z Twoim projektem.
+I requisiti per i livelli 2 e 3 si basano sulla spesa cumulativa totale
+per i servizi Google Cloud (inclusa, a titolo esemplificativo, l'API Gemini) per l'account di fatturazione collegato al tuo progetto.
 
-| Poziom wykorzystania | Kwalifikacje | [Limit poziomu płatności](https://ai.google.dev/gemini-api/docs/billing?hl=pl#tier-spend-caps) |
+| Livello di utilizzo | Qualificazione | [Limite del livello di fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it#tier-spend-caps) |
 | --- | --- | --- |
-| **Free** | [Aktywny projekt](https://ai.google.dev/gemini-api/docs/api-key?hl=pl#google-cloud-projects) lub bezpłatny okres próbny | Nie dotyczy |
-| **Poziom 1** | [Skonfiguruj i połącz aktywne konto rozliczeniowe](https://ai.google.dev/gemini-api/docs/billing?hl=pl#setup-billing) | 250 USD |
-| **Poziom 2** | Wypłata 100 USD + 3 dni od pierwszej udanej płatności | 2000 USD |
-| **Poziom 3** | Zapłacono 1000 USD + 30 dni od pierwszej udanej płatności | 20 000–100 000 USD i więcej |
+| **Nessun costo** | [Progetto attivo](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) o prova senza costi | N/D |
+| **Livello 1** | [Configura e collega un account di fatturazione attivo](https://ai.google.dev/gemini-api/docs/billing?hl=it#setup-billing) | 250 $ |
+| **Livello 2** | Pagamento di 100 $+ 3 giorni dal primo pagamento riuscito | $ 2000 |
+| **Livello 3** | Pagamento di 1000 $+ 30 giorni dal primo pagamento riuscito | 20.000 $-100.000 $ e oltre |
 
-Spełnienie podanych kryteriów kwalifikacji jest zwykle wystarczające do zatwierdzenia, ale w rzadkich przypadkach prośba o przejście na wyższy poziom może zostać odrzucona z powodu innych czynników wykrytych podczas procesu weryfikacji.
+Sebbene il rispetto dei criteri di idoneità indicati sia generalmente sufficiente per l'approvazione, in rari casi una richiesta di upgrade potrebbe essere rifiutata in base ad altri fattori identificati durante la procedura di revisione.
 
-Ten system pomaga zachować bezpieczeństwo i integralność platformy Gemini API dla wszystkich użytkowników.
+Questo sistema contribuisce a mantenere la sicurezza e l'integrità della piattaforma API Gemini
+per tutti gli utenti.
 
-## Limity liczby żądań do interfejsu Gemini API
+## Limiti di frequenza dell'API Gemini
 
-Limity szybkości zależą od wielu czynników (np. od poziomu wykorzystania) i można je sprawdzić w Google AI Studio. W miarę jak Twój poziom i stan konta będą się zmieniać, limity żądań będą automatycznie aktualizowane.
+I limiti di frequenza dipendono da una serie di fattori (come il livello di utilizzo) e possono essere visualizzati in Google AI Studio. Man mano che il tuo livello e lo stato dell'account cambiano nel tempo,
+i limiti di frequenza verranno aggiornati automaticamente.
 
-[Wyświetlanie aktywnych limitów w AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=pl)
+[Visualizza i limiti di frequenza attivi in AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=it)
 
-Określone limity szybkości nie są gwarantowane, a rzeczywista przepustowość może się różnić.
+I limiti di frequenza specificati non sono garantiti e la capacità effettiva potrebbe variare.
 
-## Limity szybkości wnioskowania priorytetowego
+## Limiti di frequenza dell'inferenza della priorità
 
-Wykorzystanie [priorytetowe](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl) ma własne limity, mimo że jest wliczane do ogólnych limitów ruchu interaktywnego. **Domyślne limity to 0,3x [standardowego limitu](https://aistudio.google.com/rate-limit?hl=pl) dla każdego modelu i poziomu**
+Il consumo [prioritario](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it) ha i propri limiti di frequenza, anche se il consumo viene conteggiato ai fini dei limiti di frequenza del traffico interattivo complessivo. **I limiti di frequenza predefiniti sono: 0,3 volte il [limite di frequenza standard](https://aistudio.google.com/rate-limit?hl=it) per ogni modello e livello**
 
-## Limity Batch API
+## Limiti di frequenza dell'API Batch
 
-Żądania do [interfejsu API operacji zbiorczych](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl) podlegają własnym limitom, które są niezależne od wywołań interfejsu API operacji pojedynczych.
+Le richieste [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) sono soggette ai propri limiti di frequenza, separati dalle chiamate API non batch.
 
-- **Równoczesne żądania zbiorcze:** 100
-- **Limit rozmiaru pliku wejściowego:** 2 GB
-- **Limit miejsca na pliki:** 20 GB
-- **Tokeny w kolejce na model:** tabela **Tokeny w kolejce wsadowej** zawiera maksymalną liczbę tokenów, które można umieścić w kolejce do przetwarzania wsadowego we wszystkich aktywnych zadaniach wsadowych dla danego modelu.
+- **Richieste batch simultanee**:100
+- **Limite di dimensione del file di input**:2 GB
+- **Limite di spazio di archiviazione dei file**:20 GB
+- **Token in coda per modello**:la tabella **Token batch in coda** elenca il
+  numero massimo di token che possono essere inseriti in coda per l'elaborazione batch in
+  tutti i tuoi job batch attivi per un determinato modello.
 
-### Poziom 1
+### Livello 1
 
-| Model | Tokeny dodane do kolejki wsadowej |
+| Modello | Token batch in coda |
 | --- | --- |
-| Modele generujące tekst | | | | |
+| Modelli di testo | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | 5 000 000 |
-| Gemini 3.1 Pro (wersja testowa) | 5 000 000 |
-| Gemini 3.5 Flash-Lite | 10 000 000 |
-| Gemini 3.8 Flash | 3 000 000 |
-| Gemini 3.1 Flash Lite | 10 000 000 |
-| Gemini 3.1 Flash Lite (wersja testowa) | 10 000 000 |
-| Gemini 3.6 Flash | 3 000 000 |
-| Gemini 2.5 Pro | 5 000 000 |
-| Gemini 2.5 Pro TTS | 25 000 |
-| Gemini 2.5 Flash | 3 000 000 |
-| Gemini 2.5 Flash (wersja testowa) | 3 000 000 |
-| Gemini 2.5 Flash Image (wersja testowa) | 3 000 000 |
-| Gemini 2.5 Flash TTS | 100 000 |
-| Gemini 2.5 Flash Lite | 10 000 000 |
-| Gemini 2.5 Flash Lite (wersja testowa) | 10 000 000 |
-| Gemini 2.0 Flash | 10 000 000 |
-| Gemini 2.0 Flash Image | 3 000 000 |
-| Gemini 2.0 Flash Lite | 10 000 000 |
-| Modele generowania multimodalnego | | | | |
-| Gemini 3.1 Flash Image (wersja testowa) 🍌 | 1 000 000 |
-| Gemini 3.1 Flash Lite Image 🍌 | 2 000 000 |
-| Gemini 3 Pro Image Preview 🍌 | 2 000 000 |
-| Modele wektorów dystrybucyjnych | | | | |
-| Gemini Embedding | 500 000 |
+| Gemini 4 Argon | 5.000.000 |
+| Gemini 3.1 Pro (anteprima) | 5.000.000 |
+| Gemini 3.5 Flash-Lite | 10.000.000 |
+| Gemini 3.8 Flash | 3.000.000 |
+| Gemini 3.1 Flash Lite | 10.000.000 |
+| Gemini 3.1 Flash Lite (anteprima) | 10.000.000 |
+| Gemini 3.6 Flash | 3.000.000 |
+| Gemini 2.5 Pro | 5.000.000 |
+| Gemini 2.5 Pro TTS | 25.000 |
+| Gemini 2.5 Flash | 3.000.000 |
+| Gemini 2.5 Flash Preview | 3.000.000 |
+| Anteprima di Gemini 2.5 Flash Image | 3.000.000 |
+| Gemini 2.5 Flash TTS | 100.000 |
+| Gemini 2.5 Flash-Lite | 10.000.000 |
+| Gemini 2.5 Flash Lite (anteprima) | 10.000.000 |
+| Gemini 2.0 Flash | 10.000.000 |
+| Gemini 2.0 Flash Image | 3.000.000 |
+| Gemini 2.0 Flash Lite | 10.000.000 |
+| Modelli di generazione multimodali | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | 1.000.000 |
+| Gemini 3.1 Flash Lite Image 🍌 | 2.000.000 |
+| Anteprima di Gemini 3 Pro Image 🍌 | 2.000.000 |
+| Modelli di embedding | | | | |
+| Embedding di Gemini | 500.000 |
 
-### Poziom 2
+### Livello 2
 
-| Model | Tokeny dodane do kolejki wsadowej |
+| Modello | Token batch in coda |
 | --- | --- |
-| Modele generujące tekst | | | | |
+| Modelli di testo | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | 500 000 000 |
-| Gemini 3.1 Pro (wersja testowa) | 500 000 000 |
-| Gemini 3.5 Flash-Lite | 500 000 000 |
-| Gemini 3.1 Flash Lite | 500 000 000 |
-| Gemini 3.1 Flash Lite (wersja testowa) | 500 000 000 |
-| Gemini 3.8 Flash | 400 000 000 |
-| Gemini 3.6 Flash | 400 000 000 |
-| Gemini 2.5 Pro | 500 000 000 |
-| Gemini 2.5 Pro TTS | 100 000 |
-| Gemini 2.5 Flash | 400 000 000 |
-| Gemini 2.5 Flash (wersja testowa) | 400 000 000 |
-| Gemini 2.5 Flash Image (wersja testowa) | 400 000 000 |
-| Gemini 2.5 Flash TTS | 100 000 |
-| Gemini 2.5 Flash Lite | 500 000 000 |
-| Gemini 2.5 Flash Lite (wersja testowa) | 500 000 000 |
-| Gemini 2.0 Flash | 1 000 000 000 |
-| Gemini 2.0 Flash Image | 400 000 000 |
-| Gemini 2.0 Flash Lite | 1 000 000 000 |
-| Multimodalne modele generatywne | | | | |
-| Gemini 3.1 Flash Image (wersja testowa) 🍌 | 250 000 000 |
-| Gemini 3.1 Flash Lite Image 🍌 | 270 000 000 |
-| Gemini 3 Pro Image Preview 🍌 | 270 000 000 |
-| Modele wektorów dystrybucyjnych | | | | |
-| Gemini Embedding | 5 000 000 |
+| Gemini 4 Argon | 500.000.000 |
+| Gemini 3.1 Pro (anteprima) | 500.000.000 |
+| Gemini 3.5 Flash-Lite | 500.000.000 |
+| Gemini 3.1 Flash Lite | 500.000.000 |
+| Gemini 3.1 Flash Lite (anteprima) | 500.000.000 |
+| Gemini 3.8 Flash | 400.000.000 |
+| Gemini 3.6 Flash | 400.000.000 |
+| Gemini 2.5 Pro | 500.000.000 |
+| Gemini 2.5 Pro TTS | 100.000 |
+| Gemini 2.5 Flash | 400.000.000 |
+| Gemini 2.5 Flash (anteprima) | 400.000.000 |
+| Gemini 2.5 Flash Image Preview | 400.000.000 |
+| Gemini 2.5 Flash TTS | 100.000 |
+| Gemini 2.5 Flash-Lite | 500.000.000 |
+| Gemini 2.5 Flash Lite (anteprima) | 500.000.000 |
+| Gemini 2.0 Flash | 1.000.000.000 |
+| Gemini 2.0 Flash Image | 400.000.000 |
+| Gemini 2.0 Flash Lite | 1.000.000.000 |
+| Modelli di generazione multimodali | | | | |
+| Anteprima dell'immagine flash di Gemini 3.1 🍌 | 250.000.000 |
+| Gemini 3.1 Flash Lite Image 🍌 | 270.000.000 |
+| Anteprima di Gemini 3 Pro Image 🍌 | 270.000.000 |
+| Modelli di embedding | | | | |
+| Incorporamento di Gemini | 5.000.000 |
 
-### Poziom 3
+### Livello 3
 
-| Model | Tokeny dodane do kolejki wsadowej |
+| Modello | Token batch in coda |
 | --- | --- |
-| Modele generujące tekst | | | | |
+| Modelli di testo | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | 1 000 000 000 |
-| Gemini 3.1 Pro (wersja testowa) | 1 000 000 000 |
-| Gemini 3.5 Flash-Lite | 1 000 000 000 |
-| Gemini 3.1 Flash Lite | 1 000 000 000 |
-| Gemini 3.1 Flash Lite (wersja testowa) | 1 000 000 000 |
-| Gemini 3.8 Flash | 1 000 000 000 |
-| Gemini 3.6 Flash | 1 000 000 000 |
-| Gemini 2.5 Pro | 1 000 000 000 |
-| Gemini 2.5 Pro TTS | 1 000 000 |
-| Gemini 2.5 Flash | 1 000 000 000 |
-| Gemini 2.5 Flash (wersja testowa) | 1 000 000 000 |
-| Gemini 2.5 Flash Image (wersja testowa) | 1 000 000 000 |
-| Gemini 2.5 Flash TTS | 4 000 000 |
-| Gemini 2.5 Flash Lite | 1 000 000 000 |
-| Gemini 2.5 Flash Lite (wersja testowa) | 1 000 000 000 |
-| Gemini 2.0 Flash | 5 000 000 000 |
-| Gemini 2.0 Flash Image | 1 000 000 000 |
-| Gemini 2.0 Flash Lite | 5 000 000 000 |
-| Multimodalne modele generatywne | | | | |
-| Gemini 3.1 Flash Image (wersja testowa) 🍌 | 750 000 000 |
-| Gemini 3.1 Flash Lite Image 🍌 | 1 000 000 000 |
-| Gemini 3 Pro Image Preview 🍌 | 1 000 000 000 |
-| Modele wektorów dystrybucyjnych | | | | |
-| Osadzanie Gemini | 10 000 000 |
+| Gemini 4 Argon | 1.000.000.000 |
+| Gemini 3.1 Pro (anteprima) | 1.000.000.000 |
+| Gemini 3.5 Flash-Lite | 1.000.000.000 |
+| Gemini 3.1 Flash Lite | 1.000.000.000 |
+| Gemini 3.1 Flash Lite (anteprima) | 1.000.000.000 |
+| Gemini 3.8 Flash | 1.000.000.000 |
+| Gemini 3.6 Flash | 1.000.000.000 |
+| Gemini 2.5 Pro | 1.000.000.000 |
+| Gemini 2.5 Pro TTS | 1.000.000 |
+| Gemini 2.5 Flash | 1.000.000.000 |
+| Gemini 2.5 Flash Preview | 1.000.000.000 |
+| Gemini 2.5 Flash Image Preview | 1.000.000.000 |
+| Gemini 2.5 Flash TTS | 4.000.000 |
+| Gemini 2.5 Flash-Lite | 1.000.000.000 |
+| Gemini 2.5 Flash Lite (anteprima) | 1.000.000.000 |
+| Gemini 2.0 Flash | 5.000.000.000 |
+| Gemini 2.0 Flash Image | 1.000.000.000 |
+| Gemini 2.0 Flash Lite | 5.000.000.000 |
+| Modelli di generazione multimodali | | | | |
+| Anteprima dell'immagine flash di Gemini 3.1 🍌 | 750.000.000 |
+| Gemini 3.1 Flash Lite Image 🍌 | 1.000.000.000 |
+| Gemini 3 Pro Image Preview 🍌 | 1.000.000.000 |
+| Modelli di embedding | | | | |
+| Embedding di Gemini | 10.000.000 |
 
-## Jak przejść na wyższy poziom
+## Come eseguire l'upgrade al livello successivo
 
-Aby przejść z poziomu bezpłatnego na płatny, musisz najpierw [skonfigurować rozliczenia w AI Studio](https://ai.google.dev/gemini-api/docs/billing?hl=pl).
+Per eseguire la transizione dal livello senza costi a un livello a pagamento, devi prima
+[configurare la fatturazione in AI Studio](https://ai.google.dev/gemini-api/docs/billing?hl=it).
 
-Gdy Twój projekt spełni [określone kryteria](https://ai.google.dev/gemini-api/docs/rate-limits?hl=pl#usage-tiers), zostanie automatycznie uaktualniony do następnego poziomu. Przejście z poziomu bezpłatnego na poziom 1 zwykle następuje natychmiast, a kolejne przejścia na wyższe poziomy – w ciągu 10 minut. Aby sprawdzić swoje poziomy, otwórz [stronę Projekty](https://aistudio.google.com/projects?hl=pl) w AI Studio.
+Una volta che il tuo progetto soddisfa i [criteri specificati](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers), verrà eseguito automaticamente l'upgrade al livello successivo. Gli upgrade dal Livello senza costi al Livello 1 diventano in genere effettivi immediatamente, mentre gli upgrade successivi diventano effettivi entro 10 minuti. Vai alla
+[pagina Progetti](https://aistudio.google.com/projects?hl=it) in AI Studio per controllare i tuoi
+livelli.
 
-## Prośba o zwiększenie limitu częstotliwości
+## Richiedi un aumento del limite di frequenza
 
-Każda wersja modelu ma powiązane ograniczanie liczby żądań (żądania na minutę, RPM).
-Szczegółowe informacje o tych limitach znajdziesz na stronie [Limity AI Studio](https://aistudio.google.com/rate-limit?hl=pl).
+Ogni variante del modello ha un limite di frequenza associato (richieste al minuto, RPM).
+Per informazioni dettagliate su questi limiti di frequenza, consulta la pagina
+[Limite di frequenza di AI Studio](https://aistudio.google.com/rate-limit?hl=it).
 
-[Prośba o zwiększenie limitu częstotliwości w przypadku wersji płatnej](https://forms.gle/ETzX94k8jf7iSotH9)
+[Richiedere un aumento del limite di frequenza del livello a pagamento](https://forms.gle/ETzX94k8jf7iSotH9)
 
-Nie gwarantujemy, że zwiększymy Twój limit, ale dołożymy wszelkich starań, aby rozpatrzyć Twoją prośbę.
+Non offriamo alcuna garanzia in merito all'aumento del limite di frequenza, ma faremo del nostro meglio per esaminare la tua richiesta.
 
-Prześlij opinię
+Invia feedback
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Ostatnia aktualizacja: 2026-10-15 UTC.
+Ultimo aggiornamento 2026-10-15 UTC.
 
-Chcesz przekazać coś jeszcze?
+Vuoi dirci altro?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-15 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-15 UTC."],[],[]]

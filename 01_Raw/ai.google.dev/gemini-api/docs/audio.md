@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/audio?hl=ar
-fetched_at: 2026-10-19T05:32:50.200564+00:00
-title: "\u0641\u0647\u0645 \u0627\u0644\u0635\u0648\u062a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/audio?hl=zh-TW
+fetched_at: 2026-10-26T05:51:21.858256+00:00
+title: "\u97f3\u8a0a\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-إرسال ملاحظات
+提供意見
 
-# فهم الصوت
+# 音訊理解
 
-يمكن لـ Gemini تحليل الإدخال الصوتي وإنشاء ردود نصية.
+Gemini 可以分析音訊輸入內容，並生成文字回覆。
 
 ### Python
 
@@ -70,7 +70,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -190,22 +190,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## نظرة عامة
+## 總覽
 
-يمكن لـ Gemini تحليل وفهم الإدخال الصوتي وإنشاء ردود نصية، ما يتيح حالات استخدام مثل:
+Gemini 可以分析及理解音訊輸入內容，並生成文字回覆，
+適用於以下情境：
 
-- وصف المحتوى الصوتي أو تلخيصه أو الإجابة عن أسئلة بشأنه
-- تحويل الصوت إلى نص وترجمته
-- تمييز أصوات المتحدّثِين (تحديد هوية المتحدّثِين المختلفين)
-- رصد المشاعر في الكلام والموسيقى
-- تحليل شرائح معيّنة باستخدام الطوابع الزمنية
+- 描述、摘要或回答音訊內容相關問題
+- 轉錄和翻譯 (語音轉文字)
+- 說話者分段標記 (辨識不同說話者)
+- 偵測語音和音樂中的情緒
+- 分析特定時間戳記的片段
 
-للتفاعلات الصوتية والمرئية في الوقت الفعلي، يمكنك الاطّلاع على [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar).
-للحصول على نماذج مخصّصة لتحويل الكلام إلى نص تتيح تحويل الكلام إلى نص في الوقت الفعلي، استخدِم [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=ar).
+如要進行即時語音和視訊互動，請參閱 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)。
+如要使用支援即時轉錄的專用語音轉文字模型，請使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-tw)。
 
-## تحويل الكلام إلى نص
+## 將語音轉錄為文字
 
-يوضّح هذا المثال كيفية تحويل الكلام إلى نص وترجمته وتلخيصه مع الطوابع الزمنية وتحديد هوية المتحدث ورصد المشاعر باستخدام [النتائج المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar).
+這個範例說明如何使用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)，轉錄、翻譯語音內容並產生摘要，同時提供時間戳記、說話者區分和情緒偵測結果。
 
 ### Python
 
@@ -323,7 +324,7 @@ const interaction = await client.interactions.create({
 console.log(JSON.parse(interaction.output_text));
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -539,18 +540,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-![تطبيق Gemini لتحويل الصوت إلى نص بلغات متعددة](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=ar)
+![支援多種語言的語音轉錄 Gemini 應用程式](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-tw)
 
-## إدخال الصوت
+## 輸入音訊
 
-يمكنك تقديم بيانات الصوت بالطرق التالية:
+你可以透過下列方式提供音訊資料：
 
-- [حمِّل ملفًا صوتيًا](#upload-audio) قبل تقديم طلب.
-- [مرِّر بيانات الصوت المضمّنة](#inline-audio) مع الطلب.
+- 請先[上傳音訊檔案](#upload-audio)，再提出要求。
+- 在要求中[傳遞內嵌音訊資料](#inline-audio)。
 
-### تحميل ملف صوتي
+### 上傳音訊檔案
 
-استخدِم [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar) للملفات التي يزيد حجمها عن 20 ميغابايت.
+如要上傳超過 20 MB 的檔案，請使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)。
 
 ### Python
 
@@ -601,7 +602,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 // Upload an audio file using the Files API (recommended for files > 20 MB)
@@ -723,9 +724,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### تمرير بيانات الصوت مضمّنة
+### 內嵌傳遞音訊資料
 
-بالنسبة إلى ملفات الصوت الصغيرة التي يقلّ حجم الطلب الإجمالي فيها عن 20 ميغابايت:
+如要上傳總大小小於 20 MB 的小型音訊檔案：
 
 ### Python
 
@@ -778,7 +779,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -906,13 +907,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-ملاحظات حول بيانات الصوت المضمّنة:
-\* الحدّ الأقصى لحجم الطلب هو 20 ميغابايت إجمالاً (بما في ذلك الطلبات وكل الملفات)
-\* لإعادة الاستخدام، يُرجى [تحميل الملف](#upload-audio) بدلاً من ذلك
+內嵌音訊資料注意事項：
+\* 要求大小上限為 20 MB (包括提示和所有檔案)
+\* 如要重複使用，請[上傳檔案](#upload-audio)
 
-## الحصول على نص
+## 取得轉錄稿
 
-للحصول على نص، اطلب ذلك في الطلب:
+如要取得轉錄稿，請在提示中要求：
 
 ### Python
 
@@ -948,7 +949,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1048,9 +1049,9 @@ func main() {
 }
 ```
 
-## الرجوع إلى الطوابع الزمنية
+## 參閱時間戳記
 
-استخدِم التنسيق `MM:SS` للإشارة إلى أقسام معيّنة:
+使用 `MM:SS` 格式參照特定章節：
 
 ### Python
 
@@ -1080,7 +1081,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1181,9 +1182,9 @@ func main() {
 }
 ```
 
-## عدد الرموز المميّزة
+## 計算詞元數
 
-لحساب عدد الرموز المميزة في ملف صوتي، اتّبِع الخطوات التالية:
+計算音訊檔案中的權杖數：
 
 ### Python
 
@@ -1207,7 +1208,7 @@ const response = await client.models.countTokens({
 console.log(response.totalTokens);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1278,9 +1279,9 @@ func main() {
 }
 ```
 
-## تنسيقات الصوت المتوافقة
+## 支援的音訊格式
 
-يتوافق Gemini مع أنواع MIME لتنسيقات الصوت التالية:
+Gemini 支援下列音訊格式 MIME 類型：
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -1291,35 +1292,35 @@ func main() {
 - MPEG - `audio/mpeg`
 - M4A - `audio/m4a`
 - L16 - `audio/l16`
-- ‫Opus - ‏`audio/opus`
+- Opus - `audio/opus`
 - ALAW - `audio/alaw`
 - MULAW - `audio/mulaw`
 - WebM - `audio/webm`
 
-للاطّلاع على القائمة الكاملة بأنواع MIME المتوافقة ومخططات المَعلمات، يُرجى الرجوع إلى [مرجع Interactions API](https://ai.google.dev/api/interactions-api?hl=ar#Resource:Content).
+如需支援的 MIME 類型和參數結構定義完整清單，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw#Resource:Content)。
 
-## تفاصيل فنية عن الصوت
+## 音訊技術詳細資料
 
-- **الرموز المميزة**: 32 رمزًا مميزًا لكل ثانية من الصوت (دقيقة واحدة = 1,920 رمزًا مميزًا)
-- **الأصوات غير الكلامية**: يفهم Gemini الأصوات غير الكلامية (مثل زقزقة العصافير وأصوات سيارات الإسعاف وغيرها).
-- **الحدّ الأقصى للطول**: 9.5 ساعات من الصوت لكل طلب
-- **درجة الدقة**: تم تخفيض معدّل نقل البيانات إلى 16 كيلوبت في الثانية
-- **القنوات**: مقاطع صوتية متعددة القنوات مدمجة في قناة واحدة
+- **詞元**：每秒音訊 32 個詞元 (1 分鐘 = 1,920 個詞元)
+- **非語音**：Gemini 可辨識非語音的聲音 (鳥鳴、警笛聲等)
+- **長度上限**：每個提示的音訊長度為 9.5 小時
+- **解析度**：降採樣至 16 Kbps
+- **聲道**：將多個聲道合併為單一聲道
 
-## الخطوات التالية
+## 後續步驟
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar): تحميل الملفات الصوتية وإدارتها
-- [تعليمات النظام](https://ai.google.dev/gemini-api/docs/text-generation?hl=ar#system-instructions):
-  تخصيص سلوك النموذج
-- [الناتج المنظَّم](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar):
-  الحصول على نتائج تحويل الصوت إلى نص بتنسيق JSON
+- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)：上傳及管理音訊檔案
+- [系統指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#system-instructions)：
+  自訂模型行為
+- [結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)：
+  以 JSON 格式取得轉錄結果
 
-إرسال ملاحظات
+提供意見
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)
+上次更新時間：2026-09-24 (世界標準時間)。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+想進一步說明嗎？
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-24 (世界標準時間)。"],[],[]]

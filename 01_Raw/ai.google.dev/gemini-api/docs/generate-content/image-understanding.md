@@ -1,45 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=id
-fetched_at: 2026-10-19T05:39:40.674356+00:00
-title: "Pemahaman gambar \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=he
+fetched_at: 2026-10-26T05:36:41.193022+00:00
+title: "\u05d4\u05d1\u05e0\u05ea \u05ea\u05de\u05d5\u05e0\u05d5\u05ea \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
-Kirim masukan
+שליחת משוב
 
-# Pemahaman gambar
+# הבנת תמונות
 
-Model Gemini dibangun dari awal agar bersifat multimodal, sehingga memungkinkan berbagai tugas pemrosesan gambar dan computer vision, termasuk tetapi tidak terbatas pada pemberian teks gambar, klasifikasi, dan penjawaban pertanyaan visual tanpa harus melatih model ML khusus.
+מודלי Gemini מבוססים על מולטי-מודאליות מההתחלה, ולכן הם מאפשרים לבצע מגוון רחב של משימות עיבוד תמונות וראייה ממוחשבת, כולל, בין היתר, יצירת כיתוב לתמונות, סיווג ומענה לשאלות על תמונות, בלי צורך לאמן מודלים מיוחדים של ML.
 
-Selain kemampuan multimodal umumnya, model Gemini menawarkan
-**akurasi yang lebih baik** untuk kasus penggunaan tertentu seperti
-[deteksi objek](#object-detection), melalui pelatihan tambahan.
+בנוסף ליכולות הכלליות שלהם, מודלים של Gemini מציעים **דיוק משופר** בתרחישי שימוש ספציפיים כמו [זיהוי אובייקטים](#object-detection), באמצעות אימון נוסף.
 
-## Meneruskan gambar ke Gemini
+## העברת תמונות ל-Gemini
 
-Anda dapat memberikan gambar sebagai input ke Gemini menggunakan dua metode:
+יש שתי דרכים לספק תמונות כקלט ל-Gemini:
 
-- [Meneruskan data gambar inline](#inline-image): Ideal untuk file yang lebih kecil (ukuran total permintaan kurang dari 20 MB, termasuk perintah).
-- [Mengupload gambar menggunakan File API](#upload-image): Direkomendasikan untuk file yang lebih besar atau untuk menggunakan kembali gambar di beberapa permintaan.
+- [העברת נתוני תמונה מוטבעים](#inline-image): מתאים לקבצים קטנים יותר (גודל הבקשה הכולל קטן מ-20MB, כולל ההנחיות).
+- [העלאת תמונות באמצעות File API](#upload-image): מומלץ לקבצים גדולים יותר או לשימוש חוזר בתמונות בכמה בקשות.
 
-### Meneruskan data gambar sebaris
+### העברת נתוני תמונות מוטבעות
 
-Anda dapat meneruskan data gambar inline dalam
-permintaan ke `generateContent`. Anda dapat menyediakan data gambar sebagai string
-berenkode Base64 atau dengan membaca file lokal secara langsung (bergantung pada bahasa).
+אפשר להעביר נתוני תמונות מוטבעות בבקשה אל `generateContent`. אפשר לספק נתוני תמונות כמחרוזות מקודדות ב-Base64 או על ידי קריאה ישירה של קבצים מקומיים (בהתאם לשפה).
 
-Contoh berikut menunjukkan cara membaca gambar dari file lokal dan meneruskannya
-ke `generateContent` API untuk diproses.
+בדוגמה הבאה מוצג אופן הקריאה של תמונה מקובץ מקומי והעברתה ל-API של `generateContent` לצורך עיבוד.
 
 ### Python
 
@@ -147,8 +142,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }' 2> /dev/null
 ```
 
-Anda juga dapat mengambil gambar dari URL, mengonversinya ke byte, dan meneruskannya ke
-`generateContent` seperti yang ditunjukkan pada contoh berikut.
+אפשר גם לאחזר תמונה מכתובת URL, להמיר אותה לבייטים ולהעביר אותה אל `generateContent`, כמו בדוגמאות הבאות.
 
 ### Python
 
@@ -290,12 +284,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-### Mengupload gambar menggunakan File API
+### העלאת תמונות באמצעות File API
 
-Untuk file besar atau agar dapat menggunakan file gambar yang sama berulang kali, gunakan
-Files API. Kode berikut mengupload file gambar, lalu menggunakan file tersebut dalam
-panggilan ke `generateContent`. Lihat [panduan Files API](https://ai.google.dev/gemini-api/docs/files?hl=id) untuk
-mengetahui informasi dan contoh selengkapnya.
+כדי להעלות קבצים גדולים או כדי להשתמש באותו קובץ תמונה שוב ושוב, צריך להשתמש ב-Files API. בדוגמת הקוד הבאה, קובץ תמונה מועלה ואז נעשה בו שימוש בקריאה ל-`generateContent`. מידע נוסף ודוגמאות זמינים [במדריך לשימוש ב-Files API](https://ai.google.dev/gemini-api/docs/files?hl=he).
 
 ### Python
 
@@ -440,11 +431,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Membuat perintah dengan beberapa gambar
+## יצירת הנחיה עם כמה תמונות
 
-Anda dapat memberikan beberapa gambar dalam satu perintah dengan menyertakan beberapa objek gambar
-`Part` dalam array `contents`. Ini dapat berupa campuran data inline
-(file lokal atau URL) dan referensi File API.
+אפשר לספק כמה תמונות בהנחיה אחת על ידי הכללת כמה אובייקטים של תמונות במערך `Part``contents`. יכול להיות שיהיה שילוב של נתונים מוטבעים (קבצים מקומיים או כתובות URL) והפניות ל-File API.
 
 ### Python
 
@@ -629,11 +618,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Deteksi objek
+## זיהוי אובייקטים
 
-Model dilatih untuk mendeteksi objek dalam
-gambar dan mendapatkan koordinat kotak pembatasnya. Koordinat, relatif terhadap dimensi gambar, diskalakan ke [0, 1000]. Anda perlu membatalkan skala koordinat ini berdasarkan
-ukuran gambar asli Anda.
+המודלים מאומנים לזהות אובייקטים בתמונה ולקבל את קואורדינטות התיבה התוחמת שלהם. הקואורדינטות, ביחס לממדי התמונה, מותאמות לטווח [0, 1000]. צריך לבטל את שינוי קנה המידה של הקואורדינטות האלה על סמך גודל התמונה המקורי.
 
 ### Python
 
@@ -835,84 +822,78 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }' 2> /dev/null
 ```
 
-Untuk contoh lainnya, lihat notebook berikut di [Gemini Cookbook](https://github.com/google-gemini/cookbook):
+דוגמאות נוספות אפשר למצוא בנוטבוקים הבאים ב-[Gemini Cookbook](https://github.com/google-gemini/cookbook):
 
-- [Notebook pemahaman spasial 2D](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=id)
-- [Notebook penunjuk 3D eksperimental](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=id)
+- [מחברת להבנה מרחבית דו-ממדית](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Spatial_understanding.ipynb?hl=he)
+- [מחברת ניסיונית עם הצבעה בתלת-ממד](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/examples/Spatial_understanding_3d.ipynb?hl=he)
 
-## Format gambar yang didukung
+## פורמטים נתמכים של תמונות
 
-Gemini mendukung jenis MIME format gambar berikut:
+‫Gemini תומך בסוגי ה-MIME של פורמטים התמונות הבאים:
 
-- PNG - `image/png`
-- JPEG - `image/jpeg`
-- WEBP - `image/webp`
+- ‫PNG – `image/png`
+- ‫JPEG – `image/jpeg`
+- ‫WEBP – `image/webp`
 - HEIC - `image/heic`
 - HEIF - `image/heif`
 
-Untuk mempelajari metode input file lainnya, lihat panduan
-[Metode input file](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=id).
+מידע על שיטות אחרות להזנת קבצים זמין במדריך בנושא [שיטות להזנת קבצים](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=he).
 
-## Kemampuan
+## יכולות
 
-Semua versi model Gemini bersifat multimodal dan dapat digunakan dalam berbagai tugas pemrosesan gambar dan computer vision, termasuk, tetapi tidak terbatas pada pemberian teks gambar, tanya jawab visual, klasifikasi gambar, dan deteksi objek.
+כל הגרסאות של מודל Gemini הן מולטי-מודאליות, ואפשר להשתמש בהן במגוון רחב של משימות עיבוד תמונות וראייה ממוחשבת, כולל, בין היתר, יצירת כיתובים לתמונות, מענה על שאלות שקשורות לאובייקטים חזותיים, סיווג תמונות וזיהוי אובייקטים.
 
-Gemini dapat mengurangi kebutuhan untuk menggunakan model ML khusus, bergantung pada persyaratan kualitas dan performa Anda.
+יכול להיות ש-Gemini יצמצם את הצורך שלכם להשתמש במודלים מיוחדים של ML, בהתאם לדרישות האיכות והביצועים שלכם.
 
-Versi model terbaru dilatih secara khusus untuk meningkatkan akurasi tugas khusus selain kemampuan umum, seperti [deteksi objek](#object-detection) yang ditingkatkan.
+המודלים העדכניים ביותר אומנו במיוחד כדי לשפר את הדיוק של משימות ייעודיות, בנוסף ליכולות כלליות כמו [זיהוי אובייקטים](#object-detection) משופר.
 
-## Batasan dan informasi teknis utama
+## מגבלות ומידע טכני חשוב
 
-### Batas file
+### מגבלת קבצים
 
-Model Gemini mendukung maksimum 3.600 file gambar per permintaan.
+מודלי Gemini תומכים במקסימום של 3,600 קובצי תמונה לכל בקשה.
 
-### Penghitungan token
+### חישוב טוקנים
 
-- 258 token jika kedua dimensi <= 384 piksel.
-  Gambar yang lebih besar diatur menjadi ubin 768x768 piksel, yang masing-masing berharga 258 token.
+- ‫258 טוקנים אם שני המימדים הם ‎384 פיקסלים או פחות.
+  תמונות גדולות יותר מחולקות למשבצות של 768x768 פיקסלים, וכל משבצת עולה 258 טוקנים.
 
-Rumus kasar untuk menghitung jumlah kartu adalah sebagai berikut:
+נוסחה משוערת לחישוב מספר המשבצות:
 
-- Hitung ukuran unit pangkas yang kira-kira: floor(min(width, height) / 1.5).
-- Bagi setiap dimensi dengan ukuran unit pangkas dan kalikan bersama untuk mendapatkan
-  jumlah petak.
+- חישוב גודל יחידת החיתוך, שהוא בערך: floor(min(width, height) / 1.5).
+- מחלקים כל מאפיין בגודל יחידת החיתוך ומכפילים את התוצאות כדי לקבל את מספר האריחים.
 
-Misalnya, gambar berdimensi 960x540 akan memiliki ukuran unit pangkas
-360. Bagi setiap dimensi dengan 360 dan jumlah petak adalah 3 \* 2 = 6.
+לדוגמה, אם המידות של התמונה הן 960x540, גודל יחידת החיתוך יהיה 360. מחלקים כל מאפיין ב-360 ומקבלים את מספר האריחים 3 \* 2 = 6.
 
-### Resolusi media
+### רזולוציית המדיה
 
-Gemini 3 memperkenalkan kontrol terperinci atas pemrosesan visi multimodal dengan parameter
-`media_resolution`. Parameter `media_resolution` menentukan
-**jumlah maksimum token yang dialokasikan per gambar input atau frame video.**
-Resolusi yang lebih tinggi meningkatkan kemampuan model untuk membaca teks kecil atau mengidentifikasi detail kecil, tetapi meningkatkan penggunaan token dan latensi.
+‫Gemini 3 מציג שליטה מפורטת בעיבוד של ראייה מולטי-מודאלית באמצעות הפרמטר `media_resolution`. הפרמטר `media_resolution` קובע את **מספר האסימונים המקסימלי שמוקצה לכל תמונה או פריים של סרטון קלט.**
+רזולוציות גבוהות יותר משפרות את היכולת של המודל לקרוא טקסט קטן או לזהות פרטים קטנים, אבל הן מגדילות את השימוש בטוקנים ואת זמן האחזור.
 
-Untuk mengetahui detail selengkapnya tentang parameter dan pengaruhnya terhadap penghitungan token,
-lihat panduan [resolusi media](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=id).
+פרטים נוספים על הפרמטר ועל ההשפעה שלו על חישובי האסימונים זמינים במדריך בנושא [רזולוציית המדיה](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=he).
 
-## Tips dan praktik terbaik
+## טיפים ושיטות מומלצות
 
-- Pastikan gambar diputar dengan benar.
-- Gunakan gambar yang jelas dan tidak buram.
-- Saat menggunakan satu gambar dengan teks, tempatkan perintah teks *setelah* bagian gambar dalam array `contents`.
+- מוודאים שהתמונות מסובבות בצורה נכונה.
+- השתמשו בתמונות ברורות ולא מטושטשות.
+- כשמשתמשים בתמונה אחת עם טקסט, צריך למקם את פרומפט טקסטואלי *אחרי* החלק של התמונה במערך `contents`.
 
-## Langkah berikutnya
+## המאמרים הבאים
 
-Panduan ini menunjukkan cara mengupload file gambar dan membuat output teks dari input gambar. Untuk mempelajari lebih lanjut, lihat referensi berikut:
+במדריך הזה מוסבר איך להעלות קובצי תמונות וליצור פלט טקסט דינמי מבוסס-AI מקלט של תמונות. מידע נוסף זמין במקורות המידע הבאים:
 
-- [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id): Pelajari lebih lanjut cara mengupload dan mengelola file untuk digunakan dengan Gemini.
-- [Petunjuk sistem](https://ai.google.dev/gemini-api/docs/text-generation?hl=id#system-instructions):
-  Petunjuk sistem memungkinkan Anda mengarahkan perilaku model berdasarkan kebutuhan dan kasus penggunaan spesifik Anda.
-- [Strategi perintah file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide): Gemini API mendukung perintah dengan data teks, gambar, audio, dan video, yang juga dikenal sebagai perintah multimodal.
-- [Panduan keamanan](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=id): Terkadang model AI generatif menghasilkan output yang tidak terduga, seperti output yang tidak akurat, bias, atau menyinggung. Pemrosesan pasca-dan evaluasi manusia sangat penting untuk membatasi risiko bahaya dari output tersebut.
+- ‫[Files API](https://ai.google.dev/gemini-api/docs/files?hl=he): מידע נוסף על העלאה וניהול של קבצים לשימוש עם Gemini
+- ‫[System instructions](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#system-instructions):
+  הוראות מערכת מאפשרות לכוון את התנהגות המודל בהתאם לצרכים הספציפיים ולתרחישי השימוש שלכם.
+- [אסטרטגיות ליצירת פרומפטים לקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide): Gemini API תומך ביצירת פרומפטים עם נתוני טקסט, תמונה, אודיו ווידאו, שנקראים גם פרומפטים מולטי-מודאליים.
+- [הנחיות בנושא בטיחות](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=he): לפעמים מודלים של AI גנרטיבי יוצרים תוצאות לא צפויות, כמו תוצאות לא מדויקות, מוטות או פוגעניות. עיבוד לאחר יצירת התוכן והערכה אנושית חיוניים כדי לצמצם את הסיכון לנזק שעלול להיגרם מהתוצאות האלה.
 
-Kirim masukan
+שליחת משוב
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Terakhir diperbarui pada 2026-10-09 UTC.
+עדכון אחרון: 2026-10-09 (שעון UTC).
 
-Ada masukan untuk kami?
+רוצה לתת לנו משוב?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-09 (שעון UTC)."],[],[]]

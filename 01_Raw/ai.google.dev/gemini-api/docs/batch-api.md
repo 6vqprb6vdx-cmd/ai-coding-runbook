@@ -1,44 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=ar
-fetched_at: 2026-10-19T05:39:15.848926+00:00
+source_url: https://ai.google.dev/gemini-api/docs/batch-api?hl=th
+fetched_at: 2026-10-26T05:39:07.953076+00:00
 title: "Batch API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-إرسال ملاحظات
+ส่งความคิดเห็น
 
 # Batch API
 
-تم تصميم Gemini Batch API لمعالجة أعداد كبيرة من الطلبات بشكل غير متزامن [بنصف التكلفة العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar).
-الوقت المستهدف لإتمام العملية هو 24 ساعة، ولكن في معظم الحالات، يكون الوقت أقصر بكثير.
+Gemini Batch API ออกแบบมาเพื่อประมวลผลคำขอจำนวนมาก
+แบบไม่พร้อมกันโดยคิดค่าใช้จ่าย [50% ของราคามาตรฐาน](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
+เวลาดำเนินการที่ตั้งไว้คือ 24 ชั่วโมง แต่ในกรณีส่วนใหญ่จะเร็วกว่านั้นมาก
 
-استخدِم Batch API للمهام غير العاجلة على نطاق واسع، مثل المعالجة المسبقة للبيانات أو إجراء التقييمات التي لا تتطلّب استجابة فورية.
+ใช้ Batch API สำหรับงานขนาดใหญ่ที่ไม่เร่งด่วน เช่น การประมวลผลข้อมูลล่วงหน้าหรือการประเมินผลที่ไม่ได้ต้องการการตอบกลับทันที
 
-## إنشاء مهمة معالجة مجمّعة
+## การสร้างงานแบบกลุ่ม
 
-تتوفّر طريقتان لإرسال طلباتك في Batch API:
+คุณส่งคำขอใน Batch API ได้ 2 วิธี ดังนี้
 
-- **[الطلبات المضمّنة](#inline-requests):** قائمة بعناصر [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ar#GenerateContentRequest) مضمّنة مباشرةً في طلب إنشاء المجموعة. هذا الخيار مناسب للدفعات الأصغر التي تحافظ على إجمالي حجم الطلب أقل من 20 ميغابايت. **الناتج**
-  الذي يعرضه النموذج هو قائمة بكائنات `inlineResponse`.
-- **[ملف الإدخال](#input-file):** ملف [JSON Lines (JSONL)](https://jsonlines.org/)
-  يحتوي كل سطر فيه على عنصر
-  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ar#GenerateContentRequest) كامل.
-  يُنصح باستخدام هذه الطريقة للطلبات الأكبر حجمًا. **الناتج** الذي تعرضه النماذج هو ملف JSONL، حيث يكون كل سطر إما `GenerateContentResponse` أو كائن حالة.
+- **[คำขอแบบอินไลน์](#inline-requests):** รายการออบเจ็กต์
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=th#GenerateContentRequest) ที่รวมอยู่ในคำขอสร้างแบบกลุ่มโดยตรง วิธีนี้เหมาะสำหรับกลุ่มขนาดเล็กที่ทำให้ขนาดคำขอทั้งหมดไม่เกิน 20 MB **เอาต์พุต** ที่ส่งคืนจากโมเดลคือรายการออบเจ็กต์ `inlineResponse`
+- **[ไฟล์อินพุต](#input-file):** ไฟล์ [JSON Lines (JSONL)](https://jsonlines.org/)
+  ที่แต่ละบรรทัดมีออบเจ็กต์
+  [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=th#GenerateContentRequest) ที่สมบูรณ์
+  เราขอแนะนำให้ใช้วิธีนี้สำหรับคำขอขนาดใหญ่ **เอาต์พุต** ที่ส่งคืนจากโมเดลคือไฟล์ JSONL ที่แต่ละบรรทัดเป็น `GenerateContentResponse` หรือออบเจ็กต์สถานะ
 
-### الطلبات المضمَّنة
+### คำขอแบบอินไลน์
 
-بالنسبة إلى عدد صغير من الطلبات، يمكنك تضمين عناصر
-[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ar#GenerateContentRequest) مباشرةً
-ضمن [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ar#request-body). يستدعي المثال التالي طريقة [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ar#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) مع الطلبات المضمّنة:
+สำหรับคำขอจำนวนเล็กน้อย คุณสามารถฝัง
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=th#GenerateContentRequest) ออบเจ็กต์
+ไว้ใน [`BatchGenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=th#request-body) ได้โดยตรง ตัวอย่างต่อไปนี้จะเรียกใช้เมธอด
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=th#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+ด้วยคำขอแบบอินไลน์
 
 ### Python
 
@@ -108,7 +111,7 @@ const response = await ai.batches.create({
 console.log(response);
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -184,23 +187,26 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ba
 }'
 ```
 
-### ملف الإدخال
+### ไฟล์อินพุต
 
-بالنسبة إلى مجموعات الطلبات الأكبر، عليك إعداد ملف JSON Lines (JSONL). يجب أن يكون كل سطر في هذا الملف عبارة عن عنصر JSON يحتوي على مفتاح من تحديد المستخدم وعنصر طلب، حيث يكون الطلب عنصر [`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=ar#GenerateContentRequest) صالحًا. يتم استخدام المفتاح الذي يحدّده المستخدم في الردّ للإشارة إلى أنّ الناتج هو نتيجة الطلب. على سبيل المثال، سيتمّ وضع تعليق توضيحي على الاستجابة التي تتضمّن المفتاح المعرَّف على أنّه `request-1`
-باستخدام اسم المفتاح نفسه.
+สำหรับคำขอจำนวนมาก ให้เตรียมไฟล์ JSON Lines (JSONL) แต่ละบรรทัดใน
+ไฟล์นี้ต้องเป็นออบเจ็กต์ JSON ที่มีคีย์ที่ผู้ใช้กำหนดและออบเจ็กต์คำขอ
+โดยคำขอต้องเป็นออบเจ็กต์
+[`GenerateContentRequest`](https://ai.google.dev/api/batch-mode?hl=th#GenerateContentRequest) ที่ถูกต้อง ระบบจะใช้คีย์ที่ผู้ใช้กำหนดในคำตอบเพื่อระบุว่าเอาต์พุตใดเป็นผลลัพธ์ของคำขอใด ตัวอย่างเช่น คำขอที่มีคีย์กำหนดเป็น `request-1` จะมีคำตอบที่ใส่คำอธิบายประกอบด้วยชื่อคีย์เดียวกัน
 
-يتم تحميل هذا الملف باستخدام [File API](https://ai.google.dev/gemini-api/docs/files?hl=ar). الحد الأقصى لحجم ملف الإدخال المسموح به هو 2 غيغابايت.
+ระบบจะอัปโหลดไฟล์นี้โดยใช้ [File API](https://ai.google.dev/gemini-api/docs/files?hl=th) ขนาดไฟล์สูงสุดที่อนุญาตสำหรับไฟล์อินพุตคือ 2 GB
 
-في ما يلي مثال على ملف JSONL. يمكنك حفظه في ملف باسم `my-batch-requests.json`:
+ตัวอย่างไฟล์ JSONL มีดังนี้ คุณสามารถบันทึกไฟล์นี้ในชื่อ `my-batch-requests.json` ได้
 
 ```
 {"key": "request-1", "request": {"contents": [{"parts": [{"text": "Describe the process of photosynthesis."}]}], "generation_config": {"temperature": 0.7}}}
 {"key": "request-2", "request": {"contents": [{"parts": [{"text": "What are the main ingredients in a Margherita pizza?"}]}]}}
 ```
 
-كما هو الحال مع الطلبات المضمّنة، يمكنك تحديد مَعلمات أخرى، مثل تعليمات النظام أو الأدوات أو الإعدادات الأخرى، في كل JSON خاص بالطلب.
+เช่นเดียวกับคำขอแบบอินไลน์ คุณสามารถระบุพารามิเตอร์อื่นๆ เช่น คำแนะนำของระบบ เครื่องมือ หรือการกำหนดค่าอื่นๆ ใน JSON ของคำขอแต่ละรายการได้
 
-يمكنك تحميل هذا الملف باستخدام [File API](https://ai.google.dev/gemini-api/docs/files?hl=ar) كما هو موضّح في المثال التالي. إذا كنت تعمل على إدخال متعدد الوسائط، يمكنك الرجوع إلى ملفات أخرى تم تحميلها ضمن ملف JSONL.
+คุณสามารถอัปโหลดไฟล์นี้โดยใช้ [File API](https://ai.google.dev/gemini-api/docs/files?hl=th) ตามที่
+แสดงในตัวอย่างต่อไปนี้ หากใช้ข้อมูลอินพุตหลายรูปแบบ คุณสามารถอ้างอิงไฟล์อื่นๆ ที่อัปโหลดไว้ในไฟล์ JSONL ได้
 
 ### Python
 
@@ -285,7 +291,7 @@ const uploadedFile = await ai.files.upload({file: 'my-batch-requests.jsonl', con
 console.log(uploadedFile.name);
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -352,9 +358,9 @@ curl "${upload_url}" \
 file_uri=$(jq ".file.uri" file_info.json)
 ```
 
-يستدعي المثال التالي طريقة
-[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ar#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
-مع تحميل ملف الإدخال باستخدام File API:
+ตัวอย่างต่อไปนี้จะเรียกใช้
+[`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=th#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+เมธอดโดยใช้ไฟล์อินพุตที่อัปโหลดโดยใช้ File API
 
 ### Python
 
@@ -389,7 +395,7 @@ const fileBatchJob = await ai.batches.create({
 console.log(fileBatchJob);
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -430,18 +436,23 @@ curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:ba
 }"
 ```
 
-عند إنشاء مهمة مجمّعة، سيتم عرض اسم المهمة. استخدِم هذا الاسم [لتتبُّع](#batch-job-status) حالة المهمة و[استرداد النتائج](#retrieve-batch-results) بعد اكتمالها.
+เมื่อสร้างงานแบบกลุ่ม คุณจะได้รับชื่อของงาน ใช้ชื่อนี้
+เพื่อ [ตรวจสอบ](#batch-job-status)สถานะของงาน รวมถึง
+[ดึงข้อมูลผลลัพธ์](#retrieve-batch-results)เมื่องานเสร็จสมบูรณ์
 
-في ما يلي مثال على ناتج يحتوي على اسم وظيفة:
+ตัวอย่างเอาต์พุตที่มีชื่อของงานมีดังนี้
 
 ```
 Created batch job from file: batches/123456789
 ```
 
-### إتاحة التضمين المجمّع
+### การรองรับการฝังแบบกลุ่ม
 
-يمكنك استخدام Batch API للتفاعل مع [نموذج Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=ar) من أجل الحصول على معدّل نقل بيانات أعلى.
-لإنشاء مهمة مجمّعة خاصة بالتضمينات باستخدام [طلبات مضمّنة](#inline-requests) أو [ملفات إدخال](#input-file)، استخدِم واجهة برمجة التطبيقات `batches.create_embeddings` وحدِّد نموذج التضمينات.
+คุณสามารถใช้ Batch API เพื่อโต้ตอบกับ
+[โมเดลการฝัง](https://ai.google.dev/gemini-api/docs/embeddings?hl=th)เพื่อเพิ่มปริมาณงาน
+หากต้องการสร้างงานแบบกลุ่มการฝังด้วย[คำขอแบบอินไลน์](#inline-requests)
+หรือ[ไฟล์อินพุต](#input-file) ให้ใช้ API `batches.create_embeddings` และ
+ระบุโมเดลการฝัง
 
 ### Python
 
@@ -489,7 +500,7 @@ batchJob = await client.batches.createEmbeddings({
 console.log(`Created batch job: ${batchJob.name}`);
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -527,12 +538,12 @@ BatchJob batchJob =
 System.out.println("Created batch job: " + batchJob.name().orElse(""));
 ```
 
-يمكنك الاطّلاع على قسم "عمليات التضمين" في [كتاب وصفات Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
-للحصول على مزيد من الأمثلة.
+อ่านส่วนการฝังใน[คู่มือการใช้งาน Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb)
+เพื่อดูตัวอย่างเพิ่มเติม
 
-### إعدادات الطلب
+### การกำหนดค่าคำขอ
 
-يمكنك تضمين أي إعدادات طلبات تستخدمها في طلب عادي غير مُجمَّع. على سبيل المثال، يمكنك تحديد درجة العشوائية أو تعليمات النظام أو حتى تمرير وسائط أخرى. يعرض المثال التالي طلبًا مضمّنًا يحتوي على تعليمات نظام لأحد الطلبات:
+คุณสามารถรวมการกำหนดค่าคำขอใดก็ได้ที่จะใช้ในคำขอมาตรฐานที่ไม่ใช่แบบกลุ่ม เช่น คุณระบุอุณหภูมิ คำแนะนำของระบบ หรือแม้แต่ส่งต่อรูปแบบอื่นๆ ได้ ตัวอย่างต่อไปนี้แสดงคำขอแบบอินไลน์ที่มีคำแนะนำของระบบสำหรับคำขอรายการหนึ่ง
 
 ### Python
 
@@ -560,7 +571,7 @@ inlineRequestsList = [
 ]
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -585,8 +596,8 @@ List<InlinedRequest> inlineRequestsList =
             .build());
 ```
 
-وبالمثل، يمكن تحديد الأدوات التي سيتم استخدامها لتنفيذ طلب. يعرض المثال التالي
-طلبًا يفعّل [أداة "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar):
+เช่นเดียวกัน คุณสามารถระบุเครื่องมือที่จะใช้สำหรับคำขอได้ ตัวอย่างต่อไปนี้
+แสดงคำขอที่เปิดใช้เครื่องมือ [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)
 
 ### Python
 
@@ -607,7 +618,7 @@ inlineRequestsList = [
 ]
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -633,8 +644,8 @@ List<InlinedRequest> inlinedRequests =
             .build());
 ```
 
-يمكنك أيضًا تحديد [ناتج منظَّم](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar).
-يوضّح المثال التالي كيفية تحديدها لطلباتك المجمّعة.
+นอกจากนี้ คุณยังระบุ[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)ได้ด้วย
+ตัวอย่างต่อไปนี้แสดงวิธีระบุสำหรับคำขอแบบกลุ่ม
 
 ### Python
 
@@ -785,7 +796,7 @@ const inlinedBatchJob = await ai.batches.create({
 });
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.HashMap;
@@ -902,7 +913,7 @@ for (int i = 0; i < responses.size(); i++) {
 }
 ```
 
-يوضّح ما يلي مثالاً على نتيجة هذه المهمة:
+ตัวอย่างต่อไปนี้แสดงเอาต์พุตของงานนี้
 
 ```
 --- Response 1 ---
@@ -998,21 +1009,20 @@ for (int i = 0; i < responses.size(); i++) {
 ]
 ```
 
-## مراقبة حالة مهمة المراقبة
+## การตรวจสอบสถานะของงาน
 
-استخدِم اسم العملية الذي تم الحصول عليه عند إنشاء مهمة الدفعات للاطّلاع على حالتها.
-سيوضّح حقل الحالة في مهمة الدفعة حالتها الحالية. يمكن أن تكون مهمة الدفعات في إحدى الحالات التالية:
+ใช้ชื่อการดำเนินการที่ได้รับเมื่อสร้างงานแบบกลุ่มเพื่อสำรวจสถานะของงาน
+ฟิลด์สถานะของงานแบบกลุ่มจะระบุสถานะปัจจุบันของงาน งานแบบกลุ่มอาจมีสถานะอย่างใดอย่างหนึ่งต่อไปนี้
 
-- `JOB_STATE_PENDING`: تم إنشاء مهمة وتنتظر أن تعالجها الخدمة.
-- `JOB_STATE_RUNNING`: الوظيفة قيد التنفيذ
-- `JOB_STATE_SUCCEEDED`: اكتملت المهمة بنجاح. يمكنك الآن استرداد النتائج.
-- ‫`JOB_STATE_FAILED`: تعذّر تنفيذ المهمة. راجِع تفاصيل الخطأ للحصول على مزيد من المعلومات.
-- ‫`JOB_STATE_CANCELLED`: ألغى المستخدم المهمة.
-- `JOB_STATE_EXPIRED`: انتهت صلاحية المهمة لأنّها كانت قيد التنفيذ أو في انتظار المراجعة
-  لأكثر من 48 ساعة. لن تتضمّن المهمة أي نتائج يمكن استرجاعها.
-  يمكنك محاولة إرسال المهمة مرة أخرى أو تقسيم الطلبات إلى دفعات أصغر.
+- `JOB_STATE_PENDING`: ระบบสร้างงานแล้วและกำลังรอให้บริการประมวลผล
+- `JOB_STATE_RUNNING`: งานกำลังดำเนินการ
+- `JOB_STATE_SUCCEEDED`: งานเสร็จสมบูรณ์แล้ว ตอนนี้คุณสามารถดึงข้อมูลผลลัพธ์ได้แล้ว
+- `JOB_STATE_FAILED`: งานล้มเหลว ดูข้อมูลเพิ่มเติมได้ในรายละเอียดข้อผิดพลาด
+- `JOB_STATE_CANCELLED`: ผู้ใช้ยกเลิกงาน
+- `JOB_STATE_EXPIRED`: งานหมดอายุเนื่องจากทำงานหรือรอนานกว่า 48 ชั่วโมง งานจะไม่มีผลลัพธ์ให้ดึงข้อมูล
+  คุณลองส่งงานอีกครั้งหรือแบ่งคำขอออกเป็นกลุ่มย่อยๆ ได้
 
-يمكنك التحقّق من حالة المهمة بشكل دوري لمعرفة ما إذا اكتملت.
+คุณสามารถสำรวจสถานะของงานเป็นระยะๆ เพื่อตรวจสอบว่างานเสร็จสมบูรณ์แล้วหรือไม่
 
 ### Python
 
@@ -1078,7 +1088,7 @@ try {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.HashSet;
@@ -1114,11 +1124,11 @@ if (batchJob.state().get().knownEnum() == JobState.Known.JOB_STATE_FAILED) {
 }
 ```
 
-### الاستطلاعات والويب هوك
+### การสำรวจและเว็บฮุค
 
-**هل سئمت من إجراء استطلاعات الرأي؟** يتيح Gemini الآن استخدام
-[Webhooks](https://ai.google.dev/gemini-api/docs/webhooks?hl=ar) لمعالجة عمليات الإكمال بشكل غير متزامن.
-بدلاً من طلب `GET / operations` بشكل مستمر، يمكنك الاشتراك في `batch.succeeded` مباشرةً للسماح لواجهة Gemini API بإرسال إشعارات في الوقت الفعلي إلى الخادم عند اكتمال العمليات غير المتزامنة أو الطويلة الأمد.
+**เบื่อการสำรวจแล้วใช่ไหม** ตอนนี้ Gemini รองรับ
+[เว็บฮุค](https://ai.google.dev/gemini-api/docs/webhooks?hl=th)สำหรับการประมวลผลการเติมข้อความแบบไม่พร้อมกันแล้ว
+แทนที่จะเรียกใช้ `GET / operations` อย่างต่อเนื่อง ให้สมัครใช้บริการ `batch.succeeded` โดยตรงเพื่ออนุญาตให้ Gemini API ส่งการแจ้งเตือนแบบเรียลไทม์ไปยังเซิร์ฟเวอร์ของคุณเมื่อการดำเนินการแบบไม่พร้อมกันหรือการดำเนินการที่ใช้เวลานานเสร็จสมบูรณ์
 
 ### Python
 
@@ -1156,7 +1166,7 @@ async function createWebhook() {
 createWebhook();
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.Arrays;
@@ -1196,10 +1206,10 @@ curl -X POST \
   }'
 ```
 
-## جارٍ استرداد النتائج
+## การดึงข้อมูลผลลัพธ์
 
-بعد أن تشير حالة المهمة إلى أنّ مهمة المعالجة المجمّعة قد نجحت، ستتوفّر النتائج في الحقل `response`.
-يتم تلقائيًا تخزين نتائج المهام المجمّعة وإتاحتها للتنزيل لمدة 6 أسابيع قبل حذفها نهائيًا.
+เมื่อสถานะของงานระบุว่างานแบบกลุ่มเสร็จสมบูรณ์แล้ว ผลลัพธ์จะอยู่ในฟิลด์ `response`
+โดยค่าเริ่มต้น ระบบจะจัดเก็บผลลัพธ์ของงานแบบกลุ่มและให้ดาวน์โหลดได้เป็นเวลา 6 สัปดาห์ก่อนที่จะลบออกอย่างถาวร
 
 ### Python
 
@@ -1321,7 +1331,7 @@ try {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1420,9 +1430,9 @@ elif [[ $batch_state == "JOB_STATE_EXPIRED" ]]; then
 fi
 ```
 
-## إدراج الوظائف المجمّعة
+## การแสดงรายการงานแบบกลุ่ม
 
-يمكنك إدراج مهام الدفعات الأخيرة.
+คุณสามารถแสดงรายการงานแบบกลุ่มล่าสุดได้
 
 ### Python
 
@@ -1449,7 +1459,7 @@ for await (const batchJob of batchJobs) {
 }
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1476,9 +1486,9 @@ curl https://generativelanguage.googleapis.com/v1beta/batches \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## إلغاء مهمة مجمّعة
+## การยกเลิกงานแบบกลุ่ม
 
-يمكنك إلغاء مهمة مجمّعة قيد التنفيذ باستخدام اسمها. عند إلغاء مهمة، تتوقّف عن معالجة الطلبات الجديدة.
+คุณสามารถยกเลิกงานแบบกลุ่มที่กำลังดำเนินการอยู่ได้โดยใช้ชื่อของงาน เมื่อยกเลิกงาน ระบบจะหยุดประมวลผลคำขอใหม่
 
 ### Python
 
@@ -1492,7 +1502,7 @@ client.batches.cancel(name=batch_job_to_cancel.name)
 await ai.batches.cancel({name: batchJobToCancel.name});
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1518,9 +1528,9 @@ curl https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME \
 -H "Content-Type:application/json" 2> /dev/null | jq -r '.metadata.state'
 ```
 
-## حذف مهمة معالجة مجمّعة
+## การลบงานแบบกลุ่ม
 
-يمكنك حذف مهمة معالجة مجمّعة حالية باستخدام اسمها. عند حذف مهمة، تتوقف معالجة الطلبات الجديدة وتتم إزالتها من قائمة المهام المجمّعة.
+คุณสามารถลบงานแบบกลุ่มที่มีอยู่ได้โดยใช้ชื่อของงาน เมื่อลบงาน ระบบจะหยุดประมวลผลคำขอใหม่และนำงานออกจากรายการงานแบบกลุ่ม
 
 ### Python
 
@@ -1534,7 +1544,7 @@ client.batches.delete(name=batch_job_to_delete.name)
 await ai.batches.delete({name: batchJobToDelete.name});
 ```
 
-### جافا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1555,13 +1565,17 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$BATCH_NAME" \
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## إنشاء الصور بشكل مجمّع
+## การสร้างรูปภาพแบบกลุ่ม
 
-إذا كنت تستخدم [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar) وتحتاج إلى إنشاء عدد كبير من الصور، يمكنك استخدام Batch API للحصول على [حدود معدّل أعلى](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ar) مقابل مدة تصل إلى 24 ساعة.
+หากคุณใช้ [Gemini Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=th) และต้องการสร้างรูปภาพจำนวนมาก
+คุณสามารถใช้ Batch API เพื่อรับ
+[ขีดจำกัดอัตรา](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th)ที่สูงขึ้นโดยแลกกับการดำเนินการที่ใช้เวลาสูงสุด
+24 ชั่วโมง
 
-يمكنك استخدام [الطلبات المضمّنة](#inline-requests-images) لمجموعات صغيرة من الطلبات (أقل من 20 ميغابايت) أو [ملف إدخال JSONL](#input-file-images) للمجموعات الكبيرة (يُنصح به لإنشاء الصور):
+คุณสามารถใช้[คำขอแบบอินไลน์](#inline-requests-images)สำหรับคำขอแบบกลุ่มขนาดเล็ก (ไม่เกิน 20 MB) หรือ
+ไฟล์อินพุต [JSONL](#input-file-images) สำหรับคำขอแบบกลุ่มขนาดใหญ่ (แนะนำสำหรับการสร้างรูปภาพ)
 
-### طلبات مضمّنة للصور
+### คำขอแบบอินไลน์สำหรับรูปภาพ
 
 ### Python
 
@@ -1717,7 +1731,7 @@ async function run() {
 run();
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.HashSet;
@@ -1873,7 +1887,7 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-### ملف الإدخال للصور
+### ไฟล์อินพุตสำหรับรูปภาพ
 
 ### Python
 
@@ -2059,7 +2073,7 @@ async function run() {
 run();
 ```
 
-### جافا
+### Java
 
 ```
 import java.util.HashSet;
@@ -2185,39 +2199,43 @@ if [[ $batch_state = "JOB_STATE_SUCCEEDED" ]]; then
 fi
 ```
 
-## التفاصيل الفنية
+## รายละเอียดทางเทคนิค
 
-- **النماذج المتوافقة:** تتوافق Batch API مع مجموعة من نماذج Gemini.
-  راجِع [صفحة النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar) لمعرفة ما إذا كان كل نموذج يتيح استخدام Batch API. تتشابه الوسائط المتوافقة مع Batch API مع الوسائط المتوافقة مع واجهة برمجة التطبيقات التفاعلية (أو غير المجمّعة).
-- **الأسعار:** يتم تحديد سعر استخدام Batch API بنسبة% 50 من سعر واجهة برمجة التطبيقات التفاعلية العادية للنموذج المكافئ. يمكنك الاطّلاع على [صفحة الأسعار](https://ai.google.dev/gemini-api/docs/pricing?hl=ar)
-  للحصول على التفاصيل. يُرجى الاطّلاع على [صفحة حدود المعدّل](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ar#batch-mode)
-  للحصول على تفاصيل حول حدود المعدّل لهذه الميزة.
-- **هدف مستوى الخدمة (SLO):** تم تصميم مهام الدفعات لتكتمل في غضون 24 ساعة. قد تكتمل العديد من المهام بشكل أسرع بكثير
-  اعتمادًا على حجمها والحمل الحالي على النظام.
-- **التخزين المؤقت:** تتوافق [ميزة "التخزين المؤقت للسياق"](https://ai.google.dev/gemini-api/docs/caching?hl=ar) مع الطلبات المجمّعة. يمكنك إعادة استخدام المحتوى المخزّن مؤقتًا من خلال تحديد اسم المورد `cached_content` في إعدادات الطلبات الفردية ضمن مجموعتك.
-  إذا أدّى طلب في مجموعتك إلى نتيجة ذاكرة التخزين المؤقت، سيتم تحصيل [رسوم التخزين المؤقت العادية](https://ai.google.dev/gemini-api/docs/pricing?hl=ar).
+- **โมเดลที่รองรับ:** Batch API รองรับโมเดล Gemini หลายรุ่น
+  โปรดดูที่[หน้าโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th)เพื่อดูการรองรับ
+  Batch API ของแต่ละโมเดล รูปแบบที่รองรับสำหรับ Batch API จะเหมือนกับรูปแบบที่รองรับใน API แบบโต้ตอบ (หรือที่ไม่ใช่แบบกลุ่ม)
+- **ราคา:** การใช้งาน Batch API คิดราคา 50% ของราคา API แบบโต้ตอบมาตรฐานสำหรับโมเดลที่เทียบเท่า ดูรายละเอียดได้ใน[หน้าราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th)
+  โปรดดูรายละเอียดเกี่ยวกับขีดจำกัดอัตราสำหรับฟีเจอร์นี้ได้ในหน้า[ขีดจำกัดอัตรา](https://ai.google.dev/gemini-api/docs/rate-limits?hl=th#batch-mode)
+- **เป้าหมายระดับการให้บริการ (SLO):** งานแบบกลุ่มออกแบบมาให้เสร็จสมบูรณ์ภายในเวลาดำเนินการ 24 ชั่วโมง งานจำนวนมากอาจเสร็จสมบูรณ์เร็วกว่านั้นมาก ทั้งนี้ขึ้นอยู่กับขนาดของงานและภาระงานปัจจุบันของระบบ
+- **การแคช:** [ระบบรองรับการแคชบริบท](https://ai.google.dev/gemini-api/docs/caching?hl=th)สำหรับคำขอแบบกลุ่ม ใช้เนื้อหาที่แคชไว้ซ้ำโดยระบุชื่อทรัพยากร `cached_content` ในการกำหนดค่าคำขอแต่ละรายการภายในกลุ่ม
+  หากคำขอในกลุ่มทำให้เกิดการพบแคช คุณจะต้องชำระเงินตามอัตราการแคชบริบทมาตรฐาน
 
-## أفضل الممارسات
+## แนวทางปฏิบัติแนะนำ
 
-- **استخدام ملفات الإدخال للطلبات الكبيرة:** بالنسبة إلى عدد كبير من الطلبات، استخدِم دائمًا طريقة إدخال الملفات لتسهيل الإدارة وتجنُّب تجاوز حدود حجم الطلب في استدعاء [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=ar#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent) نفسه. يُرجى العِلم أنّ الحدّ الأقصى المسموح به لحجم الملف الواحد هو 2 غيغابايت.
-- **التعامل مع الأخطاء:** تحقَّق من `batchStats` بحثًا عن `failedRequestCount` بعد اكتمال مهمة. في حال استخدام إخراج الملف، حلِّل كل سطر للتحقّق مما إذا كان `GenerateContentResponse` أو عنصر حالة يشير إلى حدوث خطأ في هذا الطلب المحدّد. يمكنك الاطّلاع على [دليل تحديد المشاكل وحلّها](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=ar#error-codes) للحصول على المجموعة الكاملة من رموز الخطأ.
-- **إرسال المهام مرة واحدة:** لا يمكن تكرار إنشاء مهمة مجمّعة.
-  إذا أرسلت طلب إنشاء نفسه مرتين، سيتم إنشاء مهمتَي معالجة مجمّعة منفصلتَين.
-- **تقسيم الدفعات الكبيرة جدًا:** مع أنّ الوقت المستهدف لإتمام المعالجة هو 24 ساعة، يمكن أن يختلف وقت المعالجة الفعلي استنادًا إلى حمل النظام وحجم المهمة.
-  بالنسبة إلى المهام الكبيرة، ننصحك بتقسيمها إلى دفعات أصغر إذا كنت بحاجة إلى نتائج وسيطة بشكل أسرع.
+- **ใช้ไฟล์อินพุตสำหรับคำขอขนาดใหญ่:** สำหรับคำขอจำนวนมาก
+  ให้ใช้วิธีการป้อนไฟล์
+  เสมอเพื่อให้จัดการได้ง่ายขึ้นและหลีกเลี่ยงการถึงขีดจำกัดขนาดคำขอสำหรับ
+  การเรียก [`BatchGenerateContent`](https://ai.google.dev/api/batch-mode?hl=th#google.ai.generativelanguage.v1beta.BatchService.BatchGenerateContent)
+  เอง โปรดทราบว่าไฟล์อินพุตแต่ละไฟล์มีขีดจำกัดขนาด 2 GB
+- **การจัดการข้อผิดพลาด:** ตรวจสอบ `batchStats` เพื่อดู `failedRequestCount` หลังจากงานเสร็จสมบูรณ์ หากใช้เอาต์พุตไฟล์ ให้แยกวิเคราะห์แต่ละบรรทัดเพื่อตรวจสอบว่าเป็น `GenerateContentResponse` หรือออบเจ็กต์สถานะที่ระบุข้อผิดพลาดสำหรับคำขอนั้นๆ ดูชุดรหัสข้อผิดพลาดทั้งหมดได้ใน[คู่มือ
+  การแก้ปัญหา](https://ai.google.dev/gemini-api/docs/troubleshooting?hl=th#error-codes)
+- **ส่งงานเพียงครั้งเดียว:** การสร้างงานแบบกลุ่มไม่ใช่การดำเนินการที่ทำซ้ำได้
+  หากคุณส่งคำขอสร้างเดียวกัน 2 ครั้ง ระบบจะสร้างงานแบบกลุ่ม 2 งานแยกกัน
+- **แบ่งกลุ่มขนาดใหญ่มาก:** แม้ว่าเวลาดำเนินการที่ตั้งไว้คือ 24 ชั่วโมง แต่เวลาประมวลผลจริงอาจแตกต่างกันไปตามภาระงานของระบบและขนาดของงาน
+  สำหรับงานขนาดใหญ่ ให้พิจารณาแบ่งงานออกเป็นกลุ่มย่อยๆ หากต้องการผลลัพธ์ระดับกลางเร็วขึ้น
 
-## الخطوات التالية
+## ขั้นตอนถัดไป
 
-- اطّلِع على [دفتر ملاحظات Batch API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=ar)
-  للاطّلاع على المزيد من الأمثلة.
-- تتيح طبقة التوافق مع OpenAI استخدام Batch API. اطّلِع على الأمثلة في صفحة [التوافق مع OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=ar#batch).
+- ดูตัวอย่างเพิ่มเติมได้ในโน้ตบุ๊ก [Batch API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb?hl=th)
+- เลเยอร์ความเข้ากันได้กับ OpenAI รองรับ Batch API อ่านตัวอย่างในหน้า
+  [ความเข้ากันได้กับ OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=th#batch)
 
-إرسال ملاحظات
+ส่งความคิดเห็น
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)
+อัปเดตล่าสุด 2026-09-18 UTC
 
-هل تريد مشاركة ملاحظاتك معنا؟
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-18 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-18 UTC"],[],[]]

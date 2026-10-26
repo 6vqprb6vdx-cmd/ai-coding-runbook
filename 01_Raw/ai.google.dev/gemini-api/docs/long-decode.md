@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/long-decode?hl=it
-fetched_at: 2026-10-19T05:33:44.566520+00:00
-title: "Decodifica lunga \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/long-decode?hl=hi
+fetched_at: 2026-10-26T06:07:23.284208+00:00
+title: "\u0932\u0949\u0928\u094d\u0917 \u0921\u093f\u0915\u094b\u0921 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Invia feedback
+सुझाव भेजें
 
-# Decodifica lunga
+# लॉन्ग डिकोड
 
-La decodifica lunga consente a Gemini 4 Argon di generare più di 64.000 token per le attività di ragionamento approfondito, fino alla finestra contestuale unificata di 1 milione di token (1.048.576 token condivisi tra input, ragionamento e output). Nell'API Interactions, puoi attivare la decodifica lunga con l'esecuzione in background in modo che i nostri server generino e combinino automaticamente ogni hop di 64.000 token in una singola interazione.
+लॉन्ग डिकोड की सुविधा की मदद से Gemini 4 Argon, डीप रीज़निंग वाले टास्क के लिए 64 हज़ार से ज़्यादा टोकन जनरेट कर सकता है. यह सुविधा, 10 लाख टोकन वाली यूनिफ़ाइड कॉन्टेक्स्ट विंडो (इनपुट, थिंकिंग, और आउटपुट के लिए 10,48,576 टोकन शेयर किए जाते हैं) तक काम करती है. Interactions API पर, बैकग्राउंड में एक्ज़ीक्यूशन के साथ लॉन्ग डिकोड की सुविधा चालू की जाती है. इससे हमारे सर्वर, 64K हॉप को अपने-आप जनरेट करते हैं और उन्हें एक इंटरैक्शन में जोड़ते हैं.
 
-## Come funziona la decodifica lunga
+## डिकोड करने की प्रोसेस में कितना समय लगता है
 
-Una singola chiamata del modello genera fino a 64.000 token. Quando una risposta richiede più di 64.000 token, il server la genera in hop di 64.000 token che continuano dal punto in cui si è interrotto l'hop precedente. Ogni hop aggiunge un passaggio `model_output` a `interaction.steps` con lo stesso ID interazione, quindi unisci questi passaggi per leggere la risposta completa:
+एक मॉडल कॉल से ज़्यादा से ज़्यादा 64 हज़ार टोकन जनरेट होते हैं. जब किसी जवाब के लिए 64 हज़ार से ज़्यादा टोकन की ज़रूरत होती है, तो सर्वर उसे 64 हज़ार हॉप में जनरेट करता है. ये हॉप वहां से जारी रहते हैं जहां पिछला हॉप रुका था. हर हॉप, एक ही इंटरैक्शन आईडी के तहत `interaction.steps` में एक `model_output` जोड़ता है. इसलिए, पूरा जवाब पढ़ने के लिए इन चरणों को एक साथ जोड़ें:
 
-1. Crea un'interazione con `background: true` e `max_output_tokens` maggiore di 65.536, fino a 1 milione.
-2. Il server genera il primo hop, fino a 64.000 token.
-3. Il server avvia l'hop successivo dal punto in cui si è interrotto l'ultimo e ripete l'operazione finché il modello non termina o non utilizza tutti i `max_output_tokens`.
-4. Esegui il polling dell'interazione o trasmettila in streaming per ottenere il risultato.
+1. आपने `background: true` और `max_output_tokens` के साथ 65,536 से ज़्यादा और 10 लाख तक का इंटरैक्शन बनाया हो.
+2. सर्वर, पहले हॉप को जनरेट करता है. इसमें ज़्यादा से ज़्यादा 64 हज़ार टोकन हो सकते हैं.
+3. सर्वर, अगले हॉप को वहीं से शुरू करता है जहां पिछला हॉप रुका था. यह प्रोसेस तब तक दोहराई जाती है, जब तक मॉडल पूरा नहीं हो जाता या `max_output_tokens` का पूरा इस्तेमाल नहीं हो जाता.
+4. नतीजा पाने के लिए, इंटरैक्शन को पोल किया जाता है या स्ट्रीम किया जाता है.
 
 ### Python
 
@@ -98,7 +98,7 @@ console.log("Status:", interaction.status);
 console.log("Usage:", interaction.usage);
 ```
 
-### REST
+### आराम का समय
 
 ```
 # 1. Create the background interaction. It returns an ID right away.
@@ -127,137 +127,137 @@ while true; do
 done
 ```
 
-## Limiti di output
+## आउटपुट की सीमाएं
 
-Le interazioni di streaming e non di streaming hanno un limite di token di output predefinito di 64.000, quindi le risposte fino a 64.000 token non richiedono modifiche al codice. Per generare più di 64.000 token, attiva l'esecuzione in background e aumenta `max_output_tokens`.
+स्ट्रीमिंग और नॉन-स्ट्रीमिंग इंटरैक्शन के लिए, डिफ़ॉल्ट रूप से 64K आउटपुट टोकन की सीमा तय होती है. इसलिए, 64K टोकन तक के जवाबों के लिए, कोड में कोई बदलाव करने की ज़रूरत नहीं होती. 64 हज़ार से ज़्यादा टोकन जनरेट करने के लिए, बैकग्राउंड में एक्ज़ीक्यूशन की सुविधा चालू करें और `max_output_tokens` को बढ़ाएं.
 
-| Come creare l'interazione | Limite di output |
+| इंटरैक्शन बनाने का तरीका | आउटपुट की सीमा |
 | --- | --- |
-| `background: false` (streaming o non streaming) | 65.536 token. I valori maggiori di 65.536 restituiscono un errore 400. La decodifica lunga sarà disponibile a breve. |
-| `background: true`, `max_output_tokens` non impostato | 65.536 token |
-| `background: true`, `max_output_tokens` maggiore di 65.536 | Il valore di `max_output_tokens`, fino a 1.048.576 meno l'input |
+| `background: false` (स्ट्रीमिंग या नॉन-स्ट्रीमिंग) | 65,536 टोकन. 65,536 से ज़्यादा वैल्यू होने पर, गड़बड़ी का मैसेज 400 दिखता है. लंबे वीडियो को डिकोड करने की सुविधा जल्द आ रही है. |
+| `background: true`, `max_output_tokens` सेट नहीं है | 65,536 टोकन |
+| `background: true`, `max_output_tokens` की वैल्यू 65,536 से ज़्यादा है | आपकी `max_output_tokens`, 10,48,576 में से आपके इनपुट को घटाने पर मिलने वाली संख्या तक |
 
-## Quando utilizzare la decodifica lunga
+## लंबे डिकोड का इस्तेमाल कब करना चाहिए
 
-La maggior parte delle richieste termina entro 64.000 token. Utilizza la decodifica lunga solo quando una risposta richiede più ragionamento e output.
+ज़्यादातर अनुरोध, 64 हज़ार टोकन के अंदर पूरे हो जाते हैं. लंबे डीकोड का इस्तेमाल सिर्फ़ तब करें, जब किसी जवाब के लिए ज़्यादा सोचने और आउटपुट की ज़रूरत हो.
 
-| Workload | Utilizzare la decodifica lunga? | Perché |
+| वर्कलोड | क्या आपको लंबे डिकोड का इस्तेमाल करना है? | क्यों |
 | --- | --- | --- |
-| Matematica, scienze, ricerca e dimostrazioni formali difficili | Sì | Il modello può utilizzare più di 64.000 token per esplorare e controllare il suo ragionamento. |
-| Le attività di programmazione e agentiche più difficili | Sì | Alcune attività richiedono più di 64.000 token di ragionamento e codice in una risposta. La maggior parte delle attività di programmazione e agentiche termina con meno di 64.000 token. |
-| Strumenti di valutazione che si arrestano al limite di output | Sì | La decodifica lunga impedisce di troncare le risposte quando il modello utilizza una risposta completa di 64.000 token per il ragionamento. |
-| Chat, domande e risposte, riepilogo, classificazione ed estrazione | No | Queste attività terminano con meno di 32.000 token. |
-| Richieste di una lunghezza fissa, ad esempio "scrivi un libro di 700.000 parole" | No | Il modello non segue i target di lunghezza. |
-| Agenti che chiamano gli strumenti in molti turni brevi | No | Ogni turno è breve. Gli output di grandi dimensioni in ogni turno riempiono rapidamente la finestra contestuale condivisa. |
-| Prompt vicini al limite di input | No | L'output può utilizzare solo 1.048.576 token meno l'input. |
-| Richieste sensibili alla latenza | No | La decodifica lunga può essere eseguita per diversi minuti. |
+| गणित, विज्ञान, रिसर्च, और फ़ॉर्मल प्रूफ़ से जुड़े मुश्किल सवाल | हां | यह मॉडल, अपनी रीजनिंग की जांच करने और उसे एक्सप्लोर करने के लिए, 64,000 से ज़्यादा टोकन खर्च कर सकता है. |
+| कोडिंग और एजेंटिक के सबसे मुश्किल टास्क | हां | कुछ टास्क के लिए, एक जवाब में 64 हज़ार से ज़्यादा टोकन की ज़रूरत होती है. इनमें, सोच-विचार करने और कोड जनरेट करने के लिए इस्तेमाल किए गए टोकन शामिल हैं. कोडिंग और एजेंटिक टास्क, ज़्यादातर 64K टोकन में पूरे हो जाते हैं. |
+| आउटपुट की सीमा पर रुकने वाले आकलन टूल | हां | लंबे डिकोड की वजह से, मॉडल को सोचने के लिए पूरा 64K रिस्पॉन्स मिलता है. इससे जवाब कट-ऑफ़ नहीं होते. |
+| चैट, सवाल-जवाब, खास जानकारी, कैटगरी, और एक्सट्रैक्शन | नहीं | ये टास्क, 32 हज़ार से कम टोकन में पूरे हो जाते हैं. |
+| किसी तय लंबाई के लिए किए गए अनुरोध, जैसे कि "7,00,000 शब्दों की किताब लिखो" | नहीं | मॉडल, लंबाई के टारगेट के मुताबिक नहीं है. |
+| ऐसे एजेंट जो कम समय में कई बार टूल को कॉल करते हैं | नहीं | हर टर्न छोटा होता है. हर टर्न पर बड़े आउटपुट, शेयर की गई कॉन्टेक्स्ट विंडो को तेज़ी से भरते हैं. |
+| इनपुट की सीमा के करीब प्रॉम्प्ट | नहीं | जवाब में, इनपुट के लिए इस्तेमाल किए गए टोकन को छोड़कर, सिर्फ़ 1,048,576 टोकन इस्तेमाल किए जा सकते हैं. |
+| कम समय में प्रोसेस किए जाने वाले अनुरोध | नहीं | लॉन्ग डिकोड कई मिनट तक चल सकता है. |
 
-L'impostazione di un valore elevato di `max_output_tokens` consente al modello di ragionare più a lungo su problemi difficili, ma il modello decide comunque quanto scrivere. Per controllare la quantità di ragionamento utilizzata dal modello, imposta [`thinking_level`](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+`max_output_tokens` की वैल्यू ज़्यादा सेट करने पर, मॉडल को मुश्किल सवालों के जवाब देने के लिए ज़्यादा समय मिलता है. हालांकि, मॉडल अब भी यह तय करता है कि उसे कितना लिखना है. यह तय करने के लिए कि मॉडल को जवाब देने के लिए कितनी मेहनत करनी है, [`thinking_level`](https://ai.google.dev/gemini-api/docs/thinking?hl=hi) को सेट करें.
 
-## Scegliere come eseguire la decodifica lunga
+## लॉन्ग डिकोड चलाने का तरीका चुनना
 
-L'esecuzione in background è il modo più semplice per eseguire la decodifica lunga nell'API Interactions. La continuazione lato client, in cui il codice avvia ogni hop, è disponibile con l'API GenerateContent. Sarà disponibile a breve nell'API Interactions come opzione più avanzata per gestire la resilienza.
+Interactions API पर लंबे डिकोड को चलाने का सबसे आसान तरीका, बैकग्राउंड में एक्ज़ीक्यूशन है. क्लाइंट-साइड कंटिन्यूएशन, GenerateContent API के साथ उपलब्ध है. इसमें आपका कोड हर हॉप को शुरू करता है. यह सुविधा, Interactions API में जल्द ही उपलब्ध होगी. इससे आपको अपनी परफ़ॉर्मेंस को बेहतर तरीके से मैनेज करने में मदद मिलेगी.
 
-|  | Esecuzione in background (API Interactions) | Continuazione lato client (API GenerateContent) |
+|  | बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा (Interactions API) | क्लाइंट-साइड पर जारी रखना (GenerateContent API) |
 | --- | --- | --- |
-| **Chi avvia ogni hop** | I nostri server | L'SDK AI generativa di Google o il tuo codice |
-| **Token per richiesta** | Il valore di `max_output_tokens`, in un'interazione | 64.000 per stream, 32.000 per richiesta non di streaming |
-| **Tempo di esecuzione** | Fino a 24 ore | 20 minuti |
-| **Spazio di archiviazione** | Richiede `store: true` | Nessun elemento archiviato sul server. |
-| **Ideale per** | Il modo più semplice per eseguire la decodifica lunga | Controllo più granulare dei nuovi tentativi, in modo da poter creare il tuo backoff, la gestione degli errori e la resilienza |
+| **हर हॉप को कौन शुरू करता है** | हमारे सर्वर | Google का GenAI SDK या आपका अपना कोड |
+| **हर अनुरोध के लिए टोकन** | एक ही बार में `max_output_tokens` से जुड़े काम करें | हर स्ट्रीम के लिए 64 हज़ार और बिना स्ट्रीमिंग वाले हर अनुरोध के लिए 32 हज़ार |
+| **चलने का समय** | 24 घंटे तक | 20 मिनट |
+| **डिवाइस का स्टोरेज** | `store: true` की ज़रूरत है | सर्वर पर कुछ भी सेव नहीं किया जाता. |
+| **इनके लिए सबसे सही** | डिकोड करने की लंबी प्रोसेस को चलाने का सबसे आसान तरीका | फिर से कोशिश करने की सुविधा पर ज़्यादा कंट्रोल. इससे, बैकऑफ़, गड़बड़ी ठीक करने, और लचीलेपन की सुविधा को अपनी ज़रूरत के हिसाब से बनाया जा सकता है |
 
-Per utilizzare la continuazione lato client, consulta la sezione [Decodifica lunga con l'API GenerateContent](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it).
+क्लाइंट-साइड पर कॉन्टेक्स्ट जारी रखने की सुविधा इस्तेमाल करने के लिए, [GenerateContent API की मदद से लंबे कॉन्टेक्स्ट को डिकोड करना](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=hi) लेख पढ़ें.
 
-## Trasmettere in streaming la decodifica lunga
+## स्ट्रीम को डिकोड करने में लगने वाला समय
 
-Per trasmettere in streaming gli output e i riepiloghi del ragionamento man mano che arrivano, aggiungi `stream: true` e `thinking_summaries: "auto"`. Gli stream lunghi possono essere interrotti, quindi il client deve riconnettersi. Segui il pattern di riconnessione nella [guida all'esecuzione in background](https://ai.google.dev/gemini-api/docs/background-execution?hl=it). La decodifica lunga aggiunge queste regole:
+आउटपुट और सोच की खास जानकारी को स्ट्रीम करने के लिए, `stream: true` और `thinking_summaries: "auto"` जोड़ें. लंबी स्ट्रीम ड्रॉप हो सकती हैं. इसलिए, आपके क्लाइंट को फिर से कनेक्ट करना होगा. [बैकग्राउंड में एक्ज़ीक्यूशन की गाइड](https://ai.google.dev/gemini-api/docs/background-execution?hl=hi) में दिए गए, फिर से कनेक्ट करने के पैटर्न का पालन करें. लंबे डिकोड में ये नियम जोड़े जाते हैं:
 
-- **Salva l'ID interazione:** leggilo dall'evento `interaction.created`.
-- **Salva ogni `event_id`:** un `event_id` può arrivare negli eventi `interaction.status_update`, non solo nei delta di testo.
-- **Riconnettiti con `last_event_id`:** chiama `interactions.get` con `stream: true` e l'ultimo `event_id`. Lo stream continua dopo questo evento.
-- **Leggi fino alla fine:** dopo la riconnessione, leggi lo stream fino alla fine prima di controllare lo stato. Il server riproduce gli eventi mancanti, anche dopo il completamento dell'interazione.
-- **Imposta timeout lunghi:** imposta i timeout di lettura HTTP su 15-20 minuti per stream.
-- **Prevedi l'output in blocchi di 5000 token:** dopo i primi 64.000 token (circa i primi 10 minuti), lo stream invia l'output in blocchi di circa 5000 token. Le pause tra i blocchi sono normali. L'interazione non è bloccata, quindi mantieni aperta la connessione.
+- **इंटरैक्शन आईडी सेव करें:** इसे `interaction.created` इवेंट से पढ़ें.
+- **Save every `event_id`:** `event_id`, टेक्स्ट डेल्टा के अलावा `interaction.status_update` इवेंट पर भी आ सकता है.
+- **`last_event_id` से दोबारा संपर्क करें:** `interactions.get` पर कॉल करें. इसके लिए, `stream: true` और आखिरी `event_id` का इस्तेमाल करें. इवेंट के बाद भी स्ट्रीम जारी रहती है.
+- **स्ट्रीम को आखिर तक पढ़ें:** फिर से कनेक्ट करने के बाद, स्टेटस देखने से पहले स्ट्रीम को आखिर तक पढ़ें. इंटरैक्शन पूरा होने के बाद भी, सर्वर छूटे हुए इवेंट फिर से चलाता है.
+- **ज़्यादा टाइमआउट सेट करें:** एचटीटीपी रीड टाइमआउट को हर स्ट्रीम के लिए 15 से 20 मिनट पर सेट करें.
+- **5,000 टोकन के चंक में आउटपुट मिलने की उम्मीद करें:** शुरुआती 64,000 टोकन (लगभग पहले 10 मिनट) के बाद, स्ट्रीम करीब 5,000 टोकन के चंक में आउटपुट भेजती है. चंक के बीच में रुकना सामान्य है. इंटरैक्शन में कोई समस्या नहीं है. इसलिए, कनेक्शन को चालू रखें.
 
-## Stato in background
+## बैकग्राउंड की स्थिति
 
-Un'interazione in background può essere eseguita per un massimo di 24 ore. Quando lo stato non è più `in_progress` o `queued`, gestisci lo stato terminale utilizzando questa tabella:
+बैकग्राउंड इंटरैक्शन 24 घंटे तक चल सकता है. जब स्टेटस `in_progress` या `queued` न रहे, तब टर्मिनल स्टेट को मैनेज करने के लिए इस टेबल का इस्तेमाल करें:
 
-| Stato | Significato | Cosa fare |
+| स्थिति | मतलब | क्या करें |
 | --- | --- | --- |
-| `completed` | Il modello ha terminato. | Unisci i passaggi `model_output` in `steps` e leggi `usage`. Per continuare la conversazione, passa il `id` di questa interazione come `previous_interaction_id`. |
-| `requires_action` | Il modello ha richiesto una chiamata di strumento. | Esegui lo strumento. Poi invia il risultato con l'`id` di questa interazione. |
-| `incomplete` | Il modello ha utilizzato tutti i `max_output_tokens`. Il testo può essere vuoto se il modello stava ancora ragionando. | Invia di nuovo la richiesta con un valore di `max_output_tokens` più alto. |
-| `failed` | Il server non è riuscito a completare l'operazione o l'interazione è stata eseguita per più di 24 ore. | Riprova a inviare la richiesta. Se l'operazione non va a buon fine, condividi l'`id` dell'interazione con l'assistenza. |
-| `cancelled` | Hai annullato l'interazione. | Leggi `usage` per visualizzare i token fatturati. |
+| `completed` | मॉडल ने जवाब जनरेट कर दिया है. | `steps` में `model_output` के चरणों को पूरा करें और `usage` पढ़ें. बातचीत जारी रखने के लिए, इस इंटरैक्शन के `id` को `previous_interaction_id` के तौर पर पास करें. |
+| `requires_action` | मॉडल ने टूल कॉल का अनुरोध किया है. | टूल का इस्तेमाल करें. इसके बाद, इस इंटरैक्शन के `id` के साथ नतीजा भेजें. |
+| `incomplete` | मॉडल ने `max_output_tokens` का पूरा इस्तेमाल कर लिया है. अगर मॉडल अब भी सोच रहा है, तो टेक्स्ट खाली हो सकता है. | ज़्यादा `max_output_tokens` के साथ अनुरोध फिर से भेजें. |
+| `failed` | सर्वर, इंटरैक्शन को पूरा नहीं कर सका या इंटरैक्शन 24 घंटे से ज़्यादा समय तक चला. | अनुरोध को फिर से भेजें. अगर यह फिर से फ़ेल हो जाता है, तो सहायता टीम के साथ इंटरैक्शन `id` शेयर करें. |
+| `cancelled` | आपने इंटरैक्शन रद्द कर दिया है. | बिल किए गए टोकन देखने के लिए, `usage` पढ़ें. |
 
-Per interrompere un'interazione in esecuzione, chiama `client.interactions.cancel(id=interaction.id)` in Python, `client.interactions.cancel(interaction.id)` in JavaScript o `POST /v1beta/interactions/{id}/cancel` in REST.
+चल रहे इंटरैक्शन को रोकने के लिए, Python में `client.interactions.cancel(id=interaction.id)`, JavaScript में `client.interactions.cancel(interaction.id)` या REST में `POST /v1beta/interactions/{id}/cancel` को कॉल करें.
 
-## Impostare `max_output_tokens`
+## सेट `max_output_tokens`
 
-`max_output_tokens` imposta il limite combinato per il ragionamento e l'output nell'interazione. La riduzione non rende il modello più conciso, ma tronca la risposta prima.
+`max_output_tokens`, बातचीत के दौरान Gemini के सोचने और आउटपुट देने की कुल सीमा सेट करता है. इस वैल्यू को कम करने से, मॉडल ज़्यादा सटीक जवाब नहीं देता. इसके बजाय, वह जवाब को जल्दी खत्म कर देता है.
 
-| Il tuo workload | `max_output_tokens` consigliato |
+| आपका वर्कलोड | सुझाए गए `max_output_tokens` |
 | --- | --- |
-| App esistenti con un limite inferiore a 32.000 | Aumenta a 32.768. Non è necessaria l'esecuzione in background. |
-| Attività di programmazione e agentiche lunghe | Inizia da 65.536 (valore predefinito). Non è necessaria l'esecuzione in background. |
-| Ragionamento complesso, matematica, scienze e dimostrazioni difficili | Imposta `background: true` e inizia da 262.144, fino a 1.048.576 meno i token di input. |
+| ऐसे मौजूदा ऐप्लिकेशन जिनकी सीमा 32 हज़ार से कम है | इसे 32,768 तक बढ़ाएं. बैकग्राउंड में प्रोग्राम चलाने की सुविधा की ज़रूरत नहीं है. |
+| लंबे कोडिंग और एजेंटिक टास्क | 65,536 से शुरू करें (डिफ़ॉल्ट). बैकग्राउंड में प्रोग्राम चलाने की ज़रूरत नहीं है. |
+| मुश्किल सवालों का गहराई से विश्लेषण, गणित और विज्ञान के मुश्किल सवाल, और सबूत | `background: true` को सेट करें और 2,62,144 से शुरू करके, 10,48,576 तक जाएं. इसमें से अपने इनपुट टोकन की संख्या घटाएं. |
 
-Per utilizzare meno token, riduci `thinking_level`. Utilizza `high` per le attività di ragionamento più difficili. Utilizza `medium` (valore predefinito) per la maggior parte del lavoro di programmazione e agentico.
+कम टोकन इस्तेमाल करने के लिए, `thinking_level` को कम करें. रीज़निंग से जुड़े सबसे मुश्किल टास्क के लिए, `high` का इस्तेमाल करें. ज़्यादातर कोडिंग और एजेंटिक काम के लिए, `medium` (डिफ़ॉल्ट) का इस्तेमाल करें.
 
-## Contare i token
+## टोकन की गिनती करना
 
-`interaction.usage` riporta i totali di tutti gli hop. Leggi questi campi: `total_input_tokens`, `total_cached_tokens`, `total_output_tokens`, `total_thought_tokens` e `total_tokens`.
+`interaction.usage` सभी हॉप के कुल समय की रिपोर्ट देता है. इन फ़ील्ड को पढ़ें: `total_input_tokens`, `total_cached_tokens`, `total_output_tokens`, `total_thought_tokens`, और `total_tokens`.
 
-`total_input_tokens` somma i token di input di ogni hop. Ogni hop invia il prompt e tutto ciò che è stato generato finora al modello come input, quindi gli stessi token vengono conteggiati di nuovo in ogni hop successivo. Ad esempio, un prompt di 1000 token che produce 200.000 token di ragionamento e output richiede quattro hop:
+`total_input_tokens`, हर हॉप के इनपुट टोकन जोड़ता है. हर हॉप में, आपके प्रॉम्प्ट के साथ-साथ अब तक जनरेट किया गया सारा कॉन्टेंट, मॉडल को इनपुट के तौर पर वापस भेजा जाता है. इसलिए, बाद के हर हॉप में एक ही टोकन को फिर से गिना जाता है. उदाहरण के लिए, 1,000 टोकन वाले ऐसे प्रॉम्प्ट के लिए चार हॉप लगते हैं जिससे 2,00,000 टोकन का जवाब मिलता है:
 
-| Hop | Input inviato al modello | Token di input |
+| हॉप | मॉडल को भेजा गया इनपुट | इनपुट टोकन |
 | --- | --- | --- |
-| 1 | Prompt | 1000 |
-| 2 | Prompt + hop 1 | 66.536 |
-| 3 | Prompt + hop 1 e 2 | 132.072 |
-| 4 | Prompt + hop da 1 a 3 | 197.608 |
-| **Totale** |  | **397.216** |
+| 1 | प्रॉम्प्ट | 1,000 |
+| 2 | प्रॉम्प्ट + हॉप 1 | 66,536 |
+| 3 | प्रॉम्प्ट + हॉप 1 और 2 | 1,32,072 |
+| 4 | प्रॉम्प्ट + हॉप 1 से 3 | 1,97,608 |
+| **कुल** |  | **3,97,216** |
 
-`total_input_tokens` riporta circa 397.000 token (con gli input hop ripetuti scontati automaticamente del 95% dalla memorizzazione nella cache implicita), anche se la dimensione effettiva del contesto è di circa 201.000 token: il prompt di 1000 token più 200.000 token di ragionamento e output.
+`total_input_tokens` में 3,97,000 टोकन की रिपोर्ट दी गई है. इसमें बार-बार हॉप इनपुट होने की वजह से, इंप्लिसिट कैश मेमोरी की सुविधा ने 95% की छूट अपने-आप दे दी है. हालांकि, कॉन्टेक्स्ट का असल साइज़ सिर्फ़ 2,01,000 टोकन है: 1,000 टोकन का प्रॉम्प्ट और 2,00,000 टोकन का जवाब.
 
-Durante uno stream, gli eventi `step.stop` e `interaction.status_update` includono `usage` (cumulativo per l'interazione). Leggi l'ultimo valore di `usage` anziché sommarli.
+स्ट्रीम के दौरान, `step.stop` और `interaction.status_update`, दोनों इवेंट में `usage` (इंटरैक्शन के लिए कुल) शामिल होता है. `usage` वैल्यू को जोड़ने के बजाय, उनकी नई वैल्यू पढ़ें.
 
-## Informazioni sulla fatturazione
+## बिलिंग के बारे में जानकारी
 
-Paghi per ogni token in ogni hop, inclusi gli hop che contengono solo il ragionamento.
+आपको हर हॉप में इस्तेमाल किए गए हर टोकन के लिए पेमेंट करना होगा. इसमें वे हॉप भी शामिल हैं जिनमें सिर्फ़ थिंकिंग प्रोसेस का इस्तेमाल किया गया है.
 
-- **Sconto cache:** la memorizzazione nella cache implicita sconta l'input ripetuto in ogni hop del 95%. L'input memorizzato nella cache costa 0,10 $per 1 milione di token anziché 2,00 $durante il periodo introduttivo.
-- **Interazioni annullate e non riuscite:** paghi per tutto il lavoro completato prima della fine dell'interazione.
+- **कैश मेमोरी में सेव करने पर मिलने वाली छूट:** इंप्लिसिट कैशिंग की सुविधा, हर हॉप में बार-बार इस्तेमाल होने वाले इनपुट को 95% तक कम कर देती है. शुरुआती अवधि के दौरान, कैश मेमोरी में सेव किए गए इनपुट के लिए, हर 10 लाख टोकन पर 2 डॉलर के बजाय 0.10 डॉलर का शुल्क लिया जाता है.
+- **रद्द किए गए और पूरे न हो सके इंटरैक्शन:** इंटरैक्शन खत्म होने से पहले किए गए सभी काम के लिए आपको पेमेंट करना होगा.
 
-## Risoluzione dei problemi
+## समस्या का हल
 
-| Sintomo | Causa e correzione |
+| समस्या का ब्यौरा | वजह और समस्या को ठीक करने का तरीका |
 | --- | --- |
-| L'output si interrompe a 64.000 | `background` è `false` o `max_output_tokens` non è impostato. Imposta `background: true` e `max_output_tokens` maggiore di 65.536. |
-| 400: "max\_output\_tokens maggiore di 65536 non è ancora supportato con background=false." | La decodifica lunga senza esecuzione in background non è ancora disponibile. Imposta `background: true`. |
-| 400: "store=true è obbligatorio per le interazioni in background" | L'esecuzione in background richiede `store: true`. |
-| Stato `incomplete` con testo vuoto | Il modello ha utilizzato tutti i token per il ragionamento. Aumenta `max_output_tokens` o riduci `thinking_level`. |
-| La compattazione del contesto inizia troppo presto | Il framework dell'agente o lo strumento di valutazione legge `total_input_tokens`. Consulta la sezione [Contare i token](#count-tokens). |
+| आउटपुट 64K पर रुक जाता है | `background` `false` है या `max_output_tokens` सेट नहीं है. `background: true` और `max_output_tokens` को 65,536 से ज़्यादा पर सेट करें. |
+| 400: "background=false के साथ, 65536 से ज़्यादा max\_output\_tokens का इस्तेमाल नहीं किया जा सकता." | फ़िलहाल, बैकग्राउंड में एक्ज़ीक्यूशन के बिना लंबे समय तक डिकोड करने की सुविधा उपलब्ध नहीं है. `background: true` सेट करें. |
+| 400: "बैकग्राउंड इंटरैक्शन के लिए, store=true ज़रूरी है" | बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा के लिए, `store: true` की ज़रूरत होती है. |
+| स्टेटस `incomplete` में कोई टेक्स्ट नहीं है | मॉडल ने जवाब देने के लिए, सभी टोकन इस्तेमाल कर लिए हैं. `max_output_tokens` बढ़ाएं या `thinking_level` घटाएं. |
+| कॉन्टेक्स्ट कंपैक्शन बहुत जल्दी शुरू हो जाता है | आपका एजेंट फ़्रेमवर्क या आकलन करने वाला टूल, `total_input_tokens` को पढ़ता है. [टोकन की गिनती करना](#count-tokens) देखें. |
 
-## Limitazioni
+## सीमाएं
 
-- **Nessuna decodifica lunga senza esecuzione in background:** le interazioni con `background: false` si interrompono a 65.536 token. Il supporto sarà disponibile a breve.
-- **Nessun target di lunghezza:** il modello non segue i target di lunghezza dei token o di conteggio delle parole.
+- **बैकग्राउंड में प्रोसेस किए बिना लंबे समय तक डिकोड नहीं किया जा सकता:** `background: false` के साथ इंटरैक्शन, 65,536 टोकन पर रुक जाते हैं. यह सुविधा जल्द ही उपलब्ध होगी.
+- **लंबाई के लिए कोई टारगेट नहीं:** यह मॉडल, टोकन की लंबाई या शब्दों की संख्या के टारगेट को फ़ॉलो नहीं करता.
 
-## Passaggi successivi
+## अगले चरण
 
-- [Novità di Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/latest-model?hl=it)
-- [Esecuzione in background](https://ai.google.dev/gemini-api/docs/background-execution?hl=it)
-- [Ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it)
-- [Decodifica lunga con l'API GenerateContent](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it)
+- [Gemini 4 Argon में नया क्या है](https://ai.google.dev/gemini-api/docs/latest-model?hl=hi)
+- [बैकग्राउंड में कोड एक्ज़ीक्यूट होने की सुविधा](https://ai.google.dev/gemini-api/docs/background-execution?hl=hi)
+- [प्रोसेस जारी है](https://ai.google.dev/gemini-api/docs/thinking?hl=hi)
+- [GenerateContent API की मदद से, लंबे इनपुट को डिकोड करना](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=hi)
 
-Invia feedback
+सुझाव भेजें
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Ultimo aggiornamento 2026-10-13 UTC.
+आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया.
 
-Vuoi dirci altro?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया."],[],[]]

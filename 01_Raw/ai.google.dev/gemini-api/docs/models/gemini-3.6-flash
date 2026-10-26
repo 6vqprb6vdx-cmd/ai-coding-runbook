@@ -1,54 +1,53 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=it
-fetched_at: 2026-10-19T05:43:48.212460+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fa
+fetched_at: 2026-10-26T05:36:59.738984+00:00
 title: "Gemini 3.6 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-Invia feedback
+ارسال بازخورد
 
 # Gemini 3.6 Flash
 
-Gemini 3.6 Flash offre un'intelligenza all'avanguardia sostenuta, ottimizzata per le attività del mondo reale a una velocità maggiore e a un costo inferiore. Progettato per l'era agentica, eccelle nella generazione di codice, nell'esecuzione agentica e nel ragionamento spaziale. Questo modello è particolarmente efficace per i loop agentici rapidi che coinvolgono cicli e iterazioni di codifica complessi.
+‫Gemini 3.6 Flash هوش پایدار در سطح پیشرفته ارائه می‌دهد که برای تکالیف دنیای واقعی با سرعت بالاتر و هزینه کمتر بهینه‌سازی شده است. این مدل که برای عصر عامل‌گرایی طراحی شده است،
+در تولید کد، اجرای عامل‌گرا، و استدلال فضایی برتری دارد. این مدل به‌ویژه برای حلقه‌های عامل‌گرای سریع که شامل چرخه‌ها و تکرارهای کدنویسی پیچیده هستند مؤثر است.
 
-[Prova in Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=it)
+[امتحان کردن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=fa)
 
-## Documentazione
+## اسناد
 
-Visita la
-[pagina Ultimo modello](https://ai.google.dev/gemini-api/docs/latest-model?hl=it)
-per una copertura completa delle funzionalità.
-
-Per ulteriori informazioni sul limite di conoscenza del modello Gemini 3.6 Flash,
-consulta la [scheda del modello](https://deepmind.google/models/model-cards/gemini-3-6-flash/?hl=it).
+برای پوشش کامل ویژگی‌ها و قابلیت‌ها، به صفحه
+[جدیدترین‌های Gemini 3.6 Flash و 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=fa)
+مراجعه کنید.
 
 ## gemini-3.6-flash
 
-| Proprietà | Descrizione |
+| دارایی | شرح |
 | --- | --- |
-| id\_cardCodice modello | `gemini-3.6-flash` |
-| saveTipi di dati supportati | **Input**  Testo, immagine, video, audio e PDF  **Output**  Testo |
-| token\_autoLimiti dei token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite dei token di input**  1.048.576  **Limite dei token di output**  65.536 |
-| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Supportato (anteprima)  **[Ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[In pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
-| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Supportato  **[Inferenza prioritaria](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Supportato |
-| 123Versioni | Per maggiori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Stabile: `gemini-3.6-flash` |
-| calendar\_monthUltimo aggiornamento | Luglio 2026 |
+| id\_cardکد مدل | `gemini-3.6-flash` |
+| ذخیرهانواع داده‌های پشتیبانی‌شده | **ورودی‌ها**  نوشتار، تصویر، ویدیو، صدا، و PDF  **خروجی**  نوشتار |
+| token\_autoمحدودیت‌های توکن[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) | **حد داده‌واحد ورودی**  ۱٬۰۴۸٬۵۷۶  **محدودیت داده‌واحد برونداد**  ۶۵۵۳۶ |
+| handymanقابلیت‌ها | **[تولید صدا](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fa)**  پشتیبانی نمی‌شود  **[ذخیره در حافظه نهان](https://ai.google.dev/gemini-api/docs/caching?hl=fa)**  پشتیبانی‌شده  **[اجرای کد](https://ai.google.dev/gemini-api/docs/code-execution?hl=fa)**  پشتیبانی‌شده  **[استفاده از رایانه](https://ai.google.dev/gemini-api/docs/computer-use?hl=fa)**  پشتیبانی‌شده (پیش‌نمایش)  **[جستجوی فایل](https://ai.google.dev/gemini-api/docs/file-search?hl=fa)**  پشتیبانی‌شده  **[فراخوانی تابع](https://ai.google.dev/gemini-api/docs/function-calling?hl=fa)**  پشتیبانی‌شده  **[پایه‌مندسازی با Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fa)**  پشتیبانی‌شده  **[تولید تصویر](https://ai.google.dev/gemini-api/docs/image-generation?hl=fa)**  پشتیبانی نمی‌شود  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=fa)**  پشتیبانی نمی‌شود  **[زمینه‌سازی جستجو](https://ai.google.dev/gemini-api/docs/google-search?hl=fa)**  پشتیبانی‌شده  **[بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa)**  پشتیبانی‌شده  **[درحال اندیشیدن](https://ai.google.dev/gemini-api/docs/thinking?hl=fa)**  پشتیبانی‌شده  **[بافت نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa)**  پشتیبانی‌شده |
+| speedگزینه‌های مصرف | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa)**  پشتیبانی‌شده  **[استنتاج انعطاف‌پذیر](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fa)**  پشتیبانی‌شده  **[استنتاج اولویت‌دار](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fa)**  پشتیبانی‌شده |
+| ۱۲۳نسخه | برای جزئیات بیشتر، [الگوهای نسخه مدل](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fa#model-versions) را بخوانید.  - پایدار: `gemini-3.6-flash` |
+| calendar\_monthجدیدترین به‌روزرسانی | ژوئیه ۲۰۲۶ |
+| id\_cardکارت مدل | [کارت مدل](https://deepmind.google/models/model-cards/gemini-3-6-flash/?hl=fa) |
 
-Invia feedback
+ارسال بازخورد
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Ultimo aggiornamento 2026-09-12 UTC.
+تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی.
 
-Vuoi dirci altro?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-12 UTC."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی."],[],[]]

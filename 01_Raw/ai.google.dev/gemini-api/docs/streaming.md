@@ -1,24 +1,24 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=tr
-fetched_at: 2026-10-19T05:38:13.142896+00:00
-title: "Ak\u0131\u015f etkile\u015fimleri \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/streaming?hl=ko
+fetched_at: 2026-10-26T06:06:38.450726+00:00
+title: "\uc2a4\ud2b8\ub9ac\ubc0d \uc0c1\ud638\uc791\uc6a9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Geri bildirim gönderin
+의견 보내기
 
-# Akış etkileşimleri
+# 스트리밍 상호작용
 
-Etkileşim oluştururken `stream: true` değerini, [sunucu tarafından gönderilen etkinlikler](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE) kullanarak yanıtı artımlı olarak yayınlayacak şekilde ayarlayabilirsiniz.
+상호작용을 만들 때 `stream: true`를 설정하여 [서버 전송 이벤트](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events) (SSE)를 사용하여 응답을 점진적으로 스트리밍할 수 있습니다.
 
 ### Python
 
@@ -38,7 +38,7 @@ for event in stream:
             print(event.delta.text, end="", flush=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -59,7 +59,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -200,24 +200,24 @@ event: done
 data: [DONE]
 ```
 
-## Etkinlik türleri
+## 이벤트 유형
 
-Sunucu tarafından gönderilen her etkinlik, adlandırılmış bir `event_type` ve ilişkili JSON verilerini içerir. Etkileşimler API'si, tüm içeriğin (metin, araç çağrıları, düşünme) tutarlı bir **adımlara dayalı** etkinlik üzerinden aktığı simetrik bir akış modeli kullanır.
+각 서버 전송 이벤트에는 이름이 지정된 `event_type`와 연결된 JSON 데이터가 포함됩니다. Interactions API는 모든 콘텐츠(텍스트, 도구 호출, 사고)가 일관된 **단계 기반** 이벤트를 통해 흐르는 대칭 스트리밍 모델을 사용합니다.
 
-Her yayın şu etkinlik akışını izler:
+각 스트림은 다음 이벤트 흐름을 따릅니다.
 
-1. `interaction.created`: Etkileşim oluşturulur ve meta veriler (kimlik, model, durum) içerir.
-2. Her biri aşağıdakilerden oluşan bir **adımlar** dizisi:
-   - Adım türünü (ör. `model_output`, `thought`, `function_call`) belirten bir `step.start` etkinliği.
-   - Bu adım için artımlı veriler içeren bir veya daha fazla `step.delta` etkinliği.
-   - Adımı tamamlandı olarak işaretleyen bir `step.stop` etkinliği.
-3. Nihai `usage` istatistikleri içeren bir `interaction.completed` etkinliği.
+1. `interaction.created`: 상호작용이 생성되고 메타데이터 (ID, 모델, 상태)가 포함됩니다.
+2. 일련의 **단계**. 각 단계는 다음으로 구성됩니다.
+   - 단계 유형 (예: `model_output`, `thought`, `function_call`)을 나타내는 `step.start` 이벤트입니다.
+   - 해당 단계의 증분 데이터가 포함된 하나 이상의 `step.delta` 이벤트
+   - 단계를 완료로 표시하는 `step.stop` 이벤트입니다.
+3. 최종 `usage` 통계가 있는 `interaction.completed` 이벤트입니다.
 
-`stream: false` değerini ayarladığınızda API, `steps` dizisine sahip tek bir `interaction` nesnesi döndürür. `steps` içindeki her öğe, bir `step.start` → `step.delta`(s) → `step.stop` döngüsünün tamamen birleştirilmiş sürümüdür.
+`stream: false`를 설정하면 API는 `steps` 배열이 있는 단일 `interaction` 객체를 반환합니다. `steps`의 각 요소는 하나의 `step.start` → `step.delta` → `step.stop` 주기를 완전히 조립한 버전입니다.
 
 ### `interaction.created`
 
-Etkileşim ilk oluşturulduğunda gönderilir. Etkileşim kimliğini, modeli ve ilk durumu içerir.
+상호작용이 처음 생성될 때 전송됩니다. 상호작용 ID, 모델, 초기 상태를 포함합니다.
 
 ```
 event: interaction.created
@@ -226,7 +226,7 @@ data: {"interaction": {"id": "...", "model": "gemini-3.8-flash", "status": "in_p
 
 ### `interaction.status_update`
 
-Etkileşim düzeyinde bir durum geçişini belirtir. Adımlar arasında görünebilir.
+상호작용 수준 상태 전환을 알립니다. 단계 사이에 표시될 수 있습니다.
 
 ```
 event: interaction.status_update
@@ -235,23 +235,23 @@ data: {"interaction_id": "...", "status": "in_progress", "event_type": "interact
 
 ### `step.start`
 
-Yeni bir adımın başlangıcını işaretler. `type` ve `index` adımlarını içerir. Adım türü, hangi delta türlerinin bekleneceğini ve adımın akış olmayan bir yanıtta nasıl görüneceğini belirler:
+새 단계의 시작을 표시합니다. `type` 및 `index` 단계를 포함합니다. 단계 유형에 따라 예상되는 델타 유형과 비스트리밍 응답에 단계가 표시되는 방식이 결정됩니다.
 
-| Adım Türü | Beklenen Delta Türleri | Açıklama |
+| 단계 유형 | 예상 델타 유형 | 설명 |
 | --- | --- | --- |
-| `model_output` | `text`, `image` ve `audio` | Modelin nihai yanıt içeriği. |
-| `thought` | `thought_signature`, `thought_summary` | Düşünce zinciriyle akıl yürütme. `summary` yalnızca `thinking_summaries` etkinleştirildiğinde gösterilir. |
-| `function_call` | `arguments_delta` | İstemcinin bir işlevi yürütme isteği. Etkileşim durumunu `requires_action` olarak ayarlar. |
-| Sunucu tarafı araçlar | Araca göre değişir | API tarafından yürütülen araçlar (ör. `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`). |
+| `model_output` | `text`, `image`, `audio` | 모델의 최종 응답 콘텐츠입니다. |
+| `thought` | `thought_signature`, `thought_summary` | 생각의 사슬 추론 `summary`는 `thinking_summaries`가 사용 설정된 경우에만 표시됩니다. |
+| `function_call` | `arguments_delta` | 클라이언트가 함수를 실행하도록 요청합니다. 상호작용 상태를 `requires_action`로 설정합니다. |
+| 서버 측 도구 | 도구에 따라 다름 | API에서 실행되는 도구 (예: `google_search_call`, `google_search_result`, `code_execution_call`, `code_execution_result`) |
 
-Tam liste için [Interactions API'si referansına](https://ai.google.dev/api/interactions-api?hl=tr) bakın.
+전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 참고하세요.
 
 ```
 event: step.start
 data: {"index": 0, "step": {"type": "model_output"}, "event_type": "step.start"}
 ```
 
-İşlev çağrıları için adım, işlev adını, kimliğini ve boş bağımsız değişkenleri `{}` içerir.
+함수 호출의 경우 단계에 함수 이름, ID, 빈 인수 `{}`가 포함됩니다.
 
 ```
 event: step.start
@@ -260,11 +260,11 @@ data: {"index": 0, "step": {"type": "function_call", "id":"un6k8t18", "name": "g
 
 ### `step.delta`
 
-Mevcut adım için artımlı veriler. `delta` nesnesi, şeklini belirleyen bir `type` alanı içerir.
+현재 단계의 증분 데이터입니다. `delta` 객체에는 모양을 결정하는 `type` 필드가 포함되어 있습니다.
 
-**Örnekler:**
+**예:**
 
-**`text`:** `model_output` adımından alınan artımlı metin jetonu:
+**`text`:** `model_output` 단계의 증분 텍스트 토큰:
 
 ```
 event: step.delta
@@ -274,42 +274,42 @@ event: step.delta
 data: {"index": 0, "delta": {"type": "text", "text": ", and I live in Germany." }, "event_type": "step.delta"}
 ```
 
-**`image`:** `model_output` adımından alınan Base64 ile kodlanmış resim verileri:
+**`image`:** `model_output` 단계의 Base64 인코딩 이미지 데이터:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "image", "mime_type": "image/jpeg", "data": "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCg..."}, "event_type": "step.delta"}
 ```
 
-**`thought_summary`:** `thought` adımından düşünce özeti içeriği:
+**`thought_summary`:** `thought` 단계에서 생각한 요약 콘텐츠:
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "I need to find the GCD..."}}, "event_type": "step.delta"}
 ```
 
-**`arguments_delta`:** İşlev çağrısı bağımsız değişkenleri için (kısmi) JSON dizesi. Aşağıdaki değişiklikler genelinde toplanmalıdır:
+**`arguments_delta`:** 함수 호출 인수의 (부분) JSON 문자열입니다. 델타에서 누적되어야 합니다.
 
 ```
 event: step.delta
 data: {"index": 0, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"San Francisco, CA\"}"}, "event_type": "step.delta"}
 ```
 
-En yaygın delta türlerinden bazıları şunlardır. Tüm delta türlerinin tam listesi için [Interactions API referansına](https://ai.google.dev/api/interactions-api?hl=tr) bakın.
+다음은 가장 일반적인 델타 유형입니다. 모든 델타 유형의 전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 참고하세요.
 
 ### `step.stop`
 
-Bir adımın sonunu işaretler. `index` adımını içerir.
+단계의 끝을 표시합니다. `index` 단계를 포함합니다.
 
 ```
 event: step.stop
 data: {"index": 0, "event_type": "step.stop"}
 ```
 
-[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr) kullanılırken `step.stop` etkinliği kullanım istatistiklerini de içerebilir:
+[Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko)를 사용하는 경우 `step.stop` 이벤트에 사용 통계가 포함될 수도 있습니다.
 
-- **`usage`**: Etkileşimin başlangıcından bu yana biriken kullanım (toplam).
-- **`step_usage`**: Bu özel adımın kullanımı.
+- **`usage`**: 상호작용이 시작된 이후 누적된 사용량 (총계)입니다.
+- **`step_usage`**: 이 특정 단계의 사용량입니다.
 
 ```
 event: step.stop
@@ -318,7 +318,7 @@ data: {"index": 2, "event_type": "step.stop", "usage": {"total_tokens": 4650, "t
 
 ### `interaction.completed`
 
-Etkileşim tamamlandığında gönderilir. `usage` istatistiklerini içeren son etkileşim nesnesini içerir. Akış dışı modda bu, en üst düzey yanıt nesnesinin kendisidir. Yanıtta `steps` bulunmuyor.
+상호작용이 완료되면 전송됩니다. `usage` 통계가 포함된 최종 상호작용 객체를 포함합니다. 비스트리밍 모드에서는 최상위 응답 객체 자체입니다. 대답에 `steps`를 포함하지 않습니다.
 
 ```
 event: interaction.completed
@@ -327,24 +327,24 @@ data: {"interaction": {"id": "v1_abc123", "status": "completed", "usage": {"tota
 
 ### `error`
 
-Etkileşim sırasında bir hata oluştuğunda gönderilir. Mesaj ve kod içeren bir hata nesnesi içerir.
+상호작용 중에 오류가 발생하면 전송됩니다. 메시지와 코드가 포함된 오류 객체를 포함합니다.
 
 ```
 event: error
 data: {"error":{"message":"Deadline expired before operation could complete.","code":"gateway_timeout"},"event_type":"error"}
 ```
 
-## Araçlarla canlı yayın yapma
+## 도구를 사용한 스트리밍
 
-Interactions API'si, tek bir istekte hem istemci taraflı araçlarla (işlev çağrısı) hem de sunucu tarafı araçlarla (Google Arama, kod yürütme vb.) akışı destekler. Yayın sırasında araç çağırmaları, etkinlik akışında yazılmış adımlar olarak görünür. İşlev çağrıları için `step.start` etkinliği işlev adını, `step.delta` etkinlikleri ise bağımsız değişkenleri JSON dizeleri olarak iletir (`arguments_delta`). Bağımsız değişkenlerin tamamını almak için bu deltaları biriktirmeniz gerekir.
-Google Arama gibi sunucu tarafı araçlar API tarafından otomatik olarak yürütülerek `google_search_call` ve `google_search_result` adımları oluşturulur.
+Interactions API는 단일 요청에서 클라이언트 측 도구 (함수 호출)와 서버 측 도구 (Google 검색, 코드 실행 등)를 모두 사용하여 스트리밍을 지원합니다. 스트리밍 중에 도구 호출이 이벤트 스트림에 입력된 단계로 표시됩니다. 함수 호출의 경우 `step.start` 이벤트는 함수 이름을 전달하고 `step.delta` 이벤트는 인수를 JSON 문자열(`arguments_delta`)로 스트리밍합니다. 이러한 델타를 누적하여 전체 인수를 가져와야 합니다.
+Google 검색과 같은 서버 측 도구는 API에 의해 자동으로 실행되어 `google_search_call` 및 `google_search_result` 단계를 생성합니다.
 
-### İşlev çağrısıyla yayın yapma
+### 함수 호출을 사용한 스트리밍
 
-Akışla işlev çağrısı yapmak için istemcinin çok aşamalı etkileşimli bir görüşmeyi yönetmesi gerekir:
+스트리밍으로 함수 호출을 실행하려면 클라이언트가 멀티턴 대화를 처리해야 합니다.
 
-1. **1. tur (işlev isteği):** `stream: true` ile `interactions.create` işlevini ve tanımladığınız `tools` işlevini çağırın. API, `function_call` adımını yayınlar. Etkileşim, `requires_action` durumuyla tamamlanana kadar `step.delta` etkinliklerinden artımlı bağımsız değişken JSON dizilerini (`arguments_delta`) biriktirmeniz gerekir.
-2. **2. adım (Sonucu gönderme):** `interactions.create`'ı tekrar arayın, `previous_interaction_id`'ı (ilk etkileşimin kimliğiyle eşleşen) iletin ve `input` dizisi içinde bir `function_result` bloğu gönderin. Bu işlem, akışı devam ettirerek modelin son yanıtını oluşturmasına olanak tanır.
+1. **턴 1 (함수 요청):** 정의된 `tools`와 `stream: true`를 사용하여 `interactions.create`를 호출합니다. API는 `function_call` 단계를 스트리밍합니다. 상호작용이 `requires_action` 상태로 완료될 때까지 `step.delta` 이벤트에서 증분 인수 JSON 문자열 (`arguments_delta`)을 누적해야 합니다.
+2. **2번째 턴 (결과 전송):** `interactions.create`를 다시 호출하여 `previous_interaction_id` (첫 번째 상호작용의 ID와 일치)를 전달하고 `input` 배열 내에서 `function_result` 블록을 전송합니다. 이렇게 하면 스트림이 재개되어 모델이 최종 응답을 생성할 수 있습니다.
 
 ### Python
 
@@ -419,7 +419,7 @@ if func_call_id:
                 print(event.delta.text, end="", flush=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -499,7 +499,7 @@ if (funcCallId && firstInteractionId && funcCallName) {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -683,7 +683,7 @@ func main() {
 
 ### REST
 
-**1. tur:** İşlev çağrısı isteği
+**1턴:** 함수 호출 요청
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -714,7 +714,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**2. tur:** 1. turdaki `previous_interaction_id` ve `call_id` kullanarak işlev sonucunu gönderin.
+**2번째 턴:** 1번째 턴의 `previous_interaction_id` 및 `call_id`를 사용하여 함수 결과 전송
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -743,9 +743,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Birden fazla araçla yayın yapma
+### 여러 도구로 스트리밍
 
-Aşağıdaki örnekte, tek bir istekte hem `function` aracı hem de `google_search` kullanılıyor:
+다음 예시에서는 하나의 요청에서 `function` 도구와 `google_search`을 모두 사용합니다.
 
 ### Python
 
@@ -803,7 +803,7 @@ for event in stream:
             print("Action required: provide function call results to continue.")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -864,7 +864,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -1137,9 +1137,9 @@ event: done
 data: [DONE]
 ```
 
-## Düşünerek yayın yapma
+## 사고를 포함한 스트리밍
 
-Model düşünme sürecini kullandığında iki farklı delta türüyle `thought` adımlarını alırsınız: `thought_summary` (artımlı metin veya resim özeti içeriği) ve `thought_signature` (modelin dahili muhakemesinin şifrelenmiş temsili, `step.stop`'den önce son delta olarak gönderilir). `thinking_summaries` etkinse `thought_summary` deltaları, modelin muhakemesinin özetini yayınlar. Düşünme süreciyle ilgili daha fazla bilgi için [Düşünme kılavuzu](https://ai.google.dev/gemini-api/docs/thinking?hl=tr)'na bakın.
+모델이 사고를 사용하면 `thought_summary` (증분 텍스트 또는 이미지 요약 콘텐츠) 및 `thought_signature` (모델의 내부 추론의 암호화된 표현으로, `step.stop` 전에 마지막 델타로 전송됨)의 두 가지 뚜렷한 델타 유형이 있는 `thought` 단계가 표시됩니다. `thinking_summaries`이 사용 설정된 경우 `thought_summary` 델타는 모델의 추론 요약을 스트리밍합니다. 사고에 관한 자세한 내용은 [사고 가이드](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)를 참고하세요.
 
 ### Python
 
@@ -1167,7 +1167,7 @@ for event in stream:
             print(event.delta.text, end="", flush=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1197,7 +1197,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -1370,9 +1370,9 @@ data: {"index":1,"step":{"type":"model_output"},"event_type":"step.start"}
 ...
 ```
 
-## Temsilcilerle yayın yapma
+## 상담사와 스트리밍
 
-Etkileşimler API'si, Deep Research gibi aracıları destekler. Aracıları `background=True` kullanır ve sonuçları eşzamansız olarak döndürür. Ancak, ilerleme durumu güncellemelerini ve ara adımları gerçekleşirken almak için aracı etkileşimlerini de yayınlayabilirsiniz. Daha fazla bilgi için [Arka planda yürütme kılavuzu](https://ai.google.dev/gemini-api/docs/background-execution?hl=tr) ve [Deep Research kılavuzu](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr)'na bakın.
+Interactions API는 Deep Research와 같은 에이전트를 지원합니다. 에이전트는 `background=True`를 사용하고 결과를 비동기적으로 반환하지만, 에이전트 상호작용을 스트리밍하여 진행 상황 업데이트와 중간 단계를 실시간으로 받을 수도 있습니다. 자세한 내용은 [백그라운드 실행 가이드](https://ai.google.dev/gemini-api/docs/background-execution?hl=ko) 및 [Deep Research 가이드](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 참고하세요.
 
 ### Python
 
@@ -1404,7 +1404,7 @@ for event in stream:
         print(f"\n\nTotal Tokens: {event.interaction.usage.total_tokens}")
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1438,7 +1438,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -1631,11 +1631,11 @@ event: done
 data: [DONE]
 ```
 
-## Akışlı görüntü üretme
+## 이미지 생성 스트리밍
 
-Etkileşimler API'si, birden fazla çıkış biçiminin aynı anda yayınlanmasını destekler. `response_format` içinde hem `text` hem de `image` isteyerek aynı akışta arasına resim eklenmiş metinler ve üretilmiş resimler alabilirsiniz.
+Interactions API는 여러 출력 모달리티를 동시에 스트리밍하는 것을 지원합니다. `response_format`에서 `text`와 `image`를 모두 요청하면 동일한 스트림에서 인터리브 처리된 텍스트와 생성된 이미지를 받을 수 있습니다.
 
-Aşağıdaki örnekte, bilgi aramak ve araya serpiştirilmiş resimlerle bir hikaye oluşturmak için `gemini-3.1-flash-image` (Nano Banana 2) kullanılıyor.
+다음 예에서는 `gemini-3.1-flash-image` (Nano Banana 2)를 사용하여 정보를 검색하고 삽화가 삽입된 이야기를 생성합니다.
 
 ### Python
 
@@ -1663,7 +1663,7 @@ for event in stream:
             print(f"\n[Image chunk: {len(event.delta.data)} bytes]", end="", flush=True)
 ```
 
-### JavaScript
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -1692,7 +1692,7 @@ for await (const event of stream) {
 }
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -1942,24 +1942,24 @@ event: done
 data: [DONE]
 ```
 
-## Bilinmeyen etkinlikleri işleme
+## 알 수 없는 이벤트 처리
 
-API'nin sürüm oluşturma politikası uyarınca zaman içinde yeni etkinlik türleri ve delta türleri eklenebilir. Kodunuz, bilinmeyen etkinlik türlerini sorunsuz bir şekilde işlemelidir. Tanımadığınız etkinlikleri hata vermek yerine günlüğe kaydedip atlamalıdır.
+API의 버전 관리 정책에 따라 시간 경과에 따라 새 이벤트 유형과 델타 유형이 추가될 수 있습니다. 코드는 알 수 없는 이벤트 유형을 적절하게 처리해야 합니다. 오류를 발생시키는 대신 인식할 수 없는 이벤트를 로깅하고 건너뛰어야 합니다.
 
-## Sırada ne var?
+## 다음 단계
 
-- [Etkileşimler API'si](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) hakkında daha fazla bilgi edinin.
-- Araçlarla [işlev çağrısını](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr) keşfedin.
-- Gelişmiş akıl yürütme için [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) hakkında bilgi edinin.
-- Uzun süren görevler için [Deep Research aracısını](https://ai.google.dev/gemini-api/docs/deep-research?hl=tr) deneyin.
-- Tüm etkinlik türleri ve delta türleri için [Interactions API referansını](https://ai.google.dev/api/interactions-api?hl=tr) inceleyin.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ko)에 대해 자세히 알아보세요.
+- 도구를 사용하여 [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)을 살펴봅니다.
+- 향상된 추론을 위한 [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)에 대해 알아봅니다.
+- 장기 실행 작업에는 [Deep Research 에이전트](https://ai.google.dev/gemini-api/docs/deep-research?hl=ko)를 사용해 보세요.
+- 모든 이벤트 유형과 델타 유형은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko)를 참고하세요.
 
-Geri bildirim gönderin
+의견 보내기
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Son güncelleme tarihi: 2026-09-24 UTC.
+최종 업데이트: 2026-09-24(UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+의견을 전달하고 싶나요?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-24(UTC)"],[],[]]

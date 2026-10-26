@@ -1,54 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/caching?hl=ko
-fetched_at: 2026-10-19T05:33:59.297009+00:00
-title: "\ucee8\ud14d\uc2a4\ud2b8 \uce90\uc2f1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/caching?hl=de
+fetched_at: 2026-10-26T05:40:26.086265+00:00
+title: "Kontext-Caching \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-의견 보내기
+Feedback geben
 
-# 컨텍스트 캐싱
+# Kontext-Caching
 
-일반적인 AI 워크플로에서는 동일한 입력 토큰을 모델에 반복해서 전달할 수 있습니다. Gemini API는 성능과 비용을 최적화하기 위해 암시적 캐싱을 제공합니다.
+In einem typischen KI-Workflow werden dieselben Eingabe-Tokens möglicherweise immer wieder an ein Modell übergeben. Die Gemini API bietet implizites Caching, um Leistung und Kosten zu optimieren.
 
-## 암시적 캐싱
+## Implizites Caching
 
-암시적 캐싱은 모든 Gemini 2.5 이상 모델에서 기본적으로 사용 설정됩니다. [스테이트풀(Stateful)](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#multi-turn-conversations)(`previous_interaction_id`)
-및 [스테이트리스(Stateless)](https://ai.google.dev/gemini-api/docs/text-generation?hl=ko#stateless-conversations) 대화 모드 모두에서
-지원됩니다.
-요청이 캐시에 적중하면 비용 절감액이 자동으로 전달됩니다. 사용 설정하기 위해 아무것도 구성할 필요가 없습니다. 다음 표에는 각 모델의 최소 입력 토큰 수가 나와 있습니다.
+Implizites Caching ist für alle Gemini 2.5- und neueren Modelle standardmäßig aktiviert. Es wird sowohl für [zustandsorientierte](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#multi-turn-conversations) (mit `previous_interaction_id`) als auch für [zustandslose](https://ai.google.dev/gemini-api/docs/text-generation?hl=de#stateless-conversations) Unterhaltungsmodi unterstützt.
+Wir geben Kosteneinsparungen automatisch weiter, wenn Ihre Anfrage auf Caches trifft. Sie müssen nichts konfigurieren, um sie zu aktivieren. In der folgenden Tabelle ist die Mindestanzahl von Eingabetokens für jedes Modell aufgeführt:
 
-| 모델 | 최소 토큰 한도 |
+| Modell | Mindest-Tokenlimit |
 | --- | --- |
-| Gemini 4 Argon | 4,096 |
-| Gemini 3.8 Flash | 4,096 |
-| Gemini 3.6 Flash | 4,096 |
-| Gemini 3.1 Pro 프리뷰 | 4,096 |
-| Gemini 2.5 Flash | 2,048 |
-| Gemini 2.5 Pro | 2,048 |
+| Gemini 4 Argon | 4.096 |
+| Gemini 3.8 Flash | 4.096 |
+| Gemini 3.6 Flash | 4.096 |
+| Gemini 3.1 Pro (Vorabversion) | 4.096 |
+| Gemini 2.5 Flash | 2.048 |
+| Gemini 2.5 Pro | 2.048 |
 
-암시적 캐시 적중 가능성을 높이려면 다음 안내를 따르세요.
+So erhöhen Sie die Wahrscheinlichkeit eines impliziten Cache-Treffers:
 
-- 프롬프트 시작 부분에 크고 공통적인 콘텐츠를 배치해 보세요.
-- 짧은 시간 내에 유사한 프리픽스를 가진 요청을 전송해 보세요.
+- Versuchen Sie, große und häufige Inhalte am Anfang des Prompts zu platzieren.
+- Versuchen Sie, Anfragen mit ähnlichem Präfix innerhalb kurzer Zeit zu senden.
 
-응답 객체의 `usage.total_cached_tokens` (Python 및 JavaScript) 필드에서 캐시 적중된 토큰 수를 확인할 수 있습니다.
+Die Anzahl der Tokens, die Cache-Treffer waren, finden Sie im Feld `usage.total_cached_tokens` (Python und JavaScript) des Antwortobjekts.
 
-의견 보내기
+Feedback geben
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-최종 업데이트: 2026-10-13(UTC)
+Zuletzt aktualisiert: 2026-10-23 (UTC).
 
-의견을 전달하고 싶나요?
+Haben Sie Feedback für uns?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-13(UTC)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-23 (UTC)."],[],[]]

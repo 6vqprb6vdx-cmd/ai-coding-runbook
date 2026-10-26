@@ -1,1327 +1,1248 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=es-419
-fetched_at: 2026-10-19T05:36:52.737727+00:00
-title: "Precios de la API de Gemini Developer \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/pricing?hl=fa
+fetched_at: 2026-10-26T05:52:28.716310+00:00
+title: "\u0642\u06cc\u0645\u062a\u200c\u06af\u0630\u0627\u0631\u06cc Gemini Developer API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-# Precios de la API de Gemini Developer
+# قیمت‌گذاری Gemini Developer API
 
-Comienza a compilar sin costo con límites generosos y, luego, escala verticalmente con
-precios prepagados y de pago por uso para tus aplicaciones listas para producción.
+با محدودیت‌های سخاوتمندانه، ساختن را بدون هزینه شروع کنید، سپس با قیمت‌گذاری پیش‌پرداخت و پرداخت به اندازه استفاده برای برنامه‌های آماده تولید، مقیاس را افزایش دهید.
 
-### Gratis
+### رایگان
 
-Para desarrolladores y proyectos pequeños que recién comienzan a usar la API de Gemini.
+برای توسعه‌دهندگان و پروژه‌های کوچکی که تازه کار با Gemini API را شروع کرده‌اند.
 
-- check\_circleAcceso limitado a ciertos modelos
-- check\_circleTokens de entrada y salida sin costo
-- check\_circleAcceso a Google AI Studio
-- check\_circleEl contenido se usa para mejorar nuestros productos[\*](https://ai.google.dev/gemini-api/terms?hl=es-419)
+- check\_circleدسترسی محدود به مدل‌های خاص
+- check\_circleداده‌واحدهای ورودی و خروجی رایگان
+- check\_circleدسترسی به Google AI Studio
+- check\_circleمحتوا برای بهبود محصولات ما استفاده می‌شود[\*](https://ai.google.dev/gemini-api/terms?hl=fa)
 
-[Comenzar gratis](https://aistudio.google.com?hl=es-419)
+[شروع به کار رایگان](https://aistudio.google.com?hl=fa)
 
-### Pago
+### پولی
 
-Para aplicaciones de producción que requieren mayores volúmenes y funciones avanzadas.
+برای برنامه‌های تولیدی که به حجم بالاتر و ویژگی‌های پیشرفته نیاز دارند.
 
-- check\_circleLímites de frecuencia más altos para las implementaciones en producción
-- check\_circleAcceso al almacenamiento en caché de contexto
-- check\_circleAPI de Batch (reducción de costos del 50%)
-- check\_circleAcceso a los modelos más avanzados de Google
-- check\_circleEl contenido **no** se usa para mejorar nuestros productos[\*](https://ai.google.dev/gemini-api/terms?hl=es-419)
+- check\_circleحد نرخ بالاتر برای استقرار تولید
+- check\_circleدسترسی به ذخیره‌سازی موقت بافت
+- check\_circleBatch API (کاهش ۵۰ درصدی هزینه)
+- check\_circleدسترسی به پیشرفته‌ترین مدل‌های Google
+- check\_circleاز محتوا برای بهبود محصولاتمان استفاده **نمی‌شود**[\*](https://ai.google.dev/gemini-api/terms?hl=fa)
 
-[Actualizar a la versión pagada](https://aistudio.google.com/api-keys?hl=es-419)
+[ارتقا به نسخه پولی](https://aistudio.google.com/api-keys?hl=fa)
 
-### Enterprise
+### سازمانی
 
-Para implementaciones empresariales, con la tecnología de [Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=es-419).
+برای استقرار سازمانی، با پشتیبانی [پلاتفرم Gemini Enterprise Agent](https://cloud.google.com/gemini-enterprise-agent-platform?hl=fa).
 
-- check\_circleTodas las funciones de la versión pagada, además de acceso opcional a lo siguiente:
-- check\_circleCanales de asistencia exclusivos
-- check\_circleSeguridad y cumplimiento avanzados
-- check\_circleCapacidad de procesamiento aprovisionada
-- check\_circleDescuentos basados en el volumen (según el uso)
-- check\_circleOperaciones de AA, Model Garden y mucho más
+- check\_circleهمه ویژگی‌های طرح «پولی»، به‌علاوه دسترسی اختیاری به:
+- check\_circleکانال‌های پشتیبانی اختصاصی
+- check\_circleامنیت و رعایت مقررات پیشرفته
+- check\_circleتوان عملیاتی تأمین‌شده
+- check\_circleتخفیف‌های مبتنی بر حجم (براساس میزان استفاده)
+- check\_circleعملیات یادگیری ماشین، باغ مدل، و غیره
 
-[Comunicarse con Ventas](https://cloud.google.com/contact?hl=es-419)
+[تماس با بخش فروش](https://cloud.google.com/contact?hl=fa)
 
 ## Gemini 4 Argon
 
-*[`gemini-4-argon`](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=es-419)*
+*[`gemini-4-argon`](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa)
 
-Nuestro modelo de razonamiento insignia, diseñado para la ingeniería de software compleja, la resolución de problemas matemáticos y científicos profundos, los agentes autónomos de varios pasos y la generación de decodificación larga de hasta 1 millón de tokens.
+مدل استدلال پرچم‌دار ما که برای مهندسی نرم‌افزار پیچیده، حل مسائل عمیق ریاضی و علمی، عامل‌های چندمرحله‌ای خودکار، و تولید رمزگشایی طولانی تا ۱ میلیون نشانه ساخته شده است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 2.00 hasta el 30 de noviembre de 2026. USD 4.00 a partir del 1 de diciembre de 2026. |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 10.00 hasta el 30 de noviembre de 2026. USD 20.00 a partir del 1 de diciembre de 2026. |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.10 hasta el 30 de noviembre de 2026. USD 0.20 a partir del 1 de diciembre de 2026. Solo almacenamiento en caché implícito (no se admite el almacenamiento en caché explícito). |
-| Fundamentación con la Búsqueda de Google\* | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۲٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۴٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱۰٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ۲۰٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ۰٫۱۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ۰٫۲۰ دلار از ۱ دسامبر ۲۰۲۶. فقط ذخیره پنهان ضمنی (ذخیره پنهان صریح پشتیبانی نمی‌شود). |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.00 hasta el 30 de noviembre de 2026 USD 2.00 a partir del 1 de diciembre de 2026 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 5.00 hasta el 30 de noviembre de 2026. USD 10.00 a partir del 1 de diciembre de 2026. |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.05 hasta el 30 de noviembre de 2026. USD 0.10 a partir del 1 de diciembre de 2026. Solo almacenamiento en caché implícito (no se admite el almacenamiento en caché explícito). |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۲٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۵٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۱۰٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ۰٫۰۵ دلار تا ۳۰ نوامبر ۲۰۲۶. ۰٫۱۰ دلار از ۱ دسامبر ۲۰۲۶. فقط ذخیره‌سازی پنهان ضمنی (ذخیره‌سازی پنهان صریح پشتیبانی نمی‌شود). |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.00 hasta el 30 de noviembre de 2026 USD 2.00 a partir del 1 de diciembre de 2026 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 5.00 hasta el 30 de noviembre de 2026. USD 10.00 a partir del 1 de diciembre de 2026. |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.05 hasta el 30 de noviembre de 2026. USD 0.10 a partir del 1 de diciembre de 2026. Solo almacenamiento en caché implícito (no se admite el almacenamiento en caché explícito). |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۲٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۵٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۱۰٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ۰٫۰۵ دلار تا ۳۰ نوامبر ۲۰۲۶. ۰٫۱۰ دلار از ۱ دسامبر ۲۰۲۶. فقط ذخیره‌سازی پنهان ضمنی (ذخیره‌سازی پنهان صریح پشتیبانی نمی‌شود). |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 3.60 hasta el 30 de noviembre de 2026. USD 7.20 a partir del 1 de diciembre de 2026. |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 18.00 hasta el 30 de noviembre de 2026. USD 36.00 a partir del 1 de diciembre de 2026. |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.18 hasta el 30 de noviembre de 2026. USD 0.36 a partir del 1 de diciembre de 2026. Solo almacenamiento en caché implícito (no se admite el almacenamiento en caché explícito). |
-| Fundamentación con la Búsqueda de Google\* | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۳٫۶۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۷٫۲۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱۸٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۳۶٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۱۸ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۰٫۳۶ دلار از ۱ دسامبر ۲۰۲۶. فقط ذخیره‌سازی ضمنی در حافظه نهان (ذخیره‌سازی صریح در حافظه نهان پشتیبانی نمی‌شود). |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Colaborador
+### مشارکت‌کننده
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.00 hasta el 30 de noviembre de 2026 USD 2.00 a partir del 1 de diciembre de 2026 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 5.00 hasta el 30 de noviembre de 2026. USD 10.00 a partir del 1 de diciembre de 2026. |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.05 hasta el 30 de noviembre de 2026. USD 0.10 a partir del 1 de diciembre de 2026. Solo almacenamiento en caché implícito (no se admite el almacenamiento en caché explícito). |
-| Se usa para mejorar nuestros productos | No disponible | [Sí](https://ai.google.dev/gemini-api/docs/logs-policy?hl=es-419#contributor-tier) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۲٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۵٫۰۰ دلار تا ۳۰ نوامبر ۲۰۲۶. ‫۱۰٫۰۰ دلار از ۱ دسامبر ۲۰۲۶. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ۰٫۰۵ دلار تا ۳۰ نوامبر ۲۰۲۶. ۰٫۱۰ دلار از ۱ دسامبر ۲۰۲۶. فقط ذخیره‌سازی پنهان ضمنی (ذخیره‌سازی پنهان صریح پشتیبانی نمی‌شود). |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [بله](https://ai.google.dev/gemini-api/docs/logs-policy?hl=fa#contributor-tier) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
 ## Gemini 3.8 Flash
 
-*[`gemini-3.8-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=es-419)*
+*[`gemini-3.8-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fa)
 
-Nuestro modelo Flash más inteligente, diseñado para ingeniería de software a largo plazo, agentes autónomos y flujos de trabajo empresariales complejos.
+هوشمندترین مدل Flash ما که برای مهندسی نرم‌افزار بلندمدت، عامل‌های خودکار، و گردش‌های کاری پیچیده سازمانی طراحی شده است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.75 hasta el 31 de diciembre de 2026 USD 1.50 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 3.75 hasta el 31 de diciembre de 2026 USD 7.50 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | Sin costo | USD 0.075 hasta el 31 de diciembre de 2026. USD 0.15 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google\* | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۵۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۳٫۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۷٫۵۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۰۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۱۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.375 hasta el 31 de diciembre de 2026 USD 0.75 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 1.875 hasta el 31 de diciembre de 2026 USD 3.75 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.0375 hasta el 31 de diciembre de 2026. USD 0.075 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱٫۸۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ۳٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۰۷۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ تکه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ تکه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.375 hasta el 31 de diciembre de 2026 USD 0.75 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 1.875 hasta el 31 de diciembre de 2026 USD 3.75 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.0375 hasta el 31 de diciembre de 2026. USD 0.075 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱٫۸۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ۳٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۰۷۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ تکه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ تکه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 1.35 hasta el 31 de diciembre de 2026 USD 2.70 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 6.75 hasta el 31 de diciembre de 2026. USD 13.50 a partir del 1 de enero de 2027. |
-| Precio del almacenamiento de caché de contexto | Sin costo | USD 0.135 hasta el 31 de diciembre de 2026. USD 0.27 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۱٫۳۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۲٫۷۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۶٫۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۱۳٫۵۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۱۳۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۲۷ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Colaborador
+### مشارکت‌کننده
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.375 hasta el 31 de diciembre de 2026 USD 0.75 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 1.875 hasta el 31 de diciembre de 2026 USD 3.75 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | Sin costo | USD 0.0375 hasta el 31 de diciembre de 2026. USD 0.075 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [Sí](https://ai.google.dev/gemini-api/docs/logs-policy?hl=es-419#contributor-tier) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱٫۸۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ۳٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۰۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۰۷۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [بله](https://ai.google.dev/gemini-api/docs/logs-policy?hl=fa#contributor-tier) |
 
 ## Gemini 3.6 Flash
 
-*[`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=es-419)*
+*[`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=fa)
 
-Nuestro modelo Flash de generación anterior, que equilibra la velocidad y las capacidades multimodales en tareas generales cotidianas y de agentes.
+مدل Flash نسل قبلی ما که سرعت و قابلیت‌های چندحالته را در تکالیف عامل‌محور عمومی و روزمره متعادل می‌کند.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.75 hasta el 31 de diciembre de 2026 USD 1.50 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 3.75 hasta el 31 de diciembre de 2026 USD 7.50 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | Sin costo | USD 0.075 hasta el 31 de diciembre de 2026. USD 0.15 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۵۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۳٫۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۷٫۵۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۰۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۱۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.375 hasta el 31 de diciembre de 2026 USD 0.75 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 1.875 hasta el 31 de diciembre de 2026 USD 3.75 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.0375 hasta el 31 de diciembre de 2026. USD 0.075 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱٫۸۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ۳٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۰۷۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.375 hasta el 31 de diciembre de 2026 USD 0.75 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 1.875 hasta el 31 de diciembre de 2026 USD 3.75 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.0375 hasta el 31 de diciembre de 2026. USD 0.075 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱٫۸۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ۳٫۷۵ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۰۷۵ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 1.35 hasta el 31 de diciembre de 2026 USD 2.70 a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 6.75 hasta el 31 de diciembre de 2026. USD 13.50 a partir del 1 de enero de 2027. |
-| Precio del almacenamiento de caché de contexto | Sin costo | USD 0.135 hasta el 31 de diciembre de 2026. USD 0.27 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۱٫۳۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۲٫۷۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۶٫۷۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۱۳٫۵۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۱۳۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۲۷ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
-\*\* Se puede probar en Google AI Studio.
+\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
 
-## Gemini 3.8 Live, Gemini 3.8 Live razonamiento extendido y Gemini 3.1 Flash Live Preview
+## ‫Gemini 3.8 Live،‏ Gemini 3.8 Live Extended Thinking، و Gemini 3.1 Flash Live Preview
 
-*[`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=es-419), [`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=es-419) y [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=es-419)*
+‫*[`gemini-3.8-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=fa)،‏ [`gemini-3.8-live-extended-thinking`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=fa)، و [`gemini-3.1-flash-live-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live&hl=fa)
 
-Nuestros modelos de audio a audio de baja latencia están optimizados para agentes de voz en tiempo real y
-diálogos en vivo, incluida la compatibilidad con el razonamiento en segundo plano con el razonamiento extendido.
+مدل‌های صدا به صدای ما با تأخیر کم برای عامل‌های صوتی هم‌زمان و گفتگوی زنده بهینه‌سازی شده‌اند،
+ازجمله پشتیبانی از استدلال پس‌زمینه با «اندیشیدن گسترده».
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.75 (texto) $3.00 o $0.005/min (audio) $1.00 o $0.002/min (imagen/video) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 4.50 (texto) USD 12.00 o USD 0.018/min (audio) |
-| Fundamentación con la Búsqueda de Google\* | Compatible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۷۵ دلار (نوشتار) ‫۳٫۰۰ دلار یا ۰٫۰۰۵ دلار/دقیقه (صدا) ‫۱٫۰۰ دلار یا ۰٫۰۰۲ دلار/دقیقه (تصویر/ویدیو) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۴٫۵۰ دلار (نوشتار) ۱۲٫۰۰ دلار یا ۰٫۰۱۸ دلار/دقیقه (صدا) |
+| پایه‌مندسازی با «جستجوی Google»\* | پشتیبانی می‌شود | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
 ## Gemini 3.5 Live Translate
 
-*[`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=es-419)*
+*[`gemini-3.5-live-translate-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=fa)
 
-Nuestro modelo de traducción de voz a voz en tiempo real y de baja latencia que admite más de 70 idiomas.
+مدل ترجمه گفتار به گفتار هم‌زمان ما با تأخیر کم که از بیش‌از ۷۰ زبان پشتیبانی می‌کند.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $3.50 o $0.0053/min\* (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $21.00 o $0.0315/min\* (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۳٫۵۰ دلار یا ۰٫۰۰۵۳ دلار در دقیقه\* (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۲۱٫۰۰ دلار یا ۰٫۰۳۱۵ دلار در دقیقه\* (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* La facturación se basa en el consumo total de tokens de audio de entrada y salida, calculado a una tarifa de 25 tokens por segundo de audio, lo que equivale a un precio efectivo de aproximadamente USD 0.0368 por minuto.
+\* صدور صورت‌حساب براساس کل مصرف داده‌واحد صوتی ورودی و خروجی است که با نرخ ۲۵ داده‌واحد در هر ثانیه صدا محاسبه می‌شود و معادل قیمت مؤثر تقریباً ۰٫۰۳۶۸ دلار در دقیقه است.
 
-## Gemini 3.5 Transcribe en tiempo real
+## Gemini 3.5 Transcribe Live
 
-*[`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=es-419)*
+*[`gemini-3.5-transcribe-live`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-3.5-transcribe-live&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-3.5-transcribe-live&hl=fa)
 
-Nuestro modelo de voz a texto en tiempo real y de baja latencia para la transcripción de audio de transmisión bidireccional a través de WebSockets.
+مدل گفتار به نوشتار هم‌زمان با تأخیر کم ما برای ترانویسی صوتی جاری‌سازی دوطرفه ازطریق WebSockets.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 3.50 o USD 0.005/min\* (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 21.00 o USD 0.004/min\* (texto) |
-| Fundamentación con la Búsqueda de Google | No compatible |  |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۳٫۵۰ دلار یا ۰٫۰۰۵ دلار/دقیقه\* (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۲۱ دلار یا ۰٫۰۰۴ دلار در دقیقه\* (نوشتار) |
+| پایه‌مندسازی با جستجوی Google | پشتیبانی نمی‌شود |  |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Los precios estimados se basan en 25 tokens de audio por segundo para la entrada
-y 175 tokens de texto por minuto para la salida, lo que genera una tarifa combinada efectiva de
-~$0.009 por minuto para la Transcripción instantánea.
+\* قیمت تخمینی براساس ۲۵ نشانه صوتی در ثانیه برای ورودی و ۱۷۵ نشانه نوشتاری در دقیقه برای خروجی است، که نرخ ترکیبی مؤثر آن برای «ترانویسی زنده» تقریباً ۰٫۰۰۹ دلار در دقیقه است.
 
 ## Gemini 3.5 Transcribe
 
-*[`gemini-3.5-transcribe`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=es-419)*
+*[`gemini-3.5-transcribe`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-3.5-transcribe&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-3.5-transcribe&hl=fa)
 
-Nuestro modelo de voz a texto con detección automática de idioma, identificación de interlocutores, marcas de tiempo a nivel de palabra y ponderación de vocabulario personalizado.
+مدل گفتار به نوشتار ما با تشخیص خودکار زبان، بخش‌بندی صدای گوینده، مُهرهای زمان در سطح کلمه، و سوگیری واژگان سفارشی.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $2.00 o $0.003 por min\* (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $12.00 o $0.002/min\* (texto) |
-| Fundamentación con la Búsqueda de Google | No compatible |  |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۲٫۰۰ دلار یا ۰٫۰۰۳ دلار در دقیقه\* (صوتی) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱۲٫۰۰ دلار یا ۰٫۰۰۲ دلار/دقیقه\* (نوشتار) |
+| پایه‌مندسازی با جستجوی Google | پشتیبانی نمی‌شود |  |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Los precios estimados se basan en 25 tokens de audio por segundo para la entrada
-y 175 tokens de texto por minuto para la salida, lo que genera una tarifa combinada efectiva de
-~$0.005 por minuto para Transcribe.
+\* قیمت‌گذاری تخمینی براساس ۲۵ نشانه زبانی صوتی در ثانیه برای ورودی
+و ۱۷۵ نشانه زبانی نوشتاری در دقیقه برای خروجی است، برای نرخ ترکیبی مؤثر
+حدود ۰٫۰۰۵ دلار در دقیقه برای «ترانویسی».
 
 ## Gemini 3.5 Flash-Lite
 
-*[`gemini-3.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=es-419)*
+*[`gemini-3.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-flash-lite&hl=fa)
 
-Un modelo rentable, optimizado para tareas de agentes de gran volumen,
-traducción y procesamiento de datos sencillo.
+مدلی مقرون‌به‌صرفه، بهینه‌شده برای کارهای عامل‌گرای با حجم بالا،
+ترجمه، و پردازش داده‌های ساده.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.30 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $2.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.03 $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ۰٫۳۰ دلار (نوشتار / تصویر / ویدیو / صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۲.۵۰ |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳ دلار ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.15 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $1.25 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.02 $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۱۵ دلار (نوشتار / تصویر / ویدیو / صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱٫۲۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۲ تا ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.15 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $1.25 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.02 $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۱۵ دلار (نوشتار / تصویر / ویدیو / صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱٫۲۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۲ تا ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.54 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $4.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.05 $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ۰٫۵۴ دلار (نوشتار / تصویر / ویدیو / صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۴٫۵۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۵  تا ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Colaborador
+### مشارکت‌کننده
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.15 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $1.25 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.015 $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [Sí](https://ai.google.dev/gemini-api/docs/logs-policy?hl=es-419#contributor-tier) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۱۵ دلار (نوشتار / تصویر / ویدیو / صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱٫۲۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱۵ ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [بله](https://ai.google.dev/gemini-api/docs/logs-policy?hl=fa#contributor-tier) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
-\*\* Se puede probar en Google AI Studio.
+\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
 
-\*\* Se puede probar en Google AI Studio.
+\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
 
-## Gemini 3.1 Flash-Lite
+## ‫Gemini 3.1 Flash-Lite
 
-*[`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=es-419)*
+*[`gemini-3.1-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite&hl=fa)
 
-Un modelo rentable, optimizado para tareas de agentes de gran volumen,
-traducción y procesamiento de datos sencillo.
+مدلی مقرون‌به‌صرفه، بهینه‌شده برای کارهای عامل‌گرای با حجم بالا،
+ترجمه، و پردازش داده‌های ساده.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.25 (texto, imagen o video) USD 0.50 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $1.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.025 (texto, imagen o video) $0.05 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۲۵ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۵۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۱٫۵۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۲۵ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۰۵ دلار (صدا) ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.125 (texto, imagen o video) $0.25 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $0.75 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.0125 (texto, imagen o video) $0.025 (audio) $0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۱۲۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۲۵ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۰٫۷۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱۲۵ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۰۲۵ دلار (صدا) ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ توکن در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.125 (texto, imagen o video) $0.25 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $0.75 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.0125 (texto, imagen o video) $0.025 (audio) $0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۱۲۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۲۵ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۰٫۷۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱۲۵ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۰۲۵ دلار (صدا) ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ توکن در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.45 (texto, imagen o video) USD 0.90 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $2.70 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.045 (texto, imagen o video) $0.09 (audio) $1.80 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۴۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۹۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۲٫۷۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۴۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۰۹ دلار (صدا) ۱٫۸۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
-\*\* Se puede probar en Google AI Studio.
+\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
 
 ## Gemini Omni Flash
 
-*[`gemini-omni-1.1-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=es-419)*
+*[`gemini-omni-1.1-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-1.1-flash&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-1.1-flash&hl=fa)
 
-Nuestro modelo de generación y edición de videos de nueva generación, que ahora está disponible de forma general
-para los desarrolladores en el nivel pagado de la API de Gemini.
+مدل ویرایش و تولید ویدیو نسل بعدی ما، اکنون به‌طور عمومی برای توسعه‌دهندگان در سطح پولی Gemini API دردسترس است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $1.50 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 9.00 (texto) USD 17.50 (video)\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۱٫۵۰ دلار (نوشتار / تصویر / ویدیو / صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۹٫۰۰ دلار (نوشتار) ‫۱۷٫۵۰ دلار (ویدیو)\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* La facturación se basa en el consumo total de tokens de salida, que se calcula con
-una tarifa de 5,792 tokens por segundo de video de 720p. Según los precios estándar, esto
-equivale a un precio efectivo de aproximadamente $0.10 por segundo.
+\* صدور صورت‌حساب براساس کل مصرف داده‌واحد برونداد است که با نرخ ۵٬۷۹۲ داده‌واحد در ثانیه برای ویدیو ۷۲۰ پیکسل محاسبه می‌شود. تحت قیمت‌گذاری استاندارد، این
+معادل قیمت مؤثر تقریباً ۰٫۱۰ دلار در ثانیه است.
 
-## Versión preliminar de Gemini Omni Flash
+## Gemini 3.1 Pro Preview
 
-*[`gemini-omni-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-omni-flash?hl=es-419)*
+‫*[`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fa) و [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fa#gemini-31-pro-preview-customtools)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-omni-flash-preview&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=fa)
 
-Nuestro modelo de generación y edición de videos de nueva generación.
+مدل Pro نسل سوم ما، ساخته‌شده برای درک چندوجهی،
+قابلیت‌های عاملی، و کدنویسی با حس‌وحال.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $1.50 (texto, imagen, video o audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 9.00 (texto) USD 17.50 (video)\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۲٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ‫۴٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱۲٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۱۸٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۲ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار کد ۰٫۴ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار کد ۴٫۵ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | موجود نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* La facturación se basa en el consumo total de tokens de salida, que se calcula a una tasa de 5,792 tokens por segundo de video de 720p. Según los precios del nivel Estándar, esto equivale a un precio efectivo de aproximadamente $0.10 por segundo.
+### دسته
 
-## Versión preliminar de Gemini 3.1 Pro
-
-*[`gemini-3.1-pro-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419) y [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419#gemini-31-pro-preview-customtools)*
-
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-pro-preview&hl=es-419)
-
-Nuestro modelo Pro de 3ª generación, diseñado para la comprensión multimodal,
-las capacidades de agente y el vibe coding.
-
-### Estándar
-
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $2.00, instrucciones <= 200,000 tokens $4.00, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $12.00, instrucciones <= 200,000 tokens $18.00, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.20, instrucciones <= 200,000 tokens $0.40, instrucciones > 200,000 $4.50 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | N/A | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۲٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۶٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۹٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | *مشابه Standard*  ۰٫۲۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار نمانه ۰٫۴۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار نمانه ۴٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $1.00, instrucciones <= 200,000 tokens $2.00, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $6.00, instrucciones <= 200,000 tokens $9.00, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | *Igual que Standard*  USD 0.20, instrucciones <= 200,000 tokens USD 0.40, instrucciones > 200,000 USD 4.50 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۲٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۶٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۹٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | *مشابه Standard*  ۰٫۲۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار نمانه ۰٫۴۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار نمانه ۴٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $1.00, instrucciones <= 200,000 tokens $2.00, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $6.00, instrucciones <= 200,000 tokens $9.00, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | *Igual que Standard*  USD 0.20, instrucciones <= 200,000 tokens USD 0.40, instrucciones > 200,000 USD 4.50 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۳٫۶۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۷٫۲۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۲۱٫۶۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۳۲٫۴۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۳۶ دلار، پیام‌واره‌های <= ۲۰۰ هزار نمانه ‫۰٫۷۲ دلار، پیام‌واره‌های > ۲۰۰ هزار نمانه ‫۸٫۱۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### مشارکت‌کننده
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $3.60, instrucciones <= 200,000 tokens $7.20, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $21.60, instrucciones <= 200,000 tokens $32.40, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.36, instrucciones <= 200,000 tokens $0.72, instrucciones > 200,000 $8.10 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۲٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۶٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ‫۹٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۱ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار کد ‫۰٫۲ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار کد ‫۴٫۵ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| برای بهبود محصولاتمان استفاده می‌شود | موجود نیست | [بله](https://ai.google.dev/gemini-api/docs/logs-policy?hl=fa#contributor-tier) |
 
-### Colaborador
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
+
+## ‫Gemini Nano Banana 2.1 🍌
+
+*[`gemini-nano-banana-2.1`](https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1?hl=fa)*
+
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-nano-banana-2.1&hl=fa)
+
+به‌روزرسانی Nano Banana 2 (Gemini 3.1 Flash Image) که برای تولید تصویر با کارایی بالا و ویرایش مکالمه‌ای با کیفیت بصری بهبودیافته، ثبات شخصیت چندنوبتی، پرداز نوشتار دقیق، و تولید مبتنی بر جستجو در وضوح‌های 1K،‏ 2K، و 4K ساخته شده است.
+
+### استاندارد
+
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $1.00, instrucciones <= 200,000 tokens $2.00, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $6.00, instrucciones <= 200,000 tokens $9.00, instrucciones > 200,000 tokens |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.10, instrucciones <= 200,000 tokens $0.20, instrucciones > 200,000 tokens $4.50 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Se usa para mejorar nuestros productos | N/A | [Sí](https://ai.google.dev/gemini-api/docs/logs-policy?hl=es-419#contributor-tier) |
+| قیمت را وارد کنید | دردسترس نیست | ۱٫۵۰ دلار (نوشتار/تصویر/ویدیو) |
+| قیمت خروجی | دردسترس نیست | ‫۷٫۵۰ دلار (نوشتار و تفکر)  ‫۳۰٫۰۰ دلار (تصاویر)  معادل ۰٫۰۳۳۶ دلار برای هر تصویر 1K\*،  ‫۰٫۰۵۰۴ دلار برای هر تصویر 2K\*،  و ۰٫۱۱۳ دلار برای هر تصویر 4K\*. |
+| پایه‌مندسازی با «جستجوی وب و تصویر Google»\*\* | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک در همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست برای زمینه‌سازی مبتنی بر نوشتار و تصویر. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+### دسته
 
-\*\* Se puede probar en Google AI Studio.
-
-## Gemini Nano Banana 2.1 🍌
-
-*[`gemini-nano-banana-2.1`](https://ai.google.dev/gemini-api/docs/models/gemini-nano-banana-2.1?hl=es-419)*
-
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-nano-banana-2.1&hl=es-419)
-
-Una actualización de Nano Banana 2 (Gemini 3.1 Flash Image), diseñada para la generación de imágenes de alta eficiencia y la edición conversacional con una calidad visual mejorada, continuidad de los personajes de varios turnos, renderización de texto precisa y generación basada en la búsqueda en resoluciones de 1K, 2K y 4K.
-
-### Estándar
-
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.50 (texto, imagen o video) |
-| Precio de salida | No disponible | $7.50 (texto y razonamiento)  $30.00 (imágenes)  Equivalente a $0.0336 por imagen de 1K\*,  $0.0504 por imagen de 2K\*,  y $0.113 por imagen de 4K\*. |
-| Fundamentación con la Búsqueda web y con imágenes de Google\*\* | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes) y, luego, USD 14 por cada 1,000 solicitudes de fundamentación basada en texto e imágenes. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۷۵ دلار (نوشتار/تصویر/ویدیو) |
+| قیمت خروجی | دردسترس نیست | ‫۳٫۷۵ دلار (نوشتار و تفکر)  ‫۱۵٫۰۰ دلار (تصاویر)  معادل ۰٫۰۱۶۸ دلار برای هر تصویر 1K\*،  ‫۰٫۰۲۵۲ دلار برای هر تصویر 2K\*،  و ۰٫۰۵۶۷ دلار برای هر تصویر 4K\*. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+\* قیمت برونداد تصویر ۳۰ دلار به‌ازای هر ۱٬۰۰۰٬۰۰۰ داده‌واحد (استاندارد) و
+۱۵ دلار به‌ازای هر ۱٬۰۰۰٬۰۰۰ داده‌واحد (دسته‌ای) است. تصاویر خروجی با کیفیت 1K (‏۱۰۲۴×۱۰۲۴ پیکسل) ۱۱۲۰
+نماد مصرف می‌کنند و معادل ۰٫۰۳۳۶ دلار برای هر تصویر است. تصاویر خروجی با کیفیت 2K
+(۲۰۴۸×۲۰۴۸ پیکسل) ۱۶۸۰ توکن مصرف می‌کنند و معادل ۰٫۰۵۰۴ دلار برای هر تصویر است.
+تصاویر خروجی با وضوح 4K‏ (۴۰۹۶×۴۰۹۶ پیکسل) ۳۷۸۰ داده‌واحد مصرف می‌کنند و معادل
+۰٫۱۱۳ دلار برای هر تصویر است.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+\*\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد. بابت بافت بازیابی‌شده (نوشتار یا تصویر) که توسط «پایه‌سازی با جستجوی Google» ارائه می‌شود، به‌عنوان توکن ورودی هزینه‌ای دریافت نمی‌شود.
+
+## ‫Gemini 3.1 Flash Image‏ (Nano Banana 2) 🍌
+
+*[`gemini-3.1-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=fa)*
+
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=fa)
+
+مدل تولید تصویر Gemini 3.1 Flash که برای سرعت و کارایی طراحی شده است، برای پاسخ‌های سریع و تعاملی و توان گذرداد بالا مؤثر است.
+
+### استاندارد
+
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.75 (texto, imagen o video) |
-| Precio de salida | No disponible | $3.75 (texto y razonamiento)  $15.00 (imágenes)  Equivalente a $0.0168 por imagen de 1K\*,  $0.0252 por imagen de 2K\*,  y $0.0567 por imagen de 4K\*. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۵۰ دلار (نوشتار/تصویر) |
+| قیمت خروجی | دردسترس نیست | ‫۳ دلار (نوشتار و تفکر)  ‫۶۰٫۰۰ دلار (تصاویر)  معادل ۰٫۰۴۵ دلار برای هر تصویر 0.5K\*  ‫۰٫۰۶۷ دلار برای هر تصویر 1K\*، ‫۰٫۱۰۱ دلار برای هر تصویر 2K\*، و ۰٫۱۵۱ دلار برای هر تصویر 4K\*. |
+| پایه‌مندسازی با «جستجوی وب و تصویر Google»\*\* | دردسترس نیست\*\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک در همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست برای زمینه‌سازی مبتنی بر نوشتار و تصویر. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* El precio de la salida de imágenes es de $30 por cada 1,000,000 de tokens (estándar) y
-de $15 por cada 1,000,000 de tokens (por lotes). Las imágenes de salida de 1K (1024 x 1024 px) consumen 1,120
-tokens y equivalen a $0.0336 por imagen. Las imágenes de salida en 2K
-(2048 x 2048 px) consumen 1,680 tokens y equivalen a $0.0504 por imagen.
-Las imágenes de salida en 4K (4096 x 4096 px) consumen 3,780 tokens y equivalen a
-$0.113 por imagen.
+### دسته
 
-\*\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices. El contexto recuperado (texto o imágenes) que proporciona la Fundamentación con la Búsqueda de Google
-no se cobra como tokens de entrada.
-
-## Gemini 3.1 Flash Image (Nano Banana 2) 🍌
-
-*[`gemini-3.1-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=es-419)*
-
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-image&hl=es-419)
-
-Diseñado para ofrecer velocidad y eficiencia, el modelo generativo de generación de imágenes Gemini 3.1 Flash es eficaz para obtener respuestas rápidas e interactivas, y una alta capacidad de procesamiento.
-
-### Estándar
-
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.50 (texto o imagen) |
-| Precio de salida | No disponible | $3 (texto y razonamiento)  $60.00 (imágenes)  Equivalente a $0.045 por imagen de 0.5K\*  $0.067 por imagen de 1K\*, $0.101 por imagen de 2K\* y $0.151 por imagen de 4K\*. |
-| Fundamentación con la Búsqueda web y con imágenes de Google\*\* | No disponible\*\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes) y, luego, USD 14 por cada 1,000 solicitudes de fundamentación basada en texto e imágenes. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار، تصویر) |
+| قیمت خروجی | دردسترس نیست | ‫۱٫۵۰ دلار (نوشتار و تفکر)  ‫۳۰٫۰۰ دلار (تصاویر)  معادل ۰٫۰۲۲ دلار برای هر تصویر 0.5K\*  ‫۰٫۰۳۴ دلار برای هر تصویر 1K\*،  ‫۰٫۰۵۰ دلار برای هر تصویر 2K\*،  و ۰٫۰۷۶ دلار برای هر تصویر 4K\*. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+\* قیمت برونداد تصویر ۶۰ دلار به‌ازای هر ۱٬۰۰۰٬۰۰۰ داده‌واحد است.
+تصاویر خروجی با وضوح 0.5K (‏۵۱۲ پیکسل) ۷۴۷ داده‌واحد مصرف می‌کنند و معادل ۰٫۰۴۵ دلار برای هر تصویر است. تصاویر خروجی با کیفیت 1K (‏۱۰۲۴×۱۰۲۴ پیکسل) ۱۱۲۰ نمونه مصرف می‌کنند و معادل
+۰٫۰۶۷ دلار برای هر تصویر است. تصاویر خروجی با کیفیت 2K (‏۲۰۴۸×۲۰۴۸ پیکسل) ۱۶۸۰ داده‌واحد مصرف می‌کنند و
+معادل ۰٫۱۰۱ دلار برای هر تصویر است. تصاویر خروجی با کیفیت 4K‏ (۴۰۹۶×۴۰۹۶ پیکسل)
+۲۵۲۰ نمونه مصرف می‌کنند و معادل ۰٫۱۵۱ دلار برای هر تصویر است.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+\*\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد. بابت بافت بازیابی‌شده (نوشتار یا تصویر) که توسط «پایه‌سازی با جستجوی Google» ارائه می‌شود، به‌عنوان توکن ورودی هزینه‌ای دریافت نمی‌شود.
+
+\*\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
+
+## ‫Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
+
+*[`gemini-3.1-flash-lite-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=fa)*
+
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=fa)
+
+مدل Gemini 3.1 Flash Lite Image که به‌عنوان متخصص کارایی در خانواده تولید تصویر طراحی شده است، برای تولید و ویرایش تصویر با تأخیر بسیار کم و مقرون‌به‌صرفه طراحی شده است.
+
+### استاندارد
+
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.25 (texto, imagen) |
-| Precio de salida | No disponible | $1.50 (texto y razonamiento)  $30.00 (imágenes)  Equivalente a $0.022 por imagen de 0.5K\*  $0.034 por imagen de 1K\*,  $0.050 por imagen de 2K\*,  y $0.076 por imagen de 4K\*. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار/تصویر/ویدیو) |
+| قیمت خروجی | دردسترس نیست | ‫۱٫۵۰ دلار (نوشتار و تفکر)  ‫۳۰٫۰۰ دلار (تصاویر)  معادل ۰٫۰۳۳۶ دلار برای هر تصویر با وضوح 1K\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* El precio de la salida de imágenes es de USD 60 por cada 1,000,000 de tokens.
-Las imágenes de salida de 0.5K (512 px) consumen 747 tokens y equivalen a $0.045 por
-imagen. Las imágenes de salida de 1K (1024 x 1024 px) consumen 1,120 tokens y equivalen
-a $0.067 por imagen. Las imágenes de salida de 2K (2048 x 2048 px) consumen 1,680 tokens y
-equivalen a $0.101 por imagen. Las imágenes de salida en 4K (4096 x 4096 px) consumen
-2,520 tokens y equivalen a $0.151 por imagen.
+### دسته
 
-\*\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices. El contexto recuperado (texto o imágenes) que proporciona la Fundamentación con la Búsqueda de Google
-no se cobra como tokens de entrada.
-
-\*\*\* Se puede probar en Google AI Studio.
-
-## Gemini 3.1 Flash Lite Image (Nano Banana 2 Lite) 🍌
-
-*[`gemini-3.1-flash-lite-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite-image?hl=es-419)*
-
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-lite-image&hl=es-419)
-
-Diseñado como el especialista en eficiencia de la familia de generación de imágenes, el modelo Gemini 3.1
-Flash Lite Image está diseñado para la generación y edición de imágenes rentables y con una latencia ultrabaja.
-
-### Estándar
-
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.25 (texto, imagen o video) |
-| Precio de salida | No disponible | $1.50 (texto y razonamiento)  $30.00 (imágenes)  Equivalente a $0.0336 por imagen con resolución de 1,000\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۱۲۵ دلار (نوشتار/تصویر/ویدیو) |
+| قیمت خروجی | دردسترس نیست | ‫۰٫۷۵ دلار (نوشتار و تفکر)  ‫۱۵٫۰۰ دلار (تصاویر)  معادل ۰٫۰۱۶۸ دلار برای هر تصویر با وضوح 1K\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+\* قیمت برونداد تصویر ۳۰ دلار به‌ازای هر ۱٬۰۰۰٬۰۰۰ داده‌واحد است. تصاویر خروجی با کیفیت 1K (‏۱۰۲۴×۱۰۲۴ پیکسل) ۱۱۲۰ ژتون مصرف می‌کنند و معادل ۰٫۰۳۳۶ دلار برای هر تصویر است.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+## Gemini 3.8 Flash TTS
+
+*[`gemini-3.8-flash-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fa)*
+
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-tts&hl=fa)
+
+مدل صوتی «نوشتار به گفتار» ‎3.8 Flash ما برای وفاداری به صدای سطح استودیو، بازیگری گویا، و پایداری طولانی‌مدت طراحی شده است.
+
+### استاندارد
+
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.125 (texto, imagen o video) |
-| Precio de salida | No disponible | $0.75 (texto y razonamiento)  $15.00 (imágenes)  Equivalente a $0.0168 por imagen con resolución de 1,000\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۵۰ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | رایگان | ‫۹٫۰۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۱۸٫۰۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۲۲۵ دلار برای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۴۵ دلار برای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* El precio de la salida de imágenes es de USD 30 por cada 1,000,000 de tokens. Las imágenes de salida de 1,000 (1024 x 1024 px) consumen 1,120 tokens y equivalen a $0.0336 por imagen.
+### دسته
 
-## TTS de Gemini 3.8 Flash
-
-*[`gemini-3.8-flash-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=es-419)*
-
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-tts&hl=es-419)
-
-Nuestro modelo de audio de texto a voz 3.8 Flash, diseñado para ofrecer fidelidad de voz de nivel de estudio, actuación expresiva y estabilidad de formato largo.
-
-### Estándar
-
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.50 (texto) hasta el 31 de diciembre de 2026 USD 1.00 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | Sin costo | USD 9.00 (audio) hasta el 31 de diciembre de 2026. USD 18.00 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.00225 por 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.0045 por 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ۰٫۵۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | دردسترس نیست | ‫۴٫۵۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۹٫۰۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۱۱۲۵ دلار برای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۲۲۵ دلار برای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto) hasta el 31 de diciembre de 2026 USD 0.50 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | No disponible | USD 4.50 (audio) hasta el 31 de diciembre de 2026. USD 9.00 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.001125 por cada 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.00225 por cada 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ۰٫۵۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | دردسترس نیست | ‫۴٫۵۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۹٫۰۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۱۱۲۵ دلار برای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۲۲۵ دلار برای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto) hasta el 31 de diciembre de 2026 USD 0.50 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | No disponible | USD 4.50 (audio) hasta el 31 de diciembre de 2026. USD 9.00 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.001125 por cada 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.00225 por cada 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۹۰ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۸۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | رایگان | ‫۱۶٫۲۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۳۲٫۴۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۴۰۵ دلار برای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۸۱ دلار برای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
-
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
-| --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.90 (texto) hasta el 31 de diciembre de 2026 USD 1.80 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | Sin costo | USD 16.20 (audio) hasta el 31 de diciembre de 2026. USD 32.40 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.00405 por 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.0081 por 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
-
-\* Los tokens de audio corresponden a 25 tokens por segundo de audio.
+\* هر ثانیه صدا معادل ۲۵ شناسه صوتی است.
 
 ## Gemini 3.8 Flash-Lite TTS
 
-*[`gemini-3.8-flash-lite-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=es-419)*
+*[`gemini-3.8-flash-lite-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-lite-tts&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash-lite-tts&hl=fa)
 
-Nuestro modelo de audio de Text-to-Speech 3.8 Flash-Lite está optimizado para un habla conversacional de alta capacidad de procesamiento, baja latencia y rentable.
+مدل صوتی «نوشتار به گفتار» 3.8 Flash-Lite ما برای گفتار مکالمه‌ای با توان گذرداد بالا، تأخیر کم، و مقرون‌به‌صرفه بهینه‌سازی شده است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.50 (texto) hasta el 31 de diciembre de 2026 USD 1.00 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | Sin costo | USD 6.00 (audio) hasta el 31 de diciembre de 2026. USD 12.00 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.0015 por 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.003 por 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۵۰ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | رایگان | ‫۶٫۰۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۱۲٫۰۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۱۵ دلار برای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۳ دلار برای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto) hasta el 31 de diciembre de 2026 USD 0.50 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | No disponible | USD 3.00 (audio) hasta el 31 de diciembre de 2026. USD 6.00 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.00075 por cada 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.0015 por cada 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ۰٫۵۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | دردسترس نیست | ‫۳٫۰۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۶٫۰۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۰۷۵ دلار به‌ازای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۱۵ دلار به‌ازای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto) hasta el 31 de diciembre de 2026 USD 0.50 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | No disponible | USD 3.00 (audio) hasta el 31 de diciembre de 2026. USD 6.00 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.00075 por cada 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.0015 por cada 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ۰٫۵۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | دردسترس نیست | ‫۳٫۰۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۶٫۰۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۰۷۵ دلار به‌ازای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۱۵ دلار به‌ازای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.90 (texto) hasta el 31 de diciembre de 2026 USD 1.80 (texto) a partir del 1 de enero de 2027 |
-| Precio de salida | Sin costo | USD 10.80 (audio) hasta el 31 de diciembre de 2026. USD 21.60 (audio) a partir del 1 de enero de 2027. Equivalente a USD 0.0027 por cada 10 s de audio\* hasta el 31 de diciembre de 2026. Equivalente a USD 0.0054 por cada 10 s de audio\* a partir del 1 de enero de 2027. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۹۰ دلار (نوشتار) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۸۰ دلار (نوشتار) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | رایگان | ۱۰٫۸۰ دلار (صدا) تا ۳۱ دسامبر ۲۰۲۶. ۲۱٫۶۰ دلار (صدا) از ۱ ژانویه ۲۰۲۷. معادل ۰٫۰۰۲۷ دلار برای هر ۱۰ ثانیه صدا\* تا ۳۱ دسامبر ۲۰۲۶. معادل ۰٫۰۰۵۴ دلار برای هر ۱۰ ثانیه صدا\* از ۱ ژانویه ۲۰۲۷. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Los tokens de audio corresponden a 25 tokens por segundo de audio.
+\* هر ثانیه صدا معادل ۲۵ شناسه صوتی است.
 
-## Versión preliminar de Gemini 3.1 Flash TTS
+## Gemini 3.1 Flash TTS Preview
 
-*[`gemini-3.1-flash-tts-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=es-419)*
+*[`gemini-3.1-flash-tts-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.1-flash-tts-preview&hl=fa)
 
-Nuestro modelo de audio de texto a voz de Flash 3.1 optimizado para una generación de voz controlable,
-de baja latencia y con una buena relación precio-rendimiento.
+مدل صوتی «نوشتار به گفتار» ‎3.1 Flash ما برای تولید گفتار قابل‌کنترل، با تأخیر کم، و مقرون‌به‌صرفه بهینه‌سازی شده است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 1.00 (texto) |
-| Precio de salida | Sin costo | USD 20.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۱٫۰۰ دلار (نوشتار) |
+| قیمت خروجی | رایگان | ۲۰ دلار (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.50 (texto) |
-| Precio de salida | No disponible | USD 10.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۵۰ دلار (نوشتار) |
+| قیمت خروجی | دردسترس نیست | ۱۰٫۰۰ دلار (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Los tokens de audio corresponden a 25 tokens por segundo de audio.
+\* هر ثانیه صدا معادل ۲۵ شناسه صوتی است.
 
-## Versión preliminar de Gemini 3 Flash
+## Gemini 3 Flash Preview
 
-*[`gemini-3-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=es-419)*
+*[`gemini-3-flash-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-3-flash-preview&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-3-flash-preview&hl=fa)
 
-Nuestro modelo Flash heredado, que proporciona velocidad e inteligencia de referencia.
+مدل Flash قدیمی ما که سرعت و هوش پایه را ارائه می‌دهد.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.50 (texto, imagen o video) USD 1.00 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $3.00 |
-| Precio del almacenamiento de caché de contexto | Sin costo | $0.05 (texto, imagen o video) $0.10 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ۰٫۵۰ دلار (نوشتار / تصویر / ویدیو) ۱٫۰۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۳٫۰۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۰۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۱۰ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto, imagen o video) USD 0.50 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $1.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | *Igual que el estándar*  $0.05 (texto, imagen o video)  $0.10 (audio)  $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۵۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ۱٫۵۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | *همانند Standard*  ‫۰٫۰۵ دلار (نوشتار / تصویر / ویدیو)  ‫۰٫۱۰ دلار (صدا)  ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto, imagen o video) USD 0.50 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $1.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | *Igual que el estándar*  $0.05 (texto, imagen o video)  $0.10 (audio)  $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۲۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۵۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ۱٫۵۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | *همانند Standard*  ‫۰٫۰۵ دلار (نوشتار / تصویر / ویدیو)  ‫۰٫۱۰ دلار (صدا)  ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.90 (texto, imagen o video) USD 1.80 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $5.40 |
-| Precio del almacenamiento de caché de contexto | Sin costo | $0.09 (texto, imagen o video) $0.18 (audio) $1.80 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google\* | No disponible\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Fundamentación con Google Maps | No disponible\*\* | 5,000 solicitudes por mes (sin costo, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۹۰ دلار (نوشتار / تصویر / ویدیو) ۱٫۸۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۵.۴۰ |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | ‫۰٫۰۹ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۱۸ دلار (صدا) ‫۱٫۸۰ دلار / ۱٬۰۰۰٬۰۰۰ ژتون در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با «جستجوی Google»\* | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| پایه‌مندسازی با Google Maps | دردسترس نیست\*\* | ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ پرسمان جستجو. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
-\*\* Se puede probar en Google AI Studio.
+\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
 
-## Gemini 3 Pro Image (Nano Banana Pro) 🍌
+## ‫Gemini 3 Pro Image (Nano Banana Pro) 🍌
 
-*[`gemini-3-pro-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=es-419)*
+*[`gemini-3-pro-image`](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-pro-image&hl=fa)
 
-Es nuestro modelo de generación de imágenes nativo, optimizado para la velocidad, la flexibilidad y
-la comprensión contextual. La **entrada y salida de texto** tiene el mismo precio que
-[Gemini 3.1 Pro](#gemini-3.1-pro-preview).
+مدل تولید تصویر بومی ما که برای سرعت، انعطاف‌پذیری، و درک بافتاری بهینه‌سازی شده است. قیمت **ورودی و برونداد نوشتاری** با
+[Gemini 3.1 Pro](#gemini-3.1-pro-preview) یکسان است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $2.00 (texto/imagen),  equivalente a $0.0011 por imagen\* |
-| Precio de salida | No disponible | $12.00 (texto y pensamiento)  $120.00 (imágenes)  Equivalente a $0.134 por imagen de 1,000/2,000\*\*  y $0.24 por imagen de 4,000\*\* |
-| Fundamentación con la Búsqueda de Google\*\*\* | No disponible\*\*\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۲٫۰۰ دلار (نوشتار/تصویر)،  معادل ۰٫۰۰۱۱ دلار برای هر تصویر\* |
+| قیمت خروجی | دردسترس نیست | ‫۱۲٫۰۰ دلار (نوشتار و تفکر)  ‫۱۲۰٫۰۰ دلار (تصاویر)  معادل ۰٫۱۳۴ دلار برای هر تصویر 1K/2K\*\*  و ۰٫۲۴ دلار برای هر تصویر 4K\*\* |
+| پایه‌مندسازی با «جستجوی Google»\*\*\* | دردسترس نیست\*\*\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.00 (texto), USD 0.0006 (imagen)\* |
-| Precio de salida | No disponible | $6.00 (texto y razonamiento)  $0.067 por imagen de 1K/2K\*\*  $0.12 por imagen de 4K\*\* |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار (نوشتار)، ‫۰٫۰۰۰۶ دلار (تصویر)\* |
+| قیمت خروجی | دردسترس نیست | ‫۶٫۰۰ دلار (نوشتار و تفکر)  ‫۰٫۰۶۷ دلار برای هر تصویر 1K/2K‏\*\*  ‫۰٫۱۲ دلار برای هر تصویر 4K‏\*\* |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.00 (texto), USD 0.0006 (imagen)\* |
-| Precio de salida | No disponible | $6.00 (texto y razonamiento)  $0.067 por imagen de 1K/2K\*\*  $0.12 por imagen de 4K\*\* |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار (نوشتار)، ‫۰٫۰۰۰۶ دلار (تصویر)\* |
+| قیمت خروجی | دردسترس نیست | ‫۶٫۰۰ دلار (نوشتار و تفکر)  ‫۰٫۰۶۷ دلار برای هر تصویر 1K/2K‏\*\*  ‫۰٫۱۲ دلار برای هر تصویر 4K‏\*\* |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 3.60 (texto o imagen) |
-| Precio de salida | No disponible | $21.60 (texto y razonamiento)  $216.00 (imágenes) |
-| Fundamentación con la Búsqueda de Google\*\*\* | No disponible\*\*\*\* | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Se usa para mejorar nuestros productos | No disponible | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۳٫۶۰ دلار (نوشتار/تصویر) |
+| قیمت خروجی | دردسترس نیست | ‫۲۱٫۶۰ دلار (نوشتار و تفکر)  ‫۲۱۶٫۰۰ دلار (تصاویر) |
+| پایه‌مندسازی با «جستجوی Google»\*\*\* | دردسترس نیست\*\*\*\* | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| برای بهبود محصولاتمان استفاده می‌شود | دردسترس نیست | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-\* La entrada de imagen se establece en 560 tokens o USD 0.0011 por imagen.
+\* ورودی تصویر روی ۵۶۰ نمان یا ۰٫۰۰۱۱ دلار برای هر تصویر تنظیم شده است.
 
-\*\* El precio de la salida de imágenes es de USD 120 por cada 1,000,000 de tokens. Las imágenes de salida
-de 1024 x 1024 px (1K) y hasta 2048 x 2048 px (2K) consumen 1,120 tokens y
-equivalen a $0.134 por imagen. Las imágenes de salida de hasta 4096 x 4096 px (4K) consumen
-2,000 tokens y equivalen a $0.24 por imagen.
+\*\* قیمت برونداد تصویر ۱۲۰ دلار به‌ازای هر ۱٬۰۰۰٬۰۰۰ داده‌واحد است. تصاویر
+برونداد از ‎۱۰۲۴×۱۰۲۴ پیکسل (1K) و تا ‎۲۰۴۸×۲۰۴۸ پیکسل (2K) ۱۱۲۰ داده‌واحد مصرف می‌کنند و
+معادل ۰٫۱۳۴ دلار برای هر تصویر هستند. تصاویر خروجی تا ۴۰۹۶×۴۰۹۶ پیکسل (4K)
+۲۰۰۰ داده‌واحد مصرف می‌کنند و معادل ۰٫۲۴ دلار برای هر تصویر است.
 
-\*\*\* Una solicitud enviada por un cliente a Gemini puede generar una o más
-consultas en la Búsqueda de Google. Se te cobrará por cada búsqueda individual
-que realices.
+\*\*\* درخواست ارسال‌شده ازسوی مشتری به Gemini ممکن است منجر به یک یا چند پُرسمان در «جستجوی Google» شود. برای هر پُرسمان جستجوی جداگانه‌ای که انجام می‌شود، هزینه از شما کسر خواهد شد.
 
-\*\*\*\* Se puede probar en Google AI Studio.
+\*\*\*\* می‌توان آن را در Google AI Studio آزمایش کرد.
 
-## Gemini 2.5 Pro
+## ‫Gemini 2.5 Pro
 
-*[`gemini-2.5-pro`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=es-419)*
+*[`gemini-2.5-pro`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=fa)
 
-Un modelo Pro que se destaca en tareas de programación y razonamiento complejo.
+مدل Pro که در کدنویسی و تکالیف استدلال پیچیده برتری دارد.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $1.25, instrucciones de ≤200,000 tokens $2.50, instrucciones de >200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $10.00, instrucciones <= 200,000 tokens $15.00, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.125, instrucciones <= 200,000 tokens $0.25, instrucciones > 200,000 $4.50 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | 10,000 RPD (gratis); luego, USD 25 por cada 1,000 instrucciones fundamentadas |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۱٫۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۲٫۵۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱۰٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار توکن ۱۵٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار توکن |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۱۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار نمانه ‫۰٫۲۵ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار نمانه ‫۴٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره با منبع |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | ‫۱۰٬۰۰۰ درخواست در روز (رایگان)، سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.625, instrucciones <= 200,000 tokens $1.25, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $5.00, instrucciones <= 200,000 tokens $7.50, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.125, instrucciones <= 200,000 tokens $0.25, instrucciones > 200,000 $4.50 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۶۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۱٫۲۵ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۵٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ‫۷٫۵۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۱۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار نمانه ‫۰٫۲۵ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار نمانه ‫۴٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره با منبع |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.625, instrucciones <= 200,000 tokens $1.25, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $5.00, instrucciones <= 200,000 tokens $7.50, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.125, instrucciones <= 200,000 tokens $0.25, instrucciones > 200,000 $4.50 / 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۶۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۱٫۲۵ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۵٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ‫۷٫۵۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۱۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار نمانه ‫۰٫۲۵ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار نمانه ‫۴٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره با منبع |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $2.25, instrucciones <= 200,000 tokens $4.50, instrucciones > 200,000 tokens |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 18.00, instrucciones <= 200,000 tokens USD 27.00, instrucciones > 200,000 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.225, instrucciones <= 200,000 tokens $0.45, instrucciones > 200,000 $8.10 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | 10,000 RPD (gratis); luego, USD 25 por cada 1,000 instrucciones fundamentadas |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۲٫۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۴٫۵۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۱۸٫۰۰ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار داده‌واحد ۲۷٫۰۰ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار داده‌واحد |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۲۲۵ دلار، پیام‌واره‌های کمتر از ۲۰۰ هزار کد ۰٫۴۵ دلار، پیام‌واره‌های بیشتر از ۲۰۰ هزار کد ۸٫۱۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره با منبع |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | ‫۱۰٬۰۰۰ درخواست در روز (رایگان)، سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## Gemini 2.5 Flash
+## ‫Gemini 2.5 Flash
 
-*[`gemini-2.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=es-419)*
+*[`gemini-2.5-flash`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=fa)
 
-Nuestro primer modelo de razonamiento híbrido, que admite una ventana de contexto de 1 millón de tokens y
-tiene presupuestos de pensamiento.
+نخستین مدل استدلال ترکیبی ما که از پنجره بافت ۱ میلیون داده‌واحد پشتیبانی می‌کند و
+دارای بودجه تفکر است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.30 (texto, imagen o video) USD 1.00 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $2.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.03 (texto, imagen o video) $0.1 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | Sin costo, hasta 500 RPD (límite compartido con Flash-Lite RPD) | 1,500 RPD (gratis, límite compartido con Flash-Lite RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | 500 RPD | 1,500 RPD (gratis); luego, USD 25 por cada 1,000 instrucciones fundamentadas |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۳۰ دلار (نوشتار / تصویر / ویدیو) ۱٫۰۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۲.۵۰ |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳ دلار (نوشتار / تصویر / ویدیو) ۰٫۱ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | رایگان، حداکثر ۵۰۰ درخواست در روز (محدودیت مشترک با Flash-Lite RPD) | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash-Lite RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده |
+| پایه‌مندسازی با Google Maps | ‫۵۰۰ روپیه اندونزی | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌ای |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.15 (texto, imagen o video) USD 0.50 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $1.25 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.03 (texto, imagen o video) $0.1 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis, límite compartido con Flash-Lite RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۱۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۵۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱٫۲۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳ دلار (نوشتار / تصویر / ویدیو) ۰٫۱ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash-Lite RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.15 (texto, imagen o video) USD 0.50 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $1.25 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.03 (texto, imagen o video) $0.1 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis, límite compartido con Flash-Lite RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۱۵ دلار (نوشتار / تصویر / ویدیو) ۰٫۵۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ‫۱٫۲۵ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۳ دلار (نوشتار / تصویر / ویدیو) ۰٫۱ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash-Lite RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.54 (texto, imagen o video) USD 1.80 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $4.50 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.054 (texto, imagen o video) $0.18 (audio) $1.80 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | Sin costo, hasta 500 RPD (límite compartido con Flash-Lite RPD) | 1,500 RPD (gratis, límite compartido con Flash-Lite RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | 500 RPD | 1,500 RPD (gratis); luego, USD 25 por cada 1,000 instrucciones fundamentadas |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ۰٫۵۴ دلار (نوشتار / تصویر / ویدیو) ۱٫۸۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۴٫۵۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۵۴ دلار (نوشتار / تصویر / ویدیو) ۰٫۱۸ دلار (صدا) ۱٫۸۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | رایگان، حداکثر ۵۰۰ درخواست در روز (محدودیت مشترک با Flash-Lite RPD) | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash-Lite RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده |
+| پایه‌مندسازی با Google Maps | ‫۵۰۰ روپیه اندونزی | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌ای |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
 ## Gemini 2.5 Flash-Lite
 
-*[`gemini-2.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=es-419)*
+*[`gemini-2.5-flash-lite`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-lite&hl=fa)
 
-Un modelo pequeño y rentable, creado para su uso a gran escala.
+مدلی کوچک و مقرون‌به‌صرفه که برای استفاده در مقیاس بزرگ ساخته شده است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada (texto, imagen, video) | Sin costo | USD 0.10 (texto, imagen o video) USD 0.30 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $0.40 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.01 (texto, imagen o video) $0.03 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | Sin costo, hasta 500 RPD (límite compartido con Flash RPD) | 1,500 RPD (gratis, límite compartido con Flash RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | 500 RPD | 1,500 RPD (gratis); luego, USD 25 por cada 1,000 instrucciones fundamentadas |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت ورودی (نوشتار، تصویر، ویدیو) | رایگان | ‫۰٫۱۰ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۳۰ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۰٫۴۰ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱ دلار (نوشتار / تصویر / ویدیو) ۰٫۰۳ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | رایگان، تا ۵۰۰ درخواست در روز (محدودیت مشترک با Flash RPD) | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره مستدل |
+| پایه‌مندسازی با Google Maps | ‫۵۰۰ روپیه اندونزی | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌ای |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada (texto, imagen, video) | No disponible | $0.05 (texto, imagen o video) $0.15 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $0.20 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.01 (texto, imagen o video) $0.03 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis, límite compartido con Flash RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت ورودی (نوشتار، تصویر، ویدیو) | دردسترس نیست | ‫۰٫۰۵ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۱۵ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ۰.۲۰ |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱ دلار (نوشتار / تصویر / ویدیو) ۰٫۰۳ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره مستدل |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada (texto, imagen, video) | No disponible | $0.05 (texto, imagen o video) $0.15 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | $0.20 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.01 (texto, imagen o video) $0.03 (audio) $1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | No disponible | 1,500 RPD (gratis, límite compartido con Flash RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت ورودی (نوشتار، تصویر، ویدیو) | دردسترس نیست | ‫۰٫۰۵ دلار (نوشتار / تصویر / ویدیو) ‫۰٫۱۵ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ۰.۲۰ |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱ دلار (نوشتار / تصویر / ویدیو) ۰٫۰۳ دلار (صدا) ۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ کد در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره مستدل |
+| پایه‌مندسازی با Google Maps | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada (texto, imagen, video) | Sin costo | USD 0.18 (texto, imagen o video) USD 0.54 (audio) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | $0.72 |
-| Precio del almacenamiento de caché de contexto | No disponible | $0.018 (texto, imagen o video) $0.054 (audio) $1.80 por 1,000,000 de tokens por hora (precio de almacenamiento) |
-| Fundamentación con la Búsqueda de Google | Sin costo, hasta 500 RPD (límite compartido con Flash RPD) | 1,500 RPD (gratis, límite compartido con Flash RPD); luego, USD 35 por cada 1,000 instrucciones fundamentadas |
-| Fundamentación con Google Maps | 500 RPD | 1,500 RPD (gratis); luego, USD 25 por cada 1,000 instrucciones fundamentadas |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت ورودی (نوشتار، تصویر، ویدیو) | رایگان | ‫۰٫۱۸ دلار (نوشتار / تصویر / ویدیو) ۰٫۵۴ دلار (صدا) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۰٫۷۲ دلار |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۱۸ دلار (نوشتار / تصویر / ویدیو) ۰٫۰۵۴ دلار (صدا) ۱٫۸۰ دلار / ۱٬۰۰۰٬۰۰۰ نشانه در ساعت (قیمت فضای ذخیره‌سازی) |
+| پایه‌مندسازی با جستجوی Google | رایگان، تا ۵۰۰ درخواست در روز (محدودیت مشترک با Flash RPD) | ‫۱٬۵۰۰ درخواست در روز (رایگان، محدودیت مشترک با Flash RPD)، سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره مستدل |
+| پایه‌مندسازی با Google Maps | ‫۵۰۰ روپیه اندونزی | ‫۱٬۵۰۰ درخواست در روز (رایگان)، سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌ای |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## Audio nativo de Gemini 2.5 Flash (API de Live)
+## Gemini 2.5 Flash Native Audio (Live API)
 
-*[`gemini-2.5-flash-native-audio-preview-12-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=es-419)*
+*[`gemini-2.5-flash-native-audio-preview-12-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-native-audio-preview-12-2025?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/app/live?hl=es-419#gemini-2.5-flash-native-audio-preview-12-2025)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/app/live?hl=fa#gemini-2.5-flash-native-audio-preview-12-2025)
 
-Nuestros modelos de audio nativos de la [API de Live](https://ai.google.dev/gemini-api/docs/live?hl=es-419) están optimizados para obtener salidas de audio de mayor calidad con mejor ritmo, naturalidad de la voz, verbosidad y estado de ánimo.
+مدل‌های صوتی بومی [Live API](https://ai.google.dev/gemini-api/docs/live?hl=fa) ما برای خروجی‌های صوتی با کیفیت بالاتر با سرعت بهتر، طبیعی بودن صدا، سطح جزئیات، و حالت بهینه‌سازی شده‌اند.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 0.50 (texto) USD 3.00 (audio o video) |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 2.00 (texto) USD 12.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۵۰ دلار (نوشتار) ۳٫۰۰ دلار (صدا / ویدیو) |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ۲ دلار (نوشتار) ۱۲ دلار (صدا) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## Gemini 2.5 Flash Image (Nano Banana) 🍌
+## ‫Gemini 2.5 Flash Image (Nano Banana) 🍌
 
-*[`gemini-2.5-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=es-419)*
+*[`gemini-2.5-flash-image`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-image&hl=fa)
 
-Un modelo generativo de imágenes nativo, optimizado para la velocidad, la flexibilidad y
-la comprensión contextual. La entrada y la salida de texto tienen el mismo precio que
-[2.5 Flash](#gemini-2.5-flash).
+مدل تولید تصویر بومی، بهینه‌شده برای سرعت، انعطاف‌پذیری، و
+درک بافتی. قیمت ورودی و برونداد نوشتاری با
+[2.5 Flash](#gemini-2.5-flash) یکسان است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.30 (texto / imagen) |
-| Precio de salida | No disponible | $0.039 por imagen\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۳۰ دلار (نوشتار / تصویر) |
+| قیمت خروجی | دردسترس نیست | ‫۰٫۰۳۹ دلار برای هر تصویر\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.15 (texto / imagen) |
-| Precio de salida | No disponible | $0.0195 por imagen\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۱۵ دلار (نوشتار / تصویر) |
+| قیمت خروجی | دردسترس نیست | ۰٫۰۱۹۵ دلار برای هر تصویر\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Flexible
+### به‌رخ کشیدن
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.15 (texto / imagen) |
-| Precio de salida | No disponible | $0.0195 por imagen\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۱۵ دلار (نوشتار / تصویر) |
+| قیمت خروجی | دردسترس نیست | ۰٫۰۱۹۵ دلار برای هر تصویر\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Prioridad
+### اولویت
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.54 (texto / imagen) |
-| Precio de salida | No disponible | $0.0702 por imagen\* |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ۰٫۵۴ دلار (نوشتار / تصویر) |
+| قیمت خروجی | دردسترس نیست | ‫۰٫۰۷۰۲ دلار برای هر تصویر\* |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-[\*] El precio de la salida de imágenes es de USD 30 por cada 1,000,000 de tokens. Las imágenes de salida de hasta
-1024 x 1024 px consumen 1,290 tokens y equivalen a $0.039 por imagen.
+[\*] قیمت برونداد تصویر ۳۰ دلار به‌ازای هر ۱٬۰۰۰٬۰۰۰ داده‌واحد است. تصاویر خروجی تا
+۱۰۲۴×۱۰۲۴ پیکسل ۱۲۹۰ نمانه مصرف می‌کنند و معادل ۰٫۰۳۹ دلار برای هر تصویر است.
 
-## TTS de Gemini 2.5 Flash Preview
+## Gemini 2.5 Flash Preview TTS
 
-*[`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=es-419)*
+*[`gemini-2.5-flash-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/generate-speech?hl=fa)
 
-Nuestro modelo de audio de texto a voz 2.5 Flash optimizado para una generación de voz controlable,
-de baja latencia y con una buena relación precio-rendimiento.
+مدل صوتی نوشتار به گفتار ‎2.5 Flash ما برای تولید گفتار قابل‌کنترل، با تأخیر کم، و عملکرد مناسب نسبت به قیمت بهینه‌سازی شده است.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | $0.50 (texto) |
-| Precio de salida | Sin costo | USD 10.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۰٫۵۰ دلار (نوشتار) |
+| قیمت خروجی | رایگان | ۱۰٫۰۰ دلار (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.25 (texto) |
-| Precio de salida | No disponible | USD 5.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | $0.25 (text) |
+| قیمت خروجی | دردسترس نیست | ۵ دلار (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## TTS de Gemini 2.5 Pro Preview
+## Gemini 2.5 Pro Preview TTS
 
-*[`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=es-419)*
+*[`gemini-2.5-pro-preview-tts`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com/generate-speech?hl=fa)
 
-Nuestro modelo de audio de texto a voz 2.5 Pro está optimizado para generar voz potente y de baja latencia, lo que permite obtener resultados más naturales y prompts más fáciles de dirigir.
+مدل صوتی نوشتار به گفتار ‎2.5 Pro ما برای تولید گفتار قدرتمند با تأخیر کم بهینه‌سازی شده است تا بروندادهای طبیعی‌تر و پیام‌واره‌های آسان‌تر برای هدایت ارائه دهد.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 1.00 (texto) |
-| Precio de salida | No disponible | USD 20.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۱٫۰۰ دلار (نوشتار) |
+| قیمت خروجی | دردسترس نیست | ۲۰ دلار (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | $0.50 (texto) |
-| Precio de salida | No disponible | USD 10.00 (audio) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
-
-## Veo 3.1
-
-*[`veo-3.1-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=es-419), [`veo-3.1-fast-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-generate-preview?hl=es-419), [`veo-3.1-lite-generate-preview`](https://ai.google.dev/gemini-api/docs/models/veo-3.1-lite-generate-preview?hl=es-419)*
-
-[Probar Veo 3.1](https://deepmind.google/models/veo/?hl=es-419)
-
-Es un modelo de generación de videos rápido.
-
-|  | Nivel gratuito | Nivel pagado, por segundo en USD |
-| --- | --- | --- |
-| Precio de Veo 3.1 Standard para videos con audio (predeterminado) | No disponible | USD 0.40 (720p y 1080p) USD 0.60 (4K) |
-| Precio de Veo 3.1 Fast para videos con audio (predeterminado) | No disponible | USD 0.10 (720p) USD 0.12 (1080p) USD 0.30 (4k) |
-| Precio de los videos con audio de Veo 3.1 Lite (predeterminado) | No disponible | USD 0.05 (720p) USD 0.08 (1080p) (no se admite la salida en 4K) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۵۰ دلار (نوشتار) |
+| قیمت خروجی | دردسترس نیست | ۱۰٫۰۰ دلار (صوتی) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
 ## Lyria 3.5
 
-*[`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=es-419)*
+*[`lyria-3.5`](https://ai.google.dev/gemini-api/docs/models/lyria-3.5?hl=fa)*
 
-Es el modelo de generación de música de Google.
+مدل تولید موسیقی Google.
 
-|  | Nivel gratuito | Nivel pagado, por solicitud en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر درخواست به دلار امریکا |
 | --- | --- | --- |
-| Lyria 3.5 (canción completa) | No disponible | $0.08 por canción |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| Lyria 3.5 (ترانه کامل) | دردسترس نیست | ۰٫۰۸ دلار برای هر آهنگ |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
 ## Lyria 3
 
-*[`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=es-419) y [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=es-419)*
+‫*[`lyria-3-clip-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-clip-preview?hl=fa) و [`lyria-3-pro-preview`](https://ai.google.dev/gemini-api/docs/models/lyria-3-pro-preview?hl=fa)*
 
-La familia de modelos de generación de música heredados de Google.
+مجموعه مدل‌های قدیمی تولید موسیقی Google.
 
-|  | Nivel gratuito | Nivel pagado, por solicitud en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر درخواست به دلار امریکا |
 | --- | --- | --- |
-| Vista previa del clip de Lyria 3 (30 s) | No disponible | $0.04 por canción |
-| Versión preliminar de Lyria 3 Pro (canción completa) | No disponible | $0.08 por canción |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| پیش‌نمایش کلیپ Lyria 3 (‏۳۰ ثانیه) | دردسترس نیست | ۰٫۰۴ دلار برای هر آهنگ |
+| Lyria 3 Pro Preview (Full Song) | دردسترس نیست | ۰٫۰۸ دلار برای هر آهنگ |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
 ## Gemini Embedding 2
 
-*[`gemini-embedding-2`](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=es-419)*
+*[`gemini-embedding-2`](https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=fa)*
 
-[Prueba la API](https://ai.google.dev/gemini-api/docs/embeddings?hl=es-419)
+[امتحان کردن میانای برنامه‌سازی کاربردی](https://ai.google.dev/gemini-api/docs/embeddings?hl=fa)
 
-Nuestro primer modelo de embedding multimodal, que asigna texto, imágenes, video, audio y
-PDFs a un espacio de embedding unificado.
+اولین مدل جاسازی چندحالتی ما که نوشتار، تصویر، ویدیو، صدا، و PDF را در فضای جاسازی یکپارچه نگاشت می‌کند.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de la entrada de texto | Sin costo | $0.20 |
-| Precio de la entrada de imagen | Sin costo | $0.45 ($0.00012 por imagen) |
-| Precio de la entrada de audio | Sin costo | $6.50 ($0.00016 por segundo) |
-| Precio de la entrada de video | Sin costo | $12.00 ($0.00079 por fotograma) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت ورودی نوشتار | رایگان | ۰.۲۰ |
+| قیمت ورودی تصویر | رایگان | ۰٫۴۵ دلار (۰٫۰۰۰۱۲ دلار برای هر تصویر) |
+| قیمت ورودی صوتی | رایگان | ‫۶٫۵۰ دلار (۰٫۰۰۰۱۶ دلار در ثانیه) |
+| قیمت ورودی ویدیو | رایگان | ۱۲٫۰۰ دلار (۰٫۰۰۰۷۹ دلار برای هر قاب) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de la entrada de texto | No disponible | $0.10 |
-| Precio de la entrada de imagen | No disponible | $0.225 ($0.00006 por imagen) |
-| Precio de la entrada de audio | No disponible | $3.25 ($0.00008 por segundo) |
-| Precio de la entrada de video | No disponible | $6.00 ($0.000395 por fotograma) |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت ورودی نوشتار | دردسترس نیست | ۰٫۱۰ دلار |
+| قیمت ورودی تصویر | دردسترس نیست | ۰٫۲۲۵ دلار (۰٫۰۰۰۰۶ دلار برای هر تصویر) |
+| قیمت ورودی صوتی | دردسترس نیست | ۳٫۲۵ دلار (۰٫۰۰۰۰۸ دلار در ثانیه) |
+| قیمت ورودی ویدیو | دردسترس نیست | ۶٫۰۰ دلار (۰٫۰۰۰۳۹۵ دلار برای هر قاب) |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## Versión preliminar de Gemini Robotics ER 2
+## Gemini Robotics ER 2 Preview
 
-*[`gemini-robotics-er-2-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview?hl=es-419)*
+*[`gemini-robotics-er-2-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-preview?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-2-preview&hl=fa)
 
-Gemini Robotics ER 2, abreviatura de Gemini Robotics Embodied Reasoning 2, es un
-extremo de modelo de lenguaje visual que permite que los robots comprendan sus entornos
-con precisión, lo que admite la organización de agentes de robots, la comprensión del progreso de los videos,
-la colaboración entre varios robots y el razonamiento espacial avanzado.
+‫Gemini Robotics ER 2، مخفف Gemini Robotics Embodied Reasoning 2، یک نقطه پایانی مدل بینایی-زبانی است که به ربات‌ها امکان می‌دهد محیط خود را به‌طور دقیق درک کنند و از هماهنگی عاملی ربات‌ها، درک پیشرفت ویدیو، همکاری چندرباتی، و استدلال فضایی پیشرفته پشتیبانی می‌کند.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 1.00 (texto, imagen, video o audio) hasta el 31 de diciembre de 2026 USD 2.00 (texto, imagen, video o audio) a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | Sin costo | USD 5.00 hasta el 31 de diciembre de 2026. USD 10.00 a partir del 1 de enero de 2027. |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.10 hasta el 31 de diciembre de 2026. USD 0.20 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۱٫۰۰ دلار (نوشتار / تصویر / ویدیو / صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۲٫۰۰ دلار (نوشتار / تصویر / ویدیو / صدا) از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | رایگان | ‫۵٫۰۰ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۱۰٫۰۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۱۰ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۲۰ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-### Lote
+### دسته
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | No disponible | USD 0.50 (texto, imagen, video o audio) hasta el 31 de diciembre de 2026 USD 1.00 (texto, imagen, video o audio) a partir del 1 de enero de 2027 |
-| Precio de salida (incluidos los tokens de razonamiento) | No disponible | USD 2.50 hasta el 31 de diciembre de 2026 USD 5.00 a partir del 1 de enero de 2027 |
-| Precio del almacenamiento de caché de contexto | No disponible | USD 0.05 hasta el 31 de diciembre de 2026. USD 0.10 a partir del 1 de enero de 2027. USD 0.50 por 1,000,000 de tokens por hora (precio de almacenamiento) hasta el 31 de diciembre de 2026. USD 1.00 por 1,000,000 de tokens por hora (precio de almacenamiento) a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | دردسترس نیست | ‫۰٫۵۰ دلار (نوشتار / تصویر / ویدیو / صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار (نوشتار / تصویر / ویدیو / صدا) از ۱ ژانویه ۲۰۲۷. |
+| قیمت برونداد (شامل داده‌واحدهای اندیشیدن) | دردسترس نیست | ۲٫۵۰ دلار تا ۳۱ دسامبر ۲۰۲۶. ۵٫۰۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | دردسترس نیست | ‫۰٫۰۵ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۰٫۱۰ دلار از ۱ ژانویه ۲۰۲۷. ‫۰٫۵۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) تا ۳۱ دسامبر ۲۰۲۶. ‫۱٫۰۰ دلار / ۱٬۰۰۰٬۰۰۰ نمانه در ساعت (قیمت فضای ذخیره‌سازی) از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## Versión preliminar de Gemini Robotics ER 2 Streaming
+## Gemini Robotics ER 2 Streaming Preview
 
-*[`gemini-robotics-er-2-streaming-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-streaming-preview?hl=es-419)*
+*[`gemini-robotics-er-2-streaming-preview`](https://ai.google.dev/gemini-api/docs/models/gemini-robotics-er-2-streaming-preview?hl=fa)*
 
-[Pruébalo en Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=es-419)
+[امتحان کردن آن در Google AI Studio](https://aistudio.google.com?model=gemini-robotics-er-2-streaming-preview&hl=fa)
 
-Gemini Robotics ER 2 Streaming es un extremo de modelo de lenguaje visual para la robótica
-optimizado para la transmisión de texto en tiempo real con la API de Live. Acepta entradas de texto,
-imagen, video y audio, y admite la transmisión bidireccional con
-llamadas a funciones.
+‫Gemini Robotics ER 2 Streaming یک نقطه پایانی مدل بینایی-زبانی برای رباتیک است که برای جاری‌سازی هم‌زمان نوشتار بااستفاده از Live API بهینه‌سازی شده است. این مدل ورودی‌های نوشتاری، تصویری، ویدیویی، و صوتی را می‌پذیرد و از جاری‌سازی دوطرفه با فراخوانی تابع پشتیبانی می‌کند.
 
-### Estándar
+### استاندارد
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | USD 1.00 (texto, imagen, video o audio) hasta el 31 de diciembre de 2026 USD 2.00 (texto, imagen, video o audio) a partir del 1 de enero de 2027 |
-| Precio de salida | Sin costo | USD 5.00 hasta el 31 de diciembre de 2026. USD 10.00 a partir del 1 de enero de 2027. |
-| Fundamentación con la Búsqueda de Google | No disponible | 5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 solicitudes. |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | ‫۱٫۰۰ دلار (نوشتار / تصویر / ویدیو / صدا) تا ۳۱ دسامبر ۲۰۲۶. ‫۲٫۰۰ دلار (نوشتار / تصویر / ویدیو / صدا) از ۱ ژانویه ۲۰۲۷. |
+| قیمت خروجی | رایگان | ‫۵٫۰۰ دلار تا ۳۱ دسامبر ۲۰۲۶. ‫۱۰٫۰۰ دلار از ۱ ژانویه ۲۰۲۷. |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (به‌طور مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## [Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4?hl=es-419)
+## [Gemma 4](https://ai.google.dev/gemma/docs/core/model_card_4?hl=fa)
 
-Es nuestro modelo abierto, liviano y de última generación creado con la misma tecnología
-que impulsa nuestros modelos de Gemini.
+مدل بازِ سبک‌وزن و پیشرفته ما که بااستفاده از همان فناوری به‌کاررفته در ساخت مدل‌های Gemini طراحی شده است.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| Precio de entrada | Sin costo | No disponible |
-| Precio de salida | Sin costo | No disponible |
-| Precio del almacenamiento de caché de contexto | Sin costo | No disponible |
-| Almacenamiento en caché de contexto (almacenamiento) | Sin costo | No disponible |
-| Precio de ajuste | No disponible | No disponible |
-| Fundamentación con la Búsqueda de Google | No disponible | No disponible |
-| Se usa para mejorar nuestros productos | [Sí](https://ai.google.dev/gemini-api/terms?hl=es-419) | [No](https://ai.google.dev/gemini-api/terms?hl=es-419) |
+| قیمت را وارد کنید | رایگان | دردسترس نیست |
+| قیمت خروجی | رایگان | دردسترس نیست |
+| قیمت ذخیره‌سازی بافت در حافظه نهان | رایگان | دردسترس نیست |
+| ذخیره کردن بافت در حافظه نهان (فضای ذخیره‌سازی) | رایگان | دردسترس نیست |
+| قیمت کوک کردن | دردسترس نیست | دردسترس نیست |
+| پایه‌مندسازی با جستجوی Google | دردسترس نیست | دردسترس نیست |
+| برای بهبود محصولاتمان استفاده می‌شود | [بله](https://ai.google.dev/gemini-api/terms?hl=fa) | [نه](https://ai.google.dev/gemini-api/terms?hl=fa) |
 
-## Precios de las herramientas
+## قیمت‌گذاری ابزارها
 
-Las herramientas tienen sus propias tarifas, que se aplican al modelo que las usa.
-Consulta la página [Modelos](https://ai.google.dev/gemini-api/docs/models?hl=es-419) para ver qué herramientas están disponibles
-para cada modelo.
+قیمت ابزارها براساس نرخ‌های خودشان تعیین می‌شود و برای مدلی که از آن‌ها استفاده می‌کند اعمال می‌شود.
+برای اینکه ببینید کدام ابزارها برای هر مدل دردسترس است،
+صفحه [مدل‌ها](https://ai.google.dev/gemini-api/docs/models?hl=fa) را بررسی کنید.
 
-|  | Nivel gratuito | Nivel pagado, por 1 millón de tokens en USD |
+|  | سطح رایگان | سطح پولی، به‌ازای هر ۱ میلیون داده‌واحد به دلار امریکا |
 | --- | --- | --- |
-| [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419#pricing) | 500 RPD gratis (límite compartido para Flash y Flash-Lite). No disponible para Pro. | Modelos de Gemini 2.5:  1,500 RPD gratis (límite compartido para Flash y Flash-Lite). Luego, USD 35 por cada 1,000 instrucciones fundamentadas   Modelos de Gemini 3 y más recientes:  5,000 solicitudes de búsqueda gratuitas por mes (compartidas entre todos los modelos de Gemini 3 y más recientes), luego USD 14 por cada 1,000 solicitudes. |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419#pricing-and-rate-limits) | 500 RPD No disponible para Pro. | Modelos de Gemini 2.5:  1,500 RPD gratis (límite compartido para Flash y Flash-Lite) 10,000 RPD gratis para Pro. Luego, USD 25 por cada 1,000 instrucciones fundamentadas   Modelos de Gemini 3 y más recientes:  5,000 solicitudes por mes (gratis, compartidas entre todos los modelos de Gemini 3 y más recientes); luego, USD 14 por cada 1,000 búsquedas. |
-| [Ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419#billing) | Sin costo | La ejecución de código se factura según las tarifas de tokens estándar del modelo seleccionado. Los costos se determinan únicamente por el uso de la herramienta, no se acumulan cargos por el tiempo de ejecución de la sesión. El código generado y los resultados de la ejecución se facturan como **tokens de salida** cuando se crean y como **tokens de entrada** cuando el modelo los usa como parte de su proceso de razonamiento iterativo. |
-| [Contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419#limitations) | Sin costo | Se cobran como tokens de entrada según el precio del modelo. |
-| [Uso de computadoras](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419) | No disponible | Se cobran como tokens normales según el precio del modelo (p.ej., el precio estándar de [Gemini 3.8 Flash](#gemini-3.8-flash)). |
-| [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419#pricing) | Sin costo | Se cobran los [embeddings](#gemini-embedding-2) a USD 0.15 por cada millón de tokens. Los tokens de documentos recuperados se cobran como tokens normales según el precio del modelo. |
-| [Extremo de herramientas personalizadas (versión preliminar de Gemini 3.1 Pro)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=es-419) | No disponible | Igual que los precios de la [versión preliminar de Gemini 3.1 Pro](#gemini-3.1-pro-preview) |
+| [جستجوی Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fa#pricing) | ‫۵۰۰ درخواست در روز رایگان (حد استفاده برای Flash و Flash-Lite مشترک است). برای Pro دردسترس نیست. | مدل‌های Gemini 2.5:  ‫۱٬۵۰۰ درخواست در روز رایگان (محدودیت مشترک برای Flash و Flash-Lite). سپس ۳۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده   مدل‌های Gemini 3 و جدیدتر:  ‫۵٬۰۰۰ درخواست جستجوی رایگان در ماه (مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار به‌ازای هر ۱٬۰۰۰ درخواست. |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fa#pricing-and-rate-limits) | ‫۵۰۰ درخواست در روز برای Pro دردسترس نیست. | مدل‌های Gemini 2.5:  ‫۱٬۵۰۰ درخواست در روز رایگان (حد مشترک برای Flash و Flash-Lite) ۱۰٬۰۰۰ درخواست در روز رایگان برای Pro. سپس ۲۵ دلار / ۱٬۰۰۰ پیام‌واره زمینه‌سازی‌شده   مدل‌های Gemini 3 و جدیدتر:  ‫۵٬۰۰۰ درخواست در ماه (رایگان، مشترک بین همه مدل‌های Gemini 3 و جدیدتر)، سپس ۱۴ دلار / ۱٬۰۰۰ پرسمان جستجو. |
+| [اجرای کد](https://ai.google.dev/gemini-api/docs/code-execution?hl=fa#billing) | رایگان | هزینه اجرای کد براساس نرخ‌های استاندارد کد برای مدل انتخاب‌شده محاسبه می‌شود. هزینه‌ها صرفاً براساس استفاده از ابزار تعیین می‌شود و هیچ هزینه‌ای برای زمان اجرای جلسه دریافت نمی‌شود. کد تولیدشده و نتایج اجرا به‌عنوان **نمان‌های برونداد** هنگام ایجاد، و به‌عنوان **نمان‌های ورودی** وقتی مدل از آن‌ها به‌عنوان بخشی از فرایند استدلال تکراری خود استفاده می‌کند، صورت‌حساب می‌شوند. |
+| [بافت نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa#limitations) | رایگان | طبق قیمت‌گذاری مدل، به‌عنوان داده‌واحد ورودی کسر می‌شود. |
+| [استفاده از رایانه](https://ai.google.dev/gemini-api/docs/computer-use?hl=fa) | دردسترس نیست | به‌عنوان توکن‌های معمولی طبق قیمت‌گذاری مدل (برای مثال، قیمت‌گذاری استاندارد [Gemini 3.8 Flash](#gemini-3.8-flash)) هزینه کسر می‌شود. |
+| [جستجوی فایل](https://ai.google.dev/gemini-api/docs/file-search?hl=fa#pricing) | رایگان | هزینه [جاسازی‌ها](#gemini-embedding-2) با نرخ ۰٫۱۵ دلار به‌ازای هر ۱ میلیون داده‌واحد کسر شد. داده‌واحدهای سند بازیابی‌شده به‌عنوان داده‌واحدهای عادی طبق قیمت‌گذاری مدل کسر شد. |
+| [نقطه پایانی «ابزارهای سفارشی» (پیش‌نمایش Gemini 3.1 Pro)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fa) | دردسترس نیست | همانند قیمت‌گذاری [پیش‌نمایش Gemini 3.1 Pro](#gemini-3.1-pro-preview) |
 
-## Precios para agentes
+## قیمت‌گذاری برای عامل‌ها
 
-Los costos de uso de los agentes se calculan en función del consumo de tokens
-subyacente y el uso de las herramientas.
+هزینه‌های استفاده از نماینده براساس مصرف توکن‌های زیربنایی و استفاده از ابزارها محاسبه می‌شود.
 
-|  | Modelo | Herramientas |
+|  | مدل | ابزارها |
 | --- | --- | --- |
-| [Agente Deep Research de Gemini](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419) | Toda la inferencia de modelos se cobra según las tarifas estándar de Gemini, incluidos los tokens de entrada, salida y entrada / razonamiento intermedios generados durante los bucles de agentes. | Se aplican tarifas de uso de herramientas según la estructura de precios existente, manteniendo las distinciones estándar para la fundamentación de la búsqueda (se excluyen los tokens recuperados) en comparación con Url\_context / Búsqueda de archivos (se incluyen los tokens recuperados en todas las demás herramientas). |
-| [Agentes administrados en la API de Gemini](https://ai.google.dev/gemini-api/docs/agents?hl=es-419) | Toda la inferencia de modelos se cobra según las tarifas estándar de Gemini, incluidos los tokens de entrada, salida y entrada / razonamiento intermedios generados durante los bucles de agentes. (consulta los [detalles de precios](https://ai.google.dev/gemini-api/docs/agents?hl=es-419#pricing)). | El procesamiento del entorno (CPU, memoria y ejecución de la zona de pruebas) no se factura durante el período de versión preliminar. |
-| [Agente de Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419) | Toda la inferencia de modelos se cobra según las tarifas estándar de Gemini, incluidos los tokens de entrada, salida y entrada / razonamiento intermedios generados durante los bucles de agentes. (consulta los [detalles de precios](https://ai.google.dev/gemini-api/docs/agents?hl=es-419#pricing)). | El procesamiento del entorno (CPU, memoria y ejecución de la zona de pruebas) no se factura durante el período de versión preliminar. |
+| [عامل Gemini Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=fa) | همه استنتاج‌های مدل با نرخ‌های استاندارد فهرست Gemini محاسبه می‌شوند، ازجمله ورودی، خروجی، و نشان‌های ورودی / استدلال واسط تولیدشده درطول حلقه‌های عاملی. | کارمزد استفاده از ابزار براساس ساختار قیمت‌گذاری موجود اعمال می‌شود و تمایزهای استاندارد برای «پایه‌بندی جستجو» (بدون احتساب کدهای بازیابی‌شده) درمقابل Url\_context / «جستجوی فایل» (با احتساب کدهای بازیابی‌شده در همه ابزارهای دیگر) حفظ می‌شود. |
+| [عامل‌های مدیریت‌شده در Gemini API](https://ai.google.dev/gemini-api/docs/agents?hl=fa) | همه استنتاج‌های مدل با نرخ‌های استاندارد فهرست Gemini محاسبه می‌شوند، ازجمله ورودی، خروجی، و نشان‌های ورودی / استدلال واسط تولیدشده درطول حلقه‌های عاملی. ([جزئیات قیمت‌گذاری](https://ai.google.dev/gemini-api/docs/agents?hl=fa#pricing) را ببینید). | محاسبات محیطی (واحد پردازش مرکزی، حافظه، اجرای جعبه امن) درطول دوره پیش‌نمایش صورت‌حساب نمی‌شود. |
+| [عامل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa) | همه استنتاج‌های مدل با نرخ‌های استاندارد فهرست Gemini محاسبه می‌شوند، ازجمله ورودی، خروجی، و نشان‌های ورودی / استدلال واسط تولیدشده درطول حلقه‌های عاملی. ([جزئیات قیمت‌گذاری](https://ai.google.dev/gemini-api/docs/agents?hl=fa#pricing) را ببینید). | محاسبات محیطی (واحد پردازش مرکزی، حافظه، اجرای جعبه امن) درطول دوره پیش‌نمایش صورت‌حساب نمی‌شود. |
 
-## Notas
+## یادداشت‌ها
 
-- **Comprensión de video de agentes:** Cuando se usa la comprensión de video de agentes,
-  el uso de tokens varía según el contenido que carga el modelo, en lugar de
-  la duración completa del video. Por lo general, esto genera hasta un 88% menos de tokens de entrada para
-  los videos de formato largo, aunque los recuentos de tokens dependen de la complejidad de la consulta y de la profundidad del muestreo
-  dinámico (que puede superar 1 FPS para los segmentos visuales detallados). Consulta
-  [Comprensión de video de agentes](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419#agentic-video-understanding).
-- **Facturación de tokens de documentos:** Los tokens para la modalidad `DOCUMENT` (por ejemplo, archivos PDF) se facturan según la tarifa de tokens de imagen. En las respuestas de la API, estos tokens aparecen en la modalidad `DOCUMENT` dentro de `promptTokensDetails`.
-- El uso de Google AI Studio es sin costo en todas las [regiones disponibles](https://ai.google.dev/gemini-api/docs/available-regions?hl=es-419). Consulta las [Preguntas frecuentes sobre la facturación](https://ai.google.dev/gemini-api/docs/billing?hl=es-419) para obtener más información.
-- Los precios pueden diferir de los que se indican aquí y de los que se ofrecen en
-  Gemini Enterprise Agent Platform. Para conocer los precios de Gemini Enterprise Agent Platform, consulta la [página de precios de Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=es-419).
-- Si usas la [recuperación dinámica](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419) para
-  optimizar los costos, solo se cobran las solicitudes que contienen al menos una URL de apoyo de fundamentación
-  de la Web en su respuesta para la fundamentación con la Búsqueda de Google.
-  Los costos de Gemini siempre se aplican. Los límites de frecuencia están sujetos a cambios.
+- **درک ویدیو مبتنی بر عامل:** هنگام استفاده از درک ویدیو مبتنی بر عامل،
+  استفاده از نمانه براساس محتوای بارشده توسط مدل متغیر است، نه براساس
+  طول کامل ویدیو. این کار معمولاً منجر به کاهش تا ۸۸٪ در داده‌واحدهای ورودی برای ویدیوهای طولانی می‌شود، هرچند تعداد داده‌واحدها به پیچیدگی پُرسمان و عمق نمونه‌برداری پویا (که ممکن است برای بخش‌های تصویری دقیق از ۱ فریم در ثانیه فراتر رود) بستگی دارد. [درک ویدیو عاملی](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa#agentic-video-understanding) را ببینید.
+- **صدور صورت‌حساب برای توکن سند:** توکن‌های مربوط به حالت `DOCUMENT` (برای مثال، PDF) با نرخ توکن تصویر صورت‌حساب می‌شوند. در پاسخ‌های میانای برنامه‌سازی کاربردی، این نشان‌ها در زیر حالت `DOCUMENT` در `promptTokensDetails` نشان داده می‌شوند.
+- استفاده از Google AI Studio در همه [مناطق دردسترس](https://ai.google.dev/gemini-api/docs/available-regions?hl=fa) رایگان است. برای جزئیات، [پرسشگان صورت‌حساب](https://ai.google.dev/gemini-api/docs/billing?hl=fa) را ببینید.
+- قیمت‌ها ممکن است با قیمت‌های فهرست‌شده در اینجا و قیمت‌های ارائه‌شده در
+  Gemini Enterprise Agent Platform متفاوت باشد. برای قیمت‌های Gemini Enterprise Agent Platform، به [صفحه قیمت‌گذاری Gemini Enterprise Agent Platform](https://cloud.google.com/products/gemini-enterprise-agent-platform?hl=fa) مراجعه کنید.
+- اگر از [بازیابی پویا](https://ai.google.dev/gemini-api/docs/grounding?hl=fa) برای بهینه‌سازی هزینه‌ها استفاده می‌کنید، فقط درخواست‌هایی که حداقل یک نشانی وب پشتیبانی پایه‌مندسازی از وب در پاسخ خود دارند، برای «پایه‌مندسازی با جستجوی Google» هزینه دریافت می‌کنند.
+  هزینه‌های Gemini همیشه اعمال می‌شود. محدودیت‌های نرخ ممکن است تغییر کند.
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Última actualización: 2026-10-16 (UTC)
+تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی.
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-16 (UTC)"],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی."],[],[]]

@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=fa
-fetched_at: 2026-10-19T05:33:31.411952+00:00
-title: "\u062a\u0648\u0644\u06cc\u062f \u0646\u0648\u0634\u062a\u0627\u0631 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/text-generation?hl=ja
+fetched_at: 2026-10-26T05:38:18.918701+00:00
+title: "\u30c6\u30ad\u30b9\u30c8\u751f\u6210 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-ارسال بازخورد
+フィードバックを送信
 
-# تولید نوشتار
+# テキスト生成
 
-«میانای برنامه‌سازی کاربردی Gemini» می‌تواند از ورودی‌های نوشتار، تصویر، ویدیو، و صدا برونداد نوشتاری تولید کند.
+Gemini API は、テキスト、画像、動画、音声の入力からテキスト出力を生成できます。
 
-در اینجا یک مثال ساده آورده شده است:
+基本的な例を以下に示します。
 
 ### Python
 
@@ -54,7 +54,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -78,7 +78,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -128,24 +128,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-«کیت‌های توسعه نرم‌افزار هوش مصنوعی زایای Google» مستقیماً در
-شیء `Interaction` برگشتی، دارایی‌های راحتی برای دسترسی به پاسخ مدل ارائه می‌دهند.
+Google GenAI SDK は、返された `Interaction` オブジェクトに便利なプロパティを直接提供し、モデルのレスポンスにアクセスできるようにします。
 
-رایج‌ترین کمک‌کننده **`interaction.output_text`** (رشته) است که
-آخرین بلوک‌های نوشتاری را در پاسخ مدل برمی‌گرداند. اگر پاسخ در
-چند بلوک متوالی `TextContent` تقسیم شده باشد، به‌طور خودکار به آن‌ها می‌پیوندد.
-توجه داشته باشید که `.output_text` شامل بلوک‌های نوشتاری قبلی که با محتوای غیرنوشتاری (مثل افکار، تصاویر، صدا، یا فراخوانی ابزار) ازهم جدا شده‌اند نمی‌شود. برای پاسخ‌های چندحالتی پیچیده
-یا درهم‌تنیده، باید به‌جای آن به‌صورت دستی روی `steps`
-تکرار کنید. برای کسب اطلاعات بیشتر درباره دیگر دارایی‌های راحتی رسانه، به
-[نمای کلی تعاملات](https://ai.google.dev/gemini-api/docs/interactions?hl=fa#convenience-properties) مراجعه کنید.
+最も一般的なヘルパーは **`interaction.output_text`** （文字列）で、モデルのレスポンスの最後のテキスト ブロックを返します。レスポンスが複数の連続する `TextContent` ブロックに分割されている場合は、自動的に結合されます。
+`.output_text` には、テキスト以外のコンテンツ（思考、画像、音声、ツール呼び出しなど）で区切られた以前のテキスト ブロックは含まれません。複雑なマルチモーダル レスポンスやインターリーブされたマルチモーダル レスポンスの場合は、代わりに `steps` を手動で反復処理する必要があります。その他のメディアの便利なプロパティの詳細については、
+[インタラクションの概要](https://ai.google.dev/gemini-api/docs/interactions?hl=ja#convenience-properties)をご覧ください。
 
-## اندیشیدن با Gemini
+## Gemini を使用した思考
 
-مدل‌های Gemini اغلب به‌طور پیش‌فرض [«تفکر»](https://ai.google.dev/gemini-api/docs/thinking?hl=fa) را فعال دارند که به مدل اجازه می‌دهد قبل‌از پاسخ دادن به درخواست، استدلال کند.
+Gemini モデルでは、多くの場合、[「思考」](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)
+がデフォルトで有効になっています。これにより、モデルはリクエストに応答する前に推論できます。
 
-هر مدل از پیکربندی‌های تفکر متفاوتی پشتیبانی می‌کند که به شما امکان می‌دهد
-هزینه، تأخیر، و هوش را کنترل کنید. برای جزئیات بیشتر،
-[راهنمای تفکر](https://ai.google.dev/gemini-api/docs/thinking?hl=fa#thinking-levels) را ببینید.
+各モデルは、さまざまな思考構成をサポートしており、費用、レイテンシ、インテリジェンスを制御できます。詳細については、
+[思考ガイド](https://ai.google.dev/gemini-api/docs/thinking?hl=ja#thinking-levels)をご覧ください。
 
 ### Python
 
@@ -185,7 +180,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -212,7 +207,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -253,7 +248,7 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -268,10 +263,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## دستورالعمل‌های سیستم و پیکربندی‌های دیگر
+## システム指示とその他の構成
 
-می‌توانید رفتار مدل‌های Gemini را با دستورالعمل‌های سیستم هدایت کنید. برای پیکربندی رفتار مدل،
-پارامتر `system_instruction` را ارسال کنید.
+システム指示を使用して、Gemini モデルの動作をガイドできます。`system_instruction` パラメータを渡して、モデルの動作を構成します。
 
 ### Python
 
@@ -308,7 +302,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -333,7 +327,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -372,7 +366,7 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -385,8 +379,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-همچنین می‌توانید پارامترهای تولید پیش‌فرض، مانند
-`max_output_tokens` یا `thinking_level` را بااستفاده از پارامتر `generation_config` لغو کنید.
+`generation_config` パラメータを使用して、`max_output_tokens` や `thinking_level` などのデフォルトの生成パラメータをオーバーライドすることもできます。
 
 ### Python
 
@@ -426,7 +419,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -452,7 +445,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -508,13 +501,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-برای فهرست کامل پارامترهای پیکربندی‌شدنی و
-توضیحات آن‌ها، به [مرجع «میانای برنامه‌سازی کاربردی تعاملات»](https://ai.google.dev/api/interactions-api?hl=fa) مراجعه کنید.
+構成可能なパラメータとその説明の一覧については、[Interactions API リファレンス](https://ai.google.dev/api/interactions-api?hl=ja)
+をご覧ください。
 
-## ورودی‌های چندحالته
+## マルチモーダル入力
 
-‫Gemini API از ورودی‌های چندحالته پشتیبانی می‌کند و به شما امکان می‌دهد نوشتار را با
-فایل‌های رسانه‌ای ترکیب کنید. مثال زیر نحوه ارائه تصویر را نشان می‌دهد:
+Gemini API はマルチモーダル入力をサポートしており、テキストとメディア ファイルを組み合わせることができます。次の例では、画像を提供する方法を示します。
 
 ### Python
 
@@ -569,7 +561,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -612,7 +604,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -686,20 +678,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-برای روش‌های جایگزین ارائه تصاویر و پردازش تصویر پیشرفته‌تر،
-به [راهنمای درک تصویر](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fa) ما مراجعه کنید.
-این API از ورودی‌ها و درک [سند](https://ai.google.dev/gemini-api/docs/document-processing?hl=fa)، [ویدیو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa)، و
-[صوت](https://ai.google.dev/gemini-api/docs/audio?hl=fa) نیز پشتیبانی می‌کند.
+画像の提供方法や高度な画像処理については、
+[画像理解ガイド](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja)をご覧ください。
+この API は、[ドキュメント](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)、[動画](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja)、および
+[音声](https://ai.google.dev/gemini-api/docs/audio?hl=ja)の入力と理解もサポートしています。
 
-## جاری‌سازی پاسخ‌ها
+## ストリーミング レスポンス
 
-به‌طور پیش‌فرض، مدل فقط پس‌از تکمیل کل فرایند تولید، پاسخ را برمی‌گرداند.
+デフォルトでは、モデルは生成プロセス全体が完了した後にのみレスポンスを返します。
 
-برای تعاملات روان‌تر، از جاری‌سازی برای مدیریت بخش‌های پاسخ
-به‌محض تولید شدن استفاده کنید. برای راهنمای جامع پوشش‌دهنده انواع رویداد،
-جاری‌سازی با ابزارها، تفکر، عامل‌ها، و تولید تصویر، به
-راهنمای اختصاصی [تعاملات جاری‌سازی](https://ai.google.dev/gemini-api/docs/streaming?hl=fa)
-مراجعه کنید.
+よりスムーズなインタラクションを実現するには、ストリーミングを使用して、生成されたレスポンス チャンクを処理します。イベントタイプ、
+ツールを使用したストリーミング、思考、エージェント、画像生成を網羅したガイドについては、
+専用の[ストリーミング インタラクション](https://ai.google.dev/gemini-api/docs/streaming?hl=ja)
+ガイドをご覧ください。
 
 ### Python
 
@@ -745,7 +736,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -786,7 +777,7 @@ try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
 }
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -835,7 +826,7 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=sse" \
@@ -849,10 +840,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## مکالمه‌های چندنوبتی
+## マルチターンの会話
 
-‫Interactions API با زنجیر کردن تعامل‌ها بااستفاده از `previous_interaction_id` از مکالمه‌های چندنوبتی پشتیبانی می‌کند. هر نوبت یک تعامل جداگانه است،
-و API به‌طور خودکار سابقه مکالمه را مدیریت می‌کند.
+Interactions API は、`previous_interaction_id` を使用してインタラクションを連結することで、マルチターンの会話をサポートします。各ターンは個別のインタラクションであり、API は会話履歴を自動的に管理します。
 
 ### Python
 
@@ -900,7 +890,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -934,7 +924,7 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -987,7 +977,7 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 RESPONSE1=$(curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1010,8 +1000,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-جاری‌سازی را می‌توان با ترکیب کردن
-`previous_interaction_id` با روش‌های جاری‌سازی برای مکالمه‌های چندنوبتی نیز استفاده کرد.
+ストリーミングは、`previous_interaction_id` とストリーミング メソッドを組み合わせることで、マルチターンの会話にも使用できます。
 
 ### Python
 
@@ -1070,7 +1059,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1123,7 +1112,7 @@ try (EventStream<InteractionSSEStreamEvent> stream = response2.events()) {
 }
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -1207,14 +1196,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-## مکالمه‌های بدون حالت
+## ステートレスな会話
 
-به‌طور پیش‌فرض، وقتی از `previous_interaction_id` استفاده می‌کنید، Interactions API وضعیت مکالمه را در سمت سرور مدیریت می‌کند. بااین‌حال، می‌توانید با مدیریت سابقه مکالمه در سمت کارخواه، در حالت بی‌وضعیت نیز کار کنید.
+デフォルトでは、`previous_interaction_id` を使用すると、Interactions API は会話状態をサーバーサイドで管理します。ただし、クライアント側で会話履歴を自分で管理することで、ステートレス モードで動作することもできます。
 
-برای استفاده از حالت بدون وضعیت:
-۱. برای انصراف دادن از ذخیره‌سازی سمت سرور، `store=false` را در درخواستتان تنظیم کنید.
-۲. سابقه مکالمه را به‌عنوان آرایه‌ای از **مراحل** در سمت کارخواه حفظ کنید.
-۳. در درخواست‌های بعدی، مراحل انباشته‌شده را در فیلد `input` ارسال کنید و نوبت جدیدتان را به‌عنوان مرحله `user_input` اضافه کنید.
+ステートレス モードを使用するには:
+1. リクエストで `store=false` を設定して、サーバーサイド ストレージをオプトアウトします。
+2. 会話履歴をクライアント側の**ステップ** の配列として保持します。
+3. 以降のリクエストで、累積されたステップを `input` フィールドに渡し、新しいターンを `user_input` ステップとして追加します。
 
 ### Python
 
@@ -1293,7 +1282,7 @@ async function main() {
 await main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1347,7 +1336,7 @@ Interaction interaction2 =
 System.out.println("Response 2: " + interaction2.outputText().orElse(""));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -1449,29 +1438,30 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## نکته‌های پیام‌واره
+## プロンプトに関するヒント
 
-برای دریافت پیشنهادهایی درباره بیشترین بهره‌برداری از Gemini، به [راهنمای مهندسی پیام‌واره](https://ai.google.dev/gemini/docs/prompting-strategies?hl=fa) ما مراجعه کنید.
+Gemini を最大限に活用するための提案については、[プロンプト エンジニアリング ガイド](https://ai.google.dev/gemini/docs/prompting-strategies?hl=ja)を
+ご覧ください。
 
-## قدم بعدی چیست
+## 次のステップ
 
-- [Gemini را در Google AI Studio](https://aistudio.google.com?hl=fa) امتحان کنید.
-- با
-  [بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa) برای
-  پاسخ‌های شبیه JSON آزمایش کنید.
-- قابلیت‌های درک [تصویر](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fa)،
-  [ویدیو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa)،
-  [صدا](https://ai.google.dev/gemini-api/docs/audio?hl=fa)، و
-  [سند](https://ai.google.dev/gemini-api/docs/document-processing?hl=fa) Gemini را کاوش کنید.
-- درباره
-  [استراتژی‌های پیام‌واره فایل](https://ai.google.dev/gemini-api/docs/files?hl=fa#prompt-guide) چندوجهی بیشتر بدانید.
+- Google AI Studio で [Gemini を試す](https://aistudio.google.com?hl=ja)。
+- JSON のようなレスポンスの
+  [構造化された出力](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)を
+  試す。
+- Gemini の[画像](https://ai.google.dev/gemini-api/docs/image-understanding?hl=ja)、
+  [動画](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja)、
+  [音声](https://ai.google.dev/gemini-api/docs/audio?hl=ja)、
+  [ドキュメント](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)の理解機能を調べる。
+- マルチモーダル
+  [ファイルのプロンプト戦略](https://ai.google.dev/gemini-api/docs/files?hl=ja#prompt-guide)について学習する。
 
-ارسال بازخورد
+フィードバックを送信
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی.
+最終更新日 2026-10-13 UTC。
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+ご意見をお聞かせください
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-13 UTC。"],[],[]]

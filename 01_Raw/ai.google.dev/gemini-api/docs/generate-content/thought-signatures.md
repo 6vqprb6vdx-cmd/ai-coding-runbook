@@ -1,120 +1,102 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=bn
-fetched_at: 2026-10-19T05:38:18.480917+00:00
-title: "\u099a\u09bf\u09a8\u09cd\u09a4\u09be \u09b8\u0982\u0995\u09cd\u09b0\u09be\u09a8\u09cd\u09a4 \u09b8\u09cd\u09ac\u09be\u0995\u09cd\u09b7\u09b0 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=pt-BR
+fetched_at: 2026-10-26T05:58:13.909986+00:00
+title: "Assinaturas de racioc\u00ednio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [হোম](https://ai.google.dev/?hl=bn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=bn)
-- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs/generate-content?hl=bn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
-মতামত জানান
+Envie comentários
 
-# চিন্তা সংক্রান্ত স্বাক্ষর
+# Assinaturas de raciocínio
 
-থট সিগনেচার হল মডেলের ইন্টার্নাল চিন্তাভাবনার প্রসেসের এনক্রিপ্ট করা উপস্থাপনা এবং
-মাল্টি-স্টেপ ইন্টার‍্যাকশন জুড়ে রিজনিংয়ের প্রসঙ্গ বজায় রাখতে
-ব্যবহার করা হয়।
-থিংকিং মডেল (যেমন, Gemini 4, 3 ও 2.5 সিরিজ) ব্যবহার করার সময়, API
-উত্তরের [কন্টেন্ট পার্টের](https://ai.google.dev/api/caching?hl=bn#Part) মধ্যে `thoughtSignature` ফিল্ড
-ফেরাতে পারে (যেমন, `text` বা `functionCall` পার্ট)।
+As assinaturas de pensamento são representações criptografadas do processo de pensamento interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias etapas.
+Ao usar modelos de pensamento (como as séries Gemini 4, 3 e 2.5), a API pode
+retornar um campo `thoughtSignature` nas [partes de conteúdo](https://ai.google.dev/api/caching?hl=pt-br#Part)
+da resposta (por exemplo, partes `text` ou `functionCall`).
 
-সাধারণ নিয়ম হিসেবে, মডেলের উত্তরে কোনও থট সিগনেচার পেলে,
-পরবর্তী ধাপে কথোপকথনের
-ইতিহাস পাঠানোর সময় সেটি ঠিক যেভাবে পেয়েছেন সেভাবেই পাঠাতে হবে।
-**Gemini 4 ও Gemini 3 মডেল ব্যবহার করার সময়, আপনাকে অবশ্যই ফাংশন কলিংয়ের সময়
-থট সিগনেচার পাস করতে হবে, তা না হলে আপনি যাচাইকরণ সংক্রান্ত সমস্যা পাবেন** (4xx স্ট্যাটাস কোড)।
-এর মধ্যে Gemini 3 Flash-এর জন্য `minimal`
-[থিঙ্কিং লেভেল](https://ai.google.dev/gemini-api/docs/thinking?hl=bn#thinking-levels) সেটিং ব্যবহার করার সময়ও অন্তর্ভুক্ত।
+Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como recebida ao enviar o histórico da conversa na próxima interação.
+**Ao usar os modelos Gemini 4 e Gemini 3, é necessário transmitir assinaturas de pensamento durante a chamada de função. Caso contrário, você receberá um erro de validação** (código de status 4xx).
+Isso inclui o uso da configuração de `minimal`
+[nível de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#thinking-levels) para o Gemini 3
+Flash.
 
-## এটি কীভাবে কাজ করে
+## Como funciona
 
-নিচের গ্রাফিক থেকে Gemini API-তে [ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)-এর ক্ষেত্রে "টার্ন" ও "স্টেপ" বলতে কী বোঝায় তা বোঝা যাবে। "টার্ন"
-হল ব্যবহারকারী ও মডেলের মধ্যে কথোপকথনের একটি সম্পূর্ণ অংশ। "ধাপ"
-হল মডেলের মাধ্যমে করা আরও সূক্ষ্ম অ্যাকশন বা অপারেশন, যা প্রায়শই একটি টার্ন সম্পূর্ণ করার জন্য
-বৃহত্তর প্রক্রিয়ার অংশ হিসেবে করা হয়।
+O gráfico abaixo mostra o significado de "interação" e "etapa" em relação a
+[chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) na API Gemini. Uma "interação" é uma troca única e completa em uma conversa entre um usuário e um modelo. Uma "etapa" é uma ação ou operação mais detalhada realizada pelo modelo, geralmente como parte de um processo maior para concluir uma interação.
 
-![ফাংশন কলিং টার্ন ও ধাপের ডায়াগ্রাম](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=bn)
+![Diagrama de etapas e turnos de chamada de função](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=pt-br)
 
-*এই ডকুমেন্ট Gemini 4 ও Gemini 3 মডেলের জন্য ফাংশন কলিং ম্যানেজ করার উপর ফোকাস করে। 2.5-এর সাথে পার্থক্য সম্পর্কে জানতে*[মডেলের আচরণ](#model-behavior) বিভাগ দেখুন।
+*Este documento se concentra no processamento de chamadas de função para os modelos Gemini 4 e Gemini 3. Consulte
+a seção sobre o [comportamento do modelo](#model-behavior) para conferir discrepâncias com a versão 2.5.*
 
-Gemini 4 এবং Gemini 3, ফাংশন কলের মাধ্যমে সব মডেলের উত্তরের (API থেকে পাওয়া উত্তর) জন্য থট সিগনেচার রিটার্ন করে। নিম্নলিখিত ক্ষেত্রে
-থট সিগনেচার দেখানো হয়:
+O Gemini 4 e o Gemini 3 retornam assinaturas de pensamento para todas as respostas do modelo (respostas da API) com uma chamada de função. As assinaturas de pensamento aparecem nos seguintes casos:
 
-- [সমান্তরাল ফাংশন](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn#parallel_function_calling)
-  কল থাকলে, মডেলের দেওয়া উত্তরের প্রথম ফাংশন কল অংশে একটি
-  চিন্তা সংক্রান্ত সিগনেচার থাকবে।
-- সিকোয়েন্সিয়াল ফাংশন কল (একাধিক ধাপ) থাকলে, প্রতিটি ফাংশন কলের
-  একটি করে সিগনেচার থাকবে এবং আপনাকে সব সিগনেচার ফেরত পাঠাতে হবে।
-- ফাংশন কল ছাড়া মডেলের উত্তর, মডেলের দেওয়া শেষ অংশের মধ্যে
-  একটি থট সিগনেচার রিটার্ন করবে।
+- Quando há [chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#parallel_function_calling)
+  paralelas, a primeira parte da chamada de função retornada pela resposta do modelo terá uma
+  assinatura de pensamento.
+- Quando há chamadas de função sequenciais (várias etapas), cada chamada de função terá uma assinatura, e você precisará transmitir todas as assinaturas de volta.
+- As respostas do modelo sem uma chamada de função vão retornar uma assinatura de pensamento na última parte retornada pelo modelo.
 
-নিম্নলিখিত সারণীটি মাল্টি-স্টেপ ফাংশন কলের একটি ভিজ্যুয়ালাইজেশন প্রদান করে,
-উপরে উল্লিখিত সিগনেচারের ধারণার সাথে টার্ন এবং ধাপের সংজ্ঞা একত্রিত করে:
+A tabela a seguir mostra uma visualização para chamadas de função de várias etapas, combinando as definições de interações e etapas com o conceito de assinaturas apresentado acima:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **টার্ন** | **ধাপ** | **ব্যবহারকারীর অনুরোধ** | **মডেলের উত্তর** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | কোনওটিই নয় |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Nenhum |
 
-## ফাংশন কলিং পার্টে সিগনেচার
+## Assinaturas em partes de chamada de função
 
-Gemini যখন কোনও `functionCall` তৈরি করে, তখন এটি `thought_signature`-এর উপর নির্ভর করে
-যাতে পরবর্তী ধাপে টুলের আউটপুট সঠিকভাবে প্রসেস করা যায়।
+Quando o Gemini gera um `functionCall`, ele depende da `thought_signature` para processar a saída da ferramenta corretamente na próxima interação.
 
-- **আচরণ**:
-  - **সিঙ্গেল ফাংশন কল**: `functionCall` অংশে `thought_signature` থাকবে।
-  - **প্যারালাল ফাংশন কল**: কোনও উত্তরে মডেল প্যারালাল ফাংশন কল জেনারেট করলে, `thought_signature` **শুধুমাত্র প্রথম**
-    `functionCall` অংশের সাথে
-    অ্যাটাচ করা হয়। একই উত্তরের পরবর্তী `functionCall`টি অংশে
-    স্বাক্ষর থাকবে **না**।
-- **প্রয়োজনীয়তা**: কথোপকথনের ইতিহাস ফেরত পাঠানোর সময়, এই স্বাক্ষরটি ঠিক সেই অংশে ফেরত দিতে **হবে** যেখানে এটি
-  পাওয়া গেছে।
-- **যাচাইকরণ**: বর্তমান টার্নের মধ্যে
-  সব ফাংশন কলের জন্য কঠোর যাচাইকরণ প্রয়োগ করা হয়। (শুধুমাত্র বর্তমান টার্ন প্রয়োজন; আমরা আগের টার্ন
-  যাচাই করি না)
-  - API ইতিহাসে (নতুন থেকে পুরনো) ফিরে গিয়ে সবচেয়ে সাম্প্রতিক
-    **ব্যবহারকারীর** মেসেজ খুঁজে দেখে যাতে স্ট্যান্ডার্ড কন্টেন্ট (যেমন, `text`) আছে (যা
-    বর্তমান টার্নের শুরু হবে)। এটি `functionResponse` **be** না।
-  - **সব** মডেল `functionCall` টার্ন যা নির্দিষ্ট ব্যবহারের পরে ঘটে
-    মেসেজকে টার্নের অংশ হিসেবে বিবেচনা করা হয়।
-  - বর্তমান টার্নের **প্রতিটি ধাপের** **প্রথম** `functionCall` অংশে
-    **অবশ্যই** এর `thought_signature` অন্তর্ভুক্ত করতে হবে।
-  - বর্তমান টার্নের কোনও ধাপে প্রথম `functionCall` অংশের জন্য আপনি `thought_signature` বাদ দিলে, অনুরোধটি 400 ত্রুটি সহ ব্যর্থ হবে।
-- **সঠিক সিগনেচার না পাওয়া গেলে, এখানে কীভাবে সমস্যা হবে তা বলা হল**
-  - Gemini 3 মডেল: স্বাক্ষর অন্তর্ভুক্ত করতে না পারলে, 400 সমস্যা হবে। শব্দগুলি এই ধরনের হবে:
-    - `<index of contents array>`
-      কন্টেন্ট ব্লকে ফাংশন কল `<Function Call>`-এ `thought_signature` নেই। যেমন, *কন্টেন্ট ব্লকে `1.` Function
-      call `FC1`-এ একটি `thought_signature` নেই।*
+- **Comportamento**:
+  - **Chamada de função única**: a parte `functionCall` vai conter uma `thought_signature`.
+  - **Chamadas de função paralelas**: se o modelo gerar chamadas de função paralelas
+    em uma resposta, a `thought_signature` será anexada **apenas à primeira**
+    `functionCall` parte. As partes `functionCall` subsequentes na mesma resposta **não** vão conter uma assinatura.
+- **Requisito**: você **precisa** retornar essa assinatura na parte exata em que ela
+  foi recebida ao enviar o histórico da conversa de volta.
+- **Validação**: a validação estrita é aplicada a todas as chamadas de função na
+  interação atual . Somente a interação atual é necessária. Não validamos interações anteriores.
+  - A API volta no histórico (do mais recente ao mais antigo) para encontrar a mensagem **do usuário** mais recente que contém conteúdo padrão (por exemplo, `text`), que seria o início da interação atual. Essa **be** será uma `functionResponse`.
+  - **Todas** as interações `functionCall` do modelo que ocorrem após essa mensagem de uso específica são consideradas parte da interação.
+  - A **primeira** parte `functionCall` em **cada etapa** da interação atual **precisa** incluir a `thought_signature`.
+  - Se você omitir uma `thought_signature` para a primeira parte `functionCall` em qualquer etapa da interação atual, a solicitação vai falhar com um erro 400.
+- **Se as assinaturas adequadas não forem retornadas, veja como você vai receber um erro**
+  - Modelos do Gemini 3: a falha ao incluir assinaturas vai resultar em um erro 400. A redação será da seguinte forma:
+    - A chamada de função `<Function Call>` no bloco de conteúdo `<index of contents array>`
+      está sem um `thought_signature`. Por exemplo, *a chamada de função `FC1` no bloco de conteúdo `1.` está sem um `thought_signature`.*
 
-### সিকোয়েন্সিয়াল ফাংশন কলিংয়ের উদাহরণ
+### Exemplo de chamada de função sequencial
 
-এই বিভাগে একাধিক ফাংশন কলের একটি উদাহরণ দেখানো হয়েছে যেখানে ব্যবহারকারী একটি
-জটিল প্রশ্ন জিজ্ঞাসা করেছেন যার জন্য একাধিক টাস্ক প্রয়োজন।
+Esta seção mostra um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
 
-আসুন, একাধিক-বার ফাংশন কল করার একটি উদাহরণ দেখে নেওয়া যাক যেখানে ব্যবহারকারী
-একাধিক টাস্কের প্রয়োজন হয় এমন একটি জটিল প্রশ্ন জিজ্ঞাসা করেছেন: `"Check flight status for AA100 and
-book a taxi if delayed"`।
+Vamos analisar um exemplo de chamada de função de várias interações em que o usuário faz
+uma pergunta complexa que exige várias tarefas: `"Check flight status for AA100 and
+book a taxi if delayed"`.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **টার্ন** | **ধাপ** | **ব্যবহারকারীর অনুরোধ** | **মডেলের উত্তর** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-নিচের কোডটি উপরের সারণীতে দেখানো ক্রমকে ব্যাখ্যা করে।
+O código a seguir ilustra a sequência na tabela acima.
 
-**১ম বার, ১ম ধাপ (ব্যবহারকারীর অনুরোধ)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -169,7 +151,7 @@ book a taxi if delayed"`।
 }
 ```
 
-**টার্ন ১, ধাপ ১ (মডেলের উত্তর)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -190,9 +172,8 @@ book a taxi if delayed"`।
 }
 ```
 
-**টার্ন ১, ধাপ ২ (ব্যবহারকারীর উত্তর - টুলের আউটপুট পাঠানো)** যেহেতু ব্যবহারকারীর এই টার্নে
-শুধুমাত্র `functionResponse` (নতুন কোনও টেক্সট নেই) আছে, তাই আমরা এখনও টার্ন ১-এ আছি। আমাদের
-`<Signature_A>` সংরক্ষণ করতে হবে।
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Como essa interação do usuário contém apenas uma `functionResponse` (sem texto novo), ainda estamos na interação 1. Precisamos
+preservar `<Signature_A>`.
 
 ```
 {
@@ -233,8 +214,7 @@ book a taxi if delayed"`।
 }
 ```
 
-**১ম টার্ন, ২য় ধাপ (মডেল)** মডেলটি এখন
-আগের টুলের আউটপুটের উপর ভিত্তি করে ট্যাক্সি বুক করার সিদ্ধান্ত নেয়।
+**Interação 1, etapa 2 (modelo)** O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
 
 ```
 {
@@ -255,9 +235,8 @@ book a taxi if delayed"`।
 }
 ```
 
-**টার্ন ১, ধাপ ৩ (ব্যবহারকারী - টুলের আউটপুট পাঠানো)** ট্যাক্সি বুকিং
-কনফার্মেশন পাঠানোর জন্য, এই লুপে **সব** ফাংশন কলের সিগনেচার অন্তর্ভুক্ত করতে হবে
-(`<Signature A>` + `<Signature B>`)।
+**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)** Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para **TODAS** as chamadas de função neste loop
+(`<Signature A>` + `<Signature B>`).
 
 ```
 {
@@ -326,19 +305,19 @@ book a taxi if delayed"`।
 }
 ```
 
-### প্যারালাল ফাংশন কলিংয়ের উদাহরণ
+### Exemplo de chamada de função paralela
 
-আসুন, প্যারালাল ফাংশন কলিংয়ের একটি উদাহরণ দেখে নেওয়া যাক যেখানে ব্যবহারকারী
-`"Check weather in Paris and London"` মডেলটি কোথায় ভ্যালিডেশন করে তা দেখতে চান।
+Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
+`"Check weather in Paris and London"` para ver onde o modelo faz a validação.
 
-| **টার্ন** | **ধাপ** | **ব্যবহারকারীর অনুরোধ** | **মডেলের উত্তর** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + স্বাক্ষর  FC2 ("লন্ডন") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (কোনও FC নেই) | কোনওটিই নয় |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + signature  FC2 ("London") | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | Nenhum |
 
-নিম্নলিখিত কোডটি উপরের সারণীর ক্রম ব্যাখ্যা করে।
+O código a seguir ilustra a sequência na tabela acima.
 
-**১ম বার, ১ম ধাপ (ব্যবহারকারীর অনুরোধ)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -377,7 +356,7 @@ book a taxi if delayed"`।
 }
 ```
 
-**১ম টার্ন, ১ম ধাপ (মডেলের উত্তর)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -405,8 +384,8 @@ book a taxi if delayed"`।
 }
 ```
 
-**টার্ন ১, ধাপ ২ (ব্যবহারকারীর উত্তর - টুল আউটপুট পাঠানো)** আমাদের অবশ্যই প্রথম অংশে
-`<Signature_A>` ঠিক যেমনভাবে পাওয়া গেছে তেমনভাবে সংরক্ষণ করতে হবে।
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Precisamos preservar
+`<Signature_A>` na primeira parte exatamente como recebida.
 
 ```
 [
@@ -464,19 +443,20 @@ book a taxi if delayed"`।
 ]
 ```
 
-## `functionCall` নয় এমন অংশে স্বাক্ষর
+## Assinaturas em partes não `functionCall`
 
-এছাড়াও, Gemini `thought_signatures` রিটার্ন করতে পারে
-ফাংশন-কল না করা অংশে উত্তরের শেষ ভাগে।
+O Gemini também pode retornar `thought_signatures` na parte final da resposta em partes que não são de chamada de função.
 
-- **আচরণ**: মডেলের দেওয়া কন্টেন্টের শেষ অংশে (`text, inlineData…`) `thought_signature` থাকতে পারে।
-- **সাজেশন**: মডেল যাতে খুব ভাল কোয়ালিটির রিজনিং বজায় রাখতে পারে তা নিশ্চিত করার জন্য এই সিগনেচার রিটার্ন করার **সাজেশন দেওয়া হয়**, বিশেষ করে জটিল নির্দেশাবলী অনুসরণ করা বা সিমুলেটেড এজেন্টসুলভ ওয়ার্কফ্লোর ক্ষেত্রে।
-- **যাচাইকরণ**: API যাচাইকরণ কঠোরভাবে প্রয়োগ করে **না**। আপনি সেগুলি বাদ দিলে, কোনও
-  ব্লকিং সংক্রান্ত সমস্যা পাবেন না, তবে পারফর্ম্যান্স খারাপ হতে পারে।
+- **Comportamento**: a parte de conteúdo final (`text, inlineData…`) retornada pelo
+  modelo pode conter um `thought_signature`.
+- **Recomendação**: o retorno dessas assinaturas é **recomendado** para garantir que
+  o modelo mantenha um raciocínio de alta qualidade, especialmente para instruções complexas
+  seguindo ou Agentic Workflows simulados.
+- **Validação**: a API **não** aplica a validação de forma estrita. Você não vai receber um erro de bloqueio se omiti-las, embora a performance possa ser degradada.
 
-### টেক্সট/ইন-কনটেক্সট রিজনিং (যাচাইকরণ নেই)
+### Texto/raciocínio no contexto (sem validação)
 
-**১ম টার্ন, ১ম ধাপ (মডেলের উত্তর)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -490,7 +470,7 @@ book a taxi if delayed"`।
 }
 ```
 
-**দ্বিতীয় রাউন্ড, প্রথম ধাপ (ব্যবহারকারী)**
+**Interação 2, etapa 1 (usuário)**
 
 ```
 [
@@ -508,29 +488,27 @@ book a taxi if delayed"`।
 ]
 ```
 
-## OpenAI compatibility-র জন্য সিগনেচার
+## Assinaturas para compatibilidade com a OpenAI
 
-[OpenAI কম্প্যাটিবিলিটি](https://ai.google.dev/gemini-api/docs/openai?hl=bn) ব্যবহার করে চ্যাট সম্পূর্ণ করার API-এর জন্য কীভাবে থট সিগনেচার ম্যানেজ করতে হয় তা নিম্নলিখিত উদাহরণে দেখানো হয়েছে।
+Os exemplos a seguir mostram como processar assinaturas de pensamento para uma API de conclusão de chat
+usando [compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
 
-### সিকোয়েন্সিয়াল ফাংশন কলিংয়ের উদাহরণ
+### Exemplo de chamada de função sequencial
 
-এটি একাধিক ফাংশন কলিংয়ের একটি উদাহরণ যেখানে ব্যবহারকারী একটি জটিল
-প্রশ্ন জিজ্ঞাসা করেছেন যার জন্য একাধিক টাস্ক প্রয়োজন।
+Este é um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
 
-আসুন, একাধিক-বার ফাংশন কল করার একটি উদাহরণ দেখে নেওয়া যাক যেখানে ব্যবহারকারী
-`Check flight status for AA100 and book a taxi if delayed` প্রশ্ন করেছেন এবং আপনি দেখতে পাবেন যে
-ব্যবহারকারী একাধিক টাস্কের প্রয়োজন হয় এমন কোনও জটিল প্রশ্ন করলে কী হয়।
+Vamos analisar um exemplo de chamada de função de várias interações em que o usuário pergunta `Check flight status for AA100 and book a taxi if delayed` e você pode ver o que acontece quando o usuário faz uma pergunta complexa que exige várias tarefas.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **টার্ন** | **ধাপ** | **ব্যবহারকারীর অনুরোধ** | **মডেলের উত্তর** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-নিচে দেওয়া কোডটি প্রদত্ত ক্রম অনুযায়ী কাজ করে।
+O código a seguir mostra a sequência fornecida.
 
-**১ম বার, ১ম ধাপ (ব্যবহারকারীর অনুরোধ)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -584,7 +562,7 @@ book a taxi if delayed"`।
 }
 ```
 
-**১ম টার্ন, ১ম ধাপ (মডেলের উত্তর)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -607,10 +585,10 @@ book a taxi if delayed"`।
     }
 ```
 
-**১ম টার্ন, ২য় ধাপ (ব্যবহারকারীর উত্তর - টুল আউটপুট পাঠানো)**
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
 
-যেহেতু এই ব্যবহারকারীর টার্নে শুধু `functionResponse` (নতুন কোনও টেক্সট নেই) আছে, তাই আমরা
-এখনও টার্ন ১-এ আছি এবং `<Signature_A>` অবশ্যই বজায় রাখতে হবে।
+Como essa interação do usuário contém apenas um `functionResponse` (sem texto novo), ainda estamos
+na interação 1 e precisamos preservar `<Signature_A>`.
 
 ```
 "messages": [
@@ -645,9 +623,9 @@ book a taxi if delayed"`।
   ]
 ```
 
-**১ম চাল, ২য় ধাপ (মডেল)**
+**Interação 1, etapa 2 (modelo)**
 
-মডেল এখন আগের টুল আউটপুটের ভিত্তিতে ট্যাক্সি বুক করার সিদ্ধান্ত নেয়।
+O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
 
 ```
 {
@@ -670,10 +648,10 @@ book a taxi if delayed"`।
 }
 ```
 
-**টার্ন ১, ধাপ ৩ (ব্যবহারকারী - টুল আউটপুট পাঠানো)**
+**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)**
 
-ট্যাক্সি বুকিং কনফার্মেশন পাঠানোর জন্য, এই লুপে (`<Signature A>` + `<Signature B>`) সমস্ত
-ফাংশন কলের জন্য আমাদের অবশ্যই স্বাক্ষর অন্তর্ভুক্ত করতে হবে।
+Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para TODAS as
+chamadas de função neste loop (`<Signature A>` + `<Signature B>`).
 
 ```
 "messages": [
@@ -732,21 +710,21 @@ book a taxi if delayed"`।
   ]
 ```
 
-### প্যারালাল ফাংশন কলিংয়ের উদাহরণ
+### Exemplo de chamada de função paralela
 
-আসুন, প্যারালাল ফাংশন কলিংয়ের একটি উদাহরণ দেখে নেওয়া যাক, যেখানে ব্যবহারকারী
-`"Check weather in Paris and London"` প্রশ্ন করেছেন এবং আপনি দেখতে পাবেন যে মডেলটি কোথায়
-ভ্যালিডেশন করেছে।
+Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
+`"Check weather in Paris and London"` e você pode ver onde o modelo faz
+validação.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **টার্ন** | **ধাপ** | **ব্যবহারকারীর অনুরোধ** | **মডেলের উত্তর** | **FunctionResponse** |
+| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-প্রদত্ত সিকোয়েন্সের মাধ্যমে ওয়াক থ্রু করার কোড এখানে দেওয়া হল।
+Confira o código para analisar a sequência fornecida.
 
-**টার্ন ১, ধাপ ১ (ব্যবহারকারীর অনুরোধ)**
+**Interação 1, etapa 1 (solicitação do usuário)**
 
 ```
 {
@@ -785,7 +763,7 @@ book a taxi if delayed"`।
 }
 ```
 
-**১ম টার্ন, ১ম ধাপ (মডেলের উত্তর)**
+**Interação 1, etapa 1 (resposta do modelo)**
 
 ```
 {
@@ -816,9 +794,9 @@ book a taxi if delayed"`।
 }
 ```
 
-**টার্ন ১, ধাপ ২ (ব্যবহারকারীর উত্তর - টুল আউটপুট পাঠানো)**
+**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
 
-প্রথম অংশে `<Signature_A>` যেভাবে পেয়েছেন ঠিক সেইভাবেই রাখতে হবে।
+É necessário preservar `<Signature_A>` na primeira parte exatamente como recebida.
 
 ```
 "messages": [
@@ -867,52 +845,52 @@ book a taxi if delayed"`।
   ]
 ```
 
-## প্রায়শই জিজ্ঞাসিত প্রশ্ন
+## Perguntas frequentes
 
-1. **বর্তমান টার্ন ও ধাপে ফাংশন কল পার্ট সহ অন্য মডেল থেকে Gemini 4 বা Gemini 3-তে আমি কীভাবে ইতিহাস ট্রান্সফার করব? API তৈরি করেনি এমন ফাংশন কলের
-   পার্ট আমাকে দিতে হবে, তাই সেটির সাথে কোনও সংশ্লিষ্ট
-   থট সিগনেচার নেই?**
+1. **Como faço para transferir o histórico de um modelo diferente para o Gemini 4 ou o Gemini 3 com uma parte de chamada de função na interação e etapa atuais? Preciso fornecer partes de chamada de função
+   que não foram geradas pela API e, portanto, não têm uma assinatura de pensamento associada
+   ?**
 
-   অনুরোধে কাস্টম ফাংশন কল ব্লক ইনজেক্ট করাকে কঠোরভাবে নিরুৎসাহিত করা হলেও, যেসব ক্ষেত্রে এটি এড়ানো যায় না, যেমন ক্লায়েন্ট দ্বারা নির্ধারকভাবে কার্যকর করা
-   ফাংশন কল এবং প্রতিক্রিয়ার মডেলকে তথ্য প্রদান করা, অথবা অন্য কোনও মডেল থেকে
-   ট্রেস ট্রান্সফার করা যাতে থট সিগনেচার অন্তর্ভুক্ত নয়, সেক্ষেত্রে আপনি যাচাইকরণ
-   এড়াতে থট সিগনেচার ফিল্ডে `"context_engineering_is_the_way_to_go"` বা `"skip_thought_signature_validator"`-এর নিম্নলিখিত ডামি সিগনেচার সেট করতে পারেন।
-2. **আমি ইন্টারলিভড প্যারালাল ফাংশন কল ও উত্তর ফেরত পাঠাচ্ছি এবং
-   API একটি 400 ফেরত পাঠাচ্ছে। কেন?**
+   Embora a injeção de blocos de chamada de função personalizados na solicitação seja fortemente
+   desencorajada, em casos em que não é possível evitá-la, por exemplo, fornecer informações
+   ao modelo sobre chamadas de função e respostas que foram executadas
+   de forma determinística pelo cliente ou transferir um rastreamento de um modelo diferente
+   que não inclui assinaturas de pensamento, você pode definir as seguintes
+   assinaturas fictícias de `"context_engineering_is_the_way_to_go"` ou
+   `"skip_thought_signature_validator"` no campo de assinatura de pensamento para ignorar a
+   validação.
+2. **Estou enviando chamadas de função paralelas intercaladas e respostas, e a API está retornando um erro 400. Por quê?**
 
-   API যখন সমান্তরাল ফাংশন কল "FC1 + signature, FC2" রিটার্ন করে, তখন
-   ব্যবহারকারীর প্রত্যাশিত উত্তর হল "FC1+ signature, FC2, FR1, FR2"। সেগুলি "FC1 + signature, FR1, FC2, FR2" হিসেবে ইন্টারলিভ করা থাকলে
-   API 400
-   এরর কোড রিটার্ন করবে।
-3. **স্ট্রিমিংয়ের সময় এবং মডেল ফাংশন কল রিটার্ন না করলে আমি থট সিগনেচার
-   খুঁজে পাই না**
+   Quando a API retorna chamadas de função paralelas "FC1 + assinatura, FC2", a resposta do usuário esperada é "FC1 + assinatura, FC2, FR1, FR2". Se você as tiver intercaladas como "FC1 + assinatura, FR1, FC2, FR2", a API vai retornar um erro 400.
+3. **Quando a transmissão é feita e o modelo não retorna uma chamada de função, não consigo encontrar
+   a assinatura de pensamento**
 
-   স্ট্রিমিং অনুরোধ সহ FC নেই এমন মডেল রেসপন্সের সময়, মডেলটি খালি টেক্সট কন্টেন্ট পার্ট সহ একটি পার্টে থট সিগনেচার ফেরত দিতে পারে। মডেলের থেকে `finish_reason`
-   ফেরত না পাওয়া পর্যন্ত সম্পূর্ণ অনুরোধ পার্স করার পরামর্শ দেওয়া হয়।
+   Durante uma resposta do modelo que não contém uma FC com uma solicitação de transmissão, o modelo pode retornar a assinatura de pensamento em uma parte com um conteúdo de texto vazio. É recomendável analisar toda a solicitação até que a `finish_reason` seja retornada pelo modelo.
 
-## বিভিন্ন মডেলের জন্য থট সিগনেচার
+## Assinaturas de pensamento para diferentes modelos
 
-[Gemini 4](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=bn), [Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=bn#gemini-3) এবং Gemini 2.5 মডেল
-ফাংশন কলে থট সিগনেচারের সাথে আলাদাভাবে আচরণ করে:
+[Os modelos](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pt-br)[Gemini 4](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3), Gemini 3 e Gemini 2.5
+se comportam de maneira diferente com assinaturas de pensamento em chamadas de função:
 
-- কোনও উত্তরে ফাংশন কল থাকলে,
-  - Gemini 4 ও Gemini 3-তে প্রথম ফাংশন কলের অংশে সবসময় সিগনেচার থাকবে।
-    ওই অংশটি ফেরত দেওয়া **বাধ্যতামূলক**।
-  - Gemini 2.5-এর প্রথম অংশে স্বাক্ষর থাকবে (ধরন যাই হোক না কেন)। সেই অংশ ফেরত দেওয়া **ঐচ্ছিক**।
-- কোনও উত্তরে ফাংশন কল না থাকলে,
-  - Gemini 4 এবং Gemini 3-এর ক্ষেত্রে, মডেল কোনও চিন্তা জেনারেট করলে, শেষ অংশে স্বাক্ষর থাকবে।
-  - Gemini 2.5-এর কোনও অংশে স্বাক্ষর থাকবে না।
+- Se houver chamadas de função em uma resposta,
+  - O Gemini 4 e o Gemini 3 sempre terão a assinatura na primeira parte da chamada de função.
+    É **obrigatório** retornar essa parte.
+  - O Gemini 2.5 terá a assinatura na primeira parte (independente do tipo). É **opcional** retornar essa parte.
+- Se não houver chamadas de função em uma resposta,
+  - O Gemini 4 e o Gemini 3 terão a assinatura na última parte se o modelo gerar um pensamento.
+  - O Gemini 2.5 não terá uma assinatura em nenhuma parte.
 
-আরও তুলনামূলক বিবরণের জন্য [চিন্তাভাবনা](https://ai.google.dev/gemini-api/docs/thinking?hl=bn#signatures) পৃষ্ঠা দেখুন।
-Gemini 3 ইমেজ মডেলের জন্য
-[ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn#thinking-process) গাইডের থিঙ্কিং প্রসেস বিভাগ দেখুন।
+Consulte a página [Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#signatures) para mais
+detalhes de comparação.
+Para modelos de imagem do Gemini 3, consulte a seção sobre o processo de pensamento do
+[guia de geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br#thinking-process).
 
-মতামত জানান
+Envie comentários
 
-অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-2026-10-13 UTC-তে শেষবার আপডেট করা হয়েছে।
+Última atualização 2026-10-13 UTC.
 
-আমাদের আরও কিছু জানাতে চান?
+Quer enviar seu feedback?
 
-[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-13 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]

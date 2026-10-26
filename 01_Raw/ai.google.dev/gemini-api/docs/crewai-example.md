@@ -1,41 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=es-419
-fetched_at: 2026-10-19T05:33:00.364885+00:00
-title: "An\u00e1lisis de la asistencia al cliente con Gemini y CrewAI \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/crewai-example?hl=ko
+fetched_at: 2026-10-26T06:04:37.624520+00:00
+title: "Gemini \ubc0f CrewAI\ub97c \uc0ac\uc6a9\ud55c \uace0\uac1d \uc9c0\uc6d0 \ubd84\uc11d \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Enviar comentarios
+의견 보내기
 
-# Análisis de la asistencia al cliente con Gemini y CrewAI
+# Gemini 및 CrewAI를 사용한 고객 지원 분석
 
-[CrewAI](https://docs.crewai.com/introduction) es un framework para organizar agentes de IA autónomos que colaboran para lograr objetivos complejos. Te permite definir agentes especificando roles, objetivos y antecedentes, y, luego, definir tareas para ellos.
+[CrewAI](https://docs.crewai.com/introduction)는 복잡한 목표를 달성하기 위해 협업하는
+자율 AI 에이전트를 조정하기 위한 프레임워크입니다. 역할을 지정하고, 목표를 지정하고, 배경 스토리를 지정하여 에이전트를
+정의한 다음 에이전트의 작업을
+정의할 수 있습니다.
 
-En este ejemplo, se muestra cómo compilar un sistema multiagente para analizar los datos de asistencia al cliente, identificar problemas y proponer mejoras en los procesos con Gemini 3 Flash, y generar un informe que leerá el director de operaciones (COO).
+이 예에서는 Gemini 3 Flash를 사용하여 고객 지원 데이터를 분석하여 문제를 식별하고 프로세스 개선사항을 제안하는 다중 에이전트 시스템을 빌드하는 방법을 보여줍니다. 이 시스템은 최고 운영 책임자 (COO)가 읽을 보고서를 생성합니다.
 
-En la guía, se muestra cómo crear un "equipo" de agentes de IA que pueden realizar las siguientes tareas:
+이 가이드에서는 다음 작업을 실행할 수 있는 AI 에이전트 '크루'를 만드는 방법을 보여줍니다.
 
-1. Recupera y analiza los datos de asistencia al cliente (simulados en este ejemplo).
-2. Identificar problemas recurrentes y cuellos de botella en los procesos
-3. Sugerir mejoras prácticas
-4. Compila los hallazgos en un informe conciso adecuado para un COO.
+1. 고객 지원 데이터 가져오기 및 분석 (이 예에서 시뮬레이션됨)
+2. 반복되는 문제 및 프로세스 병목 현상 식별
+3. 실행 가능한 개선사항 제안
+4. COO에게 적합한 간결한 보고서로 발견 항목 컴파일
 
-Necesitas una clave de la API de Gemini. Si aún no tienes una, puedes [obtener una en Google AI Studio](https://aistudio.google.com/apikey?hl=es-419).
+Gemini API 키가 필요합니다. 아직 키가 없으면 [Google AI Studio에서
+키를 가져올 수 있습니다](https://aistudio.google.com/apikey?hl=ko).
 
 ```
 pip install "crewai[tools]"
 ```
 
-Establece tu clave de API de Gemini como una variable de entorno llamada `GEMINI_API_KEY` y, luego, configura CrewAI para que use el modelo de Gemini.
+Gemini API 키를 `GEMINI_API_KEY`라는 환경 변수로 설정한 다음 Gemini 모델을 사용하도록 CrewAI를 구성합니다.
 
 ```
 import os
@@ -50,13 +54,15 @@ gemini_llm = LLM(
 )
 ```
 
-## Define componentes
+## 구성요소 정의
 
-Crea aplicaciones de CrewAI con **Herramientas**, **Agentes**, **Tareas** y el **Equipo** en sí. En las siguientes secciones, se explica cada uno de estos componentes.
+**도구**, **에이전트**, **태스크**, 그리고
+**크루** 자체를 사용하여 CrewAI 애플리케이션을 빌드합니다. 다음 섹션에서는 이러한 각 구성요소를 설명합니다.
 
-### Herramientas
+### 도구
 
-Las herramientas son capacidades que los agentes pueden usar para interactuar con el mundo exterior o realizar acciones específicas. Aquí, definirás una herramienta de marcador de posición para simular la recuperación de datos de asistencia al cliente. En una aplicación real, te conectarías a una base de datos, una API o un sistema de archivos. Para obtener más información sobre las herramientas, consulta la [guía de herramientas de CrewAI](https://docs.crewai.com/concepts/tools).
+도구는 에이전트가 외부 세계와 상호작용하거나 특정 작업을 실행하는 데 사용할 수 있는 기능입니다. 여기서는 고객 지원 데이터 가져오기를 시뮬레이션하기 위해 자리표시자 도구를 정의합니다. 실제 애플리케이션에서는 데이터베이스, API 또는 파일 시스템에 연결합니다. 도구에 대한 자세한 내용은 [CrewAI
+도구 가이드](https://docs.crewai.com/concepts/tools)를 참고하세요.
 
 ```
 from crewai.tools import BaseTool
@@ -86,9 +92,10 @@ class CustomerSupportDataTool(BaseTool):
 support_data_tool = CustomerSupportDataTool()
 ```
 
-### Agentes
+### 에이전트
 
-Los agentes son los trabajadores individuales de IA de tu equipo. Cada agente tiene un `role`, `goal`, `backstory`, un `llm` asignado y un `tools` opcional específicos. Para obtener más información sobre los agentes, consulta la [guía de agentes de CrewAI](https://docs.crewai.com/concepts/agents).
+에이전트는 크루의 개별 AI 작업자입니다. 각 에이전트에는 특정 `role`, `goal`, `backstory`, 할당된 `llm`, 선택적 `tools`가 있습니다. 에이전트에 대한 자세한 내용은 [CrewAI 에이전트
+가이드](https://docs.crewai.com/concepts/agents)를 참고하세요.
 
 ```
 from crewai import Agent
@@ -135,9 +142,10 @@ report_writer = Agent(
 )
 ```
 
-### Tasks
+### 작업
 
-Las tareas definen las asignaciones específicas para los agentes. Cada tarea tiene un `description`, un `expected_output` y se asigna a un `agent`. De forma predeterminada, las tareas se ejecutan de forma secuencial y se incluye el contexto de la tarea anterior. Para obtener más información sobre las tareas, consulta la [guía de tareas de CrewAI](https://docs.crewai.com/concepts/tasks).
+작업은 에이전트의 특정 할당을 정의합니다. 각 작업에는 `description`, `expected_output`이 있으며 `agent`에 할당됩니다. 작업은 기본적으로 순차적으로 실행되며 이전 작업의 컨텍스트를 포함합니다. 작업에 대한 자세한 내용은 [CrewAI 작업
+가이드](https://docs.crewai.com/concepts/tasks)를 참고하세요.
 
 ```
 from crewai import Task
@@ -196,9 +204,9 @@ Ensure the report is easy to understand, focuses on actionable insights, and is 
 )
 ```
 
-### Equipo de rodaje
+### 크루
 
-El `Crew` reúne a los agentes y las tareas, y define el proceso del flujo de trabajo (por ejemplo, "secuencial").
+`Crew`는 에이전트와 작업을 함께 가져와 워크플로 프로세스(예: '순차')를 정의합니다.
 
 ```
 from crewai import Crew, Process
@@ -211,9 +219,9 @@ support_analysis_crew = Crew(
 )
 ```
 
-## Ejecuta el equipo
+## 크루 실행
 
-Por último, inicia la ejecución del equipo con las entradas necesarias.
+마지막으로 필요한 입력으로 크루 실행을 시작합니다.
 
 ```
 # Start the crew's work
@@ -227,17 +235,19 @@ print("--- Final Report for COO ---")
 print(result)
 ```
 
-Ahora se ejecutará la secuencia de comandos. El `Data Analyst` usará la herramienta, el `Process
-Optimizer` analizará los resultados y el `Report Writer` compilará el informe final, que luego se imprimirá en la consola. El parámetro de configuración `verbose=True` mostrará el proceso de pensamiento y las acciones detallados de cada agente.
+이제 스크립트가 실행됩니다. `Data Analyst`는 도구를 사용하고, `Process
+Optimizer`는 발견 항목을 분석하고, `Report Writer`는
+최종 보고서를 컴파일한 후 콘솔에 출력합니다. `verbose=True` 설정을 사용하면 각 에이전트의 세부적인 사고 과정과 작업이 표시됩니다.
 
-Para obtener más información sobre CrewAI, consulta la [introducción a CrewAI](https://docs.crewai.com/introduction).
+CrewAI에 대한 자세한 내용은 [CrewAI
+소개](https://docs.crewai.com/introduction)를 참고하세요.
 
-Enviar comentarios
+의견 보내기
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Última actualización: 2026-09-12 (UTC)
+최종 업데이트: 2026-09-12(UTC)
 
-¿Quieres brindar más información?
+의견을 전달하고 싶나요?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-12 (UTC)"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-12(UTC)"],[],[]]

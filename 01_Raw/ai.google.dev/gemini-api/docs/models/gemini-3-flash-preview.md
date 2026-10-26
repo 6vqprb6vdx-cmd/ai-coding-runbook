@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl
-fetched_at: 2026-10-19T05:33:04.725956+00:00
-title: "Gemini\u00a03 Flash (wersja testowa) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-TW
+fetched_at: 2026-10-26T05:43:11.448336+00:00
+title: "Gemini 3 Flash \u9810\u5148\u767c\u5e03\u7248 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Prześlij opinię
+提供意見
 
-# Gemini 3 Flash (wersja testowa)
+# Gemini 3 Flash 預先發布版
 
-Najlepszy na świecie model do rozpoznawania multimodalnego i nasz najpotężniejszy model agentowy i do vibe codingu. Został zbudowany na bazie najnowocześniejszego rozumowania, dzięki czemu zapewnia bogatsze wizualizacje i głębszą interaktywność.
+這是全球最出色的多模態理解模型，也是我們至今最強大的代理式和直覺式程式開發模型，能提供更豐富的視覺化內容和更深入的互動體驗，一切都建立在最先進的推論技術基礎。
 
-[Wypróbuj w Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=pl)
+[在 Google AI Studio 中試用](https://aistudio.google.com/prompts/new_chat?model=gemini-3-flash-preview&hl=zh-tw)
 
-## Dokumentacja
+## 說明文件
 
-Więcej informacji o funkcjach i możliwościach znajdziesz w [przewodniku dla programistów Gemini 3](https://ai.google.dev/gemini-api/docs/latest-model?hl=pl).
+如要全面瞭解功能，請參閱 [Gemini 3 開發人員指南](https://ai.google.dev/gemini-api/docs/latest-model?hl=zh-tw)頁面。
 
 ## gemini-3-flash-preview
 
-| Właściwość | Opis |
+| 屬性 | 說明 |
 | --- | --- |
-| Kod modelu id\_card | `gemini-3-flash-preview` |
-| saveObsługiwane typy danych | **Dane wejściowe**  Tekst, obraz, film, dźwięk i PDF  **Dane wyjściowe**  Tekst |
-| token\_autoLimity tokenów[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=pl) | **Limit tokenów wejściowych**  1 048 576  **Limit tokenów wyjściowych**  65 536 |
-| handyman Możliwości | **[Generowanie dźwięku](https://ai.google.dev/gemini-api/docs/speech-generation?hl=pl)**  Nieobsługiwane  **[Zapisywanie w pamięci podręcznej](https://ai.google.dev/gemini-api/docs/caching?hl=pl)**  Obsługiwane  **[Wykonanie kodu](https://ai.google.dev/gemini-api/docs/code-execution?hl=pl)**  Obsługiwane  **[Korzystanie z komputera](https://ai.google.dev/gemini-api/docs/computer-use?hl=pl)**  Obsługiwane  **[Wyszukiwanie plików](https://ai.google.dev/gemini-api/docs/file-search?hl=pl)**  Obsługiwane  **[Wywoływanie funkcji](https://ai.google.dev/gemini-api/docs/function-calling?hl=pl)**  Obsługiwane  **[Powiązanie ze źródłami informacji przy użyciu Map Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl)**  Obsługiwane  **[Generowanie obrazów](https://ai.google.dev/gemini-api/docs/image-generation?hl=pl)**  Nieobsługiwane  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=pl)**  Nieobsługiwane  **[Szukaj groundingu](https://ai.google.dev/gemini-api/docs/google-search?hl=pl)**  Obsługiwane  **[Uporządkowane dane wyjściowe](https://ai.google.dev/gemini-api/docs/structured-output?hl=pl)**  Obsługiwane  **[Myślenie](https://ai.google.dev/gemini-api/docs/thinking?hl=pl)**  Obsługiwane  **[Kontekst adresu URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pl)**  Obsługiwane |
-| speed Opcje wykorzystania | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=pl)**  Obsługiwane  **[Wnioskowanie Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=pl)**  Obsługiwane  **[Wnioskowanie o priorytecie](https://ai.google.dev/gemini-api/docs/priority-inference?hl=pl)**  Obsługiwane |
-| Wersje 123 | Więcej informacji znajdziesz w [wzorcach wersji modelu](https://ai.google.dev/gemini-api/docs/models/gemini?hl=pl#model-versions).  - `Preview: gemini-3-flash-preview` |
-| calendar\_monthOstatnia aktualizacja | Grudzień 2025 r. |
-| id\_cardKarta modelu | [Karta modelu](https://deepmind.google/models/model-cards/gemini-3-flash/?hl=pl) |
+| id\_card 模型代碼 | `gemini-3-flash-preview` |
+| 儲存支援的資料類型 | **輸入裝置**  文字、圖片、影片、音訊和 PDF  **輸出內容**  文字 |
+| token\_auto 代幣限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw) | **輸入權杖限制**  1,048,576  **輸出內容詞元限制**  65,536 |
+| handyman功能 | **[生成音訊](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-tw)**  不支援  **[快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)**  支援  **[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)**  支援  **[電腦使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-tw)**  支援  **[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw)**  支援  **[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)**  支援  **[利用 Google 地圖建立基準](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-tw)**  支援  **[圖像生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)**  不支援  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-tw)**  不支援  **[以搜尋為基準](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)**  支援  **[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)**  支援  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)**  支援  **[網址環境](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)**  支援 |
+| speed計費方案 | **[批次 API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)**  支援  **[Flex 推論](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-tw)**  支援  **[優先推論](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-tw)**  支援 |
+| 123 個版本 | 如要瞭解詳情，請參閱[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw#model-versions)。  - `Preview: gemini-3-flash-preview` |
+| calendar\_month最新更新 | 2025 年 12 月 |
+| id\_card模型資訊卡 | [Model Card](https://deepmind.google/models/model-cards/gemini-3-flash/?hl=zh-tw) |
 
-Prześlij opinię
+提供意見
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Ostatnia aktualizacja: 2026-10-09 UTC.
+上次更新時間：2026-10-09 (世界標準時間)。
 
-Chcesz przekazać coś jeszcze?
+想進一步說明嗎？
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-09 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-09 (世界標準時間)。"],[],[]]

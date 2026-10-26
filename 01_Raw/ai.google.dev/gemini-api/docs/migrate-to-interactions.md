@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=vi
-fetched_at: 2026-10-19T05:41:55.106140+00:00
+fetched_at: 2026-10-26T06:03:43.220705+00:00
 title: "Di chuy\u1ec3n sang Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 

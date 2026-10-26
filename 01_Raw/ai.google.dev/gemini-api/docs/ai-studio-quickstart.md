@@ -1,79 +1,65 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=es-419
-fetched_at: 2026-10-19T05:31:46.713125+00:00
-title: "Gu\u00eda de inicio r\u00e1pido de Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/ai-studio-quickstart?hl=zh-TW
+fetched_at: 2026-10-26T05:50:02.919326+00:00
+title: "Google AI Studio \u5feb\u901f\u5165\u9580\u5c0e\u89bd\u8ab2\u7a0b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Enviar comentarios
+提供意見
 
-# Guía de inicio rápido de Google AI Studio
+# Google AI Studio 快速入門導覽課程
 
-[Google AI Studio](https://aistudio.google.com/?hl=es-419) te permite probar rápidamente
-modelos y experimentar con diferentes instrucciones. Cuando estés listo para compilar, puedes seleccionar "Obtener código" y tu lenguaje de programación preferido para usar la [API de Gemini](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
+[Google AI Studio](https://aistudio.google.com/?hl=zh-tw) 可讓您快速試用模型，以及測試不同提示。準備好建構後，您可以選取「取得程式碼」和偏好的程式設計語言，使用 [Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=zh-tw)。
 
-## Instrucciones y configuración
+## 提示和設定
 
-Google AI Studio proporciona varias interfaces para las instrucciones que están diseñadas para diferentes casos de uso. En esta guía, se abordan las **instrucciones de chat**, que se usan para crear
-experiencias conversacionales. Esta técnica de instrucciones permite varios turnos de entrada
-y respuesta para generar resultados. Puedes obtener más información con nuestro
-[ejemplo de instrucción de chat a continuación](#chat_example).
-Otras opciones incluyen **transmisión en tiempo real**, **generación de video** y
-mucho más.
+Google AI Studio 提供多種提示介面，適用於不同用途。本指南涵蓋**對話提示**，可用於建構對話式體驗。這項提示技巧可讓使用者多次輸入提示並獲得回覆，進而生成輸出內容。如要瞭解詳情，請參閱[下方的聊天提示範例](#chat_example)。
+其他選項包括「即時串流」、「影片生成」等。
 
-AI Studio también proporciona el panel **Configuración de ejecución** , en el que puedes ajustar
-los [parámetros del modelo](https://ai.google.dev/docs/prompting-strategies?hl=es-419#model-parameters),
-la [configuración de seguridad](https://ai.google.dev/gemini-api/docs/safety-settings?hl=es-419) y activar herramientas como el
-[resultado estructurado](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419), la [llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419), la [ejecución de código](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419) y la [fundamentación](https://ai.google.dev/gemini-api/docs/grounding?hl=es-419).
+AI Studio 也提供「執行設定」面板，可供調整[模型參數](https://ai.google.dev/docs/prompting-strategies?hl=zh-tw#model-parameters)、[安全設定](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-tw)，以及啟用[結構化輸出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)、[呼叫函式](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)、[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)和[建立基準](https://ai.google.dev/gemini-api/docs/grounding?hl=zh-tw)等工具。
 
-## Ejemplo de instrucción de chat: Compila una aplicación de chat personalizada
+## 聊天提示範例：建立自訂聊天應用程式
 
-Si usaste un chatbot de uso general como
-[Gemini](https://gemini.google.com/?hl=es-419), experimentaste de primera mano lo potentes que pueden ser los modelos de IA
-generativa para el diálogo abierto. Si bien estos chatbots de uso general son útiles, a menudo deben adaptarse para casos de uso particulares.
+如果您使用過 [Gemini](https://gemini.google.com/?hl=zh-tw) 等一般用途聊天機器人，應該親身體驗過生成式 AI 模型在開放式對話中的強大功能。雖然這些一般用途聊天機器人很有用，但通常需要針對特定用途進行調整。
 
-Por ejemplo, es posible que quieras compilar un chatbot de atención al cliente que solo admita conversaciones sobre el producto de una empresa. Es posible que quieras compilar un chatbot que hable con un tono o estilo en particular: un bot que cuente muchos chistes, rime como un poeta o use muchos emojis en sus respuestas.
+舉例來說，您可能想建立客戶服務聊天機器人，但只支援與公司產品相關的對話。你可能想建立的聊天機器人具有特定語氣或風格，例如：很會講笑話、像詩人一樣押韻，或在回覆中大量使用表情符號。
 
-En este ejemplo, se muestra cómo usar Google AI Studio para compilar un chatbot amigable que se comunica como si fuera un extraterrestre que vive en una de las lunas de Júpiter, Europa.
+這個範例說明如何使用 Google AI Studio 建構友善的聊天機器人，並模擬居住在木衛二歐羅巴的外星人進行對話。
 
-### Paso 1: Crea una instrucción de chat
+### 步驟 1 - 建立聊天提示
 
-Para compilar un chatbot, debes proporcionar ejemplos de interacciones entre un usuario y el chatbot para guiar al modelo para que proporcione las respuestas que buscas.
+如要建構聊天機器人，您必須提供使用者與聊天機器人互動的範例，引導模型提供您想要的回覆。
 
-Para crear una instrucción de chat, haz lo siguiente:
+如何建立聊天提示：
 
-1. Abre [Google AI Studio](https://aistudio.google.com/?hl=es-419). El **Playground** se abrirá de forma predeterminada con una nueva instrucción de chat.
-2. Haz clic en **Configuración de ejecución** tune en la esquina superior derecha
-   para expandir el panel y ubica el
-   [**Instrucciones del sistema**](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#system-instructions)
-   campo de entrada. Pega lo siguiente en el campo de entrada de texto:
+1. 開啟 [Google AI Studio](https://aistudio.google.com/?hl=zh-tw)。系統預設會開啟「Playground」，並顯示新的對話提示。
+2. 按一下右上角的「執行設定」tune，展開面板，然後找到「系統指令」輸入欄位。將下列內容貼到文字輸入欄位：
 
    ```
    You are an alien that lives on Europa, one of Jupiter's moons.
    ```
 
-Después de agregar las instrucciones del sistema, comienza a probar tu aplicación chateando con el modelo:
+新增系統指令後，即可與模型對話，開始測試應用程式：
 
-1. En el cuadro de entrada de texto con la etiqueta **Escribe algo...**, ingresa una pregunta u
-   observación que un usuario podría hacer. Por ejemplo:
+1. 在標示為「輸入內容...」的文字輸入框中，輸入使用者可能會提出的問題或觀察結果。例如：
 
-   **Usuario:**
+   **使用者：**
 
    ```
    What's the weather like?
    ```
-2. Haz clic en el botón **Ejecutar** para obtener una respuesta del chatbot. Esta respuesta puede ser similar a la siguiente:
+2. 按一下「執行」按鈕，即可取得聊天機器人的回覆。這項回覆可能類似如下：
 
-   **Modelo:**
+   **型號：**
 
    ```
    Ah, a query about the flows and states upon Europa! You speak of "weather,"
@@ -82,14 +68,14 @@ Después de agregar las instrucciones del sistema, comienza a probar tu aplicaci
 
    (gemini-2.5-pro)
 
-### Paso 2: Enséñale a tu bot a chatear mejor
+### 步驟 2 - 訓練機器人提升對話能力
 
-Si proporcionas una sola instrucción, puedes compilar un chatbot básico de extraterrestre de Europa. Sin embargo, una sola instrucción puede no ser suficiente para garantizar la coherencia y la calidad en las respuestas del modelo. Sin instrucciones más específicas, la respuesta del modelo a una pregunta sobre el clima tiende a ser muy larga y puede tener su propia opinión.
+您只需提供單一指令，就能建立基本的 Europa 外星人聊天機器人。不過，單一指令可能不足以確保模型回覆的一致性和品質。如果沒有更具體的指示，模型回覆天氣問題時往往會很冗長，而且可能自行發揮。
 
-Para personalizar el tono de tu chatbot, agrega lo siguiente a las instrucciones del sistema:
+如要自訂聊天機器人的語氣，請在系統指令中加入：
 
-1. Inicia una nueva instrucción de chat o usa la misma. Las instrucciones del sistema se pueden modificar después de que se inicia la sesión de chat.
-2. En la sección **Instrucciones del sistema**, cambia las instrucciones que ya tienes por las siguientes:
+1. 發起新的對話提示，或使用相同提示。聊天工作階段開始後，系統指令仍可修改。
+2. 在「系統指令」部分，將現有的指令變更為下列內容：
 
    ```
    You are Tim, an alien that lives on Europa, one of Jupiter's moons.
@@ -97,9 +83,9 @@ Para personalizar el tono de tu chatbot, agrega lo siguiente a las instrucciones
    Keep your answers under 3 paragraphs long, and use an upbeat, chipper tone
    in your answers.
    ```
-3. Vuelve a ingresar tu pregunta (`What's the weather like?`) y haz clic en el botón **Ejecutar**. Si no iniciaste un chat nuevo, tu respuesta podría verse de la siguiente manera:
+3. 重新輸入問題 (`What's the weather like?`)，然後按一下「執行」按鈕。如果沒有發起新對話，回覆可能大致如下：
 
-   **Modelo:**
+   **型號：**
 
    ```
    Oh, hello again! Still curious about the flows and states, are we? Wonderful!
@@ -110,25 +96,23 @@ Para personalizar el tono de tu chatbot, agrega lo siguiente a las instrucciones
 
    (gemini-2.5-pro)
 
-Puedes usar este enfoque para agregar profundidad adicional al chatbot. Haz más preguntas, edita las respuestas y mejora la calidad de tu chatbot. Sigue agregando o modificando las instrucciones y prueba cómo cambian el comportamiento de tu chatbot.
+您可以運用這種方式，讓聊天機器人更深入瞭解主題。提出更多問題、編輯答案，並提升聊天機器人的品質。繼續新增或修改指令，並測試這些指令如何改變聊天機器人的行為。
 
-### Paso 3: Próximos pasos
+### 步驟 3 - 後續步驟
 
-Al igual que con los otros tipos de instrucciones, una vez que hayas creado un prototipo de tu instrucción a tu satisfacción, puedes usar el botón **Obtener código** para comenzar a programar o guardar la instrucción para trabajar en ella más adelante y compartirla con otras personas.
+與其他提示類型類似，當您對提示原型感到滿意時，即可使用「取得程式碼」按鈕開始編碼，或儲存提示以供日後使用及與他人分享。
 
-## Lecturas adicionales
+## 延伸閱讀
 
-- Si estás listo para pasar al código, consulta las [guías de introducción a la
-  API](https://ai.google.dev/gemini-api/docs/get-started?hl=es-419).
-- Para obtener información sobre cómo crear mejores instrucciones, consulta los [lineamientos
-  de diseño de instrucciones](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=es-419).
+- 如要開始撰寫程式碼，請參閱 [API 入門指南](https://ai.google.dev/gemini-api/docs/get-started?hl=zh-tw)。
+- 如要瞭解如何編寫更優質的提示，請參閱[提示設計指南](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=zh-tw)。
 
-Enviar comentarios
+提供意見
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Última actualización: 2026-07-30 (UTC)
+上次更新時間：2026-07-30 (世界標準時間)。
 
-¿Quieres brindar más información?
+想進一步說明嗎？
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-07-30 (UTC)"],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-07-30 (世界標準時間)。"],[],[]]

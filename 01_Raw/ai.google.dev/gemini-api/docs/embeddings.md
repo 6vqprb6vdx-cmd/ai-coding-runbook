@@ -1,37 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=fa
-fetched_at: 2026-10-19T05:34:25.143958+00:00
-title: "\u062c\u0627\u0633\u0627\u0632\u06cc\u200c\u0647\u0627 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/embeddings?hl=id
+fetched_at: 2026-10-26T05:46:06.578531+00:00
+title: "Embedding \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-ارسال بازخورد
+Kirim masukan
 
-# جاسازی‌ها
+# Embedding
 
-‫Gemini API مدل‌های جاسازی را برای تولید جاسازی برای نوشتار، تصویر، ویدیو، و محتوای دیگر ارائه می‌دهد. سپس می‌توان از این جاسازی‌های حاصل برای کارهایی
-مثل جستجوی معنایی، طبقه‌بندی، و دسته‌بندی استفاده کرد و نتایج دقیق‌تر و
-آگاه به زمینه‌ای نسبت‌به رویکردهای مبتنی بر کلیدواژه ارائه داد.
+Gemini API menawarkan model embedding untuk menghasilkan embedding untuk teks, gambar, video, dan konten lainnya. Embedding yang dihasilkan ini kemudian dapat digunakan untuk tugas seperti penelusuran semantik, klasifikasi, dan pengelompokan, sehingga memberikan hasil yang lebih akurat dan sesuai konteks daripada pendekatan berbasis kata kunci.
 
-جدیدترین مدل، `gemini-embedding-2`، اولین مدل جاسازی چندوجهی در Gemini API است. این مدل نوشتار، تصاویر، ویدیو، صدا، و اسناد را در فضای جاسازی یکپارچه نقشه‌برداری می‌کند و امکان جستجو، طبقه‌بندی، و خوشه‌بندی بین‌وجهی را در بیش‌از ۱۰۰ زبان فراهم می‌کند. برای اطلاعات بیشتر، به
-[بخش جاسازی‌های چندوجهی](#multimodal) مراجعه کنید. برای موارد استفاده فقط نوشتاری،
-`gemini-embedding-001` دردسترس باقی می‌ماند.
+Model terbaru, `gemini-embedding-2`, adalah model penyematan multimodal pertama di Gemini API. Model ini memetakan teks, gambar, video, audio, dan dokumen ke dalam ruang embedding terpadu, sehingga memungkinkan penelusuran, klasifikasi, dan pengelompokan lintas modal dalam lebih dari 100 bahasa. Lihat
+[bagian embedding multimodal](#multimodal) untuk mempelajari lebih lanjut. Untuk kasus penggunaan hanya teks, `gemini-embedding-001` tetap tersedia.
 
-ساختن سیستم‌های «تولید با کمک بازیابی» (RAG) یک مورد استفاده رایج برای محصولات هوش مصنوعی است. جاسازی‌ها نقش کلیدی در بهبود قابل‌توجه بروندادهای مدل با دقت واقعی، انسجام، و غنای زمینه‌ای بهبودیافته دارند. اگر ترجیح می‌دهید از راهکار RAG مدیریت‌شده استفاده کنید، ابزار [جستجوی فایل](https://ai.google.dev/gemini-api/docs/file-search?hl=fa)
-را ساخته‌ایم که مدیریت RAG را آسان‌تر و مقرون‌به‌صرفه‌تر می‌کند.
+Membangun sistem Retrieval Augmented Generation (RAG) adalah kasus penggunaan umum untuk produk AI. Penyematan memainkan peran penting dalam meningkatkan output model secara signifikan dengan akurasi faktual, koherensi, dan kekayaan kontekstual yang lebih baik. Jika Anda lebih memilih menggunakan solusi RAG terkelola, kami membuat alat [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) yang mempermudah pengelolaan RAG dan lebih hemat biaya.
 
-## درحال تولید جاسازی‌ها
+## Membuat embedding
 
-از روش `embedContent` برای تولید جاسازی‌های نوشتاری استفاده کنید:
+Gunakan metode `embedContent` untuk membuat embedding teks:
 
 ### Python
 
@@ -68,7 +64,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -82,7 +78,7 @@ EmbedContentResponse response =
 System.out.println(response.embeddings().orElse(null));
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -139,33 +135,33 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## نوع تکلیف را مشخص کنید تا عملکرد بهبود یابد
+## Menentukan jenis tugas untuk meningkatkan performa
 
-می‌توانید از جاسازی‌ها برای طیف وسیعی از کارها، از طبقه‌بندی گرفته تا جستجوی سند، استفاده کنید. مشخص کردن نوع وظیفه صحیح به بهینه‌سازی جاسازی‌ها برای روابط موردنظر کمک می‌کند و دقت و کارایی را به حداکثر می‌رساند.
+Anda dapat menggunakan embedding untuk berbagai tugas, mulai dari klasifikasi hingga penelusuran dokumen. Menentukan jenis tugas yang tepat akan membantu mengoptimalkan penyematan untuk hubungan yang diinginkan, sehingga memaksimalkan akurasi dan efisiensi.
 
-### انواع تکلیف با «جاسازی‌ها ۲»
+### Jenis tugas dengan Embeddings 2
 
-برای تکالیف فقط نوشتاری با `gemini-embedding-2`، قویاً توصیه می‌کنیم
-دستورالعمل تکلیف را به پیام‌واره‌تان اضافه کنید. این کار را می‌توان با قالب‌بندی کردن
-پُرسمان و سند با پیشوند تکلیف صحیح انجام داد.
+Untuk tugas hanya teks dengan `gemini-embedding-2`, sebaiknya Anda
+menambahkan petunjuk tugas dalam perintah Anda. Hal ini dapat dilakukan dengan memformat kueri dan dokumen dengan awalan tugas yang benar.
 
-هنگام تولید [تک‌نهاد براساس ورودی چندوجهی](#embedding-aggregation)، معمولاً توصیه نمی‌کنیم بخش نوشتاری ورودی را با دستورالعمل تکلیف پیشوندگذاری کنید. در برخی موارد، عملکرد را بهبود می‌بخشد، اما در موارد دیگر، عملکرد را کاهش می‌دهد.
+Saat membuat [satu embedding berdasarkan input multimodal](#embedding-aggregation), umumnya kami tidak merekomendasikan pemberian awalan pada bagian teks input dengan petunjuk tugas. Dalam beberapa kasus, hal ini meningkatkan
+performa, tetapi dalam kasus lain, hal ini mengurangi performa.
 
-جدول‌های زیر نمونه‌هایی از نحوه قالب‌بندی پُرسمان‌ها و اسناد برای
-موارد استفاده متقارن و نامتقارن بااستفاده از مدل `gemini-embedding-2` را نشان می‌دهد.
+Tabel berikut menunjukkan contoh cara memformat kueri dan dokumen untuk
+kasus penggunaan simetris dan asimetris menggunakan model `gemini-embedding-2`.
 
-**کاربردهای بازیابی (قالب نامتقارن)**
+**Kasus penggunaan pengambilan (Format asimetris)**
 
-در موارد استفاده نامتقارن، پیشوند تکلیف را به پُرسمان اضافه کنید و ساختار سند را برای محتوایی که می‌خواهید جاسازی و بازیابی کنید اعمال کنید.
+Dalam kasus penggunaan asimetris, tambahkan awalan tugas ke kueri dan terapkan struktur dokumen untuk konten yang ingin Anda sematkan dan ambil.
 
-| کاربرد | ساختار پُرسمان | ساختار سند |
+| Kasus penggunaan | Struktur kueri | Struktur dokumen |
 | --- | --- | --- |
-| درخواست جستجو | `task: search result | query: {content}` | `title: {title} | text: {content}` اگر عنوان وجود ندارد، از `title: none` استفاده کنید. |
-| پاسخ به سؤال | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
-| راستی‌آزمایی خبر | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
-| بازیابی کد | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
+| Kueri penelusuran | `task: search result | query: {content}` | `title: {title} | text: {content}` Jika tidak ada judul, gunakan `title: none`. |
+| Question answering | `task: question answering | query: {content}` | `title: {title} | text: {content}` |
+| Pengecekan fakta | `task: fact checking | query: {content}` | `title: {title} | text: {content}` |
+| Pengambilan kode | `task: code retrieval | query: {content}` | `title: {title} | text: {content}` |
 
-**مثال استفاده**
+**Contoh penggunaan**
 
 ### Python
 
@@ -184,17 +180,17 @@ def prepare_document(content, title=None):
     return f"title: {title} | text: {content}"
 ```
 
-**کاربردهای تک‌ورودی (قالب متقارن)**
+**Kasus penggunaan input tunggal (Format simetris)**
 
-در موارد استفاده متقارن، برای یک تکلیف یکسان، از قالب‌بندی یکسان برای پُرسمان و سند استفاده کنید.
+Dalam kasus penggunaan simetris, untuk tugas yang sama, gunakan format yang sama untuk kueri dan dokumen.
 
-| کاربرد | ساختار ورودی |
+| Kasus penggunaan | Struktur input |
 | --- | --- |
-| رده‌بندی | `task: classification | query: {content}` |
-| دسته‌بندی | `task: clustering | query: {content}` |
-| تشابه معنایی | `task: sentence similarity | query: {content}` از این برای جستجو یا بازیابی استفاده نکنید. این مدل برای شباهت معنایی نوشتار درنظر گرفته شده است. |
+| Klasifikasi | `task: classification | query: {content}` |
+| Pengelompokan | `task: clustering | query: {content}` |
+| Kemiripan semantik | `task: sentence similarity | query: {content}` Jangan gunakan ini untuk penelusuran atau pengambilan. Tujuannya adalah untuk kemiripan tekstual semantik. |
 
-**مثال استفاده**
+**Contoh penggunaan**
 
 ### Python
 
@@ -206,14 +202,13 @@ def prepare_query_and_document(content):
     return f'task: classification | query: {content}'
 ```
 
-مهم است که تکلیف به‌طور مداوم استفاده شود. برای مثال، اگر اسناد با `f'task: classification | query: {content}'` جاسازی شده‌اند، پُرسمان نیز باید با پیروی از این قالب تکلیف جاسازی شود.
+Penting agar tugas digunakan secara konsisten. Misalnya, jika dokumen disematkan dengan `f'task: classification | query: {content}'`, kueri juga harus disematkan mengikuti format tugas ini.
 
-### انواع تکلیف با «جاسازی‌ها ۱»
+### Jenis tugas dengan Embeddings 1
 
-برای `gemini-embedding-001`، می‌توانید `task_type` را در روش `embedContent`
-مشخص کنید. برای فهرست کامل انواع تکلیف پشتیبانی‌شده، جدول [انواع تکلیف پشتیبانی‌شده](#supported-task-types) را ببینید.
+Untuk `gemini-embedding-001`, Anda dapat menentukan `task_type` dalam metode `embedContent`. Untuk mengetahui daftar lengkap jenis tugas yang didukung, lihat tabel [Jenis tugas yang didukung](#supported-task-types).
 
-مثال زیر نشان می‌دهد که چگونه می‌توانید از `SEMANTIC_SIMILARITY` برای بررسی میزان شباهت معنایی رشته‌های نوشتاری استفاده کنید.
+Contoh berikut menunjukkan cara menggunakan `SEMANTIC_SIMILARITY` untuk memeriksa seberapa mirip makna string teks.
 
 ### Python
 
@@ -284,7 +279,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import java.util.Arrays;
@@ -329,7 +324,7 @@ for (int i = 0; i < texts.size(); i++) {
 }
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -420,32 +415,34 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-0
     }'
 ```
 
-تکه‌کدهای نشان می‌دهد که بخش‌های مختلف نوشتار هنگام اجرا چقدر به یکدیگر شبیه‌اند.
+Cuplikan kode akan menunjukkan seberapa mirip berbagai bagian teks satu sama lain saat dijalankan.
 
-#### انواع تکلیف پشتیبانی‌شده
+#### Jenis tugas yang didukung
 
-انواع تکلیف پشتیبانی‌شده برای `gemini-embedding-001`:
+Jenis tugas yang didukung untuk `gemini-embedding-001`:
 
-| نوع تکلیف | شرح | مثال‌ها |
+| Jenis tugas | Deskripsi | Contoh |
 | --- | --- | --- |
-| **SEMANTIC\_SIMILARITY** | جاسازی‌ها برای ارزیابی شباهت نوشتار بهینه‌سازی شده است. | سیستم‌های توصیه، تشخیص محتوای تکراری |
-| **طبقه‌بندی** | جاسازی‌ها برای طبقه‌بندی نوشتارها براساس برچسب‌های پیش‌تنظیم‌شده بهینه‌سازی شده است. | تحلیل احساسات، تشخیص هرزنامه |
-| **خوشه‌بندی** | جاسازی‌هایی که برای دسته‌بندی نوشتارها براساس شباهت‌هایشان بهینه‌سازی شده است. | سازمان‌دهی سند، پژوهش بازار، تشخیص ناهنجاری |
-| **RETRIEVAL\_DOCUMENT** | جاسازی‌های بهینه‌سازی‌شده برای جستجوی سند. | نمایه‌گذاری مقاله‌ها، کتاب‌ها، یا صفحه‌های وب برای جستجو. |
-| **RETRIEVAL\_QUERY** | جاسازی‌های بهینه‌سازی‌شده برای پُرسمان‌های جستجوی عمومی. از `RETRIEVAL_QUERY` برای پُرسمان‌ها؛ `RETRIEVAL_DOCUMENT` برای سندهایی که باید بازیابی شوند استفاده کنید. | جستجوی سفارشی |
-| **CODE\_RETRIEVAL\_QUERY** | جاسازی‌های بهینه‌سازی‌شده برای بازیابی بلوک‌های کد براساس پُرسمان‌های زبان طبیعی. از `CODE_RETRIEVAL_QUERY` برای پُرسمان‌ها و از `RETRIEVAL_DOCUMENT` برای بلوک‌های کد بازیابی‌شده استفاده کنید. | پیشنهادها و جستجوی کد |
-| **QUESTION\_ANSWERING** | جاسازی برای پرسش‌ها در سیستم پرسش و پاسخ، بهینه‌سازی‌شده برای یافتن اسنادی که به پرسش پاسخ می‌دهند. از `QUESTION_ANSWERING` برای سؤالات و از `RETRIEVAL_DOCUMENT` برای اسنادی که باید بازیابی شوند استفاده کنید. | کادر گپ |
-| **FACT\_VERIFICATION** | جاسازی برای بیانیه‌هایی که باید درستی‌سنجی شوند، بهینه‌سازی‌شده برای بازیابی اسنادی که حاوی شواهدی برای تأیید یا رد بیانیه هستند. از `FACT_VERIFICATION` برای نوشتار هدف؛ `RETRIEVAL_DOCUMENT` برای اسنادی که باید بازیابی شوند استفاده کنید | سیستم‌های خودکار راستی‌آزمایی |
+| **SEMANTIC\_SIMILARITY** | Embedding yang dioptimalkan untuk menilai kemiripan teks. | Sistem rekomendasi, deteksi duplikat |
+| **KLASIFIKASI** | Penyematan dioptimalkan untuk mengklasifikasikan teks menurut label preset. | Analisis sentimen, deteksi spam |
+| **PENGELOMPOKAN** | Embedding dioptimalkan untuk mengelompokkan teks berdasarkan kemiripannya. | Pengaturan dokumen, riset pasar, deteksi anomali |
+| **RETRIEVAL\_DOCUMENT** | Embedding yang dioptimalkan untuk penelusuran dokumen. | Mengindeks artikel, buku, atau halaman web untuk penelusuran. |
+| **RETRIEVAL\_QUERY** | Penyematan yang dioptimalkan untuk kueri penelusuran umum. Gunakan `RETRIEVAL_QUERY` untuk kueri; `RETRIEVAL_DOCUMENT` untuk dokumen yang akan diambil. | Penelusuran khusus |
+| **CODE\_RETRIEVAL\_QUERY** | Embedding yang dioptimalkan untuk pengambilan blok kode berdasarkan kueri bahasa alami. Gunakan `CODE_RETRIEVAL_QUERY` untuk kueri; `RETRIEVAL_DOCUMENT` untuk blok kode yang akan diambil. | Saran dan penelusuran kode |
+| **QUESTION\_ANSWERING** | Penyematan untuk pertanyaan dalam sistem tanya jawab, yang dioptimalkan untuk menemukan dokumen yang menjawab pertanyaan. Gunakan `QUESTION_ANSWERING` untuk pertanyaan; `RETRIEVAL_DOCUMENT` untuk dokumen yang akan diambil. | Kotak chat |
+| **FACT\_VERIFICATION** | Penyematan untuk pernyataan yang perlu diverifikasi, dioptimalkan untuk mengambil dokumen yang berisi bukti yang mendukung atau menyangkal pernyataan tersebut. Gunakan `FACT_VERIFICATION` untuk teks target; `RETRIEVAL_DOCUMENT` untuk dokumen yang akan diambil | Sistem pengecekan fakta otomatis |
 
-## کنترل اندازه جاسازی
+## Mengontrol ukuran penyematan
 
-هم `gemini-embedding-001` و هم `gemini-embedding-2` بااستفاده از
-تکنیک «یادگیری نمایش ماتریوشکا» (MRL) آموزش داده می‌شوند که به مدل آموزش می‌دهد
-تا جاسازی‌های با ابعاد بالا را یاد بگیرد که بخش‌های اولیه (یا پیشوندها) دارند که
-نسخه‌های مفیدتر و ساده‌تر از همان داده‌ها هستند.
+`gemini-embedding-001` dan `gemini-embedding-2` dilatih menggunakan
+teknik Matryoshka Representation Learning (MRL) yang mengajarkan model untuk
+mempelajari sematan berdimensi tinggi yang memiliki segmen awal (atau awalan) yang
+juga merupakan versi data yang sama yang berguna dan lebih sederhana.
 
-از پارامتر `output_dimensionality` برای کنترل اندازه
-بردار جاسازی برونداد استفاده کنید. انتخاب بُعد خروجی کوچک‌تر می‌تواند فضای ذخیره‌سازی را ذخیره کند و کارایی محاسباتی را برای برنامه‌های پایین‌دستی افزایش دهد، درحالی‌که ازنظر کیفیت کمی فداکاری می‌کند. به‌طور پیش‌فرض، هر دو مدل جاسازی ۳۰۷۲ بُعدی تولید می‌کنند، اما می‌توانید آن را بدون ازدست دادن کیفیت به اندازه کوچکتری برش دهید تا فضای ذخیره‌سازی را ذخیره کنید. توصیه می‌کنیم از ابعاد خروجی ۷۶۸، ۱۵۳۶، یا ۳۰۷۲ استفاده کنید.
+Gunakan parameter `output_dimensionality` untuk mengontrol ukuran
+vektor sematan output. Memilih dimensi output yang lebih kecil dapat menghemat
+ruang penyimpanan dan meningkatkan efisiensi komputasi untuk aplikasi hilir,
+sekaligus sedikit mengorbankan kualitas. Secara default, kedua model menghasilkan sematan 3072 dimensi, tetapi Anda dapat memangkasnya ke ukuran yang lebih kecil tanpa mengurangi kualitas untuk menghemat ruang penyimpanan. Sebaiknya gunakan dimensi output 768, 1536, atau 3072.
 
 ### Python
 
@@ -488,7 +485,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -510,7 +507,7 @@ int embeddingLength = embeddingObj.values().get().size();
 System.out.println("Length of embedding: " + embeddingLength);
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -564,19 +561,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-emb
     }'
 ```
 
-نمونه برونداد از تکه‌کد:
+Contoh output dari cuplikan kode:
 
 ```
 Length of embedding: 768
 ```
 
-## تضمین کیفیت برای ابعاد کوچک‌تر
+## Memastikan kualitas untuk dimensi yang lebih kecil
 
-درحالی‌که جاسازی‌های پیش‌فرض ۳۰۷۲ بُعدی همیشه نرمال‌سازی می‌شوند، Gemini
-Embedding 2 ابعاد کوتاه شده (مثلاً ۷۶۸، ۱۵۳۶) را نیز به‌طور خودکار نرمال‌سازی می‌کند. این کار تضمین می‌کند که شباهت معنایی ازطریق جهت بردار محاسبه شود نه
-اندازه، و نتایج دقیق‌تری را به‌طور پیش‌فرض ارائه می‌دهد.
+Meskipun embedding 3072 dimensi default selalu dinormalisasi, Gemini Embedding 2 juga menormalisasi dimensi yang dipangkas secara otomatis (misalnya, 768, 1536). Hal ini memastikan kemiripan semantik dihitung melalui arah vektor, bukan besarnya, sehingga memberikan hasil yang lebih akurat secara langsung.
 
-**مدل‌های قدیمی‌تر**: اگر از `gemini-embedding-001` استفاده می‌کنید، باید ابعاد غیر۳۰۷۲ را به‌صورت دستی و به روش زیر عادی‌سازی کنید:
+**Model Lama**: Jika Anda menggunakan `gemini-embedding-001`, Anda harus menormalisasi dimensi non-3072 secara manual sebagai berikut:
 
 ### Python
 
@@ -592,51 +587,48 @@ print(f"Normed embedding length: {len(normed_embedding)}")
 print(f"Norm of normed embedding: {np.linalg.norm(normed_embedding):.6f}") # Should be very close to 1
 ```
 
-نمونه برونداد از این تکه‌کد:
+Contoh output dari cuplikan kode ini:
 
 ```
 Normed embedding length: 768
 Norm of normed embedding: 1.000000
 ```
 
-جدول زیر نمره‌های MTEB را نشان می‌دهد که یک معیار رایج برای جاسازی‌ها در ابعاد مختلف است. به‌طور قابل‌توجهی، نتیجه نشان می‌دهد که عملکرد
-به‌طور دقیق به اندازه بُعد جاسازی مرتبط نیست، به‌طوری‌که
-ابعاد پایین‌تر به امتیازهایی قابل‌مقایسه با همتایان بُعد بالاتر خود دست می‌یابند.
+Tabel berikut menunjukkan skor MTEB, tolok ukur yang umum digunakan untuk
+embedding, untuk dimensi yang berbeda. Khususnya, hasilnya menunjukkan bahwa performa tidak terikat secara ketat dengan ukuran dimensi embedding, dengan dimensi yang lebih rendah mencapai skor yang sebanding dengan dimensi yang lebih tinggi.
 
-| ابعاد MRL | امتیاز MTEB (Gemini Embedding 001) |
+| Dimensi MRL | Skor MTEB (Gemini Embedding 001) |
 | --- | --- |
-| ۲۰۴۸ | ۶۸.۱۶ |
-| 1536 | ۶۸.۱۷ |
-| 768 | ۶۷.۹۹ |
-| 512 | ۶۷.۵۵ |
-| 256 | ۶۶.۱۹ |
-| 128 | ۶۳.۳۱ |
+| 2048 | 68.16 |
+| 1536 | 68,17 |
+| 768 | 67,99 |
+| 512 | 67,55 |
+| 256 | 66,19 |
+| 128 | 63,31 |
 
-## جاسازی‌های چندحالته
+## Embedding multimodal
 
-مدل `gemini-embedding-2` از ورودی چندحالته پشتیبانی می‌کند و به شما امکان می‌دهد
-محتوای تصویر، ویدیو، صدا، و سند را در کنار نوشتار جاسازی کنید. همه روش‌ها
-در فضای جاسازی یکسانی نگاشت می‌شوند و جستجو و
-مقایسه بین روش‌ها را ممکن می‌کنند.
+Model `gemini-embedding-2` mendukung input multimodal, sehingga Anda dapat menyematkan konten gambar, video, audio, dan dokumen bersama teks. Semua modalitas dipetakan ke ruang penyematan yang sama, sehingga memungkinkan penelusuran dan perbandingan lintas modalitas.
 
-### روش‌های پشتیبانی‌شده و محدودیت‌ها
+### Modalitas dan batas yang didukung
 
-حداکثر محدودیت کلی برای نشانه‌های ورودی ۸۱۹۲ نشانه است.
+Batas token input maksimum secara keseluruhan adalah 8.192 token.
 
-| ماهیت | مشخصات و محدودیت‌ها |
+| Metode | Spesifikasi dan batasan |
 | --- | --- |
-| **نوشتار** | تا ۸٬۱۹۲ واحد را پشتیبانی می‌کند. |
-| **تصویر** | حداکثر ۶ تصویر در هر درخواست. قالب‌های پشتیبانی‌شده: PNG،‏ JPEG. |
-| **صدا** | حداکثر مدت ۱۸۰ ثانیه. قالب‌های پشتیبانی‌شده: MP3،‏ WAV. |
-| **ویدیو** | حداکثر مدت ۱۲۰ ثانیه. قالب‌های پشتیبانی‌شده: MP4،‏ MOV. کدک‌های پشتیبانی‌شده: H264،‏ H265،‏ AV1،‏ VP9.  سیستم حداکثر ۳۲ فریم در هر ویدیو را پردازش می‌کند: ویدیوهای کوتاه (≤۳۲ ثانیه) با نرخ ۱ فریم در ثانیه نمونه‌برداری می‌شوند، درحالی‌که ویدیوهای طولانی‌تر به‌طور یکنواخت تا ۳۲ فریم نمونه‌برداری می‌شوند. قطعه‌های صوتی در فایل‌های ویدیویی پردازش نمی‌شوند. |
-| **سندها (PDF)** | حداکثر ۱ فایل در هر درخواست، حداکثر ۶ صفحه. |
+| **Teks** | Mendukung hingga 8.192 token. |
+| **Gambar** | Maksimum 6 gambar per permintaan. Format yang didukung: PNG, JPEG. |
+| **Audio** | Durasi maksimum 180 detik. Format yang didukung: MP3, WAV. |
+| **Video** | Durasi maksimum 120 detik. Format yang didukung: MP4, MOV. Codec yang didukung: H264, H265, AV1, VP9.  Sistem memproses maksimum 32 frame per video: video pendek (≤32 detik) diambil sampelnya pada 1 fps, sedangkan video yang lebih panjang diambil sampelnya secara seragam hingga 32 frame. Trek audio tidak diproses dalam file video. |
+| **Dokumen (PDF)** | Maksimum 1 file per permintaan, hingga 6 halaman. |
 
-### درحال جاسازی تصاویر
+### Menyematkan gambar
 
-مثال زیر نحوه جاسازی تصویر بااستفاده از
-`gemini-embedding-2` را نشان می‌دهد.
+Contoh berikut menunjukkan cara menyematkan gambar menggunakan
+`gemini-embedding-2`.
 
-تصاویر را می‌توان به‌صورت داده‌های درون‌خطی یا به‌صورت فایل‌های بارگذاری‌شده ازطریق [میانای برنامه‌سازی کاربردی فایل‌ها](https://ai.google.dev/gemini-api/docs/files?hl=fa) ارائه کرد.
+Gambar dapat diberikan sebagai data inline atau sebagai file yang diupload
+melalui [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
 ### Python
 
@@ -689,7 +681,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -732,17 +724,19 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### انبوهش جاسازی
+### Agregasi penyematan
 
-وقتی با محتوای چندوجهی کار می‌کنید، نحوه ساختاربندی ورودی شما بر
-برونداد جاسازی تأثیر می‌گذارد:
+Saat bekerja dengan konten multimodal, cara Anda menyusun input akan memengaruhi output embedding:
 
-- **چند بخش (تجمیع‌شده):** افزودن چندین ورودی مستقیماً به پارامتر
-  `contents` یک جاسازی تجمیع‌شده برای همه ورودی‌ها تولید می‌کند.
-- **چندین شیء `Content` (جداگانه):** پیچیدن هر ورودی در شیء `Content` و عبور دادن آن‌ها در پارامتر `contents` جاسازی‌های جداگانه برای هر ورودی برمی‌گرداند.
-- **نمایش سطح پست:** برای اشیای پیچیده مثل پست‌های رسانه‌های اجتماعی با چندین عنصر رسانه‌ای، توصیه می‌کنیم جاسازی‌های جداگانه را با هم ترکیب کنید (برای مثال، با میانگین‌گیری) تا نمایش سطح پست منسجمی ایجاد کنید.
+- **Beberapa bagian (digabungkan):** Menambahkan beberapa input langsung ke parameter
+  `contents` akan menghasilkan satu penyematan gabungan untuk semua input.
+- **Beberapa objek `Content` (terpisah):** Membungkus setiap input dalam objek
+  `Content` dan meneruskannya dalam parameter `contents` akan menampilkan
+  embedding terpisah untuk setiap entri.
+- **Representasi tingkat postingan:** Untuk objek kompleks seperti postingan media sosial dengan beberapa item media, sebaiknya gabungkan embedding terpisah (misalnya, dengan menghitung rata-rata) untuk membuat representasi tingkat postingan yang koheren.
 
-مثال زیر نحوه ایجاد یک جاسازی تجمیعی برای ورودی نوشتار و تصویر را نشان می‌دهد. به‌سادگی ورودی‌های متعددی را به پارامتر `contents` اضافه کنید:
+Contoh berikut menunjukkan cara membuat satu embedding gabungan untuk input teks dan
+gambar. Cukup tambahkan beberapa input ke parameter `contents`:
 
 ### Python
 
@@ -804,7 +798,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -858,8 +852,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-ازطرف دیگر، اگر از `Content` شیء در پارامتر `contents` استفاده کنید،
-چند جاسازی جداگانه برمی‌گرداند. این مثال چندین جاسازی را در یک فراخوانی جاسازی ایجاد می‌کند:
+Di sisi lain, jika Anda menggunakan objek `Content` di dalam parameter `contents`,
+objek tersebut akan menampilkan penyematan terpisah. Contoh ini membuat beberapa embedding dalam satu
+panggilan embedding:
 
 ### Python
 
@@ -927,7 +922,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import java.util.Arrays;
@@ -983,12 +978,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### درحال جاسازی صدا
+### Menyematkan audio
 
-مثال زیر نحوه جاسازی فایل صوتی بااستفاده از
-`gemini-embedding-2` را نشان می‌دهد.
+Contoh berikut menunjukkan cara menyematkan file audio menggunakan
+`gemini-embedding-2`.
 
-فایل‌های صوتی را می‌توان به‌صورت داده‌های درون‌خطی یا به‌صورت فایل‌های بارگذاری‌شده ازطریق [میانای برنامه‌سازی کاربردی فایل‌ها](https://ai.google.dev/gemini-api/docs/files?hl=fa) ارائه کرد.
+File audio dapat diberikan sebagai data inline atau sebagai file yang diupload
+melalui [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
 ### Python
 
@@ -1041,7 +1037,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1084,12 +1080,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-### درحال جاسازی ویدیو
+### Menyematkan video
 
-مثال زیر نحوه جاسازی ویدیو بااستفاده از
-`gemini-embedding-2` را نشان می‌دهد.
+Contoh berikut menunjukkan cara menyematkan video menggunakan
+`gemini-embedding-2`.
 
-ویدیوها را می‌توان به‌عنوان داده‌های درون‌خطی یا به‌عنوان فایل‌های بارگذاری‌شده ازطریق [Files API](https://ai.google.dev/gemini-api/docs/files?hl=fa) ارائه کرد.
+Video dapat diberikan sebagai data inline atau sebagai file yang diupload
+melalui [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
 ### Python
 
@@ -1142,7 +1139,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1187,30 +1184,31 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-اگر نیاز به جاسازی ویدیوهای >120 ثانیه دارید، می‌توانید ویدیو را به
-بخش‌های هم‌پوشان تقسیم کنید و آن بخش‌ها را به‌صورت جداگانه جاسازی کنید.
+Jika perlu menyematkan video yang berdurasi >120 detik, Anda dapat membagi video menjadi segmen yang tumpang-tindih dan menyematkan setiap segmen secara terpisah.
 
-### درحال جاسازی سندها
+### Menyematkan dokumen
 
-اسناد در قالب PDF را می‌توان مستقیماً جاسازی کرد. این مدل محتوای تصویری و نوشتاری هر صفحه را پردازش می‌کند.
+Dokumen dalam format PDF dapat disematkan secara langsung. Model memproses konten visual dan teks
+setiap halaman.
 
-فایل‌های PDF را می‌توان به‌عنوان داده‌های درون‌خطی یا به‌عنوان فایل‌های بارگذاری‌شده ازطریق [میانای برنامه‌سازی کاربردی فایل‌ها](https://ai.google.dev/gemini-api/docs/files?hl=fa) ارائه کرد.
+PDF dapat diberikan sebagai data inline atau sebagai file yang diupload
+melalui [Files API](https://ai.google.dev/gemini-api/docs/files?hl=id).
 
-#### نحوه پردازش فایل‌های PDF توسط مدل
+#### Cara model memproses PDF
 
-وقتی فایل PDF را جاسازی می‌کنید، مدل سند را بااستفاده از ویژگی‌های دیداری و نوشتاری پردازش می‌کند:
+Saat Anda menyematkan PDF, model akan memproses dokumen menggunakan fitur visual dan teks:
 
-- **نمایش تصویری:** مدل هر صفحه را به‌صورت تصویر پردازش می‌کند که در هر صفحه **۲۵۸ کد** مصرف می‌کند.
-- **استخراج نوشتار:** مدل نوشتار را از سند استخراج می‌کند. برای **فایل‌های PDF بومی** (که حاوی نوشتار دیجیتال هستند)، مدل نوشتار را مستقیماً استخراج می‌کند. برای **فایل‌های PDF اسکن‌شده** (که حاوی تصاویر نوشتار هستند)، مدل به‌طور خودکار «تشخیص نویسه نوری» (OCR) را اجرا می‌کند تا نوشتار را استخراج کند.
+- **Representasi visual:** Model merender setiap halaman sebagai gambar, yang menggunakan **258 token** per halaman.
+- **Ekstraksi teks:** Model mengekstrak teks dari dokumen. Untuk **PDF native** (yang berisi teks digital), model akan mengekstrak teks secara langsung. Untuk **PDF hasil pindaian** (yang berisi gambar teks), model akan otomatis menjalankan pengenalan karakter optik (OCR) untuk mengekstrak teks.
 
-برای محاسبه تعداد کل نشان‌ها برای یک PDF، نشان‌های تصویری (۲۵۸ نشان در هر صفحه) را به نشان‌های نوشتاری اضافه کنید. ورودی‌های شما باید در **حد مجاز ۸٬۱۹۲ واحد کد** مدل (که بین همه روش‌ها هم‌رسانی می‌شود) جای بگیرد. سیستم به‌طور بی‌صدا ورودی‌هایی را که از این حد فراتر می‌روند کوتاه می‌کند.
+Untuk menghitung jumlah total token untuk PDF, tambahkan token visual (258 per halaman) ke token teks. Input Anda harus sesuai dengan **batas token 8.192** model (dibagikan di semua modalitas). Sistem akan memangkas input yang melebihi batas ini tanpa pemberitahuan.
 
-#### محدودیت‌های PDF
+#### Batas PDF
 
-- **فایل‌ها در هر درخواست:** می‌توانید حداکثر ۱ فایل PDF ارسال کنید.
-- **محدودیت صفحه:** می‌توانید حداکثر ۶ صفحه در هر فایل ارسال کنید. برای بهترین کیفیت، اکیداً توصیه می‌کنیم از ۱ صفحه در هر PDF استفاده کنید.
+- **File per permintaan:** Anda dapat mengirimkan maksimum 1 file PDF.
+- **Batas halaman:** Anda dapat mengirimkan maksimum 6 halaman per file. Untuk kualitas terbaik, sebaiknya gunakan 1 halaman per PDF.
 
-مثال زیر نحوه جاسازی PDF بااستفاده از `gemini-embedding-2` را نشان می‌دهد:
+Contoh berikut menunjukkan cara menyematkan PDF menggunakan `gemini-embedding-2`:
 
 ### Python
 
@@ -1263,7 +1261,7 @@ async function main() {
 main();
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1306,120 +1304,117 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-2
     }'
 ```
 
-## موارد استفاده
+## Kasus penggunaan
 
-جاسازی‌های متن برای انواع موارد استفاده رایج هوش مصنوعی، مانند موارد زیر، حیاتی است:
+Embedding teks sangat penting untuk berbagai kasus penggunaan AI umum, seperti:
 
-- **تولید با کمک بازیابی (RAG):** جاسازی‌ها با بازیابی و گنجاندن اطلاعات مرتبط در بافت مدل، کیفیت نوشتار تولیدشده را بهبود می‌بخشند.
-- **بازیابی اطلاعات:** جستجوی متن یا
-  اسناد با بیشترین شباهت معنایی با یک قطعه متن ورودی.
+- **Retrieval-Augmented Generation (RAG):** Embedding meningkatkan kualitas teks yang dihasilkan dengan mengambil dan menggabungkan informasi yang relevan ke dalam konteks model.
+- **Pengambilan informasi:** Menelusuri teks atau dokumen yang paling mirip secara semantik dengan teks input tertentu.
 
-  [آموزش گام‌به‌گام جستجوی سندtask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
-- **رتبه‌بندی مجدد جستجو**: با امتیازدهی معنایی نتایج اولیه دربرابر پُرسمان، مرتبط‌ترین موارد را در اولویت قرار دهید.
+  [Tutorial penelusuran dokumentask](https://github.com/google-gemini/cookbook/blob/main/examples/Talk_to_documents_with_embeddings.ipynb)
+- **Pengurutan ulang penelusuran**: Memprioritaskan item yang paling relevan dengan memberi skor semantik pada hasil awal terhadap kueri.
 
-  [آموزش گام‌به‌گام رتبه‌بندی مجدد جستجوtask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
-- **تشخیص ناهنجاری:** مقایسه گروه‌های جاسازی می‌تواند به شناسایی گرایش‌های پنهان یا داده‌های دورافتاده کمک کند.
+  [Tutorial penyesuaian peringkat penelusurantask](https://github.com/google-gemini/cookbook/blob/main/examples/Search_reranking_using_embeddings.ipynb)
+- **Deteksi anomali:** Membandingkan grup embedding dapat membantu mengidentifikasi tren atau pencilan tersembunyi.
 
-  [آموزش گام‌به‌گام تشخیص ناهنجاریbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
-- **طبقه‌بندی:** نوشتار را براساس محتوایش به‌طور خودکار طبقه‌بندی کنید،
-  برای نمونه، تحلیل احساسات یا تشخیص هرزنامه
+  [Tutorial deteksi anomalibubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/Anomaly_detection_with_embeddings.ipynb)
+- **Klasifikasi:** Mengategorikan teks secara otomatis berdasarkan kontennya, seperti analisis sentimen atau deteksi spam
 
-  [آموزش طبقه‌بندیtoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
-- **خوشه‌بندی:** با ایجاد خوشه‌ها و دیداری‌سازی‌های جاسازی‌ها، روابط پیچیده را به‌طور مؤثر درک کنید.
+  [Tutorial klasifikasitoken](https://github.com/google-gemini/cookbook/blob/main/examples/Classify_text_with_embeddings.ipynb)
+- **Pengelompokan:** Pahami hubungan yang kompleks secara efektif dengan membuat cluster dan visualisasi embedding Anda.
 
-  [آموزش گام‌به‌گام مصورسازی خوشه‌ایbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
+  [Tutorial visualisasi pengelompokanbubble\_chart](https://github.com/google-gemini/cookbook/blob/main/examples/clustering_with_embeddings.ipynb)
 
-## ذخیره کردن جاسازی‌ها
+## Menyimpan embedding
 
-وقتی جاسازی‌ها را به تولید می‌برید، معمولاً از **پایگاه‌های داده برداری** برای ذخیره، نمایه‌گذاری، و بازیابی کارآمد جاسازی‌های با ابعاد بالا استفاده می‌شود. ‫Google Cloud خدمات داده مدیریت‌شده‌ای ارائه می‌دهد که
-می‌تواند برای این هدف استفاده شود، ازجمله
-[جستجوی برداری پلاتفرم عامل Gemini Enterprise نسخه ۲.۰](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview?hl=fa)،
-[BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=fa)،
-[AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=fa)، و
-[Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=fa).
+Saat Anda menggunakan embedding dalam produksi, biasanya Anda akan menggunakan **database vektor** untuk menyimpan, mengindeks, dan mengambil embedding berdimensi tinggi secara efisien. Google Cloud menawarkan layanan data terkelola yang dapat digunakan untuk tujuan ini, termasuk [Gemini Enterprise Agent Platform Penelusuran Vektor 2.0](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/vector-search-2/overview?hl=id), [BigQuery](https://cloud.google.com/bigquery/docs/introduction?hl=id), [AlloyDB](https://cloud.google.com/alloydb/docs/overview?hl=id), dan [Cloud SQL](https://cloud.google.com/sql/docs/postgres/introduction?hl=id).
 
-آموزش‌های گام‌به‌گام زیر نحوه استفاده از پایگاه‌های داده برداری طرف سوم دیگر را
-با «جاسازی Gemini» نشان می‌دهد.
+Tutorial berikut menunjukkan cara menggunakan database vektor pihak ketiga lainnya dengan Gemini Embedding.
 
-- [آموزش‌های ChromaDBbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
-- [آموزش‌های QDrantbolt](https://qdrant.tech/documentation/embeddings/gemini/)
-- [آموزش‌های Weaviatebolt](https://docs.weaviate.io/weaviate/model-providers/google)
-- [آموزش‌های Pineconebolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
+- [Tutorial ChromaDBbolt](https://docs.trychroma.com/integrations/embedding-models/google-gemini)
+- [Tutorial QDrantbolt](https://qdrant.tech/documentation/embeddings/gemini/)
+- [Tutorial Weaviatebolt](https://docs.weaviate.io/weaviate/model-providers/google)
+- [Tutorial Pineconebolt](https://github.com/google-gemini/cookbook/blob/main/examples/langchain/Gemini_LangChain_QA_Pinecone_WebLoad.ipynb)
 
-## نسخه‌های مدل
+## Versi model
 
 ### Gemini Embedding 2
 
-| دارایی | شرح |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardکد مدل | **Gemini API**  `gemini-embedding-2` |
-| انواع داده‌های پشتیبانی‌شده برای ذخیره کردن | **ورودی**  نوشتار، تصویر، ویدیو، صدا، PDF  **برونداد**  جاسازی‌های نوشتاری |
-| token\_autoمحدودیت‌های نشان[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) | **محدودیت داده‌واحد ورودی**  ۸٬۱۹۲  **اندازه بُعد برونداد**  انعطاف‌پذیر، پشتیبانی می‌کند: ۱۲۸ تا ۳۰۷۲، توصیه‌شده: ۷۶۸، ۱۵۳۶، ۳۰۷۲ |
-| ‫۱۲۳نسخه | برای جزئیات بیشتر، [الگوهای نسخه مدل](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fa#model-versions) را بخوانید.  - پایدار: `gemini-embedding-2` |
-| calendar\_monthآخرین به‌روزرسانی | آوریل ۲۰۲۶ |
+| Kode model id\_card | **Gemini API**  `gemini-embedding-2` |
+| saveJenis data yang didukung | **Input**  Teks, gambar, video, audio, PDF  **Output**  Embedding teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  8.192  **Ukuran dimensi output**  Fleksibel, mendukung: 128 - 3072, Direkomendasikan: 768, 1536, 3072 |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Stabil: `gemini-embedding-2` |
+| calendar\_monthPembaruan terbaru | April 2026 |
 
-### جاسازی Gemini
+### Penyematan Gemini
 
-| دارایی | شرح |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardکد مدل | **Gemini API**  `gemini-embedding-001` |
-| انواع داده‌های پشتیبانی‌شده برای ذخیره کردن | **ورودی**  نوشتار  **برونداد**  جاسازی‌های نوشتاری |
-| token\_autoمحدودیت‌های نشان[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) | **محدودیت داده‌واحد ورودی**  ۲٬۰۴۸  **اندازه بُعد برونداد**  انعطاف‌پذیر، پشتیبانی می‌کند: ۱۲۸ تا ۳۰۷۲، توصیه‌شده: ۷۶۸، ۱۵۳۶، ۳۰۷۲ |
-| ‫۱۲۳نسخه | برای جزئیات بیشتر، [الگوهای نسخه مدل](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fa#model-versions) را بخوانید.  - پایدار: `gemini-embedding-001` |
-| calendar\_monthآخرین به‌روزرسانی | ژوئن ۲۰۲۵ |
+| Kode model id\_card | **Gemini API**  `gemini-embedding-001` |
+| saveJenis data yang didukung | **Input**  Teks  **Output**  Embedding teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  2.048  **Ukuran dimensi output**  Fleksibel, mendukung: 128 - 3072, Direkomendasikan: 768, 1536, 3072 |
+| Versi 123 | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Stabil: `gemini-embedding-001` |
+| calendar\_monthPembaruan terbaru | Juni 2025 |
 
-برای مدل‌های «جاسازی» منسوخ‌شده، به صفحه
-[منسوخ‌شده‌ها](https://ai.google.dev/gemini-api/docs/deprecations?hl=fa) مراجعه کنید
+Untuk model Embedding yang tidak digunakan lagi, buka halaman
+[Penghentian penggunaan](https://ai.google.dev/gemini-api/docs/deprecations?hl=id)
 
-## انتقال از gemini-embedding-001
+## Migrasi dari gemini-embedding-001
 
-فضاهای جاسازی بین `gemini-embedding-001` و
-`gemini-embedding-2` **ناسازگار** است. این یعنی نمی‌توانید جاسازی‌های تولیدشده توسط یک مدل را مستقیماً با جاسازی‌های تولیدشده توسط مدل دیگر مقایسه کنید. اگر به `gemini-embedding-2` ارتقا می‌دهید، باید
-همه داده‌های موجودتان را دوباره جاسازی کنید.
+Ruang sematan antara `gemini-embedding-001` dan
+`gemini-embedding-2` **tidak kompatibel**. Artinya, Anda tidak dapat
+membandingkan secara langsung embedding yang dihasilkan oleh satu model dengan embedding yang dihasilkan oleh
+model lainnya. Jika mengupgrade ke `gemini-embedding-2`, Anda harus menyematkan ulang semua data yang ada.
 
-علاوه‌بر ناسازگاری، تفاوت‌های قابل‌توجه دیگری بین این دو مدل وجود دارد:
+Selain ketidakcocokan, ada beberapa perbedaan penting lainnya antara kedua model tersebut:
 
-- **مشخصات نوع تکلیف:** با `gemini-embedding-001`، نوع تکلیف را بااستفاده از پارامتر `task_type` مشخص می‌کنید (برای نمونه، `SEMANTIC_SIMILARITY`،
-  `RETRIEVAL_DOCUMENT`). با `gemini-embedding-2`، پارامتر `task_type`
-  پشتیبانی نمی‌شود. درعوض، باید دستورالعمل‌های تکلیف را
-  مستقیماً در پیام‌واره تکلیف‌های فقط نوشتاری بگنجانید. برای جزئیات مربوط به نحوه قالب‌بندی پیام‌واره‌ها برای موارد استفاده مختلف، به
-  [انواع تکلیف با «جاسازی‌های ۲»](#task-types-embeddings-2) مراجعه کنید.
-- **انبوهش جاسازی:** `gemini-embedding-001` برای هر رشته در فهرست ورودی‌ها جاسازی‌های جداگانه تولید می‌کند. درمقابل،
-  `gemini-embedding-2` وقتی چندین ورودی (مثل نوشتار و تصویر) مستقیماً در یک درخواست ارائه می‌شود، یک جاسازی تکی و تجمیعی تولید می‌کند. برای تولید جاسازی‌های جداگانه برای ورودی‌های فردی، هر ورودی را در یک
-  `Content` شیء بپیچید، یا از
-  [میانای برنامه‌سازی کاربردی دسته‌ای](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa#batch-embedding) استفاده کنید. برای اطلاعات بیشتر،
-  [تجمیع جاسازی](#embedding-aggregation) را ببینید.
-- **به‌هنجارسازی:** اگر از `output_dimensionality` برای درخواست جاسازی‌هایی با کمتر از ۳۰۷۲ بُعد استفاده می‌کنید، `gemini-embedding-2` به‌طور خودکار این جاسازی‌های کوتاه را به‌هنجار می‌کند. با `gemini-embedding-001`، باید
-  برای ابعاد غیر از ۳۰۷۲، عادی‌سازی دستی انجام دهید. برای جزئیات، به
-  [تضمین کیفیت برای ابعاد کوچک‌تر](#quality-for-smaller-dimensions)
-  مراجعه کنید.
+- **Spesifikasi jenis tugas:** Dengan `gemini-embedding-001`, Anda menentukan
+  jenis tugas menggunakan parameter `task_type` (misalnya, `SEMANTIC_SIMILARITY`,
+  `RETRIEVAL_DOCUMENT`). Dengan `gemini-embedding-2`, parameter `task_type`
+  tidak didukung. Sebagai gantinya, Anda harus menyertakan petunjuk tugas
+  langsung dalam perintah untuk tugas khusus teks. Lihat
+  [Jenis tugas dengan Embeddings 2](#task-types-embeddings-2) untuk mengetahui detail tentang cara memformat perintah untuk berbagai kasus penggunaan.
+- **Agregasi embedding:** `gemini-embedding-001` menghasilkan embedding individual
+  untuk setiap string dalam daftar input. Sebaliknya,
+  `gemini-embedding-2` menghasilkan satu embedding gabungan saat beberapa
+  input (seperti teks dan gambar) diberikan langsung dalam satu permintaan. Untuk
+  membuat sematan terpisah untuk setiap input, bungkus setiap input dalam objek
+  `Content`, atau gunakan
+  [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id#batch-embedding). Lihat
+  [Penyematan agregasi](#embedding-aggregation) untuk mengetahui informasi selengkapnya.
+- **Normalisasi:** Jika Anda menggunakan `output_dimensionality` untuk meminta penyematan
+  dengan dimensi kurang dari 3072, `gemini-embedding-2` akan otomatis
+  menormalisasi penyematan yang dipangkas ini. Dengan `gemini-embedding-001`, Anda
+  perlu melakukan normalisasi manual untuk dimensi selain 3072. Lihat bagian
+  [Memastikan kualitas untuk dimensi yang lebih kecil](#quality-for-smaller-dimensions)
+  untuk mengetahui detailnya.
 
-## جاسازی‌های گروهی
+## Embedding batch
 
-اگر تأخیر برایتان مهم نیست، از مدل‌های «جاسازی Gemini» با
-[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa#batch-embedding) استفاده کنید. این کار
-امکان می‌دهد توان عملیاتی بسیار بالاتری با ۵۰٪ قیمت پیش‌فرض «جاسازی» داشته باشید.
-نمونه‌هایی از نحوه شروع کار در
-[کتاب آشپزی Batch API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb) پیدا کنید.
+Jika latensi tidak menjadi masalah, coba gunakan model Sematan Gemini dengan
+[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id#batch-embedding). Hal ini
+memungkinkan throughput yang jauh lebih tinggi dengan 50% harga Embedding default.
+Temukan contoh cara memulai di
+[Batch API cookbook](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Batch_mode.ipynb).
 
-## اعلان استفاده مسئولانه
+## Pemberitahuan penggunaan yang bertanggung jawab
 
-برخلاف مدل‌های هوش مصنوعی زایا که محتوای جدید ایجاد می‌کنند، مدل Gemini Embedding
-فقط برای تبدیل قالب داده‌های ورودی شما به یک نمایش عددی درنظر گرفته شده است. درحالی‌که Google مسئول ارائه مدل جاسازی است که قالب داده‌های ورودی شما را به قالب عددی درخواستی تبدیل می‌کند، کاربران مسئولیت کامل داده‌هایی را که وارد می‌کنند و جاسازی‌های حاصل از آن را برعهده دارند. بااستفاده از مدل «جاسازی Gemini» تأیید می‌کنید که
-حقوق لازم را برای هر محتوایی که بارگذاری می‌کنید دارید. محتوایی تولید نکنید که
-حق نشر مالکیت فکری یا حقوق حریم خصوصی دیگران را نقض می‌کند. استفاده شما از این سرویس تابع [خط‌مشی کاربردهای غیرمجاز](https://policies.google.com/terms/generative-ai/use-policy?hl=fa) و [شرایط خدمات Google](https://ai.google.dev/gemini-api/terms?hl=fa) ما است.
+Tidak seperti model AI generatif yang membuat konten baru, model Embedding Gemini hanya ditujukan untuk mengubah format data input Anda menjadi representasi numerik. Meskipun Google bertanggung jawab untuk menyediakan model penyematan yang mengubah format data input Anda ke format numerik yang diminta, pengguna tetap bertanggung jawab sepenuhnya atas data yang mereka masukkan dan penyematan yang dihasilkan. Dengan menggunakan model Embedding Gemini, Anda mengonfirmasi bahwa Anda memiliki hak yang diperlukan atas konten apa pun yang Anda upload. Jangan membuat konten yang melanggar hak atas kekayaan intelektual atau hak privasi orang lain. Penggunaan layanan ini oleh Anda tunduk kepada [Kebijakan Penggunaan Terlarang](https://policies.google.com/terms/generative-ai/use-policy?hl=id) kami dan [Persyaratan Layanan Google](https://ai.google.dev/gemini-api/terms?hl=id).
 
-## شروع ساختن با جاسازی‌ها
+## Mulai membangun dengan embedding
 
-برای کاوش قابلیت‌های مدل و آشنایی با نحوه سفارشی‌سازی و
-تصویرسازی جاسازی‌ها، [دفترچه شروع سریع جاسازی‌ها](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb) را بررسی کنید.
+Lihat [notebook panduan memulai embedding](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Embeddings.ipynb)
+untuk menjelajahi kemampuan model dan mempelajari cara menyesuaikan serta memvisualisasikan
+embedding Anda.
 
-ارسال بازخورد
+Kirim masukan
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی.
+Terakhir diperbarui pada 2026-10-09 UTC.
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+Ada masukan untuk kami?
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-09 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]

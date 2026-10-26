@@ -1,49 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-CN
-fetched_at: 2026-10-19T05:33:52.165166+00:00
-title: "Interactions API\uff1a\u91cd\u5927\u66f4\u6539\u8fc1\u79fb\u6307\u5357\uff082026 \u5e74 5 \u6708\uff09 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq
+fetched_at: 2026-10-26T05:55:12.842333+00:00
+title: "API-ja e nd\u00ebrveprimeve: Udh\u00ebzuesi i migrimit t\u00eb ndryshimeve t\u00eb m\u00ebdha (maj 2026) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-发送反馈
+Dërgo komente
 
-# Interactions API：重大更改迁移指南（2026 年 5 月）
+# API-ja e ndërveprimeve: Udhëzuesi i migrimit të ndryshimeve të mëdha (maj 2026)
 
-`v1beta` Interactions API 引入了破坏性更改，这些更改会重构 API 形状，以支持飞行中转向和异步工具调用等未来功能。本页介绍了哪些内容发生了变化，并提供了更改前后的代码示例，以帮助您进行迁移。更改分为两类：
+API-ja e "Interaksioneve" e `v1beta` po prezanton ndryshime të mëdha që ristrukturojnë formën e API-së për të mbështetur aftësitë e ardhshme si drejtimi gjatë fluturimit dhe thirrjet asinkrone të veglave. Kjo faqe shpjegon se çfarë po ndryshon dhe ofron shembuj kodi para dhe pas për të të ndihmuar të migrosh. Ka dy kategori
+ndryshimesh:
 
-1. [**steps 架构**](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#steps-schema)：
-   新的 `steps` 数组取代了 `outputs` 数组，提供了每个交互轮次的结构化
-   时间线。
-2. [**输出格式配置**](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#output-format-config)：
-   新的多态 `response_format` 整合了所有输出格式控制项
-   并移除了 `response_mime_type`。
+1. [**Skema e hapave**](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#steps-schema):
+   Një matricë e re `steps` zëvendëson matricën `outputs`, duke ofruar një kronologji të strukturuar të çdo radhe ndërveprimi.
+2. [**Konfigurimi i formatit të daljes**](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#output-format-config):
+   Një `response_format` i ri polimorfik konsolidon të gjitha kontrollet e formatit të daljes
+   dhe heq `response_mime_type`.
 
-请按照
-[如何迁移到新架构](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#how-to-migrate)
-中的步骤更新集成。
+Ndiq hapat në
+[Si të migrosh në skemën e re](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#how-to-migrate)
+për të përditësuar integrimin tënd.
 
-## 核心更改：`outputs` 变为 `steps`
+## Ndryshimi kryesor: `outputs` në `steps`
 
-新架构将 `outputs` 数组替换为 `steps` 数组。
+Skema e re zëvendëson matricën `outputs` me një matricë `steps`.
 
-- **旧版**：响应返回一个扁平的 `outputs` 数组，其中仅包含模型生成的内容。
-- **新架构**：响应返回一个 `steps` 数组，其中包含带有类型鉴别器的结构化步骤。
+- **Legacy**: Përgjigjet kthyen një grup të sheshtë `outputs` që përmban vetëm përmbajtjen e gjeneruar të modelit.
+- **Skema e re**: Përgjigjet kthejnë një matricë `steps` që përmban hapa të strukturuar me dallues të llojit.
 
-`POST /interactions` 仅返回输出步骤。`GET /interactions/{id}`
-返回完整的步骤时间线，包括初始 `user_input` 步骤。
+`POST /interactions` kthen vetëm hapat e daljes. `GET /interactions/{id}`
+rikthen kronologjinë e plotë të hapave, duke përfshirë hapin fillestar `user_input`.
 
-### 基本输入/输出（一元）
+### Hyrja/dalja bazë (unare)
 
-#### 之前（旧版）
+#### Para (versioni i vjetër)
 
 ### Python
 
@@ -70,7 +70,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[-1].text);
 ```
 
-### REST
+### PUSHIM
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -95,7 +95,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 之后（新架构）
+#### Pas (skema e re)
 
 ### Python
 
@@ -124,7 +124,7 @@ console.log(interaction.output_text);
 
 [sdk-convenience]: /gemini-api/docs/interactions-overview#sdk-sugar
 
-### REST
+### PUSHIM
 
 ```
 # Opt-in needed before May 26th
@@ -177,11 +177,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 函数调用
+### Thirrje funksioni
 
-请求结构保持不变，但响应会将扁平的 `outputs` 内容替换为结构化步骤。
+Struktura e kërkesës mbetet e pandryshuar, por përgjigjja zëvendëson përmbajtjen e thjeshtë të `outputs` me hapa të strukturuar.
 
-#### 之前（旧版）
+#### Para (versioni i vjetër)
 
 ### Python
 
@@ -203,7 +203,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-### REST
+### PUSHIM
 
 ```
 // Response
@@ -226,7 +226,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-#### 之后（新架构）
+#### Pas (skema e re)
 
 ### Python
 
@@ -248,7 +248,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### REST
+### PUSHIM
 
 ```
 // POST Response
@@ -274,11 +274,11 @@ for (const step of interaction.steps) {
 }
 ```
 
-### 服务器端工具
+### Veglat në anën e serverit
 
-服务器端工具（例如 Google 搜索或代码执行）现在会在 `steps` 数组中生成特定步骤类型。虽然旧版架构将这些操作作为 `outputs` 数组中的特定内容类型返回，但新架构会将它们移到 `steps` 数组中。以下示例使用 Google 搜索。
+Veglat në anën e serverit (si p.sh. "Kërko në Google" ose "Ekzekutimi i kodit") tani japin lloje specifike hapash në matricën `steps`. Ndërkohë që skema e trashëguar i kthente këto operacione si lloje specifike përmbajtjeje brenda matricës `outputs`, skema e re i zhvendos ato në matricën `steps`. Shembujt e mëposhtëm përdorin "Kërko në Google".
 
-#### 之前（旧版）
+#### Para (versioni i vjetër)
 
 ### Python
 
@@ -304,7 +304,7 @@ for (const output of interaction.outputs) {
 }
 ```
 
-### REST
+### PUSHIM
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -352,7 +352,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-#### 之后（新架构）
+#### Pas (skema e re)
 
 ### Python
 
@@ -378,7 +378,7 @@ for (const step of interaction.steps) {
 }
 ```
 
-### REST
+### PUSHIM
 
 ```
 # Opt-in needed before May 26th
@@ -436,11 +436,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }
 ```
 
-### 流式
+### Transmetimi
 
-流式公开了新的事件类型：
+Transmetimi ekspozon lloje të reja ngjarjesh:
 
-#### 新事件类型
+#### Llojet e reja të ngjarjeve
 
 - `interaction.created`
 - `interaction.completed`
@@ -450,25 +450,25 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 - `step.delta`
 - `step.stop`
 
-#### 已废弃的事件类型
+#### Llojet e ngjarjeve të zhvlerësuara
 
-以下旧版事件类型已替换为上面列出的新事件：
+Llojet e mëposhtme të ngjarjeve të trashëguara zëvendësohen nga ngjarjet e reja të listuara më sipër:
 
 - `interaction.start` → `interaction.created`
 - `content.start` → `step.start`
 - `content.delta` → `step.delta`
 - `content.stop` → `step.stop`
 - `interaction.complete` → `interaction.completed`
-- `interaction.status_update` → 替换为 `interaction.in_progress`、`interaction.requires_action` 等。
+- `interaction.status_update` → zëvendësuar nga `interaction.in_progress`, `interaction.requires_action` etj.
 
-**流式函数调用**：当您将流式与函数调用搭配使用时，
-`step.start` 事件会传递函数名称，而 `step.delta` 事件
-会以部分 JSON 字符串的形式流式传输实参（使用 `arguments_delta`）。您
-必须累积这些增量才能获得完整的实参。这与一元调用不同，在一元调用中，您会一次性收到完整的函数调用对象。
+**Thirrjet e funksionit të transmetimit**: Kur përdor transmetimin me thirrjen e funksionit,
+ngjarja `step.start` jep emrin e funksionit dhe ngjarjet `step.delta`
+transmetojnë argumentet si vargje të pjesshme JSON (duke përdorur `arguments_delta`). Duhet
+t'i mbledhësh këto delta për të marrë argumentet e plota. Kjo ndryshon nga thirrjet unare ku ti merr objektin e plotë të thirrjes së funksionit menjëherë.
 
-#### 示例
+#### Shembuj
 
-##### 之前（旧版）
+##### Para (i vjetër)
 
 ### Python
 
@@ -505,7 +505,7 @@ for await (const chunk of stream) {
 }
 ```
 
-### REST
+### PUSHIM
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -535,7 +535,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 // data: {"id": "int_123", "status": "done", "usage": {"total_tokens": 42}}
 ```
 
-##### 之后（新架构）
+##### Pas (skema e re)
 
 ### Python
 
@@ -612,32 +612,32 @@ for await (const event of stream) {
  // data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 10, "completion_tokens": 5, "total_tokens": 15}}} // NEW: Dedicated completion event
 ```
 
-### 无状态对话记录
+### Historiku i bisedave pa gjendje
 
-如果您在客户端手动管理对话记录（无状态用例），则必须更新串联先前轮次的方式。
+Nëse e menaxhon historikun e bisedave në mënyrë manuale në anën e klientit (rasti i përdorimit pa gjendje), duhet të përditësosh mënyrën se si i lidh bashkëbisedimet e mëparshme.
 
-- **旧版**：开发者通常会从响应中收集 `outputs` 数组，并在下一轮次中将其发送回 `input` 字段。
-- **新架构**：您现在应从响应中收集 `steps` 数组，并将其传递到下一个请求的 `input` 字段中，将新的用户轮次附加为 `user_input` 步骤。
+- **E vjetër**: Zhvilluesit shpesh mblidhnin matricën `outputs` nga përgjigjet dhe i dërgonin ato mbrapsht në fushën `input` në radhën tjetër.
+- **Skema e re**: Tani duhet të mbledhësh matricën `steps` nga përgjigjja dhe ta kalosh atë në fushën `input` të kërkesës tjetër, duke shtuar radhën e përdoruesit të ri si një hap `user_input`.
 
-## 输出格式配置：`response_format` 更改
+## Konfigurimi i formatit të daljes: `response_format` ndryshime
 
-更新后的 API 将所有输出格式控制项整合到一个统一的多态 `response_format` 字段中。这会将输出配置集中在顶层，并使 `generation_config` 专注于模型行为（例如温度、top\_p 和思考）。
+API-ja e përditësuar i konsolidon të gjitha kontrollet e formatit të daljes në një fushë të unifikuar dhe polimorfike `response_format`. Kjo e centralizon konfigurimin e daljes në nivelin më të lartë dhe e mban `generation_config` të fokusuar te sjellja e modelit (si p.sh. temperatura, top\_p dhe arsyetimi).
 
-### 主要变化
+### Ndryshimet kryesore
 
-- **API 移除 `response_mime_type`。**您现在可以在 `response_format` 中为每个格式条目指定 MIME 类型。
-- **`response_format` 现在是一个多态对象（或数组）。**每个条目都有一个 `type` 鉴别器（`text`、`audio`、`image`）和特定于类型的字段。如需请求多种输出模态，请传递格式条目数组。
-- **`image_config` 从 `generation_config` 移至 `response_format`。**
-  您现在可以在 `response_format` 条目中指定图片输出设置，例如 `aspect_ratio` 和 `image_size`
-  ，并使用 `"type": "image"`。
+- **API-ja heq `response_mime_type`.** Tani specifikon llojin e MIME-s për hyrjen e formatit brenda `response_format`.
+- **`response_format` është tani një objekt (ose matricë) polimorfik.** Çdo hyrje ka një diskriminues `type` (`text`, `audio`, `image`) dhe fusha specifike për llojin. Për të kërkuar modalitete të shumëfishta të rezultateve, kalo një varg hyrjesh të formatit.
+- **`image_config` zhvendoset nga `generation_config` në `response_format`.**
+  Tani mund të specifikosh cilësimet e nxjerrjes së imazhit si p.sh. `aspect_ratio` dhe `image_size`
+  në një hyrje të `response_format` me `"type": "image"`.
 
-### 结构化输出 (JSON)
+### Dalja e strukturuar (JSON)
 
-新架构移除了 `response_mime_type` 字段。请改为在
-对象中使用`response_format`
-`"type": "text"`指定 MIME 类型和 JSON 架构。
+Skema e re heq fushën `response_mime_type`. Në vend të kësaj, specifikoni
+Lloji MIME dhe skema JSON brenda një objekti `response_format` me
+`"type": "text"`.
 
-#### 之前（旧版）
+#### Para (trashëgimia)
 
 ### Python
 
@@ -675,7 +675,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.outputs[-1].text);
 ```
 
-### REST
+### PUSHIM
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -693,7 +693,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之后（新架构）
+#### Pas (skema e re)
 
 ### Python
 
@@ -741,7 +741,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### REST
+### PUSHIM
 
 ```
 # Opt-in needed before May 26th
@@ -764,12 +764,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### 图片配置
+### Konfigurimi i imazhit
 
-新架构从 `generation_config` 中移除了 `image_config`。您现在可以在 `response_format` 条目中使用 `"type": "image"` 指定
-图片输出设置。
+Skema e re heq `image_config` nga `generation_config`. Tani mund të specifikosh
+cilësimet e nxjerrjes së imazheve në një hyrje të `response_format` me `"type": "image"`.
 
-#### 之前（旧版）
+#### Para (versioni i vjetër)
 
 ### Python
 
@@ -801,7 +801,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### REST
+### PUSHIM
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -818,7 +818,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之后（新架构）
+#### Pas (skema e re)
 
 ### Python
 
@@ -871,11 +871,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### 音频配置
+### Konfigurimi i audios
 
-新架构将 `response_modalities: ["audio"]` 替换为 `response_format` 条目 `"type": "audio"`。
+Skema e re zëvendëson `response_modalities: ["audio"]` me një hyrje të `response_format` të `"type": "audio"`.
 
-#### 之前（旧版）
+#### Para (versioni i vjetër)
 
 ### Python
 
@@ -907,7 +907,7 @@ const interaction = await client.interactions.create({
 });
 ```
 
-### REST
+### PUSHIM
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=$GEMINI_API_KEY" \
@@ -924,7 +924,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### 之后（新架构）
+#### Pas (skema e re)
 
 ### Python
 
@@ -983,63 +983,64 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-如需请求多种输出模态（例如同时请求文本和音频），请将格式条目数组传递给 `response_format`，而不是传递单个对象。
+Për të kërkuar modalitete të shumta të daljes (për shembull, tekst dhe audio së bashku),
+transmeto një grup hyrjesh formati te `response_format` në vend të një objekti të vetëm.
 
-## 如何迁移到新架构
+## Si të migrosh te skema e re
 
-### SDK 用户
+### Përdoruesit e SDK-së
 
-请升级到最新 SDK 版本（Python ≥2.0.0、JavaScript ≥2.0.0）。SDK 会自动让您选择启用新架构，除了更新读取响应的方式（请参阅上面的示例）之外，无需更改任何代码。请注意，这些 SDK 版本仅支持新架构。旧版 SDK（Python 1.x.x、JavaScript 1.x.x）将继续正常运行，直到旧版架构于 **2026 年 6 月 8 日** 移除。
+Përmirëso në versionin më të fundit të SDK-së (Python ≥2.0.0, JavaScript ≥2.0.0). SDK-ja të regjistron automatikisht në skemën e re - nuk nevojiten ndryshime të kodit përveç përditësimit të mënyrës se si i lexon përgjigjet (shiko shembujt më sipër). Ki parasysh se vetëm skema e re mbështetet në këto versione të SDK-së. Versionet më të vjetra të SDK-së (Python 1.x.x, JavaScript 1.x.x) do të vazhdojnë të funksionojnë derisa skema e trashëguar të hiqet më **8 qershor 2026**.
 
-### REST API 用户
+### Përdoruesit e REST API
 
-请将 `Api-Revision: 2026-05-20` 标头添加到您的请求中，以便立即选择启用新架构。在 **5 月 26 日** 之后，新架构将成为所有
-请求的默认架构。您可以使用 `Api-Revision: 2026-05-07`
-暂时选择停用，直到 **6 月 8 日**，届时 API 将永久移除旧版架构。
+Shto titullin `Api-Revision: 2026-05-20` në kërkesat e tua për t'u regjistruar në
+skemën e re tani. Pas datës **26 maj**, skema e re bëhet e parazgjedhura për të gjitha kërkesat. Mund të tërhiqesh përkohësisht me `Api-Revision: 2026-05-07`
+deri më **8 qershor**, kur API-ja do të heqë përgjithmonë skemën e vjetër.
 
-### 时间轴
+### Kronologjia
 
-| 日期 | 阶段 | SDK 用户 | REST API 用户 |
+| Data | Faza | Përdoruesit e SDK-së | Përdoruesit e REST API |
 | --- | --- | --- | --- |
-| **5 月 7 日** | 选择启用 | 新 SDK 版本可用（Python ≥2.0.0、JS ≥2.0.0）。升级即可自动获取新架构。 | 添加 `Api-Revision: 2026-05-20` 标头以选择启用。默认值仍为旧版。 |
-| **5 月 26 日** | 默认翻转 | 如果已升级，则无需执行任何操作。旧版 SDK（Python 1.x.x、JS 1.x.x）仍可正常运行，但会返回旧版响应。 | 新架构现在是默认架构。发送 `Api-Revision: 2026-05-07` 标头以选择停用。 |
-| **6 月 8 日** | 落日余晖 | Python 1.x.x 和 JS 1.x.x SDK 版本在调用 Interactions API 时将会失效。 | 为 Interactions API 移除了旧版架构。`Api-Revision` 标头被忽略。 |
+| **7 maj** | Prano | Ofrohet version i ri i SDK-së (Python ≥2.0.0, JS ≥2.0.0). Përmirësoje për të marrë automatikisht skemën e re. | Shto titullin `Api-Revision: 2026-05-20` për t'u regjistruar. Parazgjedhja mbetet e trashëguar. |
+| **26 maj** | Përmbysja e parazgjedhur | Nuk nevojitet asnjë veprim nëse është përmirësuar tashmë. SDK-të më të vjetra (Python 1.x.x, JS 1.x.x) funksionojnë ende, por kthejnë përgjigje të vjetra. | Skema e re tani është e parazgjedhura. Dërgo titullin "`Api-Revision: 2026-05-07`" për t'u tërhequr. |
+| **8 qershor** | Perëndimi i diellit | Versionet e SDK-së në Python 1.x.x dhe JS 1.x.x do të prishen për thirrjet e API-së së "Ndërveprimeve". | Skema e vjetër u hoq për Interactions API. Titulli "`Api-Revision`" u shpërfill. |
 
-## 迁移核对清单
+## Lista e kontrollit për migrimin
 
-### steps 架构 (`steps`)
+### Skema e hapave (`steps`)
 
-- 更新代码，以便从 `steps` 数组而不是 `outputs` 中读取响应内容。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#basic-unary)。
-- 验证您的代码是否同时处理 `user_input` 和 `model_output` 步骤类型。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#basic-unary)。
-- （函数调用）更新代码，以便在 `steps` 数组中查找 `function_call` 步骤。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#function-calling)。
-- （服务器端工具）更新代码以处理特定于工具的步骤（例如 `google_search_call`、`google_search_result`）。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#server-side-tools)。
-- （无状态记录）更新记录管理，以便在下一个请求的 `input` 字段中传递 `steps` 数组。
-  [请参阅详情](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#stateless-history)。
-- （仅限流式）更新客户端以监听新的 SSE 事件类型（`interaction.created`、`step.delta` 等）。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#streaming)。
+- Përditëso kodin për të lexuar përmbajtjen e përgjigjes nga matrica `steps` në vend të `outputs`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#basic-unary).
+- Verifiko që kodi yt të trajtojë të dyja llojet e hapave `user_input` dhe `model_output`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#basic-unary).
+- (Thirrja e funksionit) Përditëso kodin për të gjetur `function_call` hapa në vargun `steps`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#function-calling).
+- (Veglat në anën e serverit) Përditëso kodin për të administruar hapat specifikë të veglave (p.sh. `google_search_call`, `google_search_result`).
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#server-side-tools).
+- (Stateless History) Update history management to pass the `steps` array in the `input` field of the next request.
+  [Shiko detajet](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#stateless-history).
+- (Vetëm transmetimi) Përditëso klientin për të dëgjuar për llojet e reja të ngjarjeve SSE (`interaction.created`, `step.delta` etj.).
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#streaming).
 
-### 输出格式配置 (`response_format`)
+### Konfigurimi i formatit të daljes (`response_format`)
 
-- 将 `response_mime_type` 替换为 `response_format` 中的 `mime_type` 字段。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#structured-output)。
-- 将现有的 `response_format` JSON 架构封装在 `{"type": "text", "schema": ...}` 对象中。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#structured-output)。
-- （图片生成）将 `image_config` 从 `generation_config` 移至 `response_format` 中的 `{"type": "image", ...}` 条目。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#image-config)。
-- （语音生成）将 `response_modalities=["audio"]` 替换为 `response_format` 中的 `{"type": "audio"}` 条目。
-  [请参阅示例](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=zh-cn#audio-config)。
-- （多模态）在请求多种输出模态时，将 `response_format` 从单个对象转换为数组。
+- Zëvendëso `response_mime_type` me një fushë `mime_type` brenda `response_format`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#structured-output).
+- Mbështill skemën ekzistuese JSON të `response_format` brenda një objekti të `{"type": "text", "schema": ...}`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#structured-output).
+- (Gjenerimi i imazheve) Zhvendos `image_config` nga `generation_config` te një hyrje `{"type": "image", ...}` në `response_format`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#image-config).
+- (Gjenerimi i të folurit) Zëvendëso `response_modalities=["audio"]` me një hyrje `{"type": "audio"}` në `response_format`.
+  [Shiko shembujt](https://ai.google.dev/gemini-api/docs/interactions-breaking-changes-may-2026?hl=sq#audio-config).
+- (Multimodal) Konverto `response_format` nga një objekt i vetëm në një grup kur kërkon modalitete të shumëfishta të daljes.
 
-发送反馈
+Dërgo komente
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-最后更新时间 (UTC)：2026-10-15。
+Përditësimi i fundit: 2026-10-15 UTC.
 
-需要向我们提供更多信息？
+Duhet të na tregosh më shumë?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-15。"],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-15 UTC."],[],[]]

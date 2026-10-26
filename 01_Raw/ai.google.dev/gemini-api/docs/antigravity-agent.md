@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419
-fetched_at: 2026-10-19T05:37:12.846761+00:00
-title: "Agente de Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=de
+fetched_at: 2026-10-26T05:52:01.341329+00:00
+title: "Antigravity-Agent \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Enviar comentarios
+Feedback geben
 
-# Agente de Antigravity
+# Antigravity-Agent
 
-El agente de Antigravity es un agente administrado de uso general en la API de Gemini. Con una sola llamada a la API, obtienes un agente que razona, ejecuta código, administra archivos y navega por la Web dentro de tu propia zona de pruebas segura de Linux, alojada por Google.
+Der Antigravity-Agent ist ein verwalteter Agent für allgemeine Zwecke in der Gemini API. Mit einem einzigen API-Aufruf erhalten Sie einen KI-Agenten, der in Ihrer eigenen sicheren, von Google gehosteten Linux-Sandbox logisch schlussfolgern, Code ausführen, Dateien verwalten und im Web surfen kann.
 
-Se compila con Gemini 3.8 Flash y usa el mismo arnés que el IDE de Antigravity. Puedes configurar el modelo de Gemini subyacente con `agent_config`. Disponible a través de la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) y [Google AI Studio](https://aistudio.google.com?hl=es-419).
+Sie basiert auf Gemini 3.8 Flash und verwendet dieselbe Harness wie die Antigravity IDE. Sie können das zugrunde liegende Gemini-Modell mit `agent_config` konfigurieren. Über die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) und [Google AI Studio](https://aistudio.google.com?hl=de) verfügbar.
 
 ### Python
 
@@ -128,33 +128,33 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Funciones
+## Leistungsspektrum
 
-Cada llamada puede aprovisionar una zona de pruebas de Linux y, además, inicia un bucle de uso de herramientas. El agente planifica, actúa, observa los resultados y repite el proceso hasta que se completa la tarea.
+Bei jedem Aufruf kann eine Linux-Sandbox bereitgestellt und eine Toolnutzungsschleife gestartet werden. Der Agent plant, handelt, beobachtet die Ergebnisse und wiederholt den Vorgang, bis die Aufgabe abgeschlossen ist.
 
-- **Ejecución de código:** Ejecuta comandos de Bash, Python y Node.js. Instalar paquetes, ejecutar pruebas y compilar apps
-- **Administración de archivos:** Lee, escribe, edita, busca y enumera archivos en la zona de pruebas. Los archivos se conservan entre las interacciones.
-- **Acceso a la Web:** Búsqueda de Google y recuperación de URLs para obtener datos
-- **Compresión de contexto:** Compresión automática de contexto (se activa con ~135, 000 tokens) para admitir sesiones de varios turnos de larga duración sin perder el contexto ni alcanzar los límites de tokens.
+- **Code-Ausführung**:Bash-, Python- und Node.js-Befehle ausführen. Pakete installieren, Tests ausführen, Apps erstellen.
+- **Dateiverwaltung:** Dateien in der Sandbox lesen, schreiben, bearbeiten, suchen und auflisten. Dateien bleiben über Interaktionen hinweg erhalten.
+- **Webzugriff**:Google Suche und Abrufen von URLs für Daten.
+- **Kontextkomprimierung:** Automatische Kontextkomprimierung (ausgelöst bei ca. 135.000 Tokens), um lang laufende Sitzungen mit mehreren Turns zu unterstützen, ohne den Kontext zu verlieren oder Tokenlimits zu erreichen.
 
-Consulta la [guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419) para conocer el uso de varios turnos y la transmisión.
+Informationen zur Verwendung von Multi-Turn-Chats und Streaming finden Sie in der [Kurzanleitung](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de).
 
-## Herramientas compatibles
+## Unterstützte Tools
 
-De forma predeterminada, el agente tiene acceso a `code_execution`, `google_search` y `url_context`. Las herramientas del sistema de archivos se habilitan automáticamente cuando especificas el parámetro `environment`. También puedes definir **funciones personalizadas** para conectar el agente a tus propias APIs y herramientas. Solo debes especificar el parámetro `tools` cuando personalices o restrinjas el conjunto predeterminado, o cuando agregues funciones personalizadas.
+Standardmäßig hat der Agent Zugriff auf `code_execution`, `google_search` und `url_context`. Dateisystemtools werden automatisch aktiviert, wenn Sie den Parameter `environment` angeben. Sie können auch **benutzerdefinierte Funktionen** definieren, um den Agenten mit Ihren eigenen APIs und Tools zu verbinden. Sie müssen den Parameter `tools` nur angeben, wenn Sie den Standardsatz anpassen oder einschränken oder benutzerdefinierte Funktionen hinzufügen möchten.
 
-| Herramienta | Valor del tipo | Descripción |
+| Tool | Typwert | Beschreibung |
 | --- | --- | --- |
-| Ejecución de código | `code_execution` | Ejecutar comandos de shell (bash, Python y Node) con captura de stdout/stderr |
-| Búsqueda de Google | `google_search` | Buscar en la Web pública |
-| Contexto de URL | `url_context` | Recupera y lee páginas web. |
-| Sistema de archivos | *(habilitado a través de `environment`)* | Lee, escribe, edita, busca y enumera archivos en la zona de pruebas. El sistema habilita estas herramientas automáticamente cuando configuras el `environment`. |
-| Funciones personalizadas | `function` | Define funciones personalizadas que el agente puede solicitar que se ejecuten. Consulta [Llamadas a funciones](#function-calling). |
-| Servidor de MCP remoto | `mcp_server` | Registrar servidores externos del Protocolo de contexto del modelo (MCP) como herramientas Consulta [Servidores de MCP](#mcp-servers). |
+| Code-Ausführung | `code_execution` | Shell-Befehle (Bash, Python, Node) mit stdout/stderr-Erfassung ausführen. |
+| Google Suche | `google_search` | Im öffentlichen Web suchen |
+| URL-Kontext | `url_context` | Webseiten abrufen und lesen. |
+| Dateisystem | *(aktiviert über `environment`)* | Dateien in der Sandbox lesen, schreiben, bearbeiten, suchen und auflisten. Das System aktiviert diese Tools automatisch, wenn Sie `environment` festlegen. |
+| Benutzerdefinierte Funktionen | `function` | Benutzerdefinierte Funktionen definieren, die der Agent ausführen kann. Siehe [Funktionsaufrufe](#function-calling). |
+| Remote-MCP-Server | `mcp_server` | Externe MCP-Server (Model Context Protocol) als Tools registrieren. Weitere Informationen finden Sie unter [MCP-Server](#mcp-servers). |
 
-Puedes interceptar y validar la ejecución de las herramientas `code_execution` y `filesystem` directamente en la zona de pruebas remota con [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419) síncronos.
+Sie können die Ausführung der Tools `code_execution` und `filesystem` direkt in der Remote-Sandbox mithilfe von synchronen [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=de) abfangen und validieren.
 
-Para limitar el agente a herramientas específicas, pasa solo las que necesites:
+Wenn Sie den Agent auf bestimmte Tools beschränken möchten, übergeben Sie nur die benötigten:
 
 ### Python
 
@@ -285,9 +285,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Entrada multimodal
+## Multimodale Eingabe
 
-El agente de Antigravity admite entradas multimodales. Actualmente, solo se admiten las entradas `text` y `image`. Las imágenes se deben proporcionar como cadenas codificadas en Base64 intercaladas (`data`).
+Der Antigravity-Agent unterstützt multimodale Eingaben. Derzeit werden nur `text`- und `image`-Eingaben unterstützt. Bilder müssen als Inline-Strings mit Base64-Codierung (`data`) angegeben werden.
 
 ### Python
 
@@ -453,11 +453,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }"
 ```
 
-## Llamada a función
+## Funktionsaufrufe
 
-La llamada a funciones te permite conectar el agente de Antigravity a APIs y bases de datos externas definiendo herramientas personalizadas que el agente puede invocar. Para conocer los conceptos generales, consulta [Llamada a funciones con la API de Gemini](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
+Mit Funktionsaufrufen können Sie den Antigravity-Agenten mit externen APIs und Datenbanken verbinden, indem Sie benutzerdefinierte Tools definieren, die der Agent aufrufen kann. Allgemeine Konzepte finden Sie unter [Funktionsaufrufe mit der Gemini API](https://ai.google.dev/gemini-api/docs/function-calling?hl=de).
 
-En el siguiente ejemplo, se muestra una interacción de 2 turnos. Primero, el agente solicita una llamada a función `get_weather` personalizada, y el cliente la ejecuta y devuelve el resultado en el segundo turno.
+Das folgende Beispiel zeigt eine Interaktion mit zwei Turns. Der Agent fordert zuerst einen benutzerdefinierten `get_weather`-Funktionsaufruf an. Der Client führt ihn aus und gibt das Ergebnis im zweiten Zug zurück.
 
 ### Python
 
@@ -877,19 +877,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-## Servidores de MCP
+## MCP-Server
 
-Puedes conectar el agente de Antigravity a herramientas externas registrando servidores remotos del Protocolo de contexto del modelo (MCP). El agente admite servidores de MCP remotos a través de HTTP con transmisión.
+Sie können den Antigravity-Agenten mit externen Tools verbinden, indem Sie Remote-MCP-Server (Model Context Protocol) registrieren. Der Agent unterstützt Remote-MCP-Server über streamfähiges HTTP.
 
-Cuando registres un servidor de MCP, debes especificar los siguientes campos en el array `tools`:
+Wenn Sie einen MCP-Server registrieren, müssen Sie die folgenden Felder im `tools`-Array angeben:
 
-| Campo | Tipo | Obligatorio | Descripción |
+| Feld | Typ | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| `type` | string | Sí | Debe ser `"mcp_server"`. |
-| `name` | string | Sí | Es un identificador único para el servidor. Debe ser estrictamente en minúscula y alfanumérico (coincidente con `^[a-z0-9_-]+$`). |
-| `url` | string | Sí | Es la URL de extremo del servidor de MCP remoto. |
-| `headers` | objeto | No | Encabezados personalizados (p.ej., autenticación) que se envían con las solicitudes. |
-| `allowed_tools` | array | No | Es la lista de nombres de herramientas que se pueden ejecutar. Si se omite, se permiten todas las herramientas. |
+| `type` | String | Ja | Muss `"mcp_server"` lauten. |
+| `name` | String | Ja | Eine eindeutige Kennung für den Server. Muss ausschließlich aus Kleinbuchstaben und alphanumerischen Zeichen bestehen (entsprechend `^[a-z0-9_-]+$`). |
+| `url` | String | Ja | Die Endpunkt-URL des Remote-MCP-Servers. |
+| `headers` | Objekt | Nein | Benutzerdefinierte Header (z.B. zur Authentifizierung), die mit Anfragen gesendet werden. |
+| `allowed_tools` | Array | Nein | Liste der Toolnamen, die ausgeführt werden dürfen. Wenn dieses Feld weggelassen wird, sind alle Tools zulässig. |
 
 ### Python
 
@@ -1029,11 +1029,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Selección del modelo
+## Modellauswahl
 
-Para `antigravity-preview-09-2026`, el modelo predeterminado es **Gemini 3.8 Flash** (`gemini-3.8-flash`). Si omites `agent_config`, el agente usa `gemini-3.8-flash` de forma predeterminada.
+Für `antigravity-preview-09-2026` ist das Standardmodell **Gemini 3.8 Flash** (`gemini-3.8-flash`). Wenn Sie `agent_config` weglassen, verwendet der Agent standardmäßig `gemini-3.8-flash`.
 
-Puedes configurar el modelo de Gemini subyacente con `agent_config` para optimizar la velocidad, el costo o la capacidad de razonamiento. Por ejemplo, establece `model` en **Gemini 4 Argon** (`gemini-4-argon`) para tareas complejas de ingeniería de software y razonamiento:
+Sie können das zugrunde liegende Gemini-Modell mit `agent_config` konfigurieren, um es für Geschwindigkeit, Kosten oder Reasoning-Fähigkeiten zu optimieren. Setzen Sie beispielsweise `model` auf **Gemini 4 Argon** (`gemini-4-argon`) für komplexe Softwareentwicklungs- und Reasoning-Aufgaben:
 
 ### Python
 
@@ -1162,26 +1162,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Estos son los valores admitidos para `agent_config.model`:
+Folgende Werte werden für `agent_config.model` unterstützt:
 
-| Modelo | Valor en `agent_config.model` | Descripción |
+| Modell | Wert in `agent_config.model` | Beschreibung |
 | --- | --- | --- |
-| **Gemini 3.8 Flash** (predeterminado) | `gemini-3.8-flash` | Modelo equilibrado predeterminado para razonamiento, programación y uso de herramientas. |
-| **Gemini 4 Argon** | `gemini-4-argon` | Modelo de razonamiento de vanguardia para ingeniería de software compleja, resolución de problemas profundos y tareas de agentes a largo plazo. |
-| **Gemini 3.6 Flash** | `gemini-3.6-flash` | Modelo Flash equilibrado para Agentic Workflows generales. |
-| **Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | Modelo ligero optimizado para tareas de baja latencia y sensibles a los costos. |
+| **Gemini 3.8 Flash** (Standard) | `gemini-3.8-flash` | Standardmäßiges ausgewogenes Modell für logisches Denken, Coding und die Verwendung von Tools. |
+| **Gemini 4 Argon** | `gemini-4-argon` | Hochleistungs-Reasoning-Modell für komplexe Softwareentwicklung, tiefgehende Problemlösung und langfristige agentische Aufgaben. |
+| **Gemini 3.6 Flash** | `gemini-3.6-flash` | Ausgewogenes Flash-Modell für allgemeine agentische Workflows. |
+| **Gemini 3.5 Flash-Lite** | `gemini-3.5-flash-lite` | Leichtgewichtiges Modell, das für niedrige Latenz und kostensensitive Aufgaben optimiert ist. |
 
-Cuando creas un agente administrado con `agents.create`, configuras el modelo de la misma manera pasando `base_agent` y `agent_config`. Ten en cuenta que no puedes anular el modelo en el momento de la interacción para un agente administrado creado con `agents.create`. El modelo se bloquea según lo que se estableció cuando se creó el agente. Esto garantiza un comportamiento predecible de las llamadas a herramientas, una depuración coherente y el cumplimiento de los límites de seguridad.
+Wenn Sie einen verwalteten Agenten mit `agents.create` erstellen, konfigurieren Sie das Modell auf genau dieselbe Weise, indem Sie `base_agent` und `agent_config` übergeben. Beachten Sie, dass Sie das Modell bei der Interaktionszeit für einen mit `agents.create` erstellten verwalteten Agenten nicht überschreiben können. Das Modell ist auf die Einstellungen beschränkt, die beim Erstellen des Agents festgelegt wurden. So wird ein vorhersehbares Verhalten beim Toolaufruf, ein konsistentes Debugging und die Einhaltung von Sicherheitsgrenzen gewährleistet.
 
-## Personaliza el agente
+## Agent anpassen
 
-Puedes extender el agente de Antigravity personalizando sus instrucciones, herramientas y entorno. El agente admite un enfoque de personalización nativo del sistema de archivos: puedes montar archivos como `AGENTS.md` para obtener instrucciones y habilidades en `.agents/skills/` directamente en el entorno de pruebas, o bien pasar la configuración intercalada en el momento de la interacción. Puedes iterar tu configuración de forma intercalada y, luego, guardarla como un agente administrado cuando esté lista.
+Sie können den Antigravity-Agent erweitern, indem Sie seine Anweisungen, Tools und Umgebung anpassen. Der Agent unterstützt einen dateisystemnativen Ansatz zur Anpassung: Sie können Dateien wie `AGENTS.md` für Anweisungen und Skills unter `.agents/skills/` direkt in die Sandbox einbinden oder die Konfiguration inline während der Interaktion übergeben. Sie können Ihre Konfiguration inline iterieren und dann als verwalteten Agent speichern, wenn Sie bereit sind.
 
-Para obtener todos los detalles sobre cómo compilar agentes personalizados, consulta [Compila agentes administrados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419).
+Ausführliche Informationen zum Erstellen benutzerdefinierter KI-Agenten finden Sie unter [Verwaltete KI-Agenten erstellen](https://ai.google.dev/gemini-api/docs/custom-agents?hl=de).
 
-## Ejecución en segundo plano
+## Ausführung im Hintergrund
 
-Las tareas del agente que implican razonamiento de varios pasos, ejecución de código o operaciones de archivos pueden tardar minutos en completarse. Usa `background=True` para ejecutar la interacción de forma asíncrona. La API devuelve de inmediato un ID de interacción que sondeas hasta que el estado sea `completed` o `failed`.
+Agentenaufgaben, die mehrstufige Problemlösung, Code-Ausführung oder Dateioperationen umfassen, können einige Minuten dauern. Verwenden Sie `background=True`, um die Interaktion asynchron auszuführen. Die API gibt sofort eine Interaktions-ID zurück, die Sie abfragen, bis der Status `completed` oder `failed` lautet.
 
 ### Python
 
@@ -1363,9 +1363,9 @@ curl -s -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/$I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-La ejecución en segundo plano requiere `store=True`, que es el valor predeterminado. Para obtener actualizaciones de progreso en tiempo real durante la ejecución en segundo plano, consulta [Interacciones en segundo plano de transmisión](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419#streaming-pattern).
+Für die Ausführung im Hintergrund ist `store=True` erforderlich. Dies ist die Standardeinstellung. Informationen zu Echtzeit-Fortschrittsupdates während der Hintergrundausführung finden Sie unter [Streaming-Hintergrundinteraktionen](https://ai.google.dev/gemini-api/docs/background-execution?hl=de#streaming-pattern).
 
-Puedes cancelar una interacción en segundo plano en ejecución con el método `cancel`.
+Sie können eine laufende Hintergrundinteraktion mit der Methode `cancel` abbrechen.
 
 ### Python
 
@@ -1424,9 +1424,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions/INTE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-**De varios turnos con ejecución en segundo plano**
+**Mehrfachdialog mit Hintergrundausführung**
 
-Cuando una interacción en segundo plano involucre herramientas con estado (como la ejecución de código en un entorno de pruebas), usa el `environment_id` de la interacción completada para continuar en el mismo entorno. Esto garantiza que el agente retome donde lo dejó con todos los archivos y el estado intactos.
+Wenn eine Hintergrundinteraktion zustandsorientierte Tools (wie die Code-Ausführung in einer Sandbox) umfasst, verwenden Sie die `environment_id` aus der abgeschlossenen Interaktion, um in derselben Umgebung fortzufahren. So wird sichergestellt, dass der Agent dort weitermacht, wo er aufgehört hat, und alle Dateien und der Status intakt sind.
 
 ### Python
 
@@ -1667,27 +1667,27 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }"
 ```
 
-## Entornos
+## Umgebungen
 
-Cada llamada crea o reutiliza una zona de pruebas de Linux. El parámetro `environment` tiene tres formas:
+Bei jedem Aufruf wird eine Linux-Sandbox erstellt oder wiederverwendet. Der Parameter `environment` kann drei Formen annehmen:
 
-| Formulario | Descripción |
+| Formular | Beschreibung |
 | --- | --- |
-| `"remote"` | Aprovisiona un entorno de pruebas nuevo con la configuración predeterminada. |
-| `"env_abc123"` | Reutiliza un entorno existente por ID, lo que conserva todos los archivos y el estado. |
-| `{...}` | `EnvironmentConfig` completo con fuentes personalizadas y reglas de red |
+| `"remote"` | Stellen Sie eine neue Sandbox mit Standardeinstellungen bereit. |
+| `"env_abc123"` | Eine vorhandene Umgebung anhand der ID wiederverwenden, wobei alle Dateien und der Status beibehalten werden. |
+| `{...}` | Vollständige `EnvironmentConfig` mit benutzerdefinierten Quellen und Netzwerkregeln. |
 
-Consulta [Entornos](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419) para obtener detalles sobre las fuentes (Git, GCS, intercaladas), las redes, el ciclo de vida y los límites de recursos.
+Weitere Informationen zu Quellen (Git, GCS, Inline), Netzwerken, Lebenszyklus und Ressourcenlimits finden Sie unter [Umgebungen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de).
 
-## Activadores
+## Trigger
 
-Los activadores te permiten programar un agente para que se ejecute automáticamente según una programación cron. Un activador vincula un agente, un entorno, una instrucción y un programa en un recurso persistente que se activa sin intervención manual. Cada ejecución reutiliza el mismo entorno, por lo que los archivos creados en una ejecución persisten y son visibles para la siguiente.
+Mit Triggern können Sie einen KI-Agenten so planen, dass er automatisch nach einem Cron-Zeitplan ausgeführt wird. Ein Trigger bindet einen Agenten, eine Umgebung, einen Prompt und einen Zeitplan in eine persistente Ressource ein, die ohne manuellen Eingriff ausgelöst wird. Bei jeder Ausführung wird dieselbe Umgebung wiederverwendet. Dateien, die in einem Lauf erstellt wurden, bleiben also erhalten und sind für den nächsten Lauf sichtbar.
 
-### Crear un activador
+### Trigger erstellen
 
-Crea un activador especificando un programa cron, una zona horaria y la configuración de interacción. El activador comienza en estado `active` y se activará en la siguiente hora de cron que coincida. Guarda el `id` que se muestra para administrar el activador en las llamadas posteriores.
+Erstellen Sie einen Trigger, indem Sie einen Cron-Zeitplan, eine Zeitzone und die Interaktionskonfiguration angeben. Der Trigger beginnt im Status `active` und wird beim nächsten übereinstimmenden Cron-Zeitpunkt ausgelöst. Speichern Sie die zurückgegebene `id`, um den Trigger in nachfolgenden Aufrufen zu verwalten.
 
-Debido a que un activador se ejecuta de forma desatendida según un programa, haz referencia a una [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) almacenada en lugar de un token intercalado. El proxy de salida lo resuelve en cada ejecución, y tú rotas el secreto sin tocar el activador. Las reglas `transform` intercaladas también funcionan aquí, solo debes actualizar el activador cada vez que cambie el valor.
+Da ein Trigger unbeaufsichtigt nach einem Zeitplan ausgeführt wird, sollten Sie auf eine gespeicherte [Anmeldedaten](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=de) und nicht auf ein Inline-Token verweisen. Der ausgehende Proxy löst es bei jeder Ausführung auf und Sie rotieren das Secret, ohne den Trigger zu berühren. Inline-`transform`-Regeln funktionieren hier ebenfalls. Sie müssen nur den Trigger aktualisieren, wenn sich der Wert ändert.
 
 ### Python
 
@@ -1912,29 +1912,29 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers" \
   }'
 ```
 
-La solicitud `CreateTrigger` acepta los siguientes campos:
+Die `CreateTrigger`-Anfrage akzeptiert die folgenden Felder:
 
-| Campo | Tipo | Obligatorio | Descripción |
+| Feld | Typ | Erforderlich | Beschreibung |
 | --- | --- | --- | --- |
-| `schedule` | string | Sí | Expresión cron (p. ej., `0 * * * *` para cada hora, `0 9 * * 1-5` para las mañanas de los días laborables) |
-| `time_zone` | string | Sí | Zona horaria de IANA (p.ej., `UTC`, `America/Argentina/Buenos_Aires`). |
-| `display_name` | string | No | Es el nombre legible por humanos del activador. |
-| `max_consecutive_failures` | integer | No | Cantidad máxima de fallas antes de que el activador se pause automáticamente. Valor predeterminado: 5. |
-| `execution_timeout_seconds` | integer | No | Es el tiempo de espera por ejecución en segundos. El valor predeterminado es 600. |
-| `interaction` | objeto | Sí | Un `CreateInteractionRequest` que define el agente, la entrada, las herramientas y el entorno. |
+| `schedule` | String | Ja | Cron-Ausdruck (z.B. `0 * * * *` für stündlich, `0 9 * * 1-5` für wochentags morgens). |
+| `time_zone` | String | Ja | IANA-Zeitzone (z.B. `UTC`, `America/Argentina/Buenos_Aires`). |
+| `display_name` | String | Nein | Menschenlesbarer Name für den Trigger. |
+| `max_consecutive_failures` | integer | Nein | Maximale Anzahl von Fehlern, bevor der Trigger automatisch pausiert wird. Standard: 5. |
+| `execution_timeout_seconds` | integer | Nein | Zeitlimit pro Ausführung in Sekunden. Standardwert: 600. |
+| `interaction` | Objekt | Ja | Ein `CreateInteractionRequest`, das den KI-Agenten, die Eingabe, die Tools und die Umgebung definiert. |
 
-La respuesta incluye los siguientes campos clave:
+Die Antwort enthält die folgenden Schlüsselfelder:
 
-| Campo | Tipo | Descripción |
+| Feld | Typ | Beschreibung |
 | --- | --- | --- |
-| `id` | string | Es el identificador único del activador. Úsala en todas las operaciones posteriores. |
-| `status` | string | Estado actual: `active`, `paused` o `disabled`. |
-| `next_run_time` | string | Es la marca de tiempo ISO 8601 de la próxima ejecución programada. |
-| `consecutive_failure_count` | integer | Cantidad de ejecuciones consecutivas con errores desde la última ejecución correcta. |
+| `id` | String | Eindeutige Kennung für den Trigger. Verwenden Sie diese in allen nachfolgenden Vorgängen. |
+| `status` | String | Aktueller Status: `active`, `paused` oder `disabled`. |
+| `next_run_time` | String | ISO 8601-Zeitstempel der nächsten geplanten Ausführung. |
+| `consecutive_failure_count` | integer | Anzahl der aufeinanderfolgenden fehlgeschlagenen Ausführungen seit dem letzten Erfolg. |
 
-### Enumera activadores
+### Trigger auflisten
 
-Recupera todos los activadores asociados con tu proyecto.
+Rufen Sie alle mit Ihrem Projekt verknüpften Trigger ab.
 
 ### Python
 
@@ -2014,9 +2014,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Obtén un activador
+### Trigger erhalten
 
-Recupera la configuración completa y el estado actual de un solo activador.
+Vollständige Konfiguration und aktuellen Status eines einzelnen Triggers abrufen.
 
 ### Python
 
@@ -2092,9 +2092,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Cómo detener y reanudar propuestas y líneas de pedido propuestas
+### Pausieren und fortsetzen
 
-Puedes pausar un activador para detener las ejecuciones programadas y reanudarlo para reactivar la programación. La detención no afecta las ejecuciones manuales.
+Sie können einen Trigger pausieren, um geplante Ausführungen zu stoppen, und ihn fortsetzen, um den Zeitplan zu reaktivieren. Das Pausieren hat keine Auswirkungen auf manuelle Ausführungen.
 
 ### Python
 
@@ -2198,9 +2198,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER
   -d '{"status": "active"}'
 ```
 
-### Borra un activador
+### Trigger löschen
 
-Quitar un activador de forma permanente No se borra el historial de ejecuciones anteriores.
+Einen Trigger endgültig entfernen. Der bisherige Ausführungsverlauf wird nicht gelöscht.
 
 ### Python
 
@@ -2265,9 +2265,9 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGE
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Ejecuta un activador de inmediato
+### Trigger sofort ausführen
 
-Activa un activador a pedido sin esperar a la próxima hora programada. Esto funciona incluso si el activador está detenido.
+Sie können einen Trigger bei Bedarf auslösen, ohne auf den nächsten geplanten Zeitpunkt warten zu müssen. Das funktioniert auch, wenn der Trigger pausiert ist.
 
 ### Python
 
@@ -2332,9 +2332,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Enumerar ejecuciones
+### Ausführungen auflisten
 
-Consulta el historial de ejecuciones de un activador. Cada ejecución incluye un `status`, marcas de tiempo, un `interaction_id` que puedes usar para recuperar el resultado completo de la interacción y un `environment_id` que confirma que todas las ejecuciones comparten la misma zona de pruebas.
+Ausführungsverlauf für einen Trigger ansehen. Jede Ausführung enthält eine `status`, Zeitstempel, eine `interaction_id`, mit der Sie die vollständige Interaktionsausgabe abrufen können, und eine `environment_id`, die bestätigt, dass alle Ausführungen dieselbe Sandbox verwenden.
 
 ### Python
 
@@ -2449,27 +2449,20 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/triggers/TRIGGER_I
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Disponibilidad y precios
+## Verfügbarkeit und Preisgestaltung
 
-El agente de Antigravity está disponible en versión preliminar a través de la
-[API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) en Google AI Studio
-y la API de Gemini para proyectos de nivel gratuito y pagado.
+Der Antigravity-Agent ist in der Vorabversion über die [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de) in Google AI Studio und die Gemini API für Projekte mit kostenloser Stufe und kostenpflichtigem Abo verfügbar.
 
-Los precios siguen un [modelo de pago por uso](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#pricing-for-agents) basado en los tokens del modelo de Gemini subyacente y las herramientas que usa el agente. A diferencia de una
-solicitud de chat estándar que produce un solo resultado, una interacción de Antigravity es un
-flujo de trabajo de agentes. Una sola solicitud activa un bucle autónomo de razonamiento, ejecución de herramientas,
-ejecución de código y administración de archivos. Los proyectos del nivel gratuito incluyen un límite de frecuencia
-y una cuota de uso sin costo.
+Die Preise basieren auf einem [Pay-as-you-go-Modell](https://ai.google.dev/gemini-api/docs/pricing?hl=de#pricing-for-agents), das auf den zugrunde liegenden Gemini-Modell-Tokens und den vom Agenten verwendeten Tools basiert. Im Gegensatz zu einer Standard-Chatanfrage, die eine einzelne Ausgabe erzeugt, ist eine Antigravity-Interaktion ein agentischer Workflow. Eine einzelne Anfrage löst eine autonome Schleife aus, die Schlussfolgerungen, Toolausführung, Codeausführung und Dateiverwaltung umfasst. Projekte der kostenlosen Stufe umfassen ein kostenloses Ratenlimit und ein Nutzungskontingent.
 
-Las interacciones de Antigravity ejecutan bucles autónomos de varios turnos y pueden consumir una cantidad significativa de tokens. Establece [controles de presupuesto](#budget-controls) en tu solicitud para limitar el uso de tokens. También puedes supervisar el progreso en tiempo real con la [transmisión de SSE](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419) o cancelar las solicitudes en ejecución.
+Antigravity-Interaktionen führen autonome Loops mit mehreren Turns aus und können erhebliche Mengen an Tokens verbrauchen. Legen Sie [Budgetbegrenzungen](#budget-controls) für Ihre Anfrage fest, um die Tokennutzung zu begrenzen. Sie können den Fortschritt auch in Echtzeit mit [SSE-Streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=de) verfolgen oder laufende Anfragen abbrechen.
 
-### Controles de presupuesto
+### Budgetkontrollen
 
-Además de la [selección del modelo](#model-selection), establece `max_total_tokens` dentro de `agent_config` (con `"type": "antigravity"`) para limitar
-la cantidad total de tokens (entrada + salida + pensamiento) que puede consumir una interacción.
-Los tokens almacenados en caché no se tienen en cuenta para este límite. Cuando el agente alcanza el límite, la interacción se detiene y se devuelve con `status: "incomplete"`. El límite es un esfuerzo óptimo: El uso real puede superarlo ligeramente según el momento en que el agente verifique el presupuesto entre los pasos.
+Zusätzlich zur [Modellauswahl](#model-selection) können Sie `max_total_tokens` in `agent_config` (mit `"type": "antigravity"`) festlegen, um die Gesamtzahl der Tokens (Eingabe + Ausgabe + Thinking-Modus) zu begrenzen, die für eine Interaktion verwendet werden können.
+Zwischengespeicherte Tokens werden nicht auf dieses Limit angerechnet. Wenn der Agent das Limit erreicht, wird die Interaktion beendet und `status: "incomplete"` zurückgegeben. Das Limit ist ein Best-Effort-Limit: Die tatsächliche Nutzung kann es geringfügig überschreiten, je nachdem, wann der Agent das Budget zwischen den Schritten prüft.
 
-Establece el presupuesto en la solicitud de interacción en `agent_config` junto con `agent` y `input`.
+Legen Sie das Budget für die Interaktionsanfrage in `agent_config` zusammen mit `agent` und `input` fest.
 
 ### Python
 
@@ -2653,11 +2646,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Cómo continuar una interacción incompleta
+#### Unvollständige Interaktion fortsetzen
 
-Cuando una interacción devuelve `status: "incomplete"`, se conservan el trabajo y el contexto del agente. Envía una interacción nueva que haga referencia a la interacción original `id` y
-`environment_id` para retomar donde se dejó. La interacción nueva obtiene su propio
-presupuesto de `max_total_tokens`.
+Wenn bei einer Interaktion `status: "incomplete"` zurückgegeben wird, bleiben die Arbeit und der Kontext des Agenten erhalten. Senden Sie eine neue Interaktion, die auf die ursprüngliche Interaktion `id` und `environment_id` verweist, um dort fortzufahren, wo sie aufgehört hat. Die neue Interaktion erhält ein eigenes `max_total_tokens`-Budget.
 
 ### Python
 
@@ -2788,48 +2779,48 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Costos estimados
+### Geschätzte Kosten
 
-Los costos varían según la complejidad de la tarea. El agente determina de forma autónoma cuántas llamadas a herramientas, ejecuciones de código y operaciones de archivos se necesitan. Las siguientes estimaciones se basan en las ejecuciones.
+Die Kosten variieren je nach Komplexität der Aufgabe. Der Agent bestimmt selbstständig, wie viele Toolaufrufe, Codeausführungen und Dateioperationen erforderlich sind. Die folgenden Schätzungen basieren auf Läufen.
 
-| Categoría de la tarea | Tokens de entrada | Tokens de salida | Costo típico |
+| Aufgabenkategorie | Eingabetokens | Ausgabetokens | Übliche Kosten |
 | --- | --- | --- | --- |
-| **Investigación y síntesis de información** | De 100,000 a 500,000 | De 10,000 a 40,000 | USD 0.30 a USD 1.00 |
-| **Generación de documentos y contenido** | De 100,000 a 500,000 | 15,000 a 50,000 | USD 0.30 a USD 1.30 |
-| **Diseño de procesos y sistemas** | De 100,000 a 400,000 | De 10,000 a 30,000 | De USD 0.25 a USD 0.80 |
-| **Procesamiento y análisis de datos** | De 300,000 a 3 millones | De 30,000 a 150,000 | De USD 0.70 a USD 3.25 |
+| **Erkunden und Informationssynthese** | 100.000–500.000 | 10.000–40.000 | 0,30–1,00 $ |
+| **Dokument- und Inhaltserstellung** | 100.000–500.000 | 15.000–50.000 | 0,30 $ bis 1,30 $ |
+| **Prozess- und Systemdesign** | 100.000–400.000 | 10.000–30.000 | 0,25–0,80 $ |
+| **Datenverarbeitung und -analyse** | 300.000–3 Mio. | 30.000–150.000 | 0,70 $ bis 3,25 $ |
 
-Por lo general, se almacena en caché entre el 50% y el 70% de los tokens de entrada. Los flujos de trabajo de Agentic Workflows complejos con muchas llamadas a herramientas pueden acumular entre 3 y 5 millones de tokens en una sola interacción, con costos de hasta USD 5.
+50–70% der Eingabetokens werden in der Regel im Cache gespeichert. Komplexe KI-Agenten-Workflows mit vielen Toolaufrufen können in einer einzigen Interaktion 3–5 Millionen Tokens ansammeln, was Kosten von bis zu etwa 5 $ verursacht.
 
-El **procesamiento del entorno** (CPU, memoria, ejecución de la zona de pruebas) **no se factura** durante el período de versión preliminar.
+**Umgebungsberechnung** (CPU, Arbeitsspeicher, Sandbox-Ausführung) wird während des Vorschauzeitraums **nicht in Rechnung gestellt**.
 
-## Limitaciones
+## Beschränkungen
 
-- **Estado de la versión preliminar:** El agente de Antigravity y la API de Interactions Las funciones y los esquemas pueden cambiar.
-- **Configuración de generación no admitida:** Los siguientes parámetros no son compatibles y devuelven un error 400: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
-- **Resultados estructurados:** El agente de Antigravity no admite resultados estructurados.
-- **Herramientas no disponibles:** Aún no se admiten `file_search`, `computer_use` ni `google_maps`.
-- **Limitaciones de MCP remoto:** No se admite el transporte de eventos enviados por el servidor (SSE) (usa HTTP transmisible). Además, el servidor `name` debe ser estrictamente alfanumérico y en minúsculas (el uso de letras mayúsculas activa un error genérico `400 Bad Request`).
-- **Herramienta del sistema de archivos:** Por el momento, no hay ninguna herramienta del sistema de archivos. Forma parte de `environment`.
-- **Requisito de la tienda:** La ejecución del agente con `background=True` requiere `store=True`.
-- **Llamada a función solo con estado:** La llamada a función solo se admite en el modo con estado. Debes usar `previous_interaction_id` para continuar el turno. No se admite la reconstrucción manual del historial (modo sin estado).
-- **Tipos multimodales no admitidos.** Por el momento, no se admiten entradas de audio, video ni documentos. Solo se permiten texto e imágenes.
+- **Vorschaustatus**:Der Antigravity-Agent und die Interactions API. Funktionen und Schemas können sich ändern.
+- **Nicht unterstützte Generierungskonfiguration**:Die folgenden Parameter werden nicht unterstützt und geben einen 400-Fehler zurück: `temperature`, `top_p`, `top_k`, `stop_sequences`, `max_output_tokens`.
+- **Strukturierte Ausgabe:** Der Antigravity-Agent unterstützt keine strukturierten Ausgaben.
+- **Nicht verfügbare Tools:** `file_search`, `computer_use` und `google_maps` werden noch nicht unterstützt.
+- **Einschränkungen für Remote-MCPs:** Der Transport von Server-Sent Events (SSE) wird nicht unterstützt (verwenden Sie Streamable HTTP). Außerdem muss der Server `name` ausschließlich Kleinbuchstaben und alphanumerische Zeichen enthalten. Die Verwendung von Großbuchstaben führt zu einem generischen `400 Bad Request`-Fehler.
+- **Dateisystemtool**:Derzeit ist kein Dateisystemtool verfügbar. Sie ist Teil der `environment`.
+- **Anforderung an den Store:** Für die Ausführung des Agenten mit `background=True` ist `store=True` erforderlich.
+- **Nur zustandsorientierte Funktionsaufrufe:** Funktionsaufrufe werden nur im zustandsorientierten Modus unterstützt. Sie müssen `previous_interaction_id` verwenden, um die Runde fortzusetzen. Das manuelle Rekonstruieren des Verlaufs (zustandsloser Modus) wird nicht unterstützt.
+- **Nicht unterstützte multimodale Typen**: Audio-, Video- und Dokumenteingaben werden derzeit nicht unterstützt. Nur Text und Bilder sind zulässig.
 
-## ¿Qué sigue?
+## Nächste Schritte
 
-- [Guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Conversaciones de varios turnos y transmisión
-- [Crea agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419): instrucciones personalizadas, habilidades y guardado de agentes.
-- [Entornos](https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419): Configuración de zona de pruebas, fuentes y redes.
-- [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419): Aplican barreras de seguridad y validan los efectos secundarios dentro de la zona de pruebas.
-- [Agente de Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419): tareas de investigación de formato largo.
-- [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419): Es la API subyacente.
+- [Kurzanleitung](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de): Multi-Turn-Unterhaltungen und Streaming.
+- [Benutzerdefinierte KI-Agenten erstellen](https://ai.google.dev/gemini-api/docs/custom-agents?hl=de): benutzerdefinierte Anweisungen, Skills und Speichern von KI-Agenten.
+- [Umgebungen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de): Sandbox-Konfiguration, Quellen, Netzwerk.
+- [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=de): Erzwingen von Sicherheits-Gates und Validierung von Nebenwirkungen innerhalb der Sandbox.
+- [Deep Research-Agent](https://ai.google.dev/gemini-api/docs/deep-research?hl=de): umfangreiche Rechercheaufgaben.
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de): die zugrunde liegende API.
 
-Enviar comentarios
+Feedback geben
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Última actualización: 2026-10-16 (UTC)
+Zuletzt aktualisiert: 2026-10-16 (UTC).
 
-¿Quieres brindar más información?
+Haben Sie Feedback für uns?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-16 (UTC)"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-16 (UTC)."],[],[]]

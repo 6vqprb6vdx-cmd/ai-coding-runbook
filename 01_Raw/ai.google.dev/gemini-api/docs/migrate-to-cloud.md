@@ -1,51 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=th
-fetched_at: 2026-10-19T05:31:07.085331+00:00
-title: "Gemini Developer API \u0e40\u0e17\u0e35\u0e22\u0e1a\u0e01\u0e31\u0e1a\u0e41\u0e1e\u0e25\u0e15\u0e1f\u0e2d\u0e23\u0e4c\u0e21 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=fr
+fetched_at: 2026-10-26T05:57:43.726496+00:00
+title: "API Gemini\u00a0Developer et plate-forme Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-# Gemini Developer API เทียบกับแพลตฟอร์ม Gemini
+# API Gemini Developer et plate-forme Gemini
 
-เมื่อพัฒนาโซลูชัน Generative AI ด้วย Gemini ทาง Google มีผลิตภัณฑ์ API 2 รายการ ได้แก่ [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=th) และ [Gemini Platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=th)
+Lorsque vous développez des solutions d'IA générative avec Gemini, Google propose deux produits API : l'[API Gemini Developer](https://ai.google.dev/gemini-api/docs?hl=fr) et l'[API de la plate-forme Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=fr).
 
-Gemini Developer API เป็นเส้นทางที่เร็วที่สุดในการสร้าง ทำให้พร้อมใช้งานจริง และ
-ปรับขนาดแอปพลิเคชันที่ทำงานด้วย Gemini นักพัฒนาแอปส่วนใหญ่ควรใช้ Gemini Developer
-API เว้นแต่จะจำเป็นต้องใช้การควบคุมเฉพาะสำหรับองค์กร
+L'API Gemini Developer offre le moyen le plus rapide de créer, de mettre en production et de faire évoluer des applications optimisées par Gemini. La plupart des développeurs doivent utiliser l'API Gemini Developer, sauf s'ils ont besoin de contrôles d'entreprise spécifiques.
 
-แพลตฟอร์ม Gemini มีระบบนิเวศที่ครอบคลุมของฟีเจอร์และบริการที่พร้อมใช้งานในองค์กร
-สำหรับการสร้างและติดตั้งใช้งานแอปพลิเคชัน Generative AI ที่ขับเคลื่อนโดย
-Google Cloud
+La plate-forme Gemini offre un écosystème complet de fonctionnalités et de services adaptés aux entreprises pour créer et déployer des applications d'IA générative soutenues par Google Cloud.
 
-เมื่อเร็วๆ นี้ เราได้ทำให้การย้ายข้อมูลระหว่างบริการเหล่านี้ง่ายขึ้น ตอนนี้คุณเข้าถึงทั้ง Gemini
-Developer API และ Gemini Platform API ได้แล้ว
-ผ่าน [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=th) แบบรวมและ
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
+Nous avons récemment simplifié la migration entre ces services. L'API Gemini Developer et l'API de la plate-forme Gemini sont désormais accessibles via le [SDK Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) unifié et l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr).
 
-## การเปรียบเทียบโค้ด: Interactions API (แนะนํา)
+## Comparaison de code : API Interactions (recommandée)
 
-[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) เป็นวิธีที่แนะนําในการสร้างด้วยโมเดลและเอเจนต์ของ Gemini
-ตัวอย่างต่อไปนี้
-เปรียบเทียบการสร้างข้อความระหว่าง Gemini Developer API กับแพลตฟอร์ม Gemini
+L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est la méthode recommandée pour créer des applications avec les modèles et les agents Gemini. Les exemples suivants comparent la génération de texte entre l'API Gemini Developer et la plate-forme Gemini.
 
 ### Python
 
-คุณเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
-ได้ผ่านไลบรารี `google-genai` (`>= 2.3.0`) ดูวิธีการติดตั้ง
-`google-genai` ได้ในหน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
+Vous pouvez accéder à l'API Gemini Developer et aux services de la plate-forme Gemini via la bibliothèque `google-genai` (`>= 2.3.0`). Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `google-genai`.
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 from google import genai
@@ -59,7 +48,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### Gemini Platform API
+### API de la plate-forme Gemini
 
 ```
 from google import genai
@@ -75,13 +64,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript และ TypeScript
+### JavaScript et TypeScript
 
-คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
-ผ่านไลบรารี `@google/genai` (`>= 2.3.0`) ดูวิธีการติดตั้ง
-`@google/genai` ได้ในหน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
+Vous pouvez accéder à l'API Gemini Developer et aux services de la plate-forme Gemini via la bibliothèque `@google/genai` (`>= 2.3.0`). Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `@google/genai`.
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -95,7 +82,7 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Gemini Platform API
+### API de la plate-forme Gemini
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -113,17 +100,15 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## การเปรียบเทียบโค้ด: API ของ generateContent
+## Comparaison de code : API generateContent
 
-แม้ว่าเราจะแนะนำให้ใช้ Interactions API สำหรับโปรเจ็กต์ใหม่ แต่ระบบจะยังคงรองรับ `generateContent` API ต่อไป
+Bien que l'API Interactions soit recommandée pour les nouveaux projets, l'API `generateContent` reste compatible.
 
 ### Python
 
-คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
-ได้ผ่านไลบรารี `google-genai` ดูวิธีการติดตั้ง
-`google-genai`ได้ที่หน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
+Vous pouvez accéder à l'API Gemini Developer et aux services de la plate-forme Gemini via la bibliothèque `google-genai`. Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `google-genai`.
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 from google import genai
@@ -136,7 +121,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### Gemini Platform API
+### API de la plate-forme Gemini
 
 ```
 from google import genai
@@ -151,13 +136,11 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript และ TypeScript
+### JavaScript et TypeScript
 
-คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
-ผ่าน`@google/genai` ได้ ดูวิธีการติดตั้ง
-`@google/genai` ได้ที่หน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
+Vous pouvez accéder aux services de l'API Gemini Developer et de la plate-forme Gemini via la bibliothèque `@google/genai`. Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `@google/genai`.
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -175,7 +158,7 @@ async function main() {
 main();
 ```
 
-### Gemini Platform API
+### API de la plate-forme Gemini
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -198,11 +181,9 @@ main();
 
 ### Go
 
-คุณสามารถเข้าถึงทั้ง Gemini Developer API และบริการแพลตฟอร์ม Gemini
-ผ่าน`google.golang.org/genai` library ดูวิธีการติดตั้ง
-`google.golang.org/genai` ได้ที่หน้า[ไลบรารี](https://ai.google.dev/gemini-api/docs/libraries?hl=th)
+Vous pouvez accéder aux services de l'API Gemini Developer et de la plate-forme Gemini via la bibliothèque `google.golang.org/genai`. Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `google.golang.org/genai`.
 
-### Gemini Developer API
+### API Gemini Developer
 
 ```
 import (
@@ -229,7 +210,7 @@ func main() {
 }
 ```
 
-### Gemini Platform API
+### API de la plate-forme Gemini
 
 ```
 import (
@@ -261,51 +242,41 @@ func main() {
 }
 ```
 
-### กรณีการใช้งานและแพลตฟอร์มอื่นๆ
+### Autres cas d'utilisation et plates-formes
 
-ดูคำแนะนำเฉพาะสำหรับ Use Case ใน[เอกสารประกอบเกี่ยวกับ Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=th)
-และ[เอกสารประกอบเกี่ยวกับแพลตฟอร์ม Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=th)
-สำหรับแพลตฟอร์มและ Use Case อื่นๆ
+Pour d'autres plates-formes et cas d'utilisation, consultez les guides spécifiques aux cas d'utilisation dans la [documentation de l'API Gemini Developer](https://ai.google.dev/gemini-api/docs?hl=fr) et la [documentation de la plate-forme Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=fr).
 
-## ข้อควรพิจารณาในการย้ายข้อมูล
+## Considérations sur la migration
 
-สิ่งที่จะเกิดขึ้นเมื่อคุณย้ายข้อมูล
+Lorsque vous migrez :
 
-- คุณจะต้องใช้บัญชีบริการของ Google Cloud เพื่อตรวจสอบสิทธิ์ ดูข้อมูลเพิ่มเติมได้ที่
-  [เอกสารประกอบเกี่ยวกับแพลตฟอร์ม Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=th)
-- คุณสามารถใช้โปรเจ็กต์ Google Cloud ที่มีอยู่
-  (โปรเจ็กต์เดียวกับที่ใช้สร้างคีย์ API) หรือจะ[สร้างโปรเจ็กต์ Google Cloud ใหม่](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=th)ก็ได้
-- ภูมิภาคที่รองรับอาจแตกต่างกันระหว่าง Gemini Developer API กับ
-  Gemini Platform API ในระหว่างเวอร์ชันตัวอย่าง [Interactions API ในแพลตฟอร์ม Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=th) รองรับเฉพาะปลายทาง `global` (`location="global"`) โปรดดูรายการ[ภูมิภาคที่รองรับสำหรับ Generative AI ใน Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=th)
-- คุณต้องฝึกโมเดลที่สร้างใน Google AI Studio อีกครั้งในแพลตฟอร์ม Gemini
+- Vous devrez utiliser des comptes de service Google Cloud pour vous authentifier. Pour en savoir plus, consultez la [documentation sur la plate-forme Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=fr).
+- Vous pouvez utiliser votre projet Google Cloud existant (celui utilisé pour générer votre clé API) ou [créer un nouveau projet Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=fr).
+- Les régions prises en charge peuvent différer entre l'API Gemini Developer et l'API de la plate-forme Gemini. Pendant la période d'aperçu, l'[API Interactions sur la plate-forme Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=fr) n'est compatible qu'avec le point de terminaison `global` (`location="global"`). Consultez la liste des [régions prises en charge pour l'IA générative sur Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=fr).
+- Tous les modèles que vous avez créés dans Google AI Studio doivent être réentraînés dans la plate-forme Gemini.
 
-หากไม่จำเป็นต้องใช้คีย์ Gemini API สำหรับ Gemini Developer API อีกต่อไป
-โปรดทำตามแนวทางปฏิบัติแนะนำด้านความปลอดภัยและลบคีย์ดังกล่าว
+Si vous n'avez plus besoin d'utiliser votre clé API Gemini pour l'API Gemini Developer, suivez les bonnes pratiques de sécurité et supprimez-la.
 
-วิธีลบคีย์ API
+Pour supprimer une clé API :
 
-1. เปิดหน้า
-   [ข้อมูลเข้าสู่ระบบของ Google Cloud API](https://console.cloud.google.com/apis/credentials?hl=th)
-2. ค้นหาคีย์ API ที่ต้องการลบ แล้วคลิกไอคอน**การดำเนินการ**
-3. เลือก**ลบคีย์ API**
-4. ในโมดัล**ลบข้อมูลเข้าสู่ระบบ** ให้เลือก**ลบ**
+1. Ouvrez la page [Identifiants de l'API Google Cloud](https://console.cloud.google.com/apis/credentials?hl=fr).
+2. Recherchez la clé API que vous souhaitez supprimer, puis cliquez sur l'icône **Actions**.
+3. Sélectionnez **Supprimer la clé API**.
+4. Dans la fenêtre **Supprimer l'identifiant**, sélectionnez **Supprimer**.
 
-   การลบคีย์ API จะใช้เวลาสักครู่ในการเผยแพร่ หลังจาก
-   การเผยแพร่เสร็จสมบูรณ์แล้ว ระบบจะปฏิเสธการเข้าชมที่ใช้คีย์ API ที่ลบไปแล้ว
+   Propager la suppression d'une clé API prend quelques minutes. Une fois la propagation terminée, tout trafic utilisant la clé API supprimée est rejeté.
 
-## ขั้นตอนถัดไป
+## Étapes suivantes
 
-- ดูข้อมูลเพิ่มเติมได้ในคู่มือนักพัฒนาซอฟต์แวร์เกี่ยวกับ
-  [Interactions API บนแพลตฟอร์ม Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=th)
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับโซลูชัน Generative AI บนแพลตฟอร์ม Gemini ได้ที่
-  [ภาพรวมของ Generative AI บนแพลตฟอร์ม Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=th)
+- Consultez le guide du développeur sur l'[API Interactions sur la plate-forme Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=fr).
+- Consultez la [présentation de l'IA générative sur la plate-forme Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=fr) pour en savoir plus sur les solutions d'IA générative sur la plate-forme Gemini.
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-อัปเดตล่าสุด 2026-10-08 UTC
+Dernière mise à jour le 2026/10/08 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Voulez-vous nous donner plus d'informations ?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-08 UTC"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/08 (UTC)."],[],[]]

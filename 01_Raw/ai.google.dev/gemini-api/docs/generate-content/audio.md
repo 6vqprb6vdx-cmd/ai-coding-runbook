@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=vi
-fetched_at: 2026-10-19T05:46:05.064966+00:00
-title: "Hi\u1ec3u \u00e2m thanh \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=fa
+fetched_at: 2026-10-26T05:49:01.136892+00:00
+title: "\u062f\u0631\u06a9 \u0635\u062f\u0627 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs/generate-content?hl=fa)
 
-Gửi ý kiến phản hồi
+ارسال بازخورد
 
-# Hiểu âm thanh
+# درک صدا
 
-Gemini có thể phân tích thông tin đầu vào bằng âm thanh và tạo câu trả lời bằng văn bản.
+‫Gemini می‌تواند ورودی صوتی را تجزیه‌وتحلیل کند و پاسخ‌های نوشتاری تولید کند.
 
 ### Python
 
@@ -67,7 +67,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -112,7 +112,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 AUDIO_PATH="path/to/sample.mp3"
@@ -166,22 +166,24 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## Tổng quan
+## نمای کلی
 
-Gemini có thể phân tích và hiểu dữ liệu đầu vào là âm thanh, đồng thời tạo câu trả lời bằng văn bản cho dữ liệu đó, từ đó hỗ trợ các trường hợp sử dụng như sau:
+‫Gemini می‌تواند ورودی صوتی را تجزیه‌وتحلیل و درک کند و پاسخ‌های نوشتاری برای آن تولید کند،
+که امکان استفاده از موارد زیر را فراهم می‌کند:
 
-- Mô tả, tóm tắt hoặc trả lời câu hỏi về nội dung âm thanh.
-- Cung cấp bản chép lời và bản dịch của âm thanh (chuyển lời nói thành văn bản).
-- Phát hiện cảm xúc trong lời nói và âm nhạc.
-- Phân tích các đoạn âm thanh cụ thể và cung cấp dấu thời gian.
+- توصیف، خلاصه کردن، یا پاسخ دادن به سؤالات درباره محتوای صوتی.
+- ترانویسی و ترجمه صدا (گفتار به نوشتار) را ارائه دهید.
+- احساسات را در گفتار و موسیقی تشخیص دهید.
+- بخش‌های خاصی از صدا را تجزیه‌وتحلیل کن و مُهرهای زمان را ارائه بده.
 
-Hiện tại, Gemini API chưa hỗ trợ các trường hợp sử dụng tính năng chép lời theo thời gian thực.
-Để biết thông tin về hoạt động tương tác bằng giọng nói và video theo thời gian thực, hãy tham khảo [Live API](https://ai.google.dev/gemini-api/docs/live?hl=vi).
-Đối với các mô hình chuyển lời nói thành văn bản chuyên dụng có hỗ trợ tính năng phiên âm theo thời gian thực, hãy sử dụng [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=vi).
+درحال‌حاضر Gemini API از موارد استفاده ترانویسی هم‌زمان پشتیبانی نمی‌کند.
+برای تعامل‌های صوتی و ویدیویی هم‌زمان، به [Live API](https://ai.google.dev/gemini-api/docs/live?hl=fa) مراجعه کنید.
+برای مدل‌های اختصاصی گفتار به نوشتار با پشتیبانی از ترانویسی هم‌زمان،
+از [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=fa) استفاده کنید.
 
-## Chuyển lời nói thành văn bản
+## آوانویسی گفتار به نوشتار
 
-Ứng dụng mẫu này cho biết cách nhắc Gemini API phiên âm, dịch và tóm tắt lời nói, bao gồm cả dấu thời gian và tính năng phát hiện cảm xúc bằng cách sử dụng [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi).
+این برنامه نمونه نشان می‌دهد که چگونه بااستفاده از [بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa)، به Gemini API پیام‌واره بدهید تا گفتار را ترانویسی، ترجمه، و خلاصه کند، ازجمله مُهرهای زمان و تشخیص احساسات.
 
 ### Python
 
@@ -346,7 +348,7 @@ async function main() {
 await main();
 ```
 
-### REST
+### استراحت
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -409,25 +411,28 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Bạn có thể yêu cầu [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=vi) tạo một ứng dụng giống như [ứng dụng phiên âm mẫu này](https://aistudio.google.com/apps/bundled/echoscript?hl=vi) chỉ bằng một nút nhấp.
+می‌توانید با یک کلیک به [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=fa) پیام‌واره بدهید تا برنامه‌ای درست مثل [این برنامه نمونه ترانویسی](https://aistudio.google.com/apps/bundled/echoscript?hl=fa) بسازد.
 
-![Ứng dụng Gemini có tính năng chuyển âm thanh thành văn bản bằng nhiều ngôn ngữ](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=vi)
+![برنامه Gemini ترانویسی صوتی چندزبانه](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=fa)
 
-## Âm thanh đầu vào
+## صدای ورودی
 
-Bạn có thể cung cấp dữ liệu âm thanh cho Gemini theo những cách sau:
+می‌توانید داده‌های صوتی را به روش‌های زیر به Gemini ارائه دهید:
 
-- [Tải tệp âm thanh lên](#upload-audio) trước khi đưa ra yêu cầu cho `generateContent`.
-- [Truyền dữ liệu âm thanh nội tuyến](#inline-audio) bằng yêu cầu đến `generateContent`.
+- پیش‌از درخواست به `generateContent`، [فایل صوتی بارگذاری کنید](#upload-audio).
+- [داده‌های صوتی درون‌خطی را](#inline-audio) با درخواست به
+  `generateContent` ارسال کنید.
 
-Để tìm hiểu về các phương thức nhập tệp khác, hãy xem hướng dẫn [Phương thức nhập tệp](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=vi).
+برای آشنایی با دیگر روش‌های ورودی فایل، به راهنمای
+[روش‌های ورودی فایل](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=fa) مراجعه کنید.
 
-### Tải tệp âm thanh lên
+### بارگذاری کردن فایل صوتی
 
-Bạn có thể dùng [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi) để tải một tệp âm thanh lên.
-Luôn sử dụng Files API khi tổng kích thước yêu cầu (bao gồm cả tệp, câu lệnh văn bản, hướng dẫn hệ thống, v.v.) lớn hơn 20 MB.
+می‌توانید از [Files API](https://ai.google.dev/gemini-api/docs/files?hl=fa) برای بارگذاری فایل صوتی استفاده کنید.
+وقتی اندازه کل درخواست (شامل فایل‌ها، پیام‌واره نوشتاری، دستورالعمل‌های سیستم، و غیره) بزرگ‌تر از ۲۰ مگابایت است، همیشه از Files API استفاده کنید.
 
-Đoạn mã sau đây tải một tệp âm thanh lên rồi dùng tệp đó trong một lệnh gọi đến `generateContent`.
+کد زیر یک فایل صوتی را بارگذاری می‌کند و سپس از آن فایل در تماسی با
+`generateContent` استفاده می‌کند.
 
 ### Python
 
@@ -475,7 +480,7 @@ async function main() {
 await main();
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -520,7 +525,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 AUDIO_PATH="path/to/sample.mp3"
@@ -574,11 +579,12 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-Để tìm hiểu thêm về cách làm việc với các tệp nội dung nghe nhìn, hãy xem [Files API](https://ai.google.dev/gemini-api/docs/files?hl=vi).
+برای کسب اطلاعات بیشتر درباره کار با فایل‌های رسانه‌ای،
+[Files API](https://ai.google.dev/gemini-api/docs/files?hl=fa) را ببینید.
 
-### Truyền dữ liệu âm thanh cùng dòng
+### ارسال داده‌های صوتی به‌صورت درون‌خطی
 
-Thay vì tải tệp âm thanh lên, bạn có thể truyền dữ liệu âm thanh nội tuyến trong yêu cầu đến `generateContent`:
+به‌جای بارگذاری فایل صوتی، می‌توانید داده‌های صوتی درون‌خطی را در درخواست به `generateContent` ارسال کنید:
 
 ### Python
 
@@ -632,7 +638,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -677,14 +683,16 @@ func main() {
 }
 ```
 
-Một số điều cần lưu ý về dữ liệu âm thanh nội tuyến:
+چند نکته که باید درباره داده‌های صوتی درون‌خطی به‌خاطر داشته باشید:
 
-- Kích thước yêu cầu tối đa là 20 MB, bao gồm cả câu lệnh dạng văn bản, chỉ dẫn hệ thống và các tệp được cung cấp nội tuyến. Nếu kích thước tệp của bạn khiến *tổng kích thước yêu cầu* vượt quá 20 MB, hãy dùng Files API để [tải tệp âm thanh lên](#upload-audio) để dùng trong yêu cầu.
-- Nếu bạn đang sử dụng một mẫu âm thanh nhiều lần, thì việc [tải một tệp âm thanh lên](#upload-audio) sẽ hiệu quả hơn.
+- حداکثر اندازه درخواست ۲۰ مگابایت است که شامل پیام‌واره‌های نوشتاری،
+  دستورالعمل‌های سیستم، و فایل‌های ارائه‌شده به‌صورت درون‌خطی می‌شود. اگر اندازه فایل شما باعث شود *اندازه کل درخواست* از ۲۰ مگابایت بیشتر شود، از Files API برای [بارگذاری فایل صوتی](#upload-audio) جهت استفاده در درخواست استفاده کنید.
+- اگر از یک نمونه صوتی چندین بار استفاده می‌کنید، کارآمدتر است که
+  [یک فایل صوتی بارگذاری کنید](#upload-audio).
 
-## Lấy bản chép lời
+## دریافت ترانویسی
 
-Để nhận bản chép lời của dữ liệu âm thanh, bạn chỉ cần yêu cầu trong câu lệnh:
+برای دریافت ترانویسی داده‌های صوتی، کافی است آن را در پیام‌واره درخواست کنید:
 
 ### Python
 
@@ -728,7 +736,7 @@ const result = await ai.models.generateContent({
 console.log("result.text=", result.text);
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -773,12 +781,12 @@ func main() {
 }
 ```
 
-## Tham khảo dấu thời gian
+## به مُهرهای زمان مراجعه کنید
 
-Bạn có thể tham chiếu đến các phần cụ thể của tệp âm thanh bằng cách sử dụng dấu thời gian có dạng `MM:SS`. Ví dụ: câu lệnh sau đây yêu cầu một bản chép lời
+می‌توانید بااستفاده از مُهرهای زمان به فرم `MM:SS` به بخش‌های خاصی از فایل صوتی ارجاع دهید. برای مثال، پیام‌واره زیر ترانویسی‌ای را درخواست می‌کند که
 
-- Bắt đầu từ 2 phút 30 giây tính từ đầu tệp.
-- Kết thúc ở phút thứ 3 và giây thứ 29 kể từ khi bắt đầu tập tin.
+- از ۲ دقیقه و ۳۰ ثانیه از ابتدای فایل شروع می‌شود.
+- در دقیقه ۳ و ثانیه ۲۹ از ابتدای فایل به‌پایان می‌رسد.
 
 ### Python
 
@@ -794,7 +802,7 @@ prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 const prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -840,9 +848,9 @@ func main() {
 }
 ```
 
-## Đếm mã thông báo
+## شمارش داده‌واحدها
 
-Gọi phương thức `countTokens` để đếm số lượng mã thông báo trong một tệp âm thanh. Ví dụ:
+برای دریافت تعداد نشان‌واره‌ها در فایل صوتی، روش `countTokens` را فراخوانی کنید. برای مثال:
 
 ### Python
 
@@ -882,7 +890,7 @@ const countTokensResponse = await ai.models.countTokens({
 console.log(countTokensResponse.totalTokens);
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -926,49 +934,54 @@ func main() {
 }
 ```
 
-## Định dạng âm thanh được hỗ trợ
+## قالب‌های صوتی پشتیبانی‌شده
 
-Gemini hỗ trợ các loại MIME sau đây cho định dạng âm thanh:
+‫Gemini از انواع MIME قالب صوتی زیر پشتیبانی می‌کند:
 
-- WAV – `audio/wav`
-- MP3 – `audio/mp3`
-- AIFF – `audio/aiff`
-- AAC – `audio/aac`
-- OGG – `audio/ogg`
-- FLAC – `audio/flac`
-- MPEG – `audio/mpeg`
-- M4A – `audio/m4a`
-- L16 – `audio/l16`
-- Opus – `audio/opus`
-- ALAW – `audio/alaw`
-- MULAW – `audio/mulaw`
-- WebM – `audio/webm`
+- WAV - `audio/wav`
+- MP3 - `audio/mp3`
+- AIFF - `audio/aiff`
+- AAC - `audio/aac`
+- OGG - `audio/ogg`
+- FLAC - `audio/flac`
+- MPEG - `audio/mpeg`
+- M4A - `audio/m4a`
+- L16 - `audio/l16`
+- Opus - `audio/opus`
+- ALAW - `audio/alaw`
+- MULAW - `audio/mulaw`
+- WebM - `audio/webm`‎
 
-Để xem danh sách đầy đủ các loại MIME và giản đồ tham số được hỗ trợ, hãy xem [tài liệu tham khảo về Interactions API](https://ai.google.dev/api/interactions-api?hl=vi#Resource:Content).
+برای مشاهده فهرست کامل انواع MIME و طرح‌واره‌های پارامتر پشتیبانی‌شده، به [مرجع Interactions API](https://ai.google.dev/api/interactions-api?hl=fa#Resource:Content) مراجعه کنید.
 
-## Thông tin kỹ thuật về âm thanh
+## جزئیات فنی درباره صدا
 
-- Gemini biểu thị mỗi giây âm thanh dưới dạng 32 mã thông báo; ví dụ: một phút âm thanh được biểu thị dưới dạng 1.920 mã thông báo.
-- Gemini có thể "hiểu" các thành phần không phải lời nói, chẳng hạn như tiếng chim hót hoặc tiếng còi báo động.
-- Độ dài tối đa được hỗ trợ của dữ liệu âm thanh trong một câu lệnh là 9,5 giờ.
-  Gemini không giới hạn *số lượng* tệp âm thanh trong một câu lệnh; tuy nhiên, tổng thời lượng kết hợp của tất cả tệp âm thanh trong một câu lệnh không được vượt quá 9,5 giờ.
-- Gemini giảm độ phân giải dữ liệu của tệp âm thanh xuống 16 Kbps.
-- Nếu nguồn âm thanh có nhiều kênh, Gemini sẽ kết hợp các kênh đó thành một kênh duy nhất.
+- ‫Gemini هر ثانیه از صدا را به‌عنوان ۳۲ نشانه نمایش می‌دهد؛ برای مثال،
+  یک دقیقه صدا به‌عنوان ۱٬۹۲۰ نشانه نمایش داده می‌شود.
+- ‫Gemini می‌تواند مؤلفه‌های غیرگفتاری، مانند آواز پرندگان یا آژیر را «درک کند».
+- حداکثر طول پشتیبانی‌شده برای داده‌های صوتی در یک پیام‌واره ۹٫۵ ساعت است.
+  ‫Gemini *تعداد* فایل‌های صوتی را در یک پیام‌واره محدود نمی‌کند؛ اما
+  مجموع طول همه فایل‌های صوتی در یک پیام‌واره نمی‌تواند از ۹٫۵ ساعت بیشتر باشد.
+- ‫Gemini فایل‌های صوتی را به وضوح داده ۱۶ کیلوبیت در ثانیه کاهش می‌دهد.
+- اگر منبع صوتی حاوی چندین کانال باشد، Gemini آن کانال‌ها را در یک کانال واحد ترکیب می‌کند.
 
-## Bước tiếp theo
+## قدم بعدی چیست
 
-Hướng dẫn này cho biết cách tạo văn bản để phản hồi dữ liệu âm thanh. Để tìm hiểu thêm, hãy xem các tài nguyên sau:
+این راهنما نشان می‌دهد چگونه در پاسخ به داده‌های صوتی، نوشتار تولید کنید. برای اطلاعات بیشتر،
+منابع زیر را ببینید:
 
-- [Chiến lược đặt câu lệnh cho tệp](https://ai.google.dev/gemini-api/docs/files?hl=vi#prompt-guide): Gemini API hỗ trợ đặt câu lệnh bằng dữ liệu văn bản, hình ảnh, âm thanh và video, còn được gọi là đặt câu lệnh đa phương thức.
-- [Hướng dẫn hệ thống](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#system-instructions): Hướng dẫn hệ thống giúp bạn điều chỉnh hành vi của mô hình dựa trên nhu cầu và trường hợp sử dụng cụ thể của bạn.
-- [Hướng dẫn về an toàn](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=vi): Đôi khi, các mô hình AI tạo sinh tạo ra kết quả không mong muốn, chẳng hạn như kết quả không chính xác, thiên vị hoặc phản cảm. Hậu xử lý và đánh giá của con người là những yếu tố cần thiết để hạn chế nguy cơ gây hại từ những kết quả như vậy.
+- [راهبردهای پیام‌واره‌دهی فایل](https://ai.google.dev/gemini-api/docs/files?hl=fa#prompt-guide): Gemini API از پیام‌واره‌دهی با داده‌های نوشتاری، تصویری، صوتی، و ویدیویی پشتیبانی می‌کند که
+  به آن پیام‌واره‌دهی چندحالته نیز می‌گویند.
+- [دستورالعمل‌های سیستم](https://ai.google.dev/gemini-api/docs/text-generation?hl=fa#system-instructions):
+  دستورالعمل‌های سیستم به شما امکان می‌دهد رفتار مدل را براساس نیازها و موارد استفاده خاص خود هدایت کنید.
+- [راهنمای ایمنی](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=fa): گاهی‌اوقات مدل‌های هوش مصنوعی زایا بروندادهای غیرمنتظره‌ای تولید می‌کنند، مثلاً بروندادهایی که نادرست، سوگیرانه، یا توهین‌آمیز هستند. پس‌پردازش و ارزیابی انسانی برای محدود کردن خطر آسیب ناشی از چنین بروندادهایی ضروری است.
 
-Gửi ý kiến phản hồi
+ارسال بازخورد
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Cập nhật lần gần đây nhất: 2026-10-19 UTC.
+تاریخ آخرین به‌روزرسانی 2026-10-19 به‌وقت ساعت هماهنگ جهانی.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-19 UTC."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-19 به‌وقت ساعت هماهنگ جهانی."],[],[]]

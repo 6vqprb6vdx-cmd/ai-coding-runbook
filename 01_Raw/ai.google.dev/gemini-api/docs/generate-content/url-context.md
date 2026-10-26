@@ -1,40 +1,36 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=th
-fetched_at: 2026-10-19T05:37:17.685476+00:00
-title: "\u0e1a\u0e23\u0e34\u0e1a\u0e17 URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/url-context?hl=pt-BR
+fetched_at: 2026-10-26T05:44:30.478966+00:00
+title: "Contexto do URL \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
-ส่งความคิดเห็น
+Envie comentários
 
-# บริบท URL
+# Contexto do URL
 
-เครื่องมือบริบท URL ช่วยให้คุณระบุบริบทเพิ่มเติมให้กับโมเดลใน
-รูปแบบ URL ได้ การใส่ URL ไว้ในคำขอจะช่วยให้โมเดลเข้าถึง
-เนื้อหาจากหน้าเว็บเหล่านั้นได้ (ตราบใดที่เป็น URL ประเภทที่ไม่ได้ระบุไว้ใน
-[ส่วนข้อจำกัด](#limitations)) เพื่อให้ข้อมูล
-และปรับปรุงการตอบกลับ
+A ferramenta de contexto de URL permite fornecer contexto adicional aos modelos na forma de URLs. Ao incluir URLs na solicitação, o modelo acessa o conteúdo dessas páginas (desde que não seja um tipo de URL listado na [seção de limitações](#limitations)) para informar e melhorar a resposta.
 
-เครื่องมือบริบท URL มีประโยชน์สำหรับงานต่างๆ เช่น
+A ferramenta de contexto de URL é útil para tarefas como as seguintes:
 
-- **ดึงข้อมูล**: ดึงข้อมูลที่เฉพาะเจาะจง เช่น ราคา ชื่อ หรือผลการสืบค้นที่สำคัญ
-  จาก URL หลายรายการ
-- **เปรียบเทียบเอกสาร**: วิเคราะห์รายงาน บทความ หรือ PDF หลายรายการเพื่อ
-  ระบุความแตกต่างและติดตามแนวโน้ม
-- **สังเคราะห์และสร้างเนื้อหา**: รวมข้อมูลจาก URL แหล่งที่มาหลายรายการเพื่อสร้างสรุปที่ถูกต้อง โพสต์ในบล็อก หรือรายงาน
-- **วิเคราะห์โค้ดและเอกสาร**: ชี้ไปยังที่เก็บ GitHub หรือเอกสารทางเทคนิคเพื่ออธิบายโค้ด สร้างวิธีการตั้งค่า หรือตอบคำถาม
+- **Extrair dados**: extraia informações específicas, como preços, nomes ou principais
+  descobertas de vários URLs.
+- **Comparar documentos**: analise vários relatórios, artigos ou PDFs para
+  identificar diferenças e acompanhar tendências.
+- **Sintetizar e criar conteúdo**: combine informações de vários URLs de origem para gerar resumos, postagens de blog ou relatórios precisos.
+- **Analisar código e documentos**: aponte para um repositório do GitHub ou documentação técnica para explicar o código, gerar instruções de configuração ou responder a perguntas.
 
-ตัวอย่างต่อไปนี้แสดงวิธีเปรียบเทียบสูตรอาหาร 2 สูตรจากเว็บไซต์ต่างๆ
+O exemplo a seguir mostra como comparar duas receitas de sites diferentes.
 
 ### Python
 
@@ -117,23 +113,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 cat result.json
 ```
 
-## วิธีการทำงาน
+## Como funciona
 
-เครื่องมือบริบท URL ใช้กระบวนการดึงข้อมูล 2 ขั้นตอนเพื่อสร้างสมดุลระหว่างความเร็ว ต้นทุน และการเข้าถึงข้อมูลล่าสุด เมื่อคุณระบุ URL เครื่องมือจะพยายามดึงเนื้อหาจากแคชดัชนีภายในก่อน ซึ่งทำหน้าที่เป็นแคชที่ได้รับการเพิ่มประสิทธิภาพอย่างสูง หาก URL ไม่พร้อมใช้งานในดัชนี (เช่น หากเป็นหน้าเว็บใหม่มาก) เครื่องมือจะกลับไปดึงข้อมูลแบบสดโดยอัตโนมัติ
-ซึ่งจะเข้าถึง URL โดยตรงเพื่อดึงเนื้อหาแบบเรียลไทม์
+A ferramenta de contexto de URL usa um processo de recuperação de duas etapas para equilibrar velocidade, custo e acesso a dados atualizados. Quando você fornece um URL, a ferramenta primeiro tenta buscar o conteúdo de um cache de índice interno. Isso funciona como um cache altamente otimizado. Se um URL não estiver disponível no índice (por exemplo, se for uma página muito nova), a ferramenta fará um retorno automático para fazer uma busca em tempo real.
+Isso acessa diretamente o URL para recuperar o conteúdo em tempo real.
 
-## การใช้ร่วมกับเครื่องมืออื่นๆ
+## Como combinar com outras ferramentas
 
-คุณสามารถใช้เครื่องมือบริบท URL ร่วมกับเครื่องมืออื่นๆ เพื่อสร้างเวิร์กโฟลว์ที่มีประสิทธิภาพมากขึ้น
+Você pode combinar a ferramenta de contexto de URL com outras para criar fluxos de trabalho mais eficientes.
 
-[โมเดล Gemini 3](#supported-models) รองรับการใช้เครื่องมือในตัว
-(เช่น บริบท URL) ร่วมกับเครื่องมือที่กำหนดเอง (การเรียกใช้ฟังก์ชัน) ดูข้อมูลเพิ่มเติมได้ที่หน้าการใช้เครื่องมือร่วมกัน
+[Os modelos do Gemini 3](#supported-models) oferecem suporte à combinação de ferramentas integradas
+(como o contexto de URL) com ferramentas personalizadas (chamada de função). Saiba mais na
+[página de combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
 
-### การเชื่อมต่อแหล่งข้อมูลกับ Search
+### Embasamento com pesquisa
 
-เมื่อเปิดใช้ทั้งบริบท URL และ
-[การเชื่อมต่อแหล่งข้อมูลกับ Google Search](https://ai.google.dev/gemini-api/docs/grounding?hl=th) โมเดลจะใช้ความสามารถในการค้นหาเพื่อค้นหา
-ข้อมูลที่เกี่ยวข้องทางออนไลน์ แล้วใช้เครื่องมือบริบท URL เพื่อทำความเข้าใจหน้าเว็บที่พบในเชิงลึกมากขึ้น แนวทางนี้มีประสิทธิภาพสำหรับพรอมต์ที่ต้องมีการค้นหาในวงกว้างและการวิเคราะห์หน้าเว็บที่เฉพาะเจาะจงในเชิงลึก
+Quando o contexto de URL e
+[o embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/grounding?hl=pt-br) estão ativados,
+o modelo pode usar os recursos de pesquisa para encontrar
+informações relevantes on-line e usar a ferramenta de contexto de URL para entender melhor as páginas encontradas. Essa abordagem é útil para comandos que exigem pesquisa ampla e análise detalhada de páginas específicas.
 
 ### Python
 
@@ -218,11 +216,11 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 cat result.json
 ```
 
-## ทำความเข้าใจการตอบกลับ
+## Entender a resposta
 
-เมื่อโมเดลใช้เครื่องมือบริบท URL การตอบกลับจะมีออบเจ็กต์ `url_context_metadata` ออบเจ็กต์นี้จะแสดง URL ที่โมเดลดึงเนื้อหามาและสถานะของความพยายามในการดึงข้อมูลแต่ละครั้ง ซึ่งมีประโยชน์สำหรับการยืนยันและการแก้ไขข้อบกพร่อง
+Quando o modelo usa a ferramenta de contexto de URL, a resposta inclui um objeto `url_context_metadata`. Esse objeto lista os URLs de que o modelo recuperou o conteúdo e o status de cada tentativa de recuperação, o que é útil para verificação e depuração.
 
-ตัวอย่างส่วนหนึ่งของการตอบกลับ (ละบางส่วนของการตอบกลับไว้เพื่อความกระชับ)
+Confira a seguir um exemplo dessa parte da resposta (algumas partes foram omitidas para maior clareza):
 
 ```
 {
@@ -254,18 +252,18 @@ cat result.json
 }
 ```
 
-ดูรายละเอียดทั้งหมดเกี่ยวกับออบเจ็กต์นี้ได้ที่เอกสารอ้างอิง API ของ
-[`UrlContextMetadata`](https://ai.google.dev/api/generate-content?hl=th#UrlContextMetadata)
+Para detalhes completos sobre esse objeto , consulte a
+[`UrlContextMetadata` referência da API](https://ai.google.dev/api/generate-content?hl=pt-br#UrlContextMetadata).
 
-### การตรวจสอบความปลอดภัย
+### Verificações de segurança
 
-ระบบจะตรวจสอบการกลั่นกรองเนื้อหาใน URL เพื่อยืนยันว่า URL เป็นไปตามมาตรฐานความปลอดภัย หาก URL ที่คุณระบุไม่ผ่านการตรวจสอบนี้ คุณจะได้รับ `url_retrieval_status` เป็น `URL_RETRIEVAL_STATUS_UNSAFE`
+O sistema realiza uma verificação de moderação de conteúdo no URL para confirmar se ele atende aos padrões de segurança. Se o URL fornecido falhar nessa verificação, você receberá um `url_retrieval_status` de `URL_RETRIEVAL_STATUS_UNSAFE`.
 
-### จำนวนโทเค็น
+### Contagem de tokens
 
-เนื้อหาที่ดึงมาจาก URL ที่คุณระบุในพรอมต์จะนับเป็นส่วนหนึ่งของโทเค็นอินพุต คุณดูจำนวนโทเค็นสำหรับพรอมต์และ
-การใช้งานเครื่องมือได้ใน [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=th#UsageMetadata)
-ออบเจ็กต์ของเอาต์พุตโมเดล ตัวอย่างเอาต์พุตมีดังนี้
+O conteúdo recuperado dos URLs especificados no comando é contabilizado como parte dos tokens de entrada. É possível conferir a contagem de tokens do comando e
+o uso de ferramentas no [`usage_metadata`](https://ai.google.dev/api/generate-content?hl=pt-br#UsageMetadata)
+objeto da saída do modelo. Confira a seguir um exemplo de saída:
 
 ```
 'usage_metadata': {
@@ -281,66 +279,67 @@ cat result.json
   }
 ```
 
-ราคาต่อโทเค็นจะขึ้นอยู่กับโมเดลที่ใช้ โปรดดูรายละเอียดในหน้าการกำหนดราคา
+O preço por token depende do modelo usado. Consulte a
+[página de preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br) para mais detalhes.
 
-## โมเดลที่รองรับ
+## Modelos compatíveis
 
-| โมเดล | บริบท URL |
+| Modelo | Contexto do URL |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=th) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=th) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=th) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=th) | ✔️ |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=th) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=th) | ✔️ |
-| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=th) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=th) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=th) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=th) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pt-br) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Pro (pré-lançamento)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
+| [Gemini 3 Flash (pré-lançamento)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pt-br) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pt-br) | ✔️ |
 
-## แนวทางปฏิบัติแนะนำ
+## Práticas recomendadas
 
-- **ระบุ URL ที่เฉพาะเจาะจง**: เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด ให้ระบุ URL โดยตรงไปยัง
-  เนื้อหาที่ต้องการให้โมเดลวิเคราะห์ โมเดลจะดึงเนื้อหาจาก URL ที่คุณระบุเท่านั้น ไม่ดึงเนื้อหาจากลิงก์ที่ซ้อนกัน
-- **ตรวจสอบการเข้าถึง**: ตรวจสอบว่า URL ที่คุณระบุไม่ได้นำไปยัง
-  หน้าเว็บที่ต้องเข้าสู่ระบบหรืออยู่หลังเพย์วอลล์
-- **ใช้ URL ที่สมบูรณ์**: ระบุ URL แบบเต็ม รวมถึงโปรโตคอล
-  (เช่น https://www.google.com แทนที่จะเป็น google.com)
+- **Forneça URLs específicos**: para melhores resultados, forneça URLs diretos para o
+  conteúdo que você quer que o modelo analise. O modelo só vai recuperar conteúdo dos URLs fornecidos, não de links aninhados.
+- **Verifique a acessibilidade**: confirme se os URLs fornecidos não levam a
+  páginas que exigem login ou estão atrás de um paywall.
+- **Use o URL completo**: forneça o URL completo, incluindo o protocolo
+  (por exemplo, https://www.google.com em vez de apenas google.com).
 
-## ข้อจำกัด
+## Limitações
 
-- ขีดจำกัดคำขอ: เครื่องมือสามารถประมวลผล URL ได้สูงสุด 20 รายการต่อคำขอ
-- ขนาดเนื้อหา URL: ขนาดสูงสุดของเนื้อหาที่ดึงมาจาก URL เดียวคือ 34 MB
-- การเข้าถึงแบบสาธารณะ: URL ต้องเข้าถึงได้แบบสาธารณะบนเว็บ
-  ระบบไม่รองรับที่อยู่ localhost (เช่น localhost, 127.0.0.1), เครือข่ายส่วนตัว และบริการทันเนล (เช่น ngrok, pinggy)
+- Limite de solicitações: a ferramenta pode processar até 20 URLs por solicitação.
+- Tamanho do conteúdo do URL: o tamanho máximo do conteúdo recuperado de um único URL é de 34 MB.
+- Acessibilidade pública: os URLs precisam estar acessíveis publicamente na Web.
+  Endereços de localhost (por exemplo, localhost, 127.0.0.1), redes particulares e serviços de tunelamento (por exemplo, ngrok, pinggy) não são aceitos.
 
-### ประเภทเนื้อหาที่รองรับและไม่รองรับ
+### Tipos de conteúdo aceitos e não aceitos
 
-เครื่องมือสามารถดึงเนื้อหาจาก URL ที่มีประเภทเนื้อหาต่อไปนี้
+A ferramenta pode extrair conteúdo de URLs com os seguintes tipos de conteúdo:
 
-- ข้อความ (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
-- รูปภาพ (image/png, image/jpeg, image/bmp, image/webp)
+- Texto (text/html, application/json, text/plain, text/xml, text/css, text/javascript , text/csv, text/rtf)
+- Imagem (image/png, image/jpeg, image/bmp, image/webp)
 - PDF (application/pdf)
 
-ระบบ**ไม่** รองรับเนื้อหาประเภทต่อไปนี้
+Os seguintes tipos de conteúdo **não** são aceitos:
 
-- เนื้อหาเพย์วอลล์
-- วิดีโอ YouTube (ดู
-  [การทำความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/video-understanding?hl=th#youtube)เพื่อเรียนรู้วิธีประมวลผล URL ของ YouTube
-  )
-- ไฟล์ Google Workspace เช่น Google เอกสารหรือชีต
-- ไฟล์วิดีโอและไฟล์เสียง
+- Conteúdo com paywall
+- Vídeos do YouTube (consulte
+  [Entendimento de vídeo](https://ai.google.dev/gemini-api/docs/video-understanding?hl=pt-br#youtube) para saber
+  como processar URLs do YouTube)
+- Arquivos do Google Workspace, como documentos ou planilhas do Google
+- Arquivos de áudio e vídeo
 
-## ขั้นตอนถัดไป
+## A seguir
 
-- ดูตัวอย่างเพิ่มเติมได้ที่คู่มือการใช้งานบริบท [URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=th#url-context)
+- Confira mais exemplos no [manual de contexto de URL](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Grounding.ipynb?hl=pt-br#url-context).
 
-ส่งความคิดเห็น
+Envie comentários
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-อัปเดตล่าสุด 2026-10-13 UTC
+Última atualização 2026-10-13 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Quer enviar seu feedback?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-13 UTC"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]

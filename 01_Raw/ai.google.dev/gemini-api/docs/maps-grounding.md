@@ -1,31 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=pl
-fetched_at: 2026-10-19T05:36:09.878797+00:00
-title: "Grounding z u\u017cyciem Map Google \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr
+fetched_at: 2026-10-26T06:02:55.608895+00:00
+title: "Google Haritalar ile temellendirme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Prześlij opinię
+Geri bildirim gönderin
 
-# Grounding z użyciem Map Google
+# Google Haritalar ile temellendirme
 
-Grounding z użyciem Map Google łączy możliwości generatywne Gemini z bogatymi, aktualnymi i opartymi na faktach danymi z Map Google. Ta funkcja umożliwia deweloperom łatwe wprowadzanie w aplikacjach funkcji uwzględniających lokalizację. Gdy zapytanie użytkownika ma kontekst związany z danymi z Map, model Gemini korzysta z Map Google, aby udzielać dokładnych i aktualnych odpowiedzi, które są odpowiednie dla określonej przez użytkownika lokalizacji lub ogólnego obszaru.
+Google Haritalar ile Temellendirme, Gemini'ın üretken özelliklerini Google Haritalar'ın zengin, gerçeklere dayalı ve güncel verileriyle birleştirir. Bu özellik, geliştiricilerin uygulamalarına konuma duyarlı işlevleri kolayca eklemelerine olanak tanır. Kullanıcı sorgusunun bağlamı Haritalar verileriyle ilgili olduğunda Gemini modeli, kullanıcının belirttiği konum veya genel alanla alakalı, doğru ve güncel yanıtlar sağlamak için Google Haritalar'dan yararlanır.
 
-- **Dokładne odpowiedzi uwzględniające lokalizację:** korzystaj z obszernych i aktualnych danych z Map Google w przypadku zapytań dotyczących konkretnych lokalizacji.
-- **Ulepszona personalizacja:** dostosowuj rekomendacje i informacje na podstawie lokalizacji podanych przez użytkownika.
+- **Doğru ve konuma duyarlı yanıtlar:** Coğrafi konuma özgü sorgular için Google Haritalar'ın kapsamlı ve güncel verilerinden yararlanın.
+- **Gelişmiş kişiselleştirme:** Önerileri ve bilgileri, kullanıcı tarafından sağlanan konumlara göre özelleştirin.
 
-## Rozpocznij
+## Başlayın
 
-Ten przykład pokazuje, jak zintegrować powiązanie ze źródłami informacji przy użyciu Map Google z aplikacją, aby udzielać dokładnych odpowiedzi uwzględniających lokalizację na zapytania użytkowników. Prompt prosi o lokalne rekomendacje z opcjonalną lokalizacją użytkownika, co umożliwia modelowi Gemini korzystanie z danych z Map Google.
+Bu örnekte, kullanıcı sorgularına doğru ve konuma duyarlı yanıtlar sağlamak için Google Haritalar ile Temellendirme'yi uygulamanıza nasıl entegre edeceğiniz gösterilmektedir. İstem, isteğe bağlı bir kullanıcı konumuyla yerel öneriler ister ve Gemini modelinin Google Haritalar verilerini kullanmasına olanak tanır.
 
 ### Python
 
@@ -251,38 +251,38 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Jak działa grounding z użyciem Map Google
+## Google Haritalar ile Temellendirme'nin işleyiş şekli
 
-Powiązanie ze źródłami informacji przy użyciu Map Google integruje interfejs Gemini API z ekosystemem Google Geo, używając interfejsu API Map Google jako źródła informacji. Gdy zapytanie użytkownika zawiera kontekst geograficzny, model Gemini może wywołać narzędzie Grounding z użyciem Map Google. Model może wtedy generować odpowiedzi na podstawie danych z Map Google dotyczących podanej lokalizacji.
+Google Haritalar ile Temellendirme, Haritalar API'yi temellendirme kaynağı olarak kullanarak Gemini API'yi Google Coğrafi ekosistemiyle entegre eder. Kullanıcının sorgusu coğrafi bağlam içerdiğinde Gemini modeli, Google Haritalar ile Temellendirme aracını çağırabilir. Model, sağlanan konumla ilgili Google Haritalar verilerine dayalı yanıtlar üretebilir.
 
-Proces ten zwykle obejmuje te etapy:
+Süreç genellikle şunları içerir:
 
-1. **Zapytanie użytkownika:** użytkownik przesyła zapytanie do Twojej aplikacji, które może zawierać kontekst geograficzny (np. „kawiarnie w pobliżu”, „muzea w San Francisco”).
-2. **Wywołanie narzędzia:** model Gemini, rozpoznając intencję geograficzną, wywołuje narzędzie powiązanie ze źródłami informacji przy użyciu Map Google. To narzędzie może opcjonalnie otrzymać współrzędne geograficzne użytkownika (`latitude` i `longitude`). Narzędzie to służy do wyszukiwania tekstowego i działa podobnie do wyszukiwania w Mapach. Zapytania lokalne („w pobliżu”) będą korzystać ze współrzędnych, a zapytania konkretne lub nielokalne raczej nie będą uwzględniać lokalizacji.
-3. **Pobieranie danych:** usługa powiązanie ze źródłami informacji przy użyciu Map Google wysyła zapytania do Map Google, aby uzyskać odpowiednie informacje (np. miejsca, opinie, zdjęcia, adresy, godziny otwarcia).
-4. **Generowanie oparte na faktach:** Pobrane dane z Map są używane do tworzenia odpowiedzi przez model Gemini, co zapewnia zgodność z prawdą i trafność.
-5. **Odpowiedź i adnotacje:** model zwraca odpowiedź tekstową z adnotacjami w tekście, które zawierają linki do źródeł w Mapach Google, co umożliwia deweloperom wyświetlanie cytatów.
+1. **Kullanıcı sorgusu:** Kullanıcı, uygulamanıza coğrafi bağlam içerebilecek bir sorgu gönderir (ör. "yakınımdaki kafeler", "San Francisco'daki müzeler").
+2. **Araç çağırma:** Coğrafi amaçlı sorguyu tanıyan Gemini modeli, Google Haritalar ile Temellendirme aracını çağırır. Bu araç, isteğe bağlı olarak kullanıcının `latitude` ve `longitude` bilgileriyle birlikte kullanılabilir. Bu araç, metin tabanlı bir arama aracıdır ve Haritalar'da arama yapmaya benzer şekilde çalışır. Yerel sorgularda ("yakınımdaki") koordinatlar kullanılırken belirli veya yerel olmayan sorguların açık konumdan etkilenmesi olası değildir.
+3. **Veri alma:** Google Haritalar ile Temellendirme hizmeti, Google Haritalar'da alakalı bilgiler (ör. yerler, yorumlar, fotoğraflar, adresler, çalışma saatleri) için sorgu gönderir.
+4. **Temellendirilmiş üretim:** Alınan Haritalar verileri, Gemini modelinin yanıtını bilgilendirmek için kullanılır. Böylece gerçeklere dayalı doğruluk ve alaka düzeyi sağlanır.
+5. **Yanıt ve ek açıklamalar:** Model, Google Haritalar kaynaklarına bağlantı veren satır içi ek açıklamalar içeren bir metin yanıtı döndürür. Bu sayede geliştiriciler alıntıları gösterebilir.
 
-## Kiedy i dlaczego warto używać powiązania ze źródłami informacji przy użyciu Map Google
+## Google Haritalar ile Temellendirme neden ve ne zaman kullanılır?
 
-Powiązanie ze źródłami informacji przy użyciu Map Google jest idealne w przypadku aplikacji, które wymagają dokładnych, aktualnych i specyficznych dla lokalizacji informacji. Poprawia komfort użytkowania, udostępniając trafne i spersonalizowane treści oparte na obszernej bazie danych Map Google, która zawiera ponad 250 milionów miejsc na całym świecie.
+Google Haritalar ile temellendirme, doğru, güncel ve konuma özel bilgiler gerektiren uygulamalar için idealdir. Google Haritalar'ın dünya genelinde 250 milyondan fazla yeri içeren kapsamlı veritabanıyla desteklenen alakalı ve kişiselleştirilmiş içerikler sunarak kullanıcı deneyimini iyileştirir.
 
-Powiązanie ze źródłami informacji przy użyciu Map Google warto używać, gdy aplikacja musi:
+Uygulamanızın aşağıdaki durumlarda Google Haritalar ile Temellendirme'yi kullanması gerekir:
 
-- udzielać wyczerpujących i dokładnych odpowiedzi na pytania dotyczące lokalizacji;
-- tworzyć konwersacyjne kreatory podróży i lokalne przewodniki;
-- polecać ciekawe miejsca na podstawie lokalizacji i preferencji użytkownika, np. restauracje lub sklepy;
-- tworzyć funkcje uwzględniające lokalizację w usługach społecznościowych, handlowych lub dostawy jedzenia.
+- Coğrafi konuma özgü sorulara eksiksiz ve doğru yanıtlar verin.
+- Etkileşimli gezi planlayıcılar ve yerel rehberler oluşturun.
+- Konuma ve kullanıcı tercihlerine (ör. restoranlar veya mağazalar) göre ilgi çekici yerler önerin.
+- Sosyal, perakende veya yemek teslimatı hizmetleri için konum kullanım özellikli deneyimler oluşturun.
 
-Powiązanie ze źródłami informacji przy użyciu Map Google sprawdza się w przypadkach użycia, w których kluczowe są bliskość i aktualne dane zgodne z prawdą, np. podczas wyszukiwania „najlepszej kawiarni w pobliżu” lub wyznaczania trasy.
+Google Haritalar ile temellendirme, "yakınımdaki en iyi kahve dükkanını" bulma veya yol tarifi alma gibi yakınlık ve güncel gerçek verilerin kritik olduğu kullanım alanlarında mükemmeldir.
 
-## Przypadki użycia
+## Kullanım alanları
 
-Powiązanie ze źródłami informacji przy użyciu Map Google obsługuje różne przypadki użycia uwzględniające lokalizację.
+Google Haritalar ile Temellendirme, konuma duyarlı çeşitli kullanım alanlarını destekler.
 
-### Obsługa pytań dotyczących konkretnych miejsc
+### Yere özel soruları yanıtlama
 
-Zadawaj szczegółowe pytania o konkretne miejsce, aby uzyskać odpowiedzi na podstawie opinii użytkowników Google i innych danych z Map.
+Belirli bir yer hakkında ayrıntılı sorular sorarak Google kullanıcı yorumlarına ve diğer Haritalar verilerine dayalı yanıtlar alabilirsiniz.
 
 ### Python
 
@@ -486,9 +486,9 @@ func main() {
 }
 ```
 
-### Udostępnianie personalizacji na podstawie lokalizacji
+### Konuma dayalı kişiselleştirme sağlama
 
-Uzyskuj rekomendacje dostosowane do preferencji użytkownika i konkretnego obszaru geograficznego.
+Kullanıcının tercihlerine ve belirli bir coğrafi bölgeye göre uyarlanmış öneriler alın.
 
 ### Python
 
@@ -691,9 +691,9 @@ func main() {
 }
 ```
 
-### Pomoc w planowaniu planu podróży
+### Seyahat planı oluşturma konusunda yardım
 
-Generuj plany wielodniowe z trasami i informacjami o różnych lokalizacjach, które są idealne w przypadku aplikacji podróżniczych.
+Yol tarifleri ve çeşitli konumlar hakkında bilgiler içeren çok günlük planlar oluşturun. Bu planlar, seyahat uygulamaları için idealdir.
 
 ### Python
 
@@ -837,105 +837,100 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Wymagania dotyczące korzystania z usługi
+## Hizmet kullanım şartları
 
-Ta sekcja zawiera opis wymagań dotyczących korzystania z usługi Grounding z użyciem Map Google.
+Bu bölümde, Google Haritalar ile Temellendirme'nin hizmet kullanım koşulları açıklanmaktadır.
 
-### Informowanie użytkownika o korzystaniu ze źródeł z Map Google
+### Kullanıcıyı Google Haritalar kaynaklarının kullanımı hakkında bilgilendirme
 
-W przypadku każdego wyniku opartego na danych z Map Google otrzymasz adnotacje źródłowe w blokach treści kroku `model_output`, które obsługują każdą odpowiedź. Zwracane są te metadane:
+Her Google Haritalar Grounded sonucunda, her yanıtı destekleyen `model_output` adımının içerik bloklarıyla ilgili kaynak ek açıklamaları alırsınız. Aşağıdaki meta veriler döndürülür:
 
-- adres URL źródła
-- nazwa
+- kaynak URL
+- ad
 
-Podczas prezentowania wyników groundingu z użyciem Map Google musisz określić powiązane źródła z Map Google i poinformować użytkowników o tych kwestiach:
+Google Haritalar ile Temellendirme'den elde edilen sonuçları sunarken ilişkili Google Haritalar kaynaklarını belirtmeniz ve kullanıcılarınızı aşağıdakiler hakkında bilgilendirmeniz gerekir:
 
-- Źródła z Map Google muszą znajdować się bezpośrednio po wygenerowanej treści, którą obsługują. Ta wygenerowana treść jest też nazywana wynikiem opartym na danych z Map Google.
-- Źródła z Map Google muszą być widoczne w ramach jednej interakcji użytkownika.
+- Google Haritalar kaynakları, kaynakların desteklediği oluşturulmuş içeriği hemen takip etmelidir. Bu oluşturulan içerik, Google Haritalar'da Temellendirilmiş Sonuç olarak da adlandırılır.
+- Google Haritalar kaynakları, tek bir kullanıcı etkileşimi içinde görüntülenebilmelidir.
 
-### Wyświetlanie źródeł z Map Google z linkami do Map Google
+### Google Haritalar bağlantılarıyla Google Haritalar kaynaklarını görüntüleme
 
-W przypadku każdej adnotacji źródłowej należy wygenerować podgląd linku zgodnie z tymi wymaganiami:
+Her kaynak açıklaması için aşağıdaki koşullara uygun bir bağlantı önizlemesi oluşturulmalıdır:
 
-- Przypisz każde źródło do Map Google zgodnie ze wskazówkami dotyczącymi atrybucji tekstowej w Mapach Google
-  .
-- Wyświetl nazwę źródła podaną w odpowiedzi.
-- Utwórz link do źródła za pomocą `url` z adnotacji.
+- Google Haritalar metin [atıf yönergelerine](#maps-attribution-guidelines) uyarak her kaynağı Google Haritalar'a atfedin.
+- Yanıtta sağlanan kaynak adını gösterin.
+- Ek açıklamada yer alan `url` simgesini kullanarak kaynağa bağlantı verin.
 
-### Wskazówki dotyczące atrybucji tekstowej w Mapach Google
+### Google Haritalar metin atıf yönergeleri
 
-Gdy przypisujesz źródła do Map Google w tekście, postępuj zgodnie z tymi wskazówkami:
+Metinlerde Google Haritalar'ı kaynak olarak belirtirken aşağıdaki kurallara uyun:
 
-- Nie modyfikuj w żaden sposób tekstu Mapy Google:
-  - Nie zmieniaj wielkości liter w nazwie Mapy Google.
-  - Nie dziel nazwy Mapy Google na kilka wierszy.
-  - Nie tłumacz nazwy Mapy Google na inny język.
-  - Uniemożliwiaj przeglądarkom tłumaczenie nazwy Mapy Google, używając atrybutu HTML translate="no".
+- Google Haritalar metnini hiçbir şekilde değiştirmeyin:
+  - Google Haritalar'ın büyük harf kullanımını değiştirmeyin.
+  - Google Haritalar'ı birden fazla satıra sarmayın.
+  - Google Haritalar'ı başka bir dile yerelleştirmeyin.
+  - HTML özelliğini kullanarak tarayıcıların Google Haritalar'ı çevirmesini engelleyin.
 
-Więcej informacji o niektórych dostawcach danych do Map Google i ich
-warunkach licencji znajdziesz w [informacjach prawnych dotyczących Map Google i Google Earth](https://www.google.com/help/legalnotices_maps/?hl=pl).
+Google Haritalar veri sağlayıcılarımızdan bazıları ve lisans şartları hakkında daha fazla bilgi için [Google Haritalar ve Google Earth yasal uyarıları](https://www.google.com/help/legalnotices_maps/?hl=tr) sayfasını inceleyin.
 
-## Sprawdzone metody
+## En iyi uygulamalar
 
-- **Podaj lokalizację użytkownika:** aby uzyskać najbardziej trafne i spersonalizowane odpowiedzi, zawsze uwzględniaj współrzędne geograficzne (`latitude` i `longitude`) w konfiguracji narzędzia `google_maps`, gdy znana jest lokalizacja użytkownika.
-- **Informuj użytkowników:** wyraźnie informuj użytkowników, że do odpowiadania na ich zapytania używane są dane z Map Google, zwłaszcza gdy narzędzie jest włączone.
-- **Wyłączaj, gdy nie jest potrzebne:** Powiązanie ze źródłami informacji przy użyciu Map Google jest domyślnie wyłączone. Aby zoptymalizować wydajność i koszty, włączaj go (`"tools": [{"type": "google_maps"}]`) tylko wtedy, gdy zapytanie ma
-  wyraźny kontekst geograficzny.
+- **Kullanıcı konumunu sağlama:** En alakalı ve kişiselleştirilmiş yanıtlar için kullanıcının konumu bilindiğinde `google_maps` aracı yapılandırmanıza her zaman `latitude` ve `longitude` değerlerini ekleyin.
+- **Son kullanıcıları bilgilendirin:** Son kullanıcılarınızı, özellikle araç etkinleştirildiğinde sorgularını yanıtlamak için Google Haritalar verilerinin kullanıldığı konusunda açıkça bilgilendirin.
+- **Gerekmediğinde Kapatma:** Google Haritalar ile temellendirme varsayılan olarak kapalıdır. Performansı ve maliyeti optimize etmek için bu özelliği (`"tools": [{"type": "google_maps"}]`) yalnızca bir sorgunun net bir coğrafi bağlamı olduğunda etkinleştirin.
 
-## Ograniczenia
+## Sınırlamalar
 
-- Powiązanie ze źródłami informacji przy użyciu Map Google obsługuje obecnie tylko prompty i odpowiedzi w języku angielskim.
-- Narzędzie może być niedostępne w niektórych regionach.
-- Wyniki mogą się różnić w zależności od dokładności lokalizacji i dostępnych danych z Map.
-- **Zasięg geograficzny:** Powiązanie ze źródłami informacji przy użyciu Map Google jest dostępne na całym świecie.
-- **Stan domyślny:** narzędzie powiązanie ze źródłami informacji przy użyciu Map Google jest domyślnie wyłączone.
-  Musisz je wyraźnie włączyć w żądaniach do interfejsu API.
+- Google Haritalar ile Temellendirme şu anda yalnızca İngilizce istemleri ve yanıtları desteklemektedir.
+- Araç bazı bölgelerde kullanılamayabilir.
+- Sonuçlar, konum doğruluğuna ve mevcut Haritalar verilerine göre değişiklik gösterebilir.
+- **Coğrafi Kapsam:** Google Haritalar ile temellendirme dünya genelinde kullanılabilir.
+- **Varsayılan durum:** Google Haritalar ile Temellendirme aracı varsayılan olarak kapalıdır.
+  API isteklerinizde bu özelliği açıkça etkinleştirmeniz gerekir.
 
-## Ceny i ograniczanie liczby żądań
+## Fiyatlandırma ve sıklık sınırları
 
-Ceny powiązania ze źródłami informacji przy użyciu Map Google różnią się w zależności od generowania modelu:
+Google Haritalar ile Temellendirme fiyatlandırması, model nesline göre farklılık gösterir:
 
-- **Modele Gemini 3 i nowsze:** projekt jest obciążany za każde zapytanie wyszukiwania, które model zdecyduje się wykonać. Miesięcznie masz do dyspozycji 5000 bezpłatnych zapytań, które są wspólne dla wszystkich modeli Gemini 3 i nowszych. Następnie płacisz **14 USD za 1000 zapytań wyszukiwania**. Pojedynczy prompt wyszukiwania (żądanie do interfejsu API wysyłane do modelu) może spowodować, że model wykona wiele zapytań wyszukiwania, aby znaleźć potrzebne informacje. Każde z tych zapytań jest liczone jako płatne użycie narzędzia.
-- **Modele Gemini 2.5 i starsze:** projekt jest obciążany za każdy prompt wyszukiwania (25 USD za 1000 promptów opartych na danych podstawowych). Opłata jest naliczana tylko wtedy, gdy prompt zwróci co najmniej 1 wynik oparty na danych z Map Google, niezależnie od tego, ile pojedynczych zapytań wyszukiwania model wykonał wewnętrznie, aby uzyskać ten wynik.
+- **Gemini 3 ve daha yeni modeller:** Projeniz, modelin yürütmeye karar verdiği her arama sorgusu için faturalandırılır. Tüm Gemini 3 ve daha yeni modellerde ayda 5.000 ücretsiz istek paylaşılır ve ardından **1.000 arama sorgusu başına 14 ABD doları** ücret alınır. Tek bir arama istemi (modele yönelik API isteğiniz), modelin gerekli bilgileri bulmak için birden fazla arama sorgusu yürütmesine neden olabilir. Bu sorguların her biri, aracın faturalandırılabilir kullanımı olarak sayılır.
+- **Gemini 2.5 ve eski modeller:** Projeniz,arama istemi başına faturalandırılır
+  (1.000 temellendirilmiş istem için 25 ABD doları). Bir istek, yalnızca istem en az bir Google Haritalar temelli sonuç döndürdüğünde faturalandırılır. Modelin bu sonucu elde etmek için dahili olarak kaç tane arama sorgusu gerçekleştirdiği önemli değildir.
 
-Limit zapytań w przypadku groundingu z użyciem Map Google jest zwykle zgodny z limitami zapytań podstawowego modelu Gemini. Szczegółowe informacje o cenach znajdziesz na stronie z cennikiem interfejsu [Gemini API](https://ai.google.dev/gemini-api/docs/pricing?hl=pl).
+Google Haritalar ile Temellendirme kotası genellikle temel Gemini modelinin sıklık sınırlamalarıyla uyumludur. Ayrıntılı fiyatlandırma bilgileri için [Gemini API fiyatlandırma sayfasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) inceleyin.
 
-## Obsługiwane modele
+## Desteklenen modeller
 
-Powiązanie ze źródłami informacji przy użyciu Map Google obsługują te modele:
+Aşağıdaki modellerde Google Haritalar ile Temellendirme özelliği desteklenir:
 
-| Model | Powiązanie ze źródłami informacji przy użyciu Map Google |
+| Model | Google Haritalar ile temellendirme |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pl) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pl) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pl) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3.1 Pro (wersja zapoznawcza)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pl) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pl) | ✔️ |
-| [Gemini 3 Flash (wersja zapoznawcza)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pl) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=pl) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=pl) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=tr) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=tr) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=tr) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3.1 Pro Önizlemesi](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=tr) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=tr) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=tr) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=tr) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=tr) | ✔️ |
 
-## Obsługiwane kombinacje narzędzi
+## Desteklenen araç kombinasyonları
 
-Powiązanie ze źródłami informacji przy użyciu Map Google możesz używać z innymi wbudowanymi narzędziami, takimi jak
-[powiązanie ze źródłami informacji przy użyciu wyszukiwarki Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pl) (obsługiwane w modelach
-Gemini 3.5 Flash-Lite i nowszych), aby obsługiwać bardziej złożone przypadki użycia.
-Modele Gemini 3 obsługują też łączenie tych wbudowanych narzędzi z narzędziami niestandardowymi (wywoływanie funkcji). Więcej informacji znajdziesz na
-[stronie dotyczącej kombinacji narzędzi](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pl).
+Daha karmaşık kullanım alanlarını desteklemek için Google Haritalar ile Temellendirme'yi, [Google Arama ile Temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) (Gemini 3.5 Flash-Lite ve sonraki modellerde desteklenir) gibi diğer yerleşik araçlarla birlikte kullanabilirsiniz.
+Gemini 3 modelleri, bu yerleşik araçların özel araçlarla (işlev çağrısı) birlikte kullanılmasını da destekler. [Araç kombinasyonları](https://ai.google.dev/gemini-api/docs/tool-combination?hl=tr) sayfasından daha fazla bilgi edinebilirsiniz.
 
-## Co dalej?
+## Sırada ne var?
 
-- Dowiedz się więcej o innych [dostępnych narzędziach](https://ai.google.dev/gemini-api/docs/tools?hl=pl).
-- Więcej informacji o sprawdzonych metodach dotyczących odpowiedzialnej AI i filtrach bezpieczeństwa interfejsu Gemini API znajdziesz w [przewodniku po ustawieniach bezpieczeństwa](https://ai.google.dev/gemini-api/docs/safety-settings?hl=pl).
+- Kullanabileceğiniz [diğer araçlar](https://ai.google.dev/gemini-api/docs/tools?hl=tr) hakkında bilgi edinin.
+- Sorumlu yapay zekaya dair en iyi uygulamalar ve Gemini API'nin güvenlik filtreleri hakkında daha fazla bilgi edinmek için [Güvenlik ayarları kılavuzuna](https://ai.google.dev/gemini-api/docs/safety-settings?hl=tr) bakın.
 
-Prześlij opinię
+Geri bildirim gönderin
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Ostatnia aktualizacja: 2026-10-13 UTC.
+Son güncelleme tarihi: 2026-10-13 UTC.
 
-Chcesz przekazać coś jeszcze?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-13 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-13 UTC."],[],[]]

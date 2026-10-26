@@ -1,49 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=sq
-fetched_at: 2026-10-19T05:46:21.701938+00:00
-title: "Tekst n\u00eb ligj\u00ebrim me Gemini 2.5 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-tts?hl=id
+fetched_at: 2026-10-26T05:49:08.246886+00:00
+title: "Text-to-speech Gemini 2.5 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Dërgo komente
+Kirim masukan
 
-# Tekst në ligjërim me Gemini 2.5 Flash
+# Text-to-speech Gemini 2.5 Flash
 
-Motorri ynë më i shpejtë për sintezën e të folurit me besnikëri të lartë, që ofron gjenerim audio me kosto efikase dhe vonesë të ulët. Gemini 2.5 Flash TTS është më i miri për asistentët në kohë reale, rrëfimet me volum të lartë dhe rastet e përdorimit të bisedave që kërkojnë kontroll të detajuar mbi stilin dhe ritmin e zërit.
+Mesin tercepat kami untuk sintesis ucapan dengan kualitas tinggi, yang menawarkan pembuatan audio yang hemat biaya dan latensi rendah. Gemini 2.5 Flash TTS paling cocok untuk asisten real-time, narasi bervolume tinggi, dan kasus penggunaan percakapan yang memerlukan kontrol mendetail atas gaya dan kecepatan suara.
 
-[Provo në Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-preview-tts&hl=sq)
+[Coba di Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash-preview-tts&hl=id)
 
-## Dokumentacioni
+## Dokumentasi
 
-Vizito udhëzuesin e [Tekstit në ligjërim](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq) për mbulimin e plotë të veçorive dhe aftësive.
+Buka panduan [Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id) untuk mengetahui cakupan lengkap
+fitur dan kemampuannya.
 
 ## gemini-2.5-flash-preview-tts
 
-| Prona | Përshkrimi |
+| Properti | Deskripsi |
 | --- | --- |
-| id\_cardKodi i modelit | `gemini-2.5-flash-preview-tts` |
-| Llojet e të dhënave të mbështetura për ruajtjen | **Hyrjet**  Teksti  **Rezultati**  Audio |
-| token\_autoKufijtë e token-ëve[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=sq) | **Kufiri i tokenëve të hyrjes**  8 192  **Kufiri i tokenëve të rezultatit**  16 384 |
-| handymanAftësitë | **[Gjenerimi i audios](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq)**  Mbështetur  **[Ruajtja në memorien specifike](https://ai.google.dev/gemini-api/docs/caching?hl=sq)**  Nuk mbështetet  **[Ekzekutimi i kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq)**  Nuk mbështetet  **[Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq)**  Nuk mbështetet  **[Thirrja e funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq)**  Nuk mbështetet  **[Argumentimi me Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq)**  Nuk mbështetet  **[Gjenerimi i imazheve](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq)**  Nuk mbështetet  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=sq)**  Nuk mbështetet  **[Bazat e "Kërko"](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)**  Nuk mbështetet  **[Rezultatet e strukturuara](https://ai.google.dev/gemini-api/docs/structured-output?hl=sq)**  Nuk mbështetet  **[Arsyetuesi](https://ai.google.dev/gemini-api/docs/thinking?hl=sq)**  Nuk mbështetet  **[Konteksti i URL-së](https://ai.google.dev/gemini-api/docs/url-context?hl=sq)**  Nuk mbështetet |
-| speedOpsionet e konsumit | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=sq)**  Nuk mbështetet  **[Deduksioni Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=sq)**  Nuk mbështetet  **[Konkluzioni i përparësisë](https://ai.google.dev/gemini-api/docs/priority-inference?hl=sq)**  Nuk mbështetet |
-| 123Versionet | Lexo [modelet e versioneve](https://ai.google.dev/gemini-api/docs/models/gemini?hl=sq#model-versions) për më shumë detaje.  - `gemini-2.5-flash-preview-tts` |
-| calendar\_monthPërditësimi më i fundit | Dhjetor 2025 |
+| id\_cardKode model | `gemini-2.5-flash-preview-tts` |
+| saveJenis data yang didukung | **Input**  Teks  **Output**  Audio |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  8.192  **Batas token output**  16.384 |
+| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Tidak didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Tidak didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Tidak Didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Tidak didukung  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Tidak didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Tidak didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Tidak didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Tidak didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Tidak didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Tidak didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Tidak didukung |
+| speedOpsi konsumsi | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Tidak didukung  **[Inferensi Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
+| 123Versi | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - `gemini-2.5-flash-preview-tts` |
+| calendar\_monthUpdate terbaru | Desember 2025 |
 
-Dërgo komente
+Kirim masukan
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Përditësimi i fundit: 2026-10-13 UTC.
+Terakhir diperbarui pada 2026-10-13 UTC.
 
-Duhet të na tregosh më shumë?
+Ada masukan untuk kami?
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-13 UTC."],[],[]]

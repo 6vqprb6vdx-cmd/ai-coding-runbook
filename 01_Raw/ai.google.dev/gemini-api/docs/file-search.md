@@ -1,34 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=pt-BR
-fetched_at: 2026-10-19T05:31:37.158732+00:00
-title: "Pesquisa de arquivos \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-search?hl=hi
+fetched_at: 2026-10-26T06:05:54.661118+00:00
+title: "\u092b\u093c\u093e\u0907\u0932 \u0916\u094b\u091c\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Envie comentários
+सुझाव भेजें
 
-# Pesquisa de arquivos
+# फ़ाइल खोजना
 
-A API Gemini permite a geração aumentada por recuperação ("RAG") com a ferramenta de pesquisa de arquivos. A Pesquisa de Arquivos importa, divide e indexa seus dados para
-permitir a recuperação rápida de informações relevantes com base em um comando fornecido. Essas
-informações recuperadas são usadas como contexto para o modelo, permitindo que ele
-forneça respostas mais precisas e relevantes. A pesquisa de arquivos também pode oferecer recursos multimodais com embeddings de texto compatíveis com `gemini-embedding-001` e embeddings de imagem/multimodais compatíveis com `gemini-embedding-2`.
+Gemini API, फ़ाइल सर्च टूल के ज़रिए Retrieval Augmented Generation ("RAG") की सुविधा देता है. File Search, आपके डेटा को इंपोर्ट करता है, उसे छोटे-छोटे हिस्सों में बांटता है, और इंडेक्स करता है. इससे, दिए गए प्रॉम्प्ट के आधार पर काम की जानकारी को तेज़ी से वापस पाने में मदद मिलती है. इसके बाद, इस जानकारी का इस्तेमाल मॉडल के लिए कॉन्टेक्स्ट के तौर पर किया जाता है. इससे मॉडल को ज़्यादा सटीक और काम के जवाब देने में मदद मिलती है. फ़ाइल खोजने की सुविधा, टेक्स्ट एम्बेडिंग के साथ-साथ टेक्स्ट, इमेज, और वीडियो वगैरह का इस्तेमाल करके की गई क्वेरी के जवाब देने की सुविधा भी दे सकती है. टेक्स्ट एम्बेडिंग की सुविधा `gemini-embedding-001` के साथ काम करती है. वहीं, इमेज/टेक्स्ट, इमेज, और वीडियो वगैरह का इस्तेमाल करके की गई क्वेरी के जवाब देने की सुविधा `gemini-embedding-2` के साथ काम करती है.
 
-O armazenamento de arquivos e a geração de embeddings no momento da consulta são sem custo financeiro. Você só paga pela criação de embeddings quando indexa seus arquivos pela primeira vez e pelo custo normal dos tokens de entrada / saída do modelo do Gemini. Esse novo paradigma de faturamento torna a ferramenta de pesquisa de arquivos mais fácil e econômica de criar e dimensionar. Consulte a seção de [preços](#pricing) para mais detalhes.
+फ़ाइल स्टोरेज और क्वेरी के समय एम्बेडिंग जनरेट करने की सुविधा बिना किसी शुल्क के उपलब्ध है. आपको सिर्फ़ तब शुल्क देना होगा, जब पहली बार अपनी फ़ाइलों को इंडेक्स किया जाएगा और Gemini मॉडल के सामान्य इनपुट / आउटपुट टोकन का शुल्क देना होगा. बिलिंग के इस नए मॉडल की मदद से, फ़ाइल सर्च टूल को बनाना और उसे बड़े पैमाने पर इस्तेमाल करना आसान और किफ़ायती हो जाता है. ज़्यादा जानकारी के लिए, [कीमत](#pricing) सेक्शन देखें.
 
-## Fazer upload diretamente para a loja da Pesquisa de arquivos
+## फ़ाइल खोज स्टोर में सीधे तौर पर अपलोड करना
 
-Este exemplo mostra como fazer upload de um arquivo diretamente para o
-[armazenamento de pesquisa de arquivos](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-media.uploadtofilesearchstore):
+इस उदाहरण में, [फ़ाइल सर्च स्टोर](https://ai.google.dev/api/file-search/file-search-stores?hl=hi#method:-media.uploadtofilesearchstore) में सीधे तौर पर फ़ाइल अपलोड करने का तरीका बताया गया है:
 
 ### Python
 
@@ -223,7 +219,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -320,7 +316,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 # 1. Create a File Search store
@@ -369,11 +365,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-Consulte a referência da API para [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-media.uploadtofilesearchstore) para mais informações.
+ज़्यादा जानकारी के लिए, [`uploadToFileSearchStore`](https://ai.google.dev/api/file-search/file-search-stores?hl=hi#method:-media.uploadtofilesearchstore) के लिए एपीआई का संदर्भ देखें.
 
-## Como importar arquivos
+## फ़ाइलें इंपोर्ट करना
 
-Como alternativa, você pode fazer upload de um arquivo e [importá-lo para o repositório de pesquisa de arquivos](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-filesearchstores.importfile):
+इसके अलावा, कोई मौजूदा फ़ाइल अपलोड करके, [उसे फ़ाइल सर्च स्टोर में इंपोर्ट](https://ai.google.dev/api/file-search/file-search-stores?hl=hi#method:-filesearchstores.importfile) किया जा सकता है:
 
 ### Python
 
@@ -545,7 +541,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -625,7 +621,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 # 1. Upload file using the Files API
@@ -679,12 +675,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-Consulte a referência da API para [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#method:-filesearchstores.importfile) para mais informações.
+ज़्यादा जानकारी के लिए, [`importFile`](https://ai.google.dev/api/file-search/file-search-stores?hl=hi#method:-filesearchstores.importfile) के लिए एपीआई का संदर्भ देखें.
 
-## Configuração de divisão em blocos
+## चंकिंग कॉन्फ़िगरेशन
 
-Quando você importa um arquivo para um repositório da Pesquisa de Arquivos, ele é automaticamente dividido
-em partes, incorporado, indexado e enviado para o repositório. Se você precisar de mais controle sobre a estratégia de divisão, especifique uma configuração [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br#request-body_5) para definir um número máximo de tokens por parte e um número máximo de tokens sobrepostos.
+जब किसी फ़ाइल को File Search स्टोर में इंपोर्ट किया जाता है, तो वह अपने-आप छोटे-छोटे हिस्सों में बंट जाती है. इसके बाद, उसे एंबेड और इंडेक्स किया जाता है. साथ ही, File Search स्टोर में अपलोड किया जाता है. अगर आपको चंकिंग की रणनीति पर ज़्यादा कंट्रोल चाहिए, तो [`chunking_config`](https://ai.google.dev/api/file-search/file-search-stores?hl=hi#request-body_5) सेटिंग का इस्तेमाल करें. इससे, हर चंक के लिए ज़्यादा से ज़्यादा टोकन और ओवरलैप होने वाले टोकन की ज़्यादा से ज़्यादा संख्या सेट की जा सकती है.
 
 ### Python
 
@@ -778,7 +773,7 @@ while (!operation.done().orElse(false)) {
 System.out.println("Custom chunking complete.");
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -862,47 +857,36 @@ curl "${upload_url}" \
 cat upload_response.json
 ```
 
-Para usar o armazenamento da Pesquisa de Arquivos, transmita-o como uma ferramenta para o método `interactions.create`, conforme mostrado nos exemplos de [Upload](#upload) e [Importação](#importing-files).
+फ़ाइल खोजने की सुविधा वाले स्टोर का इस्तेमाल करने के लिए, इसे `interactions.create`
+तरीके में टूल के तौर पर पास करें. इसके लिए, [अपलोड करें](#upload) और [इंपोर्ट करें](#importing-files) के उदाहरण देखें.
 
-## Como funciona
+## यह कैसे काम करता है
 
-A Pesquisa de arquivos usa uma técnica chamada pesquisa semântica para encontrar informações relevantes para o comando do usuário. Ao contrário da pesquisa padrão baseada em palavras-chave, a pesquisa semântica
-entende o significado e o contexto da consulta.
+File Search, उपयोगकर्ता के प्रॉम्प्ट से जुड़ी जानकारी ढूंढने के लिए, सिमैंटिक सर्च नाम की तकनीक का इस्तेमाल करता है. स्टैंडर्ड कीवर्ड-आधारित खोज के उलट, सिमैंटिक सर्च आपकी क्वेरी के मतलब और संदर्भ को समझती है.
 
-Quando você importa um arquivo, ele é convertido em representações numéricas chamadas
-[embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br), que capturam o significado semântico do
-conteúdo enviado. Esses embeddings são armazenados em um banco de dados especializado da Pesquisa de arquivos.
-Quando você faz uma consulta, ela também é convertida em um embedding. Em seguida, o sistema realiza uma pesquisa de arquivos para encontrar os trechos de documentos mais semelhantes e relevantes no repositório de pesquisa de arquivos.
+जब कोई फ़ाइल इंपोर्ट की जाती है, तो उसे संख्याओं में बदल दिया जाता है. इन्हें [एम्बेडिंग](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi) कहा जाता है. इनसे अपलोड किए गए कॉन्टेंट का सिमैंटिक मतलब पता चलता है. इन एम्बेडिंग को, फ़ाइल खोजने के लिए खास तौर पर बनाए गए डेटाबेस में सेव किया जाता है.
+जब कोई क्वेरी की जाती है, तो उसे भी एंबेडिंग में बदल दिया जाता है. इसके बाद, सिस्टम फ़ाइल खोज की सुविधा का इस्तेमाल करके, फ़ाइल खोज के स्टोर से मिलते-जुलते और काम के दस्तावेज़ के हिस्सों को ढूंढता है.
 
-Não há time to live (TTL) para embeddings.
-Eles persistem até serem excluídos manualmente ou quando o modelo é descontinuado. mas os arquivos são excluídos após 48 horas.
+एम्बेडिंग के लिए, टाइम टू लिव (टीटीएल) की कोई सीमा नहीं होती. ये तब तक मौजूद रहते हैं, जब तक इन्हें मैन्युअल तरीके से मिटाया नहीं जाता या मॉडल को बंद नहीं किया जाता. हालांकि, फ़ाइलें 48 घंटों के बाद मिटा दी जाती हैं.
 
-Confira os detalhes do processo de uso da API File Search
-`uploadToFileSearchStore`:
+फ़ाइल खोजने की सुविधा वाले `uploadToFileSearchStore` एपीआई का इस्तेमाल करने की प्रोसेस के बारे में यहां बताया गया है:
 
-1. **Criar um repositório de pesquisa de arquivos**: um repositório de pesquisa de arquivos contém os dados processados dos seus arquivos. É o contêiner persistente para os embeddings em que a pesquisa semântica vai operar.
-2. **Fazer upload de um arquivo e importar para uma loja da Pesquisa de arquivos**: faça upload de um arquivo e importe os resultados para sua loja da Pesquisa de arquivos ao mesmo tempo. Isso cria um objeto `File` temporário, que é uma referência ao documento bruto. Esses dados são divididos em partes, convertidos em embeddings da pesquisa de arquivos e indexados. O objeto `File` é excluído após 48 horas, enquanto a importação de dados para o armazenamento da Pesquisa de Arquivos fica armazenada indefinidamente até que você decida excluí-los.
-3. **Consulta com a Pesquisa de arquivos**: por fim, use a ferramenta `FileSearch` em uma chamada `generateContent`. Na configuração da ferramenta, especifique um
-   `FileSearchRetrievalResource`, que aponta para o `FileSearchStore` que você quer
-   pesquisar. Isso instrui o modelo a realizar uma pesquisa semântica nesse repositório específico de pesquisa de arquivos para encontrar informações relevantes que embasem a resposta.
+1. **फ़ाइल खोज का स्टोर बनाएं**: फ़ाइल खोज के स्टोर में, आपकी फ़ाइलों से प्रोसेस किया गया डेटा होता है. यह एम्बेडिंग के लिए स्थायी कंटेनर है, जिस पर सिमैंटिक सर्च काम करेगा.
+2. **कोई फ़ाइल अपलोड करना और उसे File Search स्टोर में इंपोर्ट करना**: एक साथ कोई फ़ाइल अपलोड करें और नतीजों को अपने File Search स्टोर में इंपोर्ट करें. इससे एक अस्थायी `File` ऑब्जेक्ट बनता है, जो आपके ओरिजनल दस्तावेज़ का रेफ़रंस होता है. इसके बाद, उस डेटा को छोटे-छोटे हिस्सों में बांटा जाता है, फ़ाइल सर्च एंबेडिंग में बदला जाता है, और इंडेक्स किया जाता है. `File` ऑब्जेक्ट 48 घंटों के बाद मिट जाता है. हालांकि, File Search स्टोर में इंपोर्ट किया गया डेटा तब तक सेव रहेगा, जब तक उसे मिटाया नहीं जाता.
+3. **फ़ाइल सर्च टूल की मदद से क्वेरी करना**: आखिर में, `FileSearch` टूल का इस्तेमाल `generateContent` कॉल में किया जाता है. टूल कॉन्फ़िगरेशन में, आपको एक `FileSearchRetrievalResource` तय करना होता है. यह `FileSearchStore` की ओर इशारा करता है, जिसे आपको खोजना है. इससे मॉडल को उस खास File Search स्टोर में सिमैंटिक सर्च करने का निर्देश मिलता है, ताकि वह अपने जवाब को बेहतर बनाने के लिए काम की जानकारी ढूंढ सके.
 
-![O processo de indexação e consulta da Pesquisa de Arquivos](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=pt-br)
+![फ़ाइल खोजने की सुविधा के लिए इंडेक्स करने और क्वेरी करने की प्रोसेस](https://ai.google.dev/static/gemini-api/docs/images/File-search.png?hl=hi)
 
-O processo de indexação e consulta da Pesquisa de arquivos
+फ़ाइल खोजने की सुविधा के लिए, इंडेक्स करने और क्वेरी करने की प्रोसेस
 
-Neste diagrama, a linha pontilhada de *Documentos* para *Modelo de embedding*
-(usando [`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=pt-br))
-representa a API `uploadToFileSearchStore` (ignorando o *Armazenamento de arquivos*).
-Caso contrário, usar a [API Files](https://ai.google.dev/gemini-api/docs/files?hl=pt-br) para criar e importar arquivos separadamente move o processo de indexação de *Documentos* para *Armazenamento de arquivos* e, em seguida, para *Modelo de embedding*.
+इस डायग्राम में, *दस्तावेज़* से *एम्बेडिंग मॉडल* तक की बिंदु वाली लाइन ([`gemini-embedding-001`](https://ai.google.dev/gemini-api/docs/embeddings?hl=hi) का इस्तेमाल करके), `uploadToFileSearchStore` एपीआई को दिखाती है. यह *फ़ाइल स्टोरेज* को बायपास करती है.
+इसके अलावा, [Files API](https://ai.google.dev/gemini-api/docs/files?hl=hi) का इस्तेमाल करके, अलग से फ़ाइलें बनाई जा सकती हैं और फिर उन्हें इंपोर्ट किया जा सकता है. इससे इंडेक्स करने की प्रोसेस, *दस्तावेज़* से *फ़ाइल स्टोरेज* और फिर *एम्बेडिंग मॉडल* पर शिफ़्ट हो जाती है.
 
-## Armazenamentos da Pesquisa de arquivos
+## फ़ाइल खोजने की सुविधा देने वाले ऐप्लिकेशन
 
-Um repositório de pesquisa de arquivos é um contêiner para os embeddings de documentos. Os arquivos brutos
-enviados pela API File são excluídos após 48 horas, mas os dados importados para
-um repositório da Pesquisa de Arquivos são armazenados indefinidamente até que você os exclua manualmente. É possível
-criar vários armazenamentos de pesquisa de arquivos para organizar seus documentos. A API `FileSearchStore` permite criar, listar, receber e excluir para gerenciar seus repositórios de pesquisa de arquivos. Os nomes dos repositórios da Pesquisa de Arquivos têm escopo global.
+फ़ाइल खोजने की सुविधा वाला स्टोर, आपके दस्तावेज़ों के एम्बेड किए गए वर्शन के लिए कंटेनर होता है. File API के ज़रिए अपलोड की गई रॉ फ़ाइलें, 48 घंटे बाद मिट जाती हैं. हालांकि, फ़ाइल सर्च स्टोर में इंपोर्ट किया गया डेटा तब तक सेव रहता है, जब तक उसे मैन्युअल तरीके से नहीं मिटाया जाता. अपने दस्तावेज़ों को व्यवस्थित करने के लिए, एक से ज़्यादा फ़ाइल खोज स्टोर बनाए जा सकते हैं. `FileSearchStore` एपीआई की मदद से, फ़ाइल खोज स्टोर को मैनेज करने के लिए, उन्हें बनाया, लिस्ट किया, पाया, और मिटाया जा सकता है. फ़ाइल खोज में स्टोर के नाम, दुनिया भर में उपलब्ध होते हैं.
 
-Confira alguns exemplos de como gerenciar suas lojas de pesquisa de arquivos:
+यहां File Search स्टोर मैनेज करने के कुछ उदाहरण दिए गए हैं:
 
 ### Python
 
@@ -975,7 +959,7 @@ client.fileSearchStores.delete(
     fileSearchStore.name().get(), DeleteFileSearchStoreConfig.builder().force(true).build());
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1025,7 +1009,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?key=${GEMINI_API_KEY}" \
@@ -1039,12 +1023,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123?key=${GEMINI_API_KEY}"
 ```
 
-## Pesquisar documentos de arquivos
+## फ़ाइल खोजने से जुड़े दस्तावेज़
 
-É possível gerenciar documentos individuais nos seus repositórios de arquivos com a
-API [File Search Documents](https://ai.google.dev/api/file-search/documents?hl=pt-br) para `list` cada documento
-em um repositório de pesquisa de arquivos, `get` informações sobre um documento e `delete` um
-documento por nome.
+[File Search Documents](https://ai.google.dev/api/file-search/documents?hl=hi) API की मदद से, फ़ाइल स्टोर में मौजूद अलग-अलग दस्तावेज़ों को मैनेज किया जा सकता है. इससे, फ़ाइल सर्च स्टोर में मौजूद हर दस्तावेज़ को `list` किया जा सकता है, किसी दस्तावेज़ की जानकारी `get` की जा सकती है, और नाम के हिसाब से दस्तावेज़ को `delete` किया जा सकता है.
 
 ### Python
 
@@ -1102,7 +1083,7 @@ client.fileSearchStores.documents.delete(
     DeleteDocumentConfig.builder().force(true).build());
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1154,10 +1135,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilese
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/fileSearchStores/myfilesearchstore123/documents/sampletxt123?key=${GEMINI_API_KEY}&force=true"
 ```
 
-## Metadados do arquivo
+## फ़ाइल का मेटाडेटा
 
-É possível adicionar metadados personalizados aos arquivos para ajudar a filtrá-los ou fornecer
-contexto adicional. Os metadados são um conjunto de pares de chave-valor.
+अपनी फ़ाइलों में कस्टम मेटाडेटा जोड़ा जा सकता है, ताकि उन्हें फ़िल्टर करने या ज़्यादा जानकारी देने में मदद मिल सके. मेटाडेटा, की-वैल्यू पेयर का एक सेट होता है.
 
 ### Python
 
@@ -1212,7 +1192,7 @@ ImportFileOperation op =
             .build());
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1249,7 +1229,7 @@ func main() {
 }
 ```
 
-Isso é útil quando você tem vários documentos em um repositório de pesquisa de arquivos e quer pesquisar apenas um subconjunto deles.
+यह तब काम आता है, जब आपके पास File Search स्टोर में कई दस्तावेज़ हों और आपको उनमें से सिर्फ़ कुछ दस्तावेज़ खोजने हों.
 
 ### Python
 
@@ -1345,7 +1325,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1397,7 +1377,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1417,18 +1397,15 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
 cat response.json
 ```
 
-Confira orientações sobre como implementar a sintaxe de filtro de lista para `metadata_filter`
-em [google.aip.dev/160](https://google.aip.dev/160).
+`metadata_filter` के लिए, सूची को फ़िल्टर करने वाले सिंटैक्स को लागू करने के बारे में जानकारी, [google.aip.dev/160](https://google.aip.dev/160) पर देखी जा सकती है
 
-## Pesquisa de arquivos multimodal
+## मल्टीमॉडल फ़ाइल सर्च
 
-A Pesquisa Multimodal de Arquivos permite incorporar e pesquisar imagens de forma nativa,
-permitindo aplicativos RAG multimodais avançados.
+मल्टीमोडल फ़ाइल सर्च की सुविधा से, इमेज को नेटिव तौर पर एम्बेड किया जा सकता है और उन्हें खोजा जा सकता है. इससे, बेहतर और मल्टीमोडल आरएजी ऐप्लिकेशन बनाए जा सकते हैं.
 
-### Configurar o modelo de embedding
+### एंबेड करने वाले मॉडल को कॉन्फ़िगर करना
 
-Ao criar um `FileSearchStore`, é necessário substituir o modelo de embedding padrão somente de texto para usar um modelo multimodal. Use `models/gemini-embedding-2` para
-processar textos e imagens.
+`FileSearchStore` बनाते समय, आपको मल्टीमॉडल का इस्तेमाल करने के लिए, सिर्फ़ टेक्स्ट वाले डिफ़ॉल्ट एंबेडिंग मॉडल को बदलना होगा. टेक्स्ट और इमेज, दोनों को प्रोसेस करने के लिए `models/gemini-embedding-2` का इस्तेमाल करें.
 
 ### Python
 
@@ -1469,7 +1446,7 @@ FileSearchStore store =
             .build());
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1499,7 +1476,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?key=$GEMINI_API_KEY" \
@@ -1510,20 +1487,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/fileSearchStores?
     }'
 ```
 
-### Fazer upload de imagens
+### इमेज अपलोड करें
 
-Depois de criar o armazenamento com um modelo de embedding multimodal, é possível fazer upload de arquivos de imagem diretamente usando as mesmas APIs de upload descritas em [Fazer upload diretamente para o armazenamento da Pesquisa de arquivos](#upload) ou [Importar arquivos](#importing-files).
+मल्टीमोडल एंबेडिंग मॉडल की मदद से स्टोर बनाने के बाद, इमेज फ़ाइलें सीधे अपलोड की जा सकती हैं. इसके लिए, अपलोड करने वाले उन्हीं एपीआई का इस्तेमाल करें जिनके बारे में [फ़ाइल सर्च स्टोर पर सीधे अपलोड करना](#upload) या [फ़ाइलें इंपोर्ट करना](#importing-files) में बताया गया है.
 
-**Requisitos do arquivo de imagem:**
+**इमेज फ़ाइल से जुड़ी ज़रूरी शर्तें:**
 
-- Os arquivos de imagem precisam ter uma resolução máxima de 4K x 4K pixels.
-- Os formatos aceitos são PNG e JPEG.
+- इमेज फ़ाइलों का रिज़ॉल्यूशन 4K x 4K पिक्सल से ज़्यादा नहीं होना चाहिए.
+- PNG और JPEG फ़ॉर्मैट का इस्तेमाल किया जा सकता है.
 
-## Citações
+## उद्धरण
 
-Ao usar a Pesquisa de arquivos, a resposta do modelo pode incluir citações que especificam quais partes dos documentos enviados foram usadas para gerar a resposta. Isso ajuda na checagem de fatos e na verificação.
+फ़ाइल खोज की सुविधा का इस्तेमाल करने पर, मॉडल के जवाब में उद्धरण शामिल हो सकते हैं. इनसे पता चलता है कि जवाब जनरेट करने के लिए, आपके अपलोड किए गए दस्तावेज़ों के किन हिस्सों का इस्तेमाल किया गया. इससे तथ्यों की जांच करने और पुष्टि करने में मदद मिलती है.
 
-É possível acessar as informações de citação pelo atributo `annotations` dentro dos blocos `content` da etapa `model_output` da resposta.
+जवाब के `model_output` चरण के `content` ब्लॉक में मौजूद `annotations` एट्रिब्यूट की मदद से, उद्धरण की जानकारी ऐक्सेस की जा सकती है.
 
 ### Python
 
@@ -1600,7 +1577,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1651,7 +1628,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 {
@@ -1676,14 +1653,12 @@ func main() {
 }
 ```
 
-Para informações detalhadas sobre a estrutura das citações, consulte a
-[referência da API Interactions](https://ai.google.dev/api/interactions-api?hl=pt-br#Resource:FileCitation).
+उद्धरणों के स्ट्रक्चर के बारे में ज़्यादा जानकारी के लिए, [इंटरैक्शन के लिए एपीआई का संदर्भ](https://ai.google.dev/api/interactions-api?hl=hi#Resource:FileCitation) देखें.
 
-### Números de página
+### पेज नंबर
 
-Quando você usa a Pesquisa de arquivos com documentos que têm páginas (como PDFs), a resposta do modelo pode incluir o número da página em que as informações foram encontradas.
-É possível acessar essas informações pelo atributo `page_number` de uma
-anotação `file_citation`.
+पेज वाले दस्तावेज़ों (जैसे कि PDF) में फ़ाइल खोजने की सुविधा का इस्तेमाल करने पर, मॉडल के जवाब में वह पेज नंबर शामिल हो सकता है जहां जानकारी मिली थी.
+इस जानकारी को `file_citation` एनोटेशन के `page_number` एट्रिब्यूट की मदद से ऐक्सेस किया जा सकता है.
 
 ### Python
 
@@ -1775,7 +1750,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -1856,14 +1831,11 @@ func main() {
 }
 ```
 
-### Citações de mídia
+### मीडिया साइटेशन
 
-Quando o modelo faz referência a um bloco de imagem durante a geração, a API retorna uma
-anotação do tipo `file_citation` nas anotações que incluem um `media_id`. É possível usar esse ID para baixar o trecho exato da imagem referenciado pelo modelo. Esse `media_id` é
-persistente em várias chamadas de pesquisa, o que permite recuperar de forma confiável
-a mesma imagem ou armazená-la em cache usando o ID.
+जब मॉडल, इमेज जनरेट करते समय किसी इमेज के हिस्से का रेफ़रंस देता है, तब एपीआई एनोटेशन में `file_citation` टाइप का एनोटेशन दिखाता है. इसमें `media_id` शामिल होता है. इस आईडी का इस्तेमाल करके, इमेज का वह हिस्सा डाउनलोड किया जा सकता है जिसका रेफ़रंस मॉडल ने दिया है. यह `media_id`, खोज के लिए किए गए कई कॉल के दौरान एक जैसा रहता है. इससे, आपको एक ही इमेज को भरोसेमंद तरीके से वापस पाने या आईडी का इस्तेमाल करके उसे कैश मेमोरी में सेव करने की सुविधा मिलती है.
 
-O snippet a seguir é um exemplo de etapa de resposta REST:
+यहां दिया गया स्निपेट, REST रिस्पॉन्स के चरण का एक उदाहरण है:
 
 ```
 {
@@ -1884,8 +1856,7 @@ O snippet a seguir é um exemplo de etapa de resposta REST:
 }
 ```
 
-Os snippets de código abaixo demonstram como recuperar o `media_id` e
-fazer o download da mídia:
+यहां दिए गए कोड स्निपेट में, `media_id` को वापस पाने और मीडिया को डाउनलोड करने का तरीका बताया गया है:
 
 ### Python
 
@@ -1983,7 +1954,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -2050,10 +2021,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1/fileSearchStores/my-st
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Metadados personalizados
+## कस्टम मेटाडेटा
 
-Se você adicionou metadados personalizados aos seus arquivos, é possível acessar essas informações nas anotações da resposta do modelo. Isso é útil para transmitir contexto adicional (como URLs, números de página ou autores) dos documentos de origem para a lógica do aplicativo. Cada anotação de citação do tipo `file_citation`
-contém esses metadados personalizados.
+अगर आपने अपनी फ़ाइलों में कस्टम मेटाडेटा जोड़ा है, तो उसे मॉडल के जवाब के एनोटेशन में ऐक्सेस किया जा सकता है. यह आपके सोर्स दस्तावेज़ों से, ऐप्लिकेशन लॉजिक में अतिरिक्त कॉन्टेक्स्ट (जैसे कि यूआरएल, पेज नंबर या लेखक) पास करने के लिए काम का है. `file_citation` टाइप के हर उद्धरण एनोटेशन में, यह कस्टम मेटाडेटा शामिल होता है.
 
 ### Python
 
@@ -2154,7 +2124,7 @@ if (interaction.steps().isPresent()) {
 }
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -2241,10 +2211,9 @@ func main() {
 }
 ```
 
-## Resposta estruturada
+## स्ट्रक्चर्ड आउटपुट
 
-A partir dos modelos do Gemini 3, é possível combinar a ferramenta de pesquisa de arquivos com
-[saídas estruturadas](https://ai.google.dev/gemini-api/docs/structured-output?hl=pt-br).
+Gemini 3 मॉडल से शुरू करके, फ़ाइल खोजने वाले टूल को [स्ट्रक्चर्ड आउटपुट](https://ai.google.dev/gemini-api/docs/structured-output?hl=hi) के साथ इस्तेमाल किया जा सकता है.
 
 ### Python
 
@@ -2373,7 +2342,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -2439,7 +2408,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -2468,30 +2437,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Modelos compatíveis
+## इन मॉडल के साथ काम करता है
 
-Os seguintes modelos são compatíveis com a Pesquisa de Arquivos:
+फ़ाइल खोजने की सुविधा के साथ ये मॉडल काम करते हैं:
 
-| Modelo | Pesquisa de arquivos |
+| मॉडल | फ़ाइलें खोजना |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pt-br) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=pt-br) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=pt-br) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=pt-br) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=pt-br) | ✔️ |
-| [Pré-lançamento do Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=pt-br) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=hi) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=hi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
+| [Gemini 3 Flash Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
 
-## Combinações de ferramentas compatíveis
+## एक साथ इस्तेमाल किए जा सकने वाले टूल
 
-Os modelos Gemini 4 e Gemini 3 permitem combinar ferramentas integradas (como a Pesquisa de Arquivos) com ferramentas personalizadas (chamada de função). Saiba mais na página de
-[combinações de ferramentas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=pt-br).
+Gemini 4 और Gemini 3 मॉडल, पहले से मौजूद टूल (जैसे, फ़ाइल सर्च) को कस्टम टूल (फ़ंक्शन कॉलिंग) के साथ इस्तेमाल करने की सुविधा देते हैं. [टूल कॉम्बिनेशन](https://ai.google.dev/gemini-api/docs/tool-combination?hl=hi) पेज पर जाकर ज़्यादा जानें.
 
-## Tipos de arquivo compatíveis
+## इस्तेमाल किए जा सकने वाले फ़ाइल टाइप
 
-A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados nas seções a seguir.
+फ़ाइल खोजने की सुविधा, अलग-अलग तरह के फ़ाइल फ़ॉर्मैट के साथ काम करती है. इनकी जानकारी यहां दी गई है.
 
-### Tipos de arquivo de aplicativo
+### ऐप्लिकेशन की फ़ाइल के टाइप
 
 - `application/dart`
 - `application/ecmascript`
@@ -2524,7 +2492,7 @@ A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados 
 - `application/xml`
 - `application/zip`
 
-### Tipos de arquivo de texto
+### टेक्स्ट फ़ाइल टाइप
 
 - `text/1d-interleaved-parityfec`
 - `text/RED`
@@ -2683,43 +2651,41 @@ A Pesquisa de arquivos é compatível com vários formatos de arquivo, listados 
 - `text/xml-external-parsed-entity`
 - `text/yaml`
 
-## Limitações
+## सीमाएं
 
-- **API Live**:a Pesquisa de Arquivos não é compatível com a
-  [API Live](https://ai.google.dev/gemini-api/docs/live?hl=pt-br).
-- **Incompatibilidade de ferramentas**:as ferramentas de embasamento integradas não podem ser combinadas.
-  Por exemplo, a Pesquisa de Arquivos não pode ser usada simultaneamente com o [embasamento com a Pesquisa Google](https://ai.google.dev/gemini-api/docs/google-search?hl=pt-br) ou o
-  [contexto de URL](https://ai.google.dev/gemini-api/docs/url-context?hl=pt-br) na mesma solicitação.
+- **Live API:** [Live API](https://ai.google.dev/gemini-api/docs/live?hl=hi) में, फ़ाइल खोजने की सुविधा काम नहीं करती.
+- **टूल के साथ काम न करना:** बिल्ट-इन ग्राउंडिंग टूल को एक साथ इस्तेमाल नहीं किया जा सकता;
+  उदाहरण के लिए, एक ही अनुरोध में फ़ाइल खोजने की सुविधा को [Google Search से मिली जानकारी का इस्तेमाल करके जवाब देने की सुविधा](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) या [यूआरएल के कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi) के साथ एक साथ इस्तेमाल नहीं किया जा सकता.
 
-### Limites de taxas
+### अनुरोधों की संख्या की सीमाएं
 
-A API File Search tem os seguintes limites para garantir a estabilidade do serviço:
+सेवा को बेहतर तरीके से उपलब्ध कराने के लिए, File Search API पर ये सीमाएं लागू होती हैं:
 
-- **Tamanho máximo do arquivo / limite por documento**: 100 MB
-- **Tamanho total dos repositórios de pesquisa de arquivos do projeto** (com base no nível do usuário):
-  - **Sem custo financeiro**: 1 GB
-  - **Nível 1**: 10 GB
-  - **Nível 2**: 100 GB
-  - **Nível 3**: 1 TB
-- **Recomendação**: limite o tamanho de cada armazenamento da Pesquisa de Arquivos a menos de 20 GB para garantir latências de recuperação ideais.
+- **फ़ाइल का ज़्यादा से ज़्यादा साइज़ / हर दस्तावेज़ के लिए तय सीमा**: 100 एमबी
+- **प्रोजेक्ट के File Search स्टोर का कुल साइज़** (उपयोगकर्ता के टियर के आधार पर):
+  - **बिना किसी शुल्क के**: 1 जीबी
+  - **टियर 1**: 10 जीबी
+  - **दूसरा टियर**: 100 जीबी
+  - **टियर 3**: 1 टीबी
+- **सुझाव**: हर फ़ाइल खोज स्टोर का साइज़ 20 जीबी से कम रखें, ताकि डेटा को तेज़ी से वापस पाया जा सके.
 
-## Preços
+## कीमत
 
-- As incorporações são cobradas no momento da indexação com base nos [preços de incorporação](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br#gemini-embedding-2) atuais.
-- O armazenamento não tem custo financeiro.
-- Os embeddings de tempo de consulta não têm custo financeiro.
-- Os tokens de documento recuperados são cobrados como [tokens de contexto](https://ai.google.dev/gemini-api/docs/tokens?hl=pt-br) normais.
+- इंडेक्स करने के समय, एंबेडिंग के लिए आपसे शुल्क लिया जाता है. यह शुल्क, [एंबेडिंग की मौजूदा कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi#gemini-embedding-2) के आधार पर तय होता है.
+- स्टोरेज की सुविधा बिना किसी शुल्क के उपलब्ध है.
+- क्वेरी के समय एम्बेड करने की सुविधा बिना किसी शुल्क के उपलब्ध है.
+- वापस लाए गए दस्तावेज़ के टोकन के लिए, सामान्य [कॉन्टेक्स्ट टोकन](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) की तरह ही शुल्क लिया जाता है.
 
-## A seguir
+## आगे क्या करना है
 
-- Acesse a referência da API para [File Search Stores](https://ai.google.dev/api/file-search/file-search-stores?hl=pt-br) e [Documents](https://ai.google.dev/api/file-search/documents?hl=pt-br) do File Search.
+- [फ़ाइल खोजने की सुविधा देने वाले स्टोर](https://ai.google.dev/api/file-search/file-search-stores?hl=hi) और फ़ाइल खोजने की सुविधा देने वाले [दस्तावेज़ों](https://ai.google.dev/api/file-search/documents?hl=hi) के लिए, एपीआई रेफ़रंस पर जाएं.
 
-Envie comentários
+सुझाव भेजें
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Última atualização 2026-10-13 UTC.
+आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया.
 
-Quer enviar seu feedback?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया."],[],[]]

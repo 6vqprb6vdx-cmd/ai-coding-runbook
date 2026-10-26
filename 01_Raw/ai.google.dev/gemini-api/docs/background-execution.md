@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=id
-fetched_at: 2026-10-19T05:44:32.448640+00:00
-title: "Eksekusi latar belakang \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-TW
+fetched_at: 2026-10-26T05:43:25.989262+00:00
+title: "\u80cc\u666f\u57f7\u884c \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Eksekusi latar belakang
+# 背景執行
 
-Untuk tugas yang berjalan lama seperti riset mendalam, penalaran kompleks, atau eksekusi agen multi-langkah, waktu tunggu koneksi dapat mengganggu permintaan HTTP standar (yang biasanya ditutup setelah 60 detik). [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) menyediakan **eksekusi latar belakang** untuk menjalankan tugas ini secara asinkron.
+執行深度研究、複雜推論或多步驟代理等長時間執行的工作時，連線逾時可能會中斷標準 HTTP 要求 (通常會在 60 秒後關閉)。[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw) 提供**背景執行**功能，可非同步執行這些工作。
 
-Untuk mengizinkan interaksi berjalan hingga menyelesaikan tugas di server, tetapkan `"background": true` saat membuat interaksi. API segera menampilkan ID interaksi, yang dapat digunakan oleh aplikasi klien untuk melakukan polling status, melakukan streaming progres, atau menghubungkan kembali ke streaming yang terputus.
+如要讓互動持續執行，直到伺服器上的工作完成，請在建立互動時設定 `"background": true`。API 會立即傳回互動 ID，用戶端應用程式可使用該 ID 輪詢狀態、串流進度，或重新連線至中斷連線的串流。
 
-Eksekusi di latar belakang didukung untuk model Gemini standar (seperti `gemini-4-argon` dan `gemini-3.8-flash`) serta Managed Agents (seperti `antigravity-preview-09-2026`).
+標準 Gemini 模型 (例如 `gemini-4-argon` 和 `gemini-3.8-flash`) 和代管代理 (例如 `antigravity-preview-09-2026`) 支援背景執行。
 
-## Membuat interaksi latar belakang
+## 建立背景互動
 
-Untuk memulai interaksi latar belakang, tetapkan parameter `background` ke `true` saat membuat resource.
+如要啟動背景互動，請在建立資源時將 `background` 參數設為 `true`。
 
 ### Python
 
@@ -133,39 +133,43 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Cara kerja eksekusi latar belakang
+## 背景執行功能的運作方式
 
-Saat Anda membuat interaksi latar belakang, tugas akan berjalan secara asinkron di server. Interaksi bertransisi melalui berbagai status eksekusi:
+建立背景互動時，工作會在伺服器上非同步執行。互動會經過多種執行狀態：
 
-- `in_progress`: Server secara aktif menjalankan interaksi (seperti menjalankan kode atau melakukan riset).
-- `requires_action`: Interaksi telah dijeda dan menunggu input klien (seperti mengonfirmasi eksekusi alat atau menjawab pertanyaan).
-- `completed`: Interaksi berhasil diselesaikan dan output tersedia.
-- `failed`: Terjadi error selama eksekusi (seperti kegagalan alat atau pembatasan kapasitas).
-- `cancelled`: Permintaan klien menghentikan eksekusi.
+- `in_progress`：伺服器正在執行互動 (例如執行程式碼或研究)。
+- `requires_action`：互動已暫停，正在等待用戶端輸入內容 (例如確認執行工具或回答問題)。
+- `completed`：互動已順利完成，輸出內容已可使用。
+- `failed`：執行期間發生錯誤 (例如工具故障或頻率限制)。
+- `cancelled`：用戶端要求停止執行。
 
-### Kasus penggunaan
+### 用途
 
-Gunakan eksekusi latar belakang untuk:
+背景執行功能適用於：
 
-- **Eksekusi agen:** Tugas yang memerlukan eksekusi kode, penjelajahan web, atau orkestrasi sub-agen (seperti `antigravity-preview-09-2026`).
-- **Deep Research:** Berjalan menggunakan `deep-research-preview-04-2026` atau `deep-research-max-preview-04-2026` yang memerlukan waktu beberapa menit.
-- **Penalaran panjang:** Tugas yang langkah-langkah pemikiran modelnya yang diperluas melebihi batas koneksi HTTP standar.
-- **Dekode panjang (Gemini 4):** Tugas yang menghasilkan penyelesaian yang diperluas di luar `65,536` token. Di `gemini-4-argon`, Anda dapat menyiapkan `max_output_tokens` hingga `1,048,576` token menggunakan [dekode panjang](https://ai.google.dev/gemini-api/docs/long-decode?hl=id).
+- **代理執行：**需要執行程式碼、瀏覽網頁或子代理協調的工作 (例如 `antigravity-preview-09-2026`)。
+- **Deep Research：**使用 `deep-research-preview-04-2026` 或 `deep-research-max-preview-04-2026` 執行，需要幾分鐘。
+- **長推論：**模型思考步驟較長，超過標準 HTTP 連線限制的工作。
+- **長解碼 (Gemini 4)：**生成超過 `65,536` 個詞元的擴充補全內容。在 `gemini-4-argon`，您可以使用[長解碼](https://ai.google.dev/gemini-api/docs/long-decode?hl=zh-tw)，將 `max_output_tokens` 設為最多 `1,048,576` 個權杖。
 
-### Retensi data untuk eksekusi latar belakang
+### 背景執行作業的資料保留
 
-Jika `background=True` ditetapkan, server akan menyimpan interaksi di penyimpanan project Anda sehingga Anda dapat melakukan polling atau streaming hasil. Anda dapat mengonfigurasi durasi penyimpanan interaksi dengan menetapkan parameter `store`:
+背景執行 (`background=True`) 需要 `store=True` (預設)，伺服器才能在您輪詢或串流結果時儲存互動。如果同時傳遞 `background=True` 和 `store=False`，系統會傳回 `400` 錯誤。
 
-- **`store=True` (default):** Disimpan di penyimpanan yang tahan lama untuk project Anda selama **7 hari**.
-- **`store=False`:** Disimpan untuk project Anda selama **24 jam** (TTL) untuk memungkinkan pengambilan hasil menggunakan permintaan `GET`.
+儲存的背景互動會遵循標準的 [Interactions API 資料儲存和保留](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw#data-storage-retention)政策：
 
-## Mengambil hasil
+- **付費方案：**保留 **55 天** (可在 [Google AI Studio](https://aistudio.google.com/logs?hl=zh-tw) 設為 7、14、28 或 55 天)。
+- **免費方案：**保留 **1 天**。
 
-Dapatkan hasil interaksi latar belakang menggunakan **polling** atau **streaming**.
+如要提早移除背景互動，請在擷取結果後[刪除互動](https://ai.google.dev/gemini-api/docs/background-execution?hl=zh-tw#cancellation-and-deletion)。
 
-### Pola polling (non-blocking)
+## 擷取結果
 
-Polling memeriksa status interaksi secara berkala menggunakan permintaan GET non-blocking hingga mencapai status akhir.
+使用**輪詢**或**串流**取得背景互動結果。
+
+### 輪詢模式 (非阻斷)
+
+輪詢會使用非封鎖 GET 要求定期檢查互動狀態，直到達到終端狀態。
 
 ### Python
 
@@ -301,9 +305,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YOUR_
   -H "Api-Revision: 2026-05-20"
 ```
 
-### Pola streaming
+### 串流模式
 
-Jika gangguan jaringan memutuskan koneksi streaming, streaming dapat dilanjutkan dari peristiwa terakhir yang diterima. Setiap delta berisi `event_id` unik dalam payload-nya. Meneruskan ID ini sebagai `last_event_id` akan melanjutkan streaming dari peristiwa tersebut.
+如果網路中斷導致串流中斷，串流可以從上次收到的事件繼續。每個差異的酬載都包含專屬的 `event_id`。將這個 ID 傳遞為 `last_event_id`，即可從該事件繼續串流。
 
 ### Python
 
@@ -508,14 +512,14 @@ curl -N -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Percakapan multi-giliran
+## 多轉折對話
 
-Interaksi berikutnya dapat dihubungkan ke percakapan latar belakang menggunakan `previous_interaction_id`, dengan batasan berikut:
+後續互動可以使用 `previous_interaction_id` 鏈結至背景對話，但須遵守下列限制：
 
-1. **Eksekusi aktif diblokir:** Merangkai interaksi berikutnya ke interaksi dengan status `in_progress` akan menampilkan error `400 Bad Request`. Tunggu hingga interaksi mencapai status `completed` sebelum memulai interaksi berikutnya.
-2. **Parameter Lingkungan untuk Agen Terkelola:** Saat merangkai interaksi untuk Agen Terkelola (seperti `antigravity-preview-09-2026`), permintaan harus menyertakan `previous_interaction_id` dan `environment`.
+1. **封鎖執行中的互動：**如果將後續互動鏈結至狀態為 `in_progress` 的互動，系統會傳回 `400 Bad Request` 錯誤。請等待互動達到 `completed` 狀態，再開始下一個互動。
+2. **代管代理的環境參數：**鏈結代管代理 (例如 `antigravity-preview-09-2026`) 的互動時，要求必須同時包含 `previous_interaction_id` 和 `environment`。
 
-Contoh berikut menunjukkan cara merangkai interaksi:
+以下範例說明如何鏈結互動：
 
 ### Python
 
@@ -725,12 +729,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Pembatalan dan penghapusan
+## 取消和刪除
 
-Mengontrol eksekusi yang sedang berjalan dan mengelola penyimpanan menggunakan permintaan pembatalan dan penghapusan:
+使用取消和刪除要求，控制執行中的作業及管理儲存空間：
 
-- **Batalkan (`POST /interactions/{id}/cancel`):** Menghentikan tugas yang sedang berjalan. Status akan berubah menjadi `cancelled`. Tindakan pembersihan di server dapat menyebabkan sedikit penundaan sebelum status diperbarui dalam permintaan GET.
-- **Hapus (`DELETE /interactions/{id}`):** Menghapus data interaksi dari server. Permintaan GET berikutnya akan menampilkan error `404 Not Found`.
+- **取消 (`POST /interactions/{id}/cancel`)：**停止執行中的工作。狀態會轉換為 `cancelled`。伺服器執行清理動作後，GET 要求的狀態更新可能會稍微延遲。
+- **刪除 (`DELETE /interactions/{id}`)：**從伺服器中移除互動記錄。後續的 GET 要求會傳回 `404 Not Found` 錯誤。
 
 ### Python
 
@@ -826,18 +830,18 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/interactions/YO
   -H "Api-Revision: 2026-05-20"
 ```
 
-## Langkah berikutnya
+## 後續步驟
 
-- Baca [ringkasan Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=id) untuk memahami pengelolaan sesi dan status.
-- Lihat panduan [Interaksi streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=id) untuk mengetahui detail tentang update peristiwa real-time.
-- Pelajari [Panduan memulai agen terkelola](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id) untuk membangun agen multi-turn stateful.
+- 請參閱「[Interactions API 總覽](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=zh-tw)」，瞭解工作階段和狀態管理。
+- 如要進一步瞭解即時事件更新，請參閱[串流互動](https://ai.google.dev/gemini-api/docs/streaming?hl=zh-tw)指南。
+- 請參閱[代管代理快速入門導覽課程](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)，瞭解如何建構有狀態的多輪代理。
 
-Kirim masukan
+提供意見
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Terakhir diperbarui pada 2026-10-14 UTC.
+上次更新時間：2026-10-21 (世界標準時間)。
 
-Ada masukan untuk kami?
+想進一步說明嗎？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-14 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-21 (世界標準時間)。"],[],[]]

@@ -1,48 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=it
-fetched_at: 2026-10-19T05:46:25.737111+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash?hl=ko
+fetched_at: 2026-10-26T06:00:28.451251+00:00
 title: "Gemini 3.7 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
 
-Invia feedback
+의견 보내기
 
 # Gemini 3.7 Flash
 
-Gemini 3.7 Flash è un modello di generazione precedente della serie Gemini 3 di modelli di ragionamento multimodale nativo, ora sostituito da [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=it).
+Gemini 3.7 Flash는 Gemini 3 시리즈의 기본적으로 멀티모달 추론 모델의 이전 세대 모델로, 이제 [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/latest-model?hl=ko)로 대체되었습니다.
 
-## Documentazione
+## 문서
 
-Visita la pagina [Novità di Gemini 3.7 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=it) per la copertura di riferimento di funzionalità e capacità o la pagina [Ultimo modello](https://ai.google.dev/gemini-api/docs/latest-model?hl=it) per Gemini 3.8 Flash.
+기능 및 기능에 대한 참조 적용 범위는 [Gemini 3.7 Flash의 새로운 기능](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.7?hl=ko) 페이지를, Gemini 3.8 Flash는 [최신 모델](https://ai.google.dev/gemini-api/docs/latest-model?hl=ko) 페이지를 참고하세요.
 
 ## gemini-3.7-flash
 
-| Proprietà | Descrizione |
+| 속성 | 설명 |
 | --- | --- |
-| id\_cardCodice modello | `gemini-3.7-flash` |
-| saveTipi di dati supportati | **Input**  Testo, immagine, video, audio e PDF  **Output**  Testo |
-| token\_autoLimiti di token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | **Limite di token di input**  1.048.576  **Limite di token di output**  65.536 |
-| handymanFunzionalità | **[Generazione di audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=it)**  Non supportato  **[Memorizzazione nella cache](https://ai.google.dev/gemini-api/docs/caching?hl=it)**  Supportato  **[Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it)**  Supportato  **[Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it)**  Supportato (anteprima)  **[Ricerca di file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)**  Supportato  **[Chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)**  Supportato  **[Grounding con Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)**  Supportato  **[Generazione di immagini](https://ai.google.dev/gemini-api/docs/image-generation?hl=it)**  Non supportato  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it)**  Non supportato  **[Fondatezza della Ricerca](https://ai.google.dev/gemini-api/docs/google-search?hl=it)**  Supportato  **[Output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it)**  Supportato  **[Ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it)**  Supportato (basso, medio, alto)  Nota: `minimal` non è supportato e restituisce un errore.  **[Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)**  Supportato |
-| speedOpzioni di consumo | **[API batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it)**  Supportato  **[Inferenza Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=it)**  Supportato  **[Inferenza di priorità](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it)**  Supportato |
-| 123Versioni | Per maggiori dettagli, leggi i [pattern delle versioni del modello](https://ai.google.dev/gemini-api/docs/models/gemini?hl=it#model-versions).  - Deprecato: `gemini-3.7-flash` (indirizzato automaticamente a `gemini-3.8-flash`) |
-| calendar\_monthUltimo aggiornamento | Agosto 2026 |
-| id\_cardScheda del modello | [Scheda del modello](https://deepmind.google/models/model-cards/gemini-3-7-flash/?hl=it) |
+| id\_card모델 코드 | `gemini-3.7-flash` |
+| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 동영상, 오디오, PDF  **출력**  텍스트 |
+| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  1,048,576  **출력 토큰 한도**  65,536 |
+| handyman기능 | **[오디오 생성](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)**  지원되지 않음  **[캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**  지원됨  **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**  지원됨  **[컴퓨터 사용](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko)**  지원됨 (미리보기)  **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**  지원됨  **[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**  지원됨  **[Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**  지원됨  **[이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)**  지원되지 않음  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)**  지원되지 않음  **[검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)**  지원됨  **[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)**  지원됨  **[사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)**  지원됨 (낮음, 중간, 높음)  참고: `minimal`은 지원되지 않으며 오류를 반환합니다.  **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**  지원됨 |
+| speed소비 옵션 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**  지원됨  **[가변 추론](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ko)**  지원됨  **[우선순위 추론](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko)**  지원됨 |
+| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 지원 중단됨: `gemini-3.7-flash` (자동으로 `gemini-3.8-flash`로 라우팅됨) |
+| calendar\_month최신 업데이트 | 2026년 8월 |
+| id\_card모델 카드 | [모델 카드](https://deepmind.google/models/model-cards/gemini-3-7-flash/?hl=ko) |
 
-Invia feedback
+의견 보내기
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Ultimo aggiornamento 2026-10-12 UTC.
+최종 업데이트: 2026-10-12(UTC)
 
-Vuoi dirci altro?
+의견을 전달하고 싶나요?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-12 UTC."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-12(UTC)"],[],[]]

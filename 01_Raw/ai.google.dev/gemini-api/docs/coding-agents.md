@@ -1,55 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=it
-fetched_at: 2026-10-19T05:48:20.352155+00:00
-title: "Configurazione dell'agente di programmazione e risorse per sviluppatori \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi
+fetched_at: 2026-10-26T05:57:48.667594+00:00
+title: "\u0915\u094b\u0921\u093f\u0902\u0917 \u090f\u091c\u0947\u0902\u091f \u0938\u0947\u091f\u0905\u092a \u0915\u0930\u0928\u093e \u0914\u0930 \u0921\u0947\u0935\u0932\u092a\u0930 \u0915\u0947 \u0932\u093f\u090f \u0938\u0902\u0938\u093e\u0927\u0928 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
 
-Invia feedback
+सुझाव भेजें
 
-# Configurazione dell'agente di programmazione e risorse per sviluppatori
+# कोडिंग एजेंट सेटअप करना और डेवलपर के लिए संसाधन
 
-Gli agenti di programmazione AI si basano su dati di addestramento che terminano in una data prestabilita. Per questo motivo, gli agenti spesso suggeriscono modelli deprecati (`gemini-1.5`), SDK precedenti (`google-generativeai`) o pattern di codice obsoleti.
+एआई कोडिंग एजेंट, ट्रेनिंग डेटा पर निर्भर करते हैं. यह डेटा, एक तय तारीख तक का होता है. इस वजह से, एजेंट अक्सर ऐसे मॉडल (`gemini-1.5`), पुराने एसडीके (`google-generativeai`) या कोड पैटर्न का सुझाव देते हैं जो अब काम नहीं करते.
 
-Il collegamento dell'agente alle risorse ufficiali per sviluppatori Gemini consente di scrivere
-codice accurato utilizzando i modelli attuali, l'SDK `google-genai` e l'[API
-Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it).
+अपने एजेंट को Gemini के डेवलपर के लिए उपलब्ध आधिकारिक संसाधनों से कनेक्ट करने पर, उसे मौजूदा मॉडल, `google-genai` एसडीके, और [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) का इस्तेमाल करके सटीक कोड लिखने में मदद मिलती है.
 
-Puoi concedere al tuo agente di codifica l'accesso alla documentazione e alle regole di Gemini in quattro
-modi:
+कोडिंग एजेंट को Gemini के दस्तावेज़ और नियमों का ऐक्सेस इन चार तरीकों से दिया जा सकता है:
 
-## Riepilogo delle risorse dell'agente
+## एजेंट के संसाधनों के बारे में खास जानकारी
 
-| Risorsa | Cosa fornisce | Disponibilità |
+| संसाधन | इससे क्या मिलता है | उपलब्धता |
 | --- | --- | --- |
-| **[Competenze di Gemini Agent](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#available-skills)** | Regole passo passo, pattern SDK e script helper per funzionalità specifiche (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`). | Preinstallato in [AI Studio Build](https://ai.studio/build); installalo con `skills.sh`, Context7 o Managed Agents. |
-| **[Server MCP di Gemini Docs](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#mcp-setup)** | Ricerca live (`gemini_search_docs`) e lettura a schermo intero (`gemini_get_doc`) in tutta la documentazione. | Supportato in Claude Code, Cursor, OpenAI Codex e VS Code. |
-| **[Plugin API Gemini](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#gemini-api-plugin)** | Pacchetto in bundle con le competenze ufficiali di Gemini, il server MCP di Docs e gli strumenti per le chiavi API. | Antigravity. |
-| **[Documenti leggibili automaticamente](https://ai.google.dev/gemini-api/docs/coding-agents?hl=it#machine-readable-docs)** | Pulisci le pagine Markdown e gli indici `llms.txt`. | Tutte le pagine della documentazione su `ai.google.dev/gemini-api/docs`. |
+| **[Gemini Agent की क्षमताएं](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi#available-skills)** | कुछ सुविधाओं (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`) के लिए, चरण-दर-चरण दिए गए नियम, एसडीके पैटर्न, और हेल्पर स्क्रिप्ट. | [AI Studio Build](https://ai.studio/build) में पहले से इंस्टॉल है; `skills.sh`, Context7 या एजेंट बनाने और मैनेज करने की सुविधा की मदद से इंस्टॉल करें. |
+| **[Gemini Docs MCP Server](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi#mcp-setup)** | सभी दस्तावेज़ों में, लाइव सर्च (`gemini_search_docs`) और पूरे पेज को पढ़ने की सुविधा (`gemini_get_doc`) उपलब्ध है. | यह सुविधा Claude Code, Cursor, OpenAI Codex, और VS Code में उपलब्ध है. |
+| **[Gemini API प्लगिन](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi#gemini-api-plugin)** | यह बंडल किया गया पैकेज है. इसमें Gemini की आधिकारिक स्किल, Docs MCP सर्वर, और एपीआई पासकोड टूल शामिल हैं. | Antigravity. |
+| **[मशीन से पढ़े जा सकने वाले दस्तावेज़](https://ai.google.dev/gemini-api/docs/coding-agents?hl=hi#machine-readable-docs)** | Markdown पेजों और `llms.txt` इंडेक्स को क्लीन करें. | `ai.google.dev/gemini-api/docs` पर मौजूद सभी दस्तावेज़ पेज. |
 
-## Installare le skill dell'agente Gemini
+## Gemini एजेंट की स्किल इंस्टॉल करना
 
-Le competenze dell'agente forniscono all'agente di programmazione regole procedurali, nomi di modelli attuali e
-pattern di codice SDK. Anziché aggiungere istruzioni lunghe al prompt, l'agente carica ogni skill solo quando necessario. In questo modo, l'agente evita SDK ritirati
-e utilizza pattern Gemini moderni.
+एजेंट की क्षमताओं से, कोडिंग एजेंट को प्रक्रिया से जुड़े नियम, मौजूदा मॉडल के नाम, और एसडीके के कोड पैटर्न मिलते हैं. अपने प्रॉम्प्ट में लंबे निर्देश जोड़ने के बजाय, आपका एजेंट हर स्किल को सिर्फ़ तब लोड करता है, जब उसकी ज़रूरत होती है. इससे आपके एजेंट को बंद किए गए SDK का इस्तेमाल करने से बचने और Gemini के नए पैटर्न का इस्तेमाल करने में मदद मिलती है.
 
-Le skill funzionano insieme al server MCP di Gemini Docs. Se l'agente non ha installato il server MCP, la skill torna a
-[`llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=it). Per scoprire di più
-su come funzionano le skill, leggi la [Guida alle skill dell'API Gemini](https://aistudio.google.com/learn/gemini-api-skills?hl=it).
+स्किल, Gemini Docs के एमसीपी सर्वर के साथ काम करती हैं. अगर आपके एजेंट में एमसीपी सर्वर इंस्टॉल नहीं है, तो स्किल [`llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=hi) पर वापस आ जाती है. स्किल के काम करने के तरीके के बारे में ज़्यादा जानने के लिए, [Gemini API की स्किल गाइड](https://aistudio.google.com/learn/gemini-api-skills?hl=hi) पढ़ें.
 
-### Installazione con la CLI (`skills.sh` o Context7)
+### सीएलआई (`skills.sh` या Context7) की मदद से इंस्टॉल करना
 
-Installa le skill utilizzando [skills.sh](https://skills.sh) (opzione consigliata) o
-[Context7](https://context7.com):
+[skills.sh](https://skills.sh) (सुझाया गया) या [Context7](https://context7.com) का इस्तेमाल करके, स्किल इंस्टॉल करें:
 
 ```
 # List all available skills in the repository
@@ -62,21 +54,16 @@ npx skills add google-gemini/gemini-skills --skill <skill-name> --global
 npx ctx7 skills install /google-gemini/gemini-skills <skill-name>
 ```
 
-### Skill disponibili
+### उपलब्ध स्किल
 
 #### `gemini-api-dev`
 
-Competenza nella creazione di applicazioni con l'[API
-Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it) e gli SDK ufficiali dell'API Gemini
-(`google-genai` per Python e `@google/genai` per TypeScript). Questa competenza
-copre:
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi) और Gemini API के आधिकारिक एसडीके (Python के लिए `google-genai` और TypeScript के लिए `@google/genai`) की मदद से ऐप्लिकेशन बनाने की स्किल. इस स्किल में ये विषय शामिल हैं:
 
-- Generazione di testo, chat a più turni, streaming, output strutturati e chiamata di funzione
-- Generazione di immagini, sintesi vocale (TTS) e input multimodali
-- Gestione dello stato della conversazione lato server, esecuzione in background, ricerca
-  approfondita e agenti gestiti
-- Nomi dei modelli attuali e migrazione del codice legacy `generateContent` o
-  `google-generativeai`
+- टेक्स्ट जनरेट करना, सिलसिलेवार बातचीत, स्ट्रीमिंग, स्ट्रक्चर्ड आउटपुट, और फ़ंक्शन कॉल करना
+- इमेज जनरेट करने, लिखाई को बोली में बदलने (टीटीएस), और मल्टीमॉडल इनपुट की सुविधा
+- सर्वर-साइड पर बातचीत की स्थिति को मैनेज करना, बैकग्राउंड में कोड एक्ज़ीक्यूट होना, डीप रिसर्च, और मैनेज किए गए एजेंट
+- मौजूदा मॉडल के नाम और लेगसी `generateContent` या `google-generativeai` कोड माइग्रेट करना
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
@@ -84,13 +71,11 @@ npx skills add google-gemini/gemini-skills --skill gemini-api-dev --global
 
 #### `gemini-live-api-dev`
 
-Competenza per la creazione di applicazioni di streaming audio e video in tempo reale con l'[API Gemini Live](https://ai.google.dev/gemini-api/docs/live-api?hl=it). Questa skill tratta i seguenti argomenti:
+[Gemini Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=hi) का इस्तेमाल करके, रीयल-टाइम में ऑडियो और वीडियो स्ट्रीमिंग ऐप्लिकेशन बनाने की स्किल. इस स्किल में ये विषय शामिल हैं:
 
-- Gestione delle sessioni WebSocket, token client effimeri e ripresa della sessione
-- Streaming di audio, video e testo con rilevamento di attività vocale (VAD) e
-  supporto dell'interruzione
-- Ragionamento in background (pensiero esteso), chiamate asincrone non bloccanti
-  di strumenti, trascrizione e traduzione vocale in tempo reale
+- WebSocket सेशन मैनेजमेंट, कुछ समय के लिए उपलब्ध क्लाइंट टोकन, और सेशन फिर से शुरू करने की सुविधा
+- आवाज़ का पता लगाने की तकनीक (वीएडी) और बार्ज-इन की सुविधा के साथ, ऑडियो, वीडियो, और टेक्स्ट स्ट्रीम करना
+- बैकग्राउंड में गहराई से विश्लेषण (ज़्यादा समय लेकर सोचना), टूल को एसिंक्रोनस तरीके से कॉल करना, बोले जा रहे शब्दों को टेक्स्ट में बदलना, और Live बातचीत का अनुवाद करना
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
@@ -98,22 +83,20 @@ npx skills add google-gemini/gemini-skills --skill gemini-live-api-dev --global
 
 #### `gemini-omni-flash-api`
 
-Skill per generare e modificare video con Gemini Omni Flash utilizzando l'API Interactions. Include script di assistenza (`upload_file.py`,
-`generate_video.py`, `prep_video.py`, `inspect_video.py`) e copre:
+इस स्किल की मदद से, Interactions API का इस्तेमाल करके Gemini Omni Flash से वीडियो जनरेट किए जा सकते हैं और उनमें बदलाव किया जा सकता है. इसमें हेल्पर स्क्रिप्ट (`upload_file.py`,
+`generate_video.py`, `prep_video.py`, `inspect_video.py`) शामिल हैं. साथ ही, इसमें ये शामिल हैं:
 
-- Generazione di video da testo e creazione di prompt
-- Transizioni del primo e dell'ultimo fotogramma e generazione di video guidata dai riferimenti
-- Estensioni video e flussi di lavoro di preelaborazione dei contenuti multimediali
+- टेक्स्ट से वीडियो जनरेट करने और प्रॉम्प्ट बनाने की सुविधा
+- पहले और आखिरी फ़्रेम के बीच ट्रांज़िशन और रेफ़रंस के हिसाब से वीडियो जनरेट करने की सुविधा
+- वीडियो ऐसेट और मीडिया प्रीप्रोसेसिंग वर्कफ़्लो
 
 ```
 npx skills add google-gemini/gemini-skills --skill gemini-omni-flash-api --global
 ```
 
-### Montare le skill in Managed Agents
+### एजेंट बनाने और मैनेज करने की सुविधा में स्किल माउंट करना
 
-Quando esegui agenti gestiti da remoto con l'API Interactions, puoi montare il repository
-`google-gemini/gemini-skills` nello spazio di lavoro dell'agente. Per maggiori dettagli, consulta la
-[guida alle competenze dell'API Gemini](https://aistudio.google.com/learn/gemini-api-skills?hl=it):
+Interactions API की मदद से रिमोट मैनेज किए गए एजेंट चलाने पर, `google-gemini/gemini-skills` रिपॉज़िटरी को एजेंट के वर्कस्पेस में माउंट किया जा सकता है. ज़्यादा जानकारी के लिए, [Gemini API की सुविधाओं से जुड़ी गाइड](https://aistudio.google.com/learn/gemini-api-skills?hl=hi) देखें:
 
 ```
 from google import genai
@@ -136,37 +119,34 @@ interaction = client.interactions.create(
 )
 ```
 
-## Connetti il server MCP di Gemini Docs
+## Gemini Docs के एमसीपी सर्वर को कनेक्ट करना
 
-Il **server MCP di Gemini Docs** pubblico (`https://gemini-api-docs-mcp.dev`) consente
-all'agente di accedere in tempo reale all'intero sito di documentazione. Il tuo agente può cercare
-e leggere le pagine della documentazione per controllare gli schemi delle richieste, i limiti del modello e le nuove
-funzionalità:
+सार्वजनिक **Gemini Docs MCP सर्वर** (`https://gemini-api-docs-mcp.dev`) की मदद से, आपका एजेंट पूरी दस्तावेज़ साइट को लाइव ऐक्सेस कर सकता है. आपका एजेंट, दस्तावेज़ के पेजों को खोज सकता है और उन्हें पढ़ सकता है. इससे वह अनुरोध के स्कीमा, मॉडल की सीमाओं, और नई सुविधाओं के बारे में जान सकता है:
 
-- `gemini_search_docs`: esegue ricerche nella documentazione dell'API Gemini per argomento o query.
-- `gemini_get_doc`: legge l'intero contenuto Markdown di una pagina di documentazione specifica.
+- `gemini_search_docs`: यह सुविधा, विषय या क्वेरी के हिसाब से Gemini API के दस्तावेज़ खोजती है.
+- `gemini_get_doc`: यह किसी दस्तावेज़ पेज के पूरे मार्कडाउन कॉन्टेंट को पढ़ता है.
 
-### Configurazione rapida
+### त्‍वरित सेटअप
 
-Esegui questo comando nel terminale o nella radice del progetto per configurare automaticamente gli agenti di codifica rilevati:
+पहचाने गए कोडिंग एजेंट को अपने-आप कॉन्फ़िगर करने के लिए, इस कमांड को अपने टर्मिनल या प्रोजेक्ट रूट में चलाएं:
 
 ```
 npx add-mcp "https://gemini-api-docs-mcp.dev"
 ```
 
-### Configurazione per ambiente
+### एनवायरमेंट के हिसाब से कॉन्फ़िगरेशन
 
 ### Claude Code
 
-Esegui nel terminale:
+अपने टर्मिनल में यह कमांड चलाएं:
 
 ```
 $ claude mcp add --transport http geminiDocs https://gemini-api-docs-mcp.dev
 ```
 
-### Cursore
+### कर्सर
 
-Aggiungi a `~/.cursor/mcp.json` (globale) o `.cursor/mcp.json` (progetto):
+`~/.cursor/mcp.json` (ग्लोबल) या `.cursor/mcp.json` (प्रोजेक्ट) में जोड़ें:
 
 ```
 {
@@ -178,15 +158,15 @@ Aggiungi a `~/.cursor/mcp.json` (globale) o `.cursor/mcp.json` (progetto):
 }
 ```
 
-### Codex di OpenAI
+### OpenAI Codex
 
-Esegui nel terminale:
+अपने टर्मिनल में यह कमांड चलाएं:
 
 ```
 $ codex mcp add geminiDocs --url https://gemini-api-docs-mcp.dev
 ```
 
-Oppure aggiungi a `~/.codex/config.toml`:
+इसके अलावा, `~/.codex/config.toml` में जोड़ें:
 
 ```
 [mcp_servers.geminiDocs]
@@ -195,7 +175,7 @@ url = "https://gemini-api-docs-mcp.dev"
 
 ### VS Code (Copilot)
 
-Aggiungi a `.vscode/mcp.json` nel tuo workspace:
+अपने फ़ाइल फ़ोल्डर में `.vscode/mcp.json` जोड़ें:
 
 ```
 {
@@ -208,30 +188,27 @@ Aggiungi a `.vscode/mcp.json` nel tuo workspace:
 }
 ```
 
-## Plugin API Gemini
+## Gemini API प्लगिन
 
-Se utilizzi **Antigravity**, il **plug-in API Gemini** è il modo più rapido per configurare il tuo workspace. Include il server MCP di Gemini Docs, tutte le skill ufficiali di Gemini (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`) e gli strumenti per le chiavi API in un unico download.
+अगर **Antigravity** का इस्तेमाल किया जाता है, तो **Gemini API प्लगिन** की मदद से, अपने वर्कस्पेस को सबसे तेज़ी से सेट अप किया जा सकता है. इसमें Gemini Docs MCP सर्वर, Gemini की सभी आधिकारिक सुविधाएं (`gemini-api-dev`, `gemini-live-api-dev`, `gemini-omni-flash-api`), और एपीआई पासकोड टूल एक साथ डाउनलोड किए जा सकते हैं.
 
-- **Installazione in Antigravity (UI):** vai a **Impostazioni > Personalizzazioni > Crea
-  con i plug-in Google** e scarica **API Gemini**.
-- **Installa con la CLI:**
+- **Antigravity (यूज़र इंटरफ़ेस) में इंस्टॉल करें:** **सेटिंग > पसंद के मुताबिक बनाएं > Google के प्लग-इन की मदद से बनाएं** पर जाएं और **Gemini API** डाउनलोड करें.
+- **सीएलआई की मदद से इंस्टॉल करना:**
   `bash
   agy plugin install https://github.com/google-gemini/gemini-skills`
 
-## Documentazione leggibile da macchina
+## मशीन से पढ़े जा सकने वाले दस्तावेज़
 
-Le pagine web standard includono tag HTML, barre di navigazione e script che occupano
-spazio nella finestra contestuale. `ai.google.dev` fornisce endpoint leggibili dalla macchina in modo che
-agenti e script possano recuperare direttamente Markdown pulito:
+स्टैंडर्ड वेब पेजों में एचटीएमएल टैग, नेविगेशन बार, और स्क्रिप्ट शामिल होती हैं. ये कॉन्टेक्स्ट विंडो की जगह घेरती हैं. `ai.google.dev` मशीन से पढ़े जा सकने वाले एंडपॉइंट उपलब्ध कराता है, ताकि एजेंट और स्क्रिप्ट सीधे तौर पर साफ़-सुथरा मार्कडाउन फ़ेच कर सकें:
 
-- **Indice `llms.txt`**
-  ([`https://ai.google.dev/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=it)):
-  Elenca tutte le pagine della documentazione dell'API Gemini con link a ciascuna pagina.
-- **URL Markdown diretti (`.md.txt`)**: aggiungi `.md.txt` a qualsiasi URL di documentazione su `ai.google.dev` (ad esempio, [`https://ai.google.dev/gemini-api/docs/coding-agents.md.txt`](https://ai.google.dev/gemini-api/docs/coding-agents.md.txt?hl=it)) per ottenere un'origine Markdown pulita per prompt salvati, regole `AGENTS.md` o script automatizzati.
+- **`llms.txt` इंडेक्स**
+  ([`https://ai.google.dev/gemini-api/docs/llms.txt`](https://ai.google.dev/gemini-api/docs/llms.txt?hl=hi)):
+  इसमें Gemini API के सभी दस्तावेज़ पेजों की सूची दी गई है. साथ ही, हर पेज के लिंक भी दिए गए हैं.
+- **सीधे मार्कडाउन यूआरएल (`.md.txt`)**: सेव किए गए प्रॉम्प्ट, `AGENTS.md` नियमों या ऑटोमेटेड स्क्रिप्ट के लिए, साफ़ मार्कडाउन सोर्स पाने के लिए, `ai.google.dev` पर मौजूद किसी भी दस्तावेज़ के यूआरएल में `.md.txt` जोड़ें. उदाहरण के लिए, [`https://ai.google.dev/gemini-api/docs/coding-agents.md.txt`](https://ai.google.dev/gemini-api/docs/coding-agents.md.txt?hl=hi).
 
-## Regole del progetto consigliate (`AGENTS.md`)
+## प्रोजेक्ट के लिए सुझाए गए नियम (`AGENTS.md`)
 
-Un file di regole del progetto (`AGENTS.md`, `.cursorrules` o `CLAUDE.md`) imposta le regole di base che vengono caricate all'inizio di ogni sessione dell'agente. Aggiungi queste linee guida alla radice del progetto in modo che gli agenti di codifica utilizzino per impostazione predefinita i modelli e gli SDK attuali:
+प्रोजेक्ट की नियमों वाली फ़ाइल (`AGENTS.md`, `.cursorrules` या `CLAUDE.md`) में बुनियादी नियम सेट किए जाते हैं. ये नियम, हर एजेंट सेशन की शुरुआत में लोड होते हैं. इन दिशा-निर्देशों को अपने प्रोजेक्ट के रूट में जोड़ें, ताकि कोडिंग एजेंट डिफ़ॉल्ट रूप से मौजूदा मॉडल और एसडीके का इस्तेमाल कर सकें:
 
 ```
 # Gemini API Guidelines
@@ -242,54 +219,50 @@ Un file di regole del progetto (`AGENTS.md`, `.cursorrules` o `CLAUDE.md`) impos
 - Use current recommended models (see https://ai.google.dev/gemini-api/docs/models) and avoid deprecated models.
 ```
 
-## Verifica e risolvi i problemi
+## पुष्टि करना और समस्या हल करना
 
-### Verificare la configurazione
+### अपने सेटअप की पुष्टि करें
 
-Per testare la configurazione, chiedi all'agente di programmazione:
+अपने सेटअप की जांच करने के लिए, अपने कोडिंग एजेंट से ये सवाल पूछें:
 
 ```
 Look up the request schema for the Gemini Interactions API in the documentation.
 ```
 
-Un agente configurato utilizzerà `gemini_search_docs` sul server MCP `geminiDocs` e scriverà codice utilizzando `client.interactions.create` con l'SDK `google-genai` o `@google/genai`.
+कॉन्फ़िगर किया गया एजेंट, `geminiDocs` एमसीपी सर्वर पर `gemini_search_docs` का इस्तेमाल करेगा. साथ ही, `google-genai` या `@google/genai` SDK टूल के साथ `client.interactions.create` का इस्तेमाल करके कोड लिखेगा.
 
-### Comandi di stato
+### स्टेटस कमांड
 
-| Ambiente | Verifica MCP | Verifica delle competenze |
+| परिवेश | एमसीपी की पुष्टि | कौशल की पुष्टि करना |
 | --- | --- | --- |
-| **Claude Code** | Esegui `/mcp` | Esegui `/skills` |
-| **Cursore** | Apri **Impostazioni > Funzionalità > MCP** | Apri **Impostazioni > Regole** |
-| **OpenAI Codex** | Esegui `codex mcp list` | Controlla `.codex/skills/` o `~/.codex/skills/` |
-| **Antigravity** | Apri **Personalizzazioni > Connessioni**. | Apri **Personalizzazioni > Regole** o esegui `/skills list`. |
-| **VS Code (Copilot)** | Apri **Estensioni > MCP** o il riquadro Output | Fai clic su **Seleziona strumenti** in Copilot Chat. |
+| **Claude Code** | रन `/mcp` | रन `/skills` |
+| **कर्सर** | **सेटिंग > सुविधाएं > एमसीपी** खोलें | **सेटिंग > नियम** खोलें |
+| **OpenAI Codex** | रन `codex mcp list` | `.codex/skills/` या `~/.codex/skills/` देखें |
+| **Antigravity** | **पसंद के मुताबिक बनाएं > कनेक्शन** खोलें | **कस्टमाइज़ेशन > नियम** खोलें या `/skills list` चलाएं |
+| **VS Code (Copilot)** | **एक्सटेंशन > एमसीपी** या आउटपुट पैनल खोलें | Copilot Chat में, **टूल चुनें** पर क्लिक करें |
 
-### Risoluzione dei problemi
+### समस्या का हल
 
-- **Skill o server MCP non rilevati:** riavvia l'editor (Cursor o VS Code)
-  o la sessione del terminale (Claude Code o Codex). La maggior parte degli agenti carica i server MCP e
-  le skill solo all'avvio.
-- **Conflitto di skill globale:** se l'agente ignora una skill installata a livello globale,
-  installa la skill nella radice del progetto senza `--global`:
+- **स्किल या एमसीपी सर्वर का पता नहीं चला:** अपने एडिटर (Cursor या VS Code) या टर्मिनल सेशन (Claude Code या Codex) को रीस्टार्ट करें. ज़्यादातर एजेंट, एमसीपी सर्वर और स्किल सिर्फ़ तब लोड करते हैं, जब वे शुरू होते हैं.
+- **ग्लोबल स्किल का टकराव:** अगर आपका एजेंट, ग्लोबल तौर पर इंस्टॉल की गई किसी स्किल को अनदेखा करता है, तो `--global` के बिना अपने प्रोजेक्ट रूट में स्किल इंस्टॉल करें:
   `bash
   npx skills add google-gemini/gemini-skills --skill gemini-api-dev`
-- **Regole ignorate**:assicurati che il file `AGENTS.md`, `.cursorrules` o `CLAUDE.md`
-  si trovi nella directory principale del progetto.
+- **नियमों का पालन न करना:** पक्का करें कि आपकी `AGENTS.md`, `.cursorrules` या `CLAUDE.md` फ़ाइल, आपके प्रोजेक्ट की रूट डायरेक्ट्री में हो.
 
-## Passaggi successivi
+## आगे क्या करना है
 
-- [Guida alle competenze dell'API Gemini](https://aistudio.google.com/learn/gemini-api-skills?hl=it)
-- [Competenze dell'API Gemini su GitHub](https://github.com/google-gemini/gemini-skills)
-- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it)
-- [Modelli disponibili](https://ai.google.dev/gemini-api/docs/models?hl=it)
-- [Librerie e SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=it)
+- [Gemini API की क्षमताओं की गाइड](https://aistudio.google.com/learn/gemini-api-skills?hl=hi)
+- [GitHub पर Gemini API की स्किल](https://github.com/google-gemini/gemini-skills)
+- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=hi)
+- [उपलब्ध मॉडल](https://ai.google.dev/gemini-api/docs/models?hl=hi)
+- [लाइब्रेरी और एसडीके](https://ai.google.dev/gemini-api/docs/libraries?hl=hi)
 
-Invia feedback
+सुझाव भेजें
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Ultimo aggiornamento 2026-10-06 UTC.
+आखिरी बार 2026-10-06 (UTC) को अपडेट किया गया.
 
-Vuoi dirci altro?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-06 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-06 (UTC) को अपडेट किया गया."],[],[]]

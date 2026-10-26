@@ -1,47 +1,49 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026?hl=ko
-fetched_at: 2026-10-19T05:39:30.863387+00:00
-title: "Antigravity \ubbf8\ub9ac\ubcf4\uae30 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-09-2026?hl=th
+fetched_at: 2026-10-26T05:44:39.172737+00:00
+title: "\u0e15\u0e31\u0e27\u0e2d\u0e22\u0e48\u0e32\u0e07 Antigravity \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-의견 보내기
+ส่งความคิดเห็น
 
-# Antigravity 미리보기
+# ตัวอย่าง Antigravity
 
-자율적인 다단계 워크플로를 위해 설계된 강력한 범용 관리형 에이전트입니다. 이 모델은 Google에서 호스팅하는 안전하고 격리된 Linux 샌드박스 내에서 계획을 세우고, 추론하고, 코드를 실행하고, 파일을 관리하고, 웹을 검색합니다.
+เอเจนต์ที่มีการจัดการแบบอเนกประสงค์ที่ทรงพลังซึ่งออกแบบมาสำหรับเวิร์กโฟลว์แบบหลายขั้นตอนที่ทำงานได้ด้วยตนเอง
+โมเดลนี้วางแผน ให้เหตุผล รันโค้ด จัดการไฟล์ และค้นหา
+เว็บภายในแซนด์บ็อกซ์ Linux ที่ปลอดภัยและแยกต่างหากซึ่ง Google เป็นผู้โฮสต์
 
-2026년 9월 출시 (`antigravity-preview-09-2026`)에서는 프롬프트 캐싱, 네이티브 코드 검색 도구, 효율적인 줄 범위 파일 수정이 개선된 런타임 하네스가 업그레이드됩니다.
+การเปิดตัวในเดือนกันยายน 2026 (`antigravity-preview-09-2026`) จะอัปเกรดฮาร์เนสของรันไทม์ ด้วยการแคชพรอมต์ที่ได้รับการปรับปรุง เครื่องมือค้นหาโค้ดแบบเนทีฟ และการแก้ไขไฟล์ช่วงบรรทัดที่มีประสิทธิภาพ
 
-## 문서
+## เอกสารประกอบ
 
-기능, 기능, 코드 샘플을 자세히 알아보려면 [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=ko) 페이지를 참고하세요.
+ไปที่หน้า [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=th) เพื่อดูข้อมูลทั้งหมดเกี่ยวกับฟีเจอร์ ความสามารถ และตัวอย่างโค้ด
 
 ## antigravity-preview-09-2026
 
-| 속성 | 설명 |
+| พร็อพเพอร์ตี้ | คำอธิบาย |
 | --- | --- |
-| id\_card에이전트 코드 | **Interactions API**  `antigravity-preview-09-2026` |
-| save지원되는 데이터 유형 | **입력**  텍스트, 이미지  **출력**  텍스트 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 컨텍스트 윈도우**  1,048,576 (약 135,000개로 압축됨)  **출력 토큰 한도**  65,536 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 미리보기: `antigravity-preview-09-2026` |
-| calendar\_month최신 업데이트 | 2026년 9월 |
+| รหัสตัวแทน id\_card | **Interactions API**  `antigravity-preview-09-2026` |
+| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  ข้อความ รูปภาพ  **เอาต์พุต**  ข้อความ |
+| token\_autoขีดจำกัดของโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **หน้าต่างบริบทของอินพุต**  1,048,576 (บีบอัดที่ประมาณ 135,000)  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
+| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - ตัวอย่าง: `antigravity-preview-09-2026` |
+| calendar\_monthการอัปเดตล่าสุด | กันยายน 2569 |
 
-의견 보내기
+ส่งความคิดเห็น
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-최종 업데이트: 2026-09-24(UTC)
+อัปเดตล่าสุด 2026-09-24 UTC
 
-의견을 전달하고 싶나요?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-24(UTC)"],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]

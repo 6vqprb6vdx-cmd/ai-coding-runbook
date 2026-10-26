@@ -1,33 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=hi
-fetched_at: 2026-10-19T05:40:51.093687+00:00
-title: "\u092a\u094d\u0930\u093e\u0925\u092e\u093f\u0915\u0924\u093e \u0915\u0947 \u0906\u0927\u093e\u0930 \u092a\u0930 \u0905\u0928\u0941\u092e\u093e\u0928 \u0932\u0917\u093e\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/priority-inference?hl=vi
+fetched_at: 2026-10-26T06:00:45.333335+00:00
+title: "Suy lu\u1eadn m\u1ee9c \u0111\u1ed9 \u01b0u ti\u00ean \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-# प्राथमिकता के आधार पर अनुमान लगाना
+# Suy luận mức độ ưu tiên
 
-जानकारी: प्रायॉरिटी इन्फ़्रेंस टियर की मदद से, इंतज़ार के समय को ऑप्टिमाइज़ करने का तरीका जानें
+Nội dung mô tả: Tìm hiểu cách tối ưu hoá độ trễ bằng Cấp suy luận ưu tiên
 
-Gemini Priority API, प्रीमियम इन्फ़्रेंस टियर है. इसे कारोबार के लिए ज़रूरी वर्कलोड को ध्यान में रखकर डिज़ाइन किया गया है. इसके लिए, आपको प्रीमियम कीमत चुकानी होगी. इसमें आपको कम इंतज़ार का समय और सबसे ज़्यादा भरोसेमंद सेवा मिलेगी. प्रायॉरिटी टियर के ट्रैफ़िक को स्टैंडर्ड एपीआई और फ़्लेक्स टियर के ट्रैफ़िक से ज़्यादा प्राथमिकता दी जाती है.
+API Ưu tiên của Gemini là một cấp suy luận cao cấp được thiết kế cho các khối lượng công việc quan trọng đối với doanh nghiệp, đòi hỏi độ trễ thấp hơn và độ tin cậy cao nhất với mức giá cao cấp. Lưu lượng truy cập ở cấp ưu tiên được ưu tiên hơn lưu lượng truy cập ở API tiêu chuẩn và cấp linh hoạt.
 
-प्राथमिकता का अनुमान लगाने की सुविधा, GenerateContent API और Interactions API के एंडपॉइंट पर, [टियर 2 और टियर 3](https://ai.google.dev/gemini-api/docs/billing?hl=hi#about-billing) के उपयोगकर्ताओं के लिए उपलब्ध है.
+Tính năng suy luận ưu tiên được cung cấp cho người dùng ở [Cấp 2 và Cấp 3](https://ai.google.dev/gemini-api/docs/billing?hl=vi#about-billing) trên các điểm cuối của API GenerateContent
+và API Tương tác.
 
-## प्राथमिकता सेक्शन का इस्तेमाल करने का तरीका
+## Cách sử dụng Mức độ ưu tiên
 
-प्रायॉरिटी टियर का इस्तेमाल करने के लिए, अनुरोध के मुख्य हिस्से में `service_tier` फ़ील्ड को `priority` पर सेट करें. अगर फ़ील्ड को शामिल नहीं किया जाता है, तो डिफ़ॉल्ट टियर स्टैंडर्ड होता है.
+Để sử dụng cấp Ưu tiên, hãy đặt trường `service_tier` trong nội dung yêu cầu thành `priority`. Cấp mặc định là tiêu chuẩn nếu bạn bỏ qua trường này.
 
 ### Python
 
@@ -84,7 +85,7 @@ async function main() {
 await main();
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -138,82 +139,88 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## प्राथमिकता का अनुमान लगाने की सुविधा कैसे काम करती है
+## Cách hoạt động của tính năng suy luận ưu tiên
 
-प्रायॉरिटी इन्फ़रेंस, अनुरोधों को ज़्यादा ज़रूरी कंप्यूट क्यू में भेजता है. इससे, इस्तेमाल करने वाले लोगों के लिए उपलब्ध ऐप्लिकेशन के लिए, अनुमानित और तेज़ परफ़ॉर्मेंस मिलती है. इसका मुख्य तरीका यह है कि डाइनैमिक सीमाओं से ज़्यादा ट्रैफ़िक के लिए, सर्वर-साइड पर स्टैंडर्ड प्रोसेसिंग को डाउनग्रेड किया जाए. इससे अनुरोध को पूरा न करने के बजाय, ऐप्लिकेशन को स्टेबल बनाए रखने में मदद मिलती है.
+Tính năng suy luận ưu tiên định tuyến các yêu cầu đến các hàng đợi tính toán có mức độ quan trọng cao, mang lại hiệu suất nhanh chóng và có thể dự đoán được cho các ứng dụng hướng đến người dùng. Cơ chế chính của tính năng này là hạ cấp một cách linh hoạt phía máy chủ xuống quy trình xử lý tiêu chuẩn đối với lưu lượng truy cập vượt quá các giới hạn linh động, đảm bảo tính ổn định của ứng dụng thay vì không thực hiện được yêu cầu.
 
-| सुविधा | प्राथमिकता | स्टैंडर्ड | Flex | बैच |
+| Tính năng | Mức độ ưu tiên | Chuẩn | Linh hoạt | Theo nhóm |
 | --- | --- | --- | --- | --- |
-| **कीमत** | स्टैंडर्ड प्लान के मुकाबले 75-100% ज़्यादा | फ़ुल टिकट | 50% की छूट | 50% की छूट |
-| **इंतज़ार का समय** | सेकंड | सेकंड से मिनट | मिनट (1 से 15 मिनट का टारगेट) | 24 घंटे तक |
-| **भरोसेमंद होना** | ज़्यादा (कम नहीं किया जा सकता) | ज़्यादा / सामान्य से ज़्यादा | सबसे अच्छी कोशिश (शेड किया जा सकता है) | हाई (थ्रूपुट के लिए) |
-| **इंटरफ़ेस** | सिंक्रोनस | सिंक्रोनस | सिंक्रोनस | एसिंक्रोनस |
+| **Định giá** | Cao hơn 75 – 100% so với cấp Tiêu chuẩn | Giá đầy đủ | Chiết khấu 50% | Chiết khấu 50% |
+| **Độ trễ** | Giây | Giây đến phút | Phút (mục tiêu 1 – 15 phút) | Tối đa 24 giờ |
+| **Độ tin cậy** | Cao (Không thể loại bỏ) | Cao / Trung bình cao | Nỗ lực tối đa (Có thể loại bỏ) | Cao (đối với thông lượng) |
+| **Giao diện** | Đồng bộ | Đồng bộ | Đồng bộ | Không đồng bộ |
 
-### मुख्य फ़ायदे
+### Lợi ích chính
 
-- **कम इंतज़ार का समय**: इसे इंटरैक्टिव और इस्तेमाल करने वाले लोगों के लिए उपलब्ध एआई टूल के लिए डिज़ाइन किया गया है, ताकि वे कुछ ही सेकंड में जवाब दे सकें.
-- **ज़्यादा भरोसेमंद**: ट्रैफ़िक को सबसे ज़्यादा अहमियत दी जाती है और इसे किसी भी तरह से कम नहीं किया जा सकता.
-- **ग्रेसफ़ुल डिग्रेडेशन**: डाइनैमिक सीमाओं से ज़्यादा ट्रैफ़िक बढ़ने पर, उसे प्रोसेस करने के लिए अपने-आप स्टैंडर्ड टियर पर डाउनग्रेड कर दिया जाता है. इससे सेवा में रुकावट नहीं आती.
-- **Low friction**: यह स्टैंडर्ड और Flex टियर की तरह ही, सिंक्रोनस `generateContent` तरीके का इस्तेमाल करता है.
+- **Độ trễ thấp**: Được thiết kế để có thời gian phản hồi trong vài giây đối với các công cụ AI tương tác, dành cho người dùng.
+- **Độ tin cậy cao**: Lưu lượng truy cập được xử lý với mức độ quan trọng cao nhất và
+  hoàn toàn không thể loại bỏ.
+- **Hạ cấp linh hoạt**: Các đợt tăng đột biến lưu lượng truy cập vượt quá giới hạn linh động sẽ
+  tự động được hạ cấp xuống cấp Tiêu chuẩn để xử lý thay vì không thực hiện được,
+  ngăn ngừa tình trạng ngừng dịch vụ.
+- **Ít trở ngại**: Sử dụng cùng một phương thức đồng bộ `generateContent` như các cấp
+  tiêu chuẩn và linh hoạt.
 
-### उपयोग के उदाहरण
+### Trường hợp sử dụng
 
-प्रायॉरिटी प्रोसेसिंग, कारोबार के लिए ज़रूरी वर्कफ़्लो के लिए सबसे सही है. इसमें परफ़ॉर्मेंस और विश्वसनीयता सबसे अहम होती है.
+Quy trình xử lý ưu tiên là lý tưởng cho các quy trình công việc quan trọng đối với doanh nghiệp, trong đó hiệu suất và độ tin cậy là tối quan trọng.
 
-- **इंटरैक्टिव एआई ऐप्लिकेशन**: ग्राहक सेवा के लिए चैटबॉट और कोपायलट. इनमें उपयोगकर्ता प्रीमियम चुकाते हैं और उन्हें तुरंत और लगातार जवाब मिलने की उम्मीद होती है.
-- **रीयल-टाइम में फ़ैसला लेने वाले इंजन**: ऐसे सिस्टम जिन्हें भरोसेमंद और कम इंतज़ार के समय वाले नतीजों की ज़रूरत होती है. जैसे, लाइव टिकट की जांच करना या धोखाधड़ी का पता लगाना.
-- **प्रीमियम ग्राहक के लिए सुविधाएं**: ऐसे डेवलपर जिन्हें पैसे चुकाने वाले ग्राहकों के लिए, सेवा स्तर के बेहतर उद्देश्यों (एसएलओ) की गारंटी देनी होती है.
+- **Ứng dụng AI tương tác**: Chatbot và trợ lý ảo dịch vụ khách hàng, trong đó
+  người dùng trả phí cao cấp và mong đợi phản hồi nhanh chóng, nhất quán.
+- **Công cụ đưa ra quyết định theo thời gian thực**: Các hệ thống yêu cầu yêu cầu về hệ thống có độ tin cậy cao và độ trễ thấp, chẳng hạn như phân loại phiếu yêu cầu hỗ trợ trực tiếp hoặc phát hiện gian lận.
+- **Các tính năng cao cấp dành cho khách hàng**: Nhà phát triển cần đảm bảo các mục tiêu về mức độ cung cấp dịch vụ (SLO) cao hơn cho khách hàng trả phí.
 
-### अनुरोधों की संख्या की सीमाएं
+### Giới hạn số lượng yêu cầu
 
-प्राथमिकता के आधार पर इस्तेमाल किए जाने वाले संसाधनों के लिए, अनुरोध संख्या सीमित करने से जुड़ी अपनी सीमाएं होती हैं. भले ही, इस्तेमाल को [इंटरैक्टिव ट्रैफ़िक की दर से जुड़ी कुल सीमाओं](https://aistudio.google.com/rate-limit?hl=hi) में गिना जाता हो. प्राथमिकता इन्फ़्रेंस के लिए, अनुरोध संख्या सीमित करने की डिफ़ॉल्ट सीमाएं, **मॉडल / टियर के लिए अनुरोध संख्या सीमित करने की स्टैंडर्ड सीमा का 0.3 गुना** होती हैं
+Mức sử dụng ưu tiên có giới hạn số lượng yêu cầu riêng, mặc dù mức sử dụng được tính vào [giới hạn số lượng yêu cầu lưu lượng truy cập tương tác tổng thể](https://aistudio.google.com/rate-limit?hl=vi). Giới hạn số lượng yêu cầu mặc định cho tính năng suy luận ưu tiên là **0,3 lần giới hạn số lượng yêu cầu tiêu chuẩn cho Mô hình / Cấp**
 
-### ग्रेसफ़ुल डाउनग्रेड लॉजिक
+### Logic hạ cấp linh hoạt
 
-अगर ज़्यादा ट्रैफ़िक की वजह से, प्राथमिकता वाले अनुरोधों की सीमाएं पार हो जाती हैं, तो ओवरफ़्लो अनुरोधों को **अपने-आप और आसानी से** स्टैंडर्ड प्रोसेसिंग पर डाउनग्रेड कर दिया जाता है. ऐसा करने से, 503 या 429 गड़बड़ी नहीं होती. डाउनग्रेड किए गए अनुरोधों के लिए, स्टैंडर्ड रेट के हिसाब से बिलिंग की जाती है, न कि प्राथमिकता वाले प्रीमियम रेट के हिसाब से.
+Nếu vượt quá giới hạn Mức độ ưu tiên do tắc nghẽn, các yêu cầu tràn sẽ được **tự động và linh hoạt** hạ cấp xuống quy trình xử lý Standard thay vì không thực hiện được với lỗi 503 hoặc 429. Các yêu cầu được hạ cấp sẽ được tính phí theo mức giá tiêu chuẩn, không phải mức giá cao cấp ưu tiên.
 
-### क्लाइंट की ज़िम्मेदारी
+### Trách nhiệm của ứng dụng khách
 
-- **जवाब की निगरानी करना**: डेवलपर को एपीआई से मिले जवाब में `x-gemini-service-tier` हेडर की निगरानी करनी चाहिए. इससे यह पता लगाया जा सकता है कि अनुरोधों को बार-बार `standard` पर डाउनग्रेड किया जा रहा है या नहीं.
-- **फिर से कोशिश करना**: क्लाइंट को स्टैंडर्ड गड़बड़ियों के लिए, फिर से कोशिश करने का लॉजिक/एक्सपोनेंशियल बैकऑफ़ लागू करना होगा. जैसे, `DEADLINE_EXCEEDED`.
+- **Theo dõi phản hồi**: Nhà phát triển nên theo dõi `x-gemini-service-tier` tiêu đề trong phản hồi của API để phát hiện xem các yêu cầu có thường xuyên bị hạ cấp xuống `standard`.
+- **Thử lại**: Ứng dụng khách phải triển khai logic thử lại/thuật toán thời gian đợi luỹ thừa đối với
+  các lỗi tiêu chuẩn, chẳng hạn như `DEADLINE_EXCEEDED`.
 
-## कीमत
+## Định giá
 
-प्राथमिकता के आधार पर अनुमान लगाने की सुविधा, [स्टैंडर्ड एपीआई](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) से 75 से 100% ज़्यादा महंगी है. इसका शुल्क, हर टोकन के हिसाब से लिया जाता है.
+Tính năng suy luận ưu tiên có giá cao hơn 75 – 100% so với [API tiêu chuẩn](https://ai.google.dev/gemini-api/docs/pricing?hl=vi) và được tính phí theo mỗi mã thông báo.
 
-## इन मॉडल के साथ काम करता है
+## Mô hình được hỗ trợ
 
-इन मॉडल में, अनुमान लगाने की सुविधा काम करती है:
+Các mô hình sau đây hỗ trợ tính năng suy luận ưu tiên:
 
-| मॉडल | प्राथमिकता के आधार पर अनुमान लगाना |
+| Mô hình | Suy luận ưu tiên |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=hi) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=hi) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=hi) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=hi) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=hi) | ✔️ |
-| [Gemini 3.1 Pro की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=hi) | ✔️ |
-| [Gemini 3 Flash की झलक](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=hi) | ✔️ |
-| [Gemini 3 Pro Image Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=hi) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash की इमेज](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=hi) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=hi) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=vi) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=vi) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=vi) | ✔️ |
+| [Bản xem trước Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=vi) | ✔️ |
+| [Bản xem trước Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=vi) | ✔️ |
+| [Bản xem trước hình ảnh Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=vi) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=vi) | ✔️ |
+| [Hình ảnh Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=vi) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=vi) | ✔️ |
 
-## आगे क्या करना है
+## Bước tiếp theo
 
-Gemini के अन्य [इनफ़्रेंस और ऑप्टिमाइज़ेशन](https://ai.google.dev/gemini-api/docs/optimization?hl=hi) विकल्पों के बारे में पढ़ें:
+Đọc về các lựa chọn [suy luận và tối ưu hoá](https://ai.google.dev/gemini-api/docs/optimization?hl=vi) khác của Gemini:
 
-- लागत में 50% की कमी के लिए, [फ़्लेक्स इन्फ़रेंस](https://ai.google.dev/gemini-api/docs/flex-inference?hl=hi) का इस्तेमाल करें.
-- 24 घंटों के अंदर एसिंक्रोनस प्रोसेसिंग के लिए [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=hi).
-- इनपुट टोकन की लागत कम करने के लिए, [कॉन्टेक्स्ट के लिए कैश की सुविधा](https://ai.google.dev/gemini-api/docs/caching?hl=hi).
+- [Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi) để giảm 50% chi phí.
+- [API theo nhóm](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi) để xử lý không đồng bộ trong vòng 24 giờ.
+- [Bộ nhớ đệm ngữ cảnh](https://ai.google.dev/gemini-api/docs/caching?hl=vi) để giảm chi phí token đầu vào.
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया.
+Cập nhật lần gần đây nhất: 2026-10-13 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-13 UTC."],[],[]]

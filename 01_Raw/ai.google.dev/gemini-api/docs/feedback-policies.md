@@ -1,69 +1,62 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=id
-fetched_at: 2026-10-19T05:43:27.445815+00:00
-title: "Masukan \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/feedback-policies?hl=pl
+fetched_at: 2026-10-26T05:38:39.385690+00:00
+title: "Prze\u015blij opini\u0119 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-Kirim masukan
+Prześlij opinię
 
-# Masukan
+# Prześlij opinię
 
-Google AI Studio menyediakan beberapa cara bagi Anda untuk mengirimkan masukan tentang output model, artefak yang dihasilkan, dan log permintaan API. Kebijakan ini berlaku untuk semua
-masukan yang dikirimkan di Google AI Studio - termasuk rating respons (seperti
-suka dan tidak suka), komentar tertulis, dan pemungutan suara preferensi (seperti
-Pemungutan Suara Preferensi Inline dan mode Build Arena).
+Google AI Studio udostępnia kilka sposobów przesyłania opinii o danych wyjściowych modelu, wygenerowanych artefaktach i dziennikach żądań do interfejsu API. Te zasady dotyczą wszystkich opinii przesyłanych w Google AI Studio, w tym ocen odpowiedzi (np. kciuk w górę i kciuk w dół), pisemnych komentarzy i głosowania na preferencje (np. głosowania na preferencje w tekście i trybu Build Arena).
 
-## Mengapa kita melakukan hal ini?
+## Dlaczego to robimy?
 
-Kami terus berupaya meningkatkan kualitas model dan layanan AI kami. Masukan Anda membantu kami menyediakan, meningkatkan kualitas, dan mengembangkan produk serta layanan Google dan teknologi machine learning, termasuk fitur, produk, dan layanan perusahaan Google, sesuai dengan [Persyaratan Layanan Tambahan Gemini API](https://ai.google.dev/gemini-api/terms?hl=id) dan [Kebijakan Privasi](https://policies.google.com/privacy?hl=id).
+Stale pracujemy nad ulepszaniem naszych modeli i usług AI. Twoje opinie pomagają nam dostarczać, ulepszać i rozwijać usługi oraz technologie uczenia maszynowego Google, w tym funkcje, produkty i usługi Google dla firm, zgodnie z [Dodatkowymi warunkami korzystania z usługi Gemini API](https://ai.google.dev/gemini-api/terms?hl=pl) i [Polityką prywatności](https://policies.google.com/privacy?hl=pl).
 
-## Data apa yang disertakan dalam Masukan?
+## Jakie dane są uwzględniane w opiniach?
 
-Untuk membuat keputusan yang tepat tentang model dan fitur kami, kami mengumpulkan data tertentu saat Anda mengirimkan masukan di Google AI Studio:
+Aby podejmować świadome decyzje dotyczące naszych modeli i funkcji, zbieramy określone dane, gdy przesyłasz opinię w Google AI Studio:
 
-- **Perintah dan Respons:** Kami mencatat perintah dan respons, termasuk file atau media yang diupload, dari interaksi atau percakapan yang Anda kirimkan masukan tentangnya. Saat Anda berpartisipasi dalam evaluasi preferensi komparatif, kami juga mencatat beberapa opsi respons yang ditampilkan agar kami dapat memahami konteks pilihan Anda.
-- **Rating, Suara, atau Komentar Anda:** Kami mencatat rating yang Anda berikan (seperti suka atau tidak suka), respons yang Anda pilih dalam pemungutan suara, kategori masukan yang dipilih, dan komentar tertulis yang Anda kirimkan.
-- **Detail Penggunaan:** Hal ini mencakup detail teknis dan operasional dari interaksi atau percakapan Anda, seperti informasi tentang model mana yang menghasilkan respons, parameter model, dan metadata sistem.
+- **Prompty i odpowiedzi:** rejestrujemy prompty i odpowiedzi, w tym przesłane pliki lub multimedia, z interakcji lub rozmowy, na temat której przesłano opinię. Gdy bierzesz udział w ocenach porównawczych preferencji, rejestrujemy też wyświetlane opcje odpowiedzi, aby zrozumieć kontekst Twojego wyboru.
+- **Twoja ocena, głos lub komentarze:** rejestrujemy Twoją ocenę (np. kciuk w górę lub w dół), wybraną odpowiedź w głosowaniu, wybrane kategorie opinii i przesłane komentarze.
+- **Szczegóły użytkowania:** obejmują szczegóły techniczne i operacyjne dotyczące Twojej interakcji lub rozmowy, takie jak informacje o tym, który model wygenerował odpowiedź, parametry modelu i metadane systemu.
 
-### Masukan menurut platform
+### Opinie według platformy
 
-Masukan dapat dikirimkan di berbagai platform di Google AI Studio, dengan sedikit perbedaan dalam konteks yang diambil:
+Opinie można przesyłać na różnych platformach w Google AI Studio. Kontekst może się nieznacznie różnić:
 
-- **Playground AI Studio:** Di Playground, masukan dapat dikirimkan menggunakan rating respons (suka atau tidak suka), atau Pemungutan Suara Preferensi Inline berdampingan. Data yang direkam mencakup histori percakapan, perintah, respons model, media atau file yang diupload, setelan parameter, masukan, dan detail penggunaan.
-- **Build AI Studio:** Di Build (termasuk Build Arena), masukan dapat
-  dikirimkan terkait kode yang dihasilkan, output aplikasi, dan evaluasi model komparatif.
-  Data yang direkam mencakup petunjuk dan perintah build, kode dan output aplikasi yang dihasilkan, suara atau rating komparatif, komentar yang menyertai dan detail penggunaan.
-- **Log Gemini API:** Di penampil Log dan Set Data, masukan dapat dikirimkan pada setiap log permintaan Gemini API. Data yang direkam mencakup entri log API tertentu (termasuk payload permintaan, respons model, parameter, dan metadata) beserta masukan dan detail penggunaan. Untuk mengetahui detail selengkapnya tentang
-  penyimpanan data log dan berbagi set data, lihat kebijakan
-  [Pencatatan dan Berbagi Data](https://ai.google.dev/gemini-api/docs/logs-policy?hl=id).
+- **Platforma AI Studio:** na platformie opinie można przesyłać za pomocą ocen odpowiedzi (kciuk w górę lub w dół) lub głosowania w ramach porównania dwóch odpowiedzi obok siebie. Nagrywane dane obejmują historię rozmów, prompty, odpowiedzi modelu, przesłane multimedia lub pliki, ustawienia parametrów, opinie i szczegóły użytkowania.
+- **Tworzenie w AI Studio:** w sekcji Tworzenie (w tym w Build Arena) można przesyłać opinie na temat wygenerowanego kodu, wyników aplikacji i porównawczych ocen modeli.
+  Rejestrowane dane obejmują instrukcje i prompty kompilacji, wygenerowany kod aplikacji i wyniki, głosy lub oceny porównawcze, wszelkie towarzyszące komentarze i szczegóły użytkowania.
+- **Logi interfejsu Gemini API:** w przeglądarce logów i zbiorów danych można przesyłać opinie o poszczególnych logach żądań interfejsu Gemini API. Zapisywane dane obejmują konkretny wpis w logu interfejsu API (w tym ładunek żądania, odpowiedź modelu, parametry i metadane) wraz z opiniami i szczegółami użytkowania. Więcej informacji o przechowywaniu danych logowania i udostępnianiu zbiorów danych znajdziesz w zasadach [Rejestrowanie i udostępnianie danych](https://ai.google.dev/gemini-api/docs/logs-policy?hl=pl).
 
-## Pemungutan Suara Preferensi Inline
+## Głosowanie na preferencje w tekście
 
-Di Google AI Studio, Anda mungkin sesekali melihat perbandingan berdampingan dari dua respons yang berbeda terhadap perintah Anda. Hal ini merupakan bagian dari sistem pemungutan suara preferensi kami. Anda akan diminta untuk memilih respons mana yang lebih Anda sukai, yang membantu kami memahami output model mana yang paling bermanfaat bagi pengguna.
+W Google AI Studio możesz od czasu do czasu zobaczyć porównanie dwóch różnych odpowiedzi na Twój prompt. Jest to część naszego systemu głosowania preferencyjnego. Poprosimy Cię o wybranie preferowanej odpowiedzi, co pomoże nam zrozumieć, które dane wyjściowe modelu są najbardziej przydatne dla użytkowników.
 
-## Privasi Anda
+## Twoja prywatność
 
-**Jangan mengirimkan masukan tentang percakapan, perintah, respons, atau log yang menyertakan informasi sensitif, rahasia, atau pribadi.** Memberikan masukan
-selalu bersifat sukarela.
+**Nie przesyłaj opinii o rozmowach, promptach, odpowiedziach ani logach, które zawierają dane wrażliwe, poufne lub osobowe.** Przekazywanie opinii jest zawsze dobrowolne.
 
-Terima kasih telah membantu kami meningkatkan kualitas Google AI Studio.
+Dziękujemy za pomoc w ulepszaniu Google AI Studio.
 
-Kirim masukan
+Prześlij opinię
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-Terakhir diperbarui pada 2026-09-25 UTC.
+Ostatnia aktualizacja: 2026-09-25 UTC.
 
-Ada masukan untuk kami?
+Chcesz przekazać coś jeszcze?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-25 UTC."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-09-25 UTC."],[],[]]

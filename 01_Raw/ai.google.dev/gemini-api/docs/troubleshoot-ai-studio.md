@@ -1,87 +1,112 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=zh-CN
-fetched_at: 2026-10-19T05:33:47.251036+00:00
-title: "\u6392\u67e5 Google AI Studio \u95ee\u9898 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=es-419
+fetched_at: 2026-10-26T05:54:08.410734+00:00
+title: "Solucionar problemas de Google AI Studio \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-发送反馈
+Enviar comentarios
 
-# 排查 Google AI Studio 问题
+# Solucionar problemas de Google AI Studio
 
-本页提供了一些建议，可帮助您在遇到问题时排查 Google AI Studio 的问题。
+En esta página, se proporcionan sugerencias para solucionar problemas de Google AI Studio si
+tienes inconvenientes.
 
-## 了解 403 访问受限错误
+## Información sobre los errores 403 de acceso restringido
 
-如果您看到 403 访问受限错误，则表示您使用 Google AI Studio 的方式不符合[服务条款](https://ai.google.dev/terms?hl=zh-cn)。一个常见原因是
-您所在的地区不受[支持](https://ai.google.dev/available_regions?hl=zh-cn)。
+Si ves un error 403 de acceso restringido, significa que estás usando Google AI Studio de
+una manera que no cumple con las [Condiciones del Servicio](https://ai.google.dev/terms?hl=es-419). Un motivo común es
+que no te encuentras en una [región admitida](https://ai.google.dev/available_regions?hl=es-419).
 
-## 解决 Google AI Studio 上“无内容”响应的问题
+## Verifica los requisitos de edad para tu Cuenta de Google
 
-如果内容因任何原因被屏蔽，
-Google AI Studio 上会显示warning **无内容** 消息。如需查看更多详细信息，
-请将指针悬停在 **无内容** 上，然后点击
-warning **安全**。
+Debes ser mayor de 18 años para usar Google AI Studio. Es posible que se te redireccione a esta
+sección cuando intentes abrir [Google AI Studio](https://aistudio.google.com/?hl=es-419).
+Si es así, verifica que tu Cuenta de Google cumpla con el requisito de edad:
 
-如果响应因[安全设置](https://ai.google.dev/docs/safety_setting?hl=zh-cn)而被屏蔽，并且
-您已考虑了用例的[安全风险](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-cn)，则您
-可以修改
-[安全设置](https://ai.google.dev/docs/safety_setting?hl=zh-cn#safety_settings_in_makersuite)
-以影响返回的响应。
+- **Verifica tu fecha de nacimiento:** Confirma que tu fecha de nacimiento esté configurada para que tengas 18 años o más en
+  la [configuración de cumpleaños](https://myaccount.google.com/birthday?hl=es-419).
+- **Verifica tu edad:** Completa la
+  [verificación de edad](https://myaccount.google.com/age-verification?hl=es-419) en tu
+  Cuenta de Google. Para conocer las opciones de verificación, consulta
+  [Verifica tu edad en tu Cuenta de Google](https://support.google.com/accounts/answer/10071085?hl=es-419).
+- **Haz coincidir la fecha de nacimiento de tu documento de identidad:** Si verificas tu edad con un documento de identidad, revisa
+  la configuración de tu cuenta. Asegúrate de que tu
+  [fecha de nacimiento](https://myaccount.google.com/birthday?hl=es-419) coincida con la que aparece en tu
+  ID.
+- **Cuentas de Google Workspace:** En el caso de las cuentas de Google Workspace for Education,
+  comunícate con el administrador. Allí podrán confirmar si tu cuenta está designada
+  como de mayor de 18 años. Consulta
+  [Accede a Google AI Studio con tu cuenta de Workspace](https://ai.google.dev/gemini-api/docs/workspace?hl=es-419)
+  para obtener más detalles.
 
-如果响应被屏蔽但不是因为安全设置，则查询或
-响应可能违反了[服务条款](https://ai.google.dev/terms?hl=zh-cn)，或者不受支持。
+## Cómo resolver las respuestas sin contenido en Google AI Studio
 
-## 检查 token 使用情况和限制
+Aparece un mensaje warning **No Content** en
+Google AI Studio si el contenido está bloqueado por algún motivo. Para ver más detalles,
+mantén el puntero sobre **Sin contenido** y haz clic en
+warning **Seguridad**.
 
-当您打开提示时，屏幕底部的**文本预览** 按钮会显示当前用于提示内容的 token 数，以及所用模型的最大 token 数。
+Si la respuesta se bloqueó debido a la [configuración de seguridad](https://ai.google.dev/docs/safety_setting?hl=es-419) y
+consideraste los [riesgos de seguridad](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=es-419) para tu caso de uso, puedes
+modificar la
+[configuración de seguridad](https://ai.google.dev/docs/safety_setting?hl=es-419#safety_settings_in_makersuite)
+para influir en la respuesta que se devuelve.
 
-## AI Studio 的 Google Cloud IAM 权限
+Si la respuesta se bloqueó, pero no debido a la configuración de seguridad, es posible que la consulta o
+la respuesta incumplan las [Condiciones del Servicio](https://ai.google.dev/terms?hl=es-419) o no sean compatibles.
 
-Google Cloud 项目的成员需要特定的 Identity and Access Management (IAM) 权限才能在 Google AI Studio 中执行操作。如需详细了解这些身份，请参阅 [IAM 主账号概览](https://docs.cloud.google.com/iam/docs/principals-overview?hl=zh-cn)。
+## Verifica el uso y los límites de tokens
 
-在关联的 Google Cloud 项目中具有**编辑者** 或**所有者** 角色的用户拥有查看信息中心和管理 Gemini API 密钥的完整权限。具有**查看者** 角色的用户可以查看信息中心和 API 密钥，但无法创建、更新或删除它们。
+Cuando tienes una instrucción abierta, el botón **Vista previa de texto** que se encuentra en la parte inferior de la pantalla muestra los tokens actuales que se usan para el contenido de la instrucción y el recuento máximo de tokens para el modelo que se usa.
 
-如需进行更精细的控制，请参阅下表，了解每个 AI Studio 功能所需的特定权限。如需了解如何授予这些权限，请参阅 Google Cloud 文档中的[授予、更改和撤消对资源的访问权限](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=zh-cn)。
+## Permisos de Google Cloud IAM para AI Studio
 
-| AI Studio 功能 | 必需的 IAM 权限 | 其他要求 |
+Los miembros de un proyecto de Google Cloud necesitan permisos específicos de Identity and Access Management (IAM) para realizar acciones en Google AI Studio. Para obtener más información sobre estas identidades, consulta la [descripción general de las principales de IAM](https://docs.cloud.google.com/iam/docs/principals-overview?hl=es-419).
+
+Los usuarios con los roles de **Editor** o **Propietario** en el proyecto de Google Cloud asociado tienen permisos completos para ver los paneles y administrar las claves de la API de Gemini. Los usuarios con el rol de **Visualizador** pueden ver los paneles y las claves de API, pero no pueden crearlos, actualizarlos ni borrarlos.
+
+Para obtener un control más detallado, consulta la siguiente tabla con los permisos específicos que se requieren para cada función de AI Studio. Para obtener instrucciones sobre cómo otorgar estos permisos, consulta [Otorga, cambia y revoca el acceso a los recursos](https://cloud.google.com/iam/docs/granting-changing-revoking-access?hl=es-419) en la documentación de Google Cloud.
+
+| Función de AI Studio | Permisos de IAM obligatorios | Requisitos adicionales |
 | --- | --- | --- |
-| **搜索项目** （导入项目） | `resourcemanager.projects.get` |  |
-| **重命名项目** | `resourcemanager.projects.update` |  |
-| **显示配额层级** | 不适用 |  |
-| **创建 API 密钥** | 拥有**搜索项目** 权限，并且：  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
-| **列出 API 密钥** | 拥有**搜索项目** 权限，并且：  `apikeys.keys.list` `serviceusage.services.get` | Google Cloud 项目必须启用 [Generative Language API](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=zh-cn)。 |
-| **重命名 API 密钥** | `apikeys.keys.update` |  |
-| **删除 API 密钥** | `apikeys.keys.delete` |  |
-| **使用情况信息中心** | 拥有**搜索项目** 权限，并且：  `monitoring.timeSeries.list` |  |
-| **速率限制信息中心** | 拥有**使用情况信息中心** 权限，并且：  `cloudquotas.quotas.get` |  |
-| **支出（结算上限）** | `billing.resourceCosts.get`（查看支出） `billing.resourcebudgets.read`（查看上限） `billing.resourcebudgets.write`（设置上限） |  |
-| **结算信息中心** | `billing.accounts.get` |  |
+| **Buscar proyecto** (importar proyectos) | `resourcemanager.projects.get` |  |
+| **Cambiar el nombre del proyecto** | `resourcemanager.projects.update` |  |
+| **Muestra el nivel de cuota** | N/A |  |
+| **Crea una clave de API** | Tener permisos para **buscar proyectos** y lo siguiente:  `apikeys.keys.create` `serviceusage.services.enable` `iam.serviceAccountApiKeyBindings.create` `iam.serviceAccounts.create` |  |
+| **Enumera las claves de API** | Tener permisos para **buscar proyectos** y lo siguiente:  `apikeys.keys.list` `serviceusage.services.get` | El proyecto de Google Cloud debe tener habilitada la [API de Generative Language](https://console.cloud.google.com/apis/library/generativelanguage.googleapis.com?hl=es-419). |
+| **Cambia el nombre de las claves de API** | `apikeys.keys.update` |  |
+| **Borra claves de API** | `apikeys.keys.delete` |  |
+| **Panel de uso** | Tener permisos de **Búsqueda de proyectos** y lo siguiente:  `monitoring.timeSeries.list` |  |
+| **Panel de límite de frecuencia** | Tener permisos de **Panel de uso** y lo siguiente:  `cloudquotas.quotas.get` |  |
+| **Inversión (límite de facturación)** | `billing.resourceCosts.get` (para ver la inversión) `billing.resourcebudgets.read` (para ver el límite) `billing.resourcebudgets.write` (para establecer el límite) |  |
+| **Panel de facturación** | `billing.accounts.get` |  |
 
-### 其他访问权限检查
+### Otras verificaciones de acceso
 
-除了 Google Cloud IAM 权限之外，AI Studio 还会执行安全和合规性检查。如果您不符合以下要求，可能会在 AI Studio 界面或 API 响应中遇到 `PERMISSION_DENIED` 或访问限制错误：
+Además de los permisos de IAM de Google Cloud, AI Studio también realiza verificaciones de seguridad y cumplimiento. Es posible que encuentres un error `PERMISSION_DENIED` o de restricción de acceso en la interfaz de AI Studio o en las respuestas de la API si no cumples con los siguientes requisitos:
 
-- **安全检查**： 您的请求必须通过自动化安全检查。
-- **服务条款**： 您必须接受《Google 服务条款》和《生成式 AI 附加服务条款》。
-- **受支持的区域**： 您必须位于[受支持的区域](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-cn)。
-- **信任与安全**： Google Cloud 项目不得因滥用行为而被标记。
+- **Verificaciones de seguridad:** Tu solicitud debe pasar las verificaciones de seguridad automatizadas.
+- **Condiciones del Servicio:** Debes aceptar las Condiciones del Servicio de Google y las Condiciones del Servicio Adicionales para IA Generativas.
+- **Región admitida:** Debes encontrarte en una [región admitida](https://ai.google.dev/gemini-api/docs/available-regions?hl=es-419).
+- **Requisitos de edad:** Debes cumplir con los [requisitos de edad](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=es-419#age-requirements) (mayor de 18 años) en tu Cuenta de Google.
+- **Confianza y seguridad:** El proyecto de Google Cloud no debe estar marcado por abuso.
 
-发送反馈
+Enviar comentarios
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-最后更新时间 (UTC)：2026-09-12。
+Última actualización: 2026-10-22 (UTC)
 
-需要向我们提供更多信息？
+¿Quieres brindar más información?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-12。"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-22 (UTC)"],[],[]]

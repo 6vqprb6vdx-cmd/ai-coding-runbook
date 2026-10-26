@@ -1,73 +1,77 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=fa
-fetched_at: 2026-10-19T05:45:45.519847+00:00
-title: "\u0630\u062e\u06cc\u0631\u0647 \u06a9\u0631\u062f\u0646 \u0628\u0627\u0641\u062a \u062f\u0631 \u062d\u0627\u0641\u0638\u0647 \u0646\u0647\u0627\u0646 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=es-419
+fetched_at: 2026-10-26T05:45:33.912824+00:00
+title: "El almacenamiento de contexto en cach\u00e9 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs/generate-content?hl=fa)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
 
-ارسال بازخورد
+Enviar comentarios
 
-# ذخیره کردن بافت در حافظه نهان
+# El almacenamiento de contexto en caché
 
-در گردش کار هوش مصنوعی معمولی، ممکن است نشانه‌های ورودی یکسانی را بارها و بارها به مدل ارسال کنید. ‫Gemini API دو سازوکار ذخیره‌سازی موقت متفاوت ارائه می‌دهد:
+En un flujo de trabajo de IA típico, puedes pasar los mismos tokens de entrada una y otra vez a
+un modelo. La API de Gemini ofrece dos mecanismos de almacenamiento en caché diferentes:
 
-- ذخیره ضمنی در حافظه نهان (به‌طور خودکار در Gemini 2.5 و مدل‌های جدیدتر فعال می‌شود، تضمینی برای صرفه‌جویی در هزینه وجود ندارد)
-- ذخیره صریح در حافظه نهان (می‌تواند به‌صورت دستی در مدل‌های Gemini 3 و 2.5 فعال شود، تضمین صرفه‌جویی در هزینه؛ برای Gemini 4 Argon و نسخه‌های بعدی پشتیبانی نمی‌شود)
+- Almacenamiento en caché implícito (se habilita automáticamente en Gemini 2.5 y modelos más recientes, sin garantía de ahorro de costos)
+- Almacenamiento en caché explícito (se puede habilitar de forma manual en los modelos de Gemini 3 y 2.5, garantiza el ahorro de costos; no es compatible con Gemini 4 Argon y versiones posteriores)
 
-ذخیره‌سازی صریح در مواردی مفید است که می‌خواهید صرفه‌جویی در هزینه را تضمین کنید،
-اما با کمی کار توسعه‌دهنده اضافی.
+El almacenamiento en caché explícito es útil en los casos en los que deseas garantizar el ahorro de costos,
+pero con un trabajo adicional para el desarrollador.
 
-## ذخیره در حافظه نهان ضمنی
+## Almacenamiento en caché implícito
 
-ذخیره‌سازی نهان ضمنی به‌طور پیش‌فرض برای همه مدل‌های Gemini 2.5 و جدیدتر فعال است. اگر درخواست شما به حافظه‌های نهان برخورد کند،
-صرفه‌جویی در هزینه را به‌طور خودکار به شما منتقل می‌کنیم. برای روشن کردن آن، نیازی به پیکربندی چیزی ندارید. جدول زیر حداقل تعداد نشان ورودی برای هر مدل را فهرست می‌کند:
+El almacenamiento en caché implícito está habilitado de forma predeterminada para todos los modelos de Gemini 2.5 y versiones posteriores. Te transferimos automáticamente
+los ahorros de costos si tu solicitud llega a las cachés. No necesitas configurar nada para activarla. En la siguiente tabla, se indica la cantidad mínima de tokens de entrada para cada modelo:
 
-| مدل | حداقل حد داده‌واحد |
+| Modelo | Límite mínimo de tokens |
 | --- | --- |
-| ‫Gemini 4 Argon | ۴٬۰۹۶ |
-| Gemini 3.8 Flash | ۴٬۰۹۶ |
-| Gemini 3.6 Flash | ۴٬۰۹۶ |
-| Gemini 3.1 Pro Preview | ۴٬۰۹۶ |
-| Gemini 2.5 Flash | ۲۰۴۸ |
-| ‫Gemini 2.5 Pro | ۲۰۴۸ |
+| Gemini 4 Argon | 4,096 |
+| Gemini 3.8 Flash | 4,096 |
+| Gemini 3.6 Flash | 4,096 |
+| Versión preliminar de Gemini 3.1 Pro | 4,096 |
+| Gemini 2.5 Flash | 2,048 |
+| Gemini 2.5 Pro | 2,048 |
 
-برای افزایش احتمال برخورد با حافظه نهان ضمنی:
+Para aumentar la probabilidad de un acierto de caché implícito, haz lo siguiente:
 
-- سعی کنید محتوای بزرگ و رایج را در ابتدای پیام‌واره‌تان قرار دهید
-- سعی کنید درخواست‌های دارای پیشوند مشابه را در مدت زمان کوتاهی ارسال کنید
+- Intenta colocar contenido extenso y común al principio de tu instrucción.
+- Intenta enviar solicitudes con un prefijo similar en un período breve
 
-می‌توانید تعداد کدهای استفاده‌شده‌ای را که در فیلد `usage_metadata` شیء پاسخ، بازدیدهای حافظه نهان بوده‌اند ببینید.
+Puedes ver la cantidad de tokens que fueron aciertos de caché en el campo `usage_metadata` del objeto de respuesta.
 
-## ذخیره صریح در حافظه نهان
+## Almacenamiento en caché explícito
 
-بااستفاده از ویژگی ذخیره‌سازی صریح در حافظه نهان Gemini API، می‌توانید یک‌بار محتوایی را به مدل ارسال کنید،
-نمانه‌های ورودی را در حافظه نهان ذخیره کنید، و سپس برای درخواست‌های بعدی به نمانه‌های ذخیره‌شده در حافظه نهان ارجاع دهید. در حجم‌های معینی، استفاده از نشان‌های ذخیره‌شده در حافظه نهان هزینه کمتری نسبت‌به
-انتقال مکرر همان پیکره نشان‌ها دارد.
+Con la función de almacenamiento en caché explícito de la API de Gemini, puedes pasar contenido
+al modelo una vez, almacenar en caché los tokens de entrada y, luego, hacer referencia a los tokens almacenados en caché
+para las solicitudes posteriores. En ciertos volúmenes, usar tokens almacenados en caché tiene un costo menor
+que pasar el mismo corpus de tokens de forma repetida.
 
-وقتی مجموعه‌ای از نشان‌ها را ذخیره می‌کنید، می‌توانید انتخاب کنید که حافظه پنهان چه مدت وجود داشته باشد تا نشان‌ها به‌طور خودکار حذف شوند. به این مدت‌زمان ذخیره در حافظه نهان،
-*زمان بقا* (TTL) می‌گویند. اگر تنظیم نشده باشد، TTL به‌طور پیش‌فرض روی ۱ ساعت تنظیم می‌شود. هزینه ذخیره در حافظه نهان به اندازه کد ورودی و مدت زمانی که می‌خواهید کدها ماندگار باشند بستگی دارد.
+Cuando almacenas en caché un conjunto de tokens, puedes elegir cuánto tiempo deseas que exista la caché antes de que los tokens se borren automáticamente. Esta duración del almacenamiento en caché se denomina *tiempo de actividad* (TTL). Si no se establece, el TTL predeterminado es de 1 hora. El
+costo del almacenamiento en caché depende del tamaño del token de entrada y de cuánto tiempo deseas que
+persistan los tokens.
 
-این بخش فرض می‌کند که شما یک Gemini SDK را نصب کرده‌اید (یا curl را نصب کرده‌اید)
-و یک کلید API را پیکربندی کرده‌اید، همان‌طور که در
-[راهنمای شروع به کار](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa) نشان داده شده است.
+En esta sección, se supone que instalaste un SDK de Gemini (o que tienes curl instalado)
+y que configuraste una clave de API, como se muestra en la
+[guía de introducción](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419).
 
-### تولید محتوا بااستفاده از حافظه نهان
+### Genera contenido con una caché
 
 ### Python
 
-مثال زیر نحوه تولید محتوا بااستفاده از دستورالعمل سیستم ذخیره‌شده در حافظه نهان و فایل ویدیویی را نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo generar contenido con una instrucción del sistema
+y un archivo de video almacenados en caché.
 
-### ویدیوها
+### Videos
 
 ```
 import os
@@ -126,7 +130,7 @@ print(response.usage_metadata)
 print(response.text)
 ```
 
-### فایل‌های پی‌دی‌اف
+### PDF
 
 ```
 from google import genai
@@ -174,7 +178,8 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-مثال زیر نحوه تولید محتوا بااستفاده از دستورالعمل سیستم ذخیره‌شده در حافظه نهان و فایل نوشتاری را نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo generar contenido con una instrucción del sistema
+almacenada en caché y un archivo de texto.
 
 ```
 import {
@@ -213,9 +218,9 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
-مثال زیر نحوه تولید محتوا بااستفاده از حافظه نهان را نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo generar contenido con una caché.
 
 ```
 package main
@@ -283,12 +288,12 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
-مثال زیر نشان می‌دهد که چگونه می‌توان حافظه نهان ایجاد کرد و سپس از آن برای
-تولید محتوا استفاده کرد.
+En el siguiente ejemplo, se muestra cómo crear una caché y, luego, usarla para
+generar contenido.
 
-### ویدیوها
+### Videos
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -339,7 +344,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
     }'
 ```
 
-### فایل‌های پی‌دی‌اف
+### PDF
 
 ```
 DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
@@ -437,22 +442,22 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### فهرست کردن حافظه‌های نهان
+### Enumera las cachés
 
-بازیابی یا مشاهده محتوای ذخیره‌شده در حافظه نهان امکان‌پذیر نیست، اما می‌توانید
-فراداده حافظه نهان (`name`، `model`، `display_name`، `usage_metadata`،
-`create_time`، `update_time`، و `expire_time`) را بازیابی کنید.
+No es posible recuperar ni ver el contenido almacenado en caché, pero puedes recuperar
+los metadatos de la caché (`name`, `model`, `display_name`, `usage_metadata`,
+`create_time`, `update_time` y `expire_time`).
 
 ### Python
 
-برای فهرست کردن فراداده‌های همه حافظه‌های پنهان بارگذاری‌شده، از `CachedContent.list()` استفاده کنید:
+Para enumerar los metadatos de todas las cachés subidas, usa `CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-برای واکشی فراداده یک شیء حافظه پنهان، اگر نام آن را می‌دانید، از `get` استفاده کنید:
+Para recuperar los metadatos de un objeto de caché, si conoces su nombre, usa `get`:
 
 ```
 client.caches.get(name=name)
@@ -460,7 +465,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-برای فهرست کردن فراداده‌های همه حافظه‌های پنهان بارگذاری‌شده، از `GoogleGenAI.caches.list()` استفاده کنید:
+Para enumerar los metadatos de todas las cachés subidas, usa `GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -475,9 +480,9 @@ while (true) {
 }
 ```
 
-### رفتن
+### Go
 
-مثال زیر همه حافظه‌های پنهان را فهرست می‌کند.
+En el siguiente ejemplo, se enumeran todas las cachés.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -490,7 +495,7 @@ for _, item := range caches {
 }
 ```
 
-مثال زیر حافظه‌های نهان را بااستفاده از اندازه صفحه ۲ فهرست می‌کند.
+En el siguiente ejemplo, se enumeran las cachés con un tamaño de página de 2.
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -517,20 +522,21 @@ for {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### به‌روزرسانی حافظه نهان
+### Actualiza una caché
 
-می‌توانید `ttl` یا `expire_time` جدیدی برای حافظه نهان تنظیم کنید. تغییر هر چیز دیگری درباره حافظه نهان پشتیبانی نمی‌شود.
+Puedes establecer un `ttl` o `expire_time` nuevo para una caché. No se admite cambiar ningún otro aspecto
+de la caché.
 
 ### Python
 
-مثال زیر نحوه به‌روزرسانی `ttl` حافظه نهان را بااستفاده از
-`client.caches.update()` نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo actualizar el `ttl` de una caché con
+`client.caches.update()`.
 
 ```
 from google import genai
@@ -544,11 +550,11 @@ client.caches.update(
 )
 ```
 
-برای تنظیم زمان انقضا، یا شیء `datetime`
-یا رشته تاریخ-زمان با قالب ISO (`dt.isoformat()`، مانند
-`2025-01-27T16:02:36.473528+00:00`) را می‌پذیرد. زمان شما باید شامل منطقه زمانی باشد
-(`datetime.utcnow()` منطقه زمانی را پیوست نمی‌کند،
-`datetime.now(datetime.timezone.utc)` منطقه زمانی را پیوست می‌کند).
+Para establecer el tiempo de vencimiento, se aceptará un objeto `datetime`
+o una cadena de fecha y hora con formato ISO (`dt.isoformat()`, como
+`2025-01-27T16:02:36.473528+00:00`). La hora debe incluir una zona horaria
+(`datetime.utcnow()` no adjunta una zona horaria,
+`datetime.now(datetime.timezone.utc)` sí lo hace).
 
 ```
 from google import genai
@@ -568,8 +574,8 @@ client.caches.update(
 
 ### JavaScript
 
-مثال زیر نحوه به‌روزرسانی `ttl` حافظه نهان را بااستفاده از
-`GoogleGenAI.caches.update()` نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo actualizar el `ttl` de una caché con
+`GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -580,9 +586,9 @@ const updatedCache = await ai.caches.update({
 console.log("After update (TTL):", updatedCache);
 ```
 
-### رفتن
+### Go
 
-مثال زیر نحوه به‌روزرسانی `TTL` حافظه پنهان را نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo actualizar el `TTL` de una caché.
 
 ```
 // Update the TTL (2 hours).
@@ -596,9 +602,9 @@ fmt.Println("After update:")
 fmt.Println(cache)
 ```
 
-### استراحت
+### REST
 
-مثال زیر نحوه به‌روزرسانی `ttl` حافظه نهان را نشان می‌دهد.
+En el siguiente ejemplo, se muestra cómo actualizar el `ttl` de una caché.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -606,9 +612,10 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### حذف کردن حافظه نهان
+### Borra una caché
 
-سرویس ذخیره‌سازی موقت عملیات حذفی را برای برداشتن دستی محتوا از حافظه پنهان ارائه می‌دهد. مثال زیر نحوه حذف حافظه نهان را نشان می‌دهد:
+El servicio de almacenamiento en caché proporciona una operación de eliminación para quitar contenido
+de la caché de forma manual. En el siguiente ejemplo, se muestra cómo borrar una caché:
 
 ### Python
 
@@ -622,7 +629,7 @@ client.caches.delete(cache.name)
 await ai.caches.delete({ name: cache.name });
 ```
 
-### رفتن
+### Go
 
 ```
 _, err = client.Caches.Delete(ctx, cache.Name, &genai.DeleteCachedContentConfig{})
@@ -632,58 +639,60 @@ if err != nil {
 fmt.Println("Cache deleted:", cache.Name)
 ```
 
-### استراحت
+### REST
 
 ```
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### ذخیره صریح در حافظه نهان بااستفاده از کتابخانه OpenAI
+### Almacenamiento en caché explícito con la biblioteca de OpenAI
 
-اگر از [کتابخانه OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=fa) استفاده می‌کنید، می‌توانید بااستفاده از دارایی `cached_content` در [`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=fa#extra-body)،
-ذخیره‌سازی صریح را فعال کنید.
+Si usas una [biblioteca de OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=es-419), puedes habilitar
+el almacenamiento en caché explícito con la propiedad `cached_content` en
+[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=es-419#extra-body).
 
-## چه زمانی از ذخیره‌سازی صریح در حافظه نهان استفاده کنیم
+## Cuándo usar el almacenamiento en caché explícito
 
-ذخیره کردن بافت در حافظه نهان به‌ویژه برای سناریوهایی مناسب است که در آن‌ها یک بافت اولیه قابل‌توجه به‌طور مکرر توسط درخواست‌های کوتاه‌تر ارجاع داده می‌شود. برای موارد استفاده‌ای مثل موارد زیر،
-استفاده از حافظه پنهان بافت را درنظر بگیرید:
+El almacenamiento en caché de contexto es especialmente adecuado para situaciones en las que las solicitudes más cortas hacen referencia a un contexto inicial sustancial de forma repetida. Considera usar el almacenamiento en caché de contexto para casos de uso como los siguientes:
 
-- روبات‌های گپ با [دستورالعمل‌های سیستم](https://ai.google.dev/gemini-api/docs/system-instructions?hl=fa) گسترده
-- تجزیه‌وتحلیل تکراری فایل‌های ویدیویی طولانی
-- پرسمان‌های تکرارشونده درمقابل مجموعه‌های بزرگ اسناد
-- تجزیه‌وتحلیل مکرر مخزن کد یا رفع اشکال
+- Chatbots con [instrucciones del sistema](https://ai.google.dev/gemini-api/docs/system-instructions?hl=es-419) extensas
+- Análisis repetitivo de archivos de video extensos
+- Consultas recurrentes en conjuntos de documentos grandes
+- Análisis frecuente del repositorio de código o corrección de errores
 
-### نحوه کاهش هزینه‌ها با ذخیره کردن صریح
+### Cómo el almacenamiento en caché explícito reduce los costos
 
-ذخیره‌سازی بافت در حافظه نهان ویژگی پولی‌ای است که برای کاهش هزینه طراحی شده است. صدور صورت‌حساب براساس
-عوامل زیر است:
+La función de almacenamiento en caché de contexto es pagada y está diseñada para reducir costos. La facturación se basa en
+los siguientes factores:
 
-1. **تعداد داده‌واحد حافظه نهان:** تعداد داده‌واحدهای ورودی ذخیره‌شده در حافظه نهان که وقتی در پیام‌واره‌های بعدی گنجانده می‌شوند، با نرخ کاهش‌یافته صورت‌حساب می‌شوند.
-2. **مدت ذخیره‌سازی:** مدت زمانی که کدهای ذخیره‌شده در حافظه نهان ذخیره می‌شوند (TTL)،
-   که براساس مدت TTL تعداد کدهای ذخیره‌شده در حافظه نهان صورت‌حساب می‌شود. هیچ محدوده حداقلی یا حداکثری برای TTL وجود ندارد.
-3. **عوامل دیگر:** هزینه‌های دیگری اعمال می‌شود، مثلاً برای کدهای ورودی غیرذخیره‌شده در حافظه نهان و کدهای خروجی.
+1. **Recuento de tokens de caché:** Es la cantidad de tokens de entrada almacenados en caché, que se facturan con una tarifa reducida cuando se incluyen en instrucciones posteriores.
+2. **Duración del almacenamiento:** Es la cantidad de tiempo que se almacenan los tokens almacenados en caché (TTL),
+   que se factura según la duración del TTL del recuento de tokens almacenados en caché. No hay límites mínimos
+   ni máximos para el TTL.
+3. **Otros factores:** Se aplican otros cargos, como los tokens de entrada y salida no almacenados en caché.
 
-برای جزئیات قیمت‌گذاری به‌روز، به [صفحه قیمت‌گذاری](https://ai.google.dev/pricing?hl=fa) Gemini API مراجعه کنید. برای آشنایی با نحوه شمارش نشان‌ها، [راهنمای نشان](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) را ببینید.
+Para obtener detalles actualizados sobre los precios, consulta la [página de precios](https://ai.google.dev/pricing?hl=es-419) de la API de Gemini. Para aprender a contar tokens, consulta la [guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419).
 
-### سایر ملاحظات
+### Consideraciones adicionales
 
-هنگام استفاده از ذخیره‌سازی بافت در حافظه نهان، ملاحظات زیر را درنظر داشته باشید:
+Ten en cuenta las siguientes consideraciones cuando uses el almacenamiento en caché de contexto:
 
-- تعداد *حداقل* نشان ورودی برای حافظه نهان زمینه‌ای بسته به مدل متفاوت است. *حداکثر*
-  همان حداکثر برای مدل داده‌شده است. (برای اطلاعات بیشتر درباره شمارش نشانه‌ها،
-  [راهنمای نشانه‌ها](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) را ببینید).
-- این مدل هیچ تفاوتی بین نشان‌های ذخیره‌شده در حافظه نهان و نشان‌های ورودی معمولی قائل نمی‌شود. محتوای ذخیره‌شده در حافظه نهان پیشوندی برای پیام‌واره است.
-- هیچ حد نرخ یا حد استفاده خاصی برای ذخیره‌سازی موقت بافت وجود ندارد؛ حد نرخ استاندارد برای `GenerateContent` اعمال می‌شود و حد نشان شامل نشان‌های ذخیره‌شده موقت می‌شود.
-- تعداد نشان‌های ذخیره‌شده در حافظه نهان در `usage_metadata` از
-  عملیات ایجاد، دریافت، و فهرست کردن سرویس حافظه نهان، و همچنین در
-  `GenerateContent` هنگام استفاده از حافظه نهان برگردانده می‌شود.
+- El recuento *mínimo* de tokens de entrada para el almacenamiento en caché de contexto varía según el modelo. El *máximo*
+  es el mismo que el máximo para el modelo determinado. (Para obtener más información sobre el recuento de tokens,
+  consulta la [Guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419)).
+- El modelo no distingue entre los tokens almacenados en caché y los tokens de entrada
+  normales. El contenido almacenado en caché es un prefijo de la instrucción.
+- No hay límites de frecuencia ni límites de uso especiales para el almacenamiento en caché de contexto. Se aplican los límites de frecuencia estándar para `GenerateContent`, y los límites de tokens incluyen los tokens almacenados en caché.
+- La cantidad de tokens almacenados en caché se devuelve en `usage_metadata` desde las
+  operaciones de creación, obtención y enumeración del servicio de caché, y también en
+  `GenerateContent` cuando se usa la caché.
 
-ارسال بازخورد
+Enviar comentarios
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی.
+Última actualización: 2026-10-23 (UTC)
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+¿Quieres brindar más información?
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-23 (UTC)"],[],[]]

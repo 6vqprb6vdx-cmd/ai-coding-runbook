@@ -1,100 +1,86 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=th
-fetched_at: 2026-10-19T05:35:59.986025+00:00
-title: "\u0e01\u0e32\u0e23\u0e1a\u0e31\u0e19\u0e17\u0e36\u0e01\u0e41\u0e25\u0e30\u0e01\u0e32\u0e23\u0e41\u0e0a\u0e23\u0e4c\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=vi
+fetched_at: 2026-10-26T06:02:44.300728+00:00
+title: "Ghi nh\u1eadt k\u00fd v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-# การบันทึกและการแชร์ข้อมูล
+# Ghi nhật ký và chia sẻ dữ liệu
 
-หน้านี้สรุปการจัดเก็บและการจัดการ
-[บันทึก Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=th) ซึ่งเป็นข้อมูล API ที่นักพัฒนาซอฟต์แวร์เป็นเจ้าของ
-จากการเรียก API ของ Gemini ที่รองรับสำหรับโปรเจ็กต์ที่เปิดใช้การเรียกเก็บเงิน บันทึกครอบคลุมกระบวนการทั้งหมดตั้งแต่คำขอของผู้ใช้ไปจนถึงการตอบกลับของโมเดล
-บันทึกเหล่านี้เป็นแบบส่วนตัวสำหรับโปรเจ็กต์ที่อยู่ในระบบคลาวด์ Google Cloud ของคุณและแยกจาก
-บันทึกที่เก็บไว้เพื่อวัตถุประสงค์ในการตรวจสอบ[การละเมิด](https://ai.google.dev/gemini-api/docs/usage-policies?hl=th)
-เท่านั้น
+Trang này trình bày cách lưu trữ và quản lý [nhật ký Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi). Đây là dữ liệu API do nhà phát triển sở hữu từ các lệnh gọi Gemini API được hỗ trợ cho những dự án có bật tính năng thanh toán. Nhật ký bao gồm toàn bộ quá trình từ yêu cầu của người dùng đến phản hồi của mô hình.
+Các nhật ký này chỉ dành riêng cho dự án trên đám mây của bạn trên Google Cloud và tách biệt với mọi nhật ký chỉ được lưu giữ cho mục đích [giám sát hành vi sai trái](https://ai.google.dev/gemini-api/docs/usage-policies?hl=vi).
 
-## ข้อมูลที่แชร์ได้
+## Dữ liệu có thể được chia sẻ
 
-ในฐานะเจ้าของโปรเจ็กต์ คุณมีสิทธิ์เลือกเข้าร่วมการบันทึกการเรียก Gemini API เพื่อใช้เองหรือเพื่อส่งความคิดเห็นและแชร์กับ Google เพื่อช่วยให้เราปรับปรุงโมเดลอย่างต่อเนื่อง
+Là chủ sở hữu dự án, bạn có thể chọn ghi nhật ký các lệnh gọi Gemini API để sử dụng cho riêng mình hoặc để gửi ý kiến phản hồi và chia sẻ với Google nhằm giúp chúng tôi liên tục cải thiện các mô hình của mình.
 
-เมื่อเปิดใช้การบันทึก คุณสามารถช่วยเราสร้างระบบ AI ที่มีคุณค่าต่อนักพัฒนาซอฟต์แวร์ในหลากหลายสาขาและกรณีการใช้งานได้โดยเลือกให้ข้อมูลต่อไปนี้เพื่อการปรับปรุงผลิตภัณฑ์และการฝึกโมเดล
+Khi bật tính năng ghi nhật ký, bạn có thể giúp chúng tôi xây dựng các hệ thống AI tiếp tục mang lại giá trị cho các nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng bằng cách chọn đóng góp dữ liệu sau đây để cải thiện sản phẩm và huấn luyện mô hình:
 
-- **ชุดข้อมูล:** ใช้อินเทอร์เฟซบันทึกและชุดข้อมูลของ Google AI Studio เพื่อเลือกบันทึก (คำขอ การตอบกลับ ข้อมูลเมตา ฯลฯ) ที่คุณสนใจจากการเรียก Gemini API ที่รองรับ โดยส่งผ่านการรวมไว้ในชุดข้อมูล พร้อมตัวเลือกในการเลือกไม่เข้าร่วมระหว่างการสร้างชุดข้อมูล
-- **ความคิดเห็น:** คุณสามารถแสดงความคิดเห็นเมื่อตรวจสอบบันทึก ซึ่งรวมถึงการให้คะแนนชอบและไม่ชอบ รวมถึงความคิดเห็นที่เป็นลายลักษณ์อักษรที่คุณให้ไว้
+- **Tập dữ liệu:** Sử dụng giao diện Nhật ký và Tập dữ liệu của Google AI Studio để chọn nhật ký (yêu cầu, phản hồi, siêu dữ liệu, v.v.) mà bạn quan tâm từ các lệnh gọi Gemini API được hỗ trợ; đóng góp thông qua việc đưa vào tập dữ liệu, với lựa chọn không tham gia trong quá trình tạo tập dữ liệu.
+- **Ý kiến phản hồi:** Khi xem xét nhật ký, bạn có thể đưa ra ý kiến phản hồi, bao gồm cả điểm xếp hạng thích và không thích cũng như mọi nhận xét bằng văn bản mà bạn cung cấp.
 
-เมื่อคุณแชร์ชุดข้อมูลกับ Google ระบบจะประมวลผลบันทึกในชุดข้อมูลนั้น ซึ่งรวมถึง
-คำขอและการตอบกลับตาม
-[ข้อกำหนด](https://developers.google.com/terms?hl=th)สำหรับ
-"[บริการที่ไม่เสียค่าใช้จ่าย](https://ai.google.dev/gemini-api/terms?hl=th#data-use-unpaid),"
-ซึ่งหมายความว่าระบบอาจใช้ชุดข้อมูลเพื่อพัฒนาและปรับปรุงผลิตภัณฑ์ บริการ และเทคโนโลยีแมชชีนเลิร์นนิงของ Google
-รวมถึงการปรับปรุงและ
-ฝึกโมเดลของเรา **โปรดอย่าระบุข้อมูลส่วนบุคคล ข้อมูลที่มีความละเอียดอ่อน หรือข้อมูลลับ**
+Khi bạn chia sẻ một tập dữ liệu với Google, nhật ký của bạn trong tập dữ liệu đó (bao gồm cả yêu cầu và phản hồi) sẽ được xử lý theo [Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi đối với "[Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid)", nghĩa là tập dữ liệu đó có thể được dùng để phát triển và cải thiện các sản phẩm, dịch vụ và công nghệ học máy của Google, bao gồm cả việc cải thiện và huấn luyện các mô hình của chúng tôi. **Đừng thêm thông tin cá nhân, thông tin nhạy cảm hoặc thông tin mật.**
 
-## วิธีที่เราใช้ข้อมูลของคุณ
+## Cách chúng tôi sử dụng dữ liệu của bạn
 
-ระบบจะเก็บรักษาบันทึกไว้เป็นระยะเวลาสูงสุด 55 วันโดยค่าเริ่มต้น หลังจากระยะเวลานี้ ระบบจะทำเครื่องหมายบันทึกเพื่อลบโดยอัตโนมัติ คุณสามารถอัปเดตระยะเวลาเก็บรักษาข้อมูลของโปรเจ็กต์ใน AI Studio เพื่อทำเครื่องหมายบันทึกเพื่อลบโดยอัตโนมัติหลังจากผ่านไป 7, 14, 28 หรือ 55 วัน
+Nhật ký được giữ lại trong khoảng thời gian tối đa mặc định là 55 ngày. Sau khoảng thời gian này, nhật ký sẽ tự động được đánh dấu là cần xoá. Bạn có thể cập nhật khoảng thời gian lưu giữ bộ nhớ cho một dự án trong AI Studio để tự động đánh dấu nhật ký cần xoá sau 7, 14, 28 hoặc 55 ngày.
 
-[คุณสามารถสร้างชุดข้อมูล](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=th)เพื่อเก็บรักษาบันทึกที่สนใจไว้นานกว่าระยะเวลาเก็บรักษาที่กำหนดไว้สำหรับกรณีการใช้งานปลายทางและการมีส่วนร่วมในการปรับปรุงโดยประมาณ (ไม่บังคับ) บันทึกที่จัดเก็บไว้ในชุดข้อมูลจะไม่มีระยะเวลาเก็บรักษาที่กำหนดไว้
+Bạn có thể tạo [tập dữ liệu](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi) để giữ lại nhật ký về mối quan tâm ngoài khoảng thời gian lưu giữ đã đặt cho các trường hợp sử dụng hạ nguồn và đóng góp không bắt buộc cho việc cải thiện mô hình. Nhật ký được lưu trữ trong tập dữ liệu không có khoảng thời gian lưu giữ cố định.
 
-โดยค่าเริ่มต้น ระบบจะไม่ใช้ข้อความแจ้งและการตอบกลับภายในบันทึกเพื่อการปรับปรุงหรือ
-พัฒนาผลิตภัณฑ์ เนื่องจากบันทึกมีไว้สำหรับโปรเจ็กต์ที่เปิดใช้การเรียกเก็บเงินเท่านั้น ซึ่งเป็นไปตาม[ข้อกำหนด](https://developers.google.com/terms?hl=th)
-เกี่ยวกับการใช้ข้อมูล
+Theo mặc định, vì tính năng ghi nhật ký chỉ dành cho các dự án đã bật thông tin thanh toán,
+nên các câu lệnh và câu trả lời trong nhật ký sẽ không được dùng để cải thiện hoặc
+phát triển sản phẩm, theo [Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi
+về việc sử dụng dữ liệu.
 
-หากคุณเลือกแชร์ชุดข้อมูลบันทึกกับ Google ระบบจะใช้ชุดข้อมูลเหล่านั้นเป็นข้อมูลการสาธิตในโลกแห่งความเป็นจริงเพื่อทำความเข้าใจความหลากหลายของโดเมนและบริบทที่ใช้ระบบและแอปพลิเคชัน AI ได้ดียิ่งขึ้น ระบบอาจใช้ข้อมูลนี้เพื่อปรับปรุงคุณภาพของโมเดล และใช้เป็นข้อมูลประกอบการฝึกและการประเมินโมเดลและบริการในอนาคต ระบบจะประมวลผลข้อมูลนี้ตามข้อกำหนดการใช้ข้อมูล
-สำหรับ [บริการที่ไม่เสียค่าใช้จ่าย](https://ai.google.dev/gemini-api/terms?hl=th#data-use-unpaid)
+Nếu bạn chọn chia sẻ các tập dữ liệu nhật ký của mình với Google, thì những tập dữ liệu đó sẽ được dùng làm dữ liệu minh hoạ thực tế để hiểu rõ hơn về sự đa dạng của các miền và bối cảnh mà hệ thống cũng như ứng dụng AI được sử dụng. Dữ liệu này có thể được dùng để cải thiện chất lượng mô hình, đồng thời cung cấp thông tin cho quá trình huấn luyện và đánh giá các mô hình cũng như dịch vụ trong tương lai. Dữ liệu này được xử lý theo các điều khoản sử dụng dữ liệu của chúng tôi đối với [Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid).
 
-ดังนั้น เจ้าหน้าที่ตรวจสอบอาจอ่าน ใส่คำอธิบายประกอบ และประมวลผลอินพุตและเอาต์พุต API ที่คุณแชร์ Google จะดำเนินการตามขั้นตอนเพื่อปกป้องความเป็นส่วนตัวของผู้ใช้ในกระบวนการนี้ก่อนที่จะใช้ข้อมูลเพื่อปรับปรุงโมเดล ซึ่งรวมถึงการยกเลิกการเชื่อมต่อข้อมูลนี้จากบัญชี Google, คีย์ API และโปรเจ็กต์ที่อยู่ในระบบคลาวด์ ก่อนที่เจ้าหน้าที่จะเห็นหรือใส่คำอธิบายประกอบ
+Theo đó, nhân viên đánh giá có thể đọc, chú thích và xử lý dữ liệu đầu vào và đầu ra của API mà bạn chia sẻ. Trước khi dữ liệu được dùng để cải thiện mô hình, Google sẽ thực hiện các bước để bảo vệ quyền riêng tư của người dùng trong quá trình này. Điều này bao gồm việc huỷ mối liên kết giữa dữ liệu này với Tài khoản Google, khoá API và dự án trên đám mây của bạn trước khi người đánh giá xem hoặc chú thích.
 
-## สิทธิ์ของข้อมูล
+## Quyền đối với dữ liệu
 
-การเลือกเข้าร่วมให้ข้อมูล API แสดงว่าคุณยืนยันว่ามีสิทธิ์ที่จำเป็นเพื่อให้ Google ประมวลผลและใช้ข้อมูลตามที่อธิบายไว้ในเอกสารนี้ **โปรดอย่าให้บันทึกที่มีข้อมูลที่ละเอียดอ่อน ข้อมูลลับ หรือข้อมูลที่เป็นกรรมสิทธิ์ซึ่งได้รับผ่านบริการที่มีค่าใช้จ่าย**
-ใบอนุญาตที่คุณมอบให้ Google ภายใต้ส่วน "[การส่ง
-เนื้อหา](https://developers.google.com/terms?hl=th#b_submission_of_content)"
-ในข้อกำหนด API จะขยายไปถึงเนื้อหาใดๆ (เช่น ข้อความแจ้ง รวมถึงคำแนะนำระบบที่เกี่ยวข้อง เนื้อหาที่แคชไว้ และไฟล์ต่างๆ เช่น รูปภาพ วิดีโอ หรือเอกสาร)
-ที่คุณส่งไปยังบริการและคำตอบที่สร้างขึ้นด้วย โดยเป็นไปตามขอบเขตที่กฎหมายที่บังคับใช้
-กำหนดไว้สำหรับการใช้งานของเรา
+Khi chọn tham gia đóng góp dữ liệu API, bạn xác nhận rằng bạn có các quyền cần thiết để Google xử lý và sử dụng dữ liệu như mô tả trong tài liệu này. **Vui lòng không đóng góp nhật ký chứa thông tin nhạy cảm,
+bí mật hoặc độc quyền mà bạn có được thông qua dịch vụ có tính phí**.
+Giấy phép mà bạn cấp cho Google theo mục "[Gửi nội dung](https://developers.google.com/terms?hl=vi#b_submission_of_content)" trong Điều khoản API cũng áp dụng cho mọi nội dung (ví dụ: câu lệnh, bao gồm cả hướng dẫn hệ thống liên quan, nội dung được lưu vào bộ nhớ đệm và các tệp như hình ảnh, video hoặc tài liệu) mà bạn gửi đến Dịch vụ và mọi câu trả lời được tạo, trong phạm vi cần thiết theo luật hiện hành để chúng tôi sử dụng.
 
-## การแชร์ข้อมูลและความคิดเห็น
+## Chia sẻ dữ liệu và ý kiến phản hồi
 
-คุณสามารถช่วยเราพัฒนาการวิจัย AI, Gemini API และ Google AI Studio ได้โดยเลือกรับการแชร์ข้อมูลของคุณเป็นตัวอย่าง ซึ่งจะช่วยให้เราปรับปรุงโมเดลอย่างต่อเนื่องในบริบทต่างๆ และสร้างระบบ AI ที่มีคุณค่าต่อนักพัฒนาซอฟต์แวร์ในหลากหลายสาขาและกรณีการใช้งาน
+Bạn có thể giúp chúng tôi thúc đẩy ranh giới của nghiên cứu AI, Gemini API và Google AI Studio bằng cách chọn chia sẻ dữ liệu của bạn làm ví dụ, giúp chúng tôi liên tục cải thiện các mô hình của mình trong nhiều bối cảnh và xây dựng các hệ thống AI tiếp tục có giá trị cho nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng.
 
-### ระดับผู้ร่วมให้ข้อมูล Gemini API
+### Cấp Người đóng góp cho Gemini API
 
-ระดับผู้ร่วมให้ข้อมูล Gemini ช่วยให้นักพัฒนาซอฟต์แวร์ได้รับส่วนลดค่าใช้จ่ายโทเค็นในโมเดลที่เลือกไว้เพื่อแลกกับสิทธิ์ในการใช้ข้อมูลจากโมเดลเหล่านั้นเพื่อให้บริการ ปรับปรุง และพัฒนาผลิตภัณฑ์และบริการของ Google รวมถึงเทคโนโลยีแมชชีนเลิร์นนิง
+Cấp Người đóng góp cho Gemini cho phép nhà phát triển được giảm chi phí mã thông báo trên một số mô hình nhất định, đổi lại, Google được phép sử dụng dữ liệu từ các mô hình đó để cung cấp, cải thiện và phát triển các sản phẩm, dịch vụ cũng như công nghệ học máy của Google.
 
-นักพัฒนาซอฟต์แวร์จะได้รับส่วนลดค่าใช้จ่ายโทเค็นสูงสุด 50% สำหรับโมเดลที่เลือกไว้ โดยมีประสิทธิภาพ
-แบบเรียลไทม์เช่นเดียวกับ [API มาตรฐาน](https://ai.google.dev/gemini-api/docs/optimization?hl=th) โมเดลที่รองรับมีดังนี้
+Nhà phát triển được giảm giá đến 50% chi phí mã thông báo cho một số mô hình, trong khi vẫn được hưởng hiệu suất theo thời gian thực tương đương với [API tiêu chuẩn](https://ai.google.dev/gemini-api/docs/optimization?hl=vi). Các mô hình sau đây được hỗ trợ:
 
-| โมเดล | ระดับผู้ร่วมให้ข้อมูล |
+| Mô hình | Cấp Người đóng góp |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-4-argon) | ✔️ |
-| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.1-pro-preview) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.8-flash) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.5-flash-lite) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-4-argon) | ✔️ |
+| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.8-flash) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.5-flash-lite) | ✔️ |
 
-**การใช้ข้อมูล:**
+**Sử dụng dữ liệu:**
 
-- เมื่อเปิดใช้ระดับผู้ร่วมให้ข้อมูลสำหรับโปรเจ็กต์ ระบบจะใช้ข้อมูลของคุณจากการใช้โมเดลที่เข้าร่วมในโปรเจ็กต์ตามข้อกำหนดสำหรับ"[บริการที่ไม่เสียค่าใช้จ่าย](https://ai.google.dev/gemini-api/terms?hl=th#unpaid-services)"
-  เนื่องจากระบบจะใช้ข้อมูลของคุณเพื่อปรับปรุงผลิตภัณฑ์ของ Google และเทคโนโลยีแมชชีนเลิร์นนิง โปรดอย่าส่งข้อมูลที่ละเอียดอ่อนหรือข้อมูลส่วนบุคคล
+- Khi bạn bật Cấp độ Cộng tác viên cho một dự án, dữ liệu của bạn từ việc sử dụng mô hình tham gia trong dự án sẽ được sử dụng theo các điều khoản của chúng tôi về "[Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#unpaid-services)".
+  Vì dữ liệu của bạn sẽ được dùng để cải thiện các sản phẩm và công nghệ học máy của Google, nên vui lòng không gửi thông tin nhạy cảm hoặc thông tin cá nhân.
 
-ส่งความคิดเห็น
+Gửi ý kiến phản hồi
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-อัปเดตล่าสุด 2026-10-14 UTC
+Cập nhật lần gần đây nhất: 2026-10-14 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-14 UTC"],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-14 UTC."],[],[]]

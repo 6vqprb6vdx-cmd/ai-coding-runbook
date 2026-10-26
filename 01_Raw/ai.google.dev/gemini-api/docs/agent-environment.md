@@ -1,26 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=tr
-fetched_at: 2026-10-19T05:31:03.157374+00:00
-title: "Y\u00f6netilen arac\u0131lar\u0131n ortamlar\u0131 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agent-environment?hl=es-419
+fetched_at: 2026-10-26T05:37:48.858050+00:00
+title: "Entornos en agentes administrados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-Geri bildirim gönderin
+Enviar comentarios
 
-# Yönetilen aracıların ortamları
+# Entornos en agentes administrados
 
-Ortamlar, Linux'ta yönetilen sanal alanlardır. Bu alanlar, ajanlara kodu yürütmek ve dosyaları kalıcı hale getirmek için yalıtılmış bir yer sağlar. Etkileşim bağlamından bağımsız oldukları için aynı ortamı birden fazla etkileşimde yeniden kullanabilir veya istediğiniz zaman sıfırdan başlayabilirsiniz.
+Los entornos son zonas de pruebas de Linux administradas que les brindan a los agentes un lugar aislado para ejecutar código y conservar archivos. Están desacoplados del contexto de interacción, por lo que puedes reutilizar el mismo entorno en varias interacciones o comenzar de nuevo en cualquier momento.
 
-Aşağıdaki örnekte, yeni bir uzak ortamla nasıl etkileşim oluşturulacağı ve bu ortamın kimliğinin nasıl alınacağı gösterilmektedir:
+En el siguiente ejemplo, se muestra cómo crear una interacción con un entorno remoto nuevo y recuperar su ID:
 
 ### Python
 
@@ -129,18 +129,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## `environment` parametresi
+## El parámetro `environment`
 
-`environment` parametresi üç biçimi kabul eder:
+El parámetro `environment` acepta tres formas:
 
-| Form | Örnek | Ne zaman kullanılır? |
+| Formulario | Ejemplo | Cuándo debe utilizarse |
 | --- | --- | --- |
-| `"remote"` | `environment="remote"` | Yeni bir sanal alan sağlayın. |
-| Ortam Kimliği | `environment="env_abc123"` | Tüm dosyaları ve paketleriyle birlikte mevcut bir sanal ortamı yeniden kullanın. |
-| Yapılandırma nesnesi | `environment={...}` | Kaynaklar, ağ kuralları, ortam değişkenleri veya bunların bir kombinasyonuyla yeni bir korumalı alan sağlayın. |
+| `"remote"` | `environment="remote"` | Aprovisiona un sandbox nuevo. |
+| ID del entorno | `environment="env_abc123"` | Reutiliza un entorno de pruebas existente con todos sus archivos y paquetes. |
+| Objeto de configuración | `environment={...}` | Aprovisiona una zona de pruebas nueva con fuentes, reglas de red, variables de entorno o una combinación de estos elementos. |
 
-Aşağıdaki örneklerde `environment`
-parametresinin üç kullanım şekli gösterilmektedir.
+En los siguientes ejemplos, se muestran las tres formas de usar el parámetro `environment`.
 
 ### Python
 
@@ -401,10 +400,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Ortam yapılandırma
+## Configura un entorno
 
-Bir ortam oluşturmanın bir yolu, ajana hangi yazılımların yüklenmesi gerektiğini söylemektir.
-Bağımlılık çözümünü ve sorun gidermeyi yönetir. Ortam hazır olduğunda `environment_id` dosyasını kaydedin ve yeniden kullanın.
+Una forma de configurar un entorno es decirle al agente qué necesitas instalar.
+Maneja la resolución de dependencias y la solución de problemas. Una vez que el entorno esté listo, guarda el `environment_id` y reutilízalo.
 
 ### Python
 
@@ -590,15 +589,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Bir kaynaktan bağlama
+### Cómo montar desde una fuente
 
-Temsilcinin hangi dosyalara ihtiyacı olduğunu tam olarak biliyorsanız yineleme yapmak yerine dosyaları tek bir çağrıda bağlayın. `environment` yapılandırma nesnesi, üç tür içeren bir `sources` dizisi kabul eder:
+Si sabes exactamente qué archivos necesita el agente, actívalos en una sola llamada en lugar de iterar. El objeto de configuración `environment` acepta un array `sources` con tres tipos:
 
-| Kaynak türü | `type` değer | Açıklama | Sınır |
+| Tipo de fuente | Valor `type` | Descripción | Límite |
 | --- | --- | --- | --- |
-| Git kod deposu | `repository` | Bir URL'den alınan depoyu `target` konumundaki sanal alana kopyalar. | 500 MB |
-| Cloud Storage | `gcs` | Cloud Storage'daki bir dosyayı veya dizini `target` konumundaki sanal ortama kopyalar. | 2 GB |
-| Satır içi içerik | `inline` | Ham metin içeriğini `target` konumundaki sanal alanda bir dosyaya yazar. | Dosya başına 1 MB, toplam 2 MB |
+| Repositorio de Git | `repository` | Clona un repositorio desde una URL en el espacio aislado en `target`. | 500 MB |
+| Cloud Storage | `gcs` | Copia un archivo o directorio de Cloud Storage en el espacio aislado en `target`. | 2 GB |
+| Contenido intercalado | `inline` | Escribe contenido de texto sin formato en un archivo de la zona de pruebas en `target`. | 1 MB por archivo y 2 MB en total |
 
 ### Python
 
@@ -808,17 +807,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Her iki yaklaşımı da birleştirebilirsiniz: Bilinen kaynakları bildirimli olarak bağlayın, ardından paketleri yüklemek veya kurulum komut dosyalarını çalıştırmak için takip etkileşimleriyle yineleme yapın. Özel kaynak eklerken hedef olarak kök (`/`) ayarlayamazsınız, her zaman bir alt dizin belirtmeniz gerekir.
+Puedes combinar ambos enfoques: primero, declarar las fuentes conocidas y, luego, iterar con interacciones de seguimiento para instalar paquetes o ejecutar secuencias de comandos de configuración. No puedes establecer la raíz (`/`) como destino cuando agregas una fuente personalizada. Siempre debes especificar un subdirectorio.
 
-### Dikkat çekici girişler
+### Ganchos
 
-Ayrıca, araçlar her yürütüldüğünde güvenlik sınırlarını zorunlu kılmak veya otomatik doğrulamalar çalıştırmak için `.agents/hooks.json` yapılandırma dosyası ve özel yakalama komut dosyalarını korumalı alana monte edebilirsiniz. Şema tanımları ve kod örnekleri için [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=tr) başlıklı makaleyi inceleyin.
+También puedes activar un archivo de configuración `.agents/hooks.json` y secuencias de comandos de interceptación personalizadas en el entorno de pruebas para aplicar medidas de seguridad o ejecutar validaciones automatizadas cada vez que se ejecuten herramientas. Para ver definiciones de esquemas y ejemplos de código, consulta [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419).
 
-### Özel kaynaklar
+### Fuentes privadas
 
-Ayrıca, ağ yapılandırmasında kaynak alanını doğrulayarak özel GitHub depolarından veya özel Cloud Storage kovalarından da indirebilirsiniz.
+También puedes descargar desde repositorios privados de GitHub o buckets privados de Cloud Storage autenticando el dominio de origen en la configuración de red.
 
-Bir seçenek, kimliğe göre referans verilen depolanmış bir [kimlik bilgisidir](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr). Bu nedenle, gizli anahtarı bir kez depolarsınız ve bu kaynağa ihtiyaç duyan her ortam, gizli anahtara referans verebilir:
+Una opción es una [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) almacenada a la que se hace referencia por ID, de modo que almacenas el secreto una vez y cada entorno que necesita esa fuente puede hacer referencia a él:
 
 ```
 "network": {
@@ -829,10 +828,10 @@ Bir seçenek, kimliğe göre referans verilen depolanmış bir [kimlik bilgisidi
 }
 ```
 
-Ayrıca, aşağıdaki örneklerde olduğu gibi başlığı `transform` ile satır içi olarak da ayarlayabilirsiniz. Çıkış proxy'si her iki formu da aynı şekilde uygular ve hiçbir durumda gizli anahtar korumalı alanın içine yerleştirilmez.
+También puedes configurar el encabezado intercalado con `transform`, como se muestra en los siguientes ejemplos. El proxy de salida aplica ambas formas de la misma manera, y en ningún caso el secreto llega a la zona de pruebas.
 
-**Özel Git depoları** için `Basic` kimlik doğrulamasını [GitHub kişisel erişim jetonunuzla (PAT)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) kullanın.
-Kullanıcı adı olarak `x-oauth-basic` değerini kullanarak jetonu kodlayın:
+Para los **repositorios Git privados**, usa la autenticación `Basic` con tu [token de acceso personal (PAT) de GitHub](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+Codifica el token con `x-oauth-basic` como nombre de usuario:
 
 ```
 echo -n "x-oauth-basic:ghp_YourPATHere" | base64
@@ -1056,7 +1055,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-**Özel Cloud Storage paketleri** için standart bir OAuth 2.0 Bearer jetonu kullanın:
+Para los **buckets privados de Cloud Storage**, usa un token de portador de OAuth 2.0 estándar:
 
 ```
 gcloud auth print-access-token
@@ -1280,24 +1279,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Önceden yüklenmiş yazılım
+## Software ya instalado
 
-Sandbox, Ubuntu üzerinde çalışır ve çalışma zamanları ile yaygın paketler önceden yüklenmiş olarak gelir. Aracı, `pip
-install` veya `npm install` kullanarak çalışma zamanında ek paketler yükleyebilir. Etkileşim sırasında yüklenen paketler, aynı `environment_id`'yı yeniden kullandığınızda kalıcı olur.
+El entorno de pruebas se ejecuta en Ubuntu y viene con tiempos de ejecución y paquetes comunes preinstalados. El agente puede instalar paquetes adicionales en el tiempo de ejecución con `pip
+install` o `npm install`. Los paquetes instalados durante una interacción persisten cuando vuelves a usar el mismo `environment_id`.
 
-| Kategori | Önceden yüklenmiş paketler |
+| Categoría | Paquetes preinstalados |
 | --- | --- |
-| **UNIX araçları** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
+| **Herramientas de UNIX** | `curl`, `wget`, `git`, `rsync`, `unzip`, `ripgrep`, `fd-find`, `gawk`, `bc`, `tree`, `which`, `lsof`, `htop`, `jq`, `iproute2`, `procps`, `gcloud CLI` |
 | **Python 3.12** | `numpy`, `pandas`, `requests`, `google-genai`, `beautifulsoup4`, `pyyaml`, `ast-grep-cli` |
-| **Node.js 22** | `create-next-app`, `create-vite` ve `typescript` |
+| **Node.js 22** | `create-next-app`, `create-vite`, `typescript` |
 
-## Ortam değişkenleri
+## Variables de entorno
 
-Korumalı alanda ortam değişkenlerini ayarlamak için `env` alanını kullanın. Her giriş, bir değişken adını yapılandırma için değişmez bir dizeyle veya bir sır için depolanmış [kimlik bilgisine](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr) yapılan bir referansla eşler. Ajan, bunları herhangi bir kabukta olduğu gibi görür. Bu nedenle, işlem ortamından okuyan araçlar ve komut dosyaları bunları ek kablolama olmadan alır.
+Usa el campo `env` para establecer variables de entorno dentro de la zona de pruebas. Cada entrada asigna un nombre de variable a una cadena literal para la configuración o a una referencia a una [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) almacenada para un secreto. El agente los ve de la misma manera que en cualquier shell, por lo que las herramientas y los scripts que leen el entorno del proceso los detectan sin cableado adicional.
 
-| Alan | Tür | Açıklama |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `env` | `object` | Değişken adının değerle eşlemesi. Değer, `string` değişmezi veya `{"credential": "credential-id"}` biçiminde bir kimlik bilgisi referansıdır. |
+| `env` | `object` | Es un mapa del nombre de la variable y su valor. Un valor puede ser un literal `string` o una referencia de credencial con el formato `{"credential": "credential-id"}`. |
 
 ### Python
 
@@ -1365,20 +1364,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Değişkenler, kabuk komutları, derleme adımları ve başlattığı tüm işlemler dahil olmak üzere temsilcinin bu etkileşimde çalıştırdığı her komut için geçerlidir.
+Las variables se aplican a todos los comandos que ejecuta el agente en esa interacción, incluidos los comandos de shell, los pasos de compilación y cualquier proceso que inicie.
 
-Bu iki değer türü farklı şekilde davranır. Değişken olmayan bir dize, kapsayıcıya düz metin olarak yazılır. Kimlik bilgisi referansı: değişken bir yer tutucu alır ve çıkış proxy'si, gerçek sırrı yalnızca bu kimlik bilgisinin güvenilir alanlarına yapılan giden isteklerde değiştirir. Bu işlemin nasıl çalıştığını öğrenmek için [Kimlik bilgilerini ortam değişkeni olarak kullanma](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr#environment-variables) başlıklı makaleyi inceleyin.
+Los dos tipos de valores se comportan de manera diferente. Una cadena literal se escribe en el contenedor como texto sin formato. Una referencia de credencial no es: La variable recibe un marcador de posición, y el proxy de salida sustituye el secreto real solo en las solicitudes salientes a los dominios de confianza de esa credencial. Consulta [Usa credenciales como variables de entorno](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419#environment-variables) para saber cómo funciona.
 
-## Ağ yapılandırması
+## Configuración de red
 
-Varsayılan olarak, ortamların sınırsız giden ağ erişimi vardır. Giden trafiği belirli alan adlarıyla kısıtlamak için `network` alanını kullanın. Her kural, `domain` değerinin yanı sıra depolanmış bir sır yerleştirmek için isteğe bağlı bir `credential` ve eşleşen isteklere başlık yerleştirmek için isteğe bağlı bir `transform` nesnesi belirtir.
-Bu başlıklar etkileşim başına benzersiz olabilir ve aynı ortam için güncellenebilir.
+De forma predeterminada, los entornos tienen acceso de red saliente sin restricciones. Usa el campo `network` para restringir el tráfico saliente a dominios específicos. Cada regla especifica un `domain`, además de un `credential` opcional para insertar un secreto almacenado y un objeto `transform` opcional para insertar encabezados en las solicitudes coincidentes.
+Estos encabezados pueden ser únicos por interacción y puedes actualizarlos para el mismo entorno.
 
-| Alan | Tür | Açıklama |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `domain` | `string` | Eşleştirilecek alan. Tüm alanlar için tam ana makine adı veya `*` kullanın. |
-| `credential` | `string` | Depolanan [kimlik bilgisinin](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr) kimliği. Çıkış proxy'si bunu çözer ve istek sırasında kimlik doğrulama başlığını ekler. |
-| `transform` | `object` | Eşleşen isteklere yerleştirilecek başlıkları temsil eden düz anahtar/değer çiftlerini içeren nesne (ör. `{"Authorization": "Bearer ..."}`). |
+| `domain` | `string` | Es el dominio que se debe hacer coincidir. Usa un nombre de host exacto o `*` para todos los dominios. |
+| `credential` | `string` | ID de una [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) almacenada. El proxy de salida lo resuelve y, luego, inyecta el encabezado de autorización en el momento de la solicitud. |
+| `transform` | `object` | Objeto que contiene pares clave-valor simples que representan encabezados para insertar en las solicitudes coincidentes, p.ej., `{"Authorization": "Bearer ..."}`. |
 
 ### Python
 
@@ -1572,15 +1571,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-İzin verilenler listesi ayarlandığında yalnızca açıkça listelenen alanlara yapılan isteklere izin verilir. Alt alan adlarını eşleştirmek için joker karakterler (ör. `{"domain":
-"*.example.com"}`) kullanabilirsiniz ancak bunun, ayrı olarak eklenmesi gereken kök alanla
-`example.com` eşleşmediğini unutmayın. Diğer tüm trafiğe (ör. eklenmiş üstbilgiler olmadan listelenmemiş alanları yönlendirme) izin vermek için `{"domain": "*"}` öğesini genel bir giriş olarak ekleyin.
+Cuando se establece una lista de entidades permitidas, solo se permiten las solicitudes a los dominios que se indican de forma explícita. Puedes usar comodines para hacer coincidir subdominios (p.ej., `{"domain":
+"*.example.com"}`), pero ten en cuenta que esto no coincide con el dominio raíz `example.com`, que se debe agregar por separado. Para permitir todo el resto del tráfico, como el enrutamiento de dominios no incluidos en la lista sin encabezados insertados, agrega `{"domain": "*"}` como una entrada general.
 
-### Kimlik bilgileri
+### Credenciales
 
-Giden trafiğin kimliğini doğrulamanın iki yolu vardır: kimliğe göre referans verilen depolanmış bir kimlik bilgisi ve izin verilenler listesi kuralında satır içi `transform`. Çıkış proxy'si hem kablolu hem de kablosuz bağlantılarda geçerli olduğundan gizli anahtar hiçbir zaman sanal ortama girmez ve etkileşim yüklerinizde görünmez.
+Existen dos formas de autenticar el tráfico saliente: una credencial almacenada a la que se hace referencia por ID y un `transform` intercalado en la regla de la lista de entidades permitidas. El proxy de salida se aplica tanto en la conexión como en el cable, por lo que, en ambos casos, el secreto nunca ingresa al sandbox ni aparece en las cargas útiles de interacción.
 
-Gizliyi bir kez depolayıp yeniden kullanmak istediğinizde [yönetilen kimlik bilgisi](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr) kullanmanız gerekir. Projenizdeki her ortam, aracı ve tetikleyici aynı kimliğe başvurabilir ve bu kimliği tek bir yerden döndürebilirsiniz.
+Una [credencial administrada](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) es la que debes usar cuando quieras almacenar el secreto una vez y volver a usarlo. Cada entorno, agente y activador de tu proyecto puede hacer referencia al mismo ID, y puedes rotarlo en un solo lugar.
 
 ### Python
 
@@ -1675,10 +1673,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`oauth2` kimlik bilgisi, erişim jetonunu kendi başına da yeniler. Böylece, jetonun süresi dolduğunda uzun süren etkileşim kesintiye uğramaz. Kimlik bilgisi türlerinin ve yönetim işlemlerinin tam listesi için [Kimlik bilgileri](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr) başlıklı makaleye bakın.
+Una credencial de `oauth2` también actualiza su token de acceso por sí sola, por lo que una interacción de larga duración no se interrumpe cuando vence el token. Consulta [Credenciales](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) para obtener la lista completa de los tipos de credenciales y las operaciones de administración.
 
-Üstbilgileri `transform` ile satır içi olarak da ayarlayabilirsiniz. Bu, değer tek bir çağrıya ait olduğunda (ör. etkileşimi oluşturmadan hemen önce oluşturduğunuz bir jeton) uygundur. Bu şekilde ayarlanan başlıklar aynı çıkış proxy'si tarafından yerleştirilir.
-Bunlar, ortam değişkenleri veya dosyalar olarak korumalı alanda hiçbir zaman kullanıma sunulmaz.
+También puedes establecer encabezados intercalados con `transform`. Esto se ajusta cuando el valor pertenece a una sola llamada, por ejemplo, un token que generas justo antes de crear la interacción. El mismo proxy de salida inyecta los encabezados establecidos de esta manera, y nunca se exponen dentro del sandbox como variables de entorno o archivos.
 
 ### Python
 
@@ -1883,11 +1880,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-`credential` ve `transform` aynı kuralda görünebilir. Öncelikle kimlik bilgisi uygulanır ve `transform` üstte birleştirilir. Bu nedenle, her ikisi de aynı anahtarı ayarlarsa açık bir `transform` başlığı kazanır. Yaygın bir kalıp, kimlik doğrulama üstbilgisi için bir kimlik bilgisi ve hizmetin yanında beklediği ek üstbilgiler için bir `transform` içerir.
+`credential` y `transform` pueden aparecer en la misma regla. La credencial se aplica primero y `transform` se combina en la parte superior, por lo que un encabezado `transform` explícito gana si ambos establecen la misma clave. Un patrón común es una credencial para el encabezado de autenticación más un `transform` para los encabezados adicionales que espera el servicio junto con él.
 
-### Ağ erişimini devre dışı bırakma
+### Inhabilita el acceso a la red
 
-Tüm giden ağ erişimini engellemek için `network` değerini `disabled` olarak ayarlayın:
+Para bloquear todo el acceso a la red de salida, establece `network` en `disabled`:
 
 ### Python
 
@@ -2015,12 +2012,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### Kimlik bilgilerini yenileme
+### Actualiza las credenciales
 
-Erişim jetonları ve kısa ömürlü API anahtarları gibi satır içi jetonların süresi dolar.
-Mevcut `environment_id` ile birlikte yeni bir `network` yapılandırmasını bir sonraki etkileşimde ileterek bunları yenileyebilirsiniz. Yeni ağ kuralları, önceki kuralların yerini tamamen alırken ortamın dosya sistemi durumu (yüklü paketler, dosyalar, depolar) korunur.
+Los tokens intercalados, como los tokens de acceso y las claves de API de corta duración, vencen.
+Puedes actualizarlos pasando el `environment_id` existente junto con una nueva configuración de `network` en la próxima interacción. Las nuevas reglas de red reemplazan por completo las anteriores, mientras que se conserva el estado del sistema de archivos del entorno (paquetes instalados, archivos, repositorios).
 
-Bunun yerine depolanmış bir [kimlik bilgisi](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=tr) kullanıyorsanız bu bilgiye ihtiyacınız yoktur. `oauth2` kimlik bilgisi kendi kendini yeniler ve herhangi bir kimlik bilgisinin döndürülmesi, izin verilenler listesindeki her kuralı etkilemeden kimlik bilgisinde `PATCH` işlemidir.
+Si usas una [credencial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=es-419) almacenada, no necesitas esto. Una credencial de `oauth2` se actualiza por sí sola, y rotar cualquier credencial es un `PATCH` en la credencial que deja intacta cada regla de la lista de anunciantes permitidos que la referencia.
 
 ### Python
 
@@ -2298,26 +2295,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Ortam yaşam döngüsü
+## Ciclo de vida del entorno
 
-Ortamlar şu yaşam döngüsünü izler:
+Los entornos siguen este ciclo de vida:
 
-| Eyalet | Davranış |
+| Estado | Comportamiento |
 | --- | --- |
-| **Oluşturuldu** | Bir etkileşimde `environment: "remote"` veya bir yapılandırma nesnesi belirtildiğinde sağlanır. |
-| **Etkin** | Bir etkileşim devam ederken çalıştırılır. |
-| **Boşta** | Otomatik anlık görüntü alma ve 15 dakika işlem yapılmadığında durdurulur. |
-| **Çevrimdışı** | Son etkinliğin üzerinden 7 gün geçene kadar saklanır. Kimliği iletilerek devam ettirilebilir. |
-| **Silindi** | 7 günlük TTL saklama süresi dolduktan sonra veya manuel olarak silindiğinde sistemden otomatik olarak kaldırılır. |
+| **Creado** | Se aprovisiona cuando una interacción especifica `environment: "remote"` o un objeto de configuración. |
+| **Activo** | Se ejecuta mientras una interacción está en curso. |
+| **Inactivo** | Se detuvo automáticamente después de 15 minutos de inactividad. |
+| **Sin conexión** | Se retienen durante 7 días desde la última actividad. Se puede reanudar pasando su ID. |
+| **Eliminado** | Se quitan del sistema automáticamente después de que vence la retención del TTL de 7 días o cuando se borran de forma manual. |
 
-## Environments API
+## API de Environments
 
-Sandbox oturumlarını programatik olarak yönetmek için Environments API'yi kullanabilirsiniz.
-Ortamları numaralandırarak etkin oturum kimliklerini keşfedebilir ve uzun süren bir görev sırasında istemci bağlantısı sonlanırsa durumu kurtarabilirsiniz. Ayrıca, iş akışları tamamlandığında oturum meta verilerini inceleyebilir ve ortamları açıkça silebilirsiniz. Bunun için otomatik TTL süresinin dolmasını beklemeniz gerekmez.
+Puedes usar la API de Environments para administrar sesiones de zona de pruebas de forma programática.
+La enumeración de entornos te permite descubrir IDs de sesión activos y recuperar el estado si se interrumpe una conexión del cliente durante una tarea de larga duración. También puedes inspeccionar los metadatos de la sesión y borrar de forma explícita los entornos cuando finalizan los flujos de trabajo en lugar de esperar a que venza el TTL automático.
 
-### Ortamları listeleme
+### Enumerar entornos
 
-Projenize ait etkin ortamları listeler. Yanıt grup boyutunu kontrol etmek için sayfalama parametrelerini kullanın.
+Enumera los entornos activos que pertenecen a tu proyecto. Usa parámetros de paginación para controlar el tamaño del lote de respuestas.
 
 ### Python
 
@@ -2410,7 +2407,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments?pageS
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Yanıt, aşağıdakine benzer şekilde görünür:
+El resultado es similar al siguiente:
 
 ```
 {
@@ -2428,9 +2425,9 @@ Yanıt, aşağıdakine benzer şekilde görünür:
 }
 ```
 
-### Ortam alma
+### Obtén un entorno
 
-Belirli bir ortamın meta verilerini ve yapılandırma ayrıntılarını kaynak adına göre alın.
+Recupera los metadatos y los detalles de configuración de un entorno específico por su nombre de recurso.
 
 ### Python
 
@@ -2508,7 +2505,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/YOUR_
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Yanıt, aşağıdakine benzer şekilde görünür:
+El resultado es similar al siguiente:
 
 ```
 {
@@ -2534,9 +2531,9 @@ Yanıt, aşağıdakine benzer şekilde görünür:
 }
 ```
 
-### Ortam silme
+### Borra un entorno
 
-Görevleriniz veya işlem hatlarınız tamamlandığında sandbox kaynaklarını temizlemek için bir ortamı açıkça sonlandırın ve silin.
+Finaliza y borra explícitamente un entorno para limpiar los recursos de la zona de pruebas cuando finalicen tus tareas o canalizaciones.
 
 ### Python
 
@@ -2606,19 +2603,19 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/environments/YO
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Ortamdaki dosyaları yönetme
+## Administra archivos en el entorno
 
-Temsilci, yürütme sırasında sanal ortamda dosyalar oluşturur ve değiştirir. Dizin içeriklerine göz atabilir, dosya meta verilerini alabilir, tek tek dosyaları veya dizinlerin tamamını tar arşivleri olarak indirebilir ve dosyaları doğrudan ortama yükleyebilir ya da arşivleri ayıklayabilirsiniz. Korumalı alan ortamlarındaki depolama alanı, adil kullanım sınırlarına tabidir.
+El agente crea y modifica archivos dentro de la zona de pruebas durante la ejecución. Puedes explorar el contenido de los directorios, obtener metadatos de archivos, descargar archivos individuales o directorios completos como archivos tar, y subir archivos o extraer archivos directamente en el entorno. El almacenamiento en entornos de zona de pruebas está sujeto a límites de uso razonable.
 
-### Bir dizindeki dosyaları listeleme
+### Enumera los archivos en un directorio
 
-Ortamdaki bir dizinin içeriğini listeler. Varsayılan olarak kök dizini listeler.
+Enumera el contenido de un directorio en el entorno. De forma predeterminada, se muestra el directorio raíz.
 
-#### Sorgu parametreleri
+#### Parámetros de consulta
 
-| Parametre | Tür | Açıklama |
+| Parámetro | Tipo | Descripción |
 | --- | --- | --- |
-| `recursive` | boole | `true` kullanıldığında tüm dosyalar ve dizinler tekrar tekrar listelenir. Varsayılan: `false`. |
+| `recursive` | booleano | Cuando es `true`, enumera todos los archivos y directorios de forma recursiva. Valor predeterminado: `false`. |
 
 ### Python
 
@@ -2688,7 +2685,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/$ENV_
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Yanıt, her girişin meta verilerini içeren bir `files` dizisi döndürür:
+La respuesta devuelve un array `files` con metadatos para cada entrada:
 
 ```
 {
@@ -2713,21 +2710,21 @@ Yanıt, her girişin meta verilerini içeren bir `files` dizisi döndürür:
 }
 ```
 
-#### Dosya giriş alanları
+#### Campos de entrada de archivos
 
-| Alan | Tür | Açıklama |
+| Campo | Tipo | Descripción |
 | --- | --- | --- |
-| `name` | dize | Dosya veya dizin adı. |
-| `path` | dize | Ortam köküne göre tam yol. |
-| `type` | dize | `FILE` veya `DIRECTORY` |
-| `size_bytes` | dize | Dosyanın bayt cinsinden boyutu (yalnızca dosyalar). |
-| `mime_type` | dize | MIME türü (yalnızca dosyalar). |
-| `created` | dize | ISO 8601 oluşturma zaman damgası. |
-| `modified` | dize | ISO 8601 son değiştirilme zaman damgası. |
+| `name` | string | Nombre del archivo o directorio |
+| `path` | string | Es la ruta de acceso completa relativa a la raíz del entorno. |
+| `type` | string | `FILE` o `DIRECTORY` |
+| `size_bytes` | string | Tamaño del archivo en bytes (solo archivos). |
+| `mime_type` | string | Tipo de MIME (solo para archivos). |
+| `created` | string | Es la marca de tiempo de creación en formato ISO 8601. |
+| `modified` | string | Es la marca de tiempo de última modificación según ISO 8601. |
 
-### Dosya meta verilerini alma
+### Obtén metadatos de archivos
 
-Belirli bir dosyanın meta verilerini yola göre alın.
+Obtiene los metadatos de un archivo específico por ruta de acceso.
 
 ### Python
 
@@ -2766,7 +2763,7 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/environments/$ENV_
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-Yanıt, `files` dizisine sarılmış dosya meta verilerini döndürür:
+La respuesta devuelve los metadatos del archivo incluidos en un array `files`:
 
 ```
 {
@@ -2784,7 +2781,7 @@ Yanıt, `files` dizisine sarılmış dosya meta verilerini döndürür:
 }
 ```
 
-Dosya mevcut değilse API `404` hatası döndürür:
+Si el archivo no existe, la API devuelve un error `404`:
 
 ```
 {
@@ -2795,9 +2792,9 @@ Dosya mevcut değilse API `404` hatası döndürür:
 }
 ```
 
-### Tek bir dosyayı indirme
+### Cómo descargar un solo archivo
 
-Belirli bir dosyanın içeriğini indirme SDK'larda `download()` yöntemini kullanın. REST isteklerinde, `?alt=media` sorgu parametresini dosya yoluna ekleyin. Sunucu, `200 OK` ile yanıt verir ve işlenmemiş dosya içeriğini yayınlar.
+Descarga el contenido de un archivo específico. En los SDKs, usa el método `download()`. En las solicitudes de REST, anexa el parámetro de búsqueda `?alt=media` a la ruta de acceso al archivo. El servidor responde con `200 OK` y transmite el contenido del archivo sin procesar.
 
 ### Python
 
@@ -2839,9 +2836,9 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/environments/$E
   -o main.py
 ```
 
-### Dizini tar arşivi olarak indirme
+### Descarga un directorio como un archivo tar
 
-Dizin yolunu `?alt=media` ile isteyerek dizinin tamamını tar arşivi olarak indirin. Bu işlem, POSIX tar dosyası (gziplenmemiş) döndürür. İç içe yerleştirilmiş alt dizinleri dahil etmek için `recursive=true` öğesini kullanın.
+Descarga un directorio completo como un archivo tar solicitando la ruta de acceso al directorio con `?alt=media`. Esto devuelve un archivo tar de POSIX (no comprimido con gzip). Usa `recursive=true` para incluir subdirectorios anidados.
 
 ### Python
 
@@ -2905,30 +2902,30 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/environments/$E
 tar xf snapshot.tar -C ./extracted
 ```
 
-#### Davranış matrisi
+#### Matriz de comportamiento
 
-Aşağıdaki davranış matrisi, dosya ve dizin uç noktaları, HTTP yöntemleri ve sorgu parametreleri genelinde beklenen yanıt ve arşiv davranışını özetlemektedir:
+En la siguiente matriz de comportamiento, se resume el comportamiento esperado de la respuesta y el archivo en los extremos de archivos y directorios, los métodos HTTP y los parámetros de consulta:
 
-| İstek | `alt` | `recursive` | `extract` | `overwrite` | Yanıt |
+| Solicitud | `alt` | `recursive` | `extract` | `overwrite` | Respuesta |
 | --- | --- | --- | --- | --- | --- |
-| `GET /files` | (hiçbiri) | (hiçbiri) | - | - | Kök dizinin JSON listesi |
-| `GET /files/{path}` (dosya) | (hiçbiri) | - | - | - | Dosyanın JSON meta verileri |
-| `GET /files/{path}` (dir) | (hiçbiri) | `false` | - | - | Alt öğelerin JSON listesi |
-| `GET /files/{path}` (dir) | (hiçbiri) | `true` | - | - | Tüm alt öğelerin JSON listesi |
-| `GET /files/{path}?alt=media` (dosya) | `media` | - | - | - | Ham dosya içeriği |
-| `GET /files/{path}?alt=media` (dir) | `media` | `false` | - | - | Dizindeki dosyaların tar arşivi |
-| `GET /files/{path}?alt=media` (dir) | `media` | `true` | - | - | Tüm dosyaların tar arşivini yinelemeli olarak oluşturur. |
-| `GET /files?alt=media` | `media` | `false` | - | - | Yalnızca kök düzeyindeki dosyaların tar arşivi |
-| `PUT /files/{path}` (dosya) | - | - | `false` | `false` | Dosyayı yola yazar. Zaten varsa `409 Conflict` değerini döndürür. |
-| `PUT /files/{path}?overwrite=true` | - | - | `false` | `true` | Yoldaki dosyayı yazar veya üzerine yazar. |
-| `PUT /files/{path}?extract=true` | - | - | `true` | `false` | Arşivi hedef dizine açar. Herhangi bir hedef dosya varsa `409 Conflict` değerini döndürür. |
-| `PUT /files/{path}?extract=true&overwrite=true` | - | - | `true` | `true` | Arşivi açar ve mevcut dosyaları değiştirir. |
+| `GET /files` | (ninguno) | (ninguno) | - | - | Listado en formato JSON del directorio raíz |
+| `GET /files/{path}` (archivo) | (ninguno) | - | - | - | Metadatos en formato JSON del archivo |
+| `GET /files/{path}` (dir) | (ninguno) | `false` | - | - | Listado en formato JSON de los hijos inmediatos |
+| `GET /files/{path}` (dir) | (ninguno) | `true` | - | - | Listado en formato JSON de todos los elementos secundarios |
+| `GET /files/{path}?alt=media` (archivo) | `media` | - | - | - | Contenido del archivo sin procesar |
+| `GET /files/{path}?alt=media` (dir) | `media` | `false` | - | - | Archivo tar de los archivos inmediatos en el directorio |
+| `GET /files/{path}?alt=media` (dir) | `media` | `true` | - | - | Archivo tar de todos los archivos de forma recursiva |
+| `GET /files?alt=media` | `media` | `false` | - | - | Archivo tar de solo archivos de nivel raíz |
+| `PUT /files/{path}` (archivo) | - | - | `false` | `false` | Escribe el archivo en la ruta de acceso. Devuelve `409 Conflict` si ya existe. |
+| `PUT /files/{path}?overwrite=true` | - | - | `false` | `true` | Escribe o reemplaza el archivo en la ruta de acceso. |
+| `PUT /files/{path}?extract=true` | - | - | `true` | `false` | Descomprime el archivo en el directorio de destino. Devuelve `409 Conflict` si existe algún archivo de destino. |
+| `PUT /files/{path}?extract=true&overwrite=true` | - | - | `true` | `true` | Descomprime el archivo y reemplaza los archivos existentes. |
 
-### Ortama dosya yükleme
+### Sube archivos al entorno
 
-HTTP `PUT` kullanarak tek tek dosyaları veya dizin arşivlerini doğrudan mevcut bir ortam sandbox'ına yükleyin. Üst dizinler mevcut değilse otomatik olarak oluşturulur. Ortamlardaki depolama alanı, adil kullanım sınırlarına tabidir.
+Sube archivos individuales o archivos de directorios directamente a un entorno de pruebas existente con `PUT` de HTTP. Los directorios principales se crean automáticamente si no existen. El almacenamiento en los entornos está sujeto a límites de uso razonable.
 
-#### Tek bir dosya yükleme
+#### Cómo subir un solo archivo
 
 ### Python
 
@@ -2980,7 +2977,7 @@ curl -X PUT "https://generativelanguage.googleapis.com/upload/v1beta/environment
   --data-binary @local_file.txt
 ```
 
-Yanıt, yüklenen dosyanın meta verilerini döndürür. Bu meta veriler, liste ve get uç noktalarıyla tutarlılık sağlamak için `files` dizisine sarılır:
+La respuesta devuelve metadatos para el archivo subido, incluidos en un array `files` para mantener la coherencia con los extremos de lista y obtención:
 
 ```
 {
@@ -2996,9 +2993,9 @@ Yanıt, yüklenen dosyanın meta verilerini döndürür. Bu meta veriler, liste 
 }
 ```
 
-#### Dizin arşivi yükleme ve çıkarma
+#### Cómo subir y extraer un archivo de directorio
 
-Tek bir istekte kod tabanının veya dizin yapısının tamamını başlatmak için `extract=true` ile `.tar` veya `.tar.gz` arşivi yükleyin.
+Para inicializar una base de código o una estructura de directorios completa en una sola solicitud, sube un archivo `.tar` o `.tar.gz` con `extract=true`.
 
 ### Python
 
@@ -3049,7 +3046,7 @@ curl -X PUT "https://generativelanguage.googleapis.com/upload/v1beta/environment
   --data-binary @source.tar.gz
 ```
 
-Yanıt, arşiv tarafından yazılan her dosyayı listeler:
+La respuesta enumera todos los archivos escritos por el archivo:
 
 ```
 {
@@ -3072,11 +3069,11 @@ Yanıt, arşiv tarafından yazılan her dosyayı listeler:
 }
 ```
 
-#### Devam ettirilebilir oturumla büyük dosyaları yükleme
+#### Sube archivos grandes con una sesión reanudable
 
-Büyük yükler için veya güvenilir olmayan bir bağlantı üzerinden yükleme yaparken tüm gövdeyi tek bir istekte göndermek yerine devam ettirilebilir bir oturum kullanın. Devam ettirilebilir yükleme, aktarımı ayrı ayrı yeniden denenebilecek parçalara böler. Bu nedenle, yarıda kalan bir yükleme işlemi baştan başlamanıza neden olmaz.
+Para cargas útiles grandes o cuando se suben archivos a través de una conexión poco confiable, usa una sesión reanudable en lugar de enviar todo el cuerpo en una sola solicitud. Una carga reanudable divide la transferencia en fragmentos que se pueden volver a intentar de forma individual, por lo que una falla a mitad del proceso no te obliga a comenzar de nuevo.
 
-`uploadType=resumable` ile oturumu başlatarak başlayın. Boş bir gövde gönderin ve yüklemek istediğiniz yükün medya türünü ve toplam boyutunu bildirmek için `X-Upload-Content-Type` ve `X-Upload-Content-Length` üstbilgilerini kullanın:
+Para comenzar, inicia la sesión con `uploadType=resumable`. Envía un cuerpo vacío y usa los encabezados `X-Upload-Content-Type` y `X-Upload-Content-Length` para declarar el tipo de medio y el tamaño total de la carga útil que deseas subir:
 
 ```
 PUT /upload/v1beta/environments/$ENV_ID/files/workspace/data/large_dataset.bin?uploadType=resumable HTTP/1.1
@@ -3087,7 +3084,7 @@ Content-Length: 0
 x-goog-api-key: $GEMINI_API_KEY
 ```
 
-Yanıt, `Location` üstbilgisinde oturum URL'sini taşır. Bu URL zaten `upload_id` içerdiğinden API anahtarına tekrar ihtiyaç duymaz:
+La respuesta incluye la URL de la sesión en el encabezado `Location`. Esta URL ya contiene un `upload_id`, por lo que no necesita la clave de API nuevamente:
 
 ```
 HTTP/1.1 200 OK
@@ -3095,7 +3092,7 @@ Location: https://generativelanguage.googleapis.com/upload/v1beta/environments/$
 Content-Length: 0
 ```
 
-Yükü bu URL'ye parçalar halinde yükleyin. Her parça, bayt aralığını ve toplam boyutu `Content-Range` başlığıyla bildirir:
+Sube la carga útil a esa URL en fragmentos. Cada fragmento declara su rango de bytes y el tamaño total con un encabezado `Content-Range`:
 
 ```
 PUT /upload/v1beta/environments/$ENV_ID/files/workspace/data/large_dataset.bin?uploadType=resumable&upload_id=AJjja9bfHjiYlGi60pUazCaTuPY HTTP/1.1
@@ -3107,7 +3104,7 @@ Content-Length: 10485760
 <10 MB binary payload>
 ```
 
-Son parça hariç her parça `308 Resume Incomplete` değerini döndürür. `Range` üstbilgisi, sunucunun kaç baytlık yer ayırdığını gösterir. Bir parça başarısız olursa bu noktadan devam edersiniz:
+Todos los fragmentos, excepto el último, devuelven `308 Resume Incomplete`. El encabezado `Range` te indica cuántos bytes confirmó el servidor, que es el punto desde el que reanudas la carga si falla un fragmento:
 
 ```
 HTTP/1.1 308 Resume Incomplete
@@ -3115,7 +3112,7 @@ Range: bytes=0-10485759
 Content-Length: 0
 ```
 
-Kalan parçaları da aynı şekilde gönderin:
+Envía los fragmentos restantes de la misma manera:
 
 ```
 PUT /upload/v1beta/environments/$ENV_ID/files/workspace/data/large_dataset.bin?uploadType=resumable&upload_id=AJjja9bfHjiYlGi60pUazCaTuPY HTTP/1.1
@@ -3127,7 +3124,7 @@ Content-Length: 10485760
 <remaining 10 MB binary payload>
 ```
 
-Son parça, yükleme işlemini tamamlar ve dosya meta verilerini tek seferlik yüklemeyle aynı `files` zarf içinde döndürür:
+El fragmento final completa la carga y devuelve los metadatos del archivo en el mismo sobre `files` que una carga de un solo intento:
 
 ```
 {
@@ -3143,11 +3140,11 @@ Son parça, yükleme işlemini tamamlar ve dosya meta verilerini tek seferlik y�
 }
 ```
 
-Devam ettirilebilir oturumlar `extract` ve `overwrite` ile de çalışır. Bu sorgu parametrelerini tek tek parçalarda değil, başlatma isteğinde ayarlayın.
+Las sesiones reanudables también funcionan con `extract` y `overwrite`. Establece esos parámetros de consulta en la solicitud inicial, no en los fragmentos individuales.
 
-#### Üzerine yazma koruması
+#### Protección contra reemplazo
 
-Varsayılan olarak `overwrite`, `false`'dir. Hedef yol zaten varsa istek `409 Conflict` hatası döndürür ve hiçbir şey yazılmaz:
+El valor predeterminado de `overwrite` es `false`. Si la ruta de destino ya existe, la solicitud devuelve un error `409 Conflict` y no se escribe nada:
 
 ```
 {
@@ -3158,13 +3155,13 @@ Varsayılan olarak `overwrite`, `false`'dir. Hedef yol zaten varsa istek `409 Co
 }
 ```
 
-Mevcut bir dosyayı veya dizini değiştirmek için `overwrite=true` değerini ayarlayın (veya REST'te `?overwrite=true` değerini ekleyin). `extract=true` ile çakışma kontrolü, arşivdeki her dosya için geçerli olur. Bu nedenle, herhangi bir hedef dosya varsa istek başarısız olur.
+Para reemplazar un archivo o directorio existente, establece `overwrite=true` (o agrega `?overwrite=true` en REST). Con `extract=true`, la verificación de conflictos se aplica a todos los archivos del archivo, por lo que la solicitud falla si existe algún archivo de destino.
 
-### Tam anlık görüntüyü indir (kullanımdan kaldırıldı)
+### Descarga la instantánea completa (obsoleto)
 
-Mevcut kodu ortam dosyaları API'sine taşımak için:
+Para migrar el código existente a la API de archivos de entorno, haz lo siguiente:
 
-- **Python**: Eski dosya indirme isteklerini aşağıdakilerle değiştirin:
+- **Python**: Reemplaza las solicitudes de descarga de archivos heredados por lo siguiente:
 
   ```
   archive = client.environments.files.download(
@@ -3174,7 +3171,7 @@ Mevcut kodu ortam dosyaları API'sine taşımak için:
   with open("snapshot.tar", "wb") as f:
       f.write(archive)
   ```
-- **JavaScript**: Eski dosya indirme isteklerini aşağıdakilerle değiştirin:
+- **JavaScript**: Reemplaza las solicitudes de descarga de archivos heredados por lo siguiente:
 
   ```
   const bytes = await client.environments.files.download({
@@ -3183,7 +3180,7 @@ Mevcut kodu ortam dosyaları API'sine taşımak için:
   });
   fs.writeFileSync("snapshot.tar", Buffer.from(bytes));
   ```
-- **REST**: `GET /v1beta/files/environment-$ENV_ID:download?alt=media` yerine şunu kullanın:
+- **REST**: Reemplaza `GET /v1beta/files/environment-$ENV_ID:download?alt=media` por lo siguiente:
 
   ```
   curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/environments/$ENV_ID/files?alt=media" \
@@ -3191,42 +3188,41 @@ Mevcut kodu ortam dosyaları API'sine taşımak için:
     -o snapshot.tar
   ```
 
-## Fiyatlandırma ve kaynaklar
+## Precios y recursos
 
-Her ortam, sabit kaynak ayırmalarıyla çalışır:
+Cada entorno se ejecuta con asignaciones de recursos fijos:
 
-| Kaynak | Değer |
+| Recurso | Valor |
 | --- | --- |
-| **CPU** | 4 çekirdek |
-| **Bellek** | 16 GB |
+| **CPU** | 4 núcleos |
+| **Memoria** | 16 GB |
 
-Önizleme döneminde ortam işlem (CPU, bellek, korumalı alan yürütme) için **ücret alınmaz**. Aracı jetonu maliyetleri için
-[Fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#pricing-for-agents) bölümüne bakın.
+El procesamiento del entorno (CPU, memoria, ejecución en zona de pruebas) **no se factura** durante el período de vista previa. Consulta [Precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#pricing-for-agents) para conocer los costos de los tokens de agentes.
 
-## Sınırlamalar
+## Limitaciones
 
-- **Önizleme durumu:** Ortamlar ve yönetilen aracılar önizleme aşamasındadır. Özellikler ve şemalar değişebilir.
-- **Satır içi kaynak boyutu:** Satır içi kaynaklar, dosya başına 1 MB ve tüm dosyalar için toplamda 2 MB ile sınırlıdır.
-- **Kaynak boyutu**: Git depoları 500 MB, Cloud Storage depoları ise 2 GB ile sınırlıdır.
-- **Ortam başlatma:** Yeni bir ortamın sağlanması yaklaşık 5 saniye sürer. Büyük kaynak depoları bu süreyi uzatabilir.
-- **Ortamın süresinin dolması:** Etkin olmayan çevrimdışı ortamlar, otomatik TTL temizliği kullanılarak süreleri dolmadan önce 7 gün boyunca saklanır. Süresi dolmuş veya geçersiz bir ortam kimliği iletildiğinde `404 Not Found` hatası döndürülür.
-- **Dosya desteği:** Ajan şu anda metin ve resim dosyalarını okumakla sınırlıdır. İkili program dosyası desteği henüz kullanılamamaktadır.
-- **Kökten bağlama yok:** Özel kaynak eklerken hedef olarak kökü (`/`) ayarlayamazsınız, her zaman bir alt dizin belirtmeniz gerekir.
+- **Estado de vista previa:** Los entornos y los agentes administrados están en versión preliminar. Las funciones y los esquemas pueden cambiar.
+- **Tamaño de la fuente intercalada:** Las fuentes intercaladas están limitadas a 1 MB por archivo y 2 MB en total en todos los archivos.
+- **Tamaño de la fuente**: Los repositorios de Git están limitados a 500 MB y los repositorios de Cloud Storage a 2 GB.
+- **Inicio del entorno:** El aprovisionamiento de un entorno nuevo tarda hasta 5 segundos. Los repositorios de origen grandes pueden aumentar este tiempo.
+- **Vencimiento del entorno:** Los entornos sin conexión inactivos se conservan durante 7 días antes de vencer con la limpieza automática del TTL. Si se pasa un ID de entorno vencido o no válido, se devuelve un error `404 Not Found`.
+- **Compatibilidad con archivos:** Actualmente, el agente solo puede leer archivos de texto y de imágenes. Aún no está disponible la compatibilidad con archivos binarios.
+- **No se puede realizar el montaje desde la raíz:** No puedes establecer la raíz (`/`) como destino cuando agregas una fuente personalizada. Siempre debes especificar un subdirectorio.
 
-## Sırada ne var?
+## ¿Qué sigue?
 
-- [Ajanlara Genel Bakış](https://ai.google.dev/gemini-api/docs/agents?hl=tr): Yönetilen ajanların temel kavramları hakkında bilgi edinin.
-- [Hızlı başlangıç](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=tr): Çok aşamalı etkileşimler ve akışla geliştirmeye başlayın.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr): Varsayılan aracın özelliklerini, araçlarını, model seçimini ve fiyatlandırmasını keşfedin.
-- [Özel Ajanlar Oluşturma](https://ai.google.dev/gemini-api/docs/custom-agents?hl=tr): `AGENTS.md` ve `SKILL.md` kullanarak kendi ajanlarınızı tanımlayın.
-- [Kancalar](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=tr): Güvenlik korumalarını zorunlu kılın ve korumalı alan içinde yan etki doğrulamaları çalıştırın.
+- [Descripción general de los agentes](https://ai.google.dev/gemini-api/docs/agents?hl=es-419): Obtén información sobre los conceptos básicos de los agentes administrados.
+- [Guía de inicio rápido](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Comienza a crear con conversaciones de varios turnos y transmisión.
+- [Agente antigravedad](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419): Explora las capacidades, las herramientas, la selección de modelos y los precios del agente predeterminado.
+- [Cómo crear agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419): Define tus propios agentes con `AGENTS.md` y `SKILL.md`.
+- [Hooks](https://ai.google.dev/gemini-api/docs/agent-hooks?hl=es-419): Aplican barreras de seguridad y ejecutan validaciones de efectos secundarios dentro de la zona de pruebas.
 
-Geri bildirim gönderin
+Enviar comentarios
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Son güncelleme tarihi: 2026-10-07 UTC.
+Última actualización: 2026-10-07 (UTC)
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+¿Quieres brindar más información?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-07 UTC."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-07 (UTC)"],[],[]]

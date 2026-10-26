@@ -1,66 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ko
-fetched_at: 2026-10-19T05:35:40.263174+00:00
-title: "Gemini 3.8 Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=fr
+fetched_at: 2026-10-26T05:36:44.319786+00:00
+title: "Gemini\u00a03.8 Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-의견 보내기
+Envoyer des commentaires
 
-# Gemini 3.8 Live
+# Gemini 3.8 Live
 
-Gemini 3.8 Live는 대부분의 지연 시간이 짧은 음성 에이전트 환경과 추론으로 인한 지연이 없는 실시간 대화의 기본 옵션입니다. 인터리브 추론, 비동기 함수 호출, 전체 세션 클라이언트 콘텐츠 업데이트, 내장 오디오 스트리밍을 지원합니다.
+Gemini 3.8 Live est l'option par défaut pour la plupart des expériences d'agent vocal à faible latence et des dialogues en temps réel sans retards induits par le raisonnement. Il est compatible avec le raisonnement entrelacé, l'appel de fonction asynchrone, les mises à jour du contenu client de session complète et le flux audio intégré.
 
-[Google AI Studio에서 사용해 보기](https://aistudio.google.com/live?model=gemini-3.8-live&hl=ko)
+[Essayer dans Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live&hl=fr)
 
-## 문서
+## Documentation
 
-기능 및 기능에 관한 전체 내용은 [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko) 가이드를 참고하세요.
+Consultez le guide de l'[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr) pour découvrir l'ensemble des fonctionnalités.
 
 ## gemini-3.8-live
 
-| 속성 | 설명 |
+| Propriété | Description |
 | --- | --- |
-| id\_card모델 코드 | `gemini-3.8-live` |
-| save지원되는 데이터 유형 | **입력**  텍스트, 이미지, 오디오, 동영상  **출력**  텍스트 및 오디오 |
-| token\_auto토큰 한도[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ko) | **입력 토큰 한도**  131,072  **출력 토큰 한도**  65,536 |
-| handyman기능 | **[오디오 생성](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ko)**  지원됨  **[캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko)**  지원되지 않음  **[코드 실행](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko)**  지원되지 않음  **[파일 검색](https://ai.google.dev/gemini-api/docs/file-search?hl=ko)**  지원되지 않음  **[함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko)**  지원됨  **[Google 지도 기반 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko)**  지원되지 않음  **[이미지 생성](https://ai.google.dev/gemini-api/docs/image-generation?hl=ko)**  지원되지 않음  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ko)**  지원됨  **[검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko)**  지원됨  **[구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko)**  지원되지 않음  **[사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)**  지원됨 (인터리브 추론)  **[URL 컨텍스트](https://ai.google.dev/gemini-api/docs/url-context?hl=ko)**  지원되지 않음 |
-| speed소비 옵션 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ko)**  지원되지 않음 |
-| 123버전 | 자세한 내용은 [모델 버전 패턴](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ko#model-versions)을 참고하세요.  - 안정화 버전: `gemini-3.8-live` |
-| calendar\_month최신 업데이트 | 2026년 9월 |
-| id\_card모델 카드 | [모델 카드](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=ko) |
+| id\_cardCode du modèle | `gemini-3.8-live` |
+| saveTypes de données acceptés | **Entrées**  Texte, images, audio  **Résultat**  Texte et audio |
+| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  131 072  **Limite de jetons de sortie**  65 536 |
+| handymanFonctionnalités | **[Génération d'audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fr)**  Compatible  **[Mise en cache](https://ai.google.dev/gemini-api/docs/caching?hl=fr)**  Not supported  **[Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr)**  Not supported  **[Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr)**  Not supported  **[Appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)**  Compatible  **[Ancrage avec Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr)**  Not supported  **[Génération d'images](https://ai.google.dev/gemini-api/docs/image-generation?hl=fr)**  Not supported  **[API Live](https://ai.google.dev/gemini-api/docs/live-api?hl=fr)**  Compatible  **[Ancrage avec la recherche](https://ai.google.dev/gemini-api/docs/google-search?hl=fr)**  Compatible  **[Sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr)**  Not supported  **[Réflexion](https://ai.google.dev/gemini-api/docs/thinking?hl=fr)**  Compatible (raisonnement entrelacé)  **[Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr)**  Not supported |
+| speedOptions de consommation | **[API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=fr)**  Not supported |
+| 123 versions | Pour en savoir plus, consultez les [modèles de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Stable : `gemini-3.8-live` |
+| calendar\_monthDernière mise à jour | Septembre 2026 |
+| id\_cardFiche de modèle | [fiche de modèle](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=fr) |
 
-## Gemini 3.1 Flash Live에서 마이그레이션
+## Migrer depuis Gemini 3.1 Flash Live
 
-Gemini 3.8 Live는 지연 시간이 매우 짧은 오디오-오디오 상호작용을 제공하고 비동기 워크플로 지원을 확대합니다. `gemini-3.1-flash-live-preview`에서 이전할 때는 다음 업데이트를 검토하세요.
+Gemini 3.8 Live offre des interactions audio-audio à latence ultra-faible et étend la compatibilité avec les workflows asynchrones. Lorsque vous migrez depuis `gemini-3.1-flash-live-preview`, tenez compte des modifications suivantes :
 
-- **모델 문자열**: 모델 문자열을 `gemini-3.1-flash-live-preview`에서 `gemini-3.8-live`로 업데이트합니다.
-- **사고 수준**: `gemini-3.8-live`에는 `thinking_level`가 지원되지 않습니다.
-  세션 설정에서 `thinking_level` (또는 `thinking_config`)를 생략합니다.
-- **비동기 함수 호출**: 이제 비동기 실행 (`behavior: NON_BLOCKING`)이 기본 함수 호출 모드입니다. 도구 선언에서 `behavior: BLOCKING`를 설정하여 이전 버전과의 호환성을 위해 동기 차단 모드를 계속 사용할 수 있습니다. 함수 예약 (`SILENT`, `WHEN_IDLE`, `INTERRUPTED`)이 지원됩니다.
-- **클라이언트 콘텐츠 업데이트**: `send_client_content`는 명시적 역할 (`user` 또는 `model`)을 사용하여 전체 세션 수명 주기에서 지원됩니다. `turn_complete=true`를 설정하면 활성 모델 생성이 무조건 중단됩니다. `turn_complete` 없이 콘텐츠를 보내면 서버는 응답하기 전에 후속 메시지를 기다립니다.
-- **능동적 오디오**: 이제 능동적 오디오가 영구적으로 사용 설정됩니다. `proactive_audio: false`를 설정하면 오류가 반환됩니다.
-- **공감형 대화**: 공감형 대화가 API에서 삭제되었습니다. 코드에서 `enable_affective_dialog` 구성을 삭제합니다.
-- **Turn coverage**: 기본값은 `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`입니다. 동영상 프레임은 기본적으로 모델에 전송되므로 컨텍스트와 비용을 관리해야 하는 경우에만 프레임을 전송하세요.
-- **응답 모달리티**: 오디오가 지원되는 응답 모달리티입니다. 애플리케이션에 텍스트 스크립트가 필요한 경우 출력 오디오 스크립트 작성을 사용 설정합니다.
+- **Chaîne de modèle** : remplacez la chaîne de modèle `gemini-3.1-flash-live-preview` par `gemini-3.8-live`.
+- **Niveau de réflexion** : `thinking_level` n'est pas compatible avec `gemini-3.8-live`.
+  Omettez `thinking_level` (ou `thinking_config`) de la configuration de votre session.
+- **Appel de fonction asynchrone** : l'exécution asynchrone (`behavior: NON_BLOCKING`) est désormais le mode d'appel de fonction par défaut. Vous pouvez toujours utiliser le mode de blocage synchrone pour assurer la rétrocompatibilité en définissant `behavior: BLOCKING` sur vos déclarations d'outils. La planification des fonctions (`SILENT`, `WHEN_IDLE`, `INTERRUPTED`) est acceptée.
+- **Mises à jour du contenu du client** : `send_client_content` est compatible tout au long du cycle de vie de la session avec des rôles explicites (`user` ou `model`). La définition de `turn_complete=true` interrompt sans condition la génération du modèle actif. Si vous envoyez du contenu sans `turn_complete`, le serveur attend les messages suivants avant de répondre.
+- **Audio proactif** : l'audio proactif est désormais activé de manière permanente. La définition de `proactive_audio: false` renvoie une erreur.
+- **Dialogue affectif** : le dialogue affectif est supprimé de l'API. Supprimez toutes les configurations `enable_affective_dialog` de votre code.
+- **Couverture des virages** : la valeur par défaut est `TURN_INCLUDES_AUDIO_ACTIVITY_AND_ALL_VIDEO`. Les images vidéo sont envoyées au modèle par défaut. N'envoyez donc des images que lorsque cela est nécessaire pour gérer le contexte et les coûts.
+- **Modalités de réponse** : l'audio est la modalité de réponse acceptée. Activez la transcription audio de sortie si votre application nécessite une transcription textuelle.
 
-모든 Live API 모델의 기능 비교는 [모델 비교](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ko#model-comparison) 표를 참고하세요.
+Pour comparer les fonctionnalités de tous les modèles de l'API Live, consultez le tableau [Comparaison des modèles](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=fr#model-comparison).
 
-의견 보내기
+Envoyer des commentaires
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-최종 업데이트: 2026-09-17(UTC)
+Dernière mise à jour le 2026/10/19 (UTC).
 
-의견을 전달하고 싶나요?
+Voulez-vous nous donner plus d'informations ?
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-17(UTC)"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/19 (UTC)."],[],[]]

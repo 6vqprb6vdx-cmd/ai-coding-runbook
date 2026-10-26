@@ -1,49 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=pl
-fetched_at: 2026-10-19T05:40:24.324368+00:00
-title: "Rozpoznawanie film\u00f3w \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=ar
+fetched_at: 2026-10-26T05:56:47.570110+00:00
+title: "\u0641\u0647\u0645 \u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Strona główna](https://ai.google.dev/?hl=pl)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pl)
-- [Dokumenty](https://ai.google.dev/gemini-api/docs/generate-content?hl=pl)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
 
-Prześlij opinię
+إرسال ملاحظات
 
-# Rozpoznawanie filmów
+# فهم الفيديو
 
-> Więcej informacji o generowaniu filmów znajdziesz w przewodniku po [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=pl).
+> لمزيد من المعلومات حول إنشاء الفيديوهات، يمكنك الاطّلاع على دليل [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=ar).
 
-Modele Gemini mogą przetwarzać filmy, co umożliwia deweloperom korzystanie z wielu zaawansowanych przypadków użycia, które wcześniej wymagały modeli specyficznych dla danej domeny.
-Niektóre funkcje Gemini Vision obejmują możliwość opisywania, segmentowania i wyodrębniania informacji z filmów, odpowiadania na pytania dotyczące treści wideo oraz odwoływania się do konkretnych sygnatur czasowych w filmie.
+يمكن لنماذج Gemini معالجة الفيديوهات، ما يتيح العديد من حالات الاستخدام المتقدّمة للمطوّرين
+التي كانت تتطلّب في السابق نماذج خاصة بمجالات معيّنة.
+تشمل بعض قدرات Gemini المرئية ما يلي: وصف الفيديوهات وتقسيمها واستخراج المعلومات منها، والإجابة عن أسئلة حول محتوى الفيديو، والإشارة إلى طوابع زمنية محدّدة ضمن الفيديو.
 
-Filmy możesz przekazywać do Gemini na te sposoby:
+يمكنك تقديم فيديوهات كمدخلات إلى Gemini بالطرق التالية:
 
-| Sposób wprowadzania tekstu | Wielkość maksymalna | Zalecany przypadek użycia |
+| طريقة الإرسال | أقصى حجم | حالة الاستخدام المقترَحة |
 | --- | --- | --- |
-| [File API](#upload-video) | 20 GB (płatne) / 2 GB (bezpłatne) | Duże pliki (ponad 100 MB), długie filmy (ponad 10 minut), pliki wielokrotnego użytku. |
-| [Rejestracja w Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl#registration) | 2 GB (na plik, bez limitów miejsca na dane) | Duże pliki (ponad 100 MB), długie filmy (ponad 10 minut), trwałe pliki wielokrotnego użytku. |
-| [Dane w treści](#inline-video) | < 100 MB | Małe pliki (poniżej 100 MB), krótkie filmy (poniżej 1 minuty), jednorazowe dane wejściowe. |
-| [Adresy URL z YouTube](#youtube) | Nie dotyczy | Publiczne filmy na YouTube. |
+| [File API](#upload-video) | ‫20 غيغابايت (مدفوعة) / 2 غيغابايت (مجانية) | الملفات الكبيرة (100 ميغابايت أو أكثر) والفيديوهات الطويلة (10 دقائق أو أكثر) والملفات القابلة لإعادة الاستخدام |
+| [التسجيل في Cloud Storage](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ar#registration) | ‫2 غيغابايت (لكل ملف، بدون حدود لمساحة التخزين) | الملفات الكبيرة (أكثر من 100 ميغابايت) والفيديوهات الطويلة (أكثر من 10 دقائق) والملفات الدائمة والقابلة لإعادة الاستخدام. |
+| [البيانات المضمّنة](#inline-video) | < 100 ميغابايت | الملفات الصغيرة (أقل من 100 ميغابايت) والمدّة القصيرة (أقل من دقيقة واحدة) والمدخلات لمرة واحدة |
+| [عناوين URL على YouTube](#youtube) | لا ينطبق | الفيديوهات العلنية على YouTube |
 
-> **Uwaga:** w większości przypadków zalecamy korzystanie z [File API](#upload-video), zwłaszcza w przypadku plików większych niż 100 MB lub gdy chcesz użyć tego samego pliku w wielu żądaniach.
+> **ملاحظة:** ننصح باستخدام [File API](#upload-video) في معظم حالات الاستخدام، خاصةً للملفات التي يزيد حجمها عن 100 ميغابايت أو عندما تريد إعادة استخدام الملف في طلبات متعددة.
 
-Więcej informacji o innych metodach wprowadzania plików, takich jak używanie zewnętrznych adresów URL lub plików
-przechowywanych w Google Cloud, znajdziesz w przewodniku
-[Metody wprowadzania plików](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=pl).
+للتعرّف على طرق أخرى لإدخال الملفات، مثل استخدام عناوين URL خارجية أو ملفات مخزّنة في Google Cloud، يُرجى الاطّلاع على دليل [طرق إدخال الملفات](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ar).
 
-### Przesyłanie pliku wideo
+### تحميل ملف فيديو
 
-Ten kod pobiera przykładowy film, przesyła go za pomocą [Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl),
-czeka na jego przetworzenie, a następnie używa odniesienia do przesłanego pliku, aby
-podsumować film.
+ينزّل الرمز التالي فيديو نموذجيًا، ويحمّله باستخدام [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar)، وينتظر إلى أن تتم معالجته، ثم يستخدم مرجع الملف الذي تم تحميله لتلخيص الفيديو.
 
 ### Python
 
@@ -168,20 +165,21 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 jq -r ".candidates[].content.parts[].text" response.json
 ```
 
-Aby zoptymalizować wydajność i wykorzystanie tokenów, rozważ użycie
-[przetwarzania wideo przez agenta](#agentic-video-understanding).
+لتحسين كفاءة الرموز المميّزة وأدائها، ننصحك باستخدام
+[معالجة الفيديو المستندة إلى الذكاء الاصطناعي الوكيل](#agentic-video-understanding).
 
-Zawsze używaj Files API, gdy łączny rozmiar żądania (w tym pliku, prompta tekstowego, instrukcji systemowych itp.) jest większy niż 20 MB, czas trwania filmu jest znaczący lub gdy zamierzasz użyć tego samego filmu w wielu promptach.
-File API bezpośrednio akceptuje formaty plików wideo.
+استخدِم دائمًا Files API عندما يكون إجمالي حجم الطلب (بما في ذلك الملف والطلب النصي
+وتعليمات النظام وما إلى ذلك) أكبر من 20 ميغابايت، أو عندما تكون مدة الفيديو
+طويلة، أو إذا كنت تنوي استخدام الفيديو نفسه في طلبات متعددة.
+تقبل File API تنسيقات ملفات الفيديو مباشرةً.
 
-Więcej informacji o pracy z plikami multimedialnymi znajdziesz w artykule
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=pl).
+لمزيد من المعلومات حول العمل باستخدام ملفات الوسائط، يُرجى الاطّلاع على [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar).
 
-### Przekazywanie danych wideo w treści
+### تمرير بيانات الفيديو بشكل مضمّن
 
-Zamiast przesyłać plik wideo za pomocą File API, możesz przekazywać mniejsze filmy bezpośrednio w żądaniu do `generateContent`. Jest to odpowiednie w przypadku krótszych filmów, których łączny rozmiar żądania nie przekracza 20 MB.
+بدلاً من تحميل ملف فيديو باستخدام File API، يمكنك تمرير فيديوهات أصغر حجمًا مباشرةً في الطلب إلى `generateContent`. هذا مناسب لمقاطع الفيديو الأقصر التي يقل حجم الطلب الإجمالي فيها عن 20 ميغابايت.
 
-Oto przykład przekazywania danych wideo w treści:
+في ما يلي مثال على تقديم بيانات فيديو مضمّنة:
 
 ### Python
 
@@ -266,9 +264,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-### Przekazywanie adresów URL z YouTube
+### تمرير عناوين URL على YouTube
 
-Adresy URL z YouTube możesz przekazywać bezpośrednio do Gemini API w ramach żądania w ten sposób:
+يمكنك تمرير عناوين URL على YouTube مباشرةً إلى Gemini API كجزء من طلبك على النحو التالي:
 
 ### Python
 
@@ -374,35 +372,34 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-**Ograniczenia:**
+**القيود:**
 
-- W przypadku bezpłatnego planu nie możesz przesyłać więcej niż 8 godzin filmów z YouTube dziennie.
-- W przypadku płatnego planu nie ma limitu opartego na długości wideo.
-- W przypadku modeli wcześniejszych niż Gemini 2.5 możesz przesłać tylko 1 film na żądanie. W przypadku modeli Gemini 2.5 i nowszych możesz przesłać maksymalnie 10 filmów na żądanie.
-- Możesz przesyłać tylko filmy publiczne (nie prywatne ani niepubliczne).
+- في المستوى المجاني، لا يمكنك تحميل أكثر من 8 ساعات من فيديوهات على YouTube يوميًا.
+- في المستوى المدفوع، ما مِن حدّ أقصى لطول الفيديو.
+- بالنسبة إلى النماذج الأقدم من Gemini 2.5، يمكنك تحميل فيديو واحد فقط لكل طلب. في Gemini 2.5 والإصدارات الأحدث، يمكنك تحميل 10 فيديوهات كحدّ أقصى لكل طلب.
+- يمكنك تحميل فيديوهات علنية فقط (وليس فيديوهات خاصة أو غير مُدرَجة).
 
-## Analizowanie filmów przez agenta
+## فهم الفيديوهات باستخدام الذكاء الاصطناعي الوكيل
 
-Domyślnie dane wejściowe wideo są przetwarzane statycznie (wyodrębnianie klatek z szybkością 1 kl./s) we wszystkich modelach, w tym w Gemini 4.
-Modele Gemini 4 Argon, 3.8 Flash, 3.6 Flash i 3.5 Flash Lite obsługują też
-**agentowe analizowanie filmów**, czyli tryb z akceptacją użytkownika, w którym model dynamicznie analizuje oś czasu filmu, selektywnie sprawdza transkrypcje i na bieżąco dostosowuje liczbę klatek na sekundę
-oraz rozdzielczość na podstawie prompta.
+تستخدم إدخالات الفيديو تلقائيًا المعالجة الثابتة (استخراج اللقطات بمعدّل لقطة واحدة في الثانية) في جميع النماذج، بما في ذلك Gemini 4.
+تتيح نماذج Gemini 4 Argon و3.8 Flash و3.6 Flash و3.5 Flash Lite أيضًا ميزة
+**فهم الفيديو المستند إلى الوكيل**، وهي وضع اختياري يستكشف فيه النموذج المخطط الزمني للفيديو بشكل ديناميكي، ويفحص النصوص بشكل انتقائي، ويعدّل معدلات عرض اللقطات ودرجة الدقة بشكل تكيفي أثناء التشغيل استنادًا إلى الطلب.
 
-| **Tryb** | **Opis** | **Obsługiwane modele** |
+| **الوضع** | **الوصف** | **الطُرز المتوافقة** |
 | --- | --- | --- |
-| **Statyczny** (domyślny) | Wyodrębnia klatki ze stałą szybkością (1 kl./s) i umieszcza je w kontekście w jednym przebiegu. Domyślny dla wszystkich modeli Gemini, w tym Gemini 4. | Wszystkie modele Gemini |
-| **Rozwiązania agentowe** | Model dynamicznie porusza się po osi czasu filmu, wczytując tylko te treści, których potrzebuje na podstawie prompta. Do 88% większa wydajność tokenów i o ok. 7% wyższa jakość w przypadku długich treści. | Gemini 4 Argon, 3.8 Flash, 3.6 Flash, 3.5 Flash Lite |
+| **ثابت** (تلقائي) | يستخرج اللقطات بمعدّل ثابت (لقطة واحدة في الثانية) ويضعها في السياق في عملية واحدة. الإعداد التلقائي لجميع نماذج Gemini، بما في ذلك Gemini 4 | جميع نماذج Gemini |
+| **Agentic** | يتنقّل النموذج ديناميكيًا في المخطط الزمني للفيديو، ويحمّل فقط المحتوى الذي يحتاجه استنادًا إلى الطلب. يوفّر كفاءة أعلى في استخدام الرموز المميّزة بنسبة تصل إلى% 88 وجودة أعلى بنسبة% 7 تقريبًا في المحتوى الطويل. | ‫Gemini 4 Argon و3.8‎ Flash و3.6‎ Flash و3.5‎ Flash Lite |
 
-### Wybieranie trybu przetwarzania
+### اختيار وضع المعالجة
 
-Wybierz tryb przetwarzania, który odpowiada długości wideo i typowi zapytania:
+اختَر وضع المعالجة الذي يتطابق مع مدة الفيديو ونوع الطلب:
 
-- **Statyczny (domyślny):** najlepszy w przypadku krótkich klipów (poniżej 5 minut), ogólnych podsumowań całego filmu, w których istotne jest całe nagranie, zapytań wrażliwych na opóźnienia lub precyzji na poziomie klatek w całym klipie. W przypadku krótkich filmów lub ogólnych promptów, które wymagają sprawdzenia większości filmu, przetwarzanie statyczne pozwala uniknąć dodatkowych tokenów myślenia (`thoughts_token_count`) i wywołań narzędzi w obie strony (`tool_use_prompt_token_count`) związanych z poruszaniem się po osi czasu.
-- **Rozwiązania agentowe:** najlepsze w przypadku długich filmów (ponad 5–10 minut), wyszukiwania igły w stogu siana lub zapytań dotyczących konkretnych momentów lub tematów. Model najpierw sprawdza transkrypcje, a następnie wczytuje tylko odpowiednie segmenty wizualne na żądanie, co zmniejsza zużycie tokenów wejściowych wideo nawet o 88% bez wypełniania okna kontekstu.
+- **ثابتة (الإعداد التلقائي):** هي الأنسب للمقاطع القصيرة (أقل من 5 دقائق)، أو الملخّصات الشاملة للفيديو حيث يكون التسجيل بأكمله ذا صلة، أو طلبات البحث التي تتطلّب استجابة سريعة، أو الدقة على مستوى الإطار في المقطع بأكمله. في الفيديوهات القصيرة أو الطلبات العامة التي تتطلّب فحص معظم الفيديو، تتجنّب المعالجة الثابتة الرموز المميّزة الإضافية للتفكير (`thoughts_token_count`) وعمليات الذهاب والعودة لاستدعاء الأدوات (`tool_use_prompt_token_count`) التي يتطلّبها التنقّل في المخطط الزمني.
+- **الوكيل:** يُعدّ هذا الوضع الأفضل للفيديوهات الطويلة (التي تزيد مدتها عن 5 إلى 10 دقائق)، أو لعمليات البحث عن معلومات دقيقة جدًا، أو لطلبات البحث التي تستهدف لحظات أو مواضيع معيّنة. يفحص النموذج النصوص أولاً ويحمّل فقط المقاطع المرئية ذات الصلة عند الطلب، ما يقلّل من استخدام الرموز المميّزة لإدخال الفيديو بنسبة تصل إلى% 88 بدون ملء قدرة الاستيعاب.
 
-> **Uwaga:** w przypadku długich filmów lub złożonych promptów, w których przetwarzanie przez agenta zajmuje więcej czasu, użyj przesyłania strumieniowego (`client.models.generate_content_stream`). Dzięki temu połączenie pozostaje aktywne, wyświetlają się pośrednie kroki rozumowania i można uniknąć przekroczenia limitu czasu połączenia lub uwierzytelniania.
+> **ملاحظة:** بالنسبة إلى الفيديوهات الطويلة أو الطلبات المعقّدة التي تستغرق فيها المعالجة المستندة إلى الوكلاء وقتًا أطول، استخدِم ميزة البث (`client.models.generate_content_stream`). يحافظ ذلك على نشاط الاتصال، ويعرض خطوات الاستدلال الوسيطة، ويتجنّب انتهاء مهلة الاتصال أو المصادقة.
 
-### Ustawianie trybu przetwarzania
+### ضبط وضع المعالجة
 
 ### Python
 
@@ -518,22 +515,23 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-> **Uwaga:** aby sprawdzić, czy użyto przetwarzania przez agenta, sprawdź `response.candidates[0].content.parts`. Obecność części `tool_call` i `tool_response` z typem narzędzia `MEDIA_PROCESSING` wskazuje, że model dynamicznie poruszał się po filmie.
+> **ملاحظة:** للتأكّد من استخدام المعالجة المستندة إلى الوكلاء، افحص `response.candidates[0].content.parts`. يشير ظهور الجزأين `tool_call` و`tool_response` مع نوع الأداة `MEDIA_PROCESSING` إلى أنّ النموذج تنقّل في الفيديو بشكل ديناميكي.
 
-> **Uwaga:** w przeciwieństwie do innych narzędzi po stronie serwera (takich jak wyszukiwarka Google czy kontekst adresu URL) w przypadku filmów przetwarzanych przez agenta nie trzeba ustawiać `include_server_side_tool_invocations=True` w `ToolConfig`, aby wywołania narzędzi i wyniki były zwracane lub przesyłane strumieniowo. Części `tool_call` i `tool_response` dotyczące poruszania się po filmie są zwracane automatycznie, gdy `media_processing="AGENTIC"` jest ustawione w dowolnej części wejściowej.
+> **ملاحظة:** على عكس الأدوات الأخرى من جهة الخادم (مثل "بحث Google" أو "سياق عناوين URL")، لا يتطلّب "الفيديو المستند إلى وكيل" ضبط `include_server_side_tool_invocations=True` في `ToolConfig` لعرض أو بث طلبات الأدوات والنتائج. يتم عرض الجزءَين `tool_call` و`tool_response`
+> المستخدَمَين للتنقّل في الفيديو تلقائيًا عند ضبط `media_processing="AGENTIC"` على أي جزء من الإدخال.
 
-### Struktura odpowiedzi
+### بنية الردّ
 
-Gdy włączone jest przetwarzanie przez agenta, odpowiedź zawiera dodatkowe części, które ujawniają wewnętrzną ścieżkę nawigacji:
+عند تفعيل المعالجة المستندة إلى الوكلاء، يتضمّن الردّ أجزاء إضافية تكشف عن تتبُّع التنقّل الداخلي:
 
-- `tool_call` **parts** (`tool_type: "MEDIA_PROCESSING"`): emitowane za każdym razem, gdy model prosi o segment wideo lub transkrypcję audio.
-- `tool_response` **parts** (`tool_type: "MEDIA_PROCESSING"`): wynik każdej operacji wczytywania.
+- `tool_call` **أجزاء** (`tool_type: "MEDIA_PROCESSING"`): يتم إصدارها في كل مرة يطلب فيها النموذج مقطع فيديو أو نصًا صوتيًا.
+- `tool_response` **الأجزاء** (`tool_type: "MEDIA_PROCESSING"`): نتيجة كل عملية تحميل.
 
-Nie musisz ręcznie obsługiwać tych części ani na nie odpowiadać. Przekaż całą odpowiedź jako historię rozmowy, a zostaną one obsłużone automatycznie.
+ليس عليك معالجة هذه الأجزاء أو الردّ عليها يدويًا، بل يمكنك إعادة الردّ الكامل كسجلّ محادثة وستتم معالجتها تلقائيًا.
 
-Jeśli w `ThinkingConfig` ustawisz `include_thoughts=True`, kroki rozumowania będą wyświetlane jako części `thought: true` przeplatane parami wywołań i odpowiedzi narzędzi. Gdy myśli są wyłączone, tekst myśli jest pomijany, ale części narzędzi są nadal obecne.
+إذا تم ضبط `include_thoughts=True` في `ThinkingConfig`، ستظهر خطوات الاستدلال كأجزاء `thought: true` متداخلة مع أزواج طلب/ردّ الأداة. عند إيقاف الأفكار، يتم حذف نص الفكرة ولكن تظل أجزاء الأداة متوفّرة.
 
-Ten przykład pokazuje ładunek odpowiedzi z przeplatanymi częściami wywołań i odpowiedzi narzędzi:
+يعرض المثال التالي حمولة الاستجابة مع أجزاء متداخلة من طلبات الأدوات والاستجابات:
 
 ```
 {
@@ -589,9 +587,9 @@ Ten przykład pokazuje ładunek odpowiedzi z przeplatanymi częściami wywołań
 }
 ```
 
-### Łączenie trybów przetwarzania w różnych filmach
+### الجمع بين أوضاع المعالجة في الفيديوهات
 
-W tym samym żądaniu możesz ustawić różne tryby przetwarzania dla każdej części wideo:
+يمكنك ضبط أوضاع معالجة مختلفة لكل "جزء فيديو" في الطلب نفسه:
 
 ### Python
 
@@ -724,15 +722,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-## Używanie pamięci podręcznej kontekstu w przypadku długich filmów
+## استخدام ميزة "التخزين المؤقت للسياق" للفيديوهات الطويلة
 
-W przypadku filmów dłuższych niż 10 minut lub gdy planujesz wysłać wiele żądań
-dotyczących tego samego pliku wideo, użyj [buforowania kontekstu](https://ai.google.dev/gemini-api/docs/caching?hl=pl) aby
-zmniejszyć koszty i skrócić czas oczekiwania. Pamięć podręczna kontekstu umożliwia jednokrotne przetworzenie filmu i ponowne użycie tokenów w kolejnych zapytaniach, co jest idealne w przypadku sesji czatu lub powtarzanej analizy długich treści.
+بالنسبة إلى الفيديوهات التي تزيد مدتها عن 10 دقائق أو عندما تخطّط لإجراء طلبات متعددة على ملف الفيديو نفسه، استخدِم [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar) لتقليل التكاليف وتحسين وقت الاستجابة. يتيح لك التخزين المؤقت للسياق معالجة الفيديو مرة واحدة وإعادة استخدام الرموز المميزة لطلبات البحث اللاحقة، ما يجعله مثاليًا لجلسات الدردشة أو التحليل المتكرر للمحتوى الطويل.
 
-## Odwoływanie się do sygnatur czasowych w treści
+## الرجوع إلى الطوابع الزمنية في المحتوى
 
-Możesz zadawać pytania dotyczące konkretnych momentów w filmie, używając sygnatur czasowych w formacie `MM:SS`.
+يمكنك طرح أسئلة حول نقاط زمنية محدّدة في الفيديو باستخدام طوابع زمنية بالتنسيق `MM:SS`.
 
 ### Python
 
@@ -794,12 +790,12 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-## Wyodrębnianie szczegółowych informacji z filmu
+## استخراج إحصاءات مفصّلة من الفيديو
 
-Modele Gemini oferują zaawansowane możliwości analizowania treści wideo dzięki przetwarzaniu informacji z **ścieżek audio i wizualnych**. Dzięki temu możesz wyodrębnić bogaty zestaw szczegółów, w tym generować opisy tego, co dzieje się w filmie, i odpowiadać na pytania dotyczące jego treści.
+توفّر نماذج Gemini إمكانات قوية لفهم محتوى الفيديو من خلال معالجة المعلومات من كل من **محتوى الصوت والمرئي**. يتيح لك ذلك استخراج مجموعة وافية من التفاصيل، بما في ذلك إنشاء أوصاف للأحداث التي تقع في فيديو والإجابة عن الأسئلة حول محتواه.
 
-W przypadku opisów wizualnych model próbkuje film z szybkością **1 klatki na sekundę** (FPS). Ta domyślna częstotliwość próbkowania sprawdza się w przypadku większości treści, ale pamiętaj, że może pomijać szczegóły w filmach z szybkim ruchem lub szybkimi zmianami scen.
-W przypadku takich treści o dużej dynamice rozważ [ustawienie niestandardowej liczby klatek na sekundę](#custom-frame-rate).
+بالنسبة إلى الأوصاف المرئية، يأخذ النموذج عيّنات من الفيديو بمعدّل **لقطة واحدة في الثانية**. يعمل معدّل أخذ العيّنات التلقائي هذا بشكل جيد مع معظم المحتوى، ولكن تجدر الإشارة إلى أنّه قد لا يرصد تفاصيل في الفيديوهات التي تتضمّن حركة سريعة أو تغييرات سريعة في المشاهد.
+بالنسبة إلى هذا المحتوى الذي يتضمّن حركة سريعة، ننصحك [بضبط عدد لقطات مخصّص في الثانية](#custom-frame-rate).
 
 ### Python
 
@@ -862,14 +858,14 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
     }' 2> /dev/null
 ```
 
-## Dostosowywanie przetwarzania wideo
+## تخصيص معالجة الفيديو
 
-Przetwarzanie wideo w Gemini API możesz dostosować, ustawiając interwały przycinania lub podając niestandardową liczbę klatek na sekundę. Te opcje dostosowywania
-są obsługiwane tylko podczas przetwarzania filmu w trybie `"static"`.
+يمكنك تخصيص معالجة الفيديو في Gemini API من خلال ضبط فترات الاقتصاص
+أو توفير عيّنات مخصّصة لعدد اللقطات في الثانية. لا تتوفّر خيارات التخصيص هذه إلا عند معالجة الفيديو في وضع "`"static"`".
 
-### Ustawianie interwałów przycinania
+### ضبط الفواصل الزمنية للقطع
 
-Możesz przycinać filmy, określając `videoMetadata` z przesunięciami początku i końca.
+يمكنك اقتصاص الفيديو من خلال تحديد `videoMetadata` مع وقتَي البدء والانتهاء.
 
 ### Python
 
@@ -936,9 +932,10 @@ console.log(response.text)
 await main();
 ```
 
-### Ustawianie niestandardowej liczby klatek na sekundę
+### ضبط عدد لقطات مخصّص في الثانية
 
-Możesz ustawić niestandardową liczbę klatek próbkowania, przekazując argument `fps` do `videoMetadata`.
+يمكنك ضبط عيّنات مخصّصة لعدد اللقطات في الثانية من خلال تمرير وسيطة `fps` إلى
+`videoMetadata`.
 
 ### Python
 
@@ -998,11 +995,11 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-Domyślnie z filmu próbkowana jest 1 klatka na sekundę. W przypadku długich filmów możesz ustawić niską liczbę klatek na sekundę (< 1). Jest to szczególnie przydatne w przypadku filmów statycznych (np. wykładów). Użyj wyższej liczby klatek na sekundę w przypadku filmów wymagających szczegółowej analizy czasowej, takich jak analiza szybkich akcji lub śledzenie ruchu z dużą prędkością.
+يتم تلقائيًا أخذ عيّنة من الفيديو بمعدل لقطة واحدة في الثانية. قد تحتاج إلى ضبط عدد اللقطات في الثانية (أقل من 1) للفيديوهات الطويلة. وهذا مفيد بشكل خاص للفيديوهات الثابتة في الغالب (مثل المحاضرات). استخدِم عدد لقطات أعلى في الثانية للفيديوهات التي تتطلّب تحليلاً زمنيًا دقيقًا، مثل فهم الحركة السريعة أو تتبُّع الحركة العالية السرعة.
 
-## Obsługiwane formaty wideo
+## تنسيقات الفيديو المتوافقة
 
-Gemini obsługuje te typy MIME formatów wideo:
+يتيح Gemini أنواع MIME التالية لتنسيقات الفيديو:
 
 - `video/mp4`
 - `video/mpeg`
@@ -1014,73 +1011,57 @@ Gemini obsługuje te typy MIME formatów wideo:
 - `video/wmv`
 - `video/3gpp`
 
-## Szczegóły techniczne dotyczące filmów
+## تفاصيل فنية حول الفيديوهات
 
-- **Obsługiwane modele i kontekst**: wszystkie modele Gemini mogą przetwarzać dane wideo.
-  - Modele z oknem kontekstu o rozmiarze 1 mln tokenów mogą domyślnie przetwarzać filmy o długości do 3 godzin (przy niskiej rozdzielczości mediów) lub do 1 godziny (przy wysokiej rozdzielczości mediów).
-- **Tryby przetwarzania**: modele Gemini 4 Argon, 3.8 Flash, 3.6 Flash, 3.5 Flash Lite,
-  i nowsze obsługują 2 tryby przetwarzania wideo:
-  - **Statyczny**: klatki są wyodrębniane z szybkością 1 FPS i umieszczane w kontekście (domyślne
-    dla wszystkich modeli). Dźwięk jest przetwarzany z szybkością 1 kb/s (jeden kanał).
-    Sygnatury czasowe są dodawane co sekundę. Najlepsze w przypadku krótkich klipów lub gdy liczy się każda klatka (np. podczas sprawdzania klatka po klatce). Pamiętaj, że sekwencje szybkich akcji mogą utracić szczegóły ze względu na szybkość próbkowania 1 kl./s.
-  - **Rozwiązania agentowe**: model dynamicznie porusza się po filmie, wczytując
-    transkrypcję, klatki lub dźwięk na żądanie. W przypadku długich treści zużywa to do 88% mniej tokenów, ale poruszanie się po osi czasu może zwiększyć czas do pierwszego tokena (TTFT) i całkowite zużycie tokenów w przypadku krótkich klipów (poniżej 5 minut) lub ogólnych zapytań ze względu na wewnętrzne rozumowanie i wywołania narzędzi.
-    Odpowiedzi zawierają części wywołań i odpowiedzi narzędzi `MEDIA_PROCESSING`, aby zachować kontekst rozumowania w kolejnych turach. Najlepsze w przypadku długich filmów i zapytań ukierunkowanych na optymalizację kosztów tokenów i jakości odpowiedzi. Obsługiwane w Gemini 4 Argon, 3.8 Flash, 3.6 Flash i 3.5 Flash Lite. Więcej informacji znajdziesz w sekcji
-    [Analizowanie filmów przez agenta](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=pl#agentic-video-understanding).
-- **Obliczanie tokenów (tryb statyczny)**: każda sekunda filmu jest tokenizowana w ten sposób:
-  w następujący sposób:
-  - Pojedyncze klatki (próbkowane z szybkością 1 kl./s):
-    - Jeśli `media_resolution` jest ustawiona na niską, klatki są tokenizowane z szybkością 66 tokenów na klatkę.
-    - W przeciwnym razie klatki są tokenizowane z szybkością 258 tokenów na klatkę.
-  - Dźwięk: 32 tokeny na sekundę.
-  - Metadane są też uwzględniane.
-  - Łącznie: około 100 tokenów na sekundę filmu przy domyślnej (niskiej) rozdzielczości mediów lub około 300 tokenów na sekundę filmu przy wysokiej rozdzielczości mediów.
-- **Obliczanie tokenów (tryb agentowy)**: zużycie tokenów zależy od złożoności treści
-  i strategii nawigacji modelu. Tokeny rozumowania nawigacji
-  generowane podczas eksploracji filmu są traktowane jako **tokeny myślenia**
-  (`thoughts_token_count`), a klatki, dźwięk i transkrypcja wczytywane na
-  żądanie są traktowane jako tokeny promptów narzędzi (`tool_use_prompt_token_count`).
-  Przetwarzanie przez agenta zwykle zużywa do 88% mniej tokenów niż przetwarzanie
-  statyczne w przypadku długich treści, ponieważ model wczytuje tylko transkrypcję,
-  klatki lub dźwięk, których potrzebuje do odpowiedzi na prompta (patrz
-  [przewodnik po tokenach](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=pl#video-token-usage)).
-- **Rozdzielczość mediów**: Gemini 3 wprowadza szczegółową kontrolę nad przetwarzaniem multimodalnym
-  za pomocą parametru `media_resolution`. Parametr `media_resolution` określa **maksymalną liczbę tokenów przydzielonych na obraz wejściowy lub klatkę wideo**. Wyższe rozdzielczości zwiększają zdolność modelu do odczytywania drobnego tekstu lub identyfikowania małych szczegółów, ale zwiększają zużycie tokenów i opóźnienia. Parametry `media_resolution` i `media_processing` są niezależne: możesz ustawić oba w tej samej części wideo.
+- **النماذج والسياق المتوافقان**: يمكن لجميع نماذج Gemini معالجة بيانات الفيديو.
+  - يمكن للنماذج التي تتضمّن قدرة استيعاب مليون رمز مميّز معالجة فيديوهات تصل مدتها إلى 3 ساعات تلقائيًا (بدرجة دقة منخفضة للوسائط)، أو فيديوهات تصل مدتها إلى ساعة واحدة بدرجة دقة عالية للوسائط.
+- **طرق المعالجة**: تتوافق نماذج Gemini 4 Argon و3.8 Flash و3.6 Flash و3.5 Flash Lite والنماذج الأحدث مع طريقتَين لمعالجة الفيديوهات:
+  - **ثابتة**: يتم استخراج اللقطات بمعدّل لقطة واحدة في الثانية ووضعها في السياق (الإعداد التلقائي لجميع النماذج). تتم معالجة الصوت بمعدل 1 كيلوبت في الثانية (قناة واحدة).
+    تتم إضافة الطوابع الزمنية كل ثانية. هذا الخيار هو الأفضل للمقاطع القصيرة أو عندما يكون كل إطار مهمًا (مثل الفحص إطارًا تلو الآخر). يُرجى العِلم أنّ تسلسلات الحركة السريعة
+    قد تفقد التفاصيل بسبب معدّل اللقطات في الثانية الذي يبلغ لقطة واحدة.
+  - **التفاعلية**: يتنقّل النموذج ديناميكيًا في الفيديو، ويحمّل النص و/أو الإطارات و/أو الصوت عند الطلب. يستخدم هذا النموذج رموزًا مميّزة أقل بنسبة تصل إلى %88 للمحتوى الطويل، ولكن قد يؤدي التنقّل إلى زيادة الوقت المستغرَق للحصول على الرمز المميّز الأول وإجمالي استخدام الرموز المميّزة في المقاطع القصيرة (أقل من 5 دقائق) أو طلبات البحث الواسعة النطاق بسبب عمليات الاستدلال الداخلية والرحلات المتكررة إلى الأدوات.
+    تتضمّن الردود `MEDIA_PROCESSING` أجزاء من طلبات الأدوات والردود عليها من أجل
+    الحفاظ على سياق الاستدلال في جميع الجولات. هذا النموذج هو الأفضل للفيديوهات الطويلة والطلبات المستهدفة،
+    لأنّه يقلّل من تكاليف الرموز المميّزة ويحسّن جودة الردود. متوافق مع Gemini 4 Argon و3.8 Flash و3.6 Flash و3.5 Flash Lite لمزيد من التفاصيل، يُرجى الاطّلاع على [فهم الفيديو المستند إلى الوكلاء](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=ar#agentic-video-understanding).
+- **احتساب الرموز المميّزة (الوضع الثابت)**: يتم تقسيم كل ثانية من الفيديو إلى رموز مميّزة على النحو التالي:
+  - اللقطات الفردية (يتم أخذ عينات بمعدل لقطة واحدة في الثانية):
+    - إذا تم ضبط `media_resolution` على قيمة منخفضة، يتم تقسيم الإطارات إلى رموز مميزة بمعدل 66 رمزًا مميزًا لكل إطار.
+    - بخلاف ذلك، يتم تقسيم اللقطات إلى رموز مميزة بمعدل 258 رمزًا مميزًا لكل لقطة.
+  - الصوت: 32 رمزًا مميزًا في الثانية
+  - يتم تضمين البيانات الوصفية أيضًا.
+  - الإجمالي: حوالي 100 رمز مميز لكل ثانية من الفيديو بدقة الوسائط التلقائية (المنخفضة)، أو حوالي 300 رمز مميز لكل ثانية من الفيديو بدقة الوسائط العالية
+- **احتساب الرموز المميزة (الوضع التلقائي)**: يختلف استخدام الرموز المميزة حسب مدى تعقيد المحتوى واستراتيجية التنقّل في النموذج. يتم احتساب الرموز المميزة الخاصة بالاستدلال على التنقّل التي يتم إنشاؤها أثناء استكشاف الفيديو ضمن **رموز مميّزة للتفكير** (`thoughts_token_count`)، بينما يتم احتساب الإطارات والصوت والنصوص التي يتم تحميلها عند الطلب ضمن رموز طلب الأداة (`tool_use_prompt_token_count`).
+  تستخدم المعالجة المستندة إلى الوكيل عادةً عددًا أقل من الرموز المميزة الإجمالية بنسبة تصل إلى% 88 مقارنةً بالمعالجة الثابتة للمحتوى الطويل، لأنّ النموذج لا يحمّل سوى النص و/أو الإطارات و/أو الصوت الذي يحتاج إليه للإجابة عن الطلب (راجِع [دليل الرموز المميزة](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=ar#video-token-usage)).
+- **دقة الوسائط**: يتيح Gemini 3 التحكّم بدقة في معالجة الصور المتعددة الوسائط باستخدام المَعلمة `media_resolution`. تحدّد المَعلمة
+  `media_resolution` **الحدّ الأقصى لعدد الرموز المميزة
+  المخصّصة لكل صورة إدخال أو إطار فيديو.** تؤدي الدقة الأعلى إلى تحسين قدرة النموذج على قراءة النصوص الدقيقة أو تحديد التفاصيل الصغيرة، ولكنها تزيد من استخدام الرموز المميزة ووقت الاستجابة. المَعلمتان `media_resolution` و`media_processing` مستقلّتان، ويمكنك ضبطهما معًا في جزء الفيديو نفسه.
 
-Więcej informacji o obliczaniu tokenów znajdziesz w
-[przewodniku po tokenach](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=pl).
+لمزيد من التفاصيل حول عمليات احتساب الرموز المميّزة، يُرجى الاطّلاع على دليل [الرموز المميّزة](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=ar).
 
-- **Format sygnatury czasowej**: gdy w prompcie odwołujesz się do konkretnych momentów w filmie, użyj formatu `MM:SS` (np. `01:15` dla 1 minuty i 15 sekund).
-- **Umieszczanie prompta**: jeśli łączysz tekst i pojedynczy film, umieść prompta tekstowego
-  *po* części wideo w tablicy `contents`.
-- **Limity czasu w przypadku długich żądań**: w przypadku filmów, które wymagają dłuższego
-  czasu przetwarzania lub złożonego rozumowania wieloetapowego, użyj przesyłania strumieniowego
-  (`client.models.generate_content_stream`). Synchroniczne żądania bez przesyłania strumieniowego,
-  które w przypadku dużego zapotrzebowania powodują ponawianie prób przez backend, mogą przekroczyć
-  okna ważności połączenia lub tokena uwierzytelniania, co może powodować
-  nieoczekiwane `401 Unauthorized` lub przekroczenia limitu czasu. Przesyłanie strumieniowe utrzymuje aktywne połączenie i wyświetla pośrednie kroki rozumowania oraz postęp wywołań narzędzi.
+- **تنسيق الطابع الزمني**: عند الإشارة إلى لحظات معيّنة في فيديو ضمن
+  طلبك، استخدِم التنسيق `MM:SS` (مثلاً، `01:15` للدلالة على دقيقة واحدة و15
+  ثانية).
+- **موضع الطلب**: في حال الجمع بين نص وفيديو واحد، ضَع الطلب النصي
+  *بعد* جزء الفيديو في مصفوفة `contents`.
+- **انتهاء المهلة للطلبات الطويلة**: بالنسبة إلى الفيديوهات التي تتطلّب وقت معالجة أطول أو تتضمّن الاستدلال المتعدّد الخطوات المعقّد، استخدِم البث (`client.models.generate_content_stream`). يمكن أن تتجاوز الطلبات المتزامنة غير المخصّصة للبث والتي تتم إعادة محاولتها في الخلفية في ظل الطلب المرتفع مدة صلاحية الاتصال أو رمز المصادقة المميز، ما قد يؤدي إلى ظهور أخطاء `401 Unauthorized` أو أخطاء انتهاء المهلة غير متوقّعة. يُبقي البث الاتصال نشطًا ويعرض الاستدلال الوسيط وتقدّم استدعاء الأداة.
 
-## Co dalej?
+## الخطوات التالية
 
-- [Rozdzielczość mediów](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=pl): kontroluj
-  rozdzielczość klatek wideo, aby zrównoważyć jakość i zużycie tokenów.
-- [Tokeny](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=pl): dowiedz się, jak treści wideo są tokenizowane
-  w trybie statycznym i agentowym.
-- [Instrukcje systemowe](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=pl#system-instructions):
-  Instrukcje systemowe pozwalają sterować działaniem modelu na podstawie
-  konkretnych potrzeb i przypadków użycia.
-- [Interfejs API plików](https://ai.google.dev/gemini-api/docs/files?hl=pl): dowiedz się więcej o przesyłaniu plików i zarządzaniu nimi na potrzeby Gemini.
-- [Strategie tworzenia promptów plików](https://ai.google.dev/gemini-api/docs/files?hl=pl#prompt-guide): Gemini API obsługuje tworzenie promptów za pomocą danych tekstowych, graficznych, dźwiękowych i wideo, czyli tworzenie promptów multimodalnych.
-- [Wskazówki dotyczące bezpieczeństwa](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=pl): modele generatywnej AI
-  czasami generują nieoczekiwane wyniki, np. niedokładne,
-  stronnicze lub obraźliwe. Przetwarzanie końcowe i ocena przez człowieka są niezbędne, aby ograniczyć ryzyko szkód wynikających z takich danych wyjściowych.
+- [دقة الوسائط](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=ar): يمكنك التحكّم في دقة إطارات الفيديو لتحقيق التوازن بين الجودة واستخدام الرموز المميّزة.
+- [الرموز المميّزة](https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=ar): تعرَّف على كيفية تقسيم محتوى الفيديو إلى رموز مميّزة
+  في وضعَي المعالجة الثابتة والمعالجة المستندة إلى الوكلاء.
+- [تعليمات النظام](https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=ar#system-instructions):
+  تتيح لك تعليمات النظام توجيه سلوك النموذج استنادًا إلى احتياجاتك وحالات الاستخدام المحدّدة.
+- [‫Files API](https://ai.google.dev/gemini-api/docs/files?hl=ar): مزيد من المعلومات حول تحميل الملفات وإدارتها لاستخدامها مع Gemini
+- [استراتيجيات الطلبات المستندة إلى الملفات](https://ai.google.dev/gemini-api/docs/files?hl=ar#prompt-guide): تتيح واجهة Gemini API إمكانية إنشاء الطلبات باستخدام بيانات النصوص والصور والصوت والفيديو، وهو ما يُعرف أيضًا باسم إنشاء الطلبات المتعددة الوسائط.
+- [إرشادات الأمان](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=ar): في بعض الأحيان، تقدّم نماذج الذكاء الاصطناعي التوليدي نتائج غير متوقعة، مثل النتائج غير الدقيقة أو المتحيزة أو المسيئة. تُعدّ المعالجة اللاحقة والتقييم البشري أساسيَّين للحدّ من خطر الأضرار الناجمة عن هذه النتائج.
 
-Prześlij opinię
+إرسال ملاحظات
 
-O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Ostatnia aktualizacja: 2026-10-13 UTC.
+تاريخ التعديل الأخير: 2026-10-13 (حسب التوقيت العالمي المتفَّق عليه)
 
-Chcesz przekazać coś jeszcze?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-13 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-13 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

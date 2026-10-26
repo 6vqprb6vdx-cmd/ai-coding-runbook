@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=zh-CN
-fetched_at: 2026-10-19T05:35:46.812107+00:00
-title: "\u89c6\u9891\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja
+fetched_at: 2026-10-26T05:52:17.684043+00:00
+title: "\u52d5\u753b\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-发送反馈
+フィードバックを送信
 
-# 视频理解
+# 動画理解
 
-Gemini Robotics ER 2 可以使用以下两种功能跟踪连续视频馈送中的任务进度：
+Gemini Robotics-ER 2 は、次の 2 つの機能を使用して、継続的な動画フィードからタスクの進行状況を追跡できます。
 
-- 时刻查找：识别关键事件发生的精确时间戳。
-- 进度分类：将每个视频分配到五个完成度范围之一（0-20%、20-40%、40-60%、60-80%、80-100%）。
+- モーメント検出: キーイベントが発生した正確なタイムスタンプを特定します。
+- 進行状況の分類: 各動画を 5 つの完了率の範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てます。
 
-## 时刻查找
+## モーメントの検出
 
-时刻查找功能可以识别关键事件发生的精确视频帧，例如杯子装满或结被系好时。机器人使用此功能来验证成功、按顺序执行步骤和触发更正。
+モーメント検出は、重大なイベントが発生した正確な動画フレーム（カップが満杯になったときや、結び目が結ばれたときなど）を特定します。ロボットはこれを使用して、成功の確認、ステップの順序付け、修正のトリガーを行います。
 
-以下示例提示要求模型识别视频中给定任务的完成时刻：
+次のプロンプトの例では、動画内の特定のタスクの完了時点を識別するようモデルに指示しています。
 
 ```
 from google import genai
@@ -57,16 +57,15 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-以下示例展示了时刻查找视频中的示例帧，模型识别了任务完成时间戳：
+次の図は、モデルがタスク完了のタイムスタンプを特定している、モーメント検出動画のフレームの例を示しています。
 
-![示例视频帧，显示了带有时间戳叠加层的精彩瞬间查找输出](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=zh-cn)
+![タイムスタンプ オーバーレイ付きのモーメント検出出力が表示された動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=ja)
 
-## 进度分类
+## 進行状況の分類
 
-进度分类功能会将视频分配到五个完成度范围之一：0-20%、20-40%、40-60%、60-80% 或
-80-100%。这使机器人能够实时了解情况，以便调整操作或重试失败的步骤，而无需重启整个工作流。
+進行状況の分類では、動画が 5 つの完了範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てられます。これにより、ロボットはリアルタイムで状況を認識し、ワークフロー全体を再起動することなく、アクションを調整したり、失敗したステップを再試行したりできます。
 
-以下示例提示要求模型对视频中的当前进度级别进行分类：
+次のプロンプトの例では、動画の現在の進行状況レベルを分類するようにモデルに求めています。
 
 ```
 from google import genai
@@ -96,27 +95,26 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-以下示例展示了进度分类视频中的示例帧，模型分配了进度范围：
+次の図は、進行状況分類動画のフレームの例を示しています。モデルは進行状況の範囲を割り当てています。
 
-![示例视频帧，显示了带有进度括号标签的进度分类输出](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=zh-cn)
+![進行状況の分類出力と進行状況の範囲ラベルを示す動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=ja)
 
-## 示例
+## 例
 
-如需查看包含多步任务跟踪的完整可运行示例，请参阅
-[机器人技术 Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)。
+マルチステップ タスク トラッキングを含む実行可能な例については、[ロボティクス クックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## 后续步骤
+## 次のステップ
 
-- [机器人技术 Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=zh-cn) - 实时双向流式传输。
-- [任务编排](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=zh-cn) - 具有空间推理的长时程任务。
-- [Gemini Robotics ER 概览](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=zh-cn) - 模型比较和功能。
+- [ロボット工学用の Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイムの双方向ストリーミング。
+- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - 空間推論を伴う長期的なタスク。
+- [Gemini Robotics ER の概要](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ja) - モデルの比較と機能。
 
-发送反馈
+フィードバックを送信
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-最后更新时间 (UTC)：2026-09-08。
+最終更新日 2026-09-08 UTC。
 
-需要向我们提供更多信息？
+ご意見をお聞かせください
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-08。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]

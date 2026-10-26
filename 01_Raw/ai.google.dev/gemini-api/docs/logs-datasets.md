@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=hi
-fetched_at: 2026-10-19T05:39:28.205586+00:00
-title: "\u0932\u0949\u0917 \u0914\u0930 \u0921\u0947\u091f\u093e\u0938\u0947\u091f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=zh-CN
+fetched_at: 2026-10-26T05:37:04.260567+00:00
+title: "\u65e5\u5fd7\u548c\u6570\u636e\u96c6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-सुझाव भेजें
+发送反馈
 
-# लॉग और डेटासेट
+# 日志和数据集
 
-इस गाइड में, आपको यह जानकारी मिलेगी कि Google AI Studio के डैशबोर्ड में, Gemini API के इस्तेमाल से जुड़े लॉग कैसे देखे जा सकते हैं. इससे आपको मॉडल के व्यवहार और उपयोगकर्ताओं के आपके ऐप्लिकेशन से इंटरैक्ट करने के तरीके को बेहतर ढंग से समझने में मदद मिलेगी. लॉगिंग का इस्तेमाल करके, Gemini के इस्तेमाल से जुड़ी समस्याओं को ठीक करें और *Google के साथ इस्तेमाल से जुड़ा सुझाव/राय दें या शिकायत करें. इससे डेवलपर के इस्तेमाल के उदाहरणों के हिसाब से, Gemini को बेहतर बनाने में मदद मिलेगी*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=hi)
+在本指南中，您将了解如何在 Google AI Studio 信息中心内查看 Gemini API 使用情况的日志，以便更好地了解模型行为以及用户与您的应用互动的方式。使用日志记录来观察、调试，并*选择性地与 Google 分享使用情况反馈，以帮助改进 Gemini 在开发者使用情形下的表现*。[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=zh-cn)
 
-सभी `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` एपीआई कॉल और [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=hi) API कॉल काम करते हैं. हालांकि, एजेंट बनाने और मैनेज करने की सुविधा के लिए ये काम नहीं करते. इसमें [OpenAI के साथ काम करने वाले](https://ai.google.dev/gemini-api/docs/openai?hl=hi) एंडपॉइंट से किए गए कॉल शामिल हैं.
+支持所有 `GenerateContent`、`BatchGenerateContent`、`StreamGenerateContent` API 调用，以及除托管式智能体之外的 [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn) API 调用。这包括通过 [OpenAI 兼容性](https://ai.google.dev/gemini-api/docs/openai?hl=zh-cn)端点进行的调用。
 
-## प्रोजेक्ट के लिए लॉगिंग की सुविधा कॉन्फ़िगर करना
+## 配置项目日志记录
 
-डिफ़ॉल्ट रूप से, एपीआई सभी इंटरैक्शन ऑब्जेक्ट (`store=true`) को सेव करता है, ताकि सर्वर-साइड स्टेट मैनेजमेंट की सुविधाओं का इस्तेमाल करना आसान हो. इसके उलट, Generate Content API डिफ़ॉल्ट रूप से अनुरोधों को सेव नहीं करता है. इसके लिए, हर अनुरोध के हिसाब से या प्रोजेक्ट-लेवल पर, AI Studio से स्टोरेज की सुविधा चालू करनी होती है.
+默认情况下，该 API 会存储所有互动对象 (`store=true`)，以简化服务器端状态管理功能的使用。相比之下，Generate Content API 默认不存储请求，需要从 AI Studio 中按请求或在项目级启用存储。
 
-Google [AI Studio](https://aistudio.google.com/logs?hl=hi) में, सभी प्रोजेक्ट या कुछ प्रोजेक्ट के लिए लॉगिंग की सुविधा चालू या बंद की जा सकती है. साथ ही, [लॉग और डेटासेट](https://aistudio.google.com/logs?hl=hi) पेज पर मौजूद **सेटिंग** पैनल में जाकर, इन प्राथमिकताओं को कभी भी बदला जा सकता है. किसी प्रोजेक्ट के लिए, स्टोरेज के डिफ़ॉल्ट तरीके को बदलने के लिए, `generateContent` API और [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=hi) API के लिए लॉगिंग को अलग-अलग चालू या बंद किया जा सकता है.
+在 Google [AI Studio](https://aistudio.google.com/logs?hl=zh-cn) 中，您可以为所有项目或特定项目启用或停用日志记录，并随时通过[日志和数据集](https://aistudio.google.com/logs?hl=zh-cn)页面中的**设置**面板更改这些偏好设置。您可以单独为 `generateContent` API 和[互动](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn) API 开启或关闭日志记录，以更改项目的默认存储行为。
 
-### अनुरोध के लेवल पर लॉगिंग
+### 请求级日志记录
 
-स्टोरेज और लॉगिंग का तरीका, एपीआई के हिसाब से अलग-अलग होता है:
+存储和日志记录行为因 API 而异：
 
-- **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=hi):** यह कुकी, अनुरोधों को डिफ़ॉल्ट रूप से (`store=true`) सेव करती है, ताकि सर्वर-साइड स्टेट मैनेजमेंट को आसान बनाया जा सके.
-- **Content API (`generateContent`) जनरेट करता है:** यह डिफ़ॉल्ट रूप से अनुरोधों को सेव नहीं करता (`store=false`).
+- **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn)**：默认存储请求 (`store=true`)，以简化服务器端状态管理。
+- **Generate Content API (`generateContent`)**：默认情况下不存储请求 (`store=false`)。
 
-`store` प्रॉपर्टी को इस तरह सेट किया जा सकता है:
+以下是设置 `store` 属性的方法：
 
 **GenerateContent API**
 
@@ -92,7 +92,7 @@ GenerateContentResponse response =
 System.out.println(response.text());
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -185,7 +185,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -223,60 +223,59 @@ func main() {
 }
 ```
 
-## AI Studio में प्रोजेक्ट लॉग देखना
+## 在 AI Studio 中查看项目日志
 
-1. [AI Studio](https://aistudio.google.com/logs?hl=hi) में लॉग पेज पर जाएं.
-2. ड्रॉप-डाउन से कोई प्रोजेक्ट चुनें.
-3. अगर Interactions API के लिए लॉग मौजूद हैं, तो वे टेबल में उल्टे कालानुक्रम में दिखेंगे.
-4. Generate Content API के लिए प्रोजेक्ट लॉग देखने के लिए, पहले इसे [सेटिंग पैनल](#configure-logging) में चालू करें.
+1. 前往 [AI Studio](https://aistudio.google.com/logs?hl=zh-cn) 中的“日志”页面。
+2. 从下拉菜单中选择一个项目。
+3. 如果存在日志，则日志将以反向时间顺序显示在 Interactions API 的表格中。
+4. 如需查看 Generate Content API 的项目日志，请先在[设置面板](#configure-logging)中启用此功能。
 
-पेलोड की झलक देखने के लिए, किसी एंट्री पर क्लिक करें. Gemini से मिले जवाब और पूरे प्रॉम्प्ट के साथ-साथ, पिछली बातचीत का कॉन्टेक्स्ट देखा जा सकता है. **Interactions API** के अनुरोधों के लिए, लॉग में `previous_interaction_id` का डायरेक्ट लिंक भी शामिल होता है.
+点击条目即可预览相应载荷。您可以检查 Gemini 的完整提示和回答，以及之前对话轮次中的上下文。对于 **Interactions API** 请求，日志还包含指向 `previous_interaction_id` 的直接链接。
 
-## प्रोजेक्ट के स्टोरेज के रखरखाव की अवधि कॉन्फ़िगर करना
+## 配置项目存储空间保留设置
 
-लॉग, डिफ़ॉल्ट रूप से 55 दिनों तक सेव रहते हैं. इसके बाद, उन्हें मिटाने के लिए मार्क कर दिया जाता है. हालांकि, अगर उन्हें [डेटासेट में सेव किया जाता है](#create), तो वे कभी नहीं मिटते.
-किसी प्रोजेक्ट के लॉग के रखरखाव की अवधि को ज़्यादा से ज़्यादा 7, 14, 28 या 55 दिनों के लिए कॉन्फ़िगर किया जा सकता है.
+日志将在默认保留期限（55 天）过后过期并被标记为待删除（除非[保存到数据集](#create)，否则不会过期）。您可以将项目的日志保留期限配置为最长 7 天、14 天、28 天或 55 天。
 
-## डेटासेट बनाना और उन्हें शेयर करना
+## 创建和共享数据集
 
-लॉग को डेटासेट में सेव किया जा सकता है, ताकि उन्हें ज़्यादा बेहतर तरीके से व्यवस्थित और एक्सपोर्ट किया जा सके.
+您可以将日志保存到数据集中，以便更有效地整理和导出日志。
 
-- [लॉग पेज](https://aistudio.google.com/logs?hl=hi) पर सबसे ऊपर मौजूद फ़िल्टर बार ढूंढें. इसके बाद, फ़िल्टर करने के लिए कोई प्रॉपर्टी चुनें.
-- फ़िल्टर किए गए व्यू में, सभी या अलग-अलग लॉग चुनने के लिए चेकबॉक्स का इस्तेमाल करें.
-- सूची में सबसे ऊपर मौजूद, **डेटासेट बनाएं** बटन पर क्लिक करें.
-- अपने नए डेटासेट को नाम दें और उससे जुड़ी जानकारी दें. हालांकि, जानकारी देना ज़रूरी नहीं है.
-- आपको अभी-अभी बनाया गया डेटासेट दिखेगा. इसमें लॉग का चुना गया सेट होगा.
-- अपने डेटासेट को CSV, JSONL फ़ाइलों या Google Sheets के तौर पर एक्सपोर्ट करें, ताकि उसका बेहतर तरीके से विश्लेषण किया जा सके.
+- 在[日志页面](https://aistudio.google.com/logs?hl=zh-cn)中，找到顶部的过滤条件栏，选择要作为过滤条件的属性。
+- 在过滤后的视图中，使用复选框选择所有日志或个别日志。
+- 点击列表顶部显示的**创建数据集**按钮。
+- 为新数据集命名并添加说明（可选）。
+- 您将看到刚刚创建的包含精选日志的数据集。
+- 将数据集导出为 CSV、JSONL 文件或导出到 Google 表格，以便进一步分析。
 
-डेटासेट, कई तरह के कामों के लिए मददगार हो सकते हैं.
+数据集可用于多种不同的应用场景。
 
-- **चुनौती सेट तैयार करना:** उन क्षेत्रों को टारगेट करके, आने वाले समय में एआई को बेहतर बनाएं जिनमें आपको एआई को बेहतर बनाना है.
-- **सैंपल सेट तैयार करना:** उदाहरण के लिए, किसी अन्य मॉडल से जवाब जनरेट करने के लिए, असली इस्तेमाल का सैंपल या डिप्लॉयमेंट से पहले रूटीन जांच के लिए, कुछ मुश्किल मामलों का कलेक्शन.
-- **इवैलुएशन सेट:** ये ऐसे सेट होते हैं जो अहम सुविधाओं के लिए, असल इस्तेमाल को दिखाते हैं. इनका इस्तेमाल, अन्य मॉडल या सिस्टम के निर्देश के वर्शन की तुलना करने के लिए किया जाता है.
+- **精心挑选挑战集**：推动未来的改进，重点关注您希望 AI 改进的方面。
+- **精心挑选样本集**：例如，从实际使用情况中抽样，以生成来自其他模型的回答；或者收集一系列极端情况，以便在部署前进行常规检查。
+- **评估集**：可代表重要功能实际使用情况的集合，用于在其他模型或系统指令迭代之间进行比较。
 
-Google के साथ अपने डेटासेट शेयर करके, Gemini की रिसर्च और डेवलपमेंट में योगदान दिया जा सकता है.
+您可以选择与 Google 共享数据集作为演示示例，从而为 Gemini 的研究和开发做出贡献。
 
-## सीमाएं
+## 限制
 
-फ़िलहाल, इनके लिए लॉगिंग की सुविधा उपलब्ध नहीं है:
+目前不支持以下内容的日志记录：
 
-- Imagen और Veo मॉडल
-- Gemini के एम्बेडिंग मॉडल
-- Gemini Robotics मॉडल
-- वीडियो, GIF या PDF फ़ाइलों वाले इनपुट
-- Gemini API में एजेंट की पब्लिक प्रीव्यू सुविधा
+- Imagen 和 Veo 模型
+- Gemini 嵌入模型
+- Gemini Robotics 模型
+- 包含视频、GIF 或 PDF 的输入内容
+- Gemini API 中的公开预览版智能体
 
-## आगे क्या करना है
+## 后续步骤
 
-- **सेशन के इतिहास के साथ प्रोटोटाइप बनाएं:** [AI Studio Build](https://aistudio.google.com/apps?hl=hi) का इस्तेमाल करके, कोड ऐप्लिकेशन बनाएं. साथ ही, एआई सुविधाओं के लिए Gemini API लॉग का इतिहास चालू करने के लिए, अपना एपीआई पासकोड जोड़ें.
-- **Gemini Batch API की मदद से लॉग फिर से चलाएं:** जवाब के सैंपल के लिए डेटासेट का इस्तेमाल करें. साथ ही, [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb) की मदद से लॉग फिर से चलाकर, मॉडल या ऐप्लिकेशन लॉजिक का आकलन करें.
+- **使用会话历史记录进行原型设计**：使用 [AI Studio Build](https://aistudio.google.com/apps?hl=zh-cn) 进行氛围编程，并添加 API 密钥以启用 AI 功能的 Gemini API 日志历史记录。
+- **使用 Gemini Batch API 重新运行日志**：通过使用 [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb) 重新运行日志，使用数据集对模型或应用逻辑的响应进行抽样和评估。
 
-सुझाव भेजें
+发送反馈
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
+最后更新时间 (UTC)：2026-09-24。
 
-क्या आपको हमें और कुछ बताना है?
+需要向我们提供更多信息？
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-24。"],[],[]]

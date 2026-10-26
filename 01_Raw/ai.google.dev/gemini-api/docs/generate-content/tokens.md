@@ -1,71 +1,70 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=it
-fetched_at: 2026-10-19T05:35:01.523322+00:00
-title: "Comprendi e conteggia i token \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tokens?hl=de
+fetched_at: 2026-10-26T05:37:14.441686+00:00
+title: "Tokens verstehen und z\u00e4hlen \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
 
-Invia feedback
+Feedback geben
 
-# Comprendi e conteggia i token
+# Tokens verstehen und zählen
 
-Gemini e altri modelli di AI generativa elaborano input e output con una granularità chiamata *token*.
+Gemini und andere generative KI-Modelle verarbeiten Eingaben und Ausgaben mit einer Granularität, die als *Token* bezeichnet wird.
 
-**Per i modelli Gemini, un token equivale a circa 4 caratteri.
-100 token equivalgono a circa 60-80 parole in inglese.**
+**Bei Gemini-Modellen entspricht ein Token etwa 4 Zeichen.
+100 Tokens entsprechen etwa 60–80 englischen Wörtern.**
 
-## Informazioni sui token
+## Tokens
 
-I token possono essere singoli caratteri come `z` o intere parole come `cat`. Le parole lunghe vengono suddivise in più token. L'insieme di tutti i token utilizzati dal modello è chiamato vocabolario e il processo di suddivisione del testo in token è chiamato *tokenizzazione*.
+Tokens können einzelne Zeichen wie `z` oder ganze Wörter wie `cat` sein. Lange Wörter werden in mehrere Tokens aufgeteilt. Die Menge aller vom Modell verwendeten Tokens wird als Vokabular bezeichnet und der Vorgang, Text in Tokens aufzuteilen, als *Tokenisierung*.
 
-Quando la fatturazione è abilitata, il [costo di una chiamata all'API Gemini](https://ai.google.dev/pricing?hl=it) è
-determinato in parte dal numero di token di input e output, quindi sapere come
-contare i token può essere utile.
+Wenn die Abrechnung aktiviert ist, werden die [Kosten eines Aufrufs der Gemini API](https://ai.google.dev/pricing?hl=de) teilweise durch die Anzahl der Eingabe- und Ausgabetokens bestimmt. Daher kann es hilfreich sein, zu wissen, wie Tokens gezählt werden.
 
-Puoi provare a contare i token nel nostro Colab.
+Sie können das Zählen von Tokens in unserem Colab ausprobieren.
 
 |  |  |  |
 | --- | --- | --- |
-| [Visualizza su ai.google.dev](https://ai.google.dev/gemini-api/docs/tokens?hl=it) | [Prova un notebook di Colab](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=it) | [Visualizza il notebook su GitHub](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=it) |
+| [Auf ai.google.dev ansehen](https://ai.google.dev/gemini-api/docs/tokens?hl=de) | [Colab-Notebook ausprobieren](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=de) | [Notebook auf GitHub ansehen](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Counting_Tokens.ipynb?hl=de) |
 
-## Contare i token
+## Tokens zählen
 
-Tutti gli input e gli output dell'API Gemini vengono tokenizzati, inclusi testo, file immagine e altre modalità non testuali.
+Alle Eingaben und Ausgaben der Gemini API werden tokenisiert, einschließlich Text, Bilddateien und anderer nicht textbasierter Modalitäten.
 
-Puoi contare i token nei seguenti modi:
+Sie können Tokens auf folgende Weise zählen:
 
-- **Chiama [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=it) con l'input
-  della richiesta.**  
-   Viene restituito il numero totale di token *solo nell'input*. Puoi effettuare questa chiamata prima di inviare l'input al modello per verificare le dimensioni delle richieste.
-- **Utilizza l'attributo `usage_metadata` dell'oggetto `response` dopo
-  aver chiamato `generate_content`.**  
-   Viene restituito il numero totale di
-  token *sia nell'input che nell'output*: `total_token_count`.  
-   Vengono restituiti anche i conteggi dei token di input e output separatamente: `prompt_token_count` (token di input) e `candidates_token_count` (token di output).
+- **Rufen Sie [`count_tokens`](https://ai.google.dev/api/rest/v1/models/countTokens?hl=de) mit der Eingabe
+  der Anfrage auf.**  
+   Dadurch wird die Gesamtzahl der Tokens in *der Eingabe* zurückgegeben. Sie können diesen Aufruf vor dem Senden der Eingabe an das Modell ausführen, um die Größe Ihrer Anfragen zu prüfen.
+- **Verwenden Sie das Attribut `usage_metadata` für das Objekt `response`, nachdem Sie `generate_content` aufgerufen haben.**  
+   Dadurch wird die Gesamtzahl der
+  Tokens in *sowohl der Eingabe als auch der Ausgabe* zurückgegeben: `total_token_count`.  
+   Außerdem werden die Tokenanzahlen der Eingabe und Ausgabe separat zurückgegeben: `prompt_token_count` (Eingabetokens) und `candidates_token_count` (Ausgabetokens).
 
-  Se utilizzi un [modello di ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it), i token utilizzati durante il processo di ragionamento vengono restituiti in `thoughts_token_count`. Se utilizzi
-  [la memorizzazione nella cache del contesto](https://ai.google.dev/gemini-api/docs/caching?hl=it), il conteggio dei token memorizzati nella cache
-  sarà in `cached_content_token_count`.
+  Wenn Sie ein [Thinking
+  Modell](https://ai.google.dev/gemini-api/docs/thinking?hl=de) verwenden, werden die während des Denk
+  Prozesses verwendeten Tokens in `thoughts_token_count` zurückgegeben. Wenn Sie
+  [Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de)verwenden, befindet sich die Anzahl der im Cache gespeicherten Tokens
+  in `cached_content_token_count`.
 
-### Contare i token di testo
+### Texttokens zählen
 
-Se chiami `count_tokens` con un input di solo testo, viene restituito il conteggio dei token del testo *solo nell'input* (`total_tokens`). Puoi effettuare questa chiamata prima di chiamare `generate_content` per verificare le dimensioni delle richieste.
+Wenn Sie `count_tokens` mit einer reinen Texteingabe aufrufen, wird die Anzahl der Tokens des Texts in *der Eingabe* zurückgegeben (`total_tokens`). Sie können diesen Aufruf vor dem Aufruf von `generate_content` ausführen, um die Größe Ihrer Anfragen zu prüfen.
 
-Un'altra opzione è chiamare `generate_content` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
+Eine weitere Möglichkeit ist, `generate_content` aufzurufen und dann das Attribut `usage_metadata` für das Objekt `response` zu verwenden, um Folgendes zu erhalten:
 
-- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
-- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
-- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`)
+- Die separaten Tokenanzahlen der Eingabe (`prompt_token_count`), der im Cache gespeicherten Inhalte (`cached_content_token_count`) und der Ausgabe (`candidates_token_count`)
+- Die Tokenanzahl für den Denkprozess (`thoughts_token_count`)
+- Die Gesamtzahl der Tokens in *sowohl der Eingabe als auch der Ausgabe* (`total_token_count`)
 
 ### Python
 
@@ -112,7 +111,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Ok
 
 ```
 ctx := context.Background()
@@ -140,17 +139,17 @@ fmt.Println(string(usageMetadata))
     ```
 ```
 
-### Contare i token di chat a più turni
+### Tokens für Unterhaltungen mit mehreren Antworten (Chat) zählen
 
-Se chiami `count_tokens` con la cronologia chat, viene restituito il conteggio totale dei token del testo di ogni ruolo nella chat (`total_tokens`).
+Wenn Sie `count_tokens` mit dem Chatverlauf aufrufen, wird die Gesamtzahl der Tokens des Texts von jeder Rolle im Chat zurückgegeben (`total_tokens`).
 
-Un'altra opzione è chiamare `send_message` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
+Eine weitere Möglichkeit ist, `send_message` aufzurufen und dann das Attribut `usage_metadata` für das Objekt `response` zu verwenden, um Folgendes zu erhalten:
 
-- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
-- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
-- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`)
+- Die separaten Tokenanzahlen der Eingabe (`prompt_token_count`), der im Cache gespeicherten Inhalte (`cached_content_token_count`) und der Ausgabe (`candidates_token_count`)
+- Die Tokenanzahl für den Denkprozess (`thoughts_token_count`)
+- Die Gesamtzahl der Tokens in *sowohl der Eingabe als auch der Ausgabe* (`total_token_count`)
 
-Per capire quanto sarà grande il prossimo turno di conversazione, devi aggiungerlo alla cronologia quando chiami `count_tokens`.
+Um zu verstehen, wie groß Ihre nächste Unterhaltung wird, müssen Sie sie beim Aufruf von `count_tokens` an den Verlauf anhängen.
 
 ### Python
 
@@ -238,7 +237,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Ok
 
 ```
 ctx := context.Background()
@@ -276,33 +275,32 @@ if err != nil {
 fmt.Println(secondTokenResp.TotalTokens)
 ```
 
-### Contare i token multimodali
+### Multimodale Tokens zählen
 
-Tutti gli input dell'API Gemini vengono tokenizzati, inclusi testo, file immagine e altre modalità non testuali. Tieni presente i seguenti punti chiave di alto livello sulla tokenizzazione dell'input multimodale durante l'elaborazione da parte dell'API Gemini:
+Alle Eingaben der Gemini API werden tokenisiert, einschließlich Text, Bilddateien und anderer nicht textbasierter Modalitäten. Beachten Sie die folgenden wichtigen Punkte zur Tokenisierung multimodaler Eingaben während der Verarbeitung durch die Gemini API:
 
-- Gli input immagine con entrambe le dimensioni <= 384 pixel vengono conteggiati come 258 token. Le immagini più grandi in una o entrambe le dimensioni vengono ritagliate e scalate in base alle esigenze in riquadri di 768 x 768 pixel, ognuno conteggiato come 258 token.
-- I file audio e video vengono convertiti in token alle seguenti tariffe fisse: video a 263 token al secondo e audio a 32 token al secondo. Questa tariffa si applica all'elaborazione statica (impostazione predefinita). Per l'elaborazione agentica, l'utilizzo dei token varia. Consulta [Utilizzo dei token video per modalità di elaborazione](#video-token-usage).
+- Bildeingaben mit beiden Dimensionen <= 384 Pixel werden als 258 Tokens gezählt. Bilder, die in einer oder beiden Dimensionen größer sind, werden nach Bedarf zugeschnitten und auf Kacheln mit 768 × 768 Pixel skaliert. Jede Kachel wird als 258 Tokens gezählt.
+- Video- und Audiodateien werden zu den folgenden festen Raten in Tokens umgewandelt: Video mit 263 Tokens pro Sekunde und Audio mit 32 Tokens pro Sekunde. Diese Rate gilt für die statische Verarbeitung (Standard). Bei der agentenbasierten Verarbeitung variiert die Tokennutzung. Weitere Informationen finden Sie unter [Tokennutzung für Videos nach Verarbeitungsmodus](#video-token-usage).
 
-#### Risoluzioni dei contenuti multimediali
+#### Medienauflösungen
 
-[I modelli Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=it#gemini-3) introducono un controllo granulare sull'
-elaborazione della visione multimodale con il parametro `media_resolution`. Il parametro `media_resolution` determina il **numero massimo di token allocati per ogni immagine di input o fotogramma video**.
-Le risoluzioni più elevate migliorano la capacità del modello di leggere il testo fine o identificare piccoli dettagli, ma aumentano l'utilizzo dei token e la latenza.
+[Gemini 3-Modelle](https://ai.google.dev/gemini-api/docs/models?hl=de#gemini-3) bieten eine detaillierte Steuerung der
+multimodalen Bildverarbeitung mit dem `media_resolution` Parameter. Der Parameter `media_resolution` bestimmt die **maximale Anzahl von Tokens, die pro Eingabebild oder Videoframe zugewiesen werden**.
+Höhere Auflösungen verbessern die Fähigkeit des Modells, kleinen Text zu lesen oder kleine Details zu erkennen, erhöhen aber die Tokennutzung und die Latenz.
 
-Per maggiori dettagli sul parametro e su come può influire sui calcoli dei token,
-consulta la [guida alla risoluzione dei contenuti multimediali](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=it).
+Weitere Informationen zum Parameter und zu den Auswirkungen auf die Tokenberechnungen finden Sie im [Leitfaden zur Medienauflösung](https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=de).
 
-#### File immagine
+#### Bilddateien
 
-Se chiami `count_tokens` con un input di testo e immagine, viene restituito il conteggio combinato dei token del testo e dell'immagine *solo nell'input* (`total_tokens`). Puoi effettuare questa chiamata prima di chiamare `generate_content` per verificare le dimensioni delle richieste. Puoi anche chiamare facoltativamente `count_tokens` sul testo e sul file separatamente.
+Wenn Sie `count_tokens` mit einer Text- und Bildeingabe aufrufen, wird die kombinierte Tokenanzahl des Texts und des Bilds in *der Eingabe* zurückgegeben (`total_tokens`). Sie können diesen Aufruf vor dem Aufruf von `generate_content` ausführen, um die Größe Ihrer Anfragen zu prüfen. Optional können Sie `count_tokens` auch separat für den Text und die Datei aufrufen.
 
-Un'altra opzione è chiamare `generate_content` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
+Eine weitere Möglichkeit ist, `generate_content` aufzurufen und dann das Attribut `usage_metadata` für das Objekt `response` zu verwenden, um Folgendes zu erhalten:
 
-- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
-- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
-- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`)
+- Die separaten Tokenanzahlen der Eingabe (`prompt_token_count`), der im Cache gespeicherten Inhalte (`cached_content_token_count`) und der Ausgabe (`candidates_token_count`)
+- Die Tokenanzahl für den Denkprozess (`thoughts_token_count`)
+- Die Gesamtzahl der Tokens in *sowohl der Eingabe als auch der Ausgabe* (`total_token_count`)
 
-Esempio che utilizza un'immagine caricata dall'API File:
+Beispiel mit einem hochgeladenen Bild aus der File API:
 
 ### Python
 
@@ -361,7 +359,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Ok
 
 ```
 ctx := context.Background()
@@ -402,7 +400,7 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-Esempio che fornisce l'immagine come dati in linea:
+Beispiel, bei dem das Bild als Inline-Daten bereitgestellt wird:
 
 ### Python
 
@@ -459,7 +457,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Ok
 
 ```
 ctx := context.Background()
@@ -499,20 +497,20 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### File audio o video
+#### Video- oder Audiodateien
 
-L'audio e il video vengono convertiti in token alle seguenti tariffe fisse:
+Audio und Video werden jeweils zu den folgenden festen Raten in Tokens umgewandelt:
 
-- Video: 263 token al secondo
-- Audio: 32 token al secondo
+- Video: 263 Tokens pro Sekunde
+- Audio: 32 Tokens pro Sekunde
 
-Se chiami `count_tokens` con un input di testo e video/audio, viene restituito il conteggio combinato dei token del testo e del file video/audio *solo nell'input* (`total_tokens`). Puoi effettuare questa chiamata prima di chiamare `generate_content` per verificare le dimensioni delle richieste. Puoi anche chiamare facoltativamente `count_tokens` sul testo e sul file separatamente.
+Wenn Sie `count_tokens` mit einer Text- und Video-/Audioeingabe aufrufen, wird die kombinierte Tokenanzahl des Texts und der Video-/Audiodatei in *der Eingabe* zurückgegeben (`total_tokens`). Sie können diesen Aufruf vor dem Aufruf von `generate_content` ausführen, um die Größe Ihrer Anfragen zu prüfen. Optional können Sie `count_tokens` auch separat für den Text und die Datei aufrufen.
 
-Un'altra opzione è chiamare `generate_content` e poi utilizzare l'attributo `usage_metadata` dell'oggetto `response` per ottenere quanto segue:
+Eine weitere Möglichkeit ist, `generate_content` aufzurufen und dann das Attribut `usage_metadata` für das Objekt `response` zu verwenden, um Folgendes zu erhalten:
 
-- I conteggi dei token separati dell'input (`prompt_token_count`), dei contenuti memorizzati nella cache (`cached_content_token_count`) e dell'output (`candidates_token_count`)
-- Il conteggio dei token per il processo di ragionamento (`thoughts_token_count`)
-- Il numero totale di token *sia nell'input che nell'output* (`total_token_count`).
+- Die separaten Tokenanzahlen der Eingabe (`prompt_token_count`), der im Cache gespeicherten Inhalte (`cached_content_token_count`) und der Ausgabe (`candidates_token_count`)
+- Die Tokenanzahl für den Denkprozess (`thoughts_token_count`)
+- Die Gesamtzahl der Tokens in *sowohl der Eingabe als auch der Ausgabe* (`total_token_count`).
 
 ### Python
 
@@ -585,7 +583,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Ok
 
 ```
 ctx := context.Background()
@@ -637,27 +635,27 @@ if err != nil {
 fmt.Println(string(usageMetadata))
 ```
 
-#### Utilizzo dei token video per modalità di elaborazione
+#### Tokennutzung für Videos nach Verarbeitungsmodus
 
-L'utilizzo dei token per i video dipende dalla modalità di elaborazione:
+Die Tokennutzung für Videos hängt vom Verarbeitungsmodus ab:
 
-| **Modalità di elaborazione** | **Calcolo dei token** | **Utilizzo tipico** |
+| **Verarbeitungsmodus** | **Tokenberechnung** | **Typische Nutzung** |
 | --- | --- | --- |
-| **Statica** (impostazione predefinita) | ~100 token/secondo per impostazione predefinita (bassa risoluzione) o ~300 token/secondo (alta risoluzione). Tutti i fotogrammi campionati a 1 FPS. | Prevedibile, proporzionale alla durata del video. |
-| **Agentica** | Varia in base alla complessità dei contenuti. Il modello carica solo la trascrizione e/o i fotogrammi e/o l'audio necessari per rispondere al prompt. | Fino all'88% in meno di token per i contenuti in formato lungo. |
+| **Statisch** (Standard) | Standardmäßig etwa 100 Tokens pro Sekunde (niedrige Auflösung) oder etwa 300 Tokens pro Sekunde (hohe Auflösung). Alle Frames werden mit 1 FPS gesampelt. | Vorhersehbar, proportional zur Videodauer. |
+| **Agentenbasiert** | Variiert je nach Komplexität der Inhalte. Das Modell lädt nur das Transkript und/oder die Frames und/oder das Audio, die zum Beantworten des Prompts erforderlich sind. | Bis zu 88% weniger Tokens für lange Inhalte. |
 
-Con l'elaborazione agentica, una lezione di 1 ora che utilizzerebbe ~1,08 milioni di token in modalità statica potrebbe utilizzare ~108.000 token, a seconda del prompt e dei contenuti.
+Bei der agentenbasierten Verarbeitung kann eine einstündige Vorlesung, für die im statischen Modus etwa 1,08 Millionen Tokens verwendet würden, je nach Prompt und Inhalt etwa 108.000 Tokens verwenden.
 
-Per verificare l'utilizzo effettivo dei token per una richiesta, utilizza il campo `usage_metadata` nella risposta. In `UsageMetadata`, i token video agentici vengono segnalati nei seguenti campi:
+Die tatsächliche Tokennutzung für eine Anfrage finden Sie im Feld `usage_metadata` in der Antwort. In `UsageMetadata` werden agentenbasierte Video-Tokens in den folgenden Feldern angegeben:
 
-- **Prompt iniziale** (riferimento video + prompt utente): `prompt_token_count`
-- **Ragionamento di navigazione**: `thoughts_token_count`
-- **Trascrizione, fotogrammi e audio caricati on demand**: `tool_use_prompt_token_count`
-- **Risposta finale**: `candidates_token_count`
+- **Ausgangsprompt** (Videoreferenz + Nutzerprompt): `prompt_token_count`
+- **Denkprozess für die Navigation**: `thoughts_token_count`
+- **Transkript, Frames und Audio werden bei Bedarf geladen**: `tool_use_prompt_token_count`
+- **Endgültige Antwort**: `candidates_token_count`
 
-### Contare i token di ragionamento
+### Tokens für den Denkprozess zählen
 
-Quando attivi il ragionamento, il prezzo della risposta è la somma dei token di output e dei token di ragionamento. Puoi recuperare il numero totale di token di ragionamento generati dal campo `thoughtsTokenCount` (o dall'equivalente SDK).
+Wenn Sie den Denkprozess aktivieren, setzen sich die Kosten für die Antwort aus den Ausgabetokens und den Tokens für den Denkprozess zusammen. Die Gesamtzahl der generierten Thinking-Token finden Sie im Feld `thoughtsTokenCount` (oder im entsprechenden SDK-Feld).
 
 ### Python
 
@@ -675,7 +673,7 @@ console.log(`Thoughts tokens: ${response.usageMetadata.thoughtsTokenCount}`);
 console.log(`Output tokens: ${response.usageMetadata.candidatesTokenCount}`);
 ```
 
-### Vai
+### Ok
 
 ```
 // ...
@@ -683,18 +681,18 @@ fmt.Println("Thoughts tokens:", response.UsageMetadata.ThoughtsTokenCount)
 fmt.Println("Output tokens:", response.UsageMetadata.CandidatesTokenCount)
 ```
 
-I modelli di ragionamento generano ragionamenti completi per migliorare la qualità della risposta finale e poi restituiscono [riepiloghi](https://ai.google.dev/gemini-api/docs/thinking?hl=it#summaries) per fornire informazioni sul processo di ragionamento. Pertanto, l'API basa i prezzi sui token di ragionamento completi che il modello genera per creare un riepilogo, anche se l'API restituisce solo il riepilogo.
+Thinking-Modelle generieren vollständige Gedanken, um die Qualität der endgültigen Antwort zu verbessern, und geben dann [Zusammenfassungen](https://ai.google.dev/gemini-api/docs/thinking?hl=de#summaries) aus, um Einblicke in den Denkprozess zu geben. Daher basiert die Abrechnung der API auf den vollständigen Tokens für den Denkprozess, die das Modell zum Erstellen einer Zusammenfassung generiert, obwohl die API nur die Zusammenfassung ausgibt.
 
-Puoi scoprire di più su come configurare il ragionamento nella guida al ragionamento di [Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=it).
+Weitere Informationen zum Konfigurieren des Denkprozesses finden Sie im [Leitfaden zum Denkprozess von Gemini](https://ai.google.dev/gemini-api/docs/thinking?hl=de).
 
-## Finestre contestuali
+## Kontextfenster
 
-I modelli disponibili tramite l'API Gemini hanno finestre contestuali misurate in token. La finestra contestuale definisce la quantità di input che puoi fornire e la quantità di output che il modello può generare. Puoi determinare le dimensioni della
-finestra contestuale chiamando l'endpoint [`models.get`](https://ai.google.dev/api/rest/v1/models/get?hl=it)
-o consultando la [documentazione dei modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
+Die über die Gemini API verfügbaren Modelle haben Kontextfenster, die in Tokens gemessen werden. Das Kontextfenster definiert, wie viele Eingaben Sie bereitstellen können und wie viele Ausgaben das Modell generieren kann. Sie können die Größe des
+Kontextfensters ermitteln, indem Sie den [`models.get` Endpunkt](https://ai.google.dev/api/rest/v1/models/get?hl=de)
+aufrufen oder in der [Dokumentation zu den Modellen](https://ai.google.dev/gemini-api/docs/models?hl=de)nachsehen.
 
-- **Modelli Gemini 4 (`gemini-4-argon`):** condividono una singola finestra contestuale di 1 milione di token (`1,048,576` token) tra token di input, ragionamento e output. Le singole richieste sono limitate a `65,536` token di output per lo streaming (`streamGenerateContent`) e `32,768` token di output per il non streaming (`generateContent`), oppure puoi generare fino a `1,048,576` token utilizzando [la decodifica lunga](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it). Se i token di input più `max_output_tokens` superano 1.048.576 token, l'API limita automaticamente l'output allo spazio rimanente nella finestra contestuale (`1,048,576` meno i token di input).
-- **Modelli Gemini 3 e 2.5:** utilizzano budget di input (`1,048,576` token) e output (`65,536` token) separati.
+- **Gemini 4-Modelle (`gemini-4-argon`):** Verwenden ein gemeinsames Kontextfenster von 1 Million Tokens (`1,048,576` Tokens) für Eingabe-, Denk- und Ausgabetokens. Einzelne Anfragen sind auf `65,536` Ausgabetokens für das Streaming (`streamGenerateContent`) und `32,768` Ausgabetokens für das Nicht-Streaming (`generateContent`) begrenzt. Alternativ können Sie mit der [langen Decodierung](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=de) bis zu `1,048,576` Tokens generieren. Wenn Ihre Eingabetokens plus `max_output_tokens` 1.048.576 Tokens überschreiten, begrenzt die API das Ausgabelimit automatisch auf den verbleibenden Platz im Kontextfenster (`1,048,576` minus Ihre Eingabetokens).
+- **Gemini 3- und 2.5-Modelle:** Verwenden separate Budgets für Eingabe (`1,048,576` Tokens) und Ausgabe (`65,536` Tokens).
 
 ### Python
 
@@ -723,7 +721,7 @@ async function main() {
 await main();
 ```
 
-### Vai
+### Ok
 
 ```
 ctx := context.Background()
@@ -739,12 +737,12 @@ fmt.Println("input token limit:", modelInfo.InputTokenLimit)
 fmt.Println("output token limit:", modelInfo.OutputTokenLimit)
 ```
 
-Invia feedback
+Feedback geben
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Ultimo aggiornamento 2026-10-13 UTC.
+Zuletzt aktualisiert: 2026-10-13 (UTC).
 
-Vuoi dirci altro?
+Haben Sie Feedback für uns?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-13 (UTC)."],[],[]]

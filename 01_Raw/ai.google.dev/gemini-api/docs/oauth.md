@@ -1,106 +1,85 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=id
-fetched_at: 2026-10-19T05:42:58.881706+00:00
-title: "Panduan memulai Authentication dengan OAuth \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/oauth?hl=zh-TW
+fetched_at: 2026-10-26T06:04:54.089372+00:00
+title: "\u900f\u904e OAuth \u9032\u884c\u9a57\u8b49\u7684\u5feb\u901f\u5165\u9580\u5c0e\u89bd\u8ab2\u7a0b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Panduan memulai Authentication dengan OAuth
+# 透過 OAuth 進行驗證的快速入門導覽課程
 
-Cara termudah untuk mengautentikasi Gemini API adalah dengan mengonfigurasi kunci API, seperti yang dijelaskan dalam [panduan memulai Gemini API](https://ai.google.dev/gemini-api/docs/get-started?hl=id). Jika memerlukan kontrol akses yang lebih ketat,
-Anda dapat menggunakan OAuth. Panduan ini akan membantu
-Anda menyiapkan autentikasi dengan OAuth.
+如要向 Gemini API 驗證，最簡單的方法是設定 API 金鑰，詳情請參閱 [Gemini API 入門指南](https://ai.google.dev/gemini-api/docs/get-started?hl=zh-tw)。如要使用更嚴格的存取權控管機制，請改用 OAuth。本指南將協助您使用 OAuth 設定驗證。
 
-Panduan ini menggunakan pendekatan autentikasi yang disederhanakan dan sesuai
-untuk lingkungan pengujian. Untuk lingkungan produksi, pelajari
-[autentikasi dan otorisasi](https://developers.google.com/workspace/guides/auth-overview?hl=id)
-sebelum
-[memilih kredensial akses](https://developers.google.com/workspace/guides/create-credentials?hl=id#choose_the_access_credential_that_is_right_for_you)
-yang sesuai untuk aplikasi Anda.
+本指南會使用簡化的驗證方法，適用於測試環境。在正式環境中，建議您先瞭解[驗證和授權](https://developers.google.com/workspace/guides/auth-overview?hl=zh-tw)，再[選擇適合應用程式的存取憑證](https://developers.google.com/workspace/guides/create-credentials?hl=zh-tw#choose_the_access_credential_that_is_right_for_you)。
 
-## Tujuan
+## 目標
 
-- Menyiapkan project cloud untuk OAuth
-- Menyiapkan kredensial default aplikasi
-- Mengelola kredensial dalam program Anda, bukan menggunakan `gcloud auth`
+- 設定 OAuth 的雲端專案
+- 設定應用程式預設憑證
+- 在程式中管理憑證，而非使用 `gcloud auth`
 
-## Prasyarat
+## 必要條件
 
-Untuk menjalankan quickstart ini, Anda memerlukan:
+如要執行這項快速入門導覽課程，您需要：
 
-- [Project Google Cloud](https://developers.google.com/workspace/guides/create-project?hl=id)
-- [Penginstalan gcloud CLI lokal](https://cloud.google.com/sdk/docs/install?hl=id)
+- [Google Cloud 專案](https://developers.google.com/workspace/guides/create-project?hl=zh-tw)
+- [在本機安裝 gcloud CLI](https://cloud.google.com/sdk/docs/install?hl=zh-tw)
 
-## Menyiapkan project cloud
+## 設定雲端專案
 
-Untuk menyelesaikan panduan memulai ini, Anda harus menyiapkan project Cloud terlebih dahulu.
+如要完成本快速入門導覽課程，請先設定雲端專案。
 
-### 1. Mengaktifkan API
+### 1. 啟用 API
 
-Sebelum menggunakan Google API, Anda harus mengaktifkannya di project Google Cloud.
+使用 Google API 前，請先在 Google Cloud 專案中啟用這些 API。
 
-- Di Konsol Google Cloud, aktifkan Google Generative Language API.
+- 在 Google Cloud 控制台中啟用 Google Generative Language API。
 
-  [Mengaktifkan API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=id)
+  [啟用 API](https://console.cloud.google.com/flows/enableapi?apiid=generativelanguage.googleapis.com&hl=zh-tw)
 
-### 2. Mengonfigurasi layar izin OAuth
+### 2. 設定 OAuth 同意畫面
 
-Selanjutnya, konfigurasi layar izin OAuth project dan tambahkan diri Anda sebagai pengguna pengujian. Jika Anda telah menyelesaikan langkah ini untuk project Cloud, lewati ke bagian berikutnya.
+接著設定專案的 OAuth 同意畫面，並將自己新增為測試使用者。如果已為 Cloud 專案完成這個步驟，請跳至下一節。
 
-1. Di Konsol Google Cloud, buka **Menu** >
-   **Google Auth platform** > **Overview**.
+1. 在 Google Cloud 控制台中，依序前往「選單」 >「Google Auth platform」 >「總覽」。
 
-   [Buka platform Google Auth](https://console.developers.google.com/auth/overview?hl=id)
-2. Isi formulir konfigurasi project dan tetapkan jenis pengguna ke **Eksternal**
-   di bagian **Audiens**.
-3. Lengkapi formulir lainnya, setujui persyaratan Kebijakan Data Pengguna, lalu
-   klik **Buat**.
-4. Untuk saat ini, Anda dapat melewati penambahan cakupan dan mengklik **Simpan dan Lanjutkan**. Pada
-   masa mendatang, saat membuat aplikasi untuk digunakan di luar organisasi Google Workspace, Anda harus menambahkan dan memverifikasi cakupan otorisasi yang diperlukan aplikasi Anda.
-5. Tambahkan pengguna pengujian:
+   [前往 Google Auth Platform](https://console.developers.google.com/auth/overview?hl=zh-tw)
+2. 填寫專案設定表單，並在「目標對象」部分將使用者類型設為「外部」。
+3. 填寫表單的其餘部分，接受使用者資料政策條款，然後按一下「建立」。
+4. 目前可以略過新增範圍，然後按一下「儲存並繼續」。日後為 Google Workspace 機構以外的環境建立應用程式時，您必須新增並驗證應用程式所需的授權範圍。
+5. 新增測試使用者：
 
-   1. Buka
-      [halaman Audiens](https://console.developers.google.com/auth/audience?hl=id) di
-      platform Google Auth.
-   2. Di bagian **Pengguna pengujian**, klik **Tambahkan pengguna**.
-   3. Masukkan alamat email Anda dan pengguna uji resmi lainnya, lalu
-      klik **Simpan**.
+   1. 前往 Google Auth Platform 的[目標對象頁面](https://console.developers.google.com/auth/audience?hl=zh-tw)。
+   2. 在「測試使用者」下方，按一下「新增使用者」。
+   3. 輸入您的電子郵件地址和任何其他授權測試使用者，然後按一下「儲存」。
 
-### 3. Mengizinkan kredensial untuk aplikasi desktop
+### 3. 授權電腦應用程式的憑證
 
-Untuk mengautentikasi sebagai pengguna akhir dan mengakses data pengguna di aplikasi Anda, Anda perlu membuat satu atau beberapa Client ID OAuth 2.0. Client ID digunakan untuk mengidentifikasi
-satu aplikasi ke server OAuth Google. Jika aplikasi Anda berjalan di beberapa platform, Anda harus membuat ID klien terpisah untuk setiap platform.
+如要以使用者身分驗證，並存取應用程式中的使用者資料，您需要建立一或多個 OAuth 2.0 用戶端 ID。Google 的 OAuth 伺服器會使用用戶端 ID 來識別個別應用程式。如果您的應用程式在多個平台上執行，則必須為每個平台分別建立用戶端 ID。
 
-1. Di Konsol Google Cloud, buka **Menu** > **Google Auth platform** >
-   **Clients**.
+1. 在 Google Cloud 控制台中，依序前往「選單」 >「Google Auth Platform」 >「用戶端」。
 
-   [Buka Kredensial](https://console.developers.google.com/auth/clients?hl=id)
-2. Klik **Buat Klien**.
-3. Klik **Jenis aplikasi** > **Aplikasi desktop**.
-4. Di kolom **Name**, ketik nama untuk kredensial. Nama ini hanya
-   ditampilkan di Konsol Google Cloud.
-5. Klik **Buat**. Layar OAuth client created akan muncul, menampilkan Client ID dan Client secret baru Anda.
-6. Klik **Oke**. Kredensial yang baru dibuat akan muncul di bagian **Client ID OAuth 2.0.**
-7. Klik tombol download untuk menyimpan file JSON. File akan disimpan sebagai
-   `client_secret_<identifier>.json`, lalu ganti namanya menjadi `client_secret.json`
-   dan pindahkan ke direktori kerja Anda.
+   [前往「憑證」](https://console.developers.google.com/auth/clients?hl=zh-tw)
+2. 按一下「Create Client」(建立用戶端)。
+3. 依序點選「Application type」(應用程式類型) >「Desktop app」(電腦版應用程式)。
+4. 在「Name」(名稱) 欄位中，輸入憑證名稱。這個名稱只會顯示在 Google Cloud 控制台中。
+5. 按一下「建立」，系統會顯示「已建立 OAuth 用戶端」畫面，其中包含新的用戶端 ID 和用戶端密鑰。
+6. 按一下「確定」。新建立的憑證會顯示在「OAuth 2.0 Client IDs」(OAuth 2.0 用戶端 ID) 下方。
+7. 按一下下載按鈕儲存 JSON 檔案。檔案會儲存為 `client_secret_<identifier>.json`，請將其重新命名為 `client_secret.json`，然後移至目前使用的目錄。
 
-## Menyiapkan Kredensial Default Aplikasi
+## 設定應用程式預設憑證
 
-Untuk mengonversi file `client_secret.json` menjadi kredensial yang dapat digunakan, teruskan
-lokasinya ke argumen
-`--client-id-file` perintah `gcloud auth application-default login`.
+如要將 `client_secret.json` 檔案轉換為可用的憑證，請將檔案位置傳遞至 `gcloud auth application-default login` 指令的 `--client-id-file` 引數。
 
 ```
 gcloud auth application-default login \
@@ -108,10 +87,9 @@ gcloud auth application-default login \
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ```
 
-Penyiapan project yang disederhanakan dalam tutorial ini memicu dialog **"Google belum memverifikasi aplikasi ini"**. Hal ini normal, pilih **"continue"**.
+本教學課程中簡化的專案設定會觸發「Google 尚未驗證這個應用程式」對話方塊。這是正常現象，請選擇「繼續」。
 
-Hal ini menempatkan token yang dihasilkan di lokasi yang sudah dikenal sehingga dapat diakses
-oleh `gcloud` atau library klien.
+這會將產生的權杖放在已知位置，以便 `gcloud` 或用戶端程式庫存取。
 
 ```` ```
 gcloud auth application-default login   
@@ -122,12 +100,11 @@ gcloud auth application-default login
     --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/generative-language.retriever'
 ``` ````
 
-Setelah Anda menyetel Kredensial Default Aplikasi (ADC), library
-klien dalam sebagian besar bahasa hanya memerlukan sedikit atau tidak memerlukan bantuan untuk menemukannya.
+設定應用程式預設憑證 (ADC) 後，大多數語言的用戶端程式庫幾乎不需要任何協助，就能找到這些憑證。
 
 ### Curl
 
-Cara tercepat untuk menguji apakah ini berfungsi adalah dengan menggunakannya untuk mengakses REST API menggunakan curl:
+如要快速測試這項功能是否正常運作，請使用 curl 存取 REST API：
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -140,13 +117,13 @@ curl -X GET https://generativelanguage.googleapis.com/v1/models \
 
 ### Python
 
-Di Python, library klien akan menemukannya secara otomatis:
+在 Python 中，用戶端程式庫應會自動找到這些憑證：
 
 ```
 pip install google-genai
 ```
 
-Skrip minimal untuk mengujinya mungkin adalah:
+測試這項功能的最簡單指令碼可能如下：
 
 ```
 from google import genai
@@ -155,26 +132,24 @@ client = genai.Client()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-## Mengelola kredensial sendiri [Python]
+## 自行管理憑證 [Python]
 
-Dalam banyak kasus, Anda tidak akan memiliki perintah `gcloud` yang tersedia untuk membuat token akses dari ID Klien (`client_secret.json`). Google menyediakan library dalam banyak bahasa untuk memungkinkan Anda mengelola proses tersebut dalam aplikasi. Bagian ini menunjukkan prosesnya, dalam Python. Ada contoh prosedur serupa yang setara untuk bahasa lain, yang tersedia di [dokumentasi Drive API](https://developers.google.com/drive/api/quickstart/python?hl=id)
+在許多情況下，您無法使用 `gcloud` 指令從用戶端 ID (`client_secret.json`) 建立存取權杖。Google 提供多種語言的程式庫，讓您在應用程式中管理該程序。本節將以 Python 示範該程序。如需其他語言的這類程序範例，請參閱 [Drive API 說明文件](https://developers.google.com/drive/api/quickstart/python?hl=zh-tw)。
 
-### 1. Instal library yang diperlukan
+### 1. 安裝所需的程式庫
 
-Instal library klien Google untuk Python, dan library klien Gemini.
+安裝 Python 適用的 Google 用戶端程式庫和 Gemini 用戶端程式庫。
 
 ```
 pip install --upgrade -q google-api-python-client google-auth-httplib2 google-auth-oauthlib
 pip install google-genai
 ```
 
-### 2. Menulis pengelola kredensial
+### 2. 編寫憑證管理工具
 
-Untuk meminimalkan jumlah klik yang harus Anda lakukan di layar otorisasi, buat file bernama `load_creds.py` di direktori kerja Anda untuk menyimpan file `token.json` yang dapat digunakan kembali nanti, atau diperbarui jika masa berlakunya habis.
+如要盡量減少授權畫面點擊次數，請在目前使用的目錄中建立名為 `load_creds.py` 的檔案，以便快取 `token.json` 檔案，供日後重複使用，或在檔案過期時重新整理。
 
-Mulai dengan
-kode berikut untuk mengonversi file `client_secret.json` menjadi token yang dapat digunakan dengan
-`genai.configure`:
+請先使用下列程式碼，將 `client_secret.json` 檔案轉換為可搭配 `genai.configure` 使用的權杖：
 
 ```
 import os.path
@@ -211,9 +186,9 @@ def load_creds():
     return creds
 ```
 
-### 3. Menulis program Anda
+### 3. 編寫程式
 
-Sekarang buat `script.py` Anda:
+現在建立 `script.py`：
 
 ```
 import pprint
@@ -228,30 +203,27 @@ print()
 print('Available base models:', [m.name for m in client.models.list()])
 ```
 
-### 4. Menjalankan program Anda
+### 4. 執行程式
 
-Di direktori kerja Anda, jalankan contoh:
+在目前使用的目錄中執行範例：
 
 ```
 python script.py
 ```
 
-Saat pertama kali dijalankan, skrip akan membuka jendela browser dan meminta Anda
-untuk mengizinkan akses.
+首次執行指令碼時，系統會開啟瀏覽器視窗，並提示您授權存取權。
 
-1. Jika belum login ke Akun Google, Anda akan diminta untuk
-   login. Jika Anda login ke beberapa akun, **pastikan untuk memilih
-   akun yang Anda tetapkan sebagai "Akun Pengujian" saat mengonfigurasi project.**
-2. Informasi otorisasi disimpan dalam sistem file, sehingga saat Anda menjalankan kode contoh pada lain waktu, Anda tidak akan dimintai otorisasi.
+1. 如果尚未登入 Google 帳戶，系統會提示你登入。如果您登入了多個帳戶，請**務必選取設定專案時設為「測試帳戶」的帳戶。**
+2. 授權資訊會儲存在檔案系統中，因此下次執行程式碼範例時，系統不會提示您授權。
 
-Anda telah berhasil menyiapkan autentikasi.
+您已成功設定驗證。
 
-Kirim masukan
+提供意見
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Terakhir diperbarui pada 2026-09-10 UTC.
+上次更新時間：2026-09-10 (世界標準時間)。
 
-Ada masukan untuk kami?
+想進一步說明嗎？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-10 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-10 (世界標準時間)。"],[],[]]

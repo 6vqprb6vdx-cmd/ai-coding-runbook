@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/generate-content/webhooks?hl=zh-CN
-fetched_at: 2026-10-19T05:43:03.180520+00:00
+fetched_at: 2026-10-26T05:54:13.577269+00:00
 title: "Webhook \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 

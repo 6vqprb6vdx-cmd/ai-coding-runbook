@@ -1,28 +1,30 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=sq
-fetched_at: 2026-10-19T05:30:39.979867+00:00
-title: "Kombino veglat e integruara dhe telefonatat e funksioneve \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=id
+fetched_at: 2026-10-26T05:45:05.504420+00:00
+title: "Menggabungkan alat bawaan dan panggilan fungsi \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs/generate-content?hl=sq)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
 
-Dërgo komente
+Kirim masukan
 
-# Kombino veglat e integruara dhe telefonatat e funksioneve
+# Menggabungkan alat bawaan dan panggilan fungsi
 
-Gemini lejon kombinimin e [veglave të integruara](https://ai.google.dev/gemini-api/docs/tools?hl=sq), si p.sh. `google_search`, dhe [thirrjes së funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) (e njohur gjithashtu si *veglat e personalizuara*) në një gjenerim të vetëm duke ruajtur dhe ekspozuar historikun e kontekstit të thirrjeve të veglave. Kombinimet e integruara dhe të personalizuara të veglave lejojnë flukse pune komplekse dhe të drejtuara nga agjentët ku, për shembull, modeli mund të bazohet në të dhënat e uebit në kohë reale para se të thërrasë logjikën tënde specifike të biznesit.
+Gemini memungkinkan kombinasi [alat bawaan](https://ai.google.dev/gemini-api/docs/tools?hl=id), seperti
+`google_search`, dan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
+(juga dikenal sebagai *alat kustom*) dalam satu generasi dengan mempertahankan dan mengekspos
+histori konteks panggilan alat. Kombinasi alat bawaan dan kustom memungkinkan Agentic Workflows yang kompleks, yang memungkinkan model, misalnya, mendasarkan diri pada data web secara real time sebelum memanggil logika bisnis spesifik Anda.
 
-Këtu është një shembull që aktivizon kombinimet e veglave të integruara dhe të personalizuara me
-`google_search` dhe një funksion të personalizuar `getWeather`:
+Berikut adalah contoh yang mengaktifkan kombinasi alat bawaan dan kustom dengan `google_search` dan fungsi kustom `getWeather`:
 
 ### Python
 
@@ -389,66 +391,63 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Si funksionon
+## Cara kerjanya
 
-Modelet e Gemini 3 përdorin *qarkullimin e kontekstit të veglave* për të mundësuar kombinime të veglave të personalizuara dhe të integruara. Qarkullimi i kontekstit të veglës bën të mundur ruajtjen dhe ekspozimin e kontekstit të veglave të integruara dhe ndarjen e tij me veglat e personalizuara në të njëjtin telefonatë nga një raund në tjetrin.
+Model Gemini 3 menggunakan *sirkulasi konteks alat* untuk mengaktifkan kombinasi alat bawaan dan kustom. Sirkulasi konteks alat memungkinkan konteks alat bawaan dipertahankan dan diekspos, serta dibagikan dengan alat kustom dalam panggilan yang sama dari waktu ke waktu.
 
-### Aktivizo kombinimin e veglave
+### Mengaktifkan kombinasi alat
 
-- Duhet të caktosh flamurin `include_server_side_tool_invocations` në `true` për të aktivizuar qarkullimin e kontekstit të veglës.
-- Përfshi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq#function-declarations), si dhe veglat e integruara që dëshiron të përdorësh, për të aktivizuar sjelljen e kombinimit.
-  - Nëse nuk përfshin `function_declarations`, qarkullimi i kontekstit të veglës do të veprojë përsëri në veglat e integruara të përfshira, për aq kohë sa është caktuar flamuri.
+- Anda harus menetapkan tanda `include_server_side_tool_invocations` ke `true` untuk mengaktifkan sirkulasi konteks alat.
+- Sertakan [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#function-declarations), beserta
+  alat bawaan yang ingin Anda gunakan, untuk memicu perilaku kombinasi.
+  - Jika Anda tidak menyertakan `function_declarations`, sirkulasi konteks alat akan tetap bertindak pada alat bawaan yang disertakan, selama tanda ditetapkan.
 
-### API-ja kthen pjesë
+### Bagian yang ditampilkan API
 
-Në një përgjigje të vetme, API-ja kthen pjesët `toolCall` dhe `toolResponse` për thirrjen e veglës së integruar. Për thirrjen e funksionit (vegla e personalizuar), API-ja kthen pjesën e thirrjes `functionCall`, për të cilën përdoruesi jep pjesën `functionResponse` në radhën tjetër.
+Dalam satu respons, API menampilkan bagian `toolCall` dan `toolResponse` untuk panggilan alat bawaan. Untuk panggilan fungsi (alat kustom), API menampilkan bagian panggilan `functionCall`, yang akan diisi pengguna dengan bagian `functionResponse` pada giliran berikutnya.
 
-- `toolCall` dhe `toolResponse`: API-ja i kthen këto pjesë për të ruajtur kontekstin se cilat vegla ekzekutohen në anën e serverit dhe rezultatin e ekzekutimit të tyre për radhën tjetër.
-- `functionCall` dhe `functionResponse`: API-ja i dërgon thirrjen e funksionit përdoruesit për ta plotësuar dhe përdoruesi dërgon mbrapsht rezultatin në përgjigjen e funksionit (këto pjesë janë standarde për të gjitha [thirrjet e funksioneve](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) në Gemini API, jo unike për veçorinë e kombinimit të veglave).
-- (Vetëm veglat e [ekzekutimit të kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq))
-  `executableCode` dhe `codeExecutionResult`:
-  Kur përdor veglën e ekzekutimit të kodit, në vend të `functionCall` dhe
-  `functionResponse`, API-ja kthen `executableCode` (kodi i gjeneruar
-  nga modeli që synohet të ekzekutohet) dhe `codeExecutionResult` (rezultati i
-  kodit të ekzekutueshëm).
+- `toolCall` dan `toolResponse`: API menampilkan bagian ini untuk mempertahankan konteks alat yang dijalankan di sisi server, dan hasil eksekusinya, untuk giliran berikutnya.
+- `functionCall` dan `functionResponse`: API mengirimkan panggilan fungsi kepada
+  pengguna untuk diisi, dan pengguna mengirimkan hasilnya kembali dalam
+  respons fungsi (bagian ini standar untuk semua [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API, bukan hanya untuk fitur kombinasi alat
+  ).
+- ([Hanya alat](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)eksekusi kode)
+  `executableCode` dan `codeExecutionResult`:
+  Saat menggunakan alat Eksekusi Kode, bukan `functionCall` dan
+  `functionResponse`, API menampilkan `executableCode` (kode yang dibuat
+  oleh model yang dimaksudkan untuk dieksekusi) dan `codeExecutionResult` (hasil
+  kode yang dapat dieksekusi).
 
-Duhet t'i kthesh të gjitha pjesët, duke përfshirë të gjitha [fushat](#critical-fields) që ato përmbajnë, përsëri te modeli në çdo radhë për të ruajtur kontekstin dhe për të aktivizuar kombinimet e veglave.
+Anda harus menampilkan semua bagian, termasuk semua [kolom](#critical-fields) yang ada di dalamnya, kembali ke model pada setiap giliran untuk mempertahankan konteks dan mengaktifkan kombinasi alat.
 
-### Fushat kritike në pjesët e kthyera
+### Kolom penting di bagian yang ditampilkan
 
-[Pjesë të caktuara të kthyera nga API](#api-returns-parts) do të përfshijnë fushat `id`,
-`tool_type` dhe `thought_signature`. Këto fusha janë kritike për
-mbajtjen e kontekstit të veglës (dhe prandaj kritike për kombinimet e veglave); duhet të kthesh të gjitha pjesët *siç jepen në përgjigje* në kërkesat e tua vijuese.
+Bagian [tertentu yang ditampilkan oleh API](#api-returns-parts) akan menyertakan kolom `id`,
+`tool_type`, dan `thought_signature`. Kolom ini sangat penting untuk mempertahankan konteks alat (dan oleh karena itu sangat penting untuk kombinasi alat); Anda harus menampilkan semua bagian *seperti yang diberikan dalam respons* di permintaan berikutnya.
 
-- `id`: Një identifikues unik që lidh një telefonatë me përgjigjen e saj. `id` është **caktuar në
-  të gjitha përgjigjet e thirrjeve të funksioneve**, pavarësisht nga qarkullimi i kontekstit të veglës.
-  *Duhet* të japësh të njëjtën `id` në përgjigjen e funksionit
-  që ofron API-ja në thirrjen e funksionit. Veglat e integruara ndajnë automatikisht `id` mes thirrjes së veglës dhe përgjigjes së veglës.
-  - Gjenden në të gjitha pjesët në lidhje me veglat: `toolCall`, `toolResponse`,
-    `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
-- `tool_type`: Identifikon veglën specifike që po përdoret; vegla e integruar fjalë për fjalë ose (p.sh. `URL_CONTEXT`) ose emri i funksionit (p.sh. `getWeather`).
-  - U gjet në `toolCall` dhe `toolResponse` pjesë.
-- `thought_signature`: Konteksti aktual i enkriptuar i integruar në **secilën
-  pjesë të kthyer nga API-ja**. Context can't be
-  reconstructed without thought signatures; if you don't return the thought
-  signatures for all parts in every turn, the model will error out.
-  - Gjendet në *të gjitha* pjesët.
+- `id`: ID unik yang memetakan panggilan ke responsnya. `id` \*\***ditetapkan pada
+  semua respons panggilan fungsi**\*\* , terlepas dari sirkulasi konteks alat.
+  Anda *harus* memberikan `id` yang sama dalam respons fungsi yang diberikan API dalam panggilan fungsi. Alat bawaan secara otomatis membagikan `id` antara panggilan alat dan respons alat.
+  - Ditemukan di semua bagian terkait alat: `toolCall`, `toolResponse`, `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
+- `tool_type`: Mengidentifikasi alat spesifik yang digunakan; alat bawaan literal atau (misalnya `URL_CONTEXT`) atau nama fungsi (misalnya `getWeather`).
+  - Ditemukan di bagian `toolCall` dan `toolResponse`.
+- `thought_signature`: Konteks terenkripsi sebenarnya yang disematkan di **setiap bagian yang ditampilkan oleh API**. Konteks tidak dapat direkonstruksi tanpa tanda pikiran; jika Anda tidak menampilkan tanda pikiran untuk semua bagian di setiap giliran, model akan menampilkan error.
+  - Ditemukan di *semua* bagian.
 
-### Të dhënat specifike për veglën
+### Data khusus alat
 
-Disa vegla të integruara kthejnë argumente të të dhënave të dukshme për përdoruesin që janë specifike për llojin e veglës.
+Beberapa alat bawaan menampilkan argumen data yang terlihat oleh pengguna yang khusus untuk jenis alat.
 
-| Vegla | Argumentet e thirrjes së veglës të dukshme për përdoruesin (nëse ka) | Përgjigjja e veglës e dukshme për përdoruesin (nëse ka) |
+| Alat | Argumen panggilan alat yang terlihat oleh pengguna (jika ada) | Respons alat yang terlihat oleh pengguna (jika ada) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` URL-të që do të shfletohen | `url_metadata` `retrieved_url`: URL-të e shfletuara `url_retrieval_status`: Statusi i shfletimit |
-| **FILE\_SEARCH** | Asnjë | Asnjë |
+| **URL\_CONTEXT** | `urls` URL yang akan dijelajahi | `url_metadata` `retrieved_url`: URL yang dijelajahi `url_retrieval_status`: Status penjelajahan |
+| **FILE\_SEARCH** | Tidak ada | Tidak ada |
 
-## Shembull i strukturës së kërkesës për kombinimin e veglave
+## Contoh struktur permintaan kombinasi alat
 
-Struktura e mëposhtme e kërkesës tregon strukturën e kërkesës së kërkesës: "Cili është qyteti më verior në Shtetet e Bashkuara? Si është moti atje sot?". Ajo kombinon tre vegla: veglat e integruara të Gemini `google_search`
-dhe `code_execution`, si dhe një funksion të personalizuar `get_weather`.
+Struktur permintaan berikut menunjukkan struktur permintaan perintah: "What is the northernmost city in the United States? What's the weather like there today?". Struktur ini menggabungkan tiga alat: alat Gemini bawaan `google_search` dan `code_execution`, serta fungsi kustom `get_weather`.
 
 ```
 {
@@ -517,51 +516,52 @@ dhe `code_execution`, si dhe një funksion të personalizuar `get_weather`.
 }
 ```
 
-## Tokenët dhe çmimet
+## Token dan harga
 
-Ki parasysh se pjesët `toolCall` dhe `toolResponse` në kërkesa llogariten për `prompt_token_count`. Duke qenë se këta hapa të ndërmjetëm të veglës tani janë të dukshëm dhe të kthehen ty, ata janë pjesë e historikut të bisedës. Kjo vlen vetëm për *kërkesat*, jo për *përgjigjet*.
+Perhatikan bahwa bagian `toolCall` dan `toolResponse` dalam permintaan dihitung ke dalam `prompt_token_count`. Karena langkah alat perantara ini kini terlihat dan ditampilkan kepada Anda, langkah ini merupakan bagian dari histori percakapan. Hal ini hanya berlaku untuk
+kasus untuk *permintaan*, bukan *respons*.
 
-Vegla e "Kërko në Google" është një përjashtim nga ky rregull. "Kërko në Google" e zbaton tashmë modelin e vet të çmimeve në nivel kërkese, kështu që tokenat nuk tarifohen dy herë (shiko faqen [Çmimet](https://ai.google.dev/gemini-api/docs/pricing?hl=sq)).
+Alat Google Penelusuran adalah pengecualian untuk aturan ini. Google Penelusuran sudah
+menerapkan model harga sendiri di tingkat kueri, sehingga token tidak
+dikenai biaya dua kali (lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)).
 
-Lexo faqen [Tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=sq) për më shumë informacion.
+Baca halaman [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mengetahui informasi selengkapnya.
 
-## Kufizimet
+## Batasan
 
-- Parazgjidhet modaliteti `VALIDATED` (modaliteti `AUTO` nuk mbështetet) kur
-  aktivizohet flamuri `include_server_side_tool_invocations`
-- Veglat e integruara si `google_search` mbështeten te informacionet e vendndodhjes dhe orës aktuale, kështu që nëse `system_instruction` ose `function_declaration.description` kanë informacione të papërputhshme të vendndodhjes dhe orës, veçoria e kombinimit të veglave mund të mos funksionojë mirë.
+- Default ke mode `VALIDATED` (mode `AUTO` tidak didukung) saat tanda `include_server_side_tool_invocations` diaktifkan
+- Alat bawaan seperti `google_search` mengandalkan informasi lokasi dan waktu saat ini, jadi jika `system_instruction` atau `function_declaration.description` Anda memiliki informasi lokasi dan waktu yang bertentangan, fitur kombinasi alat mungkin tidak berfungsi dengan baik.
 
-## Veglat e mbështetura
+## Alat yang didukung
 
-Qarkullimi standard i kontekstit të veglës zbatohet për veglat në anën e serverit (të integruara).
-"Ekzekutimi i kodit" është gjithashtu një vegël nga ana e serverit, por ka zgjidhjen e vet të integruar për qarkullimin e kontekstit. "Përdorimi i kompjuterit" dhe thirrja e funksionit janë vegla në anën e klientit,
-si dhe kanë zgjidhje të integruara për qarkullimin e kontekstit.
+Sirkulasi konteks alat standar berlaku untuk alat sisi server (bawaan).
+Eksekusi Kode juga merupakan alat sisi server, tetapi memiliki solusi bawaan sendiri untuk sirkulasi konteks. Penggunaan Komputer dan panggilan fungsi adalah alat sisi klien, dan juga memiliki solusi bawaan untuk sirkulasi konteks.
 
-| Vegla | Ana e ekzekutimit | Context Circulation Support |
+| Alat | Sisi eksekusi | Dukungan Sirkulasi Konteks |
 | --- | --- | --- |
-| [Kërko në Google](https://ai.google.dev/gemini-api/docs/google-search?hl=sq) | Në anën e serverit | Mbështetet |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq) | Nga ana e serverit | Mbështetet |
-| [Konteksti i URL-së](https://ai.google.dev/gemini-api/docs/url-context?hl=sq) | Nga ana e serverit | Mbështetet |
-| [Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq) | Në anën e serverit | Mbështetet |
-| [Ekzekutimi i kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq) | Në anën e serverit | Mbështetur (i integruar, përdor pjesë të `executableCode` dhe `codeExecutionResult`) |
-| [Përdorimi i kompjuterit](https://ai.google.dev/gemini-api/docs/computer-use?hl=sq) | Në anën e klientit | Mbështetur (i integruar, përdor pjesë të `functionCall` dhe `functionResponse`) |
-| [Funksionet e personalizuara](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) | Nga ana e klientit | Mbështetur (i integruar, përdor pjesë të `functionCall` dhe `functionResponse`) |
+| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Sisi server | Didukung |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Sisi server | Didukung |
+| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Sisi server | Didukung |
+| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Sisi server | Didukung |
+| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Sisi server | Didukung (bawaan, menggunakan bagian `executableCode` dan `codeExecutionResult`) |
+| [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Sisi klien | Didukung (bawaan, menggunakan bagian `functionCall` dan `functionResponse`) |
+| [Fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) | Sisi klien | Didukung (bawaan, menggunakan bagian `functionCall` dan `functionResponse`) |
 
-## Çfarë ka më pas
+## Langkah berikutnya
 
-- Mëso më shumë rreth [Thirrjes së funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) në Gemini API.
-- Eksploro veglat e mbështetura:
-  - [Kërko në Google](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq)
-  - [Konteksti me URL](https://ai.google.dev/gemini-api/docs/url-context?hl=sq)
-  - [Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq)
+- Pelajari lebih lanjut [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API.
+- Jelajahi alat yang didukung:
+  - [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)
+  - [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
+  - [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id)
 
-Dërgo komente
+Kirim masukan
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Përditësimi i fundit: 2026-10-13 UTC.
+Terakhir diperbarui pada 2026-10-13 UTC.
 
-Duhet të na tregosh më shumë?
+Ada masukan untuk kami?
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-13 UTC."],[],[]]

@@ -1,44 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=it
-fetched_at: 2026-10-19T05:43:35.358567+00:00
-title: "Novit\u00e0 di Gemini 3.6 Flash e 3.5 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=vi
+fetched_at: 2026-10-26T06:06:44.967437+00:00
+title: "T\u00ednh n\u0103ng m\u1edbi trong Gemini 3.6 Flash v\u00e0 3.5 Flash-Lite \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-Invia feedback
+Gửi ý kiến phản hồi
 
-# Novità di Gemini 3.6 Flash e 3.5 Flash-Lite
+# Tính năng mới trong Gemini 3.6 Flash và 3.5 Flash-Lite
 
-[Ultimo modello](https://ai.google.dev/gemini-api/docs/latest-model?hl=it)
-[Altri modelli](#other-models)
+[Mô hình mới nhất](https://ai.google.dev/gemini-api/docs/latest-model?hl=vi)
+[Các mô hình khác](#other-models)
 
-Gemini 3.6 Flash (`gemini-3.6-flash`) e Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`) sono release di generazione precedente della serie Gemini 3 e rimangono disponibili per l'utilizzo in produzione. Per il nostro modello Flash più recente, vedi
-[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=it).
+Gemini 3.6 Flash (`gemini-3.6-flash`) và Gemini 3.5 Flash-Lite (`gemini-3.5-flash-lite`) là các bản phát hành thế hệ trước trong dòng Gemini 3 và vẫn có thể dùng cho mục đích sản xuất. Để xem mô hình Flash mới nhất của chúng tôi, hãy xem
+[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=vi).
 
-- **Gemini 3.6 Flash**: prestazioni migliori per attività agentiche e multimodali
-  complesse, riducendo al contempo l'utilizzo dei token, a un prezzo inferiore rispetto a 3.5 Flash.
-- **Gemini 3.5 Flash-Lite**: il modello più veloce ed economico della famiglia 3.5.
-  Supera le generazioni precedenti di Flash-Lite per l'esecuzione ad alto throughput.
+- **Gemini 3.6 Flash**: Hiệu suất mạnh mẽ hơn đối với các tác vụ phức tạp, nhiều phương thức và tác nhân
+  , đồng thời giảm mức sử dụng token, ở mức giá thấp hơn so với 3.5 Flash.
+- **Gemini 3.5 Flash-Lite**: Mô hình nhanh nhất và có chi phí thấp nhất trong dòng 3.5.
+  Hiệu suất vượt trội so với các thế hệ Flash-Lite trước đây để thực thi thông lượng cao.
 
-Questa guida spiega le novità introdotte in ogni modello, le modifiche dell'API che interessano il codice e come eseguire la migrazione.
+Hướng dẫn này giải thích những nội dung được giới thiệu trong từng mô hình, những thay đổi về API ảnh hưởng đến mã của bạn và cách di chuyển.
 
 ### Gemini 3.6 Flash
 
-1. Installa la skill:
+1. Cài đặt kỹ năng:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. Applica la skill:
+2. Áp dụng kỹ năng:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.6 Flash
@@ -46,36 +46,36 @@ Questa guida spiega le novità introdotte in ogni modello, le modifiche dell'API
 
 ### Gemini 3.5 Flash-Lite
 
-1. Installa la skill:
+1. Cài đặt kỹ năng:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. Applica la skill:
+2. Áp dụng kỹ năng:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
    ```
 
-## Nuovi modelli
+## Mô hình mới
 
-| Modello | ID modello | Livello di pensiero predefinito | Prezzi | Descrizione |
+| Mô hình | Mã kiểu máy | Cấp độ tư duy mặc định | Giá | Mô tả |
 | --- | --- | --- | --- | --- |
-| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | 1,50 $ per 1 milione di token di input e 7,50 $per 1 milione di token di output | Bilancia la velocità con l'intelligenza per le attività agentiche e multimodali. |
-| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | 0,30 $ per 1 milione di token di input e 2,50 $per 1 milione di token di output | Il modello 3.5 più veloce ed economico per l'esecuzione ad alto throughput. |
+| Gemini 3.6 Flash | `gemini-3.6-flash` | `medium` | 1,50 USD/1 triệu token đầu vào và 7,50 USD/1 triệu token đầu ra | Cân bằng tốc độ với trí thông minh cho các tác vụ nhiều phương thức và tác nhân. |
+| Gemini 3.5 Flash-Lite | `gemini-3.5-flash-lite` | `minimal` | 0,30 USD/1 triệu token đầu vào và 2,50 USD/1 triệu token đầu ra | Mô hình 3.5 nhanh nhất và có chi phí thấp nhất để thực thi thông lượng cao. |
 
-Entrambi i modelli supportano la finestra contestuale di 1 milione di token, un massimo di 64.000 token di output,
-il pensiero e la suite completa di strumenti integrati, incluso
-[l'utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it).
+Cả hai mô hình đều hỗ trợ cửa sổ ngữ cảnh 1 triệu token, tối đa 64 nghìn token đầu ra,
+tư duy và bộ công cụ tích hợp đầy đủ, bao gồm cả
+[tính năng Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi).
 
-Per le specifiche complete, consulta le pagine dei modelli:
+Để biết thông số kỹ thuật đầy đủ, hãy xem các trang mô hình:
 
-- [Pagina del modello Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=it)
-- [Pagina del modello Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=it)
+- [Trang mô hình Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi)
+- [Trang mô hình Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=vi)
 
-Per i prezzi dettagliati, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it).
+Để biết giá chi tiết, hãy xem [trang giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi).
 
-## Guida rapida
+## Bắt đầu nhanh
 
 ### Python
 
@@ -119,60 +119,59 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions"       -H "x
   }'
 ```
 
-## Novità di Gemini 3.6 Flash
+## Tính năng mới trong Gemini 3.6 Flash
 
-- **Riduzione dei token e dei turni**:completa i workflow in più passaggi con meno passaggi di ragionamento, turni di conversazione e chiamate di strumenti rispetto a Gemini 3.5. Riduce anche la spirale del ciclo di esecuzione.
-- **Generazione di codice migliorata**:produce codice di qualità superiore pronto per la produzione con meno modifiche indesiderate e meno cicli di debug.
-- **Migliore rispetto delle istruzioni**: riduce le modifiche indesiderate ai file durante le attività di diagnostica.
-- **Ragionamento multimodale e spaziale avanzato**:prestazioni migliorate nell'interpretazione dei grafici, nella conversione di progetti visivi e nella generazione di layout web multi-elemento.
-- **Ispezione programmatica anticipata**:preferisce eseguire script di codice di diagnostica prima di apportare modifiche più frequentemente rispetto a Gemini 3.5 Flash. Ciò migliora l'accuratezza delle attività complesse, ma può aggiungere passaggi esplorativi aggiuntivi al lavoro di frontend di routine.
-- **Supporto per l'utilizzo del computer**:supportato come strumento integrato per l'automazione dell'interfaccia utente agentica.
-- **Preferenza per lo stile dell'interfaccia utente**: migliore nella creazione di codice funzionale, anche se i valutatori umani
-  hanno preferito i modelli precedenti per il layout grafico e lo stile visivi. Puoi risolvere questo problema fornendo linee guida di progettazione esplicite.
-- **Impegno di ragionamento predefinito (medio)** : utilizza lo stesso `medium` impegno di ragionamento predefinito di Gemini 3.5 Flash.
-- **Prezzi ridotti**: costi dei token di output inferiori (7,50 $ per 1 milione rispetto a 9,00 $per 1 milione per
-  3.5 Flash). I token di input rimangono a 1,50 $per 1 milione.
+- **Giảm số lượng token và lượt phản hồi:** Hoàn thành quy trình làm việc nhiều bước với ít bước suy luận, lượt phản hồi trong cuộc trò chuyện và lệnh gọi công cụ hơn so với Gemini 3.5. Mô hình này cũng giảm tình trạng vòng lặp thực thi.
+- **Cải thiện khả năng tạo mã:** Tạo mã chất lượng cao hơn, sẵn sàng cho quá trình sản xuất với ít lần chỉnh sửa không mong muốn và ít vòng lặp gỡ lỗi hơn.
+- **Tuân thủ hướng dẫn tốt hơn**: Giảm các thay đổi không mong muốn đối với tệp trong các tác vụ chẩn đoán.
+- **Khả năng suy luận mạnh mẽ về không gian và nhiều phương thức:** Cải thiện hiệu suất khi diễn giải biểu đồ, chuyển đổi bản thiết kế trực quan và tạo bố cục web nhiều thành phần.
+- **Kiểm tra theo chương trình trước:** Ưu tiên chạy các tập lệnh mã chẩn đoán trước khi thực hiện thay đổi thường xuyên hơn so với Gemini 3.5 Flash. Điều này giúp cải thiện độ chính xác đối với các tác vụ phức tạp, nhưng có thể thêm các bước khám phá bổ sung trong công việc thường xuyên ở giao diện người dùng.
+- **Hỗ trợ tính năng Sử dụng máy tính:** Được hỗ trợ dưới dạng một công cụ tích hợp cho tính năng tự động hoá giao diện người dùng tác nhân.
+- **Tuỳ chọn tạo kiểu cho giao diện người dùng**: Tạo mã chức năng tốt hơn, mặc dù người đánh giá là con người thích các mô hình trước đó hơn về bố cục trực quan và kiểu dáng. Bạn có thể giảm thiểu vấn đề này bằng cách cung cấp các nguyên tắc thiết kế rõ ràng.
+- **Nỗ lực tư duy mặc định (trung bình):** Sử dụng cùng một cấp độ tư duy mặc định `medium` như Gemini 3.5 Flash.
+- **Giảm giá**: Chi phí token đầu ra thấp hơn (7,50 USD/1 triệu so với 9,00 USD/1 triệu cho
+  3.5 Flash). Token đầu vào vẫn ở mức 1,50 USD/1 triệu.
 
-## Novità di Gemini 3.5 Flash-Lite
+## Tính năng mới trong Gemini 3.5 Flash-Lite
 
-- **Latenza di esecuzione delle attività ridotta**:throughput più elevato nella famiglia 3.5 per l'analisi dei dati ad alto volume e l'estrazione dei documenti.
-- **Prestazioni di ragionamento e multimodali migliorate**:percorso di migrazione efficace da Gemini 2.5 Flash, con punteggi più elevati nelle attività di ragionamento come HLE (18,0% rispetto a 11,0%) e nei benchmark multimodali come CharXIV (74,5% rispetto a 63,7%).
-- **Orchestrazione di subagenti e affidabilità degli strumenti**:migliora l'affidabilità dell'esecuzione degli strumenti per l'esecuzione di codice, la ricerca e i workflow MCP. Aumenta il livello di pensiero per la pianificazione autonoma e le attività complesse dei subagenti.
-- **Comprensione dei documenti migliorata**:migliora l'accuratezza dell'analisi dei documenti e dell'estrazione dei dati strutturati. Sperimenta con i livelli di pensiero minimo e alto a seconda della complessità del documento.
-- **Programmazione web interattiva e trattamento dati tabulari**:prestazioni elevate nell'elaborazione di JavaScript frontend e dati tabulari tramite la pianificazione utilizzando l'esecuzione di codice leggero.
-- **Persistenza di chatbot e persona**:migliore rispetto delle istruzioni multi-turno e coerenza della persona rispetto a Gemini 3.1 Flash-Lite.
-- **Supporto per l'utilizzo del computer**:supportato come strumento integrato per l'automazione dell'interfaccia utente agentica.
+- **Giảm độ trễ khi thực thi tác vụ:** Thông lượng cao nhất trong dòng 3.5 để phân tích cú pháp dữ liệu khối lượng lớn và trích xuất tài liệu.
+- **Cải thiện hiệu suất suy luận và nhiều phương thức:** Đường dẫn di chuyển mạnh mẽ từ Gemini 2.5 Flash, với điểm số cao hơn đối với các tác vụ suy luận như HLE (18,0% so với 11,0%) và các tiêu chí so sánh nhiều phương thức như CharXIV (74,5% so với 63,7%).
+- **Điều phối tác nhân phụ và độ tin cậy của công cụ:** Cải thiện độ tin cậy khi thực thi công cụ để thực thi mã, tìm kiếm và quy trình công việc MCP. Tăng cấp độ tư duy để lập kế hoạch tự động và các tác vụ phức tạp của tác nhân phụ.
+- **Cải thiện khả năng hiểu tài liệu:** Cải thiện độ chính xác khi phân tích cú pháp tài liệu và trích xuất dữ liệu có cấu trúc. Thử nghiệm cả cấp độ tư duy tối thiểu và cao tuỳ thuộc vào độ phức tạp của tài liệu.
+- **Lập trình web tương tác và xử lý dữ liệu dạng bảng:** Thực hiện tốt trên JavaScript ở giao diện người dùng và xử lý dữ liệu dạng bảng bằng cách lập kế hoạch sử dụng tính năng thực thi mã đơn giản.
+- **Chatbot và tính nhất quán của nhân vật:** Tuân thủ hướng dẫn nhiều lượt phản hồi và tính nhất quán của nhân vật tốt hơn so với Gemini 3.1 Flash-Lite.
+- **Hỗ trợ tính năng Sử dụng máy tính:** Được hỗ trợ dưới dạng một công cụ tích hợp cho tính năng tự động hoá giao diện người dùng tác nhân.
 
-## Scegliere il modello Flash o Flash-Lite giusto
+## Chọn mô hình Flash hoặc Flash-Lite phù hợp
 
-Utilizza questa tabella per selezionare il modello e il percorso di migrazione giusti per i tuoi workload.
+Hãy sử dụng bảng này để chọn mô hình và đường dẫn di chuyển phù hợp cho khối lượng công việc của bạn.
 
-Entrambi i modelli richiedono la rimozione dei parametri di campionamento deprecati (`temperature`, `top_p`, `top_k`) e dei turni precompilati del modello. Per i dettagli, consulta
-[Modifiche dell'API](#api-changes-and-parameter-updates).
+Cả hai mô hình đều yêu cầu xoá các tham số lấy mẫu không dùng nữa (`temperature`, `top_p`, `top_k`) và lượt phản hồi điền sẵn của mô hình. Hãy xem
+[Các thay đổi về API](#api-changes-and-parameter-updates) để biết thông tin chi tiết.
 
-| Modello | Casi d'uso principali | Target di migrazione consigliato |
+| Mô hình | Trường hợp sử dụng chính | Mục tiêu di chuyển được đề xuất |
 | --- | --- | --- |
-| **Gemini 3.6 Flash** `gemini-3.6-flash` | Generazione di codice, ragionamento spaziale/multimodale, workflow agentici in più passaggi | **Gemini 3.5 Flash**, **Gemini 3 Flash (anteprima)** o **Gemini 3.1 Pro** |
-| **Gemini 3.5 Flash-Lite** `gemini-3.5-flash-lite` | Esecuzione autonoma di subagenti, analisi dei dati ad alto volume ed estrazione di documenti, analisi JSON strutturata | **Gemini 3.1 Flash-Lite** o **Gemini 2.5 Flash** |
+| **Gemini 3.6 Flash** `gemini-3.6-flash` | Tạo mã, suy luận về không gian/nhiều phương thức, quy trình làm việc nhiều bước của tác nhân | **Gemini 3.5 Flash**, **Gemini 3 Flash (Bản xem trước)** hoặc **Gemini 3.1 Pro** |
+| **Gemini 3.5 Flash-Lite** `gemini-3.5-flash-lite` | Thực thi tác nhân phụ tự động, phân tích dữ liệu khối lượng lớn và trích xuất tài liệu, phân tích cú pháp JSON có cấu trúc | **Gemini 3.1 Flash-Lite** hoặc **Gemini 2.5 Flash** |
 
-## Supporto dell'agente Antigravity
+## Hỗ trợ tác nhân Antigravity
 
-Gemini 3.6 Flash ha introdotto il supporto per l'[agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) in Gemini Managed Agents.
+Gemini 3.6 Flash đã hỗ trợ [tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi) trong Tác nhân được quản lý của Gemini.
 
-Per gli esempi di codice attuali e la configurazione dell'agente predefinita più recente, consulta la [guida dell'agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) e la [guida di Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=it#updated-antigravity-agent).
+Để xem các mã mẫu hiện tại và cấu hình tác nhân mặc định mới nhất, hãy xem [hướng dẫn về tác nhân Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi) và [hướng dẫn về Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=vi#updated-antigravity-agent).
 
-## Modifiche dell'API e aggiornamenti dei parametri
+## Các thay đổi về API và cập nhật tham số
 
-A partire da Gemini 3.6 Flash e Gemini 3.5 Flash-Lite, le seguenti modifiche dell'API si applicano a questi modelli e a tutte le release future dei modelli Gemini.
+Bắt đầu từ Gemini 3.6 Flash và Gemini 3.5 Flash-Lite, các thay đổi sau đây về API sẽ áp dụng cho các mô hình này và tất cả các bản phát hành mô hình Gemini trong tương lai.
 
-- **Deprecazione dei parametri di campionamento**: `temperature`, `top_p` e `top_k` sono deprecati. L'API ignora questi parametri e restituisce un errore nelle generazioni future dei modelli.
-- **Convalida del turno precompilato del modello**: la precompilazione dei turni del modello non è più supportata. Se l'ultimo turno non vuoto nella richiesta è un turno `model`, l'API restituisce un errore `400`.
+- **Ngừng sử dụng tham số lấy mẫu**: `temperature`, `top_p` và `top_k` không còn được dùng nữa. API sẽ bỏ qua các tham số này và trả về lỗi trong các thế hệ mô hình trong tương lai.
+- **Xác thực lượt phản hồi điền sẵn của mô hình**: Không còn hỗ trợ tính năng điền sẵn lượt phản hồi của mô hình. Nếu lượt phản hồi không trống cuối cùng trong yêu cầu là lượt phản hồi `model`, thì API sẽ trả về lỗi `400`.
 
-Le sezioni seguenti forniscono spiegazioni dettagliate ed esempi di codice per ogni modifica dell'API.
+Các phần sau đây cung cấp giải thích chi tiết và mẫu mã cho từng thay đổi về API.
 
-### 1. Deprecazione dei parametri di campionamento (`temperature`, `top_p`, `top_k`)
+### 1. Ngừng sử dụng tham số lấy mẫu (`temperature`, `top_p`, `top_k`)
 
-`temperature`, `top_p` e `top_k` sono deprecati e ignorati. Nelle generazioni future dei modelli, la fornitura di questi parametri restituisce un errore HTTP 400. **Rimuovi questi parametri da tutte le richieste.**
+`temperature`, `top_p` và `top_k` không còn được dùng nữa và bị bỏ qua. Trong các thế hệ mô hình trong tương lai, việc cung cấp các tham số này sẽ trả về lỗi HTTP 400. **Xoá các tham số này khỏi tất cả các yêu cầu.**
 
 ```
 # ⚠️ Remove these parameters (deprecated)
@@ -183,15 +182,15 @@ generation_config = {
 }
 ```
 
-Per migliorare il determinismo, definisci un'istruzione di sistema con regole esplicite per il tuo caso d'uso specifico.
+Để cải thiện tính xác định, hãy xác định một hướng dẫn hệ thống có các quy tắc rõ ràng cho trường hợp sử dụng cụ thể của bạn.
 
-### 2. Convalida del turno precompilato del modello
+### 2. Xác thực lượt phản hồi điền sẵn của mô hình
 
-Le richieste API che terminano con un turno di ruolo del modello non vuoto non sono consentite e restituiscono un **errore HTTP 400**.
+Các yêu cầu API kết thúc bằng lượt phản hồi vai trò mô hình không trống sẽ không được phép và trả về **Lỗi HTTP 400**.
 
-#### ⚠️ Evita
+#### ⚠️ Tránh
 
-Nei payload REST non elaborati o `generateContent` legacy, la fine con un turno di ruolo del modello non è più consentita:
+Trong `generateContent` cũ hoặc tải trọng REST thô, việc kết thúc bằng lượt phản hồi vai trò mô hình hiện không được phép:
 
 ```
 /* ❌ DO NOT: End payload contents with a 'model' role turn */
@@ -203,12 +202,9 @@ Nei payload REST non elaborati o `generateContent` legacy, la fine con un turno 
 }
 ```
 
-#### ✅ Migrazione consigliata (API Interactions)
+#### ✅ Di chuyển được đề xuất (API Tương tác)
 
-Nell'API Interactions, i turni del modello non vengono precompilati manualmente. Se in precedenza la tua
-applicazione precompilava un turno del modello per eliminare i preamboli o forzare la
-formattazione JSON, utilizza system\_instruction o
-[output strutturati](https://ai.google.dev/gemini-api/docs/structured-output?hl=it) invece.
+Trong Interactions API, lượt phản hồi của mô hình không được điền sẵn theo cách thủ công. Nếu trước đây ứng dụng của bạn đã điền sẵn lượt phản hồi của mô hình để ngăn chặn phần mở đầu hoặc buộc định dạng JSON, hãy sử dụng system\_instruction hoặc [đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi) thay thế.
 
 ```
 # ✅ RECOMMENDED: Use system_instruction in the Interactions API to specify output format
@@ -219,16 +215,16 @@ interaction = client.interactions.create(
 )
 ```
 
-## Elenco di controllo per la migrazione
+## Danh sách kiểm tra di chuyển
 
 ### Gemini 3.6 Flash
 
-1. Installa la skill:
+1. Cài đặt kỹ năng:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. Applica la skill:
+2. Áp dụng kỹ năng:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.6 Flash
@@ -236,55 +232,55 @@ interaction = client.interactions.create(
 
 ### Gemini 3.5 Flash-Lite
 
-1. Installa la skill:
+1. Cài đặt kỹ năng:
 
    ```
    npx skills add google-gemini/gemini-skills --skill gemini-interactions-api --global
    ```
-2. Applica la skill:
+2. Áp dụng kỹ năng:
 
    ```
    /gemini-interactions-api migrate my app to Gemini 3.5 Flash-Lite
    ```
 
-### Esegui la migrazione a gemini-3.6-flash
+### Di chuyển sang gemini-3.6-flash
 
-- **Aggiorna l'ID modello**:modifica la stringa del modello di destinazione in `gemini-3.6-flash`.
-- **Applica gli aggiornamenti dei parametri:** rimuovi i parametri di campionamento deprecati (`temperature`, `top_p`, `top_k`), `candidate_count` (non supportato in Gemini 3 e versioni successive) e i turni precompilati del modello come descritto in [Modifiche dell'API e aggiornamenti dei parametri](#api-changes-and-parameter-updates).
-- **Configura il livello di pensiero**:sostituisci `thinking_budget` con `thinking_level` (`"medium"` o `"high"`).
-- **Esegui l'audit della chiamata di funzione**
-  - Inserisci gli asset multimodali nel payload della risposta.
-  - Formatta le istruzioni in linea utilizzando `\n\n`.
-  - Se visualizzi errori `Malformed_Function_Call` associati al testo pre-strumento, consulta [Soluzioni alternative per i requisiti del testo pre-strumento](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#workarounds-for-pre-tool-text-requirements).
-- **Requisiti di base di Gemini 3.x**:per gli aggiornamenti dell'SDK e la conservazione della firma del pensiero, consulta [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it#signatures).
+- **Cập nhật mã mô hình:** Thay đổi chuỗi mô hình mục tiêu thành `gemini-3.6-flash`.
+- **Áp dụng các bản cập nhật tham số:** Xoá các tham số lấy mẫu không dùng nữa (`temperature`, `top_p`, `top_k`), `candidate_count` (không được hỗ trợ trong Gemini 3 trở lên) và lượt phản hồi điền sẵn của mô hình như được nêu chi tiết trong [Các thay đổi về API và bản cập nhật tham số](#api-changes-and-parameter-updates).
+- **Định cấu hình cấp độ tư duy:** Thay thế `thinking_budget` bằng `thinking_level` (`"medium"` hoặc `"high"`).
+- **Kiểm tra lệnh gọi hàm:**
+  - Đặt các thành phần nhiều phương thức bên trong tải trọng phản hồi.
+  - Định dạng hướng dẫn nội tuyến bằng `\n\n`.
+  - Nếu bạn thấy các lỗi `Malformed_Function_Call` liên quan đến văn bản trước công cụ, hãy xem [Các giải pháp cho các yêu cầu về văn bản trước công cụ](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi#workarounds-for-pre-tool-text-requirements).
+- **Các yêu cầu cơ bản đối với Gemini 3.x:** Để biết thông tin cập nhật về SDK và giữ lại chữ ký tư duy, hãy xem [Chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#signatures).
 
-### Esegui la migrazione a gemini-3.5-flash-lite
+### Di chuyển sang gemini-3.5-flash-lite
 
-- **Aggiorna l'ID modello**:modifica la stringa del modello di destinazione in `gemini-3.5-flash-lite`.
-- **Configura il livello di impegno di ragionamento:**
-  - Per l'estrazione, il routing o la classificazione ad alto volume: lascia `thinking_level` su `"minimal"` (impostazione predefinita) per il massimo throughput.
-  - Per i subagenti autonomi con chiamate di strumenti, esecuzione di codice o ragionamento multi-step: imposta `thinking_level` su `"medium"` o `"high"` per evitare la chiusura prematura dello strumento.
-- **Rimuovi i parametri deprecati e convalida la chiamata di funzione:** Applica le [stesse regole di 3.6 Flash](#migrate-to-gemini-3-6-flash).
-- **Requisiti di base di Gemini 3.x**:consulta [Firme del pensiero](https://ai.google.dev/gemini-api/docs/thinking?hl=it#signatures).
+- **Cập nhật mã mô hình:** Thay đổi chuỗi mô hình mục tiêu thành `gemini-3.5-flash-lite`.
+- **Định cấu hình cấp độ nỗ lực tư duy:**
+  - Đối với hoạt động trích xuất, định tuyến hoặc phân loại khối lượng lớn: hãy để `thinking_level` ở mức `"minimal"` (mặc định) để có thông lượng tối đa.
+  - Đối với các tác nhân phụ tự động có lệnh gọi công cụ, thực thi mã hoặc suy luận đa bước: hãy đặt `thinking_level` thành `"medium"` hoặc `"high"` để ngăn việc chấm dứt công cụ sớm.
+- **Xoá các tham số không dùng nữa và xác thực lệnh gọi hàm:** Áp dụng các [quy tắc tương tự như 3.6 Flash](#migrate-to-gemini-3-6-flash).
+- **Các yêu cầu cơ bản đối với Gemini 3.x:** Hãy tham khảo [Chữ ký tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi#signatures).
 
-## Altri modelli
+## Các mô hình khác
 
-- [Gemini 4 Argon (ultima versione)](https://ai.google.dev/gemini-api/docs/latest-model?hl=it)
-- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=it)
-- [Visualizza tutti i modelli](https://ai.google.dev/gemini-api/docs/models?hl=it)
+- [Gemini 4 Argon (Mới nhất)](https://ai.google.dev/gemini-api/docs/latest-model?hl=vi)
+- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=vi)
+- [Xem tất cả mẫu xe](https://ai.google.dev/gemini-api/docs/models?hl=vi)
 
-## Passaggi successivi
+## Bước tiếp theo
 
-- Esamina le specifiche dell'API nella [panoramica dei modelli](https://ai.google.dev/gemini-api/docs/models?hl=it).
-- Esplora l'orchestrazione multi-agente nella [Guida all'API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=it).
-- Testa e perfeziona i prompt in [Google AI Studio](https://aistudio.google.com/?hl=it).
+- Xem lại thông số kỹ thuật của API trên trang [Tổng quan về mô hình](https://ai.google.dev/gemini-api/docs/models?hl=vi).
+- Khám phá tính năng điều phối nhiều tác nhân trong [Hướng dẫn về API Tương tác](https://ai.google.dev/gemini-api/docs/interactions?hl=vi).
+- Kiểm thử và tinh chỉnh câu lệnh trong [Google AI Studio](https://aistudio.google.com/?hl=vi).
 
-Invia feedback
+Gửi ý kiến phản hồi
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-Ultimo aggiornamento 2026-10-13 UTC.
+Cập nhật lần gần đây nhất: 2026-10-13 UTC.
 
-Vuoi dirci altro?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-13 UTC."],[],[]]

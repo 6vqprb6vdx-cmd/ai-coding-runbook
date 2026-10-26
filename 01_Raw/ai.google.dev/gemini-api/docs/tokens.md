@@ -1,46 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=pt-BR
-fetched_at: 2026-10-19T05:39:52.662088+00:00
-title: "Entender e contar tokens \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tokens?hl=sq
+fetched_at: 2026-10-26T05:49:48.487194+00:00
+title: "Kupto dhe num\u00ebro token\u00ebt \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-Envie comentários
+Dërgo komente
 
-# Entender e contar tokens
+# Kupto dhe numëro tokenët
 
-O Gemini e outros modelos de IA generativa processam a entrada e a saída em uma granularidade chamada *token*.
+Gemini dhe modelet e tjera të IA-së gjeneruese i përpunojnë hyrjet dhe daljet në një granularitet të quajtur *kod*.
 
-**Para os modelos do Gemini, um token equivale a cerca de quatro caracteres.
-100 tokens equivalem a cerca de 60 a 80 palavras em inglês.**
+**Për modelet e Gemini, një kod është i barasvlershëm me rreth 4 karaktere.
+100 jetone janë të barabarta me rreth 60-80 fjalë në anglisht.**
 
-## Sobre os tokens
+## Rreth tokenëve
 
-Os tokens podem ser caracteres únicos, como `z`, ou palavras inteiras, como `cat`. Palavras longas são divididas em vários tokens. O conjunto de todos os tokens usados pelo modelo é chamado de vocabulário, e o processo de divisão do texto em tokens é chamado de *tokenização*.
+Shenjat mund të jenë karaktere të vetme si `z` ose fjalë të plota si `cat`. Fjalët e gjata ndahen në disa kode. Grupi i të gjitha kodeve që përdor modeli quhet fjalor dhe procesi i ndarjes së tekstit në kode quhet *ndarje në kode*.
 
-Quando o faturamento está ativado, o [custo de uma chamada para a API Gemini](https://ai.google.dev/pricing?hl=pt-br) é
-determinado em parte pelo número de tokens de entrada e saída. Portanto, saber como
-contar tokens pode ser útil.
+Kur faturimi është i aktivizuar, [kostoja e një telefonate në Gemini API](https://ai.google.dev/pricing?hl=sq) përcaktohet pjesërisht nga numri i tokenëve të hyrjes dhe daljes, kështu që njohja se si të numërosh tokenët mund të jetë e dobishme.
 
-## Contar tokens
+## Numëro tokenët
 
-Toda entrada e saída da API Gemini é tokenizada, incluindo texto, arquivos de imagem e outras modalidades não textuais.
+Të gjitha hyrjet dhe daljet nga Gemini API janë të tokenizuara, duke përfshirë tekstin, skedarët e imazheve dhe modalitetet e tjera jo me tekst.
 
-É possível contar tokens das seguintes maneiras:
+Mund t'i numërosh kodet në mënyrat e mëposhtme:
 
-- **Chame `count_tokens` com a entrada da solicitação.** Retorna o número total de tokens *somente na entrada*. Faça essa chamada antes de enviar a entrada para verificar o tamanho das solicitações.
-- **Use o `usage` na resposta de interação.** Retorna contagens de tokens para entrada (`total_input_tokens`), saída (`total_output_tokens`), pensamento (`total_thought_tokens`), conteúdo armazenado em cache (`total_cached_tokens`), uso de ferramentas (`total_tool_use_tokens`) e total (`total_tokens`).
+- **Telefono `count_tokens` me hyrjen e kërkesës.** Rikthen numrin total të kodeve në *vetëm hyrjen*. Bëje këtë telefonatë para se të dërgosh hyrjen
+  për të kontrolluar madhësinë e kërkesave të tua.
+- **Përdor `usage` në përgjigjen e ndërveprimit.** Kthen numrin e kodeve për hyrjen (`total_input_tokens`), daljen (`total_output_tokens`),
+  të menduarit (`total_thought_tokens`), përmbajtjet e ruajtura në memorien specifike
+  (`total_cached_tokens`), përdorimin e veglave (`total_tool_use_tokens`)
+  dhe totalin (`total_tokens`).
 
-### Contar tokens de texto
+### Numëro tokenët e tekstit
 
 ### Python
 
@@ -161,9 +163,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
   -d '{"contents": [{"parts": [{"text": "The quick brown fox."}]}]}'
 ```
 
-### Contar tokens de várias rodadas
+### Numëro tokenët me disa hapa
 
-Conte os tokens no histórico de conversas usando `previous_interaction_id`:
+Numëro elementet në historikun e bisedave duke përdorur `previous_interaction_id`:
 
 ### Python
 
@@ -315,17 +317,17 @@ func main() {
 }
 ```
 
-### Contar tokens multimodais
+### Numëro tokenët multimodalë
 
-Toda entrada da API Gemini é tokenizada, incluindo imagens, vídeo e áudio.
-Principais pontos sobre a tokenização:
+Të gjitha hyrjet në Gemini API janë të tokenizuara, duke përfshirë imazhet, videot dhe audion.
+Pikat kryesore rreth kodifikimit:
 
-- **Imagens**: imagens ≤384 pixels em ambas as dimensões contam como 258 tokens. Imagens maiores são divididas em blocos de 768 x 768 pixels, cada um contando como 258 tokens.
-- **Vídeo**: 263 tokens por segundo (aplicável ao processamento estático). Para o processamento de agentes, o uso de tokens varia. Consulte
-  [Uso de tokens de vídeo por modo de processamento](#video-token-usage).
-- **Áudio**: 32 tokens por segundo
+- **Imazhet**: Imazhet ≤384 pikselë në të dyja dimensionet llogariten si 258 elemente kodi. Imazhet më të mëdha ndahen në pllakëza me pikselë 768x768, ku secila llogaritet si 258 jeto.
+- **Video**: 263 kode për sekondë (zbatohet për përpunimin statik). Për përpunimin agjentik, përdorimi i tokenit varion. Shiko
+  [Përdorimi i tokenëve të videove sipas modalitetit të përpunimit](#video-token-usage).
+- **Audio**: 32 tokenë në sekondë
 
-#### Tokens de imagem
+#### Tokenët e imazheve
 
 ### Python
 
@@ -484,7 +486,7 @@ func main() {
 }
 ```
 
-**Exemplo de dados inline:**
+**Shembull i të dhënave të integruara:**
 
 ### Python
 
@@ -509,7 +511,7 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Tokens de vídeo
+#### Tokenët e videove
 
 ### Python
 
@@ -542,25 +544,25 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-#### Uso de tokens de vídeo por modo de processamento
+#### Përdorimi i tokenit të videos sipas modalitetit të përpunimit
 
-O uso de tokens para vídeo depende do modo de processamento:
+Përdorimi i kodeve për video varet nga modaliteti i përpunimit:
 
-| **Modo de processamento** | **Cálculo de tokens** | **Uso normal** |
+| **Modaliteti i përpunimit** | **Llogaritja e tokenëve** | **Përdorimi i zakonshëm** |
 | --- | --- | --- |
-| **Estático** (padrão) | ~100 tokens/segundo por padrão (baixa resolução) ou ~300 tokens/segundo (alta resolução). Todos os frames são amostrados a 1 FPS. | Previsível, proporcional à duração do vídeo. |
-| **De agente** | Varia de acordo com a complexidade do conteúdo. O modelo carrega apenas a transcrição e/ou os frames e/ou o áudio necessários para responder ao comando. | Até 88% menos tokens para conteúdo longo. |
+| **Statike** (parazgjedhje) | ~100 elemente/sekondë si parazgjedhje (rezolucion i ulët) ose ~300 elemente/sekondë (rezolucion i lartë). Të gjitha kuadrot e marra si shembuj në 1 FPS. | E parashikueshme, në përpjesëtim me kohëzgjatjen e videos. |
+| **Agentic** | Ndryshon sipas kompleksitetit të përmbajtjes. Modeli ngarkon vetëm transkriptin dhe/ose kuadrot dhe/ose audion e nevojshme për t'iu përgjigjur kërkesës. | Deri në 88% më pak kode për përmbajtjet e gjata. |
 
-Com o processamento de agentes, uma palestra de 1 hora que usaria ~1,08 milhão de tokens no modo estático pode usar ~108 mil tokens, dependendo do comando e do conteúdo.
+Me përpunimin me agjent, një ligjëratë 1-orëshe që do të përdorte ~1,08 milionë kode në modalitetin statik mund të përdorë ~108 mijë kode, në varësi të kërkesës dhe përmbajtjes.
 
-Para verificar o uso real de tokens de uma solicitação, inspecione `interaction.usage`. Os tokens de vídeo de agentes são informados nos seguintes campos:
+Për të kontrolluar përdorimin aktual të token-it për një kërkesë, kontrollo `interaction.usage`. Kuponët e videove me agjent raportohen në fushat e mëposhtme:
 
-- **Comando inicial** (referência de vídeo + comando do usuário): `total_input_tokens`
-- **Pensamento de navegação**: `total_thought_tokens`
-- **Transcrição, frames e áudio carregados sob demanda**: `total_tool_use_tokens`
-- **Resposta final**: `total_output_tokens`
+- **Kërkesa fillestare** (referenca e videos + kërkesa e përdoruesit): `total_input_tokens`
+- **Arsyetimi i navigimit**: `total_thought_tokens`
+- **Transkripti, kuadrot dhe audioja u ngarkuan sipas kërkesës**: `total_tool_use_tokens`
+- **Përgjigjja përfundimtare**: `total_output_tokens`
 
-#### Tokens de áudio
+#### Token-ët e audios
 
 ### Python
 
@@ -586,9 +588,9 @@ interaction = client.interactions.create(
 print(interaction.usage)
 ```
 
-### Contar tokens de instruções do sistema
+### Numëro tokenët e udhëzimeve të sistemit
 
-As instruções do sistema são contadas como parte dos tokens de entrada:
+Udhëzimet e sistemit numërohen si pjesë e tokenëve të hyrjes:
 
 ### Python
 
@@ -604,9 +606,9 @@ interaction = client.interactions.create(
 print(f"Input tokens: {interaction.usage.total_input_tokens}")
 ```
 
-### Contar tokens de ferramentas
+### Numëro tokenët e veglës
 
-As ferramentas (funções, execução de código, Pesquisa Google) também são contadas:
+Veglat (funksionet, ekzekutimi i kodit, "Kërko në Google") llogariten gjithashtu:
 
 ### Python
 
@@ -636,14 +638,14 @@ print(f"Input tokens: {interaction.usage.total_input_tokens}")
 print(f"Tool use tokens: {interaction.usage.total_tool_use_tokens}")
 ```
 
-## Janela de contexto
+## Dritarja kontekstuale
 
-Cada modelo do Gemini tem um número máximo de tokens que pode processar.
+Çdo model i Gemini ka një numër maksimal të tokenëve që mund të administrojë.
 
-- **Modelos do Gemini 4 (`gemini-4-argon`):** compartilham uma única janela de contexto de 1 milhão de tokens (`1,048,576` tokens) em tokens de entrada, pensamento e saída. Por padrão, as respostas síncronas (`background=False`, streaming ou não streaming) são limitadas a `65,536` tokens de saída, ou você pode gerar até `1,048,576` tokens usando a [decodificação longa](https://ai.google.dev/gemini-api/docs/long-decode?hl=pt-br). Se os tokens de entrada mais `max_output_tokens` excederem 1.048.576 tokens, a API limitará automaticamente a saída ao espaço restante na janela de contexto (`1,048,576` menos os tokens de entrada).
-- **Modelos do Gemini 3 e 2.5:** usam orçamentos de entrada (`1,048,576` tokens) e saída (`65,536` tokens) separados.
+- **Modelet Gemini 4 (`gemini-4-argon`):** Ndajnë një dritare kontekstuale të vetme me 1 milion tokenë (`1,048,576` tokenë) në tokenët e hyrjes, të të menduarit dhe të daljes. Si parazgjedhje, përgjigjet sinkrone (`background=False`, transmetim ose jo transmetim) kanë një kufi prej `65,536` tokena dalës ose mund të gjenerosh deri në `1,048,576` tokena duke përdorur [dekodimin e gjatë](https://ai.google.dev/gemini-api/docs/long-decode?hl=sq). Nëse tokenët e hyrjes plus `max_output_tokens` tejkalojnë 1 048 576 tokenë, API-ja e kufizon automatikisht kufirin e daljes në hapësirën e mbetur në dritaren e kontekstit (`1,048,576` minus tokenët e hyrjes).
+- **Modelet Gemini 3 dhe 2.5:** Përdor buxhete të veçanta për hyrjen (`1,048,576` kode) dhe daljen (`65,536` kode).
 
-### Receber o tamanho da janela de contexto de maneira programática
+### Merr madhësinë e dritares kontekstuale në mënyrë programatike
 
 ### Python
 
@@ -749,20 +751,20 @@ func main() {
 }
 ```
 
-Encontre os tamanhos da janela de contexto na página de [modelos](https://ai.google.dev/gemini-api/docs/models?hl=pt-br).
+Gjej madhësitë e dritares kontekstuale në faqen e [modeleve](https://ai.google.dev/gemini-api/docs/models?hl=sq).
 
-## A seguir
+## Çfarë ka më pas
 
-- [Geração de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=pt-br): noções básicas de geração
-- [Armazenamento em cache](https://ai.google.dev/gemini-api/docs/caching?hl=pt-br): reduzir custos com o armazenamento em cache
-- [Preços](https://ai.google.dev/gemini-api/docs/pricing?hl=pt-br): entender os custos
+- [Gjenerimi i tekstit](https://ai.google.dev/gemini-api/docs/text-generation?hl=sq): Bazat e gjenerimit
+- [Ruajtja në memorien specifike](https://ai.google.dev/gemini-api/docs/caching?hl=sq): Redukto kostot me ruajtjen në memorien specifike
+- [Çmimet](https://ai.google.dev/gemini-api/docs/pricing?hl=sq): Kupto kostot
 
-Envie comentários
+Dërgo komente
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Última atualização 2026-10-13 UTC.
+Përditësimi i fundit: 2026-10-13 UTC.
 
-Quer enviar seu feedback?
+Duhet të na tregosh më shumë?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]
