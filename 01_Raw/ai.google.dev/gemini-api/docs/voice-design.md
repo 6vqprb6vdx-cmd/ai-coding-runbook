@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/voice-design?hl=es-419
-fetched_at: 2026-10-26T05:55:59.492148+00:00
-title: "Dise\u00f1o de voz \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/voice-design?hl=he
+fetched_at: 2026-11-02T07:31:07.635838+00:00
+title: "\u05e2\u05d9\u05e6\u05d5\u05d1 \u05e7\u05d5\u05dc\u05d9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Enviar comentarios
+שליחת משוב
 
-# Diseño de voz
+# עיצוב קולי
 
-El diseño de voz te permite crear una personificación vocal persistente y completamente nueva a partir de una descripción en lenguaje natural con el extremo Voices de la API de Gemini (`POST /v1beta/voices`). En lugar de limitarte a voces prediseñadas o a grabar audio de referencia, puedes describir la edad, el timbre, el acento y la forma de hablar de un personaje, y recibir un ID de `voice_...` reutilizable que se guarda en tu proyecto.
+עיצוב קול מאפשר לכם ליצור פרסונה קולית חדשה וקבועה מתיאור בשפה טבעית באמצעות נקודת הקצה Voices של Gemini API ‏(`POST /v1beta/voices`). במקום להיות מוגבלים לקולות מוכנים מראש או להקלטת אודיו להפניה, אתם יכולים לתאר את הגיל, גוון הקול, המבטא וסגנון הדיבור של הדמות, ולקבל מזהה `voice_...` לשימוש חוזר שנשמר בפרויקט שלכם.
 
-La forma más rápida de diseñar, probar y realizar iteraciones en voces personalizadas es con el estudio interactivo **Voice Design** en [Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419). Puedes generar arquetipos personalizados a partir de instrucciones de texto, probarlos con muestras de secuencias de comandos y copiar el ID de `voice_...` resultante directamente en el código de la aplicación.
+הדרך הכי מהירה לעצב קולות מותאמים אישית, לבדוק אותם ולשפר אותם היא באמצעות סטודיו **Voice Design** האינטראקטיבי ב-[Google AI Studio](https://aistudio.google.com/generate-speech?hl=he). אתם יכולים ליצור פרסונות מותאמות אישית מהנחיות טקסט, לבדוק אותן באמצעות סקריפטים לדוגמה ולהעתיק את מזהה `voice_...` שנוצר ישירות לקוד האפליקציה.
 
-[Probar en Google AI Studio](https://aistudio.google.com/generate-speech?hl=es-419)
+[לניסיון ב-Google AI Studio](https://aistudio.google.com/generate-speech?hl=he)
 
-Tanto [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=es-419) (`gemini-3.8-flash-tts`) como [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=es-419) (`gemini-3.8-flash-lite-tts`) admiten el diseño de voz.
+‫[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=he)‏ (`gemini-3.8-flash-tts`) ו-[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=he)‏ (`gemini-3.8-flash-lite-tts`) תומכים בעיצוב קולי.
 
-## Crea una voz diseñada
+## יצירת קול מעוצב
 
-Usa el SDK de GenAI de Google (`google-genai` 2.25.0 o posterior / `@google/genai` 2.24.0 o posterior) o la API de REST para crear una voz personalizada a partir de una descripción de texto. En el caso de las voces de `"prompted"`, tanto `voices.create` (`CreateVoice`) como `voices.get` (`GetVoice`) devuelven un campo `sample_audio` de solo salida (`mime_type: "audio/wav"`, `data` codificado en base64) para que puedas escuchar de inmediato la voz generada:
+אפשר להשתמש ב-Google GenAI SDK (גרסה `google-genai` 2.25.0 ואילך / גרסה `@google/genai` 2.24.0 ואילך) או ב-API בארכיטקטורת REST כדי ליצור קול בהתאמה אישית מתיאור טקסטואלי. עבור קולות `"prompted"`, גם `voices.create` (`CreateVoice`) וגם `voices.get` (`GetVoice`) מחזירים שדה `sample_audio` (`mime_type: "audio/wav"`,‏ `data` בקידוד base64) שמוגדר רק לפלט, כדי שתוכלו לשמוע מיד את הקול שנוצר:
 
 ### Python
 
@@ -121,15 +121,16 @@ curl "https://generativelanguage.googleapis.com/v1beta/voices" \
   }' | tee created_voice.json | jq -r '.sample_audio.data' | base64 --decode > voice_preview.wav
 ```
 
-## Cómo funciona el diseño de voz
+## איך עיצוב הקול פועל
 
-1. **Crea una voz guiada:** Llama a `voices.create` (`POST /v1beta/voices`) con `type="prompted"` y `store=True`.
-2. **Recibe una vista previa persistente de `voice_id` y `sample_audio`:** La API genera la identidad vocal, la almacena en tu proyecto y devuelve un ID permanente (por ejemplo, `voice_abc123...`) junto con `sample_audio` (`mime_type: "audio/wav"`, `data` codificado en base64) que contiene el audio de vista previa generado para la voz.
-3. **Sintetiza voz:** Pasa el `voice_id` en cualquier lugar donde se acepte un nombre de voz en tus solicitudes de síntesis.
+1. **יצירת קול בהנחיה:** התקשר אל `voices.create` (`POST /v1beta/voices`)
+   עם `type="prompted"` ו-`store=True`.
+2. **קבלת תצוגה מקדימה קבועה של `voice_id` ו-`sample_audio`:** ה-API יוצר את הזהות הקולית, מאחסן אותה בפרויקט ומחזיר מזהה קבוע (לדוגמה, `voice_abc123...`) יחד עם `sample_audio` (`mime_type: "audio/wav"`, מקודד ב-Base64 `data`) שמכיל את האודיו של התצוגה המקדימה שנוצר עבור הקול.
+3. **סינתזת דיבור:** מעבירים את `voice_id` לכל מקום שבו שם של קול מתקבל בבקשות הסינתזה.
 
-## Sintetiza la voz con la voz que diseñaste
+## סינתזת דיבור באמצעות קול שעיצבתם
 
-Una vez que hayas creado una voz, pasa su `id` (`voice_...`) a la API de Interactions para generar voz:
+אחרי שיוצרים קול, מעבירים את הערך `id` (`voice_...`) שלו אל Interactions API כדי ליצור דיבור:
 
 ### Python
 
@@ -228,13 +229,13 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' | jq -r '[.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio")] | last | .data' | base64 --decode > out.wav
 ```
 
-## Administra tus voces
+## ניהול הקולות
 
-Puedes enumerar, filtrar, inspeccionar y borrar tus voces almacenadas en cualquier momento con la API de Voices (consulta [Biblioteca de voces extendida y filtrado](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419#voice-library) para ver todos los parámetros de filtro).
+אתם יכולים לראות, לסנן, לבדוק ולמחוק את הקולות השמורים מתי שתרצו באמצעות Voices API (ראו [ספריית קולות מורחבת וסינון](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he#voice-library) לכל פרמטרי הסינון).
 
-- **Límites de almacenamiento y TTL:** Las voces con estado (`store=True`, compartidas entre las voces replicadas y las generadas a partir de instrucciones) tienen un límite de **200 voces por proyecto** y un **TTL de 1 año** (tiempo de actividad).
-- **Disponibilidad de `sample_audio`:** `voices.create()` (`CreateVoice`) y `voices.get()` (`GetVoice`) completan `sample_audio` (`mime_type:
-  "audio/wav"`, `data` codificado en base64) para las voces de `"prompted"`. Para que la lista sea liviana, `voices.list()` (`ListVoices`) omite `sample_audio` (y `sample_audio` no se establece para las voces `"replicated"` y `"prebuilt"`).
+- **מגבלות אחסון ואורך חיים (TTL):** לקולות עם שמירת מצב (`store=True`, משותפים בין קולות שנוצרו בהנחיה וקולות משוכפלים) יש מגבלה של **200 קולות לכל פרויקט** ו**אורך חיים של שנה אחת**.
+- **זמינות `sample_audio`:** הערכים `voices.create()` (`CreateVoice`) ו-`voices.get()` (`GetVoice`) מאכלסים את `sample_audio` (`mime_type:
+  "audio/wav"`, בקידוד base64 `data`) עבור קולות `"prompted"`. כדי שהכרטיסייה תהיה קלה יותר, `voices.list()` (`ListVoices`) משמיט את `sample_audio` (`sample_audio` ולא מוגדר עבור קולות `"replicated"` ו-`"prebuilt"`).
 
 ### Python
 
@@ -300,23 +301,23 @@ curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/voices/voice_YO
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Prácticas recomendadas para la creación de instrucciones para el diseño de voz
+## שיטות מומלצות לכתיבת פרומפטים לעיצוב קולי
 
-- **Coloca rasgos vocales permanentes en el diseño de voz, no en `style`:** Define características inmutables, como la edad, el género, el timbre, la textura vocal y el acento regional, cuando crees la voz en `voices.create`.
-- **Reserva `speech_metadata.style` para la emoción situacional:** Una vez que se cree tu voz personalizada, usa instrucciones `style` cortas (por ejemplo, `"whispered urgently"` o `"cheerful and energetic"`) para dirigir la actuación paso a paso sin alterar la identidad principal del orador.
-- **Sé específico y conciso:** Una descripción clara de 1 o 2 oraciones (como *"Una locutora deportiva enérgica y nítida de unos 30 años con un ligero acento del Medio Oeste"*) produce resultados más limpios y coherentes que los párrafos contradictorios o demasiado largos.
+- **מגדירים מאפיינים קוליים קבועים בעיצוב הקול, ולא ב-`style`:** מגדירים מאפיינים קבועים – כמו גיל, מגדר, גוון, מרקם קולי ומבטא אזורי – כשיוצרים את הקול ב-`voices.create`.
+- **שמרו את `speech_metadata.style` למצבים שבהם נדרשת הבעת רגש:** אחרי שיוצרים את הקול המותאם אישית, משתמשים בהנחיות קצרות `style` (לדוגמה, `"whispered urgently"` או `"cheerful and energetic"`) כדי לכוון את המשחק לפי תורות בלי לשנות את הזהות הבסיסית של הדובר.
+- **היו ספציפיים ותמציתיים:** תיאור ברור של משפט או שניים (למשל *"שדרנית ספורט אנרגטית בת 30 עם מבטא קל של המערב התיכון"*) יניב תוצאות טובות ועקביות יותר מאשר פסקאות סותרות או ארוכות מדי.
 
-## ¿Qué sigue?
+## המאמרים הבאים
 
-- Obtén información para replicar la voz de un orador existente en [Replicación de voz](https://ai.google.dev/gemini-api/docs/voice-replication?hl=es-419).
-- Explora el diseño a nivel de turnos, las etiquetas intercaladas y el diálogo de varios oradores en la [guía de Text-to-Speech](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419).
+- למדו איך לשכפל קול של דובר קיים באמצעות [רפליקציה של קולות](https://ai.google.dev/gemini-api/docs/voice-replication?hl=he).
+- ב[מדריך להמרת טקסט לדיבור](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he) אפשר לקרוא על עיצוב ברמת הפנייה, תגים מוטבעים ודיאלוג עם כמה דוברים.
 
-Enviar comentarios
+שליחת משוב
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última actualización: 2026-09-24 (UTC)
+עדכון אחרון: 2026-09-24 (שעון UTC).
 
-¿Quieres brindar más información?
+רוצה לתת לנו משוב?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-24 (UTC)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-24 (שעון UTC)."],[],[]]

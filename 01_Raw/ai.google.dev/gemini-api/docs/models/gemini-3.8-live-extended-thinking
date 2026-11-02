@@ -1,67 +1,67 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=he
-fetched_at: 2026-10-26T05:57:39.218670+00:00
-title: "\u202bGemini 3.8 Live Extended Thinking \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=zh-CN
+fetched_at: 2026-11-02T07:13:48.046904+00:00
+title: "Gemini 3.8 Live\uff08\u6269\u5c55\u601d\u8003\uff09 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-שליחת משוב
+发送反馈
 
-# ‫Gemini 3.8 Live Extended Thinking
+# Gemini 3.8 Live（扩展思考）
 
-‫Gemini 3.8 Live Extended Thinking הוא מודל אודיו-לאודיו עם יכולות חשיבה מתקדמות. מומלץ להשתמש בו כשנדרשת חשיבה מעמיקה יותר ברקע כדי לפתור בעיות מורכבות עם כמה שלבים במהלך אינטראקציות קוליות בזמן אמת. הוא מעבד חשיבה ברקע וקריאות אסינכרוניות לפונקציות, תוך כדי סטרימינג של תשובות אודיו רציפות.
+Gemini 3.8 Live 扩展思考是我们的高推理音频到音频模型，建议在实时语音互动期间需要更强的后台推理能力来解决复杂的多步骤问题时使用。它会在流式传输连续音频回答的同时，处理后台推理和异步工具调用。
 
-[התנסות ב-Google AI Studio](https://aistudio.google.com/live?model=gemini-3.8-live-extended-thinking&hl=he)
+[在 Google AI Studio 中试用](https://aistudio.google.com/live?model=gemini-3.8-live-extended-thinking&hl=zh-cn)
 
-## מאמרי עזרה
+## 文档
 
-במדריך [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he) מפורטות כל התכונות והיכולות.
+如需全面了解其特性和功能，请参阅 [Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn) 指南。
 
 ## gemini-3.8-live-extended-thinking
 
-| נכס | תיאור |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardקוד המודל | `gemini-3.8-live-extended-thinking` |
-| saveסוגי נתונים נתמכים | **הנחיות**  טקסט, תמונות, אודיו  **פלט**  טקסט ואודיו |
-| token\_autoמגבלות על אסימונים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים בקלט**  131,072  **מגבלת טוקנים בפלט**  65,536 |
-| handymanיכולות | **[יצירת אודיו](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)**  נתמך  **[שמירה במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he)**  לא נתמך  **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**  לא נתמך  **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**  לא נתמך  **[בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)**  נתמך (אסינכרוני בלבד)  **[עיגון בעזרת מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)**  לא נתמך  **[יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)**  לא נתמך  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he)**  נתמך  **[חיפוש עם עיגון בנתונים](https://ai.google.dev/gemini-api/docs/google-search?hl=he)**  נתמך  **[פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)**  לא נתמך  **[בתהליך חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**  נתמך  **[הקשר של כתובת URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he)**  לא נתמך |
-| speedאפשרויות צריכה | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he)**  לא נתמך |
-| 123גרסאות | למידע נוסף, קראו את [תבניות גרסאות המודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-3.8-live-extended-thinking` |
-| calendar\_monthהעדכון האחרון | ספטמבר 2026 |
-| id\_cardכרטיס מודל | [כרטיס מודל](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=he) |
+| id\_card模型代码 | `gemini-3.8-live-extended-thinking` |
+| save支持的数据类型 | **输入源**  文本、图片、音频  **输出**  文字和音频 |
+| token\_autoToken 限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **输入 token 限制**  131,072  **输出 token 限制**  65536 |
+| handyman功能 | **[音频生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)**  支持  **[缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)**  不受支持  **[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)**  不受支持  **[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)**  不受支持  **[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)**  支持（仅限异步）  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)**  不受支持  **[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)**  不受支持  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn)**  支持  **[利用 Google 搜索建立回答依据](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)**  支持  **[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)**  不受支持  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)**  支持  **[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)**  不受支持 |
+| speed使用选项 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)**  不受支持 |
+| 123 个版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-cn#model-versions)。  - 稳定：`gemini-3.8-live-extended-thinking` |
+| calendar\_month最后更新时间 | 2026 年 9 月 |
+| id\_card模型卡片 | [模型卡片](https://deepmind.google/models/model-cards/gemini-3-8-audio/?hl=zh-cn) |
+| paid价格 | [价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-3.8-live) |
 
-## משדרגים ל-Gemini 3.8 עם חשיבה מעמיקה במצב Live
+## 升级到 Gemini 3.8 Live 扩展思考
 
-‫Gemini 3.8 Live Extended Thinking מציג חשיבה מעמיקה ברקע במהלך שיחות קוליות במצב Live. כשמשלבים את המודל הזה, צריך לעדכן את ניהול המצב של הלקוח כדי לטפל באותות הסקת מסקנות אסינכרוניים:
+Gemini 3.8 Live 扩展思考在实时音频对话期间引入了后台推理功能。集成此模型时，请更新客户端状态管理，以处理异步推理信号：
 
-- **פרוטוקול הסקת מסקנות אסינכרוני**: כשמקיימים אינטראקציה עם מודלים שמשתמשים בהסקת מסקנות אסינכרונית, הערך `turnComplete: true` כבר לא מציין שהמודל לא פעיל. יכול להיות שהשרת ימשיך לעבד ברקע את תהליך החשיבה או את הקריאות לפונקציות. הלקוח צריך להמשיך להאזין להודעות הבאות מהשרת (כמו קריאות לפונקציות או פריימים של אודיו) אחרי שמגיעה ההודעה `turnComplete: true`.
-- **מעקב אחרי `interaction_status`**: משתמשים בשדה `interaction_status` בהודעות נכנסות מהשרת כדי לקבוע את המצב הנוכחי של השרת:
-  - ‫`IN_PROGRESS`: השרת מעבד באופן פעיל את הקלט של המשתמש, מפעיל תהליכי חשיבה ברקע או ממתין לתשובות לקריאות אסינכרוניות לכלים.
-    יכול להיות שיופיעו פלטים נוספים מהמודל או קריאות נוספות לפונקציות.
-  - ‫`IDLE`: השרת סיים את כל העיבוד, החשיבה והקריאות לפונקציות.
-    הסשן לא פעיל וממתין לקלט מהמשתמש.
-- **קריאה אסינכרונית להפעלת פונקציות**: יש תמיכה רק בהרצה אסינכרונית ללא חסימה (`behavior: NON_BLOCKING`). אין תמיכה במצב חסימה סינכרוני, והוא מחזיר שגיאה חמורה. אין תמיכה בהגדרות של תזמון פונקציות.
-- **הגדרת חשיבה**: מגדירים את החשיבה ברקע באמצעות `thinking_config` בהגדרות (`thinking_level`: `low`,‏ `medium` או `high`). שימו לב שאין תמיכה ב-`MINIMAL`.
-- **עדכוני תוכן מהלקוח**: אפשר להשתמש ב-`send_client_content` לאורך כל מחזור החיים של הסשן עם תפקידים מפורשים (`user` או `model`). הגדרת `turn_complete=true` קוטעת מיד את היצירה הפעילה.
-- **סינון אודיו יזום**: מופעל באופן קבוע. ההגדרה `proactive_audio: false` מחזירה שגיאה.
+- **异步推理协议**：与使用异步推理的模型交互时，`turnComplete: true` 不再表示模型处于空闲状态。服务器可能会继续处理后台推理或工具调用。在 `turnComplete: true` 到达后，您的客户端必须继续监听后续服务器消息（例如工具调用或音频帧）。
+- **监控 `interaction_status`**：使用传入服务器消息中的 `interaction_status` 字段来确定当前服务器状态：
+  - `IN_PROGRESS`：服务器正在主动处理用户输入、运行后台推理，或等待异步工具调用的响应。后续可能会有其他模型输出或工具调用。
+  - `IDLE`：服务器已完成所有处理、推理和工具调用。
+    会话处于空闲状态，正在等待用户输入。
+- **异步函数调用**：仅支持异步非阻塞执行 (`behavior: NON_BLOCKING`)。系统不支持同步阻塞模式，并会返回硬错误。不支持函数调度配置。
+- **思考配置**：在设置配置中使用 `thinking_config` 配置后台推理（`thinking_level`：`low`、`medium` 或 `high`）。请注意，不支持 `MINIMAL`。
+- **客户端内容更新**：在整个会话生命周期内，`send_client_content` 均受支持，且具有明确的角色（`user` 或 `model`）。设置 `turn_complete=true` 会立即中断正在进行的生成。
+- **主动音频**：永久启用。设置 `proactive_audio: false` 会返回错误。
 
-בטבלה [השוואה בין מודלים](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=he#model-comparison) מפורטות התכונות של כל המודלים של Live API.
+如需比较所有 Live API 模型的功能，请参阅[模型对比](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=zh-cn#model-comparison)表。
 
-שליחת משוב
+发送反馈
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-עדכון אחרון: 2026-10-19 (שעון UTC).
+最后更新时间 (UTC)：2026-10-29。
 
-רוצה לתת לנו משוב?
+需要向我们提供更多信息？
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-19 (שעון UTC)."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-29。"],[],[]]

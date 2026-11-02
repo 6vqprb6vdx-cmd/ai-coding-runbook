@@ -1,39 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=fr
-fetched_at: 2026-10-26T05:57:53.026488+00:00
-title: "Orchestration des t\u00e2ches \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-orchestration?hl=he
+fetched_at: 2026-11-02T07:05:24.425698+00:00
+title: "\u05ea\u05d6\u05de\u05d5\u05e8 \u05de\u05e9\u05d9\u05de\u05d5\u05ea \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
-Envoyer des commentaires
+שליחת משוב
 
-# Orchestration des tâches
+# תזמור משימות
 
-Les modèles Gemini Robotics ER peuvent planifier des tâches et raisonner sur l'espace, en déduisant les actions à entreprendre et les objets à déplacer pour atteindre un objectif. Cette page
-présente un exemple de pilotage d'une opération de [prise et de dépose](#calling-custom-robot-api)
-via une API de robot personnalisée pour orchestrer la tâche consistant à placer un élément
-dans un bol.
+מודלים של Gemini Robotics ER יכולים לתכנן משימות ולנמק לגבי המרחב, ולהסיק אילו פעולות צריך לבצע ואילו אובייקטים צריך להזיז כדי להשיג מטרה. בדף הזה מוצגת דוגמה ל[הפעלת פעולת הרמה והנחה](#calling-custom-robot-api) באמצעות API מותאם אישית של רובוט, כדי לתזמן את המשימה של הנחת פריט בקערה.
 
-Pour obtenir le code exécutable complet, consultez le
-[livre de recettes sur la robotique](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+קוד מלא שניתן להרצה זמין ב-[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## Utiliser une API de robot personnalisée
+## שימוש ב-API מותאם אישית של רובוט
 
-Cet exemple illustre l'orchestration des tâches avec une API de robot personnalisée. Il présente une API fictive conçue pour une opération de prise et de dépose. La tâche consiste à prendre un bloc bleu et à le placer dans un bol orange :
+בדוגמה הזו מוצגת תזמור משימות באמצעות API של רובוט בהתאמה אישית. הוא כולל API מדומה שנועד לפעולת הרמה והנחה. המשימה היא להרים קובייה כחולה ולהניח אותה בקערה בצבע כתום:
 
-![Image du bloc et du bol](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=fr)
+![תמונה של הבלוק והקערה](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=he)
 
-Cet exemple utilise les définitions d'API et d'outil de robot fictifs suivantes :
+בדוגמה הזו נעשה שימוש בהגדרות הבאות של כלי ו-API של רובוט מדומה:
 
 ### Python
 
@@ -81,7 +77,7 @@ set_gripper_state_declaration = types.FunctionDeclaration(
 robot_tools = types.Tool(function_declarations=[move_declaration, set_gripper_state_declaration])
 ```
 
-L'exemple suivant envoie le prompt et l'image au modèle avec les définitions d'outil. Il exécute ensuite une boucle d'agent : après chaque réponse du modèle, il exécute tous les appels de fonction demandés (`move`, `setGripperState`), renvoie les résultats au modèle et répète l'opération jusqu'à ce que le modèle cesse d'appeler des fonctions ou que la limite d'étapes soit atteinte.
+בדוגמה הבאה, ההנחיה והתמונה נשלחות למודל עם הגדרות כלי. לאחר מכן, הוא מריץ לולאה של סוכן: אחרי כל תגובה של המודל, הוא מבצע את כל הקריאות לפונקציות המבוקשות (`move`, `setGripperState`), מחזיר את התוצאות למודל וחוזר על הפעולה עד שהמודל מפסיק לקרוא לפונקציות או עד שמגיעים למגבלת השלבים.
 
 ### Python
 
@@ -155,7 +151,7 @@ while step_count < max_steps:
     contents.append(types.Content(role="user", parts=function_response_parts))
 ```
 
-L'exemple suivant montre une sortie possible du modèle en fonction du prompt et de l'API de robot fictive. La sortie inclut la sortie des appels de fonction de robot que le modèle a séquencés ensemble.
+בדוגמה הבאה מוצג פלט אפשרי של המודל על סמך ההנחיה וממשק ה-API של הרובוט המדומה. הפלט כולל את הפלט של הקריאות לפונקציות של הרובוט, שהמודל סידר ברצף.
 
 ```
 --- Executing Orchestrated Plan ---
@@ -172,18 +168,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## Étape suivante
+## המאמרים הבאים
 
-- [Robotique avec streaming](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=fr) : streaming en temps réel avec appel de fonction (Gemini Robotics ER 2 uniquement)
-- [Compréhension vidéo](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=fr) : suivi de la progression des tâches à partir de la vidéo (ER 2 uniquement)
-- [Raisonnement spatial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=fr) : exemples de pointage, de suivi et de cadre de délimitation
+- ‫[Robotics עם סטרימינג](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=he) – סטרימינג בזמן אמת עם בקשות להפעלת פונקציות (Gemini Robotics ER 2 בלבד).
+- [הבנת סרטונים](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=he) – מעקב אחר התקדמות המשימה מתוך סרטון (ER 2 בלבד).
+- [היגיון מרחבי](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=he) – דוגמאות של הצבעה, מעקב ותיבה תוחמת.
 
-Envoyer des commentaires
+שליחת משוב
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Dernière mise à jour le 2026/09/08 (UTC).
+עדכון אחרון: 2026-09-08 (שעון UTC).
 
-Voulez-vous nous donner plus d'informations ?
+רוצה לתת לנו משוב?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/08 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-08 (שעון UTC)."],[],[]]

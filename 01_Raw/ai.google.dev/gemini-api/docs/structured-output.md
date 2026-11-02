@@ -1,38 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-TW
-fetched_at: 2026-10-26T05:44:58.280484+00:00
-title: "\u7d50\u69cb\u5316\u8f38\u51fa\u5167\u5bb9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/structured-output?hl=bn
+fetched_at: 2026-11-02T07:02:29.628971+00:00
+title: "\u09b8\u09cd\u099f\u09cd\u09b0\u09be\u0995\u099a\u09be\u09b0\u09cd\u09a1 \u0986\u0989\u099f\u09aa\u09c1\u099f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-提供意見
+মতামত জানান
 
-# 結構化輸出內容
+# স্ট্রাকচার্ড আউটপুট
 
-您可以設定 Gemini 模型，依據提供的 JSON 結構定義生成回覆。這可確保結果可預測且類型安全，並簡化從非結構化文字中擷取結構化資料的程序。
+আপনি Gemini মডেল কনফিগার করতে পারেন যাতে এটি প্রদত্ত JSON স্কিমা মেনে চলে এমন উত্তর তৈরি করে। এটি অনুমানযোগ্য, টাইপ-নিরাপদ ফলাফল নিশ্চিত করে এবং
+আনস্ট্রাকচার্ড টেক্সট থেকে স্ট্রাকচার্ড ডেটা এক্সট্র্যাক্ট করার প্রসেসকে সহজ করে তোলে।
 
-結構化輸出內容最適合用於：
+স্ট্রাকচার্ড আউটপুট ব্যবহার করা এগুলির জন্য আদর্শ:
 
-- **資料擷取：**從文字中擷取特定資訊，例如姓名和日期。
-- **結構化分類：**將文字分類至預先定義的類別。
-- **Agentic Workflows：**為工具或 API 生成結構化輸入內容。
+- **ডেটা এক্সট্র্যাকশন:** টেক্সট থেকে নাম ও তারিখের মতো নির্দিষ্ট তথ্য বের করে আনা।
+- **স্ট্রাকচার্ড ক্লাসিফিকেশন:** পূর্বনির্ধারিত বিভাগে টেক্সট ক্লাসিফাই করুন।
+- **এজেন্টিক ওয়ার্কফ্লো:** টুল বা API-এর জন্য স্ট্রাকচার্ড ইনপুট তৈরি করুন।
 
-除了在 REST API 中支援 JSON 結構定義外，Google GenAI SDK 也允許使用 [Pydantic](https://docs.pydantic.dev/latest/) (Python) 和 [Zod](https://zod.dev/) (JavaScript) 定義結構定義。
+REST API-তে JSON স্কিমা সাপোর্ট করার পাশাপাশি, Google GenAI SDK
+[Pydantic](https://docs.pydantic.dev/latest/) (Python) এবং
+[Zod](https://zod.dev/) (JavaScript) ব্যবহার করে
+স্কিমা সংজ্ঞায়িত করার অনুমতি দেয়।
 
-## 結構化輸出內容範例
+## স্ট্রাকচার্ড আউটপুটের উদাহরণ
 
-### 食譜擷取器
+### রেসিপি এক্সট্র্যাক্টর
 
-這個範例說明如何使用 `object`、`array`、`string` 和 `integer` 等基本 JSON 結構定義類型，從文字中擷取結構化資料。
+এই উদাহরণে দেখানো হয়েছে যে কীভাবে `object`, `array`, `string` ও `integer`-এর মতো বেসিক JSON স্কিমা টাইপ ব্যবহার করে টেক্সট থেকে স্ট্রাকচার্ড ডেটা এক্সট্র্যাক্ট করা যায়।
 
 ### Python
 
@@ -81,7 +85,7 @@ recipe = Recipe.model_validate_json(interaction.output_text)
 print(recipe)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 // Note: Ensure zod is installed (npm install zod)
@@ -248,7 +252,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -344,7 +348,7 @@ onto ungreased baking sheets and bake for 9 to 11 minutes.`
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -390,7 +394,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**回應範例：**
+**উদাহরণস্বরূপ উত্তর:**
 
 ```
 {
@@ -418,9 +422,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### 內容審核
+### কন্টেন্ট মডারেশন
 
-這個範例展示了用於條件式結構定義的 `anyOf`，以及用於分類的 `enum`，可讓輸出結構依據內容而有所不同。
+এই উদাহরণে কন্ডিশনাল স্কিমার জন্য `anyOf` এবং শ্রেণীবিন্যাসের জন্য `enum` দেখানো হয়েছে, যা কন্টেন্টের উপর ভিত্তি করে আউটপুট স্ট্রাকচার পরিবর্তন করার অনুমতি দেয়।
 
 ### Python
 
@@ -461,7 +465,7 @@ result = ModerationResult.model_validate_json(interaction.output_text)
 print(result)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 // Note: Ensure zod is installed (npm install zod)
@@ -612,7 +616,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -704,7 +708,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -751,7 +755,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**回應範例：**
+**উদাহরণস্বরূপ উত্তর:**
 
 ```
 {
@@ -762,9 +766,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-### 遞迴結構
+### স্ট্রাকচারের পুনরাবৃত্তি
 
-這個範例說明如何定義遞迴結構定義，例如組織圖。
+এই উদাহরণে দেখানো হয়েছে যে কীভাবে একটি রিকার্সিভ স্কিমা যেমন একটি
+অর্গানাইজেশন চার্ট সংজ্ঞায়িত করা যায়।
 
 ### Python
 
@@ -803,7 +808,7 @@ employee = Employee.model_validate_json(interaction.output_text)
 print(employee)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 // Note: Ensure zod is installed (npm install zod)
@@ -915,7 +920,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -984,7 +989,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1016,7 +1021,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-**回應範例：**
+**উদাহরণস্বরূপ উত্তর:**
 
 ```
 {
@@ -1043,9 +1048,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-## 串流結果
+## স্ট্রিমিংয়ের ফলাফল
 
-您可以串流輸出結構化內容，在生成回覆時就開始處理。串流區塊是有效的 JSON 字串片段，可串連成最終的 JSON 物件。
+আপনি স্ট্রাকচার্ড আউটপুট স্ট্রিম করতে পারেন, যা আপনাকে উত্তর তৈরি হওয়ার সাথে সাথে তা প্রসেস করা শুরু করার অনুমতি দেয়। স্ট্রিম করা চাঙ্কগুলি হল সঠিক আংশিক JSON স্ট্রিং যা চূড়ান্ত JSON অবজেক্ট তৈরি করতে একত্রিত করা যেতে পারে।
 
 ### Python
 
@@ -1077,7 +1082,7 @@ for event in stream:
             print(event.delta.text, end="", flush=True)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 // Note: Ensure zod is installed (npm install zod)
@@ -1192,7 +1197,7 @@ try (EventStream<InteractionSSEStreamEvent> events = response.events()) {
 }
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -1263,7 +1268,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1288,9 +1293,14 @@ curl -N -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
     }'
 ```
 
-## 使用工具產生結構化輸出內容
+## টুলের মাধ্যমে স্ট্রাকচার্ড আউটপুট
 
-Gemini 3 可讓您將結構化輸出內容與內建工具結合，包括[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)、[網址背景資訊](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-tw)、[執行程式碼](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-tw)、[檔案搜尋](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-tw#structured-output)和[函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)。
+Gemini 3 আপনাকে বিল্ট-ইন টুলের সাথে স্ট্রাকচার্ড আউটপুট একত্রিত করতে দেয়, যার মধ্যে রয়েছে
+[Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn),
+[URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn),
+[কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn),
+[ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn#structured-output) এবং
+[ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)।
 
 ### Python
 
@@ -1321,7 +1331,7 @@ result = MatchResult.model_validate_json(interaction.output_text)
 print(result)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 // Note: Ensure zod is installed (npm install zod)
@@ -1424,7 +1434,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### খুলুন
 
 ```
 package main
@@ -1496,7 +1506,7 @@ func main() {
 }
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1522,83 +1532,105 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## 支援 JSON 結構定義
+## JSON স্কিমা সংক্রান্ত সহায়তা
 
-如要生成 JSON 物件，請使用 `text` 類型的物件 (或包含物件的陣列) 設定 `response_format`，並將 `mime_type` 設為 `application/json`。請在 `schema` 欄位中提供結構定義。
+JSON অবজেক্ট তৈরি করতে, `text` ধরনের অবজেক্ট (বা অবজেক্ট সহ অ্যারে) দিয়ে `response_format` কনফিগার করুন এবং এর `mime_type`-কে `application/json`-এ সেট করুন। `schema` ফিল্ডে স্কিমা দিতে হবে।
 
-Gemini 的結構化輸出模式支援 [JSON 結構定義](https://json-schema.org/)規格的部分內容。
+Gemini-র স্ট্রাকচার্ড আউটপুট মোড [JSON স্কিমা](https://json-schema.org/) স্পেসিফিকেশনের
+সাবসেটকে সাপোর্ট করে।
 
-支援下列 `type` 值：
+`type`-এর নিম্নলিখিত ভ্যালু কাজ করে:
 
-- **`string`**：文字。
-- **`number`**：用於浮點數。
-- **`integer`**：用於整數。
-- **`boolean`**：用於 true 或 false 值。
-- **`object`**：適用於含有鍵/值組合的結構化資料。
-- **`array`**：用於項目清單。
-- **`null`**：如要允許屬性為空值，請在類型陣列中加入 `"null"` (例如 `{"type": ["string", "null"]}`)。
+- **`string`**: টেক্সটের জন্য।
+- **`number`**: ফ্লোটিং-পয়েন্ট সংখ্যার জন্য।
+- **`integer`**: পূর্ণ সংখ্যার জন্য।
+- **`boolean`**: সত্য বা মিথ্যা ভ্যালুর জন্য।
+- **`object`**: কী-ভ্যালু পেয়ার সহ স্ট্রাকচার্ড ডেটার জন্য।
+- **`array`**: আইটেমের তালিকার জন্য।
+- **`null`**: কোনও প্রপার্টিকে ফাঁকা রাখার অনুমতি দিতে, টাইপ অ্যারেতে `"null"` অন্তর্ভুক্ত করুন (যেমন, `{"type": ["string", "null"]}`)।
 
-這些描述性屬性有助於引導模型：
+এইসব বর্ণনামূলক প্রপার্টি মডেলকে নির্দেশ দিতে সাহায্য করে:
 
-- **`title`**：屬性的簡短說明。
-- **`description`**：更長、更詳細的屬性說明。
+- **`title`**: কোনও প্রপার্টির সংক্ষিপ্ত বিবরণ।
+- **`description`**: কোনও প্রপার্টির আরও দীর্ঘ ও বিস্তারিত বিবরণ।
 
-### 類型專屬屬性
+### ধরন-নির্দিষ্ট প্রপার্টি
 
-**`object` 值：**
+**`object` ভ্যালুর জন্য:**
 
-- **`properties`**：物件，其中每個鍵都是屬性名稱，每個值都是該屬性的結構定義。
-- **`required`**：字串陣列，列出必要屬性。
-- **`additionalProperties`**：控制是否允許 `properties` 中未列出的屬性。可以是布林值或結構定義。
-- **不支援的計數限制**：在限制解碼期間，系統不會強制執行 `minProperties` 和 `maxProperties`，伺服器會忽略這些限制。視需要驗證應用程式程式碼中的屬性數量。
+- **`properties`**: এমন একটি অবজেক্ট যেখানে প্রতিটি কী হল একটি প্রপার্টির নাম এবং প্রতিটি ভ্যালু হল সেই প্রপার্টির জন্য একটি স্কিমা।
+- **`required`**: স্ট্রিংয়ের একটি অ্যারে, কোন কোন প্রপার্টি বাধ্যতামূলক তা তালিকাভুক্ত করে।
+- **`additionalProperties`**: `properties`-এ তালিকাভুক্ত নয় এমন প্রপার্টি অনুমোদিত কিনা তা নিয়ন্ত্রণ করে। বুলিয়ান বা স্কিমা হতে পারে।
+- **অসমর্থিত গণনা সংক্রান্ত সীমাবদ্ধতা**: `minProperties` এবং `maxProperties`
+  সীমাবদ্ধ ডিকোডিংয়ের সময় এনফোর্স করা হয় না এবং সার্ভার দ্বারা উপেক্ষা করা হয়।
+  প্রয়োজন হলে, আপনার অ্যাপ্লিকেশন কোডে প্রপার্টি কাউন্ট যাচাই করুন।
 
-**`string` 值：**
+**`string` ভ্যালুর জন্য:**
 
-- **`enum`**：列出分類任務可能出現的一組特定字串。
-- **`format`**：指定字串的語法，例如 `date-time`、`date`、`time`。
-- **不支援的長度限制**：`minLength` 和 `maxLength` 在限制解碼期間不會強制執行，且會由伺服器忽略。如有需要，請在應用程式程式碼中驗證字串長度。
+- **`enum`**: ক্লাসিফিকেশন টাস্কের জন্য সম্ভাব্য স্ট্রিংয়ের নির্দিষ্ট সেট তালিকাভুক্ত করে।
+- **`format`**: স্ট্রিংয়ের জন্য সিনট্যাক্স নির্দিষ্ট করে, যেমন `date-time`, `date`, `time`।
+- **দৈর্ঘ্য সংক্রান্ত সীমাবদ্ধতা কাজ করে না**: সীমাবদ্ধ ডিকোডিংয়ের সময় `minLength` এবং `maxLength`
+  এনফোর্স করা হয় না এবং সার্ভার এগুলি উপেক্ষা করে।
+  প্রয়োজন হলে, আপনার অ্যাপ্লিকেশন কোডে স্ট্রিংয়ের দৈর্ঘ্য যাচাই করুন।
 
-**`number` 和 `integer` 值：**
+**`number` এবং `integer` ভ্যালুর জন্য:**
 
-- **`enum`**：列出一組特定的可能數值。
-- **`minimum`**：最小值 (含)。
-- **`maximum`**：最大值 (含)。
+- **`enum`**: সম্ভাব্য সংখ্যাসূচক মানের একটি নির্দিষ্ট সেট তালিকাভুক্ত করে।
+- **`minimum`**: ন্যূনতম ইনক্লুসিভ ভ্যালু।
+- **`maximum`**: সর্বাধিক ইনক্লুসিভ ভ্যালু।
 
-**`array` 值：**
+**`array` ভ্যালুর জন্য:**
 
-- **`items`**：定義陣列中所有項目的結構定義。
-- **`prefixItems`**：定義前 N 個項目的結構定義清單，允許類似元組的結構。
-- **`minItems`**：陣列中的項目數量下限。
-- **`maxItems`**：陣列中的項目數量上限。
-- **不支援的陣列限制**：`uniqueItems`、`contains`、`minContains` 和 `maxContains` 在限制解碼期間不會強制執行，且會由伺服器忽略。如有需要，請在應用程式程式碼中簡化項目或檢查陣列內容。
+- **`items`**: অ্যারের সব আইটেমের জন্য স্কিমা নির্ধারণ করে।
+- **`prefixItems`**: প্রথম N আইটেমের জন্য স্কিমার তালিকা নির্ধারণ করে, যা টিউপলের মতো স্ট্রাকচারের অনুমতি দেয়।
+- **`minItems`**: অ্যারেতে আইটেমের ন্যূনতম সংখ্যা।
+- **`maxItems`**: অ্যারেতে আইটেমের সর্বাধিক সংখ্যা।
+- **অসমর্থিত অ্যারে কনস্ট্রেন্ট**: কনস্ট্রেন্ট ডিকোডিংয়ের সময় `uniqueItems`, `contains`,
+  `minContains` এবং `maxContains` এনফোর্স করা হয় না এবং সার্ভার এগুলি উপেক্ষা করে। প্রয়োজন হলে, আপনার অ্যাপ্লিকেশন কোডে আইটেম ডুপ্লিকেট করা বন্ধ করুন বা
+  অ্যারে কন্টেন্ট চেক করুন।
 
-## 結構化輸出與函式呼叫
+## স্ট্রাকচার্ড আউটপুট বনাম ফাংশন কলিং
 
-| 功能 | 主要用途 |
+| ফিচার | প্রাথমিক ব্যবহারিক ক্ষেত্র |
 | --- | --- |
-| **結構化輸出** | **設定最終回覆的格式。**當您希望模型以特定格式*回答*時，可以使用這個方法。 |
-| **呼叫函式** | **在對話期間採取行動。**如果模型需要*請你*執行工作，才能提供最終答案，請使用這個選項。 |
+| **স্ট্রাকচার্ড আউটপুট** | **চূড়ান্ত উত্তর ফর্ম্যাট করা হচ্ছে।** মডেলের *উত্তর* নির্দিষ্ট ফর্ম্যাটে পেতে চাইলে এটি ব্যবহার করুন। |
+| **ফাংশন কলিং** | **কথোপকথন চলাকালীন অ্যাকশন নেওয়া।** চূড়ান্ত উত্তর দেওয়ার আগে কোনও টাস্ক সম্পূর্ণ করার জন্য মডেলকে *আপনাকে জিজ্ঞাসা* করতে হলে এটি ব্যবহার করুন। |
 
-## 最佳做法
+## পেশাদার পদ্ধতি
 
-- **清楚說明：**使用 `description` 欄位引導模型。
-- **強型別：**使用特定類型 (`integer`、`string`、`enum`)。
-- **提示工程：**清楚說明您希望模型執行的工作。
-- **驗證：**雖然輸出內容是語法正確的 JSON，但請務必在應用程式中驗證值。
-- **錯誤處理：**針對符合結構定義但語意不正確的輸出內容，導入完善的錯誤處理機制。
+- **স্পষ্ট বিবরণ:** মডেলকে নির্দেশ দিতে `description` ফিল্ড ব্যবহার করুন।
+- **স্ট্রং টাইপিং:** নির্দিষ্ট টাইপ (`integer`, `string`, `enum`) ব্যবহার করুন।
+- **প্রম্পট ইঞ্জিনিয়ারিং:** আপনি মডেলকে দিয়ে কী করাতে চান তা স্পষ্টভাবে বলুন।
+- **যাচাইকরণ:** আউটপুট সিনট্যাক্সগতভাবে সঠিক JSON হলেও, আপনার অ্যাপ্লিকেশনে সবসময় মান যাচাই করুন।
+- **সমস্যা ম্যানেজ করা:** স্কিমা-সম্মত কিন্তু শব্দার্থগতভাবে ভুল আউটপুটের জন্য শক্তিশালী সমস্যা ম্যানেজ করার পদ্ধতি প্রয়োগ করুন।
 
-## 限制
+## সীমাবদ্ধতা
 
-- **結構定義子集：**不支援部分 JSON 結構定義功能。
-- **結構定義複雜度：**如果結構定義過大或巢狀結構過深，可能會遭到拒絕，並顯示 `400 INVALID_ARGUMENT` 錯誤，指出結構定義產生的限制狀態過多，或分支過多，無法提供服務。常見原因包括 `maxItems` 限制過大 (尤其是巢狀陣列)、屬性或列舉名稱過長、列舉值過多、選用屬性過長、`anyOf` 有許多替代方案，以及數值 `minimum`/`maximum` 邊界。如要修正這個問題，請降低或移除巢狀陣列限制、縮短名稱，或在選用屬性之間穿插必要屬性。
-- **未強制執行的限制：** `minLength`、`maxLength`、`minProperties`、`maxProperties`、`uniqueItems`、`contains`、`minContains` 和 `maxContains` (及其蛇形命名法變體) 不會由受限解碼文法引擎強制執行。如果結構定義中含有這些關鍵字 (例如由 Pydantic 的 `Field(min_length=...)` 或 Zod 的 `.min()` 自動發出)，API 會在要求正規化期間自動移除並忽略這些關鍵字，而不會傳回錯誤。強制執行 `minItems` 和 `maxItems`。如要強制執行其他限制，請在用戶端驗證剖析後的輸出內容 (例如使用 Pydantic `model_validate_json()` 或 Zod `.parse()`)。
+- **স্কিমা সাবসেট:** সব JSON স্কিমা ফিচার কাজ করে না।
+- **স্কিমার জটিলতা:** খুব বড় বা গভীরভাবে নেস্ট করা স্কিমা `400 INVALID_ARGUMENT` সমস্যার সাথে
+  বাতিল করা হতে পারে, যা বলে যে স্কিমাটি
+  পরিষেবা দেওয়ার জন্য খুব বেশি স্টেট বা খুব বেশি ব্রাঞ্চিং সহ একটি সীমাবদ্ধতা তৈরি করে। সাধারণ
+  কারণ হল বড় `maxItems` সীমা (বিশেষ করে নেস্টেড অ্যারেতে), খুব বড়
+  প্রপার্টি বা enum নাম, অনেক ভ্যালু সহ enum, ঐচ্ছিক প্রপার্টির
+  দীর্ঘ রান, অনেক বিকল্প সহ `anyOf` এবং সংখ্যাসূচক `minimum`/`maximum`
+  বাউন্ড। এটি ঠিক করতে, নেস্টেড অ্যারের সীমা কমান বা সরিয়ে দিন, নাম ছোট করুন অথবা
+  ঐচ্ছিক প্রপার্টির মধ্যে প্রয়োজনীয় প্রপার্টি যোগ করুন।
+- **এনফোর্স না করা কনস্ট্রেন্ট:** `minLength`, `maxLength`, `minProperties`,
+  `maxProperties`, `uniqueItems`, `contains`, `minContains` এবং
+  `maxContains` (এবং তাদের snake\_case ভেরিয়েন্ট) কনস্ট্রেনড ডিকোডিং গ্রামার ইঞ্জিন
+  এনফোর্স করে না। আপনার স্কিমায় এইসব কীওয়ার্ড থাকলে (যেমন, Pydantic-এর `Field(min_length=...)` বা
+  Zod-এর `.min()` দ্বারা অটোমেটিক নির্গত), API অটোমেটিক সেগুলি বাদ দেয় এবং
+  অনুরোধ নরমালাইজেশনের সময় কোনও সমস্যা দেখানোর পরিবর্তে সেগুলি উপেক্ষা করে। `minItems` এবং
+  `maxItems` এনফোর্স করা হয়েছে। অন্যান্য সীমাবদ্ধতা এনফোর্স করতে, ক্লায়েন্ট সাইডে
+  পার্স করা আউটপুট যাচাই করুন (যেমন, Pydantic
+  `model_validate_json()` বা Zod `.parse()`-এর মাধ্যমে)।
 
-提供意見
+মতামত জানান
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-上次更新時間：2026-10-21 (世界標準時間)。
+2026-10-21 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-想進一步說明嗎？
+আমাদের আরও কিছু জানাতে চান?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-21 (世界標準時間)。"],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-21 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

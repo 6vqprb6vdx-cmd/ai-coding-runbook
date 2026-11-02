@@ -1,59 +1,52 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq
-fetched_at: 2026-10-26T05:59:26.669008+00:00
-title: "Gjenerimi i tekstit n\u00eb ligj\u00ebrim (TTS) \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar
+fetched_at: 2026-11-02T07:01:45.060332+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u0645\u062d\u062a\u0648\u0649 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 \u062a\u0643\u0646\u0648\u0644\u0648\u062c\u064a\u0627 \"\u062a\u062d\u0648\u064a\u0644 \u0627\u0644\u0646\u0635 \u0625\u0644\u0649 \u0643\u0644\u0627\u0645\" \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-Dërgo komente
+إرسال ملاحظات
 
-# Gjenerimi i tekstit në ligjërim (TTS)
+# إنشاء محتوى باستخدام تكنولوجيا "تحويل النص إلى كلام"
 
-Gemini API mund ta transformojë hyrjen me tekst në audio me një ose disa altoparlantë
-duke përdorur aftësitë e gjenerimit të tekstit në ligjërim (TTS) të Gemini.
-Gjenerimi i tekstit në ligjërim është
-*[i kontrollueshëm](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#controllable)*, që do të thotë se mund të kombinosh metadatat e strukturuara të radhës (`speech_metadata`) dhe etiketat zanore të integruara për të udhëzuar *stilin*, *theksin*, *ritmin* dhe *tonin* e audios.
+يمكن لـ Gemini API تحويل النص المُدخَل إلى ملف صوتي لمتحدّث واحد أو عدة متحدّثين باستخدام إمكانات تحويل النص إلى كلام (TTS) في Gemini.
+يمكن *[التحكّم](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#controllable)* في إنشاء ميزة "تحويل النص إلى كلام"، ما يعني أنّه يمكنك الجمع بين البيانات الوصفية المنظَّمة لردود المساعد (`speech_metadata`) وعلامات الصوت المضمّنة لتوجيه *أسلوب* الصوت و*لهجته* و*وتيرته* و*نبرته*.
 
-Aftësia e TTS-së ndryshon nga gjenerimi i ligjërimit që ofrohet nëpërmjet
-[Live API](https://ai.google.dev/gemini-api/docs/live?hl=sq), i cili është projektuar për hyrje dhe dalje ndërvepruese,
-audio të pastrukturuar dhe multimodale. Ndërkohë që Live API është i shkëlqyer
-në kontekste dinamike bisedore, TTS nëpërmjet Gemini API
-është i personalizuar për skenarë që kërkojnë recitim të saktë të tekstit me kontroll
-të detajuar mbi stilin dhe tingullin, si p.sh. gjenerimi i podkasteve ose librave me audio.
+تختلف ميزة &quot;تحويل النص إلى كلام&quot; عن ميزة إنشاء الكلام التي توفّرها [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar)، والمصمّمة للمدخلات والمخرجات التفاعلية وغير المنظَّمة والمتعددة الوسائط. في حين أنّ Live API تتفوّق في سياقات المحادثات الديناميكية، فإنّ ميزة "تحويل النص إلى كلام" من خلال Gemini API مصمّمة للسيناريوهات التي تتطلّب تلاوة النص بدقة مع التحكّم الدقيق في الأسلوب والصوت، مثل إنشاء بودكاست أو كتاب مسموع.
 
-Ky udhëzues të tregon se si të gjenerosh audio me një folës të vetëm dhe me shumë folës nga teksti duke përdorur [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=sq)
-(`gemini-3.8-flash-tts`) dhe
-[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=sq)
+يوضّح لك هذا الدليل كيفية إنشاء ملفات صوتية لمتحدّث واحد أو لمتحدّثين متعدّدين من
+النصوص باستخدام [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=ar)
+(`gemini-3.8-flash-tts`) و[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=ar)
 (`gemini-3.8-flash-lite-tts`).
 
-## Para se të fillosh
+## قبل البدء
 
-Sigurohu që të përdorësh një model Gemini TTS të listuar në seksionin [Modelet e mbështetura](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#supported-models) dhe përmirësoje në SDK-në më të fundit të IA-së gjeneruese të Google (`google-genai >= 2.25.0` për Python ose `@google/genai >= 2.24.0` për JavaScript/TypeScript) ose përdor API-në REST.
-Për rezultate optimale, rishiko
-[Kur të përdorësh cilin model](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#when-to-use-which-model)
-për të zgjedhur modelin më të mirë për ngarkesën tënde të punës.
+تأكَّد من استخدام نموذج Gemini لتحويل النص إلى كلام مدرَج في قسم
+[النماذج المتوافقة](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#supported-models)،
+والترقية إلى أحدث إصدار من حزمة Google GenAI SDK (`google-genai >= 2.25.0` للغة Python
+أو `@google/genai >= 2.24.0` للغة JavaScript/TypeScript) أو استخدام واجهة برمجة التطبيقات REST API.
+للحصول على أفضل النتائج، راجِع
+[حالات استخدام كل نموذج](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#when-to-use-which-model)
+لاختيار أفضل نموذج لعبء العمل.
 
-Mund të të duket e dobishme të
-[testosh modelet TTS të Gemini në AI Studio](https://aistudio.google.com/generate-speech?hl=sq)
-para se të fillosh të ndërtosh.
+قد يكون من المفيد
+[اختبار نماذج تحويل النص إلى كلام في Gemini في AI Studio](https://aistudio.google.com/generate-speech?hl=ar)
+قبل البدء في الإنشاء.
 
-## TTS me një folës
+## تحويل النص إلى كلام لمتحدّث واحد
 
-Për të konvertuar tekstin në audio me një folës me modelet TTS të Gemini 3.8, kalo transkriptin tekstual në `input`, bashkëngjit stilimin në nivel radhe duke përdorur një shënim të `speech_metadata` dhe konfiguro zërin tënd në `generation_config.speech_config`. Mund të zgjedhësh një zë nga
-[Opsionet e zërit](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#voices) të integruara, biblioteka e zgjeruar e zërave (`GET /v1beta/voices`), një ID e personalizuar e
-[Dizajnit të zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq) (`voice_...`) ose një ID e
-[Kopjimit të zërit](https://ai.google.dev/gemini-api/docs/voice-replication?hl=sq) (`voice_...` ose `voicekey_...` opsionale pa gjendje).
+لتحويل النص إلى صوت لمتحدّث واحد باستخدام نماذج تحويل النص إلى كلام في Gemini 3.8، يجب إدخال النص الحرفي في `input`، وإرفاق نمط على مستوى الدور باستخدام تعليق توضيحي `speech_metadata`، وضبط الصوت في `generation_config.speech_config`. يمكنك اختيار صوت من [خيارات الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#voices) المُعدّة مسبقًا، أو من "مكتبة الأصوات الموسّعة" (`GET /v1beta/voices`)، أو من معرّف [تصميم صوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar) مخصّص (`voice_...`)، أو من معرّف [تقليد الصوت](https://ai.google.dev/gemini-api/docs/voice-replication?hl=ar) (`voice_...`، أو `voicekey_...` الاختياري بدون حالة).
 
-Ky shembull ruan audion e parazgjedhur të daljes WAV (`audio/wav`) nga modeli drejtpërdrejt në një skedar:
+يحفظ هذا المثال الناتج الصوتي التلقائي بتنسيق WAV ‏ (`audio/wav`) من النموذج مباشرةً في ملف:
 
 ### Python
 
@@ -124,7 +117,7 @@ async function main() {
 await main();
 ```
 
-### QETËSI
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -154,12 +147,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }' | jq -r '[.steps[] | select(.type=="model_output") | .content[] | select(.type=="audio")] | last | .data' | base64 --decode > out.wav
 ```
 
-Në SDK-të e Python dhe JavaScript, mund t'i marrësh të dhënat e gjeneruara të audios duke përdorur karakteristikën e përshtatshme `interaction.output_audio`, e cila kthen bllokun e fundit të audios së gjeneruar (në përgjigjet e papërpunuara REST JSON, audioja e enkoduar me base64 ruhet në `steps[].content[].data`). Për detaje për karakteristikat e përshtatshme, shiko [Përmbledhjen e ndërveprimeve](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=sq#convenience-properties).
+في حزمتَي تطوير البرامج (SDK) لكل من Python وJavaScript، يمكنك استرداد بيانات الصوت التي تم إنشاؤها باستخدام السمة المريحة `interaction.output_audio` التي تعرض آخر مجموعة صوتية تم إنشاؤها (في استجابات REST JSON الأولية، يتم تخزين الصوت بترميز base64 في `steps[].content[].data`). للحصول على تفاصيل حول السمات المريحة، يُرجى الاطّلاع على [نظرة عامة على التفاعلات](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=ar#convenience-properties).
 
-## TTS me shumë folës
+## تحويل النص إلى كلام لعدة متحدثين
 
-Për dialogun me shumë altoparlantë, konfiguro dy altoparlantë në `speech_config.speakers` dhe kalo çdo radhë si një artikull të veçantë teksti me një shënim `speech_metadata` që specifikon `speaker` dhe `style` opsionale në nivel radhe. Ki parasysh se
-`speech_config` pranon një grup (`[{"voice": "..."}]`) për gjenerimin me një altoparlant të vetëm dhe një objekt (`{"speakers": [...]}`) për gjenerimin me shumë altoparlantë:
+بالنسبة إلى الحوارات التي يشارك فيها عدة متحدثين، يجب ضبط متحدثَين في `speech_config.speakers`
+وتمرير كل دور كعنصر نصي منفصل مع تعليق توضيحي `speech_metadata`
+يحدّد `speaker` و`style` الاختياري على مستوى الدور. يُرجى العِلم أنّ
+`speech_config` يقبل مصفوفة (`[{"voice": "..."}]`) لإنشاء صوت
+متحدّث واحد وكائن (`{"speakers": [...]}`) لإنشاء صوت عدة متحدّثين:
 
 ### Python
 
@@ -297,7 +293,6 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     },
     "generation_config": {
       "speech_config": {
-        "mode": "conversational",
         "speakers": [
           { "speaker": "Joe", "voice": "Puck" },
           { "speaker": "Jane", "voice": "Kore" }
@@ -307,19 +302,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Kontrollo stilin e ligjërimit me metadatat dhe etiketat
+## التحكّم في أسلوب الكلام باستخدام البيانات الوصفية والعلامات
 
-Gemini 3.8 TTS e trajton fushën `text` në mënyrë strikte si një transkriptim fjalë për fjalë. Për të kontrolluar dërgimin pa pasur udhëzime skenike të lexuara me zë, ndaji udhëzimet e tua sipas fushëveprimit:
+يتعامل نموذج تحويل النص إلى كلام Gemini 3.8 مع حقل `text` على أنّه نص حرفي فقط. للتحكّم في طريقة الإلقاء بدون قراءة التوجيهات المسرحية بصوت عالٍ، يمكنك تقسيم التعليمات حسب النطاق:
 
-- **Dorëzimi i vazhdueshëm në nivel radhe (`speech_metadata.style`):** Vendos emocionet,
-  stilin e dorëzimit, prozodinë, ritmin dhe volumin që zbatohen në të gjithë radhën
-  në fushën `style` (për shembull, `"style": "whispered urgently"`,
-  `"style": "out of breath"` ose `"style": "warm and enthusiastic"`).
-- **Ngjarjet në një moment të caktuar (etiketat e integruara):** Vendos shpërthime ose pauza të përkohshme vokale jo të ligjërimit drejtpërdrejt brenda transkriptit duke përdorur kllapa këndore (për shembull, `"Wait... <short pause> did you hear that? <sigh>"` ose
-  `"Excuse me <cough> as I was saying..."`).
+- **طريقة الإلقاء المستمرة على مستوى الدور (`speech_metadata.style`):** يمكنك تحديد المشاعر
+  وطريقة الإلقاء والنبرة والسرعة ومستوى الصوت التي تنطبق على الدور بأكمله
+  في الحقل `style` (على سبيل المثال، `"style": "whispered urgently"`
+  أو `"style": "out of breath"` أو `"style": "warm and enthusiastic"`).
+- **الأحداث في وقت محدّد (العلامات المضمّنة):** يمكنك وضع فواصل صوتية قصيرة غير كلامية أو فواصل مؤقتة مباشرةً داخل النص باستخدام الأقواس الزاوية (على سبيل المثال، `"Wait... <short pause> did you hear that? <sigh>"` أو `"Excuse me <cough> as I was saying..."`).
 
-Shiko [Udhëzuesin për kërkesat](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#prompting-guide)
-për praktikat më të mira gjithëpërfshirëse.
+يمكنك الاطّلاع على [دليل كتابة الطلبات](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#prompting-guide)
+لمعرفة أفضل الممارسات الشاملة.
 
 ### Python
 
@@ -468,10 +462,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gjenerimi i ligjërimit me transmetim
+## إنشاء الكلام من خلال البث
 
-Mund ta transmetosh audion e gjeneruar ndërkohë që sintetizohet duke caktuar
-`stream: true`. Ndryshe nga kërkesat unare (që kthejnë një skedar të plotë WAV me një kokë RIFF), **kërkesat e transmetimit kthejnë pjesë të papërpunuara të PCM linear 16-bitësh të nënshkruar me renditje të vogël (`audio/l16`, 24 kHz, mono) pa kokë si parazgjedhje** në mënyrë që pjesët e audios të mund të luhen ose të lidhen në mënyrë të vazhdueshme pa koka të kontejnerit.
+يمكنك بث الصوت الذي تم إنشاؤه أثناء تركيبه من خلال ضبط
+`stream: true`. على عكس الطلبات الأحادية (التي تعرض ملف WAV كاملاً مع عنوان RIFF)، **تعرض طلبات البث تلقائيًا أجزاء PCM خطية (`audio/l16`، 24 كيلوهرتز، أحادية) غير موقعة ذات 16 بت بدون عنوان**، بحيث يمكن تشغيل أجزاء الصوت أو دمجها بشكل مستمر بدون عناوين الحاويات.
 
 ### Python
 
@@ -584,27 +578,24 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Formatet e daljes së audios
+## تنسيقات إخراج الصوت
 
-Modelet Gemini 3.8 TTS përdorin formate të ndryshme të parazgjedhura audio në varësi të faktit nëse kërkesa është unare apo transmetim:
+تستخدم نماذج تحويل النص إلى كلام في Gemini 3.8 تنسيقات صوتية تلقائية مختلفة حسب ما إذا كان الطلب أحاديًا أو بثًا:
 
-- **Kërkesat unare (`stream=False`):** Kthe audio të plotë **WAV (`audio/wav`)**
-  me një kokë standarde RIFF (24 kHz, mono, 16-bit signed little-endian
-  PCM). Mund t'i ruash bajtet e audios së dekoduar drejtpërdrejt në një skedar `.wav` pa
-  shtuar manualisht një kokë WAV.
-- **Kërkesat për transmetim (`stream=True`):** Kthe pjesë **Linear PCM të papërpunuara pa kokë (`audio/l16`)** (24 kHz, mono, PCM 16-bitësh me shenjë me skaj të vogël) si parazgjedhje në mënyrë që pjesët të mund të transmetohen ose të bashkohen vazhdimisht pa koka kontejneri në çdo pjesë.
+- **الطلبات الأحادية (`stream=False`):** تعرض ملفات صوتية كاملة بتنسيق **WAV (`audio/wav`)** مع عنوان RIFF عادي (24 كيلوهرتز، أحادي، 16 بت، PCM بتنسيق little-endian). يمكنك حفظ وحدات بايت الصوت التي تم فك ترميزها مباشرةً في ملف `.wav` بدون
+  إضافة عنوان WAV يدويًا.
+- **طلبات البث (`stream=True`):** يتم عرض أجزاء **PCM خطية أولية بدون عنوان (`audio/l16`)** (24 كيلوهرتز، أحادي، 16 بت، PCM بتنسيق little-endian) بشكل تلقائي حتى يمكن بث الأجزاء أو دمجها بشكل مستمر بدون عناوين حاويات في كل جزء.
 
-Për të kërkuar një enkodim ose shpejtësi kampionimi tjetër të audios, konfiguro `mime_type` dhe
-`sample_rate` opsionale brenda `response_format`:
+لطلب ترميز صوتي أو معدّل بيانات مختلف في الملف الصوتي، اضبط `mime_type` و`sample_rate` الاختياري داخل `response_format`:
 
-| Formati | Vlerë prej `mime_type` | Përshkrimi |
+| التنسيق | قيمة `mime_type` | الوصف |
 | --- | --- | --- |
-| **WAV** *(unary default)* | `"audio/wav"` | Skedar WAV i pakompresuar me një kokë RIFF (PCM 16-bitësh i nënshkruar me endian të vogël, mono, parazgjedhje 24 kHz). Parazgjedhja për kërkesat unare. |
-| **Raw PCM (L16)** *(parazgjedhja e transmetimit)* | `"audio/l16"` | Audio PCM lineare e pangjeshur, pa kokë, 16-bitëshe, e nënshkruar, me endian të vogël (24 kHz, mono). Parazgjedhje për kërkesat për transmetim. |
-| **Mu-law** | `"audio/mulaw"` | Audio e enkoduar me mu-law G.711 8-bit (përdoret zakonisht në sistemet e telefonisë/IVR në Amerikën e Veriut dhe Japoni). |
-| **Ligji A** | `"audio/alaw"` | Audio e enkoduar me ligjin A G.711 8-bitësh (përdoret zakonisht në sistemet telefonike evropiane dhe ndërkombëtare). |
+| **WAV** *(unary default)* | `"audio/wav"` | ملف WAV غير مضغوط برأس RIFF (تنسيق PCM أحادي القناة، 16 بت، بنظام ترتيب بايتات صغير، وبتردد تلقائي يبلغ 24 كيلوهرتز). الإعداد التلقائي للطلبات الأحادية |
+| **Raw PCM (L16)** *(الإعداد التلقائي للبث)* | `"audio/l16"` | صوت PCM خطي غير مضغوط وبدون عنوان، 16 بت، موقَّع، بنظام little-endian (24 كيلوهرتز، أحادي). الإعداد التلقائي لطلبات البث |
+| **Mu-law** | `"audio/mulaw"` | صوت بترميز G.711 mu-law ‏8 بت (يُستخدم عادةً في أنظمة الاتصالات الهاتفية/الاستجابة الصوتية التفاعلية في أمريكا الشمالية واليابان). |
+| **A-law** | `"audio/alaw"` | صوت بترميز G.711 A-law ‏8 بت (شائع الاستخدام في أنظمة الاتصالات الهاتفية الأوروبية والدولية). |
 
-Mund të specifikosh gjithashtu `sample_rate` në herc (për shembull, `24000`, `16000` ose
+يمكنك أيضًا تحديد `sample_rate` بالهرتز (على سبيل المثال، `24000` أو `16000` أو
 `8000`).
 
 ### Python
@@ -684,7 +675,7 @@ async function main() {
 await main();
 ```
 
-### QETËSI
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -716,62 +707,62 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Opsionet e zërit
+## خيارات الصوت
 
-Teksti në ligjërim i Gemini 3.8 mbështet katër mënyra për të zgjedhur ose krijuar zëra:
+تتيح ميزة "تحويل النص إلى كلام" في Gemini 3.8 أربع طرق لاختيار الأصوات أو إنشائها:
 
-1. **Zërat e parakonstruksionit të studios:** 30 zëra të kuruar të listuar në tabelën e mëposhtme.
-2. **Biblioteka e zgjeruar e zërave:** Qindra zëra shtesë në gjuhë, thekse dhe arketipe të ndryshme personazhesh, të qasshme duke përdorur `client.voices.list()` (`GET /v1beta/voices`).
-3. **[Dizajni i zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq):** Gjenero një personazh vokal të personalizuar nga një përshkrim në gjuhë natyrale në [Google AI Studio](https://aistudio.google.com/generate-speech?hl=sq) ose duke përdorur `POST /v1beta/voices` (`type="prompted"`, që kthen një ID të vazhdueshme të `voice_...` dhe një version paraprak WAV të `sample_audio` në `CreateVoice` dhe `GetVoice`).
-4. **[Kopjimi i zërit](https://ai.google.dev/gemini-api/docs/voice-replication?hl=sq):** Kopjo zërin e një folësi nga audioja e referencës dhe e pëlqimit në [Google AI Studio](https://aistudio.google.com/generate-speech?hl=sq) ose duke përdorur `POST /v1beta/voices` (`type="replicated"`, `store=True` i vazhdueshëm si parazgjedhje ose `store=False` opsional pa gjendje).
+1. **أصوات الاستوديو المُعدّة مسبقًا:** 30 صوتًا منظّمًا مدرجًا في الجدول التالي.
+2. **مكتبة أصوات موسّعة:** مئات الأصوات الإضافية بلغات ولهجات وأنماط شخصيات مختلفة يمكن الوصول إليها باستخدام `client.voices.list()` (`GET /v1beta/voices`).
+3. **[تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar):** يمكنك إنشاء شخصية صوتية مخصّصة من وصف بلغة طبيعية في [Google AI Studio](https://aistudio.google.com/generate-speech?hl=ar) أو باستخدام `POST /v1beta/voices` (`type="prompted"`، الذي يعرض معرّف `voice_...` ثابتًا ومعاينة `sample_audio` WAV في `CreateVoice` و`GetVoice`).
+4. **[تقليد الصوت](https://ai.google.dev/gemini-api/docs/voice-replication?hl=ar):** يمكنك تقليد صوت المتحدّث من خلال عيّنة صوتية مرجعية وموافقة في [Google AI Studio](https://aistudio.google.com/generate-speech?hl=ar) أو باستخدام `POST /v1beta/voices` (`type="replicated"`، أو `store=True` الثابتة تلقائيًا أو `store=False` الاختيارية غير المحدّدة الحالة).
 
-### Kufijtë e zërit të personalizuar dhe TTL-ja
+### الحدود القصوى للصوت المخصَّص ومدة الصلاحية
 
-| Shkrimi me zë | Modaliteti i hapësirës ruajtëse | Kuota / kufiri | Ruajtja (TTL) |
+| نوع الصوت | وضع التخزين | الحصة / الحدّ | الاحتفاظ بالبيانات (مدة البقاء) |
 | --- | --- | --- | --- |
-| **Zërat me gjendje** (`voice_...`, të kërkuar ose të përsëritur) | `store=True` | **200 zëra për projekt** (të ndarë në zërat e kërkuar dhe të replikuar) | **1 vit nga përdorimi i fundit\*** |
-| **Çelësat e zërit pa gjendje** (`voicekey_...`, të replikuar) | `store=False` | Menaxhuar nga klienti | **7 ditë** |
+| **الأصوات التي تتأثر بالسياق** (`voice_...`، سواء كانت مستندة إلى طلبات أو مكرَّرة) | `store=True` | **‫200 صوت لكل مشروع** (مشترَكة بين الأصوات المستندة إلى نموذج والأصوات المكرّرة) | **عام واحد من آخر استخدام\*** |
+| **مفاتيح الصوت عديمة الحالة** (`voicekey_...`، مكرّرة) | `store=False` | تتم إدارتها من قِبل العميل | **‫7 أيام** |
 
-\* **Zgjatja e TTL-së:** Periudha e ruajtjes prej 1 viti rivendoset sa herë që zëri përdoret në mënyrë aktive (duke sintetizuar ligjërimin me zërin ose duke e përdorur atë si zë bazë për remiksimin). Zërat pa aktivitet për 1 vit fshihen automatikisht.
+\* **تمديد فترة الاحتفاظ بالبيانات:** تتم إعادة ضبط فترة الاحتفاظ بالبيانات التي تبلغ عامًا واحدًا في كل مرة يتم فيها استخدام الصوت بشكل نشط (إما من خلال تحويل النص إلى كلام باستخدام الصوت أو استخدامه كصوت أساسي لإعادة المزج). يتم تلقائيًا حذف الأصوات التي لا يتم استخدامها لمدة عام واحد.
 
-### Zërat e krijuar paraprakisht
+### الأصوات المُعدّة مسبقًا
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** -- *Bright* | **Puck** -- *Upbeat* | **Charon** -- *Informative* |
-| **Kore** -- *Firmë* | **Fenrir** -- *I emocionueshëm* | **Leda** -- *Youthful* |
-| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe** -- *E lehtë* |
-| **Autonoe** -- *Bright* | **Enceladus** -- *Me frymëmarrje* | **Iapetus** -- *Pastro* |
-| **Umbriel** -- *I qetë* | **Algieba** -- *Smooth* | **Despina** -- *E lëmuar* |
-| **Erinome** -- *Clear* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *Informative* |
-| **Laomedeia** -- *Upbeat* | **Achernar** -- *Soft* | **Alnilam** -- *Firm* |
-| **Schedar** -- *Even* | **Gacrux** -- *Për të rritur* | **Pulcherrima** -- *Përpara* |
-| **Achird** -- *Miqësor* | **Zubenelgenubi** -- *Casual* | **Vindemiatrix** -- *I butë* |
-| **Sadachbia** -- *Lively* | **Sadaltager** -- *I ditur* | **Sulafat** -- *Ngrohtë* |
+| **Zephyr** -- *Bright* | **Puck** -- *Upbeat* | **Charon** -- *مفيدة* |
+| **Kore** -- *Firm* | **Fenrir** -- *متحمّس* | ‫**Leda** -- *شبابي* |
+| **Orus** -- *Firm* | **Aoede** -- *Breezy* | **Callirrhoe**: *مريح* |
+| **Autonoe** -- *مشرق* | **Enceladus** -- *Breathy* | **إيابيتوس** -- *واضح* |
+| **Umbriel**: *سهل التعامل* | **Algieba** -- *Smooth* | **Despina** -- *Smooth* |
+| **إرينوم** -- *شفاف* | **Algenib** -- *أجش* | **Rasalgethi** -- *مفيدة* |
+| **Laomedeia** -- *مرح* | **Achernar** -- *ناعم* | **Alnilam** -- *الشركة* |
+| **Schedar** -- *Even* | **Gacrux**: *ناضج* | **Pulcherrima** -- *واثق* |
+| **Achird**: *ودود* | **Zubenelgenubi** -- *غير متكلف* | **Vindemiatrix** -- *لطيف* |
+| **سعد الأخبية** -- *مفعم بالحيوية* | **Sadaltager** -- *مستخدم مطّلع* | **Sulafat** -- *دافئ* |
 
-### Biblioteka e zgjeruar e zërave dhe filtrimi
+### مكتبة أصوات موسّعة وفلترة
 
-Përtej 30 zërave të paraqitur të studios në tabelën e mësipërme, **Biblioteka e zgjeruar e zërave** ofron qindra zëra shtesë në gjuhë, thekse rajonale, persona personazhesh dhe domene të ndryshme. Mund të shfletosh, filtrosh dhe
-të dëgjosh bibliotekën e plotë të zërave në mënyrë ndërvepruese në
-[Google AI Studio](https://aistudio.google.com/generate-speech?hl=sq) ose ta kërkosh atë
-në mënyrë programatike duke përdorur `client.voices.list()` (`GET /v1beta/voices`, duke përdorur
+بالإضافة إلى أصوات الاستوديو المميّزة الثلاثين الواردة في الجدول السابق، توفّر **مكتبة الأصوات الموسّعة** مئات الأصوات الإضافية بلغات ولهجات إقليمية وشخصيات ومجالات مختلفة. يمكنك تصفّح &quot;مكتبة الأصوات&quot; بالكامل وفلترتها
+وتجربتها بشكل تفاعلي في
+[Google AI Studio](https://aistudio.google.com/generate-speech?hl=ar)، أو الاستعلام عنها
+برمجيًا باستخدام `client.voices.list()` (`GET /v1beta/voices`، باستخدام
 `google-genai` 2.25.0+ / `@google/genai` 2.24.0+).
 
-`ListVoices` kthen zërat e personalizuar të ruajtur (renditur nga më i riu i pari) të ndjekur nga zërat e katalogut të parakonstruksionit që përputhen me kriteret e filtrit. Kur kalohen disa vlera për një filtër liste, kthehen zërat që përputhen me **çdo** vlerë në atë filtër (`OR`), ndërsa parametrat e ndryshëm të filtrit kombinohen me `AND`:
+تعرض الدالة `ListVoices` الأصوات المخصّصة المخزّنة (مرتّبة من الأحدث إلى الأقدم) تليها الأصوات المُعدّة مسبقًا في الكتالوج والتي تطابق معايير الفلتر. عند تمرير قيم متعددة لفلتر قائمة، يتم عرض الأصوات التي تطابق **أي** قيمة في هذا الفلتر (`OR`)، بينما يتم دمج معلَمات الفلتر المختلفة مع `AND`:
 
-| Parametri | Lloji | Përshkrimi |
+| المَعلمة | النوع | الوصف |
 | --- | --- | --- |
-| `language_code` | `list[str]` | Etiketat e gjuhës BCP-47 (për shembull, `["en-US", "en-GB"]`). Përputhje e saktë pa dallim mes gërmave të vogla dhe të mëdha. |
-| `region_code` | `list[str]` | Kodet e rajoneve ISO 3166-1 alpha-2 ose UN M.49 (për shembull, `["US", "GB"]`). |
-| `accent` | `list[str]` | Përshkruesit e theksit rajonal (për shembull, `["American", "British"]`). |
-| `gender` | `list[str]` | Prezantimi i gjinisë së perceptuar (`"female"`, `"male"` ose `"neutral"`). |
-| `pitch` | `list[str]` | Klasifikimi i lartësisë së zërit (`"low"`, `"medium"` ose `"high"`). |
-| `persona` | `list[str]` | Personazhi vokal ose arketipi i personazhit (për shembull, `["Warm, Friendly"]`, `["Narrator"]`). |
-| `contexts` (`context` në REST) | `list[str]` | Domeni i përdorimit optimal (për shembull, `["Audiobook", "Conversational", "News"]`). |
-| `type` (`type_` në Python) | `list[str]` | Filtro sipas burimit të zërit: `"prebuilt"`, `"prompted"` ([Dizajni i zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq)) ose `"replicated"` ([Kopjimi i zërit](https://ai.google.dev/gemini-api/docs/voice-replication?hl=sq)). |
-| `search` | `str` | Kërkimi i nënvargut të tekstit pa pagesë përputhet pa dallim mes shkronjave të vogla dhe të mëdha me `display_name` dhe `description`. |
-| `page_size` | `int` | Numri maksimal i zërave të kthyer për faqe (parazgjedhur `50`, maksimumi `1000`). |
-| `page_token` | `str` | Token nga `response.next_page_token` për të marrë faqen tjetër të rezultateve. |
+| `language_code` | `list[str]` | علامات لغة BCP-47 (على سبيل المثال، `["en-US", "en-GB"]`). مطابقة تامة غير حساسة لحالة الأحرف. |
+| `region_code` | `list[str]` | رموز المناطق بتنسيق ISO 3166-1 alpha-2 أو UN M.49 (مثلاً، `["US", "GB"]`) |
+| `accent` | `list[str]` | أوصاف اللهجات الإقليمية (على سبيل المثال، `["American", "British"]`) |
+| `gender` | `list[str]` | المظهر الخارجي للجنس (`"female"` أو `"male"` أو `"neutral"`) |
+| `pitch` | `list[str]` | تصنيف طبقة الصوت (`"low"` أو `"medium"` أو `"high"`) |
+| `persona` | `list[str]` | الشخصية الصوتية أو نموذج الشخصية (على سبيل المثال، `["Warm, Friendly"]` و`["Narrator"]`) |
+| `contexts` (`context` في REST) | `list[str]` | نطاق الاستخدام الأمثل (على سبيل المثال، `["Audiobook", "Conversational", "News"]`) |
+| ‫`type` (‫`type_` في Python) | `list[str]` | الفلترة حسب مصدر الصوت: `"prebuilt"` أو `"prompted"` ([تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar)) أو `"replicated"` ([تقليد الصوت](https://ai.google.dev/gemini-api/docs/voice-replication?hl=ar)). |
+| `search` | `str` | بحث عن سلسلة فرعية في نص حرّ يتطابق مع كل من `display_name` و`description` بدون حساسية لحالة الأحرف |
+| `page_size` | `int` | الحد الأقصى لعدد الأصوات التي يتم عرضها في كل صفحة (القيمة التلقائية هي `50`، والحد الأقصى هو `1000`). |
+| `page_token` | `str` | الرمز المميّز من `response.next_page_token` لجلب الصفحة التالية من النتائج |
 
 ### Python
 
@@ -839,240 +830,245 @@ curl -G "https://generativelanguage.googleapis.com/v1beta/voices" \
   --data-urlencode "page_size=50"
 ```
 
-## Gjuhët e mbështetura
+## اللغات المتاحة
 
-Modelet TTS zbulojnë automatikisht gjuhën e hyrjes.
-[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=sq)
-(`gemini-3.8-flash-tts`) mbështet **mbi 130 gjuhë** dhe
-[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=sq)
-(`gemini-3.8-flash-lite-tts`) mbështet **mbi 100 gjuhë**:
+تتعرّف نماذج تحويل النص إلى كلام على لغة الإدخال تلقائيًا.
+يتيح [نموذج تحويل النص إلى كلام Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=ar)
+(`gemini-3.8-flash-tts`) **أكثر من 130 لغة**،
+بينما يتيح [نموذج تحويل النص إلى كلام Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=ar)
+(`gemini-3.8-flash-lite-tts`) **أكثر من 100 لغة**:
 
-| Gjuha | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
+| اللغة | Gemini 3.8 Flash TTS | نموذج تحويل النص إلى كلام Gemini 3.8 Flash-Lite |
 | --- | --- | --- |
-| Acenisht (shkrimi arab) | ✔️ | ✔️ |
-| Afrikanisht | ✔️ | ✔️ |
-| Akan | ✔️ | ✔️ |
-| Amarikisht | ✔️ | ✔️ |
-| Armenisht | ✔️ | ✔️ |
-| Asamezisht | ✔️ | ✔️ |
-| Avadisht | ✔️ | ✔️ |
-| Balinezisht | ✔️ | ✔️ |
-| bengalisht | ✔️ | ✔️ |
-| Banxharisht (shkrimi arab) | ✔️ | — |
-| Banxharisht (shkrimi latin) | ✔️ | ✔️ |
-| Bashkirisht | ✔️ | — |
-| Baskisht | ✔️ | ✔️ |
-| Bjellorusisht | ✔️ | ✔️ |
-| Bembisht | ✔️ | — |
-| Boxhpurisht | ✔️ | ✔️ |
-| Boshnjakisht | ✔️ | ✔️ |
-| Buginez | ✔️ | ✔️ |
-| Bullgarisht | ✔️ | ✔️ |
-| Birmanisht | ✔️ | — |
-| Kantonisht | ✔️ | ✔️ |
-| Katalonisht | ✔️ | ✔️ |
-| Sibuanoisht | ✔️ | ✔️ |
-| Kurdishte qendrore | ✔️ | ✔️ |
-| Çatisgarisht | ✔️ | ✔️ |
-| Kinezisht (shkrimi Hans) | ✔️ | ✔️ |
-| Kinezisht (shkrimi Hant) | ✔️ | ✔️ |
-| Tatarisht (Krimea) | ✔️ | — |
-| Kroatisht | ✔️ | ✔️ |
-| Çekisht | ✔️ | ✔️ |
-| Danisht | ✔️ | ✔️ |
-| Holandisht | ✔️ | ✔️ |
-| Diulaisht | ✔️ | — |
-| Xhonkisht | ✔️ | — |
-| Arabisht (egjiptiane) | ✔️ | ✔️ |
-| Anglisht | ✔️ | ✔️ |
-| Estonisht | ✔️ | ✔️ |
-| Filipinisht | ✔️ | ✔️ |
-| Finlandisht | ✔️ | — |
-| Frëngjisht | ✔️ | ✔️ |
-| Galicisht | ✔️ | ✔️ |
-| Ganda | ✔️ | ✔️ |
-| Gjeorgjisht | ✔️ | ✔️ |
-| Gjermanisht | ✔️ | ✔️ |
-| Greqisht | ✔️ | ✔️ |
-| Guarani | ✔️ | — |
-| Guxharatisht | ✔️ | ✔️ |
-| Kreolishte haitiane | ✔️ | ✔️ |
-| Mongolisht (Halh) | ✔️ | ✔️ |
-| Hausisht | ✔️ | ✔️ |
-| Hebraisht | ✔️ | ✔️ |
-| Hindisht | ✔️ | ✔️ |
-| Hungarisht | ✔️ | ✔️ |
-| Islandisht | ✔️ | ✔️ |
-| Igboisht | ✔️ | — |
-| Ilokoisht | ✔️ | ✔️ |
-| Indonezisht | ✔️ | ✔️ |
-| Persisht iranian | ✔️ | ✔️ |
-| Italisht | ✔️ | ✔️ |
-| Japonisht | ✔️ | ✔️ |
-| Javanisht | ✔️ | ✔️ |
-| Kabilisht | ✔️ | — |
-| Kambaisht | ✔️ | ✔️ |
-| Kanadisht | ✔️ | ✔️ |
-| Kashmirisht (shkrim arab) | ✔️ | ✔️ |
-| Kashmirisht (shkrimi deva) | ✔️ | ✔️ |
-| Kazakisht | ✔️ | ✔️ |
-| Kmerisht | ✔️ | ✔️ |
-| Kikujuisht | ✔️ | ✔️ |
-| Kiniaruandisht | ✔️ | ✔️ |
-| Kongo | ✔️ | ✔️ |
-| Koreanisht | ✔️ | ✔️ |
-| Kirgizisht | ✔️ | ✔️ |
-| Laosisht | ✔️ | ✔️ |
-| Latgalianisht | ✔️ | — |
-| Lingala | ✔️ | ✔️ |
-| Lituanisht | ✔️ | — |
-| Luksemburgisht | ✔️ | — |
-| Maqedonisht | ✔️ | ✔️ |
-| Magahi | ✔️ | ✔️ |
-| Maitilisht | ✔️ | ✔️ |
-| Malajalamisht | ✔️ | ✔️ |
-| Maltisht | ✔️ | ✔️ |
-| Manipurisht | ✔️ | ✔️ |
-| Maratisht | ✔️ | ✔️ |
-| Minangkabau (shkrimi arab) | ✔️ | ✔️ |
-| Minangkabau (shkrimi latin) | ✔️ | — |
-| Mizoisht | ✔️ | ✔️ |
-| Nepalisht (gjuhë individuale) | ✔️ | ✔️ |
-| Fulfuldisht nigeriane | ✔️ | ✔️ |
-| Azerbajxhanisht veriore | ✔️ | ✔️ |
-| Sotoishte veriore | ✔️ | ✔️ |
-| Uzbekishtja veriore | ✔️ | ✔️ |
-| Norvegjisht bokmål | ✔️ | ✔️ |
-| Norvegjishte nynorsk | ✔️ | ✔️ |
-| Nianxhaisht | ✔️ | ✔️ |
-| Oksitanisht | ✔️ | — |
-| Odia (gjuhë individuale) | ✔️ | ✔️ |
-| Pangasinanisht | ✔️ | — |
-| Persisht (Afganistan) | ✔️ | ✔️ |
-| Polonisht | ✔️ | ✔️ |
-| Portugalisht | ✔️ | ✔️ |
-| Punxhabi | ✔️ | ✔️ |
-| Rumanisht | ✔️ | ✔️ |
-| Rusisht | ✔️ | ✔️ |
-| Santalisht | ✔️ | ✔️ |
-| Serbisht | ✔️ | ✔️ |
-| Si'ndi | ✔️ | — |
-| Sinhalisht | ✔️ | ✔️ |
-| Sllovakisht | ✔️ | ✔️ |
-| Sllovenisht | ✔️ | — |
-| Somalisht | ✔️ | — |
-| Azerbajxhanishtja jugore | ✔️ | ✔️ |
-| Pashtoishtja jugore | ✔️ | ✔️ |
-| Sotoishte jugore | ✔️ | — |
-| Spanjisht | ✔️ | ✔️ |
-| Arabisht standarde (shkrim arab) | ✔️ | ✔️ |
-| Arabisht standarde (shkrimi latin) | ✔️ | ✔️ |
-| Letonisht standarde | ✔️ | ✔️ |
-| Malajzisht standarde | ✔️ | ✔️ |
-| Suahilisht (gjuhë individuale) | ✔️ | — |
-| Suatisht | ✔️ | — |
-| Suedisht | ✔️ | — |
-| Taxhikisht | ✔️ | — |
-| Tamilisht | ✔️ | ✔️ |
-| Teluguisht | ✔️ | ✔️ |
-| Tajlandisht | ✔️ | — |
-| Tigrinja | ✔️ | — |
-| Shqip toskërisht | ✔️ | — |
-| Turqisht | ✔️ | ✔️ |
-| Ujgurisht | ✔️ | — |
-| Vietnamisht | ✔️ | ✔️ |
+| الأتشيهية (بالأبجدية العربية) | ✔️ | ✔️ |
+| الأفريقانية | ✔️ | ✔️ |
+| الأكانية | ✔️ | ✔️ |
+| الأمهرية | ✔️ | ✔️ |
+| الأرمينية | ✔️ | ✔️ |
+| الأسامية | ✔️ | ✔️ |
+| الأوادية | ✔️ | ✔️ |
+| باليني | ✔️ | ✔️ |
+| البنغالية | ✔️ | ✔️ |
+| البنجرية (بالأحرف العربية) | ✔️ | — |
+| البنجرية (نص لاتيني) | ✔️ | ✔️ |
+| الباشكيرية | ✔️ | — |
+| الباسكية | ✔️ | ✔️ |
+| Belarusian | ✔️ | ✔️ |
+| البيمبا | ✔️ | — |
+| البهوجبورية | ✔️ | ✔️ |
+| البوسنية | ✔️ | ✔️ |
+| بوغينيز | ✔️ | ✔️ |
+| البلغارية | ✔️ | ✔️ |
+| البورمية | ✔️ | — |
+| الكَنْتونية | ✔️ | ✔️ |
+| الكتالانية | ✔️ | ✔️ |
+| السيبيوانية | ✔️ | ✔️ |
+| الكردية الوسطى | ✔️ | ✔️ |
+| التشاتيسغارهية | ✔️ | ✔️ |
+| الصينية (نص هانز) | ✔️ | ✔️ |
+| الصينية (نص هانت) | ✔️ | ✔️ |
+| التتارية القرمية | ✔️ | — |
+| الكرواتية | ✔️ | ✔️ |
+| التشيكية | ✔️ | ✔️ |
+| الدانماركية | ✔️ | ✔️ |
+| الهولندية | ✔️ | ✔️ |
+| الدايلا | ✔️ | — |
+| الدزونغا | ✔️ | — |
+| العربية المصرية | ✔️ | ✔️ |
+| الإنجليزية | ✔️ | ✔️ |
+| الإستونية | ✔️ | ✔️ |
+| الفلبينية | ✔️ | ✔️ |
+| الفنلندية | ✔️ | — |
+| الفرنسية | ✔️ | ✔️ |
+| الغليشيانية | ✔️ | ✔️ |
+| الجاندا | ✔️ | ✔️ |
+| الجورجية | ✔️ | ✔️ |
+| الألمانية | ✔️ | ✔️ |
+| اليونانية | ✔️ | ✔️ |
+| الغوارانية | ✔️ | — |
+| الغوجاراتية | ✔️ | ✔️ |
+| الكريولية الهايتية | ✔️ | ✔️ |
+| المنغولية (هالها) | ✔️ | ✔️ |
+| الهوسا | ✔️ | ✔️ |
+| العبرية | ✔️ | ✔️ |
+| الهندية | ✔️ | ✔️ |
+| الهنغارية | ✔️ | ✔️ |
+| الأيسلندية | ✔️ | ✔️ |
+| الإيجبو | ✔️ | — |
+| الايلوكو | ✔️ | ✔️ |
+| الإندونيسية | ✔️ | ✔️ |
+| الفارسية الإيرانية | ✔️ | ✔️ |
+| الإيطالية | ✔️ | ✔️ |
+| اليابانية | ✔️ | ✔️ |
+| الجاوية | ✔️ | ✔️ |
+| القبائلية | ✔️ | — |
+| الكامبا | ✔️ | ✔️ |
+| الكانادا | ✔️ | ✔️ |
+| الكشميرية (بالأحرف العربية) | ✔️ | ✔️ |
+| الكشميرية (نص ديفا) | ✔️ | ✔️ |
+| الكازاخستانية | ✔️ | ✔️ |
+| الخميرية | ✔️ | ✔️ |
+| الكيكويو | ✔️ | ✔️ |
+| الكينيارواندا | ✔️ | ✔️ |
+| كونغو | ✔️ | ✔️ |
+| الكورية | ✔️ | ✔️ |
+| القيرغيزية | ✔️ | ✔️ |
+| لاو | ✔️ | ✔️ |
+| اللاتغالية | ✔️ | — |
+| اللينجالا | ✔️ | ✔️ |
+| الليتوانية | ✔️ | — |
+| اللكسمبورغية | ✔️ | — |
+| المقدونية | ✔️ | ✔️ |
+| ماجادهي | ✔️ | ✔️ |
+| المايثيلية | ✔️ | ✔️ |
+| المالايالامية | ✔️ | ✔️ |
+| المالطية | ✔️ | ✔️ |
+| المانيبورية | ✔️ | ✔️ |
+| المراثية | ✔️ | ✔️ |
+| المينانجكاباو (بالأحرف العربية) | ✔️ | ✔️ |
+| المينانجكاباو (نص لاتيني) | ✔️ | — |
+| ميزو | ✔️ | ✔️ |
+| النيبالية (لغة فردية) | ✔️ | ✔️ |
+| الفولانية النيجيرية | ✔️ | ✔️ |
+| الأذربيجانية الشمالية | ✔️ | ✔️ |
+| السوتو الشمالية | ✔️ | ✔️ |
+| الأوزبكية الشمالية | ✔️ | ✔️ |
+| البوكمالية النرويجية | ✔️ | ✔️ |
+| النرويجية الجديدة | ✔️ | ✔️ |
+| النيانجا | ✔️ | ✔️ |
+| الأوكسيتانية | ✔️ | — |
+| الأوديا (لغة فردية) | ✔️ | ✔️ |
+| البانغاسينية | ✔️ | — |
+| الفارسية (أفغانستان) | ✔️ | ✔️ |
+| البولندية | ✔️ | ✔️ |
+| البرتغالية | ✔️ | ✔️ |
+| البنجابية | ✔️ | ✔️ |
+| الرومانية | ✔️ | ✔️ |
+| الروسية | ✔️ | ✔️ |
+| السنتالية | ✔️ | ✔️ |
+| الصربية | ✔️ | ✔️ |
+| السندية | ✔️ | — |
+| السنهالية | ✔️ | ✔️ |
+| السلوفاكية | ✔️ | ✔️ |
+| السلوفينية | ✔️ | — |
+| الصومالية | ✔️ | — |
+| الأذربيجانية الجنوبية | ✔️ | ✔️ |
+| البشتوية الجنوبية | ✔️ | ✔️ |
+| السوتو الجنوبية | ✔️ | — |
+| الإسبانية | ✔️ | ✔️ |
+| العربية الفصحى (الكتابة العربية) | ✔️ | ✔️ |
+| العربية الفصحى (نص لاتيني) | ✔️ | ✔️ |
+| اللاتفية العادية | ✔️ | ✔️ |
+| الملايوية المعيارية | ✔️ | ✔️ |
+| السواحيلية (لغة فردية) | ✔️ | — |
+| السواتي | ✔️ | — |
+| السويدية | ✔️ | — |
+| الطاجيكية | ✔️ | — |
+| التاميلية | ✔️ | ✔️ |
+| التيلوغوية | ✔️ | ✔️ |
+| التايلاندية | ✔️ | — |
+| التيجرينيا | ✔️ | — |
+| الألبانية التوسكية | ✔️ | — |
+| التركية | ✔️ | ✔️ |
+| الأويغورية | ✔️ | — |
+| الفيتنامية | ✔️ | ✔️ |
 
-## Modelet e mbështetura
+## النماذج المتوافقة
 
-| Modeli | Një folës i vetëm | Me shumë altoparlantë | Dizajn për zërin | Kopjimi i zërit |
+| الطراز | متحدّث واحد | متحدّثون متعددون | تصميم الصوت | تقليد الصوت |
 | --- | --- | --- | --- | --- |
-| [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=sq) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=sq) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [Versioni paraprak i Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=sq) | ✔️ | ✔️ | — | — |
-| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=sq) | ✔️ | ✔️ | — | — |
+| [‫Gemini 3.8 Flash لتحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=ar) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [‫Gemini 3.8 Flash-Lite لتحويل النص إلى كلام](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=ar) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [النسخة الحصرية من Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=ar) | ✔️ | ✔️ | — | — |
+| [‫Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=ar) | ✔️ | ✔️ | — | — |
 
-### Kur të përdorësh cilin model
+### حالات استخدام كل نموذج
 
-Të dy modelet Gemini 3.8 TTS ndajnë saktësisht të njëjtën skemë të API-së dhe format të kërkesave,
-duke të të lejuar të kalosh nga njëri te tjetri me një ndryshim të vetëm parametri:
+يستخدم كلا نموذجَي تحويل النص إلى كلام في Gemini 3.8 مخطط واجهة برمجة التطبيقات (API) وتنسيق الطلبات نفسهما،
+ما يتيح لك التبديل بينهما من خلال تغيير مَعلمة واحدة:
 
-- **Përdor [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=sq)
-  (`gemini-3.8-flash-tts`)** kur përparësi kryesore janë besnikëria maksimale akustike, interpretimi i nuancuar dhe kontrolli shprehës. Është ideal për punë krijuese të nivelit të studios, dialogë kompleksë me shumë folës, etiketa të rënda të shpërthimeve vokale, shqiptime të vështira, dialekte rajonale ose të pakicave dhe rrëfime të gjata që kërkojnë zë të qëndrueshëm dhe qëndrueshmëri të tonit të dhomës.
-- **Përdor [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=sq)
-  (`gemini-3.8-flash-lite-tts`)** si zëvendësimin tënd të shpejtë dhe kosto-efektiv për `gemini-3.1-flash-tts-preview`. Ai është i optimizuar për prodhim në masë me volum të lartë, kaskada agjentësh zanorë bisedorë, veçori të leximit me zë, kopjim të besueshëm të zërit dhe ligjërim të përditshëm me një folës në gjuhët kryesore.
+- **استخدام [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=ar)
+  (`gemini-3.8-flash-tts`)** عندما تكون الأولوية القصوى هي الدقة الصوتية العالية والأداء الدقيق
+  والتحكّم التعبيري. وهو مثالي للأعمال الإبداعية على مستوى الاستوديو، والحوارات المعقّدة التي يشارك فيها عدة متحدثين، والعلامات الصوتية المكثفة، والنطق الصعب، واللهجات الإقليمية أو لهجات الأقليات، والسرد الطويل الذي يتطلب صوتًا قويًا وثباتًا في نبرة الغرفة.
+- **استخدام [نموذج تحويل النص إلى كلام Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=ar)
+  (`gemini-3.8-flash-lite-tts`)** كبديل سريع وفعّال من حيث التكلفة لـ `gemini-3.1-flash-tts-preview`: تم تحسينه لإنتاج كميات كبيرة من المحتوى الصوتي، وإنشاء سلاسل من الوكلاء الصوتيين الحواريين، وتوفير ميزات القراءة بصوت عالٍ، وتقليد الصوت بشكل موثوق، وتحويل النص إلى كلام بصوت متحدث واحد يوميًا باللغات الرئيسية.
 
-### Udhëzuesi i migrimit
+### دليل نقل البيانات
 
-Nëse po migron nga modelet `gemini-3.1-flash-tts-preview` ose më të hershme të Gemini TTS
-në Gemini 3.8 TTS:
+في حال نقل البيانات من `gemini-3.1-flash-tts-preview` أو إصدارات أقدم من نماذج تحويل النص إلى كلام في Gemini إلى Gemini 3.8:
 
-1. **Transfero udhëzimet e nivelit të kthesës te `speech_metadata`:** Gemini 3.8 TTS i trajton tekstet hyrëse rreptësisht si transkript fjalë për fjalë. Zhvendos udhëzimet e vazhdueshme të dërgimit (`style` - si p.sh. `"whispering"`, `"out of breath"` ose `"speaking slowly"`) dhe etiketat e folësve (`speaker`) në shënime të strukturuara `speech_metadata` në vend që të integrosh udhëzimet e skenës në tekstin e transkriptit.
-2. **Përdor etiketat e brendshme me kllapa këndore vetëm për ngjarjet vokale në një moment të caktuar:** Mbaji
-   vokalizimet jo të folura të çastit dhe pauzat në transkript duke përdorur
-   kllapat këndore (si p.sh. `<laugh>`, `<sigh>`, `<cough>`, `<breath>` ose
-   `<short pause>`). Shmang etiketat e efekteve zanore (si p.sh. duartrokitjet ose zhurmat e mbytur) dhe
-   vendosi stilet e thënies në `speech_metadata.style`.
-3. **Specifiko `speaker` në çdo radhë në kërkesat me shumë folës:** Çdo radhë në një kërkesë me shumë folës duhet të përfshijë në mënyrë eksplicite `speaker` brenda `speech_metadata` që përputhet me një nga folësit e konfiguruar.
-4. **Dizajno personazhet paraprakisht me "Dizajnin e zërit":** Zëvendëso blloqet me shumë paragrafe të `"Audio Profile"` ose `"Director's Notes"` me një zë të personalizuar të krijuar në [Dizajnin e zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq), më pas kaloje atë ID të `voice_...` nëpërmjet kërkesave të tua të TTS me vargje minimale ose bosh të `style`.
-5. **Llogarit për WAV (`audio/wav`) të parazgjedhur në kërkesat unare:** Ndryshe nga
-   `gemini-3.1-flash-tts-preview` dhe modelet e mëparshme TTS (të cilat kthenin
-   PCM `audio/l16` të papërpunuar pa kokë si parazgjedhje), Gemini 3.8 TTS kthen audio WAV
-   (`audio/wav`) me një kokë standarde RIFF si parazgjedhje për kërkesat unare.
-   - Nëse kodi yt më parë mbështillte bajtet e papërpunuara PCM në një kokë WAV (për shembull, duke përdorur modulin `wave` të Python ose `ffmpeg`), hiq mbështjellësin manual të kokës dhe shkruaj bajtet e kthyera drejtpërdrejt në një skedar `.wav`.
-   - Nëse kanali yt kërkon audio të papërpunuar PCM, mu-law ose A-law pa kokë,
-     cakto në mënyrë eksplicite `response_format.mime_type` në `"audio/l16"`, `"audio/mulaw"` ose
-     `"audio/alaw"` (për shembull, `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}`
-     në Interactions API ose `AUDIO_L16` në `generateContent`). Shiko
-     [Formatet e nxjerrjes së audios](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#audio-output-formats).
+1. **نقل التعليمات على مستوى الدور إلى `speech_metadata`:** يتعامل نموذج تحويل النص إلى كلام Gemini 3.8 مع النص المُدخَل على أنّه نص حرفي. يجب نقل تعليمات التسليم المستمر (`style`، مثل `"whispering"` أو `"out of breath"` أو `"speaking slowly"`) وتصنيفات المتحدّثين (`speaker`) إلى تعليقات توضيحية منظَّمة من النوع `speech_metadata` بدلاً من تضمين تعليمات المسرح في نص النص.
+2. **استخدام علامات الأقواس الزاوية المضمّنة للأحداث الصوتية في وقت محدّد فقط:** يجب إبقاء
+   الأصوات غير اللفظية والوقفات اللحظية مضمّنة في النص باستخدام
+   الأقواس الزاوية (مثل `<laugh>` أو `<sigh>` أو `<cough>` أو `<breath>` أو
+   `<short pause>`). يجب تجنُّب علامات المؤثرات الصوتية (مثل التصفيق أو الارتطام)
+   ووضع أساليب الإلقاء في `speech_metadata.style`.
+3. **تحديد `speaker` في كل دور في الطلبات التي تتضمّن عدة متحدثين:** يجب أن يتضمّن كل دور في الطلب الذي يتضمّن عدة متحدثين `speaker` بشكل صريح داخل `speech_metadata` يتطابق مع أحد المتحدثين الذين تم ضبطهم.
+4. **تصميم الشخصيات مسبقًا باستخدام ميزة "تصميم الصوت":** يمكنك استبدال الفقرات المتعددة
+   `"Audio Profile"` أو `"Director's Notes"` بمقاطع صوتية مخصّصة تم إنشاؤها
+   في [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar)، ثم استخدام معرّف `voice_...`
+   في طلبات تحويل النص إلى كلام مع سلاسل `style` فارغة أو بسيطة.
+5. **مراعاة مخرجات WAV التلقائية (`audio/wav`) في الطلبات الأحادية:** على عكس
+   `gemini-3.1-flash-tts-preview` ونماذج تحويل النص إلى كلام السابقة (التي كانت تعرض
+   ملفات PCM الأولية بدون رأس `audio/l16` تلقائيًا)، يعرض نموذج تحويل النص إلى كلام في Gemini 3.8 ملفات WAV الصوتية
+   (`audio/wav`) مع رأس RIFF عادي تلقائيًا للطلبات الأحادية.
+   - إذا كان الرمز البرمجي الخاص بك يغلّف سابقًا وحدات بايت PCM الأولية في عنوان WAV (على سبيل المثال، باستخدام وحدة `wave` في Python أو `ffmpeg`)، عليك إزالة غلاف العنوان اليدوي وكتابة وحدات البايت التي تم عرضها مباشرةً في ملف `.wav`.
+   - إذا كان مسار التعلّم يتطلّب صوت PCM أو mu-law أو A-law خام بدون عنوان،
+     اضبط `response_format.mime_type` صراحةً على `"audio/l16"` أو `"audio/mulaw"` أو
+     `"audio/alaw"` (على سبيل المثال، `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}`
+     في Interactions API أو `AUDIO_L16` في `generateContent`). يُرجى الاطّلاع على
+     [تنسيقات إخراج الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#audio-output-formats).
 
-## Udhëzuesi për kërkesat
+## الدليل الإرشادي لكتابة الطلبات
 
-Modelet TTS të Gemini 3.8 e trajtojnë tekstin hyrës në mënyrë strikte si një **transkript fjalë për fjalë**.
-Ndryshe nga modelet e mëparshme të versionit paraprak ku udhëzimet e skenës ishin të integruara në tekst të thjeshtë,
-Gemini 3.8 TTS ndan udhëzimet e vazhdueshme në nivel radhe (`speech_metadata`)
-nga etiketat zanore të integruara në moment.
+تتعامل نماذج تحويل النص إلى كلام في Gemini 3.8 مع النص المُدخَل على أنّه **نص حرفي**.
+على عكس النماذج السابقة التي كانت تتضمّن توجيهات الأداء في نص عادي،
+يفصل Gemini 3.8 TTS بين التوجيهات المستمرة على مستوى الدور (`speech_metadata`)
+والإشارات الصوتية المضمّنة في وقت محدّد.
 
-### Fusha e stilit kundrejt etiketave të ndërfutura
+### حقل النمط مقابل العلامات المضمّنة
 
-Ndaji udhëzimet e tua të performancës sipas fushëveprimit:
+قسِّم تعليمات الأداء حسب النطاق:
 
-- **Dorëzimi në nivel radhe (`speech_metadata.style`):** Vendos atributet e dorëzimit të vazhdueshëm, si p.sh. emocionin, prozodinë, ritmin e përgjithshëm ose stilin e dorëzimit (si p.sh. `"whispering"`, `"out of breath"`, `"muttering"` ose `"sarcastic"`) në fushën `style` të `speech_metadata`. Për të krijuar një personazh dhe performancë të qëndrueshme nëpër radhë, dizajno personazhin paraprakisht te [Dizajni i zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq) dhe përdor `style` vetëm për rregullime opsionale në nivel radhe.
-- **Ngjarjet në një moment në kohë (etiketat në rresht):** Vendos shpërthime vokale të çastit që nuk janë të folura, frymëmarrje ose pauza në rresht brenda transkriptit duke përdorur kllapa këndore (`<cough>`, `<breath>`, `<sigh>`, `<short pause>`). Përdor kllapa këndore (`<...>`) për cilësinë më të lartë të audios dhe përdor vokalizimet njerëzore në vend të efekteve zanore jovokale.
+- **أسلوب الإلقاء على مستوى الجملة (`speech_metadata.style`):** يمكنك وضع سمات الإلقاء المستمر، مثل المشاعر أو العروض أو الوتيرة العامة أو أسلوب الإلقاء (مثل `"whispering"` أو `"out of breath"` أو `"muttering"` أو `"sarcastic"`)، في حقل `style` ضمن `speech_metadata`. لإنشاء شخصية وأداء ثابتَين في جميع الردود، صمِّم الشخصية مسبقًا في [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar) واستخدِم `style` فقط لإجراء تعديلات اختيارية على مستوى الردود.
+- **الأحداث في وقت محدّد (العلامات المضمّنة):** ضع علامات مضمّنة داخل النص باستخدام الأقواس الزاوية (`<cough>`، `<breath>`، `<sigh>`، `<short pause>`) للإشارة إلى الأصوات اللحظية غير الكلامية، مثل الضحك أو التنفس أو التوقفات. استخدم الأقواس الزاوية (`<...>`) للحصول على أعلى جودة صوت، والتزم بالأصوات البشرية بدلاً من المؤثرات الصوتية غير الصوتية.
 
-| Fushëveprimi | Ku ta vendosësh | Shembuj |
+| النطاق | أماكن وضع الجهاز | أمثلة |
 | --- | --- | --- |
-| **Niveli i kthesës** (i mbajtur gjatë kthesës) | `speech_metadata.style` | `"angry tone"`, `"speaking rapidly"`, `"out of breath"`, `"whispers"`, `"sarcastic"` |
-| **Pikë në kohë** (ndodh në një fjalë specifike) | Në linjë në `text` (`<...>`) | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
+| **على مستوى الدور** (يستمر طوال الدور) | `speech_metadata.style` | `"angry tone"`، و`"speaking rapidly"`، و`"out of breath"`، و`"whispers"`، و`"sarcastic"` |
+| **نقطة زمنية** (تحدث عند كلمة معيّنة) | مضمّنة في `text` (`<...>`) | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
 
-### Ritmi dhe pauzat
+### السرعة والوقفات
 
-Mund të kontrollosh ritmin dhe heshtjen në tri nivele të granularitetit:
+يمكنك التحكّم في الإيقاع والصمت على ثلاثة مستويات من الدقة:
 
-- **Shenjat e pikësimit dhe elipsat:** Përdor presjet, vizat (`--`) dhe elipsat (`...`)
-  për hezitim të natyrshëm bisedor.
-- **Etiketat e ndërprerjes së rreshtit:** Fut `<short pause>` ose `<long pause>` në pikat e sakta në skript ku folësi duhet të ndalojë:
+- **علامات الترقيم وعلامات الحذف:** استخدِم الفواصل والشرطات (`--`) وعلامات الحذف (`...`)
+  لإظهار التردّد في المحادثة بشكل طبيعي.
+- **علامات التوقّف المضمّنة:** يمكنك إدراج `<short pause>` أو `<long pause>` في نقاط محدّدة في النص حيث يجب أن يتوقّف المتحدّث مؤقتًا:
   `text
   Hold on, let me think... <short pause> Alright, I've got it.`
-- **Ritmi i nivelit të radhës:** Cakto `"style": "speaking rapidly"` ose
-  `"style": "speaking slowly"` në `speech_metadata` për të kontrolluar shpejtësinë e të folurit në të gjithë radhën.
+- **سرعة الكلام على مستوى الدور:** يمكنك ضبط `"style": "speaking rapidly"` أو
+  `"style": "speaking slowly"` في `speech_metadata` للتحكّم في سرعة الكلام
+  على مستوى الدور بأكمله.
 
-### Prozodia dhe tonaliteti
+### اللحن والنبرة
 
-Përdor **`speech_metadata.style`** për të kontrolluar prozodinë, lartësinë e zërit dhe lakimin gjatë një radhe (për shembull, `"style": "high pitch, cheerful and excited inflection"` ose `"style": "monotone and flat"`). Nëse emocioni ose prozodia ndryshon në mes të dialogut, ndaje skenarin në radhë të veçanta me vlera të dallueshme të `style` për çdo radhë.
+استخدِم **`speech_metadata.style`** للتحكّم في العروض والنبرة والتغيير في نبرة الصوت في كل دور (على سبيل المثال، `"style": "high pitch, cheerful and excited inflection"` أو `"style": "monotone and flat"`). إذا تغيّرت المشاعر أو العروض في منتصف الحوار، قسِّم النص إلى أدوار منفصلة مع قيم `style` مختلفة لكل دور.
 
-### Theksimi
+### تسليط الضوء
 
-Shkruaj me shkronja të mëdha fjalë specifike në transkript, të kombinuara me shenjat e pikësimit dhe etiketat zanore të integruara, për të vendosur theksin natyral zanor në fjalët kyçe:
+استخدِم الأحرف الكبيرة في كلمات معيّنة في النص، بالإضافة إلى علامات الترقيم والعلامات الصوتية
+المضمّنة، للتركيز على الكلمات الرئيسية بشكل طبيعي:
 
 ```
 This is a VERY important point!
 It was a VERY long day <sigh> ... nobody listens anymore.
 ```
 
-### Shpërthime vokale dhe tinguj jo të ligjërimit
+### الأصوات غير اللفظية وغير الكلامية
 
-Vendos vokalizimet njerëzore jo të të folurit në rresht duke përdorur kllapat këndore (`<...>`) në
-pikën e saktë ku duhet të ndodhë tingulli. Etiketat vokale të rekomanduara përfshijnë:
+يجب وضع الأصوات البشرية غير الكلامية في السطر باستخدام الأقواس الزاوية (`<...>`) في
+النقطة المحددة التي يجب أن يحدث فيها الصوت. تشمل العلامات الصوتية المقترَحة ما يلي:
 
 |  |  |  |  |
 | --- | --- | --- | --- |
@@ -1086,89 +1082,89 @@ pikën e saktë ku duhet të ndodhë tingulli. Etiketat vokale të rekomanduara 
 | `<throat-clearing>` | `<tsk>` | `<whimper>` | `<whispers>` / `<whispering>` |
 | `<yawn>` | `<short pause>` | `<long pause>` |  |
 
-### Kanalet dytësore dhe ligjërimi i mbivendosur
+### الردود القصيرة وتداخل الكلام
 
-Në dialogun me shumë folës, mbështilli reagimet e dëgjuesit me simbole tubi
-(`|reaction|`) brenda radhës së një folësi për të krijuar reagime natyrale ose
-mbivendosje të ligjërimit pa e ndarë në një radhë të veçantë për çdo reagim.
+في الحوارات التي تضم عدة متحدثين، يمكنك تضمين تفاعلات المستمعين بين علامات الخط العمودي (`|reaction|`) ضمن دور المتحدث لإنشاء قنوات خلفية طبيعية أو تداخل في الكلام بدون الحاجة إلى إنشاء دور منفصل لكل تفاعل.
 
-- **Shkëmbime të shkurtra të kanalit të pasmë:** Shtreso reagimet e shkurtra të dëgjuesit (`|oh hmm|`,
-  `|oh really?|`, `|absolutely|`) brenda radhës së folësit aktiv:
-  - **Radha 1 (Folësi A):** `"So the launch is Thursday |oh hmm| Are we actually ready?"`
-  - **Radha 2 (Folësi B):** `"Ready enough |oh really?| The last blocker cleared this morning."`
-  - **Radha 3 (Folësi A):** `"Then let's ship it |absolutely| and watch the dashboards."`
-- **Fjalimi i mbivendosur dhe i ndërthurur:** Përdor disa segmente tubash për të simuluar fjalimin e njëkohshëm ose të ndërthurur midis dy folësve (funksionon më mirë me `gemini-3.8-flash-tts`):
-  - **Numërimi mbrapsht/refreni i njëkohshëm:** `"Let's surprise him on three |ok| ready?"` ndjekur nga `"one. two. three. |happy| happy |birthday| birthday!"`
-  - **Mbivendosje e plotë e altoparlantit:** `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
+- **التبادلات القصيرة في القنوات الخلفية:** يمكنك إضافة ردود فعل المستمعين القصيرة (`|oh hmm|`،
+  `|oh really?|`، `|absolutely|`) داخل دور المتحدث النشط:
+  - **الدور 1 (المتحدّث أ):** `"So the launch is Thursday |oh hmm| Are we actually ready?"`
+  - **الدور 2 (المتحدّث ب):** `"Ready enough |oh really?| The last blocker cleared this morning."`
+  - **الدور 3 (المتحدّث أ):** `"Then let's ship it |absolutely| and watch the dashboards."`
+- **الكلام المتداخل والمتشابك:** يمكنك استخدام عدة مقاطع شرطة رأسية لمحاكاة الكلام المتزامن أو المتشابك بين متحدثَين (يعمل بشكل أفضل مع `gemini-3.8-flash-tts`):
+  - **العد التنازلي/الكورس المتزامن:** `"Let's surprise him on three |ok| ready?"` متبوعًا بـ `"one. two. three. |happy| happy |birthday| birthday!"`
+  - **تداخل كامل بين المتحدّثين:** `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
 
-### Konsistenca në të gjitha gjenerimet dhe çfarë duhet të shmangësh
+### الاتساق في جميع الأجيال وما يجب تجنبه
 
-Ndiq këto udhëzime për ta mbajtur identitetin vokal të qëndrueshëm gjatë ndërveprimeve:
+اتّبِع الإرشادات التالية للحفاظ على ثبات الهوية الصوتية في جميع الردود:
 
-- **Dizajno personazhet paraprakisht në "Dizajnin e zërit" në vend të blloqeve të gjata të stilit:**
-  Paragrafët me formë të gjatë `"Audio Profile"` dhe me shumë pika `"Director's Notes"`
-  të bartura nga modelet e mëparshme janë shkaku më i zakonshëm i devijimit të zërit.
-  Përdor të njëjtin intuitë krijuese paraprakisht në
-  [Dizajnin e zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq) për të gjeneruar një personazh të personalizuar
-  të vazhdueshëm të `voice_...` dhe më pas kaloje atë ID të zërit nëpërmjet telefonatave të tua të TTS-së.
-- **Mbështetu te referenca e zërit për qëndrueshmëri (hiq udhëzimet meta):**
-  Modelet TTS të Gemini 3.8 janë trajnuar që të mbështeten fillimisht te referenca e audios.
-  Mos përfshi udhëzime që i thonë modelit ta mbajë të qëndrueshme zërin (si `"do not switch speaker identity"` ose `"maintain identical timbre"`) - teksti shtesë i kërkesës rrit devijimin. Hiq udhëzimet e panevojshme për stilin dhe lejo që modeli të variojë në mënyrë natyrale rreth pikës së qëndrueshme të ofruar nga referenca zanore.
-- **Mos u përpiq të ndryshosh tiparet e pandryshueshme të folësit në `style`:** Shmang vendosjen e moshës, gjinisë, emrave ose ndryshimeve të përhershme të theksit në `speech_metadata.style`.
-  Në vend të kësaj, zgjidh një zë rajonal nga "Biblioteka e zgjeruar e zërave" ose krijo një të tillë me [Dizajnin e zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq).
+- **تصميم الشخصيات مسبقًا في تصميم الصوت بدلاً من استخدام مجموعات الأنماط الطويلة:**
+  إنّ الفقرات الطويلة في `"Audio Profile"` والنقاط المتعددة في `"Director's Notes"`
+  المنقولة من النماذج السابقة هي السبب الأكثر شيوعًا لانحراف الصوت.
+  يمكنك استخدام حدسك الإبداعي نفسه في [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar) لإنشاء شخصية مخصّصة في "`voice_...`"، ثم استخدام معرّف الصوت هذا في طلبات تحويل النص إلى كلام.
+- **الاعتماد على المرجع الصوتي لضمان الثبات (تجاهُل التعليمات الوصفية):**
+  يتم تدريب نماذج تحويل النص إلى كلام في Gemini 3.8 على التركيز على المرجع الصوتي أولاً.
+  لا تُدرِج تعليمات تطلب من النموذج الحفاظ على ثبات الصوت (مثل `"do not switch speaker identity"` أو `"maintain identical timbre"`)، لأنّ النص الإضافي في الطلب يزيد من الانحراف. تجنَّب تعليمات الأسلوب غير الضرورية واسمح للنموذج بالتغيير بشكل طبيعي حول النقطة الثابتة التي يوفّرها المرجع الصوتي.
+- **لا تحاول تغيير سمات المتحدّث الثابتة في `style`:** تجنَّب إدراج
+  العمر أو الجنس أو الأسماء أو التغييرات الدائمة في اللهجة في `speech_metadata.style`.
+  بدلاً من ذلك، اختَر صوتًا إقليميًا من "مكتبة الأصوات الموسّعة" أو أنشِئ صوتًا
+  باستخدام [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar).
 
-### Fluksi i rekomanduar i punës
+### سير العمل المقترَح
 
-1. **Ndërto personazhin një herë:** Krijo personazhin tënd te
-   [Dizajni i zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq) ose zgjidh një zë rajonal nga
-   "Biblioteka e zgjeruar e zërave" që përputhet me gjuhën e synuar dhe personazhin tënd.
-2. **Shkruaj transkripte të folura natyrale me pasiguri në të folur:** Për natyralitet maksimal, shkruaje `text` si një transkript të folur real - duke përfshirë pasiguri në të folur dhe hezitime natyrale në bisedë (për shembull, `"Oh uh yeah I think... hm, so that's interesting"`).
-3. **Testo së pari TTS-në e thjeshtë:** Sintetizo transkriptin tënd me një fushë bosh `style`
-   në fillim - shumica e kërkesave nuk kanë nevojë për asnjë udhëzim `style`.
-4. **Shto vetëm kërkesa të shkurtra në `style` për modifikime:** Shto një varg të shkurtër `style` (si p.sh. `"casual, friendly"` ose `"muttering, then reassuring"`) vetëm për radhët që kanë nevojë për një rregullim specifik të paraqitjes dhe ripërdor atë varg të shkurtër të saktë nëpër radhë kur dëshiron një nivel bazë të qëndrueshëm.
+1. **إنشاء الشخصية مرة واحدة:** يمكنك إنشاء شخصيتك في
+   [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar) أو اختيار صوت إقليمي من
+   "مكتبة الأصوات الموسّعة" يتطابق مع لغتك المستهدفة وشخصيتك.
+2. **كتابة نصوص محادثات طبيعية تتضمّن عيوبًا في الكلام:** للحصول على أقصى قدر من الطبيعية، اكتب `text` كنص محادثة حقيقي، بما في ذلك عيوب الكلام الطبيعية والتردد في المحادثات (على سبيل المثال، `"Oh uh yeah I think... hm, so that's interesting"`).
+3. **اختبار ميزة "تحويل النص إلى كلام" العادية أولاً:** يمكنك تركيب النص باستخدام حقل `style` فارغ أولاً، فمعظم الطلبات لا تحتاج إلى تعليمات `style` على الإطلاق.
+4. **إضافة طلبات `style` قصيرة للتعديلات فقط:** أضِف سلسلة `style` موجزة
+   (مثل `"casual, friendly"` أو `"muttering, then reassuring"`) فقط
+   للجولات التي تتطلّب تعديلاً معيّنًا في طريقة الإلقاء، وأعِد استخدام هذه السلسلة القصيرة
+   نفسها في الجولات التي تريد فيها الحصول على أداء أساسي متّسق.
 
-### Agjentët e dialogut dhe zërit me shumë kthesa
+### الحوارات المتعددة الجولات والوكلاء الصوتيون
 
-Kur krijon agjentë zanorë bisedorë në kohë reale ose aplikacione me shumë kthesa:
+عند إنشاء وكلاء صوتيين حواريين في الوقت الفعلي أو تطبيقات متعددة الأدوار:
 
-- Bëj **një telefonatë TTS për çdo radhë** ndërkohë që vijnë pjesët e tekstit të LLM-së.
-- Lejo që `voice` e konfiguruar (e parakonstruksionuar, e projektuar `voice_...` ose e replikuar
-  `voice_...` / `voicekey_...`) të mbartë identitetin e folësit nëpër radhë - mos dërgo kurrë më një personazh të gjatë me karaktere në çdo radhë.
-- Lëre bosh fushën `style` për radhë ose dërgo një varg të shkurtër konstant (si p.sh. `"casual, friendly"`) për të gjithë bisedën.
-- Ndaji përgjigjet e gjata të agjentit në kthesa më të shkurtra në vend që të kërkosh kërkesa me stil më të fortë.
+- أجرِ **مكالمة واحدة لتحويل النص إلى كلام في كل دور** عند وصول أجزاء نص النموذج اللغوي الكبير.
+- يجب السماح لـ `voice` الذي تم ضبطه (مُعدّ مسبقًا أو مصمّم `voice_...` أو مكرّر
+  `voice_...` / `voicekey_...`) بحمل هوية المتحدّث عبر الأدوار، وعدم
+  إعادة إرسال شخصية طويلة في كل دور.
+- اترك حقل `style` لكل دور فارغًا، أو أرسِل سلسلة ثابتة قصيرة واحدة
+  (مثل `"casual, friendly"`) للمحادثة بأكملها.
+- قسِّم ردود الوكيل الطويلة إلى جولات أقصر بدلاً من استخدام طلبات أسلوب أقوى.
 
-## Kufizimet
+## القيود
 
-- Modelet TTS pranojnë vetëm hyrje me tekst dhe gjenerojnë vetëm dalje audio.
-- Gjenerimi me shumë folës me një kërkesë të vetme (`speech_config.speakers`) mbështet deri në 2 folës duke përdorur zëra të parakonstruksionuar. Për të kombinuar zërat e personalizuar
-  (`voice_...`) ose të replikuar (`voice_...` / `voicekey_...`) në dialogun me shumë personazhe, sintetizo radhën e çdo folësi në mënyrë individuale.
-  Duke qenë se kërkesat unare kthejnë `audio/wav` me një kokë RIFF 44-bitëshe si parazgjedhje, kërko PCM të papërpunuar (`{"type": "audio", "mime_type": "audio/l16"}`) ose hiq kokën WAV nga çdo radhë para se të bashkosh kuadrot e audios PCM 24 kHz.
-- **Kufijtë e personalizuar të hapësirës ruajtëse të zërit dhe TTL:**
-  - **Zërat me gjendje (`store=True`, të kërkuar ose të replikuar):** Maksimumi prej
-    **200 zërash për projekt** me një **TTL 1-vjeçare** (jetëgjatësia).
-  - **Çelësat zanorë pa gjendje (`store=False`, `voicekey_...`):** **TTL 7-ditor**
-    (time-to-live).
-- Rishiko seksionin [Gjuhët e mbështetura](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq#languages)
-  për mbulimin e gjuhëve.
+- تقبل نماذج تحويل النص إلى كلام الإدخالات النصية فقط وتنشئ مخرجات صوتية فقط.
+- تتيح ميزة إنشاء أصوات متعددة في طلب واحد (`speech_config.speakers`) استخدام ما يصل إلى صوتَين من الأصوات المُعدّة مسبقًا. لدمج الأصوات المصمّمة بشكل مخصّص
+  (`voice_...`) أو الأصوات المكرّرة (`voice_...` / `voicekey_...`) في
+  حوار متعدّد الشخصيات، يجب تركيب صوت كل متحدث على حدة.
+  بما أنّ الطلبات الأحادية تعرض `audio/wav` مع عنوان RIFF بحجم 44 بايت تلقائيًا، اطلب PCM الأولي (`{"type": "audio", "mime_type": "audio/l16"}`) أو أزِل عنوان WAV من كل دور قبل دمج إطارات الصوت PCM بتردد 24 كيلوهرتز.
+- **الحدود القصوى لمساحة تخزين الصوت المخصّص ومدة صلاحيته:**
+  - **الأصوات التي تحتفظ بالبيانات (`store=True`، سواء كانت مستندة إلى طلب أو مكرّرة):** الحد الأقصى هو
+    **200 صوت لكل مشروع** مع **مدة بقاء (TTL) تبلغ سنة واحدة**.
+  - **مفاتيح الصوت عديمة الحالة (`store=False` و`voicekey_...`):** **مدة البقاء (TTL) هي 7 أيام**
+- يُرجى مراجعة قسم [اللغات المتاحة](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar#languages) لمعرفة اللغات التي تغطيها الميزة.
 
-## Çfarë ka më pas
+## الخطوات التالية
 
-- Krijo persona të personalizuar vokalë nga gjuha natyrale me
-  [Dizajnin e zërit](https://ai.google.dev/gemini-api/docs/voice-design?hl=sq).
-- Repliko zërin e një folësi ekzistues në
-  [Kopjimi i zërit](https://ai.google.dev/gemini-api/docs/voice-replication?hl=sq).
-- Krahaso specifikimet e modelit në faqet e modeleve
-  [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=sq) dhe
-  [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=sq).
-- Eksploro audion interaktive dydrejtimëshe me
-  [API-në e transmetimit të drejtpërdrejtë](https://ai.google.dev/gemini-api/docs/live?hl=sq).
+- يمكنك إنشاء شخصيات صوتية مخصّصة من اللغة الطبيعية باستخدام ميزة
+  [تصميم الصوت](https://ai.google.dev/gemini-api/docs/voice-design?hl=ar).
+- تقليد صوت متحدث حالي في
+  [تقليد الصوت](https://ai.google.dev/gemini-api/docs/voice-replication?hl=ar)
+- يمكنك مقارنة مواصفات النموذج في صفحتَي
+  [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=ar) و[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=ar).
+- استكشِف الصوت التفاعلي الثنائي الاتجاه باستخدام
+  [Live API](https://ai.google.dev/gemini-api/docs/live?hl=ar).
 
-Dërgo komente
+إرسال ملاحظات
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-Përditësimi i fundit: 2026-10-12 UTC.
+تاريخ التعديل الأخير: 2026-10-29 (حسب التوقيت العالمي المتفَّق عليه)
 
-Duhet të na tregosh më shumë?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-12 UTC."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-29 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

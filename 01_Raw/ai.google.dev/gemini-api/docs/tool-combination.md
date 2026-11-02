@@ -1,29 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=it
-fetched_at: 2026-10-26T05:48:22.846940+00:00
-title: "Combinare strumenti integrati e chiamata di funzione \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja
+fetched_at: 2026-11-02T07:29:53.019899+00:00
+title: "\u7d44\u307f\u8fbc\u307f\u30c4\u30fc\u30eb\u3068\u95a2\u6570\u547c\u3073\u51fa\u3057\u3092\u7d44\u307f\u5408\u308f\u305b\u308b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-# Combinare strumenti integrati e chiamata di funzione
+# 組み込みツールと関数呼び出しを組み合わせる
 
-Gemini consente la combinazione di [strumenti integrati](https://ai.google.dev/gemini-api/docs/tools?hl=it), come
-`google_search`, e [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it)
-(note anche come *strumenti personalizzati*) in una singola interazione, mantenendo ed esponendo
-la cronologia del contesto delle chiamate allo strumento. Le combinazioni di strumenti integrati e personalizzati consentono Agentic Workflows complessi in cui, ad esempio, il modello può fare il grounding sui dati web in tempo reale prima di chiamare la logica di business specifica.
+Gemini では、ツールの呼び出しのコンテキスト履歴を保持して公開することで、[組み込みツール](https://ai.google.dev/gemini-api/docs/tools?hl=ja)（`google_search`など）と[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)（*カスタムツール*とも呼ばれます）を 1 つのインタラクションで組み合わせることができます。組み込みツールとカスタムツールの組み合わせにより、複雑な Agentic Workflows が可能になります。たとえば、モデルは特定のビジネス ロジックを呼び出す前に、リアルタイムのウェブデータに基づいて判断できます。
 
-Ecco un esempio che abilita le combinazioni di strumenti integrati e personalizzati con `google_search` e una funzione personalizzata `getWeather`:
+組み込みツールとカスタムツールの組み合わせを有効にする例を次に示します。`google_search` とカスタム関数 `getWeather` を使用します。
 
 ### Python
 
@@ -153,7 +150,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Vai
+### Go
 
 ```
 package main
@@ -233,93 +230,90 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Come funziona
+## 仕組み
 
-I modelli Gemini 3 utilizzano la *circolazione del contesto dello strumento* per abilitare le combinazioni di strumenti integrati e personalizzati. La circolazione del contesto dello strumento consente di mantenere ed esporre il contesto degli strumenti integrati e di condividerlo con gli strumenti personalizzati nella stessa interazione.
+Gemini 3 モデルは、ツール コンテキストの循環 を使用して、組み込みツールとカスタムツールの組み合わせを可能にします。ツール
+コンテキストの循環により、組み込みツールのコンテキストを保持して公開し、同じインタラクション内のカスタムツールと共有できます。
 
-### Abilitare la combinazione di strumenti
+### ツールの組み合わせを有効にする
 
-- Includi [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function-declarations), insieme
-  agli strumenti integrati che vuoi utilizzare, per attivare il comportamento di combinazione.
+- 組み合わせ動作をトリガーするには、使用する組み込みツールとともに [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#function-declarations) を含めます。
 
-### Passaggi restituiti dall'API
+### API がステップを返す
 
-In una risposta di interazione, l'API restituisce passaggi separati per le chiamate allo strumento integrato e le chiamate di funzione (strumento personalizzato):
+インタラクション レスポンスでは、API は組み込みツールの呼び出しと関数（カスタムツール）の呼び出しに対して個別のステップを返します。
 
-- **Passaggi dello strumento integrato**: l'API li gestisce automaticamente, mantenendo il
-  contesto tra i turni.
-- **Passaggi della chiamata di funzione**: l'API restituisce i passaggi `function_call` per le funzioni
-  personalizzate. Esegui la funzione e fornisci il risultato.
+- **組み込みツールのステップ**: API がこれらを自動的に管理し、
+  ターン間でコンテキストを保持します。
+- **関数呼び出しのステップ**: API は、カスタム関数に対して `function_call` ステップを返します。関数を実行して、結果を返します。
 
-### Campi critici nei passaggi restituiti
+### 返されたステップの重要なフィールド
 
-Alcuni campi nei passaggi restituiti sono fondamentali per mantenere il contesto dello strumento e abilitare le combinazioni di strumenti:
+返されたステップの特定のフィールドは、ツールのコンテキストを維持し、ツールの組み合わせを有効にするために重要です。
 
-- **`id`**: si trova nei passaggi `function_call` e `function_response`. Un identificatore univoco che mappa una chiamata alla relativa risposta.
-- **`signature`**: si trova nei passaggi `thought`, nonché in tutti i passaggi di chiamata allo strumento (ad es. `function_call`) e di risultato (ad es. `function_response`) per i modelli Gemini 3+. Questo contesto criptato consente la **circolazione del contesto dello strumento** tra le interazioni.
+- **`id`**: `function_call` ステップと `function_response` ステップにあります。呼び出しをレスポンスにマッピングする固有識別子。
+- **`signature`**: `thought` ステップと、Gemini 3 以降のモデルのすべてのツール呼び出し（`function_call` など）と結果（`function_response` など）のステップにあります。この暗号化されたコンテキストにより、インタラクション間で**ツール コンテキストの循環** が可能になります。
 
-**Gestione di questi campi:**
+**これらのフィールドの管理:**
 
-- **Modalità con stato (consigliata)**: quando utilizzi `previous_interaction_id`, il server gestisce automaticamente i campi `id` e `signature`.
-- **Modalità stateless**: quando gestisci manualmente la cronologia delle conversazioni, devi assicurarti di passare al modello sia il campo `id` sia il campo `signature` nelle richieste successive per convalidare l'autenticità e mantenere il contesto. Gli SDK ufficiali gestiscono automaticamente questa operazione se restituisci l'oggetto di risposta completo alla cronologia.
+- **ステートフル モード（推奨）**: `previous_interaction_id` を使用すると、サーバーは `id` フィールドと `signature` フィールドの両方を自動的に処理します。
+- **ステートレス モード**: 会話履歴を手動で管理する場合は、信頼性を検証してコンテキストを維持するために、後続のリクエストで `id` フィールドと `signature` フィールドの両方をモデルに渡す必要があります。完全なレスポンス オブジェクトを履歴に渡すと、公式 SDK がこれを自動的に処理します。
 
-### Dati specifici dello strumento
+### ツール固有のデータ
 
-Alcuni strumenti integrati restituiscono argomenti di dati visibili all'utente specifici per il tipo di strumento.
+一部の組み込みツールは、ツールタイプに固有のユーザーに表示されるデータ引数を返します。
 
-| Strumento | Argomenti della chiamata allo strumento visibili all'utente (se presenti) | Risposta dello strumento visibile all'utente (se presente) |
+| ツール | ユーザーに表示されるツール呼び出し引数（存在する場合） | ユーザーに表示されるツール レスポンス（存在する場合） |
 | --- | --- | --- |
 | **google\_search** | `queries` | `search_suggestions` |
 | **google\_maps** | `queries` | `places` `google_maps_widget_context_token` |
-| **url\_context** | `urls` URL da sfogliare | `status`: stato di navigazione `retrieved_url`: URL sfogliati |
-| **file\_search** | Nessuno | Nessuno |
+| **url\_context** | `urls` ブラウジングする URL | `status`: ブラウジング ステータス `retrieved_url`: ブラウジングした URL |
+| **file\_search** | なし | なし |
 
-## Token e prezzi
+## トークンと料金
 
-Tieni presente che le parti della chiamata allo strumento integrato nelle richieste vengono conteggiate nel valore `prompt_token_count`. Poiché questi passaggi intermedi dello strumento sono ora visibili e ti vengono restituiti, fanno parte della cronologia delle conversazioni. Questo vale solo per il
-caso per *richieste*, non per *risposte*.
+リクエストの組み込みツールの呼び出し部分は `prompt_token_count` にカウントされます。これらのツールの中間ステップが表示され、返されるようになったため、会話履歴の一部となります。**これは
+リクエスト*の場合のみで、レスポンス*の場合は該当しません。
 
-Lo strumento Ricerca Google è un'eccezione a questa regola. La Ricerca Google applica già
-il proprio modello di prezzi a livello di query, quindi i token non sono
-addebitati due volte (vedi la pagina [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it)).
+Google 検索ツールはこのルールの例外です。Google 検索では、クエリレベルですでに独自の料金モデルが適用されているため、トークンが二重に課金されることはありません（[料金](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)ページをご覧ください）。
 
-Per ulteriori informazioni, consulta la pagina [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=it).
+詳細については、[トークン](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)ページをご覧ください。
 
-## Limitazioni
+## 制限事項
 
-- Quando la circolazione del contesto dello strumento è abilitata, la modalità predefinita è `validated` (la modalità `auto` non è supportata).
-- Gli strumenti integrati come `google_search` si basano sulle informazioni relative alla posizione e all'ora corrente, quindi se `system_instruction` o `function_declaration.description` contengono informazioni su posizione e ora in conflitto, la funzionalità di combinazione degli strumenti potrebbe non funzionare correttamente.
+- ツール コンテキストの循環が有効になっている場合は、デフォルトで `validated` モードになります（`auto` モードはサポートされていません）。
+- `google_search` などの組み込みツールは、現在地と現在時刻の情報に依存しています。そのため、`system_instruction` または `function_declaration.description` に競合する現在地と時刻の情報が含まれている場合、ツールの組み合わせ機能が正常に動作しない可能性があります。
 
-## Strumenti supportati
+## サポートされているツール
 
-La circolazione del contesto dello strumento standard si applica agli strumenti lato server (integrati).
-L'esecuzione di codice è anche uno strumento lato server, ma ha una propria soluzione integrata per la circolazione del contesto. L'utilizzo del computer e le chiamate di funzione sono strumenti lato client e hanno anche soluzioni integrate per la circolazione del contesto.
+標準のツール コンテキストの循環は、サーバーサイド（組み込み）ツールに適用されます。
+コード実行もサーバーサイド ツールですが、コンテキストの循環には独自の組み込みソリューションがあります。コンピュータの使用と関数呼び出しはクライアントサイド ツールであり、コンテキストの循環にも組み込みソリューションがあります。
 
-| Strumento | Lato di esecuzione | Supporto per la circolazione del contesto |
+| ツール | 実行側 | コンテキストの循環のサポート |
 | --- | --- | --- |
-| [Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it) | Lato server | Supportato |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it) | Lato server | Supportato |
-| [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it) | Lato server | Supportato |
-| [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it) | Lato server | Supportato |
-| [Esecuzione di codice](https://ai.google.dev/gemini-api/docs/code-execution?hl=it) | Lato server | Supportato (integrato, utilizza i passaggi `code_execution` e `code_execution_result`) |
-| [Utilizzo del computer](https://ai.google.dev/gemini-api/docs/computer-use?hl=it) | Lato client | Supportato (integrato, utilizza i passaggi `function_call` e `function_response`) |
-| [Funzioni personalizzate](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) | Lato client | Supportato (integrato, utilizza i passaggi `function_call` e `function_response`) |
+| [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja) | サーバーサイド | サポート対象 |
+| [Google マップ](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja) | サーバーサイド | サポート対象 |
+| [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja) | サーバーサイド | サポート対象 |
+| [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja) | サーバーサイド | サポート対象 |
+| [コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja) | サーバーサイド | サポート対象（組み込み、`code_execution` ステップと `code_execution_result` ステップを使用） |
+| [コンピュータ使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja) | クライアントサイド | サポート対象（組み込み、`function_call` ステップと `function_response` ステップを使用） |
+| [カスタム関数](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja) | クライアントサイド | サポート対象（組み込み、`function_call` ステップと `function_response` ステップを使用） |
 
-## Passaggi successivi
+## 次のステップ
 
-- Scopri di più sulle [chiamate di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it) nell'API Gemini.
-- Esplora gli strumenti supportati:
-  - [Ricerca Google](https://ai.google.dev/gemini-api/docs/google-search?hl=it)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=it)
-  - [Contesto URL](https://ai.google.dev/gemini-api/docs/url-context?hl=it)
-  - [Ricerca file](https://ai.google.dev/gemini-api/docs/file-search?hl=it)
+- Gemini API の [関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja) の詳細を確認する。
+- サポートされているツールを確認する。
+  - [Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)
+  - [Google マップ](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)
+  - [URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)
+  - [ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)
 
-Invia feedback
+フィードバックを送信
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Ultimo aggiornamento 2026-10-13 UTC.
+最終更新日 2026-10-13 UTC。
 
-Vuoi dirci altro?
+ご意見をお聞かせください
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-13 UTC."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-13 UTC。"],[],[]]

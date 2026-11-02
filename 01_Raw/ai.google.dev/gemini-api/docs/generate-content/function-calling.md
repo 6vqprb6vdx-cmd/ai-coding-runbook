@@ -1,36 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=zh-TW
-fetched_at: 2026-10-26T05:42:01.389500+00:00
-title: "\u4f7f\u7528 Gemini API \u547c\u53eb\u51fd\u5f0f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=it
+fetched_at: 2026-11-02T07:06:36.912121+00:00
+title: "Chiamate di funzione con l'API Gemini \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
 
-提供意見
+Invia feedback
 
-# 使用 Gemini API 呼叫函式
+# Chiamate di funzione con l'API Gemini
 
-函式呼叫功能可讓您將模型連結至外部工具和 API。
-模型不會生成文字回覆，而是判斷何時呼叫特定函式，並提供執行實際動作所需的參數。這樣一來，模型就能成為自然語言與實際行動和資料之間的橋梁。函式呼叫有 3 項主要用途：
+La chiamata di funzioni ti consente di collegare i modelli a strumenti e API esterni.
+Anziché generare testo generato, il modello determina quando chiamare funzioni specifiche e fornisce i parametri necessari per eseguire azioni reali.
+In questo modo, il modello può fungere da ponte tra il linguaggio naturale e le azioni e i dati del mondo reale. La chiamata di funzione ha tre casi d'uso principali:
 
-- [**採取行動：**](#meeting)使用 API 與外部系統互動，例如安排預約、建立發票、傳送電子郵件或控制智慧住宅裝置。
-- [**擴充知識：**](#weather)從資料庫、API 和知識庫等外部來源存取資訊。
-- [**擴充功能：**](#chart)使用外部工具執行運算，並擴充模型的限制，例如使用計算機或建立圖表。
+- [**Eseguire azioni:**](#meeting) interagire con sistemi esterni utilizzando le API, ad esempio per fissare appuntamenti, creare fatture, inviare email o controllare dispositivi per la smart home.
+- [**Aumentare le conoscenze:**](#weather) accedere alle informazioni da fonti esterne come database, API e knowledge base.
+- [**Estendi le funzionalità:**](#chart) utilizza strumenti esterni per eseguire calcoli ed estendere i limiti del modello, ad esempio utilizzando una calcolatrice o creando grafici.
 
-您可以瀏覽下列範例，瞭解這些用途：
+Di seguito sono riportati alcuni esempi di questi casi d'uso:
 
-### 安排會議
+### Pianifica riunione
 
-這個範例說明如何定義函式，在特定時間安排與會者會議，讓模型剖析使用者要求，並傳回結構化引數，觸發外部系統中的動作。
+Questo esempio mostra come definire una funzione che pianifica una riunione con i partecipanti a un'ora specifica, consentendo al modello di analizzare le richieste degli utenti e restituire argomenti strutturati per attivare azioni in sistemi esterni.
 
 ### Python
 
@@ -289,9 +290,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### 取得天氣資訊
+### Ottieni informazioni meteo
 
-這個範例說明如何定義函式來擷取特定地點的溫度資料，讓模型能呼叫外部 API，回答需要即時或外部資訊的查詢。
+Questo esempio mostra come definire una funzione che recupera i dati di temperatura per una località, consentendo al modello di chiamare API esterne per rispondere a query che richiedono informazioni esterne o in tempo reale.
 
 ### Python
 
@@ -498,9 +499,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### 建立圖表
+### Crea grafico
 
-以下範例說明如何定義函式，從結構化資料生成長條圖，展示模型如何使用外部工具執行運算或建立視覺素材：
+Questo esempio mostra come definire una funzione che genera un grafico a barre da dati strutturati, dimostrando come il modello può utilizzare strumenti esterni per eseguire calcoli o creare asset visivi:
 
 ### Python
 
@@ -748,26 +749,32 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-## 函式呼叫的運作方式
+## Come funziona la chiamata di funzioni
 
-![呼叫函式總覽](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=zh-tw)
+![Panoramica della chiamata di funzione](https://ai.google.dev/static/gemini-api/docs/images/function-calling-overview.png?hl=it)
 
-函式呼叫涉及應用程式、模型和外部函式之間的結構化互動。以下說明程序中的各個環節：
+Le chiamate di funzione prevedono un'interazione strutturata tra l'applicazione, il modello e le funzioni esterne. Ecco una panoramica della procedura:
 
-1. **定義函式宣告：**在應用程式程式碼中定義函式宣告。函式宣告會向模型說明函式的名稱、參數和用途。
-2. **使用函式宣告呼叫 API：**將使用者提示和函式宣告傳送至模型。模型會分析要求，判斷函式呼叫是否有幫助。如果是，模型會傳回結構化 JSON 物件，內含函式名稱、引數和專屬 `id` (現在 API 一律會為 Gemini 3 模型傳回這個 `id`\*)。
-3. **執行函式程式碼 (您的責任)：**模型*不會*自行執行函式，應用程式有責任處理回覆並檢查函式呼叫。如果
-   - **是**：擷取函式的名稱、引數和 `id`，並在應用程式中執行對應的函式。
-   - **否：**模型已直接提供提示的文字回覆 (範例中較不強調這個流程，但這是可能的結果)。
-4. **建立容易使用的回覆：**如果函式已執行，請擷取結果並傳回模型，確保在後續對話中加入相符的 `id`。並根據結果生成最終回應，以容易使用的方式提供函式呼叫中的資訊。
+1. **Definisci la dichiarazione della funzione**:definisci la dichiarazione della funzione nel codice dell'applicazione. Le dichiarazioni di funzione descrivono il nome, i parametri e lo scopo della funzione per il modello.
+2. **Chiama l'API con le dichiarazioni di funzione:** invia il prompt dell'utente insieme alle
+   dichiarazioni di funzione al modello. Analizza la richiesta e determina se una chiamata di funzione sarebbe utile. In questo caso, risponde con un oggetto JSON strutturato contenente il nome della funzione, gli argomenti e un `id` univoco (questo `id` viene ora sempre restituito dall'API per i modelli Gemini 3\*).
+3. **Esecuzione del codice della funzione (tua responsabilità)**: il modello *non*
+   esegue la funzione stessa. È responsabilità della tua applicazione
+   elaborare la risposta e verificare la presenza di una chiamata di funzione. Se
+   - **Sì**: estrai il nome, gli argomenti e il `id` della funzione ed esegui la funzione corrispondente nella tua applicazione.
+   - **No**:il modello ha fornito una risposta di testo diretta al prompt
+     (questo flusso è meno enfatizzato nell'esempio, ma è un risultato possibile).
+4. **Crea una risposta intuitiva:** se è stata eseguita una funzione, acquisisci il risultato e invialo di nuovo al modello, assicurandoti di includere il `id` corrispondente in un turno successivo della conversazione. Utilizzerà il risultato per
+   generare una risposta finale e facile da usare che incorpori le informazioni
+   dalla chiamata di funzione.
 
-這個程序可以重複多輪，實現複雜的互動和工作流程。模型也支援在單一回合中呼叫多個函式 ([平行函式呼叫](#parallel_function_calling))、依序呼叫 ([組合函式呼叫](#compositional_function_calling))，以及使用內建 Gemini 工具 ([多工具使用](#native-tools))。
+Questo processo può essere ripetuto più volte, consentendo interazioni e workflow complessi. Il modello supporta anche la chiamata di più funzioni in un singolo turno ([chiamata di funzione parallela](#parallel_function_calling)), in sequenza ([chiamata di funzione compositiva](#compositional_function_calling)) e con gli strumenti Gemini integrati ([utilizzo di più strumenti](#native-tools)).
 
-\* **一律對應函式 ID：**Gemini 3 現在一律會為每個 `functionCall` 傳回不重複的 `id`。請在 `functionResponse` 中加入這個確切的 `id`，讓模型能準確將結果對應回原始要求。
+\* **Mappa sempre gli ID funzione**:Gemini 3 ora restituisce sempre un `id` univoco con ogni `functionCall`. Includi questo `id` esatto nel tuo `functionResponse` in modo che il modello possa mappare con precisione il risultato alla richiesta originale.
 
-### 步驟 1：定義函式宣告
+### Passaggio 1: definisci una dichiarazione di funzione
 
-在應用程式程式碼中定義函式及其宣告，讓使用者設定光線值並提出 API 要求。這個函式可以呼叫外部服務或 API。
+Definisci una funzione e la relativa dichiarazione all'interno del codice dell'applicazione che consenta agli utenti di impostare i valori di luminosità ed effettuare una richiesta API. Questa funzione potrebbe chiamare servizi o API esterni.
 
 ### Python
 
@@ -885,9 +892,10 @@ func setLightValues(brightness int, colorTemp string) map[string]any {
 }
 ```
 
-### 步驟 2：使用函式宣告呼叫模型
+### Passaggio 2: chiama il modello con le dichiarazioni delle funzioni
 
-定義函式宣告後，即可提示模型使用這些宣告。模型會分析提示和函式宣告，決定要直接回覆或呼叫函式。如果呼叫函式，回應物件會包含函式呼叫建議。
+Dopo aver definito le dichiarazioni delle funzioni, puoi chiedere al modello di utilizzarle. Analizza il prompt e le dichiarazioni delle funzioni e decide se rispondere direttamente o chiamare una funzione. Se viene chiamata una funzione, l'oggetto
+della risposta conterrà un suggerimento di chiamata di funzione.
 
 ### Python
 
@@ -979,7 +987,7 @@ if err != nil {
 fmt.Println(response.FunctionCalls()[0])
 ```
 
-接著，模型會以 OpenAPI 相容結構定義傳回 `functionCall` 物件，指定如何呼叫一或多個宣告的函式，以回答使用者的問題。
+Il modello restituisce quindi un oggetto `functionCall` in uno schema compatibile con OpenAPI che specifica come chiamare una o più funzioni dichiarate per rispondere alla domanda dell'utente.
 
 ### Python
 
@@ -1003,9 +1011,10 @@ id='8f2b1a3c' args={'color_temp': 'warm', 'brightness': 25} name='set_light_valu
 &{ID:8f2b1a3c Args:map[brightness:25 color_temp:warm] Name:set_light_values}
 ```
 
-### 步驟 3：執行 set\_light\_values 函式程式碼
+### Passaggio 3: esegui il codice della funzione set\_light\_values
 
-從模型的回覆中擷取函式呼叫詳細資料、剖析引數，然後執行 `set_light_values` 函式。
+Estrai i dettagli della chiamata di funzione dalla risposta del modello, analizza gli argomenti
+ed esegui la funzione `set_light_values`.
 
 ### Python
 
@@ -1046,9 +1055,10 @@ if toolCall.Name == "set_light_values" {
 }
 ```
 
-### 步驟 4：使用函式結果建立容易理解的回覆，並再次呼叫模型
+### Passaggio 4: crea una risposta facile da usare con il risultato della funzione e chiama di nuovo il modello
 
-最後，將函式執行結果傳回模型，模型就能將這項資訊納入最終回覆並傳送給使用者。
+Infine, invia il risultato dell'esecuzione della funzione al modello in modo che possa
+incorporare queste informazioni nella risposta finale all'utente.
 
 ### Python
 
@@ -1129,53 +1139,69 @@ if err != nil {
 fmt.Println(finalResponse.Text())
 ```
 
-函式呼叫流程到此結束。模型成功使用 `set_light_values` 函式執行使用者的要求動作。
+In questo modo, il flusso di chiamata di funzione è completo. Il modello ha utilizzato correttamente la funzione `set_light_values` per eseguire l'azione richiesta dall'utente.
 
-## 函式宣告
+## Dichiarazioni di funzione
 
-在提示中導入函式呼叫時，您會建立 `tools` 物件，其中包含一或多個 `function declarations`。您可以使用 JSON 定義函式，具體來說，就是採用 [OpenAPI 結構定義](https://spec.openapis.org/oas/v3.0.3#schemaw)格式的[選取子集](https://ai.google.dev/api/caching?hl=zh-tw#Schema)。單一函式宣告可包含下列參數：
+Quando implementi la chiamata di funzione in un prompt, crei un oggetto `tools`,
+che contiene uno o più `function declarations`. Definisci le funzioni utilizzando
+JSON, in particolare con un [sottoinsieme selezionato](https://ai.google.dev/api/caching?hl=it#Schema)
+del formato dello [schema OpenAPI](https://spec.openapis.org/oas/v3.0.3#schemaw). Una
+singola dichiarazione di funzione può includere i seguenti parametri:
 
-- `name` (字串)：函式的專屬名稱 (`get_weather_forecast`、`send_email`)。請使用描述性名稱，且不得包含空格或特殊字元 (請使用底線或駝峰式大小寫)。
-- `description` (字串)：清楚詳細說明函式的用途和功能。這項資訊至關重要，可讓模型瞭解何時該使用函式。請具體說明，並視需要提供範例 (「根據位置和目前上映的電影名稱 (選填) 尋找電影院」)。
-- `parameters` (物件)：定義函式預期的輸入參數。
-  - `type` (字串)：指定整體資料類型，例如 `object`。
-  - `properties` (物件)：列出個別參數，每個參數都包含：
-    - `type` (字串)：參數的資料類型，例如 `string`、`integer`、`boolean, array`。
-    - `description` (字串)：參數用途和格式的說明。提供範例和限制 (「城市和州/省，例如『加州舊金山』或郵遞區號，例如『95616』」)。
-    - `enum` (陣列，選用)：如果參數值來自固定集合，請使用「enum」列出允許的值，而不是只在說明中描述這些值。這有助於提升準確度 (「enum」：[「daylight」、「cool」、「warm」])。
-  - `required` (陣列)：字串陣列，列出函式運作時必須提供的參數名稱。
+- `name` (stringa): un nome univoco per la funzione (`get_weather_forecast`,
+  `send_email`). Utilizza nomi descrittivi senza spazi o caratteri speciali
+  (utilizza trattini bassi o camelCase).
+- `description` (stringa): una spiegazione chiara e dettagliata dello scopo e delle funzionalità della funzione. Questo è fondamentale affinché il modello comprenda quando utilizzare la funzione. Fornisci dettagli ed esempi, se utile ("Trova i cinema in base alla località e, facoltativamente, al titolo del film attualmente in programmazione").
+- `parameters` (oggetto): definisce i parametri di input previsti dalla funzione.
+  - `type` (stringa): specifica il tipo di dati complessivo, ad esempio `object`.
+  - `properties` (oggetto): elenca i singoli parametri, ognuno con:
+    - `type` (stringa): il tipo di dati del parametro, ad esempio `string`, `integer`, `boolean, array`.
+    - `description` (stringa): una descrizione dello scopo e del formato del parametro. Fornisci esempi e vincoli ("La città e lo stato, ad esempio 'San Francisco, CA' o un codice postale, ad esempio '95616'").
+    - `enum` (array, facoltativo): se i valori dei parametri provengono da un insieme
+      fisso, utilizza "enum" per elencare i valori consentiti anziché descriverli
+      semplicemente nella descrizione. In questo modo, l'accuratezza migliora ("enum":
+      ["daylight", "cool", "warm"]).
+  - `required` (array): un array di stringhe che elenca i nomi dei parametri obbligatori per il funzionamento della funzione.
 
-您也可以使用 `types.FunctionDeclaration.from_callable(client=client, callable=your_function)`，直接從 Python 函式建構 `FunctionDeclarations`。
+Puoi anche creare `FunctionDeclarations` direttamente dalle funzioni Python utilizzando
+`types.FunctionDeclaration.from_callable(client=client, callable=your_function)`.
 
-## 使用思考模型呼叫函式
+## Chiamata di funzione con modelli di ragionamento
 
-Gemini 3 和 2.5 系列模型會使用內部的[「思考」](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)程序，推論要求。這項功能可大幅提升函式呼叫效能，讓模型更準確判斷呼叫函式的時機，以及要使用的參數。由於 Gemini API 是無狀態，模型會使用[思考簽章](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw)，在多輪對話中維持上下文。
+I modelli delle serie Gemini 3 e 2.5 utilizzano un processo di ["ragionamento"](https://ai.google.dev/gemini-api/docs/thinking?hl=it) interno per elaborare le richieste. In questo modo, le prestazioni delle chiamate di funzione migliorano notevolmente, consentendo al modello di determinare meglio quando chiamare una funzione e quali parametri utilizzare. Poiché l'API Gemini è stateless, i modelli utilizzano le [firme di pensiero](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it) per mantenere il contesto nelle conversazioni multi-turno.
 
-本節說明如何進階管理思維簽章，只有在手動建構 API 要求 (例如透過 REST) 或操控對話記錄時，才需要瞭解這項資訊。
+Questa sezione tratta la gestione avanzata delle firme di pensiero ed è necessaria solo se stai creando manualmente richieste API (ad es. tramite REST) o manipolando la cronologia delle conversazioni.
 
-**如果您使用的是 [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=zh-tw) (我們的官方程式庫)，則不需要管理這個程序**。SDK 會自動處理必要步驟，如前述[範例](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#step-4)所示。
+**Se utilizzi gli [SDK Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=it) (le nostre
+librerie ufficiali), non devi gestire questo processo**. Gli SDK gestiscono automaticamente i passaggi necessari, come mostrato nell'[esempio](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#step-4) precedente.
 
-### 手動管理對話記錄
+### Gestione manuale della cronologia delle conversazioni
 
-如果您手動修改對話記錄，而不是傳送[完整的前一個回覆](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#step-4)，則必須正確處理模型回合中包含的 `thought_signature`。
+Se modifichi manualmente la cronologia delle conversazioni, anziché inviare la [risposta precedente completa](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#step-4), devi gestire correttamente l'elemento `thought_signature` incluso nel turno del modello.
 
-請遵守下列規則，確保模型保留情境：
+Segui queste regole per assicurarti che il contesto del modello venga preservato:
 
-- 請務必將 `thought_signature` 傳回原始 [`Part`](https://ai.google.dev/api?hl=zh-tw#request-body-structure) 內的模型。
-- **請務必在 `function_response` 中加入 `function_call` 的確切 `id`，以便 API 將結果對應至正確的要求。**
-- 請勿將含有簽章的 `Part` 與不含簽章的合併。這會破壞思考過程的位置脈絡。
-- 請勿合併兩個都包含簽章的 `Parts`，因為簽章字串無法合併。
+- Invia sempre il `thought_signature` al modello all'interno del suo [`Part`](https://ai.google.dev/api?hl=it#request-body-structure) originale.
+- **Includi sempre l'esatto `id` del `function_call` nel tuo
+  `function_response` in modo che l'API possa mappare il risultato alla richiesta corretta.**
+- Non unire un `Part` contenente una firma con uno che non la contiene. In questo modo
+  viene interrotto il contesto posizionale del pensiero.
+- Non combinare due `Parts` che contengono entrambe firme, poiché le stringhe delle firme non possono essere unite.
 
-#### Gemini 3 想法簽名
+#### Firme del pensiero di Gemini 3
 
-在 Gemini 3 中，模型回覆的任何 [`Part`](https://ai.google.dev/api?hl=zh-tw#request-body-structure) 都可能包含思考簽章。雖然我們通常建議從所有 `Part` 類型傳回簽章，但函式呼叫必須傳回思考簽章。除非您手動操控對話記錄，否則 Google GenAI SDK 會自動處理思考簽章。
+In Gemini 3, qualsiasi [`Part`](https://ai.google.dev/api?hl=it#request-body-structure) di una risposta del modello
+può contenere una firma del pensiero.
+Anche se in genere consigliamo di restituire le firme di tutti i tipi di `Part`,
+il passaggio delle firme di pensiero è obbligatorio per la chiamata di funzioni. A meno che tu non stia manipolando manualmente la cronologia delle conversazioni, l'SDK Google GenAI gestirà automaticamente le firme dei pensieri.
 
-如要手動操作對話記錄，請參閱「[想法簽章](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=zh-tw)」頁面，瞭解如何處理 Gemini 3 的想法簽章。
+Se manipoli manualmente la cronologia delle conversazioni, consulta la pagina [Firme dei pensieri](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=it) per indicazioni e dettagli completi sulla gestione delle firme dei pensieri per Gemini 3.
 
-##### 檢查想法簽名
+##### Esame delle firme del pensiero
 
-雖然並非必要，但您可以檢查回應
-`thought_signature`，以進行偵錯或教育用途。
+Sebbene non sia necessario per l'implementazione, puoi esaminare la risposta per visualizzare il
+`thought_signature` a scopo di debug o didattico.
 
 ### Python
 
@@ -1216,13 +1242,15 @@ if len(part.ThoughtSignature) > 0 {
 }
 ```
 
-如要進一步瞭解思考簽章的限制和使用方式，以及思考型模型的一般資訊，請參閱「[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw#signatures)」頁面。
+Scopri di più sulle limitazioni e sull'utilizzo delle firme di pensiero e sui modelli di ragionamento in generale nella pagina [Ragionamento](https://ai.google.dev/gemini-api/docs/thinking?hl=it#signatures).
 
-## 平行函式呼叫
+## Chiamata di funzione parallela
 
-除了單次呼叫函式，你也可以一次呼叫多個函式。平行函式呼叫可讓您一次執行多個函式，適用於函式彼此不相依的情況。這項功能適用於從多個獨立來源收集資料的情境，例如從不同資料庫擷取客戶詳細資料、查看各個倉庫的庫存量，或執行多項動作，例如將公寓改造成迪斯可舞廳。
+Oltre alla chiamata di funzioni a turno singolo, puoi anche chiamare più funzioni contemporaneamente. La chiamata di funzione parallela consente di eseguire più funzioni contemporaneamente e viene utilizzata quando le funzioni non dipendono l'una dall'altra. Questa funzionalità è utile in scenari come la raccolta di dati da più origini indipendenti, ad esempio il recupero dei dettagli dei clienti da database diversi o il controllo dei livelli di inventario in vari magazzini o l'esecuzione di più azioni, come la trasformazione del tuo appartamento in una discoteca.
 
-當模型在單一回合中發起多個函式呼叫時，您不需要按照收到 `function_call` 物件的順序傳回 `function_result` 物件。Gemini API 會使用模型輸出內容中的 `id`，將每個結果對應回相應的呼叫。這樣一來，您就能以非同步方式執行函式，並在函式完成時將結果附加至清單。
+Quando il modello avvia più chiamate di funzioni in un singolo turno, non
+devi restituire gli oggetti `function_result` nello stesso ordine in cui sono stati ricevuti gli oggetti
+`function_call`. L'API Gemini mappa ogni risultato alla chiamata corrispondente utilizzando il `id` dall'output del modello. In questo modo puoi eseguire le funzioni in modo asincrono e aggiungere i risultati all'elenco man mano che vengono completati.
 
 ### Python
 
@@ -1389,7 +1417,8 @@ var dimLights = &genai.FunctionDeclaration{
 }
 ```
 
-設定函式呼叫模式，允許使用所有指定工具。如要進一步瞭解如何設定函式呼叫，請參閱[這篇文章](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw#function_calling_modes)。
+Configura la modalità di chiamata di funzione per consentire l'utilizzo di tutti gli strumenti specificati.
+Per saperne di più, consulta la sezione sulla [configurazione della chiamata di funzione](https://ai.google.dev/gemini-api/docs/function-calling?hl=it#function_calling_modes).
 
 ### Python
 
@@ -1503,9 +1532,9 @@ for _, fn := range response.FunctionCalls() {
 }
 ```
 
-每項列印結果都反映了模型要求的單一函式呼叫。如要傳回結果，請按照要求的順序加入回應。
+Ciascuno dei risultati stampati riflette una singola chiamata di funzione richiesta dal modello. Per inviare i risultati, includi le risposte nello stesso ordine in cui sono state richieste.
 
-Python SDK 支援[自動呼叫函式](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=zh-tw#automatic_function_calling_python_only)，可自動將 Python 函式轉換為宣告，並為您處理函式呼叫執行和回應週期。以下是迪斯可用途的範例。
+L'SDK Python supporta la [chiamata di funzione automatica](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=it#automatic_function_calling_python_only), che converte automaticamente le funzioni Python in dichiarazioni e gestisce il ciclo di esecuzione e risposta della chiamata di funzione. Di seguito è riportato un esempio per il caso d'uso di Disco.
 
 ### Python
 
@@ -1568,15 +1597,15 @@ print(response.text)
 # I've turned on the disco ball, started playing loud and energetic music, and dimmed the lights to 50% brightness. Let's get this party started!
 ```
 
-## 組合函式呼叫
+## Chiamata di funzione compositiva
 
-Gemini 可透過組合或依序呼叫函式，將多個函式呼叫串連在一起，完成複雜的要求。舉例來說，如要回答「我目前所在位置的溫度」，Gemini API 可能會先叫用 `get_current_location()` 函式，然後叫用 `get_weather()` 函式，並將位置資訊做為參數。
+La chiamata di funzione compositiva o sequenziale consente a Gemini di concatenare più chiamate di funzione per soddisfare una richiesta complessa. Ad esempio, per rispondere a "Ottieni la temperatura nella mia posizione attuale", l'API Gemini potrebbe prima richiamare una funzione `get_current_location()` seguita da una funzione `get_weather()` che accetta la posizione come parametro.
 
-以下範例說明如何使用 Python SDK 和自動函式呼叫，實作組合函式呼叫。
+L'esempio seguente mostra come implementare la chiamata di funzione compositiva utilizzando l'SDK Python e la chiamata di funzione automatica.
 
 ### Python
 
-本範例使用 `google-genai` Python SDK 的自動函式呼叫功能。SDK 會自動將 Python 函式轉換為必要結構定義，在模型要求時執行函式呼叫，並將結果傳回模型以完成工作。
+Questo esempio utilizza la funzionalità di chiamata di funzione automatica dell'SDK Python `google-genai`. L'SDK converte automaticamente le funzioni Python nello schema richiesto, esegue le chiamate di funzione quando richieste dal modello e invia i risultati al modello per completare l'attività.
 
 ```
 import os
@@ -1615,9 +1644,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-**預期輸出內容**
+**Output previsto**
 
-執行程式碼時，您會看到 SDK 協調函式呼叫。模型會先呼叫 `get_weather_forecast`，接收溫度，然後根據提示中的邏輯，以正確值呼叫 `set_thermostat_temperature`。
+Quando esegui il codice, vedrai l'SDK orchestrare le chiamate di funzione. Il modello chiama prima `get_weather_forecast`, riceve la temperatura e poi chiama `set_thermostat_temperature` con il valore corretto in base alla logica nel prompt.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1629,7 +1658,7 @@ OK. I've set the thermostat to 20°C.
 
 ### JavaScript
 
-這個範例說明如何使用 JavaScript/TypeScript SDK，透過手動執行迴圈進行組合函式呼叫。
+Questo esempio mostra come utilizzare l'SDK JavaScript/TypeScript per eseguire chiamate di funzioni composizionali utilizzando un ciclo di esecuzione manuale.
 
 ```
 import { GoogleGenAI, Type } from "@google/genai";
@@ -1758,9 +1787,11 @@ while (true) {
 }
 ```
 
-**預期輸出內容**
+**Output previsto**
 
-執行程式碼時，您會看到 SDK 協調函式呼叫。模型會先呼叫 `get_weather_forecast`，接收溫度，然後根據提示中的邏輯，以正確值呼叫 `set_thermostat_temperature`。
+Quando esegui il codice, vedrai l'SDK orchestrare le chiamate di funzione. Il modello chiama prima `get_weather_forecast`, riceve la
+temperatura e poi chiama `set_thermostat_temperature` con il valore
+corretto in base alla logica nel prompt.
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1772,7 +1803,7 @@ OK. It's 25°C in London, so I've set the thermostat to 20°C.
 
 ### Go
 
-本範例說明如何使用 Go SDK，透過手動執行迴圈進行組合函式呼叫。
+Questo esempio mostra come utilizzare l'SDK Go per eseguire chiamate di funzioni compositive utilizzando un ciclo di esecuzione manuale.
 
 ```
 package main
@@ -1881,7 +1912,7 @@ func main() {
 }
 ```
 
-**預期輸出內容**
+**Output previsto**
 
 ```
 Tool Call: get_weather_forecast(location=London)
@@ -1891,7 +1922,7 @@ Tool Response: map[status:success]
 OK. It's 25°C in London, so I've set the thermostat to 20°C.
 ```
 
-組合函式呼叫是 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw) 的原生功能。也就是說，Live API 可以處理函式呼叫，與 Python SDK 類似。
+La chiamata di funzione compositiva è una funzionalità nativa dell'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=it). Ciò significa che l'API Live può gestire la chiamata di funzione in modo simile all'SDK Python.
 
 ### Python
 
@@ -1931,14 +1962,20 @@ const tools = [
 await run(prompt, tools=tools, modality="AUDIO")
 ```
 
-## 函式呼叫模式
+## Modalità di chiamata di funzione
 
-您可透過 Gemini API 控制模型如何使用提供的工具 (函式宣告)。具體來說，您可以在 `function_calling_config` 中設定模式。
+L'API Gemini ti consente di controllare il modo in cui il modello utilizza gli strumenti forniti
+(dichiarazioni di funzioni). Nello specifico, puoi impostare la modalità all'interno
+di.`function_calling_config`.
 
-- `VALIDATED`：工具組合的預設模式 (啟用內建工具或結構化輸出內容時)。模型只能預測函式呼叫或自然語言，並確保符合函式結構定義。如果未提供 `allowed_function_names`，模型會從所有可用的函式宣告中挑選。如果提供 `allowed_function_names`，模型會從允許的函式集選取函式。與 `AUTO` 模式相比，這個模式可減少格式錯誤的函式呼叫。
-- `AUTO`：僅啟用 function\_declarations 工具時的預設模式。模型會根據提示和情境，決定要生成自然語言回覆，還是建議呼叫函式。
-- `ANY`：模型一律會預測函式呼叫，並確保遵循函式結構定義。如未指定 `allowed_function_names`，模型可從任何提供的函式宣告中選擇。如果 `allowed_function_names` 是以清單形式提供，模型只能從該清單中的函式選擇。如果需要每則提示 (如適用) 的函式呼叫回應，請使用這個模式。
-- `NONE`：*禁止*模型呼叫函式。這相當於傳送不含任何函式宣告的要求。這項功能可暫時停用函式呼叫，而不必移除工具定義。
+- `VALIDATED`: modalità predefinita per la combinazione di strumenti (quando sono abilitati anche gli strumenti integrati o gli output strutturati). Il modello è vincolato a prevedere chiamate di funzione o linguaggio naturale e garantisce l'aderenza allo schema della funzione. Se non viene fornito `allowed_function_names`, il modello sceglie tra tutte le dichiarazioni di funzioni disponibili. Se viene fornito `allowed_function_names`, il modello sceglie dall'insieme di funzioni consentite. Questa modalità riduce le chiamate di funzioni malformate (rispetto alla modalità `AUTO`).
+- `AUTO`: modalità predefinita quando è abilitato solo lo strumento function\_declarations.
+  Il modello decide se generare una risposta in linguaggio naturale o suggerire una chiamata di funzione in base al prompt e al contesto.
+- `ANY`: il modello è vincolato a prevedere sempre una chiamata di funzione e garantisce l'aderenza allo schema della funzione. Se `allowed_function_names` non è
+  specificato, il modello può scegliere tra una qualsiasi delle dichiarazioni di funzione fornite.
+  Se `allowed_function_names` viene fornito come elenco, il modello può scegliere solo tra le funzioni in quell'elenco. Utilizza questa modalità quando hai bisogno di una risposta di chiamata di funzione per ogni prompt (se applicabile).
+- `NONE`: al modello è *vietato* effettuare chiamate di funzione. Equivale
+  a inviare una richiesta senza dichiarazioni di funzioni. Utilizza questa opzione per disattivare temporaneamente la chiamata di funzione senza rimuovere le definizioni degli strumenti.
 
 ### Python
 
@@ -1997,16 +2034,21 @@ config := &genai.GenerateContentConfig{
 }
 ```
 
-## 自動呼叫函式 (僅限 Python)
+## Chiamata di funzione automatica (solo Python)
 
-使用 Python SDK 時，您可以直接將 Python 函式當做工具提供。SDK 會將這些函式轉換為宣告、管理函式呼叫執行作業，並為您處理回應週期。使用類型提示和 docstring 定義函式。為獲得最佳結果，建議使用 [Google 樣式的 docstring](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods)。SDK 隨後會自動執行下列操作：
+Quando utilizzi l'SDK Python, puoi fornire funzioni Python direttamente come strumenti.
+L'SDK converte queste funzioni in dichiarazioni, gestisce l'esecuzione della chiamata di funzione e gestisce il ciclo di risposta per te. Definisci la funzione con suggerimenti sui tipi e una docstring. Per ottenere risultati ottimali, si consiglia di utilizzare
+[docstring in stile Google](https://google.github.io/styleguide/pyguide.html#383-functions-and-methods).
+L'SDK eseguirà automaticamente le seguenti operazioni:
 
-1. 偵測模型中的函式呼叫回應。
-2. 在程式碼中呼叫對應的 Python 函式。
-3. 將函式的回覆傳回模型。
-4. 傳回模型的最終文字回覆。
+1. Rileva le risposte alle chiamate di funzione dal modello.
+2. Chiama la funzione Python corrispondente nel codice.
+3. Invia la risposta della funzione al modello.
+4. Restituisce la risposta di testo finale del modello.
 
-SDK 目前不會將引數說明剖析至所產生函式宣告的屬性說明位置。而是將整個 docstring 做為頂層函式說明傳送。
+Al momento l'SDK non analizza le descrizioni degli argomenti negli slot
+della descrizione della proprietà della dichiarazione di funzione generata. Invece, invia l'intera
+docstring come descrizione della funzione di primo livello.
 
 ### Python
 
@@ -2043,7 +2085,7 @@ response = client.models.generate_content(
 print(response.text)  # The SDK handles the function call and returns the final text
 ```
 
-您可以使用下列程式碼停用自動函式呼叫：
+Puoi disattivare la chiamata di funzione automatica con:
 
 ### Python
 
@@ -2054,9 +2096,10 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### 自動函式結構定義宣告
+### Dichiarazione automatica dello schema della funzione
 
-API 可說明下列任一類型。只要定義的欄位也由允許的類型組成，就可使用 `Pydantic` 類型。系統不太支援 Dict 類型 (例如 `dict[str: int]`)，請勿使用。
+L'API è in grado di descrivere uno qualsiasi dei seguenti tipi. I tipi `Pydantic` sono consentiti, a condizione che i campi definiti al loro interno siano composti anche da tipi consentiti. I tipi di dizionari (come `dict[str: int]`) non sono ben supportati qui, non
+utilizzarli.
 
 ### Python
 
@@ -2065,7 +2108,7 @@ AllowedType = (
   int | float | bool | str | list['AllowedType'] | pydantic.BaseModel)
 ```
 
-如要查看推論結構定義，可以使用 [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable) 進行轉換：
+Per vedere l'aspetto dello schema dedotto, puoi convertirlo utilizzando [`from_callable`](https://googleapis.github.io/python-genai/genai.html#genai.types.FunctionDeclaration.from_callable):
 
 ### Python
 
@@ -2084,11 +2127,13 @@ fn_decl = types.FunctionDeclaration.from_callable(callable=multiply, client=clie
 print(fn_decl.to_json_dict())
 ```
 
-## 使用多項工具：結合內建工具和函式呼叫
+## Utilizzo di più strumenti: combina gli strumenti integrati con le chiamate di funzione
 
-您可以啟用多項工具，在同一個要求中結合內建工具和函式呼叫。
+Puoi attivare più strumenti, combinando quelli integrati con la chiamata di funzione nella stessa richiesta.
 
-有了工具脈絡循環功能，Gemini 3 模型就能結合內建工具和函式呼叫功能，如要瞭解詳情，請參閱「[結合內建工具和函式呼叫](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw)」頁面。
+I modelli Gemini 3 possono combinare strumenti integrati con la chiamata di funzioni predefinita,
+grazie alla funzionalità di circolazione del contesto dello strumento. Per saperne di più, leggi la pagina sulla
+[combinazione di strumenti integrati e chiamata di funzione](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it).
 
 ### Python
 
@@ -2309,20 +2354,23 @@ func main() {
 }
 ```
 
-如果是 Gemini 3 系列之前的型號，請使用 [Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=zh-tw)。
+Per i modelli precedenti alla serie Gemini 3, utilizza l'[API Live](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=it).
 
-## 多模態函式回覆
+## Risposte di funzioni multimodali
 
-如果是 Gemini 3 系列模型，您可以在傳送給模型的函式回覆部分中，加入多模態內容。模型可以在下一個回合處理這項多模態內容，生成更實用的回覆。函式回應中的多模態內容支援下列 MIME 類型：
+Per i modelli della serie Gemini 3, puoi includere contenuti multimodali nelle parti della risposta della funzione che invii al modello. Il modello può elaborare questi contenuti multimodali nel turno successivo per produrre una risposta più informata.
+I seguenti tipi MIME sono supportati per i contenuti multimodali nelle risposte delle funzioni:
 
-- **圖片**：`image/png`、`image/jpeg`、`image/webp`
-- **文件**：`application/pdf`、`text/plain`
+- **Google Immagini**: `image/png`, `image/jpeg`, `image/webp`
+- **Documenti**: `application/pdf`, `text/plain`
 
-如要在函式回覆中加入多模態資料，請將其做為一或多個部分，巢狀內嵌於 `functionResponse` 部分。每個多模態部分都必須包含 `inlineData`。如果從結構化 `response` 欄位中參照多模態部分，則該部分必須包含不重複的 `displayName`。
+Per includere dati multimodali in una risposta della funzione, includili come una o più
+parti nidificate all'interno della parte `functionResponse`. Ogni parte multimodale deve contenere `inlineData`. Se fai riferimento a una parte multimodale dal campo `response` strutturato, deve contenere un `displayName` univoco.
 
-您也可以使用 JSON 參照格式 `{"$ref": "<displayName>"}`，從 `functionResponse` 部分的結構化 `response` 欄位中參照多模態部分。模型在處理回覆時，會將參照內容替換為多模態內容。每個 `displayName` 只能在結構化 `response` 欄位中參照一次。
+Puoi anche fare riferimento a una parte multimodale dall'interno del campo strutturato `response` della parte `functionResponse` utilizzando il formato di riferimento JSON `{"$ref": "<displayName>"}`. Il modello sostituisce il riferimento con i contenuti multimodali durante l'elaborazione della risposta. Ogni `displayName` può essere referenziato una sola volta nel campo `response` strutturato.
 
-以下範例顯示的訊息包含名為 `get_image` 的函式 `functionResponse`，以及包含圖片資料和 `displayName: "instrument.jpg"` 的巢狀部分。`functionResponse` 的 `response` 欄位會參照這個圖片部分：
+L'esempio seguente mostra un messaggio contenente un `functionResponse` per una funzione denominata `get_image` e una parte nidificata contenente i dati dell'immagine con `displayName: "instrument.jpg"`. Il campo `functionResponse`'s `response`
+fa riferimento a questa parte dell'immagine:
 
 ### Python
 
@@ -2678,21 +2726,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-## 呼叫函式並輸出結構化內容
+## Chiamata di funzione con output strutturato
 
-如果是 Gemini 3 系列模型，您可以搭配[結構化輸出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)使用函式呼叫。讓模型預測符合特定結構定義的函式呼叫或輸出內容。因此，當模型未生成函式呼叫時，您會收到格式一致的回覆。
+Per i modelli della serie Gemini 3, puoi utilizzare la chiamata di funzione con l'[output strutturato](https://ai.google.dev/gemini-api/docs/structured-output?hl=it). In questo modo, il modello può prevedere chiamate di funzione o output conformi a uno schema specifico. Di conseguenza, ricevi risposte formattate in modo coerente quando il modello non genera chiamate di funzione.
 
 ## Model Context Protocol (MCP)
 
-[Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) 是一項開放標準，用於連結 AI 應用程式與外部工具和資料。MCP 提供通用通訊協定，供模型存取內容，例如函式 (工具)、資料來源 (資源) 或預先定義的提示。
+Il [Model Context Protocol (MCP)](https://modelcontextprotocol.io/introduction) è uno standard aperto per connettere le applicazioni AI con strumenti e dati esterni.
+MCP fornisce un protocollo comune per l'accesso al contesto dei modelli, ad esempio funzioni
+(strumenti), origini dati (risorse) o prompt predefiniti.
 
-Gemini SDK 內建 MCP 支援，可減少樣板程式碼，並提供 MCP 工具的[自動工具呼叫](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=zh-tw#automatic_function_calling_python_only)功能。模型生成 MCP 工具呼叫時，Python 和 JavaScript 用戶端 SDK 會自動執行 MCP 工具，並在後續要求中將回應傳回模型，持續這個迴圈，直到模型不再呼叫工具為止。
+Gli SDK Gemini hanno un supporto integrato per MCP, riducendo il codice boilerplate e
+offrendo
+[chiamate automatiche agli strumenti](https://ai.google.dev/gemini-api/docs/generate-content/function-calling?hl=it#automatic_function_calling_python_only)
+per gli strumenti MCP. Quando il modello genera una chiamata allo strumento MCP, l'SDK client Python e JavaScript può eseguire automaticamente lo strumento MCP e inviare la risposta al modello in una richiesta successiva, continuando questo ciclo finché il modello non effettua più chiamate allo strumento.
 
-您可以在這裡找到如何搭配使用 Gemini 和 `mcp` SDK 的本機 MCP 伺服器範例。
+Qui puoi trovare un esempio di come utilizzare un server MCP locale con Gemini e l'SDK `mcp`.
 
 ### Python
 
-確認您選擇的平台已安裝最新版 [`mcp` SDK](https://modelcontextprotocol.io/introduction)。
+Assicurati che l'ultima versione dell'[SDK `mcp`](https://modelcontextprotocol.io/introduction) sia installata sulla piattaforma che preferisci.
 
 ```
 pip install mcp
@@ -2745,13 +2798,12 @@ asyncio.run(run())
 
 ### JavaScript
 
-請確認您選擇的平台已安裝最新版本 `mcp` SDK。
+Assicurati che sia installata l'ultima versione dell'SDK `mcp` sulla piattaforma
+che preferisci.
 
 ```
 npm install @modelcontextprotocol/sdk
 ```
-
-`automaticFunctionCalling`
 
 ```
 import { GoogleGenAI, FunctionCallingConfigMode , mcpToTool} from '@google/genai';
@@ -2795,76 +2847,83 @@ console.log(response.text)
 await client.close();
 ```
 
-### 內建 MCP 支援的限制
+### Limitazioni con il supporto MCP integrato
 
-內建 MCP 支援是 SDK 的[實驗性](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw#preview)功能，有下列限制：
+Il supporto MCP integrato è una funzionalità [sperimentale](https://ai.google.dev/gemini-api/docs/models?hl=it#preview)
+nei nostri SDK e presenta le seguenti limitazioni:
 
-- 僅支援工具，不支援資源或提示
-- 適用於 Python 和 JavaScript/TypeScript SDK。
-- 後續版本可能會出現破壞性變更。
+- Sono supportati solo gli strumenti, non le risorse o i prompt
+- È disponibile per l'SDK Python e JavaScript/TypeScript.
+- Nelle release future potrebbero verificarsi modifiche che provocano errori.
 
-如果這些限制影響到建構作業，您隨時可以手動整合 MCP 伺服器。
+L'integrazione manuale dei server MCP è sempre un'opzione se questi limitano ciò che stai creando.
 
-## 支援的模型
+## Modelli supportati
 
-本節列出模型及其函式呼叫功能。不含實驗模型。如要查看完整的功能總覽，請前往[模型總覽](https://ai.google.dev/gemini-api/docs/models?hl=zh-tw)頁面。
+Questa sezione elenca i modelli e le loro funzionalità di chiamata di funzione. I modelli sperimentali non sono inclusi. Puoi trovare una panoramica completa delle funzionalità nella pagina di [panoramica del modello](https://ai.google.dev/gemini-api/docs/models?hl=it).
 
-| 模型 | 函式呼叫 | 平行函式呼叫 | 組合函式呼叫 |
+| Modello | Chiamata di funzione | Chiamata di funzione parallela | Chiamata di funzione compositiva |
 | --- | --- | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-tw) | ✔️ | ✔️ | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Pro (anteprima)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=it) | ✔️ | ✔️ | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=it) | ✔️ | ✔️ | ✔️ |
 
-## 最佳做法
+## Best practice
 
-- **函式和參數說明：**請務必清楚明確地說明。模型會根據這些資訊選擇正確的函式，並提供適當的引數。
-- **命名：**使用描述性的函式名稱 (不得包含空格、句號或破折號)。
-- **嚴格型別：**為參數使用特定型別 (整數、字串、列舉)，以減少錯誤。如果參數有一組有限的有效值，請使用列舉。
-- **工具選取：**模型可以使用任意數量的工具，但提供過多工具可能會增加選取錯誤或次佳工具的風險。為求最佳成效，請只提供與情境或工作相關的工具，並盡量將有效組合數量控制在 10 到 20 個。如果工具總數較多，請考慮根據對話脈絡動態選取工具。
-- **提示工程：**
-  - 提供背景資訊：告知模型其角色 (例如「你是熱心的天氣助理。」)。
-  - 提供指令：指定使用函式的時機和方式 (例如「請勿猜測日期，預測時一律使用未來的日期」)。
-  - 鼓勵釐清：指示模型視需要提出釐清問題。
-  - 如要進一步瞭解如何設計這些提示，請參閱「[Agentic workflows](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw#agentic-workflows)」。以下是經過測試的[系統指令](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=zh-tw#agentic-si-template)範例。
-- **Temperature：**使用較低的 Temperature (例如 0)，可取得更確定且可靠的函式呼叫。
-- **驗證：**如果函式呼叫會產生重大後果 (例如下單)，請先向使用者驗證呼叫，再執行。
-- **檢查結束原因：**請務必檢查模型回覆中的 [`finishReason`](https://ai.google.dev/api/generate-content?hl=zh-tw#FinishReason)，以便處理模型無法生成有效函式呼叫的情況。
-- **錯誤處理**：在函式中導入完善的錯誤處理機制，妥善處理非預期的輸入內容或 API 失敗。回傳資訊豐富的錯誤訊息，供模型用來生成對使用者有幫助的回覆。
-- **安全性：**呼叫外部 API 時，請注意安全性。使用適當的驗證和授權機制。避免在函式呼叫中公開機密資料。
-- **詞元限制：**函式說明和參數會計入輸入詞元限制。如果達到詞元上限，建議限制函式數量或說明長度，並將複雜工作拆解成更小、更集中的函式組合。
-- **混合使用 Bash 和自訂工具**：如果混合使用 Bash 和自訂工具建構，Gemini 3.1 Pro 預先發布版提供獨立端點，可透過 API [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-tw#gemini-31-pro-preview-customtools) 存取。
+- **Descrizioni di funzioni e parametri:** sii estremamente chiaro e specifico nelle tue descrizioni. Il modello si basa su questi per scegliere la funzione corretta
+  e fornire argomenti appropriati.
+- **Denominazione**:utilizza nomi di funzioni descrittivi (senza spazi, punti o trattini).
+- **Tipizzazione forte**:utilizza tipi specifici (integer, stringa, enum) per i parametri
+  per ridurre gli errori. Se un parametro ha un insieme limitato di valori validi, utilizza un enum.
+- **Selezione degli strumenti:** sebbene il modello possa utilizzare un numero arbitrario di strumenti, fornirne troppi può aumentare il rischio di selezionare uno strumento errato o non ottimale. Per ottenere risultati ottimali, cerca di fornire solo gli strumenti pertinenti per il contesto o l'attività, idealmente mantenendo il set attivo a un massimo di 10-20. Se hai un numero totale elevato di strumenti, valuta la possibilità di selezionare gli strumenti in modo dinamico in base al contesto della conversazione.
+- **Prompt engineering:**
+  - Fornisci il contesto: indica al modello il suo ruolo (ad es. "Sei un assistente meteo utile").
+  - Fornisci istruzioni: specifica come e quando utilizzare le funzioni (ad es. "Non
+    indovinare le date; utilizza sempre una data futura per le previsioni").
+  - Incoraggia i chiarimenti: istruisci il modello a porre domande di chiarimento, se necessario.
+  - Per ulteriori strategie sulla progettazione di questi prompt, consulta [Agentic Workflows](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it#agentic-workflows). Ecco un esempio di [istruzione di sistema](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=it#agentic-si-template) testata.
+- **Temperatura**:utilizza una temperatura bassa (ad es. 0) per chiamate di funzione più deterministiche e affidabili.
+- **Convalida**:se una chiamata di funzione ha conseguenze significative (ad es. l'invio di un ordine), convalida la chiamata con l'utente prima di eseguirla.
+- **Controlla il motivo della fine:** controlla sempre il [`finishReason`](https://ai.google.dev/api/generate-content?hl=it#FinishReason) nella risposta del modello per gestire i casi in cui il modello non è riuscito a generare una chiamata di funzione valida.
+- **Gestione degli errori**: implementa una gestione degli errori efficace nelle tue funzioni per gestire correttamente input imprevisti o errori dell'API. Restituisci messaggi di errore informativi che il modello può utilizzare per generare risposte utili per l'utente.
+- **Sicurezza**:presta attenzione alla sicurezza quando chiami API esterne. Utilizza meccanismi di autenticazione e autorizzazione appropriati. Evita di esporre
+  dati sensibili nelle chiamate di funzioni.
+- **Limiti di token:** le descrizioni e i parametri delle funzioni vengono conteggiati ai fini del limite di token di input. Se raggiungi i limiti di token, valuta la possibilità di limitare il
+  numero di funzioni o la lunghezza delle descrizioni, suddividi le attività
+  complesse in set di funzioni più piccoli e mirati.
+- **Mix di bash e strumenti personalizzati** Per chi crea con un mix di bash e strumenti personalizzati, Gemini 3.1 Pro Preview è dotato di un endpoint separato disponibile tramite l'API chiamato [`gemini-3.1-pro-preview-customtools`](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=it#gemini-31-pro-preview-customtools).
 
-## 工具前文字規定的解決方法
+## Soluzioni alternative per i requisiti di testo pre-strumento
 
-**問題：**如果提示要求模型輸出結構化文字 (XML、YAML、JSON 等)，(例如 `<UPDATE>...</UPDATE>`)，工具呼叫有時可能會失敗，並顯示 `Malformed_Function_Call`。
+**Problema**:se il prompt richiede al modello di restituire testo strutturato (XML, YAML, JSON e così via) (ad es. `<UPDATE>...</UPDATE>`) immediatamente prima di effettuare una chiamata allo strumento, quest'ultima potrebbe occasionalmente non riuscire con `Malformed_Function_Call`.
 
-**解決方案：**下列解決方法可解決這個問題：
+**Soluzioni**:le seguenti soluzioni alternative risolvono il problema:
 
-- **建議做法：**指示模型將工具前附註放在專屬的 `update()` 函式呼叫中，而非原始文字 (詳情請見下文)。
-- 指示模型以 Markdown 標題 (`# UPDATE`、`## PLAN`) 撰寫筆記，而非結構化文字。
-- 請勿要求模型在呼叫工具前輸出文字。
+- **OPZIONE PREFERITA:** indica al modello di inserire le note pre-strumento all'interno di una chiamata di funzione `update()` dedicata anziché di testo non elaborato (dettagli di seguito).
+- Chiedi al modello di scrivere le note come intestazioni Markdown (`# UPDATE`, `## PLAN`) anziché come testo strutturato.
+- Non richiedere al modello di generare testo prima delle chiamate di strumenti.
 
-### 建議做法：將工作筆記包裝在專屬函式呼叫中
+### Soluzione alternativa preferita: racchiudi le note di lavoro in una chiamata di funzione dedicata
 
-原始指令：
+Invece dell'istruzione originale:
 
 ```
 Before calling a tool, in every response you MUST first output a single `<UPDATE>` part as specified, don't skip this part or any of required sub-tags within `<UPDATE>`.
 ```
 
-請改用以下指令：
+Utilizza queste istruzioni aggiornate:
 
 ```
 Before calling any other tool, in every response you MUST first call `update` with all required parameters (previous_step, plan, next_step, external).
 ```
 
-並更新顧客要求中所有對舊版 `<UPDATE>` XML 格式的參照。然後為更新函式新增對應的函式宣告：
+E aggiorna tutti i riferimenti al vecchio formato XML `<UPDATE>` nella richiesta del cliente. Poi aggiungi la dichiarazione di funzione corrispondente per la funzione di aggiornamento:
 
 ```
 {
@@ -2900,22 +2959,23 @@ Before calling any other tool, in every response you MUST first call `update` wi
 }
 ```
 
-接著，模型會在同一個步驟中發出兩次呼叫：取代結構化 XML 的 `update()` 呼叫，以及實際要發出的函式呼叫。
+Il modello effettuerà quindi due chiamate nello stesso passaggio: la chiamata `update()` che sostituisce l'XML strutturato e la chiamata di funzione effettiva che vuole effettuare.
 
-## 注意事項與限制
+## Note e limitazioni
 
-- 函式呼叫部分的定位：使用自訂函式宣告[搭配內建工具](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-tw) (例如 Google 搜尋) 時，模型可能會在單一回合中傳回 `functionCall`、`toolCall` 和 `toolResponse` 部分。因此，請勿假設 `functionCall` 一定是 parts 陣列中的最後一個項目。如果您是手動剖析 JSON 回應，請一律疊代 parts 陣列，而非依據位置。
-- 僅支援[部分 OpenAPI 結構定義](https://ai.google.dev/api/caching?hl=zh-tw#FunctionDeclaration)。
-- 在 `ANY` 模式下，API 可能會拒絕過大或深度巢狀的結構定義。如果發生錯誤，請嘗試縮短屬性名稱、減少巢狀結構或限制函式宣告數量，藉此簡化函式參數和回應結構定義。
-- Python 支援的參數類型有限。
-- 自動呼叫函式功能僅適用於 Python SDK。
+- Posizionamento delle parti della chiamata di funzione: quando utilizzi dichiarazioni di funzioni personalizzate [insieme a strumenti integrati](https://ai.google.dev/gemini-api/docs/tool-combination?hl=it) (come la Ricerca Google), il modello potrebbe restituire un mix di parti `functionCall`, `toolCall` e `toolResponse` in un singolo turno. Per questo motivo, non dare per scontato che
+  `functionCall` sia sempre l'ultimo elemento dell'array delle parti. Se analizzi manualmente la risposta JSON, esegui sempre l'iterazione dell'array parts anziché fare affidamento sulla posizione.
+- È supportato solo un [sottoinsieme dello schema OpenAPI](https://ai.google.dev/api/caching?hl=it#FunctionDeclaration).
+- Per la modalità `ANY`, l'API potrebbe rifiutare schemi molto grandi o con nidificazione profonda. Se si verificano errori, prova a semplificare gli schemi dei parametri e delle risposte della funzione abbreviando i nomi delle proprietà, riducendo l'nidificazione o limitando il numero di dichiarazioni della funzione.
+- I tipi di parametri supportati in Python sono limitati.
+- La chiamata di funzione automatica è una funzionalità esclusiva dell'SDK Python.
 
-提供意見
+Invia feedback
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-上次更新時間：2026-10-15 (世界標準時間)。
+Ultimo aggiornamento 2026-10-15 UTC.
 
-想進一步說明嗎？
+Vuoi dirci altro?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-15 (世界標準時間)。"],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-15 UTC."],[],[]]

@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/transcribe?hl=bn
-fetched_at: 2026-10-26T05:58:02.032973+00:00
-title: "\u0985\u09a1\u09bf\u0993 \u099f\u09cd\u09b0\u09be\u09a8\u09cd\u09b8\u0995\u09cd\u09b0\u09bf\u09aa\u09b6\u09a8 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/transcribe?hl=ko
+fetched_at: 2026-11-02T07:03:41.355589+00:00
+title: "\uc624\ub514\uc624 \uc2a4\ud06c\ub9bd\ud2b8 \uc791\uc131 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [হোম](https://ai.google.dev/?hl=bn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=bn)
-- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs/generate-content?hl=bn)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ko)
+- [문서](https://ai.google.dev/gemini-api/docs/generate-content?hl=ko)
 
-মতামত জানান
+의견 보내기
 
-# অডিও ট্রান্সক্রিপশন
+# 오디오 스크립트 작성
 
-Gemini API, Gemini 3.5 Transcribe মডেল (`gemini-3.5-transcribe`) ব্যবহার করে অডিও ফাইলের স্পিচকে টেক্সটে কনভার্ট করে। Gemini-র অডিও বোঝার ক্ষমতার উপর ভিত্তি করে, এটি অটোমেটিক ভাষা শনাক্তকরণ, স্পিকার ডায়েরাইজেশন, শব্দ-লেভেল টাইমস্ট্যাম্প এবং কাস্টম শব্দভাণ্ডার সংক্রান্ত ইঙ্গিত সহ সঠিক ট্রান্সক্রিপশন প্রদান করে। এছাড়াও, এটি [স্মার্ট ট্রান্সক্রিপশন](#transcription-modes) মোড প্রদান করে, যার মধ্যে ডিসফ্লুয়েন্সি রিমুভাল ও স্মার্ট ফর্ম্যাটিং ফিচার রয়েছে।
+Gemini API는 Gemini 3.5 Transcribe 모델 (`gemini-3.5-transcribe`)을 사용하여 오디오 파일의 음성을 텍스트로 변환합니다. Gemini의 오디오 이해 기능을 기반으로 자동 언어 식별, 화자 분리, 단어 수준 타임스탬프, 맞춤 어휘 힌트를 사용하여 정확한 변환을 제공합니다. 또한 머뭇거림 삭제 및 스마트 서식 지정 기능이 포함된 [스마트 스크립트](#transcription-modes) 모드도 제공합니다.
 
-কোনও অডিও ফাইল ট্রান্সক্রাইব করতে, অডিও আপলোড করে `gemini-3.5-transcribe`-এ পাস করুন:
+오디오 파일을 텍스트로 변환하려면 오디오를 업로드하고 `gemini-3.5-transcribe`에 전달하세요.
 
 ### Python
 
@@ -40,7 +40,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -60,7 +60,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 # First upload the file via the Files API, then pass its URI:
@@ -83,26 +83,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## এক নজরে
+## 개요
 
-Gemini 3.5 Transcribe স্পিচ-টু-টেক্সট টাস্কের জন্য অপ্টিমাইজ করা হয়েছে। এটি বিভিন্ন অ্যাকসেন্ট, ব্যাকগ্রাউন্ডের আওয়াজ ও একাধিক ভাষায় কথোপকথন ম্যানেজ করে।
+Gemini 3.5 Transcribe는 음성 텍스트 변환 작업에 최적화되어 있습니다. 다양한 억양, 배경 소음, 다국어 대화를 처리합니다.
 
-মূল কার্যকারিতার মধ্যে এগুলি অন্তর্ভুক্ত:
+주요 기능은 다음과 같습니다.
 
-- **অটোমেটিক স্পিচ রিকগনিশন (ASR):** [৮৫টির বেশি লোকেলে](#supported-languages) অটোমেটিক ভাষা শনাক্ত করে। ম্যানুয়াল কনফিগারেশন ছাড়াই ইন্ট্রা-সেন্টেন্স এবং ইন্টার-সেন্টেন্সিয়াল কোড-সুইচিং ম্যানেজ করে।
-- **কাস্টম শব্দভাণ্ডার:** ১,০০০টি পর্যন্ত বাক্যাংশ পাস করার মাধ্যমে ডোমেন-নির্দিষ্ট শব্দ, সংক্ষিপ্ত রূপ এবং সঠিক নামের প্রতি পক্ষপাতিত্ব শনাক্ত করে।
-- **স্পিকার ডায়ারিাইজেশন:** একাধিক স্পিকারের মধ্যে পার্থক্য করে এবং স্পোকেন সেগমেন্টকে আলাদা লেবেলে অ্যাট্রিবিউট করে।
-- **শব্দ-লেভেল টাইমস্ট্যাম্প:** প্রতিটি শনাক্ত করা শব্দের জন্য শুরু ও শেষ হওয়ার সঠিক সময় অফসেট জেনারেট করে।
-- **স্মার্ট ট্রান্সক্রিপশন:** সাবলীলভাবে না বলা, ফিলার শব্দ, পুনরাবৃত্তি সরিয়ে দেয় এবং স্ট্রাকচার্ড ফর্ম্যাটিং প্রয়োগ করে।
-- **ফর্ম্যাটিং ও নরমালাইজেশন:** বড় হাতের অক্ষর, যতিচিহ্ন ও ইনভার্স টেক্সট নরমালাইজেশন প্রয়োগ করে, যেমন "ছাব্বিশ মিলিয়ন ডলার" থেকে "$২৬ মিলিয়ন" হিসেবে কনভার্ট করা।
+- **자동 음성 인식 (ASR):** [85개 이상의 언어](#supported-languages)를 자동으로 감지합니다. 수동 구성 없이 문장 내 및 문장 간 코드 전환을 처리합니다.
+- **맞춤 어휘:** 최대 1, 000개의 구문을 전달하여 도메인별 용어, 약어,고유명사에 대한 인식을 편향시킵니다.
+- **화자 분할:** 여러 화자를 구분하고 발언한 세그먼트를 고유한 라벨에 속성으로 지정합니다.
+- **단어 수준 타임스탬프:** 인식된 각 단어의 정확한 시작 및 종료 타임스탬프를 생성합니다.
+- **스마트 스크립트:** 유창하지 않은 부분, 추임새, 반복을 정리하고 구조화된 서식을 적용합니다.
+- **형식 지정 및 정규화:** 대문자, 구두점, 역 텍스트 정규화(예: '2천6백만 달러'를 '2, 600만 달러'로 변환)를 적용합니다.
 
-অডিও কন্টেন্টের উপর সাধারণ অডিও রিজনিং বা প্রশ্নের উত্তর দেওয়ার জন্য, [অডিও বোঝা](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=bn) ব্যবহার করুন। টেক্সট-টু-স্পিচ অডিও সিন্থেসিসের জন্য, [টেক্সট-টু-স্পিচ](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=bn) ব্যবহার করুন।
+오디오 콘텐츠에 대한 일반적인 오디오 추론 또는 질의 응답에는 [오디오 이해](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=ko)를 사용하세요. 텍스트 음성 변환 오디오 합성에는 [텍스트 음성 변환](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=ko)을 사용합니다.
 
-## ভাষা শনাক্তকরণ ও ইঙ্গিত
+## 언어 감지 및 힌트
 
-ডিফল্ট হিসেবে, মডেলটি অটোমেটিক কথ্য ভাষা শনাক্ত করে। স্পিকার কোড-সুইচ করলে এটি ডায়নামিকভাবে ভাষা পরিবর্তন করে।
+기본적으로 모델은 음성 언어를 자동으로 감지합니다. 화자가 코드 전환을 하면 언어가 동적으로 전환됩니다.
 
-অটোমেটিক শনাক্তকরণ ব্যবহার করতে, `language_codes` বাদ দিন বা একটি খালি তালিকা প্রদান করুন:
+자동 감지를 사용하려면 `language_codes`를 생략하거나 빈 목록을 제공하세요.
 
 ### Python
 
@@ -123,7 +123,7 @@ response = client.models.generate_content(
 )
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const response = await ai.models.generateContent({
@@ -137,7 +137,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-transcribe:generateContent" \
@@ -164,7 +164,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-আপনি আগে থেকে ভাষা জানলে, ট্রান্সক্রিপশনের নির্ভুলতা উন্নত করতে `language_codes`-এ BCP-47 ভাষার কোড নির্দিষ্ট করুন ([কাজ করে এমন ভাষা](#supported-languages) দেখুন):
+언어를 미리 알고 있는 경우 `language_codes`에 BCP-47 언어 코드를 지정하여 전사 정확도를 높이세요 ([지원되는 언어](#supported-languages) 참고).
 
 ### Python
 
@@ -176,7 +176,7 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const config = {
@@ -186,7 +186,7 @@ const config = {
 };
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 {
@@ -198,9 +198,9 @@ const config = {
 }
 ```
 
-## কাস্টম শব্দভাণ্ডার
+## 커스텀 어휘
 
-আপনি স্পিচ মডেলকে বিরল শব্দ, টেকনিক্যাল জার্গন, ব্র্যান্ডের নাম বা প্রপার নাউনের দিকে চালিত করতে পারেন। `custom_vocabulary` অ্যারেতে সর্বাধিক ১,০০০টি শব্দ প্রদান করুন (সাধারণত সর্বাধিক ১০০টি শব্দ প্রদান করলে সেরা ফলাফল পাওয়া যায়):
+음성 모델이 흔하지 않은 단어, 전문 용어, 브랜드 이름 또는 고유 명사를 인식하도록 조정할 수 있습니다. `custom_vocabulary` 배열에 최대 1,000개의 용어를 제공합니다 (최상의 결과는 일반적으로 최대 100개의 용어로 달성됨).
 
 ### Python
 
@@ -221,7 +221,7 @@ response = client.models.generate_content(
 )
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const response = await ai.models.generateContent({
@@ -235,7 +235,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-transcribe:generateContent" \
@@ -262,11 +262,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## স্পিকার ডায়ারাইজেশন
+## 화자 분할
 
-স্পিকার ডায়রাইজেশন রেকর্ডিংয়ে বিভিন্ন ভয়েস শনাক্ত করে এবং প্রতিটি অংশকে `spk_1` বা `spk_2`-এর মতো স্পিকার শনাক্তকারী দিয়ে ট্যাগ করে। সর্বাধিক ৮ জন স্পিকারের ভয়েস শনাক্ত করা যায় (৩ বা তার বেশি স্পিকারের ভয়েস শনাক্ত করার ফিচারটি পরীক্ষামূলক)।
+화자 분할은 녹음 파일에서 서로 다른 음성을 식별하고 각 세그먼트에 `spk_1` 또는 `spk_2`와 같은 화자 식별자로 태그를 지정합니다. 최대 8명의 화자가 지원됩니다 (3명 이상의 화자에 대한 속성은 실험적임).
 
-`diarization`-কে `True`-এ সেট করে ডায়ারাইজেশন চালু করুন:
+`diarization`을 `True`로 설정하여 분할을 사용 설정합니다.
 
 ### Python
 
@@ -287,7 +287,7 @@ response = client.models.generate_content(
 )
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const response = await ai.models.generateContent({
@@ -301,7 +301,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-transcribe:generateContent" \
@@ -328,11 +328,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## শব্দ-লেভেল টাইমস্ট্যাম্প
+## 단어 수준 타임스탬프
 
-শব্দ-লেভেল টাইমস্ট্যাম্প অডিও স্ট্রিমে প্রতিটি শনাক্ত করা শব্দের জন্য সঠিক শুরু এবং শেষ অফসেট প্রদান করে।
+단어 수준 타임스탬프는 오디오 스트림에서 인식된 모든 단어의 정확한 시작 및 종료 오프셋을 제공합니다.
 
-`word_timestamp`-কে `True`-এ সেট করে টাইমস্ট্যাম্প চালু করুন:
+`word_timestamp`을 `True`로 설정하여 타임스탬프를 사용 설정합니다.
 
 ### Python
 
@@ -353,7 +353,7 @@ response = client.models.generate_content(
 )
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const response = await ai.models.generateContent({
@@ -367,7 +367,7 @@ const response = await ai.models.generateContent({
 });
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-transcribe:generateContent" \
@@ -394,7 +394,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-আপনি একটি অনুরোধে `diarization` এবং `word_timestamp` একসাথে ব্যবহার করে স্পিকার লেবেল এবং শব্দ টাইমস্ট্যাম্প দুটিই পেতে পারেন:
+단일 요청에서 `diarization`와 `word_timestamp`을 결합하여 화자 라벨과 단어 타임스탬프를 모두 수신할 수 있습니다.
 
 ### Python
 
@@ -407,7 +407,7 @@ config = types.GenerateContentConfig(
 )
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const config = {
@@ -418,7 +418,7 @@ const config = {
 };
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 {
@@ -431,21 +431,21 @@ const config = {
 }
 ```
 
-## ট্রান্সক্রিপশন মোড
+## 스크립트 작성 모드
 
-Gemini 3.5 Transcribe `mode` প্যারামিটারের মাধ্যমে দুটি ট্রান্সক্রিপশন মোড সাপোর্ট করে:
+Gemini 3.5 Transcribe는 `mode` 파라미터를 통해 두 가지 트랜스크립션 모드를 지원합니다.
 
-- **`VERBATIM` (ডিফল্ট)**: যা বলা হয়েছে তার হুবহু ট্রান্সক্রিপ্ট প্রদান করে, যার মধ্যে ফিলার শব্দ ("উম", "উহ", "যেমন", "আপনি জানেন"), পুনরাবৃত্তি, বিরতি এবং ভুল শুরু অন্তর্ভুক্ত থাকে। টাইমস্ট্যাম্প বা স্পিকার ডায়েরাইজেশন ব্যবহার করার সময় প্রয়োজন।
-- **`SMART` (স্মার্ট ট্রান্সক্রিপশন)**: ইন্টেলিজেন্ট পোস্ট-প্রসেসিং প্রয়োগ করে পড়ার জন্য ট্রান্সক্রিপ্ট অপ্টিমাইজ করে:
-  - **ডিসফ্লুয়েন্সি রিমুভাল**: কথোপকথনের ফিলার শব্দ, তোতলানো এবং ভুল শুরু বাদ দেয়।
-  - **ইনলাইন সেল্ফ-কারেকশন**: সরাসরি স্পোকেন কারেকশন সমাধান করে (যেমন, *"চলুন মঙ্গলবার দেখা করি, আসলে না, বুধবার দুপুর দুটোয়"* হয়ে যায় *"চলুন বুধবার দুপুর ২:০০ টায় দেখা করি"*)।
-  - **অটোমেটিক স্ট্রাকচার্ড ফর্ম্যাটিং**: আপনার বলা কথা অটোমেটিক প্যারাগ্রাফ, নম্বরযুক্ত তালিকা, বুলেট পয়েন্ট, ফর্ম্যাট করা তারিখ, মুদ্রা ও নম্বরে সাজিয়ে দেয়।
-  - **ব্যাকরণগত ক্লিন-আপ**: স্বাভাবিক যতিচিহ্ন, বাক্যের কেসিং ও ফ্লো প্রয়োগ করে।
+- **`VERBATIM` (기본값)**: 말한 모든 내용을 단어별로 정확하게 기록하며, 원시 필러 단어 ('음', '어', '그', '알잖아'), 반복, 일시중지, 잘못된 시작을 보존합니다. 타임스탬프 또는 화자 분리를 사용하는 경우 필요합니다.
+- **`SMART` (스마트 스크립트)**: 지능형 후처리를 적용하여 읽기용 스크립트를 최적화합니다.
+  - **유창성 저하 제거**: 대화형 필러 단어, 더듬기, 잘못된 시작을 제거합니다.
+  - **인라인 자체 수정**: 음성으로 말한 수정사항을 직접 해결합니다 (예:*'화요일에 만나자. 아니, 수요일 2시에'*가 *'수요일 오후 2시에 만나자'*로 바뀜).
+  - **자동 구조화된 형식 지정**: 음성으로 말한 생각을 단락, 번호 매기기 목록, 글머리 기호, 형식화된 날짜, 통화, 숫자로 자동 구조화합니다.
+  - **문법 정리**: 자연스러운 구두점, 문장 대소문자, 흐름을 적용합니다.
 
-| স্পোকেন অডিও | `VERBATIM`টি আউটপুট | `SMART` (স্মার্ট ট্রান্সক্রিপশন) আউটপুট |
+| 음성 오디오 | `VERBATIM` 출력 | `SMART` (스마트 스크립트) 출력 |
 | --- | --- | --- |
-| "উম, মিটিংয়ের জন্য আমার মনে হয়, আমাদের, উম, অ্যালিসকে আমন্ত্রণ জানানো উচিত, না দাঁড়াও, বব ও ক্যারলকে।" | "মিটিংয়ের জন্য আমার মনে হয় আমাদের অ্যালিসকে আমন্ত্রণ জানানো উচিত এবং বব ও ক্যারলকে নয়।" | "মিটিংয়ের জন্য, আমার মনে হয় আমাদের বব ও ক্যারলকে আমন্ত্রণ জানানো উচিত।" |
-| "প্রথম আইটেম বাজেট পর্যালোচনা করা দ্বিতীয় আইটেম টাইমলাইন চূড়ান্ত করা তৃতীয় আইটেম রিক্যাপ পাঠানো" | "প্রথম আইটেম বাজেট পর্যালোচনা দ্বিতীয় আইটেম টাইমলাইন চূড়ান্ত করা তৃতীয় আইটেম রিক্যাপ পাঠানো" | "১. বাজেট পর্যালোচনা করুন ২। টাইমলাইন চূড়ান্ত করুন ৩. রিক্যাপ পাঠান" |
+| '음, 회의에는 앨리스를 초대해야 할 것 같아. 아니, 밥과 캐롤을 초대해야 해.' | '음, 회의에는 앨리스를 초대해야 할 것 같아. 아니, 밥과 캐롤을 초대해야 해.' | '회의에 김민수와 이수진을 초대하는 게 좋을 것 같아.' |
+| 'First item review budget second item finalize timeline third item send recap'(첫 번째 항목 예산 검토, 두 번째 항목 일정 확정, 세 번째 항목 요약 보내기) | 'first item review budget second item finalize timeline third item send recap'(첫 번째 항목 예산 검토, 두 번째 항목 타임라인 확정, 세 번째 항목 요약 보내기) | '1. 예산 검토 2. 타임라인을 마무리합니다. 3. 요약 보내기' |
 
 ### Python
 
@@ -467,7 +467,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 const response = await ai.models.generateContent({
@@ -482,7 +482,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-transcribe:generateContent" \
@@ -509,13 +509,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5
   }'
 ```
 
-## ট্রান্সক্রিপশন আউটপুট পার্স করা হচ্ছে
+## 스크립트 출력 파싱
 
-সম্পূর্ণ ট্রান্সক্রিপ্ট টেক্সট `response.text`-এ ফেরত দেওয়া হয়।
+전체 스크립트 텍스트가 `response.text`에 반환됩니다.
 
-`word_timestamp` বা `diarization` চালু করা থাকলে, API-ও বিস্তারিত শব্দ-লেভেল অ্যানোটেশন এবং প্রার্থী অংশে অ্যাটাচ করা স্পিকার লেবেল ফিরিয়ে দেয়।
+`word_timestamp` 또는 `diarization`가 사용 설정되면 API는 후보 부분에 연결된 자세한 단어 수준 주석과 화자 라벨도 반환합니다.
 
-শব্দের টাইমস্ট্যাম্প এবং স্পিকারের টার্ন কীভাবে এক্সট্র্যাক্ট এবং ইটারেট করতে হয় তা এখানে দেওয়া হল:
+단어 타임스탬프와 화자 전환을 추출하고 반복하는 방법은 다음과 같습니다.
 
 ### Python
 
@@ -548,7 +548,7 @@ for w in words:
     print(f"{speaker}{timing}{w['word']}")
 ```
 
-### জাভাস্ক্রিপ্ট
+### 자바스크립트
 
 ```
 function extractWordTranscriptions(response) {
@@ -581,7 +581,7 @@ for (const w of words) {
 }
 ```
 
-### বিশ্রাম
+### REST
 
 ```
 {
@@ -615,58 +615,58 @@ for (const w of words) {
 }
 ```
 
-## যেসব ভাষায় এটি ব্যবহার করা যায়
+## 지원 언어
 
-Gemini 3.5 Transcribe-এর জন্য নিম্নলিখিত ভাষা এবং BCP-47 ভাষা কোড কাজ করে:
+Gemini 3.5 Transcribe에서 지원되는 언어와 BCP-47 언어 코드는 다음과 같습니다.
 
-| ভাষা | BCP-47 কোড | ভাষা | BCP-47 কোড |
+| 언어 | BCP-47 코드 | 언어 | BCP-47 코드 |
 | --- | --- | --- | --- |
-| আফ্রিকান্স | `af-ZA` | জাপানি | `ja-JP` |
-| আমহারীক | `am-ET` | জাভানীয় | `jv-ID` |
-| আরবি (মিশর) | `ar-EG` | কাবোভার্ডিয়ানু | `kea-CV` |
-| আর্মেনীয় | `hy-AM` | কন্নড় | `kn-IN` |
-| অসমিয়া | `as-IN` | কাজাখ | `kk-KZ` |
-| আজারবাইজানি | `az-AZ` | কোরিয়ান | `ko-KR` |
-| বেলারুশিয়ান | `be-BY` | কিরগিজ | `ky-KG` |
-| বাংলা (বাংলাদেশ) | `bn-BD` | লাটভিয়ান | `lv-LV` |
-| বাংলা (ভারত) | `bn-IN` | লিঙ্গালা | `ln-CD` |
-| বসনিয়ান | `bs-BA` | লিথুয়ানিয়ান | `lt-LT` |
-| বুলগেরিয়ান | `bg-BG` | ম্যাসিডোনীয় | `mk-MK` |
-| বুলগেরিয়ান (অ্যারোমানিয়ান) | `rup-BG` | মালয় | `ms-MY` |
-| বার্মিজ | `my-MM` | মালায়লাম | `ml-IN` |
-| ক্যান্টনিজ (ঐতিহ্যশালী) | `yue-Hant-HK` | মল্টিজ | `mt-MT` |
-| কাতালান | `ca-ES` | ম্যান্ডারিন চাইনিজ (সরলীকৃত) | `cmn-Hans-CN` |
-| সেবুয়ানো | `ceb` | মারাঠি | `mr-IN` |
-| কেন্দ্রীয় খমের | `km-KH` | মঙ্গোলীয়ান | `mn-MN` |
-| ক্রোয়েশিয়ান | `hr-HR` | নেপালি | `ne-NP` |
-| চেক | `cs-CZ` | নরওয়েজিয়ান | `nb-NO` |
-| ড্যানিশ | `da-DK` | ওড়িয়া | `or-IN` |
-| ডাচ | `nl-NL` | পোলিশ | `pl-PL` |
-| ইংরেজি (গ্রেট ব্রিটেন) | `en-GB` | পর্তুগিজ (ব্রাজিল) | `pt-BR` |
-| ইংরাজি (ভারত) | `en-IN` | পর্তুগিজ (পর্তুগাল) | `pt-PT` |
-| ইংরেজি (মার্কিন যুক্তরাষ্ট্র) | `en-US` | পঞ্জাবি | `pa-IN` |
-| এস্তোনিয়ান | `et-EE` | পাঞ্জাবি (গুরুমুখী লিপি) | `pa-Guru-IN` |
-| ফার্সি | `fa-IR` | রোমানিয়ান | `ro-RO` |
-| ফিলিপিনো | `fil-PH` | রুশ | `ru-RU` |
-| ফিনিশ | `fi-FI` | সার্বিয় | `sr-RS` |
-| ফরাসী | `fr-FR` | সিন্ধি (আরবি স্ক্রিপ্ট) | `sd-Arab-IN` |
-| গ্যালিশিয় | `gl-ES` | স্লোভাক | `sk-SK` |
-| জর্জিয়ান | `ka-GE` | স্লোভেনিয়ান | `sl-SI` |
-| জার্মান | `de-DE` | স্প্যানিশ (ল্যাটিন আমেরিকা) | `es-419` |
-| গ্রিক | `el-GR` | স্প্যানিশ (মার্কিন যুক্তরাষ্ট্র) | `es-US` |
-| গুজরাতি | `gu-IN` | সোয়াহিলি (কেনিয়া) | `sw-KE` |
-| হাউসা | `ha-NG` | সুইডিশ | `sv-SE` |
-| হিব্রু | `he-IL` | তাজিক | `tg-TJ` |
-| হিন্দি | `hi-IN` | তেলুগু | `te-IN` |
-| হাঙ্গেরিয়ান | `hu-HU` | থাই | `th-TH` |
-| আইসল্যান্ডিক | `is-IS` | তুর্কি | `tr-TR` |
-| ভারতীয় ইংরেজি | `en-IN` | ইউক্রেনিয়ান | `uk-UA` |
-| ইন্দোনেশিয়ান | `id-ID` | উজবেক | `uz-UZ` |
-| ইতালিয়ান | `it-IT` | ভিয়েতনামিজ | `vi-VN` |
+| 아프리칸스어 | `af-ZA` | 일본어 | `ja-JP` |
+| 암하라어 | `am-ET` | 자바어 | `jv-ID` |
+| 아랍어(이집트) | `ar-EG` | Kabuverdianu | `kea-CV` |
+| 아르메니아어 | `hy-AM` | 칸나다어 | `kn-IN` |
+| 아삼어 | `as-IN` | 카자흐어 | `kk-KZ` |
+| 아제르바이잔어 | `az-AZ` | 한국어 | `ko-KR` |
+| 벨라루스어 | `be-BY` | 키르기스어 | `ky-KG` |
+| 벵골어(방글라데시) | `bn-BD` | 라트비아어 | `lv-LV` |
+| 벵골어(인도) | `bn-IN` | 링갈라어 | `ln-CD` |
+| 보스니아어 | `bs-BA` | 리투아니아어 | `lt-LT` |
+| 불가리아어 | `bg-BG` | 마케도니아어 | `mk-MK` |
+| 불가리아어 (아로마어) | `rup-BG` | 말레이어 | `ms-MY` |
+| 버마어 | `my-MM` | 말라얄람어 | `ml-IN` |
+| 광둥어 (번체) | `yue-Hant-HK` | 몰타어 | `mt-MT` |
+| 카탈로니아어 | `ca-ES` | 중국어 (간체) | `cmn-Hans-CN` |
+| 세부아노어 | `ceb` | 마라타어 | `mr-IN` |
+| 표준 크메르어 | `km-KH` | 몽골어 | `mn-MN` |
+| 크로아티아어 | `hr-HR` | 네팔어 | `ne-NP` |
+| 체코어 | `cs-CZ` | 노르웨이어 | `nb-NO` |
+| 덴마크어 | `da-DK` | 오리야어 | `or-IN` |
+| 네덜란드어 | `nl-NL` | 폴란드어 | `pl-PL` |
+| 영어(영국) | `en-GB` | 포르투갈어(브라질) | `pt-BR` |
+| 영어(인도) | `en-IN` | 포르투갈어(포르투갈) | `pt-PT` |
+| 영어(미국) | `en-US` | 펀자브어 | `pa-IN` |
+| 에스토니아어 | `et-EE` | 펀자브어 (구르무키 문자) | `pa-Guru-IN` |
+| 페르시아어 | `fa-IR` | 루마니아어 | `ro-RO` |
+| 필리핀어 | `fil-PH` | 러시아어 | `ru-RU` |
+| 핀란드어 | `fi-FI` | 세르비아어 | `sr-RS` |
+| 프랑스어 | `fr-FR` | 신디어 (아랍 문자) | `sd-Arab-IN` |
+| 갈리시아어 | `gl-ES` | 슬로바키아어 | `sk-SK` |
+| 조지아어 | `ka-GE` | 슬로베니아어 | `sl-SI` |
+| 독일어 | `de-DE` | 스페인어(라틴 아메리카) | `es-419` |
+| 그리스어 | `el-GR` | 스페인어(미국) | `es-US` |
+| 구자라트어 | `gu-IN` | 스와힐리어(케냐) | `sw-KE` |
+| 하우사어 | `ha-NG` | 스웨덴어 | `sv-SE` |
+| 히브리어 | `he-IL` | 타지크어 | `tg-TJ` |
+| 힌디어 | `hi-IN` | 텔루구어 | `te-IN` |
+| 헝가리어 | `hu-HU` | 태국어 | `th-TH` |
+| 아이슬란드어 | `is-IS` | 튀르키예어 | `tr-TR` |
+| 인도 영어 | `en-IN` | 우크라이나어 | `uk-UA` |
+| 인도네시아어 | `id-ID` | 우즈베크어 | `uz-UZ` |
+| 이탈리아어 | `it-IT` | 베트남어 | `vi-VN` |
 
-## কাজ করে এমন অডিও ফর্ম্যাট
+## 지원되는 오디오 형식
 
-Gemini 3.5 Transcribe নিম্নলিখিত অডিও ফর্ম্যাট MIME-এর প্রকার সাপোর্ট করে:
+Gemini 3.5 Transcribe는 다음 오디오 형식 MIME 유형을 지원합니다.
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -682,49 +682,49 @@ Gemini 3.5 Transcribe নিম্নলিখিত অডিও ফর্ম�
 - MULAW - `audio/mulaw`
 - WebM - `audio/webm`
 
-কাজ করে এমন MIME-এর প্রকার ও প্যারামিটার স্কিমার সম্পূর্ণ তালিকার জন্য, [Interactions API রেফারেন্স](https://ai.google.dev/api/interactions-api?hl=bn#Resource:Content) দেখুন।
+지원되는 MIME 유형 및 매개변수 스키마의 전체 목록은 [Interactions API 참조](https://ai.google.dev/api/interactions-api?hl=ko#Resource:Content)를 참고하세요.
 
-## প্যারামিটার রেফারেন্স
+## 파라미터 참조
 
-`GenerateContentConfig`-এ `audio_transcription_config` অবজেক্টের মধ্যে ফিল্ড সেট করে ট্রান্সক্রিপশন কনফিগার করুন:
+`GenerateContentConfig`에서 `audio_transcription_config` 객체 내 필드를 설정하여 트랜스크립션을 구성합니다.
 
-| ফিল্ড | ধরন | বিবরণ |
+| 필드 | 유형 | 설명 |
 | --- | --- | --- |
-| `language_codes` | স্ট্রিংয়ের অ্যারে | BCP-47 ভাষা কোড (যেমন, `["en-US"]`)। বাদ দেওয়া হলে বা খালি (`[]`) থাকলে, মডেল অটোমেটিক ভাষা শনাক্ত করে এবং কোড-সুইচিং ম্যানেজ করে। |
-| `custom_vocabulary` | স্ট্রিংয়ের অ্যারে | স্পিচ রিকগনিশনকে প্রভাবিত করতে ১,০০০টি পর্যন্ত কাস্টম শব্দ, সংক্ষিপ্ত রূপ বা নামবাচক বিশেষ্য। স্পিকার ডায়ারাইজেশন এবং শব্দ-লেভেল টাইমস্ট্যাম্পের সাথে মানানসই নয়। |
-| `word_timestamp` | বুলিয়ান | শব্দের শুরু ও শেষ অফসেট অন্তর্ভুক্ত করতে `True`-এ সেট করুন। বাদ দেওয়া হলে বা `False` হলে, কোনও শব্দ টাইমস্ট্যাম্প ফেরত দেওয়া হয় না। কাস্টম শব্দভাণ্ডারের সাথে মানানসই নয়। |
-| `diarization` | বুলিয়ান | আলাদা আলাদা বক্তাকে শনাক্ত ও লেবেল করতে `True`-এ সেট করুন। কাস্টম শব্দভাণ্ডারের সাথে মানানসই নয়। |
-| `mode` | স্ট্রিং | ট্রান্সক্রিপশন মোড। কাজ করে এমন ভ্যালু: `"VERBATIM"` (ডিফল্ট) এবং `"SMART"`। টাইমস্ট্যাম্প ও ডায়ারিাইজেশনের সাথে মানানসই নয়। |
+| `language_codes` | 문자열 배열 | BCP-47 언어 코드 (예: `["en-US"]`)입니다. 생략되거나 비어 있는 경우 (`[]`) 모델이 언어를 자동으로 감지하고 코드 전환을 처리합니다. |
+| `custom_vocabulary` | 문자열 배열 | 음성 인식을 편향시키기 위한 최대 1,000개의 맞춤 용어, 약어 또는 고유 이름 화자 분할 및 단어 수준 타임스탬프와 호환되지 않습니다. |
+| `word_timestamp` | 불리언 | 단어 시작 및 종료 오프셋을 포함하려면 `True`로 설정합니다. 생략되거나 `False`인 경우 단어 타임스탬프가 반환되지 않습니다. 맞춤 어휘와 호환되지 않습니다. |
+| `diarization` | 불리언 | 명확히 구분되는 발화자를 식별하고 라벨을 지정하려면 `True`로 설정합니다. 맞춤 어휘와 호환되지 않습니다. |
+| `mode` | 문자열 | 스크립트 작성 모드입니다. 지원되는 값은 `"VERBATIM"` (기본값) 및 `"SMART"`입니다. 타임스탬프 및 분할과 호환되지 않습니다. |
 
-## পেশাদার পদ্ধতি
+## 권장사항
 
-- **স্পষ্ট অডিও প্রদান করুন:** অডিও রেকর্ডিংয়ে ভয়েস যেন স্পষ্ট ও আলাদাভাবে শোনা যায় এবং গুরুতর ক্লিপিং এড়িয়ে চলুন।
-- **জানা থাকলে ভাষার ইঙ্গিত দিন:** আপনি আগে থেকে অডিওর ভাষা জানলে, নির্ভুলতা বাড়াতে `language_codes` নির্দিষ্ট করুন।
-- **টার্গেট কাস্টম শব্দভাণ্ডার:** `custom_vocabulary`-এ সাধারণ দৈনন্দিন শব্দের পরিবর্তে শুধুমাত্র স্বতন্ত্র ডোমেন শব্দ, ব্র্যান্ডের নাম বা প্রপার নাউন অন্তর্ভুক্ত করুন।
-- **বড় রেকর্ডিংয়ের জন্য Files API ব্যবহার করুন:** কয়েক সেকেন্ডের বেশি দৈর্ঘ্যের ফাইলের ক্ষেত্রে, `client.files.upload` ব্যবহার করে ফাইল আপলোড করুন এবং ফেরত পাওয়া ফাইল মডেল কন্টেন্টে পাস করুন।
+- **깔끔한 오디오 제공:** 오디오 녹음에서 음성 분리가 명확하고 심각한 클리핑이 없는지 확인합니다.
+- **언어를 알고 있는 경우 언어 힌트 제공:** 오디오 언어를 미리 알고 있는 경우 `language_codes`를 지정하여 정확도를 극대화하세요.
+- **타겟 맞춤 어휘:** 일반적인 일상 단어 대신 `custom_vocabulary`에 고유한 도메인 용어, 브랜드 이름 또는 고유명사만 포함합니다.
+- **대규모 녹음 파일에 Files API 사용:** 몇 초보다 긴 파일의 경우 `client.files.upload`를 사용하여 파일을 업로드하고 반환된 파일을 모델 콘텐츠에 전달합니다.
 
-## সীমাবদ্ধতা
+## 제한사항
 
-- **অডিওর সময়সীমা:** স্ট্যান্ডার্ড ইউনারি অনুরোধে সর্বাধিক ১ ঘণ্টার অডিও ফাইল কাজ করে। স্পিকার ডায়ারিাইজেশন বা শব্দ-লেভেল টাইমস্ট্যাম্পের মতো ফিচার চালু থাকলে অডিও প্রসেসিং ৩০ মিনিটে সীমিত থাকে।
-- **শব্দ-লেভেল টাইমস্ট্যাম্প:** শব্দ-লেভেল টাইমস্ট্যাম্প চালু করলে সামগ্রিক ট্রান্সক্রিপশনের নির্ভুলতা কমে যেতে পারে।
-- **স্পিকার ডায়ারাইজেশন:** স্পিকার ডায়ারাইজেশন সর্বাধিক ৮ জন স্পিকারের ক্ষেত্রে কাজ করে। ৩ বা তার বেশি স্পিকারের জন্য স্পিকার অ্যাট্রিবিউশন পরীক্ষামূলক পর্যায়ে আছে।
-- **কাস্টম শব্দভাণ্ডার:** আপনি `custom_vocabulary`-এ সর্বাধিক ১,০০০টি শব্দ দিতে পারেন, তবে সাধারণত সর্বাধিক ১০০টি শব্দ দিলে সেরা ফলাফল পাওয়া যায়। আপনি স্পিকার ডায়েরাইজেশন বা শব্দ-লেভেল টাইমস্ট্যাম্পের সাথে `custom_vocabulary` একত্রিত করতে পারবেন না; API সেইসব অনুরোধ বাতিল করে দেয় যেগুলি যেকোনও ফিচারের সাথে `custom_vocabulary` নির্দিষ্ট করে।
-- **মোড কম্প্যাটিবিলিটি:** স্মার্ট ট্রান্সক্রিপশন (`mode: "SMART"`) `word_timestamp` বা `diarization`-এর সাথে একত্রিত করা যাবে না।
+- **오디오 길이:** 표준 단항 요청은 최대 1시간 길이의 오디오 파일을 지원합니다. 화자 분할 또는 단어 수준 타임스탬프와 같은 기능을 사용 설정하면 오디오 처리가 30분으로 제한됩니다.
+- **단어 수준 타임스탬프:** 단어 수준 타임스탬프를 사용 설정하면 전체 변환 텍스트의 정확도가 저하될 수 있습니다.
+- **화자 분할:** 화자 분할은 최대 8명의 화자를 지원합니다. 3명 이상의 화자에 대한 화자 속성은 실험 단계입니다.
+- **맞춤 어휘:** `custom_vocabulary`에 최대 1,000개의 단어를 제공할 수 있지만 일반적으로 최대 100개의 단어로 최상의 결과를 얻을 수 있습니다. `custom_vocabulary`는 화자 분리 또는 단어 수준 타임스탬프와 함께 사용할 수 없습니다. API는 이러한 기능과 함께 `custom_vocabulary`를 지정하는 요청을 거부합니다.
+- **모드 호환성:** 스마트 스크립트 (`mode: "SMART"`)는 `word_timestamp` 또는 `diarization`와 함께 사용할 수 없습니다.
 
-## এর পরে কী করতে হবে
+## 다음 단계
 
-- Live API ব্যবহার করে [লাইভ ট্রান্সক্রিপশন গাইড](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=bn)-এর মাধ্যমে রিয়েল-টাইম অডিও স্ট্রিম করুন।
-- অডিও কন্টেন্ট বিশ্লেষণ, সারসংক্ষেপ বা কোয়েরি করতে [অডিও বোঝা](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=bn) এক্সপ্লোর করুন।
-- [টেক্সট-টু-স্পিচ](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=bn) ব্যবহার করে কীভাবে টেক্সট থেকে অডিও সিন্থেসাইজ করতে হয় তা জানুন।
-- মডেলের দাম ও টোকেন সীমা জানতে [দাম সংক্রান্ত পৃষ্ঠা](https://ai.google.dev/gemini-api/docs/pricing?hl=bn#gemini-3.5-transcribe) চেক করুন।
-- মিডিয়া ফাইল আপলোড ও ম্যানেজ করা সম্পর্কে আরও জানতে [Files API](https://ai.google.dev/gemini-api/docs/files?hl=bn) গাইড দেখুন।
+- Live API를 사용하여 [실시간 스크립트 가이드](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=ko)로 실시간 오디오를 스트리밍합니다.
+- [오디오 이해](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=ko)를 살펴보고 오디오 콘텐츠를 분석, 요약하거나 쿼리하세요.
+- [Text-to-speech](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=ko)를 사용하여 텍스트에서 오디오를 합성하는 방법을 알아봅니다.
+- 모델 가격 및 토큰 한도는 [가격 책정 페이지](https://ai.google.dev/gemini-api/docs/pricing?hl=ko#gemini-3.5-transcribe)를 확인하세요.
+- 미디어 파일 업로드 및 관리에 관한 자세한 내용은 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=ko) 가이드를 참고하세요.
 
-মতামত জানান
+의견 보내기
 
-অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-2026-10-23 UTC-তে শেষবার আপডেট করা হয়েছে।
+최종 업데이트: 2026-10-23(UTC)
 
-আমাদের আরও কিছু জানাতে চান?
+의견을 전달하고 싶나요?
 
-[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-23 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-23(UTC)"],[],[]]

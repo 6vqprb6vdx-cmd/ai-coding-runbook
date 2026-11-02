@@ -1,46 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=ar
-fetched_at: 2026-10-26T05:37:57.626790+00:00
-title: "\u0645\u0627 \u0627\u0644\u062c\u062f\u064a\u062f \u0641\u064a Gemini 3.5 Flash\u061f \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.5?hl=ja
+fetched_at: 2026-11-02T07:13:19.060822+00:00
+title: "Gemini 3.5 Flash \u306e\u65b0\u6a5f\u80fd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-إرسال ملاحظات
+フィードバックを送信
 
-# ما الجديد في Gemini 3.5 Flash؟
+# Gemini 3.5 Flash の新機能
 
-[أحدث طراز](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar)
-[طُرز أخرى](#other-models)
+[最新モデル](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ja)
+[その他のモデル](#other-models)
 
-‫Gemini 3.5 Flash‏ (`gemini-3.5-flash`) هو إصدار قديم من نموذج Flash
-في سلسلة Gemini 3. يتم تلقائيًا توجيه الطلبات إلى `gemini-3.5-flash` إلى [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ar). للاطّلاع على أحدث نموذج Flash، يمكنك مراجعة [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar).
+Gemini 3.5 Flash（`gemini-3.5-flash`）は、Gemini 3 シリーズの非推奨の旧世代 Flash モデルです。`gemini-3.5-flash` へのリクエストは、自動的に [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ja) にルーティングされます。最新の Flash モデルについては、[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ja) をご覧ください。
 
-تم الاحتفاظ بهذا الدليل كمرجع تاريخي، وهو يوثّق التغييرات الأساسية في واجهة برمجة التطبيقات Gemini 3.x والمعلَمات المقترَحة.
+このガイドは、過去の参照用に保存されており、ベースラインの Gemini 3.x API の変更とパラメータの推奨事項について説明しています。
 
-## النظرة العامة على الطراز
+## モデルの概要
 
-| الطراز | رقم تعريف الطراز | الحالة |
+| モデル | モデル ID | ステータス |
 | --- | --- | --- |
-| Gemini 3.5 Flash | `gemini-3.5-flash` | **متوقّف نهائيًا** (يتم توجيهه تلقائيًا إلى [`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ar)). |
+| Gemini 3.5 Flash | `gemini-3.5-flash` | **非推奨**（[`gemini-3.6-flash`](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ja) に自動的にルーティングされます）。 |
 
-يوفّر Gemini 3.5 Flash قدرة استيعاب تصل إلى مليون رمز مميّز، و65 ألف رمز مميّز كحدّ أقصى للمخرجات،
-بالإضافة إلى ميزة "المفكِّر" ومجموعة الأدوات وميزات المنصة نفسها المتوفّرة في Gemini 3 Flash،
-بما في ذلك [استخدام الكمبيوتر (نسخة حصرية)](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar).
-للاطّلاع على المواصفات الكاملة، يُرجى مراجعة [نظرة عامة على النماذج](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ar).
+Gemini 3.5 Flash は、100 万トークンのコンテキスト ウィンドウ、最大 65,000 トークンの出力、思考、Gemini 3 Flash と同じツールとプラットフォーム機能（[コンピュータの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)など）をサポートしています。詳細な仕様については、[モデルの概要](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash?hl=ja)をご覧ください。
 
-## البدء السريع
+## クイックスタート
 
-تستخدم جميع الأمثلة في هذا الدليل واجهة برمجة التطبيقات GenerateContent API. تتوفّر أيضًا واجهة برمجة التطبيقات Interactions API، وتنطبق عليها خيارات الإعداد والاقتراحات نفسها.
+このガイドの例では、すべて GenerateContent API を使用しています。Interactions API もサポートされています。同じ構成オプションと推奨事項が適用されます。
 
 ### Python
 
@@ -88,42 +84,38 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-## الميزات الجديدة
+## 最新情報
 
-- **الأداء المستمر:** تم تحسينه لتنفيذ مهام الترميز والمهام المستندة إلى الذكاء الاصطناعي الوكيل على نطاق واسع.
-- **التنفيذ المستند إلى الذكاء الاصطناعي الوكيل:** نشر الوكلاء الفرعيين وحلّ المشاكل وتنفيذ حلقات الذكاء الاصطناعي الوكيل السريعة على نطاق واسع
-- **الترميز:** دورات ترميز تكرارية واستكشاف سريع وإنشاء نماذج أولية لاختبار المسارات البديلة واستكشاف الحلول بشكل ديناميكي
-- **الأفق البعيد:** مهام العمل المتعددة الخطوات واستخدام الأدوات على نطاق واسع
-- **الاحتفاظ بالأفكار:** يحتفظ النموذج تلقائيًا بالاستدلال الوسيط في المحادثات المترابطة. لا حاجة إلى إجراء أي تغييرات على واجهة برمجة التطبيقات.
-- **مستوى الجهد التلقائي الجديد:** تم تغيير مستوى الجهد التلقائي للتفكير من `high` إلى `medium`. راجِع [مستوى الجهد التلقائي الجديد](#default-effort-level) لمعرفة التفاصيل.
-- **تحسين قدرات التفكير في `low`:** تم تحسين `low` بشكل كبير في ما يتعلّق بالرموز البرمجية والمهام المستندة إلى الذكاء الاصطناعي الوكيل التي تتطلّب خطوات أقل، ما يوفّر جودة عالية مع تقليل وقت الاستجابة والتكلفة.
+- **持続的なパフォーマンス:** エージェント タスクとコーディング タスクを大規模に実行できるように最適化されています。
+- **エージェント実行:** サブエージェントのデプロイ、問題解決、大規模な高速エージェント ループ。
+- **コーディング:** 反復的なコーディング サイクル、迅速な探索、プロトタイピングにより、代替パスをテストし、ソリューションを動的に探索します。
+- **長期的な計画:** マルチステップ ワークフローとツールの使用を大規模に実行。
+- **思考の保持:** モデルは、マルチターンの会話全体で中間推論を自動的に維持します。API の変更は不要です。
+- **新しいデフォルトの思考労力レベル:** デフォルトの思考労力が `high` から `medium` に変更されました。詳細については、[新しいデフォルトの努力レベル](#default-effort-level)をご覧ください。
+- **`low` の思考の改善:** `low` は、少ないステップで済むコードタスクとエージェント タスク向けに大幅に改善され、低レイテンシと低コストで高品質な結果を提供します。
 
-### اختيار نموذج Flash المناسب
+### 適切な Flash モデルの選択
 
-بما أنّ النموذج `gemini-3.5-flash` أصبح متوقفًا نهائيًا ويتم توجيهه تلقائيًا إلى
-`gemini-3.6-flash`، ننصحك بالانتقال إلى أحد النماذج النشطة
-التالية:
+`gemini-3.5-flash` は非推奨となり、`gemini-3.6-flash` に自動的にルーティングされるため、次のいずれかのアクティブなモデルに移行することをおすすめします。
 
-- ‫**Gemini 3.8 Flash**: أحدث نماذج Flash وأكثرها ذكاءً، وهو مصمَّم لعمليات الترميز المعقّدة وسير العمل المستند إلى الذكاء الاصطناعي المستقلّ. يمكنك الاطّلاع على [دليل Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar).
-- **Gemini 3.6 Flash**: بديل مباشر لنموذج `gemini-3.5-flash` مع انخفاض في استخدام الرموز المميزة وانخفاض في سعر الناتج. يُرجى الاطّلاع على [دليل Gemini 3.6 Flash و3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ar).
-- **‫Gemini 3.5 Flash-Lite وGemini 3.1 Flash-Lite**: للمهام المنخفضة التكلفة والكبيرة الحجم التي لا تتطلّب قدرات الاستدلال الكاملة في Flash، استخدِم [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ar) أو [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ar).
+- **Gemini 3.8 Flash**: 複雑なコーディングと Agentic Workflows に対応する、最新かつ最もインテリジェントな Flash モデル。[Gemini 3.8 Flash ガイド](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ja)をご覧ください。
+- **Gemini 3.6 Flash**: `gemini-3.5-flash` の直接的な代替モデル。トークン使用量が削減され、出力料金が引き下げられています。[Gemini 3.6 Flash と 3.5 Flash-Lite のガイド](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ja)をご覧ください。
+- **Gemini 3.5 Flash-Lite / Gemini 3.1 Flash-Lite**: Flash の完全な推論深度を必要としない、低コストで大量のタスクには、[Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ja) または [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ja) を使用します。
 
-## التغييرات السلوكية
+## 動作の変更点
 
-### مستوى الجهد التلقائي الجديد: `medium`
+### 新しいデフォルトの労力レベル: `medium`
 
-أصبح مجهود التفكير التلقائي الآن **`medium`**، بعد أن كان `high` في Gemini 3
-Flash Preview. يقدّم `medium` نتائج جيدة جدًا في مجموعة واسعة من المهام،
-وهو أسرع وأكثر فعالية من حيث التكلفة. بالنسبة إلى المشاكل المعقّدة، يشجّع `high` النموذج على التفكير بشكل أعمق.
+デフォルトの思考労力が **`medium`** になりました。Gemini 3 Flash プレビュー版の `high` から変更されています。`medium` は、幅広いタスクで非常に優れた結果を出し、高速で費用対効果に優れています。複雑な問題の場合、`high` はモデルに深く考えるよう促します。
 
-| مستوى الجهد | حالات الاستخدام |
+| 労力レベル | 使用する場面 |
 | --- | --- |
-| `minimal` | تم تحسينه لزيادة سرعة الاستجابة. حالات استخدام تشبه المحادثات، وإجابات سريعة مستندة إلى الحقائق، واستدعاءات أبسط للأدوات. |
-| `low` | المهام المتعلّقة بالرموز البرمجية والوكلاء التي تتطلّب وقت استجابة أقل وخطوات أقل ويعمل أيضًا بشكل جيد مع مهام التحليل والكتابة التي تتطلب بعض التفكير. |
-| **`medium` (تلقائية)** | **أفضل جودة لمعظم المهام ويُنصح باستخدامه في حالات الاستخدام المعقّدة للرموز البرمجية والوكلاء.** |
-| `high` | يعزّز قدرة النموذج على التفكير واستخدام الأدوات. الخيار الأفضل للاستدلال المعقّد والرياضيات الصعبة والمهام الأكثر صعوبة في الترميز أو مهام الوكلاء. يسمح بالأفكار الموسّعة واستدعاء الدوال. |
+| `minimal` | 応答速度を重視して最適化されています。チャットのようなユースケース、事実に基づく迅速な回答、シンプルなツール呼び出し。 |
+| `low` | 低レイテンシと少ないステップを必要とするコードタスクとエージェント タスク。また、思考を必要とする分析や執筆タスクにも適しています。 |
+| **`medium`（デフォルト）** | **ほとんどのタスクで最高の品質。複雑なコードやエージェント型のユースケースに推奨されます。** |
+| `high` | モデルの思考能力とツール使用能力を最大化します。複雑な推論、高度な数学、最も難解なコードやエージェント タスクに最適です。拡張された思考と関数呼び出しを可能にします。 |
 
-لتجاوز الإعداد التلقائي، اضبط `thinking_level` في الإعدادات:
+デフォルトをオーバーライドするには、構成で `thinking_level` を設定します。
 
 ### Python
 
@@ -186,39 +178,38 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-يوضّح الجدول التالي مستويات التفكير المتوافقة مع كل نموذج:
+次の表に、モデルごとにサポートされている思考レベルを示します。
 
-| مستوى التفكير | Gemini 3.5 Flash | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | الوصف |
+| 思考レベル | Gemini 3.5 Flash | Gemini 3.1 Pro | Gemini 3.1 Flash-Lite | Gemini 3 Flash | 説明 |
 | --- | --- | --- | --- | --- | --- |
-| **`minimal`** | متاح | غير متاح | مسموح به (تلقائي) | متاح | يتطابق مع الإعداد "بدون تفكير" لمعظم طلبات البحث. يُرجى العِلم أنّ `minimal` لا يضمن إيقاف التفكير، فقد يقدّم النموذج أسبابًا بسيطة جدًا للمهام المعقّدة. |
-| **`low`** | متاح | متاح | متاح | متاح | يقلّل من وقت الاستجابة والتكلفة. |
-| **`medium`** | مسموح به (تلقائي) | متاح | متاح | متاح | التفكير المتوازن لمعظم المهام |
-| **`high`** | متوافقة (ديناميكية) | متاحة (تلقائية وديناميكية) | متوافقة (ديناميكية) | متاحة (تلقائية وديناميكية) | زيادة عمق الاستدلال إلى أقصى حد |
+| **`minimal`** | サポート対象 | サポート対象外 | サポート対象（デフォルト） | サポート対象 | ほとんどのクエリで「思考なし」の設定に一致します。`minimal` に設定しても、思考がオフになることが保証されるわけではありません。複雑なタスクでは、モデルが最小限の推論を行うことがあります。 |
+| **`low`** | サポート対象 | サポート対象 | サポート対象 | サポート対象 | レイテンシと費用を最小限に抑えます。 |
+| **`medium`** | サポート対象（デフォルト） | サポート対象 | サポート対象 | サポート対象 | ほとんどのタスクに適したバランスの取れた思考。 |
+| **`high`** | サポート対象（動的） | サポート対象（デフォルト、動的） | サポート対象（動的） | サポート対象（デフォルト、動的） | 推論の深さを最大化します。 |
 
-### الاحتفاظ بالأفكار
+### 思考の保持
 
-يحتفظ النموذج بالاستدلال الوسيط خلال المحادثات المترابطة تلقائيًا. عندما يكون سياق الاستدلال متوفّرًا في سجلّ المحادثة، يتم نقله إلى الأمام، ما يحسّن الأداء في المهام المعقّدة المتعدّدة الخطوات، مثل تصحيح الأخطاء المتكرّر وإعادة صياغة الرموز البرمجية. لا حاجة إلى إجراء تغييرات على واجهة برمجة التطبيقات:
+モデルは、マルチターンの会話全体で中間推論を自動的に維持します。会話履歴に推論コンテキストが存在すると、推論コンテキストが引き継がれるため、反復的なデバッグやコードのリファクタリングなど、複雑なマルチステップ タスクのパフォーマンスが向上します。API の変更は不要:
 
-- **‫Interactions API**: يتم حفظ الأفكار تلقائيًا. لم يطرأ أي تغيير على السلوك.
-- **‫GenerateContent API**: بدءًا من Gemini 3.5 Flash، يستخدم النموذج سياق الاستدلال من جميع الجولات السابقة عندما تكون توقيعات التفكير موجودة في سجلّ المحادثات. لتفعيل هذه الميزة، يجب تمرير سجلّ المحادثات الكامل وغير المعدَّل (بما في ذلك [توقيعات الأفكار](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar)) في `contents`.
-  وتتعامل حِزم تطوير البرامج (SDK) مع ذلك تلقائيًا.
+- **Interactions API**: 思考はすでに自動的に保存されています。動作に変更はありません。
+- **GenerateContent API**: Gemini 3.5 Flash 以降、会話履歴に思考シグネチャが存在する場合、モデルは以前のすべてのターンの推論コンテキストを使用します。これを有効にするには、変更されていない完全な会話履歴（[思考シグネチャ](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ja)を含む）を `contents` で渡します。SDK はこれを自動的に処理します。
 
-## تعديلات المَعلمات وأفضل الممارسات في Gemini 3.x
+## Gemini 3.x のパラメータの更新とベスト プラクティス
 
-تنطبق ما يلي على **جميع نماذج Gemini 3.x**، بما في ذلك Gemini 3.5 Flash.
+以下は、Gemini 3.5 Flash を含む**すべての Gemini 3.x モデル**に適用されます。
 
-- **‫`temperature` و`top_p` و`top_k`**: ننصح بشدة بعدم تغيير القيم التلقائية. تم تحسين إمكانات الاستدلال في Gemini 3 لتناسب الإعدادات التلقائية.
-- استخدِم `thinking_level` بدلاً من `thinking_budget`.
-- **مطابقة استجابة استدعاء الدوال**: يجب أن تتطابق `id` و`name` وعدد الاستجابات مع الطلبات السابقة.
-- **ردود الدوال المتعددة الوسائط**: يجب أن تتضمّن محتوًى متعدد الوسائط داخل ردّ الدالة، وليس خارجه.
-- **التعليمات المضمّنة في ردود الدوال**: يتم إلحاقها بنص ردّ الدالة، وليس كأجزاء منفصلة.
-- **تقليل استدعاءات الأدوات غير الضرورية**: يمكنك استخدام مستويات تفكير أقل أو تجربة تعليمات النظام لتقليل استدعاءات الأدوات في سير العمل المستند إلى الوكلاء.
+- **`temperature`、`top_p`、`top_k`**: デフォルト値を変更しないことを強くおすすめします。Gemini 3 の推論機能は、デフォルト設定用に最適化されています。
+- `thinking_budget` ではなく `thinking_level` を使用します。
+- **関数呼び出しレスポンスの一致**: `id`、`name`、レスポンス数は、前の呼び出しと一致する必要があります。
+- **マルチモーダル関数レスポンス**: 関数レスポンスの外部ではなく、内部にマルチモーダル コンテンツを含めます。
+- **関数レスポンスのインライン指示**: 個別の部分としてではなく、関数レスポンス テキストに追加します。
+- **不要なツール呼び出しを減らす**: 思考レベルを下げたり、システム指示を試したりして、Agentic Workflows でのツール呼び出しを減らします。
 
-يمكنك الاطّلاع على الأقسام أدناه لمعرفة كيفية تعديل الرمز.
+コードを更新する方法については、以下のセクションをご覧ください。
 
-### مَعلَمات اختيار العيّنات (لم يعُد يُنصح بها)
+### サンプリング パラメータ（非推奨）
 
-لم يعُد يُنصح باستخدام `temperature` و`top_p` و`top_k` مع جميع نماذج Gemini 3.x. تم تحسين قدرات الاستدلال في Gemini 3 للإعدادات التلقائية. **إزالة هذه المَعلمات من جميع الطلبات**
+`temperature`、`top_p`、`top_k` は、すべての Gemini 3.x モデルで推奨されなくなりました。Gemini 3 の推論機能は、デフォルト設定用に最適化されています。**すべてのリクエストからこれらのパラメータを削除します。**
 
 ```
 # ⚠️ Remove these parameters (not recommended)
@@ -229,11 +220,11 @@ config = types.GenerateContentConfig(
 )
 ```
 
-لضمان الحتمية، ننصحك بتحديد تعليمات نظام تتضمّن قواعد واضحة لحالة الاستخدام المحدّدة.
+決定性を確保するには、特定のユースケースに明示的なルールを適用したシステム指示を定義することをおすすめします。
 
-### `thinking_budget` (لم يَعُد هذا الخيار مقترَحًا)
+### `thinking_budget`（非推奨）
 
-لم يعُد يُنصح باستخدام المَعلمة الرقمية الأولية `thinking_budget` في جميع نماذج Gemini 3.x. استخدِم تعداد السلسلة `thinking_level` بدلاً من ذلك.
+すべての Gemini 3.x モデルで、未加工の数値 `thinking_budget` パラメータは推奨されなくなりました。代わりに `thinking_level` 文字列列挙型を使用してください。
 
 ```
 # ⚠️ Before (not recommended)
@@ -247,18 +238,17 @@ config = types.GenerateContentConfig(
 )
 ```
 
-القيم المتاحة: `minimal` و`low` و`medium` (القيمة التلقائية) و`high`
+使用可能な値: `minimal`、`low`、`medium`（デフォルト）、`high`。
 
-### استدعاء الدوال: مطابقة الردود الصارمة
+### 関数呼び出し: 厳密なレスポンス マッチング
 
-تعرض واجهة Interactions API رسائل خطأ عند تلقّي ردود غير متطابقة من الدوال. لا تعرض واجهة برمجة التطبيقات GenerateContent API خطأً حتى الآن، ولكن تؤدي الردود غير المتطابقة إلى أن يعرض النموذج ردودًا فارغة مع `finish_reason: STOP` في معظم الحالات. اتبع دائمًا
-هذه الاصطلاحات:
+Interactions API は、一致しない関数レスポンスに対してすでにエラーを返しています。GenerateContent API はまだエラーを返しませんが、レスポンスが一致しない場合、モデルはほとんどの場合、`finish_reason: STOP` を含む空のレスポンスを返します。常に次の規則に従ってください。
 
-| المتطلبات | التفاصيل |
+| 要件 | 詳細 |
 | --- | --- |
-| تضمين `id` | يجب أن يتضمّن كل `FunctionResponse` `id` من `FunctionCall` المقابل |
-| المباراة `name` | يجب أن يتطابق `name` في الردّ مع `name` في الطلب |
-| عدد حالات التطابق | عرض `FunctionResponse` واحد بالضبط لكل `FunctionCall` يتم تلقّيه |
+| `id`を含む | すべての `FunctionResponse` に、対応する `FunctionCall` の `id` を含める必要があります。 |
+| 第 `name` 試合 | レスポンスの `name` は、呼び出しの `name` と一致する必要があります。 |
+| 一致数 | 受信した `FunctionCall` ごとに 1 つの `FunctionResponse` を返す |
 
 ### Python
 
@@ -320,10 +310,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:g
   }'
 ```
 
-### ردود الوظائف المتعددة الوسائط
+### マルチモーダル関数レスポンス
 
-نلاحظ غالبًا أنّ العملاء يقدّمون صورًا خارج استجابة الدالة. وقد يؤدي ذلك إلى سلوك غير متوقّع للنموذج (مثل تسريب الأفكار) وإلى انخفاض جودة النتائج. اتّبِع الاقتراح الوارد في [مستندات واجهة برمجة التطبيقات الخاصة بالردود المتعدّدة الوسائط](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ar#multimodal) بدلاً من ذلك، وأدرِج المحتوى المتعدّد الوسائط في أجزاء ردود الدوال التي ترسلها إلى النموذج. يمكن للنموذج معالجة هذا المحتوى المتعدد الوسائط في دوره التالي
-لتقديم ردّ أكثر دقة.
+クライアントが関数のレスポンス外で画像を提供することがよくあります。これにより、予期しないモデルの動作（思考の漏洩など）が発生し、出力の品質が低下する可能性があります。代わりに、[マルチモーダル関数レスポンス API のドキュメント](https://ai.google.dev/gemini-api/docs/function-calling?example=meeting&hl=ja#multimodal)の推奨事項に沿って、モデルに送信する関数レスポンス部分にマルチモーダル コンテンツを含めます。モデルは、次のターンでこのマルチモーダル コンテンツを処理して、より多くの情報に基づいたレスポンスを生成できます。
 
 ### Python
 
@@ -376,10 +365,9 @@ const finalResponse = await ai.models.generateContent({
 });
 ```
 
-### التعليمات المضمّنة في ردود الدوال
+### 関数レスポンスのインライン指示
 
-We often see clients provide additional instructions along with function responses
-as subsequent `Parts`. ويمكن أن يؤدي ذلك إلى سلوك غير متوقّع للنموذج (مثل تسريب الأفكار) وينتج عنه مخرجات أقل جودة. بدلاً من ذلك، أضِف أي تعليمات إضافية إلى نهاية نص رد الدالة، وافصل بينهما بسطرَين جديدَين.
+クライアントが関数のレスポンスとともに追加の指示を後続の `Parts` として提供することがよくあります。これにより、予期しないモデルの動作（思考の漏洩など）が発生し、出力の品質が低下する可能性があります。代わりに、追加の指示を 2 つの改行で区切って、関数レスポンス テキストの末尾に追加します。
 
 ### Python
 
@@ -430,98 +418,70 @@ const finalResponse = await ai.models.generateContent({
 });
 ```
 
-### تقليل عدد استدعاءات الأدوات غير الضرورية
+### 不要なツール呼び出しを減らす
 
-إذا واجهت مشكلة في الاستخدام المفرط لطلبات الأدوات، يمكنك اتّباع طريقتَين للحدّ منها:
+ツール呼び出しが過剰に使用されている場合は、次の 2 つの手法で最小限に抑えることができます。
 
-1. **ابدأ بخفض مستوى التفكير** (`medium` أو `low` أو `minimal`):
-   تشجّع مستويات التفكير الأعلى النموذج على استخدام المزيد من الأدوات للاستكشاف
-   والتحقّق، لذا يمكن أن يؤدي خفض المستوى إلى تقليل طلبات الأدوات.
-2. **إضافة تعليمات للنظام:** إذا استمرّ الاستخدام المفرط بعد تعديل
-   مستوى التفكير، ننصحك باستخدام طلب يقيّد استخدام الأدوات. على سبيل المثال:
+1. **まず、思考レベルを下げます**（`medium`、`low`、`minimal`）。思考レベルが高いほど、モデルはより多くのツールを使用して探索と検証を行うため、レベルを下げるとツール呼び出しを減らすことができます。
+2. **システム指示を追加する:** 思考レベルを調整しても過剰使用が続く場合は、ツールの使用を制限するプロンプトを検討してください。次に例を示します。
 
    ```
    You have a limited action budget of <n> tool calls. Use them efficiently.
    ```
 
-## ميزات Gemini 3 للعائلة
+## Gemini 3 ファミリーの機能
 
-يستفيد Gemini 3.5 Flash من جميع إمكانات مجموعة نماذج Gemini 3، بما في ذلك ميزة "استخدام الكمبيوتر".
-الميزات التي تم طرحها في Gemini 3 والتي سيتم نقلها إلى الإصدارات الأحدث:
+Gemini 3.5 Flash は、コンピュータの使用など、Gemini 3 ファミリーのすべての機能を継承しています。Gemini 3 で導入され、引き続き利用できる機能:
 
-- [**التفكير**](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**:** يتم الاحتفاظ بسياق الاستدلال المشفّر في جميع طلبات البيانات من واجهة برمجة التطبيقات. تلقائي في واجهة برمجة التطبيقات Interactions
-  ، وضمني في GenerateContent
-- [**النتائج المنظَّمة باستخدام الأدوات**](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**:**
-  يمكنك دمج وضع JSON مع
-  الأدوات المدمجة (بحث Google، وسياق عناوين URL، وتنفيذ الرموز البرمجية، واستدعاء الدوال).
-- [**استجابات الدوال متعددة الوسائط**](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar#multimodal)**:**
-  عرض
-  صور ومقاطع صوتية ووسائط أخرى في نتائج استدعاءات الدوال
-- [**تنفيذ الرموز البرمجية باستخدام الصور**](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar#images)**:**
-  يمكنك تنفيذ الرموز البرمجية التي تعالج الصور وتنشئها.
-- [**استخدام الأدوات المجمّعة**](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar)**:** يمكنك استخدام
-  الأدوات المدمجة
-  واستدعاء الدوال المخصّصة في الطلب نفسه.
-- [**دقة الوسائط**](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ar)**:**
-  تتيح لك هذه الميزة التحكّم بدقة في تخصيص الرموز المميّزة لمدخلات الصور والفيديوهات وملفات PDF.
-  تتيح نماذج Gemini 3 ضبط الدقة لكل عنصر محتوى (`low` و`medium` و`high` و`ultra_high`) في الطلبات ذات الدقة المختلطة.
-- [**توقيعات الأفكار**](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ar)**:**
-  تمثيلات مشفّرة لعمليات الاستدلال الداخلية التي يجريها النموذج مطلوبة لاستدعاء الدوال في المحادثات المترابطة، وتتم إدارتها تلقائيًا من خلال حِزم تطوير البرامج (SDK) الرسمية.
+- [**思考**](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)**:** 暗号化された推論コンテキストが API 呼び出し間で保持されます。Interactions API では自動。GenerateContent では暗黙的。
+- [**ツールを使用した構造化出力**](https://ai.google.dev/gemini-api/docs/structured-output?hl=ja)**:** JSON モードを組み込みツール（検索、URL コンテキスト、コード実行、関数呼び出し）と組み合わせます。
+- [**マルチモーダル関数レスポンス**](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja#multimodal)**:** 関数呼び出しの結果で画像、音声、その他のメディアを返します。
+- [**画像を使用したコード実行**](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja#images)**:** 画像を処理して生成するコードを実行します。
+- [**ツールの組み合わせ使用**](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)**:** 同じリクエストで組み込みツールとカスタム関数呼び出しを使用します。
+- [**メディアの解像度**](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ja)**:** 画像、動画、PDF の入力に対するトークン割り当てをきめ細かく制御できます。Gemini 3 モデルは、混合忠実度プロンプトのコンテンツ アイテムごとの解像度設定（`low`、`medium`、`high`、`ultra_high`）をサポートしています。
+- [**思考シグネチャ**](https://ai.google.dev/gemini-api/docs/thought-signatures?hl=ja)**:** モデルの内部推論を暗号化した表現。マルチターン関数呼び出しに必要です。公式 SDK によって自動的に管理されます。
 
-## أفضل الممارسات المتعلقة بإنشاء الطلبات
+## プロンプトのベスト プラクティス
 
-نماذج Gemini 3.x هي نماذج استدلال، ما يغيّر طريقة تقديم الطلبات.
+Gemini 3.x モデルは推論モデルであるため、プロンプトの作成方法が変わります。
 
-- **تعليمات دقيقة:** يجب أن تكون التعليمات موجزة. يقدّم Gemini 3.x أفضل ردّ عند تلقّي تعليمات مباشرة وواضحة. قد تؤدي أساليب هندسة الطلبات المعقّدة أو المطوّلة المصمّمة للنماذج القديمة إلى تحليل النموذج بشكل مفرط.
-- **مستوى الإسهاب في الردود:** يكون مستوى الإسهاب في الردود في Gemini 3.x أقل بشكل تلقائي، إذ يفضّل تقديم إجابات مباشرة وفعّالة. إذا كانت حالة الاستخدام تتطلّب أسلوبًا حواريًا،
-  وجِّه النموذج بشكل صريح في طلبك (على سبيل المثال، "اشرح هذا الموضوع بأسلوب
-  مساعد ودود ومُتحدّث").
-- **إدارة السياق:** عند العمل مع مجموعات بيانات كبيرة (مثل كتب كاملة أو قواعد رموز برمجية أو فيديوهات طويلة)، ضَع تعليماتك أو أسئلتك المحدّدة في نهاية الطلب، بعد سياق البيانات. يمكنك توجيه استدلال النموذج من خلال بدء سؤالك بعبارة مثل "استنادًا إلى المعلومات السابقة...".
+- **正確な指示:** 簡潔にしてください。Gemini 3.x は、明確で直接的な指示に最適に応答します。古いモデル向けに設計された冗長または複雑なプロンプト エンジニアリング手法では、モデルが過剰な分析を行う可能性があります。
+- **出力の冗長性:** デフォルトでは、Gemini 3.x は冗長性が低く、直接的で効率的な回答を好みます。ユースケースで会話調のトーンが必要な場合は、プロンプトでモデルを明示的に誘導します（例: 「親しみやすく、おしゃべりなアシスタントとして説明してください」）。
+- **コンテキスト管理:** 大規模なデータセット（書籍全体、コードベース、長い動画など）を扱う場合は、具体的な指示や質問をプロンプトの最後、データ コンテキストの後に配置します。「前述の情報に基づいて...」などのフレーズで質問を開始して、モデルの推論を固定します。
 
-يمكنك الاطّلاع على مزيد من المعلومات حول استراتيجيات تصميم الطلبات في [دليل هندسة الطلبات](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar).
+プロンプト設計戦略の詳細については、[プロンプト エンジニアリング ガイド](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)をご覧ください。
 
-## القيود
+## 制限事項
 
-- لا تتوفّر ميزة "تقسيم الصور" في Gemini 3.x. بالنسبة إلى أحمال العمل الخاصة بتقسيم الصور، يمكنك مواصلة استخدام Gemini 2.5 Flash مع إيقاف ميزة "المفكّر"، أو استخدام [Gemini Robotics ER 2](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ar).
+- 画像セグメンテーションは Gemini 3.x ではサポートされていません。セグメンテーション ワークロードの場合は、思考を無効にした Gemini 2.5 Flash または [Gemini Robotics ER 2](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ja) を引き続き使用してください。
 
-## الأسئلة الشائعة
+## よくある質問
 
-1. **ما هو تاريخ آخر تحديث للبيانات في Gemini 3.5 Flash؟** يبلغ تاريخ آخر تحديث لبيانات Gemini 3.5 Flash يناير 2025. للحصول على معلومات أحدث، يمكنك استخدام أداة [الاستناد إلى "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar).
-2. **ما هي حدود قدرة الاستيعاب؟** يستوعب Gemini 3.5 Flash مليون رمز مميّز كحد أقصى في قدرة استيعاب السياق، ويمكنه إنشاء ما يصل إلى 65 ألف رمز مميّز.
-3. **هل سيظلّ رمز `thinking_budget` القديم صالحًا؟** نعم، لا يزال `thinking_budget` متاحًا للتوافق مع الأنظمة القديمة، ولكن ننصحك بالانتقال إلى `thinking_level` لتحقيق أداء أكثر قابلية للتوقّع. ولا تستخدم كليهما في الطلب نفسه.
-4. **هل يتوافق Gemini 3.5 Flash مع Batch API؟** نعم. يُرجى الاطّلاع على دليل [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar) لمزيد من التفاصيل.
-5. **هل ميزة "التخزين المؤقت للسياق" متاحة؟** نعم، تتوفّر ميزة [التخزين المؤقت للسياق](https://ai.google.dev/gemini-api/docs/caching?hl=ar).
-6. **ما هي الأدوات المتوافقة؟** يتوافق Gemini 3.5 Flash مع
-   [بحث Google](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)،
-   و[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)،
-   و[البحث في الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)،
-   و[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)،
-   و[سياق عناوين URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)،
-   و[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar) العادي،
-   بما في ذلك
-   [استخدام الأدوات المجمّعة](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ar)،
-   و[استخدام الكمبيوتر](https://ai.google.dev/gemini-api/docs/computer-use?hl=ar).
+1. **Gemini 3.5 Flash のナレッジ カットオフはいつですか？**Gemini 3.5 Flash のナレッジ カットオフは 2025 年 1 月です。より新しい情報については、[検索グラウンディング](https://ai.google.dev/gemini-api/docs/google-search?hl=ja) ツールを使用してください。
+2. **コンテキスト ウィンドウの上限はどのくらいですか？**Gemini 3.5 Flash は、100 万トークンの入力コンテキスト ウィンドウと最大 65,000 トークンの出力をサポートしています。
+3. **以前の `thinking_budget` コードは引き続き機能しますか？**はい。`thinking_budget` は下位互換性のために引き続きサポートされていますが、パフォーマンスの予測可能性を高めるために `thinking_level` に移行することをおすすめします。同じリクエストで両方を使用しないでください。
+4. **Gemini 3.5 Flash は Batch API をサポートしていますか？**はい。詳細については、[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja) ガイドをご覧ください。
+5. **コンテキスト キャッシュ保存はサポートされていますか？**はい。[コンテキスト キャッシュ保存](https://ai.google.dev/gemini-api/docs/caching?hl=ja)がサポートされています。
+6. **どのツールがサポートされていますか？**Gemini 3.5 Flash は、[Google 検索](https://ai.google.dev/gemini-api/docs/google-search?hl=ja)、[Google マップによるグラウンディング](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ja)、[ファイル検索](https://ai.google.dev/gemini-api/docs/file-search?hl=ja)、[コード実行](https://ai.google.dev/gemini-api/docs/code-execution?hl=ja)、[URL コンテキスト](https://ai.google.dev/gemini-api/docs/url-context?hl=ja)、標準の[関数呼び出し](https://ai.google.dev/gemini-api/docs/function-calling?hl=ja)（[ツールの組み合わせ使用](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ja)、[コンピュータの使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=ja)など）をサポートしています。
 
-## نماذج أخرى
+## その他のモデル
 
-- [‫Gemini 3.8 Flash (الإصدار الأحدث)](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ar)
-- [‫Gemini 3.6 Flash وGemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ar)
-- [عرض جميع النماذج](https://ai.google.dev/gemini-api/docs/models?hl=ar)
+- [Gemini 3.8 Flash（最新）](https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=ja)
+- [Gemini 3.6 Flash と 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=ja)
+- [すべてのモデルを見る](https://ai.google.dev/gemini-api/docs/models?hl=ja)
 
-## الخطوات التالية
+## 次のステップ
 
-- يمكنك الاطّلاع على مزيد من المعلومات حول استراتيجيات تصميم الطلبات في
-  [دليل هندسة الطلبات](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ar).
-- بدء استخدام
-  [كتاب وصفات Gemini 3](https://github.com/google-gemini/cookbook)
-- [مساعد الدراسة حول تحسين Gemini API والاستدلال](https://ai.google.dev/gemini-api/docs/optimization?hl=ar)
+- プロンプト設計戦略の詳細については、[プロンプト エンジニアリング ガイド](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=ja)をご覧ください。
+- [Gemini 3 クックブック](https://github.com/google-gemini/cookbook)を使ってみる
+- [Gemini API の最適化と推論](https://ai.google.dev/gemini-api/docs/optimization?hl=ja)について確認する。
 
-إرسال ملاحظات
+フィードバックを送信
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-تاريخ التعديل الأخير: 2026-10-12 (حسب التوقيت العالمي المتفَّق عليه)
+最終更新日 2026-10-30 UTC。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+ご意見をお聞かせください
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-10-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-30 UTC。"],[],[]]

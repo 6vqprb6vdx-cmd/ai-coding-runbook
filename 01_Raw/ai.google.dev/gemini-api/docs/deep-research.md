@@ -1,35 +1,28 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=th
-fetched_at: 2026-10-26T05:43:00.893424+00:00
-title: "\u0e40\u0e2d\u0e40\u0e08\u0e19\u0e15\u0e4c Deep Research \u0e02\u0e2d\u0e07 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419
+fetched_at: 2026-11-02T07:15:53.728387+00:00
+title: "Agente Deep Research de Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-# เอเจนต์ Deep Research ของ Gemini
+# Agente Deep Research de Gemini
 
-Agent ของ Gemini Deep Research จะวางแผน ดำเนินการ และสังเคราะห์
-งานวิจัยแบบหลายขั้นตอนโดยอัตโนมัติ ฟีเจอร์นี้ขับเคลื่อนโดย Gemini และจะสำรวจข้อมูลที่ซับซ้อนเพื่อสร้างรายงานแบบละเอียดพร้อมอ้างอิง ความสามารถใหม่
-ช่วยให้คุณวางแผนร่วมกับเอเจนต์ เชื่อมต่อกับ
-เครื่องมือภายนอกโดยใช้เซิร์ฟเวอร์ MCP รวมถึง
-การแสดงข้อมูลด้วยภาพ (เช่น แผนภูมิและกราฟ) และระบุเอกสารเป็นอินพุตได้โดยตรง
+El agente de Deep Research de Gemini planifica, ejecuta y sintetiza de forma autónoma tareas de investigación de varios pasos. Con la tecnología de Gemini, navega por entornos de información complejos para producir informes detallados con citas. Las nuevas capacidades te permiten planificar de forma colaborativa con el agente, conectarte a herramientas externas con servidores de MCP, incluir visualizaciones (como gráficos) y proporcionar documentos directamente como entrada.
 
-งานค้นคว้าข้อมูลเกี่ยวข้องกับการค้นหาและการอ่านซ้ำๆ และอาจใช้เวลาหลายนาทีจึงจะเสร็จสมบูรณ์ คุณต้องใช้[การดำเนินการในเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th) (ตั้งค่า `background=true`)
-เพื่อเรียกใช้เอเจนต์แบบอะซิงโครนัสและสำรวจผลลัพธ์หรือสตรีมการอัปเดต ดูรายละเอียดเพิ่มเติมได้ที่
-[การจัดการงานที่ใช้เวลานาน](#long-running-tasks)
+Las tareas de investigación implican búsquedas y lecturas iterativas, y pueden tardar varios minutos en completarse. Debes usar la [ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419) (establece `background=true`) para ejecutar el agente de forma asíncrona y sondear los resultados o transmitir actualizaciones. Consulta [Cómo controlar tareas de larga duración](#long-running-tasks) para obtener más detalles.
 
-ตัวอย่างต่อไปนี้แสดงวิธีเริ่มงานวิจัยในเบื้องหลัง
-และสำรวจผลลัพธ์
+En el siguiente ejemplo, se muestra cómo iniciar una tarea de investigación en segundo plano y sondear los resultados.
 
 ### Python
 
@@ -207,21 +200,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## รุ่นที่สนับสนุน
+## Versiones compatibles
 
-เอเจนต์ Deep Research มี 2 เวอร์ชัน ได้แก่
+El agente de Deep Research está disponible en dos versiones:
 
-- **Deep Research** (`deep-research-preview-04-2026`): ออกแบบมาเพื่อความเร็วและประสิทธิภาพ เหมาะสำหรับการสตรีมกลับไปยัง UI ของไคลเอ็นต์
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): ความครอบคลุมสูงสุดสำหรับการรวบรวมและสังเคราะห์บริบทอัตโนมัติ
+- **Deep Research** (`deep-research-preview-04-2026`): Se diseñó para ser rápido y eficiente, y es ideal para transmitirlo a la IU del cliente.
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Máxima exhaustividad para la recopilación y síntesis automatizadas de contexto.
 
-## การวางแผนร่วมกัน
+## Planificación colaborativa
 
-การวางแผนร่วมกันช่วยให้คุณควบคุมทิศทางการค้นคว้าข้อมูลได้ก่อนที่ Agent จะเริ่มทำงาน โดยให้คุณตรวจสอบและปรับแต่งแผนการค้นคว้าข้อมูลก่อนดำเนินการ เมื่อเปิดใช้แล้ว เอเจนต์จะแสดงแผนการค้นคว้าข้อมูลที่เสนอแทนการดำเนินการทันที จากนั้นคุณจะตรวจสอบ แก้ไข หรืออนุมัติแผนผ่านการโต้ตอบแบบการสนทนาไปมาได้
+La planificación colaborativa te permite controlar la dirección de la investigación antes de que el agente comience su trabajo, ya que te permite revisar y definir mejor el plan de investigación antes de la ejecución. Cuando se habilita, el agente devuelve un plan de investigación propuesto en lugar de ejecutar la investigación de inmediato. Luego, puedes revisar, modificar o aprobar el plan a través de interacciones de varios turnos.
 
-### ขั้นตอนที่ 1: ขอแพ็กเกจ
+### Paso 1: Solicita un plan
 
-ตั้งค่า `collaborative_planning=True` ในการโต้ตอบแรก เอเจนต์
-จะแสดงแผนการค้นคว้าข้อมูลแทนรายงานฉบับเต็ม
+Establece `collaborative_planning=True` en la primera interacción. El agente devuelve un plan de investigación en lugar de un informe completo.
 
 ### Python
 
@@ -396,10 +388,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### ขั้นตอนที่ 2: ปรับแต่งแผน (ไม่บังคับ)
+### Paso 2: Define mejor el plan (opcional)
 
-ใช้ `previous_interaction_id` เพื่อสนทนาต่อและทำซ้ำ
-ในแผน กด `collaborative_planning=True` ค้างไว้เพื่ออยู่ในโหมดการวางแผน
+Usa `previous_interaction_id` para continuar la conversación y realizar iteraciones en el plan. Mantén presionado `collaborative_planning=True` para permanecer en el modo de planificación.
 
 ### Python
 
@@ -576,10 +567,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### ขั้นตอนที่ 3: อนุมัติและดำเนินการ
+### Paso 3: Aprueba y ejecuta
 
-ตั้งค่า `collaborative_planning=False` (หรือละไว้) เพื่ออนุมัติแผนและ
-เริ่มการค้นคว้า
+Establece `collaborative_planning=False` (o omítelo) para aprobar el plan y comenzar la investigación.
 
 ### Python
 
@@ -754,14 +744,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## การแสดงข้อมูลเป็นภาพ
+## Visualización
 
-เมื่อตั้งค่า `visualization` เป็น `"auto"` ตัวแทนจะสร้างแผนภูมิ
-กราฟ และองค์ประกอบภาพอื่นๆ เพื่อสนับสนุนผลการวิจัยได้
-ระบบจะรวมรูปภาพที่สร้างขึ้นไว้ในขั้นตอนการตอบกลับและสตรีมเป็น
-`image`เดลต้า หากต้องการให้ได้ผลลัพธ์ที่ดีที่สุด ให้ขอภาพในคำค้นหาอย่างชัดเจน เช่น "ใส่แผนภูมิที่แสดงแนวโน้มในช่วงเวลาต่างๆ" หรือ "สร้างกราฟิกที่เปรียบเทียบส่วนแบ่งการตลาด" การตั้งค่า `visualization` เป็น
-`"auto"` จะเปิดใช้ความสามารถดังกล่าว แต่เอเจนต์จะสร้างภาพก็ต่อเมื่อ
-พรอมต์ขอเท่านั้น
+Cuando `visualization` se establece en `"auto"`, el agente puede generar gráficos y otros elementos visuales para respaldar sus hallazgos de investigación.
+Las imágenes generadas se incluyen en los pasos de la respuesta y se transmiten como deltas de `image`. Para obtener mejores resultados, pide explícitamente elementos visuales en tu búsqueda, por ejemplo, "Incluye gráficos que muestren las tendencias a lo largo del tiempo" o "Genera gráficos que comparen la participación de mercado". Si configuras `visualization` como `"auto"`, se habilita la capacidad, pero el agente solo genera elementos visuales cuando la instrucción los solicita.
 
 ### Python
 
@@ -994,22 +980,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## เครื่องมือที่รองรับ
+## Herramientas compatibles
 
-Deep Research รองรับเครื่องมือในตัวและเครื่องมือภายนอกหลายอย่าง โดยค่าเริ่มต้น (เมื่อไม่มีการระบุพารามิเตอร์ `tools`) เอเจนต์จะมีสิทธิ์เข้าถึง Google
-Search, บริบท URL และการดำเนินการโค้ด คุณสามารถระบุเครื่องมืออย่างชัดเจนเพื่อจำกัดหรือขยายความสามารถของ Agent
+Deep Research admite varias herramientas integradas y externas. De forma predeterminada (cuando no se proporciona ningún parámetro `tools`), el agente tiene acceso a la Búsqueda de Google, al contexto de URL y a la ejecución de código. Puedes especificar de forma explícita las herramientas para restringir o extender las capacidades del agente.
 
-| เครื่องมือ | ประเภทค่า | คำอธิบาย |
+| Herramienta | Valor del tipo | Descripción |
 | --- | --- | --- |
-| Google Search | `google_search` | ค้นหาเว็บสาธารณะ เปิดใช้โดยค่าเริ่มต้น |
-| บริบท URL | `url_context` | อ่านและสรุปเนื้อหาหน้าเว็บ เปิดใช้โดยค่าเริ่มต้น |
-| การเรียกใช้โค้ด | `code_execution` | เรียกใช้โค้ดเพื่อทำการคำนวณและวิเคราะห์ข้อมูล เปิดใช้โดยค่าเริ่มต้น |
-| เซิร์ฟเวอร์ MCP | `mcp_server` | เชื่อมต่อกับเซิร์ฟเวอร์ MCP ระยะไกลเพื่อเข้าถึงเครื่องมือภายนอก |
-| การค้นหาไฟล์ | `file_search` | ค้นหาคลังข้อมูลเอกสารที่อัปโหลด |
+| Búsqueda de Google | `google_search` | Buscar en la Web pública Habilitada de forma predeterminada. |
+| Contexto de URL | `url_context` | Leer y resumir el contenido de páginas web Habilitada de forma predeterminada. |
+| Ejecución de código | `code_execution` | Ejecutar código para realizar cálculos y análisis de datos Habilitada de forma predeterminada. |
+| Servidor MCP | `mcp_server` | Conectarse a servidores MCP remotos para acceder a herramientas externas |
+| Búsqueda de archivos | `file_search` | Busca en los corpus de documentos que subiste. |
 
-### Google Search
+### Búsqueda de Google
 
-เปิดใช้ Google Search อย่างชัดเจนเป็นเครื่องมือเดียว
+Habilita explícitamente la Búsqueda de Google como la única herramienta:
 
 ### Python
 
@@ -1109,9 +1094,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### บริบท URL
+### Contexto de URL
 
-ให้ความสามารถแก่เอเจนต์ในการอ่านและสรุปหน้าเว็บที่เฉพาะเจาะจง
+Permite que el agente lea y resuma páginas web específicas:
 
 ### Python
 
@@ -1211,9 +1196,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### การเรียกใช้โค้ด
+### Ejecución de código
 
-อนุญาตให้เอเจนต์เรียกใช้โค้ดสำหรับการคำนวณและการวิเคราะห์ข้อมูล
+Permite que el agente ejecute código para realizar cálculos y análisis de datos:
 
 ### Python
 
@@ -1313,22 +1298,21 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### เซิร์ฟเวอร์ MCP
+### Servidores de MCP
 
-เชื่อมต่อกับเซิร์ฟเวอร์ MCP ระยะไกลเพื่อให้สิทธิ์เข้าถึงเครื่องมือและบริการภายนอกแก่ Agent
+Conéctate a servidores de MCP remotos para darle al agente acceso a herramientas y servicios externos.
 
-ระบุเซิร์ฟเวอร์ `name` และ `url` ในการกำหนดค่าเครื่องมือ นอกจากนี้ คุณยัง
-ส่งต่อข้อมูลเข้าสู่ระบบสำหรับการตรวจสอบสิทธิ์และจำกัดเครื่องมือที่เอเจนต์เรียกใช้ได้ด้วย
+Proporciona el servidor `name` y `url` en la configuración de herramientas. También puedes pasar credenciales de autenticación y restringir las herramientas a las que puede llamar el agente.
 
-| ช่อง | ประเภท | ต้องระบุ | คำอธิบาย |
+| Campo | Tipo | Obligatorio | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | ใช่ | ต้องเป็น `"mcp_server"` |
-| `name` | `string` | ไม่ | ชื่อที่แสดงสำหรับเซิร์ฟเวอร์ MCP |
-| `url` | `string` | ไม่ | URL แบบเต็มสำหรับอุปกรณ์ปลายทางของเซิร์ฟเวอร์ MCP |
-| `headers` | `object` | ไม่ | คู่คีย์-ค่าที่ส่งเป็นส่วนหัว HTTP พร้อมกับคำขอทุกรายการไปยังเซิร์ฟเวอร์ (เช่น โทเค็นการตรวจสอบสิทธิ์) |
-| `allowed_tools` | `array` | ไม่ | จำกัดเครื่องมือจากเซิร์ฟเวอร์ที่ Agent อาจเรียกใช้ |
+| `type` | `string` | Sí | Debe ser `"mcp_server"`. |
+| `name` | `string` | No | Es un nombre visible para el servidor de MCP. |
+| `url` | `string` | No | Es la URL completa del extremo del servidor de MCP. |
+| `headers` | `object` | No | Pares clave-valor enviados como encabezados HTTP con cada solicitud al servidor (por ejemplo, tokens de autenticación). |
+| `allowed_tools` | `array` | No | Restringe las herramientas del servidor a las que puede llamar el agente. |
 
-#### การใช้งานพื้นฐาน
+#### Uso básico
 
 ### Python
 
@@ -1462,9 +1446,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-### การค้นหาไฟล์
+### Búsqueda de archivos
 
-ให้สิทธิ์เข้าถึงข้อมูลของคุณเองแก่ Agent โดยใช้เครื่องมือ[ค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)
+Otorga acceso al agente a tus propios datos con la herramienta [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419).
 
 ### Python
 
@@ -1586,12 +1570,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## การควบคุมและการจัดรูปแบบ
+## Capacidad de dirección y formato
 
-คุณสามารถควบคุมเอาต์พุตของเอเจนต์ได้โดยระบุวิธีการจัดรูปแบบที่เฉพาะเจาะจง
-ในพรอมต์ ซึ่งจะช่วยให้คุณจัดโครงสร้างรายงานเป็นส่วนและส่วนย่อยที่เฉพาะเจาะจง รวมถึงตารางข้อมูล หรือปรับน้ำเสียงสำหรับกลุ่มเป้าหมายต่างๆ (เช่น "เทคนิค" "ผู้บริหาร" "ทั่วไป")
+Puedes guiar la respuesta del agente proporcionando instrucciones de formato específicas en tu instrucción. Esto te permite estructurar los informes en secciones y subsecciones específicas, incluir tablas de datos o ajustar el tono para diferentes públicos (p.ej., "técnico", "ejecutivo" o "informal").
 
-กำหนดรูปแบบเอาต์พุตที่ต้องการอย่างชัดเจนในข้อความอินพุต
+Define el formato de salida deseado de forma explícita en el texto de entrada.
 
 ### Python
 
@@ -1713,9 +1696,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## อินพุตหลายรูปแบบ
+## Entradas multimodales
 
-Deep Research รองรับอินพุตหลายรูปแบบ ซึ่งรวมถึงรูปภาพและเอกสาร (PDF) ทำให้เอเจนต์สามารถวิเคราะห์เนื้อหาภาพและทำการวิจัยบนเว็บโดยอิงตามบริบทของอินพุตที่ระบุ
+Deep Research admite entradas multimodales, incluidas imágenes y documentos (PDFs), lo que permite que el agente analice contenido visual y realice investigaciones basadas en la Web contextualizadas por las entradas proporcionadas.
 
 ### Python
 
@@ -1957,10 +1940,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 # -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### การทำความเข้าใจเอกสาร
+### Comprensión de documentos
 
-ความเข้าใจเอกสารช่วยให้ส่งเอกสารเป็นอินพุตแบบมัลติโมดัลได้โดยตรง
-เอเจนต์จะวิเคราะห์เอกสารที่ให้ไว้และทำการวิจัยโดยอิงตามเนื้อหาของเอกสาร
+La comprensión de documentos permite pasar documentos directamente como entrada multimodal.
+El agente analiza los documentos proporcionados y realiza investigaciones basadas en su contenido.
 
 ### Python
 
@@ -2094,39 +2077,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## การจัดการงานที่ใช้เวลานาน
+## Cómo controlar tareas de larga duración
 
-Deep Research เป็นกระบวนการหลายขั้นตอนที่เกี่ยวข้องกับการวางแผน การค้นหา การอ่าน
-และการเขียน โดยปกติแล้ววงจรนี้จะเกินขีดจำกัดการหมดเวลามาตรฐานของ
-การเรียก API แบบซิงโครนัส
+Deep Research es un proceso de varios pasos que incluye planificación, búsqueda, lectura y escritura. Por lo general, este ciclo supera los límites de tiempo de espera estándar de las llamadas a la API síncronas.
 
-ตัวแทนต้องใช้ `background=True` API จะแสดงผลออบเจ็กต์ partial
-`Interaction` ทันที คุณใช้พร็อพเพอร์ตี้ `id` เพื่อดึงข้อมูล
-การโต้ตอบสำหรับการทำโพลได้ สถานะการโต้ตอบจะเปลี่ยนจาก
-`in_progress` เป็น `completed` หรือ `failed` ดูคำแนะนำแบบละเอียดเกี่ยวกับการจัดการงานเบื้องหลังได้ที่[การดำเนินการเบื้องหลัง](https://ai.google.dev/gemini-api/docs/background-execution?hl=th)
+Se requieren agentes para usar `background=True`. La API devuelve un objeto `Interaction` parcial de inmediato. Puedes usar la propiedad `id` para recuperar una interacción para la votación. El estado de interacción pasará de `in_progress` a `completed` o `failed`. Para obtener una guía completa sobre la administración de tareas en segundo plano, consulta [Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
-### สตรีมมิง
+### Transmisión
 
-Deep Research รองรับการสตรีมเพื่อรับข้อมูลอัปเดตแบบเรียลไทม์เกี่ยวกับความคืบหน้าในการวิจัย
-ซึ่งรวมถึงสรุปความคิด ผลลัพธ์ที่เป็นข้อความ และรูปภาพที่สร้างขึ้น
-คุณต้องตั้งค่า `stream=True` และ `background=True`
+Deep Research admite la transmisión para recibir actualizaciones en tiempo real sobre el progreso de la investigación, incluidos resúmenes de pensamientos, resultados de texto e imágenes generadas.
+Debes configurar `stream=True` y `background=True`.
 
-หากต้องการรับขั้นตอนการให้เหตุผลขั้นกลาง (ความคิด) และข้อมูลอัปเดตความคืบหน้า
-คุณต้องเปิดใช้**สรุปความคิด**โดยตั้งค่า `thinking_summaries` เป็น
-`"auto"` ใน `agent_config` หากไม่มีข้อมูลนี้ สตรีมอาจให้เฉพาะ
-ผลลัพธ์สุดท้าย
+Para recibir pasos de razonamiento intermedios (pensamientos) y actualizaciones de progreso, debes habilitar los **resúmenes de pensamiento** configurando `thinking_summaries` en `"auto"` en `agent_config`. Sin esto, es posible que la transmisión solo proporcione los resultados finales.
 
-#### ประเภทเหตุการณ์สตรีม
+#### Tipos de eventos de transmisión
 
-| ประเภทของกิจกรรม | ประเภทเดลต้า | คำอธิบาย |
+| Tipo de evento | Tipo de delta | Descripción |
 | --- | --- | --- |
-| `step.delta` | `thought` | ขั้นตอนการให้เหตุผลระดับกลางจาก Agent |
-| `step.delta` | `text` | ส่วนหนึ่งของเอาต์พุตข้อความสุดท้าย |
-| `step.delta` | `image` | รูปภาพที่สร้างขึ้น (เข้ารหัส Base64) |
+| `step.delta` | `thought` | Es un paso de razonamiento intermedio del agente. |
+| `step.delta` | `text` | Es parte del texto final. |
+| `step.delta` | `image` | Imagen generada (codificada en base64). |
 
-ตัวอย่างต่อไปนี้จะเริ่มงานการวิจัยและประมวลผลสตรีมด้วย
-การเชื่อมต่อใหม่โดยอัตโนมัติ โดยจะติดตาม `interaction_id` และ `last_event_id` เพื่อให้หากการเชื่อมต่อขาดหายไป (เช่น หลังจากหมดเวลา 600 วินาที) ก็จะสามารถ
-ดำเนินการต่อจากจุดที่ค้างไว้ได้
+En el siguiente ejemplo, se inicia una tarea de investigación y se procesa la transmisión con reconexión automática. Realiza un seguimiento de `interaction_id` y `last_event_id` para que, si se interrumpe la conexión (por ejemplo, después del tiempo de espera de 600 segundos), pueda reanudarse desde donde se interrumpió.
 
 ### Python
 
@@ -2446,11 +2418,9 @@ curl -X GET "https://generativelanguage.googleapis.com/v1beta/interactions/INTER
 -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## คำถามติดตามผลและการโต้ตอบ
+## Preguntas y conversaciones de seguimiento
 
-คุณสนทนาต่อได้หลังจากที่ตัวแทนส่งรายงานสุดท้ายกลับมาโดยใช้`previous_interaction_id` ซึ่งช่วยให้คุณขอคำชี้แจง
-สรุป หรือขยายความในส่วนที่เฉพาะเจาะจงของงานวิจัยได้โดยไม่ต้อง
-เริ่มงานทั้งหมดใหม่
+Puedes continuar la conversación después de que el agente devuelva el informe final con `previous_interaction_id`. Esto te permite pedir aclaraciones, resúmenes o explicaciones sobre secciones específicas de la investigación sin tener que reiniciar toda la tarea.
 
 ### Python
 
@@ -2556,29 +2526,28 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## กรณีที่ควรใช้เอเจนต์ Gemini Deep Research
+## Cuándo usar el agente de Deep Research de Gemini
 
-Deep Research เป็น**เอเจนต์** ไม่ใช่แค่โมเดล เหมาะที่สุดสำหรับภาระงาน
-ที่ต้องใช้แนวทาง "นักวิเคราะห์ในกล่อง" มากกว่าแชทที่มีเวลาในการตอบสนองต่ำ
+Deep Research es un **agente**, no solo un modelo. Es más adecuado para cargas de trabajo que requieren un enfoque de "analista en una caja" en lugar de un chat de baja latencia.
 
-| ฟีเจอร์ | โมเดล Gemini มาตรฐาน | เอเจนต์ Deep Research ของ Gemini |
+| Función | Modelos de Gemini estándar | Agente Deep Research de Gemini |
 | --- | --- | --- |
-| **เวลาในการตอบสนอง** | วินาที | นาที (ไม่พร้อมกัน/เบื้องหลัง) |
-| **กระบวนการ** | สร้าง -> เอาต์พุต | วางแผน -> ค้นหา -> อ่าน -> ทำซ้ำ -> ผลลัพธ์ |
-| **เอาต์พุต** | ข้อความสนทนา โค้ด สรุปสั้นๆ | รายงานโดยละเอียด การวิเคราะห์แบบยาว ตารางเปรียบเทียบ |
-| **เหมาะสำหรับ** | แชทบ็อต การแยกข้อมูล การเขียนเชิงสร้างสรรค์ | การวิเคราะห์ตลาด การสอบทานธุรกิจ การทบทวนวรรณกรรม การวางตำแหน่งทางการแข่งขัน |
+| **Latencia** | Segundos | Minutos (asíncrono/en segundo plano) |
+| **Proceso** | Generar -> Resultado | Planificar > Buscar > Leer > Iterar > Generar |
+| **Resultado** | Texto conversacional, código y resúmenes breves | Informes detallados, análisis de formato largo y tablas comparativas |
+| **Ideal para** | Chatbots, extracción, escritura creativa | Análisis de mercado, diligencia debida, revisiones bibliográficas y análisis de la competencia |
 
-## การกำหนดค่า Agent
+## Configuración del agente
 
-Deep Research ใช้พารามิเตอร์ `agent_config` เพื่อควบคุมลักษณะการทำงาน
-ส่งเป็นพจนานุกรมที่มีช่องต่อไปนี้
+La Investigación profunda usa el parámetro `agent_config` para controlar el comportamiento.
+Pásalo como un diccionario con los siguientes campos:
 
-| ช่อง | ประเภท | ค่าเริ่มต้น | คำอธิบาย |
+| Campo | Tipo | Predeterminado | Descripción |
 | --- | --- | --- | --- |
-| `type` | `string` | ต้องระบุ | ต้องเป็น `"deep-research"` |
-| `thinking_summaries` | `string` | `"none"` | ตั้งค่าเป็น `"auto"` เพื่อรับขั้นตอนการให้เหตุผลระดับกลางระหว่างการสตรีม ตั้งค่าเป็น `"none"` เพื่อปิดใช้ |
-| `visualization` | `string` | `"auto"` | ตั้งค่าเป็น `"auto"` เพื่อเปิดใช้แผนภูมิและรูปภาพที่ Agent สร้างขึ้น ตั้งค่าเป็น `"off"` เพื่อปิดใช้ |
-| `collaborative_planning` | `boolean` | `false` | ตั้งค่าเป็น `true` เพื่อเปิดใช้การตรวจสอบแผนแบบการสนทนาไปมาก่อนเริ่มการวิจัย |
+| `type` | `string` | Obligatorio | Debe ser `"deep-research"`. |
+| `thinking_summaries` | `string` | `"none"` | Se establece en `"auto"` para recibir pasos de razonamiento intermedios durante la transmisión. Configúralo en `"none"` para inhabilitarlo. |
+| `visualization` | `string` | `"auto"` | Se establece en `"auto"` para habilitar los gráficos y las imágenes generados por el agente. Configúralo en `"off"` para inhabilitarlo. |
+| `collaborative_planning` | `boolean` | `false` | Se establece en `true` para habilitar la revisión del plan de varios turnos antes de que comience la investigación. |
 
 ### Python
 
@@ -2707,72 +2676,57 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## ความพร้อมให้บริการและการกำหนดราคา
+## Disponibilidad y precios
 
-คุณเข้าถึงเอเจนต์ Gemini Deep Research ได้โดยใช้ Interactions API ใน Google AI Studio และ Gemini API
+Puedes acceder al agente de Deep Research de Gemini con la API de Interactions en Google AI Studio y la API de Gemini.
 
-ราคาเป็นไปตาม[รูปแบบการจ่ายเมื่อใช้](https://ai.google.dev/gemini-api/docs/pricing?hl=th#pricing-for-agents)โดยอิงตามโมเดล Gemini พื้นฐานและเครื่องมือเฉพาะที่เอเจนต์ใช้ งาน Deep Research เป็นเวิร์กโฟลว์แบบเอเจนต์ ซึ่งต่างจากคำขอแชทมาตรฐานที่คำขอหนึ่งๆ จะนำไปสู่เอาต์พุตเดียว คำขอเดียวจะทริกเกอร์ลูปการวางแผน การค้นหา การอ่าน และการให้เหตุผลแบบอัตโนมัติ
+Los precios siguen un [modelo de pago por uso](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#pricing-for-agents) basado en los modelos subyacentes de Gemini y las herramientas específicas que utiliza el agente. A diferencia de las solicitudes de chat estándar, en las que una solicitud genera una respuesta, una tarea de Deep Research es un flujo de trabajo de agentes. Una sola solicitud activa un bucle autónomo de planificación, búsqueda, lectura y razonamiento.
 
-### ค่าใช้จ่ายโดยประมาณ
+### Costos estimados
 
-ค่าใช้จ่ายจะแตกต่างกันไปตามความลึกของการวิจัยที่จำเป็น Agent จะพิจารณาโดยอัตโนมัติว่าต้องอ่านและค้นหามากน้อยเพียงใดเพื่อตอบพรอมต์ของคุณ
+Los costos varían según la profundidad de la investigación requerida. El agente determina de forma autónoma cuánta lectura y búsqueda son necesarias para responder tu instrucción.
 
-- **Deep Research** (`deep-research-preview-04-2026`): สำหรับคำค้นหาทั่วไปที่ต้องมีการวิเคราะห์ปานกลาง เอเจนต์อาจใช้คำค้นหาประมาณ 80 รายการ โทเค็นอินพุตประมาณ 250,000 รายการ (แคชประมาณ 50-70%) และโทเค็นเอาต์พุตประมาณ 60,000 รายการ
-  - **ยอดรวมโดยประมาณ:** ประมาณ$1.00 - $3.00 ต่องาน
-- **Deep Research Max** (`deep-research-max-preview-04-2026`): สำหรับการวิเคราะห์ภาพรวมการแข่งขันอย่างละเอียดหรือการสอบทานธุรกิจอย่างครอบคลุม Agent อาจใช้คำค้นหาได้สูงสุดประมาณ 160 รายการ, โทเค็นอินพุตประมาณ 900, 000 รายการ (แคชไว้ประมาณ 50-70%) และโทเค็นเอาต์พุตประมาณ 80,000 รายการ
-  - **ยอดรวมโดยประมาณ:** ประมาณ$3.00 - $7.00 ต่องาน
+- **Deep Research** (`deep-research-preview-04-2026`): Para una búsqueda típica que requiere un análisis moderado, el agente puede usar alrededor de 80 búsquedas, 250,000 tokens de entrada (entre el 50 y el 70% en caché) y 60,000 tokens de salida.
+  - **Total estimado:** De USD 1.00 a USD 3.00 por tarea
+- **Deep Research Max** (`deep-research-max-preview-04-2026`): Para un análisis profundo del panorama competitivo o una diligencia debida exhaustiva, el agente puede usar hasta 160 búsquedas, 900,000 tokens de entrada (entre el 50 y el 70% en caché) y 80,000 tokens de salida.
+  - **Total estimado:** De USD 3.00 a USD 7.00 por tarea
 
-## ข้อควรพิจารณาด้านความปลอดภัย
+## Consideraciones de seguridad
 
-การให้สิทธิ์ตัวแทนเข้าถึงเว็บและไฟล์ส่วนตัวของคุณต้องพิจารณาความเสี่ยงด้านความปลอดภัยอย่างรอบคอบ
+Darle acceso a un agente a la Web y a tus archivos privados requiere una consideración cuidadosa de los riesgos de seguridad.
 
-- **การแทรกพรอมต์โดยใช้ไฟล์:** เอเจนต์จะอ่านเนื้อหาของไฟล์ที่คุณระบุ
-  ตรวจสอบว่าเอกสารที่อัปโหลด (PDF, ไฟล์ข้อความ) มาจากแหล่งที่มาที่เชื่อถือได้ ไฟล์ที่เป็นอันตรายอาจมีข้อความที่ถูกซ่อนซึ่งออกแบบมาเพื่อบิดเบือนเอาต์พุตของเอเจนต์
-- **ความเสี่ยงของเนื้อหาบนเว็บ:** เอเจนต์จะค้นหาเว็บสาธารณะ แม้ว่าเราจะใช้
-  ตัวกรองความปลอดภัยที่มีประสิทธิภาพ แต่ก็มีความเสี่ยงที่เอเจนต์อาจพบและ
-  ประมวลผลหน้าเว็บที่เป็นอันตราย เราขอแนะนำให้คุณตรวจสอบ`citations`ที่ระบุ
-  ในการตอบกลับเพื่อยืนยันแหล่งที่มา
-- **การขโมยข้อมูล:** โปรดระมัดระวังเมื่อขอให้เอเจนต์สรุปข้อมูลภายในที่ละเอียดอ่อน
-  หากคุณอนุญาตให้เอเจนต์ท่องเว็บด้วย
+- **Inyección de instrucciones con archivos:** El agente lee el contenido de los archivos que proporcionas. Asegúrate de que los documentos subidos (PDFs, archivos de texto) provengan de fuentes confiables. Un archivo malicioso podría contener texto oculto diseñado para manipular la salida del agente.
+- **Riesgos del contenido web:** El agente busca en la Web pública. Si bien implementamos filtros de seguridad sólidos, existe el riesgo de que el agente encuentre y procese páginas web maliciosas. Te recomendamos que revises el `citations` que se proporciona en la respuesta para verificar las fuentes.
+- **Exfiltración:** Ten cuidado cuando le pidas al agente que resuma datos internos sensibles si también le permites navegar por la Web.
 
-## แนวทางปฏิบัติแนะนำ
+## Prácticas recomendadas
 
-- **แจ้งให้ทราบถึงข้อมูลที่ไม่รู้จัก:** สั่งให้ตัวแทนทราบวิธีจัดการข้อมูลที่ขาดหายไป
-  เช่น เพิ่ม *"หากไม่มีตัวเลขที่เฉพาะเจาะจงสำหรับปี 2025
-  ให้ระบุอย่างชัดเจนว่าเป็นค่าประมาณหรือไม่มีข้อมูล
-  แทนการประมาณ"* ลงในพรอมต์
-- **ระบุบริบท:** สร้างพื้นฐานการค้นคว้าของเอเจนต์โดยระบุข้อมูลพื้นฐานหรือข้อจำกัดในพรอมต์อินพุตโดยตรง
-- **ใช้การวางแผนร่วมกัน:** สำหรับคำค้นหาที่ซับซ้อน ให้เปิดใช้การวางแผนร่วมกันเพื่อตรวจสอบและปรับแต่งแผนการค้นคว้าข้อมูลก่อนดำเนินการ
-- **อินพุตหลายรูปแบบ:** ตัวแทน Deep Research รองรับอินพุตหลายรูปแบบ
-  โปรดใช้อย่างระมัดระวัง เนื่องจากจะเพิ่มต้นทุนและเสี่ยงต่อการล้นหน้าต่างบริบท
+- **Pregunta sobre lo desconocido:** Indica al agente cómo manejar los datos faltantes.
+  Por ejemplo, agrega *"Si no hay cifras específicas disponibles para el 2025, indica explícitamente que son proyecciones o que no están disponibles en lugar de hacer una estimación"* a tu instrucción.
+- **Proporciona contexto:** Fundamenta la investigación del agente proporcionando información de antecedentes o restricciones directamente en la instrucción de entrada.
+- **Usa la planificación colaborativa:** Para las preguntas complejas, habilita la planificación colaborativa para revisar y definir mejor el plan de investigación antes de la ejecución.
+- **Entradas multimodales:** El agente de Deep Research admite entradas multimodales.
+  Úsala con precaución, ya que aumenta los costos y el riesgo de desbordamiento de la ventana de contexto.
 
-## ข้อจำกัด
+## Limitaciones
 
-- **เครื่องมือที่กำหนดเอง:** ปัจจุบันคุณไม่สามารถระบุเครื่องมือการเรียกใช้ฟังก์ชันที่กำหนดเองได้
-  แต่ใช้เซิร์ฟเวอร์ MCP (Model Context Protocol) ระยะไกลกับ Agent Deep Research ได้
-- **เอาต์พุตที่มีโครงสร้าง:** ปัจจุบันเอเจนต์ Deep Research
-  ยังไม่รองรับเอาต์พุตที่มีโครงสร้าง
-- **เวลาค้นคว้าสูงสุด:** เอเจนต์ Deep Research มีเวลาค้นคว้าสูงสุด 60 นาที
-  งานส่วนใหญ่จะเสร็จสมบูรณ์ภายใน 20 นาที
-- **ข้อกำหนดของร้านค้า:** การดำเนินการของ Agent โดยใช้ `background=True` ต้องมี
-  `store=True`
-- **Google Search:** [Google
-  Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th) จะเปิดใช้โดย
-  ค่าเริ่มต้นและ[ข้อจำกัด
-  เฉพาะ](https://ai.google.dev/gemini-api/terms?hl=th#use-restrictions2)
-  จะมีผลกับผลลัพธ์ที่อิงตามข้อมูล
+- **Herramientas personalizadas:** Actualmente, no puedes proporcionar herramientas personalizadas de Llamadas a funciones, pero puedes usar servidores remotos de MCP (Protocolo de contexto del modelo) con el agente de Deep Research.
+- **Resultados estructurados:** Actualmente, el agente de Deep Research no admite resultados estructurados.
+- **Tiempo máximo de investigación:** El agente de Deep Research tiene un tiempo máximo de investigación de 60 minutos. La mayoría de las tareas deberían completarse en un plazo de 20 minutos.
+- **Requisito de la tienda:** La ejecución del agente con `background=True` requiere `store=True`.
+- **Búsqueda de Google:** La [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) está habilitada de forma predeterminada y se aplican [restricciones específicas](https://ai.google.dev/gemini-api/terms?hl=es-419#use-restrictions2) a los resultados fundamentados.
 
-## ขั้นตอนถัดไป
+## ¿Qué sigue?
 
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับ [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th)
-- ดูวิธีใช้ข้อมูลของคุณเองโดยใช้เครื่องมือ[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)
+- Obtén más información sobre la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419).
+- Obtén información para usar tus propios datos con la herramienta [Búsqueda de archivos](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419).
 
-ส่งความคิดเห็น
+Enviar comentarios
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-อัปเดตล่าสุด 2026-10-13 UTC
+Última actualización: 2026-10-13 (UTC)
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+¿Quieres brindar más información?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-13 UTC"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-13 (UTC)"],[],[]]

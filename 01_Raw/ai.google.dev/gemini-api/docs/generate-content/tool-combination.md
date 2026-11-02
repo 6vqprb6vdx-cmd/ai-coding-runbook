@@ -1,30 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=id
-fetched_at: 2026-10-26T05:45:05.504420+00:00
-title: "Menggabungkan alat bawaan dan panggilan fungsi \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/tool-combination?hl=hi
+fetched_at: 2026-11-02T07:02:52.206530+00:00
+title: "\u092a\u0939\u0932\u0947 \u0938\u0947 \u092e\u094c\u091c\u0942\u0926 \u091f\u0942\u0932 \u0914\u0930 \u092b\u093c\u0902\u0915\u094d\u0936\u0928 \u0915\u0949\u0932\u093f\u0902\u0917 \u0915\u094b \u090f\u0915 \u0938\u093e\u0925 \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0928\u093e \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
+- [होम पेज](https://ai.google.dev/?hl=hi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=hi)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-# Menggabungkan alat bawaan dan panggilan fungsi
+# पहले से मौजूद टूल और फ़ंक्शन कॉलिंग को एक साथ इस्तेमाल करना
 
-Gemini memungkinkan kombinasi [alat bawaan](https://ai.google.dev/gemini-api/docs/tools?hl=id), seperti
-`google_search`, dan [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)
-(juga dikenal sebagai *alat kustom*) dalam satu generasi dengan mempertahankan dan mengekspos
-histori konteks panggilan alat. Kombinasi alat bawaan dan kustom memungkinkan Agentic Workflows yang kompleks, yang memungkinkan model, misalnya, mendasarkan diri pada data web secara real time sebelum memanggil logika bisnis spesifik Anda.
+Gemini, एक ही जनरेशन में [बिल्ट-इन टूल](https://ai.google.dev/gemini-api/docs/tools?hl=hi), जैसे कि `google_search`, और [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) (इसे *कस्टम टूल* भी कहा जाता है) को एक साथ इस्तेमाल करने की सुविधा देता है. इसके लिए, यह टूल कॉल के कॉन्टेक्स्ट के इतिहास को सुरक्षित रखता है और उसे दिखाता है. पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन से, एजेंट के जटिल वर्कफ़्लो को मैनेज किया जा सकता है. उदाहरण के लिए, मॉडल आपके कारोबार के खास नियम को कॉल करने से पहले, रीयल-टाइम वेब डेटा में खुद को ग्राउंड कर सकता है.
 
-Berikut adalah contoh yang mengaktifkan kombinasi alat bawaan dan kustom dengan `google_search` dan fungsi kustom `getWeather`:
+यहां एक उदाहरण दिया गया है, जिसमें `google_search` और कस्टम फ़ंक्शन `getWeather` की मदद से, बिल्ट-इन और कस्टम टूल के कॉम्बिनेशन को चालू किया गया है:
 
 ### Python
 
@@ -202,7 +199,7 @@ async function run() {
 run();
 ```
 
-### Go
+### ऐप पर जाएं
 
 ```
 package main
@@ -305,7 +302,7 @@ func main() {
 }
 ```
 
-### REST
+### आराम का समय
 
 ```
 # Turn 1: Initial request with Google Search (built-in) and getWeather (custom) tools enabled
@@ -391,63 +388,56 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Cara kerjanya
+## यह कैसे काम करता है
 
-Model Gemini 3 menggunakan *sirkulasi konteks alat* untuk mengaktifkan kombinasi alat bawaan dan kustom. Sirkulasi konteks alat memungkinkan konteks alat bawaan dipertahankan dan diekspos, serta dibagikan dengan alat kustom dalam panggilan yang sama dari waktu ke waktu.
+Gemini 3 मॉडल, *टूल के कॉन्टेक्स्ट को शेयर करने की सुविधा* का इस्तेमाल करते हैं. इससे, पहले से मौजूद और कस्टम टूल के कॉम्बिनेशन को चालू किया जा सकता है. टूल कॉन्टेक्स्ट सर्कुलेशन की मदद से, पहले से मौजूद टूल के कॉन्टेक्स्ट को सुरक्षित रखा जा सकता है और उसे एक्सपोज़ किया जा सकता है. साथ ही, उसे एक ही कॉल में कस्टम टूल के साथ शेयर किया जा सकता है.
 
-### Mengaktifkan kombinasi alat
+### टूल कॉम्बिनेशन की सुविधा चालू करना
 
-- Anda harus menetapkan tanda `include_server_side_tool_invocations` ke `true` untuk mengaktifkan sirkulasi konteks alat.
-- Sertakan [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=id#function-declarations), beserta
-  alat bawaan yang ingin Anda gunakan, untuk memicu perilaku kombinasi.
-  - Jika Anda tidak menyertakan `function_declarations`, sirkulasi konteks alat akan tetap bertindak pada alat bawaan yang disertakan, selama tanda ditetapkan.
+- टूल के कॉन्टेक्स्ट को शेयर करने की सुविधा चालू करने के लिए, आपको `include_server_side_tool_invocations` फ़्लैग को `true` पर सेट करना होगा.
+- कॉम्बिनेशन के व्यवहार को ट्रिगर करने के लिए, [`function_declarations`](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi#function-declarations) के साथ-साथ उन बिल्ट-इन टूल को शामिल करें जिनका आपको इस्तेमाल करना है.
+  - अगर आपने `function_declarations` को शामिल नहीं किया है, तो भी टूल के कॉन्टेक्स्ट का सर्कुलेशन, पहले से मौजूद टूल पर काम करेगा. ऐसा तब तक होगा, जब तक फ़्लैग सेट रहेगा.
 
-### Bagian yang ditampilkan API
+### एपीआई से मिलने वाले पार्ट
 
-Dalam satu respons, API menampilkan bagian `toolCall` dan `toolResponse` untuk panggilan alat bawaan. Untuk panggilan fungsi (alat kustom), API menampilkan bagian panggilan `functionCall`, yang akan diisi pengguna dengan bagian `functionResponse` pada giliran berikutnya.
+एपीआई, पहले से मौजूद टूल कॉल के लिए, एक ही जवाब में `toolCall` और `toolResponse` हिस्से दिखाता है. फ़ंक्शन (कस्टम टूल) कॉल के लिए, एपीआई `functionCall` कॉल पार्ट दिखाता है. इसके बाद, उपयोगकर्ता अगली बारी में `functionResponse` पार्ट उपलब्ध कराता है.
 
-- `toolCall` dan `toolResponse`: API menampilkan bagian ini untuk mempertahankan konteks alat yang dijalankan di sisi server, dan hasil eksekusinya, untuk giliran berikutnya.
-- `functionCall` dan `functionResponse`: API mengirimkan panggilan fungsi kepada
-  pengguna untuk diisi, dan pengguna mengirimkan hasilnya kembali dalam
-  respons fungsi (bagian ini standar untuk semua [panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API, bukan hanya untuk fitur kombinasi alat
-  ).
-- ([Hanya alat](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)eksekusi kode)
-  `executableCode` dan `codeExecutionResult`:
-  Saat menggunakan alat Eksekusi Kode, bukan `functionCall` dan
-  `functionResponse`, API menampilkan `executableCode` (kode yang dibuat
-  oleh model yang dimaksudkan untuk dieksekusi) dan `codeExecutionResult` (hasil
-  kode yang dapat dieksekusi).
+- `toolCall` और `toolResponse`: एपीआई इन हिस्सों को इसलिए दिखाता है, ताकि यह पता चल सके कि सर्वर साइड पर कौनसे टूल इस्तेमाल किए गए हैं. साथ ही, अगले टर्न के लिए उनके नतीजे भी दिखाए जा सकें.
+- `functionCall` और `functionResponse`: एपीआई, फ़ंक्शन कॉल को उपयोगकर्ता को भेजता है, ताकि वह इसे भर सके. इसके बाद, उपयोगकर्ता फ़ंक्शन के जवाब में नतीजे वापस भेजता है. ये हिस्से, Gemini API में [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) के सभी स्टैंडर्ड फ़ंक्शन के लिए होते हैं. ये टूल कॉम्बिनेशन की सुविधा के लिए खास नहीं होते.
+- (सिर्फ़ [कोड एक्ज़ीक्यूशन](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi) टूल के लिए)
+  `executableCode` और `codeExecutionResult`:
+  कोड एक्ज़ीक्यूशन टूल का इस्तेमाल करने पर, एपीआई `functionCall` और `functionResponse` के बजाय, `executableCode` (मॉडल से जनरेट किया गया कोड, जिसे एक्ज़ीक्यूट किया जाना है) और `codeExecutionResult` (एक्ज़ीक्यूटेबल कोड का नतीजा) दिखाता है.
 
-Anda harus menampilkan semua bagian, termasuk semua [kolom](#critical-fields) yang ada di dalamnya, kembali ke model pada setiap giliran untuk mempertahankan konteks dan mengaktifkan kombinasi alat.
+आपको हर बारी में, सभी हिस्सों को मॉडल में वापस भेजना होगा. इनमें वे सभी [फ़ील्ड](#critical-fields) भी शामिल हैं जिनमें वे मौजूद हैं. इससे कॉन्टेक्स्ट को बनाए रखने और टूल के कॉम्बिनेशन को चालू करने में मदद मिलती है.
 
-### Kolom penting di bagian yang ditampilkan
+### वापस किए गए पुर्ज़ों में मौजूद अहम फ़ील्ड
 
-Bagian [tertentu yang ditampilkan oleh API](#api-returns-parts) akan menyertakan kolom `id`,
-`tool_type`, dan `thought_signature`. Kolom ini sangat penting untuk mempertahankan konteks alat (dan oleh karena itu sangat penting untuk kombinasi alat); Anda harus menampilkan semua bagian *seperti yang diberikan dalam respons* di permintaan berikutnya.
+[एपीआई से मिले कुछ हिस्सों](#api-returns-parts) में `id`, `tool_type`, और `thought_signature` फ़ील्ड शामिल होंगे. इन फ़ील्ड से, टूल के कॉन्टेक्स्ट को बनाए रखने में मदद मिलती है. इसलिए, ये फ़ील्ड टूल के कॉम्बिनेशन के लिए भी ज़रूरी हैं. आपको अपने अगले अनुरोधों में, *जवाब में दिए गए* सभी हिस्सों को वापस भेजना होगा.
 
-- `id`: ID unik yang memetakan panggilan ke responsnya. `id` \*\***ditetapkan pada
-  semua respons panggilan fungsi**\*\* , terlepas dari sirkulasi konteks alat.
-  Anda *harus* memberikan `id` yang sama dalam respons fungsi yang diberikan API dalam panggilan fungsi. Alat bawaan secara otomatis membagikan `id` antara panggilan alat dan respons alat.
-  - Ditemukan di semua bagian terkait alat: `toolCall`, `toolResponse`, `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
-- `tool_type`: Mengidentifikasi alat spesifik yang digunakan; alat bawaan literal atau (misalnya `URL_CONTEXT`) atau nama fungsi (misalnya `getWeather`).
-  - Ditemukan di bagian `toolCall` dan `toolResponse`.
-- `thought_signature`: Konteks terenkripsi sebenarnya yang disematkan di **setiap bagian yang ditampilkan oleh API**. Konteks tidak dapat direkonstruksi tanpa tanda pikiran; jika Anda tidak menampilkan tanda pikiran untuk semua bagian di setiap giliran, model akan menampilkan error.
-  - Ditemukan di *semua* bagian.
+- `id`: एक यूनीक आइडेंटिफ़ायर, जो किसी कॉल को उसके जवाब से मैप करता है. `id` को **सभी फ़ंक्शन कॉल के जवाबों पर सेट किया जाता है**. इससे कोई फ़र्क़ नहीं पड़ता कि टूल के कॉन्टेक्स्ट को सर्कुलेट किया गया है या नहीं.
+  आपको फ़ंक्शन के रिस्पॉन्स में वही `id` देना *होगा* जो एपीआई, फ़ंक्शन कॉल में देता है. पहले से मौजूद टूल, टूल कॉल और टूल रिस्पॉन्स के बीच `id` को अपने-आप शेयर करते हैं.
+  - टूल से जुड़े सभी हिस्सों में मौजूद है: `toolCall`, `toolResponse`,
+    `functionCall`, `functionResponse`, `executableCode`, `codeExecutionResult`
+- `tool_type`: इससे इस्तेमाल किए जा रहे टूल की पहचान होती है. यह बिल्ट-इन टूल (जैसे, `URL_CONTEXT`) या फ़ंक्शन (जैसे, `getWeather`) का नाम होता है.
+  - `toolCall` और `toolResponse` सेक्शन में मौजूद है.
+- `thought_signature`: यह एन्क्रिप्ट (सुरक्षित) किया गया कॉन्टेक्स्ट है. इसे **एपीआई से मिले हर हिस्से** में एम्बेड किया जाता है. थॉट सिग्नेचर के बिना कॉन्टेक्स्ट को फिर से नहीं बनाया जा सकता. अगर हर टर्न में सभी हिस्सों के लिए थॉट सिग्नेचर नहीं दिए जाते हैं, तो मॉडल में गड़बड़ी होगी.
+  - यह *सभी* हिस्सों में मौजूद है.
 
-### Data khusus alat
+### टूल के हिसाब से डेटा
 
-Beberapa alat bawaan menampilkan argumen data yang terlihat oleh pengguna yang khusus untuk jenis alat.
+पहले से मौजूद कुछ टूल, उपयोगकर्ता को दिखने वाले डेटा आर्ग्युमेंट दिखाते हैं. ये आर्ग्युमेंट, टूल के टाइप के हिसाब से होते हैं.
 
-| Alat | Argumen panggilan alat yang terlihat oleh pengguna (jika ada) | Respons alat yang terlihat oleh pengguna (jika ada) |
+| टूल | उपयोगकर्ता को दिखने वाले टूल कॉल आर्ग्युमेंट (अगर कोई है) | उपयोगकर्ता को दिखने वाला टूल का जवाब (अगर कोई है) |
 | --- | --- | --- |
 | **GOOGLE\_SEARCH** | `queries` | `search_suggestions` |
 | **GOOGLE\_MAPS** | `queries` | `places` `google_maps_widget_context_token` |
-| **URL\_CONTEXT** | `urls` URL yang akan dijelajahi | `url_metadata` `retrieved_url`: URL yang dijelajahi `url_retrieval_status`: Status penjelajahan |
-| **FILE\_SEARCH** | Tidak ada | Tidak ada |
+| **URL\_CONTEXT** | `urls` ब्राउज़ किए जाने वाले यूआरएल | `url_metadata` `retrieved_url`: ब्राउज़ किए गए यूआरएल `url_retrieval_status`: ब्राउज़ करने की स्थिति |
+| **FILE\_SEARCH** | कोई नहीं | कोई नहीं |
 
-## Contoh struktur permintaan kombinasi alat
+## टूल के कॉम्बिनेशन के अनुरोध के स्ट्रक्चर का उदाहरण
 
-Struktur permintaan berikut menunjukkan struktur permintaan perintah: "What is the northernmost city in the United States? What's the weather like there today?". Struktur ini menggabungkan tiga alat: alat Gemini bawaan `google_search` dan `code_execution`, serta fungsi kustom `get_weather`.
+नीचे दिए गए अनुरोध के स्ट्रक्चर में, प्रॉम्प्ट के अनुरोध का स्ट्रक्चर दिखाया गया है: "अमेरिका का सबसे उत्तरी शहर कौनसा है? आज वहां मौसम कैसा है?". इसमें तीन टूल शामिल हैं: Gemini के बिल्ट-इन टूल `google_search`
+और `code_execution`, और कस्टम फ़ंक्शन `get_weather`.
 
 ```
 {
@@ -516,52 +506,49 @@ Struktur permintaan berikut menunjukkan struktur permintaan perintah: "What is t
 }
 ```
 
-## Token dan harga
+## टोकन और कीमत
 
-Perhatikan bahwa bagian `toolCall` dan `toolResponse` dalam permintaan dihitung ke dalam `prompt_token_count`. Karena langkah alat perantara ini kini terlihat dan ditampilkan kepada Anda, langkah ini merupakan bagian dari histori percakapan. Hal ini hanya berlaku untuk
-kasus untuk *permintaan*, bukan *respons*.
+ध्यान दें कि अनुरोधों में `toolCall` और `toolResponse` हिस्सों को `prompt_token_count` में गिना जाता है. टूल के इस्तेमाल से जुड़े ये इंटरमीडिएट चरण अब आपको दिखते हैं और आपको वापस भेजे जाते हैं. इसलिए, ये बातचीत के इतिहास का हिस्सा होते हैं. यह सिर्फ़ *अनुरोधों* के लिए है, *जवाबों* के लिए नहीं.
 
-Alat Google Penelusuran adalah pengecualian untuk aturan ini. Google Penelusuran sudah
-menerapkan model harga sendiri di tingkat kueri, sehingga token tidak
-dikenai biaya dua kali (lihat halaman [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id)).
+Google Search टूल पर यह नियम लागू नहीं होता. Google Search, क्वेरी के लेवल पर पहले से ही अपना प्राइसिंग मॉडल लागू करता है. इसलिए, टोकन के लिए दो बार शुल्क नहीं लिया जाता. [कीमत](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) पेज देखें.
 
-Baca halaman [Token](https://ai.google.dev/gemini-api/docs/tokens?hl=id) untuk mengetahui informasi selengkapnya.
+ज़्यादा जानकारी के लिए, [टोकन](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) पेज पढ़ें.
 
-## Batasan
+## सीमाएं
 
-- Default ke mode `VALIDATED` (mode `AUTO` tidak didukung) saat tanda `include_server_side_tool_invocations` diaktifkan
-- Alat bawaan seperti `google_search` mengandalkan informasi lokasi dan waktu saat ini, jadi jika `system_instruction` atau `function_declaration.description` Anda memiliki informasi lokasi dan waktu yang bertentangan, fitur kombinasi alat mungkin tidak berfungsi dengan baik.
+- `include_server_side_tool_invocations` फ़्लैग चालू होने पर, डिफ़ॉल्ट रूप से `VALIDATED` मोड चालू होता है. `AUTO` मोड मौजूद नहीं है
+- `google_search` जैसे पहले से मौजूद टूल, जगह और मौजूदा समय की जानकारी पर निर्भर करते हैं. इसलिए, अगर आपके `system_instruction` या `function_declaration.description` में जगह और समय की जानकारी अलग-अलग है, तो टूल कॉम्बिनेशन की सुविधा ठीक से काम नहीं करेगी.
 
-## Alat yang didukung
+## इस्तेमाल किए जा सकने वाले टूल
 
-Sirkulasi konteks alat standar berlaku untuk alat sisi server (bawaan).
-Eksekusi Kode juga merupakan alat sisi server, tetapi memiliki solusi bawaan sendiri untuk sirkulasi konteks. Penggunaan Komputer dan panggilan fungsi adalah alat sisi klien, dan juga memiliki solusi bawaan untuk sirkulasi konteks.
+सर्वर-साइड (पहले से मौजूद) टूल पर, टूल के कॉन्टेक्स्ट को सर्कुलेट करने की स्टैंडर्ड प्रोसेस लागू होती है.
+कोड एक्ज़ीक्यूशन भी सर्वर-साइड टूल है. हालांकि, इसमें कॉन्टेक्स्ट सर्कुलेशन के लिए पहले से मौजूद समाधान होता है. कंप्यूटर का इस्तेमाल और फ़ंक्शन कॉलिंग, क्लाइंट-साइड टूल हैं. इनमें कॉन्टेक्स्ट को शेयर करने के लिए, पहले से मौजूद समाधान भी होते हैं.
 
-| Alat | Sisi eksekusi | Dukungan Sirkulasi Konteks |
+| टूल | एक्ज़ीक्यूशन साइड | कॉन्टेक्स्ट सर्कुलेशन सपोर्ट |
 | --- | --- | --- |
-| [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id) | Sisi server | Didukung |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id) | Sisi server | Didukung |
-| [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id) | Sisi server | Didukung |
-| [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id) | Sisi server | Didukung |
-| [Eksekusi Kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id) | Sisi server | Didukung (bawaan, menggunakan bagian `executableCode` dan `codeExecutionResult`) |
-| [Penggunaan Komputer](https://ai.google.dev/gemini-api/docs/computer-use?hl=id) | Sisi klien | Didukung (bawaan, menggunakan bagian `functionCall` dan `functionResponse`) |
-| [Fungsi kustom](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) | Sisi klien | Didukung (bawaan, menggunakan bagian `functionCall` dan `functionResponse`) |
+| [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi) | सर्वर-साइड | समर्थित |
+| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi) | सर्वर-साइड | समर्थित |
+| [यूआरएल का कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi) | सर्वर-साइड | समर्थित |
+| [फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi) | सर्वर-साइड | समर्थित |
+| [कोड चलाने की सुविधा](https://ai.google.dev/gemini-api/docs/code-execution?hl=hi) | सर्वर-साइड | समर्थित (पहले से मौजूद, `executableCode` और `codeExecutionResult` का इस्तेमाल करता है) |
+| [कंप्यूटर का इस्तेमाल](https://ai.google.dev/gemini-api/docs/computer-use?hl=hi) | क्लाइंट-साइड | समर्थित (पहले से मौजूद, `functionCall` और `functionResponse` का इस्तेमाल करता है) |
+| [कस्टम फ़ंक्शन](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) | क्लाइंट-साइड | इस्तेमाल किया जा सकता है (पहले से मौजूद है, `functionCall` और `functionResponse` हिस्सों का इस्तेमाल करता है) |
 
-## Langkah berikutnya
+## आगे क्या करना है
 
-- Pelajari lebih lanjut [Panggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id) di Gemini API.
-- Jelajahi alat yang didukung:
-  - [Google Penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)
-  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)
-  - [Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)
-  - [Penelusuran File](https://ai.google.dev/gemini-api/docs/file-search?hl=id)
+- Gemini API में [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi) के बारे में ज़्यादा जानें.
+- इन टूल के साथ काम करने की सुविधा उपलब्ध है:
+  - [Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=hi)
+  - [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=hi)
+  - [यूआरएल का कॉन्टेक्स्ट](https://ai.google.dev/gemini-api/docs/url-context?hl=hi)
+  - [फ़ाइल खोजना](https://ai.google.dev/gemini-api/docs/file-search?hl=hi)
 
-Kirim masukan
+सुझाव भेजें
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
 
-Terakhir diperbarui pada 2026-10-13 UTC.
+आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया.
 
-Ada masukan untuk kami?
+क्या आपको हमें और कुछ बताना है?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-13 UTC."],[],[]]
+[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-13 (UTC) को अपडेट किया गया."],[],[]]

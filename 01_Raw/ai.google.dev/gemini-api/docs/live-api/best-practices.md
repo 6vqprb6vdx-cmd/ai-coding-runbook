@@ -1,93 +1,93 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=hi
-fetched_at: 2026-10-26T05:55:43.789219+00:00
-title: "Live API \u0907\u0938\u094d\u0924\u0947\u092e\u093e\u0932 \u0915\u0930\u0928\u0947 \u0915\u0947 \u0938\u092c\u0938\u0947 \u0938\u0939\u0940 \u0924\u0930\u0940\u0915\u0947 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/best-practices?hl=es-419
+fetched_at: 2026-11-02T07:27:39.582934+00:00
+title: "Pr\u00e1cticas recomendadas para la API de Live \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-सुझाव भेजें
+Enviar comentarios
 
-# Live API इस्तेमाल करने के सबसे सही तरीके
+# Prácticas recomendadas para la API de Live
 
-इस गाइड में, Live API का बेहतर तरीके से इस्तेमाल करने के लिए सबसे सही तरीके बताए गए हैं.
-लाइव एपीआई के बारे में खास जानकारी और इस्तेमाल के सामान्य उदाहरणों के लिए सैंपल कोड देखने के लिए, [लाइव एपीआई का इस्तेमाल शुरू करना](https://ai.google.dev/gemini-api/docs/live?hl=hi) पेज पर जाएं.
+En esta guía, se describen las prácticas recomendadas que puedes seguir para optimizar el uso de la API de Live.
+Consulta la página [Comienza a usar la API de Live](https://ai.google.dev/gemini-api/docs/live?hl=es-419) para obtener una descripción general y un código de muestra para casos de uso comunes.
 
-## सिस्टम के लिए सटीक निर्देश डिज़ाइन करना
+## Diseña instrucciones claras del sistema
 
-Live API से बेहतर परफ़ॉर्मेंस पाने के लिए, हमारा सुझाव है कि आपके पास सिस्टम के निर्देशों (एसआई) का एक ऐसा सेट होना चाहिए जिसमें एजेंट की पर्सोना, बातचीत के नियम, और सुरक्षा से जुड़े दिशा-निर्देश साफ़ तौर पर बताए गए हों. यह जानकारी इसी क्रम में होनी चाहिए.
+Para obtener el mejor rendimiento de la API en vivo, te recomendamos que tengas un conjunto claramente definido de instrucciones del sistema (SI) que definan el arquetipo del agente, las reglas de conversación y los parámetros de protección, en este orden.
 
-सबसे अच्छे नतीजों के लिए, हर एजेंट को अलग-अलग एसआई में बांटें.
+Para obtener los mejores resultados, separa cada agente en un SI distinto.
 
-1. **एजेंट का पर्सोना तय करें:** एजेंट के नाम, भूमिका, और उसकी किसी भी पसंदीदा विशेषता के बारे में जानकारी दें. अगर आपको लहजे के बारे में बताना है, तो आउटपुट के लिए अपनी पसंदीदा भाषा के बारे में भी ज़रूर बताएं. जैसे, अंग्रेज़ी बोलने वाले व्यक्ति के लिए ब्रिटिश लहजा.
-2. **बातचीत से जुड़े नियम तय करें:** इन नियमों को उस क्रम में रखें जिसमें आपको मॉडल से इनका पालन करवाना है. बातचीत के एक बार के एलिमेंट और बातचीत के लूप के बीच अंतर करना. उदाहरण के लिए:
+1. **Especifica el arquetipo del agente:** Proporciona detalles sobre el nombre, el rol y las características preferidas del agente. Si quieres especificar el acento, asegúrate de indicar también el idioma de salida preferido (por ejemplo, un acento británico para un hablante de inglés).
+2. **Especifica las reglas de conversación:** Coloca estas reglas en el orden en que esperas que el modelo las siga. Delimita los elementos únicos de la conversación y los bucles conversacionales. Por ejemplo:
 
-   - **एक बार इस्तेमाल किया जाने वाला एलिमेंट:** ग्राहक की जानकारी एक बार इकट्ठा करना. जैसे, नाम, जगह, लॉयल्टी कार्ड नंबर.
-   - **बातचीत का लूप:** उपयोगकर्ता, सुझावों, कीमत, सामान लौटाने, और डिलीवरी के बारे में बातचीत कर सकता है. साथ ही, वह एक विषय से दूसरे विषय पर जा सकता है. मॉडल को बताएं कि जब तक उपयोगकर्ता चाहे, तब तक वह इस बातचीत को जारी रख सकता है.
-3. **किसी फ़्लो में टूल कॉल को अलग-अलग वाक्यों में बताएं:** उदाहरण के लिए, अगर किसी ग्राहक की जानकारी इकट्ठा करने के लिए, एक बार में `get_user_info` फ़ंक्शन को लागू करना ज़रूरी है, तो आपको यह कहना चाहिए: *आपका पहला चरण, उपयोगकर्ता की जानकारी इकट्ठा करना है. सबसे पहले, उपयोगकर्ता से उसका नाम, जगह की जानकारी, और लॉयल्टी कार्ड नंबर माँगो. इसके बाद, `get_user_info` को इस जानकारी के साथ शुरू करें.*
-4. **ज़रूरी दिशा-निर्देश जोड़ें:** बातचीत से जुड़े ऐसे सामान्य दिशा-निर्देश दें जिन्हें आपको मॉडल से नहीं करवाना है. अगर *x* होता है, तो आपको मॉडल से *y* करवाना है. इसके लिए, बेझिझक होकर उदाहरण दें. अगर आपको अब भी सटीक जवाब नहीं मिल रहा है, तो मॉडल को सटीक जवाब देने के लिए, *साफ़ तौर पर* शब्द का इस्तेमाल करें.
+   - **Elemento único:** Recopila los detalles de un cliente una sola vez (como el nombre, la ubicación o el número de tarjeta de lealtad).
+   - **Bucle conversacional:** El usuario puede hablar sobre recomendaciones, precios, devoluciones y entregas, y puede querer pasar de un tema a otro. Permite que el modelo sepa que puede participar en este ciclo conversacional durante el tiempo que el usuario desee.
+3. **Especifica las llamadas a herramientas dentro de un flujo en oraciones distintas:** Por ejemplo, si un paso único para recopilar los detalles de un cliente requiere invocar una función `get_user_info`, puedes decir: *El primer paso es recopilar la información del usuario. Primero, pídele al usuario que proporcione su nombre, ubicación y número de tarjeta de lealtad. Luego, invoca `get_user_info` con estos detalles.*
+4. **Agrega las medidas de protección necesarias:** Proporciona las medidas de protección generales de conversación que no quieres que realice el modelo. No dudes en proporcionar ejemplos específicos de si sucede *x*, quieres que el modelo haga *y*. Si aún no obtienes el nivel de precisión deseado, usa la palabra *inequívocamente* para guiar al modelo y que sea preciso.
 
-## टूल के बारे में सटीक जानकारी देना
+## Define herramientas con precisión
 
-Live API के साथ टूल इस्तेमाल करते समय, टूल की परिभाषाओं के बारे में साफ़ तौर पर जानकारी दें.
-Gemini को यह ज़रूर बताएँ कि टूल कॉल को किन शर्तों के तहत शुरू किया जाना चाहिए. ज़्यादा जानकारी के लिए, उदाहरण वाले सेक्शन में [टूल की परिभाषाएं](#tool-definitions-example) देखें.
+Cuando uses herramientas con la API en vivo, sé específico en las definiciones de las herramientas.
+Asegúrate de indicarle a Gemini en qué condiciones se debe invocar una llamada a la herramienta. Para obtener más detalles, consulta [Definiciones de herramientas](#tool-definitions-example) en la sección de ejemplos.
 
-## असरदार प्रॉम्प्ट लिखना
+## Crea instrucciones eficaces
 
-- **साफ़ तौर पर प्रॉम्प्ट दें:** उदाहरण देकर बताएं कि मॉडल को प्रॉम्प्ट में क्या करना चाहिए और क्या नहीं. साथ ही, कोशिश करें कि एक समय में एक पर्सोना या भूमिका के लिए सिर्फ़ एक प्रॉम्प्ट दिया जाए. ज़्यादा लंबे और कई पेजों वाले प्रॉम्प्ट के बजाय, प्रॉम्प्ट चेनिंग का इस्तेमाल करें. यह मॉडल, एक फ़ंक्शन कॉल वाले टास्क पर सबसे अच्छा परफ़ॉर्म करता है.
-- **शुरुआती निर्देश और जानकारी दें:** Live API को जवाब देने से पहले, उपयोगकर्ता के इनपुट की ज़रूरत होती है. अगर आपको Live API से बातचीत शुरू करानी है, तो प्रॉम्प्ट में उपयोगकर्ता का अभिवादन करने या बातचीत शुरू करने के लिए कहें. उपयोगकर्ता के बारे में जानकारी शामिल करें, ताकि Live API उस बधाई को उनकी पसंद के मुताबिक बना सके.
+- **Usa instrucciones claras:** Proporciona ejemplos de lo que los modelos deben y no deben hacer en las instrucciones, y trata de limitar las instrucciones a una por arquetipo o rol a la vez. En lugar de usar instrucciones largas de varias páginas, considera usar el encadenamiento de instrucciones. El modelo funciona mejor en tareas con llamadas a función únicas.
+- **Proporciona comandos e información iniciales:** La API de Live espera la entrada del usuario antes de responder. Para que la API de Live inicie la conversación, incluye una instrucción que le pida que salude al usuario o que comience la conversación. Incluye información sobre el usuario para que la API de Live personalice el saludo.
 
-## भाषा तय करना
+## Especifica el idioma
 
-लाइव एपीआई के ऑडियो मॉडल, उपयोगकर्ता की बोली जाने वाली भाषा का अपने-आप पता लगा लेते हैं और उसके हिसाब से काम करते हैं. इसके लिए, भाषा के कोड की ज़रूरत नहीं होती.
+Los modelos de audio de la API de Live detectan y se adaptan automáticamente al idioma hablado del usuario sin necesidad de un código de idioma explícito.
 
-अगर आपको मॉडल से किसी खास भाषा में जवाब चाहिए, तो सिस्टम के निर्देशों में यह निर्देश शामिल करें:
+Si quieres que el modelo responda en un idioma específico, incluye una instrucción como parte de las instrucciones del sistema:
 
 ```
 RESPOND IN {OUTPUT_LANGUAGE}. YOU MUST RESPOND UNMISTAKABLY IN {OUTPUT_LANGUAGE}.
 ```
 
-## स्ट्रीमिंग
+## Transmisión
 
-रीयल-टाइम ऑडियो लागू करते समय, इन सबसे सही तरीकों को अपनाएं:
+Cuando implementes audio en tiempo real, sigue estas prácticas recomendadas:
 
-- **चंक का साइज़ और इंतज़ार का समय (लेटेंसी)**: ऑडियो को 20 से 40 मि॰से॰ के चंक में भेजें.
-- **बातचीत में रुकावट आने पर**: जब मॉडल के जवाब देने के दौरान उपयोगकर्ता बोलता है, तो सर्वर `"interrupted": true` के साथ `server_content` मैसेज भेजता है. आपको क्लाइंट-साइड ऑडियो बफ़र को तुरंत हटाना होगा, ताकि एजेंट उपयोगकर्ता के ऊपर न बोलता रहे.
+- **Tamaño del fragmento y latencia**: Envía audio en fragmentos de 20 ms a 40 ms.
+- **Control de interrupciones**: Cuando el usuario habla mientras el modelo responde, el servidor envía un mensaje `server_content` con `"interrupted": true`. Debes descartar de inmediato el búfer de audio del cliente para evitar que el agente siga hablando por encima del usuario.
 
-## पिछली बातचीत से जुड़ा डेटा मैनेज करना
+## Administración del contexto
 
-लंबे सेशन के लिए `ContextWindowCompressionConfig` का इस्तेमाल करें, क्योंकि नेटिव ऑडियो टोकन तेज़ी से इकट्ठा होते हैं (ऑडियो के हर सेकंड के लिए करीब 25 टोकन).
+Usa `ContextWindowCompressionConfig` para sesiones largas, ya que los tokens de audio nativos se acumulan rápidamente (aproximadamente 25 tokens por segundo de audio).
 
-## क्लाइंट बफ़रिंग
+## Almacenamiento en búfer del cliente
 
-इनपुट ऑडियो को भेजने से पहले, उसे ज़्यादा समय तक बफ़र न करें. जैसे, एक सेकंड तक. इंतज़ार का समय कम करने के लिए, छोटे-छोटे हिस्से (20 मि॰से॰ से 100 मि॰से॰) भेजें.
+No almacenes en búfer el audio de entrada de forma significativa (por ejemplo, 1 segundo) antes de enviarlo. Envía fragmentos pequeños (de 20 a 100 ms) para minimizar la latencia.
 
-## फिर से सैंपलिंग करना
+## Reproducción de muestras
 
-पक्का करें कि आपका क्लाइंट ऐप्लिकेशन, ट्रांसमिशन से पहले माइक्रोफ़ोन के इनपुट (अक्सर 44.1 किलोहर्ट्ज़ या 48 किलोहर्ट्ज़) को 16 किलोहर्ट्ज़ पर फिर से सैंपल करे.
+Asegúrate de que tu aplicación cliente vuelva a muestrear la entrada del micrófono (a menudo, 44.1 kHz o 48 kHz) a 16 kHz antes de la transmisión.
 
-## सेशन मैनेजमेंट
+## Administración de las sesiones
 
-सेशन के लाइफ़साइकल को मैनेज करने और उपयोगकर्ताओं को भरोसेमंद अनुभव देने के लिए, इन दिशा-निर्देशों का पालन करें:
+Sigue estos lineamientos para controlar el ciclo de vida de la sesión y garantizar una experiencia del usuario confiable:
 
-- **कॉन्टेक्स्ट विंडो को कंप्रेस करने की सुविधा चालू करें:** ऑडियो टोकन, हर सेकंड में करीब 25 टोकन के हिसाब से इकट्ठा होते हैं. ऑडियो-ओनली सेशन को कंप्रेस किए बिना, सिर्फ़ 15 मिनट तक चलाया जा सकता है. वहीं, ऑडियो-वीडियो सेशन को सिर्फ़ दो मिनट तक चलाया जा सकता है. सेशन की अवधि को अनलिमिटेड करने के लिए, [कॉन्टेक्स्ट विंडो कंप्रेस करने की सुविधा](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=hi#context-window-compression) चालू करें.
-- **सेशन फिर से शुरू करने की सुविधा लागू करें:** सर्वर, WebSocket कनेक्शन को समय-समय पर रीसेट कर सकता है. [सेशन फिर से शुरू करने की सुविधा](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=hi#session-resumption) का इस्तेमाल करके, कॉन्टेक्स्ट को सेव रखते हुए आसानी से फिर से कनेक्ट करें. `SessionResumptionUpdate` मैसेज से मिले, सेशन फिर से शुरू करने के सबसे नए टोकन को सेव करें. साथ ही, फिर से कनेक्ट करते समय इसे हैंडल के तौर पर पास करें. रेज़्युम करने के टोकन, आखिरी सेशन खत्म होने के दो घंटे तक मान्य होते हैं.
-- **GoAway मैसेज मैनेज करना:** सर्वर, कनेक्शन बंद करने से पहले [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=hi#goaway-message) मैसेज भेजता है. इस मैसेज को सुनें और कनेक्शन बंद होने से पहले, `timeLeft` फ़ील्ड का इस्तेमाल करके कनेक्शन को बंद करें या फिर से कनेक्ट करें.
-- **generationComplete सिग्नल मैनेज करें:** [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=hi#generation-complete-message) मैसेज का इस्तेमाल करके यह जानें कि मॉडल ने जवाब जनरेट करना कब पूरा किया, ताकि आपका ऐप्लिकेशन अपने यूज़र इंटरफ़ेस (यूआई) को अपडेट कर सके या अगली कार्रवाई कर सके.
+- **Habilita la compresión de la ventana de contexto:** Los tokens de audio se acumulan a aproximadamente 25 tokens por segundo. Sin compresión, las sesiones solo de audio se limitan a 15 minutos y las sesiones de audio y video, a 2 minutos. Habilita la [compresión de la ventana de contexto](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#context-window-compression) para extender las sesiones a una duración ilimitada.
+- **Implementa la reanudación de la sesión:** Es posible que el servidor restablezca periódicamente la conexión de WebSocket. Usa la [reanudación de sesión](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#session-resumption) para volver a conectarte sin problemas y sin perder el contexto. Conserva el token de reanudación más reciente de los mensajes de `SessionResumptionUpdate` y pásalo como identificador cuando te vuelvas a conectar. Los tokens de reanudación son válidos durante 2 horas después de que finaliza la última sesión.
+- **Controla los mensajes GoAway:** El servidor envía un mensaje [GoAway](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#goaway-message) antes de finalizar una conexión. Escucha este mensaje y usa el campo `timeLeft` para finalizar o restablecer la conexión correctamente antes de que se cierre.
+- **Controla los indicadores de generationComplete:** Usa el mensaje [`generationComplete`](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419#generation-complete-message) para saber cuándo el modelo terminó de generar una respuesta, de modo que tu aplicación pueda actualizar su IU o continuar con la siguiente acción.
 
-लागू करने से जुड़ी जानकारी के लिए, [सेशन मैनेजमेंट](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=hi) देखें.
+Para obtener detalles sobre la implementación, consulta [Administración de sesiones](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=es-419).
 
-## उदाहरण
+## Ejemplos
 
-इस उदाहरण में, करियर कोच के तौर पर मॉडल की परफ़ॉर्मेंस को बेहतर बनाने के लिए, सबसे सही तरीकों और [सिस्टम के निर्देशों को डिज़ाइन करने से जुड़ी गाइडलाइन](#system-instruction-guidelines), दोनों को शामिल किया गया है.
+En este ejemplo, se combinan las prácticas recomendadas y los [lineamientos para el diseño de instrucciones del sistema](#system-instruction-guidelines) para guiar el rendimiento del modelo como asesor profesional.
 
 ```
 **Persona:**
@@ -139,10 +139,10 @@ Remember that your ultimate goal is to create a supportive environment for your
 clients to thrive.
 ```
 
-### टूल की परिभाषाएं
+### Definiciones de herramientas
 
-इस JSON में, करियर कोच के उदाहरण में इस्तेमाल किए गए काम के फ़ंक्शन के बारे में बताया गया है.
-फ़ंक्शन तय करते समय, उनके नाम, ब्यौरे, पैरामीटर, और लागू होने की शर्तें शामिल करें. इससे आपको बेहतर नतीजे मिलेंगे.
+Este JSON define las funciones pertinentes que se llaman en el ejemplo del asesor profesional.
+Para obtener los mejores resultados cuando definas funciones, incluye sus nombres, descripciones, parámetros y condiciones de invocación.
 
 ```
 [
@@ -232,45 +232,45 @@ clients to thrive.
 ]
 ```
 
-## कीमत तय करना और बिलिंग
+## Precios y facturación
 
-Gemini Live API के लिए, टोकन के इस्तेमाल के हिसाब से बिलिंग की जाती है. लाइव एपीआई, WebSocket सेशन को लगातार चालू रखता है. इसलिए, बिलिंग, कॉन्टेक्स्ट विंडो के चालू होने पर आधारित होती है.
+La API de Gemini Live se factura estrictamente según el uso de tokens. Debido a que la API de Live mantiene una sesión de WebSocket persistente, la facturación sigue un modelo compuesto basado en la ventana de contexto activa.
 
-### सेशन कॉन्टेक्स्ट विंडो (बढ़ती लागत)
+### La ventana de contexto de la sesión (costos compuestos)
 
-एपीआई, सेशन कॉन्टेक्स्ट विंडो में मौजूद सभी टोकन के लिए, आपसे हर टर्न के हिसाब से शुल्क लेता है. "टर्न" का मतलब है, उपयोगकर्ता का एक इनपुट और मॉडल का उससे जुड़ा जवाब.
+La API te cobra por turno por todos los tokens presentes en la ventana de contexto de la sesión. Un "turno" se define como una entrada del usuario y la respuesta correspondiente del modelo.
 
-- **एकत्रित करना:** कॉन्टेक्स्ट विंडो में, मौजूदा टर्न के नए टोकन के साथ-साथ पिछले टर्न के सभी टोकन शामिल होते हैं.
-- **फिर से बिलिंग:** पिछले टोकन को फिर से प्रोसेस किया जाता है और हर नए टर्न में उनका हिसाब लगाया जाता है. ऐसा, कॉन्फ़िगर की गई कॉन्टेक्स्ट विंडो के साइज़ तक किया जाता है. सेशन की अवधि बढ़ने पर, हर बातचीत की लागत बढ़ जाती है. ऐसा इसलिए होता है, क्योंकि बातचीत के इतिहास को फिर से प्रोसेस किया जाता है.
+- **Acumulación:** La ventana de contexto incluye tokens nuevos del turno actual y todos los tokens acumulados de los turnos anteriores.
+- **Refacturación:** Los tokens anteriores se vuelven a procesar y se tienen en cuenta en cada turno nuevo, hasta el tamaño de la ventana de contexto configurada. A medida que se alarga una sesión, aumenta el costo por turno porque se vuelve a procesar el historial de conversación.
 
-### ऑडियो टोकन और ट्रांसक्रिप्शन
+### Tokens de audio y transcripciones
 
-Live API, मूल रूप से मल्टीमॉडल है. यह बातचीत के इतिहास को रॉ ऑडियो टोकन के तौर पर सेव करता है, ताकि आवाज़ की बारीकियों और टोन को बरकरार रखा जा सके.
+La API de Live es multimodal de forma nativa. Conserva el historial de conversación como tokens de audio sin procesar para preservar el tono y los matices acústicos.
 
-- **ऑडियो बिलिंग:** एपीआई, हर बार ऑडियो इनपुट के स्टैंडर्ड रेट के हिसाब से, आपके नेटिव ऑडियो टोकन के लिए बिल करता है.
-- **ट्रांसक्रिप्शन का सरचार्ज:** ऑडियो को टेक्स्ट में बदलने की सुविधा चालू होने पर (`inputAudioTranscription` या `outputAudioTranscription`), एपीआई, ट्रांसक्रिप्शन के लिए जनरेट किए गए सभी टेक्स्ट टोकन के लिए शुल्क लेता है. यह शुल्क, ऑडियो टोकन के स्टैंडर्ड शुल्क के अलावा, टेक्स्ट टोकन के आउटपुट रेट पर लिया जाता है.
+- **Facturación de audio:** La API te factura los tokens de audio nativos acumulados a la tarifa estándar de entrada de audio en cada turno.
+- **Cargo adicional por transcripción:** Cuando se habilita la transcripción de audio a texto (`inputAudioTranscription` o `outputAudioTranscription`), la API cobra todos los tokens de texto generados para la transcripción a la tarifa de salida de tokens de texto, además de los costos estándar de los tokens de audio.
 
-### कॉन्टेक्स्ट की सीमाओं की मदद से लागत मैनेज करना
+### Administra los costos con límites de contexto
 
-लंबे सेशन में लागत बढ़ने से रोकने के लिए, `contextWindowCompression` का इस्तेमाल करके कॉन्टेक्स्ट विंडो का साइज़ कॉन्फ़िगर करें.
+Para evitar el crecimiento ilimitado de los costos en sesiones largas, configura el tamaño de la ventana de contexto con `contextWindowCompression`.
 
-कंप्रेशन ट्रिगर (जैसे, 25,000 टोकन) और स्लाइडिंग विंडो (जैसे, 8,000 टोकन) सेट करने पर, थ्रेशोल्ड तक पहुंचने के बाद एपीआई पुराने टोकन अपने-आप हटा देता है. इसके बाद, एपीआई सिर्फ़ सेव की गई हिस्ट्री और नए टोकन के लिए बिल भेजता है.
+Si estableces un activador de compresión (p.ej., 25,000 tokens) y una ventana deslizante (p.ej., 8,000 tokens), la API expulsa automáticamente los tokens más antiguos una vez que se alcanza el umbral. Luego, la API factura los turnos posteriores solo por el historial retenido y los tokens nuevos.
 
-### आवाज़ सुनकर ज़रूरत के मुताबिक जवाब देने की सुविधा
+### Audio proactivo
 
-'प्रोऐक्टिव ऑडियो' सुविधा चालू होने पर, Live API के सुनने के दौरान, एपीआई इनपुट टोकन के लिए शुल्क लेता है. साथ ही, एपीआई के जवाब देने पर ही आउटपुट टोकन के लिए शुल्क लेता है.
+Cuando se habilita el audio proactivo, la API cobra los tokens de entrada durante todo el tiempo que la API de Live está escuchando y cobra los tokens de salida solo cuando la API responde.
 
-- **Gemini 3.8 के लिए नोट:** `gemini-3.8-live` और `gemini-3.8-live-extended-thinking` में, प्रोएक्टिव ऑडियो हमेशा के लिए चालू रहता है.
-- **Gemini 3.1 के लिए ध्यान दें:** `gemini-3.1-flash-live-preview` में, अपने-आप ऑडियो शुरू होने की सुविधा काम नहीं करती. इस मॉडल के लिए, एपीआई सिर्फ़ ऑडियो के लिए बिल भेजता है. ऐसा तब होता है, जब इनपुट को स्ट्रीम किया जा रहा हो.
+- **Nota para Gemini 3.8:** El audio proactivo está habilitado de forma permanente en `gemini-3.8-live` y `gemini-3.8-live-extended-thinking`.
+- **Nota para Gemini 3.1:** El audio proactivo no es compatible con `gemini-3.1-flash-live-preview`. En este modelo, la API solo factura el audio cuando transmites activamente la entrada.
 
-शुल्क के बारे में ज़्यादा जानकारी के लिए, [Gemini API के शुल्क वाला पेज](https://ai.google.dev/gemini-api/docs/pricing?hl=hi) देखें.
+Para obtener información detallada sobre los precios, consulta la [página de precios de la API de Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419).
 
-सुझाव भेजें
+Enviar comentarios
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-आखिरी बार 2026-09-17 (UTC) को अपडेट किया गया.
+Última actualización: 2026-09-17 (UTC)
 
-क्या आपको हमें और कुछ बताना है?
+¿Quieres brindar más información?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-17 (UTC) को अपडेट किया गया."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-17 (UTC)"],[],[]]

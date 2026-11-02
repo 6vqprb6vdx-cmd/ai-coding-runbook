@@ -1,37 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=hi
-fetched_at: 2026-10-26T05:49:38.006396+00:00
-title: "Gemini \u0915\u0947 \u092c\u093e\u0930\u0947 \u092e\u0947\u0902 \u0938\u094b\u091a \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/thinking?hl=vi
+fetched_at: 2026-11-02T07:23:30.268197+00:00
+title: "T\u01b0 duy c\u1ee7a Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-# Gemini के बारे में सोच
+# Tư duy của Gemini
 
-[Gemini मॉडल](https://ai.google.dev/gemini-api/docs/models?hl=hi), "सोचने की प्रोसेस" का इस्तेमाल करते हैं. इससे, तर्क करने और कई चरणों में योजना बनाने की उनकी क्षमता में काफ़ी सुधार होता है. इस वजह से, वे कोडिंग, ऐडवांस मैथ, और डेटा विश्लेषण जैसे मुश्किल कामों को बेहतर तरीके से कर पाते हैं.
+[Các mô hình Gemini](https://ai.google.dev/gemini-api/docs/models?hl=vi) sử dụng một"quá trình tư duy" giúp cải thiện đáng kể khả năng suy luận và lập kế hoạch nhiều bước, giúp các mô hình này hoạt động hiệu quả cao đối với các tác vụ phức tạp như lập trình, toán học nâng cao và phân tích dữ liệu.
 
-सूझ-बूझ वाले मॉडल का इस्तेमाल करने पर, Gemini जवाब देने से पहले अंदरूनी तौर पर विश्लेषण करता है. Interactions API, इस गहराई से विश्लेषण को `thought` चरणों के ज़रिए दिखाता है. ये ऐसे चरण होते हैं जो `steps` ऐरे में, फ़ंक्शन कॉल, उपयोगकर्ता के इनपुट या मॉडल आउटपुट के साथ-साथ समय के हिसाब से दिखते हैं.
+Khi bạn sử dụng mô hình tư duy, Gemini sẽ suy luận nội bộ trước khi phản hồi. API Tương tác sẽ hiển thị quá trình suy luận này thông qua các bước `thought`, các bước riêng biệt xuất hiện theo trình tự thời gian cùng với lệnh gọi hàm, dữ liệu đầu vào của người dùng hoặc dữ liệu đầu ra của mô hình trong mảng `steps`.
 
-हर थॉट स्टेप में दो फ़ील्ड होते हैं:
+Mỗi bước tư duy chứa 2 trường:
 
-| फ़ील्ड | ज़रूरी है | ब्यौरा |
+| Trường | Bắt buộc | Mô tả |
 | --- | --- | --- |
-| `signature` | ✅ हां | मॉडल के इंटरनल रीज़निंग स्टेट को एन्क्रिप्ट करके दिखाया गया है. यह हमेशा मौजूद रहता है, भले ही मॉडल कम से कम रीज़निंग करे. |
-| `summary` | ❌ नहीं | कॉन्टेंट (टेक्स्ट और/या इमेज) का कलेक्शन, जिसमें वजह बताई गई हो. [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=hi) कॉन्फ़िगरेशन के आधार पर, यह खाली हो सकता है. इससे यह भी तय होता है कि मॉडल ने ज़रूरी तर्क दिए हैं या नहीं. इसके अलावा, कॉन्टेंट टाइप के आधार पर भी यह खाली हो सकता है. उदाहरण के लिए, इमेज लेटेंट में टेक्स्ट की खास जानकारी नहीं हो सकती. |
+| `signature` | ✅ Có | Một bản trình bày được mã hoá về trạng thái suy luận nội bộ của mô hình. Luôn xuất hiện, ngay cả khi mô hình thực hiện quá trình suy luận tối thiểu. |
+| `summary` | ❌ Không | Một mảng nội dung (văn bản và/hoặc hình ảnh) tóm tắt quá trình suy luận. Có thể trống tuỳ thuộc vào cấu hình [`thinking_summaries`](https://ai.google.dev/api/interactions-api?hl=vi), liệu mô hình có thực hiện đủ quá trình suy luận hay không hoặc loại nội dung (ví dụ: hình ảnh tiềm ẩn có thể không có bản tóm tắt bằng văn bản). |
 
-## सूझ-बूझ वाले मॉडल के साथ इंटरैक्शन
+## Tương tác bằng tính năng tư duy
 
-सोचने वाले मॉडल के साथ इंटरैक्शन शुरू करने का तरीका, किसी अन्य इंटरैक्शन अनुरोध की तरह ही होता है. `model` फ़ील्ड में, [रीज़निंग की सुविधा वाले मॉडल](#thinking-levels) में से किसी एक को चुनें:
+Việc bắt đầu tương tác với mô hình tư duy cũng tương tự như mọi yêu cầu tương tác khác. Hãy chỉ định một trong các [mô hình có hỗ trợ tư duy](#thinking-levels) trong trường `model`:
 
 ### Python
 
@@ -87,7 +87,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -125,7 +125,7 @@ func main() {
 }
 ```
 
-### आराम का समय
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -137,10 +137,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## सूझ-बूझ से बनाई गई खास जानकारी
+## Bản tóm tắt ý tưởng
 
-सोच-विचार की खास जानकारी से, मॉडल के तर्क करने की अंदरूनी प्रोसेस के बारे में अहम जानकारी मिलती है.
-डिफ़ॉल्ट रूप से, सिर्फ़ फ़ाइनल आउटपुट दिखता है. `thinking_summaries` की मदद से, जवाब के बारे में जानकारी देने वाली सुविधा चालू की जा सकती है:
+Bản tóm tắt ý tưởng cung cấp thông tin chi tiết về quá trình suy luận nội bộ của mô hình.
+Theo mặc định, chỉ có dữ liệu đầu ra cuối cùng được trả về. Bạn có thể bật bản tóm tắt ý tưởng bằng `thinking_summaries`:
 
 ### Python
 
@@ -260,7 +260,7 @@ for (Step step : interaction.steps().orElse(Collections.emptyList())) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -301,7 +301,7 @@ func main() {
 }
 ```
 
-### आराम का समय
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -316,23 +316,23 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-इन मामलों में, किसी थॉट ब्लॉक में **सिर्फ़ हस्ताक्षर हो सकता है और कोई खास जानकारी नहीं**:
+Khối ý tưởng có thể **chỉ chứa chữ ký mà không có bản tóm tắt** trong các trường hợp sau:
 
-- आसान अनुरोध, जिनमें मॉडल ने खास जानकारी जनरेट करने के लिए, ज़रूरत के मुताबिक तर्क नहीं दिया
-- `thinking_summaries: "none"`, जहां खास जानकारी देने की सुविधा को साफ़ तौर पर बंद किया गया है
-- ऐसा हो सकता है कि कुछ खास तरह के कॉन्टेंट, जैसे कि इमेज के लिए टेक्स्ट वाली खास जानकारी उपलब्ध न हो
+- Các yêu cầu đơn giản, trong đó mô hình không suy luận đủ để tạo bản tóm tắt
+- `thinking_summaries: "none"`, trong đó bản tóm tắt bị tắt rõ ràng
+- Một số loại nội dung ý tưởng nhất định, chẳng hạn như hình ảnh, có thể không có bản tóm tắt bằng văn bản
 
-आपके कोड को हमेशा उन थॉट ब्लॉक को मैनेज करना चाहिए जिनमें `summary` खाली है या मौजूद नहीं है.
+Mã của bạn phải luôn xử lý các khối ý tưởng trong đó `summary` trống hoặc không có.
 
-## रीज़निंग के साथ स्ट्रीमिंग
+## Truyền trực tuyến bằng tính năng tư duy
 
-जनरेट करने के दौरान, सोच की खास जानकारी को धीरे-धीरे पाने के लिए स्ट्रीमिंग का इस्तेमाल करें.
-Server-Sent Events (SSE) का इस्तेमाल करके, थॉट ब्लॉक डिलीवर किए जाते हैं. इनमें दो अलग-अलग डेल्टा टाइप होते हैं:
+Sử dụng tính năng truyền trực tuyến để nhận bản tóm tắt ý tưởng tăng dần trong quá trình tạo.
+Các khối ý tưởng được phân phối bằng Sự kiện được gửi bởi máy chủ (SSE) với 2 loại delta riêng biệt:
 
-| डेल्टा टाइप | इसमें शामिल है | भेजे जाने का समय |
+| Loại delta | Chứa | Thời điểm gửi |
 | --- | --- | --- |
-| `thought_summary` | टेक्स्ट या इमेज की खास जानकारी वाला कॉन्टेंट | इंक्रीमेंटल समरी के साथ एक या उससे ज़्यादा डेल्टा |
-| `thought_signature` | क्रिप्टोग्राफ़िक हस्ताक्षर | `step.stop` से पहले का आखिरी डेल्टा |
+| `thought_summary` | Nội dung tóm tắt bằng văn bản hoặc hình ảnh | Một hoặc nhiều delta có bản tóm tắt tăng dần |
+| `thought_signature` | Chữ ký mật mã | delta cuối cùng trước `step.stop` |
 
 ### Python
 
@@ -492,7 +492,7 @@ try (EventStream<InteractionSSEStreamEvent> stream = response.events()) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -544,7 +544,7 @@ func main() {
 }
 ```
 
-### आराम का समय
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -561,7 +561,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-स्ट्रीमिंग रिस्पॉन्स में, Server-Sent Events (SSE) का इस्तेमाल किया जाता है. इसमें चरण और इवेंट शामिल होते हैं. उदाहरण के लिए:
+Phản hồi truyền trực tuyến sử dụng Sự kiện được gửi bởi máy chủ (SSE) và bao gồm các bước và sự kiện, ví dụ:
 
 ```
 event: interaction.created
@@ -592,24 +592,24 @@ event: done
 data: [DONE]
 ```
 
-## सोच-विचार करने की प्रोसेस को कंट्रोल करना
+## Kiểm soát tính năng tư duy
 
-Gemini मॉडल, डिफ़ॉल्ट रूप से डाइनैमिक तरीके से सोचते हैं. ये अनुरोध की जटिलता के आधार पर, रीज़निंग की क्षमता को अपने-आप अडजस्ट कर लेते हैं. `thinking_level` पैरामीटर का इस्तेमाल करके, इस व्यवहार को कंट्रोल किया जा सकता है.
+Theo mặc định, các mô hình Gemini tham gia vào quá trình tư duy linh hoạt, tự động điều chỉnh mức độ nỗ lực suy luận dựa trên độ phức tạp của yêu cầu. Bạn có thể kiểm soát hành vi này bằng tham số `thinking_level`.
 
-| मॉडल | सोच-विचार करके जवाब देने का डिफ़ॉल्ट लेवल | इन लेवल पर काम करता है |
+| Mô hình | Tư duy mặc định | Các cấp độ được hỗ trợ |
 | --- | --- | --- |
-| gemini-4-argon | चालू है (मीडियम) | कम, मध्यम, ज़्यादा |
-| gemini-3.8-flash | चालू है (मीडियम) | कम, सामान्य, ज़्यादा |
-| gemini-3.6-flash | चालू है (मीडियम) | बहुत कम, कम, मीडियम, ज़्यादा |
-| gemini-3.5-flash-lite | चालू है (मिनिमल) | बहुत कम, कम, मीडियम, ज़्यादा |
-| gemini-3.1-pro-preview | चालू है (ज़्यादा) | कम, सामान्य, ज़्यादा |
-| gemini-3.1-flash-lite-image | चालू है (कम से कम) | कम, ज़्यादा |
-| gemini-3-flash-preview | चालू है (ज़्यादा) | बहुत कम, कम, सामान्य, ज़्यादा |
-| gemini-3-pro-preview | चालू है (ज़्यादा) | कम, ज़्यादा |
-| gemini-2.5-pro | चालू | कम, मध्यम, ज़्यादा |
-| gemini-2.5-flash | चालू | कम, सामान्य, ज़्यादा |
-| gemini-2.5-flash-lite | बंद है | कम, मध्यम, ज़्यादा |
-| gemini-robotics-er-2-preview | चालू है (ज़्यादा) | बहुत कम, कम, सामान्य, ज़्यादा |
+| gemini-4-argon | Bật (trung bình) | thấp, trung bình, cao |
+| gemini-3.8-flash | Bật (trung bình) | thấp, trung bình, cao |
+| gemini-3.6-flash | Bật (trung bình) | tối thiểu, thấp, trung bình, cao |
+| gemini-3.5-flash-lite | Bật (tối thiểu) | tối thiểu, thấp, trung bình, cao |
+| gemini-3.1-pro-preview | Bật (cao) | thấp, trung bình, cao |
+| gemini-3.1-flash-lite-image | Bật (tối thiểu) | tối thiểu, cao |
+| gemini-3-flash-preview | Bật (cao) | tối thiểu, thấp, trung bình, cao |
+| gemini-3-pro-preview | Bật (cao) | thấp, cao |
+| gemini-2.5-pro | Bật | thấp, trung bình, cao |
+| gemini-2.5-flash | Bật | thấp, trung bình, cao |
+| gemini-2.5-flash-lite | Tắt | thấp, trung bình, cao |
+| gemini-robotics-er-2-preview | Bật (cao) | tối thiểu, thấp, trung bình, cao |
 
 ### Python
 
@@ -674,7 +674,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -732,7 +732,7 @@ func main() {
 }
 ```
 
-### आराम का समय
+### REST
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -747,41 +747,45 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### टोकन की सीमाएं और `max_output_tokens`
+### Giới hạn về số lượng token và `max_output_tokens`
 
-[`max_output_tokens`](https://ai.google.dev/api/interactions-api?hl=hi#request-body) जनरेशन पैरामीटर, किसी जवाब में जनरेट किए जा सकने वाले टोकन की ज़्यादा से ज़्यादा संख्या सेट करता है. इसमें थॉट टोकन भी शामिल हैं.
+Tham số tạo [`max_output_tokens`](https://ai.google.dev/api/interactions-api?hl=vi#request-body)
+đặt số lượng token tối đa mà một phản hồi có thể tạo, bao gồm
+cả token tư duy.
 
-सेट किए जाने पर, यह पैरामीटर इंफ़्रास्ट्रक्चर की ओर से लागू किए गए हार्ड कटऑफ़ के तौर पर काम करता है. इससे मॉडल के थिंकिंग बजट (`thinking_level`) को तय करने के तरीके में कोई बदलाव नहीं होता.
+Khi được đặt, tham số này hoạt động như một giới hạn cứng do cơ sở hạ tầng thực thi mà không thay đổi cách mô hình phân bổ ngân sách tư duy (`thinking_level`).
 
-अगर मॉडल, जवाब देने के दौरान इस सीमा तक पहुंच जाता है, तो वह `"incomplete"` स्टेटस के साथ जवाब जनरेट करना बंद कर देता है. साथ ही, छोटा किया गया या खाली आउटपुट दिखाता है. हालाँकि, इस दौरान जनरेट किए गए किसी भी थिंकिंग टोकन के लिए बिलिंग जारी रहती है. जवाबों को छोटा किए बिना लागत या इंतज़ार का समय कम करने के लिए, `max_output_tokens` की वैल्यू को कम करने के बजाय, `thinking_level` (`low` या `medium`) की वैल्यू को कम करें.
+Nếu mô hình đạt đến giới hạn này trong khi suy luận, mô hình sẽ ngừng tạo với trạng thái
+`"incomplete"` và trả về dữ liệu đầu ra bị cắt bớt hoặc trống (trong khi vẫn tính phí cho
+mọi token tư duy được tạo). Để giảm chi phí hoặc độ trễ mà không cắt bớt phản hồi, hãy giảm `thinking_level` (`low` hoặc `medium`) thay vì đặt `max_output_tokens` nhỏ.
 
-Gemini 4 के मॉडल (`gemini-4-argon`) के लिए, कॉन्टेक्स्ट और आउटपुट की इन सीमाओं को ध्यान में रखें:
+Đối với các mô hình Gemini 4 (`gemini-4-argon`), hãy lưu ý đến các giới hạn về ngữ cảnh và dữ liệu đầu ra sau:
 
-- **10 लाख टोकन वाली कॉन्टेक्स्ट विंडो:** इनपुट, सोचने, और आउटपुट के लिए इस्तेमाल किए जाने वाले टोकन, 10 लाख टोकन वाली एक ही कॉन्टेक्स्ट विंडो (`1,048,576` टोकन) शेयर करते हैं. अगर आपके इनपुट टोकन और `max_output_tokens` की संख्या 10,48,576 टोकन से ज़्यादा हो जाती है, तो एपीआई अपने-आप आउटपुट की सीमा को कॉन्टेक्स्ट विंडो में बची हुई जगह (`1,048,576` में से आपके इनपुट टोकन घटाने के बाद बची जगह) तक सीमित कर देता है.
-- **डिफ़ॉल्ट सिंक्रोनस आउटपुट कैप (64K):** जब `background=False` (स्ट्रीमिंग और नॉन-स्ट्रीमिंग, दोनों अनुरोधों के लिए), डिफ़ॉल्ट और ज़्यादा से ज़्यादा `max_output_tokens` कैप `65,536` टोकन होता है. `max_output_tokens > 65536` को `background=False` पर सेट करने से, `400` गड़बड़ी का मैसेज दिखता है.
-- **लॉन्ग डिकोड (ज़्यादा से ज़्यादा 10 लाख टोकन):** Gemini 4 को `65,536` से ज़्यादा टोकन (ज़्यादा से ज़्यादा `1,048,576` टोकन) जनरेट करने और रीज़निंग करने की अनुमति देने के लिए, `background=True` को सेट करें और `max_output_tokens` को `65,536` से ज़्यादा पर कॉन्फ़िगर करें. ज़्यादा जानकारी के लिए, [लॉन्ग डिकोड](https://ai.google.dev/gemini-api/docs/long-decode?hl=hi) देखें.
+- **Cửa sổ ngữ cảnh 1 triệu token dùng chung:** Token đầu vào, token tư duy và token đầu ra dùng chung một cửa sổ ngữ cảnh 1 triệu token (`1,048,576` token). Nếu token đầu vào của bạn cộng với `max_output_tokens` vượt quá 1.048.576 token, API sẽ tự động giới hạn đầu ra ở không gian còn lại trong cửa sổ ngữ cảnh (`1,048,576` trừ token đầu vào của bạn).
+- **Giới hạn đầu ra đồng bộ mặc định (64K):** Khi `background=False` (cho cả yêu cầu truyền trực tuyến và không truyền trực tuyến), giới hạn `max_output_tokens` mặc định và tối đa là `65,536` token. Việc đặt `max_output_tokens > 65536` với `background=False` sẽ trả về lỗi `400`.
+- **Giải mã dài (tối đa 1 triệu token):** Để cho phép Gemini 4 suy luận và tạo vượt quá `65,536` token (tối đa `1,048,576` token), hãy đặt `background=True` và định cấu hình `max_output_tokens` lớn hơn `65,536`. Hãy xem phần [Giải mã dài](https://ai.google.dev/gemini-api/docs/long-decode?hl=vi) để biết thông tin chi tiết.
 
-## सोच के आधार पर हस्ताक्षर
+## Chữ ký tư duy
 
-थॉट सिग्नेचर, मॉडल की इंटरनल रीज़निंग के एन्क्रिप्ट किए गए वर्शन होते हैं. उन्हें बार-बार किए जाने वाले इंटरैक्शन में, जवाब देने के लिए एक ही तर्क का इस्तेमाल करना होता है.
+Chữ ký tư duy là bản trình bày được mã hoá về quá trình suy luận nội bộ của mô hình. Bạn phải có chữ ký tư duy để duy trì tính liên tục của quá trình suy luận trong các lượt tương tác nhiều lượt.
 
-Interactions API की मदद से, थॉट सिग्नेचर को मैनेज करना `generateContent` API के मुकाबले ज़्यादा आसान हो जाता है.
+API Tương tác giúp việc xử lý chữ ký tư duy trở nên đơn giản hơn nhiều so với API `generateContent`.
 
-### स्टेटफ़ुल मोड (सुझाया गया)
+### Chế độ lưu trạng thái (Nên dùng)
 
-डिफ़ॉल्ट रूप से, स्टेटफ़ुल मोड में Interactions API का इस्तेमाल करने पर, सर्वर बातचीत की स्थिति को अपने-आप मैनेज करता है. इसके लिए, आपको `store: true` सेट करना होगा और इसके बाद के टर्न में `previous_interaction_id` पास करना होगा. बातचीत की स्थिति में, सभी थॉट ब्लॉक और सिग्नेचर शामिल होते हैं. इस मोड में, आपको हस्ताक्षर के बारे में कुछ भी करने की ज़रूरत नहीं है. इन्हें पूरी तरह से सर्वर साइड पर मैनेज किया जाता है.
+Theo mặc định, khi bạn sử dụng API Tương tác ở chế độ lưu trạng thái (bằng cách đặt `store: true` và truyền `previous_interaction_id` trong các lượt tiếp theo), máy chủ sẽ tự động quản lý trạng thái cuộc trò chuyện, bao gồm tất cả các khối ý tưởng và chữ ký. Ở chế độ này, bạn không cần làm gì liên quan đến chữ ký. Chúng được xử lý hoàn toàn ở phía máy chủ.
 
-### स्टेटलेस मोड
+### Chế độ không lưu trạng thái
 
-अगर बातचीत की स्थिति को खुद मैनेज किया जा रहा है (स्टेटलेस मोड) और हर अनुरोध में इनपुट और आउटपुट का पूरा इतिहास पास किया जा रहा है, तो:
+Nếu bạn tự quản lý trạng thái cuộc trò chuyện (chế độ không lưu trạng thái) và truyền toàn bộ nhật ký dữ liệu đầu vào và đầu ra trong mỗi yêu cầu:
 
-- आपको सभी `thought` ब्लॉक, ठीक उसी तरह से फिर से भेजने **होंगे** जिस तरह से वे मॉडल से मिले थे.
-- आपको इतिहास से थॉट ब्लॉक **नहीं** हटाने चाहिए या उनमें बदलाव नहीं करना चाहिए, क्योंकि इनमें ऐसे सिग्नेचर होते हैं जिनकी ज़रूरत मॉडल को जवाब देने के लिए होती है.
-- किसी सेशन के दौरान मॉडल स्विच करने पर, आपको पिछले मॉडल के थॉट ब्लॉक फिर से भेजने चाहिए. बैकएंड, साथ काम करने की सुविधा को मैनेज करता है.
+- Bạn **PHẢI** luôn gửi lại tất cả các khối `thought` chính xác như khi nhận được từ mô hình.
+- Bạn **KHÔNG NÊN** xoá hoặc sửa đổi các khối ý tưởng khỏi nhật ký, vì chúng chứa các chữ ký cần thiết để mô hình tiếp tục quá trình suy luận.
+- Khi chuyển đổi mô hình trong một phiên, bạn vẫn nên gửi lại các khối ý tưởng của mô hình trước đó. Phần phụ trợ quản lý khả năng tương thích.
 
-## कीमत
+## Giá
 
-सोचने की सुविधा चालू होने पर, जवाब की कीमत आउटपुट टोकन और सोचने वाले टोकन के योग के बराबर होती है. `total_thought_tokens` फ़ील्ड से, जनरेट किए गए थिंकिंग टोकन की कुल संख्या पाई जा सकती है.
+Khi tính năng tư duy được bật, giá phản hồi là tổng của token đầu ra và token tư duy. Bạn có thể lấy tổng số token tư duy được tạo từ trường `total_thought_tokens`.
 
 ### Python
 
@@ -826,7 +830,7 @@ if (interaction.usage().isPresent()) {
 }
 ```
 
-### ऐप पर जाएं
+### Go
 
 ```
 package main
@@ -883,34 +887,33 @@ func main() {
 }
 ```
 
-सूझ-बूझ वाले मॉडल, फ़ाइनल जवाब की क्वालिटी को बेहतर बनाने के लिए पूरी जानकारी जनरेट करते हैं. इसके बाद, वे [खास जानकारी](#summaries) आउटपुट करते हैं, ताकि जवाब जनरेट करने की प्रोसेस के बारे में अहम जानकारी दी जा सके. कीमत, उन सभी थॉट टोकन के आधार पर तय की जाती है जिन्हें मॉडल को जनरेट करना होता है. भले ही, एपीआई से सिर्फ़ खास जानकारी आउटपुट के तौर पर मिलती हो.
+Các mô hình tư duy tạo ra các ý tưởng đầy đủ để cải thiện chất lượng của phản hồi cuối cùng, sau đó đưa ra [bản tóm tắt](#summaries) để cung cấp thông tin chi tiết về quá trình tư duy. Giá dựa trên các token tư duy đầy đủ mà mô hình cần tạo, mặc dù chỉ có bản tóm tắt được xuất ra từ API.
 
-[टोकन की गिनती](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) गाइड में, टोकन के बारे में ज़्यादा जानें.
+Bạn có thể tìm hiểu thêm về token trong hướng dẫn [Đếm token](https://ai.google.dev/gemini-api/docs/tokens?hl=vi).
 
-## सबसे सही तरीके
+## Các phương pháp hay nhất
 
-इन दिशा-निर्देशों का पालन करके, थिंकिंग मॉडल का असरदार तरीके से इस्तेमाल करें.
+Sử dụng các mô hình tư duy một cách hiệu quả bằng cách làm theo các nguyên tắc sau.
 
-- **रीज़निंग की समीक्षा करना**: गड़बड़ियों को समझने और प्रॉम्प्ट को बेहतर बनाने के लिए, सोच-विचार की खास जानकारी का विश्लेषण करें.
-- **सोचने के लिए बजट कंट्रोल करना**: टोकन बचाने के लिए, मॉडल को लंबे आउटपुट के लिए कम सोचने का निर्देश दें.
-- **आसान टास्क**: तथ्यों को खोजने या उन्हें कैटगरी में बांटने के लिए, कम से कम या कम सोच-विचार का इस्तेमाल करें. जैसे, "DeepMind की स्थापना कहां हुई थी?".
-- **सामान्य टास्क**: कॉन्सेप्ट की तुलना करने या क्रिएटिव रीज़निंग के लिए, डिफ़ॉल्ट थिंकिंग मोड का इस्तेमाल करें. जैसे, इलेक्ट्रिक और हाइब्रिड कारों की तुलना करना.
-- **मुश्किल टास्क**: ऐडवांस कोडिंग, गणित या कई चरणों वाली प्लानिंग के लिए, ज़्यादा से ज़्यादा सूझ-बूझ वाले मॉडल का इस्तेमाल करें. जैसे, एआईएमई के गणित के सवाल हल करना.
+- **Xem xét quá trình suy luận**: Phân tích bản tóm tắt ý tưởng để hiểu các lỗi và cải thiện câu lệnh.
+- **Kiểm soát ngân sách tư duy**: Nhắc mô hình tư duy ít hơn đối với các dữ liệu đầu ra dài để tiết kiệm token.
+- **Các tác vụ đơn giản**: Sử dụng tính năng tư duy tối thiểu hoặc thấp để truy xuất hoặc phân loại thông tin thực tế (ví dụ: "DeepMind được thành lập ở đâu?").
+- **Các tác vụ vừa phải**: Sử dụng tính năng tư duy mặc định để so sánh các khái niệm hoặc suy luận sáng tạo (ví dụ: So sánh xe điện và xe lai).
+- **Các tác vụ phức tạp**: Sử dụng tính năng tư duy tối đa để lập trình nâng cao, toán học hoặc lập kế hoạch nhiều bước (ví dụ: Giải các bài toán AIME).
 
-## आगे क्या करना है
+## Bước tiếp theo
 
-- [टेक्स्ट जनरेशन](https://ai.google.dev/gemini-api/docs/text-generation?hl=hi): सामान्य टेक्स्ट वाले जवाब
-- [फ़ंक्शन कॉलिंग](https://ai.google.dev/gemini-api/docs/function-calling?hl=hi): टूल से कनेक्ट करना
-- [Gemini 4 guide](https://ai.google.dev/gemini-api/docs/latest-model?hl=hi): Gemini 4 में नया क्या है
-- [Gemini 3 guide](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=hi): Model-specific
-  features
+- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi): Phản hồi văn bản cơ bản
+- [Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi): Kết nối với các công cụ
+- [Hướng dẫn về Gemini 4](https://ai.google.dev/gemini-api/docs/latest-model?hl=vi): Tính năng mới trong Gemini 4
+- [Hướng dẫn về Gemini 3](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=vi): Các tính năng dành riêng cho mô hình
 
-सुझाव भेजें
+Gửi ý kiến phản hồi
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-आखिरी बार 2026-10-14 (UTC) को अपडेट किया गया.
+Cập nhật lần gần đây nhất: 2026-10-14 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-10-14 (UTC) को अपडेट किया गया."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-14 UTC."],[],[]]

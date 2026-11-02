@@ -1,86 +1,79 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=vi
-fetched_at: 2026-10-26T06:02:44.300728+00:00
-title: "Ghi nh\u1eadt k\u00fd v\u00e0 chia s\u1ebb d\u1eef li\u1ec7u \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-policy?hl=zh-TW
+fetched_at: 2026-11-02T07:20:42.266309+00:00
+title: "\u8cc7\u6599\u8a18\u9304\u548c\u5206\u4eab \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Gửi ý kiến phản hồi
+提供意見
 
-# Ghi nhật ký và chia sẻ dữ liệu
+# 資料記錄和分享
 
-Trang này trình bày cách lưu trữ và quản lý [nhật ký Gemini API](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi). Đây là dữ liệu API do nhà phát triển sở hữu từ các lệnh gọi Gemini API được hỗ trợ cho những dự án có bật tính năng thanh toán. Nhật ký bao gồm toàn bộ quá trình từ yêu cầu của người dùng đến phản hồi của mô hình.
-Các nhật ký này chỉ dành riêng cho dự án trên đám mây của bạn trên Google Cloud và tách biệt với mọi nhật ký chỉ được lưu giữ cho mục đích [giám sát hành vi sai trái](https://ai.google.dev/gemini-api/docs/usage-policies?hl=vi).
+本頁面概述 [Gemini API 記錄](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=zh-tw)的儲存和管理方式。這類記錄是開發人員擁有的 API 資料，來自已啟用計費功能的專案中支援的 Gemini API 呼叫。記錄會涵蓋從使用者要求到模型回覆的整個過程。這些記錄是您的 Google Cloud 雲端專案的私人記錄，與僅用於[濫用行為監控](https://ai.google.dev/gemini-api/docs/usage-policies?hl=zh-tw)的記錄分開。
 
-## Dữ liệu có thể được chia sẻ
+## 可分享的資料
 
-Là chủ sở hữu dự án, bạn có thể chọn ghi nhật ký các lệnh gọi Gemini API để sử dụng cho riêng mình hoặc để gửi ý kiến phản hồi và chia sẻ với Google nhằm giúp chúng tôi liên tục cải thiện các mô hình của mình.
+根據預設，系統會記錄 Interactions API 呼叫，以及 2026 年 10 月 26 日當天或之後建立的專案中的 Generate Content API 呼叫。專案擁有者隨時可以前往 AI Studio 的「Logs and Datasets」(記錄和資料集) 頁面，開啟或關閉記錄功能。記錄僅供您個人使用，您可以選擇將記錄分享給 Google 做為意見回饋，協助我們持續改良模型。
 
-Khi bật tính năng ghi nhật ký, bạn có thể giúp chúng tôi xây dựng các hệ thống AI tiếp tục mang lại giá trị cho các nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng bằng cách chọn đóng góp dữ liệu sau đây để cải thiện sản phẩm và huấn luyện mô hình:
+啟用記錄功能後，您可以選擇提供下列資料，協助我們改良產品及訓練模型，打造出能持續為各領域開發人員和用途提供價值的 AI 系統：
 
-- **Tập dữ liệu:** Sử dụng giao diện Nhật ký và Tập dữ liệu của Google AI Studio để chọn nhật ký (yêu cầu, phản hồi, siêu dữ liệu, v.v.) mà bạn quan tâm từ các lệnh gọi Gemini API được hỗ trợ; đóng góp thông qua việc đưa vào tập dữ liệu, với lựa chọn không tham gia trong quá trình tạo tập dữ liệu.
-- **Ý kiến phản hồi:** Khi xem xét nhật ký, bạn có thể đưa ra ý kiến phản hồi, bao gồm cả điểm xếp hạng thích và không thích cũng như mọi nhận xét bằng văn bản mà bạn cung cấp.
+- **資料集：**使用 Google AI Studio 的「記錄和資料集」介面，從支援的 Gemini API 呼叫中選擇感興趣的記錄 (要求、回覆、中繼資料等)；透過加入資料集提供，並可在建立資料集時選擇不採用。
+- **意見回饋：**查看記錄時，您可以提供意見回饋，包括按讚和倒讚評分，以及任何書面評論。
 
-Khi bạn chia sẻ một tập dữ liệu với Google, nhật ký của bạn trong tập dữ liệu đó (bao gồm cả yêu cầu và phản hồi) sẽ được xử lý theo [Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi đối với "[Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid)", nghĩa là tập dữ liệu đó có thể được dùng để phát triển và cải thiện các sản phẩm, dịch vụ và công nghệ học máy của Google, bao gồm cả việc cải thiện và huấn luyện các mô hình của chúng tôi. **Đừng thêm thông tin cá nhân, thông tin nhạy cảm hoặc thông tin mật.**
+與 Google 共用資料集時，該資料集中的記錄 (包括要求和回覆) 會依據「[免付費服務](https://ai.google.dev/gemini-api/terms?hl=zh-tw#data-use-unpaid)」[條款](https://developers.google.com/terms?hl=zh-tw)處理，也就是說，資料集可能會用於開發及改良 Google 產品、服務和機器學習技術，包括改良及訓練模型。**請勿提供個人、敏感或機密資訊。**
 
-## Cách chúng tôi sử dụng dữ liệu của bạn
+## 我們如何使用您的資料
 
-Nhật ký được giữ lại trong khoảng thời gian tối đa mặc định là 55 ngày. Sau khoảng thời gian này, nhật ký sẽ tự động được đánh dấu là cần xoá. Bạn có thể cập nhật khoảng thời gian lưu giữ bộ nhớ cho một dự án trong AI Studio để tự động đánh dấu nhật ký cần xoá sau 7, 14, 28 hoặc 55 ngày.
+記錄預設最多保留 55 天。超過這個期限後，系統會自動將記錄標示為待刪除。您可以在 AI Studio 中更新專案的儲存空間保留期限，讓系統在 7、14、28 或 55 天後自動將記錄標示為刪除。
 
-Bạn có thể tạo [tập dữ liệu](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=vi) để giữ lại nhật ký về mối quan tâm ngoài khoảng thời gian lưu giữ đã đặt cho các trường hợp sử dụng hạ nguồn và đóng góp không bắt buộc cho việc cải thiện mô hình. Nhật ký được lưu trữ trong tập dữ liệu không có khoảng thời gian lưu giữ cố định.
+您可以建立[資料集](https://ai.google.dev/gemini-api/docs/logs-datasets?hl=zh-tw)，在設定的保留期限過後，繼續保留感興趣的記錄，用於下游用途，並視需要協助改善模型。儲存在資料集中的記錄檔沒有設定保留期限。
 
-Theo mặc định, vì tính năng ghi nhật ký chỉ dành cho các dự án đã bật thông tin thanh toán,
-nên các câu lệnh và câu trả lời trong nhật ký sẽ không được dùng để cải thiện hoặc
-phát triển sản phẩm, theo [Điều khoản](https://developers.google.com/terms?hl=vi) của chúng tôi
-về việc sử dụng dữ liệu.
+根據預設，只有啟用計費功能的專案才能使用記錄功能，因此根據我們的資料使用[條款](https://developers.google.com/terms?hl=zh-tw)，記錄中的提示和回覆不會用於產品改善或開發。
 
-Nếu bạn chọn chia sẻ các tập dữ liệu nhật ký của mình với Google, thì những tập dữ liệu đó sẽ được dùng làm dữ liệu minh hoạ thực tế để hiểu rõ hơn về sự đa dạng của các miền và bối cảnh mà hệ thống cũng như ứng dụng AI được sử dụng. Dữ liệu này có thể được dùng để cải thiện chất lượng mô hình, đồng thời cung cấp thông tin cho quá trình huấn luyện và đánh giá các mô hình cũng như dịch vụ trong tương lai. Dữ liệu này được xử lý theo các điều khoản sử dụng dữ liệu của chúng tôi đối với [Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#data-use-unpaid).
+如果您選擇與 Google 共用記錄資料集，這些資料集將做為實際示範資料，協助我們進一步瞭解 AI 系統和應用程式使用的網域和情境多樣性。這類資料可能用於提升模型品質，以及訓練和評估日後的模型與服務。我們會依據[無償服務](https://ai.google.dev/gemini-api/terms?hl=zh-tw#data-use-unpaid)的資料使用條款處理這類資料。
 
-Theo đó, nhân viên đánh giá có thể đọc, chú thích và xử lý dữ liệu đầu vào và đầu ra của API mà bạn chia sẻ. Trước khi dữ liệu được dùng để cải thiện mô hình, Google sẽ thực hiện các bước để bảo vệ quyền riêng tư của người dùng trong quá trình này. Điều này bao gồm việc huỷ mối liên kết giữa dữ liệu này với Tài khoản Google, khoá API và dự án trên đám mây của bạn trước khi người đánh giá xem hoặc chú thích.
+因此，人工審查員可能會查看、標註及處理您分享的 API 輸入和輸出內容。在將資料用於改善模型之前，Google 會採取適當措施來保護使用者隱私。包括在審查員查看或加註前，將這類資料與 Google 帳戶、API 金鑰和 Cloud 專案解除連結。
 
-## Quyền đối với dữ liệu
+## 資料權限
 
-Khi chọn tham gia đóng góp dữ liệu API, bạn xác nhận rằng bạn có các quyền cần thiết để Google xử lý và sử dụng dữ liệu như mô tả trong tài liệu này. **Vui lòng không đóng góp nhật ký chứa thông tin nhạy cảm,
-bí mật hoặc độc quyền mà bạn có được thông qua dịch vụ có tính phí**.
-Giấy phép mà bạn cấp cho Google theo mục "[Gửi nội dung](https://developers.google.com/terms?hl=vi#b_submission_of_content)" trong Điều khoản API cũng áp dụng cho mọi nội dung (ví dụ: câu lệnh, bao gồm cả hướng dẫn hệ thống liên quan, nội dung được lưu vào bộ nhớ đệm và các tệp như hình ảnh, video hoặc tài liệu) mà bạn gửi đến Dịch vụ và mọi câu trả lời được tạo, trong phạm vi cần thiết theo luật hiện hành để chúng tôi sử dụng.
+選擇加入提供 API 資料，即表示您確認已取得必要權限，允許 Google 按照本文件所述處理及使用資料。**請勿提供含有透過付費服務取得的敏感、機密或專屬資訊的記錄**。您根據《API 條款》中「[提交內容](https://developers.google.com/terms?hl=zh-tw#b_submission_of_content)」一節授予 Google 的授權，在適用法律要求我們使用的範圍內，也適用於您提交至「服務」的任何內容 (例如提示，包括相關系統指令、快取內容，以及圖片、影片或文件等檔案) 和任何生成的內容。
 
-## Chia sẻ dữ liệu và ý kiến phản hồi
+## 資料共用和意見回饋
 
-Bạn có thể giúp chúng tôi thúc đẩy ranh giới của nghiên cứu AI, Gemini API và Google AI Studio bằng cách chọn chia sẻ dữ liệu của bạn làm ví dụ, giúp chúng tôi liên tục cải thiện các mô hình của mình trong nhiều bối cảnh và xây dựng các hệ thống AI tiếp tục có giá trị cho nhà phát triển trong nhiều lĩnh vực và trường hợp sử dụng.
+您可以選擇加入分享資料做為範例，協助我們推動 AI 研究、Gemini API 和 Google AI Studio 的發展，讓我們能持續改進模型，因應各種情境，並建構 AI 系統，持續為各領域和用途的開發人員提供價值。
 
-### Cấp Người đóng góp cho Gemini API
+### Gemini API 貢獻者層級
 
-Cấp Người đóng góp cho Gemini cho phép nhà phát triển được giảm chi phí mã thông báo trên một số mô hình nhất định, đổi lại, Google được phép sử dụng dữ liệu từ các mô hình đó để cung cấp, cải thiện và phát triển các sản phẩm, dịch vụ cũng như công nghệ học máy của Google.
+開發人員加入 Gemini 貢獻者計畫後，可享特定模型的 Token 折扣，但須授權 Google 使用這些模型的資料，提供、改良及開發 Google 產品、服務和機器學習技術。
 
-Nhà phát triển được giảm giá đến 50% chi phí mã thông báo cho một số mô hình, trong khi vẫn được hưởng hiệu suất theo thời gian thực tương đương với [API tiêu chuẩn](https://ai.google.dev/gemini-api/docs/optimization?hl=vi). Các mô hình sau đây được hỗ trợ:
+開發人員使用特定模型時，可享高達 50% 的詞元費用折扣，並享有與[標準 API](https://ai.google.dev/gemini-api/docs/optimization?hl=zh-tw) 相同的即時效能。支援的模型如下：
 
-| Mô hình | Cấp Người đóng góp |
+| 模型 | 貢獻者級別 |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-4-argon) | ✔️ |
-| [Bản dùng thử Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.1-pro-preview) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.8-flash) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.5-flash-lite) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-4-argon) | ✔️ |
+| [Gemini 3.1 Pro 預先發布版](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.1-pro-preview) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.8-flash) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#gemini-3.5-flash-lite) | ✔️ |
 
-**Sử dụng dữ liệu:**
+**資料使用方式：**
 
-- Khi bạn bật Cấp độ Cộng tác viên cho một dự án, dữ liệu của bạn từ việc sử dụng mô hình tham gia trong dự án sẽ được sử dụng theo các điều khoản của chúng tôi về "[Dịch vụ không tính phí](https://ai.google.dev/gemini-api/terms?hl=vi#unpaid-services)".
-  Vì dữ liệu của bạn sẽ được dùng để cải thiện các sản phẩm và công nghệ học máy của Google, nên vui lòng không gửi thông tin nhạy cảm hoặc thông tin cá nhân.
+- 為專案啟用貢獻者級別後，專案中參與模型使用的資料，將依據「[免付費服務](https://ai.google.dev/gemini-api/terms?hl=zh-tw#unpaid-services)」條款使用。您的資料會用於改善 Google 產品和機器學習技術，因此請勿提交機密或個人資訊。
 
-Gửi ý kiến phản hồi
+提供意見
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Cập nhật lần gần đây nhất: 2026-10-14 UTC.
+上次更新時間：2026-10-26 (世界標準時間)。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+想進一步說明嗎？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-14 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-26 (世界標準時間)。"],[],[]]

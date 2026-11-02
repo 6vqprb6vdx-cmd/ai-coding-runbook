@@ -1,114 +1,98 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/tools?hl=fr
-fetched_at: 2026-10-26T06:00:08.686209+00:00
-title: "Utiliser des outils avec l'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/tools?hl=he
+fetched_at: 2026-11-02T07:18:47.315869+00:00
+title: "\u05e9\u05d9\u05de\u05d5\u05e9 \u05d1\u05db\u05dc\u05d9\u05dd \u05e2\u05dd Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-Envoyer des commentaires
+שליחת משוב
 
-# Utiliser des outils avec l'API Gemini
+# שימוש בכלים עם Gemini API
 
-Les outils étendent les capacités des modèles Gemini, ce qui leur permet d'agir dans le monde, d'accéder à des informations en temps réel et d'effectuer des tâches de calcul complexes. Les modèles peuvent utiliser des outils dans les interactions standard de requête-réponse et
-dans les sessions de streaming en temps réel à l'aide de l'[API Live](https://ai.google.dev/gemini-api/docs/live-tools?hl=fr).
+הכלים מרחיבים את היכולות של מודלי Gemini, ומאפשרים להם לבצע פעולות בעולם, לגשת למידע בזמן אמת ולבצע משימות חישוביות מורכבות. המודלים יכולים להשתמש בכלים גם באינטראקציות רגילות של בקשה-תגובה וגם בסשנים של סטרימינג בזמן אמת באמצעות [Live API](https://ai.google.dev/gemini-api/docs/live-tools?hl=he).
 
-Les outils sont des fonctionnalités spécifiques (comme la recherche Google ou l'exécution de code) qu'un modèle peut utiliser pour répondre aux requêtes. L'API Gemini fournit une suite d'outils intégrés entièrement
-gérés, mais vous pouvez également définir des outils personnalisés à l'aide de l'appel de [fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
+כלים הם יכולות ספציפיות (כמו חיפוש Google או הרצת קוד) שהמודל יכול להשתמש בהן כדי לענות על שאילתות. ‫Gemini API מספק חבילה של כלים מובנים ומנוהלים, ואתם יכולים להגדיר כלים בהתאמה אישית באמצעות [קריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
-Pour créer des systèmes en plusieurs étapes axés sur un objectif, consultez la [présentation des agents](https://ai.google.dev/gemini-api/docs/agents?hl=fr).
+כדי ליצור מערכות מרובות שלבים שמכוונות ליעדים, קראו את [הסקירה הכללית על נציגים](https://ai.google.dev/gemini-api/docs/agents?hl=he).
 
-## Outils intégrés disponibles
+## כלים מובנים זמינים
 
-| Outil | Description | Cas d'utilisation |
+| כלי | תיאור | תרחישים לדוגמה |
 | --- | --- | --- |
-| [La recherche Google](https://ai.google.dev/gemini-api/docs/google-search?hl=fr) | Ancrez les réponses dans des événements et des faits actuels provenant du Web pour réduire les hallucinations. | Répondre à des questions sur des événements récents, vérifier des faits à l'aide de diverses sources. |
-| [Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fr) | Créez des assistants géolocalisés capables de trouver des lieux, d'obtenir des itinéraires et de fournir un contexte local riche. | Planifier des itinéraires avec plusieurs arrêts, trouver des entreprises locales en fonction des critères de l'utilisateur. |
-| [Exécution de code](https://ai.google.dev/gemini-api/docs/code-execution?hl=fr) | Permettez au modèle d'écrire et d'exécuter du code Python pour résoudre des problèmes mathématiques ou traiter des données avec précision. | Résoudre des équations mathématiques complexes, traiter et analyser des données textuelles avec précision. |
-| [Contexte de l'URL](https://ai.google.dev/gemini-api/docs/url-context?hl=fr) | Demandez au modèle de lire et d'analyser le contenu de pages Web ou de documents spécifiques. | Répondre à des questions basées sur des URL ou des documents spécifiques, récupérer des informations sur différentes pages Web. |
-| [Utilisation de l'ordinateur (bêta)](https://ai.google.dev/gemini-api/docs/computer-use?hl=fr) | Permettez à Gemini d'afficher un écran et de générer des actions pour interagir avec les interfaces utilisateur du navigateur Web (exécution côté client). | Automatiser les workflows Web répétitifs, tester les interfaces utilisateur des applications Web. |
-| [Recherche de fichiers](https://ai.google.dev/gemini-api/docs/file-search?hl=fr) | Indexez et recherchez vos propres documents pour activer la génération augmentée par récupération (RAG). | Rechercher des manuels techniques, répondre à des questions sur des données propriétaires. |
+| [חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) | לבסס את התשובות על אירועים אקטואליים ועובדות מהאינטרנט כדי לצמצם את הסיכוי להזיות. | לענות על שאלות לגבי אירועים שהתרחשו לאחרונה, לאמת עובדות באמצעות מקורות שונים. |
+| [מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he) | אפשר ליצור עוזרים אישיים עם גישה למיקום שיכולים למצוא מקומות, לתת מסלולים ולספק הקשר מקומי עשיר. | תכנון מסלולי נסיעה עם כמה עצירות, חיפוש עסקים מקומיים על סמך קריטריונים של המשתמש. |
+| [הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he) | המודל יכול לכתוב ולהריץ קוד Python כדי לפתור בעיות מתמטיות או לעבד נתונים בצורה מדויקת. | לפתור משוואות מתמטיות מורכבות, לעבד ולנתח נתוני טקסט בצורה מדויקת. |
+| [URL Context](https://ai.google.dev/gemini-api/docs/url-context?hl=he) | להנחות את המודל לקרוא ולנתח תוכן מדפי אינטרנט או ממסמכים ספציפיים. | לענות על שאלות על סמך כתובות URL או מסמכים ספציפיים, ולאחזר מידע מדפי אינטרנט שונים. |
+| [שימוש במחשב](https://ai.google.dev/gemini-api/docs/computer-use?hl=he) | ‫Gemini יכול לראות את המסך וליצור פעולות כדי לקיים אינטראקציה עם ממשקי משתמש של דפדפני אינטרנט (הפעלה בצד הלקוח). | אוטומציה של תהליכי עבודה מבוססי-אינטרנט שחוזרים על עצמם, בדיקת ממשקי משתמש של אפליקציות אינטרנט. |
+| [חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he) | הוספה לאינדקס וחיפוש במסמכים שלכם כדי להפעיל את Retrieval-Augmented Generation (יצירה משולבת-אחזור, RAG). | חיפוש במדריכים טכניים, מענה על שאלות לגבי נתונים קנייניים. |
 
-Consultez la [page des tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#pricing_for_tools) pour en savoir plus
-sur les coûts associés à des outils spécifiques.
+ב[דף התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he#pricing_for_tools) מפורטות העלויות שקשורות לכלים ספציפיים.
 
-## Fonctionnement de l'exécution des outils
+## איך פועלת הרצת הכלים
 
-Les outils permettent au modèle de demander des actions lors d'une conversation. Le flux diffère selon que l'outil est intégré (géré par Google) ou personnalisé (géré par vous).
+הכלים מאפשרים למודל לבקש פעולות במהלך שיחה. התהליך משתנה בהתאם לסוג הכלי: כלי מובנה (בניהול Google) או כלי בהתאמה אישית (בניהול שלכם).
 
-### Flux d'outil intégré
+### תהליך עבודה עם כלי מובנה
 
-Pour les outils intégrés (recherche Google, Google Maps, Contexte de l'URL, recherche de fichiers, exécution de code), l'ensemble du processus se déroule en un seul appel d'API :
+בכלים המובנים (חיפוש Google, מפות Google, ‏ URL Context, חיפוש קבצים, הרצת קוד), כל התהליך מתרחש בקריאה אחת ל-API:
 
-1. **Vous** envoyez un prompt : "Quelle est la racine carrée du dernier cours de l'action GOOG ?"
-2. **Gemini** décide qu'il a besoin d'outils et les exécute sur les serveurs de Google (par exemple, il recherche le cours de l'action, puis exécute du code Python pour calculer la racine carrée).
-3. **Gemini** renvoie la réponse finale basée sur les résultats de l'outil.
+1. **אתם** שולחים הנחיה: "מהו השורש הריבועי של מחיר המניה האחרון של GOOG?"
+2. ‫**Gemini** מחליט שהוא צריך כלים ומפעיל אותם בשרתים של Google (למשל, מחפש את מחיר המניה ואז מריץ קוד Python כדי לחשב את השורש הריבועי).
+3. ‫**Gemini** שולח בחזרה את התשובה הסופית שמבוססת על התוצאות מהכלי.
 
-### Flux d'outil personnalisé (appel de fonction)
+### תהליך מותאם אישית בכלי (קריאה להפעלת פונקציות)
 
-Pour les outils personnalisés et l'utilisation de l'ordinateur, votre application gère l'exécution :
+בכלים בהתאמה אישית ובשימוש במחשב, האפליקציה מטפלת בהפעלה:
 
-1. **Vous** envoyez un prompt avec des déclarations de fonctions (outils).
-2. **Gemini** peut renvoyer un JSON structuré pour appeler une fonction spécifique
-   (par exemple, `{"name": "get_order_status", "args": {"order_id": "123"}}`),
-   toujours avec un `id`.
-3. **Vous** exécutez la fonction dans votre application ou votre environnement.
-4. **Vous** renvoyez les résultats de la fonction à Gemini, avec le même `id` que l'appel de fonction.
-5. **Gemini** utilise les résultats pour générer une réponse finale ou un autre appel d'outil.
+1. **אתם** שולחים הנחיה יחד עם הצהרות על פונקציות (כלים).
+2. ‫**Gemini** עשוי לשלוח בחזרה JSON מובנה כדי לקרוא לפונקציה ספציפית (לדוגמה, `{"name": "get_order_status", "args": {"order_id": "123"}}`), תמיד עם `id` ייחודי.
+3. **אתם** מריצים את הפונקציה באפליקציה או בסביבה שלכם.
+4. **אתם** שולחים את תוצאות הפונקציה, עם אותו `id` כמו בקשה להפעלת פונקציה, בחזרה ל-Gemini.
+5. ‫**Gemini** משתמש בתוצאות כדי ליצור תשובה סופית או קריאת API לכלי אחר.
 
-Pour en savoir plus, consultez le guide sur l'[appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr).
+מידע נוסף זמין [במדריך בנושא קריאה להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
 
-### Combiner le flux d'outils intégrés et personnalisés
+### תהליך שמשלב כלים מובנים וכלים בהתאמה אישית
 
-Pour les requêtes qui combinent des outils intégrés et des outils personnalisés (appels de fonction), le
-modèle utilise [la circulation du contexte de l'outil](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr) pour
-coordonner l'exécution dans différents environnements :
+בבקשות שמשלבות כלים מובנים וכלים בהתאמה אישית (קריאה להפעלת פונקציות), המודל משתמש ב[העברת הקשר של כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) כדי לתאם את ההרצה בסביבות שונות:
 
-1. **Vous** envoyez un prompt et déclarez les outils intégrés et les fonctions personnalisées que vous souhaitez activer, en définissant un flag pour activer la prise en charge de la combinaison.
-2. **Gemini** exécute les outils intégrés et cède la place à l'utilisateur si des appels de fonction côté client sont générés (l'exécution en premier dépend du prompt et de ce que le modèle décide). Il renvoie une réponse avec :
-   - Confirmation de l'appel d'outil
-   - Résultats de la réponse de l'outil (cela peut se produire après le JSON si le modèle a généré deux appels de fonction parallèles)
-   - JSON structuré pour appeler votre fonction
-   - Signatures de pensée chiffrées pour préserver le contexte
-3. **Vous** exécutez la fonction dans votre application ou votre environnement.
-4. **Vous** renvoyez toutes les parties de la réponse de Gemini, ainsi que les résultats de votre appel de fonction.
-5. **Gemini** génère la réponse finale à l'aide de l'ensemble du contexte combiné.
+1. **אתם** שולחים הנחיה ומצהירים על הכלים המובנים והפונקציות בהתאמה אישית שאתם רוצים להפעיל, ומגדירים דגל כדי להפעיל תמיכה בשילוב.
+2. ‫**Gemini** מריץ כלים מובנים ומעביר את השליטה למשתמש אם נוצרות בקשות להפעלת פונקציות בצד הלקוח (הסדר שבו הן מופעלות תלוי בפרומפט ובהחלטה של המודל). הוא שולח בחזרה תשובה עם:
+   - אישור קריאת ה-API לכלי
+   - התוצאות של תגובת הכלי (יכול להיות שהן יופיעו אחרי ה-JSON אם המודל יצר שתי קריאות להפעלת פונקציות במקביל)
+   - ‫JSON מובנה לקריאה לפונקציה
+   - חתימות מוצפנות של תהליך החשיבה כדי לשמור על ההקשר
+3. **אתם** מריצים את הפונקציה באפליקציה או בסביבה שלכם.
+4. ‫**אתם** מחזירים את כל החלקים של התשובה של Gemini, וגם את התוצאות של בקשה להפעלת פונקציה.
+5. ‫**Gemini** יוצר את התשובה הסופית על סמך כל ההקשר המשולב.
 
-Consultez le [guide sur la combinaison d'outils](https://ai.google.dev/gemini-api/docs/tool-combination?hl=fr) pour découvrir
-comment activer la prise en charge de la combinaison d'outils intégrés et personnalisés, et obtenir des exemples de
-circulation de contexte.
+[במדריך לשילוב כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) מוסבר איך להפעיל תמיכה בשילוב של כלים מובנים וכלים בהתאמה אישית, ומוצגות דוגמאות להעברת הקשר.
 
-## Sorties structurées ou appel de fonction
+## פלט מובנה לעומת קריאה להפעלת פונקציות
 
-Gemini propose deux méthodes pour générer des sorties structurées. Utilisez [l'appel de fonction](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr)lorsque le modèle doit effectuer une
-étape intermédiaire en se connectant à vos propres outils ou systèmes de données. Utilisez
-[des sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) lorsque vous avez absolument besoin
-que la réponse finale du modèle respecte un schéma spécifique, par exemple pour afficher
-une interface utilisateur personnalisée.
+ל-Gemini יש שתי שיטות ליצירת פלט מובנה. השתמשו ב[קריאה לפונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he) כשהמודל צריך לבצע שלב ביניים על ידי התחברות לכלים או למערכות הנתונים שלכם. השתמשו ב-[Structured Outputs](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) כשאתם צריכים שהתשובה הסופית של המודל תתאים לסכימה ספציפית, למשל כדי לעבד ממשק משתמש מותאם אישית.
 
-## Sorties structurées avec des outils
+## פלט מובנה עם כלים
 
-Vous pouvez combiner des [sorties structurées](https://ai.google.dev/gemini-api/docs/structured-output?hl=fr) avec des
-outils intégrés pour vous assurer que les réponses du modèle basées sur des données ou des
-calculs externes respectent toujours un schéma strict.
+אתם יכולים לשלב [פלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) עם כלים מובנים כדי לוודא שהתשובות של המודל שמבוססות על נתונים חיצוניים או על חישוב עדיין תואמות לסכימה קפדנית.
 
-Consultez [Sorties structurées avec des outils](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=fr#tools)
-pour obtenir des exemples de code.
+[דוגמאות קוד של פלט מובנה עם כלים](https://ai.google.dev/gemini-api/docs/structured-output?example=recipe&hl=he#tools)
 
-Envoyer des commentaires
+שליחת משוב
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Dernière mise à jour le 2026/10/15 (UTC).
+עדכון אחרון: 2026-10-30 (שעון UTC).
 
-Voulez-vous nous donner plus d'informations ?
+רוצה לתת לנו משוב?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/15 (UTC)."],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-30 (שעון UTC)."],[],[]]

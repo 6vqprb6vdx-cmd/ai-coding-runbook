@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=vi
-fetched_at: 2026-10-26T05:46:58.240806+00:00
-title: "T\u1ea1o t\u00e1c nh\u00e2n \u0111\u01b0\u1ee3c qu\u1ea3n l\u00fd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/custom-agents?hl=fa
+fetched_at: 2026-11-02T07:26:27.874473+00:00
+title: "\u0633\u0627\u062e\u062a\u0646 \u0639\u0627\u0645\u0644\u200c\u0647\u0627\u06cc \u0645\u062f\u06cc\u0631\u06cc\u062a\u200c\u0634\u062f\u0647 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-Gửi ý kiến phản hồi
+ارسال بازخورد
 
-# Tạo tác nhân được quản lý
+# ساختن عامل‌های مدیریت‌شده
 
-Các tác nhân được quản lý trên Gemini API cho phép bạn mở rộng tác nhân Antigravity bằng các chỉ dẫn, kỹ năng và dữ liệu của riêng mình. Bạn có thể [tuỳ chỉnh tác nhân nội tuyến](#customize-inline) tại thời điểm tương tác hoặc [lưu cấu hình](#save-agent) dưới dạng một tác nhân được quản lý mà bạn gọi bằng mã nhận dạng.
+عامل‌های مدیریت‌شده در Gemini API به شما امکان می‌دهند عامل Antigravity را با دستورالعمل‌ها، مهارت‌ها، و داده‌های خودتان گسترش دهید. می‌توانید [عامل را به‌صورت درون‌خطی](#customize-inline) در زمان تعامل سفارشی‌سازی کنید، یا [پیکربندی را](#save-agent) به‌عنوان عامل مدیریت‌شده‌ای که با شناسه فراخوانی می‌کنید ذخیره کنید.
 
-## Tuỳ chỉnh tác nhân Antigravity
+## سفارشی‌سازی کردن عامل Antigravity
 
-Cách nhanh nhất để tạo một tác nhân tuỳ chỉnh là truyền cấu hình nội tuyến trong khi tạo một lượt tương tác mới mà không cần bước đăng ký. Bạn có thể mở rộng tác nhân theo một số cách chính:
+سریع‌ترین راه برای ساختن نماینده سفارشی این است که پیکربندی‌تان را به‌صورت درون‌خطی هنگام ایجاد تعامل جدید ارسال کنید، بدون اینکه به مرحله ثبت‌نام نیاز باشد. می‌توانید عامل را به چند روش کلیدی گسترش دهید:
 
-- **[Lựa chọn mô hình](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#model-selection)**: Chọn mô hình Gemini cơ bản thông qua biểu tượng `agent_config` (mặc định là **Gemini 3.8 Flash**).
-- **Hướng dẫn hệ thống**: Truyền văn bản nội tuyến qua `system_instruction` để định hình hành vi.
-- **Công cụ**: Ghi đè các công cụ mặc định (Thực thi mã, Tìm kiếm, Bối cảnh từ URL), đăng ký các máy chủ MCP từ xa hoặc xác định các hàm tuỳ chỉnh (Gọi hàm).
-- **Tệp và kỹ năng**: Gắn các tệp như `AGENTS.md` và `SKILL.md` vào môi trường.
+- **[انتخاب مدل](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa#model-selection)**: مدل Gemini پایه را ازطریق `agent_config` انتخاب کنید (به‌طور پیش‌فرض روی **Gemini 3.8 Flash** تنظیم شده است).
+- **دستورالعمل‌های سیستم**: نوشتار درون‌خطی را ازطریق `system_instruction` ارسال کنید تا رفتار را شکل دهید.
+- **ابزارها**: ابزارهای پیش‌فرض (اجرای کد، جستجو، بافت نشانی وب) را لغو کنید، سرورهای MCP ازراه‌دور را ثبت کنید، یا توابع سفارشی (فراخوانی تابع) را تعریف کنید.
+- **فایل‌ها و مهارت‌ها**: فایل‌هایی مثل `AGENTS.md` و `SKILL.md` را در محیط سوار کنید.
 
-Sau đây là ví dụ về việc truyền cả 3 tham số nội tuyến:
+در اینجا مثالی از ارسال هر سه پارامتر به‌صورت درون‌خطی آورده شده است:
 
 ### Python
 
@@ -93,7 +93,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -136,7 +136,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -190,7 +190,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -218,22 +218,22 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Mọi thứ đều được xác định tại thời điểm tương tác. Bạn không cần đăng ký trước. Khung vận hành tác nhân Antigravity cung cấp thời gian chạy (thực thi mã, quản lý tệp, truy cập web) và các lớp cấu hình của bạn ở trên cùng.
+همه چیز در زمان تعامل تعریف می‌شود. نیازی نیست ابتدا چیزی را ثبت کنید. زیرساخت عامل Antigravity زمان اجرا (اجرای کد، مدیریت فایل، دسترسی به وب) و لایه‌های پیکربندی شما را در بالا ارائه می‌دهد.
 
-### Công cụ và hướng dẫn về hệ thống
+### دستورالعمل‌های سیستم و ابزارها
 
-Bạn có thể tuỳ chỉnh hành vi và các chức năng của tác nhân cho một lượt tương tác cụ thể bằng cách sử dụng các tham số `system_instruction` và `tools`.
+می‌توانید رفتار و قابلیت‌های نماینده را برای تعاملی خاص بااستفاده از پارامترهای `system_instruction` و `tools` سفارشی‌سازی کنید.
 
-- **Hướng dẫn cho hệ thống**: Sử dụng tham số `system_instruction` để truyền văn bản nội tuyến định hình hành vi của tác nhân. Đây là lựa chọn lý tưởng cho những điều chỉnh nhanh mà bạn muốn thay đổi cho mỗi cuộc gọi. `system_instruction` và `AGENTS.md` là các giá trị cộng thêm; cả hai đều áp dụng khi có mặt.
-- **Công cụ**: Theo mặc định, tác nhân Antigravity có quyền truy cập vào `code_execution`, `google_search` và `url_context`. Bạn có thể ghi đè danh sách này bằng cách truyền tham số `tools` tại thời điểm tương tác. Bạn cũng có thể đăng ký [các máy chủ MCP từ xa](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#mcp-servers) hoặc xác định [các hàm tuỳ chỉnh (gọi hàm)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#function-calling) để kết nối tác nhân với các API và cơ sở dữ liệu của riêng bạn. Để biết thông tin chi tiết về các công cụ hiện có, hãy xem bài viết [Tác nhân Antigravity: Các công cụ được hỗ trợ](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#supported-tools).
+- **دستورالعمل‌های سیستم**: از پارامتر `system_instruction` برای ارسال نوشتار درون‌خطی که رفتار نماینده را شکل می‌دهد استفاده کنید. این گزینه برای تغییرات جزئی سریعی که می‌خواهید در هر تماس اعمال کنید ایده‌آل است. ‫`system_instruction` و `AGENTS.md` جمع‌پذیر هستند؛ هر دو درصورت وجود اعمال می‌شوند.
+- **ابزارها**: به‌طور پیش‌فرض، عامل Antigravity به `code_execution`، `google_search`، و `url_context` دسترسی دارد. می‌توانید این فهرست را با ارسال پارامتر `tools` در زمان تعامل لغو کنید. همچنین می‌توانید [سرورهای MCP راه دور](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa#mcp-servers) را ثبت کنید یا [توابع سفارشی (فراخوانی تابع)](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa#function-calling) را تعریف کنید تا نماینده را به میاناهای برنامه‌سازی کاربردی و پایگاه‌های داده خودتان متصل کنید. برای جزئیات کامل درباره ابزارهای دردسترس، [عامل Antigravity: ابزارهای پشتیبانی‌شده](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa#supported-tools) را ببینید.
 
-### Tuỳ chỉnh dựa trên tệp
+### سفارشی‌سازی فایل‌مبنا
 
-#### Cấu trúc thư mục tác nhân
+#### ساختار فهرست راهنمای عامل
 
-Mặc dù có thể truyền cấu hình nội tuyến, nhưng bạn nên sắp xếp các tệp của tác nhân trong một thư mục có cấu trúc. Điều này giúp bạn dễ dàng quản lý, quản lý phiên bản và gắn vào môi trường của tác nhân.
+اگرچه می‌توانید پیکربندی را به‌صورت درون‌خطی ارسال کنید، توصیه می‌کنیم فایل‌های نماینده‌تان را در یک دایرکتوری ساختاریافته سازمان‌دهی کنید. این کار مدیریت، کنترل نسخه، و نصب در محیط عامل را آسان‌تر می‌کند.
 
-Thư mục dự án tác nhân điển hình có dạng như sau:
+یک دایرکتوری پروژه عامل معمولی به این شکل است:
 
 ```
 my-agent/
@@ -244,13 +244,13 @@ my-agent/
 └── workspace/       # Initial data files and knowledge
 ```
 
-Thời gian chạy Antigravity sẽ quét `.agents/` (và gốc của môi trường) để tìm các tệp này.
+زمان اجرای Antigravity `.agents/` (و ریشه محیط) را برای این فایل‌ها اسکن می‌کند.
 
 #### AGENTS.md
 
-Tác nhân sẽ tự động tải `.agents/AGENTS.md` (hoặc `/.agents/AGENTS.md`) từ môi trường dưới dạng hướng dẫn hệ thống khi khởi động. Sử dụng `AGENTS.md` cho các định nghĩa về vai trò dạng dài, hướng dẫn chi tiết và hướng dẫn mà bạn muốn quản lý phiên bản cùng với mã của mình.
+نماینده به‌طور خودکار `.agents/AGENTS.md` (یا `/.agents/AGENTS.md`) را از محیط به‌عنوان دستورالعمل‌های سیستم در زمان راه‌اندازی بار می‌کند. از `AGENTS.md` برای تعریف‌های طولانی شخصیت، دستورالعمل‌های دقیق، و دستورالعمل‌هایی که می‌خواهید در کنار کدتان کنترل نسخه کنید استفاده کنید.
 
-Gắn `AGENTS.md` bằng nguồn cùng dòng:
+سوار کردن `AGENTS.md` بااستفاده از منبع به‌خط:
 
 ### Python
 
@@ -304,7 +304,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -342,7 +342,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -391,7 +391,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -414,9 +414,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-#### Kỹ năng: SKILL.md
+#### مهارت‌ها: SKILL.md
 
-Kỹ năng là những tệp mở rộng khả năng của tác nhân. Đặt các thành phần đó trong `.agents/skills/<skill-name>/SKILL.md` và harness sẽ tự động phát hiện và đăng ký các thành phần đó.
+مهارت‌ها فایل‌هایی هستند که قابلیت‌های عامل را گسترش می‌دهند. آن‌ها را زیر `.agents/skills/<skill-name>/SKILL.md` قرار دهید تا مهار به‌طور خودکار آن‌ها را شناسایی و ثبت کند.
 
 ```
 .agents/
@@ -426,7 +426,7 @@ Kỹ năng là những tệp mở rộng khả năng của tác nhân. Đặt c�
         └── SKILL.md
 ```
 
-Gắn một kỹ năng bằng nguồn cùng dòng:
+سوار کردن مهارت بااستفاده از منبع به‌خط:
 
 ### Python
 
@@ -480,7 +480,7 @@ const interaction = await client.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -518,7 +518,7 @@ Interaction interaction = client.interactions.create(CreateInteractionRequestBod
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -567,7 +567,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -590,17 +590,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Các kỹ năng được tải từ `.agents/skills/` và `/.agents/skills/` đều được phát hiện tự động.
+مهارت‌های بارشده از `.agents/skills/` و `/.agents/skills/` هر دو به‌طور خودکار شناسایی می‌شوند.
 
-## Tạo một tác nhân được quản lý
+## ایجاد عامل مدیریت‌شده
 
-Sau khi lặp lại cấu hình, bạn có thể tạo cấu hình đó dưới dạng một tác nhân được quản lý bằng `agents.create`. Nhờ đó, bạn có thể gọi tác nhân theo mã nhận dạng mà không cần lặp lại cấu hình mỗi lần.
+پس‌از تکرار پیکربندی، می‌توانید آن را به‌عنوان عامل مدیریت‌شده با `agents.create` ایجاد کنید. این کار به شما امکان می‌دهد عامل را با شناسه فراخوانی کنید بدون اینکه لازم باشد هربار پیکربندی را تکرار کنید.
 
-`id` mà bạn chỉ định khi tạo một tác nhân được quản lý phải là duy nhất đối với dự án của bạn và không được bắt đầu bằng các tiền tố dành riêng (ví dụ: `google-`, `gemini-`). Hãy xem [Các hạn chế về mã nhận dạng tác nhân](#agent-id-restrictions) để biết danh sách đầy đủ các tiền tố bị hạn chế.
+`id` که هنگام ایجاد عامل مدیریت‌شده مشخص می‌کنید باید برای پروژه شما یکتا باشد و نباید با پیشوندهای رزروشده (مثلاً `google-`، `gemini-`) شروع شود. برای مشاهده فهرست کامل پیشوندهای محدودشده، به [محدودیت‌های شناسه عامل](#agent-id-restrictions) مراجعه کنید.
 
-### Từ các nguồn
+### از منابع
 
-Chỉ định `base_agent`, `id`, `agent_config`, `system_instruction` và `base_environment` bằng các nguồn. Nền tảng này cung cấp một hộp cát mới chứa các tệp của bạn trên mọi lệnh gọi. Hãy xem phần [Môi trường](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi) để biết các loại nguồn có sẵn (Git, GCS, nội tuyến).
+`base_agent`، `id`، `agent_config`، `system_instruction`، و `base_environment` را با منبع مشخص کنید. این پلاتفرم در هر فراخوانی، یک محیط امن جدید با فایل‌های شما فراهم می‌کند. برای انواع منبع دردسترس (Git،‏ GCS، درون‌خطی)، به [محیط‌ها](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa) مراجعه کنید.
 
 ### Python
 
@@ -682,7 +682,7 @@ const agent = await client.agents.create({
 console.log(`Created agent: ${agent.id}`);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -733,7 +733,7 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Created agent: " + agent.id().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -795,7 +795,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
@@ -832,9 +832,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-### Từ một môi trường hiện có (phân nhánh)
+### از محیط موجود (انشعاب)
 
-Lặp lại với tác nhân Antigravity cơ bản cho đến khi môi trường phù hợp (đã cài đặt các gói, các tệp ở đúng vị trí), sau đó phân nhánh tác nhân đó thành một tác nhân được quản lý.
+با عامل Antigravity پایه تکرار کنید تا محیط مناسب شود (بسته‌ها نصب شوند، فایل‌ها در جای خود قرار گیرند)، سپس آن را به یک عامل مدیریت‌شده منشعب کنید.
 
 ### Python
 
@@ -885,7 +885,7 @@ const agent = await client.agents.create({
 console.log(`Forked agent successfully: ${agent.id}`);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -921,7 +921,7 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Forked agent successfully: " + agent.id().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -974,7 +974,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -987,13 +987,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Có quy tắc mạng
+### با قوانین شبکه
 
-Bạn có thể khoá quyền truy cập đi hoặc chèn thông tin đăng nhập khi lưu một tác nhân được quản lý. Để biết lược đồ danh sách cho phép đầy đủ, các mẫu thông tin đăng nhập và ký tự đại diện, hãy xem phần [Môi trường: Cấu hình mạng](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi#network-configuration).
+هنگام ذخیره کردن نماینده مدیریت‌شده، می‌توانید دسترسی برون‌سو را قفل کنید یا اطلاعات کاربری را تزریق کنید. برای مشاهده طرح کامل فهرست مجاز، الگوهای اطلاعات کاربری، و نویسه‌های عام، به [محیط‌ها: پیکربندی شبکه](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa#network-configuration) مراجعه کنید.
 
-Tham chiếu một [thông tin đăng nhập](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) đã lưu trữ theo mã nhận dạng trên một quy tắc danh sách cho phép (`"credential": "github-production"`) và proxy truyền dữ liệu ra sẽ chèn khoá bí mật tại thời điểm yêu cầu, vì vậy, khoá này sẽ không bao giờ xuất hiện trong định nghĩa tác nhân của bạn. Ví dụ này đặt tiêu đề cùng dòng với `transform`. Proxy áp dụng cả hai biểu mẫu theo cùng một cách, ngoài ra, thông tin đăng nhập còn cho phép bạn sử dụng lại khoá bí mật trên nhiều tác nhân và xoay vòng khoá bí mật ở một nơi.
+با شناسه در قانون فهرست مجاز (`"credential": "github-production"`) به [اعتبارنامه](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) ذخیره‌شده ارجاع دهید و پراکسی خروجی در زمان درخواست، رمز را تزریق می‌کند، بنابراین هرگز در تعریف نماینده شما قرار نمی‌گیرد. این مثال سرصفحه را به‌جای آن با `transform` درون‌خطی می‌کند. پراکسی هر دو فرم را به یک روش اعمال می‌کند، اعتبارنامه همچنین به شما امکان می‌دهد از رمز در بین کارگزاران مجدداً استفاده کنید و آن را در یک مکان بچرخانید.
 
-Ví dụ sau đây sẽ tạo một tác nhân `issue-resolver` chỉ có thể truy cập vào GitHub và PyPI, với thông tin đăng nhập được chèn cho GitHub:
+مثال زیر یک عامل `issue-resolver` ایجاد می‌کند که فقط می‌تواند به GitHub و PyPI دسترسی داشته باشد، و اطلاعات کاربری برای GitHub تزریق شده است:
 
 ### Python
 
@@ -1069,7 +1069,7 @@ const agent = await client.agents.create({
 console.log(`Created issue-resolver agent successfully: ${agent.id}`);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1122,7 +1122,7 @@ Agent agent = client.agents.create(agentParams).agent().get();
 System.out.println("Created issue-resolver agent successfully: " + agent.id().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1184,7 +1184,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
@@ -1218,9 +1218,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
   }'
 ```
 
-## Gọi tác nhân
+## فراخواندن عامل
 
-Gọi tác nhân được quản lý bằng mã nhận dạng tác nhân bằng cách tạo một lượt tương tác mới. Mỗi lệnh gọi sẽ phân nhánh môi trường cơ sở, vì vậy, mọi lượt chạy đều bắt đầu từ đầu.
+با ایجاد تعامل جدید، با شناسه نماینده‌تان با نماینده مدیریت‌شده‌تان تماس بگیرید. هر فراخوانی محیط پایه را منشعب می‌کند، بنابراین هر اجرا از ابتدا شروع می‌شود.
 
 ### Python
 
@@ -1246,7 +1246,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1269,7 +1269,7 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1307,7 +1307,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1320,15 +1320,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-Để biết thông tin về cuộc trò chuyện nhiều lượt và truyền trực tuyến, hãy xem phần [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi). Các mẫu `previous_interaction_id` và `environment` tương tự cũng áp dụng cho các tác nhân được quản lý.
+برای مکالمه‌های چندنوبتی و جاری‌سازی، به [شروع سریع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=fa) مراجعه کنید. همان الگوهای `previous_interaction_id` و `environment` برای نماینده‌های مدیریت‌شده اعمال می‌شود.
 
-Các tác nhân được quản lý cũng hỗ trợ việc thực thi và huỷ trong nền. Để biết thông tin chi tiết và ví dụ về mã, hãy xem bài viết [Antigravity Agent: Background execution](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi#background-execution) (Tác nhân Antigravity: Thực thi ở chế độ nền).
+عامل‌های مدیریت‌شده از اجرا و لغو در پس‌زمینه نیز پشتیبانی می‌کنند. برای جزئیات و نمونه‌های کد، به [عامل Antigravity: اجرای پس‌زمینه](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa#background-execution) مراجعه کنید.
 
-## Ghi đè cấu hình khi gọi
+## لغو پیکربندی در فراخوانی
 
-Bạn có thể ghi đè cấu hình mạng `system_instruction`, `tools` và `environment` mặc định của tác nhân khi tạo một lượt tương tác. Điều này cho phép bạn sửa đổi hành vi, chức năng hoặc thông tin đăng nhập của tác nhân cho một lần chạy cụ thể mà không thay đổi định nghĩa tác nhân đã lưu trữ.
+می‌توانید پیکربندی شبکه پیش‌فرض `system_instruction`، `tools`، و
+`environment` نماینده را هنگام ایجاد تعامل لغو کنید. این
+به شما امکان می‌دهد رفتار، قابلیت‌ها، یا اطلاعات کاربری نماینده را برای یک
+اجرای خاص بدون تغییر تعریف ذخیره‌شده نماینده اصلاح کنید.
 
-### Ghi đè hướng dẫn và công cụ hệ thống
+### لغو کردن دستورالعمل و ابزارهای سیستم
 
 ### Python
 
@@ -1357,7 +1360,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1384,7 +1387,7 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1424,7 +1427,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1439,11 +1442,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### Ghi đè cấu hình mạng (làm mới thông tin đăng nhập)
+### لغو پیکربندی شبکه (بازآوری اعتبارنامه)
 
-Nếu tác nhân được quản lý của bạn có thông tin đăng nhập mạng được tích hợp vào `base_environment`, bạn có thể ghi đè thông tin đăng nhập đó tại thời điểm gọi để làm mới mã thông báo đã hết hạn hoặc xoay khoá API. Truyền một đối tượng `environment` có cấu hình `network` mới. Các quy tắc mạng mới sẽ thay thế hoàn toàn các quy tắc trước đó cho hoạt động tương tác đó. Các nguồn (tệp, kho lưu trữ) của môi trường cơ sở sẽ được giữ nguyên.
+اگر اعتبارنامه شبکه در `base_environment` عامل مدیریت‌شده شما تعبیه شده باشد،
+می‌توانید آن‌ها را در زمان فراخوانی لغو کنید تا توکن‌های منقضی‌شده را بازآوری کنید یا کلیدهای API را
+بچرخانید. یک شیء `environment` را با پیکربندی `network` جدید ارسال کنید. قوانین جدید شبکه به‌طور کامل جایگزین قوانین قبلی برای آن تعامل می‌شود. منابع محیط پایه (فایل‌ها، مخزن‌ها) حفظ می‌شوند.
 
-Nếu `base_environment` tham chiếu đến một [chứng chỉ](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=vi) được lưu trữ thay vì một mã thông báo nội tuyến, thì bạn không cần ghi đè bất cứ thứ gì. Xoay thông tin đăng nhập bằng `PATCH` và mọi tác nhân tham chiếu đến thông tin đăng nhập đó sẽ nhận được khoá bí mật mới vào lần chạy tiếp theo.
+اگر `base_environment` به‌جای یک توکن درون‌خطی به یک
+[اعتبارنامه](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=fa) ذخیره‌شده ارجاع می‌دهد،
+نیازی به لغو کردن چیزی ندارید. اعتبارنامه را با `PATCH` بچرخانید و هر
+عاملی که به آن ارجاع می‌دهد، در اجرای بعدی، رمز جدید را دریافت می‌کند.
 
 ### Python
 
@@ -1497,7 +1505,7 @@ const result = await client.interactions.create({
 console.log(result.output_text);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1545,7 +1553,7 @@ Interaction result = client.interactions.create(CreateInteractionRequestBody.of(
 System.out.println(result.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1600,7 +1608,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -1626,11 +1634,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Quản lý nhân viên hỗ trợ
+## مدیریت کردن عامل‌ها
 
-Bạn có thể liệt kê, nhận và xoá các tác nhân.
+می‌توانید نماینده‌ها را فهرست کنید، دریافت کنید، و حذف کنید.
 
-### Liệt kê các tác nhân
+### فهرست کردن عامل‌ها
 
 ### Python
 
@@ -1651,7 +1659,7 @@ if (agents.agents) {
 }
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1666,7 +1674,7 @@ for (Agent a : agents) {
 }
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1700,14 +1708,14 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Nhận một tác nhân
+### دریافت عامل
 
 ### Python
 
@@ -1723,7 +1731,7 @@ const agent = await client.agents.get("data-analyst");
 console.log(agent);
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1735,7 +1743,7 @@ Agent agent = client.agents.get("data-analyst").agent().get();
 System.out.println(agent);
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1767,16 +1775,16 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X GET "https://generativelanguage.googleapis.com/v1beta/agents/data-analyst" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-### Xoá một tác nhân
+### حذف کردن عامل
 
-Thao tác xoá sẽ loại bỏ cấu hình. Các môi trường và hoạt động tương tác hiện có do tác nhân tạo ra sẽ không bị ảnh hưởng.
+با حذف کردن، پیکربندی برداشته می‌شود. محیط‌ها و تعامل‌های موجود که توسط عامل ایجاد شده‌اند تحت تأثیر قرار نمی‌گیرند.
 
 ### Python
 
@@ -1790,7 +1798,7 @@ client.agents.delete(id="data-analyst")
 await client.agents.delete("data-analyst");
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -1800,7 +1808,7 @@ Client client = new Client();
 client.agents.delete("data-analyst");
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -1829,31 +1837,31 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/agents/data-analyst" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## Tài liệu tham khảo về định nghĩa tác nhân
+## مرجع تعریف عامل
 
-| Trường | Loại | Bắt buộc | Mô tả |
+| فیلد | نوع | الزامی | شرح |
 | --- | --- | --- | --- |
-| `id` | chuỗi | Có | Giá trị nhận dạng riêng biệt của tác nhân trong dự án trên đám mây của Google. Được dùng để gọi tác nhân. Không được sử dụng tiền tố dành riêng. Xem [Hạn chế về mã nhận dạng tác nhân](#agent-id-restrictions). |
-| `description` | chuỗi | Không | Nội dung mô tả mà con người có thể đọc được về tác nhân. |
-| `base_agent` | chuỗi | Có | Mã tác nhân cơ sở (ví dụ: `antigravity-preview-09-2026`). |
-| `agent_config` | đối tượng | Không | Cấu hình cho tác nhân cơ sở, bao gồm cả lựa chọn mô hình (`{"type": "antigravity", "model": "gemini-3.8-flash"}`). Mặc định là `gemini-3.8-flash` nếu bị bỏ qua. Không thể ghi đè vào thời gian tương tác cho các tác nhân được đặt tên. |
-| `system_instruction` | chuỗi | Không | Câu lệnh hệ thống xác định hành vi và tính cách. |
-| `tools` | mảng | Không | Các công cụ mà tác nhân có thể sử dụng. Nếu bạn bỏ qua, giá trị mặc định sẽ là `code_execution`, `google_search` và `url_context`. Các công cụ được hỗ trợ bao gồm `code_execution`, `google_search`, `url_context`, `mcp_server` và các định nghĩa `function` tuỳ chỉnh. |
-| `base_environment` | chuỗi hoặc đối tượng | Không | `"remote"`, `environment_id` hoặc một đối tượng cấu hình có `sources` và `network`. Xem phần Môi trường. |
+| `id` | رشته | بله | شناسه یکتای نماینده در پروژه Google Cloud. برای فراخوانی عامل استفاده می‌شود. نباید از پیشوندهای رزروشده استفاده کند. [محدودیت‌های شناسه نماینده](#agent-id-restrictions) را ببینید. |
+| `description` | رشته | نه | توضیحات قابل‌خواندن برای انسان درباره نماینده. |
+| `base_agent` | رشته | بله | شناسه عامل پایه (مثلاً `antigravity-preview-09-2026`). |
+| `agent_config` | شیء | نه | پیکربندی برای عامل پایه، ازجمله انتخاب مدل (`{"type": "antigravity", "model": "gemini-3.8-flash"}`). اگر حذف شود، به‌طور پیش‌فرض روی `gemini-3.8-flash` تنظیم می‌شود. در زمان تعامل برای عامل‌های نام‌گذاری‌شده نمی‌تواند لغو شود. |
+| `system_instruction` | رشته | نه | پیام‌واره سیستم که رفتار و شخصیت را تعریف می‌کند. |
+| `tools` | آرایه | نه | ابزارهایی که عامل می‌تواند استفاده کند. اگر حذف شود، به‌طور پیش‌فرض `code_execution`،‏ `google_search`، و `url_context` خواهد بود. ابزارهای پشتیبانی‌شده شامل `code_execution`، `google_search`، `url_context`، `mcp_server`، و تعاریف سفارشی `function` می‌شود. |
+| `base_environment` | رشته یا شیء | نه | ‫`"remote"`،‏ `environment_id`، یا شیء پیکربندی با `sources` و `network`. به «محیط‌ها» مراجعه کنید. |
 
-### Các hạn chế về mã nhận dạng tác nhân
+### محدودیت‌های شناسه نماینده
 
-Khi tạo một tác nhân được quản lý, `id` mà bạn chỉ định phải tuân theo các quy tắc sau:
+هنگام ایجاد نماینده مدیریت‌شده، `id` که مشخص می‌کنید باید از این قوانین پیروی کند:
 
-- Giá trị này phải dành riêng cho dự án trên đám mây của bạn trên Google Cloud.
-- Tên này **không** được bắt đầu bằng bất kỳ tiền tố dành riêng nào sau đây (không phân biệt chữ hoa chữ thường), nếu không, bạn sẽ không tạo được:
+- این شناسه باید برای پروژه Google Cloud شما منحصربه‌فرد باشد.
+- **نباید** با هیچ‌یک از پیشوندهای رزروشده زیر (غیرحساس به حروف بزرگ و کوچک) شروع شود، درغیراین‌صورت ایجاد آن ناموفق خواهد بود:
   - `antigravity-`
   - `veo-`
   - `omni-`
@@ -1871,35 +1879,38 @@ Khi tạo một tác nhân được quản lý, `id` mà bạn chỉ định ph�
   - `nest-`
   - `kaggle-`
 
-## Quy trình lặp lại
+## گردش کار تکرار
 
-1. **Tạo nguyên mẫu** bằng tác nhân Antigravity cơ bản. Truyền hướng dẫn hệ thống và các nguồn môi trường nội tuyến. Kiểm tra hướng dẫn, kỹ năng và chế độ thiết lập môi trường một cách tương tác.
-2. **Ổn định** môi trường. Cài đặt các gói, gắn nguồn, xác minh mọi thứ đều hoạt động.
-3. **Duy trì** dưới dạng một tác nhân được quản lý bằng cách tạo một tác nhân mới, từ các nguồn hoặc bằng cách phân nhánh môi trường.
-4. **Cập nhật** định nghĩa về tác nhân. Thay đổi chỉ dẫn hệ thống, thay đổi kỹ năng hoặc thêm nguồn. Lần gọi tiếp theo sẽ chọn cấu hình mới.
+1. با عامل Antigravity پایه **نمونه اولیه** بسازید. دستورالعمل سیستم و منابع محیط را به‌صورت درون‌خطی ارسال کنید. دستورالعمل‌ها، مهارت‌ها، و راه‌اندازی محیط را به‌صورت تعاملی آزمایش کنید.
+2. محیط را **تثبیت** کنید. بسته‌ها را نصب کنید، منابع را سوار کنید، و بررسی کنید که همه چیز کار می‌کند.
+3. با ایجاد یک نماینده جدید، چه از منابع یا با انشعاب محیط، به‌عنوان یک نماینده مدیریت‌شده **پافشاری کنید**.
+4. تعریف عامل را **به‌روز کنید**. دستورالعمل سیستم را تغییر دهید، مهارت‌ها را جابه‌جا کنید، یا منابع اضافه کنید. فراخوانی بعدی پیکربندی جدید را انتخاب می‌کند.
 
-## Các điểm hạn chế
+## محدودیت‌ها
 
-- **Trạng thái xem trước**: Tác nhân được quản lý đang ở giai đoạn xem trước. Các tính năng và giản đồ có thể thay đổi.
-- **Tác nhân và mô hình cơ sở**: Chỉ `antigravity-preview-09-2026` được hỗ trợ dưới dạng `base_agent`. Các lựa chọn về mô hình được hỗ trợ trong `agent_config` là `gemini-3.8-flash` (mặc định), `gemini-3.6-flash` và `gemini-3.5-flash-lite`. Đối với các tác nhân được đặt tên, bạn không thể ghi đè mô hình tại thời điểm tương tác.
-- **Không có tính năng quản lý phiên bản**: Tính năng quản lý phiên bản và khôi phục phiên bản cũ của tác nhân hiện chưa được cung cấp.
-- **Không có tính năng lồng đại lý phụ**: Tính năng uỷ quyền cho đại lý phụ chưa được hỗ trợ.
-- Bạn có thể có tối đa 1.000 nhân viên hỗ trợ được quản lý.
+- **وضعیت پیش‌نمایش**: عامل‌های مدیریت‌شده در مرحله پیش‌نمایش هستند. ویژگی‌ها و طرح‌واره‌ها ممکن است تغییر کنند.
+- **مدل‌ها و عامل پایه**: فقط از `antigravity-preview-09-2026` به‌عنوان
+  `base_agent` پشتیبانی می‌شود. گزینه‌های مدل پشتیبانی‌شده در `agent_config` عبارت‌اند از
+  `gemini-3.8-flash` (پیش‌فرض)، `gemini-3.6-flash`، و
+  `gemini-3.5-flash-lite`. برای عامل‌های نام‌گذاری‌شده، مدل را نمی‌توان در زمان تعامل لغو کرد.
+- **بدون نسخه‌بندی**: نسخه‌بندی و بازگردانی نماینده هنوز دردسترس نیست.
+- **بدون تودرتو کردن زیرنماینده**: واگذاری زیرنماینده هنوز پشتیبانی نمی‌شود.
+- می‌توانید حداکثر ۱۰۰۰ نماینده مدیریت‌شده داشته باشید.
 
-## Bước tiếp theo
+## قدم بعدی چیست
 
-- [Tổng quan về tác nhân](https://ai.google.dev/gemini-api/docs/agents?hl=vi): Tìm hiểu về các khái niệm cốt lõi của tác nhân được quản lý.
-- [Bắt đầu nhanh](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=vi): Bắt đầu xây dựng bằng các cuộc trò chuyện nhiều lượt và tính năng phát trực tuyến.
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=vi): Khám phá các khả năng, công cụ và mức giá của tác nhân Antigravity mặc định.
-- [Môi trường của tác nhân](https://ai.google.dev/gemini-api/docs/agent-environment?hl=vi): Định cấu hình hộp cát, nguồn và mạng.
-- [Managed Agents API trên Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=vi): Để tạo các tác nhân có cơ chế quản trị tổ chức tích hợp.
+- [نمای کلی عامل‌ها](https://ai.google.dev/gemini-api/docs/agents?hl=fa): با مفاهیم اصلی عامل‌های مدیریت‌شده آشنا شوید.
+- [شروع سریع](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=fa): ساختن را با مکالمه‌های چندنوبتی و جاری‌سازی شروع کنید.
+- [عامل Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fa): توانمندی‌ها، ابزارها، و قیمت‌گذاری عامل پیش‌فرض را کاوش کنید.
+- [محیط‌های عامل](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fa): جعبه‌های شنی، منابع، و شبکه‌سازی را پیکربندی کنید.
+- [Managed Agents API در Agent Platform](https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/managed-agents?hl=fa): برای ایجاد عامل‌هایی با حاکمیت سازمانی داخلی.
 
-Gửi ý kiến phản hồi
+ارسال بازخورد
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Cập nhật lần gần đây nhất: 2026-10-09 UTC.
+تاریخ آخرین به‌روزرسانی 2026-10-28 به‌وقت ساعت هماهنگ جهانی.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-09 UTC."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-28 به‌وقت ساعت هماهنگ جهانی."],[],[]]

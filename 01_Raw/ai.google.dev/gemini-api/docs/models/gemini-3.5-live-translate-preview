@@ -1,50 +1,54 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=th
-fetched_at: 2026-10-26T05:50:33.789954+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-live-translate-preview?hl=bn
+fetched_at: 2026-11-02T07:22:37.115456+00:00
 title: "Gemini 3.5 Live Translate \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-ส่งความคิดเห็น
+মতামত জানান
 
 # Gemini 3.5 Live Translate
 
-Gemini 3.5 Live Translate เป็นโมเดลเสียงต่อเสียงที่มีเวลาในการตอบสนองต่ำ ซึ่งได้รับการปรับให้เหมาะกับการแปลบทสนทนาแบบเรียลไทม์ โดยสามารถแปลได้ทั้ง 2 ทางอย่างราบรื่นด้วยความแม่นยำสูงและเอาต์พุตเสียงที่เป็นธรรมชาติ
+Gemini 3.5 Live Translate হল আমাদের কম-লেটেন্সি, অডিও-টু-অডিও মডেল যা
+কথোপকথনের রিয়েল-টাইম অনুবাদের জন্য অপ্টিমাইজ করা হয়েছে। এটি উচ্চ নির্ভুলতা এবং স্বাভাবিক ভয়েস আউটপুট সহ নির্বিঘ্ন,
+দ্বিমুখী অনুবাদ সক্ষম করে।
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=th)
+[Google AI Studio-তে ব্যবহার করে দেখুন](https://aistudio.google.com/live?model=gemini-3.5-live-translate-preview&hl=bn)
 
-## เอกสารประกอบ
+## ডকুমেন্টেশন
 
-ดูข้อมูลทั้งหมดเกี่ยวกับฟีเจอร์และความสามารถได้ที่คู่มือ[การแปลสด](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=th)
+ফিচার ও ক্ষমতার সম্পূর্ণ কভারেজের জন্য
+[লাইভ অনুবাদ](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=bn) গাইড দেখুন।
 
 ## gemini-3.5-live-translate-preview
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| প্রপার্টি | বিবরণ |
 | --- | --- |
-| id\_cardรหัสโมเดล | `gemini-3.5-live-translate-preview` |
-| saveประเภทข้อมูลที่รองรับ | **อินพุต**  เสียง (คำพูด)  **เอาต์พุต**  เสียง (คำพูดที่แปล) และข้อความ (ข้อความถอดเสียง) |
-| token\_autoขีดจำกัดโทเค็น[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=th) | **ขีดจำกัดโทเค็นอินพุต**  131,072  **ขีดจำกัดโทเค็นเอาต์พุต**  65,536 |
-| handymanความสามารถ | **[การสร้างเสียง](https://ai.google.dev/gemini-api/docs/speech-generation?hl=th)**  สิ่งที่ทำได้  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  ไม่รองรับ  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  ไม่รองรับ  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  ไม่รองรับ  **[การเรียกฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  ไม่รองรับ  **[การเชื่อมต่อแหล่งข้อมูลกับ Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=th)**  ไม่รองรับ  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  ไม่รองรับ  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=th)**  สิ่งที่ทำได้  **[การเชื่อมต่อแหล่งข้อมูลของ Search](https://ai.google.dev/gemini-api/docs/google-search?hl=th)**  ไม่รองรับ  **[เอาต์พุตที่มีโครงสร้าง](https://ai.google.dev/gemini-api/docs/structured-output?hl=th)**  ไม่รองรับ  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  ไม่รองรับ  **[บริบท URL](https://ai.google.dev/gemini-api/docs/url-context?hl=th)**  ไม่รองรับ |
-| speedตัวเลือกการใช้ | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  ไม่รองรับ  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  ไม่รองรับ  **[Priority Inference](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  ไม่รองรับ |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมเกี่ยวกับ[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models?hl=th#model-versions)  - เวอร์ชันตัวอย่าง: `gemini-3.5-live-translate-preview` |
-| calendar\_monthการอัปเดตล่าสุด | มิถุนายน 2026 |
-| id\_cardการ์ดโมเดล | [การ์ดโมเดล](https://deepmind.google/models/model-cards/gemini-3-5-audio/?hl=th) |
+| id\_cardমডেল কোড | `gemini-3.5-live-translate-preview` |
+| সেভ করুনকাজ করে এমন ডেটার ধরন | **ইনপুট**  অডিও (স্পিচ)  **আউটপুট**  অডিও (অনূদিত স্পিচ) এবং টেক্সট (ট্রান্সক্রিপ্ট) |
+| token\_autoটোকেনের সীমা[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=bn) | **ইনপুট টোকেনের সীমা**  ১৩১,০৭২  **আউটপুট টোকেনের সীমা**  ৬৫,৫৩৬ |
+| handymanকেপেবিলিটি | **[অডিও জেনারেশন](https://ai.google.dev/gemini-api/docs/speech-generation?hl=bn)**  কাজ করে  **[ক্যাশিং](https://ai.google.dev/gemini-api/docs/caching?hl=bn)**  কাজ করে না  **[কোড এক্সিকিউশন](https://ai.google.dev/gemini-api/docs/code-execution?hl=bn)**  কাজ করে না  **[ফাইল সার্চ](https://ai.google.dev/gemini-api/docs/file-search?hl=bn)**  কাজ করে না  **[ফাংশন কলিং](https://ai.google.dev/gemini-api/docs/function-calling?hl=bn)**  কাজ করে না  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=bn)**  কাজ করে না  **[ইমেজ জেনারেশন](https://ai.google.dev/gemini-api/docs/image-generation?hl=bn)**  কাজ করে না  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=bn)**  কাজ করে  **[লাইভ অনুবাদ](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=bn)**  কাজ করে  **[গ্রাউন্ডিং সার্চ করুন](https://ai.google.dev/gemini-api/docs/google-search?hl=bn)**  কাজ করে না  **[স্ট্রাকচার্ড আউটপুট](https://ai.google.dev/gemini-api/docs/structured-output?hl=bn)**  কাজ করে না  **[ভাবছি](https://ai.google.dev/gemini-api/docs/thinking?hl=bn)**  কাজ করে না  **[URL কন্টেক্সট](https://ai.google.dev/gemini-api/docs/url-context?hl=bn)**  কাজ করে না |
+| speedব্যবহারের বিকল্প | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=bn)**  কাজ করে না  **[Flex inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=bn)**  কাজ করে না  **[প্রায়োরিটি ইনফারেন্স](https://ai.google.dev/gemini-api/docs/priority-inference?hl=bn)**  কাজ করে না |
+| ১২৩ভার্সন | আরও জানতে [মডেল ভার্সন প্যাটার্ন](https://ai.google.dev/gemini-api/docs/models?hl=bn#model-versions) পড়ুন।  - প্রিভিউ: `gemini-3.5-live-translate-preview` |
+| calendar\_monthলেটেস্ট আপডেট | জুন ২০২৬ |
+| id\_cardমডেল কার্ড | [মডেল কার্ড](https://deepmind.google/models/model-cards/gemini-3-5-audio/?hl=bn) |
+| পেডপ্রাইসিং | [দাম](https://ai.google.dev/gemini-api/docs/pricing?hl=bn#gemini-3.5-live-translate-preview) |
 
-ส่งความคิดเห็น
+মতামত জানান
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-อัปเดตล่าสุด 2026-08-19 UTC
+2026-10-29 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+আমাদের আরও কিছু জানাতে চান?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-08-19 UTC"],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-29 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

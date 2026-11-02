@@ -1,50 +1,51 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=vi
-fetched_at: 2026-10-26T05:36:49.109252+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-CN
+fetched_at: 2026-11-02T07:19:10.704032+00:00
 title: "Gemini 4 Argon \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首页](https://ai.google.dev/?hl=zh-cn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
 
-Gửi ý kiến phản hồi
+发送反馈
 
 # Gemini 4 Argon
 
-Gemini 4 Argon (`gemini-4-argon`) là mô hình suy luận hàng đầu của chúng tôi, được xây dựng cho kỹ thuật phần mềm phức tạp, giải quyết các vấn đề toán học và khoa học chuyên sâu, các tác nhân tự động nhiều bước và giải mã dài tối đa 1 triệu mã thông báo.
+Gemini 4 Argon (`gemini-4-argon`) 是我们的旗舰推理模型，专为复杂的软件工程、深度数学和科学问题解决、自主多步智能体以及长达 100 万 token 的长解码而打造。
 
-[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi)
+[在 Google AI Studio 中试用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)
 
-## Tài liệu
+## 文档
 
-Hãy truy cập vào trang [Mô hình mới nhất](https://ai.google.dev/gemini-api/docs/latest-model?hl=vi) để xem toàn bộ các tính năng, thay đổi về API và hướng dẫn di chuyển.
+如需全面了解功能、API 变更和迁移指南，请访问[最新模型](https://ai.google.dev/gemini-api/docs/latest-model?hl=zh-cn)页面。
 
 ## gemini-4-argon
 
-| Thuộc tính | Mô tả |
+| 属性 | 说明 |
 | --- | --- |
-| id\_cardMã mô hình | `gemini-4-argon` |
-| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản, Hình ảnh, Video, Âm thanh và PDF  **Đầu ra**  Văn bản |
-| token\_autoGiới hạn mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Cửa sổ ngữ cảnh (giới hạn mã thông báo đầu vào và đầu ra hợp nhất)**  1.048.576  **Đầu ra tối đa**  65.536 (đồng bộ mặc định) / tối đa 1.048.576 (với [giải mã dài](https://ai.google.dev/gemini-api/docs/long-decode?hl=vi)) |
-| handymanCác chức năng | **[Hiểu video theo tác nhân](https://ai.google.dev/gemini-api/docs/video-understanding?hl=vi#agentic-video-understanding)**  Được hỗ trợ (mặc định là `static`)  **[Tạo âm thanh](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)**  Không được hỗ trợ  **[Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi)**  Được hỗ trợ (Chỉ ngầm)  Lưu ý: Không hỗ trợ lưu vào bộ nhớ đệm một cách rõ ràng.  **[Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi)**  Được hỗ trợ  **[Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi)**  Được hỗ trợ (Bản xem trước)  **[Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)**  Được hỗ trợ  **[Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)**  Được hỗ trợ  **[Tìm trong phần liên kết thực tế bằng Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)**  Được hỗ trợ  **[Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi)**  Không được hỗ trợ  **[API trực tiếp](https://ai.google.dev/gemini-api/docs/live-api?hl=vi)**  Không được hỗ trợ  **[Tìm kiếm neo bám](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)**  Được hỗ trợ  **[Đầu ra có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi)**  Được hỗ trợ  **[Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)**  Được hỗ trợ (thấp, trung bình, cao)  **[Ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)**  Được hỗ trợ |
-| speedCác tuỳ chọn tiêu thụ | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi)**  Được hỗ trợ  **[Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi)**  Được hỗ trợ  **[Suy luận theo mức độ ưu tiên](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi)**  Được hỗ trợ |
-| 123Phiên bản | Đọc các mẫu [phiên bản mô hình để biết thêm chi tiết.](https://ai.google.dev/gemini-api/docs/models?hl=vi#model-versions)  - Ổn định: `gemini-4-argon` |
-| calendar\_monthBản cập nhật mới nhất | Tháng 10/2026 |
-| id\_cardThẻ mô hình | [Thẻ mô hình](https://deepmind.google/models/model-cards/gemini-4-argon/?hl=vi) |
+| id\_card模型代码 | `gemini-4-argon` |
+| save支持的数据类型 | **输入源**  文本、图片、视频、音频和 PDF  **输出**  文本 |
+| token\_autoToken 限制[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-cn) | **上下文窗口（统一的输入和输出 token 限制）**  1,048,576  **全速输出**  65,536（默认同步）/最多 1,048,576（使用[长解码](https://ai.google.dev/gemini-api/docs/long-decode?hl=zh-cn)） |
+| handyman功能 | **[智能体视频理解](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-cn#agentic-video-understanding)**  支持（默认为 `static`）  **[音频生成](https://ai.google.dev/gemini-api/docs/speech-generation?hl=zh-cn)**  不受支持  **[缓存](https://ai.google.dev/gemini-api/docs/caching?hl=zh-cn)**  支持（仅限隐式）  注意：不支持显式缓存。  **[代码执行](https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-cn)**  支持  **[计算机使用](https://ai.google.dev/gemini-api/docs/computer-use?hl=zh-cn)**  支持  **[文件搜索](https://ai.google.dev/gemini-api/docs/file-search?hl=zh-cn)**  支持  **[函数调用](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-cn)**  支持  **[Grounding with Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=zh-cn)**  支持  **[图片生成](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-cn)**  不受支持  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=zh-cn)**  不受支持  **[利用 Google 搜索建立回答依据](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)**  支持  **[结构化输出](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-cn)**  支持  **[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-cn)**  支持（低、中、高）  **[网址上下文](https://ai.google.dev/gemini-api/docs/url-context?hl=zh-cn)**  支持 |
+| speed使用选项 | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-cn)**  支持  **[Flex 推理](https://ai.google.dev/gemini-api/docs/flex-inference?hl=zh-cn)**  支持  **[优先级推断](https://ai.google.dev/gemini-api/docs/priority-inference?hl=zh-cn)**  支持 |
+| 123 个版本 | 如需了解详情，请参阅[模型版本模式](https://ai.google.dev/gemini-api/docs/models?hl=zh-cn#model-versions)。  - 稳定：`gemini-4-argon` |
+| calendar\_month最后更新时间 | 2026 年 10 月 |
+| id\_card模型卡片 | [模型卡片](https://deepmind.google/models/model-cards/gemini-4-argon/?hl=zh-cn) |
+| paid价格 | [价格](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn#gemini-4-argon) |
 
-Gửi ý kiến phản hồi
+发送反馈
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
 
-Cập nhật lần gần đây nhất: 2026-10-14 UTC.
+最后更新时间 (UTC)：2026-10-30。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+需要向我们提供更多信息？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-14 UTC."],[],[]]
+[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-30。"],[],[]]

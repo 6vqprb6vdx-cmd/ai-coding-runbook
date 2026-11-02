@@ -1,36 +1,37 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=th
-fetched_at: 2026-10-26T05:59:03.856443+00:00
-title: "\u0e04\u0e27\u0e32\u0e21\u0e25\u0e30\u0e40\u0e2d\u0e35\u0e22\u0e14\u0e02\u0e2d\u0e07\u0e2a\u0e37\u0e48\u0e2d \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/media-resolution?hl=pt-BR
+fetched_at: 2026-11-02T07:00:08.780577+00:00
+title: "Resolu\u00e7\u00e3o da m\u00eddia \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
-ส่งความคิดเห็น
+Envie comentários
 
-# ความละเอียดของสื่อ
+# Resolução da mídia
 
-พารามิเตอร์ `media_resolution` จะควบคุมวิธีที่ Gemini API ประมวลผลอินพุตสื่อ เช่น รูปภาพ วิดีโอ เสียง และเอกสาร PDF โดยกำหนด**จำนวนโทเค็นสูงสุด** ที่จัดสรรไว้สำหรับอินพุตสื่อ ซึ่งช่วยให้คุณปรับสมดุลคุณภาพการตอบสนองกับเวลาในการตอบสนองและค่าใช้จ่ายได้ แม้ว่าอินพุตภาพและเอกสารจะปรับขนาดการจัดสรรโทเค็นตามการตั้งค่าความละเอียด แต่อินพุตเสียงจะมีการแปลงเป็นโทเค็นในอัตราคงที่ต่อวินาทีในทุกระดับความละเอียด สำหรับการตั้งค่าต่างๆ ค่าเริ่มต้น และวิธีที่การตั้งค่าเหล่านั้นสอดคล้องกับโทเค็น โปรดดูส่วน
-[จำนวนโทเค็น](#token-counts)
+O parâmetro `media_resolution` controla como a API Gemini processa entradas de mídia, como imagens, vídeos, áudio e documentos PDF, determinando o **número máximo de tokens** alocados para entradas de mídia, permitindo equilibrar a qualidade da resposta com a latência e o custo. Enquanto as entradas visuais e de documentos escalonam a alocação de tokens com base na configuração de resolução, as entradas de áudio são tokenizadas a uma taxa fixa por segundo em todos os níveis de resolução. Para
+diferentes configurações, valores padrão e como eles correspondem a tokens, consulte a
+[seção Contagens de tokens](#token-counts).
 
-คุณกำหนดค่าความละเอียดของสื่อได้ 2 วิธี ดังนี้
+É possível configurar a resolução de mídia de duas maneiras:
 
-- [ต่อส่วน](#per-part-media-resolution) (โมเดล Gemini 4 และ Gemini 3)
-- [ทั่วโลก](#global-media-resolution)สำหรับคำขอ `generateContent` ทั้งหมด (โมเดลมัลติโมดัลทั้งหมด)
+- [Por parte](#per-part-media-resolution) (modelos Gemini 4 e Gemini 3)
+- [Globalmente](#global-media-resolution) para uma solicitação `generateContent` inteira (todos os modelos multimodais)
 
-## ความละเอียดของสื่อต่อส่วน (Gemini 4 และ Gemini 3)
+## Resolução de mídia por parte (Gemini 4 e Gemini 3)
 
-Gemini 4 และ Gemini 3 ช่วยให้คุณกำหนดความละเอียดของสื่อสำหรับออบเจ็กต์สื่อแต่ละรายการภายในคำขอได้ ซึ่งช่วยให้คุณเพิ่มประสิทธิภาพการใช้โทเค็นได้อย่างละเอียด คุณสามารถผสมระดับความละเอียดในคำขอเดียวได้ เช่น ใช้ความละเอียดสูงสำหรับแผนภาพที่ซับซ้อน และใช้ความละเอียดต่ำสำหรับรูปภาพตามบริบท การตั้งค่านี้จะลบล้างการกำหนดค่าส่วนกลางสำหรับส่วนที่เฉพาะเจาะจง สำหรับการตั้งค่าเริ่มต้น
-โปรดดูส่วน[จำนวนโทเค็น](#token-counts)
+O Gemini 4 e o Gemini 3 permitem definir a resolução de mídia para objetos de mídia individuais na solicitação, oferecendo uma otimização refinada do uso de tokens. É possível misturar níveis de resolução em uma única solicitação. Por exemplo, usando alta resolução para um diagrama complexo e baixa resolução para uma imagem contextual. Essa configuração substitui qualquer configuração global para uma parte específica. Para configurações padrão,
+consulte a seção [Contagens de tokens](#token-counts).
 
 ### Python
 
@@ -133,10 +134,11 @@ curl -s -X POST \
   -d @request.json
 ```
 
-## ความละเอียดของสื่อส่วนกลาง
+## Resolução de mídia global
 
-คุณสามารถกำหนดความละเอียดเริ่มต้นสำหรับส่วนสื่อทั้งหมดในคำขอได้โดยใช้ `GenerationConfig` ซึ่งโมเดลมัลติโมดัลทั้งหมดรองรับ หากคำขอ
-มีการตั้งค่าทั้งส่วนกลางและ[ต่อส่วน](#per-part-media-resolution)การตั้งค่าต่อส่วนจะมีความสำคัญเหนือกว่าสำหรับรายการนั้นๆ
+É possível definir uma resolução padrão para todos os trechos de áudio em uma solicitação usando a `GenerationConfig`. Isso é compatível com todos os modelos multimodais. Se uma solicitação
+incluir configurações globais e [por parte](#per-part-media-resolution), a
+configuração por parte terá precedência para esse item específico.
 
 ### Python
 
@@ -204,101 +206,99 @@ curl -s -X POST \
   }'
 ```
 
-## ค่าความละเอียดที่ใช้ได้
+## Valores de resolução disponíveis
 
-Gemini API กำหนดระดับความละเอียดของสื่อไว้ดังนี้
+A API Gemini define os seguintes níveis de resolução de mídia:
 
-- `MEDIA_RESOLUTION_UNSPECIFIED`: การตั้งค่าเริ่มต้น จำนวนโทเค็นสำหรับระดับนี้จะแตกต่างกันอย่างมากระหว่าง Gemini 3 กับโมเดล Gemini เวอร์ชันก่อนหน้า
-- `MEDIA_RESOLUTION_LOW`: จำนวนโทเค็นต่ำกว่า ส่งผลให้การประมวลผลเร็วขึ้นและค่าใช้จ่ายลดลง แต่รายละเอียดน้อยลง
-- `MEDIA_RESOLUTION_MEDIUM`: ความสมดุลระหว่างรายละเอียด ค่าใช้จ่าย และเวลาในการตอบสนอง
-- `MEDIA_RESOLUTION_HIGH`: จำนวนโทเค็นสูงกว่า ให้รายละเอียดมากขึ้นสำหรับโมเดลในการทำงาน แต่เวลาในการตอบสนองและค่าใช้จ่ายจะเพิ่มขึ้น
-- `MEDIA_RESOLUTION_ULTRA_HIGH` (ต่อส่วนเท่านั้น): จำนวนโทเค็นสูงสุด ซึ่งจำเป็นสำหรับกรณีการใช้งานที่เฉพาะเจาะจง
-  เช่น [การใช้คอมพิวเตอร์](https://ai.google.dev/gemini-api/docs/computer-use?hl=th)
+- `MEDIA_RESOLUTION_UNSPECIFIED`: a configuração padrão. A contagem de tokens para esse nível varia significativamente entre o Gemini 3 e modelos anteriores do Gemini.
+- `MEDIA_RESOLUTION_LOW`: contagem de tokens mais baixa, resultando em processamento mais rápido e custo menor, mas com menos detalhes.
+- `MEDIA_RESOLUTION_MEDIUM`: um equilíbrio entre detalhes, custo e latência.
+- `MEDIA_RESOLUTION_HIGH`: contagem de tokens mais alta, fornecendo mais detalhes para o modelo trabalhar, à custa de maior latência e custo.
+- `MEDIA_RESOLUTION_ULTRA_HIGH` (somente por parte): contagem de tokens mais alta, necessária para casos de uso específicos, como [uso de computador](https://ai.google.dev/gemini-api/docs/computer-use?hl=pt-br).
 
-โปรดทราบว่า `MEDIA_RESOLUTION_HIGH` ให้ประสิทธิภาพสูงสุดสำหรับกรณีการใช้งานส่วนใหญ่
+A `MEDIA_RESOLUTION_HIGH` oferece a performance ideal para a maioria dos casos de uso.
 
-จำนวนโทเค็นที่แน่นอนที่สร้างขึ้นสำหรับแต่ละระดับเหล่านี้จะขึ้นอยู่กับทั้ง**ประเภทสื่อ** (รูปภาพ วิดีโอ เสียง PDF) และ**เวอร์ชันของโมเดล**
+O número exato de tokens gerados para cada um desses níveis depende do **tipo de mídia** (imagem, vídeo, áudio, PDF) e da **versão do modelo**.
 
-## จำนวนโทเค็น
+## Contagens de tokens
 
-ตารางด้านล่างสรุปจำนวนโทเค็นโดยประมาณสำหรับค่า `media_resolution` และประเภทสื่อแต่ละรายการต่อตระกูลโมเดล
+As tabelas abaixo resumem as contagens de tokens aproximadas para cada valor `media_resolution` e tipo de mídia por família de modelos.
 
-**โมเดล Gemini 3**
+**Modelos do Gemini 3**
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **MediaResolution** | **รูปภาพ** | **วิดีโอ** | **เสียง** | **PDF** |
-| `MEDIA_RESOLUTION_UNSPECIFIED` (ค่าเริ่มต้น) | 1120 | 70 | 25 (ต่อวินาที) | 560 |
-| `MEDIA_RESOLUTION_LOW` | 280 | 70 | 25 (ต่อวินาที) | 280 + ข้อความเนทีฟ |
-| `MEDIA_RESOLUTION_MEDIUM` | 560 | 70 | 25 (ต่อวินาที) | 560 + ข้อความเนทีฟ |
-| `MEDIA_RESOLUTION_HIGH` | 1120 | 280 | 25 (ต่อวินาที) | 1120 + ข้อความเนทีฟ |
-| `MEDIA_RESOLUTION_ULTRA_HIGH` | 2240 | ไม่มีข้อมูล | ไม่มี | ไม่มีข้อมูล |
+| **MediaResolution** | **Imagem** | **Vídeo** | **Áudio** | **PDF** |
+| `MEDIA_RESOLUTION_UNSPECIFIED` (padrão) | 1120 | 70 | 25 (por segundo) | 560 |
+| `MEDIA_RESOLUTION_LOW` | 280 | 70 | 25 (por segundo) | 280 + texto nativo |
+| `MEDIA_RESOLUTION_MEDIUM` | 560 | 70 | 25 (por segundo) | 560 + texto nativo |
+| `MEDIA_RESOLUTION_HIGH` | 1120 | 280 | 25 (por segundo) | 1120 + texto nativo |
+| `MEDIA_RESOLUTION_ULTRA_HIGH` | 2240 | N/D | N/A | N/D |
 
-**โมเดล Gemini 2.5**
+**Modelos do Gemini 2.5**
 
 |  |  |  |  |  |  |
 | --- | --- | --- | --- | --- | --- |
-| **MediaResolution** | **รูปภาพ** | **วิดีโอ** | **เสียง** | **PDF (สแกน)** | **PDF (เนทีฟ)** |
-| `MEDIA_RESOLUTION_UNSPECIFIED` (ค่าเริ่มต้น) | 256 + แพนและสแกน (~2048) | 256 | 32 (ต่อวินาที) | 256 + OCR | 256 + ข้อความเนทีฟ |
-| `MEDIA_RESOLUTION_LOW` | 64 | 64 | 32 (ต่อวินาที) | 64 + OCR | 64 + ข้อความเนทีฟ |
-| `MEDIA_RESOLUTION_MEDIUM` | 256 | 256 | 32 (ต่อวินาที) | 256 + OCR | 256 + ข้อความเนทีฟ |
-| `MEDIA_RESOLUTION_HIGH` | 256 + แพนและสแกน | 256 | 32 (ต่อวินาที) | 256 + OCR | 256 + ข้อความเนทีฟ |
+| **MediaResolution** | **Imagem** | **Vídeo** | **Áudio** | **PDF (digitalizado)** | **PDF (nativo)** |
+| `MEDIA_RESOLUTION_UNSPECIFIED` (padrão) | 256 + panorâmica e verificação (~2048) | 256 | 32 (por segundo) | 256 + OCR | 256 + texto nativo |
+| `MEDIA_RESOLUTION_LOW` | 64 | 64 | 32 (por segundo) | 64 + OCR | 64 + texto nativo |
+| `MEDIA_RESOLUTION_MEDIUM` | 256 | 256 | 32 (por segundo) | 256 + OCR | 256 + texto nativo |
+| `MEDIA_RESOLUTION_HIGH` | 256 + panorâmica e verificação | 256 | 32 (por segundo) | 256 + OCR | 256 + texto nativo |
 
-## การเลือกความละเอียดที่เหมาะสม
+## Como escolher a resolução certa
 
-- **ค่าเริ่มต้น (`UNSPECIFIED`):** เริ่มต้นด้วยค่าเริ่มต้น ซึ่งปรับแต่งมาเพื่อให้ได้ความสมดุลที่ดีระหว่างคุณภาพ เวลาในการตอบสนอง และค่าใช้จ่ายสำหรับกรณีการใช้งานที่พบบ่อยที่สุด
-- **`LOW`:** ใช้ในสถานการณ์ที่ค่าใช้จ่ายและเวลาในการตอบสนองมีความสำคัญสูงสุด และรายละเอียดที่ละเอียดมีความสำคัญน้อยกว่า
-- **`MEDIUM` / `HIGH`:** เพิ่มความละเอียดเมื่องานต้องใช้ความเข้าใจรายละเอียดที่ซับซ้อนภายในสื่อ ซึ่งมักจำเป็นสำหรับการวิเคราะห์ภาพที่ซับซ้อน การอ่านแผนภูมิ หรือความเข้าใจเอกสารที่มีข้อมูลหนาแน่น
-- **`ULTRA HIGH`** - ใช้ได้กับการตั้งค่าต่อส่วนเท่านั้น แนะนำสำหรับกรณีการใช้งานที่เฉพาะเจาะจง เช่น การใช้คอมพิวเตอร์ หรือในกรณีที่การทดสอบแสดงให้เห็นถึงการปรับปรุงที่ชัดเจนเมื่อเทียบกับ `HIGH`
-- **การควบคุมต่อส่วน (Gemini 4 และ Gemini 3):** เพิ่มประสิทธิภาพการใช้โทเค็น เช่น ในพรอมต์ที่มีรูปภาพหลายรายการ ให้ใช้ `HIGH` สำหรับแผนภาพที่ซับซ้อน และใช้ `LOW` หรือ `MEDIUM` สำหรับรูปภาพตามบริบทที่ง่ายกว่า
+- **Padrão (`UNSPECIFIED`)** : comece com o padrão. Ele é ajustado para um bom equilíbrio de qualidade, latência e custo para a maioria dos casos de uso comuns.
+- **`LOW`**:use para cenários em que o custo e a latência são fundamentais e detalhes refinados são menos importantes.
+- **`MEDIUM` / `HIGH`**:aumente a resolução quando a tarefa exigir a compreensão de detalhes complexos na mídia. Isso geralmente é necessário para análises visuais complexas, leitura de gráficos ou compreensão de documentos densos.
+- **`ULTRA HIGH`** : disponível apenas para configuração por parte. Recomendado para casos de uso específicos, como uso de computador ou quando os testes mostram uma melhoria clara em relação a `HIGH`.
+- **Controle por parte (Gemini 4 e Gemini 3)** : otimiza o uso de tokens. Por exemplo, em um prompt com várias imagens, use `HIGH` para um diagrama complexo e `LOW` ou `MEDIUM` para imagens contextuais mais simples.
 
-**การตั้งค่าที่แนะนำ**
+**Configurações recomendadas**
 
-รายการต่อไปนี้แสดงการตั้งค่าความละเอียดของสื่อที่แนะนำสำหรับสื่อแต่ละประเภทที่รองรับ
+A lista a seguir mostra as configurações de resolução de mídia recomendadas para cada tipo de mídia compatível.
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| **ประเภทสื่อ** | **การตั้งค่าที่แนะนำ** | **โทเค็นสูงสุด** | **คำแนะนำการใช้งาน** |
-| **Google รูปภาพ** | `MEDIA_RESOLUTION_HIGH` | 1120 | แนะนำสำหรับงานวิเคราะห์รูปภาพส่วนใหญ่เพื่อให้ได้คุณภาพสูงสุด |
-| **PDF** | `MEDIA_RESOLUTION_MEDIUM` | 560 | เหมาะที่สุดสำหรับความเข้าใจเอกสาร โดยคุณภาพจะอิ่มตัวที่ `medium` โดยทั่วไป การเพิ่มเป็น `high` ไม่ค่อยปรับปรุงผลลัพธ์ OCR สำหรับเอกสารมาตรฐาน |
-| **วิดีโอ** (ทั่วไป) | `MEDIA_RESOLUTION_LOW` (หรือ `MEDIA_RESOLUTION_MEDIUM`) | 70 (ต่อเฟรม) | **หมายเหตุ:** สำหรับวิดีโอ ระบบจะถือว่าการตั้งค่า `low` และ `medium` เหมือนกัน (70 โทเค็น) เพื่อเพิ่มประสิทธิภาพการใช้บริบท ซึ่งเพียงพอสำหรับงานการจดจำและการอธิบายการกระทำส่วนใหญ่ |
-| **วิดีโอ** (มีข้อความจำนวนมาก) | `MEDIA_RESOLUTION_HIGH` | 280 (ต่อเฟรม) | จำเป็นเฉพาะเมื่อกรณีการใช้งานเกี่ยวข้องกับการอ่านข้อความที่มีข้อมูลหนาแน่น (OCR) หรือรายละเอียดเล็กๆ ภายในเฟรมวิดีโอ |
-| **เสียง** | `MEDIA_RESOLUTION_UNSPECIFIED` (ค่าเริ่มต้น) | 25 (ต่อวินาที) สำหรับ Gemini 3 และ 32 (ต่อวินาที) สำหรับ Gemini 2.5 | ระบบจะแปลงเสียงเป็นโทเค็นในอัตราคงที่ต่อวินาทีในการตั้งค่าความละเอียดที่รองรับทั้งหมด (`unspecified`, `low`, `medium`, และ `high`) |
+| **Tipo de mídia** | **Configuração recomendada** | **Máximo de tokens** | **Orientações de uso** |
+| **Imagens** | `MEDIA_RESOLUTION_HIGH` | 1120 | Recomendado para a maioria das tarefas de análise de imagens para garantir a qualidade máxima. |
+| **PDFs** | `MEDIA_RESOLUTION_MEDIUM` | 560 | Ideal para compreensão de documentos. A qualidade normalmente satura em `medium`. Aumentar para `high` raramente melhora os resultados do OCR para documentos padrão. |
+| **Vídeo** (geral) | `MEDIA_RESOLUTION_LOW` (ou `MEDIA_RESOLUTION_MEDIUM`) | 70 (por frame) | **Observação**:para vídeos, as configurações `low` e `medium` são tratadas de forma idêntica (70 tokens) para otimizar o uso do contexto. Isso é suficiente para a maioria das tarefas de reconhecimento e descrição de ações. |
+| **Vídeo** (com muito texto) | `MEDIA_RESOLUTION_HIGH` | 280 (por frame) | Necessário apenas quando o caso de uso envolve a leitura de texto denso (OCR) ou pequenos detalhes em frames de vídeo. |
+| **Áudio** | `MEDIA_RESOLUTION_UNSPECIFIED` (padrão) | 25 (por segundo) para o Gemini 3; 32 (por segundo) para o Gemini 2.5 | O áudio é tokenizado a uma taxa fixa por segundo em todas as configurações de resolução compatíveis (`unspecified`, `low`, `medium` e `high`). |
 
-ทดสอบและประเมินผลกระทบของการตั้งค่าความละเอียดต่างๆ ในแอปพลิเคชันที่เฉพาะเจาะจงเสมอ เพื่อหาจุดสมดุลที่ดีที่สุดระหว่างคุณภาพ เวลาในการตอบสนอง และค่าใช้จ่าย
+Sempre teste e avalie o impacto de diferentes configurações de resolução no seu aplicativo específico para encontrar o melhor equilíbrio entre qualidade, latência e custo.
 
-## ความสัมพันธ์กับโหมดการประมวลผลวิดีโอ
+## Relação com os modos de processamento de vídeo
 
-พารามิเตอร์ `media_resolution` และการประมวลผลจะควบคุมอินพุตวิดีโอในด้านต่างๆ ดังนี้
+Os parâmetros `media_resolution` e de processamento controlam diferentes aspectos da entrada de vídeo:
 
-- `media_resolution` ควบคุม**ความละเอียด** ของแต่ละเฟรม (จำนวนโทเค็นต่อเฟรม)
-- `processing` / `media_processing` ควบคุม**เนื้อหาใดจากวิดีโอ** ที่โหลดลงในบริบท
+- `media_resolution` controla a **resolução** de cada frame (número de tokens por frame).
+- `processing` / `media_processing` controla **qual conteúdo do vídeo** é carregado no contexto.
 
-คุณสามารถตั้งค่าทั้ง 2 อย่างในอินพุตวิดีโอเดียวกันได้ เช่น คุณอาจใช้การประมวลผลแบบเอเจนต์ที่มีความละเอียดของสื่อต่ำเพื่อลดการใช้โทเค็นทั้งหมดสำหรับวิดีโอขนาดยาว
+É possível definir os dois na mesma entrada de vídeo. Por exemplo, você pode usar o processamento de agente com baixa resolução de mídia para minimizar o uso total de tokens em um vídeo longo.
 
-โปรดดูรายละเอียดเกี่ยวกับโหมดการประมวลผลวิดีโอในคู่มือ[ความเข้าใจวิดีโอแบบเอเจนต์](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=th#agentic-video-understanding)
+Para mais detalhes sobre os modos de processamento de vídeo, consulte o guia [Entendimento de vídeo de agente](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=pt-br#agentic-video-understanding).
 
-## สรุปความเข้ากันได้ของเวอร์ชัน
+## Resumo da compatibilidade de versões
 
-- Enum `MediaResolution` ใช้ได้กับโมเดลทั้งหมดที่รองรับอินพุตสื่อ
-- จำนวนโทเค็นที่เชื่อมโยงกับแต่ละระดับ Enum จะ**แตกต่างกัน** ระหว่างโมเดล Gemini 4 / Gemini 3 กับ Gemini เวอร์ชันก่อนหน้า
-- ระบบ**รองรับ** การตั้งค่า `media_resolution` ในออบเจ็กต์ `Part` แต่ละรายการใน
-  โมเดล Gemini 4 และ Gemini 3
+- A enumeração `MediaResolution` está disponível para todos os modelos que oferecem suporte à entrada de mídia.
+- As contagens de tokens associadas a cada nível de enumeração **são diferentes** entre os modelos do Gemini 4 / Gemini 3 e versões anteriores do Gemini.
+- A configuração `media_resolution` em objetos `Part` individuais é **compatível com os modelos do Gemini 4 e do Gemini 3**.
 
-## ขั้นตอนถัดไป
+## Próximas etapas
 
-- ดูข้อมูลเพิ่มเติมเกี่ยวกับความสามารถมัลติโมดัลของ Gemini API ใน
-  [คู่มือความเข้าใจรูปภาพ](https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=th),
-  [ความเข้าใจวิดีโอ](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=th),
-  [ความเข้าใจเสียง](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=th) และ
-  [ความเข้าใจเอกสาร](https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=th)
+- Saiba mais sobre os recursos multimodais da API Gemini nos guias
+  [Entendimento de imagens](https://ai.google.dev/gemini-api/docs/generate-content/image-understanding?hl=pt-br),
+  [Entendimento de vídeos](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=pt-br),
+  [Entendimento de áudio](https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=pt-br) e
+  [Entendimento de documentos](https://ai.google.dev/gemini-api/docs/generate-content/document-processing?hl=pt-br).
 
-ส่งความคิดเห็น
+Envie comentários
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-อัปเดตล่าสุด 2026-10-13 UTC
+Última atualização 2026-10-13 UTC.
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Quer enviar seu feedback?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-13 UTC"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]

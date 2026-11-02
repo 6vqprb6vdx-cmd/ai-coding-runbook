@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=fr
-fetched_at: 2026-10-26T05:53:51.919053+00:00
-title: "Mod\u00e8le d'embedding Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-001?hl=ru
+fetched_at: 2026-11-02T07:05:42.923896+00:00
+title: "\u041c\u043e\u0434\u0435\u043b\u044c \u0432\u0441\u0442\u0440\u0430\u0438\u0432\u0430\u043d\u0438\u044f Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
 
-Envoyer des commentaires
+Отправить отзыв
 
-# Modèle d'embedding Gemini
+# Модель встраивания Gemini
 
-Moteur spécialisé dans la représentation vectorielle de grande dimension, qui fournit un mappage numérique efficace du texte et des images. Le modèle Gemini Embedding est idéal pour la recherche sémantique, la récupération de documents et les systèmes de recommandation qui nécessitent des calculs de similarité rapides et évolutifs sur de grands ensembles de données.
+Специализированный движок для многомерного векторного представления, обеспечивающий эффективное числовое сопоставление текста и изображений. Модель Gemini Embedding лучше всего подходит для семантического поиска, извлечения документов и систем рекомендаций, которым требуются быстрые масштабируемые вычисления сходства в больших наборах данных.
 
-## Documentation
+## Документация
 
-Consultez la page [Embeddings](https://ai.google.dev/gemini-api/docs/embeddings?hl=fr) pour obtenir une couverture complète des fonctionnalités et des capacités.
+Полный список функций и возможностей приведен на странице [Встраивания](https://ai.google.dev/gemini-api/docs/embeddings?hl=ru).
 
 ## gemini-embedding-001
 
-| Propriété | Description |
+| Свойство | Описание |
 | --- | --- |
-| Code du modèle id\_card | **API Gemini**  `gemini-embedding-001` |
-| Types de données acceptés pour save | **Entrée**  Texte  **Résultat**  Embeddings textuels |
-| token\_autoLimites de jetons[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fr) | **Limite de jetons d'entrée**  2 048  **Taille de la dimension de sortie**  Flexible, prend en charge : 128 à 3 072, recommandé : 768, 1 536, 3 072 |
-| Versions 123 | Pour en savoir plus, consultez les [schémas de version de modèle](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fr#model-versions).  - Stable : `gemini-embedding-001` |
-| calendar\_monthDernière mise à jour | Juin 2025 |
+| Код модели: id\_card. | **Gemini API**  `gemini-embedding-001` |
+| saveПоддерживаемые типы данных | **Ввод данных**  Текст  **Выходные данные**  Текстовые эмбеддинги |
+| token\_autoОграничения на количество токенов[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ru) | **Лимит входных токенов**  2048  **Размер выходного параметра**  Гибкий, поддерживаются значения от 128 до 3072. Рекомендуемые значения: 768, 1536, 3072. |
+| 123Версии | Подробнее [о шаблонах версий моделей](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ru#model-versions)…  - Стабильная: `gemini-embedding-001` |
+| calendar\_monthПоследнее обновление | Июнь 2025 г. |
+| paidЦены | [Цены](https://ai.google.dev/gemini-api/docs/pricing?hl=ru#gemini-embedding) |
 
-Envoyer des commentaires
+Отправить отзыв
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-Dernière mise à jour le 2026/04/29 (UTC).
+Последнее обновление: 2026-10-29 UTC.
 
-Voulez-vous nous donner plus d'informations ?
+Хотите рассказать подробнее?
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/04/29 (UTC)."],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-29 UTC."],[],[]]

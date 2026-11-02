@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ko
-fetched_at: 2026-10-26T05:49:52.349093+00:00
-title: "\uc5d0\uc774\uc804\ud2b8\ud615 \ube44\uc804 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ja
+fetched_at: 2026-11-02T07:13:55.204528+00:00
+title: "\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u306e\u30d3\u30b8\u30e7\u30f3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [홈](https://ai.google.dev/?hl=ko)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
-- [문서](https://ai.google.dev/gemini-api/docs?hl=ko)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-의견 보내기
+フィードバックを送信
 
-# 에이전트형 비전
+# エージェントのビジョン
 
-Gemini Robotics ER 모델은 Python 코드를 작성하고 실행하여 이미지를 조작하고 답변하기 전에 로직을 적용할 수 있습니다. 이 페이지에서는 코드 실행 예시(확대/축소 및 자르기를 사용한 객체 감지, 계측기 읽기, 유체 측정, 회로 기판 읽기, 이미지 주석)를 다룹니다.
+Gemini Robotics ER モデルは、Python コードを記述して実行し、画像を操作してロジックを適用してから回答できます。このページでは、コード実行の例として、ズームと切り抜きによるオブジェクト検出、機器の読み取り、液体の測定、回路基板の読み取り、画像アノテーションについて説明します。
 
-이러한 예시를 자체 사용 사례에 맞게 조정하려면 프롬프트 텍스트와 업로드된 이미지 파일을 자체 파일로 바꾸세요. 프롬프트에서 요청된 JSON 스키마를 애플리케이션에 필요한 출력 구조와 일치하도록 조정하거나 `system_instruction`을 추가하여 출력 형식과 정밀도를 적용할 수도 있습니다.
+これらの例を独自のユースケースに合わせるには、プロンプト テキストとアップロードした画像ファイルを独自のファイルに置き換えます。また、プロンプトでリクエストされた JSON スキーマを、アプリケーションに必要な出力構造に合わせて調整したり、`system_instruction` を追加して出力形式と精度を強制したりすることもできます。
 
-실행 가능한 전체 코드는
-[로봇공학 Cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)을 참고하세요.
+実行可能な完全なコードについては、
+[ロボット工学のクックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## 사고 수준
+## 思考レベル
 
-모델의 사고 수준을 제어하여 지연 시간과 정확도를 절충할 수 있습니다. 객체 감지와 같은 공간 작업은 낮은 사고 수준에서 잘 작동합니다. 계산 또는 무게 추정과 같은 복잡한 작업은 더 높은 사고 수준에서 이점을 얻습니다.
+モデルの思考レベルを制御して、レイテンシと精度のバランスを取ることができます。オブジェクト検出などの空間タスクは、思考レベルが低い場合に適切に機能します。カウントや重量推定などの複雑なタスクでは、思考レベルを高くすると効果的です。
 
-다음 예시에서는 복잡한 계산 작업의 사고 수준을 `high`로 설정합니다.
+次の例では、複雑なカウントタスクの思考レベルを `high` に設定しています。
 
 ### Python
 
@@ -58,11 +58,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-자세한 내용은 [사고](https://ai.google.dev/gemini-api/docs/thinking?hl=ko)를 참고하세요.
+詳細については、[思考](https://ai.google.dev/gemini-api/docs/thinking?hl=ja)をご覧ください。
 
-## 객체 감지 (확대/축소 및 자르기)
+## オブジェクト検出（ズームと切り抜き）
 
-다음 예시에서는 코드 실행을 사용하여 객체를 감지하고 경계 상자를 반환할 때 더 명확하게 볼 수 있도록 이미지를 확대/축소하고 자릅니다.
+次の例では、コード実行を使用して画像をズームして切り抜き、オブジェクトを検出してバウンディング ボックスを返す際の視認性を高めています。
 
 ### Python
 
@@ -96,7 +96,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-모델 출력은 다음 JSON 응답과 유사합니다.
+モデル出力は、次の JSON レスポンスのようになります。
 
 ```
 [
@@ -108,13 +108,13 @@ print(interaction.output_text)
 ]
 ```
 
-다음 이미지는 모델에서 반환된 상자를 보여줍니다.
+次の画像は、モデルから返されたボックスを示しています。
 
-![발견된 객체의 경계 상자를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ko)
+![検出されたオブジェクトの境界ボックスを示す例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-bounding-boxes.png?hl=ja)
 
-## 아날로그 게이지 읽기 및 로직 적용
+## アナログ ゲージを読み取り、ロジックを適用する
 
-다음 예시에서는 모델을 사용하여 아날로그 게이지를 읽고 시간 계산을 실행하는 방법을 보여줍니다. 시스템 명령어를 사용하여 JSON 출력을 적용합니다.
+次の例では、モデルを使用してアナログ ゲージを読み取り、時間計算を行う方法を示します。システム命令を使用して JSON 出力を強制します。
 
 ### Python
 
@@ -145,9 +145,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## 컨테이너의 유체 측정
+## 容器内の液体を測定する
 
-다음 예시에서는 코드 실행을 사용하여 컨테이너의 유체 수준을 측정하는 방법을 보여줍니다.
+次の例では、コード実行を使用して容器内の液体のレベルを測定する方法を示します。
 
 ### Python
 
@@ -177,9 +177,9 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-## 회로 기판의 표시 읽기
+## 回路基板のマーキングを読み取る
 
-다음 예시에서는 코드 실행을 사용하여 회로 기판의 표시를 읽는 방법을 보여줍니다.
+次の例では、コード実行を使用して回路基板のマーキングを読み取る方法を示します。
 
 ### Python
 
@@ -209,11 +209,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-![회로 기판의 표시를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ko)
+![回路基板のマーキングの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-circuit-board.png?hl=ja)
 
-## 이미지 주석
+## 画像アノテーション
 
-다음 예시에서는 코드 실행을 사용하여 이미지에 주석을 달고 (예: 폐기 안내 화살표 그리기) 수정된 이미지를 반환하는 방법을 보여줍니다.
+次の例では、コード実行を使用して画像にアノテーションを付け（廃棄手順を示す矢印を描画するなど）、変更された画像を返す方法を示します。
 
 ### Python
 
@@ -247,11 +247,11 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-다음은 이미지 입력의 예입니다.
+画像入力の例を次に示します。
 
-![읽을 시계를 보여주는 예](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ko)
+![時計の読み取りの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/agentic-image-annotation.png?hl=ja)
 
-모델 출력은 다음과 유사합니다.
+モデルの出力は次のようになります。
 
 ```
   The annotated image shows the suggested disposal locations for the items on the table:
@@ -260,18 +260,18 @@ print(interaction.output_text)
   - **Black bin (Trash)**: Chocolate bar wrapper, Welch's packet, and white tissue.
 ```
 
-## 다음 단계
+## 次のステップ
 
-- [작업 조정](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ko) - 맞춤 로봇 API를 사용한 장기 작업
-- [스트리밍을 사용한 로봇공학](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ko) - 실시간 양방향 스트리밍 (Gemini Robotics ER 2만 해당)
-- [동영상 이해](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ko) - 순간 찾기 및 진행률 분류 (Gemini Robotics ER 2만 해당)
+- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - カスタム ロボット API を使用した長期的なタスク。
+- [ストリーミングによるロボット工学](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイムの双方向ストリーミング（Gemini Robotics ER 2 のみ）。
+- [動画理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja) - モーメントの検出と進捗状況の分類（Gemini Robotics ER 2 のみ）。
 
-의견 보내기
+フィードバックを送信
 
-달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-최종 업데이트: 2026-09-08(UTC)
+最終更新日 2026-09-08 UTC。
 
-의견을 전달하고 싶나요?
+ご意見をお聞かせください
 
-[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-09-08(UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]

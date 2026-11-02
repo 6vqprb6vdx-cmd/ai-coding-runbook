@@ -1,127 +1,99 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/agents?hl=id
-fetched_at: 2026-10-26T06:04:59.532259+00:00
-title: "Ringkasan agen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/agents?hl=zh-TW
+fetched_at: 2026-11-02T07:10:26.328019+00:00
+title: "\u4ee3\u7406\u7a0b\u5f0f\u7e3d\u89bd \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Kirim masukan
+提供意見
 
-# Ringkasan agen
+# 代理程式總覽
 
-Agen terkelola di Gemini API memberi Anda platform agen
-yang dapat dikonfigurasi. Satu panggilan API menyediakan sandbox Linux tempat agen melakukan penalaran,
-mengeksekusi kode, mengelola file, dan menjelajahi web secara mandiri.
+Gemini API 的 Managed Agents 提供可設定的代理程式架構。只要呼叫單一 API，就能佈建 Linux 沙箱，讓代理自主推理、執行程式碼、管理檔案及瀏覽網頁。
 
 [rocket\_launch
 
-Panduan memulai
+快速入門導覽課程
 
-Lakukan panggilan agen pertama Anda, streaming respons, dan bangun agen kustom.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=id)
+進行第一次代理呼叫、串流回應，以及建構自訂代理。](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=zh-tw)
 [smart\_toy
 
-Agen Antigravity
+Antigravity Agent
 
-Kemampuan, alat, input multimodal, dan harga untuk agen default.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id)
+預設代理程式的功能、工具、多模態輸入和價格。](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)
 [experiment
 
-Agen di AI Studio
+AI Studio 中的代理程式
 
-Playground visual untuk membuat prototipe agen tanpa menulis kode.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=id)
+無須編寫程式碼，即可透過視覺化測試區設計代理程式原型。](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw)
 
-## Agen terkelola yang tersedia
+## 可用的受管理代理程式
 
-- **[Agen Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id)**: Agen Terkelola tujuan umum yang dibuat dengan Gemini 3.8 Flash. Menjalankan kode, mengelola file, dan
-  menelusuri web di dalam sandbox Linux yang aman dan dihosting oleh Google. Anda dapat
-  mengonfigurasi model pokok (seperti Gemini 3.6 Flash atau Gemini 3.5
-  Flash-Lite) menggunakan `agent_config`, dan memperluasnya dengan petunjuk,
-  kemampuan, dan data Anda sendiri untuk
-  [membuat agen kustom](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id).
-- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=id)**: Agen riset mandiri yang merencanakan, menjalankan, dan menyintesis tugas riset multilangkah untuk kasus penggunaan seperti analisis pasar, uji tuntas, dan tinjauan literatur.
+- **[Antigravity 代理](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw)**：以 Gemini 3.8 Flash 建構的通用型受管理代理。在 Google 代管的安全 Linux 沙箱中執行程式碼、管理檔案及搜尋網路。您可以透過 `agent_config` 設定基礎模型 (例如 Gemini 3.6 Flash 或 Gemini 3.5 Flash-Lite)，並使用自己的指令、技能和資料進行擴充，[建構自訂代理程式](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw)。
+- **[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=zh-tw)**：自主研究代理，可規劃、執行及統整多步驟研究工作，適用於市場分析、盡職調查和文獻回顧等用途。
 
-## Keamanan dan praktik terbaik
+## 安全性與最佳做法
 
-Setiap agen berjalan di lingkungan sandbox yang terisolasi di tingkat OS.
-Sandbox memiliki akses jaringan keluar tanpa batas secara default. Anda dapat
-membatasi atau menonaktifkan akses jaringan menggunakan daftar yang diizinkan.
+每個代理程式都會在沙箱環境中執行，並在 OS 層級隔離。根據預設，沙箱具有不受限制的連出網路存取權。您可以使用許可清單限制或停用網路存取權。
 
-### Akses jaringan
+### 網路存取設定
 
-Secara default, lingkungan memiliki akses jaringan keluar yang tidak dibatasi. Gunakan daftar yang diizinkan
-`network` untuk membatasi traffic keluar ke domain tertentu atau
-pola wildcard. Untuk mengetahui detail konfigurasi, lihat
-[Daftar yang Diizinkan Jaringan](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=id#network_allow_list) (AI
-Studio) atau [Aturan jaringan](https://ai.google.dev/gemini-api/docs/custom-agents?hl=id#with_network_rules)
-(API).
+根據預設，環境具有不受限制的輸出網路存取權。使用`network`許可清單，將輸出流量限制在特定網域或萬用字元模式。如需設定詳情，請參閱「[網路允許清單](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=zh-tw#network_allow_list)」(AI Studio) 或「[網路規則](https://ai.google.dev/gemini-api/docs/custom-agents?hl=zh-tw#with_network_rules)」(API)。
 
-### Alat dan API eksternal
+### 外部工具和 API
 
-Anda dapat menghubungkan alat dan API eksternal untuk memperluas agen. Hanya gunakan alat
-dari sumber tepercaya dan batasi izin ke minimum yang diperlukan. Simpan
-secret sebagai kredensial terkelola dan rujuk berdasarkan ID, sehingga proxy keluar
-memasukkannya pada waktu permintaan dan tidak pernah terekspos di dalam sandbox. Agen
-dapat menggunakan kredensial apa pun yang aksesnya telah diberikan, jadi hanya berikan kredensial yang cakupan
-penuhnya bersedia Anda berikan.
+您可以連結外部工具和 API，擴充代理程式功能。請只使用信任來源的工具，並將權限範圍縮小至最低必要程度。將密碼儲存為受管理憑證，並依 ID 參照，讓輸出 Proxy 在要求時插入密碼，且密碼絕不會在沙箱中公開。代理程式可以使用任何可存取的憑證，因此請只提供您願意授予完整範圍的憑證。
 
-- Gunakan akun layanan atau kunci API dengan hak istimewa terendah.
-- Lebih memilih token berumur pendek daripada kunci berumur panjang.
-- Hanya berikan kredensial yang cakupan penuhnya bersedia Anda berikan.
-- Merotasi kredensial sesuai jadwal rutin.
+- 使用最低權限的服務帳戶或 API 金鑰。
+- 建議使用短期權杖，而非長期金鑰。
+- 請只提供您願意授予完整範圍的憑證。
+- 定期輪換憑證。
 
-Untuk mengetahui jenis kredensial dan operasi pengelolaan, lihat bagian
-[Kredensial](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=id). Anda juga dapat menetapkan header
-secara inline pada aturan daftar yang diizinkan, lihat [Konfigurasi
-jaringan](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#network-configuration).
+如要瞭解憑證類型和管理作業，請參閱「[憑證](https://ai.google.dev/gemini-api/docs/agent-credentials?hl=zh-tw)」。您也可以在允許清單規則中內嵌設定標頭，詳情請參閱「[網路設定](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#network-configuration)」。
 
-### Pengawasan manusia
+### 專人監督
 
-Selalu verifikasi output (kode yang dihasilkan, transformasi data, perubahan konfigurasi) sebelum men-deploy-nya, terutama untuk tugas yang mengubah data atau berinteraksi dengan sistem eksternal.
+部署前請務必驗證輸出內容 (生成的程式碼、資料轉換、設定變更)，尤其是會修改資料或與外部系統互動的工作。
 
-## Harga
+## 定價
 
-Agen terkelola menggunakan [model bayar sesuai penggunaan](https://ai.google.dev/gemini-api/docs/pricing?hl=id#pricing-for-agents)
-berdasarkan token model Gemini dan penggunaan alat. Satu interaksi dapat memicu beberapa reasoning loop, yang biasanya menggunakan 100 ribu hingga 3 juta token. Komputasi
-lingkungan **tidak ditagih** selama pratinjau. Lihat [perkiraan biaya](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=id#availability-and-pricing)
-untuk perincian per tugas. Agen terkelola juga tersedia di paket gratis dengan batas frekuensi dan kuota penggunaan gratis.
+受管理代理會根據 Gemini 模型權杖和工具用量，採用[即付即用模式](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw#pricing-for-agents)。單一互動可能會觸發多個推論迴圈，通常會消耗 10 萬到 300 萬個詞元。預先發布期間**不會收取**環境運算費用。查看各項工作的[預估費用](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=zh-tw#availability-and-pricing)。免費方案也提供 Managed Agents，並設有免費的頻率限制和用量配額。
 
-## Batas
+## 限制
 
-| Batas | Deskripsi |
+| 限制 | 說明 |
 | --- | --- |
-| **Masa Aktif Lingkungan** | Lingkungan akan dihapus secara permanen setelah 7 hari tidak aktif. |
-| **Penonaktifan VM** | VM dimatikan setelah tidak aktif selama beberapa saat untuk menghemat resource. Permintaan berikutnya memulihkan status (dengan cold start). |
-| **Software yang Sudah Diinstal Sebelumnya** | Lingkungan berbasis Ubuntu dengan Python 3.12 dan Node.js 22. Untuk mengetahui informasi selengkapnya tentang image dasar lingkungan, lihat [Software yang telah diinstal sebelumnya](https://ai.google.dev/gemini-api/docs/agent-environment?hl=id#pre-installed-software). |
-| **Agen maksimum** | Anda dapat memiliki hingga 1.000 agen terkelola. |
+| **環境生命週期** | 環境閒置 7 天後就會永久刪除。 |
+| **VM Spin-down** | VM 閒置一段時間後就會關閉，以節省資源。下一個要求會還原狀態 (冷啟動)。 |
+| **預先安裝的軟體** | 以 Ubuntu 為基礎的環境，搭載 Python 3.12 和 Node.js 22。如要進一步瞭解環境的基礎映像檔，請參閱「[預先安裝的軟體](https://ai.google.dev/gemini-api/docs/agent-environment?hl=zh-tw#pre-installed-software)」。 |
+| **最多代理商** | 最多可有 1,000 個受管理代理程式。 |
 
-## Framework agen
+## 代理架構
 
-Anda juga dapat membuat agen dengan Gemini menggunakan framework dan SDK berikut:
+您也可以使用下列架構和 SDK，透過 Gemini 建構代理：
 
-- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=id): Bangun alur aplikasi yang kompleks dan memiliki status, serta sistem multi-agen menggunakan struktur grafik.
-- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=id): Hubungkan agen Gemini ke
-  data pribadi Anda untuk alur kerja yang ditingkatkan RAG.
-- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=id): Mengorkestrasi agen AI otonom yang kolaboratif dan memainkan peran.
-- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=id): Buat
-  antarmuka pengguna dan agen yang didukung AI di JavaScript/TypeScript.
-- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/): Framework
-  open source untuk membangun dan mengatur agen AI yang dapat beroperasi.
-- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=id): Bangun agen AI otonom menggunakan alat, loop agen, dan pengelolaan konteks yang sama dengan yang mendukung Google Antigravity, yang dapat diprogram di Python.
+- [**LangChain / LangGraph**](https://ai.google.dev/gemini-api/docs/langgraph-example?hl=zh-tw)：使用圖表結構建構具狀態的複雜應用程式流程和多代理系統。
+- [**LlamaIndex**](https://ai.google.dev/gemini-api/docs/llama-index?hl=zh-tw)：將 Gemini 代理連結至私人資料，以利 RAG 增強型工作流程。
+- [**CrewAI**](https://ai.google.dev/gemini-api/docs/crewai-example?hl=zh-tw)：自動調度管理角色扮演的自主式 AI 代理，進行協作。
+- [**Vercel AI SDK**](https://ai.google.dev/gemini-api/docs/vercel-ai-sdk-example?hl=zh-tw)：在 JavaScript/TypeScript 中建構 AI 輔助的使用者介面和代理程式。
+- [**Google ADK**](https://google.github.io/adk-docs/get-started/python/)：開放原始碼架構，用於建構及協調可互通的 AI 代理。
+- [**Antigravity SDK**](https://antigravity.google/product/antigravity-sdk?hl=zh-tw)：使用與 Google Antigravity 相同的工具、代理迴圈和環境管理功能，以 Python 程式設計語言建構自主 AI 代理。
 
-Kirim masukan
+提供意見
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Terakhir diperbarui pada 2026-10-09 UTC.
+上次更新時間：2026-10-09 (世界標準時間)。
 
-Ada masukan untuk kami?
+想進一步說明嗎？
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-09 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-09 (世界標準時間)。"],[],[]]

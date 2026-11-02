@@ -1,32 +1,31 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=ar
-fetched_at: 2026-10-26T05:52:33.367538+00:00
-title: "\u0627\u0644\u0627\u0633\u062a\u062f\u0644\u0627\u0644 \u0627\u0644\u0645\u0643\u0627\u0646\u064a \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-spatial?hl=ja
+fetched_at: 2026-11-02T07:14:07.285109+00:00
+title: "\u7a7a\u9593\u63a8\u8ad6 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs/generate-content?hl=ar)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs/generate-content?hl=ja)
 
-إرسال ملاحظات
+フィードバックを送信
 
-# الاستدلال المكاني
+# 空間推論
 
-يمكن لنماذج Gemini Robotics ER الإشارة إلى الكائنات وتتبُّعها في الفيديو ورصدها باستخدام مربّعات محيطة وإنشاء مسارات الحركة. تستخدم جميع الأمثلة الواردة في هذه الصفحة طلبات بلغة طبيعية مع `generateContent`.
+Gemini Robotics ER モデルは、オブジェクトを指し示し、動画内で追跡し、境界ボックスで検出して、移動軌跡を生成できます。このページのすべての例では、`generateContent` を使用した自然言語プロンプトを使用しています。
 
-للاطّلاع على الرمز الكامل القابل للتنفيذ، راجِع
-[كتاب وصفات الروبوتات](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+実行可能な完全なコードについては、[ロボティクス クックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## الإشارة إلى العناصر
+## オブジェクトを指す
 
-يعثر المثال التالي على عناصر معيّنة في صورة ويعرض إحداثياتها `[y, x]` العادية:
+次の例では、画像内の特定のオブジェクトを検出し、正規化された `[y, x]` 座標を返します。
 
 ### Python
 
@@ -99,8 +98,7 @@ curl -X POST \
   }'
 ```
 
-سيكون الناتج مصفوفة JSON تحتوي على عناصر، كل منها يتضمّن `point`
-(إحداثيات `[y, x]` عادية) و`label` يحدّد العنصر.
+出力は、オブジェクトを含む JSON 配列になります。各オブジェクトには、オブジェクトを識別する `point`（正規化された `[y, x]` 座標）と `label` が含まれます。
 
 ### JSON
 
@@ -119,14 +117,13 @@ curl -X POST \
 ]
 ```
 
-في ما يلي مثال على كيفية عرض هذه النقاط:
+次の図は、これらのポイントを表示する方法の例です。
 
-![مثال يعرض نقاط العناصر في صورة](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ar)
+![画像内のオブジェクトのポイントを表示する例](https://ai.google.dev/static/gemini-api/docs/images/robotics/point-to-object.png?hl=ja)
 
-## تتبُّع العناصر في فيديو
+## 動画内のオブジェクトのトラッキング
 
-يمكن لـ Gemini Robotics ER 2 أيضًا تحليل لقطات الفيديو لتتبُّع العناصر بمرور الوقت. يمكنك الاطّلاع على [مدخلات الفيديو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ar#supported-formats)
-للحصول على قائمة بتنسيقات الفيديو المتوافقة.
+Gemini Robotics ER 2 は、動画フレームを分析して、オブジェクトを時間経過とともに追跡することもできます。サポートされている動画形式の一覧については、[動画入力](https://ai.google.dev/gemini-api/docs/video-understanding?hl=ja#supported-formats)をご覧ください。
 
 ### Python
 
@@ -165,10 +162,9 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-## رصد العناصر والمربّعات المحيطة
+## オブジェクト検出と境界ボックス
 
-بالإضافة إلى النقاط، يمكنك أن تطلب من النموذج عرض مربّعات حدود ثنائية الأبعاد،
-ما يوفّر تفاصيل مكانية أكثر للعناصر التي تم رصدها.
+ポイントに加えて、モデルに 2D 境界ボックスを返すようにプロンプトを設定することもできます。これにより、検出されたオブジェクトの空間的な詳細情報が提供されます。
 
 ### Python
 
@@ -206,11 +202,11 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-## المسارات
+## 軌跡
 
-يمكن لـ Gemini Robotics ER 2 إنشاء تسلسلات من النقاط التي تحدّد مسارًا، ما يفيد في توجيه حركة الروبوت.
+Gemini Robotics ER 2 は、軌跡を定義する一連の点を生成できます。これは、ロボットの動きをガイドするのに役立ちます。
 
-يطلب هذا المثال مسارًا لتحريك قلم أحمر إلى منظّم، بما في ذلك تقدير لنقاط الطريق الوسيطة. تم تقليل حجم الرمز لعرض الطلب فقط.
+この例では、赤いペンをオーガナイザーに移動する軌跡をリクエストしています。中間経由地の推定値も含まれています。プロンプトのみを表示するようにコードを削減しました。
 
 ### Python
 
@@ -223,9 +219,9 @@ prompt = """
         """
 ```
 
-## توفير مساحة للكمبيوتر المحمول
+## ノートパソコンを置くスペースを確保する
 
-يوضّح هذا المثال كيف يمكن لـ Gemini Robotics ER التفكير في مساحة. يطلب الطلب من النموذج تحديد العنصر الذي يجب نقله لإتاحة مساحة لعنصر آخر.
+この例では、Gemini Robotics ER が空間について推論する方法を示します。プロンプトは、別のアイテムのためのスペースを作るために移動する必要があるオブジェクトを特定するようにモデルに指示します。
 
 ### Python
 
@@ -261,7 +257,7 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-تحتوي الاستجابة على إحداثيات ثنائية الأبعاد للعنصر الذي يجيب عن سؤال المستخدم، وهو في هذه الحالة العنصر الذي يجب تحريكه لإفساح المجال لجهاز كمبيوتر محمول.
+レスポンスには、ユーザーの質問に答えるオブジェクトの 2D 座標が含まれています。この場合、ノートパソコンを置くために移動する必要があるオブジェクトです。
 
 ```
 [
@@ -269,11 +265,11 @@ print(image_response.text)
 ]
 ```
 
-![مثال يوضّح العنصر الذي يجب نقله إلى عنصر آخر](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=ar)
+![別のオブジェクトのために移動する必要があるオブジェクトを示す例](https://ai.google.dev/static/gemini-api/docs/images/robotics/spatial-reasoning.png?hl=ja)
 
-## توضيب وجبة غداء
+## お弁当の準備
 
-يمكن للنموذج أيضًا تقديم تعليمات للمهام المتعددة الخطوات والإشارة إلى الكائنات ذات الصلة بكل خطوة. يوضّح هذا المثال كيف يخطّط النموذج لسلسلة من الخطوات لتعبئة حقيبة الغداء.
+モデルは、複数ステップのタスクの手順を提供し、各ステップに関連するオブジェクトを指すこともできます。この例では、モデルがランチバッグを詰める一連の手順を計画する方法を示します。
 
 ### Python
 
@@ -310,13 +306,13 @@ image_response = client.models.generate_content(
 print(image_response.text)
 ```
 
-تتضمّن الاستجابة لهذا الطلب مجموعة من التعليمات المفصَّلة حول كيفية تعبئة حقيبة غداء من الصورة التي تم إدخالها.
+このプロンプトのレスポンスは、画像入力からランチバッグを詰める方法に関する手順のセットです。
 
-**الصورة المدخَلة**
+**入力画像**
 
-![صورة لعلبة غداء وأشياء يمكن وضعها فيها](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=ar)
+![お弁当箱と中に入れるものの画像](https://ai.google.dev/static/gemini-api/docs/images/robotics/packing-lunch.png?hl=ja)
 
-**مخرجات النموذج**
+**モデル出力**
 
 ```
 Based on the image, here is a plan to pack the lunch box and lunch bag:
@@ -339,19 +335,19 @@ Here is the list of objects and their locations:
 *   [{"point": [448, 501], "label": "brown lunch bag"}]
 ```
 
-## الخطوات التالية
+## 次のステップ
 
-- [إمكانات بالذكاء الاصطناعي الوكيل](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ar): تطبيق الرموز البرمجية، وقياس حالة التطبيق، وإضافة تعليقات توضيحية على الصور.
-- [تنظيم المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأمد باستخدام واجهات برمجة تطبيقات مخصّصة للروبوتات
-- [الروبوتات التي تتضمّن بثًا مباشرًا](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): بث مباشر ثنائي الاتجاه في الوقت الفعلي (Gemini Robotics ER 2 فقط)
-- [فهم الفيديو](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar): العثور على اللحظات وتصنيف مستوى التقدّم (الإصدار الثاني من Gemini Robotics فقط)
+- [エージェント機能](https://ai.google.dev/gemini-api/docs/robotics-agentic?hl=ja) - コード実行、計測器の読み取り、画像アノテーション。
+- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - カスタム ロボット API を使用した長期的なタスク。
+- [ストリーミングを使用したロボティクス](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイム双方向ストリーミング（Gemini Robotics ER 2 のみ）。
+- [動画の理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja) - 瞬間検出と進捗状況の分類（Gemini Robotics ER 2 のみ）。
 
-إرسال ملاحظات
+フィードバックを送信
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-تاريخ التعديل الأخير: 2026-09-09 (حسب التوقيت العالمي المتفَّق عليه)
+最終更新日 2026-09-09 UTC。
 
-هل تريد مشاركة ملاحظاتك معنا؟
+ご意見をお聞かせください
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-09 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-09 UTC。"],[],[]]

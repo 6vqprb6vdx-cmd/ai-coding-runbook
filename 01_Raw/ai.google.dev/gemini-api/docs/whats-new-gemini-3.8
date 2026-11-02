@@ -1,41 +1,41 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=tr
-fetched_at: 2026-10-26T05:58:26.230611+00:00
-title: "Gemini 3.8 Flash'teki yenilikler \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8?hl=fr
+fetched_at: 2026-11-02T07:10:21.719450+00:00
+title: "Nouveaut\u00e9s de Gemini\u00a03.8 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Geri bildirim gönderin
+Envoyer des commentaires
 
-# Gemini 3.8 Flash'teki yenilikler
+# Nouveautés de Gemini 3.8 Flash
 
-[En yeni model](https://ai.google.dev/gemini-api/docs/latest-model?hl=tr)
-[Diğer modeller](#other-models)
+[Dernier modèle](https://ai.google.dev/gemini-api/docs/latest-model?hl=fr)
+[Autres modèles](#other-models)
 
-Gemini 3.8 Flash (`gemini-3.8-flash`), uzun vadeli yazılım mühendisliği, otonom ajanlar ve karmaşık kurumsal iş akışları için tasarlanmış en akıllı Flash modelimizdir.
+Gemini 3.8 Flash (`gemini-3.8-flash`) est notre modèle Flash le plus intelligent, conçu pour l'ingénierie logicielle à long terme, les agents autonomes et les workflows d'entreprise complexes.
 
-Bu rehberde Gemini 3.8 Flash'teki yenilikler, API değişiklikleri, kod örnekleri ve taşıma yönergeleri açıklanmaktadır.
+Ce guide explique les nouveautés de Gemini 3.8 Flash, les modifications apportées à l'API, des exemples de code et des conseils de migration.
 
-## Yeni model
+## Nouveau modèle
 
-| Model | Model Kimliği | Varsayılan düşünme düzeyi | Fiyatlandırma | Açıklama |
+| Modèle | ID du modèle | Niveau de réflexion par défaut | Tarifs | Description |
 | --- | --- | --- | --- | --- |
-| Gemini 3.8 Flash | `gemini-3.8-flash` | `medium` | 3.8 Flash, yıl sonuna kadar 0,75 ABD doları/1 milyon giriş jetonu ve 3,75 ABD doları/1 milyon çıkış jetonu tanıtım fiyatıyla kullanılabilir. Daha fazla bilgi için [fiyatlandırma](https://ai.google.dev/gemini-api/docs/pricing?hl=tr) bölümüne bakın. | Uzun vadeli yazılım mühendisliği, otonom ajanlar ve karmaşık kurumsal iş akışları için tasarlanmış en akıllı Flash modelimiz. |
+| Gemini 3.8 Flash | `gemini-3.8-flash` | `medium` | 3.8 Flash est disponible jusqu'à la fin de l'année au prix découverte de 0,75 $/1 M de jetons d'entrée et 3,75 $/1 M de jetons de sortie. Pour en savoir plus, consultez la page [Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr). | Notre modèle Flash le plus intelligent, conçu pour l'ingénierie logicielle à long terme, les agents autonomes et les workflows d'entreprise complexes. |
 
-Gemini 3.8 Flash, 1 milyon parçalık bağlam penceresini, maksimum 64 bin çıkış parçasını, ayarlanabilir düşünme seviyelerini (`low`, `medium`, `high`) ve aynı kapsamlı yerleşik araç paketini destekler.
+Gemini 3.8 Flash est compatible avec une fenêtre de contexte d'un million de jetons, 64 000 jetons de sortie maximum, des niveaux de réflexion réglables (`low`, `medium`, `high`) et la même suite complète d'outils intégrés.
 
-Tüm teknik özellikler için [Gemini 3.8 Flash model sayfasına](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=tr) bakın. Tanıtım fiyatlandırmasıyla ilgili ayrıntılar için bu sayfanın sonraki kısımlarında yer alan [fiyatlandırma bölümüne](#pricing) veya [fiyatlandırma sayfasına](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-3.8-flash) bakın.
+Pour obtenir les spécifications complètes, consultez la [page du modèle Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=fr). Pour en savoir plus sur les prix découverte, consultez la [section Tarifs](#pricing) plus loin sur cette page ou la [page Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.8-flash).
 
-## Hızlı başlangıç kılavuzu
+## Guide de démarrage rapide
 
 ### Python
 
@@ -143,25 +143,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gemini 3.8 Flash'teki yenilikler
+## Nouveautés de Gemini 3.8 Flash
 
-- **Uzun vadeli yazılım mühendisliği:** Gerçek dünyadaki kodlama karşılaştırmalarında, karmaşık çoklu dosya yeniden düzenlemede ve deterministik araç yürütmede güçlü sonuçlar verir. Ayrıntılar için [değerlendirme metodolojisini](https://deepmind.google/models/evals-methodology/gemini-3-8-flash/?hl=tr) inceleyin.
-- **Özerk ajanlar:** Dayanıklı çok adımlı planlama ve araç düzenleme iş akışları oluşturmanıza olanak tanır. Böylece başarısız döngüler ve hatalar önemli ölçüde azalır.
-- **Karmaşık kurumsal iş akışları:** Zorlu alan görevlerinde ve büyük ölçekli veri ardışık düzenlerinde üstün doğruluk, derin akıl yürütme ve yüksek düzeyde olgusal titizlik sunar.
-- **Yönetilen ajanlar için varsayılan model:** Yönetilen ajanlar için varsayılan ajan olan [Antigravity agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr) artık Gemini 3.8 Flash'i kullanıyor. [Antigravity SDK](https://antigravity.google/docs/sdk/overview/?hl=tr) da varsayılan olarak Gemini 3.8 Flash'ı kullanır.
-- **Tanıtım fiyatı:** Gemini 3.8 Flash, 31 Aralık 2026'ya kadar 1 milyon giriş jetonu için 0,75 ABD doları ve 1 milyon çıkış jetonu için 3,75 ABD doları tanıtım fiyatıyla kullanılabilir. 1,50 ABD doları/1 milyon giriş jetonu ve 7,50 ABD doları/1 milyon çıkış jetonu olan standart fiyatlandırma 1 Ocak 2027'de yürürlüğe girecek.
+- **Ingénierie logicielle à long terme** : offre d'excellents résultats sur les benchmarks de codage réels, le refactoring complexe de plusieurs fichiers et l'exécution déterministe d'outils. Pour en savoir plus, consultez la [méthodologie d'évaluation](https://deepmind.google/models/evals-methodology/gemini-3-8-flash/?hl=fr).
+- **Agents autonomes** : vous permet de créer des workflows de planification et d'orchestration d'outils en plusieurs étapes résilients, ce qui réduit considérablement les boucles et les erreurs.
+- **Workflows d'entreprise complexes** : offre une précision supérieure, un raisonnement approfondi et une grande rigueur factuelle pour les tâches de domaine exigeantes et les pipelines de données à grande échelle.
+- **Modèle par défaut pour les agents gérés** : l'agent par défaut pour les agents gérés, l'agent [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr), utilise désormais Gemini 3.8 Flash. Le [SDK Antigravity](https://antigravity.google/docs/sdk/overview/?hl=fr) utilise également Gemini 3.8 Flash par défaut.
+- **Prix découverte** : Gemini 3.8 Flash est disponible au prix découverte de 0,75 $/1 M de jetons d'entrée et 3,75 $/1 M de jetons de sortie jusqu'au 31 décembre 2026. Les tarifs standards de 1,50 $/1 M de jetons d'entrée et 7,50 $/1 M de jetons de sortie entreront en vigueur le 1er janvier 2027.
 
-Gemini 3.8 Flash, tasarım gereği daha uzun süren ve karmaşık görevlerde daha fazla jeton kullanabilir. Model, zorlu ve çok adımlı hedeflerde daha yüksek kaliteli sonuçlar sunmak için daha küçük akıl yürütme adımları atar, araçları yinelemeli olarak çağırır ve süreç boyunca çalışmalarını doğrular. Her iş akışında bu düzeyde doğrulama gerekmez. Günlük görevler için jeton tüketimini azaltmak amacıyla [akıl yürütme](#understanding-reasoning-levels) çabasını düşürebilirsiniz. Alternatif olarak, Gemini 3.6 Flash desteklenmeye devam eder.
+Gemini 3.8 Flash peut utiliser plus de jetons pour les tâches plus longues et complexes, par conception. Pour fournir des résultats de meilleure qualité sur des objectifs difficiles en plusieurs étapes, le modèle effectue des étapes de raisonnement plus petites, appelle des outils de manière itérative et vérifie son travail en cours de route. Tous les workflows n'ont pas besoin de ce niveau de vérification. Pour les tâches quotidiennes, vous pouvez réduire l'effort de [raisonnement](#understanding-reasoning-levels) afin de diminuer la consommation de jetons. Vous pouvez également continuer à utiliser Gemini 3.6 Flash.
 
-## Akıl yürütme düzeylerini anlama
+## Comprendre les niveaux de raisonnement
 
-Gemini 3.8 Flash, modelin düşünme düzeyini ayarlayarak gecikme ve zeka üzerinde esnek kontrol sağlar:
+Gemini 3.8 Flash vous offre un contrôle flexible sur la latence et l'intelligence en ajustant le niveau de réflexion du modèle :
 
-- **Düşük düşünme çabası**: Olay yanıtı işlem hatları, anlık sohbet, taslak yazma ve hızlı veri analizi gibi gecikme süresinin kritik olduğu görevlerde yanıt süresini kısaltır.
-- **Orta (varsayılan):** Çoğu görev için en iyi kalite. Karmaşık kod ve ajan kullanım alanları için önerilir. İlk geçişte daha yüksek doğruluk sağlar.
-- **Yüksek düşünme çabası**: Modelin akıl yürütme ve araç düzenleme özelliklerini en üst düzeye çıkarır. Derinlemesine akıl yürütme, matematik ve zorlu çok adımlı görevler için idealdir.
+- **Faible effort de réflexion** : réduit le délai de réponse pour les tâches critiques en termes de latence, telles que les pipelines de réponse aux incidents, le chat en temps réel, la rédaction de brouillons et l'analyse de données rapide.
+- **Moyen (par défaut)** : meilleure qualité pour la plupart des tâches. Recommandé pour le code complexe et les cas d'utilisation agentiques, offrant une plus grande précision dès la première passe.
+- **Effort de réflexion élevé** : maximise les capacités de raisonnement et d'orchestration d'outils du modèle. Idéal pour le raisonnement approfondi, les mathématiques et les tâches complexes en plusieurs étapes.
 
-Aşağıdaki örnekte, karmaşık bir kod analizi isteği için `thinking_level`, `medium` olarak ayarlanmıştır:
+L'exemple suivant définit `thinking_level` sur `medium` pour une requête d'analyse de code complexe :
 
 ### Python
 
@@ -287,9 +287,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Antigravity ajanı güncellendi
+## Agent Antigravity mis à jour
 
-Gemini Managed Agents'taki [Antigravity temsilcisi](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr), gelişmiş performansı ve akıl yürütme becerisi sayesinde artık varsayılan olarak Gemini 3.8 Flash ile oluşturuluyor.
+En raison de ses performances et de son raisonnement améliorés, l'agent [Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) dans Gemini Managed Agents est désormais conçu avec Gemini 3.8 Flash par défaut.
 
 ### Python
 
@@ -415,49 +415,50 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Temel Gemini modeli, `agent_config` kullanılarak [yapılandırılabilir](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr#model-selection).
+Le modèle Gemini sous-jacent [peut être configuré](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr#model-selection) à l'aide de `agent_config`.
 
-## Taşıma yapılacaklar listesi
+## Checklist de migration
 
 ```
   `/gemini-api-dev migrate my app to Gemini 3.8 Flash`
 ```
 
-### gemini-3.8-flash'e geçiş yapın
+### Migrer vers gemini-3.8-flash
 
-- **Model kimliğini güncelleme:** Hedef model dizesini `gemini-3.8-flash` olarak değiştirin.
-- **Düşünme seviyesini yapılandırma:** `thinking_budget` değerini `thinking_level` dize enum değeriyle değiştirin. `minimal`, Gemini 3.8 Flash'te desteklenmez. `low`, `medium` (varsayılan) veya `high`'ü seçin.
-- **Gemini 3 API parametre değişikliklerini uygulayın:** Desteği sonlandırılan örnekleme parametrelerini (`temperature`, `top_p`, `top_k`), `candidate_count` (Gemini 3 ve sonraki sürümlerde desteklenmez) ve önceden doldurulmuş model sıralarını kaldırın. [Gemini 3.6 API değişiklikleri ve parametre güncellemeleri](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=tr#api-changes-and-parameter-updates) başlıklı makaleyi inceleyin.
-- **Dönüş doğrulama kurallarını zorunlu kılma:** Sunucu tarafında `previous_interaction_id` çok aşamalı etkileşimleri standartlaştırın ve önceden doldurulmuş model dönüşlerini kaldırın.
-- **İşlev çağrısını denetleme:**
-  - Çok formatlı öğeleri yanıt yükünün içine yerleştirin.
-  - Satır içi talimatları `\n\n` kullanarak biçimlendirin.
-  - Araç öncesi metinle ilgili `Malformed_Function_Call` hata görüyorsanız [Araç öncesi metin koşulları için geçici çözümler](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr#workarounds-for-pre-tool-text-requirements) başlıklı makaleyi inceleyin.
-  - Yalnızca generateContent API kullanılıyorsa: Tüm `FunctionResponse` nesnelerinin `call_id` ve `name` içerdiğinden emin olun.
-- **Temel Gemini 3 şartları:** SDK güncellemeleri ve düşünce imzası koruması için [Düşünce imzaları](https://ai.google.dev/gemini-api/docs/thinking?hl=tr#signatures) başlıklı makaleyi inceleyin.
+- **Mettre à jour l'ID du modèle** : remplacez la chaîne de votre modèle cible par `gemini-3.8-flash`.
+- **Configurer le niveau de réflexion** : remplacez `thinking_budget` par l'énumération de chaîne `thinking_level`. Notez que `minimal` n'est pas compatible avec Gemini 3.8 Flash. Choisissez `low`, `medium` (par défaut) ou `high`.
+- **Appliquer les modifications des paramètres de l'API Gemini 3** : supprimez les paramètres d'échantillonnage obsolètes (`temperature`, `top_p`, `top_k`), `candidate_count` (non compatible avec Gemini 3 et versions ultérieures) et les tours de modèle préremplis. Consultez
+  [les modifications apportées à l'API Gemini 3.6 et les mises à jour des paramètres](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=fr#api-changes-and-parameter-updates).
+- **Appliquer les règles de validation des tours** : standardisez les conversations en plusieurs tours sur `previous_interaction_id` côté serveur et supprimez les tours de modèle préremplis.
+- **Auditer l'appel de fonction**
+  - Placez les éléments multimodaux dans la charge utile de la réponse.
+  - Mettez en forme les instructions intégrées à l'aide de `\n\n`.
+  - Si vous voyez des erreurs `Malformed_Function_Call` liées au texte pré-outil, consultez [Solutions de contournement pour les exigences relatives au texte pré-outil](https://ai.google.dev/gemini-api/docs/function-calling?hl=fr#workarounds-for-pre-tool-text-requirements).
+  - Uniquement si vous utilisez l'API generateContent : assurez-vous que tous les objets `FunctionResponse` incluent `call_id` et `name`.
+- **Exigences de base de Gemini 3** : pour les mises à jour du SDK et la préservation de la signature de pensée, consultez [Signatures de pensée](https://ai.google.dev/gemini-api/docs/thinking?hl=fr#signatures).
 
-## Fiyatlandırma
+## Tarifs
 
-Gemini 3.8 Flash ve Gemini 3.6 Flash için 31 Aralık 2026'ya kadar Google AI Studio ve Gemini Enterprise Agent Platform'da tanıtım fiyatlarından yararlanın. Standart fiyatlandırma 1 Ocak 2027'den itibaren geçerli olacak. Fiyatlandırma katmanlarının tamamı için [fiyatlandırma sayfasını](https://ai.google.dev/gemini-api/docs/pricing?hl=tr#gemini-3.8-flash) inceleyin.
+Profitez des prix découverte dans Google AI Studio et Gemini Enterprise Agent Platform jusqu'au 31 décembre 2026 pour Gemini 3.8 Flash et Gemini 3.6 Flash. Les tarifs standards entreront en vigueur le 1er janvier 2027. Pour connaître les niveaux de tarification complets, consultez la [page Tarifs](https://ai.google.dev/gemini-api/docs/pricing?hl=fr#gemini-3.8-flash).
 
-## Diğer modeller
+## Autres modèles
 
-- [Gemini 4 Argon (En yeni)](https://ai.google.dev/gemini-api/docs/latest-model?hl=tr)
-- [Gemini 3.6 Flash ve 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=tr)
-- [Tüm modellere göz atın](https://ai.google.dev/gemini-api/docs/models?hl=tr)
+- [Gemini 4 Argon (dernière version)](https://ai.google.dev/gemini-api/docs/latest-model?hl=fr)
+- [Gemini 3.6 Flash et 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=fr)
+- [Voir tous les modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr)
 
-## Sırada ne var?
+## Étape suivante
 
-- [Modellere Genel Bakış](https://ai.google.dev/gemini-api/docs/models?hl=tr) sayfasında API spesifikasyonlarını inceleyin.
-- [Interactions API'ye Genel Bakış](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) bölümünde çoklu temsilci düzenlemesini inceleyin.
-- [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=tr)'da istemleri test edip hassaslaştırın.
+- Consultez les spécifications de l'API dans la [présentation des modèles](https://ai.google.dev/gemini-api/docs/models?hl=fr).
+- Découvrez l'orchestration multi-agent dans la [présentation de l'API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr).
+- Testez et affinez les prompts dans [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.8-flash&hl=fr).
 
-Geri bildirim gönderin
+Envoyer des commentaires
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Son güncelleme tarihi: 2026-10-13 UTC.
+Dernière mise à jour le 2026/10/13 (UTC).
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-13 UTC."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/13 (UTC)."],[],[]]

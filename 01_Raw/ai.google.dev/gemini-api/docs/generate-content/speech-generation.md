@@ -1,57 +1,44 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th
-fetched_at: 2026-10-26T06:05:20.993429+00:00
-title: "\u0e01\u0e32\u0e23\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e01\u0e32\u0e23\u0e2d\u0e48\u0e32\u0e19\u0e2d\u0e2d\u0e01\u0e40\u0e2a\u0e35\u0e22\u0e07\u0e02\u0e49\u0e2d\u0e04\u0e27\u0e32\u0e21 (TTS) \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr
+fetched_at: 2026-11-02T07:23:39.780714+00:00
+title: "G\u00e9n\u00e9ration de synth\u00e8se vocale \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs/generate-content?hl=th)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=fr)
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-# การสร้างการอ่านออกเสียงข้อความ (TTS)
+# Génération de synthèse vocale
 
-Gemini API สามารถเปลี่ยนอินพุตข้อความเป็นเสียงที่มีผู้พูดคนเดียวหรือหลายคน โดยใช้ความสามารถในการสร้างการอ่านออกเสียงข้อความ (TTS) ของ Gemini
-การสร้างการอ่านออกเสียงข้อความ*[ควบคุมได้](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th#controllable)* ซึ่งหมายความว่าคุณสามารถรวมข้อมูลเมตาของเทิร์นที่มีโครงสร้าง (`speech_metadata`) และแท็กเสียงในบรรทัดเพื่อกำหนด*สไตล์* *สำเนียง* *ความเร็ว* และ*โทน*ของเสียงได้
+L'API Gemini peut transformer une entrée de texte en contenu audio à un ou plusieurs intervenants à l'aide des fonctionnalités de génération de synthèse vocale (TTS) de Gemini.
+La génération de synthèse vocale est *[contrôlable](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr#controllable)*, ce qui signifie que vous pouvez combiner des métadonnées de tour de parole structurées (`speech_metadata`) et des balises vocales intégrées pour guider le *style*, l'*accent*, le *rythme* et le *ton* de l'audio.
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com/generate-speech?hl=th)
+[Essayer dans Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr)
 
-ความสามารถของ TTS แตกต่างจากการสร้างคำพูดที่ให้บริการผ่าน [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th) ซึ่งออกแบบมาสำหรับเสียงแบบโต้ตอบที่ไม่มีโครงสร้าง รวมถึงอินพุตและเอาต์พุตแบบหลายรูปแบบ แม้ว่า Live API จะทำงานได้ดี
-ในบริบทการสนทนาแบบไดนามิก แต่ TTS ผ่าน Gemini API
-ได้รับการปรับแต่งสำหรับสถานการณ์ที่ต้องมีการอ่านข้อความที่แน่นอนพร้อมการควบคุม
-สไตล์และเสียงอย่างละเอียด เช่น การสร้างพอดแคสต์หรือหนังสือเสียง
+La fonctionnalité TTS diffère de la génération de voix fournie par l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr), qui est conçue pour les entrées et sorties audio et multimodales interactives et non structurées. Alors que l'API Live excelle dans les contextes conversationnels dynamiques, la synthèse vocale via l'API Gemini est conçue pour les scénarios qui nécessitent une récitation exacte du texte avec un contrôle précis du style et du son, comme la génération de podcasts ou de livres audio.
 
-คู่มือนี้จะแสดงวิธีสร้างเสียงแบบลำโพงเดี่ยวและแบบหลายลำโพงจากข้อความโดยใช้ [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th)
-(`gemini-3.8-flash-tts`) และ
-[Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=th)
-(`gemini-3.8-flash-lite-tts`)
+Ce guide vous explique comment générer des contenus audio à un ou plusieurs locuteurs à partir de texte à l'aide de [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`) et de [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`).
 
-## ก่อนเริ่มต้น
+## Avant de commencer
 
-ตรวจสอบว่าคุณใช้โมเดล TTS ของ Gemini ที่ระบุไว้ในส่วน[โมเดลที่รองรับ](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th#supported-models)
-โปรดอ่านหัวข้อ
-[เมื่อใดควรใช้โมเดลใด](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th#when-to-use-which-model)
-เพื่อเลือกโมเดลที่ดีที่สุดสำหรับปริมาณงานของคุณ
+Assurez-vous d'utiliser un modèle Gemini TTS listé dans la section [Modèles compatibles](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr#supported-models). Pour obtenir des résultats optimaux, consultez [Quand utiliser quel modèle](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr#when-to-use-which-model) afin de sélectionner le modèle le mieux adapté à votre charge de travail.
 
-คุณอาจพบว่าการ[ทดสอบโมเดล TTS ของ Gemini ใน AI Studio](https://aistudio.google.com/generate-speech?hl=th)
-มีประโยชน์ก่อนที่จะเริ่มสร้าง
+Il peut être utile de [tester les modèles TTS Gemini dans AI Studio](https://aistudio.google.com/generate-speech?hl=fr) avant de commencer à créer.
 
-## TTS แบบผู้พูดคนเดียว
+## TTS à locuteur unique
 
-หากต้องการแปลงข้อความเป็นเสียงแบบลำโพงเดียวด้วยโมเดล TTS ของ Gemini 3.8 ให้ส่ง
-ข้อความถอดเสียงตามคำพูดใน `parts[].text` แนบการจัดรูปแบบระดับการพูดใน
-`parts[].speech_metadata` และกำหนดค่าเสียงใน
-`speechConfig.voiceConfig` คุณสามารถส่งชื่อเสียงที่สร้างไว้ล่วงหน้า, รหัสคลังเสียงแบบขยาย, รหัส[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th)ที่กำหนดเอง (`voice_...`) หรือรหัส[การจำลองเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=th) (`voice_...` หรือ `voicekey_...` แบบไม่เก็บสถานะที่ไม่บังคับ)
+Pour convertir du texte en audio à un seul locuteur avec les modèles Gemini 3.8 TTS, transmettez la transcription textuelle dans `parts[].text`, associez un style au niveau du tour de parole dans `parts[].speech_metadata` et configurez votre voix dans `speechConfig.voiceConfig`. Vous pouvez transmettre un nom de voix prédéfini, un ID de bibliothèque de voix étendue, un ID de [conception de voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr) personnalisé (`voice_...`) ou un ID de [réplication vocale](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=fr) (`voice_...` ou `voicekey_...` sans état facultatif).
 
-ตัวอย่างนี้จะบันทึกเสียงเอาต์พุตจากโมเดลในไฟล์ WAV
+Cet exemple enregistre la sortie audio du modèle dans un fichier WAV :
 
 ### Python
 
@@ -145,9 +132,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-t
           base64 --decode > out.wav
 ```
 
-## TTS แบบหลายผู้พูด
+## TTS multi-locuteur
 
-สำหรับการสนทนาที่มีผู้พูดหลายคน ให้กำหนดค่าผู้พูด 2 คนใน `multiSpeakerVoiceConfig.speakerVoiceConfigs` โดยใช้ `prebuiltVoiceConfig` และส่งการสนทนาแต่ละรอบเป็น `part` แยกกัน โดยมี `speech_metadata` ที่ระบุทั้ง `speaker` และ `style` ระดับรอบที่ไม่บังคับ ดังนี้
+Pour un dialogue entre plusieurs locuteurs, configurez deux locuteurs dans `multiSpeakerVoiceConfig.speakerVoiceConfigs` à l'aide de `prebuiltVoiceConfig` et transmettez chaque tour de dialogue en tant que `part` distinct avec `speech_metadata` spécifiant à la fois `speaker` et `style` facultatif au niveau du tour :
 
 ### Python
 
@@ -319,76 +306,67 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-t
       base64 --decode > out.wav
 ```
 
-## ควบคุมสไตล์การพูดด้วยข้อมูลเมตาและแท็ก
+## Contrôler le style de parole avec des métadonnées et des tags
 
-TTS ของ Gemini 3.8 จะถือว่าฟิลด์ `text` เป็นสำเนาที่ตรงตามต้นฉบับอย่างเคร่งครัด หากต้องการ
-ควบคุมการนำเสนอโดยไม่ต้องอ่านคำแนะนำบนเวที
-ให้แบ่งคำสั่งตามขอบเขตดังนี้
+Gemini 3.8 TTS traite le champ `text` strictement comme une transcription mot à mot. Pour contrôler la diffusion sans que les indications scéniques soient lues à voix haute, séparez vos instructions par portée :
 
-- **การแสดงออกที่คงที่ในระดับเทิร์น (`speech_metadata.style`):** ใส่อารมณ์ รูปแบบการแสดงออก ฉันทลักษณ์ จังหวะ และระดับเสียงที่ใช้ตลอดทั้งเทิร์นใน `speech_metadata.style` (เช่น `"style": "whispered urgently"`, `"style": "out of breath"` หรือ `"style": "warm and enthusiastic"`)
-- **เหตุการณ์ ณ จุดใดจุดหนึ่ง (แท็กในบรรทัด):** วางเสียงร้องที่ไม่มีคำพูดหรือหยุดชั่วคราวไว้ในข้อความถอดเสียงโดยตรงโดยใช้เครื่องหมายวงเล็บมุม (เช่น `"Wait... <short pause> did you hear that? <sigh>"` หรือ `"Excuse me <cough> as I was saying..."`)
+- **Diffusion soutenue au niveau du tour de parole (`speech_metadata.style`)** : placez les émotions, le style de diffusion, la prosodie, le rythme et le volume qui s'appliquent à l'ensemble d'un tour de parole dans `speech_metadata.style` (par exemple, `"style": "whispered urgently"`, `"style": "out of breath"` ou `"style": "warm and enthusiastic"`).
+- **Événements ponctuels (balises intégrées)** : placez des pauses ou des sons vocaux non verbaux momentanés directement dans la transcription à l'aide de crochets (par exemple, `"Wait... <short pause> did you hear that? <sigh>"` ou `"Excuse me <cough> as I was saying..."`).
 
-ดูแนวทางปฏิบัติแนะนำที่ครอบคลุมได้ใน[คู่มือการใช้พรอมต์](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th#prompting-guide)
+Pour connaître toutes les bonnes pratiques, consultez le [guide sur les prompts](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr#prompting-guide).
 
-## ตัวเลือกเสียง
+## Options vocales
 
-TTS ของ Gemini 3.8 รองรับการเลือกหรือสร้างเสียง 4 วิธีดังนี้
+Gemini 3.8 TTS permet de sélectionner ou de créer des voix de quatre manières :
 
-1. **เสียงของ Studio ที่สร้างไว้ล่วงหน้า:** เสียงที่คัดสรรแล้ว 30 เสียงซึ่งแสดงอยู่ในตารางต่อไปนี้
-2. **คลังเสียงเพิ่มเติม:** เสียงเพิ่มเติมอีกหลายร้อยเสียงในภาษา
-   สำเนียง และต้นแบบตัวละครต่างๆ ซึ่งเข้าถึงได้โดยใช้ `client.voices.list()`
-   (`GET /v1beta/voices`)
-3. **[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th):** สร้าง
-   ลักษณะเสียงที่กำหนดเองจากคำอธิบายภาษาธรรมชาติใน
-   [Google AI Studio](https://aistudio.google.com/generate-speech?hl=th) หรือใช้
-   `POST /v1beta/voices` (`type="prompted"` ซึ่งจะแสดงผลรหัส `voice_...` ที่คงอยู่และตัวอย่าง `sample_audio` WAV ใน `CreateVoice` และ
-   `GetVoice`)
-4. **[การจำลองเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=th):**
-   จำลองเสียงของผู้พูดจากเสียงอ้างอิงและเสียงที่ได้รับความยินยอมใน [Google AI Studio](https://aistudio.google.com/generate-speech?hl=th) หรือใช้ `POST /v1beta/voices` (`type="replicated"`, `store=True` แบบถาวรโดยค่าเริ่มต้น หรือ `store=False` แบบไม่เก็บสถานะ (Stateless) ที่ไม่บังคับ)
+1. **Voix Studio prédéfinies** : 30 voix sélectionnées sont listées dans le tableau suivant.
+2. **Bibliothèque de voix étendue** : des centaines de voix supplémentaires dans différentes langues, accents et archétypes de personnages, accessibles via `client.voices.list()` (`GET /v1beta/voices`).
+3. **[Conception de voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr)** : générez une personnalité vocale personnalisée à partir d'une description en langage naturel dans [Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr) ou à l'aide de `POST /v1beta/voices` (`type="prompted"`, qui renvoie un ID `voice_...` persistant et un aperçu WAV `sample_audio` dans `CreateVoice` et `GetVoice`).
+4. **[Réplication de voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=fr)** : répliquez la voix d'un locuteur à partir d'un contenu audio de référence et de consentement dans [Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr) ou à l'aide de `POST /v1beta/voices` (`type="replicated"`, `store=True` persistant par défaut ou `store=False` sans état facultatif).
 
-### ขีดจำกัดของเสียงที่กำหนดเองและ TTL
+### Limites et TTL de la voix personnalisée
 
-| พิมพ์ด้วยเสียง | โหมดจัดเก็บ | โควต้า / ขีดจำกัด | การเก็บรักษา (TTL) |
+| Type de voix | Mode de stockage | Quota / Limite | Conservation (TTL) |
 | --- | --- | --- | --- |
-| **เสียงที่มีสถานะ** (`voice_...`, พรอมต์หรือจำลอง) | `store=True` | **200 เสียงต่อโปรเจ็กต์** (ใช้ร่วมกันระหว่างเสียงที่สร้างจากพรอมต์และเสียงที่จำลอง) | **1 ปีนับจากการใช้งานครั้งล่าสุด\*** |
-| **คีย์เสียงแบบไม่เก็บสถานะ** (`voicekey_...`, ทำซ้ำ) | `store=False` | จัดการโดยลูกค้า | **7 วัน** |
+| **Voix avec état** (`voice_...`, incitées ou répliquées) | `store=True` | **200 voix par projet** (partagées entre les voix incitées et répliquées) | **1 an à compter de la dernière utilisation\*** |
+| **Clés vocales sans état** (`voicekey_...`, répliquées) | `store=False` | Géré par le client | **7 jours** |
 
-\* **การขยาย TTL:** หน้าต่างการเก็บรักษา 1 ปีจะรีเซ็ตทุกครั้งที่มีการใช้เสียงอย่างต่อเนื่อง (ไม่ว่าจะโดยการสังเคราะห์เสียงพูดด้วยเสียงนั้นหรือใช้เป็นเสียงฐานสำหรับการรีมิกซ์) ระบบจะลบเสียงที่ไม่มีกิจกรรมเป็นเวลา 1 ปีโดยอัตโนมัติ
+\* **Extension de la durée de vie** : la période de conservation d'un an est réinitialisée chaque fois que la voix est utilisée activement (soit pour synthétiser la parole, soit comme voix de base pour un remix). Les voix sans activité pendant un an sont automatiquement supprimées.
 
-### เสียงที่สร้างไว้ล่วงหน้า
+### Voix prédéfinies
 
 |  |  |  |
 | --- | --- | --- |
-| **Zephyr** -- *สว่าง* | **Puck** -- *Upbeat* | **Charon** -- *มีสาระประโยชน์* |
-| **Kore** -- *Firm* | **Fenrir** -- *ตื่นเต้นง่าย* | **Leda** -- *วัยรุ่น* |
-| **Orus** -- *บริษัท* | **Aoede** -- *Breezy* | **Callirrhoe** -- *สบายๆ* |
-| **Autonoe** -- *สว่าง* | **Enceladus** -- *Breathy* | **Iapetus** -- *Clear* |
-| **Umbriel** -- *สบายๆ* | **Algieba** -- *ราบรื่น* | **Despina** - *Smooth* |
-| **Erinome** -- *ชัดเจน* | **Algenib** -- *แหบเล็กน้อย* | **Rasalgethi** -- *ให้ข้อมูล* |
-| **Laomedeia** -- *Upbeat* | **Achernar** -- *นุ่มนวล* | **Alnilam** -- *Firm* |
-| **Schedar** -- *Even* | **Gacrux** -- *สุขุม* | **Pulcherrima** -- *มั่นใจ* |
-| **Achird** -- *เป็นมิตร* | **Zubenelgenubi** -- *สบายๆ* | **Vindemiatrix** -- *อ่อนโยน* |
-| **Sadachbia** -- *มีชีวิตชีวา* | **Sadaltager** -- *มีความรู้* | **Sulafat** -- *อบอุ่น* |
+| **Zephyr** : *Lumineux* | **Puck** : *Upbeat* | **Charon** -- *Informatif* |
+| **Kore** : *Ferme* | **Fenrir** -- *Excitable* | **Leda** -- *Jeune* |
+| **Orus** -- *Entreprise* | **Aoede** : *Breezy* | **Callirrhoe** : *tranquille* |
+| **Autonoe** : *Lumineux* | **Enceladus** -- *Breathy* | **Iapetus** : *Effacer* |
+| **Umbriel** : *décontracté* | **Algieba** -- *Smooth* | **Despina** -- *Lisse* |
+| **Erinome** : *Effacer* | **Algenib** -- *Gravelly* | **Rasalgethi** -- *Contenu instructif* |
+| **Laomedeia** : *Upbeat* | **Achernar** : *Soft* | **Alnilam** -- *Ferme* |
+| **Schedar** -- *Even* | **Gacrux** -- *Mature* | **Pulcherrima** -- *Transférer* |
+| **Achird** : *amical* | **Zubenelgenubi** : *décontracté* | **Vindemiatrix** -- *Gentle* |
+| **Sadachbia** -- *Lively* | **Sadaltager** -- *Knowledgeable* | **Sulafat** -- *Chaude* |
 
-### คลังเสียงและการกรองที่ครอบคลุมมากขึ้น
+### Bibliothèque de voix étendue et filtrage
 
-นอกเหนือจากเสียงในสตูดิโอที่แนะนำ 30 เสียงในตารางก่อนหน้า **คลังเสียงเพิ่มเติม**ยังมีเสียงอื่นๆ อีกหลายร้อยเสียงในภาษาต่างๆ สำเนียงตามภูมิภาค บุคลิกของตัวละคร และโดเมน คุณสามารถเรียกดู กรอง และทดลองฟังเสียงในคลังเสียงทั้งหมดแบบอินเทอร์แอกทีฟได้ใน [Google AI Studio](https://aistudio.google.com/generate-speech?hl=th) หรือค้นหาแบบเป็นโปรแกรมโดยใช้ `client.voices.list()` (`GET /v1beta/voices` โดยใช้ `google-genai` 2.25.0 ขึ้นไป / `@google/genai` 2.24.0 ขึ้นไป)
+En plus des 30 voix de studio présentées dans le tableau précédent, la **bibliothèque vocale étendue** propose des centaines de voix supplémentaires dans différentes langues, avec des accents régionaux, des personnages et des domaines variés. Vous pouvez parcourir, filtrer et écouter l'intégralité de la bibliothèque de voix de manière interactive dans [Google AI Studio](https://aistudio.google.com/generate-speech?hl=fr), ou l'interroger de manière programmatique à l'aide de `client.voices.list()` (`GET /v1beta/voices`, à l'aide de `google-genai` 2.25.0+ / `@google/genai` 2.24.0+).
 
-`ListVoices` จะแสดงเสียงที่จัดเก็บไว้แบบกำหนดเอง (เรียงลำดับจากใหม่ที่สุดก่อน) ตามด้วยเสียงในแคตตาล็อกที่สร้างไว้ล่วงหน้าซึ่งตรงกับเกณฑ์ตัวกรองของคุณ เมื่อมีการส่งค่าหลายค่าสำหรับตัวกรองรายการ ระบบจะแสดงผลเสียงที่ตรงกับค่า**ใดก็ได้**ในตัวกรองนั้น (`OR`) ขณะที่พารามิเตอร์ตัวกรองที่แตกต่างกันจะรวมกับ `AND`:
+`ListVoices` renvoie vos voix stockées personnalisées (de la plus récente à la plus ancienne), suivies des voix du catalogue prédéfini correspondant à vos critères de filtrage. Lorsque plusieurs valeurs sont transmises pour un filtre de liste, les voix correspondant à **n'importe quelle** valeur de ce filtre sont renvoyées (`OR`), tandis que les paramètres de filtre distincts sont combinés avec `AND` :
 
-| พารามิเตอร์ | ประเภท | คำอธิบาย |
+| Paramètre | Type | Description |
 | --- | --- | --- |
-| `language_code` | `list[str]` | แท็กภาษา BCP-47 (เช่น `["en-US", "en-GB"]`) การทำงานแบบตรงทั้งหมดโดยไม่คำนึงถึงตัวพิมพ์เล็กและตัวพิมพ์ใหญ่ |
-| `region_code` | `list[str]` | รหัสภูมิภาค ISO 3166-1 alpha-2 หรือ UN M.49 (เช่น `["US", "GB"]`) |
-| `accent` | `list[str]` | คำอธิบายสำเนียงในภูมิภาค (เช่น `["American", "British"]`) |
-| `gender` | `list[str]` | การแสดงออกทางเพศที่รับรู้ (`"female"`, `"male"` หรือ `"neutral"`) |
-| `pitch` | `list[str]` | การจัดประเภทระดับเสียงร้อง (`"low"`, `"medium"` หรือ `"high"`) |
-| `persona` | `list[str]` | บุคลิกหรือต้นแบบตัวละครที่มีเสียงร้อง (เช่น `["Warm, Friendly"]`, `["Narrator"]`) |
-| `contexts` (`context` ใน REST) | `list[str]` | โดเมนการใช้งานที่เหมาะสม (เช่น `["Audiobook", "Conversational", "News"]`) |
-| `type` (`type_` ใน Python) | `list[str]` | กรองตามแหล่งที่มาของเสียง: `"prebuilt"`, `"prompted"` ([การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th)) หรือ `"replicated"` ([การจำลองเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=th)) |
-| `search` | `str` | การค้นหาสตริงย่อยแบบข้อความอิสระจะจับคู่โดยไม่คำนึงถึงตัวพิมพ์เล็กและตัวพิมพ์ใหญ่กับทั้ง `display_name` และ `description` |
-| `page_size` | `int` | จำนวนเสียงสูงสุดที่แสดงต่อหน้า (ค่าเริ่มต้น `50`, สูงสุด `1000`) |
-| `page_token` | `str` | โทเค็นจาก `response.next_page_token` เพื่อดึงข้อมูลผลการค้นหาหน้าถัดไป |
+| `language_code` | `list[str]` | Code(s) de langue BCP-47 (par exemple, `["en-US", "en-GB"]`). Correspondance exacte non sensible à la casse. |
+| `region_code` | `list[str]` | Code(s) de région ISO 3166-1 alpha-2 ou UN M.49 (par exemple, `["US", "GB"]`). |
+| `accent` | `list[str]` | Descripteur(s) d'accent régional (par exemple, `["American", "British"]`). |
+| `gender` | `list[str]` | Genre perçu (`"female"`, `"male"` ou `"neutral"`). |
+| `pitch` | `list[str]` | Classification de la hauteur de la voix (`"low"`, `"medium"` ou `"high"`). |
+| `persona` | `list[str]` | Persona vocal ou archétype de personnage (par exemple, `["Warm, Friendly"]`, `["Narrator"]`). |
+| `contexts` (`context` dans REST) | `list[str]` | Domaine d'utilisation optimal (par exemple, `["Audiobook", "Conversational", "News"]`). |
+| `type` (`type_` en Python) | `list[str]` | Filtrer par source vocale : `"prebuilt"`, `"prompted"` ([Conception vocale](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr)) ou `"replicated"` ([Réplication vocale](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=fr)). |
+| `search` | `str` | La recherche de sous-chaîne en texte libre correspond à la fois à `display_name` et à `description`, non sensible à la casse. |
+| `page_size` | `int` | Nombre maximal de voix renvoyées par page (`50` par défaut, `1000` au maximum). |
+| `page_token` | `str` | Jeton de `response.next_page_token` permettant d'extraire la page de résultats suivante. |
 
 ### Python
 
@@ -456,305 +434,274 @@ curl -G "https://generativelanguage.googleapis.com/v1beta/voices" \
   --data-urlencode "page_size=50"
 ```
 
-## ภาษาที่รองรับ
+## Langues disponibles
 
-โมเดล TTS จะตรวจหาภาษาที่ป้อนโดยอัตโนมัติ
-[TTS ของ Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th)
-(`gemini-3.8-flash-tts`) รองรับ**กว่า 130 ภาษา** และ
-[TTS ของ Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=th)
-(`gemini-3.8-flash-lite-tts`) รองรับ**กว่า 100 ภาษา**
+Les modèles TTS détectent automatiquement la langue de saisie.
+[Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`) est compatible avec **plus de 130 langues**, et [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`) est compatible avec **plus de 100 langues** :
 
-| ภาษา | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
+| Langue | Gemini 3.8 Flash TTS | Gemini 3.8 Flash-Lite TTS |
 | --- | --- | --- |
-| อาเจะฮ์ (อักษรอาหรับ) | ✔️ | ✔️ |
-| อาฟรีกานส์ | ✔️ | ✔️ |
-| อะคัน | ✔️ | ✔️ |
-| อัมฮาริก | ✔️ | ✔️ |
-| อาร์เมเนีย | ✔️ | ✔️ |
-| อัสสัม | ✔️ | ✔️ |
-| อวธี | ✔️ | ✔️ |
-| บาหลี | ✔️ | ✔️ |
-| เบงกอล | ✔️ | ✔️ |
-| บันจาร์ (อักษรอาหรับ) | ✔️ | — |
-| บันจาร์ (อักษรละติน) | ✔️ | ✔️ |
-| แบชเคียร์ | ✔️ | — |
-| บาสก์ | ✔️ | ✔️ |
+| Aceh (alphabet arabe) | ✔️ | ✔️ |
+| Afrikaans | ✔️ | ✔️ |
+| Akan | ✔️ | ✔️ |
+| Amharique | ✔️ | ✔️ |
+| Arménien | ✔️ | ✔️ |
+| Assamais | ✔️ | ✔️ |
+| Awadhi | ✔️ | ✔️ |
+| Balinais | ✔️ | ✔️ |
+| Bengali | ✔️ | ✔️ |
+| Banjar (alphabet arabe) | ✔️ | — |
+| Banjar (alphabet latin) | ✔️ | ✔️ |
+| Bachkir | ✔️ | — |
+| Basque | ✔️ | ✔️ |
 | Belarusian | ✔️ | ✔️ |
-| เบมบา | ✔️ | — |
-| โภชปุระ | ✔️ | ✔️ |
-| บอสเนีย | ✔️ | ✔️ |
-| บูกิส | ✔️ | ✔️ |
-| บัลแกเรีย | ✔️ | ✔️ |
-| พม่า | ✔️ | — |
-| จีนกวางตุ้ง | ✔️ | ✔️ |
-| คาตาลัน | ✔️ | ✔️ |
-| ซีบัวโน | ✔️ | ✔️ |
-| เคิร์ดตอนกลาง | ✔️ | ✔️ |
-| ฉัตติสครห์ | ✔️ | ✔️ |
-| จีน (อักษร Hans) | ✔️ | ✔️ |
-| จีน (อักษร Hant) | ✔️ | ✔️ |
-| ตาตาร์ไครเมีย | ✔️ | — |
-| โครเอเชีย | ✔️ | ✔️ |
-| เช็ก | ✔️ | ✔️ |
-| เดนมาร์ก | ✔️ | ✔️ |
-| ดัตช์ | ✔️ | ✔️ |
-| ดิวลา | ✔️ | — |
-| ซองคา | ✔️ | — |
-| อาหรับอียิปต์ | ✔️ | ✔️ |
-| อังกฤษ | ✔️ | ✔️ |
-| เอสโตเนีย | ✔️ | ✔️ |
-| ฟิลิปปินส์ | ✔️ | ✔️ |
-| ฟินแลนด์ | ✔️ | — |
-| ฝรั่งเศส | ✔️ | ✔️ |
-| กาลิเชียน | ✔️ | ✔️ |
-| กันดา | ✔️ | ✔️ |
-| จอร์เจีย | ✔️ | ✔️ |
-| เยอรมัน | ✔️ | ✔️ |
-| กรีก | ✔️ | ✔️ |
-| กวารานี | ✔️ | — |
-| คุชราต | ✔️ | ✔️ |
-| เฮติครีโอล | ✔️ | ✔️ |
-| มองโกเลียคาลคา | ✔️ | ✔️ |
-| เฮาซา | ✔️ | ✔️ |
-| ฮีบรู | ✔️ | ✔️ |
-| ฮินดี | ✔️ | ✔️ |
-| ฮังการี | ✔️ | ✔️ |
-| ไอซ์แลนด์ | ✔️ | ✔️ |
-| อิกโบ | ✔️ | — |
-| อีโลโก | ✔️ | ✔️ |
-| อินโดนีเซีย | ✔️ | ✔️ |
-| เปอร์เซีย (อิหร่าน) | ✔️ | ✔️ |
-| อิตาลี | ✔️ | ✔️ |
-| ญี่ปุ่น | ✔️ | ✔️ |
-| ชวา | ✔️ | ✔️ |
-| คาไบล์ | ✔️ | — |
-| คัมบา | ✔️ | ✔️ |
-| กันนาดา | ✔️ | ✔️ |
-| แคชเมียร์ (อักษรอาหรับ) | ✔️ | ✔️ |
-| แคชเมียร์ (อักษรเทวนาครี) | ✔️ | ✔️ |
-| คาซัค | ✔️ | ✔️ |
-| เขมร | ✔️ | ✔️ |
-| คิคูยู | ✔️ | ✔️ |
-| คินยารวันดา | ✔️ | ✔️ |
-| คองโก | ✔️ | ✔️ |
-| เกาหลี | ✔️ | ✔️ |
-| คีร์กิซ | ✔️ | ✔️ |
-| ภาษาลาว | ✔️ | ✔️ |
-| ลัตกาเรียน | ✔️ | — |
-| ลิงกาลา | ✔️ | ✔️ |
-| ลิทัวเนีย | ✔️ | — |
-| ลักเซมเบิร์ก | ✔️ | — |
-| มาซีโดเนีย | ✔️ | ✔️ |
-| มคธี | ✔️ | ✔️ |
-| ไมถิลี | ✔️ | ✔️ |
-| มาลายาลัม | ✔️ | ✔️ |
-| มอลตา | ✔️ | ✔️ |
-| มานิพูรี | ✔️ | ✔️ |
-| มราฐี | ✔️ | ✔️ |
-| มินังกาเบา (อักษรอาหรับ) | ✔️ | ✔️ |
-| มินังกาเบา (สคริปต์ละติน) | ✔️ | — |
-| มิโซ | ✔️ | ✔️ |
-| เนปาล (ภาษาเดี่ยว) | ✔️ | ✔️ |
-| ฟุลฟุลเดไนจีเรีย | ✔️ | ✔️ |
-| อาเซอร์ไบจานเหนือ | ✔️ | ✔️ |
-| โซโทเหนือ | ✔️ | ✔️ |
-| อุซเบกเหนือ | ✔️ | ✔️ |
-| นอร์เวย์บุคมอล | ✔️ | ✔️ |
-| นีนอสก์ของนอร์เวย์ | ✔️ | ✔️ |
-| เนียนจา | ✔️ | ✔️ |
-| ออกซิแทน | ✔️ | — |
-| โอเดีย (ภาษาเดี่ยว) | ✔️ | ✔️ |
-| ปังกาซินัน | ✔️ | — |
-| เปอร์เซีย (อัฟกานิสถาน) | ✔️ | ✔️ |
-| โปแลนด์ | ✔️ | ✔️ |
-| โปรตุเกส | ✔️ | ✔️ |
-| ปัญจาบ | ✔️ | ✔️ |
-| โรมาเนีย | ✔️ | ✔️ |
-| รัสเซีย | ✔️ | ✔️ |
-| สันถาลี | ✔️ | ✔️ |
-| เซอร์เบีย | ✔️ | ✔️ |
-| สินธี | ✔️ | — |
-| สิงหล | ✔️ | ✔️ |
-| สโลวัก | ✔️ | ✔️ |
-| สโลวีเนีย | ✔️ | — |
-| โซมาลี | ✔️ | — |
-| อาเซอร์ไบจานใต้ | ✔️ | ✔️ |
-| ปาทานใต้ | ✔️ | ✔️ |
-| โซโทใต้ | ✔️ | — |
-| สเปน | ✔️ | ✔️ |
-| อาหรับมาตรฐาน (อักษรอาหรับ) | ✔️ | ✔️ |
-| อาหรับมาตรฐาน (อักษรละติน) | ✔️ | ✔️ |
-| ลัตเวียมาตรฐาน | ✔️ | ✔️ |
-| ภาษามลายูมาตรฐาน | ✔️ | ✔️ |
-| สวาฮีลี (ภาษาเดียว) | ✔️ | — |
-| สวาติ | ✔️ | — |
-| สวีเดน | ✔️ | — |
-| ทาจิก | ✔️ | — |
-| ทมิฬ | ✔️ | ✔️ |
-| เตลูกู | ✔️ | ✔️ |
-| ไทย | ✔️ | — |
-| ทิกรินยา | ✔️ | — |
-| แอลบาเนียนแบบทอสก์ | ✔️ | — |
-| ตุรกี | ✔️ | ✔️ |
-| อุยกูร์ | ✔️ | — |
-| เวียดนาม | ✔️ | ✔️ |
+| Bemba | ✔️ | — |
+| Bhodjpouri | ✔️ | ✔️ |
+| Bosniaque | ✔️ | ✔️ |
+| Bouguis | ✔️ | ✔️ |
+| Bulgare | ✔️ | ✔️ |
+| Birman | ✔️ | — |
+| Cantonais | ✔️ | ✔️ |
+| Catalan | ✔️ | ✔️ |
+| Cebuano | ✔️ | ✔️ |
+| Sorani | ✔️ | ✔️ |
+| Chhattisgarhi | ✔️ | ✔️ |
+| Chinois (écriture hans) | ✔️ | ✔️ |
+| Chinois (script Hant) | ✔️ | ✔️ |
+| Tatar de Crimée | ✔️ | — |
+| Croate | ✔️ | ✔️ |
+| Tchèque | ✔️ | ✔️ |
+| Danois | ✔️ | ✔️ |
+| Néerlandais | ✔️ | ✔️ |
+| Dioula | ✔️ | — |
+| Dzongkha | ✔️ | — |
+| Arabe (Égypte) | ✔️ | ✔️ |
+| Anglais | ✔️ | ✔️ |
+| Estonien | ✔️ | ✔️ |
+| Tagalog | ✔️ | ✔️ |
+| Finnois | ✔️ | — |
+| Français | ✔️ | ✔️ |
+| Galicien | ✔️ | ✔️ |
+| Ganda | ✔️ | ✔️ |
+| Géorgien | ✔️ | ✔️ |
+| Allemand | ✔️ | ✔️ |
+| Grec | ✔️ | ✔️ |
+| Guarani | ✔️ | — |
+| Gujarati | ✔️ | ✔️ |
+| Créole haïtien | ✔️ | ✔️ |
+| Mongol khalkha | ✔️ | ✔️ |
+| Haoussa | ✔️ | ✔️ |
+| Hébreu | ✔️ | ✔️ |
+| Hindi | ✔️ | ✔️ |
+| Hongrois | ✔️ | ✔️ |
+| Islandais | ✔️ | ✔️ |
+| Igbo | ✔️ | — |
+| Ilocano | ✔️ | ✔️ |
+| Indonésien | ✔️ | ✔️ |
+| Persan (Iran) | ✔️ | ✔️ |
+| Italien | ✔️ | ✔️ |
+| Japonais | ✔️ | ✔️ |
+| Javanais | ✔️ | ✔️ |
+| Kabyle | ✔️ | — |
+| Kamba | ✔️ | ✔️ |
+| Kannada | ✔️ | ✔️ |
+| Cachemiri (alphabet arabe) | ✔️ | ✔️ |
+| Cachemiri (Devanagari) | ✔️ | ✔️ |
+| Kazakh | ✔️ | ✔️ |
+| Khmer | ✔️ | ✔️ |
+| Kikuyu | ✔️ | ✔️ |
+| Kinyarwanda | ✔️ | ✔️ |
+| Kongo | ✔️ | ✔️ |
+| Coréen | ✔️ | ✔️ |
+| Kirghiz | ✔️ | ✔️ |
+| Laotien | ✔️ | ✔️ |
+| Latgalien | ✔️ | — |
+| Lingala | ✔️ | ✔️ |
+| Lituanien | ✔️ | — |
+| Luxembourgeois | ✔️ | — |
+| Macédonien | ✔️ | ✔️ |
+| Magahi | ✔️ | ✔️ |
+| Maithili | ✔️ | ✔️ |
+| Malayalam | ✔️ | ✔️ |
+| Maltais | ✔️ | ✔️ |
+| Manipuri | ✔️ | ✔️ |
+| Marathi | ✔️ | ✔️ |
+| Minangkabau (alphabet arabe) | ✔️ | ✔️ |
+| Minangkabau (alphabet latin) | ✔️ | — |
+| Mizo | ✔️ | ✔️ |
+| Népalais (langue individuelle) | ✔️ | ✔️ |
+| Peul du Nigeria | ✔️ | ✔️ |
+| Azéri du Nord | ✔️ | ✔️ |
+| Sotho du Nord | ✔️ | ✔️ |
+| Ouzbek du Nord | ✔️ | ✔️ |
+| Norvégien bokmål | ✔️ | ✔️ |
+| Nynorsk (norvégien) | ✔️ | ✔️ |
+| Chichewa | ✔️ | ✔️ |
+| Occitan | ✔️ | — |
+| Odia (langue individuelle) | ✔️ | ✔️ |
+| Pangasinan | ✔️ | — |
+| Perse (Afghanistan) | ✔️ | ✔️ |
+| Polonais | ✔️ | ✔️ |
+| Portugais | ✔️ | ✔️ |
+| Panjabi | ✔️ | ✔️ |
+| Roumain | ✔️ | ✔️ |
+| Russe | ✔️ | ✔️ |
+| Santali | ✔️ | ✔️ |
+| Serbe | ✔️ | ✔️ |
+| Sindhî | ✔️ | — |
+| Cingalais | ✔️ | ✔️ |
+| Slovaque | ✔️ | ✔️ |
+| Slovène | ✔️ | — |
+| Somali | ✔️ | — |
+| Azéri | ✔️ | ✔️ |
+| Pachto du Sud | ✔️ | ✔️ |
+| Sotho du Sud | ✔️ | — |
+| Espagnol | ✔️ | ✔️ |
+| Arabe standard (écriture arabe) | ✔️ | ✔️ |
+| Arabe standard (alphabet latin) | ✔️ | ✔️ |
+| Letton standard | ✔️ | ✔️ |
+| Malais standard | ✔️ | ✔️ |
+| Swahili (langue individuelle) | ✔️ | — |
+| Swati | ✔️ | — |
+| Suédois | ✔️ | — |
+| Tadjik | ✔️ | — |
+| Tamoul | ✔️ | ✔️ |
+| Telugu | ✔️ | ✔️ |
+| Thaï | ✔️ | — |
+| Tigrinya | ✔️ | — |
+| Tosque albanais | ✔️ | — |
+| Turc | ✔️ | ✔️ |
+| Ouïghour | ✔️ | — |
+| Vietnamien | ✔️ | ✔️ |
 
-## รุ่นที่รองรับ
+## Modèles compatibles
 
-| รุ่น | ผู้พูดคนเดียว | หลายลำโพง | การออกแบบเสียง | การจำลองเสียง |
+| Modèle | Locuteur unique | Multi-locuteur | Conception vocale | Réplication vocale |
 | --- | --- | --- | --- | --- |
-| [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [TTS ของ Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=th) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
-| [ตัวอย่าง TTS ของ Gemini 3.1 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=th) | ✔️ | ✔️ | — | — |
-| [TTS เวอร์ชันตัวอย่างของ Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=th) | ✔️ | ✔️ | — | — |
+| [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`) | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Preview Gemini 3.1 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-tts-preview?hl=fr) | ✔️ | ✔️ | — | — |
+| [Gemini 2.5 Pro Preview TTS](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro-preview-tts?hl=fr) | ✔️ | ✔️ | — | — |
 
-### ควรใช้โมเดลใดเมื่อใด
+### Quand utiliser quel modèle
 
-โมเดล TTS ของ Gemini 3.8 ทั้ง 2 โมเดลใช้สคีมา API และรูปแบบพรอมต์เดียวกัน
-ซึ่งช่วยให้คุณสลับไปมาระหว่างโมเดลทั้ง 2 ได้ด้วยการเปลี่ยนพารามิเตอร์เพียงรายการเดียว
+Les deux modèles Gemini 3.8 TTS partagent exactement le même schéma de l'API et le même format de requête, ce qui vous permet de passer de l'un à l'autre en modifiant un seul paramètre :
 
-- **ใช้ [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th)
-  (`gemini-3.8-flash-tts`)** เมื่อความเที่ยงตรงของเสียงสูงสุด การแสดงที่ละเอียดอ่อน
-  และการควบคุมการแสดงออกเป็นสิ่งสำคัญที่สุด เหมาะสำหรับงานสร้างสรรค์ระดับสตูดิโอ บทสนทนาที่มีผู้พูดหลายคนและซับซ้อน แท็กเสียงร้องที่หนักหน่วง การออกเสียงที่ยาก ภาษาถิ่นหรือภาษาของชนกลุ่มน้อย และการบรรยายแบบยาวที่ต้องการเสียงที่หนักแน่นและความเสถียรของเสียงในห้อง
-- **ใช้ [TTS ของ Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=th)
-  (`gemini-3.8-flash-lite-tts`)** เป็นเครื่องมือที่รวดเร็วและคุ้มค่า
-  แทน `gemini-3.1-flash-tts-preview` โดยได้รับการเพิ่มประสิทธิภาพสำหรับการสร้างเสียงจำนวนมาก, การส่งต่อข้อมูลของตัวแทนเสียงแบบสนทนา, ฟีเจอร์อ่านออกเสียง, การจำลองเสียงที่เชื่อถือได้ และเสียงพูดของผู้พูดคนเดียวในชีวิตประจำวันในภาษาหลักๆ
+- **Utilisez [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) (`gemini-3.8-flash-tts`)** lorsque la fidélité acoustique maximale, le jeu d'acteur nuancé et le contrôle expressif sont des priorités absolues. Il est idéal pour les travaux créatifs de qualité studio, les dialogues complexes entre plusieurs locuteurs, les tags d'éclats vocaux lourds, les prononciations difficiles, les dialectes régionaux ou minoritaires, et les narrations longues nécessitant une stabilité vocale et une tonalité de pièce solides.
+- **Utilisez [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr) (`gemini-3.8-flash-lite-tts`)** comme solution de remplacement rapide et économique pour `gemini-3.1-flash-tts-preview`. Il est optimisé pour la production en masse à grand volume, les cascades d'agents vocaux conversationnels, les fonctionnalités de lecture à voix haute, la réplication vocale fiable et la parole quotidienne à un seul locuteur dans les principales langues.
 
-### คำแนะนำในการย้ายข้อมูล
+### Guide de migration
 
-เมื่ออัปเกรดจากโมเดลเวอร์ชันตัวอย่างก่อนหน้า (`gemini-3.1-flash-tts-preview` หรือ `gemini-2.5-pro-preview-tts`) เป็น Gemini 3.8 TTS (`gemini-3.8-flash-tts` หรือ `gemini-3.8-flash-lite-tts`) โปรดตรวจสอบการเปลี่ยนแปลงที่สำคัญ 5 รายการต่อไปนี้
+Lorsque vous passez d'anciens modèles en version preview (`gemini-3.1-flash-tts-preview` ou `gemini-2.5-pro-preview-tts`) à Gemini 3.8 TTS (`gemini-3.8-flash-tts` ou `gemini-3.8-flash-lite-tts`), tenez compte de ces cinq changements clés :
 
-1. **แยกสไตล์ออกจากข้อความถอดเสียง:** ย้ายคำสั่งการแสดง น้ำเสียง ท่วงทำนอง และจังหวะที่ต่อเนื่อง (เช่น `"whispering"`, `"out of breath"` หรือ `"speaking slowly"`) ออกจากข้อความธรรมดาและใส่ไว้ใน `speech_metadata.style`
-   โปรดเก็บ `text` ไว้เป็นข้อความถอดเสียงแบบคำต่อคำอย่างเคร่งครัด พร้อมแท็กเสียงร้องในบรรทัด
-2. **ออกแบบตัวตนล่วงหน้าด้วย Voice Design:** แทนที่บล็อก `"Audio Profile"` หรือ `"Director's Notes"` หลายย่อหน้าด้วยเสียงที่กำหนดเองซึ่งสร้างขึ้นใน [Voice Design](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th) จากนั้นส่งรหัส `voice_...` นั้นผ่านคำขอ TTS โดยใช้สตริง `style` ที่มีค่าน้อยที่สุดหรือว่างเปล่า
-3. **ใช้การสนทนาแบบมีโครงสร้าง:** สำหรับการสนทนาที่มีผู้พูดหลายคน ให้ส่ง `part` 1 รายการต่อการพูดของผู้พูดแต่ละคนด้วย `speech_metadata.speaker` แทนการฝังคำนำหน้า `Speaker: ...` ไว้ในบล็อกข้อความเดียว
-4. **ใช้วงเล็บปีกกาสำหรับแท็กเสียงร้องในบรรทัด:** ใช้วงเล็บปีกกา (`<laugh>`,
-   `<sigh>`, `<cough>`, `<breath>`, `<short pause>`) สำหรับเสียงร้องและหยุดชั่วคราวของมนุษย์ ณ จุดใดจุดหนึ่ง หลีกเลี่ยงแท็กเอฟเฟกต์เสียงที่ไม่มีเสียงร้อง (เช่น
-   เสียงปรบมือหรือเสียงทุ้ม)
-5. **บัญชีสำหรับเอาต์พุต WAV (`AUDIO_WAV`) เริ่มต้นในคำขอแบบเอกภาคี:** `gemini-3.1-flash-tts-preview``AUDIO_L16`โมเดล TTS ของ Gemini 3.8 จะแสดงเสียง **WAV
-   (`AUDIO_WAV`)** ที่สมบูรณ์พร้อมส่วนหัว RIFF (24 kHz, โมโน, 16 บิต PCM) ในคำขอแบบเอกภาคี ดังนี้
-   - หากก่อนหน้านี้โค้ดของคุณห่อไบต์ PCM ดิบไว้ในส่วนหัวของ WAV (เช่น ใช้โมดูล `wave` ของ Python หรือแพ็กเกจ `wav` ของ Node) ให้นำ
-     ส่วนหัวที่ห่อด้วยตนเองออก แล้วเขียนไบต์เสียงที่ถอดรหัสแล้วลงในไฟล์ `.wav` โดยตรง
-   - หากไปป์ไลน์ที่มีอยู่ต้องใช้เสียง PCM ดิบแบบไม่มีส่วนหัว, mu-law หรือ A-law
-     ให้ตั้งค่า `generationConfig.responseFormat.audio.mimeType`
-     เป็น `"AUDIO_L16"`, `"AUDIO_MULAW"` หรือ `"AUDIO_ALAW"` อย่างชัดเจนโดยใช้ REST API
-     (เช่น `{"responseFormat": {"audio": {"mimeType": "AUDIO_L16"}}}`
-     ใน `generateContent` รองรับการลบล้าง `responseFormat` ที่กำหนดเองใน
-     `generateContent` โดยใช้ REST API ขณะที่ Python และ
-     JavaScript SDK รองรับ `response_format` ใน `GenerateContentConfig`
-     อยู่ระหว่างดำเนินการ หรือใช้
-     `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}` ใน
-     Interactions API) ดู[รูปแบบเอาต์พุตเสียง](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th#audio-output-formats)
+1. **Séparer le style de la transcription** : déplacez les instructions de jeu, de ton, de prosodie et de rythme (comme `"whispering"`, `"out of breath"` ou `"speaking slowly"`) du texte brut vers `speech_metadata.style`.
+   Conservez `text` strictement comme transcription mot à mot, en ajoutant des tags vocaux intégrés.
+2. **Concevez des personas en amont avec Voice Design** : remplacez les blocs `"Audio Profile"` ou `"Director's Notes"` de plusieurs paragraphes par une voix personnalisée créée dans [Voice Design](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr), puis transmettez cet ID `voice_...` via vos requêtes TTS avec des chaînes `style` minimales ou vides.
+3. **Utilisez des tours de dialogue structurés** : pour les dialogues à plusieurs locuteurs, transmettez un `part` par tour de locuteur avec `speech_metadata.speaker` au lieu d'intégrer des préfixes `Speaker: ...` dans un seul bloc de texte.
+4. **Utilisez des crochets pour les tags vocaux intégrés** : utilisez des crochets (`<laugh>`, `<sigh>`, `<cough>`, `<breath>`, `<short pause>`) pour les vocalisations humaines et les pauses ponctuelles. Évitez les tags d'effets sonores non vocaux (comme les applaudissements ou les bruits sourds).
+5. **Prendre en compte la sortie WAV (`AUDIO_WAV`) par défaut sur les requêtes unaires** : contrairement à `gemini-3.1-flash-tts-preview` (qui renvoyait par défaut un PCM brut sans en-tête `AUDIO_L16`), les modèles Gemini 3.8 TTS renvoient un fichier audio **WAV (`AUDIO_WAV`)** complet avec un en-tête RIFF (24 kHz, mono, PCM 16 bits) sur les requêtes unaires :
+   - Si votre code encapsulait auparavant des octets PCM bruts dans un en-tête WAV (par exemple, à l'aide du module `wave` de Python ou du package `wav` de Node), supprimez l'encapsuleur d'en-tête manuel et écrivez les octets audio décodés directement dans un fichier `.wav`.
+   - Si votre pipeline existant nécessite des données audio PCM brutes, mu-law ou A-law sans en-tête, définissez explicitement `generationConfig.responseFormat.audio.mimeType` sur `"AUDIO_L16"`, `"AUDIO_MULAW"` ou `"AUDIO_ALAW"` à l'aide de l'API REST (par exemple, `{"responseFormat": {"audio": {"mimeType": "AUDIO_L16"}}}` dans `generateContent` ; les remplacements `responseFormat` personnalisés sur `generateContent` sont compatibles avec l'API REST, tandis que la compatibilité des SDK Python et SDK JavaScript pour `response_format` sur `GenerateContentConfig` est en attente, ou utilisez `{"response_format": {"type": "audio", "mime_type": "audio/l16"}}` dans l'API Interactions). Consultez [Formats de sortie audio](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr#audio-output-formats).
 
-## คู่มือการเขียนพรอมต์
+## Guide sur les prompts
 
-โมเดล TTS ของ Gemini 3.8 จะถือว่าข้อความอินพุตเป็น**ข้อความถอดเสียงตามคำพูด**อย่างเคร่งครัด
-Gemini 3.8 TTS แตกต่างจากโมเดลเวอร์ชันตัวอย่างก่อนหน้านี้ที่ฝังคำสั่งการแสดงไว้ในข้อความธรรมดา โดยจะแยกคำสั่งระดับเทิร์นแบบต่อเนื่อง (`speech_metadata`) ออกจากแท็กเสียงพูดในบรรทัด ณ จุดเวลาหนึ่งๆ
+Les modèles Gemini 3.8 TTS traitent le texte d'entrée strictement comme une **transcription textuelle**.
+Contrairement aux modèles d'aperçu précédents où les indications scéniques étaient intégrées en texte brut, Gemini 3.8 TTS sépare les indications de niveau tour soutenues (`speech_metadata`) des tags vocaux intégrés ponctuels.
 
-### ฟิลด์รูปแบบเทียบกับแท็กในบรรทัด
+### Champ de style et balises intégrées
 
-แยกคำสั่งประสิทธิภาพตามขอบเขต
+Répartissez vos instructions de performances par portée :
 
-- **การนำเสนอระดับคำพูด (`speech_metadata.style`):** ใส่แอตทริบิวต์การนำเสนอที่ต่อเนื่อง เช่น อารมณ์ ความผันแปรของระดับเสียง จังหวะโดยรวม หรือสไตล์การนำเสนอ (เช่น `"whispering"`, `"out of breath"`, `"muttering"` หรือ `"sarcastic"`) ลงในฟิลด์ `style` ของ `speech_metadata` หากต้องการสร้างตัวละครและการแสดงที่สม่ำเสมอในแต่ละเทิร์น ให้ออกแบบตัวละครล่วงหน้าใน[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th) และใช้ `style` สำหรับการปรับแต่งระดับเทิร์นที่ไม่บังคับเท่านั้น
-- **เหตุการณ์ที่เกิดขึ้น ณ จุดใดจุดหนึ่ง (แท็กในบรรทัด):** ใส่เสียงที่ไม่ใช่คำพูดชั่วขณะ เสียงหายใจ หรือการหยุดชั่วคราวในบรรทัดภายในข้อความถอดเสียงโดยใช้วงเล็บมุม (`<cough>`, `<breath>`, `<sigh>`, `<short pause>`) ใช้วงเล็บมุม (`<...>`) เพื่อคุณภาพเสียงสูงสุด และใช้การเปล่งเสียงของมนุษย์แทนเอฟเฟกต์เสียงที่ไม่ใช่เสียงพูด
+- **Élocution au niveau du tour de parole (`speech_metadata.style`)** : placez les attributs d'élocution soutenue (comme l'émotion, la prosodie, le rythme général ou le style d'élocution, par exemple `"whispering"`, `"out of breath"`, `"muttering"` ou `"sarcastic"`) dans le champ `style` de `speech_metadata`. Pour créer un personnage et une performance stables d'un tour à l'autre, concevez le personnage en amont dans [Conception de la voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr) et n'utilisez `style` que pour les ajustements facultatifs au niveau du tour.
+- **Événements ponctuels (balises intégrées)** : insérez des bruits vocaux momentanés non parlés, des respirations ou des pauses dans la transcription à l'aide de crochets (`<cough>`, `<breath>`, `<sigh>`, `<short pause>`). Utilisez des crochets (`<...>`) pour une qualité audio optimale et tenez-vous-en aux vocalisations humaines plutôt qu'aux effets sonores non vocaux.
 
-| ขอบเขต | ตำแหน่งที่ควรวาง | ตัวอย่าง |
+| Champ d'application | Où placer la caméra | Exemples |
 | --- | --- | --- |
-| **ระดับการเลี้ยว** (คงที่ตลอดการเลี้ยว) | `speech_metadata.style` | `"angry tone"` `"speaking rapidly"` `"out of breath"` `"whispers"` `"sarcastic"` |
-| **ช่วงเวลา** (เกิดขึ้นที่คำที่เฉพาะเจาะจง) | แทรกในบรรทัดใน `text` (`<...>`) | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
+| **Au niveau du tour** (soutenu tout au long du tour) | `speech_metadata.style` | `"angry tone"`, `"speaking rapidly"`, `"out of breath"`, `"whispers"`, `"sarcastic"` |
+| **À un moment précis** (à un mot spécifique) | Intégrée dans `text` (`<...>`) | `"<cough> Thank you all for coming tonight! <throat-clearing> As I was saying..."` |
 
-### จังหวะการดำเนินเรื่องและการหยุดชั่วคราว
+### Rythme et pauses
 
-คุณควบคุมจังหวะและความเงียบได้ 3 ระดับ ดังนี้
+Vous pouvez contrôler le rythme et le silence à trois niveaux de précision :
 
-- **เครื่องหมายวรรคตอนและจุดไข่ปลา:** ใช้คอมมา ขีดกลาง (`--`) และจุดไข่ปลา (`...`) เพื่อแสดงความลังเลในการสนทนาอย่างเป็นธรรมชาติ
-- **แท็กหยุดชั่วคราวในบรรทัด:** แทรก `<short pause>` หรือ `<long pause>` ในจุดที่แน่นอนในสคริปต์ที่ผู้พูดควรหยุดชั่วคราว
+- **Ponctuation et points de suspension** : utilisez des virgules, des tirets (`--`) et des points de suspension (`...`) pour imiter les hésitations naturelles d'une conversation.
+- **Balises de pause intégrées** : insérez `<short pause>` ou `<long pause>` aux endroits précis du script où l'orateur doit faire une pause :
   `text
   Hold on, let me think... <short pause> Alright, I've got it.`
-- **ความเร็วระดับเทิร์น:** ตั้งค่า `"style": "speaking rapidly"` หรือ `"style": "speaking slowly"` ใน `speech_metadata` เพื่อควบคุมอัตราการพูดตลอดทั้งเทิร์น
+- **Rythme au niveau du tour de parole** : définissez `"style": "speaking rapidly"` ou `"style": "speaking slowly"` dans `speech_metadata` pour contrôler le débit de parole pour l'ensemble du tour de parole.
 
-### ทำนองและระดับเสียง
+### Prosodie et ton
 
-ใช้ **`speech_metadata.style`** เพื่อควบคุมการออกเสียง ระดับเสียง และการผันคำใน
-แต่ละเทิร์น (เช่น `"style": "high pitch, cheerful and excited inflection"` หรือ
-`"style": "monotone and flat"`) หากอารมณ์หรือการออกเสียงเปลี่ยนไประหว่างบทสนทนา
-ให้แยกสคริปต์เป็นเทิร์นแยกกันโดยมีค่า `style` ที่แตกต่างกันสำหรับแต่ละเทิร์น
+Utilisez **`speech_metadata.style`** pour contrôler la prosodie, la hauteur et l'inflexion de la voix tout au long d'un tour de parole (par exemple, `"style": "high pitch, cheerful and excited inflection"` ou `"style": "monotone and flat"`). Si l'émotion ou la prosodie changent au milieu du dialogue, divisez le script en tours de parole distincts avec des valeurs `style` différentes pour chacun d'eux.
 
-### การเน้น
+### Mise en valeur
 
-ใช้อักษรตัวพิมพ์ใหญ่กับคำที่เฉพาะเจาะจงในข้อความถอดเสียง ร่วมกับเครื่องหมายวรรคตอนและแท็กเสียงในบรรทัด เพื่อเน้นเสียงอย่างเป็นธรรมชาติในคำสำคัญ ดังนี้
+Mettez en majuscules certains mots de la transcription, en les combinant avec la ponctuation et les balises vocales intégrées, pour mettre l'accent sur les mots clés :
 
 ```
 This is a VERY important point!
 It was a VERY long day <sigh> ... nobody listens anymore.
 ```
 
-### เสียงร้องและเสียงที่ไม่ใช่เสียงพูด
+### Exclamations et sons non verbaux
 
-วางเสียงร้องของมนุษย์ที่ไม่ใช่คำพูดในบรรทัดโดยใช้วงเล็บมุม (`<...>`) ที่
-จุดที่ควรมีเสียง แท็กเสียงร้องที่แนะนำมีดังนี้
+Placez les vocalisations humaines non vocales entre crochets (`<...>`) à l'endroit exact où le son doit se produire. Voici quelques exemples de tags vocaux recommandés :
 
 |  |  |  |  |
 | --- | --- | --- | --- |
 | `<argh>` | `<breath>` | `<heavy breath>` | `<exhales>` |
-| `<cackle>` | `<cheer>` | `<chuckle>` / `<chuckles>` | `<cough>` |
+| `<cackle>` | `<cheer>` | `<chuckle>`/`<chuckles>` | `<cough>` |
 | `<cry>` | `<gasp>` | `<giggle>` | `<groan>` |
 | `<growl>` | `<grunt>` | `<grr>` | `<hiss>` |
-| `<laugh>` / `<laughter>` | `<moan>` | `<pant>` | `<pff>` / `<phew>` |
-| `<scream>` | `<shout>` | `<shriek>` | `<sigh>` / `<sighs>` |
+| `<laugh>`/`<laughter>` | `<moan>` | `<pant>` | `<pff>`/`<phew>` |
+| `<scream>` | `<shout>` | `<shriek>` | `<sigh>`/`<sighs>` |
 | `<sneeze>` | `<snicker>` | `<snort>` | `<sob>` |
-| `<throat-clearing>` | `<tsk>` | `<whimper>` | `<whispers>` / `<whispering>` |
+| `<throat-clearing>` | `<tsk>` | `<whimper>` | `<whispers>`/`<whispering>` |
 | `<yawn>` | `<short pause>` | `<long pause>` |  |
 
-### การตอบรับและเสียงพูดทับซ้อนกัน
+### Réponses minimales et chevauchement des voix
 
-ในการสนทนาที่มีผู้พูดหลายคน ให้ใส่ปฏิกิริยาของผู้ฟังในอักขระไปป์
-(`|reaction|`) ภายในเทิร์นของผู้พูดเพื่อสร้างช่องทางย้อนกลับที่เป็นธรรมชาติหรือ
-การพูดที่ทับซ้อนกันโดยไม่ต้องแบ่งเป็นเทิร์นแยกต่างหากต่อรีแอ็กชัน
+Dans un dialogue à plusieurs locuteurs, placez les réactions des auditeurs entre des barres verticales (`|reaction|`) au cours du tour de parole d'un locuteur pour créer des réactions naturelles ou des chevauchements de parole sans avoir à créer un tour de parole distinct pour chaque réaction.
 
-- **การแลกเปลี่ยนสั้นๆ ในช่องสื่อสารเบื้องหลัง:** ใส่รีแอ็กชันสั้นๆ ของ Listener (`|oh hmm|`, `|oh really?|`, `|absolutely|`) ไว้ในเทิร์นของผู้ที่กำลังพูด:
-  - **เทิร์นที่ 1 (ผู้พูด A):** `"So the launch is Thursday |oh hmm| Are we actually ready?"`
-  - **เทิร์นที่ 2 (ผู้พูด ข):** `"Ready enough |oh really?| The last blocker cleared this morning."`
-  - **เทิร์นที่ 3 (ผู้พูด A):** `"Then let's ship it |absolutely| and watch the dashboards."`
-- **คำพูดที่ทับซ้อนกันและสลับกัน:** ใช้ส่วนไปป์หลายส่วนเพื่อจำลองคำพูดที่เกิดขึ้นพร้อมกันหรือสลับกันระหว่างผู้พูด 2 คน (ทำงานได้ดีที่สุดกับ `gemini-3.8-flash-tts`)
-  - **การนับถอยหลัง/การร้องประสานเสียงพร้อมกัน:** `"Let's surprise him on three |ok| ready?"` ตามด้วย `"one. two. three. |happy| happy |birthday| birthday!"`
-  - **ผู้พูดทับซ้อนกันทั้งหมด:** `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
+- **Échanges brefs dans le canal de communication secondaire** : insérez de brèves réactions de l'auditeur (`|oh hmm|`, `|oh really?|`, `|absolutely|`) dans le tour de parole de l'interlocuteur actif :
+  - **Tour 1 (Locuteur A)** : `"So the launch is Thursday |oh hmm| Are we actually ready?"`
+  - **Tour 2 (Locuteur B)** : `"Ready enough |oh really?| The last blocker cleared this morning."`
+  - **Tour 3 (Intervenant A)** : `"Then let's ship it |absolutely| and watch the dashboards."`
+- **Chevauchement et entrelacement de la parole** : utilisez plusieurs segments de barre verticale pour simuler la parole simultanée ou entrelacée entre deux locuteurs (fonctionne mieux avec `gemini-3.8-flash-tts`) :
+  - **Compte à rebours/refrain simultanés** : `"Let's surprise him on three |ok| ready?"` suivi de `"one. two. three. |happy| happy |birthday| birthday!"`
+  - **Chevauchement complet des intervenants** : `"Hello |oh| there |my| it |goodness| must |gracious| be |would| almost |you| time |look| for |at that| dinner"`
 
-### ความสอดคล้องกันในแต่ละรุ่นและสิ่งที่ควรหลีกเลี่ยง
+### Cohérence entre les générations et erreurs à éviter
 
-ทำตามหลักเกณฑ์ต่อไปนี้เพื่อให้เสียงพูดมีความสม่ำเสมอในแต่ละรอบ
+Suivez ces consignes pour que l'identité vocale reste stable d'un tour de parole à l'autre :
 
-- **ออกแบบตัวตนล่วงหน้าในการออกแบบเสียงแทนที่จะใช้บล็อกสไตล์ยาวๆ:**
-  ย่อหน้า `"Audio Profile"` แบบยาวและหัวข้อย่อยหลายรายการ `"Director's Notes"`
-  ที่ยกมาจากโมเดลก่อนหน้าเป็นสาเหตุที่พบบ่อยที่สุดของการเบี่ยงเบนของเสียง
-  ใช้สัญชาตญาณด้านครีเอทีฟโฆษณาเดียวกันนั้นตั้งแต่ต้นใน[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th)เพื่อสร้าง`voice_...`ลักษณะตัวละครที่กำหนดเองอย่างต่อเนื่อง จากนั้นใช้รหัสเสียงนั้นผ่านการเรียก TTS
-- **ใช้เสียงอ้างอิงเพื่อความเสถียร (ละเว้นคำสั่งเมตา):**
-  โมเดล TTS ของ Gemini 3.8 ได้รับการฝึกให้ยึดตามเสียงอ้างอิงเป็นอันดับแรก
-  อย่าใส่คำสั่งที่บอกให้โมเดลคงเสียงให้สม่ำเสมอ (เช่น `"do not switch speaker identity"` หรือ `"maintain identical timbre"`) เนื่องจากข้อความพรอมต์ที่มากเกินไปจะเพิ่มความคลาดเคลื่อน ละเว้นคำสั่งสไตล์ที่ไม่จำเป็นและปล่อยให้โมเดล
-  เปลี่ยนแปลงไปตามธรรมชาติรอบจุดที่เสถียรซึ่งอ้างอิงจากเสียง
-- **อย่าพยายามเปลี่ยนลักษณะของผู้พูดที่ไม่สามารถเปลี่ยนแปลงได้ใน `style`:** หลีกเลี่ยงการใส่อายุ เพศ ชื่อ หรือการเปลี่ยนสำเนียงถาวรใน `speech_metadata.style`
-  แต่ให้เลือกเสียงตามภูมิภาคจากคลังเสียงเพิ่มเติมหรือสร้างเสียงด้วย[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th)แทน
+- **Concevez des personas en amont dans la conception vocale au lieu d'utiliser de longs blocs de style** :
+  Les longs paragraphes `"Audio Profile"` et les listes à puces `"Director's Notes"` hérités des modèles précédents sont la cause la plus fréquente de dérive vocale.
+  Utilisez cette même intuition créative en amont dans la [conception de la voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr) pour générer un persona `voice_...` personnalisé persistant, puis transmettez cet ID de voix via vos appels TTS.
+- **S'appuyer sur la référence vocale pour la stabilité (omettre les méta-instructions)** : les modèles TTS Gemini 3.8 sont entraînés pour s'ancrer d'abord sur la référence audio.
+  N'incluez pas d'instructions demandant au modèle de maintenir la voix stable (comme `"do not switch speaker identity"` ou `"maintain identical timbre"`), car un texte de prompt supplémentaire augmente la dérive. Supprimez les instructions de style inutiles et laissez le modèle varier naturellement autour du point stable fourni par la référence vocale.
+- **N'essayez pas de modifier les caractéristiques immuables du locuteur dans `style`** : évitez d'indiquer l'âge, le genre, les noms ou les changements d'accent permanents dans `speech_metadata.style`.
+  Choisissez plutôt une voix régionale dans la bibliothèque de voix étendue ou créez-en une avec la [conception de voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr).
 
-### เวิร์กโฟลว์ที่แนะนำ
+### Workflow recommandé
 
-1. **สร้างตัวละครครั้งเดียว:** สร้างตัวละครใน[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th)หรือเลือกเสียงตามภูมิภาคจากคลังเสียงเพิ่มเติมที่ตรงกับภาษาเป้าหมายและตัวละครของคุณ
-2. **เขียนข้อความถอดเสียงที่พูดอย่างเป็นธรรมชาติโดยมีคำพูดติดขัด:** เพื่อให้เป็นธรรมชาติมากที่สุด ให้เขียน `text` เป็นข้อความถอดเสียงที่พูดจริง ซึ่งรวมถึงคำพูดติดขัดและการลังเลในการสนทนาที่เป็นธรรมชาติ (เช่น `"Oh uh yeah I think... hm, so that's interesting"`)
-3. **ทดสอบ TTS แบบธรรมดาก่อน:** สังเคราะห์ข้อความถอดเสียงโดยใช้ฟิลด์ `style`
-   ที่ว่างเปล่าก่อน เนื่องจากคำขอส่วนใหญ่ไม่จำเป็นต้องมีคำสั่ง `style`
-4. **เพิ่มพรอมต์ `style` สั้นๆ สำหรับการปรับแต่งเท่านั้น:** เพิ่มสตริง `style` ที่กระชับ (เช่น `"casual, friendly"` หรือ `"muttering, then reassuring"`) สำหรับเทิร์นที่ต้องการการปรับแต่งการนำส่งที่เฉพาะเจาะจงเท่านั้น และใช้สตริงสั้นๆ เดียวกันนั้นซ้ำในเทิร์นต่างๆ เมื่อต้องการให้มีพื้นฐานที่สอดคล้องกัน
+1. **Créez le personnage une seule fois** : créez votre personnage dans [Conception de voix](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr) ou sélectionnez une voix régionale dans la bibliothèque vocale étendue qui correspond à votre langue cible et à votre persona.
+2. **Rédigez des transcriptions vocales naturelles avec des disfluences** : pour un maximum de naturel, rédigez le `text` comme une transcription vocale réelle, y compris les disfluences et les hésitations naturelles de la conversation (par exemple, `"Oh uh yeah I think... hm, so that's interesting"`).
+3. **Testez d'abord la synthèse vocale simple** : synthétisez d'abord votre transcription avec un champ `style` vide. La plupart des requêtes ne nécessitent aucune instruction `style`.
+4. **N'ajoutez des requêtes `style` courtes que pour les ajustements** : n'ajoutez une chaîne `style` concise (telle que `"casual, friendly"` ou `"muttering, then reassuring"`) que pour les tours qui nécessitent un ajustement de diffusion spécifique, et réutilisez cette chaîne courte exacte pour les tours lorsque vous souhaitez une base de référence cohérente.
 
-### ตัวแทนการสนทนาไปมาและตัวแทนเสียง
+### Dialogue multitours et agents vocaux
 
-เมื่อสร้าง Agent เสียงแบบสนทนาเรียลไทม์หรือแอปพลิเคชันแบบสนทนาไปมา ให้ทำดังนี้
+Lorsque vous créez des agents vocaux conversationnels en temps réel ou des applications multitours :
 
-- โทรหา **TTS 1 ครั้งต่อเทิร์น**เมื่อข้อความ LLM มาถึง
-- ปล่อยให้ `voice` ที่กำหนดค่าไว้ (สร้างไว้ล่วงหน้า ออกแบบ `voice_...` หรือจำลอง `voice_...` / `voicekey_...`) ระบุตัวตนของลำโพงในแต่ละรอบการสนทนา โดยไม่ต้องส่งตัวตนของตัวละครแบบยาวซ้ำในแต่ละรอบ
-- ปล่อยช่อง `style` ต่อเทิร์นว่างไว้ หรือส่งสตริงคงที่สั้นๆ 1 รายการ (เช่น `"casual, friendly"`) สำหรับการสนทนาทั้งหมด
-- แบ่งคำตอบที่ยาวของ Agent ออกเป็นเทิร์นสั้นๆ แทนที่จะใช้พรอมต์สไตล์ที่เข้มงวดขึ้น
+- Effectuez **un appel TTS par tour** à mesure que les fragments de texte du LLM arrivent.
+- Laissez le `voice` configuré (`voice_...` prédéfini, conçu ou répliqué `voice_...` / `voicekey_...`) porter l'identité de l'interlocuteur à travers les tours de parole. N'envoyez jamais de persona de personnage long à chaque tour de parole.
+- Laissez le champ `style` par tour vide ou envoyez une chaîne constante courte (telle que `"casual, friendly"`) pour l'ensemble de la conversation.
+- Divisez les longues réponses des agents en tours plus courts au lieu d'utiliser des invites de style plus fortes.
 
-## การสร้างเสียงพูดแบบสตรีมมิง
+## Génération de voix en streaming
 
-คุณสามารถสตรีมเสียงที่สร้างขึ้นขณะที่โมเดลกำลังสังเคราะห์เสียงได้ ต่างจากคำขอแบบ Unary (ซึ่งแสดงผลไฟล์ WAV ที่สมบูรณ์พร้อมส่วนหัว RIFF) **คำขอสตรีมมิงจะแสดงผลกลุ่ม PCM เชิงเส้นแบบ Little-Endian แบบมีเครื่องหมาย 16 บิตดิบที่ไม่มีส่วนหัว (`AUDIO_L16` / `audio/L16;codec=pcm;rate=24000`, 24 kHz, โมโน) โดยค่าเริ่มต้น** เพื่อให้สามารถเล่นหรือต่อกลุ่มเสียงเข้าด้วยกันได้อย่างต่อเนื่องโดยไม่ต้องมีส่วนหัวของคอนเทนเนอร์
+Vous pouvez diffuser l'audio généré au fur et à mesure de sa synthèse par le modèle. Contrairement aux requêtes unaires (qui renvoient un fichier WAV complet avec un en-tête RIFF), **les requêtes de streaming renvoient par défaut des blocs bruts de PCM linéaire little-endian signé 16 bits sans en-tête (`AUDIO_L16` / `audio/L16;codec=pcm;rate=24000`, 24 kHz, mono)**. Les blocs audio peuvent ainsi être lus ou concaténés en continu sans en-têtes de conteneur :
 
 ### Python
 
@@ -852,30 +799,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-t
     }'
 ```
 
-## รูปแบบเอาต์พุตเสียง
+## Formats de sortie audio
 
-โมเดล TTS ของ Gemini 3.8 ใช้รูปแบบเสียงเริ่มต้นที่แตกต่างกัน โดยขึ้นอยู่กับว่าคำขอเป็นแบบ Unary หรือสตรีมมิง
+Les modèles TTS Gemini 3.8 utilisent différents formats audio par défaut selon que la requête est unaire ou en streaming :
 
-- **คำขอแบบ Unary (`models.generate_content`):** แสดงผลเสียง **WAV (`AUDIO_WAV`)** ที่สมบูรณ์พร้อมส่วนหัว RIFF (24 kHz, โมโน, PCM แบบ Little-Endian ที่มีเครื่องหมาย 16 บิต) คุณเขียนไบต์เสียงที่ถอดรหัสแล้วลงใน`.wav`ไฟล์ได้โดยตรงโดยไม่ต้องเพิ่มคอนเทนเนอร์ WAV ด้วยตนเอง
-- **คำขอสตรีมมิง (`models.generate_content_stream` / `streamGenerateContent`):**
-  ส่งคืนก้อน**Linear PCM แบบดิบที่ไม่มีส่วนหัว (`AUDIO_L16`)** (24 kHz, โมโน,
-  PCM แบบ Little-Endian ที่มีเครื่องหมาย 16 บิต) โดยค่าเริ่มต้นเพื่อให้สตรีมหรือ
-  ต่อก้อนอย่างต่อเนื่องได้โดยไม่ต้องมีส่วนหัวของคอนเทนเนอร์ในแต่ละก้อน
+- **Requêtes unaires (`models.generate_content`)** : renvoient un fichier audio **WAV (`AUDIO_WAV`)** complet avec un en-tête RIFF (PCM 16 bits little-endian signé, mono, 24 kHz). Vous pouvez écrire les octets audio décodés directement dans un fichier `.wav` sans ajouter manuellement de conteneur WAV.
+- **Requêtes de streaming (`models.generate_content_stream` / `streamGenerateContent`)** : renvoient par défaut des blocs **PCM linéaire brut sans en-tête (`AUDIO_L16`)** (PCM 24 kHz, mono, 16 bits signé little-endian). Les blocs peuvent ainsi être diffusés en streaming ou concaténés en continu sans en-tête de conteneur sur chaque bloc.
 
-คุณลบล้างการเข้ารหัสเสียงเอาต์พุตและอัตราการสุ่มตัวอย่างได้โดยใช้
-`generationConfig.responseFormat.audio`
+Vous pouvez remplacer l'encodage et le taux d'échantillonnage de l'audio de sortie à l'aide de `generationConfig.responseFormat.audio` :
 
-| ค่า `mimeType` | รูปแบบ | คำอธิบาย |
+| Valeur `mimeType` | Format | Description |
 | --- | --- | --- |
-| `"AUDIO_WAV"` *(ค่าเริ่มต้นแบบเอกภาค)* | WAV (`audio/wav`) | ไฟล์ WAV ที่สมบูรณ์พร้อมส่วนหัว RIFF (24 kHz, โมโน, 16-bit PCM) |
-| `"AUDIO_L16"` *(ค่าเริ่มต้นสำหรับการสตรีม)* | Linear PCM (`audio/l16`) | PCM เชิงเส้นแบบ 16 บิตที่ลงนามแบบ Little-Endian ดิบที่ไม่มีส่วนหัว เหมาะที่สุดสำหรับการสตรีม ไปป์ไลน์เสียงที่กำหนดเอง หรือการเชื่อมโยงคลิปการสนทนาไปมา |
-| `"AUDIO_MULAW"` | μ-law (`audio/basic` / `audio/mulaw`) | เสียงที่บีบอัดตามกฎ μ ของ G.711 ใช้กันโดยทั่วไปในระบบโทรศัพท์ของอเมริกาเหนือและญี่ปุ่น (8 kHz) |
-| `"AUDIO_ALAW"` | A-law (`audio/alaw`) | เสียงที่บีบอัดด้วยกฎ G.711 A-law ใช้กันโดยทั่วไปในการโทรศัพท์ในยุโรปและระหว่างประเทศ (8 kHz) |
+| `"AUDIO_WAV"` *(par défaut, unaire)* | WAV (`audio/wav`) | Fichier WAV complet avec un en-tête RIFF (24 kHz, mono, PCM 16 bits). |
+| `"AUDIO_L16"` *(par défaut pour le streaming)* | PCM linéaire (`audio/l16`) | PCM linéaire 16 bits signé little-endian brut sans en-tête. Idéal pour le streaming, les pipelines audio personnalisés ou la concaténation d'extraits multirépenses. |
+| `"AUDIO_MULAW"` | Loi μ (`audio/basic` / `audio/mulaw`) | Audio compressé G.711 μ-law. Couramment utilisé dans la téléphonie nord-américaine et japonaise (8 kHz). |
+| `"AUDIO_ALAW"` | Loi A (`audio/alaw`) | Audio compressé G.711 A-law. Fréquence couramment utilisée dans la téléphonie européenne et internationale (8 kHz). |
 
-นอกจากนี้ คุณยังระบุ `sampleRate` (เช่น `24000`, `16000` หรือ `8000` Hz โดยค่าเริ่มต้นจะเป็น `24000` Hz) ได้ด้วย
+Vous pouvez également spécifier `sampleRate` (par exemple, `24000`, `16000` ou `8000` Hz ; la valeur par défaut est `24000` Hz).
 
-คำขอตัวอย่าง REST ต่อไปนี้จะขอ PCM แบบ 16 บิตดิบที่ไม่มีส่วนหัว (`AUDIO_L16`) ที่
-24 kHz
+L'exemple REST suivant demande un PCM 16 bits brut sans en-tête (`AUDIO_L16`) à 24 kHz :
 
 ### REST
 
@@ -912,34 +854,29 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash-t
           base64 --decode > out.pcm
 ```
 
-## ข้อจำกัด
+## Limites
 
-- โมเดล TTS จะรับอินพุตที่เป็นข้อความเท่านั้นและสร้างเอาต์พุตที่เป็นเสียงเท่านั้น
-- การสร้างเสียงผู้พูดหลายคนในคำขอเดียว (`multiSpeakerVoiceConfig`) รองรับผู้พูดสูงสุด 2 คนโดยใช้เสียงที่สร้างไว้ล่วงหน้า หากต้องการรวมเสียงที่ออกแบบเอง
-  (`voice_...`) หรือจำลอง (`voice_...` / `voicekey_...`) ใน
-  บทสนทนาที่มีหลายตัวละคร ให้สังเคราะห์เสียงพูดของแต่ละคนแยกกัน
-  เนื่องจากคำขอแบบ Unary จะแสดงผล `audio/wav` พร้อมส่วนหัว RIFF ขนาด 44 ไบต์โดยค่าเริ่มต้น ให้ขอ PCM ดิบ (`AUDIO_L16`) หรือตัดส่วนหัว WAV ออกจากแต่ละเทิร์นก่อนที่จะเชื่อมโยงเฟรมเสียง PCM ขนาด 24kHz
-- **ขีดจำกัดพื้นที่เก็บข้อมูลเสียงที่กำหนดเองและ TTL:**
-  - **เสียงแบบเก็บสถานะ (`store=True`, พรอมต์หรือจำลอง):** สูงสุด **200 เสียงต่อโปรเจ็กต์** โดยมี **TTL 1 ปี** (Time to Live)
-  - **คีย์เสียงแบบไม่เก็บสถานะ (`store=False`, `voicekey_...`):** **TTL 7 วัน**
-    (Time to Live)
-- ตรวจสอบส่วน[ภาษาที่รองรับ](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=th#languages)เพื่อดูความครอบคลุมของภาษา
+- Les modèles TTS acceptent les entrées textuelles uniquement et génèrent des sorties audio uniquement.
+- La génération multilocuteur à requête unique (`multiSpeakerVoiceConfig`) est compatible avec un maximum de deux locuteurs utilisant des voix prédéfinies. Pour combiner des voix personnalisées (`voice_...`) ou répliquées (`voice_...` / `voicekey_...`) dans un dialogue à plusieurs personnages, synthétisez le tour de parole de chaque locuteur individuellement.
+  Étant donné que les requêtes unaires renvoient `audio/wav` avec un en-tête RIFF de 44 octets par défaut, demandez le PCM brut (`AUDIO_L16`) ou supprimez l'en-tête WAV de chaque tour avant de concaténer les trames audio PCM de 24 kHz.
+- **Limites de stockage et TTL des voix personnalisées** :
+  - **Voix avec état (`store=True`, guidées ou répliquées)** : maximum de **200 voix par projet** avec une **valeur TTL d'un an** (Time To Live).
+  - **Clés vocales sans état (`store=False`, `voicekey_...`)** : **TTL de 7 jours** (time-to-live).
+- Consultez la section [Langues acceptées](https://ai.google.dev/gemini-api/docs/generate-content/speech-generation?hl=fr#languages) pour connaître les langues disponibles.
 
-## ขั้นตอนถัดไป
+## Étape suivante
 
-- สร้างตัวตนของเสียงร้องที่กำหนดเองจากภาษาธรรมชาติด้วย[การออกแบบเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=th)
-- จำลองเสียงของผู้พูดที่มีอยู่โดยใช้[การจำลองเสียง](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=th)
-- เปรียบเทียบข้อมูลจำเพาะของโมเดลในหน้าโมเดล
-  [TTS ของ Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=th) และ
-  [TTS ของ Gemini 3.8 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=th)
-- สำรวจเสียงแบบ 2 ทิศทางที่โต้ตอบได้ด้วย [Live API](https://ai.google.dev/gemini-api/docs/live?hl=th)
+- Créez des personas vocaux personnalisés à partir du langage naturel avec [Voice Design](https://ai.google.dev/gemini-api/docs/generate-content/voice-design?hl=fr).
+- Répliquez la voix d'un locuteur existant dans [Réplication vocale](https://ai.google.dev/gemini-api/docs/generate-content/voice-replication?hl=fr).
+- Comparez les spécifications des modèles sur les pages des modèles [Gemini 3.8 Flash TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-tts?hl=fr) et [Gemini 3.8 Flash-Lite TTS](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash-lite-tts?hl=fr).
+- Découvrez l'audio bidirectionnel interactif avec l'[API Live](https://ai.google.dev/gemini-api/docs/live?hl=fr).
 
-ส่งความคิดเห็น
+Envoyer des commentaires
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-อัปเดตล่าสุด 2026-10-12 UTC
+Dernière mise à jour le 2026/10/12 (UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+Voulez-vous nous donner plus d'informations ?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-10-12 UTC"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/12 (UTC)."],[],[]]

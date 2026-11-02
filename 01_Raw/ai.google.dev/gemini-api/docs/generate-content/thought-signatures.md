@@ -1,102 +1,108 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=pt-BR
-fetched_at: 2026-10-26T05:58:13.909986+00:00
-title: "Assinaturas de racioc\u00ednio \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/thought-signatures?hl=sq
+fetched_at: 2026-11-02T07:27:54.954766+00:00
+title: "N\u00ebnshkrimet e mendimeve \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [Página inicial](https://ai.google.dev/?hl=pt-br)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs/generate-content?hl=sq)
 
-Envie comentários
+Dërgo komente
 
-# Assinaturas de raciocínio
+# Nënshkrimet e mendimeve
 
-As assinaturas de pensamento são representações criptografadas do processo de pensamento interno do modelo e são usadas para preservar o contexto de raciocínio em interações de várias etapas.
-Ao usar modelos de pensamento (como as séries Gemini 4, 3 e 2.5), a API pode
-retornar um campo `thoughtSignature` nas [partes de conteúdo](https://ai.google.dev/api/caching?hl=pt-br#Part)
-da resposta (por exemplo, partes `text` ou `functionCall`).
+Nënshkrimet e mendimeve janë përfaqësime të enkriptuara të procesit të mendimit të brendshëm të modelit dhe përdoren për të ruajtur kontekstin e arsyetimit nëpër ndërveprimet me shumë hapa.
+Kur përdor modele arsyetuese (si p.sh. seritë Gemini 4, 3 dhe 2.5), API-ja mund të
+kthejë një fushë `thoughtSignature` brenda [pjesëve të përmbajtjes](https://ai.google.dev/api/caching?hl=sq#Part)
+të përgjigjes (p.sh. pjesët `text` ose `functionCall`).
 
-Como regra geral, se você receber uma assinatura de pensamento em uma resposta do modelo, transmita-a exatamente como recebida ao enviar o histórico da conversa na próxima interação.
-**Ao usar os modelos Gemini 4 e Gemini 3, é necessário transmitir assinaturas de pensamento durante a chamada de função. Caso contrário, você receberá um erro de validação** (código de status 4xx).
-Isso inclui o uso da configuração de `minimal`
-[nível de pensamento](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#thinking-levels) para o Gemini 3
+Si rregull i përgjithshëm, nëse merr një nënshkrim arsyetimi në një përgjigje të modelit,
+duhet ta dërgosh mbrapsht saktësisht siç është marrë kur dërgon historikun e bisedës
+në radhën tjetër.
+**Kur përdor modelet Gemini 4 dhe Gemini 3, duhet të kalosh përsëri nënshkrimet e mendimeve gjatë thirrjes së funksionit, në rast të kundërt do të marrësh një gabim validimi** (kod statusi 4xx).
+Kjo përfshin kur përdor cilësimin e `minimal`
+[nivelit të arsyetimit](https://ai.google.dev/gemini-api/docs/thinking?hl=sq#thinking-levels) për Gemini 3
 Flash.
 
-## Como funciona
+## Si funksionon
 
-O gráfico abaixo mostra o significado de "interação" e "etapa" em relação a
-[chamada de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br) na API Gemini. Uma "interação" é uma troca única e completa em uma conversa entre um usuário e um modelo. Uma "etapa" é uma ação ou operação mais detalhada realizada pelo modelo, geralmente como parte de um processo maior para concluir uma interação.
+Grafiku më poshtë vizualizon kuptimin e "radhës" dhe "hapit" në lidhje me
+[thirrjen e funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq) në Gemini API. Një "radhë"
+është një shkëmbim i vetëm dhe i plotë në një bisedë mes një përdoruesi dhe një modeli. Një
+"hap" është një veprim ose operacion më i detajuar i kryer nga modeli, shpesh si
+pjesë e një procesi më të madh për të përfunduar një radhë.
 
-![Diagrama de etapas e turnos de chamada de função](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=pt-br)
+![Diagrami i hapave dhe radhës së thirrjes së funksionit](https://ai.google.dev/static/gemini-api/docs/images/fc-turns.png?hl=sq)
 
-*Este documento se concentra no processamento de chamadas de função para os modelos Gemini 4 e Gemini 3. Consulte
-a seção sobre o [comportamento do modelo](#model-behavior) para conferir discrepâncias com a versão 2.5.*
+*Ky dokument fokusohet në trajtimin e thirrjes së funksionit për modelet Gemini 4 dhe Gemini 3. Referoju
+seksionit të [sjelljes së modelit](#model-behavior) për mospërputhjet me 2.5.*
 
-O Gemini 4 e o Gemini 3 retornam assinaturas de pensamento para todas as respostas do modelo (respostas da API) com uma chamada de função. As assinaturas de pensamento aparecem nos seguintes casos:
+Gemini 4 dhe Gemini 3 kthejnë nënshkrimet e mendimit për të gjitha përgjigjet e modelit (përgjigjet nga API-ja) me një thirrje funksioni. Nënshkrimet e mendimit shfaqen në rastet e mëposhtme:
 
-- Quando há [chamadas de função](https://ai.google.dev/gemini-api/docs/function-calling?hl=pt-br#parallel_function_calling)
-  paralelas, a primeira parte da chamada de função retornada pela resposta do modelo terá uma
-  assinatura de pensamento.
-- Quando há chamadas de função sequenciais (várias etapas), cada chamada de função terá uma assinatura, e você precisará transmitir todas as assinaturas de volta.
-- As respostas do modelo sem uma chamada de função vão retornar uma assinatura de pensamento na última parte retornada pelo modelo.
+- Kur ka thirrje të [funksionit paralel](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq#parallel_function_calling), pjesa e parë e thirrjes së funksionit e kthyer nga përgjigjja e modelit do të ketë një nënshkrim të mendimit.
+- Kur ka thirrje vijuese të funksionit (me shumë hapa), çdo thirrje e funksionit do të ketë një nënshkrim dhe duhet t'i transmetosh mbrapsht të gjitha nënshkrimet.
+- Përgjigjet e modelit pa një thirrje funksioni do të kthejnë një nënshkrim mendimi brenda pjesës së fundit të kthyer nga modeli.
 
-A tabela a seguir mostra uma visualização para chamadas de função de várias etapas, combinando as definições de interações e etapas com o conceito de assinaturas apresentado acima:
+Tabela e mëposhtme ofron një pamje për thirrjet e funksioneve me shumë hapa,
+duke kombinuar përkufizimet e radhëve dhe hapave me konceptin e nënshkrimeve
+të prezantuara më sipër:
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **Kthesu** | **Hapi** | **Kërkesa e përdoruesit** | **Përgjigjja e modelit** | **FunctionResponse** |
 | 1 | 1 | `request1 = user_prompt` | `FC1 + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + (FC1 + signature) + FR1` | `FC2 + signature` | `FR2` |
-| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Nenhum |
+| 1 | 3 | `request3 = request2 + (FC2 + signature) + FR2` | `text_output`  `(no FCs)` | Asnjë |
 
-## Assinaturas em partes de chamada de função
+## Nënshkrimet në pjesët e thirrjes së funksionit
 
-Quando o Gemini gera um `functionCall`, ele depende da `thought_signature` para processar a saída da ferramenta corretamente na próxima interação.
+Kur Gemini gjeneron një `functionCall`, ai mbështetet te `thought_signature`
+për të përpunuar si duhet rezultatin e veglës në radhën tjetër.
 
-- **Comportamento**:
-  - **Chamada de função única**: a parte `functionCall` vai conter uma `thought_signature`.
-  - **Chamadas de função paralelas**: se o modelo gerar chamadas de função paralelas
-    em uma resposta, a `thought_signature` será anexada **apenas à primeira**
-    `functionCall` parte. As partes `functionCall` subsequentes na mesma resposta **não** vão conter uma assinatura.
-- **Requisito**: você **precisa** retornar essa assinatura na parte exata em que ela
-  foi recebida ao enviar o histórico da conversa de volta.
-- **Validação**: a validação estrita é aplicada a todas as chamadas de função na
-  interação atual . Somente a interação atual é necessária. Não validamos interações anteriores.
-  - A API volta no histórico (do mais recente ao mais antigo) para encontrar a mensagem **do usuário** mais recente que contém conteúdo padrão (por exemplo, `text`), que seria o início da interação atual. Essa **be** será uma `functionResponse`.
-  - **Todas** as interações `functionCall` do modelo que ocorrem após essa mensagem de uso específica são consideradas parte da interação.
-  - A **primeira** parte `functionCall` em **cada etapa** da interação atual **precisa** incluir a `thought_signature`.
-  - Se você omitir uma `thought_signature` para a primeira parte `functionCall` em qualquer etapa da interação atual, a solicitação vai falhar com um erro 400.
-- **Se as assinaturas adequadas não forem retornadas, veja como você vai receber um erro**
-  - Modelos do Gemini 3: a falha ao incluir assinaturas vai resultar em um erro 400. A redação será da seguinte forma:
-    - A chamada de função `<Function Call>` no bloco de conteúdo `<index of contents array>`
-      está sem um `thought_signature`. Por exemplo, *a chamada de função `FC1` no bloco de conteúdo `1.` está sem um `thought_signature`.*
+- **Sjellja**:
+  - **Thirrje e vetme funksioni**: Pjesa `functionCall` do të përmbajë një `thought_signature`.
+  - **Thirrjet paralele të funksionit**: Nëse modeli gjeneron thirrje paralele të funksionit në një përgjigje, `thought_signature` i bashkëngjitet **vetëm pjesës së parë**
+    `functionCall`. Pjesët vijuese të `functionCall` në të njëjtën përgjigje
+    **nuk** do të përmbajnë një nënshkrim.
+- **Kërkesa**: Ti **duhet** ta kthesh këtë nënshkrim në pjesën e saktë ku është marrë kur dërgon përsëri historikun e bisedës.
+- **Validation**: Strict validation is enforced for all function calls within
+  the current turn . (Kërkohet vetëm radha aktuale; ne nuk kryejmë verifikim në
+  radhët e mëparshme)
+  - API-ja kthehet prapa në historik (nga më i riu te më i vjetri) për të gjetur mesazhin më të fundit të **Përdoruesit** që përmban përmbajtje standarde (p.sh. `text`) ( që do të ishte fillimi i radhës aktuale). Kjo nuk do të **be** një `functionResponse`.
+  - **Të gjitha** kthesat e modelit `functionCall` që ndodhin pas atij mesazhi specifik të përdorimit
+    konsiderohen pjesë e kthesës.
+  - Pjesa **e parë** `functionCall` në **çdo hap** të radhës aktuale **duhet** të përfshijë `thought_signature`.
+  - Nëse heq një `thought_signature` për pjesën e parë `functionCall` në çdo hap të radhës aktuale, kërkesa do të dështojë me një gabim 400.
+- **Nëse nuk kthehen nënshkrimet e duhura, ja se si do të shfaqet gabimi**
+  - Modelet e Gemini 3: Mosparaqitja e nënshkrimeve do të rezultojë në një gabim 400. Teksti do të jetë në formën:
+    - Thirrjes së funksionit `<Function Call>` në bllokun e përmbajtjes `<index of contents array>` i mungon një `thought_signature`. Për shembull, *Thirrja e funksionit
+      `FC1` në bllokun e përmbajtjes `1.` i mungon një `thought_signature`.*
 
-### Exemplo de chamada de função sequencial
+### Shembulli i thirrjes vijuese të funksionit
 
-Esta seção mostra um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
+Ky seksion tregon një shembull të thirrjeve të shumëfishta të funksioneve ku përdoruesi bën një pyetje komplekse që kërkon shumë detyra.
 
-Vamos analisar um exemplo de chamada de função de várias interações em que o usuário faz
-uma pergunta complexa que exige várias tarefas: `"Check flight status for AA100 and
+Le të shikojmë një shembull të thirrjes së funksionit me disa raunde ku përdoruesi bën një pyetje komplekse që kërkon disa detyra: `"Check flight status for AA100 and
 book a taxi if delayed"`.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **Kthesu** | **Hapi** | **Kërkesa e përdoruesit** | **Përgjigjja e modelit** | **FunctionResponse** |
 | 1 | 1 | `request1="Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-O código a seguir ilustra a sequência na tabela acima.
+Kodi i mëposhtëm ilustron sekuencën në tabelën e mësipërme.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**Raundi 1, hapi 1 (kërkesa e përdoruesit)**
 
 ```
 {
@@ -151,7 +157,7 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**Raundi 1, hapi 1 (përgjigjja e modelit)**
 
 ```
 {
@@ -172,8 +178,8 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Como essa interação do usuário contém apenas uma `functionResponse` (sem texto novo), ainda estamos na interação 1. Precisamos
-preservar `<Signature_A>`.
+**Rradha 1, Hapi 2 (Përgjigjja e përdoruesit - Daljet e veglës së dërgimit)** Duke qenë se kjo radhë e përdoruesit përfshin vetëm një `functionResponse` (pa tekst të ri), ne jemi përsëri në radhën 1. Ne
+duhet të ruajmë `<Signature_A>`.
 
 ```
 {
@@ -214,7 +220,7 @@ preservar `<Signature_A>`.
 }
 ```
 
-**Interação 1, etapa 2 (modelo)** O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
+**Radha 1, hapi 2 (Modeli)** Modeli tani vendos të rezervojë një taksi bazuar në rezultatin e mëparshëm të veglës.
 
 ```
 {
@@ -235,8 +241,7 @@ preservar `<Signature_A>`.
 }
 ```
 
-**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)** Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para **TODAS** as chamadas de função neste loop
-(`<Signature A>` + `<Signature B>`).
+**Raundi 1, hapi 3 (Përdoruesi - Dërgimi i rezultatit të veglës)** Për të dërguar konfirmimin e rezervimit të taksisë, duhet të përfshijmë nënshkrimet për **TË GJITHA** thirrjet e funksionit në këtë cikël (`<Signature A>` + `<Signature B>`).
 
 ```
 {
@@ -305,19 +310,19 @@ preservar `<Signature_A>`.
 }
 ```
 
-### Exemplo de chamada de função paralela
+### Shembulli i thirrjes së funksionit paralel
 
-Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
-`"Check weather in Paris and London"` para ver onde o modelo faz a validação.
+Le të shohim një shembull të thirrjes së funksionit paralel ku përdoruesi i kërkon
+`"Check weather in Paris and London"` të shikojë se ku modeli kryen verifikimin.
 
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **Kthesu** | **Hapi** | **Kërkesa e përdoruesit** | **Përgjigjja e modelit** | **FunctionResponse** |
 | --- | --- | --- | --- | --- |
-| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + signature  FC2 ("London") | FR1 |
-| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (no FCs) | Nenhum |
+| 1 | 1 | `request1="Check the weather in Paris and London"` | FC1 ("Paris") + nënshkrimi  FC2 ("London") | FR1 |
+| 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | text\_output  (nuk ka FC) | Asnjë |
 
-O código a seguir ilustra a sequência na tabela acima.
+Kodi i mëposhtëm ilustron sekuencën në tabelën e mësipërme.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**Raundi 1, hapi 1 (kërkesa e përdoruesit)**
 
 ```
 {
@@ -356,7 +361,7 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**Raundi 1, hapi 1 (përgjigjja e modelit)**
 
 ```
 {
@@ -384,8 +389,8 @@ O código a seguir ilustra a sequência na tabela acima.
 }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)** Precisamos preservar
-`<Signature_A>` na primeira parte exatamente como recebida.
+**Kthehu 1, Hapi 2 (Përgjigjja e përdoruesit - Daljet e veglës së dërgimit)** Ne duhet të ruajmë
+`<Signature_A>` në pjesën e parë pikërisht siç është marrë.
 
 ```
 [
@@ -443,20 +448,18 @@ O código a seguir ilustra a sequência na tabela acima.
 ]
 ```
 
-## Assinaturas em partes não `functionCall`
+## Nënshkrimet në pjesët jo `functionCall`
 
-O Gemini também pode retornar `thought_signatures` na parte final da resposta em partes que não são de chamada de função.
+Gemini mund të kthejë gjithashtu `thought_signatures` në pjesën përfundimtare të përgjigjes
+në pjesët jo të thirrjes së funksionit.
 
-- **Comportamento**: a parte de conteúdo final (`text, inlineData…`) retornada pelo
-  modelo pode conter um `thought_signature`.
-- **Recomendação**: o retorno dessas assinaturas é **recomendado** para garantir que
-  o modelo mantenha um raciocínio de alta qualidade, especialmente para instruções complexas
-  seguindo ou Agentic Workflows simulados.
-- **Validação**: a API **não** aplica a validação de forma estrita. Você não vai receber um erro de bloqueio se omiti-las, embora a performance possa ser degradada.
+- **Sjellja**: Pjesa përfundimtare e përmbajtjes (`text, inlineData…`) e kthyer nga modeli mund të përfshijë një `thought_signature`.
+- **Rekomandim**: Kthimi i këtyre nënshkrimeve **rekomandohet** për të siguruar që modeli të mbajë arsyetimin me cilësi të lartë, sidomos për ndjekjen e udhëzimeve komplekse ose flukset e punës të agjentëve të simuluar.
+- **Verifikimi**: API-ja **nuk** e zbaton në mënyrë strikte verifikimin. Nuk do të marrësh një gabim bllokimi nëse i heq ato, megjithëse performanca mund të ulet.
 
-### Texto/raciocínio no contexto (sem validação)
+### Arsyetimi me tekst/në kontekst (pa verifikim)
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**Raundi 1, hapi 1 (përgjigjja e modelit)**
 
 ```
 {
@@ -470,7 +473,7 @@ O Gemini também pode retornar `thought_signatures` na parte final da resposta e
 }
 ```
 
-**Interação 2, etapa 1 (usuário)**
+**Radha 2, hapi 1 (përdoruesi)**
 
 ```
 [
@@ -488,27 +491,28 @@ O Gemini também pode retornar `thought_signatures` na parte final da resposta e
 ]
 ```
 
-## Assinaturas para compatibilidade com a OpenAI
+## Nënshkrimet për përputhshmërinë me OpenAI
 
-Os exemplos a seguir mostram como processar assinaturas de pensamento para uma API de conclusão de chat
-usando [compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
+Shembujt e mëposhtëm tregojnë se si të menaxhosh nënshkrimet e mendimeve për një API të plotësimit të bisedës duke përdorur [përputhshmërinë me OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=sq).
 
-### Exemplo de chamada de função sequencial
+### Shembulli i thirrjes vijuese të funksionit
 
-Este é um exemplo de várias chamadas de função em que o usuário faz uma pergunta complexa que exige várias tarefas.
+Ky është një shembull i thirrjes së shumë funksioneve ku përdoruesi bën një pyetje komplekse që kërkon shumë detyra.
 
-Vamos analisar um exemplo de chamada de função de várias interações em que o usuário pergunta `Check flight status for AA100 and book a taxi if delayed` e você pode ver o que acontece quando o usuário faz uma pergunta complexa que exige várias tarefas.
+Le të shikojmë një shembull të thirrjes së funksionit me disa kthesa ku përdoruesi pyet
+`Check flight status for AA100 and book a taxi if delayed` dhe mund të shikosh se çfarë
+ndodh kur përdoruesi bën një pyetje komplekse që kërkon disa detyra.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **Kthesu** | **Hapi** | **Kërkesa e përdoruesit** | **Përgjigjja e modelit** | **FunctionResponse** |
 | 1 | 1 | `request1 = "Check flight status for AA100 and book a taxi 2 hours before if delayed."` | `FC1 ("check_flight") + signature` | `FR1` |
 | 1 | 2 | `request2 = request1 + FC1 ("check_flight") + signature + FR1` | `FC2("book_taxi") + signature` | `FR2` |
 | 1 | 3 | `request3 = request2 + FC2 ("book_taxi") + signature + FR2` | `text_output`  `(no FCs)` | `None` |
 
-O código a seguir mostra a sequência fornecida.
+Kodi i mëposhtëm kalon nëpër sekuencën e dhënë.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**Radha 1, Hapi 1 (Kërkesa e përdoruesit)**
 
 ```
 {
@@ -562,7 +566,7 @@ O código a seguir mostra a sequência fornecida.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**Raundi 1, hapi 1 (përgjigjja e modelit)**
 
 ```
 {
@@ -585,10 +589,10 @@ O código a seguir mostra a sequência fornecida.
     }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
+**Raundi 1, hapi 2 (përgjigjja e përdoruesit - dërgimi i rezultateve të veglës)**
 
-Como essa interação do usuário contém apenas um `functionResponse` (sem texto novo), ainda estamos
-na interação 1 e precisamos preservar `<Signature_A>`.
+Duke qenë se ky hap i përdoruesit përfshin vetëm një `functionResponse` (pa tekst të ri), ne jemi
+ende në hapin 1 dhe duhet të ruajmë `<Signature_A>`.
 
 ```
 "messages": [
@@ -623,9 +627,9 @@ na interação 1 e precisamos preservar `<Signature_A>`.
   ]
 ```
 
-**Interação 1, etapa 2 (modelo)**
+**Kthehu 1, Hapi 2 (Model)**
 
-O modelo agora decide reservar um táxi com base na saída da ferramenta anterior.
+Modeli tani vendos të rezervojë një taksi bazuar në rezultatin e mëparshëm të veglës.
 
 ```
 {
@@ -648,10 +652,9 @@ O modelo agora decide reservar um táxi com base na saída da ferramenta anterio
 }
 ```
 
-**Interação 1, etapa 3 (usuário: envio da saída da ferramenta)**
+**Radha 1, hapi 3 (Përdoruesi - Dërgimi i rezultatit të veglës)**
 
-Para enviar a confirmação da reserva de táxi, precisamos incluir assinaturas para TODAS as
-chamadas de função neste loop (`<Signature A>` + `<Signature B>`).
+Për të dërguar konfirmimin e rezervimit të taksisë, ne duhet të përfshijmë nënshkrimet për TË GJITHA thirrjet e funksioneve në këtë cikël (`<Signature A>` + `<Signature B>`).
 
 ```
 "messages": [
@@ -710,21 +713,21 @@ chamadas de função neste loop (`<Signature A>` + `<Signature B>`).
   ]
 ```
 
-### Exemplo de chamada de função paralela
+### Shembulli i thirrjes së funksionit paralel
 
-Vamos analisar um exemplo de chamada de função paralela em que o usuário pergunta
-`"Check weather in Paris and London"` e você pode ver onde o modelo faz
-validação.
+Le të shikojmë një shembull të thirrjes paralele të funksionit ku përdoruesi pyet
+`"Check weather in Paris and London"` dhe mund të shikosh se ku kryen modeli
+verifikimin.
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| **Interação** | **Etapa** | **Solicitação do usuário** | **Resposta do modelo** | **FunctionResponse** |
+| **Kthehu** | **Hapi** | **Kërkesa e përdoruesit** | **Përgjigjja e modelit** | **FunctionResponse** |
 | 1 | 1 | `request1="Check the weather in Paris and London"` | `FC1 ("Paris") + signature`  `FC2 ("London")` | `FR1` |
 | 1 | 2 | `request 2 = request1 + FC1 ("Paris") + signature + FC2 ("London")` | `text_output`  `(no FCs)` | `None` |
 
-Confira o código para analisar a sequência fornecida.
+Ja kodi për të kaluar nëpër sekuencën e dhënë.
 
-**Interação 1, etapa 1 (solicitação do usuário)**
+**Raundi 1, hapi 1 (kërkesa e përdoruesit)**
 
 ```
 {
@@ -763,7 +766,7 @@ Confira o código para analisar a sequência fornecida.
 }
 ```
 
-**Interação 1, etapa 1 (resposta do modelo)**
+**Raundi 1, hapi 1 (përgjigjja e modelit)**
 
 ```
 {
@@ -794,9 +797,9 @@ Confira o código para analisar a sequência fornecida.
 }
 ```
 
-**Interação 1, etapa 2 (resposta do usuário: envio de saídas de ferramentas)**
+**Rradha 1, Hapi 2 (Përgjigjja e përdoruesit - Dërgimi i daljeve të veglës)**
 
-É necessário preservar `<Signature_A>` na primeira parte exatamente como recebida.
+Duhet të ruash `<Signature_A>` në pjesën e parë saktësisht siç është marrë.
 
 ```
 "messages": [
@@ -845,52 +848,51 @@ Confira o código para analisar a sequência fornecida.
   ]
 ```
 
-## Perguntas frequentes
+## Pyetjet më të shpeshta
 
-1. **Como faço para transferir o histórico de um modelo diferente para o Gemini 4 ou o Gemini 3 com uma parte de chamada de função na interação e etapa atuais? Preciso fornecer partes de chamada de função
-   que não foram geradas pela API e, portanto, não têm uma assinatura de pensamento associada
-   ?**
+1. **Si mund ta transferoj historikun nga një model tjetër te Gemini 4 ose Gemini 3 me një pjesë të thirrjes së funksionit në radhën dhe hapin aktual? Duhet të jap pjesët e thirrjes së funksionit që nuk janë gjeneruar nga API-ja dhe që për këtë arsye nuk kanë një nënshkrim të lidhur të mendimit?**
 
-   Embora a injeção de blocos de chamada de função personalizados na solicitação seja fortemente
-   desencorajada, em casos em que não é possível evitá-la, por exemplo, fornecer informações
-   ao modelo sobre chamadas de função e respostas que foram executadas
-   de forma determinística pelo cliente ou transferir um rastreamento de um modelo diferente
-   que não inclui assinaturas de pensamento, você pode definir as seguintes
-   assinaturas fictícias de `"context_engineering_is_the_way_to_go"` ou
-   `"skip_thought_signature_validator"` no campo de assinatura de pensamento para ignorar a
-   validação.
-2. **Estou enviando chamadas de função paralelas intercaladas e respostas, e a API está retornando um erro 400. Por quê?**
+   Megjithëse injektimi i blloqeve të personalizuara të thirrjeve të funksioneve në kërkesë është shumë i
+   këshillueshëm, në rastet kur nuk mund të shmanget, p.sh. për t'i dhënë modelit informacione
+   për thirrjet e funksioneve dhe përgjigjet që janë ekzekutuar në mënyrë
+   deterministike nga klienti ose për të transferuar një gjurmë nga një model tjetër
+   që nuk përfshin nënshkrime të mendimeve, mund të caktosh nënshkrimet e mëposhtme
+   fiktive të `"context_engineering_is_the_way_to_go"` ose
+   `"skip_thought_signature_validator"` në fushën e nënshkrimit të mendimit për të kapërcyer
+   verifikimin.
+2. **Po dërgoj mbrapsht thirrje dhe përgjigje paralele të ndërthurura të funksionit dhe API-ja po kthen një kod 400. Pse?**
 
-   Quando a API retorna chamadas de função paralelas "FC1 + assinatura, FC2", a resposta do usuário esperada é "FC1 + assinatura, FC2, FR1, FR2". Se você as tiver intercaladas como "FC1 + assinatura, FR1, FC2, FR2", a API vai retornar um erro 400.
-3. **Quando a transmissão é feita e o modelo não retorna uma chamada de função, não consigo encontrar
-   a assinatura de pensamento**
+   Kur API-ja kthen thirrje paralele të funksionit "FC1 + nënshkrimi, FC2", përgjigjja e pritshme e përdoruesit është "FC1+ nënshkrimi, FC2, FR1, FR2". Nëse i ke ato
+   të ndërthurura si "FC1 + nënshkrimi, FR1, FC2, FR2", API-ja do të kthejë një gabim
+   400.
+3. **Kur transmeton dhe modeli nuk kthen një thirrje funksioni, nuk mund të gjej
+   nënshkrimin e mendimit**
 
-   Durante uma resposta do modelo que não contém uma FC com uma solicitação de transmissão, o modelo pode retornar a assinatura de pensamento em uma parte com um conteúdo de texto vazio. É recomendável analisar toda a solicitação até que a `finish_reason` seja retornada pelo modelo.
+   Gjatë një përgjigjeje të modelit që nuk përfshin një FC me një kërkesë transmetimi, modeli mund të kthejë nënshkrimin e mendimit në një pjesë me një pjesë përmbajtjeje me tekst bosh. Këshillohet të analizosh të gjithë kërkesën derisa të kthehet `finish_reason`
+   nga modeli.
 
-## Assinaturas de pensamento para diferentes modelos
+## Nënshkrimet e mendimeve për modele të ndryshme
 
-[Os modelos](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=pt-br)[Gemini 4](https://ai.google.dev/gemini-api/docs/models?hl=pt-br#gemini-3), Gemini 3 e Gemini 2.5
-se comportam de maneira diferente com assinaturas de pensamento em chamadas de função:
+Modelet [Gemini 4](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=sq), [Gemini 3](https://ai.google.dev/gemini-api/docs/models?hl=sq#gemini-3) dhe Gemini 2.5
+sillen ndryshe me nënshkrimet e mendimeve në thirrjet e funksioneve:
 
-- Se houver chamadas de função em uma resposta,
-  - O Gemini 4 e o Gemini 3 sempre terão a assinatura na primeira parte da chamada de função.
-    É **obrigatório** retornar essa parte.
-  - O Gemini 2.5 terá a assinatura na primeira parte (independente do tipo). É **opcional** retornar essa parte.
-- Se não houver chamadas de função em uma resposta,
-  - O Gemini 4 e o Gemini 3 terão a assinatura na última parte se o modelo gerar um pensamento.
-  - O Gemini 2.5 não terá uma assinatura em nenhuma parte.
+- Nëse ka thirrje funksionesh në një përgjigje,
+  - Gemini 4 dhe Gemini 3 do të kenë gjithmonë nënshkrimin në pjesën e parë të thirrjes së funksionit.
+    Është **e detyrueshme** që ta kthesh atë pjesë.
+  - Gemini 2.5 do të ketë nënshkrimin në pjesën e parë (pavarësisht nga lloji). Është **opsionale** që ta kthesh atë pjesë.
+- Nëse nuk ka thirrje funksionesh në një përgjigje,
+  - Gemini 4 dhe Gemini 3 do të kenë nënshkrimin në pjesën e fundit nëse modeli gjeneron një mendim.
+  - Gemini 2.5 nuk do të ketë një nënshkrim në asnjë pjesë.
 
-Consulte a página [Raciocínio](https://ai.google.dev/gemini-api/docs/thinking?hl=pt-br#signatures) para mais
-detalhes de comparação.
-Para modelos de imagem do Gemini 3, consulte a seção sobre o processo de pensamento do
-[guia de geração de imagens](https://ai.google.dev/gemini-api/docs/image-generation?hl=pt-br#thinking-process).
+Referoju faqes [Thinking](https://ai.google.dev/gemini-api/docs/thinking?hl=sq#signatures) për më shumë detaje krahasimi.
+Për modelet e imazheve të Gemini 3, shiko seksionin e procesit të të menduarit të udhëzuesit për [Gjenerimin e imazheve](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq#thinking-process).
 
-Envie comentários
+Dërgo komente
 
-Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-Última atualização 2026-10-13 UTC.
+Përditësimi i fundit: 2026-10-13 UTC.
 
-Quer enviar seu feedback?
+Duhet të na tregosh më shumë?
 
-[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-13 UTC."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-13 UTC."],[],[]]

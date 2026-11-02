@@ -1,131 +1,131 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=it
-fetched_at: 2026-10-26T05:45:13.619511+00:00
-title: "Utilizzo delle chiavi API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-key?hl=fa
+fetched_at: 2026-11-02T07:00:04.326433+00:00
+title: "\u0627\u0633\u062a\u0641\u0627\u062f\u0647 \u0627\u0632 \u06a9\u0644\u06cc\u062f\u0647\u0627\u06cc Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-Invia feedback
+ارسال بازخورد
 
-# Utilizzo delle chiavi API Gemini
+# استفاده از کلیدهای Gemini API
 
-Per utilizzare l'API Gemini, devi autenticare le tue richieste. Puoi autenticarti utilizzando una chiave API standard o di autorizzazione.
+برای استفاده از Gemini API، باید درخواست‌هایتان را اصالت‌سنجی کنید. می‌توانید
+بااستفاده از کلید میانای برنامه‌سازی کاربردی استاندارد یا مجاز اصالت‌سنجی کنید.
 
-[Creare o visualizzare una chiave API Gemini](https://aistudio.google.com/apikey?hl=it)
+[ایجاد یا مشاهده کلید Gemini API](https://aistudio.google.com/apikey?hl=fa)
 
-## Tipi di chiavi API: standard e autorizzazione
+## انواع کلید میانای برنامه‌سازی کاربردی: استاندارد درمقابل مجوز
 
-Le chiavi API forniscono l'accesso all'API Gemini, ma le loro caratteristiche di sicurezza
-sono diverse. L'API Gemini sta passando dalle chiavi API standard alle chiavi di autorizzazione
-per migliorare la sicurezza:
+کلیدهای میانای برنامه‌سازی کاربردی دسترسی به Gemini API را فراهم می‌کنند، اما ویژگی‌های امنیتی آن‌ها
+متفاوت است. ‫Gemini API برای بهبود امنیت درحال انتقال از کلیدهای API استاندارد به کلیدهای مجوز است:
 
-- **Chiavi API standard**: associa le richieste a un progetto Google Cloud ai fini di fatturazione e quota. Le chiavi standard non identificano un chiamante, il che
-  limita la granularità delle autorizzazioni e del controllo dell'accesso che possono supportare.
-- **Chiavi di autorizzazione**: associate direttamente a un service account Google Cloud. Quando utilizzi una chiave di autorizzazione, le tue richieste vengono elaborate
-  con l'identità del service account associato, consentendo un controllo
-  dell'accesso granulare. Per impostazione predefinita, le chiavi di autorizzazione sono limitate all'API Generative Language (API Gemini) e forniscono un'applicazione rapida delle chiavi compromesse che interrompe rapidamente l'utilizzo delle chiavi compromesse rilevate dai nostri sistemi.
+- **کلیدهای میانای برنامه‌سازی کاربردی استاندارد**: درخواست‌ها را برای اهداف صدور صورت‌حساب و سهمیه به پروژه Google Cloud مرتبط می‌کند. کلیدهای استاندارد تماس‌گیرنده را شناسایی نمی‌کنند، که این امر
+  جزئیات اجازه‌ها و کنترل دسترسی را که می‌توانند پشتیبانی کنند محدود می‌کند.
+- **کلیدهای مجوز (auth)**: مستقیماً به حساب سرویس Google Cloud محدود شده است. وقتی از کلید مجوز استفاده می‌کنید، درخواست‌هایتان تحت هویت آن حساب سرویس محدودشده پردازش می‌شود و کنترل دسترسی دانه‌ای را ممکن می‌کند. کلیدهای مجوز به‌طور پیش‌فرض به Generative Language API (Gemini API) محدود می‌شوند و اجرای کلید لورفته با عملکرد سریع را ارائه می‌دهند که به‌سرعت استفاده از کلیدهای لورفته شناسایی‌شده توسط سیستم‌های ما را متوقف می‌کند.
 
-Per garantire un utilizzo sicuro, l'API Gemini passerà dalle chiavi standard alle chiavi di autenticazione:
+برای اطمینان از استفاده ایمن، Gemini API از کلیدهای استاندارد به کلیدهای اصالت‌سنجی منتقل خواهد شد:
 
-- **Chiavi di autenticazione predefinite**: a partire dal 28 maggio 2026, tutte le nuove chiavi API create in
-  Google AI Studio vengono create automaticamente come chiavi di autenticazione.
-- **Chiavi senza restrizioni rifiutate**: l'API Gemini rifiuta le richieste
-  dalle **chiavi standard senza restrizioni**. Le chiavi API standard a cui sono state applicate
-  restrizioni esplicite continuano a funzionare. Questa limitazione impedisce l'uso non autorizzato di chiavi che potrebbero essere condivise pubblicamente o collegate ad altri servizi.
+- **پیش‌فرض کلیدهای اصالت‌سنجی**: از ۲۸ مه ۲۰۲۶، همه کلیدهای API جدیدی که در Google AI Studio ایجاد می‌شوند به‌طور خودکار به‌عنوان کلید اصالت‌سنجی ایجاد می‌شوند.
+- **کلیدهای نامحدود رد شد**: Gemini API درخواست‌های
+  **کلیدهای استاندارد نامحدود** را رد می‌کند. کلیدهای میانای برنامه‌سازی کاربردی استاندارد که محدودیت‌های صریح
+  بر آن‌ها اعمال شده است همچنان کار می‌کنند. این محدودیت از استفاده غیرمجاز از کلیدهایی که ممکن است به‌طور عمومی هم‌رسانی شوند یا به سرویس‌های دیگر پیوند داده شوند جلوگیری می‌کند.
 
-## Gestione delle chiavi API in Google AI Studio
+## مدیریت کلیدهای میانای API در Google AI Studio
 
-Puoi gestire i tuoi progetti e le tue chiavi direttamente in [Google AI Studio](https://aistudio.google.com/apikey?hl=it).
+می‌توانید پروژه‌ها و کلیدهایتان را مستقیماً در [Google AI Studio](https://aistudio.google.com/apikey?hl=fa) مدیریت کنید.
 
-### Progetti Google Cloud
+### پروژه‌های Google Cloud
 
-Ogni chiave API Gemini è associata a un [progetto Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=it).
-I progetti Google Cloud gestiscono la fatturazione, i collaboratori e le autorizzazioni. Google AI Studio fornisce un'interfaccia leggera per accedere a questi progetti.
+هر کلید Gemini API با یک [پروژه Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=fa) مرتبط است.
+پروژه‌های Google Cloud صورت‌حساب، همکاران، و اجازه‌ها را مدیریت می‌کنند. ‫Google AI
+Studio میانای سبکی برای دسترسی به این پروژه‌ها ارائه می‌دهد.
 
-- **Progetto predefinito**: se sei un nuovo utente, Google AI Studio crea automaticamente
-  un progetto Google Cloud e una chiave API predefiniti dopo che hai accettato i
-  Termini di servizio. Puoi rinominare questo progetto andando alla visualizzazione
-  **Progetti** nella dashboard.
-- **Progetti esistenti**: se hai già un account Google Cloud, AI
-  Studio non crea un progetto predefinito. Devi invece importare i tuoi
-  progetti esistenti.
+- **پروژه پیش‌فرض**: اگر کاربر جدید هستید، Google AI Studio پس‌از اینکه
+  «شرایط خدمات» را پذیرفتید، به‌طور خودکار پروژه Google Cloud و کلید میانای API پیش‌فرض
+  ایجاد می‌کند. می‌توانید با رفتن به نمای
+  **پروژه‌ها** در داشبورد، نام این پروژه را تغییر دهید.
+- **پروژه‌های موجود**: اگر ازقبل حساب Google Cloud دارید، AI
+  Studio پروژه پیش‌فرضی ایجاد نمی‌کند. درعوض، باید پروژه‌های موجودتان را
+  وارد کنید.
 
-### Importazione dei progetti
+### درحال وارد کردن پروژه‌ها
 
-Per impostazione predefinita, Google AI Studio non mostra tutti i tuoi progetti Google Cloud. Devi importare i progetti che vuoi utilizzare:
+به‌طور پیش‌فرض، Google AI Studio همه پروژه‌های Google Cloud شما را نمایش نمی‌دهد. باید پروژه‌هایی را که می‌خواهید استفاده کنید وارد کنید:
 
-1. Vai a [Google AI Studio](https://aistudio.google.com?hl=it).
-2. Apri la **dashboard** dal riquadro a sinistra e seleziona **Progetti**.
-3. Fai clic sul pulsante **Importa progetti**.
-4. Cerca e seleziona il progetto Google Cloud da importare, poi
-   fai clic su **Importa**.
-5. Una volta importato, vai alla pagina **Chiavi API** nella dashboard per
-   creare una chiave nel progetto.
+1. به [Google AI Studio](https://aistudio.google.com?hl=fa) بروید.
+2. **داشبورد** را از پانل سمت راست باز کنید و **پروژه‌ها** را انتخاب کنید.
+3. روی دکمه **وارد کردن پروژه‌ها** کلیک کنید.
+4. پروژه Google Cloud موردنظرتان را برای وارد کردن جستجو و انتخاب کنید، سپس
+   روی **وارد کردن** کلیک کنید.
+5. پس‌از وارد کردن، به صفحه **کلیدهای میانای API** در داشبورد بروید تا
+   کلیدی در آن پروژه ایجاد کنید.
 
-### Risoluzione dei problemi relativi alle autorizzazioni di creazione delle chiavi
+### عیب‌یابی اجازه‌های ایجاد کلید
 
-Se il pulsante **Crea chiave API** non è disponibile e viene visualizzato il messaggio:
-*"Non hai l'autorizzazione per creare una chiave in questo progetto"*, non disponi delle autorizzazioni IAM richieste.
+اگر دکمه **ایجاد کلید میانای API** دردسترس نیست و پیام زیر را نمایش می‌دهد:
+*«شما اجازه ایجاد کلید در این پروژه را ندارید»*، شما اجازه‌های IAM لازم را ندارید.
 
-Chiedi all'amministratore del progetto o dell'organizzazione Google Cloud di concederti un ruolo
-che contenga le seguenti autorizzazioni (ad esempio Editor progetto):
+از سرپرست سازمان یا پروژه Google Cloud خود بخواهید نقشی را به شما اعطا کند
+که شامل اجازه‌های زیر باشد (مثل «ویرایشگر پروژه»):
 
-- `resourcemanager.projects.get`: consente ad AI Studio di verificare il progetto.
-- `apikeys.keys.create`: Consente la generazione di chiavi.
-- `serviceusage.services.enable`: garantisce che l'API Generative Language sia
-  abilitata.
-- `iam.serviceAccounts.create`: obbligatorio per creare il service account collegato.
-- `iam.serviceAccountApiKeyBindings.create`: associa il service account alla chiave API.
+- `resourcemanager.projects.get`: به AI Studio اجازه می‌دهد پروژه را درستی‌سنجی کند.
+- `apikeys.keys.create`: تولید کلید را مجاز می‌کند.
+- `serviceusage.services.enable`: مطمئن می‌شود Generative Language API فعال باشد.
+- `iam.serviceAccounts.create`: برای ایجاد حساب سرویس پیوندشده لازم است.
+- ‫`iam.serviceAccountApiKeyBindings.create`: حساب سرویس را به کلید میانای برنامه‌سازی کاربردی مقید می‌کند.
 
-Se non riesci a ottenere l'accesso amministrativo, puoi creare un nuovo progetto Google Cloud
-non associato a un'organizzazione per generare le chiavi.
+اگر نمی‌توانید دسترسی سرپرستی دریافت کنید، می‌توانید پروژه Google Cloud جدیدی ایجاد کنید که با سازمانی مرتبط نباشد تا کلیدهایتان را تولید کنید.
 
-## Creazione di chiavi nella console Google Cloud
+### کلیدهای ناشناخته در صفحه «استفاده»
 
-Google AI Studio mostra solo le chiavi senza limitazioni o limitate all'API
-Gemini. Se non puoi utilizzare AI Studio o vuoi gestire tutte le tue chiavi API in un unico posto, segui la documentazione di Cloud sulla [creazione di una chiave API](https://cloud.google.com/docs/authentication/api-keys?hl=it#create). La creazione di una chiave API Gemini richiede l'associazione a un [service account](https://cloud.google.com/iam/docs/service-account-overview?hl=it).
+[صفحه «استفاده»](https://aistudio.google.com/usage?hl=fa) در Google AI Studio درخواست‌هایی را که نمی‌تواند با کلید میانای API نام‌گذاری‌شده در پروژه مطابقت دهد، تحت عنوان **(کلیدهای ناشناخته)** گروه‌بندی می‌کند. این شامل کلیدهای حذف‌شده در بیش‌از ۳۰ روز گذشته، کلیدهای
+بدون نام نمایشی، و درخواست‌های انجام‌شده با سایر اطلاعات کاربری، مانند OAuth، می‌شود.
 
-## Configurazione dell'ambiente
+## ایجاد کلید در کنسول Google Cloud
 
-Una volta ottenuta una chiave, configura l'ambiente per utilizzarla in modo sicuro nelle tue
-applicazioni.
+Google AI Studio فقط کلیدهایی را نمایش می‌دهد که نامحدود هستند یا به Gemini API محدود شده‌اند. اگر نمی‌توانید از AI Studio استفاده کنید یا می‌خواهید همه کلیدهای میانای برنامه‌سازی کاربردی‌تان را در یک مکان مدیریت کنید، سند Cloud را درباره
+[ایجاد کلید میانای برنامه‌سازی کاربردی](https://cloud.google.com/docs/authentication/api-keys?hl=fa#create) دنبال کنید. برای ایجاد کلید Gemini API، باید آن را به [حساب سرویس](https://cloud.google.com/iam/docs/service-account-overview?hl=fa) متصل کنید.
 
-### Opzione 1: utilizza le variabili di ambiente (consigliata)
+## درحال راه‌اندازی محیط شما
 
-Imposta la variabile di ambiente `GEMINI_API_KEY` o `GOOGLE_API_KEY`. Le librerie client dell'API Gemini rilevano e utilizzano automaticamente queste variabili. Se vengono impostati entrambi, `GOOGLE_API_KEY` ha la precedenza.
+وقتی کلید را دریافت کردید، محیط خود را پیکربندی کنید تا از آن به‌طور ایمن در برنامه‌هایتان استفاده کنید.
 
-Seleziona il tuo sistema operativo per impostare la variabile:
+### گزینه ۱: استفاده از متغیرهای محیطی (توصیه‌شده)
 
-### Linux/macOS - Bash
+متغیر محیطی `GEMINI_API_KEY` یا `GOOGLE_API_KEY` را تنظیم کنید. کتابخانه‌های کارخواه Gemini API به‌طور خودکار این متغیرها را شناسایی و استفاده می‌کنند. اگر هر دو تنظیم شده باشند، `GOOGLE_API_KEY` اولویت دارد.
 
-Verifica se hai un file di configurazione bash:
+سیستم‌عاملتان را برای تنظیم متغیر انتخاب کنید:
+
+### ‫Linux/macOS - Bash
+
+بررسی کنید که آیا فایل پیکربندی bash دارید یا نه:
 
 ```
 ~/.bashrc
 ```
 
-In caso contrario, creane uno e aprilo:
+اگر ندارید، یکی ایجاد کنید و آن را باز کنید:
 
 ```
 touch ~/.bashrc && open ~/.bashrc
 ```
 
-Aggiungi il comando di esportazione alla fine del file:
+فرمان صادر کردن را به انتهای فایل اضافه کنید:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Salva il file, poi applica le modifiche:
+فایل را ذخیره کنید، سپس تغییرات را اعمال کنید:
 
 ```
 source ~/.bashrc
@@ -133,25 +133,25 @@ source ~/.bashrc
 
 ### macOS - Zsh
 
-Verifica di avere un file di configurazione zsh:
+بررسی کنید که آیا فایل پیکربندی zsh دارید یا نه:
 
 ```
 ~/.zshrc
 ```
 
-In caso contrario, creane uno e aprilo:
+اگر ندارید، یکی ایجاد کنید و آن را باز کنید:
 
 ```
 touch ~/.zshrc && open ~/.zshrc
 ```
 
-Aggiungi il comando di esportazione:
+فرمان صادر کردن را اضافه کنید:
 
 ```
 export GEMINI_API_KEY=<YOUR_API_KEY_HERE>
 ```
 
-Salva il file, poi applica le modifiche:
+فایل را ذخیره کنید، سپس تغییرات را اعمال کنید:
 
 ```
 source ~/.zshrc
@@ -159,16 +159,16 @@ source ~/.zshrc
 
 ### Windows
 
-1. Cerca "Variabili di ambiente" nella barra di ricerca di Windows.
-2. Fai clic su **Variabili di ambiente** nella finestra di dialogo Proprietà del sistema.
-3. In **Variabili utente** o **Variabili di sistema**, fai clic su **Nuova…**.
-4. Imposta il nome della variabile su `GEMINI_API_KEY` e il valore sulla tua chiave API.
-5. Fai clic su **OK** per salvarlo. Apri una nuova sessione del terminale per caricare la variabile.
+1. در نوار جستجوی Windows، عبارت «Environment Variables» (متغیرهای محیطی) را جستجو کنید.
+2. در کادر گفتگوی «مشخصات سیستم»، روی **متغیرهای محیط** کلیک کنید.
+3. در بخش **متغیرهای کاربر** یا **متغیرهای سیستم**، روی **جدید...** کلیک کنید.
+4. نام متغیر را روی `GEMINI_API_KEY` و مقدار را روی کلید میانای برنامه‌سازی کاربردی خودتان تنظیم کنید.
+5. روی **تأیید** کلیک کنید تا ذخیره شود. جلسه پایانه جدیدی را برای بار کردن متغیر باز کنید.
 
-### Opzione 2: fornisci la chiave API in modo esplicito nel codice
+### گزینه ۲: ارائه صریح کلید API در کد
 
-Puoi passare la chiave API in modo esplicito durante l'inizializzazione del client. Esegui questa operazione
-solo se non puoi utilizzare le variabili di ambiente.
+می‌توانید کلید میانای API را به‌طور صریح هنگام مقداردهی اولیه کارخواه ارسال کنید. فقط درصورتی این کار را انجام دهید
+که نمی‌توانید از متغیرهای محیطی استفاده کنید.
 
 ### Python
 
@@ -202,7 +202,7 @@ async function main() {
 main();
 ```
 
-### Java
+### جاوا
 
 ```
 import com.google.genai.Client;
@@ -226,7 +226,7 @@ Interaction interaction =
 System.out.println(interaction.outputText().orElse(""));
 ```
 
-### Go
+### رفتن
 
 ```
 package main
@@ -265,7 +265,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
@@ -278,117 +278,105 @@ curl "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Gestione della sicurezza e dei secret
+## مدیریت امنیتی و محرمانه
 
-Tratta la chiave API Gemini come una password. Se viene compromesso, altri possono consumare
-la quota del tuo progetto, incorrere in addebiti di fatturazione imprevisti e accedere a risorse
-private.
+با کلید Gemini API خود مانند گذرواژه رفتار کنید. اگر این کلیدها لو بروند، دیگران می‌توانند سهمیه پروژه‌تان را مصرف کنند، هزینه‌های صورت‌حساب غیرمنتظره ایجاد کنند، و به منابع خصوصی دسترسی پیدا کنند.
 
-### Regole di sicurezza critiche
+### قوانین امنیتی جدی
 
-- **Mantieni riservate le chiavi**: non archiviare mai le chiavi API nei sistemi di controllo del codice sorgente
-  come Git.
-- **Non esporre mai le chiavi lato client in produzione**: non codificare le chiavi API
-  direttamente nelle app web o mobile. Le chiavi compilate nel codice lato client possono essere
-  estratte dagli utenti. Per proteggere le app lato client, esegui un server proxy di backend per effettuare le chiamate API effettive.
+- **کلیدها را محرمانه نگه دارید**: هرگز کلیدهای میانای برنامه‌سازی کاربردی را در سیستم‌های کنترل منبع مانند Git بررسی نکنید.
+- **هرگز کلیدها را در سمت کارخواه در محیط تولید آشکار نکنید**: کلیدهای میانای برنامه‌سازی کاربردی را مستقیماً در برنامه‌های وب یا تلفن همراه کدگذاری ثابت نکنید. کلیدهای کامپایل‌شده در کد سمت کارخواه را کاربران می‌توانند
+  استخراج کنند. برای ایمن کردن برنامه‌های سمت کارخواه، سرور پراکسی
+  پشتیبان اجرا کنید تا فراخوان‌های واقعی میانای برنامه‌سازی کاربردی را انجام دهد.
 
-### Best practice per la gestione dei secret
+### روال‌های مطلوب مدیریت محرمانه
 
-- **Variabili di ambiente**: leggi le chiavi dalle variabili di ambiente anziché dai file di configurazione.
-- **Secret Manager**: per la produzione, archivia le chiavi in un archivio dei secret sicuro
-  come [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=it).
-- **Avvisi di fatturazione**: configura gli avvisi di fatturazione nella console Google Cloud per
-  ricevere una notifica in caso di picchi di utilizzo o costi.
+- **متغیرهای محیطی**: کلیدها را به‌جای فایل‌های پیکربندی از متغیرهای محیطی بخوانید.
+- **Secret Manager**: برای تولید، کلیدهایتان را در فروشگاه امنی برای اطلاعات محرمانه
+  مثل [Google Cloud Secret Manager](https://cloud.google.com/secret-manager?hl=fa) ذخیره کنید.
+- **هشدارهای صورت‌حساب**: هشدارهای صورت‌حساب را در کنسول Google Cloud راه‌اندازی کنید تا
+  درصورت افزایش ناگهانی استفاده یا هزینه‌ها به شما اطلاع داده شود.
 
-### Elenco di controllo per la risposta alle perdite di dati
+### بازبینه پاسخ به نشتی
 
-Se sospetti che la tua chiave API sia stata compromessa:
+اگر مشکوک هستید که کلید میانای API شما لو رفته است:
 
-1. **Genera una nuova chiave**: crea una chiave sostitutiva in Google AI Studio o nella
-   console Google Cloud.
-2. **Aggiorna l'applicazione**: esegui il deployment del codice utilizzando la nuova chiave.
-3. **Disattiva o elimina la chiave compromessa**: disattiva la chiave compromessa nella
-   console Cloud una volta verificata la nuova chiave. Non eliminare la vecchia chiave finché
-   la nuova chiave non è completamente attiva per evitare tempi di inattività dell'applicazione.
-4. **Controlla l'utilizzo**: controlla i log di fatturazione e l'utilizzo delle API nella console Google Cloud per identificare attività non autorizzate.
+1. **تولید کلید جدید**: کلید جایگزینی در Google AI Studio یا کنسول Cloud ایجاد کنید.
+2. **برنامه‌تان را به‌روز کنید**: کدتان را بااستفاده از کلید جدید مستقر کنید.
+3. **غیرفعال یا حذف کردن کلید لو رفته**: پس‌از تأیید کلید جدید، کلید لو رفته را در کنسول Cloud غیرفعال کنید. تا زمانی که کلید جدید کاملاً فعال نشده است، کلید قدیمی را حذف نکنید تا از خرابی برنامه جلوگیری شود.
+4. **استفاده از ممیزی**: گزارش‌های صورت‌حساب و استفاده از میانای برنامه‌سازی کاربردی را در کنسول Google Cloud بررسی کنید تا فعالیت‌های غیرمجاز را شناسایی کنید.
 
-## Limitare e proteggere le chiavi
+## محدود کردن و ایمن کردن کلیدها
 
-L'aggiunta di limitazioni alle chiavi API riduce al minimo i potenziali danni in caso di compromissione di una chiave.
+افزودن محدودیت به کلیدهای میانای API شما آسیب احتمالی را درصورت به‌خطر افتادن کلید به حداقل می‌رساند.
 
-### Applica limitazioni all'origine della richiesta
+### اعمال محدودیت‌های مبدأ درخواست
 
-Le limitazioni di origine limitano gli indirizzi IP, i siti web o le applicazioni che possono utilizzare la tua chiave.
+محدودیت‌های مبدأ مشخص می‌کند کدام نشانی‌های IP، وب‌سایت‌ها، یا برنامه‌ها می‌توانند از کلید شما استفاده کنند.
 
-1. Vai alla [pagina delle credenziali della console Google Cloud](https://console.cloud.google.com/apis/credentials?hl=it).
-2. Seleziona il tuo progetto e fai clic sul nome della chiave API che vuoi limitare.
-3. In **Restrizioni delle applicazioni**, seleziona **Indirizzi IP** (o il tipo di restrizione appropriato per il tuo ambiente).
-4. Specifica gli indirizzi IP o gli intervalli consentiti, quindi fai clic su **Salva**.
+1. به [صفحه اطلاعات اعتباری کنسول Google Cloud](https://console.cloud.google.com/apis/credentials?hl=fa) بروید.
+2. پروژه‌تان را انتخاب کنید و روی نام کلید میانای API که می‌خواهید محدود کنید کلیک کنید.
+3. در بخش **محدودیت‌های برنامه**، **نشانی‌های IP** (یا نوع محدودیت مناسب برای محیطتان) را انتخاب کنید.
+4. نشانی‌ها یا محدوده‌های IP مجاز را مشخص کنید، سپس روی **ذخیره** کلیک کنید.
 
-### Protezione delle chiavi API standard senza limitazioni
+### ایمن‌سازی کلیدهای میانای برنامه‌سازی کاربردی استاندارد بدون محدودیت
 
-Per continuare a utilizzare l'API Gemini, devi proteggere le chiavi senza limitazioni.
+برای ادامه استفاده از Gemini API، باید همه کلیدهای نامحدود را ایمن کنید.
 
-#### Metodo A: limita la chiave solo all'API Gemini (AI Studio)
+#### روش الف: محدود کردن کلید فقط به Gemini API (AI Studio)
 
-Se utilizzi la chiave solo per l'API Gemini, proteggila direttamente in AI Studio:
+اگر فقط از کلید Gemini API استفاده می‌کنید، آن را مستقیماً در AI Studio ایمن کنید:
 
-1. Nella pagina **Chiavi API** di [Google AI Studio](https://aistudio.google.com/api-keys?hl=it), individua le chiavi contrassegnate con l'etichetta
-   **Senza limitazioni**.
-2. Passa il mouse sopra l'etichetta e fai clic su **Aggiungi limitazioni** nella finestra di dialogo.
-3. Seleziona **Limita solo all'API Gemini**.
-4. Fai clic su **Limita chiave** per confermare.
+1. در صفحه **کلیدهای میانای برنامه‌سازی کاربردی** در [Google AI Studio](https://aistudio.google.com/api-keys?hl=fa)، کلیدهای علامت‌گذاری‌شده با برچسب **نامحدود** را پیدا کنید.
+2. نشانگر را روی برچسب نگه دارید و در کادر گفتگو روی **افزودن محدودیت** کلیک کنید.
+3. **محدود کردن فقط به Gemini API** را انتخاب کنید.
+4. برای تأیید، روی **محدود کردن کلید** کلیک کنید.
 
-#### Metodo B: limita la chiave per altri servizi (console Google Cloud)
+#### روش ب: محدود کردن کلید برای سرویس‌های دیگر (کنسول Google Cloud)
 
-Se la chiave è condivisa con altre API di Google (non consigliato), limitane l'utilizzo nella console Cloud. **Nota: le richieste dell'API Gemini che utilizzano questa chiave non andranno a buon fine dopo l'applicazione di queste limitazioni.**
+اگر کلید با دیگر میاناهای برنامه‌سازی کاربردی Google هم‌رسانی شده است (توصیه نمی‌شود)، آن را در کنسول Cloud محدود کنید. **توجه: درخواست‌های Gemini API که از این کلید استفاده می‌کنند پس‌از
+اعمال این محدودیت‌ها ناموفق خواهند بود.**
 
-1. Visita la [pagina delle credenziali della console Google Cloud](https://console.cloud.google.com/apis/credentials?hl=it).
-2. Seleziona il progetto e la chiave API.
-3. In **Restrizioni delle API**, utilizza il menu a discesa **Seleziona limitazioni dell'API** per
-   selezionare le API a cui vuoi che questa chiave acceda. Non selezionare l'**API
-   Generative Language**.
-4. Fai clic su **Salva**. Crea una chiave separata con limitazioni in AI Studio per continuare
-   a utilizzare l'API Gemini.
+1. به [صفحه اطلاعات اعتباری کنسول Google Cloud](https://console.cloud.google.com/apis/credentials?hl=fa) بروید.
+2. پروژه و کلید میانای API را انتخاب کنید.
+3. در بخش **محدودیت‌های API**، از منو کرکره‌ای **انتخاب محدودیت‌های API** برای انتخاب APIهایی که می‌خواهید این کلید به آن‌ها دسترسی داشته باشد استفاده کنید. **Generative
+   Language API** را انتخاب نکنید.
+4. روی **ذخیره** کلیک کنید. برای ادامه استفاده از Gemini API، کلید محدودشده جداگانه‌ای در AI Studio ایجاد کنید.
 
-### Chiavi inattive bloccate
+### کلیدهای غیرفعال مسدودشده
 
-A partire dal 7 maggio 2026, l'API Gemini blocca le chiavi API senza limitazioni che sono
-rimaste inattive per un periodo prolungato. Queste chiavi mostrano un tag **Bloccata** in AI
-Studio. Per continuare, devi generare una nuova chiave o utilizzare una chiave con limitazioni esistente.
+از ۷ مه ۲۰۲۶، Gemini API کلیدهای میانای برنامه‌سازی کاربردی نامحدودی را که برای مدت طولانی غیرفعال بوده‌اند مسدود می‌کند. این کلیدها برچسب **مسدودشده** را در AI
+Studio نشان می‌دهند. برای ادامه، باید کلید جدیدی تولید کنید یا از کلید محدودشده موجود استفاده کنید.
 
-## Esegui la migrazione a una chiave di autenticazione
+## انتقال به کلید اصالت‌سنجی
 
-Per creare una nuova chiave API di autenticazione e aggiornare le tue applicazioni:
+برای ایجاد کلید API اصالت‌سنجی جدید و به‌روزرسانی برنامه‌هایتان، این مراحل را دنبال کنید:
 
-1. Vai alla [pagina delle chiavi API di AI Studio](https://aistudio.google.com/api-keys?hl=it).
-2. Controlla la colonna **Tipo di chiave** per identificare le chiavi elencate come **Standard**.
-3. Fai clic su **Crea chiave API** per generare una nuova chiave. Tutte le nuove chiavi create in
-   AI Studio vengono create automaticamente come chiavi di autenticazione.
-4. Copia la nuova chiave API di autenticazione.
-5. Aggiorna il codice dell'applicazione, le variabili di ambiente e qualsiasi configurazione di deployment
-   per utilizzare la nuova chiave API di autenticazione.
-6. Testa l'applicazione per verificare che funzioni correttamente con la nuova chiave.
-7. Una volta verificata, elimina o revoca la vecchia chiave del traffico per evitare abusi.
+1. به [صفحه کلیدهای میانای برنامه‌سازی کاربردی AI Studio](https://aistudio.google.com/api-keys?hl=fa) بروید.
+2. ستون **نوع کلید** را بررسی کنید تا کلیدهایی را که به‌عنوان **استاندارد** فهرست شده‌اند شناسایی کنید.
+3. برای تولید کلید جدید، روی **ایجاد کلید میانای API** کلیک کنید. همه کلیدهای جدیدی که در AI Studio ایجاد می‌شوند به‌طور خودکار به‌عنوان کلید اصالت‌سنجی ایجاد می‌شوند.
+4. کلید میانای API اصالت‌سنجی جدید را کپی کنید.
+5. کد برنامه، متغیرهای محیطی، و هرگونه پیکربندی استقرار را به‌روز کنید تا از کلید API اصالت‌سنجی جدید استفاده کنید.
+6. برنامه‌تان را آزمایش کنید تا مطمئن شوید با کلید جدید درست کار می‌کند.
+7. پس‌از درستی‌سنجی، کلید ترافیک قدیمی‌تان را حذف یا لغو کنید تا از سوءاستفاده جلوگیری شود.
 
-## Limitazioni
+## محدودیت‌ها
 
-Google AI Studio impone le seguenti limitazioni alla gestione di progetti e chiavi:
+Google AI Studio محدودیت‌های زیر را برای مدیریت پروژه و کلید اعمال می‌کند:
 
-- Puoi creare un massimo di 10 progetti alla volta dalla pagina **Progetti** di Google AI Studio.
-- Le pagine **Chiavi API** e **Progetti** mostrano un massimo di 100 chiavi e 50
-  progetti.
-- Vengono visualizzate solo le chiavi API senza limitazioni o limitate specificamente all'API Generative Language (API Gemini).
+- می‌توانید به‌طور هم‌زمان حداکثر ۱۰ پروژه از صفحه **پروژه‌ها** در Google AI Studio ایجاد کنید.
+- صفحه‌های **کلیدهای میانای API** و **پروژه‌ها** حداکثر ۱۰۰ کلید و ۵۰ پروژه را نمایش می‌دهند.
+- فقط کلیدهای میانای API (کلید میانای برنامه‌سازی کاربردی) که بدون محدودیت هستند یا به‌طور خاص برای Generative Language API (Gemini API) محدود شده‌اند نمایش داده می‌شوند.
 
-Per la gestione avanzata dei progetti o per modificare le chiavi con altre limitazioni, utilizza
-la [pagina delle credenziali della console Google Cloud](https://console.cloud.google.com/apis/credentials?hl=it).
+برای مدیریت پیشرفته پروژه یا اصلاح کلیدها با محدودیت‌های دیگر، از
+[صفحه اطلاعات کاربری کنسول Google Cloud](https://console.cloud.google.com/apis/credentials?hl=fa) استفاده کنید.
 
-Invia feedback
+ارسال بازخورد
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Ultimo aggiornamento 2026-10-06 UTC.
+تاریخ آخرین به‌روزرسانی 2026-10-27 به‌وقت ساعت هماهنگ جهانی.
 
-Vuoi dirci altro?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-06 UTC."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-27 به‌وقت ساعت هماهنگ جهانی."],[],[]]

@@ -1,122 +1,122 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=zh-CN
-fetched_at: 2026-10-26T06:04:02.096893+00:00
-title: "Lyria \u63d0\u793a\u6307\u5357 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/lyria-prompt-guide?hl=fr
+fetched_at: 2026-11-02T07:04:54.376142+00:00
+title: "Guide sur les prompts Lyria \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-发送反馈
+Envoyer des commentaires
 
-# Lyria 提示指南
+# Guide sur les prompts Lyria
 
-Gemini API 提供了两种使用 Lyria 生成音乐的方式：
+L'API Gemini propose deux façons de générer de la musique avec Lyria :
 
-- **Lyria 3.5 和 Lyria 3 Clip**：非流式生成，可生成 30 秒的片段或包含歌词和人声的完整歌曲。请参阅[使用 Lyria 3.5 生成音乐](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-cn)。
-- **Lyria RealTime**：通过 WebSocket 进行实时交互式音乐流式传输和实时控制。请参阅[使用 Lyria RealTime 实时生成音乐](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)。
+- **Lyria 3.5 et Lyria 3 Clip** : génération non en streaming de clips de 30 secondes ou de morceaux complets avec paroles et voix. Consultez [Générer de la musique avec Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=fr).
+- **Lyria RealTime** : streaming musical interactif en temps réel et pilotage en direct sur WebSockets. Consultez [Génération de musique en temps réel avec Lyria RealTime](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=fr).
 
-这两个模型都能响应描述性文本提示、音乐术语和结构指令。本指南介绍了如何为批量生成和实时引导撰写有效的提示。
+Les deux modèles répondent aux requêtes textuelles descriptives, à la terminologie musicale et aux instructions structurelles. Ce guide explique comment rédiger des requêtes efficaces pour la génération par lot et le pilotage en temps réel.
 
-## 提示基础知识
+## Principes de base des requêtes
 
-您的提示可以是简短的短语：
+Votre requête peut être une courte expression :
 
 ```
 A folk song about cute cats avoiding puddles, female vocals, acoustic guitar, sound of rain
 ```
 
-或者，结构化的详细说明：
+Ou une description structurée et détaillée :
 
 ```
 A 1980s-style synth-pop track with a driving beat, shimmering synthesizers, and a catchy, anthemic chorus. The song should have a retro-futuristic feel with modern production polish. Upbeat tempo around 120 BPM, clear verse-chorus structure, and a memorable instrumental hook. The lyrics describe getting ready for a party.
 ```
 
-无论是简短的提示还是详细的提示，都能产生出色的结果。使用以下策略引导模型生成您想要的精确声音。
+Les requêtes courtes et détaillées génèrent de bons résultats. Utilisez les stratégies suivantes pour orienter le modèle vers le son exact que vous souhaitez obtenir.
 
-## 流派和风格
+## Genre et style
 
-在提示中先指定主要音乐类型。您可以组合多种流派，打造独特的混合流派：
+Commencez votre requête par le genre principal. Vous pouvez combiner des genres pour créer des hybrides uniques :
 
-- 金属乐和嘻哈音乐的融合
-- 死亡金属与歌剧唱腔的结合
-- 包含暗黑电子无人机元素的古典室内乐
-- 将现代电子舞曲 (EDM) 与欧陆流行音乐相融合
+- Mélange de metal et de hip-hop
+- Death metal combiné à des voix d'opéra
+- Musique de chambre classique avec des éléments de drone électronique sombres
+- Musique électronique moderne pour danser (EDM) mélangée à de l'Europop
 
-您还可以指定音乐时代或地区变体：
+Vous pouvez également spécifier une époque musicale ou une variante régionale :
 
-- 20 世纪 90 年代初的 boom-bap 嘻哈音乐
-- 20 世纪 60 年代法国耶耶流行乐
-- 20 世纪 80 年代的后朋克和新浪潮
-- 2000 年代主流 R&B
-- 柏林极简高科技舞曲或湾区 hyphy
+- Boom-bap hip-hop du début des années 90
+- Pop yé-yé française des années 1960
+- Post-punk et new wave des années 1980
+- R&B mainstream des années 2000
+- Techno minimaliste berlinoise ou hyphy de la baie de San Francisco
 
-### 流派关键字
+### Mots clés de genre
 
-在 Lyria 3.5 和 Lyria RealTime 的提示中使用以下公认的音乐流派术语：
+Utilisez ces termes de genre reconnus dans vos requêtes pour Lyria 3.5 et Lyria RealTime :
 
-- **电子音乐和舞曲**：`Acid House, Breakbeat, Chillout, Chiptune, Deep House, Drum & Bass, Dubstep, EDM, Electro Swing, Glitch Hop, Hyperpop, Minimal Techno, Moombahton, Psytrance, Synthpop, Techno, Trance, Trip Hop, Vaporwave`
-- **嘻哈音乐和 R&B**：`808 Hip Hop, Boom-Bap, Contemporary R&B, G-funk, Grime, Lo-Fi Hip Hop, Neo-Soul, New Jack Swing, Trap Beat`
-- **摇滚和另类**：`Alternative Country, Blues Rock, Classic Rock, Funk Metal, Garage Rock, Indie Folk, Indie Pop, Post-Punk, 60s Psychedelic Rock, Shoegaze, Surf Rock`
-- **爵士、灵魂和放克音乐**：`Acid Jazz, Afrobeat, Bossa Nova, Disco Funk, Funk, Jazz Fusion, Latin Jazz`
-- **民谣与传统音乐**：`Bengal Baul, Bhangra, Bluegrass, Celtic Folk, Cumbia, Indian Classical, Irish Folk, Merengue, Polka, Reggae, Reggaeton, Renaissance Music, Salsa`
-- **古典和原声**：`Baroque, Orchestral Score, Piano Ballad`
+- **Dance et électro** : `Acid House, Breakbeat, Chillout, Chiptune, Deep House, Drum & Bass, Dubstep, EDM, Electro Swing, Glitch Hop, Hyperpop, Minimal Techno, Moombahton, Psytrance, Synthpop, Techno, Trance, Trip Hop, Vaporwave`
+- **Hip-hop et R&B** : `808 Hip Hop, Boom-Bap, Contemporary R&B, G-funk, Grime, Lo-Fi Hip Hop, Neo-Soul, New Jack Swing, Trap Beat`
+- **Rock et musique alternative** : `Alternative Country, Blues Rock, Classic Rock, Funk Metal, Garage Rock, Indie Folk, Indie Pop, Post-Punk, 60s Psychedelic Rock, Shoegaze, Surf Rock`
+- **Jazz, soul et funk** : `Acid Jazz, Afrobeat, Bossa Nova, Disco Funk, Funk, Jazz Fusion, Latin Jazz`
+- **Folk et traditionnelle** : `Bengal Baul, Bhangra, Bluegrass, Celtic Folk, Cumbia, Indian Classical, Irish Folk, Merengue, Polka, Reggae, Reggaeton, Renaissance Music, Salsa`
+- **Classique et acoustique** : `Baroque, Orchestral Score, Piano Ballad`
 
-## 乐器和纹理
+## Instruments et textures
 
-Lyria 会自动为所请求的音乐类型选择合适的乐器。如果您需要特定乐器或不寻常的组合，请明确声明：
+Lyria sélectionne automatiquement l'instrumentation appropriée pour le genre demandé. Si vous souhaitez des instruments spécifiques ou des combinaisons inhabituelles, déclarez-les explicitement :
 
 ```
 A dance track with a driving beat, shimmering synthesizers, and a catchy, anthemic chorus. A saxophone solo enters during the bridge.
 ```
 
-描述乐器的声音和互动方式，以营造氛围和质感：
+Décrivez le son et l'interaction des instruments pour définir l'ambiance et la texture :
 
-- 失真的 303 低音线穿透清脆紧凑的踩镲
-- 温暖的模拟合成器柔音在干燥、亲切的原声吉他下方逐渐增强
-- 由多层模糊吉他打造的音墙，搭配遥远而充满混响的人声
+- Une ligne de basse 303 déformée qui traverse des hi-hats nets et serrés
+- Pads de synthé analogiques chaleureux et gonflés sous une guitare acoustique intimiste et sèche
+- Mur de son composé de plusieurs couches de guitare fuzz, avec des voix lointaines et réverbérées
 
-### 插桩关键字
+### Mots clés d'instrument
 
-- **键盘和合成器**：`Buchla Synths, Clavichord, Dirty Synths, Harpsichord, Mellotron, Moog Oscillations, Ragtime Piano, Rhodes Piano, Smooth Pianos, Spacey Synths, Synth Pads`
-- **贝斯和鼓**：`303 Acid Bass, 808 Hip Hop Beat, Boomy Bass, Conga Drums, Drumline, Funk Drums, Precision Bass, Tabla, TR-909 Drum Machine`
-- **吉他和琴弦**：`Banjo, Balalaika, Bouzouki, Cello, Charango, Dulcimer, Fiddle, Flamenco Guitar, Guitar, Harp, Koto, Lyre, Mandolin, Pipa, Shamisen, Shredding Guitar, Sitar, Slide Guitar, Viola Ensemble, Warm Acoustic Guitar`
-- **管乐和铜管乐**：`Alto Saxophone, Bagpipes, Bass Clarinet, Didgeridoo, Harmonica, Ocarina, Trumpet, Tuba, Woodwinds`
-- **打击乐**：`Bongos, Djembe, Glockenspiel, Hang Drum, Kalimba, Maracas, Marimba, Mbira, Steel Drum, Vibraphone`
+- **Claviers et synthétiseurs** : `Buchla Synths, Clavichord, Dirty Synths, Harpsichord, Mellotron, Moog Oscillations, Ragtime Piano, Rhodes Piano, Smooth Pianos, Spacey Synths, Synth Pads`
+- **Basse et batterie** : `303 Acid Bass, 808 Hip Hop Beat, Boomy Bass, Conga Drums, Drumline, Funk Drums, Precision Bass, Tabla, TR-909 Drum Machine`
+- **Guitares et cordes** : `Banjo, Balalaika, Bouzouki, Cello, Charango, Dulcimer, Fiddle, Flamenco Guitar, Guitar, Harp, Koto, Lyre, Mandolin, Pipa, Shamisen, Shredding Guitar, Sitar, Slide Guitar, Viola Ensemble, Warm Acoustic Guitar`
+- **Vent et cuivres** : `Alto Saxophone, Bagpipes, Bass Clarinet, Didgeridoo, Harmonica, Ocarina, Trumpet, Tuba, Woodwinds`
+- **Percussions** : `Bongos, Djembe, Glockenspiel, Hang Drum, Kalimba, Maracas, Marimba, Mbira, Steel Drum, Vibraphone`
 
-## 歌曲结构和时间安排
+## Structure et timing des titres
 
-对于 Lyria 3.5，请使用标记或箭头定义歌曲进度：
+Pour Lyria 3.5, définissez la progression du morceau à l'aide de tags ou de flèches :
 
 - `[Intro] -> [Verse 1] -> [Chorus] -> [Verse 2] -> [Chorus] -> [Bridge] -> [Outro]`
-- 以舒缓的钢琴前奏开场，逐渐过渡到充满活力的主歌，暂停片刻，然后爆发到合唱部分。
+- Commence par une introduction au piano calme, puis passe à un couplet énergique, marque une pause avec un moment de silence, puis explose dans le refrain.
 
-您可以指导能量动态和转变：
+Vous pouvez diriger les transitions et la dynamique de l'énergie :
 
-- 通过副歌前的部分营造紧张感，然后在爆发性的副歌之前突然静音
-- 歌曲中逐渐增强的渐强，每个乐段增加一种乐器
-- 桥段后突然停止，然后是无伴奏合唱
+- Faites monter la tension dans le pré-refrain, puis passez au silence avant un refrain explosif.
+- Crescendo progressif tout au long du morceau, avec l'ajout d'un instrument par section
+- Un arrêt soudain après le pont, suivi d'un refrain a cappella
 
-您还可以提示特定时间标记：
+Vous pouvez également demander des repères temporels spécifiques :
 
-- 在 12 秒时达到高潮
-- 人声样本每 4 小节重复一次
-- 合唱部分从第 22 秒开始
+- Créer un temps fort à 12 secondes
+- L'échantillon vocal se répète toutes les quatre mesures
+- Le refrain commence à 22 secondes.
 
-## 歌词和人声
+## Paroles et voix
 
-Lyria 3.5 默认生成带有歌词的人声轨道。您可以提供自己的歌词，也可以让模型生成歌词，还可以请求提供伴奏曲目。
+Lyria 3.5 génère des pistes vocales avec paroles par défaut. Vous pouvez fournir vos propres paroles, demander au modèle de les générer ou demander une version instrumentale.
 
-### 使用您自己的歌词
+### Utiliser vos propres paroles
 
-在 `Lyrics:` 标题下方的提示中直接添加歌词。为每个部分添加标记，以指导语音播报：
+Incluez vos paroles directement dans la requête sous un en-tête `Lyrics:`. Ajoutez un tag à chaque section pour guider la diction :
 
 ```
 Lyrics:
@@ -135,56 +135,56 @@ Until the morning light
 Everything will be alright
 ```
 
-使用圆括号表示和声、回声或即兴演唱，例如 `(moving on)`。
+Utilisez des parenthèses pour les chœurs, les échos ou les ad-libs, comme dans `(moving on)`.
 
-### 指导生成的歌词
+### Diriger les paroles générées
 
-让 Lyria 3.5 撰写歌词时，请提供叙事、情感或关键短语的大纲：
+Lorsque vous demandez à Lyria 3.5 d'écrire des paroles, décrivez la narration, l'émotion ou les expressions clés :
 
 ```
 The lyrics describe driving down the Pacific Coast Highway at sunset. The mood is nostalgic and reflective. Include an uplifting, anthemic chorus about second chances and starting over.
 ```
 
-对于电子音乐和舞曲，请要求提供简短的重复人声钩子：
+Pour les genres électroniques et dance, demandez des accroches vocales courtes et répétitives :
 
 ```
 An upbeat dance-pop track with a repetitive, high-energy vocal hook: "Feel the rhythm all night long."
 ```
 
-### 人声演绎和歌手个人资料
+### Profils des chanteurs et des prestations vocales
 
-指定性别、音域和音色，以便实现精准的朗读效果：
+Spécifiez le genre, la tessiture et le timbre pour obtenir un rendu précis :
 
-- **女高音**：音色清澈透亮，演唱灵活而高亢。明亮音调，可营造出空灵、气声质感。
-- **女低音**：低音浑厚、温暖、沙哑。烟嗓，胸腔共鸣，深情而富有磁性。
-- **男高音**：明亮、穿透力强、充满活力。音色年轻，高音穿透力强，可穿透密集混音。
-- **男中音**：深沉、丝滑的胸腔共鸣，温暖、舒缓、低吟浅唱。
-- **风化摇滚**：沙哑、粗犷的音色，让人想起 20 世纪 90 年代的另类摇滚。原始的情感强度，高音略显紧张。
+- **Soprano** : timbre clair et cristallin, avec une voix agile et puissante. Son clair capable de produire des textures aériennes et soufflées.
+- **Alto féminin** : registre grave riche, chaleureux et rauque. Timbre enfumé avec une voix de poitrine émouvante et résonnante.
+- **Ténor** : voix claire, perçante et énergique Timbre juvénile avec une grande puissance de belting qui se démarque dans les mix denses.
+- **Baryton masculin** : voix de poitrine profonde et veloutée, avec un ton chaleureux, apaisant et mélodieux.
+- **Rockeur usé** : timbre rauque et granuleux rappelant le rock alternatif des années 1990. Intensité émotionnelle brute avec des notes aiguës tendues.
 
-### 非歌词人声效果
+### Effets vocaux non lyriques
 
-您还可以提示生成对话、人声切片和采样效果：
+Vous pouvez également demander des dialogues parlés, des effets de voix et des effets de sampling :
 
-- 在节拍开始之前，老式电台广播的声音介绍了这首歌
-- 在音乐高潮前，人声低语，随后是动感十足的合成器
-- 切分、变调的人声采样循环播放，作为乐器节奏元素
+- Une voix de speaker radio vintage présente la chanson avant que le rythme ne commence.
+- Une voix parlée murmure juste avant le drop, suivie de synthés énergiques
+- Boucles d'échantillons vocaux hachés et transposés servant d'élément rythmique instrumental
 
-## 音乐参数
+## Paramètres musicaux
 
-使用标准音乐属性优化提示：
+Affinez votre requête avec des propriétés musicales standards :
 
-- **速度 (BPM)**：直接设置速度（例如 `120 BPM`、`slow tempo around 72 BPM`、`fast 160 BPM`）。
-- **调和音阶**：指定根音和调性（例如 `in G major`、`in D minor`、`in C pentatonic`）。
-- **曲调和氛围**：使用描述情感的形容词：
+- **Tempo (BPM)** : définissez directement le tempo (par exemple, `120 BPM`, `slow tempo around 72 BPM` ou `fast 160 BPM`).
+- **Tonalité et gamme** : spécifiez la tonalité et la gamme de base (par exemple, `in G major`, `in D minor`, `in C pentatonic`).
+- **Ambiance et atmosphère** : utilisez des adjectifs descriptifs émotionnels :
   `Ambient, Bright, Chill, Dark, Dreamy, Emotional, Ethereal, Euphoric, Funky, Groovy, Melancholic, Nostalgic, Ominous, Psychedelic, Relaxed, Soulful, Triumphant, Upbeat, Whimsical`
 
-## 为 Lyria RealTime 提供提示
+## Écrire des requêtes pour Lyria RealTime
 
-Lyria RealTime 使用**加权提示**，而不是单个整体提示字符串。这样一来，您就可以动态融合多种音乐风格，并通过 WebSocket 连接持续引导音乐。
+Lyria RealTime utilise des **prompts pondérés** plutôt qu'une seule chaîne de prompt monolithique. Cela vous permet de mélanger dynamiquement plusieurs influences musicales et de diriger la musique en continu via une connexion WebSocket.
 
-### 加权提示结构
+### Structure de prompt pondérée
 
-每个加权提示都包含一段描述性文字短语和一个浮点权重：
+Chaque requête pondérée se compose d'une expression textuelle descriptive et d'une pondération à virgule flottante :
 
 ```
 prompts = [
@@ -194,35 +194,35 @@ prompts = [
 ]
 ```
 
-### 实时转向策略
+### Stratégies de pilotage en temps réel
 
-- **混合流派**：通过分配均衡的权重来混合不同的风格：
+- **Mélanger les genres** : mélangez des styles distincts en attribuant des pondérations équilibrées :
   - `ambient synth pads (weight: 0.8)` + `lo-fi hip-hop drums (weight: 0.6)`
   - `flamenco guitar (weight: 0.7)` + `deep house groove (weight: 0.5)`
-- **动态过渡**：为了让音乐平稳过渡，请随时间调整提示权重：
-  1. 以 `chill jazz piano (weight: 1.0)` 开头的链。
-  2. 逐步添加 `electronic breakbeat (weight: 0.3)`。
-  3. 将 `electronic breakbeat` 提高到 `0.8`，同时将 `chill jazz piano` 降低到 `0.3`。
-- **分层元素**：将乐器标记和情绪标记分开，以便单独调整它们：
-  - 提示 1：`bossa nova guitar (weight: 0.9)`
-  - 提示 2：`warm acoustic bass (weight: 0.7)`
-  - 提示 3：`subtle vinyl crackle (weight: 0.3)`
+- **Transitions dynamiques** : pour que la musique change en douceur, ajustez les pondérations des requêtes au fil du temps :
+  1. Commencez par `chill jazz piano (weight: 1.0)`.
+  2. Ajoutez progressivement `electronic breakbeat (weight: 0.3)`.
+  3. Augmentez `electronic breakbeat` à `0.8` tout en diminuant `chill jazz piano` à `0.3`.
+- **Superposer des éléments** : séparez les tags d'instruments et les tags d'humeur pour pouvoir les ajuster indépendamment :
+  - Requête 1 : `bossa nova guitar (weight: 0.9)`
+  - Requête 2 : `warm acoustic bass (weight: 0.7)`
+  - Requête 3 : `subtle vinyl crackle (weight: 0.3)`
 
-## 示例提示
+## Exemples de prompts
 
-### Lyria 3.5 示例
+### Exemples Lyria 3.5
 
-- **Lo-Fi Study Beat**：
+- **Lo-Fi Study Beat** :
   `none
   A 30-second lofi hip hop beat with dusty vinyl crackle, mellow Rhodes piano chords, a relaxed boom-bap drum groove at 82 BPM, and a warm upright bassline. Instrumental only.`
-- **流行国歌**：
+- **Hymne pop** :
   `none
   An upbeat, feel-good indie-pop song in G major at 122 BPM. Bright acoustic guitar strumming, driving kick drum, handclaps, and warm female vocal harmonies. The lyrics describe an unforgettable summer road trip with friends.`
-- **Cinematic Cyberpunk**：
+- **Cyberpunk cinématique** :
   `none
   Dark, cinematic cyberpunk synthwave at 110 BPM in D minor. Heavy distorted bass, ominous arpeggiated analog synthesizers, distant metallic percussion, and an ethereal female vocalise swelling during the climax.`
 
-### Lyria RealTime 指向性设置
+### Ensemble de paramètres Lyria RealTime
 
 ```
 # Initial high-energy groove
@@ -243,17 +243,17 @@ await session.set_weighted_prompts(
 )
 ```
 
-## 后续步骤
+## Étape suivante
 
-- [使用 Lyria 3.5 生成音乐](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-cn)：使用 Interactions API 生成完整歌曲和 30 秒的片段。
-- [使用 Lyria RealTime 实时音乐创作](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=zh-cn)：通过 WebSocket 构建实时交互式音乐串流应用。
+- [Générez de la musique avec Lyria 3.5](https://ai.google.dev/gemini-api/docs/music-generation?hl=fr) : générez des titres complets et des extraits de 30 secondes à l'aide de l'API Interactions.
+- [Génération de musique en temps réel avec Lyria RealTime](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=fr) : créez des applications de streaming musical interactives en temps réel sur WebSockets.
 
-发送反馈
+Envoyer des commentaires
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-最后更新时间 (UTC)：2026-09-18。
+Dernière mise à jour le 2026/09/18 (UTC).
 
-需要向我们提供更多信息？
+Voulez-vous nous donner plus d'informations ?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-18。"],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/18 (UTC)."],[],[]]

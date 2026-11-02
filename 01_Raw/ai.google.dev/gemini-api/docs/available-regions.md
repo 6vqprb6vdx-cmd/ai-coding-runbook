@@ -1,274 +1,270 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=fa
-fetched_at: 2026-10-26T05:58:58.814327+00:00
-title: "\u0645\u0646\u0627\u0637\u0642\u06cc \u06a9\u0647 Google AI Studio \u0648 Gemini API \u062f\u0631 \u0622\u0646\u200c\u0647\u0627 \u062f\u0631\u062f\u0633\u062a\u0631\u0633 \u0627\u0633\u062a \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/available-regions?hl=pl
+fetched_at: 2026-11-02T07:30:36.235442+00:00
+title: "Regiony, w kt\u00f3rych dost\u0119pne s\u0105 Google AI Studio i Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Model Gemini 4 Argon jest już dostępny. [Przećwicz to samodzielnie](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pl).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pl)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google używa technologii AI do tłumaczenia treści na Twój preferowany język. Tłumaczenia wygenerowane przez AI mogą zawierać błędy.
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
+- [Strona główna](https://ai.google.dev/?hl=pl)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pl)
+- [Dokumenty](https://ai.google.dev/gemini-api/docs?hl=pl)
 
-ارسال بازخورد
+Prześlij opinię
 
-# مناطقی که Google AI Studio و Gemini API در آن‌ها دردسترس است
+# Regiony, w których dostępne są Google AI Studio i Gemini API
 
-اگر هنگام تلاش برای باز کردن [Google AI Studio](https://aistudio.google.com/?hl=fa) به این صفحه رسیده‌اید، ممکن است منطقه شما پشتیبانی نشود. برای مشاهده فهرست مناطق پشتیبانی‌شده، به بخش زیر مراجعه کنید.
+Jeśli ta strona wyświetliła się podczas próby otwarcia [Google AI Studio](https://aistudio.google.com/?hl=pl), Twój region może nie być obsługiwany. Listę obsługiwanych regionów znajdziesz w sekcji poniżej.
 
-برای سایر الزامات دسترسی، مثل
-[الزامات سنی](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=fa#age-requirements)،
-به [عیب‌یابی Google AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=fa) و
-[شرایط خدمات](https://ai.google.dev/gemini-api/terms?hl=fa) ما مراجعه کنید.
+Inne wymagania dotyczące dostępu, takie jak [wymagania dotyczące wieku](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pl#age-requirements), znajdziesz w artykule [Rozwiązywanie problemów z Google AI Studio](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=pl) i w naszych [Warunkach korzystania z usługi](https://ai.google.dev/gemini-api/terms?hl=pl).
 
-## مناطق دردسترس
+## Regiony, w których działa ta usługa
 
-بررسی کنید
+.
 
-‫Gemini API و Google AI Studio در کشورها و قلمروهای زیر دردسترس هستند. اگر در یکی از این کشورها یا قلمروها نیستید،
-[Gemini API را در Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=fa) امتحان کنید:
+Interfejs Gemini API i Google AI Studio są dostępne w tych krajach i regionach. Jeśli nie znajdujesz się w jednym z tych krajów lub terytoriów, wypróbuj [interfejs Gemini API na platformie Gemini Enterprise Agent Platform](https://cloud.google.com/gemini-enterprise-agent-platform?hl=pl):
 
-- آلبانی
-- الجزایر
-- ساموآی امریکا
-- آندورا
-- آنگولا
-- آنگویلا
-- جنوبگان
-- آنتیگوا و باربودا
-- آرژانتین
-- ارمنستان
-- آروبا
-- استرالیا
-- اتریش
-- آذربایجان
-- باهاما
-- بحرین
-- بنگلادش
-- باربادوس
-- بلژیک
-- بلیز
-- بنین
-- برمودا
-- بوتان
-- بولیوی
-- بوسنی و هرزگوین
-- بوتسوانا
-- برزیل
-- قلمرو اقیانوس هند بریتانیا
-- جزایر ویرجین بریتانیا
-- برونئی
-- بلغارستان
-- بورکینا فاسو
-- بوروندی
-- کیپ ورد
-- کامبوج
-- کامرون
-- کانادا
-- کارائیب هلند
-- جزایر کیمن
-- جمهوری افریقای مرکزی
-- چاد
-- شیلی
-- جزیره کریسمس
-- جزایر کوکوس (کیلینگ)
-- کلمبیا
-- کومور
-- جزایر کوک
-- کاستاریکا
-- ساحل عاج
-- کرواسی
-- کوراسائو
-- جمهوری چک
-- جمهوری دموکراتیک کنگو
-- دانمارک
-- جیبوتی
-- دومینیکا
-- جمهوری دومینیکن
-- اکوادور
-- مصر
-- السالوادور
-- گینه استوایی
-- اریتره
-- استونی
-- اسواتینی
-- اتیوپی
-- جزایر فالکلند (جزایر مالویناس)
-- جزایر فارو
-- فیجی
-- فنلاند
-- فرانسه
-- گویان فرانسه
-- گابن
-- گامبیا
-- گرجستان
-- آلمان
-- غنا
-- جبل‌الطارق
-- یونان
-- گرینلند
-- گرنادا
-- گوام
-- گواتمالا
-- گرنزی
-- گینه
-- گینه بیسائو
-- گایانا
-- هاییتی
-- جزیره هرد و جزایر مک دونالد
-- هندوراس
-- مجارستان
-- ایسلند
-- هندوستان
-- اندونزی
-- عراق
-- ایرلند
-- جزیره من
-- اسرائیل
-- ایتالیا
-- جامائیکا
-- ژاپن
-- جرزی
-- اردن
-- قزاقستان
-- کنیا
-- کریباتی
-- کوزوو
-- کویت
-- قرقیزستان
-- لائوس
-- لتونی
-- لبنان
-- لسوتو
-- لیبریا
-- لیبی
-- لیختنشتاین
-- لیتوانی
-- لوکزامبورگ
-- ماداگاسکار
-- مالاوی
-- مالزی
-- مالدیو
-- مالی
-- مالت
-- جزایر مارشال
-- موریتانی
-- موریس
-- مکزیک
-- میکرونزی
-- مولداوی
-- موناکو
-- مغولستان
-- مونته‌نگرو
-- مونتسرات
-- مراکش
-- موزامبیک
-- نامیبیا
-- نائورو
-- نپال
-- هلند
-- کالدونیای جدید
-- نیوزیلند
-- نیکاراگوئه
-- نیجر
-- نیجریه
-- نیو
-- جزایر نورفُلک
-- مقدونیه شمالی
-- جزایر ماریانای شمالی
-- نروژ
-- عمان
-- پاکستان
-- پالائو
-- فلسطین
-- پاناما
-- پاپوآ گینه نو
-- پاراگوئه
-- پرو
-- فیلیپین
-- جزایر پیت‌کرن
-- لهستان
-- پرتغال
-- پورتوریکو
-- قطر
-- جمهوری قبرس
-- جمهوری کنگو
-- رومانی
-- رواندا
-- ریونیون
-- سن بارتلمی
-- سنت هلن، اسنشن، و تریستان دا کونا
-- سنت کیتس و نویس
-- سن لوشیا
-- سن پیر و میکلن
-- سنت وینسنت و گرنادین‌ها
-- ساموآ
-- سان مارینو
-- سائوتومه و پرینسیپ
-- عربستان سعودی
-- سنگال
-- صربستان
-- سیشل
-- سیرالئون
-- سنگاپور
-- اسلواکی
-- اسلوونی
-- جزایر سلیمان
-- سومالی
-- افریقای جنوبی
-- جزایر جورجیای جنوبی و ساندویچ جنوبی
-- کرهٔ جنوبی
-- سودان جنوبی
-- اسپانیا
-- سریلانکا
-- سودان
-- سورینام
-- سوئد
-- سوئیس
-- تایوان
-- تاجیکستان
-- تانزانیا
-- تایلند
-- تیمور شرقی
-- توگو
-- توکلائو
-- تونگا
-- ترینیداد و توباگو
-- تونس
-- ترکمنستان
-- جزایر تورکس و کایکوس
-- توالو
-- ترکیه
-- اوگاندا
-- اوکراین
-- امارات متحده عربی
-- پادشاهی متحد (UK)
-- ایالات متحده
-- جزایر کوچک حاشیه‌ای ایالات متحده
-- اروگوئه
-- جزایر ویرجین ایالات متحده
-- ازبکستان
-- وانواتو
-- شهر واتیکان
-- ونزوئلا
-- ویتنام
-- والیس و فوتونا
-- صحرای غرب
-- یمن
-- زامبیا
-- زیمبابوه
-- جزایر اولاند
+- Albania
+- Algieria
+- Samoa Amerykańskie
+- Andora
+- Angola
+- Anguilla
+- Antarktyka
+- Antigua i Barbuda
+- Argentyna
+- Armenia
+- Aruba
+- Australia
+- Austria
+- Azerbejdżan
+- Bahamy
+- Bahrajn
+- Bangladesz
+- Barbados
+- Belgia
+- Belize
+- Benin
+- Bermudy
+- Bhutan
+- Boliwia
+- Bośnia i Hercegowina
+- Botswana
+- Brazylia
+- Brytyjskie Terytorium Oceanu Indyjskiego
+- Brytyjskie Wyspy Dziewicze
+- Brunei
+- Bułgaria
+- Burkina Faso
+- Burundi
+- Republika Zielonego Przylądka
+- Kambodża
+- Kamerun
+- Kanada
+- Holandia Karaibska
+- Kajmany
+- Republika Środkowoafrykańska
+- Czad
+- Chile
+- Wyspa Bożego Narodzenia
+- Wyspy Kokosowe (Keelinga)
+- Kolumbia
+- Komory
+- Wyspy Cooka
+- Kostaryka
+- Wybrzeże Kości Słoniowej
+- Chorwacja
+- Curaçao
+- Czechy
+- Demokratyczna Republika Konga
+- Dania
+- Dżibuti
+- Dominika
+- Dominikana
+- Ekwador
+- Egipt
+- Salwador
+- Gwinea Równikowa
+- Erytrea
+- Estonia
+- Eswatini
+- Etiopia
+- Falklandy (Malwiny)
+- Wyspy Owcze
+- Fidżi
+- Finlandia
+- Francja
+- Gujana Francuska
+- Gabon
+- Gambia
+- Gruzja
+- Niemcy
+- Ghana
+- Gibraltar
+- Grecja
+- Grenlandia
+- Grenada
+- Guam
+- Gwatemala
+- Guernsey
+- Gwinea
+- Gwinea Bissau
+- Gujana
+- Haiti
+- Wyspy Heard i McDonalda
+- Honduras
+- Węgry
+- Islandia
+- Indie
+- Indonezja
+- Irak
+- Irlandia
+- Wyspa Man
+- Izrael
+- Włochy
+- Jamajka
+- Japonia
+- Jersey
+- Jordania
+- Kazachstan
+- Kenia
+- Kiribati
+- Kosowo
+- Kuwejt
+- Kirgistan
+- Laos
+- Łotwa
+- Liban
+- Lesoto
+- Liberia
+- Libia
+- Liechtenstein
+- Litwa
+- Luksemburg
+- Madagaskar
+- Malawi
+- Malezja
+- Malediwy
+- Mali
+- Malta
+- Wyspy Marshalla
+- Mauretania
+- Mauritius
+- Meksyk
+- Mikronezja
+- Mołdawia
+- Monako
+- Mongolia
+- Czarnogóra
+- Montserrat
+- Maroko
+- Mozambik
+- Namibia
+- Nauru
+- Nepal
+- Holandia
+- Nowa Kaledonia
+- Nowa Zelandia
+- Nikaragua
+- Niger
+- Nigeria
+- Niue
+- Wyspa Norfolk
+- Macedonia Północna
+- Mariany Północne
+- Norwegia
+- Oman
+- Pakistan
+- Palau
+- Palestyna
+- Panama
+- Papua-Nowa Gwinea
+- Paragwaj
+- Peru
+- Filipiny
+- Pitcairn
+- Polska
+- Portugalia
+- Portoryko
+- Katar
+- Cypr
+- Republika Konga
+- Rumunia
+- Rwanda
+- Reunion
+- Saint-Barthélemy
+- Wyspa Świętej Heleny, Wyspa Wniebowstąpienia i Tristan da Cunha
+- Saint Kitts i Nevis
+- Saint Lucia
+- Saint-Pierre i Miquelon
+- Saint Vincent i Grenadyny
+- Samoa
+- San Marino
+- Wyspy Świętego Tomasza i Książęca
+- Arabia Saudyjska
+- Senegal
+- Serbia
+- Seszele
+- Sierra Leone
+- Singapur
+- Słowacja
+- Słowenia
+- Wyspy Salomona
+- Somalia
+- Republika Południowej Afryki
+- Georgia Południowa i Sandwich Południowy
+- Korea Południowa
+- Sudan Południowy
+- Hiszpania
+- Sri Lanka
+- Sudan
+- Surinam
+- Szwecja
+- Szwajcaria
+- Tajwan
+- Tadżykistan
+- Tanzania
+- Tajlandia
+- Timor Wschodni
+- Togo
+- Tokelau
+- Tonga
+- Trynidad i Tobago
+- Tunezja
+- Turkmenistan
+- Turks i Caicos
+- Tuvalu
+- Turcja
+- Uganda
+- Ukraina
+- Zjednoczone Emiraty Arabskie
+- Wielka Brytania
+- Stany Zjednoczone
+- Dalekie Wyspy Mniejsze Stanów Zjednoczonych
+- Urugwaj
+- Wyspy Dziewicze Stanów Zjednoczonych
+- Uzbekistan
+- Vanuatu
+- Watykan
+- Wenezuela
+- Wietnam
+- Wallis i Futuna
+- Sahara Zachodnia
+- Jemen
+- Zambia
+- Zimbabwe
+- Wyspy Alandzkie
 
-ارسال بازخورد
+Prześlij opinię
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+O ile nie stwierdzono inaczej, treść tej strony jest objęta [licencją Creative Commons – uznanie autorstwa 4.0](https://creativecommons.org/licenses/by/4.0/), a fragmenty kodu są dostępne na [licencji Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Szczegółowe informacje na ten temat zawierają [zasady dotyczące witryny Google Developers](https://developers.google.com/site-policies?hl=pl). Java jest zastrzeżonym znakiem towarowym firmy Oracle i jej podmiotów stowarzyszonych.
 
-تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی.
+Ostatnia aktualizacja: 2026-10-22 UTC.
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+Chcesz przekazać coś jeszcze?
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["Łatwo zrozumieć","easyToUnderstand","thumb-up"],["Rozwiązało to mój problem","solvedMyProblem","thumb-up"],["Inne","otherUp","thumb-up"]],[["Brak potrzebnych mi informacji","missingTheInformationINeed","thumb-down"],["Zbyt skomplikowane / zbyt wiele czynności do wykonania","tooComplicatedTooManySteps","thumb-down"],["Nieaktualne treści","outOfDate","thumb-down"],["Problem z tłumaczeniem","translationIssue","thumb-down"],["Problem z przykładami/kodem","samplesCodeIssue","thumb-down"],["Inne","otherDown","thumb-down"]],["Ostatnia aktualizacja: 2026-10-22 UTC."],[],[]]

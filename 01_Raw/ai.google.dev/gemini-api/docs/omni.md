@@ -1,33 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/omni?hl=tr
-fetched_at: 2026-10-26T05:41:31.243278+00:00
-title: "Gemini Omni Flash ile video \u00fcretme ve d\u00fczenleme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/omni?hl=th
+fetched_at: 2026-11-02T07:14:35.793185+00:00
+title: "\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e41\u0e25\u0e30\u0e41\u0e01\u0e49\u0e44\u0e02\u0e27\u0e34\u0e14\u0e35\u0e42\u0e2d\u0e14\u0e49\u0e27\u0e22 Gemini Omni Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
+Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=th)
 
-Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
+Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
 
-- [Ana Sayfa](https://ai.google.dev/?hl=tr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
-- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
+- [หน้าแรก](https://ai.google.dev/?hl=th)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
+- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-# Gemini Omni Flash ile video üretme ve düzenleme
+# สร้างและแก้ไขวิดีโอด้วย Gemini Omni Flash
 
-Gemini Omni Flash (`gemini-omni-1.1-flash`), yüksek hızlı video üretimi, düzenleme ve sinematik kontrol için tasarlanmış yüksek performanslı bir çok formatlı modeldir.
-Gemini Omni, önceki video modellerinden ayıran aşağıdaki temel özellikler üzerine kurulmuştur:
+Gemini Omni Flash (`gemini-omni-1.1-flash`) เป็นโมเดลแบบหลายรูปแบบที่มีประสิทธิภาพสูง
+ซึ่งออกแบบมาเพื่อการสร้าง การตัดต่อ และการควบคุมวิดีโอระดับภาพยนตร์ด้วยความเร็วสูง
+Gemini Omni สร้างขึ้นจากความสามารถหลักต่อไปนี้ที่ทำให้แตกต่างจาก
+โมเดลวิดีโอก่อนหน้า
 
-- **Doğal çok formatlılık:** Metin, resim, ses ve videoyu aynı anda işleyerek daha tutarlı, tutarlı ve kontrol edilebilir bir çıkış sağlar.
-- **Etkileşimli düzenleme:** [Etkileşimler API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=tr) ile etkinleştirilen bu özellik, doğal dil sohbeti aracılığıyla videolarınızı yinelemeli olarak iyileştirmenize ve düzenlemenize olanak tanır. Değiştirmek istediğiniz şeyi açıklayın. Model, düzenlemeyi uygularken videonun korumak istediğiniz kısımlarını da korur.
-- **Dünya bilgisi:** Gemini Omni, fizik anlayışını Gemini'ın tarih, bilim ve kültürel bağlam bilgisiyle birleştirerek fotorealizm ile anlamlı hikaye anlatımı arasındaki boşluğu doldurur.
+- **ความสามารถในการประมวลผลข้อมูลหลายรูปแบบโดยกำเนิด:** ประมวลผลข้อความ รูปภาพ เสียง และวิดีโอ
+  พร้อมกัน ทำให้คุณได้เอาต์พุตที่สอดคล้องกันมากขึ้น ควบคุมได้มากขึ้น และมีความสอดคล้องกัน
+- **การแก้ไขโดยใช้การสนทนา:** เปิดใช้โดย [Interactions
+  API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=th) ซึ่งช่วยให้คุณปรับแต่ง
+  และแก้ไขวิดีโอซ้ำๆ ได้ผ่านการสนทนาด้วยภาษาธรรมชาติ อธิบายสิ่งที่คุณต้องการเปลี่ยนแปลง แล้วโมเดลจะใช้การแก้ไขพร้อมทั้งรักษา
+  ส่วนของวิดีโอที่คุณต้องการเก็บไว้
+- **ความรู้เกี่ยวกับโลก:** Gemini Omni ผสานความเข้าใจด้าน
+  ฟิสิกส์เข้ากับความรู้ด้านประวัติศาสตร์ วิทยาศาสตร์ และบริบททางวัฒนธรรมของ Gemini
+  เพื่อเชื่อมช่องว่างจากภาพถ่ายสมจริงไปสู่การเล่าเรื่องที่มีความหมาย
 
-## Metinden video üretme
+## การสร้างวิดีโอจากข้อความ
 
-Metin isteminden video oluşturma Model, metin açıklamanıza göre sesli bir video oluşturur. En iyi sonuçları almak için sahne açıklaması, kamera hareketi, ışıklandırma ve atmosfer gibi ayrıntıları içeren istemler yazın.
+สร้างวิดีโอจากพรอมต์ข้อความ โมเดลจะสร้างวิดีโอพร้อมเสียง
+โดยอิงตามคำอธิบายข้อความของคุณ เขียนพรอมต์โดยระบุรายละเอียด เช่น คำอธิบายฉาก
+การเคลื่อนไหวของกล้อง แสง และอารมณ์ เพื่อให้ได้ผลลัพธ์ที่ดีที่สุด
 
 ### Python
 
@@ -152,12 +162,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### REST yanıt şeması
+### สคีมาการตอบกลับของ REST
 
-Kolaylık alanı `interaction.output_video` **yalnızca SDK**'dır.
-REST API'yi doğrudan kullanırken `steps` dizisinden video çıkışını alın.
+ฟิลด์ความสะดวก `interaction.output_video` เป็น**SDK เท่านั้น**
+รับเอาต์พุตวิดีโอจากอาร์เรย์ `steps` เมื่อใช้ REST API โดยตรง
 
-**Ham REST JSON yapısı:**
+**โครงสร้าง JSON ของ REST แบบดิบ:**
 
 ```
 {
@@ -182,9 +192,9 @@ REST API'yi doğrudan kullanırken `steps` dizisinden video çıkışını alın
 }
 ```
 
-### En boy oranını kontrol etme
+### ควบคุมสัดส่วนภาพ
 
-Dikey videolar oluşturmak için `aspect_ratio` simgesini `"9:16"` olarak ayarlayın. Varsayılan olarak yatay (16:9) kullanılır.
+ตั้งค่า `aspect_ratio` เป็น `"9:16"` เพื่อสร้างวิดีโอแนวตั้ง โดยค่าเริ่มต้นจะเป็นแนวนอน (16:9)
 
 ### Python
 
@@ -338,16 +348,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Çıkış çözünürlüğü
+### ความละเอียดเอาต์พุต
 
-`response_format` uygulamasında `resolution` parametresini kullanarak oluşturulan videonuzun çıkış çözünürlüğünü kontrol edin. Varsayılan çözünürlük 720p'dir.
+ควบคุมความละเอียดเอาต์พุตของวิดีโอที่สร้างขึ้นโดยใช้พารามิเตอร์ `resolution`
+ใน `response_format` ความละเอียดเริ่มต้นคือ 720p
 
-| Değer | Açıklama |
+| ค่า | คำอธิบาย |
 | --- | --- |
-| `360p` | 360p çıkış çözünürlüğü |
-| `720p` | 720p çıkış çözünürlüğü (varsayılan) |
-| `1080p` | 1080p çıkış (çözünürlüğü artırılmış) |
-| `4k` | 4K çıkış (yukarı ölçeklenmiş) |
+| `360p` | ความละเอียดเอาต์พุต 360p |
+| `720p` | ความละเอียดเอาต์พุต 720p (ค่าเริ่มต้น) |
+| `1080p` | เอาต์พุต 1080p (เพิ่มความละเอียด) |
+| `4k` | เอาต์พุต 4K (เพิ่มความละเอียด) |
 
 ### Python
 
@@ -499,24 +510,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tarayıcınız video etiketini desteklemiyor.
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_misty_mountains_1080p.mp4)
 
-## Görüntüden video üretme
+## การสร้างวิดีโอจากรูปภาพ
 
-Metin isteminizle birlikte bir referans görsel sağlayabilirsiniz. Model, isteminize bağlı olarak görüntüyü nasıl kullanacağına karar verir. Bu özellik, ürün çekimlerine, illüstrasyonlara veya fotoğraflara hayat vermek için kullanışlıdır.
+คุณระบุรูปภาพอ้างอิงพร้อมกับพรอมต์ข้อความได้ โมเดลจะตัดสินใจวิธีใช้รูปภาพตามพรอมต์ของคุณ ซึ่งมีประโยชน์ในการทำให้ภาพผลิตภัณฑ์ ภาพวาด
+หรือภาพถ่ายดูมีชีวิตชีวา
 
-Aşağıdaki örnekte, sudan çıkan bir balık çiziminin referans görselinin nasıl kullanılacağı gösterilmektedir:
+ตัวอย่างต่อไปนี้แสดงวิธีใช้รูปภาพอ้างอิงของภาพวาด
+ปลาที่กระโดดขึ้นจากน้ำ
 
-![Sudan zıplayan balık çizimi](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=tr)
+![ภาพวาดปลากระโดดขึ้นจากน้ำ](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=th)
 
-Aşağıdaki istemle:
+ด้วยพรอมต์ต่อไปนี้
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
 ```
 
-Çizimin gerçekçi bir videosunu oluşturmak için.
+เพื่อสร้างวิดีโอภาพวาดที่สมจริง
 
 ### Python
 
@@ -685,11 +698,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### İlk ve son kare interpolasyonu
+### การแทรกเฟรมแรกและเฟรมสุดท้าย
 
-Gemini Omni Flash, video ara karesi oluşturmayı destekler. Bu sayede, başlangıç resmi (ilk kare) ile bitiş resmi (son kare) arasında sorunsuz geçiş yapan bir video oluşturabilirsiniz.
+Gemini Omni Flash รองรับการประมาณค่าระหว่างเฟรมของวิดีโอ ซึ่งช่วยให้คุณสร้าง
+วิดีโอที่มีการเปลี่ยนผ่านอย่างราบรื่นระหว่างรูปภาพเริ่มต้น (เฟรมแรก) กับ
+รูปภาพสิ้นสุด (เฟรมสุดท้าย)
 
-`input` listesinde iki resim sağlayın ve isteminizde istediğiniz geçişi açıklayın. Model, sahneyi ilk kareden son kareye kadar animasyona dönüştürür.
+ระบุรูปภาพ 2 รูปในรายการ `input` และอธิบายการเปลี่ยนฉากที่ต้องการในพรอมต์ โมเดลจะสร้างภาพเคลื่อนไหวของฉากตั้งแต่เฟรมแรกจนถึง
+เฟรมสุดท้าย
 
 ### Python
 
@@ -881,13 +897,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tarayıcınız video etiketini desteklemiyor.
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_keyframe_interpolation.mp4)
 
-### Konu referansı
+### การอ้างอิงหัวเรื่อง
 
-Referans resim olarak sağlanan belirli konuları içeren videolar oluşturabilirsiniz.
-Örneğin, aşağıdaki kodda, kedinin iple oynadığı bir video oluşturmak için kedi ve ipin 2 resminin nasıl sağlanacağı gösterilmektedir.
+คุณสร้างวิดีโอที่รวมตัวละคร/ตัวแบบที่เฉพาะเจาะจงซึ่งระบุเป็นรูปภาพอ้างอิงได้
+ตัวอย่างเช่น โค้ดต่อไปนี้แสดงวิธีระบุรูปภาพแมวและเส้นด้าย 2 รูป
+เพื่อสร้างวิดีโอแมวเล่นกับเส้นด้าย
 
 ### Python
 
@@ -1074,12 +1091,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Görev parametresi
+### พารามิเตอร์งาน
 
-`video_config` içinde `task` parametresini kullanarak amaçlanan davranışı açıkça belirtebilirsiniz. Örneğin, modelin bir resimden video oluşturmasını istiyorsanız parametreyi `image_to_video` olarak ayarlayabilirsiniz. Bu ayar yapılmazsa
-model, istemden ne istediğinizi çıkarır.
+ใช้พารามิเตอร์ `task` ใน `video_config` เพื่อระบุลักษณะการทำงานที่ต้องการอย่างชัดเจน เช่น หากต้องการให้โมเดลสร้างวิดีโอจากรูปภาพ คุณสามารถตั้งค่าพารามิเตอร์เป็น `image_to_video` หากไม่ได้ตั้งค่านี้ไว้ โมเดลจะอนุมานสิ่งที่คุณต้องการจากพรอมต์
 
-İzin verilen değerler şunlardır:
+ค่าที่อนุญาตมีดังนี้
 
 - `text_to_video`
 - `image_to_video`
@@ -1087,7 +1103,8 @@ model, istemden ne istediğinizi çıkarır.
 - `edit`
 - `extend`
 
-Aşağıdaki örnekte, daha önce gösterilen resimden videoya örneği için bu ayarın nasıl yapılacağı gösterilmektedir.
+ตัวอย่างต่อไปนี้แสดงวิธีตั้งค่านี้สำหรับรูปภาพที่แสดงก่อนหน้า
+เป็นตัวอย่างวิดีโอ
 
 ### Python
 
@@ -1295,11 +1312,14 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Durumlu video düzenleme
+## การตัดต่อวิดีโอแบบมีสถานะ
 
-Video oluşturun ve takip istemlerini kullanarak videoyu yinelemeli olarak düzenleyin. Her dönüş, önceki sonucun üzerine kurulur. Model, video bağlamını hatırlar ve değişikliklerinizi uygularken bahsetmediğiniz öğeleri korur. Önceki videoyu yeniden yüklemeden sohbet geçmişini ve oluşturulan video durumunu izlemek için `previous_interaction_id` simgesini kullanın.
+สร้างวิดีโอและแก้ไขซ้ำๆ โดยใช้พรอมต์ต่อเนื่อง แต่ละเทิร์น
+จะอิงตามผลลัพธ์ก่อนหน้า โมเดลจะจดจำบริบทของวิดีโอและใช้การเปลี่ยนแปลงของคุณพร้อมทั้งรักษาองค์ประกอบที่คุณไม่ได้กล่าวถึง ใช้
+`previous_interaction_id`เพื่อติดตามประวัติการสนทนาและสถานะวิดีโอที่สร้างขึ้น
+โดยไม่ต้องอัปโหลดวิดีโอก่อนหน้าซ้ำ
 
-Aşağıdaki örnekte, önce video oluşturup ardından düzenlemenin nasıl yapılacağı gösterilmektedir:
+ตัวอย่างต่อไปนี้แสดงวิธีสร้างวิดีโอแรกแล้วแก้ไข
 
 ### Python
 
@@ -1459,17 +1479,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-İlk video örneği:
+ตัวอย่างวิดีโอเริ่มต้น
 
-Düzenlenmiş video örneği:
+ตัวอย่างวิดีโอที่แก้ไขแล้ว
 
-Sohbetteki her dönüş yeni bir video oluşturur. Model, önceki dönüşlerdeki bağlamı anlar. Bu sayede, sahnenin tamamını yeniden tanımlamadan ışığı ayarlama ve arka planları değiştirme gibi küçük değişiklikler yapabilirsiniz.
+การโต้ตอบแต่ละครั้งในการสนทนาจะสร้างวิดีโอใหม่ โมเดลจะเข้าใจบริบทจากเทิร์นก่อนหน้า ซึ่งช่วยให้คุณทำการเปลี่ยนแปลงทีละน้อยได้ เช่น การปรับแสงและการสลับพื้นหลัง โดยไม่ต้องอธิบายฉากทั้งหมดอีกครั้ง
 
-### Kendi videolarınızı düzenleme
+### แก้ไขวิดีโอของคุณเอง
 
-Videolarınızı [Files API](https://ai.google.dev/gemini-api/docs/files?hl=tr)'yi kullanarak yükleyip Gemini Omni Flash ile düzenleyin.
+อัปโหลดวิดีโอโดยใช้ [Files API](https://ai.google.dev/gemini-api/docs/files?hl=th) เพื่อแก้ไขวิดีโอ
+ด้วย Gemini Omni Flash
 
-Aşağıdaki örnekte, orijinal videonun nasıl düzenleneceği gösterilmektedir:
+ตัวอย่างต่อไปนี้แสดงวิธีแก้ไขวิดีโอต้นฉบับต่อไปนี้
 
 ### Python
 
@@ -1718,12 +1739,13 @@ curl -sS -w "\n[HTTP %{http_code}]\n" "https://generativelanguage.googleapis.com
 EOF
 ```
 
-Düzenlenmiş video örneği:
+ตัวอย่างวิดีโอที่แก้ไขแล้ว
 
-## URI ile video alma
+## การดึงข้อมูลวิดีโอด้วย URI
 
-4 MB'tan büyük olan oluşturulmuş videoları almak için `delivery="uri"` parametresini `response_format` içinde kullanın.
-Bu, indirmeden önce video `ACTIVE` olana kadar yoklayabileceğiniz Google tarafından barındırılan bir URI döndürür.
+ใช้พารามิเตอร์ `delivery="uri"` ใน
+`response_format` เพื่อดึงวิดีโอที่สร้างขึ้นซึ่งมีขนาดใหญ่กว่า 4 MB
+ซึ่งจะแสดง URI ที่โฮสต์โดย Google ซึ่งคุณสามารถสำรวจได้จนกว่าวิดีโอจะ`ACTIVE`ก่อนดาวน์โหลด
 
 ### Python
 
@@ -1968,7 +1990,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Ham REST JSON yapısı (URI):**
+**โครงสร้าง JSON ของ REST แบบดิบ (URI):**
 
 ```
 {
@@ -1993,15 +2015,17 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## Video uzantısı
+## ส่วนขยายวิดีโอ
 
-Klipin sonuna kesintisiz bir devam niteliğinde içerik oluşturarak mevcut bir videoyu uzatın. İsteminizde videonun nasıl devam etmesini istediğinizi açıklayın. Örneğin, `"Extend this video"` veya `"Continue the scene: the camera pans across the mountains"`.
-Model, 3-10 saniyelik bir devam oluşturmak için giriş videosunu analiz eder.
+ขยายวิดีโอที่มีอยู่ด้วยการสร้างส่วนต่อเนื่องที่ราบรื่นที่ท้ายคลิป
+อธิบายว่าคุณต้องการให้วิดีโอดำเนินต่อไปอย่างไรในพรอมต์ เช่น
+`"Extend this video"` หรือ `"Continue the scene: the camera pans across the mountains"`
+โมเดลจะวิเคราะห์วิดีโออินพุตเพื่อสร้างวิดีโอต่อเนื่องความยาว 3-10 วินาที
 
-Şunları uzatabilirsiniz:
+คุณขยายเวลาได้ดังนี้
 
-- **Model tarafından oluşturulan videolar (çok aşamalı etkileşim)**: Daha önce oluşturulmuş bir videoyu `previous_interaction_id` referans alarak genişletin.
-- **Yüklenen videolar**: Uzantı isteminizle birlikte yüklenen bir video dosyası (Files API aracılığıyla) sağlayın.
+- **วิดีโอที่โมเดลสร้างขึ้น (การสนทนาไปมา)**: ขยายวิดีโอที่สร้างขึ้นก่อนหน้านี้ โดยอ้างอิง`previous_interaction_id`
+- **วิดีโอที่อัปโหลด**: ระบุไฟล์วิดีโอที่อัปโหลด (ผ่าน Files API) พร้อมกับพรอมต์ของส่วนขยาย
 
 ### Python
 
@@ -2182,17 +2206,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tarayıcınız video etiketini desteklemiyor.
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_base.mp4)
 
 [
 
-Tarayıcınız video etiketini desteklemiyor.
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_scene_extension_extended.mp4)
 
-### Referans medyayla genişletme
+### การขยายด้วยสื่ออ้างอิง
 
-Genişletilmiş videoya yeni karakterler veya öğeler eklemek için isteminizle birlikte `input` dizisinde referans görseller sağlayabilirsiniz:
+คุณระบุรูปภาพอ้างอิงในอาร์เรย์ `input` พร้อมกับพรอมต์เพื่อ
+แนะนำตัวละครหรือองค์ประกอบใหม่ๆ ลงในวิดีโอแบบขยายได้โดยทำดังนี้
 
 ### Python
 
@@ -2395,123 +2420,133 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 
 [
 
-Tarayıcınız video etiketini desteklemiyor.
+เบราว์เซอร์ของคุณไม่รองรับแท็กวิดีโอ
 ](https://storage.googleapis.com/generativeai-downloads/videos/omni_traveler_extension.mp4)
 
-### Uzantı kısıtlamaları ve yönergeleri
+### ข้อจำกัดและหลักเกณฑ์ของส่วนขยาย
 
-Videoları uzatırken aşağıdaki kuralları ve kısıtlamaları göz önünde bulundurun:
+โปรดคำนึงถึงกฎและข้อจำกัดต่อไปนี้เมื่อขยายวิดีโอ
 
-- **Yüklenen videolardaki konuşma**: Şu anda, konuşan birinin yer aldığı yüklenmiş bir videoyu ek diyalog eklemek için uzatamazsınız (karakter sessiz kalırsa veya istem diyalog eklemezse bu özellik desteklenir).
-- **Çok aşamalı etkileşimli ses uzantısı**: Daha önce oluşturulan videoları çok aşamalı etkileşimli (`previous_interaction_id`) olarak genişletirken konuşma diyaloğu veya konuşma oluşturma desteklenir.
-- **Yalnızca klibin sonu**: Uzantı, yalnızca videonun sonuna ekleme yapmakla sınırlıdır.
-  İçerik ekleyemez veya klibin ortasını genişletemezsiniz.
-- **Süre sınırı**: Uzantı için giriş videoları, yüklenirken (çok aşamalı etkileşim kullanılmadığı sürece) 10 saniye veya daha kısa olmalıdır.
-- **Bölgesel kullanılabilirlik**: Yüklenen videoları uzatma özelliği şu anda Avrupa Ekonomik Alanı (AEA), İsviçre ve Birleşik Krallık'taki kullanıcılar tarafından kullanılamamaktadır (model tarafından oluşturulan videoları uzatma özelliği, kullanılabilir olan tüm bölgelerde desteklenir).
+- **บทพูดในวิดีโอที่อัปโหลด**: ปัจจุบันคุณไม่สามารถขยายวิดีโอที่อัปโหลดซึ่งมีคนพูดเพื่อเพิ่มบทพูดเพิ่มเติม (ระบบรองรับในกรณีที่ตัวละครไม่พูดหรือหากพรอมต์ไม่ได้เพิ่มบทพูด)
+- **การขยายเสียงแบบหลายรอบ**: ระบบรองรับการสร้างบทสนทนาหรือคำพูดที่พูด
+  เมื่อขยายวิดีโอที่สร้างไว้ก่อนหน้าผ่านการสนทนาไปมา (`previous_interaction_id`)
+- **ท้ายคลิปเท่านั้น**: ส่วนขยายจะจำกัดเฉพาะการต่อท้ายวิดีโอ
+  คุณไม่สามารถเพิ่มเนื้อหาที่จุดเริ่มต้นหรือขยายช่วงกลางของคลิปได้
+- **ขีดจำกัดระยะเวลา**: วิดีโออินพุตสำหรับส่วนขยายต้องมีความยาวไม่เกิน 10 วินาที เมื่ออัปโหลด (เว้นแต่จะใช้การสนทนาไปมา)
+- **ความพร้อมให้บริการในภูมิภาค**: ขณะนี้การขยายวิดีโอที่อัปโหลดไม่พร้อมให้บริการ
+  สำหรับผู้ใช้ในเขตเศรษฐกิจยุโรป (EEA), สวิตเซอร์แลนด์ และสห
+  ราชอาณาจักร (ระบบรองรับการขยายวิดีโอที่โมเดลสร้างขึ้นในทุกภูมิภาคที่พร้อมให้บริการ)
 
-## En iyi uygulamalar
+## แนวทางปฏิบัติแนะนำ
 
-- **Büyük videolar için URI teslimini kullanın:** 4 MB'tan büyük videolar için (varsa >720p) yük boyutu sınırlarını aşmamak amacıyla `response_format` içinde `delivery="uri"` kullanın.
-- **Optimize edilmiş performans:** Daha hızlı ve senkronize tekli oluşturma için `background=false`, `store=false` ve `stream=false` değerlerini ayarlayın. `store=false` ayarının, oluşturulan videonun sonraki dönüşlerde `previous_interaction_id` kullanılarak düzenlenemeyeceği anlamına geldiğini unutmayın.
-- **İstem hassasiyeti:** Ayrıntılar için [istem rehberliği](#prompt-guide) bölümüne bakın.
+- **ใช้การนำส่ง URI สำหรับวิดีโอขนาดใหญ่:** สำหรับวิดีโอที่มีขนาดใหญ่กว่า 4 MB (>720p
+  หากมี) ให้ใช้ `delivery="uri"` ใน `response_format` เพื่อหลีกเลี่ยงขีดจำกัดขนาดของเพย์โหลด
+- **ประสิทธิภาพที่เพิ่มขึ้น:** ตั้งค่า `background=false`, `store=false` และ
+  `stream=false` เพื่อให้สร้างคำตอบแบบเอกพจน์ได้เร็วขึ้นและพร้อมกัน โปรดทราบว่าการตั้งค่า
+  `store=false` หมายความว่าคุณจะแก้ไขวิดีโอที่สร้างขึ้นไม่ได้ใน
+  เทิร์นถัดไปโดยใช้ `previous_interaction_id`
+- **ความแม่นยำของพรอมต์:** ดูรายละเอียดในส่วน[คำแนะนำเกี่ยวกับพรอมต์](#prompt-guide)
 
-## Sınırlamalar
+## ข้อจำกัด
 
-- Küçükleri içeren resimlerin yüklenmesi ve düzenlenmesi Avrupa Ekonomik Alanı, İsviçre ve Birleşik Krallık'ta desteklenmez.
-- Tanınabilir kişilerin yer aldığı resimlerin yüklenmesi ve düzenlenmesi desteklenmez.
-- Yüklenen videoları düzenleme veya uzatma özelliği şu anda Avrupa Ekonomik Alanı (AEA), İsviçre ve Birleşik Krallık'taki kullanıcılar tarafından kullanılamamaktadır (model tarafından oluşturulan videoları düzenleme veya uzatma özelliği desteklenir).
-- Düzenleme ve uzatma için giriş videoları, yüklenirken 10 saniye veya daha kısa olmalıdır (çok aşamalı etkileşimde model tarafından oluşturulan videolar uzatılmadığı sürece).
-- Video uzantısı, videonun sonuna ekleme yapmakla sınırlıdır. Klibin başına ekleme veya klibin ortasını uzatma desteklenmez.
-- Yüklenen ve birinin konuştuğu videolara ek diyalog eklemek için videoyu uzatamazsınız (karakterler sessiz kalabilir veya `previous_interaction_id` ile çok aşamalı etkileşim uzatma kullanılabilir).
-- Ses düzenleme desteklenmez.
-- Ses referanslarının yüklenmesi, API'nin mevcut sürümünde desteklenmemektedir.
-- Video referansları, benzerlikler için en iyi sonucu verir. Video referansındaki sesler dikkate alınmaz. Video referansları, her biri en fazla 3 saniye uzunluğunda olmak üzere en fazla 3 klip destekler.
-- Birden fazla videoda referans verme veya akıl yürütme desteklenmez. Çok videolu istem denemek, model performansının düşmesine veya beklenmedik çıktılara neden olabilir.
-- Sağlanan işleme hızı desteklenmez.
-- Sistem talimatları, sıcaklık, `top_p`, durdurma dizileri ve olumsuz istemler desteklenmez (olumsuz istemlerinizi normal isteme ekleyebilirsiniz: ör. "X yapma").
-- YouTube videolarının medya kaynağı olarak kullanılması desteklenmez.
+- การอัปโหลดและแก้ไขรูปภาพที่มีผู้เยาว์ไม่รองรับในเขตเศรษฐกิจยุโรป สวิตเซอร์แลนด์ และสหราชอาณาจักร
+- ระบบไม่รองรับการอัปโหลดและแก้ไขรูปภาพที่มีบุคคลที่ระบุตัวตนได้บางคน
+- ขณะนี้การแก้ไขหรือขยายวิดีโอที่อัปโหลดไม่พร้อมให้บริการสำหรับผู้ใช้ในเขตเศรษฐกิจยุโรป (EEA), สวิตเซอร์แลนด์ และสหราชอาณาจักร (ระบบรองรับการแก้ไขหรือขยายวิดีโอที่โมเดลสร้างขึ้น)
+- วิดีโออินพุตสำหรับการแก้ไขและการขยายต้องยาวไม่เกิน 10 วินาทีเมื่ออัปโหลด (ยกเว้นการขยายวิดีโอที่โมเดลสร้างขึ้นในการสนทนาไปมา)
+- ส่วนขยายวิดีโอจะจำกัดไว้ที่การต่อท้ายวิดีโอเท่านั้น ระบบไม่รองรับการต่อต้นหรือการขยายช่วงกลางของคลิป
+- คุณไม่สามารถขยายวิดีโอที่อัปโหลดซึ่งมีคนพูดเพื่อเพิ่มบทสนทนา (ตัวละครจะเงียบหรือใช้การสนทนาไปมาด้วย `previous_interaction_id` ก็ได้)
+- ไม่รองรับการแก้ไขด้วยเสียง
+- API เวอร์ชันปัจจุบันไม่รองรับการอัปโหลดข้อมูลอ้างอิงเสียง
+- การอ้างอิงวิดีโอจะทำงานได้ดีที่สุดเมื่อใช้กับภาพบุคคล ระบบจะไม่สนใจเสียงใดๆ ในการอ้างอิงวิดีโอ การอ้างอิงวิดีโอรองรับคลิปสูงสุด 3 คลิป โดยแต่ละคลิปมีความยาวได้สูงสุด 3 วินาที
+- ระบบไม่รองรับการอ้างอิงหรือการให้เหตุผลในวิดีโอหลายรายการ การพยายามใช้พรอมต์แบบหลายวิดีโออาจส่งผลให้ประสิทธิภาพของโมเดลลดลงหรือได้เอาต์พุตที่ไม่คาดคิด
+- ไม่รองรับปริมาณงานที่จัดสรร
+- ไม่รองรับคำสั่งระบบ อุณหภูมิ `top_p` ลำดับการหยุด และพรอมต์เชิงลบ (คุณใส่พรอมต์เชิงลบในพรอมต์ปกติได้ เช่น "อย่าทำ X")
+- ระบบไม่รองรับการใช้วิดีโอ YouTube เป็นแหล่งที่มาของสื่อ
 
-## Teknik ayrıntılar
+## รายละเอียดทางเทคนิค
 
-- Üretilen tüm videolarda, izleyiciler tarafından görünmeyen ancak kaynağın doğrulanması için programatik olarak algılanabilen SynthID filigranı bulunur.
-- Video oluşturma süreleri; süreye, çözünürlüğe ve mevcut API yüküne bağlı olarak değişir. Daha uzun ve daha yüksek çözünürlüklü videoların oluşturulması daha uzun sürer.
-- Omni, hem giriş istemlerine hem de oluşturulan videolara içerik güvenliği filtreleri uygular (bölgeye göre değişiklik gösterir). Kullanım politikalarını ihlal eden istemler engellenir.
-- İngilizce (EN) tam olarak desteklenir ancak diğer diller değerlendirilmediğinden çalışabilir ancak sonuçlar değişebilir.
+- วิดีโอที่สร้างขึ้นทั้งหมดจะมีลายน้ำ SynthID ซึ่งผู้ชมมองไม่เห็น แต่สามารถตรวจหาได้โดยอัตโนมัติเพื่อการยืนยันแหล่งที่มา
+- เวลาในการสร้างวิดีโอจะแตกต่างกันไปตามระยะเวลา ความละเอียด และการโหลด API ปัจจุบัน วิดีโอที่ยาวขึ้นและความละเอียดสูงขึ้นจะใช้เวลาในการสร้างนานขึ้น
+- Omni ใช้ตัวกรองความปลอดภัยของเนื้อหากับทั้งพรอมต์อินพุตและวิดีโอที่สร้างขึ้น (ซึ่งจะแตกต่างกันไปตามภูมิภาค) ระบบจะบล็อกพรอมต์ที่ละเมิดนโยบายการใช้งาน
+- ระบบรองรับภาษาอังกฤษ (EN) อย่างเต็มรูปแบบ แต่ยังไม่ได้ประเมินภาษาอื่นๆ จึงอาจใช้งานได้ แต่ผลลัพธ์อาจแตกต่างกันไป
 
-## Gemini Omni Flash istem rehberi
+## คู่มือการใช้พรอมต์สำหรับ Gemini Omni Flash
 
-Bu bölümde, Gemini Omni Flash'i etkili şekilde isteme ile ilgili ipuçları ve örnekler yer almaktadır.
+ส่วนนี้มีเคล็ดลับและตัวอย่างเกี่ยวกับวิธีพรอมต์ Gemini Omni Flash อย่างมีประสิทธิภาพ
 
-### Tek sahne
+### ฉากเดียว
 
-Omni Flash, varsayılan olarak birkaç farklı çekimden oluşan bir video oluşturmaya çalışır.
-İstemden yola çıkarak ilgi çekici bir anlatı oluşturmaya çalışır.
+โดยค่าเริ่มต้น Omni Flash จะพยายามสร้างวิดีโอที่มีช็อตต่างๆ
+โดยจะพยายามสร้างเรื่องราวที่น่าสนใจตามพรอมต์
 
-Çıkış videosunun tek bir sahne içermesini istiyorsanız bunu istemeniz gerekir:
+หากต้องการให้วิดีโอเอาต์พุตมีฉากเดียว คุณต้องป้อนพรอมต์ดังนี้
 
-- Tek bir kesintisiz sahnede
-- Tek bir kesintisiz çekimde
-- Sahne kesintisi yok
+- ในฉากเดียวที่ไม่มีการตัดต่อ
+- เป็นช็อตเดียวต่อเนื่อง
+- ไม่มีการตัดฉาก
 
-Örneğin:
+เช่น
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### İstenmeyen öğeleri kaldırma
+### การนำองค์ประกอบที่ไม่ต้องการออก
 
-Oluşturulan videoda istemediğiniz şeyler varsa bunları önlemek için basit olumsuz istemler ekleyin:
+หากวิดีโอที่สร้างขึ้นมีสิ่งที่คุณไม่ต้องการ ให้ใส่พรอมต์เชิงลบแบบง่ายๆ เพื่อหลีกเลี่ยงสิ่งเหล่านั้น
 
-- Diyalog yok
-- Süsleme yok
-- Ek ses efektleri yok
+- ไม่มีบทสนทนา
+- ไม่มีการตกแต่ง
+- ไม่มีเอฟเฟกต์เสียงเพิ่มเติม
 
-### Düzenleme istemleri
+### พรอมต์สำหรับการแก้ไข
 
-Video düzenleme için en iyi sonucu basit istemler verir. Aşırı açıklayıcı istemler, istenmeyen değişikliklere yol açabilir.
+พรอมต์ที่เรียบง่ายจะทำงานได้ดีที่สุดสำหรับการตัดต่อวิดีโอ พรอมต์ที่มีคำอธิบายมากเกินไปอาจทำให้เกิดการเปลี่ยนแปลงที่ไม่ต้องการ
 
-Aşağıda, basit düzenleme istemlerine dair daha fazla örnek verilmiştir:
+ตัวอย่างเพิ่มเติมของพรอมต์การแก้ไขแบบง่ายมีดังนี้
 
-- Bu videoyu animeye dönüştür
-- Bu kişiye şık bir şapka tak
-- Işıklandırmayı daha dramatik hale getirme
-- Tabeladaki metni "Omni Flash" olarak değiştir.
+- เปลี่ยนวิดีโอนี้ให้เป็นสไตล์อนิเมะ
+- ใส่หมวกที่ดูดีให้บุคคลนี้
+- เปลี่ยนแสงให้ดูน่าทึ่งมากขึ้น
+- เปลี่ยนข้อความบนป้ายเป็น "Omni Flash"
 
-Videonun belirli bir yönünü düzenlerken görsel tutarlılığı korumak için `"Keep everything else the same"` simgesini ekleyin.
+เมื่อแก้ไขลักษณะเฉพาะของวิดีโอ ให้ใส่ `"Keep everything else the same"` เพื่อรักษาความสอดคล้องของภาพ
 
-Bu tekniğin nasıl uygulanacağını gösteren bazı örnekleri aşağıda bulabilirsiniz:
+ตัวอย่างต่อไปนี้แสดงวิธีใช้เทคนิคนี้
 
-- **Kaçınılması gerekenler:** `In the video of the man sitting on the sofa, please add a small
+- **สิ่งที่ควรหลีกเลี่ยง** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Basitleştir:** `Add a cat that jumps onto his lap, he begins to pet it.
+  - **ปรับให้อ่านง่าย:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **Kaçınılması gerekenler:** `Please remove the cell phone that the person is holding in
+- **สิ่งที่ควรหลีกเลี่ยง** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Basitleştir:** `Make the phone invisible. Keep everything else the
+  - **ปรับให้อ่านง่าย:** `Make the phone invisible. Keep everything else the
     same.`
 
-### Ses istemi
+### การแจ้งเสียง
 
-Model, varsayılan olarak bir video için uygun bir ses parçası oluşturmaya çalışır. Bu her zaman istediğiniz sonuç olmayabilir. İsteminizi kullanarak istediğiniz ses türünü açıklayabilirsiniz. Bu durum, özellikle videonuzda müzik kullanmak istiyorsanız önemlidir:
+โดยค่าเริ่มต้น โมเดลจะพยายามสร้างแทร็กเสียงที่เหมาะสมสำหรับวิดีโอ ซึ่งอาจไม่ใช่สิ่งที่คุณต้องการเสมอไป คุณใช้พรอมต์เพื่อ
+อธิบายประเภทเสียงที่ต้องการได้ ซึ่งสำคัญอย่างยิ่งหากคุณต้องการ
+ใช้เพลงในวิดีโอ
 
-- Sakinleştirici arka plan müziği ekleyin
-- Videoda yüksek enerjili bir tekno ritmi var
-- Arka planda, şarkı çalan düşük kaliteli bir radyo yayını var.
+- ใส่เพลงบรรเลงเบาๆ
+- วิดีโอมีบีทเทคโนสุดเร้าใจ
+- เสียงเป็นเสียงวิทยุที่เบาและแหลมเล็กเล่นอยู่เบื้องหลังพร้อมเพลง
 
-### Zamanlama etkinlikleri
+### ช่วงเวลาของเหตุการณ์
 
-Videoda belirli zamanlarda gerçekleşmesini istediğiniz olayları istem olarak girebilirsiniz. Kesin bir söz dizimi gerekmez ve doğal dil kullanabilirsiniz. Bu özellik, özellikle kendi sahne kesimlerinizi, ritminizi veya hızlı çekim dizilerinizi oluştururken kullanışlıdır.
-Örnekler için aşağıya bakın:
+คุณสามารถแจ้งให้ระบบดำเนินการบางอย่างในวิดีโอในช่วงเวลาที่เฉพาะเจาะจงได้โดยไม่ต้องใช้ไวยากรณ์ที่แน่นอนและใช้ภาษาธรรมชาติได้ ซึ่งมีประโยชน์อย่างยิ่ง
+ในการสร้างฉากตัด จังหวะ หรือลำดับภาพแบบรวดเร็วของคุณเอง
+โปรดดูตัวอย่างต่อไปนี้
 
-- 3 saniye sonra bir kadın sahneye giriyor.
-- 5. saniyede arka plan sesinde koro başlıyor.
-- Her 2 saniyede bir yeni kareye geçiş yapın.
-- Hızlı çekim dizisinde, her yarım saniyede (24 kare/sn hızında 12 kare) sahneyi yeni bir konuma değiştirin.
+- หลังจากผ่านไป 3 วินาที ผู้หญิงคนหนึ่งก็ปรากฏตัวในฉาก
+- ที่ 5 วินาที ท่อนคอรัสจะเริ่มในเสียงพื้นหลัง
+- ตัดไปที่เฟรมใหม่ทุกๆ 2 วินาที
+- ในฉากที่เปลี่ยนอย่างรวดเร็ว ให้เปลี่ยนฉากไปยังสถานที่ใหม่ทุกๆ ครึ่งวินาที (12 เฟรมที่ 24fps)
 
-Ayrıca zaman kodu söz dizimi de kullanabilirsiniz:
+นอกจากนี้ คุณยังใช้ไวยากรณ์รหัสเวลาได้ด้วย
 
 ```
 [0-3s] A person is walking
@@ -2519,53 +2554,59 @@ Ayrıca zaman kodu söz dizimi de kullanabilirsiniz:
 [6-10s] They start running
 ```
 
-### Meta istem
+### การเขียนพรอมต์แบบเมตา
 
-Gemini Omni Flash'ten video oluşturmayla ilgili genel niteliklere veya ilkelere dikkat etmesini isteyebilirsiniz:
+คุณขอให้ Gemini Omni Flash ให้ความสนใจกับคุณภาพทั่วไปหรือหลักการสร้างวิดีโอได้โดยทำดังนี้
 
-- Çok zengin ve ayrıntılı ancak tamamen doğal bir sahne oluşturmak için mikro ayrıntıları, ifadeyi ve zamanlamayı göz önünde bulundurun.
-- Karakter ve ortam açıklamalarınızda son derece ayrıntılı olun.
-  Karakterlere kostüm tasarım ilkelerini uygulama Sahnedeki kişiler, öğeler ve nesneler hakkında çok net olun.
-- Sahnenin gerçekçi ve doğal görünmesi için arka plan öğelerine uygun ayrıntılar ekleyin.
-- Her saniyede farklı bir nadir `[thing]` gösteren, hızlı tempolu müzik içeren ve öğeleri etiketlemek için metin eklenmiş bir video oluştur.
+- พิจารณารายละเอียดเล็กๆ น้อยๆ การแสดงออก และจังหวะเวลาเพื่อสร้างฉากที่มีรายละเอียดสมบูรณ์
+  แต่ดูเป็นธรรมชาติอย่างยิ่ง
+- อธิบายตัวละครและสภาพแวดล้อมอย่างละเอียด
+  ใช้หลักการออกแบบเครื่องแต่งกายกับตัวละคร ระบุรายละเอียดเกี่ยวกับ
+  ผู้คน สิ่งของ และวัตถุในฉากให้ชัดเจน
+- ใส่รายละเอียดที่เหมาะสมมากมายในองค์ประกอบพื้นหลังเพื่อให้
+  ฉากดูสมจริงและเป็นธรรมชาติ
+- สร้างวิดีโอแบบรัวๆ ที่แสดง`[thing]`หายากที่แตกต่างกันทุกๆ 1 วินาที พร้อมเพลงสนุกๆ
+  และใส่ข้อความเพื่อติดป้ายกำกับสิ่งนั้น
 
-### Videolardaki metinler
+### ข้อความในวิดีโอ
 
-Videonuzda metin olmasını isteyebilirsiniz. Gemini Omni, metni doğru ve okunabilir şekilde oluşturur. Videonuzda arka plan öğelerinde bile doğal olarak oluşan metinler varsa ne söylemesi gerektiğini tanımlamak faydalı olabilir.
+คุณสามารถป้อนพรอมต์ให้ใส่ข้อความในวิดีโอ แล้ว Gemini Omni จะแสดงข้อความในลักษณะที่ถูกต้องและอ่านได้ หากมีข้อความที่เกิดขึ้นตามธรรมชาติในวิดีโอ แม้จะเป็นองค์ประกอบพื้นหลัง ก็จะช่วยกำหนดสิ่งที่ควรพูดได้
 
-- Ekranda tek seferde bir kelime: "Biliyor, muydunuz, ki, Omni, harika, metinler, oluşturabilir?" Her kelime, farklı bir animasyon stiliyle 1 saniye boyunca görünür. Diyalog yok.
-- "Bu içerik Omni tarafından üretken yapay zeka ile oluşturuldu" yazan bir sokak tabelası, "İhtiyacınız olan tüm yapay zeka" yazan bir vitrin ve "OMNI1.1" plakalı bir araba var.
+- แสดงคำทีละคำบนหน้าจอ: "คุณ, รู้, ไหม, ว่า, Omni, ทำ, ข้อความ, สุด, เจ๋ง, ได้" คำแต่ละคำจะปรากฏเป็นเวลา 1 วินาทีพร้อมสไตล์ภาพเคลื่อนไหวที่แตกต่างกัน ไม่มี
+  บทพูด
+- มีป้ายถนนที่เขียนว่า "นี่คือภาพที่ AI สร้างขึ้นโดย Omni" มีหน้าร้านที่เขียนว่า "AI ที่คุณต้องการ" มีรถยนต์ที่มีป้ายทะเบียน "OMNI1.1"
 
-### Videoları uzatmaya yönelik istemler
+### พรอมต์สำหรับการขยายวิดีโอ
 
-Gemini Omni 1.1 Flash ile `"Extend this video"` veya `"The scene continues"` gibi istemlerle videoları uzatabilirsiniz. Videoları 10 saniye uzatarak toplamda 40 saniyeye çıkarabilirsiniz.
+Gemini Omni 1.1 Flash ช่วยให้คุณขยายวิดีโอได้ด้วยพรอมต์ เช่น `"Extend this video"` หรือ `"The scene continues"` คุณขยายวิดีโอได้ครั้งละ 10 วินาที โดยมีความยาวรวมสูงสุด 40 วินาที
 
-Omni, orijinal videonuzun son 10 saniyesini bağlam olarak kullanarak video, hareket, karakter ve sesin tutarlı olmasını sağlayan bir uzantı oluşturur. Giriş videonuzdaki son karelerden bazıları, geçişin sorunsuz olması için düzenlenir.
+Omni จะสร้างส่วนขยายที่ทำให้วิดีโอ การเคลื่อนไหว ตัวละคร และเสียงสอดคล้องกันโดยใช้ 10 วินาทีสุดท้ายของวิดีโอต้นฉบับเป็นบริบท ระบบจะแก้ไขเฟรมสุดท้ายบางเฟรมในวิดีโออินพุตเพื่อให้การเปลี่ยนฉากเป็นไปอย่างราบรื่น
 
-Genişletme yaparken bu kılavuzdaki tüm Omni istemi ipuçları geçerliliğini korur:
+เมื่อขยายเวลา เคล็ดลับการแจ้ง Omni ทั้งหมดในคำแนะนำนี้จะยังคงมีผลดังนี้
 
-- Genişletilmiş sahnenizdeki sesi açıklayın. Özellikle değiştirilmesi gerekiyorsa bu açıklamayı yapın: `"The music continues into the chorus"`
-- Sahnenin devam edip etmediğini veya yeni bir sahneye geçiş yapılıp yapılmadığını (belki aynı karakterlerle) açıklayın: `"Show the same characters in the next scene"`
-- Çıkışlarınızın doğru olmasını sağlamak veya yeni karakterler tanıtmak için genişletme yaparken referans olarak resim ve video ekleyin: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
-- Zaman damgaları veya zaman kodu söz dizimi kullanılıyorsa 0s, videonun uzatılmış kısmının başlangıcını ifade eder. 10 saniyelik bir video uzatılıyorsa bu istemdeki sahne kesimi 12 saniye sonra gerçekleşir: `"After 2s cut to a new scene with the same characters"`
+- อธิบายเสียงในฉากที่ขยาย โดยเฉพาะอย่างยิ่งหากคุณต้องการให้มีการเปลี่ยนแปลง `"The music continues into the chorus"`
+- อธิบายว่าฉากดำเนินต่อไปหรือมีการตัดภาพไปยังฉากใหม่ (อาจมีตัวละครเดียวกัน): `"Show the same characters in the next scene"`
+- ใส่รูปภาพและวิดีโอเป็นข้อมูลอ้างอิงเมื่อขยายความเพื่อช่วยให้เอาต์พุตมีความถูกต้อง หรือเพื่อแนะนำตัวละครใหม่: `"The person shown in the reference image enters the scene"`, `"The dog in the reference video <VIDEO_REF_0> jumps onto the sofa"`
+- หากใช้ไทม์สแตมป์หรือไวยากรณ์รหัสเวลา 0s จะหมายถึงจุดเริ่มต้นของส่วนที่ขยายของวิดีโอ หากขยายวิดีโอ 10 วินาที การตัดฉากในพรอมต์นี้จะเกิดขึ้นหลังจากผ่านไป 12 วินาที `"After 2s cut to a new scene with the same characters"`
 
-### Görüntü ve video rollerini ayarlamak için istemlerde etiket kullanma
+### การใช้แท็กในพรอมต์เพื่อกำหนดบทบาทของรูปภาพและวิดีโอ
 
-Yüklenen medyaları belirli üretim rollerine bağlamak için etiketleri kullanabilirsiniz. Bu sayede her resmin veya videonun başlangıç karesi, son kare ya da referans olup olmadığını belirleyebilirsiniz.
+คุณใช้แท็กเพื่อเชื่อมโยงสื่อที่อัปโหลดกับบทบาทการสร้างที่เฉพาะเจาะจงได้ ซึ่งจะช่วยให้คุณระบุได้ว่ารูปภาพหรือวิดีโอแต่ละรายการเป็นเฟรมเริ่มต้น เฟรมสุดท้าย หรือเฟรมอ้างอิง
 
-#### 1. Basit etiketler (önerilen)
+#### 1. แท็กอย่างง่าย (แนะนำ)
 
-Medya rollerinin istemden açıkça anlaşıldığı basit durumlarda, resimleri ve videoları doğrudan rollere bağlayabilirsiniz:
+ในกรณีที่สื่อมีบทบาทชัดเจนจากพรอมต์ คุณสามารถเชื่อมโยง
+รูปภาพและวิดีโอกับบทบาทได้โดยตรง
 
-- **`<FIRST_FRAME>`**: Örneğin, `<FIRST_FRAME> a woman is walking` gibi durumlarda videonun başlangıç karesi olarak görseli kullanın.
-- **`<LAST_FRAME>`**: Geçiş yapılacak videonun son karesi olarak kullanın. `<FIRST_FRAME>` ile birlikte kullanılmalıdır. Örneğin: `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`**: Resmi referans olarak kullanın. Örneğin: `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (ilk resimdeki stil referansını ve ikinci resimdeki özne referansını birleştirir).
-  Resim referansları 0'dan başlar.
-- **`<VIDEO_REF_N>`**: Videoyu karakter veya nesne referansı olarak kullanma (örneğin:
-  `the person in <VIDEO_REF_0> is playing the violin`). Video referansları da 0'dan başlar.
+- **`<FIRST_FRAME>`**: ใช้รูปภาพเป็นเฟรมเริ่มต้นของวิดีโอ เช่น `<FIRST_FRAME> a woman is walking`
+- **`<LAST_FRAME>`**: ใช้รูปภาพเป็นเฟรมสุดท้ายของวิดีโอเพื่อเปลี่ยนฉาก ต้องใช้กับ `<FIRST_FRAME>` เช่น `<FIRST_FRAME> <LAST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: ใช้รูปภาพเป็นข้อมูลอ้างอิง เช่น `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (รวมข้อมูลอ้างอิงสไตล์จากรูปภาพแรกและข้อมูลอ้างอิงเรื่องจากรูปภาพที่ 2)
+  การอ้างอิงรูปภาพจะเริ่มจาก 0
+- **`<VIDEO_REF_N>`**: ใช้เป็นข้อมูลอ้างอิงตัวละครหรือวัตถุ เช่น
+  `the person in <VIDEO_REF_0> is playing the violin` ข้อมูลอ้างอิงวิดีโอจะเริ่มต้นจาก 0 ด้วย
 
-Aşağıda, 6 referans resimli bir örnek verilmiştir:
+ตัวอย่างต่อไปนี้มีรูปภาพอ้างอิง 6 ภาพ
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -2573,54 +2614,56 @@ Aşağıda, 6 referans resimli bir örnek verilmiştir:
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-#### 2. Kaynakları ve referansları belirtme
+#### 2. การประกาศแหล่งที่มาและการอ้างอิง
 
-Birden fazla medya girişi ve birden fazla rol içeren daha karmaşık durumlarda, doğal dil talimatlarıyla eşleştirilmiş açık önek etiketlerini kullanabilirsiniz. Bu kaynakları ve referansları isteminizin başında belirtmeniz gerekir.
+สำหรับกรณีที่ซับซ้อนมากขึ้นซึ่งมีอินพุตสื่อและบทบาทหลายรายการ คุณสามารถใช้
+แท็กคำนำหน้าที่ชัดเจนซึ่งจับคู่กับคำสั่งที่เป็นภาษาธรรมชาติได้ คุณควร
+ประกาศแหล่งที่มาและการอ้างอิงเหล่านี้ที่จุดเริ่มต้นของพรอมต์
 
-- `[# Sources <FIRST_FRAME>@Image1]`, başlangıç karesi olarak ilk resmi kullanır.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]`, ilk resmi başlangıç karesi, ikinci resmi ise son kare olarak kullanır.
-- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]`, ilk resmi hem ilk kare hem de son kare olarak kullanarak döngüye giren bir video oluşturur.
-- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]`, ilk resmi başlangıç karesi, ikinci resmi ise referans olarak kullanır.
-- `[# Sources <VIDEO_0>@Video1]`, düzenlemek veya değiştirmek için videoyu birincil kaynak video olarak kullanır.
-- `[# Sources <PREVIOUS_VIDEO>@Video1]`, önceki dönüşteki videoyu uzatmak için kullanır.
-- `[# References <IMAGE_REF_0>@Image1]`, ilk resmi referans olarak kullanır.
-- `[# References <IMAGE_REF_1>@Image2]`, ikinci resmi referans olarak kullanır.
-- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]`, her iki resmi de referans olarak kullanır.
-- `[# References <VIDEO_REF_0>@Video1]`, ilk videoyu referans olarak kullanır.
-- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` hem resmi hem de videoyu referans olarak kullanır.
+- `[# Sources <FIRST_FRAME>@Image1]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้น
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image2]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้นและรูปภาพที่ 2 เป็นเฟรมสุดท้าย
+- `[# Sources <FIRST_FRAME>@Image1 <LAST_FRAME>@Image1]` จะใช้รูปภาพแรกเป็นทั้งเฟรมแรกและเฟรมสุดท้ายเพื่อสร้างวิดีโอที่เล่นวน
+- `[# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2]` จะใช้รูปภาพแรกเป็นเฟรมเริ่มต้นและรูปภาพที่ 2 เป็นข้อมูลอ้างอิง
+- `[# Sources <VIDEO_0>@Video1]` จะใช้วิดีโอเป็นวิดีโอต้นฉบับหลักในการแก้ไขหรือดัดแปลง
+- `[# Sources <PREVIOUS_VIDEO>@Video1]` จะใช้วิดีโอจากเทิร์นก่อนหน้าเพื่อขยายเวลา
+- `[# References <IMAGE_REF_0>@Image1]` จะใช้รูปภาพแรกเป็นข้อมูลอ้างอิง
+- `[# References <IMAGE_REF_1>@Image2]` จะใช้รูปภาพที่ 2 เป็นข้อมูลอ้างอิง
+- `[# References <IMAGE_REF_0>@Image1 <IMAGE_REF_1>@Image2]` จะใช้รูปภาพทั้ง 2 รูปเป็นข้อมูลอ้างอิง
+- `[# References <VIDEO_REF_0>@Video1]` จะใช้วิดีโอแรกเป็นข้อมูลอ้างอิง
+- `[# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1]` จะใช้ทั้งรูปภาพและวิดีโอเป็นข้อมูลอ้างอิง
 
-İsteminize yönlendirici talimatlar ekleyin:
+เพิ่มคำสั่งแนะนำที่ท้ายพรอมต์
 
-- Başlangıç karesi için: `"Use this image as the starting frame."`
-- Başlangıç ve bitiş kareleriyle döngüye alınan videolar için: `"Use this image as the first frame and the last frame."`
-- Referans görseller için: `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
-- Referans videolar için: `"Use the given video(s) as references. Do not use them as a source for video editing."`
+- สำหรับเฟรมเริ่มต้น ให้ทำดังนี้ `"Use this image as the starting frame."`
+- สำหรับวิดีโอที่เล่นวนผ่านเฟรมเริ่มต้นและเฟรมสิ้นสุด ให้ทำดังนี้ `"Use this image as the first frame and the last frame."`
+- สำหรับรูปภาพอ้างอิง `"Use the given image(s) as references for video generation. The images should not be used as literal initial frames."`
+- สำหรับวิดีโออ้างอิง: `"Use the given video(s) as references. Do not use them as a source for video editing."`
 
-Kaynak ve referans beyanları içeren istemlere bazı örnekler:
+ตัวอย่างพรอมต์ที่มีการประกาศแหล่งที่มาและการอ้างอิง
 
-**Başlangıç karesi, referans resimle birleştirildi:**
+**เฟรมเริ่มต้นที่รวมกับรูปภาพอ้างอิง:**
 
 ```
 [# Sources <FIRST_FRAME>@Image1] [# References <IMAGE_REF_0>@Image2] a woman <IMAGE_REF_0> is walking. Use Image1 as the starting frame. Use Image2 as a reference for the video generation.
 ```
 
-**Karakter referans videosu ve nesne referans görselinin birleştirilmesi:**
+**วิดีโออ้างอิงตัวละครรวมกับรูปภาพอ้างอิงวัตถุ:**
 
 ```
 [# References <IMAGE_REF_0>@Image1 <VIDEO_REF_0>@Video1] The woman in <VIDEO_REF_0> is playing the violin shown in <IMAGE_REF_0>. Use Video1 as a character reference and Image1 as an object reference.
 ```
 
-## Sırada ne var?
+## ขั้นตอนถัดไป
 
-- [Omni Hızlı Başlangıç Colab'inde](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=tr) denemeler yaparak Gemini Omni Flash'i kullanmaya başlayın.
-- [İstem tasarımına giriş](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=tr) adlı makalemizle daha da iyi istemler yazmayı öğrenin.
+- เริ่มต้นใช้งาน Gemini Omni Flash โดยทดลองใช้ใน [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=th)
+- ดูวิธีเขียนพรอมต์ให้ดียิ่งขึ้นด้วย[ข้อมูลเบื้องต้นเกี่ยวกับการออกแบบพรอมต์](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=th)
 
-Geri bildirim gönderin
+ส่งความคิดเห็น
 
-Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
+เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
 
-Son güncelleme tarihi: 2026-09-24 UTC.
+อัปเดตล่าสุด 2026-09-24 UTC
 
-Bize geri bildirimde bulunmak mı istiyorsunuz?
+หากต้องการบอกให้เราทราบเพิ่มเติม
 
-[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-24 UTC."],[],[]]
+[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-24 UTC"],[],[]]

@@ -1,42 +1,42 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=id
-fetched_at: 2026-10-26T05:55:55.387536+00:00
-title: "Mulai menggunakan Gemini Live API menggunakan Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/get-started-sdk?hl=de
+fetched_at: 2026-11-02T07:13:35.493859+00:00
+title: "Erste Schritte mit der Gemini Live API mit dem Google GenAI SDK \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=id)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [Beranda](https://ai.google.dev/?hl=id)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
-- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-Kirim masukan
+Feedback geben
 
-# Mulai menggunakan Gemini Live API menggunakan Google GenAI SDK
+# Erste Schritte mit der Gemini Live API mit dem Google GenAI SDK
 
-Gemini Live API memungkinkan interaksi dua arah real-time dengan model Gemini, yang mendukung input audio, video, dan teks serta output audio native. Panduan ini menjelaskan cara berintegrasi dengan API menggunakan Google GenAI SDK di server Anda.
+Die Gemini Live API ermöglicht die bidirektionale Interaktion mit Gemini-Modellen in Echtzeit und unterstützt Audio-, Video- und Texteingaben sowie native Audioausgaben. In diesem Leitfaden wird erläutert, wie Sie die API mit dem Google GenAI SDK auf Ihrem Server einbinden.
 
-[Coba Live API di Google AI Studiomic](https://aistudio.google.com/live?hl=id)
-[Clone aplikasi contoh dari GitHubcode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
-[Gunakan keterampilan agen pengodeanterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=id)
+[Live API in Google AI Studio ausprobierenmic](https://aistudio.google.com/live?hl=de)
+[Beispiel-App von GitHub klonencode](https://github.com/google-gemini/gemini-live-api-examples/tree/main/gemini-live-genai-python-sdk)
+[Coding-Agent-Fähigkeiten verwendenterminal](https://ai.google.dev/gemini-api/docs/coding-agents?hl=de)
 
-## Ringkasan
+## Übersicht
 
-Gemini Live API menggunakan WebSocket untuk komunikasi real-time. `google-genai` SDK menyediakan antarmuka asinkron tingkat tinggi untuk mengelola koneksi ini.
+Die Gemini Live API verwendet WebSockets für die Echtzeitkommunikation. Das `google-genai` SDK bietet eine asynchrone Schnittstelle auf hoher Ebene zum Verwalten dieser Verbindungen.
 
-Konsep utama:
+Wichtige Konzepte:
 
-- **Sesi**: Koneksi persisten ke model.
-- **Konfigurasi**: Menyiapkan modalitas (audio/teks), suara, dan petunjuk sistem.
-- **Input Real-time**: Mengirim frame audio dan video sebagai blob.
+- **Sitzung**: Eine dauerhafte Verbindung zum Modell.
+- **Konfiguration**: Einrichten von Modalitäten (Audio/Text), Stimme und Systemanweisungen.
+- **Echtzeiteingabe**: Senden von Audio- und Videoframes als Blobs.
 
-## Menghubungkan ke Live API
+## Verbindung zur Live API herstellen
 
-Mulai sesi Live API dengan kunci API:
+So starten Sie eine Live API-Sitzung mit einem API-Schlüssel:
 
 ### Python
 
@@ -97,9 +97,9 @@ async function main() {
 main();
 ```
 
-## Mengirim SMS
+## Text senden
 
-Teks dapat dikirim menggunakan `send_realtime_input` (Python) atau `sendRealtimeInput` (JavaScript).
+Text kann mit `send_realtime_input` (Python) oder `sendRealtimeInput` (JavaScript) gesendet werden.
 
 ### Python
 
@@ -115,9 +115,9 @@ session.sendRealtimeInput({
 });
 ```
 
-## Mengirim audio
+## Audio senden
 
-Audio harus dikirim sebagai data PCM mentah (audio PCM 16-bit mentah, 16 kHz, little-endian).
+Audio muss als unformatierte PCM-Daten gesendet werden (unformatiertes 16-Bit-PCM-Audio, 16 kHz, Little Endian).
 
 ### Python
 
@@ -143,12 +143,11 @@ session.sendRealtimeInput({
 });
 ```
 
-Untuk contoh cara mendapatkan audio dari perangkat klien (misalnya, browser)
-lihat contoh lengkap di [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
+Ein Beispiel dafür, wie Sie Audio vom Clientgerät (z.B. dem Browser) abrufen, finden Sie im End-to-End-Beispiel auf [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L31-L70).
 
-## Mengirim video
+## Video senden
 
-Frame video dikirim sebagai gambar individual (misalnya, JPEG atau PNG) pada kecepatan frame tertentu (maks. 1 frame per detik).
+Videoframes werden als einzelne Bilder (z.B. JPEG oder PNG) mit einer bestimmten Framerate gesendet (maximal 1 Frame pro Sekunde).
 
 ### Python
 
@@ -174,12 +173,12 @@ session.sendRealtimeInput({
 });
 ```
 
-Untuk contoh cara mendapatkan video dari perangkat klien (misalnya, browser)
-lihat contoh lengkap di [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
+Ein Beispiel dafür, wie Sie Video vom Clientgerät (z.B. dem Browser) abrufen,
+finden Sie im End-to-End-Beispiel auf [GitHub](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L84-L120).
 
-## Menerima audio
+## Audio empfangen
 
-Respons audio model diterima sebagai potongan data.
+Die Audioantworten des Modells werden als Datenblöcke empfangen.
 
 ### Python
 
@@ -207,11 +206,11 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-Lihat aplikasi contoh di GitHub untuk mempelajari cara [menerima audio di server Anda](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) dan [memutarnya di browser](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
+In der Beispiel-App auf GitHub erfahren Sie, wie Sie [Audio auf Ihrem Server empfangen](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/gemini_live.py#L86-L98) und [es im Browser abspielen](https://github.com/google-gemini/gemini-live-api-examples/blob/main/gemini-live-genai-python-sdk/frontend/media-handler.js#L145-L174).
 
-## Menerima SMS
+## Text empfangen
 
-Transkripsi untuk input pengguna dan output model tersedia dalam konten server.
+Transkriptionen für Nutzereingaben und Modellausgaben sind im Serverinhalt verfügbar.
 
 ### Python
 
@@ -238,9 +237,9 @@ if (content?.outputTranscription) {
 }
 ```
 
-## Menangani panggilan alat
+## Toolaufrufe verarbeiten
 
-API ini mendukung panggilan alat (panggilan fungsi). Saat model meminta panggilan alat, Anda harus menjalankan fungsi dan mengirim respons kembali.
+Die API unterstützt Toolaufrufe (Funktionsaufrufe). Wenn das Modell einen Toolaufruf anfordert, müssen Sie die Funktion ausführen und die Antwort zurücksenden.
 
 ### Python
 
@@ -281,20 +280,20 @@ if (response.toolCall) {
 }
 ```
 
-## Langkah berikutnya
+## Nächste Schritte
 
-- Baca panduan [Kemampuan](https://ai.google.dev/gemini-api/docs/live-guide?hl=id) Live API lengkap untuk mengetahui kemampuan dan konfigurasi utama, termasuk Deteksi Aktivitas Suara dan fitur audio native.
-- Baca panduan [Penggunaan alat](https://ai.google.dev/gemini-api/docs/live-tools?hl=id) untuk mempelajari cara mengintegrasikan Live API dengan alat dan panggilan fungsi.
-- Baca panduan [Pengelolaan sesi](https://ai.google.dev/gemini-api/docs/live-session?hl=id) untuk mengelola percakapan yang berjalan lama.
-- Baca panduan [Token sementara](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=id) untuk autentikasi yang aman di aplikasi [klien ke server](https://ai.google.dev/gemini-api/docs/live-api?hl=id#implementation-approach).
-- Untuk mengetahui informasi selengkapnya tentang WebSockets API yang mendasarinya, lihat [Referensi WebSockets API](https://ai.google.dev/api/live?hl=id).
+- Im vollständigen Leitfaden zu den Funktionen der Live API [Funktionen](https://ai.google.dev/gemini-api/docs/live-guide?hl=de) finden Sie Informationen zu den wichtigsten Funktionen und Konfigurationen, einschließlich der Erkennung von Sprachaktivitäten und nativen Audiofunktionen.
+- Lesen Sie den [Leitfaden zur Toolnutzung](https://ai.google.dev/gemini-api/docs/live-tools?hl=de), um zu erfahren, wie Sie die Live API in Tools und Funktionsaufrufe einbinden.
+- Im [Leitfaden zur Sitzungsverwaltung](https://ai.google.dev/gemini-api/docs/live-session?hl=de) erfahren Sie, wie Sie lange Unterhaltungen verwalten.
+- Im Leitfaden zu [kurzlebigen Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=de) erfahren Sie mehr über die sichere Authentifizierung in [Client-zu-Server](https://ai.google.dev/gemini-api/docs/live-api?hl=de#implementation-approach)-Anwendungen.
+- Weitere Informationen zur zugrunde liegenden WebSockets API finden Sie in der [WebSockets API-Referenz](https://ai.google.dev/api/live?hl=de).
 
-Kirim masukan
+Feedback geben
 
-Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-Terakhir diperbarui pada 2026-09-17 UTC.
+Zuletzt aktualisiert: 2026-09-17 (UTC).
 
-Ada masukan untuk kami?
+Haben Sie Feedback für uns?
 
-[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-09-17 UTC."],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-17 (UTC)."],[],[]]

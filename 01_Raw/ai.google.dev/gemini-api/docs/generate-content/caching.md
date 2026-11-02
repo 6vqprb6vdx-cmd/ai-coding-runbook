@@ -1,77 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=es-419
-fetched_at: 2026-10-26T05:45:33.912824+00:00
-title: "El almacenamiento de contexto en cach\u00e9 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=he
+fetched_at: 2026-11-02T07:22:48.393911+00:00
+title: "\u05e9\u05de\u05d9\u05e8\u05d4 \u05d1\u05de\u05d8\u05de\u05d5\u05df \u05e9\u05dc \u05d4\u05e7\u05e9\u05e8 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
 
-Enviar comentarios
+שליחת משוב
 
-# El almacenamiento de contexto en caché
+# שמירה במטמון של הקשר
 
-En un flujo de trabajo de IA típico, puedes pasar los mismos tokens de entrada una y otra vez a
-un modelo. La API de Gemini ofrece dos mecanismos de almacenamiento en caché diferentes:
+בתהליך עבודה אופייני של AI, יכול להיות שתעבירו את אותם אסימוני קלט שוב ושוב למודל. ‫Gemini API מציע שני מנגנוני שמירה במטמון:
 
-- Almacenamiento en caché implícito (se habilita automáticamente en Gemini 2.5 y modelos más recientes, sin garantía de ahorro de costos)
-- Almacenamiento en caché explícito (se puede habilitar de forma manual en los modelos de Gemini 3 y 2.5, garantiza el ahorro de costos; no es compatible con Gemini 4 Argon y versiones posteriores)
+- שמירה במטמון באופן משתמע (מופעלת באופן אוטומטי ב-Gemini 2.5 ובמודלים חדשים יותר, ללא הבטחה לחיסכון בעלויות)
+- שמירה מפורשת במטמון (אפשר להפעיל אותה ידנית במודלים של Gemini 3 ו-Gemini 2.5, והיא מבטיחה חיסכון בעלויות. אין תמיכה בהחל מ-Gemini 4 Argon)
 
-El almacenamiento en caché explícito es útil en los casos en los que deseas garantizar el ahorro de costos,
-pero con un trabajo adicional para el desarrollador.
+שמירה מפורשת במטמון שימושית במקרים שבהם רוצים להבטיח חיסכון בעלויות, אבל היא דורשת עבודת פיתוח נוספת.
 
-## Almacenamiento en caché implícito
+## שמירה במטמון משתמעת
 
-El almacenamiento en caché implícito está habilitado de forma predeterminada para todos los modelos de Gemini 2.5 y versiones posteriores. Te transferimos automáticamente
-los ahorros de costos si tu solicitud llega a las cachés. No necesitas configurar nada para activarla. En la siguiente tabla, se indica la cantidad mínima de tokens de entrada para cada modelo:
+שמירה במטמון באופן משתמע מופעלת כברירת מחדל בכל המודלים של Gemini 2.5 ומעלה. אם הבקשה שלכם מגיעה למטמון, אנחנו מעבירים לכם באופן אוטומטי את החיסכון בעלויות. לא צריך להגדיר שום דבר כדי להפעיל אותה. בטבלה הבאה מפורטת כמות הטוקנים המינימלית לקלט בכל מודל:
 
-| Modelo | Límite mínimo de tokens |
+| דגם | מגבלת טוקנים מינימלית |
 | --- | --- |
 | Gemini 4 Argon | 4,096 |
 | Gemini 3.8 Flash | 4,096 |
 | Gemini 3.6 Flash | 4,096 |
-| Versión preliminar de Gemini 3.1 Pro | 4,096 |
-| Gemini 2.5 Flash | 2,048 |
-| Gemini 2.5 Pro | 2,048 |
+| ‫Gemini 3.1 Pro Preview | 4,096 |
+| Gemini ‎2.5 Flash | 2,048 |
+| Gemini ‎2.5 Pro | 2,048 |
 
-Para aumentar la probabilidad de un acierto de caché implícito, haz lo siguiente:
+כדי להגדיל את הסיכוי למציאה במטמון (cache hit) משתמע:
 
-- Intenta colocar contenido extenso y común al principio de tu instrucción.
-- Intenta enviar solicitudes con un prefijo similar en un período breve
+- כדאי לנסות לשים תוכן ארוך ונפוץ בתחילת ההנחיה
+- לנסות לשלוח בקשות עם קידומת דומה בפרק זמן קצר
 
-Puedes ver la cantidad de tokens que fueron aciertos de caché en el campo `usage_metadata` del objeto de respuesta.
+אפשר לראות את מספר הטוקנים שנמצאו במטמון בשדה `usage_metadata` של אובייקט התגובה.
 
-## Almacenamiento en caché explícito
+## שמירה מפורשת במטמון
 
-Con la función de almacenamiento en caché explícito de la API de Gemini, puedes pasar contenido
-al modelo una vez, almacenar en caché los tokens de entrada y, luego, hacer referencia a los tokens almacenados en caché
-para las solicitudes posteriores. En ciertos volúmenes, usar tokens almacenados en caché tiene un costo menor
-que pasar el mismo corpus de tokens de forma repetida.
+באמצעות התכונה "שמירה מפורשת במטמון" של Gemini API, אתם יכולים להעביר תוכן מסוים למודל פעם אחת, לשמור את אסימוני הקלט במטמון ואז להפנות לאסימונים שנשמרו במטמון בבקשות הבאות. בנפחים מסוימים, השימוש בטוקנים שנשמרו במטמון זול יותר מאשר העברת אותו מאגר של טוקנים שוב ושוב.
 
-Cuando almacenas en caché un conjunto de tokens, puedes elegir cuánto tiempo deseas que exista la caché antes de que los tokens se borren automáticamente. Esta duración del almacenamiento en caché se denomina *tiempo de actividad* (TTL). Si no se establece, el TTL predeterminado es de 1 hora. El
-costo del almacenamiento en caché depende del tamaño del token de entrada y de cuánto tiempo deseas que
-persistan los tokens.
+כששומרים קבוצה של אסימונים במטמון, אפשר לבחור כמה זמן המטמון יישמר לפני שהאסימונים יימחקו באופן אוטומטי. משך השמירה במטמון נקרא *אורך חיים* (TTL). אם לא מגדירים את ה-TTL, ברירת המחדל היא שעה אחת. העלות של השמירה במטמון תלויה בגודל של טוקן הקלט ובמשך הזמן שבו רוצים שהטוקנים יישמרו.
 
-En esta sección, se supone que instalaste un SDK de Gemini (o que tienes curl instalado)
-y que configuraste una clave de API, como se muestra en la
-[guía de introducción](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419).
+בקטע הזה אנחנו מניחים שהתקנתם את Gemini SDK (או שהתקנתם את curl) ושהגדרתם מפתח API, כמו שמוסבר [במדריך לתחילת הדרך](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he).
 
-### Genera contenido con una caché
+### יצירת תוכן באמצעות מטמון
 
 ### Python
 
-En el siguiente ejemplo, se muestra cómo generar contenido con una instrucción del sistema
-y un archivo de video almacenados en caché.
+בדוגמה הבאה מוסבר איך ליצור תוכן באמצעות הוראות מערכת וקובץ וידאו שנשמרו במטמון.
 
-### Videos
+### סרטונים
 
 ```
 import os
@@ -130,7 +119,7 @@ print(response.usage_metadata)
 print(response.text)
 ```
 
-### PDF
+### קובצי PDF
 
 ```
 from google import genai
@@ -178,8 +167,7 @@ print('\n\n', response.text)
 
 ### JavaScript
 
-En el siguiente ejemplo, se muestra cómo generar contenido con una instrucción del sistema
-almacenada en caché y un archivo de texto.
+בדוגמה הבאה מוסבר איך ליצור תוכן באמצעות הוראות מערכת במטמון וקובץ טקסט.
 
 ```
 import {
@@ -220,7 +208,7 @@ await main();
 
 ### Go
 
-En el siguiente ejemplo, se muestra cómo generar contenido con una caché.
+בדוגמה הבאה מוסבר איך ליצור תוכן באמצעות מטמון.
 
 ```
 package main
@@ -290,10 +278,9 @@ func main() {
 
 ### REST
 
-En el siguiente ejemplo, se muestra cómo crear una caché y, luego, usarla para
-generar contenido.
+בדוגמה הבאה מוסבר איך ליצור מטמון ואז להשתמש בו כדי ליצור תוכן.
 
-### Videos
+### סרטונים
 
 ```
 wget https://storage.googleapis.com/generativeai-downloads/data/a11.txt
@@ -344,7 +331,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
     }'
 ```
 
-### PDF
+### קובצי PDF
 
 ```
 DOC_URL="https://sma.nasa.gov/SignificantIncidents/assets/a11_missionreport.pdf"
@@ -442,22 +429,20 @@ cat response.json
 echo jq ".candidates[].content.parts[].text" response.json
 ```
 
-### Enumera las cachés
+### הצגת רשימה של מטמונים
 
-No es posible recuperar ni ver el contenido almacenado en caché, pero puedes recuperar
-los metadatos de la caché (`name`, `model`, `display_name`, `usage_metadata`,
-`create_time`, `update_time` y `expire_time`).
+אי אפשר לאחזר או להציג תוכן שנשמר במטמון, אבל אפשר לאחזר מטא-נתונים של המטמון (`name`,‏ `model`,‏ `display_name`,‏ `usage_metadata`,‏ `create_time`,‏ `update_time` ו-`expire_time`).
 
 ### Python
 
-Para enumerar los metadatos de todas las cachés subidas, usa `CachedContent.list()`:
+כדי להציג את המטא-נתונים של כל המטמונים שהועלו, משתמשים ב-`CachedContent.list()`:
 
 ```
 for cache in client.caches.list():
   print(cache)
 ```
 
-Para recuperar los metadatos de un objeto de caché, si conoces su nombre, usa `get`:
+כדי לאחזר את המטא-נתונים של אובייקט מטמון אחד, אם אתם יודעים את השם שלו, השתמשו ב-`get`:
 
 ```
 client.caches.get(name=name)
@@ -465,7 +450,7 @@ client.caches.get(name=name)
 
 ### JavaScript
 
-Para enumerar los metadatos de todas las cachés subidas, usa `GoogleGenAI.caches.list()`:
+כדי להציג את המטא-נתונים של כל המטמונים שהועלו, משתמשים ב-`GoogleGenAI.caches.list()`:
 
 ```
 console.log("My caches:");
@@ -482,7 +467,7 @@ while (true) {
 
 ### Go
 
-En el siguiente ejemplo, se enumeran todas las cachés.
+בדוגמה הבאה מוצגת רשימה של כל המטמונים.
 
 ```
 caches, err := client.Caches.All(ctx)
@@ -495,7 +480,7 @@ for _, item := range caches {
 }
 ```
 
-En el siguiente ejemplo, se enumeran las cachés con un tamaño de página de 2.
+בדוגמה הבאה מוצגת רשימה של מטמונים עם גודל דף "2".
 
 ```
 page, err := client.Caches.List(ctx, &genai.ListCachedContentsConfig{PageSize: 2})
@@ -528,15 +513,13 @@ for {
 curl "https://generativelanguage.googleapis.com/v1beta/cachedContents?key=$GEMINI_API_KEY"
 ```
 
-### Actualiza una caché
+### עדכון מטמון
 
-Puedes establecer un `ttl` o `expire_time` nuevo para una caché. No se admite cambiar ningún otro aspecto
-de la caché.
+אפשר להגדיר `ttl` או `expire_time` חדשים למטמון. אי אפשר לשנות שום דבר אחר במטמון.
 
 ### Python
 
-En el siguiente ejemplo, se muestra cómo actualizar el `ttl` de una caché con
-`client.caches.update()`.
+בדוגמה הבאה מוסבר איך לעדכן את ה-`ttl` של מטמון באמצעות `client.caches.update()`.
 
 ```
 from google import genai
@@ -550,11 +533,7 @@ client.caches.update(
 )
 ```
 
-Para establecer el tiempo de vencimiento, se aceptará un objeto `datetime`
-o una cadena de fecha y hora con formato ISO (`dt.isoformat()`, como
-`2025-01-27T16:02:36.473528+00:00`). La hora debe incluir una zona horaria
-(`datetime.utcnow()` no adjunta una zona horaria,
-`datetime.now(datetime.timezone.utc)` sí lo hace).
+כדי להגדיר את מועד התפוגה, אפשר להשתמש באובייקט `datetime` או במחרוזת תאריך ושעה בפורמט ISO (`dt.isoformat()`, כמו `2025-01-27T16:02:36.473528+00:00`). השעה חייבת לכלול אזור זמן (`datetime.utcnow()` לא מצרף אזור זמן, `datetime.now(datetime.timezone.utc)` כן מצרף אזור זמן).
 
 ```
 from google import genai
@@ -574,8 +553,7 @@ client.caches.update(
 
 ### JavaScript
 
-En el siguiente ejemplo, se muestra cómo actualizar el `ttl` de una caché con
-`GoogleGenAI.caches.update()`.
+בדוגמה הבאה מוסבר איך לעדכן את ה-`ttl` של מטמון באמצעות `GoogleGenAI.caches.update()`.
 
 ```
 const ttl = `${2 * 3600}s`; // 2 hours in seconds
@@ -588,7 +566,7 @@ console.log("After update (TTL):", updatedCache);
 
 ### Go
 
-En el siguiente ejemplo, se muestra cómo actualizar el `TTL` de una caché.
+בדוגמה הבאה אפשר לראות איך מעדכנים את ה-`TTL` של מטמון.
 
 ```
 // Update the TTL (2 hours).
@@ -604,7 +582,7 @@ fmt.Println(cache)
 
 ### REST
 
-En el siguiente ejemplo, se muestra cómo actualizar el `ttl` de una caché.
+בדוגמה הבאה אפשר לראות איך מעדכנים את ה-`ttl` של מטמון.
 
 ```
 curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY" \
@@ -612,10 +590,9 @@ curl -X PATCH "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=
 -d '{"ttl": "600s"}'
 ```
 
-### Borra una caché
+### מחיקת מטמון
 
-El servicio de almacenamiento en caché proporciona una operación de eliminación para quitar contenido
-de la caché de forma manual. En el siguiente ejemplo, se muestra cómo borrar una caché:
+שירות השמירה במטמון מספק פעולת מחיקה להסרה ידנית של תוכן מהמטמון. בדוגמה הבאה אפשר לראות איך מוחקים מטמון:
 
 ### Python
 
@@ -645,54 +622,44 @@ fmt.Println("Cache deleted:", cache.Name)
 curl -X DELETE "https://generativelanguage.googleapis.com/v1beta/$CACHE_NAME?key=$GEMINI_API_KEY"
 ```
 
-### Almacenamiento en caché explícito con la biblioteca de OpenAI
+### שמירה מפורשת במטמון באמצעות ספריית OpenAI
 
-Si usas una [biblioteca de OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=es-419), puedes habilitar
-el almacenamiento en caché explícito con la propiedad `cached_content` en
-[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=es-419#extra-body).
+אם אתם משתמשים ב[ספריית OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=he), אתם יכולים להפעיל שמירה מפורשת במטמון באמצעות המאפיין `cached_content` ב-[`extra_body`](https://ai.google.dev/gemini-api/docs/openai?hl=he#extra-body).
 
-## Cuándo usar el almacenamiento en caché explícito
+## מתי כדאי להשתמש בשמירה מפורשת במטמון
 
-El almacenamiento en caché de contexto es especialmente adecuado para situaciones en las que las solicitudes más cortas hacen referencia a un contexto inicial sustancial de forma repetida. Considera usar el almacenamiento en caché de contexto para casos de uso como los siguientes:
+שמירת הקשר במטמון מתאימה במיוחד לתרחישים שבהם הקשר ראשוני משמעותי משמש כהפניה שוב ושוב על ידי בקשות קצרות יותר. כדאי להשתמש בשמירת הקשר במטמון בתרחישים לדוגמה כמו:
 
-- Chatbots con [instrucciones del sistema](https://ai.google.dev/gemini-api/docs/system-instructions?hl=es-419) extensas
-- Análisis repetitivo de archivos de video extensos
-- Consultas recurrentes en conjuntos de documentos grandes
-- Análisis frecuente del repositorio de código o corrección de errores
+- צ'אט בוטים עם [הוראות מערכת](https://ai.google.dev/gemini-api/docs/system-instructions?hl=he) נרחבות
+- ניתוח חוזר של קובצי וידאו ארוכים
+- שאילתות חוזרות על קבוצות גדולות של מסמכים
+- ניתוח תכוף של מאגר המקורות של הקוד או תיקון באגים
 
-### Cómo el almacenamiento en caché explícito reduce los costos
+### איך שמירה מפורשת במטמון מפחיתה את העלויות
 
-La función de almacenamiento en caché de contexto es pagada y está diseñada para reducir costos. La facturación se basa en
-los siguientes factores:
+שמירת הקשר במטמון היא תכונה בתשלום שנועדה להפחית את העלויות. החיוב מבוסס על הגורמים הבאים:
 
-1. **Recuento de tokens de caché:** Es la cantidad de tokens de entrada almacenados en caché, que se facturan con una tarifa reducida cuando se incluyen en instrucciones posteriores.
-2. **Duración del almacenamiento:** Es la cantidad de tiempo que se almacenan los tokens almacenados en caché (TTL),
-   que se factura según la duración del TTL del recuento de tokens almacenados en caché. No hay límites mínimos
-   ni máximos para el TTL.
-3. **Otros factores:** Se aplican otros cargos, como los tokens de entrada y salida no almacenados en caché.
+1. **מספר הטוקנים במטמון:** מספר טוקני הקלט שנשמרו במטמון, שמחויבים בתעריף מופחת כשהם נכללים בהנחיות הבאות.
+2. **משך האחסון:** משך הזמן שבו הטוקנים נשמרים במטמון (TTL), והחיוב מתבצע על סמך משך ה-TTL של מספר הטוקנים שנשמרו במטמון. אין גבולות מינימום או מקסימום ל-TTL.
+3. **גורמים אחרים:** חיובים אחרים חלים, למשל על טוקנים של קלט ופלט שלא נשמרו במטמון.
 
-Para obtener detalles actualizados sobre los precios, consulta la [página de precios](https://ai.google.dev/pricing?hl=es-419) de la API de Gemini. Para aprender a contar tokens, consulta la [guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419).
+פרטי התמחור העדכניים מופיעים ב[דף התמחור](https://ai.google.dev/pricing?hl=he) של Gemini API. [איך סופרים טוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he)
 
-### Consideraciones adicionales
+### שיקולים נוספים
 
-Ten en cuenta las siguientes consideraciones cuando uses el almacenamiento en caché de contexto:
+כשמשתמשים בשמירת הקשר במטמון, חשוב לזכור את הנקודות הבאות:
 
-- El recuento *mínimo* de tokens de entrada para el almacenamiento en caché de contexto varía según el modelo. El *máximo*
-  es el mismo que el máximo para el modelo determinado. (Para obtener más información sobre el recuento de tokens,
-  consulta la [Guía de tokens](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419)).
-- El modelo no distingue entre los tokens almacenados en caché y los tokens de entrada
-  normales. El contenido almacenado en caché es un prefijo de la instrucción.
-- No hay límites de frecuencia ni límites de uso especiales para el almacenamiento en caché de contexto. Se aplican los límites de frecuencia estándar para `GenerateContent`, y los límites de tokens incluyen los tokens almacenados en caché.
-- La cantidad de tokens almacenados en caché se devuelve en `usage_metadata` desde las
-  operaciones de creación, obtención y enumeración del servicio de caché, y también en
-  `GenerateContent` cuando se usa la caché.
+- מספר *המינימום* של טוקנים לקלט בשמירת הקשר במטמון משתנה בהתאם למודל. הערך *המקסימלי* זהה לערך המקסימלי של המודל הנתון. (למידע נוסף על ספירת טוקנים, עיינו [במדריך בנושא טוקנים](https://ai.google.dev/gemini-api/docs/tokens?hl=he)).
+- המודל לא מבדיל בין טוקנים במטמון לבין טוקנים רגילים של קלט. התוכן שנשמר במטמון הוא תחילית להנחיה.
+- אין מגבלות מיוחדות על הקצב או מכסות שימוש בשמירת הקשר במטמון. הגבלת קצב של יצירת בקשות הרגילות של `GenerateContent` חלות, ומכסות הטוקנים כוללות טוקנים שנשמרו במטמון.
+- מספר האסימונים שנשמרו במטמון מוחזר ב-`usage_metadata` מהפעולות create,‏ get ו-list של שירות המטמון, וגם ב-`GenerateContent` כשמשתמשים במטמון.
 
-Enviar comentarios
+שליחת משוב
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-Última actualización: 2026-10-23 (UTC)
+עדכון אחרון: 2026-10-23 (שעון UTC).
 
-¿Quieres brindar más información?
+רוצה לתת לנו משוב?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-23 (UTC)"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-23 (שעון UTC)."],[],[]]

@@ -1,68 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=de
-fetched_at: 2026-10-26T05:55:47.600895+00:00
-title: "Erl\u00e4uterung der API-Versionen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/api-versions?hl=ko
+fetched_at: 2026-11-02T07:08:00.229691+00:00
+title: "API \ubc84\uc804 \uc124\uba85 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
+Gemini 4 Argon을 지금 이용 가능합니다. [사용해 보기](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ko).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ko)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google은 AI 기술을 사용하여 콘텐츠를 사용자의 기본 언어로 번역합니다. AI 번역에는 오류가 있을 수 있습니다.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [API-Referenz](https://ai.google.dev/api?hl=de)
+- [홈](https://ai.google.dev/?hl=ko)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ko)
+- [API 참조 문서](https://ai.google.dev/api?hl=ko)
 
-Feedback geben
+의견 보내기
 
-# Erläuterung der API-Versionen
+# API 버전 설명
 
-In diesem Dokument finden Sie einen allgemeinen Überblick über die Unterschiede zwischen den Versionen `v1` und `v1beta` der Gemini API.
+이 문서에서는 Gemini API의 `v1` 버전과 `v1beta` 버전 간의 차이점을 간략하게 설명합니다.
 
-- **v1**: Stabile Version der API. Funktionen in der stabilen Version werden während des gesamten Lebenszyklus der Hauptversion vollständig unterstützt. Bei funktionsgefährdenden Änderungen wird eine neue Hauptversion der API erstellt und die vorhandene Version nach einem angemessenen Zeitraum eingestellt.
-  Es können abwärtskompatible Änderungen an der API vorgenommen werden, ohne dass sich die Hauptversion ändert. Die **Interactions API** und ihre Kernfunktionen sind in `v1` allgemein verfügbar.
-- **v1beta**: Diese Version enthält erste Funktionen, die aktiv entwickelt werden. Funktionen in `v1beta` können sich ändern, da wir sie auf Grundlage von Feedback weiterentwickeln. Sie haben jedoch die Möglichkeit, neue Funktionen auszuprobieren, bevor sie als stabil eingestuft werden.
+- **v1**: API의 안정화 버전입니다. 안정화 버전의 기능은 메이저 버전의 전체 수명 주기 동안 완전히 지원됩니다. 브레이킹 체인지가 있는 경우 API의 새로운 메이저 버전이 생성되고 적절한 기간이 지나면 기존 버전이 지원 중단됩니다.
+  주 버전을 변경하지 않고도 API에 브레이킹 체인지가 아닌 변경사항이 도입될 수 있습니다. **Interactions API** 및 핵심 기능은 `v1`에서 정식 버전으로 제공됩니다.
+- **v1beta**: 이 버전에는 현재 개발 중인 초기 기능이 포함되어 있습니다. `v1beta`의 기능은 의견을 바탕으로 개선하는 과정에서 변경될 수 있지만, 안정화 버전으로 승격되기 전에 새로운 기능을 사용해 볼 수 있습니다.
 
-## Unterstützung von Funktionen und Merkmalen
+## 기능 및 특성 지원
 
-In der folgenden Tabelle wird die Verfügbarkeit von Funktionen in `v1` (allgemein verfügbar) und `v1beta` (Beta) beschrieben. Die wichtigsten API-Funktionen und ‑Tools gelten sowohl für die Interactions API als auch für `generateContent`, sofern nicht anders angegeben:
+다음 표에는 `v1` (정식 버전) 및 `v1beta` (베타)의 기능 사용 가능 여부가 자세히 나와 있습니다. 달리 명시되지 않는 한 핵심 API 기능과 도구는 Interactions API와 `generateContent` 모두에 적용됩니다.
 
-| Funktion | v1 | v1beta |
+| 기능 | v1 | v1beta |
 | --- | --- | --- |
-| **Wichtige API-Funktionen** |  |  |
-| [Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=de) |  |  |
-| [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de) |  |  |
-| [Strukturierte Ausgabe](https://ai.google.dev/gemini-api/docs/structured-output?hl=de) |  |  |
-| [Denken / Argumentation](https://ai.google.dev/gemini-api/docs/thinking?hl=de) |  |  |
-| [Systemanweisungen](https://ai.google.dev/gemini-api/docs/system-instructions?hl=de) |  |  |
-| [Audioausgabe (Sprachkonfiguration)](https://ai.google.dev/gemini-api/docs/audio?hl=de) |  |  |
-| [Service Tier (Priority / Flex)](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de) |  |  |
-| **Tools** |  |  |
-| [Tool zur Codeausführung](https://ai.google.dev/gemini-api/docs/code-execution?hl=de) |  |  |
-| [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) |  |  |
-| [Google Maps-Fundierung](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=de) |  |  |
-| [Tool zum URL-Kontext](https://ai.google.dev/gemini-api/docs/url-context?hl=de) |  |  |
-| [Dateisuchtool](https://ai.google.dev/gemini-api/docs/file-search?hl=de) |  |  |
-| [Tool zur Computernutzung](https://ai.google.dev/gemini-api/docs/computer-use?hl=de) |  |  |
-| [MCP-Server-Tool](https://ai.google.dev/gemini-api/docs/function-calling?hl=de#mcp) |  |  |
-| **Echtzeit-APIs** |  |  |
-| [Live API (WebSockets)](https://ai.google.dev/gemini-api/docs/live-api?hl=de) |  |  |
-| [Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=de) |  |  |
-| [Einmal-Tokens (Live API)](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=de) |  |  |
-| **Plattform-APIs** |  |  |
-| [Models API](https://ai.google.dev/gemini-api/docs/models?hl=de) |  |  |
-| [Files Service Route](https://ai.google.dev/gemini-api/docs/files?hl=de) (Files-Dienstroute) |  |  |
-| [Dateisuche speichert Route](https://ai.google.dev/gemini-api/docs/file-search?hl=de) |  |  |
-| [Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=de) |  |  |
-| [Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=de) |  |  |
-| [Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) |  |  |
+| **핵심 API 기능** |  |  |
+| [Interactions API](https://ai.google.dev/gemini-api/docs/get-started?hl=ko) |  |  |
+| [함수 호출](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko) |  |  |
+| [구조화된 출력](https://ai.google.dev/gemini-api/docs/structured-output?hl=ko) |  |  |
+| [사고/추론](https://ai.google.dev/gemini-api/docs/thinking?hl=ko) |  |  |
+| [시스템 요청 사항](https://ai.google.dev/gemini-api/docs/system-instructions?hl=ko) |  |  |
+| [오디오 출력 (음성 구성)](https://ai.google.dev/gemini-api/docs/audio?hl=ko) |  |  |
+| [서비스 등급 (우선순위/Flex)](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ko) |  |  |
+| **도구** |  |  |
+| [코드 실행 도구](https://ai.google.dev/gemini-api/docs/code-execution?hl=ko) |  |  |
+| [Google 검색 그라운딩](https://ai.google.dev/gemini-api/docs/google-search?hl=ko) |  |  |
+| [Google 지도 그라운딩](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ko) |  |  |
+| [URL 컨텍스트 도구](https://ai.google.dev/gemini-api/docs/url-context?hl=ko) |  |  |
+| [파일 검색 도구](https://ai.google.dev/gemini-api/docs/file-search?hl=ko) |  |  |
+| [컴퓨터 사용 도구](https://ai.google.dev/gemini-api/docs/computer-use?hl=ko) |  |  |
+| [MCP 서버 도구](https://ai.google.dev/gemini-api/docs/function-calling?hl=ko#mcp) |  |  |
+| **실시간 API** |  |  |
+| [Live API (WebSockets)](https://ai.google.dev/gemini-api/docs/live-api?hl=ko) |  |  |
+| [Live Music API](https://ai.google.dev/gemini-api/docs/realtime-music-generation?hl=ko) |  |  |
+| [임시 토큰 (Live API)](https://ai.google.dev/gemini-api/docs/live-api/ephemeral-tokens?hl=ko) |  |  |
+| **플랫폼 API** |  |  |
+| [Models API](https://ai.google.dev/gemini-api/docs/models?hl=ko) |  |  |
+| [Files Service Route](https://ai.google.dev/gemini-api/docs/files?hl=ko) |  |  |
+| [파일 검색 저장소 경로](https://ai.google.dev/gemini-api/docs/file-search?hl=ko) |  |  |
+| [Agents API](https://ai.google.dev/gemini-api/docs/agents?hl=ko) |  |  |
+| [Webhooks API](https://ai.google.dev/gemini-api/docs/webhooks?hl=ko) |  |  |
+| [컨텍스트 캐싱](https://ai.google.dev/gemini-api/docs/caching?hl=ko) |  |  |
 
-- – Unterstützt
+- - 지원됨
 
-## API-Version in einem SDK konfigurieren
+## SDK에서 API 버전 구성
 
-Die Gemini API SDKs verwenden standardmäßig `v1beta`. Sie können jedoch Versionen explizit angeben, indem Sie die API-Version festlegen, wie im folgenden Codebeispiel gezeigt:
+Gemini API SDK는 기본적으로 `v1beta`로 설정되지만 다음 코드 샘플과 같이 API 버전을 설정하여 버전을 명시적으로 지정할 수 있습니다.
 
 ### Python
 
@@ -99,7 +99,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### 자바
 
 ```
 import com.google.genai.Client;
@@ -174,12 +174,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1/interactions" \
   }'
 ```
 
-Feedback geben
+의견 보내기
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+달리 명시되지 않는 한 이 페이지의 콘텐츠에는 [Creative Commons Attribution 4.0 라이선스](https://creativecommons.org/licenses/by/4.0/)에 따라 라이선스가 부여되며, 코드 샘플에는 [Apache 2.0 라이선스](https://www.apache.org/licenses/LICENSE-2.0)에 따라 라이선스가 부여됩니다. 자세한 내용은 [Google Developers 사이트 정책](https://developers.google.com/site-policies?hl=ko)을 참조하세요. 자바는 Oracle 및/또는 Oracle 계열사의 등록 상표입니다.
 
-Zuletzt aktualisiert: 2026-09-24 (UTC).
+최종 업데이트: 2026-10-30(UTC)
 
-Haben Sie Feedback für uns?
+의견을 전달하고 싶나요?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-24 (UTC)."],[],[]]
+[[["이해하기 쉬움","easyToUnderstand","thumb-up"],["문제가 해결됨","solvedMyProblem","thumb-up"],["기타","otherUp","thumb-up"]],[["필요한 정보가 없음","missingTheInformationINeed","thumb-down"],["너무 복잡함/단계 수가 너무 많음","tooComplicatedTooManySteps","thumb-down"],["오래됨","outOfDate","thumb-down"],["번역 문제","translationIssue","thumb-down"],["샘플/코드 문제","samplesCodeIssue","thumb-down"],["기타","otherDown","thumb-down"]],["최종 업데이트: 2026-10-30(UTC)"],[],[]]

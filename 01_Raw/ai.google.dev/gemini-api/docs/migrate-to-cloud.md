@@ -1,40 +1,48 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=fr
-fetched_at: 2026-10-26T05:57:43.726496+00:00
-title: "API Gemini\u00a0Developer et plate-forme Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-cloud?hl=fa
+fetched_at: 2026-11-02T07:24:27.801358+00:00
+title: "\u0645\u0642\u0627\u06cc\u0633\u0647 Gemini Developer API \u0648 \u067e\u0644\u0627\u062a\u0641\u0631\u0645 Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Accueil](https://ai.google.dev/?hl=fr)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-Envoyer des commentaires
+ارسال بازخورد
 
-# API Gemini Developer et plate-forme Gemini
+# مقایسه Gemini Developer API و پلاتفرم Gemini
 
-Lorsque vous développez des solutions d'IA générative avec Gemini, Google propose deux produits API : l'[API Gemini Developer](https://ai.google.dev/gemini-api/docs?hl=fr) et l'[API de la plate-forme Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=fr).
+هنگام توسعه راه‌حل‌های هوش مصنوعی زایا با Gemini،‏ Google دو محصول API ارائه می‌دهد: [Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=fa) و [Gemini platform API](https://cloud.google.com/gemini-enterprise-agent-platform/overview?hl=fa).
 
-L'API Gemini Developer offre le moyen le plus rapide de créer, de mettre en production et de faire évoluer des applications optimisées par Gemini. La plupart des développeurs doivent utiliser l'API Gemini Developer, sauf s'ils ont besoin de contrôles d'entreprise spécifiques.
+‫Gemini Developer API سریع‌ترین مسیر را برای ساختن، تولید کردن، و
+مقیاس‌بندی برنامه‌های با بهره‌گیری از Gemini فراهم می‌کند. اکثر توسعه‌دهندگان باید از «میانای برنامه‌سازی کاربردی توسعه‌دهندگان Gemini» استفاده کنند، مگراینکه نیاز به کنترل‌های سازمانی خاصی باشد.
 
-La plate-forme Gemini offre un écosystème complet de fonctionnalités et de services adaptés aux entreprises pour créer et déployer des applications d'IA générative soutenues par Google Cloud.
+پلاتفرم Gemini اکوسیستم جامعی از ویژگی‌ها و سرویس‌های آماده برای شرکت‌ها
+برای ساختن و استقرار دادن برنامه‌های هوش مصنوعی زایا با پشتیبانی
+Google Cloud ارائه می‌دهد.
 
-Nous avons récemment simplifié la migration entre ces services. L'API Gemini Developer et l'API de la plate-forme Gemini sont désormais accessibles via le [SDK Google GenAI](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) unifié et l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr).
+اخیراً انتقال بین این سرویس‌ها را ساده‌تر کرده‌ایم. اکنون هم Gemini
+Developer API و هم Gemini platform API ازطریق [Google GenAI SDK](https://ai.google.dev/gemini-api/docs/libraries?hl=fa) یکپارچه و
+[Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fa) دردسترس هستند.
 
-## Comparaison de code : API Interactions (recommandée)
+## مقایسه کد: Interactions API (توصیه‌شده)
 
-L'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) est la méthode recommandée pour créer des applications avec les modèles et les agents Gemini. Les exemples suivants comparent la génération de texte entre l'API Gemini Developer et la plate-forme Gemini.
+[میانای برنامه‌سازی کاربردی تعاملات](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fa) روش توصیه‌شده برای ساختن با مدل‌ها و نمایندگان Gemini است. مثال‌های زیر
+تولید نوشتار را بین Gemini Developer API و پلاتفرم Gemini مقایسه می‌کند.
 
 ### Python
 
-Vous pouvez accéder à l'API Gemini Developer et aux services de la plate-forme Gemini via la bibliothèque `google-genai` (`>= 2.3.0`). Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `google-genai`.
+می‌توانید ازطریق کتابخانه `google-genai` (`>= 2.3.0`) به Gemini Developer API و خدمات پلاتفرم Gemini دسترسی پیدا کنید.
+برای دستورالعمل‌های نصب `google-genai`، به صفحه
+[کتابخانه‌ها](https://ai.google.dev/gemini-api/docs/libraries?hl=fa) مراجعه کنید.
 
-### API Gemini Developer
+### Gemini Developer API
 
 ```
 from google import genai
@@ -48,7 +56,7 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### API de la plate-forme Gemini
+### Gemini platform API
 
 ```
 from google import genai
@@ -64,11 +72,12 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-### JavaScript et TypeScript
+### جاوا اسکریپت و تایپ‌اسکریپت
 
-Vous pouvez accéder à l'API Gemini Developer et aux services de la plate-forme Gemini via la bibliothèque `@google/genai` (`>= 2.3.0`). Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `@google/genai`.
+می‌توانید ازطریق کتابخانه `@google/genai` (`>= 2.3.0`) به Gemini Developer API و خدمات پلاتفرم Gemini دسترسی داشته باشید.
+برای دستورالعمل‌های نصب `@google/genai`، صفحه [کتابخانه‌ها](https://ai.google.dev/gemini-api/docs/libraries?hl=fa) را ببینید.
 
-### API Gemini Developer
+### Gemini Developer API
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -82,7 +91,7 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
-### API de la plate-forme Gemini
+### Gemini platform API
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -100,15 +109,18 @@ const interaction = await ai.interactions.create({
 console.log(interaction.output_text);
 ```
 
-## Comparaison de code : API generateContent
+## مقایسه کد: generateContent API
 
-Bien que l'API Interactions soit recommandée pour les nouveaux projets, l'API `generateContent` reste compatible.
+اگرچه «میانای برنامه‌سازی کاربردی تعامل‌ها» برای پروژه‌های جدید توصیه می‌شود،
+`generateContent` API همچنان پشتیبانی می‌شود.
 
 ### Python
 
-Vous pouvez accéder à l'API Gemini Developer et aux services de la plate-forme Gemini via la bibliothèque `google-genai`. Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `google-genai`.
+ازطریق کتابخانه `google-genai` می‌توانید به Gemini Developer API و سرویس‌های پلاتفرم Gemini دسترسی داشته باشید. برای دریافت دستورالعمل‌های مربوط به نحوه نصب
+`google-genai`، صفحه
+[کتابخانه‌ها](https://ai.google.dev/gemini-api/docs/libraries?hl=fa) را ببینید.
 
-### API Gemini Developer
+### Gemini Developer API
 
 ```
 from google import genai
@@ -121,7 +133,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### API de la plate-forme Gemini
+### Gemini platform API
 
 ```
 from google import genai
@@ -136,11 +148,13 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript et TypeScript
+### جاوا اسکریپت و تایپ‌اسکریپت
 
-Vous pouvez accéder aux services de l'API Gemini Developer et de la plate-forme Gemini via la bibliothèque `@google/genai`. Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `@google/genai`.
+می‌توانید ازطریق کتابخانه `@google/genai` به هر دو سرویس Gemini Developer API و پلاتفرم Gemini دسترسی داشته باشید. برای دریافت دستورالعمل‌های مربوط به نحوه نصب
+`@google/genai`، به صفحه
+[کتابخانه‌ها](https://ai.google.dev/gemini-api/docs/libraries?hl=fa) مراجعه کنید.
 
-### API Gemini Developer
+### Gemini Developer API
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -158,7 +172,7 @@ async function main() {
 main();
 ```
 
-### API de la plate-forme Gemini
+### Gemini platform API
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -179,11 +193,13 @@ async function main() {
 main();
 ```
 
-### Go
+### رفتن
 
-Vous pouvez accéder aux services de l'API Gemini Developer et de la plate-forme Gemini via la bibliothèque `google.golang.org/genai`. Consultez la page [Bibliothèques](https://ai.google.dev/gemini-api/docs/libraries?hl=fr) pour savoir comment installer `google.golang.org/genai`.
+می‌توانید ازطریق کتابخانه `google.golang.org/genai` به هر دو سرویس Gemini Developer API و پلاتفرم Gemini دسترسی داشته باشید. برای دریافت دستورالعمل‌های مربوط به نحوه نصب
+`google.golang.org/genai`، به صفحه
+[کتابخانه‌ها](https://ai.google.dev/gemini-api/docs/libraries?hl=fa) مراجعه کنید.
 
-### API Gemini Developer
+### Gemini Developer API
 
 ```
 import (
@@ -210,7 +226,7 @@ func main() {
 }
 ```
 
-### API de la plate-forme Gemini
+### Gemini platform API
 
 ```
 import (
@@ -242,41 +258,57 @@ func main() {
 }
 ```
 
-### Autres cas d'utilisation et plates-formes
+### سایر موارد استفاده و پلاتفرم‌ها
 
-Pour d'autres plates-formes et cas d'utilisation, consultez les guides spécifiques aux cas d'utilisation dans la [documentation de l'API Gemini Developer](https://ai.google.dev/gemini-api/docs?hl=fr) et la [documentation de la plate-forme Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=fr).
+برای پلاتفرم‌ها و موارد استفاده دیگر، به راهنماهای ویژه مورد استفاده در [اسناد Gemini Developer API](https://ai.google.dev/gemini-api/docs?hl=fa)
+و [اسناد پلاتفرم Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=fa)
+مراجعه کنید.
 
-## Considérations sur la migration
+## ملاحظات انتقال
 
-Lorsque vous migrez :
+وقتی انتقال می‌دهید:
 
-- Vous devrez utiliser des comptes de service Google Cloud pour vous authentifier. Pour en savoir plus, consultez la [documentation sur la plate-forme Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=fr).
-- Vous pouvez utiliser votre projet Google Cloud existant (celui utilisé pour générer votre clé API) ou [créer un nouveau projet Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=fr).
-- Les régions prises en charge peuvent différer entre l'API Gemini Developer et l'API de la plate-forme Gemini. Pendant la période d'aperçu, l'[API Interactions sur la plate-forme Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=fr) n'est compatible qu'avec le point de terminaison `global` (`location="global"`). Consultez la liste des [régions prises en charge pour l'IA générative sur Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=fr).
-- Tous les modèles que vous avez créés dans Google AI Studio doivent être réentraînés dans la plate-forme Gemini.
+- برای اصالت‌سنجی باید از حساب‌های خدمات Google Cloud استفاده کنید. برای اطلاعات بیشتر،
+  [مستندات پلاتفرم Gemini](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/overview?hl=fa)
+  را ببینید.
+- می‌توانید از پروژه Google Cloud موجودتان (همان پروژه‌ای که برای تولید کلید API استفاده کردید) استفاده کنید یا می‌توانید [پروژه Google Cloud جدیدی ایجاد کنید](https://cloud.google.com/resource-manager/docs/creating-managing-projects?hl=fa).
+- مناطق پشتیبانی‌شده ممکن است بین Gemini Developer API و
+  Gemini platform API متفاوت باشد. درطول «پیش‌نمایش»،
+  [میانای برنامه‌سازی کاربردی «تعاملات» در پلاتفرم Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=fa)
+  فقط از نقطه پایانی `global` (`location="global"`) پشتیبانی می‌کند. فهرست
+  [مناطق پشتیبانی‌شده برای هوش مصنوعی زایا در Google Cloud](https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/docs/learn/locations-genai?hl=fa) را ببینید.
+- هر مدلی که در Google AI Studio ساخته‌اید باید در پلاتفرم Gemini بازآموزی شود.
 
-Si vous n'avez plus besoin d'utiliser votre clé API Gemini pour l'API Gemini Developer, suivez les bonnes pratiques de sécurité et supprimez-la.
+اگر دیگر نیازی به استفاده از کلید Gemini API برای Gemini Developer API ندارید،
+روال‌های مطلوب امنیتی را دنبال کنید و آن را حذف کنید.
 
-Pour supprimer une clé API :
+برای حذف کلید میانای API:
 
-1. Ouvrez la page [Identifiants de l'API Google Cloud](https://console.cloud.google.com/apis/credentials?hl=fr).
-2. Recherchez la clé API que vous souhaitez supprimer, puis cliquez sur l'icône **Actions**.
-3. Sélectionnez **Supprimer la clé API**.
-4. Dans la fenêtre **Supprimer l'identifiant**, sélectionnez **Supprimer**.
+1. صفحه
+   [اطلاعات اعتباری Google Cloud API](https://console.cloud.google.com/apis/credentials?hl=fa)
+   را باز کنید.
+2. کلید API موردنظر برای حذف را پیدا کنید و روی نماد **کنش‌ها** کلیک کنید.
+3. **حذف کلید API** را انتخاب کنید.
+4. در مدال **حذف اطلاعات اعتباری**، **حذف** را انتخاب کنید.
 
-   Propager la suppression d'une clé API prend quelques minutes. Une fois la propagation terminée, tout trafic utilisant la clé API supprimée est rejeté.
+   حذف کلید API چند دقیقه طول می‌کشد تا منتشر شود. پس‌از تکمیل
+   انتشار، هرگونه ترافیک که از کلید API حذف‌شده استفاده کند رد می‌شود.
 
-## Étapes suivantes
+## مراحل بعدی
 
-- Consultez le guide du développeur sur l'[API Interactions sur la plate-forme Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=fr).
-- Consultez la [présentation de l'IA générative sur la plate-forme Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=fr) pour en savoir plus sur les solutions d'IA générative sur la plate-forme Gemini.
+- راهنمای توسعه‌دهندگان
+  [میانای برنامه‌سازی کاربردی تعاملات در پلاتفرم Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/capabilities/interactions/?hl=fa)
+  را کاوش کنید.
+- برای کسب اطلاعات بیشتر درباره راه‌حل‌های هوش مصنوعی زایا در پلاتفرم Gemini،
+  [نمای کلی هوش مصنوعی زایا در پلاتفرم Gemini](https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview?hl=fa)
+  را ببینید.
 
-Envoyer des commentaires
+ارسال بازخورد
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Dernière mise à jour le 2026/10/08 (UTC).
+تاریخ آخرین به‌روزرسانی 2026-10-08 به‌وقت ساعت هماهنگ جهانی.
 
-Voulez-vous nous donner plus d'informations ?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/08 (UTC)."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-08 به‌وقت ساعت هماهنگ جهانی."],[],[]]

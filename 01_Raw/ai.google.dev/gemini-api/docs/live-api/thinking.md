@@ -1,79 +1,79 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=vi
-fetched_at: 2026-10-26T05:44:13.240877+00:00
-title: "Suy ngh\u0129 v\u1ec1 Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=tr
+fetched_at: 2026-11-02T07:23:18.990627+00:00
+title: "Live API'de D\u00fc\u015f\u00fcnme \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Suy nghĩ về Live API
+# Live API'de Düşünme
 
-Gemini Live API cho phép trò chuyện hai chiều bằng giọng nói theo thời gian thực với các mô hình Gemini.
+Gemini Live API, Gemini modelleriyle anlık ve iki yönlü sesli sohbetler yapmanızı sağlar.
 
-Các mô hình giọng nói tiêu chuẩn hoạt động hiệu quả đối với cuộc trò chuyện qua lại tức thì. Bạn nói với mô hình và mô hình sẽ tạo ra câu trả lời bằng lời nói ngay lập tức. Nhưng khi một yêu cầu cần có kế hoạch, phân tích phức tạp hoặc các công cụ bên ngoài, câu trả lời trực tiếp sẽ bị giới hạn. Mô hình phải trả lời mà không cần suy luận hoặc tạm dừng trong im lặng trong khi chờ các công cụ hoàn tất.
+Standart ses modelleri, anlık karşılıklı diyaloglar için uygundur. Modelle konuşursunuz ve model hemen sözlü bir yanıt oluşturur. Ancak bir istek planlama, karmaşık analiz veya harici araçlar gerektirdiğinde doğrudan yanıtlar sınırlanır. Model, ya gerekçe sunmadan yanıt vermeli ya da araçların tamamlanmasını beklerken sessizce duraklamalıdır.
 
-Tính năng Tư duy trong Live API (`gemini-3.8-live-extended-thinking`) bổ sung khả năng suy luận nền cho các phiên trò chuyện bằng giọng nói theo thời gian thực. Mô hình này lên kế hoạch và gọi các công cụ không đồng bộ ở chế độ nền trong khi nói các từ đệm tự nhiên để duy trì hoạt động tương tác.
+Live API'de düşünme (`gemini-3.8-live-extended-thinking`), gerçek zamanlı sesli oturumlara arka plan gerekçelendirmesi ekler. Model, etkileşimi etkin tutmak için doğal sohbet dolguları konuşurken arka planda eşzamansız araçları planlar ve çağırır.
 
-Cấu trúc này thay đổi vòng đời của cuộc trò chuyện theo hai cách chính:
+Bu mimari, etkileşimli yaşam döngüsünü iki temel şekilde değiştirir:
 
-- **Từ đệm**: Mô hình sẽ nói các thông tin cập nhật trung gian (chẳng hạn như "Đang kiểm tra các lựa chọn về chuyến bay") trong khi thực hiện các công cụ ở chế độ nền.
-- **Theo dõi trạng thái tương tác**: Vì mô hình có thể nói nhiều lần trong một yêu cầu, nên máy chủ sẽ phát ra `interaction_status: "IN_PROGRESS"` trong quá trình xử lý ở chế độ nền và `interaction_status: "IDLE"` khi hoàn thành nhiệm vụ tổng thể.
+- **Sohbet dolguları**: Model, arka planda araçları çalıştırırken ara güncellemeleri (ör. "Uçuş seçenekleri kontrol ediliyor") sesli olarak bildirir.
+- **Etkileşim durumu izleme**: Model, tek bir istek sırasında birden fazla kez konuşabildiğinden sunucu, arka plan işleme sırasında `interaction_status: "IN_PROGRESS"`, genel görev tamamlandığında ise `interaction_status: "IDLE"` yayar.
 
-Sơ đồ sau đây so sánh vòng đời tương tác giữa các phiên Livevoice tiêu chuẩn và tính năng Tư duy bằng lý luận nền:
+Aşağıdaki şemada, standart Live Voice oturumları ile arka plan gerekçelendirmesiyle düşünme arasındaki etkileşim yaşam döngüleri karşılaştırılmaktadır:
 
-![So sánh tính năng gọi hàm API trực tiếp và theo dõi trạng thái](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=vi)
+![Live API işlev çağrısı ve durum izleme karşılaştırması](https://ai.google.dev/static/gemini-api/docs/images/thinking-model-comparison.svg?hl=tr)
 
-## Chọn mô hình phù hợp
+## Doğru modeli seçme
 
-Khi quyết định giữa `gemini-3.8-live` và `gemini-3.8-live-extended-thinking`, hãy cân nhắc 3 yếu tố chính: độ trễ phản hồi, độ phức tạp của tác vụ và việc xử lý trạng thái của ứng dụng.
+`gemini-3.8-live` ve `gemini-3.8-live-extended-thinking` arasında seçim yaparken üç temel unsuru göz önünde bulundurun: yanıt gecikmesi, görev karmaşıklığı ve istemci durumu işleme.
 
-### Khi nào nên sử dụng Gemini 3.8 Live
+### Gemini 3.8 Live'ı ne zaman kullanmalısınız?
 
-Sử dụng `gemini-3.8-live` cho các tác nhân giọng nói đàm thoại có độ trễ thấp, trong đó việc chuyển lượt ngay lập tức là điều cần thiết và các tác vụ là trực tiếp.
+Anında sırayla konuşmanın önemli olduğu ve görevlerin doğrudan yapıldığı düşük gecikmeli konuşma sesli aracıları için `gemini-3.8-live` kullanın.
 
-- **Trợ lý đàm thoại bằng giọng nói**: Phân loại dịch vụ khách hàng, luyện tập ngôn ngữ, tìm kiếm bằng giọng nói và kể chuyện tương tác.
-- **Thực thi công cụ nhanh**: Quy trình làm việc mà các công cụ bên ngoài trả về trong vòng mili giây (chẳng hạn như đọc các giá trị cảm biến hoặc điều khiển các thiết bị thông minh).
-- **Logic đơn giản của ứng dụng**: Các ứng dụng mà mỗi lượt tương tác của người dùng nhận được một phản hồi duy nhất của mô hình và `turnComplete: true` báo hiệu một cách đáng tin cậy khi phiên không hoạt động.
+- **Sohbet odaklı sesli asistanlar**: Müşteri hizmetleri triyajı, dil pratiği, sesli arama ve etkileşimli hikaye anlatımı.
+- **Hızlı araç yürütme**: Harici araçların milisaniyeler içinde döndüğü iş akışları (ör. sensör değerlerini okuma veya akıllı cihazları kontrol etme).
+- **Basit istemci mantığı**: Her kullanıcı dönüşünün tek bir model yanıtı aldığı ve oturum boşta kaldığında `turnComplete: true` güvenilir bir şekilde sinyal veren uygulamalar.
 
-### Khi nào nên sử dụng Gemini 3.8 Live có chế độ Tư duy mở rộng
+### Genişletilmiş düşünme özellikli Gemini 3.8 Live'ı ne zaman kullanmalısınız?
 
-Sử dụng `gemini-3.8-live-extended-thinking` khi tác nhân của bạn phải đánh giá dữ liệu phức tạp, lên kế hoạch cho nhiều bước hoặc xử lý các công cụ mất vài giây để chạy.
+Ajanınızın karmaşık verileri değerlendirmesi, birden fazla adımı planlaması veya çalışması birkaç saniye süren araçları kullanması gerektiğinde `gemini-3.8-live-extended-thinking` kullanın.
 
-- **Hỗ trợ và chẩn đoán nhiều bước**: Nhân viên hỗ trợ kỹ thuật chẩn đoán các vấn đề về hệ thống trên nhiều nhật ký, mã lỗi và quy trình kiểm tra cấu hình.
-- **Truy xuất dữ liệu phối hợp**: Đại lý du lịch và đặt vé tìm kiếm chuyến bay, truy vấn khách sạn và so sánh giá trên các lệnh gọi API song song.
-- **Dạy kèm về STEM và lập trình**: Các đặc vụ giáo dục xác minh công thức, gỡ lỗi mã hoặc thực hiện logic nhiều bước trước khi giải thích.
-- **Độ trễ của công cụ che giấu**: Trải nghiệm bằng giọng nói mà các hàm chạy trong thời gian dài sẽ tạo ra sự im lặng khó xử cho người nghe.
+- **Çok adımlı teşhis ve destek**: Teknik destek temsilcileri, birden fazla günlük, hata kodu ve yapılandırma kontrolü genelinde sistem sorunlarını teşhis eder.
+- **Koordineli veri alma**: Uçuş arayan, otelleri sorgulayan ve paralel API çağrıları arasında fiyatları karşılaştıran seyahat ve rezervasyon acenteleri.
+- **FeTeMM ve kodlama eğitimi**: Formülleri doğrulayan, kodda hata ayıklayan veya açıklamada bulunmadan önce çok adımlı mantıkla çalışan eğitim aracıları.
+- **Masking tool latency**: Uzun süren işlevlerin dinleyici için garip bir sessizliğe neden olacağı ses deneyimleri.
 
-### Tóm tắt những điểm khác biệt chính
+### Temel farkların özeti
 
-Bảng sau đây tóm tắt những điểm khác biệt về kỹ thuật giữa cả hai mô hình:
+Aşağıdaki tabloda, iki model arasındaki teknik farklılıklar özetlenmektedir:
 
-| Tính năng | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
+| Özellik | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking |
 | --- | --- | --- |
-| **Các trường hợp sử dụng chính** | Tác nhân thoại có độ trễ thấp, lệnh trực tiếp, công cụ nhanh | Giải quyết vấn đề nhiều bước, lập kế hoạch phức tạp, quy trình làm việc nhiều công cụ |
-| **Điểm cuối của mô hình** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
-| **Cấu trúc suy luận** | Lý luận xen kẽ với hồ sơ độ trễ cố định (không hỗ trợ `thinking_level`) | Lý do có thể định cấu hình ở chế độ nền (`thinking_level`: `low`, `medium`, `high`; không hỗ trợ `MINIMAL`) |
-| **Bật ranh giới** | `turnComplete: true` đóng lượt và quay về trạng thái chờ | `turnComplete: true` kết thúc một câu nói; `interaction_status` kiểm soát vòng đời của phiên |
-| **Từ đệm trong cuộc trò chuyện** | Mô hình chờ thực thi công cụ trước khi nói | Mô hình này mô phỏng các từ đệm trong cuộc trò chuyện trong khi xử lý |
-| **Thực thi công cụ** | Hỗ trợ các công cụ đồng bộ (`BLOCKING`) và không đồng bộ (`NON_BLOCKING`) | Yêu cầu khai báo công cụ không đồng bộ (`NON_BLOCKING`) |
+| **Birincil kullanım alanları** | Düşük gecikmeli sesli asistanlar, doğrudan komutlar, hızlı araçlar | Çok adımlı problem çözme, karmaşık planlama, çok araçlı iş akışları |
+| **Model uç noktası** | `gemini-3.8-live` | `gemini-3.8-live-extended-thinking` |
+| **Muhakeme mimarisi** | Sabit gecikme profiliyle aralıklı muhakeme (`thinking_level` desteklenmez) | Yapılandırılabilir arka plan gerekçelendirmesi (`thinking_level`: `low`, `medium`, `high`; `MINIMAL` desteklenmez) |
+| **Sınırları belirleme** | `turnComplete: true`, dönüşü kapatır ve boşta kalma durumuna döner. | `turnComplete: true` bir ifadeyi tamamlar; `interaction_status` oturum yaşam döngüsünü kontrol eder. |
+| **Sohbetlerde kullanılan dolgu kelimeler** | Model, konuşmadan önce aracın yürütülmesini bekliyor | Model, işleme sırasında ara sohbet dolguları yayınlar. |
+| **Araç yürütme** | Eşzamanlı (`BLOCKING`) ve eşzamansız (`NON_BLOCKING`) araçları destekler. | Asenkron (`NON_BLOCKING`) araç beyanları gerektirir |
 
-## Các phương pháp di chuyển và tích hợp
+## Taşıma ve entegrasyon yolları
 
-Hãy làm theo các bước sau để nâng cấp các ứng dụng thoại hiện có hoặc tích hợp Thinking vào các phiên Live API.
+Mevcut ses uygulamalarını yükseltmek veya Thinking'i Live API oturumlarınıza entegre etmek için aşağıdaki adımları uygulayın.
 
-### Nâng cấp từ Gemini 3.1 Flash Live
+### Gemini 3.1 Flash Live'dan yükseltme
 
-Đối với các ứng dụng giọng nói hiện có đang dùng `gemini-3.1-flash-live-preview`, việc nâng cấp lên `gemini-3.8-live` yêu cầu bạn phải cập nhật chuỗi mô hình và bỏ qua `thinking_level` (hoặc `thinking_config`) trong cấu hình thiết lập, vì `gemini-3.8-live` không được hỗ trợ `thinking_level`:
+`gemini-3.1-flash-live-preview` kullanan mevcut ses uygulamalarında `gemini-3.8-live`'ye yükseltmek için model dizesinin güncellenmesi ve `thinking_level`'nin (veya `thinking_config`) kurulum yapılandırmanızdan çıkarılması gerekir. `thinking_level`, `gemini-3.8-live` için desteklenmez:
 
 ```
 {
@@ -83,13 +83,13 @@ Hãy làm theo các bước sau để nâng cấp các ứng dụng thoại hi�
 }
 ```
 
-Vòng đời lượt và tín hiệu `turnComplete` vẫn giữ nguyên.
+Dönüşüm yaşam döngüsü ve `turnComplete` sinyalleri aynı kalır.
 
-### Tư duy thích ứng
+### Düşünme Sürecini Benimseme
 
-Để áp dụng `gemini-3.8-live-extended-thinking`, hãy cập nhật 3 điểm tích hợp:
+`gemini-3.8-live-extended-thinking`'yı kullanmak için üç entegrasyon noktasını güncelleyin:
 
-1. **Theo dõi `interaction_status` thay vì `turnComplete`**: Trong các phiên Tư duy, mô hình có thể đưa ra các từ nối hội thoại trung gian trong khi suy luận. Kiểm tra trường `interaction_status` trong các thông báo đến từ máy chủ để quản lý trạng thái giao diện người dùng. Chỉ chuyển về trạng thái rảnh khi `interaction_status` là `IDLE`.
+1. **`turnComplete` yerine `interaction_status` izleyin**: Düşünme oturumlarında model, akıl yürütme sırasında ara sohbet dolguları verebilir. Kullanıcı arayüzü durumunu yönetmek için gelen sunucu mesajlarındaki `interaction_status` alanını inceleyin. Yalnızca `interaction_status`, `IDLE` olduğunda boşta kalma moduna dönün.
 
    ### Python
 
@@ -114,7 +114,7 @@ Vòng đời lượt và tín hiệu `turnComplete` vẫn giữ nguyên.
      setUiState('thinking');
    }
    ```
-2. **Khai báo các hàm không chặn**: Đặt `"behavior": "NON_BLOCKING"` trên tất cả các nội dung khai báo hàm. Các mô hình tư duy chạy các công cụ không đồng bộ ở chế độ nền trong khi truyền trực tuyến các thông tin cập nhật bằng lời nói. Các công cụ chặn đồng bộ sẽ trả về một lỗi.
+2. **Engellemeyen işlevleri tanımlayın**: Tüm işlev tanımlamalarında `"behavior": "NON_BLOCKING"` değerini ayarlayın. Düşünme modelleri, sözlü güncellemeler yayınlarken araçları arka planda eşzamansız olarak çalıştırır. Senkronize engelleme araçları hata döndürüyor.
 
    ### Python
 
@@ -149,7 +149,7 @@ Vòng đời lượt và tín hiệu `turnComplete` vẫn giữ nguyên.
      },
    };
    ```
-3. **Định cấu hình độ sâu suy luận**: Đặt `thinking_config` trong cấu hình phiên để điều chỉnh các cấp độ suy luận (`low`, `medium` hoặc `high`; không hỗ trợ `MINIMAL`).
+3. **Akıl yürütme derinliğini yapılandırma**: Oturum yapılandırmanızda `thinking_config` değerini ayarlayarak akıl yürütme seviyelerini (`low`, `medium` veya `high`; `MINIMAL` desteklenmez) düzenleyin.
 
    ### Python
 
@@ -175,22 +175,23 @@ Vòng đời lượt và tín hiệu `turnComplete` vẫn giữ nguyên.
    };
    ```
 
-## So sánh song song giao thức
+## Protokol yan yana karşılaştırması
 
-Phần này so sánh các thông báo WebSocket được trao đổi trong mỗi giai đoạn của một phiên Live API.
+Bu bölümde, bir Canlı API oturumunun her aşamasında değiştirilen WebSocket mesajları karşılaştırılır.
 
-### Bước 1: Thiết lập phiên
+### 1. adım: Oturum kurulumu
 
-Cả hai mô hình đều kết nối với cùng một điểm cuối WebSocket:
+Her iki model de aynı WebSocket uç noktasına bağlanır:
 
 ```
 wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=$API_KEY
 ```
 
-- **Giống nhau**: Xác thực khoá API và URL WebSocket.
-- **Chuỗi mô hình**: `gemini-3.8-live` so với `gemini-3.8-live-extended-thinking`.
-- **Cấu hình tư duy**: Tư duy thêm `thinkingConfig` để điều chỉnh độ sâu lý luận.
-- **Hành vi của công cụ**: Để suy nghĩ, bạn cần `"behavior": "NON_BLOCKING"` về các khai báo hàm.
+- **Aynı**: WebSocket URL'si ve API anahtarı kimlik doğrulaması.
+- **Model dizesi**: `gemini-3.8-live` versus
+  `gemini-3.8-live-extended-thinking`.
+- **Düşünme yapılandırması**: Düşünme, akıl yürütme derinliğini ayarlamak için `thinkingConfig` seçeneğini ekler.
+- **Araç davranışı**: Düşünme, işlev bildirimlerinde `"behavior": "NON_BLOCKING"` gerektirir.
 
 ### Gemini 3.8 Live
 
@@ -249,7 +250,7 @@ wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.
 }
 ```
 
-Cả hai mô hình đều nhận được thông báo xác nhận của máy chủ khi kết nối:
+Her iki model de bağlantı kurulduğunda aynı sunucu onayını alır:
 
 ```
 {
@@ -257,9 +258,9 @@ Cả hai mô hình đều nhận được thông báo xác nhận của máy ch�
 }
 ```
 
-### Bước 2: Đầu vào âm thanh của người dùng
+### 2. adım: Kullanıcı ses girişi
 
-Tính năng phát trực tuyến âm thanh giống nhau ở cả hai mẫu. Các đoạn âm thanh PCM thô 16 kHz theo thời gian thực được truyền trực tuyến bằng `realtimeInput`:
+Ses akışı her iki modelde de aynıdır. Gerçek zamanlı 16 kHz ham PCM ses parçaları `realtimeInput` kullanılarak yayınlanır:
 
 ```
 {
@@ -272,14 +273,14 @@ Tính năng phát trực tuyến âm thanh giống nhau ở cả hai mẫu. Các
 }
 ```
 
-### Bước 3: Vòng đời của trạng thái và phản hồi mô hình
+### 3. adım: Model yanıtı ve durum yaşam döngüsü
 
-Cả hai mô hình đều truyền các đoạn âm thanh PCM 24 kHz trong `serverContent.modelTurn`. Tuy nhiên, việc quản lý vòng đời có sự khác biệt:
+Her iki model de `serverContent.modelTurn` içinde 24 kHz PCM ses parçaları yayınlar. Ancak yaşam döngüsü yönetimi farklıdır:
 
-#### Luồng phản hồi trực tiếp của Gemini 3.8
+#### Gemini 3.8 Live yanıt akışı
 
-1. Máy chủ truyền trực tuyến các đoạn âm thanh cho lượt trò chuyện.
-2. Máy chủ gửi `turnComplete: true`, cho biết mô hình đã nói xong và phiên đang ở trạng thái rảnh.
+1. Sunucu, sıra için ses parçaları yayınlar.
+2. Sunucu, modelin konuşmayı bitirdiğini ve oturumun boşta olduğunu belirten `turnComplete: true` karakterini gönderir.
 
 ```
 // 1. Audio stream chunks
@@ -306,12 +307,12 @@ Cả hai mô hình đều truyền các đoạn âm thanh PCM 24 kHz trong `serv
 }
 ```
 
-#### Luồng phản hồi Tư duy mở rộng của Gemini 3.8 Live
+#### Gemini 3.8 Live Extended Thinking yanıt akışı
 
-1. **Từ nối**: Mô hình phát ra lời nói trung gian (chẳng hạn như *"Đang kiểm tra các chuyến bay đến Seattle..."*) bằng `turnComplete: true` và `interactionStatus: "IN_PROGRESS"`.
-2. **Lệnh gọi công cụ không đồng bộ**: Máy chủ phát ra lệnh gọi công cụ trong khi `interactionStatus` vẫn là `"IN_PROGRESS"`, cho biết rằng máy chủ đang tích cực xử lý lượt nhiều bước và chờ phản hồi của công cụ.
-3. **Phản hồi của công cụ**: Máy khách thực thi hàm và trả về đầu ra.
-4. **Phản hồi cuối cùng**: Máy chủ cung cấp câu trả lời hoàn chỉnh bằng `turnComplete: true` và `interactionStatus: "IDLE"`.
+1. **Konuşma sırasında kullanılan dolgu kelimeleri**: Model, `turnComplete: true` ve `interactionStatus: "IN_PROGRESS"` ile ara konuşma (ör. *"Seattle'a uçuşları kontrol ediliyor..."*) yapıyor.
+2. **Asenkron araç çağrısı**: Sunucu, araç çağrısını yayınlarken `interactionStatus` `"IN_PROGRESS"` olarak kalır. Bu, sunucunun çok adımlı dönüşü etkin bir şekilde işlediğini ve araç yanıtını beklediğini gösterir.
+3. **Araç yanıtı**: İstemci, işlevi yürütür ve çıkışı döndürür.
+4. **Son yanıt**: Sunucu, `turnComplete: true` ve `interactionStatus: "IDLE"` ile birlikte yanıtın tamamını sunar.
 
 ```
 // 1. Spoken verbal filler while background reasoning proceeds
@@ -384,9 +385,9 @@ Cả hai mô hình đều truyền các đoạn âm thanh PCM 24 kHz trong `serv
 }
 ```
 
-## Ví dụ về cách triển khai SDK
+## SDK uygulama örnekleri
 
-Các ví dụ sau đây cho thấy cách định cấu hình Thinking và xử lý `interaction_status` bằng Google GenAI SDK.
+Aşağıdaki örneklerde, Google GenAI SDK'sını kullanarak Düşünme'yi nasıl yapılandıracağınız ve `interaction_status`'yı nasıl işleyeceğiniz gösterilmektedir.
 
 ### Python
 
@@ -525,19 +526,19 @@ async function main() {
 main();
 ```
 
-## Bước tiếp theo
+## Sırada ne var?
 
-- Đọc các trang về mô hình [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=vi) và [Gemini 3.8 Live có chế độ Tư duy mở rộng](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=vi).
-- Hãy xem bảng [So sánh mô hình](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=vi#model-comparison) để biết thông tin so sánh chi tiết về các tính năng của tất cả các mô hình Live API.
-- Tìm hiểu thêm về tính năng gọi hàm trong hướng dẫn [Sử dụng công cụ Live API](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=vi).
-- Xem lại phần [Quản lý phiên](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=vi) để xử lý việc tiếp tục phiên và vòng đời của bối cảnh.
+- [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=tr) ve [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=tr) model sayfalarını okuyun.
+- Tüm Live API modellerindeki ayrıntılı özellik karşılaştırmaları için [Model karşılaştırma](https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=tr#model-comparison) tablosuna göz atın.
+- [Live API Tool Use](https://ai.google.dev/gemini-api/docs/live-api/tools?hl=tr) (Live API Aracı Kullanımı) kılavuzunda işlev çağırma hakkında daha fazla bilgi edinin.
+- Oturumun devam ettirilmesi ve bağlam yaşam döngüsünü yönetmek için [Oturum yönetimi](https://ai.google.dev/gemini-api/docs/live-api/session-management?hl=tr)'ni inceleyin.
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-09-17 UTC.
+Son güncelleme tarihi: 2026-09-17 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-17 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-17 UTC."],[],[]]

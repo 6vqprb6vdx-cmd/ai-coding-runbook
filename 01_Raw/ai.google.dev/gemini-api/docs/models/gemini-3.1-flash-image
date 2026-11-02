@@ -1,62 +1,68 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=ru
-fetched_at: 2026-10-26T05:51:25.473635+00:00
-title: "\u0418\u0437\u043e\u0431\u0440\u0430\u0436\u0435\u043d\u0438\u0435 Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-image?hl=id
+fetched_at: 2026-11-02T07:27:18.554878+00:00
+title: "Gambar Gemini 3.1 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [Главная](https://ai.google.dev/?hl=ru)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
-- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs?hl=id)
 
-Отправить отзыв
+Kirim masukan
 
-# Изображение Gemini 3.1 Flash
+# Gambar Gemini 3.1 Flash
 
-**Nano Banana 2** позволяет создавать высококачественные изображения и редактировать их с помощью разговорного интерфейса по доступной цене и с низкой задержкой. Она представляет собой высокоэффективный аналог [Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=ru), оптимизированный для скорости и использования разработчиками в больших объемах.
+**Nano Banana 2** menyediakan pembuatan gambar berkualitas tinggi dan pengeditan
+percakapan dengan harga standar dan latensi rendah. Model ini berfungsi sebagai
+padanan efisiensi tinggi untuk
+[Gemini 3 Pro Image](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=id), yang dioptimalkan untuk
+kecepatan dan
+kasus penggunaan developer bervolume tinggi.
 
-**Основные изменения**
+**Perubahan penting:**
 
-- Новые варианты разрешения:
-  - Новая поддержка 0,5K, 2K и 4K, по умолчанию 1K
-- Новое обоснование для поиска по изображениям:
-  - Интеграция результатов поиска по тексту и результатов поиска картинок для генерации на основе веб-данных в реальном времени
-  - Поддерживается при включенном или отключенном режиме "Размышления"
-- Новые соотношения сторон: 1:4, 4:1, 1:8 и 8:1
-- Улучшенное соблюдение соотношения сторон
-- Улучшенное качество изображения и единообразие
-- Улучшенная отрисовка текста на разных языках
+- Opsi resolusi output baru:
+  - Dukungan baru untuk 0,5K, 2K, dan 4K, default 1K
+- Grounding Penelusuran Gambar Baru:
+  - Integrasi hasil penelusuran teks dan hasil penelusuran gambar untuk mendukung pembuatan dengan data web real-time
+  - Didukung dengan Penalaran diaktifkan atau dinonaktifkan
+- Rasio aspek baru 1:4, 4:1, 1:8, dan 8:1
+- Peningkatan kepatuhan rasio aspek
+- Kualitas dan konsistensi gambar yang lebih baik
+- Rendering teks i18n yang ditingkatkan
 
-[Попробовать в Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=ru)
+[Coba di Google AI Studio](https://aistudio.google.com?model=gemini-3.1-flash-image&hl=id)
 
-## Документация
+## Dokumentasi
 
-Подробную информацию о функциях и возможностях можно найти на странице [Генерация изображений](https://ai.google.dev/gemini-api/docs/image-generation?hl=ru).
+Kunjungi halaman [Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id) untuk mengetahui cakupan lengkap fitur dan kemampuan.
 
 ## gemini-3.1-flash-image
 
-| Свойство | Описание |
+| Properti | Deskripsi |
 | --- | --- |
-| Код модели id\_card | `gemini-3.1-flash-image` |
-| saveПоддерживаемые типы данных | **Входные данные**  Текст, изображение, видео и PDF  **Выходные данные**  Изображение и текст |
-| token\_autoОграничения на количество токенов[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ru) | **Лимит на количество входных токенов**  131 072  **Лимит на количество выходных токенов**  32 768 |
-| handymanВозможности | **[Генератор аудио](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ru)**  Чего пользователь не может  **[Кеширование](https://ai.google.dev/gemini-api/docs/caching?hl=ru)**  Чего пользователь не может  **[Выполнение кода](https://ai.google.dev/gemini-api/docs/code-execution?hl=ru)**  Чего пользователь не может  **[Поиск файлов](https://ai.google.dev/gemini-api/docs/file-search?hl=ru)**  Чего пользователь не может  **[Вызов функций](https://ai.google.dev/gemini-api/docs/function-calling?hl=ru)**  Чего пользователь не может  **[Обоснование с Google Картами](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ru)**  Чего пользователь не может  **[Генерирование изображений](https://ai.google.dev/gemini-api/docs/image-generation?hl=ru)**  Что пользователь может  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ru)**  Чего пользователь не может  **[Находите информацию из надежных источников](https://ai.google.dev/gemini-api/docs/google-search?hl=ru)**  Что пользователь может  **[Структурированные выходные данные](https://ai.google.dev/gemini-api/docs/structured-output?hl=ru)**  Чего пользователь не может  **[Размышления](https://ai.google.dev/gemini-api/docs/thinking?hl=ru)**  Что пользователь может  **[Контекст URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ru)**  Чего пользователь не может |
-| speedВарианты просмотра | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ru)**  Что пользователь может  **[Гибкий инференс](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ru)**  Чего пользователь не может  **[Определение приоритета](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ru)**  Чего пользователь не может |
-| 123Версии | Подробнее [о шаблонах версий моделей](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ru#model-versions)…  - Стабильная: `gemini-3.1-flash-image` |
-| calendar\_monthПоследнее обновление | Февраль 2026 г. |
-| id\_cardКарточка модели | [Карточка модели](https://deepmind.google/models/model-cards/gemini-3-1-flash-image/?hl=ru) |
+| id\_cardKode model | `gemini-3.1-flash-image` |
+| saveJenis data yang didukung | **Input**  Teks, Gambar, Video, dan PDF  **Output**  Gambar dan Teks |
+| token\_autoBatas token[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=id) | **Batas token input**  131.072  **Batas token output**  32.768 |
+| handymanKemampuan | **[Pembuatan audio](https://ai.google.dev/gemini-api/docs/speech-generation?hl=id)**  Tidak didukung  **[Caching](https://ai.google.dev/gemini-api/docs/caching?hl=id)**  Tidak didukung  **[Eksekusi kode](https://ai.google.dev/gemini-api/docs/code-execution?hl=id)**  Tidak didukung  **[Penelusuran file](https://ai.google.dev/gemini-api/docs/file-search?hl=id)**  Tidak didukung  **[Pemanggilan fungsi](https://ai.google.dev/gemini-api/docs/function-calling?hl=id)**  Tidak didukung  **[Grounding dengan Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=id)**  Tidak didukung  **[Pembuatan gambar](https://ai.google.dev/gemini-api/docs/image-generation?hl=id)**  Didukung  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=id)**  Tidak didukung  **[Grounding penelusuran](https://ai.google.dev/gemini-api/docs/google-search?hl=id)**  Didukung  **[Output terstruktur](https://ai.google.dev/gemini-api/docs/structured-output?hl=id)**  Tidak didukung  **[Penalaran](https://ai.google.dev/gemini-api/docs/thinking?hl=id)**  Didukung  **[Konteks URL](https://ai.google.dev/gemini-api/docs/url-context?hl=id)**  Tidak didukung |
+| speedOpsi pemakaian | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=id)**  Didukung  **[Inferensi Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=id)**  Tidak didukung  **[Inferensi prioritas](https://ai.google.dev/gemini-api/docs/priority-inference?hl=id)**  Tidak didukung |
+| 123Versi | Baca [pola versi model](https://ai.google.dev/gemini-api/docs/models/gemini?hl=id#model-versions) untuk mengetahui detail selengkapnya.  - Stabil: `gemini-3.1-flash-image` |
+| calendar\_monthPembaruan terbaru | Februari 2026 |
+| id\_cardKartu model | [Kartu model](https://deepmind.google/models/model-cards/gemini-3-1-flash-image/?hl=id) |
+| paidHarga | [Harga](https://ai.google.dev/gemini-api/docs/pricing?hl=id#gemini-3.1-flash-image) |
 
-Отправить отзыв
+Kirim masukan
 
-Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-Последнее обновление: 2026-10-09 UTC.
+Terakhir diperbarui pada 2026-10-29 UTC.
 
-Хотите рассказать подробнее?
+Ada masukan untuk kami?
 
-[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-09 UTC."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-29 UTC."],[],[]]

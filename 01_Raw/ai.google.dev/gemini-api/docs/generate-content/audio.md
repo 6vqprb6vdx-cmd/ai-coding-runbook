@@ -1,25 +1,25 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=fa
-fetched_at: 2026-10-26T05:49:01.136892+00:00
-title: "\u062f\u0631\u06a9 \u0635\u062f\u0627 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/audio?hl=zh-TW
+fetched_at: 2026-11-02T07:03:51.191766+00:00
+title: "\u97f3\u8a0a\u7406\u89e3 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs/generate-content?hl=fa)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
 
-ارسال بازخورد
+提供意見
 
-# درک صدا
+# 音訊理解
 
-‫Gemini می‌تواند ورودی صوتی را تجزیه‌وتحلیل کند و پاسخ‌های نوشتاری تولید کند.
+Gemini 可以分析音訊輸入內容，並生成文字回覆。
 
 ### Python
 
@@ -67,7 +67,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -112,7 +112,7 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 AUDIO_PATH="path/to/sample.mp3"
@@ -166,24 +166,23 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## نمای کلی
+## 總覽
 
-‫Gemini می‌تواند ورودی صوتی را تجزیه‌وتحلیل و درک کند و پاسخ‌های نوشتاری برای آن تولید کند،
-که امکان استفاده از موارد زیر را فراهم می‌کند:
+Gemini 可以分析及理解音訊輸入內容，並生成文字回覆，
+適用於下列用途：
 
-- توصیف، خلاصه کردن، یا پاسخ دادن به سؤالات درباره محتوای صوتی.
-- ترانویسی و ترجمه صدا (گفتار به نوشتار) را ارائه دهید.
-- احساسات را در گفتار و موسیقی تشخیص دهید.
-- بخش‌های خاصی از صدا را تجزیه‌وتحلیل کن و مُهرهای زمان را ارائه بده.
+- 描述、摘要或回答音訊內容相關問題。
+- 提供音訊的轉錄稿和翻譯 (語音轉文字)。
+- 偵測語音和音樂中的情緒。
+- 分析音訊的特定片段，並提供時間戳記。
 
-درحال‌حاضر Gemini API از موارد استفاده ترانویسی هم‌زمان پشتیبانی نمی‌کند.
-برای تعامل‌های صوتی و ویدیویی هم‌زمان، به [Live API](https://ai.google.dev/gemini-api/docs/live?hl=fa) مراجعه کنید.
-برای مدل‌های اختصاصی گفتار به نوشتار با پشتیبانی از ترانویسی هم‌زمان،
-از [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=fa) استفاده کنید.
+目前 Gemini API 不支援即時轉錄功能。
+如需即時語音和視訊互動，請參閱 [Live API](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)。
+如要使用支援即時轉錄的專用語音轉文字模型，請使用 [Google Cloud Speech-to-Text API](https://cloud.google.com/speech-to-text?hl=zh-tw)。
 
-## آوانویسی گفتار به نوشتار
+## 將語音轉錄成文字
 
-این برنامه نمونه نشان می‌دهد که چگونه بااستفاده از [بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa)، به Gemini API پیام‌واره بدهید تا گفتار را ترانویسی، ترجمه، و خلاصه کند، ازجمله مُهرهای زمان و تشخیص احساسات.
+這個範例應用程式說明如何提示 Gemini API 轉錄、翻譯及摘要語音內容，包括使用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)偵測時間戳記和情緒。
 
 ### Python
 
@@ -348,7 +347,7 @@ async function main() {
 await main();
 ```
 
-### استراحت
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -411,28 +410,25 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-می‌توانید با یک کلیک به [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=fa) پیام‌واره بدهید تا برنامه‌ای درست مثل [این برنامه نمونه ترانویسی](https://aistudio.google.com/apps/bundled/echoscript?hl=fa) بسازد.
+只要按一下按鈕，就能提示 [AI Studio Build](https://aistudio.google.com/apps?e=0&hl=zh-tw) 建立應用程式，就像[這個轉錄應用程式範例](https://aistudio.google.com/apps/bundled/echoscript?hl=zh-tw)一樣。
 
-![برنامه Gemini ترانویسی صوتی چندزبانه](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=fa)
+![支援多種語言的語音轉錄 Gemini 應用程式](https://ai.google.dev/static/gemini-api/docs/images/audio_understanding_demo.gif?hl=zh-tw)
 
-## صدای ورودی
+## 輸入音訊
 
-می‌توانید داده‌های صوتی را به روش‌های زیر به Gemini ارائه دهید:
+你可以透過下列方式向 Gemini 提供音訊資料：
 
-- پیش‌از درخواست به `generateContent`، [فایل صوتی بارگذاری کنید](#upload-audio).
-- [داده‌های صوتی درون‌خطی را](#inline-audio) با درخواست به
-  `generateContent` ارسال کنید.
+- 請先[上傳音訊檔案](#upload-audio)，再向 `generateContent` 提出要求。
+- 透過要求將[內嵌音訊資料](#inline-audio)傳遞至 `generateContent`。
 
-برای آشنایی با دیگر روش‌های ورودی فایل، به راهنمای
-[روش‌های ورودی فایل](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=fa) مراجعه کنید.
+如要瞭解其他檔案輸入方式，請參閱「[檔案輸入方式](https://ai.google.dev/gemini-api/docs/file-input-methods?hl=zh-tw)」指南。
 
-### بارگذاری کردن فایل صوتی
+### 上傳音訊檔案
 
-می‌توانید از [Files API](https://ai.google.dev/gemini-api/docs/files?hl=fa) برای بارگذاری فایل صوتی استفاده کنید.
-وقتی اندازه کل درخواست (شامل فایل‌ها، پیام‌واره نوشتاری، دستورالعمل‌های سیستم، و غیره) بزرگ‌تر از ۲۰ مگابایت است، همیشه از Files API استفاده کنید.
+您可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳音訊檔。
+如果要求總大小 (包括檔案、文字提示、系統指令等) 超過 20 MB，請一律使用 Files API。
 
-کد زیر یک فایل صوتی را بارگذاری می‌کند و سپس از آن فایل در تماسی با
-`generateContent` استفاده می‌کند.
+下列程式碼會上傳音訊檔案，然後在呼叫 `generateContent` 時使用該檔案。
 
 ### Python
 
@@ -480,7 +476,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -525,7 +521,7 @@ func main() {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 AUDIO_PATH="path/to/sample.mp3"
@@ -579,12 +575,11 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-برای کسب اطلاعات بیشتر درباره کار با فایل‌های رسانه‌ای،
-[Files API](https://ai.google.dev/gemini-api/docs/files?hl=fa) را ببینید.
+如要進一步瞭解如何處理媒體檔案，請參閱 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)。
 
-### ارسال داده‌های صوتی به‌صورت درون‌خطی
+### 內嵌傳遞音訊資料
 
-به‌جای بارگذاری فایل صوتی، می‌توانید داده‌های صوتی درون‌خطی را در درخواست به `generateContent` ارسال کنید:
+您可以將內嵌音訊資料傳遞至 `generateContent`，而非上傳音訊檔案：
 
 ### Python
 
@@ -638,7 +633,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -683,16 +678,14 @@ func main() {
 }
 ```
 
-چند نکته که باید درباره داده‌های صوتی درون‌خطی به‌خاطر داشته باشید:
+使用內嵌音訊資料時，請注意下列事項：
 
-- حداکثر اندازه درخواست ۲۰ مگابایت است که شامل پیام‌واره‌های نوشتاری،
-  دستورالعمل‌های سیستم، و فایل‌های ارائه‌شده به‌صورت درون‌خطی می‌شود. اگر اندازه فایل شما باعث شود *اندازه کل درخواست* از ۲۰ مگابایت بیشتر شود، از Files API برای [بارگذاری فایل صوتی](#upload-audio) جهت استفاده در درخواست استفاده کنید.
-- اگر از یک نمونه صوتی چندین بار استفاده می‌کنید، کارآمدتر است که
-  [یک فایل صوتی بارگذاری کنید](#upload-audio).
+- 要求大小上限為 20 MB，包括文字提示、系統指令和內嵌提供的檔案。如果檔案大小會導致*要求總大小*超過 20 MB，請使用 Files API [上傳音訊檔案](#upload-audio)，以供要求使用。
+- 如果多次使用音訊樣本，建議[上傳音訊檔案](#upload-audio)，這樣效率更高。
 
-## دریافت ترانویسی
+## 取得轉錄稿
 
-برای دریافت ترانویسی داده‌های صوتی، کافی است آن را در پیام‌واره درخواست کنید:
+如要取得音訊資料的轉錄稿，只要在提示中提出要求即可：
 
 ### Python
 
@@ -736,7 +729,7 @@ const result = await ai.models.generateContent({
 console.log("result.text=", result.text);
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -781,12 +774,12 @@ func main() {
 }
 ```
 
-## به مُهرهای زمان مراجعه کنید
+## 參考時間戳記
 
-می‌توانید بااستفاده از مُهرهای زمان به فرم `MM:SS` به بخش‌های خاصی از فایل صوتی ارجاع دهید. برای مثال، پیام‌واره زیر ترانویسی‌ای را درخواست می‌کند که
+你可以使用 `MM:SS` 格式的時間戳記，參照音訊檔案的特定部分。舉例來說，下列提示會要求轉錄稿
 
-- از ۲ دقیقه و ۳۰ ثانیه از ابتدای فایل شروع می‌شود.
-- در دقیقه ۳ و ثانیه ۲۹ از ابتدای فایل به‌پایان می‌رسد.
+- 從檔案開頭算起，2 分 30 秒處開始。
+- 從檔案開頭算起，結束時間為 3 分 29 秒。
 
 ### Python
 
@@ -802,7 +795,7 @@ prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 const prompt = "Provide a transcript of the speech from 02:30 to 03:29."
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -848,9 +841,9 @@ func main() {
 }
 ```
 
-## شمارش داده‌واحدها
+## 計算詞元數
 
-برای دریافت تعداد نشان‌واره‌ها در فایل صوتی، روش `countTokens` را فراخوانی کنید. برای مثال:
+呼叫 `countTokens` 方法，即可取得音訊檔案中的權杖數量。例如：
 
 ### Python
 
@@ -890,7 +883,7 @@ const countTokensResponse = await ai.models.countTokens({
 console.log(countTokensResponse.totalTokens);
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -934,9 +927,9 @@ func main() {
 }
 ```
 
-## قالب‌های صوتی پشتیبانی‌شده
+## 支援的音訊格式
 
-‫Gemini از انواع MIME قالب صوتی زیر پشتیبانی می‌کند:
+Gemini 支援下列音訊格式 MIME 類型：
 
 - WAV - `audio/wav`
 - MP3 - `audio/mp3`
@@ -950,38 +943,34 @@ func main() {
 - Opus - `audio/opus`
 - ALAW - `audio/alaw`
 - MULAW - `audio/mulaw`
-- WebM - `audio/webm`‎
+- WebM - `audio/webm`
 
-برای مشاهده فهرست کامل انواع MIME و طرح‌واره‌های پارامتر پشتیبانی‌شده، به [مرجع Interactions API](https://ai.google.dev/api/interactions-api?hl=fa#Resource:Content) مراجعه کنید.
+如需支援的 MIME 類型和參數結構定義完整清單，請參閱 [Interactions API 參考資料](https://ai.google.dev/api/interactions-api?hl=zh-tw#Resource:Content)。
 
-## جزئیات فنی درباره صدا
+## 音訊技術詳細資料
 
-- ‫Gemini هر ثانیه از صدا را به‌عنوان ۳۲ نشانه نمایش می‌دهد؛ برای مثال،
-  یک دقیقه صدا به‌عنوان ۱٬۹۲۰ نشانه نمایش داده می‌شود.
-- ‫Gemini می‌تواند مؤلفه‌های غیرگفتاری، مانند آواز پرندگان یا آژیر را «درک کند».
-- حداکثر طول پشتیبانی‌شده برای داده‌های صوتی در یک پیام‌واره ۹٫۵ ساعت است.
-  ‫Gemini *تعداد* فایل‌های صوتی را در یک پیام‌واره محدود نمی‌کند؛ اما
-  مجموع طول همه فایل‌های صوتی در یک پیام‌واره نمی‌تواند از ۹٫۵ ساعت بیشتر باشد.
-- ‫Gemini فایل‌های صوتی را به وضوح داده ۱۶ کیلوبیت در ثانیه کاهش می‌دهد.
-- اگر منبع صوتی حاوی چندین کانال باشد، Gemini آن کانال‌ها را در یک کانال واحد ترکیب می‌کند.
+- Gemini 會將每秒音訊表示為 32 個權杖；舉例來說，一分鐘的音訊會表示為 1,920 個權杖。
+- Gemini 可以「瞭解」非語音成分，例如鳥鳴或警笛聲。
+- 單一提示支援的音訊資料長度上限為 9.5 小時。
+  Gemini 不會限制單一提示中的音訊檔案*數量*，但單一提示中所有音訊檔案的總長度不得超過 9.5 小時。
+- Gemini 會將音訊檔案降採樣至 16 Kbps 的資料解析度。
+- 如果音訊來源包含多個聲道，Gemini 會將這些聲道合併為單一聲道。
 
-## قدم بعدی چیست
+## 後續步驟
 
-این راهنما نشان می‌دهد چگونه در پاسخ به داده‌های صوتی، نوشتار تولید کنید. برای اطلاعات بیشتر،
-منابع زیر را ببینید:
+本指南說明如何產生回應音訊資料的文字。欲瞭解更多信息，請參閱以下資源：
 
-- [راهبردهای پیام‌واره‌دهی فایل](https://ai.google.dev/gemini-api/docs/files?hl=fa#prompt-guide): Gemini API از پیام‌واره‌دهی با داده‌های نوشتاری، تصویری، صوتی، و ویدیویی پشتیبانی می‌کند که
-  به آن پیام‌واره‌دهی چندحالته نیز می‌گویند.
-- [دستورالعمل‌های سیستم](https://ai.google.dev/gemini-api/docs/text-generation?hl=fa#system-instructions):
-  دستورالعمل‌های سیستم به شما امکان می‌دهد رفتار مدل را براساس نیازها و موارد استفاده خاص خود هدایت کنید.
-- [راهنمای ایمنی](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=fa): گاهی‌اوقات مدل‌های هوش مصنوعی زایا بروندادهای غیرمنتظره‌ای تولید می‌کنند، مثلاً بروندادهایی که نادرست، سوگیرانه، یا توهین‌آمیز هستند. پس‌پردازش و ارزیابی انسانی برای محدود کردن خطر آسیب ناشی از چنین بروندادهایی ضروری است.
+- [檔案提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw#prompt-guide): Gemini API 支援使用文字、圖像、音訊和視訊資料進行提示，也稱為多模態提示。
+- [系統指令](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw#system-instructions)：
+  系統指令可根據特定需求和用途，引導模型行為。
+- [安全指引](https://ai.google.dev/gemini-api/docs/safety-guidance?hl=zh-tw)：有時生成式 AI 模型會產生出乎意料的輸出內容，例如不準確、有偏見或令人反感的內容。後期處理和人工評估對於限制此類輸出造成的危害風險至關重要。
 
-ارسال بازخورد
+提供意見
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاریخ آخرین به‌روزرسانی 2026-10-19 به‌وقت ساعت هماهنگ جهانی.
+上次更新時間：2026-10-19 (世界標準時間)。
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+想進一步說明嗎？
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-19 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-19 (世界標準時間)。"],[],[]]

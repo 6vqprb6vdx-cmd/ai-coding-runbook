@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=zh-CN
-fetched_at: 2026-10-26T05:49:59.906690+00:00
-title: "\u4f9d\u6258 Google \u5730\u56fe\u8fdb\u884c\u63a5\u5730 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/maps-grounding?hl=ru
+fetched_at: 2026-11-02T07:24:01.458398+00:00
+title: "\u041e\u0431\u043e\u0441\u043d\u043e\u0432\u0430\u043d\u0438\u0435 \u0441 Google \u041a\u0430\u0440\u0442\u0430\u043c\u0438 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-cn)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs/generate-content?hl=ru)
 
-发送反馈
+Отправить отзыв
 
-# 依托 Google 地图进行接地
+# Обоснование с Google Картами
 
-Grounding with Google Maps 可将 Gemini 的生成能力与 Google 地图丰富、真实且最新的数据联系起来。借助此功能，开发者可以轻松将位置感知功能融入到自己的应用中。当用户查询的上下文与 Google 地图数据相关时，Gemini 模型会利用 Google 地图提供与用户指定位置或大致区域相关的真实且最新的回答。
+Обоснование с Google Картами связывает генеративные возможности Gemini с подробными, фактическими и актуальными данными Google Карт. Этот API позволяет разработчикам легко добавлять в свои приложения функции, связанные с местоположением. Когда запрос пользователя связан с данными Карт, модель Gemini использует Google Карты, чтобы предоставить точные и актуальные ответы, относящиеся к указанному местоположению или приблизительному местоположению пользователя.
 
-- **准确、位置感知的回答**： 利用 Google 地图广泛且最新的数据来处理特定地理位置的查询。
-- **增强的个性化体验**： 根据用户提供的位置定制推荐内容和信息。
+- **Точные ответы с учетом местоположения.** Используйте обширные и актуальные данные Google Карт для запросов, связанных с географическим положением.
+- **Улучшенная персонализация.** Рекомендации и информация подбираются с учетом местоположений, указанных пользователями.
 
-## 开始使用
+## Начать
 
-此示例演示了如何将 Grounding with Google Maps 集成到您的应用中，以便为用户查询提供准确、位置感知的回答。提示要求提供本地推荐，并提供可选的用户位置，以便 Gemini 模型使用 Google 地图数据。
+В этом примере показано, как интегрировать обоснование с Google Картами в приложение, чтобы предоставлять точные ответы на запросы пользователей с учетом местоположения. В запросе запрашиваются местные рекомендации с необязательным местоположением пользователя, что позволяет модели Gemini использовать данные Google Карт.
 
 ### Python
 
@@ -128,34 +128,34 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Grounding with Google Maps 的工作原理
+## Как работает обоснование с Google Картами
 
-“依托 Google 地图进行接地”功能使用 Google 地图 API 作为接地来源，将 Gemini API 与 Google 地理生态系统集成在一起。当用户的查询包含地理位置上下文时，Gemini 模型可以调用“依托 Google 地图进行接地”工具。然后，模型可以根据与所提供位置相关的 Google 地图数据生成回答。
+Обоснование с Google Картами интегрирует Gemini API с экосистемой Google Geo, используя Maps API в качестве источника обоснования. Если запрос пользователя содержит географический контекст, модель Gemini может вызвать инструмент обоснования с Google Картами. Затем модель может генерировать ответы на основе данных Google Карт, относящихся к указанному местоположению.
 
-该过程通常涉及以下步骤：
+Обычно процесс включает следующие этапы:
 
-1. **用户查询**： 用户向您的应用提交查询，其中可能包含地理位置上下文（例如“我附近的咖啡店”“旧金山的博物馆”）。
-2. **工具调用**： Gemini 模型识别出地理位置意图，并调用“Grounding with Google Maps”工具。您可以选择性地为该工具提供用户的 `latitude` 和 `longitude`。该工具是一种文本搜索工具，其行为与在 Google 地图上搜索类似，即本地查询（“我附近”）将使用坐标，而特定或非本地查询不太可能受到明确位置的影响。
-3. **数据检索**： Grounding with Google Maps 服务会查询 Google 地图以获取相关信息（例如地点、评价、照片、地址、营业时间）。
-4. **接地生成**： 检索到的 Google 地图数据用于为 Gemini 模型的回答提供信息，确保事实准确性和相关性。
-5. **回答**： 模型会返回文本回答，其中包含对 Google 地图来源的引用。
+1. **Запрос пользователя.** Пользователь отправляет запрос в ваше приложение, возможно, с указанием географического контекста (например, "кофейни рядом", "музеи в Сан-Франциско").
+2. **Вызов инструмента.** Модель Gemini распознает географический контекст и вызывает инструмент обоснования с Google Картами. В этом инструменте можно указать `latitude` и `longitude` пользователя. Это инструмент текстового поиска, который работает так же, как поиск на Картах: в локальных запросах ("рядом со мной") используются координаты, а на конкретные или нелокальные запросы явное указание местоположения вряд ли повлияет.
+3. **Получение данных.** Сервис Grounding with Google Maps отправляет в Google Карты запросы на получение нужной информации, например о местах, отзывах, фотографиях, адресах и часах работы.
+4. **Обоснованная источниками генерация.** Полученные данные Maps используются для формирования ответа модели Gemini, что обеспечивает фактическую точность и релевантность.
+5. **Ответ.** Модель возвращает текстовый ответ, который включает цитаты из источников Google Карт.
 
-## 使用 Grounding with Google Maps 的原因和时机
+## Зачем и когда использовать обоснование с Google Картами
 
-Grounding with Google Maps 功能非常适合需要准确、最新且特定于位置的信息的应用。它通过提供相关且个性化的内容来提升用户体验，这些内容由 Google 地图在全球范围内超过 2.5 亿个地点的庞大数据库提供支持。
+Основание на Google Картах идеально подходит для приложений, которым требуется точная, актуальная и привязанная к местоположению информация. Это повышает удобство использования, предоставляя релевантный и персонализированный контент, основанный на обширной базе данных Google Карт, содержащей более 250 миллионов мест по всему миру.
 
-当您的应用需要执行以下操作时，应使用 Grounding with Google Maps 功能：
+Используйте Grounding with Google Maps, если ваше приложение должно:
 
-- 针对特定地理位置的问题提供完整且准确的回答。
-- 构建对话式行程规划师和本地向导。
-- 根据位置和用户偏好（例如餐馆或商店）推荐兴趣点。
-- 为社交、零售或外卖服务打造位置感知体验。
+- Дайте полные и точные ответы на вопросы, связанные с местоположением.
+- Создавайте разговорные планировщики путешествий и местные путеводители.
+- Рекомендовать интересные места, например рестораны или магазины, на основе местоположения и предпочтений пользователя.
+- Создавайте сервисы с учетом местоположения для социальных сетей, розничной торговли или доставки еды.
 
-在需要考虑邻近度和最新真实数据的使用场景中，“依托 Google 地图进行接地”功能表现出色，例如查找“我附近最好的咖啡店”或获取路线。
+Обоснование с Google Картами отлично подходит для случаев, когда важны близость и актуальные фактические данные, например при поиске лучшей кофейни поблизости или построении маршрута.
 
-## API 方法和参数
+## Методы и параметры API
 
-Grounding with Google Maps 通过 Gemini API 作为工具在 [`generateContent`](https://ai.google.dev/api/generate-content?hl=zh-cn) 方法中公开。您可以通过在请求的 `tools` 参数中添加 [`googleMaps`](https://ai.google.dev/api/caching?hl=zh-cn#GoogleMaps) 对象来启用和配置 Grounding with Google Maps。
+Обоснование с помощью Google Карт доступно через Gemini API как инструмент в методе [`generateContent`](https://ai.google.dev/api/generate-content?hl=ru). Чтобы включить и настроить Grounding with Google Maps, добавьте объект [`googleMaps`](https://ai.google.dev/api/caching?hl=ru#GoogleMaps) в параметр `tools` запроса.
 
 ### JSON
 
@@ -170,7 +170,7 @@ Grounding with Google Maps 通过 Gemini API 作为工具在 [`generateContent`]
 }
 ```
 
-此外，该工具还支持将上下文位置作为 `toolConfig` 传递。
+Кроме того, инструмент поддерживает передачу контекстного местоположения в виде `toolConfig`.
 
 ### JSON
 
@@ -193,11 +193,10 @@ Grounding with Google Maps 通过 Gemini API 作为工具在 [`generateContent`]
 }
 ```
 
-### 了解接地回答
+### Как интерпретировать ответ с обоснованием
 
-当回答成功依托 Google 地图数据进行接地时，回答
-中会包含 [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-cn#GroundingMetadata) 字段。
-此结构化数据对于验证声明、在应用中打造丰富的引用体验以及满足服务使用要求至关重要。
+Если ответ успешно обоснован данными Google Карт, он содержит поле [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=ru#GroundingMetadata).
+Эти структурированные данные необходимы для проверки утверждений и создания в приложении удобных цитат, а также для соблюдения требований к использованию сервиса.
 
 ### JSON
 
@@ -244,23 +243,20 @@ Grounding with Google Maps 通过 Gemini API 作为工具在 [`generateContent`]
 }
 ```
 
-Gemini API 会随
-[`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=zh-cn#GroundingMetadata)返回以下信息：
+Gemini API возвращает следующую информацию с [`groundingMetadata`](https://ai.google.dev/api/generate-content?hl=ru#GroundingMetadata):
 
-- `groundingChunks`：包含 `maps` 来源（`uri`、`placeId` 和 `title`）的对象数组。
-- `groundingSupports`：用于将模型回答文本连接到 `groundingChunks` 中的来源的块数组。每个块将文本范围（由 `startIndex` 和 `endIndex` 定义）链接到一个或多个 `groundingChunkIndices`。这是构建内嵌引用的关键。
+- `groundingChunks` – массив объектов, содержащих источники `maps` (`uri`, `placeId` и `title`).
+- `groundingSupports`: массив фрагментов, позволяющих связать текст ответа модели с источниками в `groundingChunks`. Каждый фрагмент связывает текстовый диапазон (определенный с помощью тегов `startIndex` и `endIndex`) с одним или несколькими тегами `groundingChunkIndices`. Это ключ к созданию встроенных цитат.
 
-如需查看演示如何在文本中呈现内嵌引用的代码段，请参阅[“依托 Google 搜索进行接地”文档中的
-示例](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn#attributing_sources_with_inline_citations)
-。
+Фрагмент кода, показывающий, как отображать встроенные цитаты в тексте, можно найти в [примере](https://ai.google.dev/gemini-api/docs/google-search?hl=ru#attributing_sources_with_inline_citations) в документации по обоснованию с Google Поиском.
 
-## 使用场景
+## Примеры использования
 
-Grounding with Google Maps 支持各种位置感知应用场景。以下示例演示了不同的提示和参数如何利用 Grounding with Google Maps 功能。Google 地图接地结果中的信息可能与实际情况有所不同。
+Обоснование с Google Картами поддерживает различные варианты использования с учетом местоположения. В примерах ниже показано, как использовать обоснование с Google Картами с разными запросами и параметрами. Информация в обоснованных результатах Google Карт может отличаться от фактических условий.
 
-### 处理特定地点的问题
+### Как отвечать на вопросы о конкретных местах
 
-提出有关特定地点的详细问题，以获取基于 Google 用户评价和其他 Google 地图数据的回答。
+Задавайте подробные вопросы о конкретном месте, чтобы получить ответы на основе отзывов пользователей Google и других данных Карт.
 
 ### Python
 
@@ -366,9 +362,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-### 提供基于位置的个性化体验
+### Персонализация на основе местоположения
 
-获取根据用户偏好和特定地理区域量身定制的推荐。
+Получайте рекомендации, адаптированные к предпочтениям пользователя и конкретному географическому региону.
 
 ### Python
 
@@ -470,9 +466,9 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-### 协助规划行程
+### Помощь в планировании маршрута
 
-生成包含路线和各种地点信息的行程计划，非常适合旅行应用。
+Создавайте планы на несколько дней с маршрутами и информацией о различных местах. Это отлично подходит для приложений, связанных с путешествиями.
 
 ### Python
 
@@ -576,74 +572,70 @@ curl -X POST 'https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## 服务使用要求
+## Требования к использованию сервиса
 
-本部分介绍了“依托 Google 地图进行接地”功能的服务使用要求。
+В этом разделе описаны требования к использованию сервиса Grounding with Google Maps.
 
-### 告知用户 Google 地图来源的使用情况
+### Уведомляйте пользователей о том, что вы используете источники Google Карт
 
-对于每个 Google 地图接地结果，您都会收到 `groundingChunks` 中支持相应回答的来源。系统还会返回以下元数据：
+В каждом обоснованном результате поиска на Google Картах вы найдете источники в `groundingChunks`, подтверждающие ответ. Также возвращаются следующие метаданные:
 
-- 源 URI
-- 标题
+- URI источника
+- название
 - ID
 
-呈现“Grounding with Google Maps”功能的结果时，您必须指定关联的 Google 地图来源，并告知用户以下信息：
+При показе результатов обоснования с Google Картами вы должны указать связанные источники Google Карт и сообщить пользователям следующее:
 
-- Google 地图来源必须紧跟在来源支持的生成内容之后。此类生成的内容也称为 Google 地图接地结果。
-- Google 地图来源必须在一次用户互动中可见。
+- Источники Google Карт должны быть указаны сразу после сгенерированного контента, который они подтверждают. Такой контент также называется обоснованным результатом Google Карт.
+- Источники Google Карт должны быть видны в рамках одного взаимодействия с пользователем.
 
-### 使用 Google 地图链接显示 Google 地图来源
+### Показывать источники Google Карт со ссылками на Карты
 
-对于 `groundingChunks` 和 `grounding_chunks.maps.placeAnswerSources.reviewSnippets` 中的每个来源，必须按照以下要求生成链接预览：
+Для каждого источника в `groundingChunks` и `grounding_chunks.maps.placeAnswerSources.reviewSnippets` необходимо сгенерировать предварительный просмотр ссылки, соответствующий следующим требованиям:
 
-- 请按照 Google 地图文字
-  [提供方指南](#maps-attribution-guidelines)，将每项来源归属至 Google 地图。
-- 显示回答中提供的来源标题。
-- 使用回答中的 `uri` 或 `googleMapsUri` 链接到来源。
+- Укажите Google Карты в качестве источника данных в соответствии с [правилами указания авторства Google Карт](#maps-attribution-guidelines).
+- Показывать название источника, указанное в ответе.
+- Перейдите к источнику, используя значок `uri` или `googleMapsUri` из ответа.
 
-这些图片展示了显示来源和 Google 地图链接的最低要求。
+На этих изображениях показаны минимальные требования к отображению источников и ссылок на Google Карты.
 
-![显示来源的回答提示](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=zh-cn)
+![Запрос с ответом, в котором указаны источники](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-expanded.jpg?hl=ru)
 
-您可以收起“来源”视图。
+Вы можете свернуть источники.
 
-![已折叠包含回答和来源的提示](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=zh-cn)
+![Запрос с ответом и источниками свернут](https://ai.google.dev/static/gemini-api/docs/images/maps/sources-collapsed.jpg?hl=ru)
 
-可选：使用其他内容（例如以下内容）增强链接预览：
+Дополнительно: улучшите предпросмотр ссылки, добавив в него контент, например:
 
-- 在 [Google 地图网站图标](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=zh-cn)
-  之前插入 Google 地图文字提供方。
-- 来自来源网址 (`og:image`) 的照片。
+- Перед текстовой атрибуцией Google Карт вставляется [значок Google Карт](https://www.google.com/images/branding/product/ico/web_maps_icon_32dp.ico?hl=ru).
+- Фотография с URL источника (`og:image`).
 
-如需详细了解我们的部分 Google 地图数据提供商及其
-许可条款，请参阅
-[Google 地图和 Google 地球法律声明](https://www.google.com/help/legalnotices_maps/?hl=zh-cn)。
+Дополнительную информацию о некоторых поставщиках данных для Google Карт и условиях лицензирования можно найти в [юридических уведомлениях Google Карт и Google Планеты Земля](https://www.google.com/help/legalnotices_maps/?hl=ru).
 
-### Google 地图文字提供方指南
+### Правила атрибуции текста на Google Картах
 
-在文本中将来源归属至 Google 地图时，请遵循以下指南：
+При указании источников Google Карт в тексте следуйте этим рекомендациям:
 
-- 请勿以任何方式修改 Google 地图文字：
-  - 请勿更改 Google 地图的大小写。
-  - 请勿将 Google 地图换行到多行。
-  - 请勿将 Google 地图本地化为其他语言。
-  - 使用 HTML 属性 translate="no" 防止浏览器翻译 Google 地图。
-- 按照下表中的说明设置 Google 地图文字的样式：
+- Не изменяйте текст "Google Карты":
+  - Не меняйте регистр букв в названии Google Maps.
+  - Не переносите Google Карты на несколько строк.
+  - Не локализуйте Google Карты.
+  - Запретите браузерам переводить Google Карты с помощью HTML-атрибута translate="no".
+- Стиль текста на Картах Google можно задать так, как описано в таблице ниже.
 
-| 属性 | 样式 |
+| Свойство | Стиль |
 | --- | --- |
-| `Font family` | Roboto。您可以选择性地加载字体。 |
-| `Fallback font family` | 产品中已使用的任何无衬线正文字体，或“Sans-Serif”以调用默认系统字体 |
-| `Font style` | 正常 |
+| `Font family` | Roboto. Загружать шрифт необязательно. |
+| `Fallback font family` | Любой шрифт без засечек, который уже используется в вашем продукте, или Sans-Serif, чтобы использовать системный шрифт по умолчанию. |
+| `Font style` | Обычный |
 | `Font weight` | 400 |
-| `Font color` | 白色、黑色 (#1F1F1F) 或灰色 (#5E5E5E)。保持与背景的可访问对比度 (4.5:1)。 |
-| `Font size` | - 字体大小下限：12sp - 字体大小上限：16sp - 如需了解 sp，请参阅 [Material Design 网站](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc)上的字体大小单位。 |
-| `Spacing` | 正常 |
+| `Font color` | Белый, черный (#1F1F1F) или серый (#5E5E5E). Контрастность по отношению к фону должна быть не менее 4,5:1. |
+| `Font size` | - Минимальный размер шрифта: 12 sp. - Максимальный размер шрифта: 16 sp. - Подробнее о единицах sp можно узнать на [сайте Material Design](https://m3.material.io/styles/typography/type-scale-tokens#3f4488e7-3b74-45b0-a143-9d6afa4d62dc). |
+| `Spacing` | Обычный |
 
-#### 示例 CSS
+#### Пример CSS
 
-以下 CSS 代码段会在白色或浅色背景上呈现具有适当排版样式和颜色的 Google 地图。
+Ниже приведен код CSS, с помощью которого можно отобразить слово "Google" на белом или светлом фоне с использованием подходящего шрифта и цвета.
 
 ### CSS
 
@@ -662,89 +654,81 @@ color: #5e5e5e;
 }
 ```
 
-### 地点 ID 和评价 ID
+### идентификатор места и идентификатор отзыва;
 
-Google 地图数据包括地点 ID 和评价 ID。您可能会缓存、存储和导出以下回答数据：
+Данные Google Карт включают идентификатор места и идентификатор отзыва. Вы можете кешировать, хранить и экспортировать следующие данные ответов:
 
 - `placeId`
 - `reviewId`
 
-Grounding with Google Maps 条款中针对缓存的限制不适用。
+Ограничения на кеширование, указанные в Условиях использования обоснования с Google Картами, не применяются.
 
-### 禁止的活动和地区
+### Запрещенная деятельность и территория
 
-Grounding with Google Maps 对某些内容和活动有额外的限制，以维护安全可靠的平台。除了条款中的使用
-限制之外：
+Чтобы платформа оставалась безопасной и надежной, для обоснования с Google Картами действуют дополнительные ограничения на определенный контент и действия. В дополнение к ограничениям на использование, указанным в [Условиях](https://ai.google.dev/gemini-api/terms?hl=ru#grounding-with-google-maps):
 
-- 您不得将“依托 Google 地图进行接地”功能用于高风险活动，包括应急响应服务。
-- 您不得在禁止地区分发或营销提供“依托 Google 地图进行接地”功能的应用。如需了解详情，请参阅
-  [Google Maps Platform 禁止地区](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=zh-cn)。
-  禁止地区列表可能会不时更新。
+- Вы не будете использовать обоснование с Google Картами для деятельности с высоким риском, включая работу экстренных служб.
+- Вы не будете распространять или продвигать свое приложение, в котором предлагается обоснование с Google Картами, на запрещенной территории. Подробнее [о запрещенных территориях платформы Google Карт](https://cloud.google.com/maps-platform/terms/maps-prohibited-territories?hl=ru)…
+  Список запрещенных территорий может время от времени обновляться.
 
-## 最佳做法
+## Рекомендации
 
-- **提供用户位置**： 为了获得最相关且个性化的回答，请务必在知道用户位置的情况下，在 `googleMapsGrounding` 配置中添加 `user_location`（纬度和经度）。
-- **告知最终用户**： 明确告知最终用户，系统正在使用 Google 地图数据来回答他们的查询，尤其是在启用该工具时。
-- **监控延迟时间**： 对于对话式应用，请确保接地回答的 P95 延迟时间保持在可接受的阈值范围内，以维持流畅的用户体验。
-- **在不需要时关闭**： Grounding with Google Maps 默认处于关闭状态。只有当查询具有
-  明确的地理位置上下文时，才启用该功能 (`"tools": [{"googleMaps": {}}]`)，以优化性能和费用。
+- **Указывайте местоположение пользователя.** Чтобы получать наиболее релевантные и персонализированные ответы, всегда включайте `user_location` (широту и долготу) в конфигурацию `googleMapsGrounding`, когда местоположение пользователя известно.
+- **Информируйте конечных пользователей.** Четко сообщайте конечным пользователям, что для ответов на их запросы используются данные Google Карт, особенно когда инструмент включен.
+- **Отслеживайте задержку.** В разговорных приложениях убедитесь, что задержка P95 для обоснованных ответов остается в допустимых пределах, чтобы обеспечить удобство работы.
+- **Отключайте, когда не нужно.** Обоснование с Google Картами по умолчанию отключено. Включайте ее (`"tools": [{"googleMaps": {}}]`), только если запрос имеет четкий географический контекст, чтобы оптимизировать эффективность и расходы.
 
-## 限制
+## Ограничения
 
-- **地理范围**： Grounding with Google Maps 在全球范围内可用
-- **模型支持**： 请参阅[支持的模型](#supported-models)部分。
-- **多模态输入/输出**： Grounding with Google Maps 目前不支持文本以外的多模态输入或输出。
-- **默认状态**： “依托 Google 地图进行接地”工具默认处于关闭状态。
-  您必须在 API 请求中明确启用该工具。
+- **Географический охват.** Обоснование с Google Картами доступно во всех странах.
+- **Поддерживаемые модели.** См. раздел [Поддерживаемые модели](#supported-models).
+- **Мультимодальные входные и выходные данные.** Обоснование с Google Картами в настоящее время не поддерживает мультимодальные входные и выходные данные, кроме текста.
+- **Состояние по умолчанию.** Инструмент "Обоснование с Google Картами" по умолчанию отключен.
+  Его нужно явно включить в запросах к API.
 
-## 价格和速率限制
+## Цены и ограничения частоты запросов
 
-Grounding with Google Maps 的价格因模型代系而异：
+Цены на обоснование с Google Картами зависят от поколения модели:
 
-- **Gemini 3 及更新的模型**： 您的项目将按模型决定执行的每个搜索查询收费，所有 Gemini 3 及更新的模型每月共享 5,000 个免费请求，超出后按**每 1,000 次搜索查询 14 美元** 收费。单个搜索提示（您向模型发出的 API 请求）可能会导致模型执行多个搜索查询来查找必要的信息。每个查询都算作该工具的可计费使用。
-- **Gemini 2.5 及更旧的模型**： 您的项目将按搜索提示收费（每 1,000 条接地提示 25 美元）。只有当提示成功返回至少一个 Google 地图接地结果时，系统才会针对请求收费，无论模型在内部执行了多少个单独的搜索查询来获取该结果。
+- **Gemini 3 и более новые модели.** За каждый поисковый запрос, который модель решит выполнить, с вашего проекта будет взиматься плата. При этом 5000 запросов в месяц предоставляются бесплатно для всех моделей Gemini 3 и более новых версий. После этого стоимость составит **14 долларов США за 1000 поисковых запросов**. Один запрос к API может привести к тому, что модель выполнит несколько поисковых запросов, чтобы найти нужную информацию. Каждый из этих запросов считается платным использованием инструмента.
+- **Gemini 2.5 и более ранние модели.** Оплата взимается за каждый поисковый запрос (25 долларов США за 1000 запросов с обоснованием). Плата за запрос взимается, только если в ответ на него возвращается хотя бы один результат, заземленный на Google Картах, независимо от того, сколько поисковых запросов выполнила модель, чтобы получить этот результат.
 
-Grounding with Google Maps 的配额通常与底层 Gemini 模型的速率限制一致。如需了解详细的价格信息，请参阅 [Gemini API
-价格页面](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-cn)。
+Квота на обоснование с Google Картами обычно соответствует ограничениям частоты запросов для базовой модели Gemini. Подробную информацию о ценах можно найти на [странице цен на API Gemini](https://ai.google.dev/gemini-api/docs/pricing?hl=ru).
 
-## 支持的模型
+## Поддерживаемые модели
 
-以下模型支持 Grounding with Google Maps：
+Обоснование с Google Картами поддерживают следующие модели:
 
-| 模型 | Grounding with Google Maps |
+| Модель | Обоснование с Google Картами |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=zh-cn) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=zh-cn) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Pro 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=zh-cn) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=zh-cn) | ✔️ |
-| [Gemini 3 Flash 预览版](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=zh-cn) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=zh-cn) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=ru) | ✔️ |
+| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=ru) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=ru) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=ru) | ✔️ |
+| [Gemini 3.1 Pro Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=ru) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=ru) | ✔️ |
+| [Предварительная версия Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=ru) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ru) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=ru) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=ru) | ✔️ |
 
-## 支持的工具组合
+## Поддерживаемые сочетания инструментов
 
-您可以将 Grounding with Google Maps 功能与其他内置工具（例如
-[“依托 Google 搜索进行接地”功能](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-cn)，
-Gemini 3.5 Flash-Lite 及更新的模型支持此功能）搭配使用，以支持更复杂的使用场景。Gemini 3 模型还支持将这些内置工具与自定义工具（函数调用）相结合。如需了解详情，请参阅
-[工具组合](https://ai.google.dev/gemini-api/docs/tool-combination?hl=zh-cn)页面。
+Обоснование с Google Картами можно использовать с другими встроенными инструментами, например [обоснованием с Google Поиском](https://ai.google.dev/gemini-api/docs/google-search?hl=ru) (поддерживается в Gemini 3.5 Flash-Lite и более поздних моделях), чтобы решать более сложные задачи.
+Модели Gemini 3 также поддерживают комбинирование этих встроенных инструментов с пользовательскими (вызов функций). Подробнее [о сочетаниях инструментов](https://ai.google.dev/gemini-api/docs/tool-combination?hl=ru)…
 
-## 后续步骤
+## Дальнейшие действия
 
-- 试试 [Gemini API 实战宝典
-  中的“依托 Google 搜索进行接地”功能](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=zh-cn)。
-- 了解其他[可用工具](https://ai.google.dev/gemini-api/docs/tools?hl=zh-cn)。
-- 如需详细了解 Responsible AI 最佳实践和 Gemini API 的安全性
-  过滤机制，请参阅[安全设置指南](https://ai.google.dev/gemini-api/docs/safety-settings?hl=zh-cn)。
+- Попробуйте [обоснование с Google Поиском в Gemini API Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Search_Grounding.ipynb?hl=ru).
+- Подробнее [о других доступных инструментах](https://ai.google.dev/gemini-api/docs/tools?hl=ru)…
+- Чтобы узнать больше о принципах ответственного использования ИИ и фильтрах безопасности Gemini API, ознакомьтесь с [руководством по настройкам безопасности](https://ai.google.dev/gemini-api/docs/safety-settings?hl=ru).
 
-发送反馈
+Отправить отзыв
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-最后更新时间 (UTC)：2026-10-15。
+Последнее обновление: 2026-10-15 UTC.
 
-需要向我们提供更多信息？
+Хотите рассказать подробнее?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-10-15。"],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-15 UTC."],[],[]]

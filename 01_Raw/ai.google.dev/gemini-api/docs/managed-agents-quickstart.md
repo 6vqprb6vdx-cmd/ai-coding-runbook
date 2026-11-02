@@ -1,32 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=de
-fetched_at: 2026-10-26T06:00:53.327773+00:00
-title: "Kurzanleitung f\u00fcr verwaltete Agents \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=fr
+fetched_at: 2026-11-02T07:28:45.772604+00:00
+title: "Guide de d\u00e9marrage rapide sur les agents g\u00e9r\u00e9s \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
+Gemini 4 Argon est désormais disponible. [À vous de jouer](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Accueil](https://ai.google.dev/?hl=fr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fr)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=fr)
 
-Feedback geben
+Envoyer des commentaires
 
-# Kurzanleitung für verwaltete Agents
+# Guide de démarrage rapide sur les agents gérés
 
-In diesem Leitfaden wird beschrieben, wie Sie verwaltete KI-Agenten in der Gemini API mit dem [Antigravity-Agenten](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=de) erstellen und verwenden. Sie führen Ihren ersten Agent-Aufruf aus, setzen eine Unterhaltung mit mehreren Durchgängen fort, streamen die Antwort, laden Dateien aus der Sandbox herunter und arbeiten mit dem verwalteten Antigravity-Agenten.
+Ce guide vous explique comment créer et utiliser des agents gérés sur l'API Gemini à l'aide de l'[agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr). Vous allez effectuer votre premier appel d'agent, poursuivre une conversation multitours, diffuser la réponse, télécharger des fichiers depuis le bac à sable et travailler avec l'agent géré Antigravity.
 
-## Erste Interaktion mit einem KI-Agenten ausführen
+## Exécuter votre première interaction avec un agent
 
-Bei einem einzelnen Aufruf der [Interactions API](https://ai.google.dev/gemini-api/docs?hl=de) wird eine Linux-Sandbox bereitgestellt, die Agentenschleife ausgeführt und das Ergebnis zurückgegeben. Sie definieren drei Parameter:
+Un seul appel à l'[API Interactions](https://ai.google.dev/gemini-api/docs?hl=fr) provisionne un bac à sable Linux, exécute la boucle de l'agent et renvoie le résultat. Vous allez définir trois paramètres :
 
-- Übergeben Sie `agent` als `"antigravity-preview-09-2026"`. Das ist die aktuelle Version unseres vordefinierten und allgemeinen verwalteten Agents.
-- Definieren Sie `environment="remote"`, um eine neue, frische Sandbox-Umgebung bereitzustellen.
-- Erstellen Sie eine Eingabe, in der Sie definieren, was der KI-Agent tun soll.
+- Transmettez `agent` en tant que `"antigravity-preview-09-2026"`, qui est la version actuelle de notre agent géré prédéfini et à usage général.
+- Définissez `environment="remote"` pour provisionner un nouvel environnement de bac à sable.
+- Créez une entrée en définissant ce que vous attendez de l'agent.
 
 ### Python
 
@@ -147,16 +147,16 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Die Antwort gibt ein `Interaction`-Objekt zurück. Speichern Sie `interaction.id` und `interaction.environment_id`, um die Unterhaltung in derselben Sandbox fortzusetzen. Verwenden Sie `interaction.output_text`, um auf die endgültige Antwort des Agenten zuzugreifen. `interaction.steps` listet jeden Schritt auf, den der Agent ausgeführt hat (Begründung, Tool-Aufrufe, Code-Ausführung).
+La réponse renvoie un objet `Interaction`. Stockez `interaction.id` et `interaction.environment_id` pour poursuivre la conversation dans le même bac à sable. Utilisez `interaction.output_text` pour accéder à la réponse finale de l'agent. `interaction.steps` liste chaque étape effectuée par l'agent (raisonnement, appels d'outils, exécution de code).
 
-## Unterhaltung fortsetzen (Mehrfachdialog)
+## Poursuivre la conversation (multitour)
 
-Die API erfasst zwei unabhängige Zustandsdimensionen:
+L'API suit deux dimensions d'état indépendantes :
 
-- **Kontext der Unterhaltung**:Chatverlauf, Begründungsablauf, Tool-Nutzung, Verwendung von `previous_interaction_id`.
-- [**Umgebungsstatus**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de):Dateien, installierte Pakete und Sandbox-Status mit `environment`.
+- **Contexte de la conversation** : historique des discussions, trace de raisonnement, utilisation d'outils, utilisation de `previous_interaction_id`.
+- [**État de l'environnement**](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : fichiers, packages installés et état du bac à sable, à l'aide de `environment`.
 
-Geben Sie beide an der entsprechenden Stelle ein, um fortzufahren:
+Transmettez les deux dans leur emplacement respectif pour reprendre :
 
 ### Python
 
@@ -266,20 +266,20 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-Dateien aus Runde 1 (`fibonacci.txt`) bleiben in Runde 2 erhalten. Der KI-Agent behält auch den Kontext der Unterhaltung bei.
+Les fichiers du tour 1 (`fibonacci.txt`) sont conservés au tour 2. L'agent conserve également le contexte de la conversation.
 
-Sie können diese unabhängig voneinander kombinieren:
+Vous pouvez combiner ces éléments indépendamment :
 
-- **Unterhaltung löschen, Dateien behalten**:Lassen Sie `previous_interaction_id` weg und übergeben Sie nur die Umgebungs-ID mit `environment` für eine neue Unterhaltung im selben Arbeitsbereich.
-- **Unterhaltung beibehalten, neuer Arbeitsbereich**:Übergeben Sie `previous_interaction_id` und legen Sie `environment="remote"` für eine neue Sandbox fest.
+- **Effacer la conversation, conserver les fichiers** : omettez `previous_interaction_id` et ne transmettez que l'ID d'environnement à l'aide de `environment` pour une nouvelle conversation dans le même espace de travail.
+- **Conserver la conversation, nouvel espace de travail** : transmettez `previous_interaction_id` et définissez `environment="remote"` pour un nouvel bac à sable.
 
-### Automatische Kontextverdichtung
+### Compression automatique du contexte
 
-Bei langen, Mehrfachdialog-Unterhaltungen kann der Rohverlauf von Begründungsschritten, Tool-Aufrufen und großen Dateiinhalten schnell anwachsen und viel Kontextspeicherplatz beanspruchen. Um Fehler aufgrund von Tokenlimits zu vermeiden und den Fokus des Agenten beizubehalten (um „Context Rot“ zu verhindern), enthält die Managed Agents API einen nativen Schritt zur Kontextkomprimierung bei etwa 135.000 Tokens. Dies geschieht automatisch.
+Dans les conversations longues et multitours, l'historique brut des étapes de raisonnement, des appels d'outils et du contenu des fichiers volumineux peut rapidement s'allonger et consommer un espace de contexte important. Pour éviter les erreurs liées à la limite de jetons et maintenir la concentration de l'agent (en évitant la "détérioration du contexte"), l'API Managed Agents inclut une étape de compaction du contexte natif à environ 135 000 jetons. Ce processus est automatique.
 
-## Antwort streamen
+## Diffuser la réponse
 
-Bei zeitaufwendigen Aufgaben können Sie die Antwort streamen, um zu sehen, wie der Agent in Echtzeit arbeitet:
+Pour les tâches de longue durée, vous pouvez diffuser la réponse en streaming pour voir l'agent travailler en temps réel :
 
 ### Python
 
@@ -420,11 +420,11 @@ curl -N -s -X POST "https://generativelanguage.googleapis.com/v1beta/interaction
 }'
 ```
 
-Beim Streaming werden Schrittdeltas mit inkrementellen Updates zurückgegeben. Wenn ein Schritt abgeschlossen ist, enthält das `step.stop`-Ereignis die zusammengefassten Nutzungsstatistiken. [Weitere Informationen](https://ai.google.dev/gemini-api/docs/streaming?hl=de)
+Le streaming renvoie les deltas d'étapes avec des mises à jour incrémentielles. Lorsqu'une étape est terminée, l'événement `step.stop` inclut des statistiques d'utilisation cumulées. Pour en savoir plus, consultez le [guide sur le streaming](https://ai.google.dev/gemini-api/docs/streaming?hl=fr).
 
-## Dateien aus der Umgebung herunterladen
+## Télécharger des fichiers depuis l'environnement
 
-Wenn der Agent Dateien in der Sandbox erstellt. Laden Sie sie mit der Files API über eine direkte HTTP-Anfrage herunter (noch keine SDK-Methode):
+Lorsque l'agent crée des fichiers dans le bac à sable. Téléchargez-les à l'aide de l'API Files avec une requête HTTP directe (aucune méthode SDK n'est encore disponible) :
 
 ### Python
 
@@ -565,13 +565,13 @@ mkdir -p extracted_snapshot
 tar -xf snapshot.tar -C extracted_snapshot
 ```
 
-## Verwalteten Agent speichern
+## Enregistrer un agent géré
 
-In den vorherigen Schritten haben wir den Standard-Antigravity-Agent verwendet und ihn inline angepasst. Nachdem Sie Ihre Konfiguration (Anweisungen, Skills, Modellauswahl und Umgebung) optimiert haben, können Sie sie als wiederverwendbaren verwalteten Agent speichern. So können Sie sie anhand der ID aufrufen, ohne die Konfiguration zu wiederholen.
+Lors des étapes précédentes, nous avons utilisé l'agent Antigravity par défaut et l'avons personnalisé en ligne. Une fois que vous avez itéré sur votre configuration (instructions, compétences, sélection de modèle et environnement), vous pouvez l'enregistrer en tant qu'agent géré réutilisable. Cela vous permet de l'appeler par ID sans répéter la configuration.
 
-Wenn Sie einen Agenten speichern, sehen Sie die architektonische Symmetrie mit Inline-Interaktionen: Sie geben `base_agent: "antigravity-preview-09-2026"` an und können ein `agent_config` mit dem ausgewählten `model` übergeben, genau wie bei `interactions.create`. Sie definieren auch eine `base_environment` (entweder aus Quellen oder durch Forking einer vorhandenen Umgebung). Der Agent verwendet diese Umgebung und Modellkonfiguration für jede neue Interaktion.
+Lorsque vous enregistrez un agent, notez la symétrie architecturale avec les interactions intégrées : vous spécifiez `base_agent: "antigravity-preview-09-2026"` et pouvez transmettre un `agent_config` avec votre `model` choisi, comme vous le feriez sur `interactions.create`. Vous définissez également un `base_environment` (à partir de sources ou en dupliquant un environnement existant). L'agent utilisera cette configuration d'environnement et de modèle pour chaque nouvelle interaction.
 
-**Aus Quellen**:Definieren Sie Quellen inline oder aus anderen Quellen wie GitHub oder Cloud Storage.
+**À partir de sources** : définissez des sources intégrées ou à partir d'autres sources telles que GitHub ou Cloud Storage.
 
 ### Python
 
@@ -770,9 +770,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/agents" \
 }'
 ```
 
-## Verwalteten Agent aufrufen
+## Appeler l'agent géré
 
-Nachdem Sie einen verwalteten Agent gespeichert haben, können Sie ihn über die ID aufrufen. Bei jedem Aufruf wird die Basisumgebung verzweigt, sodass jeder Lauf sauber beginnt:
+Une fois que vous avez enregistré un agent géré, vous pouvez l'appeler par son ID. Chaque appel duplique l'environnement de base, de sorte que chaque exécution commence de manière propre :
 
 ### Python
 
@@ -874,19 +874,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## Nächste Schritte
+## Étape suivante
 
-- [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=de): Funktionen, unterstützte Tools, multimodale Eingabe, Preise und Einschränkungen.
-- [Verwaltete KI-Agenten erstellen](https://ai.google.dev/gemini-api/docs/custom-agents?hl=de): Erweitern Sie Antigravity mit Ihren eigenen Anweisungen, Skills und Daten.
-- [Umgebungen](https://ai.google.dev/gemini-api/docs/agent-environment?hl=de): Quellen, Netzwerk, Lebenszyklus, Ressourcenlimits.
-- [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=de): die zugrunde liegende API für Modelle und Agents.
+- [Agent Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=fr) : fonctionnalités, outils compatibles, entrée multimodale, tarifs et limites.
+- [Créer des agents gérés](https://ai.google.dev/gemini-api/docs/custom-agents?hl=fr) : étendez Antigravity avec vos propres instructions, compétences et données.
+- [Environnements](https://ai.google.dev/gemini-api/docs/agent-environment?hl=fr) : sources, mise en réseau, cycle de vie, limites de ressources.
+- [API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr) : API sous-jacente pour les modèles et les agents.
 
-Feedback geben
+Envoyer des commentaires
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
 
-Zuletzt aktualisiert: 2026-10-01 (UTC).
+Dernière mise à jour le 2026/10/01 (UTC).
 
-Haben Sie Feedback für uns?
+Voulez-vous nous donner plus d'informations ?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-01 (UTC)."],[],[]]
+[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/10/01 (UTC)."],[],[]]

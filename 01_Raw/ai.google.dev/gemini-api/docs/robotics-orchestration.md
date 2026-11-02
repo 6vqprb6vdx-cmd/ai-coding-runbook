@@ -1,38 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=es-419
-fetched_at: 2026-10-26T05:38:02.692242+00:00
-title: "Organizaci\u00f3n de tareas \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja
+fetched_at: 2026-11-02T07:09:40.385686+00:00
+title: "\u30bf\u30b9\u30af \u30aa\u30fc\u30b1\u30b9\u30c8\u30ec\u30fc\u30b7\u30e7\u30f3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Enviar comentarios
+フィードバックを送信
 
-# Organización de tareas
+# タスク オーケストレーション
 
-Los modelos de Gemini Robotics ER pueden planificar tareas y razonar sobre el espacio, lo que infiere qué acciones tomar y qué objetos mover para completar un objetivo. En esta página
-se muestra un ejemplo para [controlar una operación de selección y colocación](#calling-custom-robot-api)
-a través de una API de robot personalizada para organizar la tarea de colocar un elemento
-en un tazón. En este ejemplo, se usa el modelo estándar de Gemini ER 2. Para ver un ejemplo de transmisión, consulta la [guía de transmisión de Gemini ER 2](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419).
+Gemini Robotics ER モデルは、タスクを計画し、空間について推論して、目標を達成するためにどのようなアクションを実行し、どのオブジェクトを移動するかを推測できます。このページでは、カスタム ロボット API を介して[ピック アンド プレースを駆動](#calling-custom-robot-api)し、アイテムをボウルに入れるタスクをオーケストレートする例を示します。この例では標準の Gemini ER 2 モデルを使用します。ストリーミングの例については、[Gemini ER 2 ストリーミング ガイド](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja)をご覧ください。
 
-Para obtener el código ejecutable completo, consulta el
-[libro de recetas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+実行可能な完全なコードについては、[ロボティクス クックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
 
-## Usa una API de robot personalizada
+## カスタム ロボット API を使用する
 
-En este ejemplo, se muestra la organización de tareas con una API de robot personalizada. Se presenta una API simulada diseñada para una operación de selección y colocación. La tarea consiste en recoger un bloque azul y colocarlo en un tazón naranja:
+この例では、カスタム ロボット API を使用したタスク オーケストレーションを示します。このサンプルでは、ピッキングと配置のオペレーション用に設計されたモック API を紹介します。青いブロックを拾ってオレンジ色のボウルに入れるタスクです。
 
-![Imagen del bloque y el tazón](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=es-419)
+![ブロックとボウルの画像](https://ai.google.dev/static/gemini-api/docs/images/robotics/robot-api-example.png?hl=ja)
 
-En este ejemplo, se usa la siguiente API de robot simulada:
+この例では、次のモックロボット API を使用します。
 
 ### Python
 
@@ -75,7 +71,7 @@ set_gripper_state_function = {
 }
 ```
 
-En el siguiente ejemplo, se envían la instrucción y la imagen al modelo con las definiciones de herramientas. Luego, se ejecuta un bucle de agente: después de cada respuesta del modelo, se ejecutan las llamadas a funciones solicitadas (`move`, `setGripperState`), se devuelven los resultados al modelo con `previous_interaction_id` y se repite hasta que el modelo deja de llamar a funciones o se alcanza el límite de pasos.
+次の例では、プロンプトと画像をツール定義とともにモデルに送信します。次に、エージェント ループを実行します。各モデル レスポンスの後、リクエストされた関数呼び出し（`move`、`setGripperState`）を実行し、`previous_interaction_id` を使用して結果をモデルに返し、モデルが関数の呼び出しを停止するか、ステップの上限に達するまで繰り返します。
 
 ### Python
 
@@ -151,7 +147,7 @@ while step_count < max_steps:
     )
 ```
 
-A continuación, se muestra un resultado posible del modelo basado en la instrucción y la API de robot simulada. El resultado incluye el resultado de las llamadas a funciones del robot que el modelo secuenció.
+プロンプトとモックロボット API に基づくモデルの出力例を次に示します。出力には、モデルが順序付けたロボット関数呼び出しの出力が含まれます。
 
 ```
 --- Executing Orchestrated Plan ---
@@ -168,18 +164,18 @@ Sequence complete.
 Model Summary: I have completed the task of picking up the blue block and placing it into the orange bowl.
 ```
 
-## ¿Qué sigue?
+## 次のステップ
 
-- [Robótica con transmisión](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419): Transmisión en tiempo real con llamadas a funciones (solo Gemini Robotics ER 2)
-- [Comprensión de video](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=es-419): Realiza un seguimiento del progreso de las tareas desde el video (solo ER 2)
-- [Razonamiento espacial](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=es-419): Ejemplos de señalamiento, seguimiento y cuadros delimitadores.
+- [ストリーミングを使用したロボット工学](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - 関数呼び出しを使用したリアルタイム ストリーミング（Gemini Robotics ER 2 のみ）。
+- [動画の理解](https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja) - 動画からタスクの進捗状況を追跡します（ER 2 のみ）。
+- [空間推論](https://ai.google.dev/gemini-api/docs/robotics-spatial?hl=ja) - ポインティング、トラッキング、境界ボックスの例。
 
-Enviar comentarios
+フィードバックを送信
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Última actualización: 2026-10-01 (UTC)
+最終更新日 2026-10-01 UTC。
 
-¿Quieres brindar más información?
+ご意見をお聞かせください
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-01 (UTC)"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-01 UTC。"],[],[]]

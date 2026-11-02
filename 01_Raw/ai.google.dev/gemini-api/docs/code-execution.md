@@ -1,30 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=zh-TW
-fetched_at: 2026-10-26T06:07:06.204242+00:00
-title: "\u57f7\u884c\u7a0b\u5f0f\u78bc \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/code-execution?hl=de
+fetched_at: 2026-11-02T07:04:13.646759+00:00
+title: "Codeausf\u00fchrung \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
+Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=de)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [Startseite](https://ai.google.dev/?hl=de)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
+- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
 
-提供意見
+Feedback geben
 
-# 執行程式碼
+# Codeausführung
 
-Gemini API 提供執行程式碼工具，可讓模型生成及執行 Python 程式碼。接著，模型會根據執行程式碼結果反覆學習，直到生成最終輸出內容。您可以使用程式碼執行功能，建構根據程式碼進行推論的應用程式。舉例來說，您可以使用執行程式碼功能解方程式或處理文字。您也可以使用程式碼執行環境中的[程式庫](#supported-libraries)，執行更專業的工作。
+Die Gemini API bietet ein Tool zur Code-Ausführung, mit dem das Modell Python-Code generieren und ausführen kann. Das Modell kann dann iterativ aus den Ergebnissen der Codeausführung lernen, bis es eine endgültige Ausgabe erstellt hat. Sie können die Codeausführung verwenden, um Anwendungen zu erstellen, die von codebasierten Schlussfolgerungen profitieren. Beispielsweise können Sie die Codeausführung verwenden, um Gleichungen zu lösen oder Text zu verarbeiten. Sie können
+auch die [Bibliotheken](#supported-libraries) verwenden, die in der Code-Ausführungsumgebung
+enthalten sind, um speziellere Aufgaben auszuführen.
 
-Gemini 只能執行 Python 程式碼。您仍可要求 Gemini 以其他語言生成程式碼，但模型無法使用程式碼執行工具執行。
+Gemini kann Code nur in Python ausführen. Sie können Gemini trotzdem bitten, Code in einer anderen Sprache zu generieren. Das Modell kann das Tool zur Code-Ausführung jedoch nicht verwenden, um ihn auszuführen.
 
-## 啟用執行程式碼功能
+## Code-Ausführung aktivieren
 
-如要啟用執行程式碼功能，請在模型上設定程式碼執行工具。這樣模型就能生成及執行程式碼。
+Konfigurieren Sie das Tool zur Codeausführung für das Modell, um die Codeausführung zu aktivieren. So kann das Modell Code generieren und ausführen.
 
 ### Python
 
@@ -200,7 +202,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-輸出內容可能如下所示 (已調整格式以利閱讀)：
+Die Ausgabe könnte in etwa so aussehen. Sie wurde zur besseren Lesbarkeit formatiert:
 
 ```
 Okay, I need to calculate the sum of the first 50 prime numbers. Here's how I'll
@@ -249,25 +251,29 @@ sum_of_primes=5117
 The sum of the first 50 prime numbers is 5117.
 ```
 
-這項輸出內容會合併模型在使用執行程式碼功能時傳回的幾個內容部分：
+Diese Ausgabe kombiniert mehrere Inhaltsteile, die das Modell bei der Verwendung der Codeausführung zurückgibt:
 
-- `text`：模型產生的內嵌文字
-- `code_execution_call`：模型產生的程式碼，可供執行
-- `code_execution_result`：可執行程式碼的結果
+- `text`: Inline-Text, der vom Modell generiert wurde
+- `code_execution_call`: Code, der vom Modell generiert wurde und ausgeführt werden soll
+- `code_execution_result`: Ergebnis des ausführbaren Codes
 
-## 使用圖片執行程式碼 (Gemini 3)
+## Code-Ausführung mit Bildern (Gemini 3)
 
-Gemini 3 Flash 模型現在可以撰寫及執行 Python 程式碼，主動操控及檢查圖片。
+Das Gemini 3 Flash-Modell kann jetzt Python-Code schreiben und ausführen, um Bilder aktiv zu bearbeiten und zu prüfen.
 
-**用途**
+**Anwendungsbeispiele**
 
-- **縮放及檢查**：模型會隱含偵測到細節太小 (例如讀取遠處的儀表)，並編寫程式碼來裁剪及重新檢查該區域，以提高解析度。
-- **視覺數學**：模型可使用程式碼執行多步驟計算 (例如加總收據上的明細項目)。
-- **圖片註解**：模型可為圖片加上註解來回答問題，例如繪製箭頭來顯示關係。
+- **Zoomen und prüfen**: Das Modell erkennt implizit, wenn Details zu klein sind
+  (z.B. beim Lesen eines Messgeräts in der Ferne), und schreibt Code, um den Bereich zuzuschneiden und
+  mit einer höheren Auflösung noch einmal zu prüfen.
+- **Visuelle Mathematik**: Das Modell kann mehrstufige Berechnungen mit Code ausführen (z.B.
+  Posten auf einer Rechnung summieren).
+- **Bildannotation**: Das Modell kann Bilder mit Anmerkungen versehen, um Fragen zu beantworten, z. B.
+  Pfeile zeichnen, um Beziehungen darzustellen.
 
-## 啟用圖片執行程式碼功能
+## Code-Ausführung mit Bildern aktivieren
 
-Gemini 3 Flash 正式支援使用圖片執行程式碼。只要同時啟用「執行程式碼」工具和「思考」功能，即可啟用這項行為。
+Die Codeausführung mit Bildern wird in Gemini 3 Flash offiziell unterstützt. Sie können dieses Verhalten aktivieren, indem Sie sowohl die Codeausführung als Tool als auch die Funktion „Thinking“ aktivieren.
 
 ### Python
 
@@ -549,9 +555,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     -d @payload.json
 ```
 
-## 在多輪互動中使用程式碼執行功能
+## Code-Ausführung in Mehrfachdialog-Interaktionen verwenden
 
-您也可以使用 `previous_interaction_id`，在多輪對話中執行程式碼。
+Sie können die Codeausführung auch als Teil einer Multi-Turn-Unterhaltung mit `previous_interaction_id` verwenden.
 
 ### Python
 
@@ -786,72 +792,82 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }'
 ```
 
-## 輸入/輸出 (I/O)
+## Ein- und Ausgabe (E/A)
 
-在目前的 Gemini 模型 (例如 [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=zh-tw)) 中，執行程式碼功能支援檔案輸入和圖表輸出。有了這些輸入和輸出功能，您就能上傳 CSV 和文字檔、詢問檔案相關問題，並在回覆中生成 [Matplotlib](https://matplotlib.org/) 圖表。輸出檔案會以內嵌圖片的形式在回覆中傳回。
+In aktuellen Gemini-Modellen wie
+[Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=de) unterstützt die Code
+ausführung die Dateieingabe und die Grafikausgabe. Mit diesen Ein- und Ausgabe
+funktionen können Sie CSV- und Textdateien hochladen, Fragen zu den
+Dateien stellen und [Matplotlib](https://matplotlib.org/)-Diagramme als Teil
+der Antwort generieren lassen. Die Ausgabedateien werden als Inline-Bilder in der Antwort zurückgegeben.
 
-### I/O 定價
+### E/A-Preise
 
-使用執行程式碼 I/O 時，系統會針對輸入和輸出權杖收費：
+Bei der Verwendung der Codeausführung werden Ihnen Eingabe- und Ausgabetokens in Rechnung gestellt:
 
-**輸入內容詞元：**
+**Eingabetokens** :
 
-- 使用者提示詞
+- Nutzer-Prompt
 
-**輸出內容詞元：**
+**Ausgabetokens** :
 
-- 模型生成的程式碼
-- 程式碼環境中的程式碼執行輸出內容
-- 思考詞元
-- 模型生成的摘要
+- Code, der vom Modell generiert wurde
+- Ausgabe der Codeausführung in der Codeumgebung
+- Thinking-Tokens
+- Vom Modell generierte Zusammenfassung
 
-### I/O 詳細資料
+### E/A-Details
 
-使用程式碼執行 I/O 時，請注意下列技術細節：
+Beachten Sie bei der Arbeit mit der Codeausführung die folgenden technischen Details:
 
-- 程式碼環境的執行時間上限為 30 秒。
-- 如果程式碼環境產生錯誤，模型可能會決定重新生成程式碼輸出內容。最多可發生 5 次。
-- 檔案輸入大小上限取決於模型詞元視窗。如果上傳的檔案超過模型脈絡窗口上限，API 會傳回錯誤。
-- 執行程式碼功能最適合搭配文字和 CSV 檔案使用。
-- 輸入檔案可以內嵌資料形式傳遞，也可以使用 [Files API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw) 上傳，輸出檔案一律以內嵌資料形式傳回。
+- Die maximale Laufzeit der Codeumgebung beträgt 30 Sekunden.
+- Wenn die Codeumgebung einen Fehler generiert, kann das Modell die Codeausgabe neu generieren. Das kann bis zu fünfmal passieren.
+- Die maximale Größe der Dateieingabe ist durch das Tokenfenster des Modells begrenzt. Wenn Sie eine Datei hochladen, die das maximale Kontextfenster des Modells überschreitet, gibt die API einen Fehler zurück.
+- Die Codeausführung funktioniert am besten mit Text- und CSV-Dateien.
+- Die Eingabedatei kann als Inline-Daten übergeben oder mit der
+  [Files API](https://ai.google.dev/gemini-api/docs/files?hl=de) hochgeladen werden.
+  Die Ausgabedatei wird immer als Inline-Daten zurückgegeben.
 
-## 帳單
+## Abrechnung
 
-啟用 Gemini API 的程式碼執行功能，不會產生額外費用。系統會根據您使用的 Gemini 模型，按照目前的輸入和輸出權杖費率向您收費。
+Für die Aktivierung der Codeausführung über die Gemini API fallen keine zusätzlichen Gebühren an.
+Die Abrechnung erfolgt zum aktuellen Preis für Eingabe- und Ausgabetokens basierend auf dem verwendeten Gemini-Modell.
 
-以下是執行程式碼計費方式的其他注意事項：
+Hier sind einige weitere Informationen zur Abrechnung der Codeausführung:
 
-- 系統只會針對傳遞給模型的輸入權杖向您收費一次，並針對模型傳回給您的最終輸出權杖向您收費。
-- 代表生成程式碼的詞元會計為輸出詞元。生成的程式碼可能包含文字和圖片等。
-- 執行程式碼的結果也會計入輸出詞元。
+- Ihnen werden die Eingabetokens, die Sie an das Modell übergeben, nur einmal in Rechnung gestellt. Die Abrechnung der Ausgabetokens erfolgt für die endgültige Ausgabe, die Ihnen vom Modell zurückgegeben wird.
+- Tokens, die generierten Code darstellen, werden als Ausgabetokens gezählt. Generierter Code kann Text und multimodale Ausgaben wie Bilder enthalten.
+- Die Ergebnisse der Codeausführung werden ebenfalls als Ausgabetokens gezählt.
 
-計費模式如下圖所示：
+Das Abrechnungsmodell ist im folgenden Diagramm dargestellt:
 
-![執行程式碼計費模式](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=zh-tw)
+![Abrechnungsmodell für die Code-Ausführung](https://ai.google.dev/static/gemini-api/docs/images/code-execution-diagram.png?hl=de)
 
-- 系統會根據您使用的 Gemini 模型，以目前的輸入和輸出權杖費率計費。
-- 如果 Gemini 在生成回覆時執行程式碼，原始提示、生成的程式碼和執行程式碼的結果會標示為*中間詞元*，並以*輸入詞元*計費。
-- 接著，Gemini 會生成摘要，並傳回生成的程式碼、執行的程式碼結果和最終摘要。這些會以*輸出詞元*計費。
-- Gemini API 會在 API 回應中提供中間詞元數，讓您瞭解為何除了初始提示外，還會收到額外的輸入詞元。
+- Die Abrechnung erfolgt zum aktuellen Preis für Eingabe- und Ausgabetokens basierend auf dem verwendeten Gemini-Modell.
+- Wenn Gemini bei der Generierung Ihrer Antwort die Codeausführung verwendet, werden der ursprüngliche Prompt, der generierte Code und das Ergebnis des ausgeführten Codes als *Zwischentokens* bezeichnet und als *Eingabetokens* abgerechnet.
+- Gemini generiert dann eine Zusammenfassung und gibt den generierten Code, das Ergebnis des ausgeführten Codes und die endgültige Zusammenfassung zurück. Diese werden als *Ausgabetokens* abgerechnet.
+- Die Gemini API enthält in der API-Antwort eine Anzahl der Zwischentokens, damit Sie wissen, warum Ihnen zusätzliche Eingabetokens über Ihren ursprünglichen Prompt hinaus in Rechnung gestellt werden.
 
-## 限制
+## Beschränkungen
 
-- 模型只能生成及執行程式碼，無法傳回媒體檔案等其他構件。
-- 在某些情況下，啟用執行程式碼功能可能會導致模型輸出內容的其他部分 (例如撰寫故事) 出現迴歸。
-- 不同模型成功執行程式碼的能力會有些許差異。
+- Das Modell kann nur Code generieren und ausführen. Es kann keine anderen Artefakte wie Mediendateien zurückgeben.
+- In einigen Fällen kann die Aktivierung der Codeausführung zu Regressionen in anderen Bereichen der Modellausgabe führen (z. B. beim Schreiben einer Geschichte).
+- Die Fähigkeit der verschiedenen Modelle, die Codeausführung erfolgreich zu nutzen, variiert.
 
-## 支援的工具組合
+## Unterstützte Toolkombinationen
 
-執行程式碼工具可與[以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)功能搭配使用，支援更複雜的用途。
+Das Tool zur Code-Ausführung kann mit
+[der Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de) kombiniert werden, um
+komplexere Anwendungsfälle zu ermöglichen.
 
-Gemini 4 和 Gemini 3 模型支援結合內建工具 (例如執行程式碼) 和自訂工具 (呼叫函式)。
+Gemini 4- und Gemini 3-Modelle unterstützen die Kombination von integrierten Tools (z. B. Code-Ausführung) mit benutzerdefinierten Tools (Funktionsaufrufe).
 
-## 支援的程式庫
+## Unterstützte Bibliotheken
 
-程式碼執行環境包含下列程式庫：
+Die Codeausführungsumgebung enthält die folgenden Bibliotheken:
 
 - attrs
-- 棋子
+- chess
 - contourpy
 - fpdf
 - geopandas
@@ -866,7 +882,7 @@ Gemini 4 和 Gemini 3 模型支援結合內建工具 (例如執行程式碼) 和
 - numpy
 - opencv-python
 - openpyxl
-- 包裝
+- packaging
 - pandas
 - pillow
 - protobuf
@@ -880,29 +896,29 @@ Gemini 4 和 Gemini 3 模型支援結合內建工具 (例如執行程式碼) 和
 - scikit-learn
 - scipy
 - seaborn
-- 六
+- six
 - striprtf
 - sympy
 - tabulate
-- TensorFlow
+- tensorflow
 - toolz
 - xlrd
 
-無法自行安裝程式庫。
+Sie können keine eigenen Bibliotheken installieren.
 
-## 後續步驟
+## Nächste Schritte
 
-- 試用 [Interactions API 快速入門導覽課程](https://ai.google.dev/gemini-api/docs/quickstart?hl=zh-tw)。
-- 瞭解其他 Gemini API 工具：
-  - [函式呼叫](https://ai.google.dev/gemini-api/docs/function-calling?hl=zh-tw)
-  - [以 Google 搜尋強化事實基礎](https://ai.google.dev/gemini-api/docs/google-search?hl=zh-tw)
+- Schnellstart der [Interactions API](https://ai.google.dev/gemini-api/docs/quickstart?hl=de) ausprobieren.
+- Weitere Informationen zu anderen Gemini API-Tools:
+  - [Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/function-calling?hl=de)
+  - [Fundierung mit der Google Suche](https://ai.google.dev/gemini-api/docs/google-search?hl=de)
 
-提供意見
+Feedback geben
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
 
-上次更新時間：2026-10-13 (世界標準時間)。
+Zuletzt aktualisiert: 2026-10-13 (UTC).
 
-想進一步說明嗎？
+Haben Sie Feedback für uns?
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-13 (世界標準時間)。"],[],[]]
+[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-13 (UTC)."],[],[]]

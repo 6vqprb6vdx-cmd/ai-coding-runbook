@@ -1,43 +1,61 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=zh-CN
-fetched_at: 2026-10-26T05:37:04.260567+00:00
-title: "\u65e5\u5fd7\u548c\u6570\u636e\u96c6 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/logs-datasets?hl=pt-BR
+fetched_at: 2026-11-02T07:28:36.961734+00:00
+title: "Registros e conjuntos de dados \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
-- [文档](https://ai.google.dev/gemini-api/docs?hl=zh-cn)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=pt-br)
 
-发送反馈
+Envie comentários
 
-# 日志和数据集
+# Registros e conjuntos de dados
 
-在本指南中，您将了解如何在 Google AI Studio 信息中心内查看 Gemini API 使用情况的日志，以便更好地了解模型行为以及用户与您的应用互动的方式。使用日志记录来观察、调试，并*选择性地与 Google 分享使用情况反馈，以帮助改进 Gemini 在开发者使用情形下的表现*。[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=zh-cn)
+Neste guia, você vai aprender a
+visualizar os registros de uso da API Gemini no painel do Google AI Studio
+para entender melhor o comportamento do modelo e como os usuários podem estar interagindo com seus
+aplicativos. Use os registros para observar, depurar e *compartilhar feedback de uso com o Google para ajudar a melhorar o Gemini em todos os casos de uso do desenvolvedor*.[\*](https://ai.google.dev/gemini-api/docs/logs-policy?hl=pt-br)
 
-支持所有 `GenerateContent`、`BatchGenerateContent`、`StreamGenerateContent` API 调用，以及除托管式智能体之外的 [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn) API 调用。这包括通过 [OpenAI 兼容性](https://ai.google.dev/gemini-api/docs/openai?hl=zh-cn)端点进行的调用。
+Todas as chamadas de API `GenerateContent`, `BatchGenerateContent`, `StreamGenerateContent` e [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br), exceto agentes gerenciados, são compatíveis. Isso inclui chamadas feitas por endpoints de [compatibilidade com a OpenAI](https://ai.google.dev/gemini-api/docs/openai?hl=pt-br).
 
-## 配置项目日志记录
+## Configurar a geração de registros do projeto
 
-默认情况下，该 API 会存储所有互动对象 (`store=true`)，以简化服务器端状态管理功能的使用。相比之下，Generate Content API 默认不存储请求，需要从 AI Studio 中按请求或在项目级启用存储。
+Por padrão, as APIs [Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br) e
+Generate Content armazenam solicitações (`store=true`). Para a API Interactions,
+isso também ativa os recursos de gerenciamento de estado do lado do servidor.
 
-在 Google [AI Studio](https://aistudio.google.com/logs?hl=zh-cn) 中，您可以为所有项目或特定项目启用或停用日志记录，并随时通过[日志和数据集](https://aistudio.google.com/logs?hl=zh-cn)页面中的**设置**面板更改这些偏好设置。您可以单独为 `generateContent` API 和[互动](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn) API 开启或关闭日志记录，以更改项目的默认存储行为。
+No Google [AI Studio](https://aistudio.google.com/logs?hl=pt-br), é possível ativar ou
+desativar o armazenamento para projetos individuais e mudar essas
+preferências a qualquer momento no painel **Configurações** do
+[Painel de registros da API Gemini](https://aistudio.google.com/logs?hl=pt-br). É possível ativar ou desativar a geração de registros
+de forma independente para a API `generateContent` e a API
+[Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)
+para mudar o comportamento de armazenamento padrão de um projeto.
 
-### 请求级日志记录
+### Geração de registros no nível da solicitação
 
-存储和日志记录行为因 API 而异：
+As duas APIs armazenam solicitações por padrão (`store=true`):
 
-- **[Interactions API](https://ai.google.dev/gemini-api/docs/interactions?hl=zh-cn)**：默认存储请求 (`store=true`)，以简化服务器端状态管理。
-- **Generate Content API (`generateContent`)**：默认情况下不存储请求 (`store=false`)。
+- **[API Interactions](https://ai.google.dev/gemini-api/docs/interactions?hl=pt-br)**: armazena solicitações por padrão para simplificar o gerenciamento de estado do lado do servidor.
+- **API Content Generate (`generateContent`, `streamGenerateContent` e
+  `batchGenerateContent`)**: armazena solicitações por padrão para projetos criados
+  a partir de 26 de outubro de 2026. Os projetos criados antes dessa data não armazenam
+  solicitações por padrão (`store=false`), a menos que a geração de registros esteja ativada no AI Studio.
 
-以下是设置 `store` 属性的方法：
+A propriedade `store` no nível da solicitação tem precedência sobre a configuração para envolvidos no projeto. A configuração de `store` em solicitações da API Generate Content exige
+`google-genai` 2.33.0 ou mais recente para Python, `@google/genai` 2.31.0 ou mais recente
+para JavaScript, `google-genai` 1.79.0 ou mais recente para Java e
+`google.golang.org/genai` 1.76.0 ou mais recente para Go. Veja como definir
+a propriedade `store`:
 
-**GenerateContent API**
+**API GenerateContent**
 
 ### Python
 
@@ -49,7 +67,7 @@ client = genai.Client()
 response = client.models.generate_content(
     model='gemini-3.8-flash',
     contents='Explain quantum entanglement in simple terms.',
-    config={'store': False} # Set to True to enable logging of this request
+    config={'store': True} # Set to False to disable logging of this request
 )
 
 print(response.text)
@@ -66,7 +84,7 @@ const response = await client.models.generateContent({
     model: 'gemini-3.8-flash',
     contents: 'Explain quantum entanglement in simple terms.',
     config: {
-        store: false // Set to true to enable logging of this request
+        store: true // Set to false to disable logging of this request
     }
 });
 
@@ -82,12 +100,13 @@ import com.google.genai.types.GenerateContentResponse;
 
 Client client = new Client();
 
-// The GenerateContent API does not store requests by default
 GenerateContentResponse response =
     client.models.generateContent(
         "gemini-3.8-flash",
         "Explain quantum entanglement in simple terms.",
-        GenerateContentConfig.builder().build());
+        GenerateContentConfig.builder()
+            .store(true) // Set to false to disable logging of this request
+            .build());
 
 System.out.println(response.text());
 ```
@@ -112,12 +131,13 @@ func main() {
         log.Fatal(err)
     }
 
-    // The GenerateContent API does not store requests by default
     response, err := client.Models.GenerateContent(
         ctx,
         "gemini-3.8-flash",
         genai.Text("Explain quantum entanglement in simple terms."),
-        &genai.GenerateContentConfig{},
+        &genai.GenerateContentConfig{
+            Store: genai.Ptr(true), // Set to false to disable logging of this request
+        },
     )
     if err != nil {
         log.Fatal(err)
@@ -126,7 +146,7 @@ func main() {
 }
 ```
 
-**Interactions API**
+**API Interactions**
 
 ### Python
 
@@ -223,59 +243,68 @@ func main() {
 }
 ```
 
-## 在 AI Studio 中查看项目日志
+## Ver registros do projeto no AI Studio
 
-1. 前往 [AI Studio](https://aistudio.google.com/logs?hl=zh-cn) 中的“日志”页面。
-2. 从下拉菜单中选择一个项目。
-3. 如果存在日志，则日志将以反向时间顺序显示在 Interactions API 的表格中。
-4. 如需查看 Generate Content API 的项目日志，请先在[设置面板](#configure-logging)中启用此功能。
+1. Acesse a página "Registros" no [AI Studio](https://aistudio.google.com/logs?hl=pt-br).
+2. Selecione um projeto no menu suspenso.
+3. Os registros vão aparecer na tabela em ordem cronológica inversa, se houver.
+4. Para projetos criados antes de 26 de outubro de 2026, primeiro ative a geração de registros da API Content no [painel de configurações](#configure-logging) para observar os registros do projeto para a API Content.
 
-点击条目即可预览相应载荷。您可以检查 Gemini 的完整提示和回答，以及之前对话轮次中的上下文。对于 **Interactions API** 请求，日志还包含指向 `previous_interaction_id` 的直接链接。
+Clique em uma entrada para ver uma prévia do payload. Você pode
+inspecionar o comando e a resposta completos do Gemini, além do contexto das
+interações anteriores. Para solicitações da **API Interactions**, os registros também incluem um link direto para o `previous_interaction_id`.
 
-## 配置项目存储空间保留设置
+## Configurar a retenção de armazenamento do projeto
 
-日志将在默认保留期限（55 天）过后过期并被标记为待删除（除非[保存到数据集](#create)，否则不会过期）。您可以将项目的日志保留期限配置为最长 7 天、14 天、28 天或 55 天。
+Os registros vão expirar e serão marcados para exclusão após uma janela de retenção padrão de
+55 dias (a menos que sejam [salvos em um conjunto de dados](#create), que não expira).
+É possível configurar a janela de retenção dos registros de um projeto para no máximo 7, 14, 28 ou 55
+dias.
 
-## 创建和共享数据集
+## Criar e compartilhar conjuntos de dados
 
-您可以将日志保存到数据集中，以便更有效地整理和导出日志。
+É possível salvar registros em conjuntos de dados para organizar e exportar com mais eficiência.
 
-- 在[日志页面](https://aistudio.google.com/logs?hl=zh-cn)中，找到顶部的过滤条件栏，选择要作为过滤条件的属性。
-- 在过滤后的视图中，使用复选框选择所有日志或个别日志。
-- 点击列表顶部显示的**创建数据集**按钮。
-- 为新数据集命名并添加说明（可选）。
-- 您将看到刚刚创建的包含精选日志的数据集。
-- 将数据集导出为 CSV、JSONL 文件或导出到 Google 表格，以便进一步分析。
+- Na [página Registros](https://aistudio.google.com/logs?hl=pt-br), localize a barra de filtro
+  na parte de cima para selecionar uma propriedade para filtrar.
+- Na visualização com filtro, use as caixas de seleção para selecionar todos os registros ou registros individuais.
+- Clique no botão **Criar conjunto de dados** que aparece na parte de cima da lista.
+- Dê um nome e uma descrição opcional ao novo conjunto de dados.
+- Você vai ver o conjunto de dados que acabou de criar com o conjunto de registros selecionado.
+- Exporte seu conjunto de dados para análise posterior como arquivos CSV, JSONL ou para o Google Planilhas.
 
-数据集可用于多种不同的应用场景。
+Os conjuntos de dados podem ser úteis para vários casos de uso diferentes.
 
-- **精心挑选挑战集**：推动未来的改进，重点关注您希望 AI 改进的方面。
-- **精心挑选样本集**：例如，从实际使用情况中抽样，以生成来自其他模型的回答；或者收集一系列极端情况，以便在部署前进行常规检查。
-- **评估集**：可代表重要功能实际使用情况的集合，用于在其他模型或系统指令迭代之间进行比较。
+- **Organizar conjuntos de desafios**: promova melhorias futuras que visem as áreas em que você quer que a IA melhore.
+- **Selecionar conjuntos de amostras**: por exemplo, uma amostra de uso real para gerar respostas de outro modelo ou uma coleção de casos extremos para verificações de rotina antes da implantação.
+- **Conjuntos de avaliação**: conjuntos que representam o uso real em recursos importantes, para comparação com outros modelos ou iterações de instruções do sistema.
 
-您可以选择与 Google 共享数据集作为演示示例，从而为 Gemini 的研究和开发做出贡献。
+Você pode contribuir para a pesquisa e o desenvolvimento do Gemini compartilhando
+seus conjuntos de dados com o Google como exemplos de demonstração.
 
-## 限制
+## Limitações
 
-目前不支持以下内容的日志记录：
+No momento, não há suporte para geração de registros nos seguintes casos:
 
-- Imagen 和 Veo 模型
-- Gemini 嵌入模型
-- Gemini Robotics 模型
-- 包含视频、GIF 或 PDF 的输入内容
-- Gemini API 中的公开预览版智能体
+- Modelos Imagen e Veo
+- Modelos de embedding do Gemini
+- Modelo do Gemini Robotics
+- Entradas com vídeos, GIFs ou PDFs
+- Agentes de pré-lançamento público na API Gemini
 
-## 后续步骤
+## A seguir
 
-- **使用会话历史记录进行原型设计**：使用 [AI Studio Build](https://aistudio.google.com/apps?hl=zh-cn) 进行氛围编程，并添加 API 密钥以启用 AI 功能的 Gemini API 日志历史记录。
-- **使用 Gemini Batch API 重新运行日志**：通过使用 [Gemini Batch API](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb) 重新运行日志，使用数据集对模型或应用逻辑的响应进行抽样和评估。
+- **Criar protótipos com histórico de sessão**: use o [AI Studio Build](https://aistudio.google.com/apps?hl=pt-br) para criar apps com vibe coding e adicione sua chave de API para ativar um histórico de registros da API Gemini para recursos de IA.
+- **Executar novamente os registros com a API Gemini Batch**: use conjuntos de dados para amostragem de respostas
+  e avaliação de modelos ou lógica de aplicativos executando novamente os registros com a
+  [API Gemini Batch](https://github.com/google-gemini/cookbook/blob/main/examples/Datasets.ipynb).
 
-发送反馈
+Envie comentários
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-最后更新时间 (UTC)：2026-09-24。
+Última atualização 2026-10-26 UTC.
 
-需要向我们提供更多信息？
+Quer enviar seu feedback?
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-24。"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-10-26 UTC."],[],[]]

@@ -1,6 +1,6 @@
 ---
 source_url: https://ai.google.dev/gemini-api/docs/models/gemini-embedding-2?hl=es-419
-fetched_at: 2026-10-26T05:39:21.871293+00:00
+fetched_at: 2026-11-02T07:13:50.313544+00:00
 title: "Modelo de Gemini Embedding 2 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
@@ -18,7 +18,8 @@ Enviar comentarios
 
 # Modelo de Gemini Embedding 2
 
-Nuestro primer modelo de embedding multimodal, que proporciona una asignación numérica eficiente de texto, imágenes, video, audio y archivos PDF en un solo espacio de embedding unificado. El modelo Gemini Embedding 2 es ideal para la búsqueda semántica intermodal, la recuperación de documentos y los sistemas de recomendación que requieren cálculos de similitud rápidos y escalables en grandes conjuntos de datos multimodales.
+Es nuestro primer modelo de embedding multimodal, que proporciona una asignación numérica eficiente de
+texto, imágenes, video, audio y archivos PDF en un solo espacio de embedding unificado. El modelo Gemini Embedding 2 es el más adecuado para la búsqueda semántica intermodal, la recuperación de documentos y los sistemas de recomendación que requieren cálculos de similitud rápidos y escalables en grandes conjuntos de datos multimodales.
 
 ## Documentación
 
@@ -29,18 +30,19 @@ de las funciones y capacidades.
 
 | Propiedad | Descripción |
 | --- | --- |
-| id\_cardCódigo del modelo | **API de Gemini**  `gemini-embedding-2` |
-| saveTipos de datos admitidos | **Entrada**  Texto, imagen, video, audio, PDF  **Resultado**  Incorporaciones de texto |
-| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  8,192  **Tamaño de la dimensión de salida**  Flexible, admite: 128 - 3072, recomendado: 768, 1536, 3072 |
-| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models/gemini?hl=es-419#model-versions) para obtener más detalles.  - Estable: `gemini-embedding-2` |
+| id\_cardCódigo de modelo | **API de Gemini**  `gemini-embedding-2` |
+| saveTipos de datos admitidos | **Entrada**  Texto, imagen, video, audio, PDF  **Resultado**  Embeddings de textos |
+| token\_autoLímites de tokens[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=es-419) | **Límite de tokens de entrada**  8,192  **Tamaño de la dimensión de salida**  Flexible, admite: 128-3072, recomendado: 768, 1536, 3072 |
+| 123Versiones | Lee los [patrones de versiones de modelos](https://ai.google.dev/gemini-api/docs/models?hl=es-419#model-versions) para obtener más detalles.  - Estable: `gemini-embedding-2` |
 | calendar\_monthÚltima actualización | Abril de 2026 |
+| paidPricing | [Precios](https://ai.google.dev/gemini-api/docs/pricing?hl=es-419#gemini-embedding-2) |
 
 Enviar comentarios
 
 Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-Última actualización: 2026-04-29 (UTC)
+Última actualización: 2026-10-29 (UTC)
 
 ¿Quieres brindar más información?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-04-29 (UTC)"],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-29 (UTC)"],[],[]]

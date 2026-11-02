@@ -1,50 +1,50 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=de
-fetched_at: 2026-10-26T06:03:59.101721+00:00
-title: "Leitfaden zu den Live API-Funktionen \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/live-api/capabilities?hl=ru
+fetched_at: 2026-11-02T07:21:40.413651+00:00
+title: "\u0420\u0443\u043a\u043e\u0432\u043e\u0434\u0441\u0442\u0432\u043e \u043f\u043e \u0432\u043e\u0437\u043c\u043e\u0436\u043d\u043e\u0441\u0442\u044f\u043c Live API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
+Доступна новая модель Gemini 4 Argon. [Попробовать](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ru)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ru)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Чтобы переводить контент на ваш предпочитаемый язык, Google использует технологии на основе искусственного интеллекта. Переводы от ИИ могут содержать ошибки.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [Главная](https://ai.google.dev/?hl=ru)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ru)
+- [Документация](https://ai.google.dev/gemini-api/docs?hl=ru)
 
-Feedback geben
+Отправить отзыв
 
-# Leitfaden zu den Live API-Funktionen
+# Руководство по возможностям Live API
 
-Dieser umfassende Leitfaden behandelt die Funktionen und Konfigurationen, die mit der Live API verfügbar sind.
-Auf der Seite [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) finden Sie eine Übersicht und Beispielcode für gängige Anwendungsfälle.
+Это подробное руководство, в котором рассказывается о возможностях и настройках Live API.
+Общие сведения и образец кода для распространенных вариантов использования приведены на странице [Начало работы с Live API](https://ai.google.dev/gemini-api/docs/live?hl=ru).
 
-## Hinweis
+## Подготовка
 
-- **Mit den wichtigsten Konzepten vertraut machen**:Wenn Sie das noch nicht getan haben, lesen Sie zuerst die Seite [Erste Schritte mit der Live API](https://ai.google.dev/gemini-api/docs/live?hl=de) .
-  Hier erfahren Sie mehr über die grundlegenden Prinzipien der Live API, ihre Funktionsweise und die verschiedenen [Implementierungsansätze](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach).
-- **Live API in AI Studio ausprobieren**:Es kann hilfreich sein, die Live API in [Google AI Studio](https://aistudio.google.com/app/live?hl=de) auszuprobieren, bevor Sie mit der Entwicklung beginnen. Wenn Sie die Live API in Google AI Studio verwenden möchten, wählen Sie **Stream** aus.
+- **Ознакомьтесь с основными понятиями.** Если вы ещё этого не сделали, прочитайте статью [Начало работы с Live API](https://ai.google.dev/gemini-api/docs/live?hl=ru) .
+  Вы узнаете об основных принципах работы Live API и [способах его реализации](https://ai.google.dev/gemini-api/docs/live?hl=ru#implementation-approach).
+- **Попробуйте Live API в AI Studio.** Прежде чем начать разработку, вы можете протестировать Live API в [Google AI Studio](https://aistudio.google.com/app/live?hl=ru). Чтобы использовать Live API в Google AI Studio, выберите **Stream (Трансляция)**.
 
-## Modellvergleich
+## Сравнение моделей
 
-In der folgenden Tabelle sind die wichtigsten Unterschiede zwischen den Modellen [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de), [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=de) und [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=de) zusammengefasst:
+В таблице ниже описаны основные различия между моделями [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ru), [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ru) и [Gemini 3.1 Flash Live Preview](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-live-preview?hl=ru).
 
-| Funktion | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking | Gemini 3.1 Flash Live Preview |
+| Функция | Gemini 3.8 Live | Gemini 3.8 Live Extended Thinking | Gemini 3.1 Flash Live Preview |
 | --- | --- | --- | --- |
-| **Empfohlen für** | Standardoption für die meisten Sprachagenten mit niedriger Latenz. | Empfohlen, wenn mehr Hintergrundinformationen erforderlich sind. | Altes Vorschaumodell. Wir empfehlen, auf [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de) zu aktualisieren. |
-| **[Antwort wird generiert](#native-audio-output-thinking)** | Unterstützt (verschachtelte Begründung). `thinkingLevel` wird nicht unterstützt (bei der Einrichtung weglassen). | Unterstützt. Konfigurierbare Hintergrundinformationen (`thinkingLevel`: `low`, `medium`, `high`; `minimal` wird nicht unterstützt). | Verwendet `thinkingLevel`, um den Detailgrad des Denkprozesses mit Einstellungen wie `minimal`, `low`, `medium` und `high` zu steuern. Die Standardeinstellung ist `minimal`, um die Latenz zu minimieren. Weitere Informationen finden Sie unter [Thinking in the Live API](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=de). |
-| **[Antwort erhalten](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservercontent)** | Ein einzelnes Serverereignis kann mehrere Inhaltsteile gleichzeitig enthalten. | Ein einzelnes Serverereignis kann mehrere Inhaltsteile gleichzeitig enthalten. Wenn asynchrones Reasoning aktiv ist, gibt `turnComplete: true` keine inaktive Sitzung an. Verwenden Sie stattdessen `interaction_status` (`IN_PROGRESS` im Vergleich zu `IDLE`). | Ein einzelnes Serverereignis kann mehrere Inhaltsteile gleichzeitig enthalten, z. B. `inlineData` und ein Transkript. Achten Sie darauf, dass in Ihrem Code alle Teile jedes Ereignisses verarbeitet werden, damit keine Inhalte fehlen. |
-| **[Kundeninhalte](#incremental-updates)** | `send_client_content` wird während des gesamten Sitzungslebenszyklus mit expliziten Rollen (`user` oder `model`) unterstützt. `turn_complete=true` unterbricht die Generierung bedingungslos. | `send_client_content` wird während des gesamten Sitzungslebenszyklus mit expliziten Rollen (`user` oder `model`) unterstützt. `turn_complete=true` unterbricht die Generierung bedingungslos. | `send_client_content` wird während des gesamten Sitzungslebenszyklus mit expliziten Rollen (`user` oder `model`) unterstützt. `turn_complete=true` unterbricht die Generierung bedingungslos. |
-| **[Asynchrone Funktionsaufrufe](https://ai.google.dev/gemini-api/docs/live-tools?hl=de#async-function-calling)** (`behavior: NON_BLOCKING`) | Unterstützt (Standard). Legen Sie `behavior: NON_BLOCKING` fest oder verwenden Sie den abwärtskompatiblen Blockierungsmodus mit `behavior: BLOCKING`. Die Planung von Funktionen (`SILENT`, `WHEN_IDLE`, `INTERRUPTED`) wird unterstützt. | Unterstützt (nur asynchron). Es wird nur die Ausführung von `NON_BLOCKING` unterstützt. Der Blockiermodus und die Funktionsplanung werden nicht unterstützt. | Nicht unterstützt. Funktionsaufrufe sind nur sequenziell möglich. Das Modell beginnt erst mit der Antwort, wenn Sie die Tool-Antwort gesendet haben. |
+| **Рекомендуется для** | Вариант по умолчанию для большинства голосовых агентов с низкой задержкой. | Рекомендуется, когда требуется более глубокое рассуждение. | Устаревшая предварительная версия модели. Рекомендуем перейти на [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ru). |
+| **[Думаю…](#native-audio-output-thinking)** | Поддерживается (чередующиеся рассуждения). `thinkingLevel` не поддерживается (не включайте в настройку). | Поддерживается. Настраиваемое обоснование для фонового режима (`thinkingLevel`: `low`, `medium`, `high`; `minimal` не поддерживается). | Использует `thinkingLevel` для управления глубиной рассуждений с помощью таких настроек, как `minimal`, `low`, `medium` и `high`. По умолчанию используется значение `minimal`, чтобы оптимизировать задержку. Подробнее [о Thinking в Live API](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=ru)… |
+| **[Получение ответа](https://ai.google.dev/api/live?hl=ru#bidigeneratecontentservercontent)** | Одно серверное событие может содержать несколько частей контента одновременно. | Одно серверное событие может содержать несколько частей контента одновременно. Когда включено асинхронное рассуждение, `turnComplete: true` не указывает на бездействующий сеанс. Используйте `interaction_status` (`IN_PROGRESS` вместо `IDLE`). | Одно событие сервера может содержать несколько частей контента одновременно (например, `inlineData` и расшифровку). Убедитесь, что ваш код обрабатывает все части каждого события, чтобы не упустить контент. |
+| **[Контент клиента](#incremental-updates)** | `send_client_content` поддерживается на протяжении всего жизненного цикла сеанса с явными ролями (`user` или `model`). `turn_complete=true` безусловно прерывает генерацию. | `send_client_content` поддерживается на протяжении всего жизненного цикла сеанса с явными ролями (`user` или `model`). `turn_complete=true` безусловно прерывает генерацию. | `send_client_content` поддерживается на протяжении всего жизненного цикла сеанса с явными ролями (`user` или `model`). `turn_complete=true` безусловно прерывает генерацию. |
+| **[Асинхронный вызов функций](https://ai.google.dev/gemini-api/docs/live-tools?hl=ru#async-function-calling)** (`behavior: NON_BLOCKING`) | Поддерживается (по умолчанию). Задайте `behavior: NON_BLOCKING` или используйте обратно совместимый режим блокировки с `behavior: BLOCKING`. Поддерживается планирование функций (`SILENT`, `WHEN_IDLE`, `INTERRUPTED`). | Поддерживается (только асинхронный режим). Поддерживается только выполнение `NON_BLOCKING`. Режим блокировки и планирование функций не поддерживаются. | Не поддерживается. Вызов функций выполняется только последовательно. Модель не начнет отвечать, пока вы не отправите ответ инструмента. |
 
-Wenn Sie zu Gemini 3.8 Live migrieren möchten, lesen Sie die [Migrationsanleitung](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de#migrating).
-Weitere Informationen zu Thinking finden Sie im [Leitfaden zu Thinking](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=de) und im [Leitfaden zum Upgrade](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=de#upgrading).
+Чтобы перейти на Gemini 3.8 Live, ознакомьтесь с [руководством по переходу](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ru#migrating).
+Чтобы узнать больше о Thinking, ознакомьтесь с [руководством по Thinking](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=ru) и [руководством по обновлению](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ru#upgrading).
 
-## Verbindung herstellen
+## Установка подключения
 
-Im folgenden Beispiel wird gezeigt, wie Sie eine Verbindung mit einem API-Schlüssel erstellen:
+В примере ниже показано, как создать подключение с помощью ключа API.
 
 ### Python
 
@@ -105,13 +105,13 @@ async function main() {
 main();
 ```
 
-## Interaktionsmodalitäten
+## Способы взаимодействия
 
-In den folgenden Abschnitten finden Sie Beispiele und Kontext für die verschiedenen Eingabe- und Ausgabemodalitäten, die in der Live API verfügbar sind.
+В следующих разделах приведены примеры и контекст для различных модальностей ввода и вывода, доступных в Live API.
 
-### Audio senden
+### Отправка аудио…
 
-Audio muss als rohe PCM-Daten gesendet werden (rohes 16-Bit-PCM-Audio, 16 kHz, Little Endian).
+Аудио должно отправляться в виде необработанных данных PCM (необработанное 16-битное аудио PCM, 16 кГц, прямой порядок байтов).
 
 ### Python
 
@@ -137,13 +137,13 @@ session.sendRealtimeInput({
 });
 ```
 
-### Audioformate
+### Аудиоформаты
 
-Audiodaten in der Live API sind immer unkomprimiert, Little-Endian und 16-Bit-PCM. Die Audioausgabe erfolgt immer mit einer Abtastrate von 24 kHz. Die Eingabe-Audiodaten haben nativ eine Abtastrate von 16 kHz. Die Live API führt bei Bedarf jedoch eine Resampling-Operation durch, sodass jede Abtastrate gesendet werden kann. Um die Samplerate des eingegebenen Audiosignals anzugeben, legen Sie den MIME-Typ jedes [Blob](https://ai.google.dev/api/caching?hl=de#Blob), das Audio enthält, auf einen Wert wie `audio/pcm;rate=16000` fest.
+Аудиоданные в Live API всегда необработанные, с прямым порядком байтов, 16-битные PCM. Частота дискретизации аудиовыхода всегда составляет 24 кГц. Входной аудиосигнал имеет частоту 16 кГц, но Live API при необходимости выполнит ресемплирование, поэтому можно отправлять любую частоту дискретизации. Чтобы передать частоту дискретизации входного аудио, задайте для MIME-типа каждого объекта [Blob](https://ai.google.dev/api/caching?hl=ru#Blob), содержащего аудио, значение, подобное `audio/pcm;rate=16000`.
 
-### Audio empfangen
+### Получение аудио
 
-Die Audioantworten des Modells werden als Datenblöcke empfangen.
+Аудиоответы модели поступают в виде фрагментов данных.
 
 ### Python
 
@@ -171,9 +171,9 @@ if (content?.modelTurn?.parts) {
 }
 ```
 
-### SMS wird gesendet
+### Отправка сообщения…
 
-Text kann mit `send_realtime_input` (Python) oder `sendRealtimeInput` (JavaScript) gesendet werden.
+Текст можно отправить с помощью `send_realtime_input` (Python) или `sendRealtimeInput` (JavaScript).
 
 ### Python
 
@@ -189,9 +189,9 @@ session.sendRealtimeInput({
 });
 ```
 
-### Video wird gesendet
+### Отправка видео…
 
-Videoframes werden als einzelne Bilder (z. B. JPEG oder PNG) mit einer bestimmten Framerate (max. 1 Frame pro Sekunde) gesendet.
+Кадры видео отправляются как отдельные изображения (например, JPEG или PNG) с определенной частотой (не более одного кадра в секунду).
 
 ### Python
 
@@ -217,9 +217,9 @@ session.sendRealtimeInput({
 });
 ```
 
-#### Inkrementelle Aktualisierungen von Inhalten
+#### Дополнительные обновления контента
 
-Verwenden Sie inkrementelle Updates, um Texteingaben zu senden, Sitzungskontext herzustellen oder wiederherzustellen. Bei kurzen Kontexten können Sie Turn-by-Turn-Interaktionen senden, um die genaue Abfolge der Ereignisse darzustellen:
+Используйте инкрементные обновления, чтобы отправлять текстовые данные, устанавливать или восстанавливать контекст сеанса. Для коротких контекстов вы можете отправлять пошаговые взаимодействия, чтобы представить точную последовательность событий:
 
 ### Python
 
@@ -251,13 +251,13 @@ inputTurns = [{ "role": "user", "parts": [{ "text": "What is the capital of Germ
 session.sendClientContent({ turns: inputTurns, turnComplete: true })
 ```
 
-Bei längeren Kontexten empfiehlt es sich, eine Zusammenfassung der einzelnen Nachrichten bereitzustellen, um das Kontextfenster für nachfolgende Interaktionen freizugeben. Eine weitere Methode zum Laden des Sitzungskontexts finden Sie unter [Sitzungswiederaufnahme](https://ai.google.dev/gemini-api/docs/live-session?hl=de#session-resumption).
+Для более длинных контекстов рекомендуется предоставить сводку одного сообщения, чтобы освободить окно контекста для последующих взаимодействий. Другой способ загрузки контекста сеанса описан в разделе [Возобновление сеанса](https://ai.google.dev/gemini-api/docs/live-session?hl=ru#session-resumption).
 
-### Audiotranskripte
+### Транскрипции
 
-Zusätzlich zur Modellantwort können Sie auch Transkriptionen der Audioausgabe und der Audioeingabe erhalten.
+Помимо ответа модели, вы также можете получить расшифровки как аудиовыхода, так и аудиовхода.
 
-Wenn Sie die Transkription der Audioausgabe des Modells aktivieren möchten, senden Sie `output_audio_transcription` in der Einrichtungskonfiguration. Die Sprache der Transkription wird aus der Antwort des Modells abgeleitet.
+Чтобы включить расшифровку аудиовывода модели, отправьте `output_audio_transcription` в конфигурации настройки. Язык расшифровки определяется по ответу модели.
 
 ### Python
 
@@ -375,7 +375,7 @@ async function main() {
 main();
 ```
 
-Wenn Sie die Transkription der Audioeingabe des Modells aktivieren möchten, senden Sie `input_audio_transcription` in der Einrichtungskonfiguration.
+Чтобы включить расшифровку аудиоввода модели, отправьте `input_audio_transcription` в конфигурации настройки.
 
 ### Python
 
@@ -520,11 +520,35 @@ async function main() {
 main();
 ```
 
-### Stimme und Sprache ändern
+Чтобы улучшить распознавание определенных терминов, таких как имена собственные, названия брендов или технические термины, добавьте список `custom_vocabulary` в `input_audio_transcription`. Вы можете указать до 1000 терминов, но наилучшие результаты обычно достигаются при использовании до 100 терминов. Подробнее [о смещении пользовательского словаря](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=ru#custom-vocabulary-biasing)…
 
-[Modelle mit nativer Audioausgabe](#native-audio-output) unterstützen alle Stimmen, die für unsere [TTS-Modelle (Text-to-Speech)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=de#voices) verfügbar sind. Alle Stimmen sind in [AI Studio](https://aistudio.google.com/app/live?hl=de) verfügbar.
+### Python
 
-Wenn Sie eine Stimme angeben möchten, legen Sie den Namen der Stimme im `speechConfig`-Objekt als Teil der Sitzungskonfiguration fest:
+```
+config = {
+    "response_modalities": ["AUDIO"],
+    "input_audio_transcription": {
+        "custom_vocabulary": ["Gemini", "Kubernetes", "BigQuery"],
+    },
+}
+```
+
+### JavaScript
+
+```
+const config = {
+  responseModalities: [Modality.AUDIO],
+  inputAudioTranscription: {
+    customVocabulary: ['Gemini', 'Kubernetes', 'BigQuery'],
+  },
+};
+```
+
+### Как изменить голос и язык
+
+Модели с [прямым аудиовыводом](#native-audio-output) поддерживают любые голоса, доступные для моделей [Text-to-Speech (TTS)](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ru#voices). Послушать все голоса можно в [AI Studio](https://aistudio.google.com/app/live?hl=ru).
+
+Чтобы указать голос, задайте его название в объекте `speechConfig` в рамках конфигурации сеанса:
 
 ### Python
 
@@ -546,16 +570,16 @@ const config = {
 };
 ```
 
-Die Live API unterstützt [mehrere Sprachen](#supported-languages).
-Bei Modellen mit [nativer Audioausgabe](#native-audio-output) wird die passende Sprache automatisch ausgewählt. Das explizite Festlegen des Sprachcodes wird nicht unterstützt.
+Live API поддерживает [несколько языков](#supported-languages).
+Модели с [прямым аудиовыводом](#native-audio-output) автоматически выбирают подходящий язык и не поддерживают явное указание кода языка.
 
-## Native Audiofunktionen
+## Возможности нативной аудиорекламы
 
-Unsere neuesten Modelle bieten eine [native Audioausgabe](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de), die für eine natürliche, realistisch klingende Sprache und eine verbesserte mehrsprachige Leistung sorgt.
+В наших последних моделях есть функция [прямого аудиовывода](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ru), которая обеспечивает естественное, реалистичное звучание речи и улучшенную многоязычную производительность.
 
-### Thinking
+### Думающая
 
-Die Modelle Gemini 3.8 Live Extended Thinking und Gemini 3.1 verwenden `thinkingLevel`, um die Tiefe der Denkprozesse zu steuern. Für `gemini-3.8-live` wird `thinkingLevel` nicht unterstützt und muss bei der Einrichtung weggelassen werden. Gemini 3.8 Live Extended Thinking unterstützt `low`, `medium` und `high` (`minimal` wird nicht unterstützt). Gemini 3.1-Modelle unterstützen `minimal`, `low`, `medium` und `high`. Weitere Informationen finden Sie unter [Thinking in the Live API](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=de).
+Модели Gemini 3.8 Live Extended Thinking и Gemini 3.1 используют `thinkingLevel` для управления глубиной мышления. Для `gemini-3.8-live` не поддерживается `thinkingLevel`, поэтому его нужно опустить в настройках. Gemini 3.8 Live Extended Thinking поддерживает `low`, `medium` и `high` (`minimal` не поддерживается). Модели Gemini 3.1 поддерживают `minimal`, `low`, `medium` и `high`. Подробнее о том, [как работает Live API](https://ai.google.dev/gemini-api/docs/live-api/thinking?hl=ru)…
 
 ### Python
 
@@ -600,7 +624,7 @@ async function main() {
 main();
 ```
 
-Außerdem können Sie Zusammenfassungen von Gedanken aktivieren, indem Sie in der Konfiguration `includeThoughts` auf `true` setzen. Weitere Informationen finden Sie unter [Zusammenfassungen von Gedanken](https://ai.google.dev/gemini-api/docs/thinking?hl=de#summaries):
+Вы также можете включить краткие пересказы мыслей, задав для параметра `includeThoughts` значение `true` в конфигурации. Подробнее [о кратких пересказах рассуждений](https://ai.google.dev/gemini-api/docs/thinking?hl=ru#summaries)…
 
 ### Python
 
@@ -629,11 +653,11 @@ const config = {
 };
 ```
 
-### Empathischer Dialog
+### Эмоциональная коммуникация
 
-Mit dieser Funktion kann Gemini seinen Antwortstil an die Ausdrucksweise und den Tonfall der Eingabe anpassen.
+Эта функция позволяет Gemini адаптировать стиль ответа к выражению и тону ввода.
 
-Wenn Sie affektiven Dialog verwenden möchten, legen Sie die API-Version in der Einrichtungsnachricht auf `v1beta` und `enable_affective_dialog` auf `true` fest:
+Чтобы использовать эмоциональную коммуникацию, укажите версию API `v1beta` и задайте для `enable_affective_dialog` значение `true` в сообщении настройки:
 
 ### Python
 
@@ -657,11 +681,11 @@ const config = {
 };
 ```
 
-### Proaktive Audioeingabe
+### Проактивное аудио
 
-Wenn diese Funktion aktiviert ist, kann Gemini proaktiv entscheiden, nicht zu antworten, wenn die Inhalte nicht relevant sind.
+Если эта функция включена, Gemini может не отвечать, если контент нерелевантен.
 
-Dazu müssen Sie die API-Version auf `v1beta` festlegen, das Feld `proactivity` in der Einrichtungsnachricht konfigurieren und `proactive_audio` auf `true` setzen:
+Чтобы использовать его, задайте для версии API значение `v1beta`, настройте поле `proactivity` в сообщении о настройке и задайте для `proactive_audio` значение `true`:
 
 ### Python
 
@@ -685,19 +709,19 @@ const config = {
 }
 ```
 
-## Live-Übersetzung
+## Устный перевод
 
-Die Live API unterstützt die Übersetzung gesprochener Unterhaltungen in Echtzeit mit geringer Latenz. Damit können Sie Anwendungen für die Echtzeitübersetzung von Sprache in Sprache entwickeln.
+Live API поддерживает перевод устной речи в реальном времени с низкой задержкой. Эта функция позволяет создавать приложения для голосового перевода в реальном времени.
 
-Weitere Informationen und Beispiele finden Sie im [Leitfaden zur Live-Übersetzung](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=de).
+Дополнительную информацию и примеры можно найти в [руководстве по мгновенному переводу](https://ai.google.dev/gemini-api/docs/live-api/live-translate?hl=ru).
 
-## Erkennung von Sprachaktivität (Voice Activity Detection, VAD)
+## Обнаружение голосовой активности (VAD)
 
-Mit der Spracherkennung (Voice Activity Detection, VAD) kann das Modell erkennen, wann eine Person spricht. Das ist wichtig, um natürliche Unterhaltungen zu ermöglichen, da Nutzer das Modell jederzeit unterbrechen können.
+Обнаружение голосовой активности (VAD) позволяет модели распознавать, когда говорит человек. Это важно для естественного общения, поскольку позволяет пользователю прервать модель в любой момент.
 
-Wenn VAD eine Unterbrechung erkennt, wird die laufende Generierung abgebrochen und verworfen. Im Sitzungsverlauf werden nur die Informationen gespeichert, die bereits an den Kunden gesendet wurden. Der Server sendet dann eine [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=de#bidigeneratecontentservercontent)-Nachricht, um die Unterbrechung zu melden.
+Когда VAD обнаруживает прерывание, текущая генерация отменяется и отбрасывается. В истории сеанса сохраняется только информация, которая уже была отправлена клиенту. Затем сервер отправляет сообщение [`BidiGenerateContentServerContent`](https://ai.google.dev/api/live?hl=ru#bidigeneratecontentservercontent), чтобы сообщить о прерывании.
 
-Der Gemini-Server verwirft dann alle ausstehenden Funktionsaufrufe und sendet eine `BidiGenerateContentServerContent`-Nachricht mit den IDs der abgebrochenen Aufrufe.
+Затем сервер Gemini отменяет все ожидающие вызовы функций и отправляет сообщение `BidiGenerateContentServerContent` с идентификаторами отмененных вызовов.
 
 ### Python
 
@@ -725,11 +749,11 @@ for (const turn of turns) {
 }
 ```
 
-### Automatische VAD
+### Автоматическое определение активности голоса
 
-Standardmäßig führt das Modell automatisch eine VAD für einen kontinuierlichen Audioeingabestream durch. VAD kann mit dem Feld [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=de#RealtimeInputConfig.AutomaticActivityDetection) der [Einrichtungskonfiguration](https://ai.google.dev/api/live?hl=de#BidiGenerateContentSetup) konfiguriert werden.
+По умолчанию модель автоматически выполняет VAD для непрерывного входного аудиопотока. VAD можно настроить с помощью поля [`realtimeInputConfig.automaticActivityDetection`](https://ai.google.dev/api/live?hl=ru#RealtimeInputConfig.AutomaticActivityDetection) в [конфигурации настройки](https://ai.google.dev/api/live?hl=ru#BidiGenerateContentSetup).
 
-Wenn der Audiostream länger als eine Sekunde pausiert wird (z. B. weil der Nutzer das Mikrofon deaktiviert hat), sollte ein [`audioStreamEnd`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end)-Ereignis gesendet werden, um zwischengespeicherte Audiodaten zu leeren. Der Client kann das Senden von Audiodaten jederzeit fortsetzen.
+Если аудиопоток приостановлен более чем на секунду (например, пользователь отключил микрофон), необходимо отправить событие [`audioStreamEnd`](https://ai.google.dev/api/live?hl=ru#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end), чтобы очистить кеш аудио. Клиент может возобновить отправку аудиоданных в любое время.
 
 ### Python
 
@@ -865,11 +889,11 @@ async function main() {
 main();
 ```
 
-Mit `send_realtime_input` reagiert die API automatisch auf Audio basierend auf VAD. Bei `send_client_content` werden Nachrichten in der richtigen Reihenfolge zum Modellkontext hinzugefügt, während `send_realtime_input` auf Reaktionsfähigkeit optimiert ist, was auf Kosten der deterministischen Reihenfolge geht.
+Если задано значение `send_realtime_input`, API будет автоматически отвечать на аудио на основе VAD. В то время как `send_client_content` добавляет сообщения в контекст модели по порядку, `send_realtime_input` оптимизирован для быстрого ответа за счет детерминированного упорядочивания.
 
-### Automatische VAD-Konfiguration
+### Автоматическая настройка VAD
 
-Wenn Sie die VAD-Aktivität besser steuern möchten, können Sie die folgenden Parameter konfigurieren. Weitere Informationen finden Sie in der [API-Referenz](https://ai.google.dev/api/live?hl=de#automaticactivitydetection).
+Чтобы лучше контролировать работу VAD, можно настроить следующие параметры: Подробную информацию можно найти в [документации по API](https://ai.google.dev/api/live?hl=ru#automaticactivitydetection).
 
 ### Python
 
@@ -909,19 +933,19 @@ const config = {
 };
 ```
 
-### Hybrid-VAD
+### Гибридный VAD
 
-Hybrid-VAD kombiniert die Vorteile von automatischem VAD (robuste Erkennung des Sprechbeginns) und manuellem VAD (Finalisierung der Antwort mit geringer Latenz).
+Гибридный VAD сочетает в себе преимущества автоматического (надежное обнаружение начала речи) и ручного (быстрое завершение ответа).
 
-In dieser Konfiguration:
+В этой конфигурации:
 
-1. **Automatische VAD bleibt auf dem Server aktiviert**. Der Server erkennt den Beginn der Spracheingabe automatisch und verwendet das Präfix-Padding, um das Abschneiden des Anfangs von Äußerungen zu vermeiden.
-2. Der Client verwendet eine **clientseitige VAD**, um zu erkennen, wann der Nutzer aufhört zu sprechen.
-3. Wenn das clientseitige VAD das Ende der Sprache erkennt, wird ein [`audio_stream_end`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end)-Signal an den Server gesendet.
-4. Der Server behandelt das `audio_stream_end`-Signal als sofortigen Finalisierungs-Prompt. Die standardmäßige serverseitige Stilleerkennungsverzögerung wird umgangen und das Transkript und die Modellantwort werden mit minimaler Latenz zurückgegeben.
-5. Wenn die clientseitige VAD nicht ausgelöst wird, dient die serverseitige VAD als Fallback, um das Ende der Sprache zu erkennen.
+1. **Автоматическое определение голосовой активности остается включенным** на сервере. Сервер автоматически определяет начало речи пользователя, используя заполнение префикса, чтобы избежать обрезки начала высказываний.
+2. Клиент использует **клиентский VAD**, чтобы определить, когда пользователь перестает говорить.
+3. Когда клиентский VAD обнаруживает конец речи, он отправляет на сервер сигнал [`audio_stream_end`](https://ai.google.dev/api/live?hl=ru#BidiGenerateContentRealtimeInput.FIELDS.bool.BidiGenerateContentRealtimeInput.audio_stream_end).
+4. Сервер обрабатывает сигнал `audio_stream_end` как запрос на немедленное завершение, обходя стандартную задержку обнаружения тишины на стороне сервера и возвращая расшифровку и ответ модели с минимальной задержкой.
+5. Если VAD на стороне клиента не срабатывает, VAD на стороне сервера действует как резервный вариант для обнаружения конца речи.
 
-Wenn der clientseitige VAD-Schwellenwert zu aggressiv eingestellt ist, kann es zu Unterbrechungen der Sprache kommen. Dieser Ansatz verhindert jedoch Probleme mit dem Abschneiden am Anfang, die bei der manuellen VAD auftreten können.
+Обратите внимание, что если пороговое значение VAD на стороне клиента установлено слишком агрессивно, это может привести к прерыванию речи. Однако этот подход позволяет избежать проблем с усечением начала, которые могут возникнуть при ручном VAD.
 
 ### Python
 
@@ -961,9 +985,9 @@ session.sendRealtimeInput({
 session.sendRealtimeInput({ audioStreamEnd: true });
 ```
 
-### Automatische VAD deaktivieren
+### Отключить автоматическое определение активности голоса
 
-Alternativ kann die automatische VAD deaktiviert werden, indem Sie in der Einrichtungsnachricht `realtimeInputConfig.automaticActivityDetection.disabled` auf `true` setzen. In dieser Konfiguration ist der Client dafür verantwortlich, die Sprache des Nutzers zu erkennen und [`activityStart`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start)- und [`activityEnd`](https://ai.google.dev/api/live?hl=de#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end)-Nachrichten zum richtigen Zeitpunkt zu senden. In dieser Konfiguration wird kein `audioStreamEnd` gesendet. Stattdessen wird jede Unterbrechung des Streams durch eine `activityEnd`-Meldung gekennzeichnet.
+Вы также можете отключить автоматическое определение активности голоса, задав для параметра `realtimeInputConfig.automaticActivityDetection.disabled` значение `true` в сообщении setup. В этой конфигурации клиент отвечает за обнаружение речи пользователя и отправку сообщений [`activityStart`](https://ai.google.dev/api/live?hl=ru#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityStart.BidiGenerateContentRealtimeInput.activity_start) и [`activityEnd`](https://ai.google.dev/api/live?hl=ru#BidiGenerateContentRealtimeInput.FIELDS.BidiGenerateContentRealtimeInput.ActivityEnd.BidiGenerateContentRealtimeInput.activity_end) в подходящее время. В этой конфигурации `audioStreamEnd` не отправляется. Вместо этого любое прерывание потока помечается сообщением `activityEnd`.
 
 ### Python
 
@@ -1010,34 +1034,34 @@ session.sendRealtimeInput(
 session.sendRealtimeInput({ activityEnd: {} })
 ```
 
-### VAD-Parameter und ihre Auswirkungen auf die Qualität
+### Параметры VAD и их влияние на качество
 
-Bei der automatischen VAD steuern zwei wichtige Parameter, wie Audio in Sprechabschnitte segmentiert wird, bevor es an das Modell gesendet wird:
+При использовании автоматического VAD два ключевых параметра управляют тем, как аудио сегментируется на речевые повороты перед отправкой в модель:
 
-- **`prefixPaddingMs`**: Die Menge an Audio, die *vor* der Erkennung von Sprache enthalten sein soll. Durch diesen „Rückblick“ wird sichergestellt, dass das Modell den vollständigen Beginn der Sprache erfasst, einschließlich der ersten Silbe, die möglicherweise vor dem Auslösen des VAD beginnt. Bei einem Wert von `0` werden möglicherweise die Anfänge von Wörtern abgeschnitten.
-- **`silenceDurationMs`**: Wie lange der Server bei Stille wartet, bevor er einen Sprachabschnitt beendet. Damit wird festgelegt, wie tolerant das System gegenüber natürlichen Pausen mitten im Satz ist (z.B. zum Nachdenken, Atmen oder an Satzgrenzen).
+- **`prefixPaddingMs`** – количество аудио, которое нужно включить *до* обнаружения речи. Это позволяет модели захватить начало речи, включая первый слог, который может быть произнесен до срабатывания детектора. Если задать значение `0`, начало слов может быть обрезано.
+- **`silenceDurationMs`** – время, в течение которого сервер ожидает ответа, прежде чем завершить речевой ход. Это определяет, насколько система терпима к естественным паузам в середине предложения (например, на размышление, дыхание или границы предложения).
 
-#### Auswirkungen von `silenceDurationMs` auf die Audioqualität
+#### Влияние `silenceDurationMs` на качество звука
 
-Der Wert `silenceDurationMs` wirkt sich direkt auf die Größe und Vollständigkeit der Audio-Chunks aus, die das Modell zur Verarbeitung erhält:
+Значение `silenceDurationMs` напрямую влияет на размер и полноту аудиофрагментов, которые модель получает для обработки:
 
-- **Empfohlen (500–800 ms)**: Bietet ein gutes Gleichgewicht. Das Modell erhält vollständige, kontextreiche Audioblöcke, während die Latenz angemessen bleibt. Der interne Standardwert des Servers beträgt etwa 800 ms.
-- **Zu niedrig (z.B. 100–200 ms)**: Das System beendet Sprechrunden während natürlicher Pausen und teilt eine einzelne Äußerung in mehrere kleine Audiofragmente auf. Das Modell empfängt diese Fragmente einzeln, wodurch der fragmentübergreifende Kontext verloren geht und die Qualität der Transkription und Antwort sinkt.
-- **Zu hoch (z. B. 2.000 ms oder mehr)**: Das System wartet lange, nachdem der Nutzer aufgehört hat zu sprechen, was die wahrgenommene Latenz erhöht, bevor das Modell antwortet.
+- **Рекомендуемое значение (500–800 мс).** Обеспечивает хороший баланс: модель получает полные, контекстуально насыщенные аудиофрагменты, а задержка остается разумной. По умолчанию на сервере установлено значение около 800 мс.
+- **Слишком низкое значение (например, 100–200 мс).** Система завершает реплику во время естественных пауз, разбивая одно высказывание на несколько небольших аудиофрагментов. Модель получает эти фрагменты по отдельности, теряя контекст между ними, что приводит к снижению качества расшифровки и ответа.
+- **Слишком высокое значение (например, более 2000 мс).** Система долго ждет после того, как пользователь перестает говорить, что увеличивает воспринимаемую задержку перед ответом модели.
 
-#### Best Practices für die manuelle (clientseitige) VAD
+#### Рекомендации по ручному (клиентскому) VAD
 
-Wenn Sie die automatische VAD deaktivieren und `activityStart`/`activityEnd`-Signale über Ihre eigene clientseitige Spracherkennung verwalten, werden die integrierten Audio-Puffermechanismen des Servers umgangen. Das bedeutet:
+Если вы отключите автоматическое определение активности голоса и будете управлять сигналами `activityStart`/`activityEnd` с помощью собственного клиентского детектора голоса, встроенные механизмы буферизации аудио на сервере будут обходиться. Вот что это значит:
 
-1. **Kein Puffer vor der Sprache:** Der Server fügt Audio nicht mehr vor dem erkannten Sprachbeginn ein. Ihr Kunde sollte vor dem Senden von `activityStart` ausreichend Audio-Kontext bereitstellen.
-2. **Keine Stille-Toleranz**:Der Server reagiert sofort auf Ihr `activityEnd`-Signal, ohne zusätzliche Wartezeit. Wenn Ihr clientseitiges VAD einen aggressiven Schwellenwert für das Ende der Sprache verwendet (z.B. 200 ms Stille), kann es sein, dass die Sprache während natürlicher Pausen mitten im Satz abgeschnitten wird.
+1. **Нет буфера перед речью.** Сервер больше не добавляет аудио перед началом распознанной речи. Прежде чем отправлять `activityStart`, клиент должен включить достаточный аудиоконтекст.
+2. **Без задержки.** Сервер сразу же реагирует на сигнал `activityEnd`. Если в вашем клиентском VAD используется агрессивный порог окончания речи (например, 200 мс тишины), речь может прерываться в середине предложения во время естественных пауз.
 
-Wenn Sie die Audioqualität bei der manuellen VAD beibehalten möchten, verwenden Sie in der Spracherkennung des Clients einen Schwellenwert für die Stille am Ende der Sprache von mindestens **500 ms**.
-Schwellenwerte unter diesem Wert führen oft zu fragmentierten Audioinhalten, was die Qualität der Transkription und der Modellantworten beeinträchtigt.
+Чтобы сохранить качество звука при ручном обнаружении голосовой активности, используйте порог тишины в конце речи не менее **500 мс** в детекторе голосовой активности клиента.
+Пороговые значения ниже этого часто приводят к фрагментации аудио, что ухудшает качество расшифровки и ответа модели.
 
-## Tokenanzahl
+## Число токенов
 
-Die Gesamtzahl der verbrauchten Tokens finden Sie im Feld [usageMetadata](https://ai.google.dev/api/live?hl=de#usagemetadata) der zurückgegebenen Servernachricht.
+Общее количество использованных токенов можно найти в поле [usageMetadata](https://ai.google.dev/api/live?hl=ru#usagemetadata) возвращенного сообщения сервера.
 
 ### Python
 
@@ -1071,9 +1095,9 @@ for (const turn of turns) {
 }
 ```
 
-## Auflösung von Medien
+## Разрешение медиаконтента
 
-Sie können die Media-Auflösung für die Eingabemedien festlegen, indem Sie das Feld `mediaResolution` als Teil der Sitzungskonfiguration festlegen:
+Вы можете указать разрешение для входного медиаконтента, задав поле `mediaResolution` в конфигурации сеанса:
 
 ### Python
 
@@ -1097,102 +1121,104 @@ const config = {
 };
 ```
 
-Sie können `mediaResolution` für multimodale Sitzungen konfigurieren, die Audio-, Video- oder Bildeingaben enthalten. Während `mediaResolution` die Tokenzuweisung pro Frame für visuelle Eingaben anpasst, werden Audiostreams bei allen Auflösungseinstellungen mit einer festen Rate pro Sekunde tokenisiert. Weitere Informationen finden Sie im [Leitfaden zur Media-Auflösung](https://ai.google.dev/gemini-api/docs/media-resolution?hl=de).
+Вы можете настроить `mediaResolution` для мультимодальных сеансов, которые включают аудио, видео или изображения. В то время как `mediaResolution` корректирует распределение токенов на кадр для визуальных входных данных, аудиопотоки токенизируются с фиксированной скоростью в секунду для всех настроек разрешения. Подробную информацию можно найти в [руководстве по разрешению медиаконтента](https://ai.google.dev/gemini-api/docs/media-resolution?hl=ru).
 
-## Beschränkungen
+## Ограничения
 
-Beachten Sie beim Planen Ihres Projekts die folgenden Einschränkungen der Live API.
+При планировании проекта учитывайте следующие ограничения Live API.
 
-### Antwortmodalitäten
+### Модальности ответов
 
-Die nativen Audiomodelle unterstützen nur den Antworttyp „AUDIO“. Wenn Sie die Modellantwort als Text benötigen, verwenden Sie die Funktion [output audio transcription](#audio-transcription).
+Встроенные аудиомодели поддерживают только модальность ответа `AUDIO`. Если вам нужен ответ модели в виде текста, используйте функцию [расшифровки аудиовыхода](#audio-transcription).
 
-### Clientauthentifizierung
+### Аутентификация клиента
 
-Die Live API bietet standardmäßig nur die Server-zu-Server-Authentifizierung. Wenn Sie Ihre Live API-Anwendung mit einem [Client-zu-Server-Ansatz](https://ai.google.dev/gemini-api/docs/live?hl=de#implementation-approach) implementieren, müssen Sie [ephemere Tokens](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=de) verwenden, um Sicherheitsrisiken zu minimieren.
+По умолчанию Live API поддерживает только аутентификацию между серверами. Если вы реализуете приложение Live API, используя [подход "клиент-сервер"](https://ai.google.dev/gemini-api/docs/live?hl=ru#implementation-approach), вам нужно использовать [временные токены](https://ai.google.dev/gemini-api/docs/ephemeral-tokens?hl=ru), чтобы снизить риски безопасности.
 
-### Sitzungsdauer
+### длительность сеанса;
 
-Sitzungen mit nur Audio sind auf 15 Minuten begrenzt, Sitzungen mit Audio und Video auf 2 Minuten.
-Sie können jedoch verschiedene [Methoden zur Sitzungsverwaltung](https://ai.google.dev/gemini-api/docs/live-session?hl=de) konfigurieren, um die Sitzungsdauer unbegrenzt zu verlängern.
+Аудиосеансы ограничены 15 минутами, а аудио- и видеосеансы – двумя минутами.
+Однако вы можете настроить разные [методы управления сеансами](https://ai.google.dev/gemini-api/docs/live-session?hl=ru) для неограниченного продления длительности сеанса.
 
-### Kontextfenster
+### Окно контекста
 
-Eine Sitzung hat ein Kontextfensterlimit von:
+Для сеанса действуют следующие ограничения на размер окна контекста:
 
-- 128.000 Tokens für Modelle mit [nativer Audioausgabe](#native-audio-output)
-- 32.000 Tokens für andere Live API-Modelle
+- 128 000 токенов для моделей с [прямым аудиовыводом](#native-audio-output).
+- 32 000 токенов для других моделей Live API.
 
-## Unterstützte Sprachen
+## Поддерживаемые языки
 
-Die Live API unterstützt die folgenden 99 Sprachen.
+Live API поддерживает 99 языков, перечисленных ниже.
 
-| Sprache | BCP-47-Code | Sprache | BCP-47-Code |
+| Язык | Код BCP-47 | Язык | Код BCP-47 |
 | --- | --- | --- | --- |
-| Afrikaans | `af` | Lettisch | `lv` |
-| Akan | `ak` | Litauisch | `lt` |
-| Albanisch | `sq` | Mazedonisch | `mk` |
-| Amharisch | `am` | Malaiisch | `ms` |
-| Arabisch | `ar` | Malayalam | `ml` |
-| Armenisch | `hy` | Maltesisch | `mt` |
-| Assamesisch | `as` | Maori | `mi` |
-| Aserbaidschanisch | `az` | Marathi | `mr` |
-| Baskisch | `eu` | Mongolisch | `mn` |
-| Belarussisch | `be` | Nepalesisch | `ne` |
-| Bengalisch | `bn` | Norwegisch | `no`, `nb` |
-| Bosnisch | `bs` | Oriya | `or` |
-| Bulgarisch | `bg` | Oromo | `om` |
-| Burmesisch | `my` | Paschtu | `ps` |
-| Katalanisch | `ca` | Persisch | `fa` |
-| Cebuano | `ceb` | Polnisch | `pl` |
-| Chinesisch (vereinfacht) | `zh-Hans` | Portugiesisch (Brasilien) | `pt-BR` |
-| Chinesisch (traditionell) | `zh-Hant` | Portugiesisch (Portugal) | `pt-PT` |
-| Kroatisch | `hr` | Punjabi | `pa` |
-| Tschechien | `cs` | Quechua | `qu` |
-| Dänisch | `da` | Rumänisch | `ro` |
-| Niederländisch | `nl` | Rätoromanisch | `rm` |
-| Englisch | `en` | Russisch | `ru` |
-| Estnisch | `et` | Serbisch | `sr` |
-| Färöisch | `fo` | Sindhi | `sd` |
-| Filipino | `fil` | Singhalesisch | `si` |
-| Finnisch | `fi` | Slowakisch | `sk` |
-| Französisch | `fr` | Slowenisch | `sl` |
-| Galizisch | `gl` | Somali | `so` |
-| Georgisch | `ka` | Sesotho | `st` |
-| Deutsch | `de` | Spanisch | `es` |
-| Griechisch | `el` | Swahili | `sw` |
-| Gujarati | `gu` | Schwedisch | `sv` |
-| Hausa | `ha` | Tadschikisch | `tg` |
-| Hebräisch | `he` | Tamil | `ta` |
-| Hindi | `hi` | Telugu | `te` |
-| Ungarisch | `hu` | Thailändisch | `th` |
-| Isländisch | `is` | Setswana | `tn` |
-| Indonesisch | `id` | Türkisch | `tr` |
-| Irisch | `ga` | Turkmenisch | `tk` |
-| Italienisch | `it` | Ukrainisch | `uk` |
-| Japanisch | `ja` | Urdu | `ur` |
-| Kannada | `kn` | Usbekisch | `uz` |
-| Kasachisch | `kk` | Vietnamesisch | `vi` |
-| Khmer | `km` | Walisisch | `cy` |
-| Kinyarwanda | `rw` | Westfriesisch | `fy` |
-| Koreanisch | `ko` | Wolof | `wo` |
-| Kurdisch | `ku` | Yoruba | `yo` |
-| Kirgisisch | `ky` | Zulu | `zu` |
-| Lao | `lo` |  |  |
+| Африкаанс | `af` | Латвийский | `lv` |
+| Акан | `ak` | Литовский | `lt` |
+| Албанский | `sq` | Македонский | `mk` |
+| Амхарский | `am` | Малайский | `ms` |
+| Арабский | `ar` | Малаялам | `ml` |
+| Армянский | `hy` | Мальтийский | `mt` |
+| Ассамский | `as` | Маори | `mi` |
+| Азербайджанский | `az` | Маратхи | `mr` |
+| Баскский | `eu` | Монгольский | `mn` |
+| Belarusian | `be` | Непальский | `ne` |
+| Бенгальский | `bn` | Норвежский | `no`, `nb` |
+| Боснийский | `bs` | Ория | `or` |
+| Болгарский | `bg` | Оромо | `om` |
+| Бирманский | `my` | Пашто | `ps` |
+| Каталанский | `ca` | Персидский | `fa` |
+| Себуанский | `ceb` | Польский | `pl` |
+| Китайский (упрощенный) | `zh-Hans` | Португальский (Бразилия) | `pt-BR` |
+| Китайский (традиционный) | `zh-Hant` | Португальский (Португалия) | `pt-PT` |
+| Хорватский | `hr` | Пенджабский | `pa` |
+| Чешский | `cs` | Кечуа | `qu` |
+| Датский | `da` | Румынский | `ro` |
+| Нидерландский | `nl` | Романшский | `rm` |
+| Английский | `en` | Русский | `ru` |
+| Эстонский | `et` | Сербский | `sr` |
+| Фарерский | `fo` | Синдхи | `sd` |
+| Филиппинский | `fil` | Сингальский | `si` |
+| Финский | `fi` | Словацкий | `sk` |
+| Французский | `fr` | Словенский | `sl` |
+| Галисийский | `gl` | Сомали | `so` |
+| Грузинский | `ka` | Южный сото | `st` |
+| Немецкий | `de` | Испанский | `es` |
+| Греческий | `el` | Суахили | `sw` |
+| Гуджарати | `gu` | Шведский | `sv` |
+| Хауса | `ha` | Таджикский | `tg` |
+| Иврит | `he` | Тамильский | `ta` |
+| хинди | `hi` | Телугу | `te` |
+| Венгерский | `hu` | Тайский | `th` |
+| Исландский | `is` | Тсвана | `tn` |
+| Индонезийский | `id` | Турецкий | `tr` |
+| Ирландский | `ga` | Туркменский | `tk` |
+| Итальянский | `it` | Украинский | `uk` |
+| Японский | `ja` | Урду | `ur` |
+| Каннада | `kn` | Узбекский | `uz` |
+| Казахский | `kk` | Вьетнамский | `vi` |
+| Кхмерский | `km` | валлийский | `cy` |
+| Киньяруанда | `rw` | Западнофризский | `fy` |
+| Корейский | `ko` | Волоф | `wo` |
+| Курдский | `ku` | Йоруба | `yo` |
+| Киргизский | `ky` | Зулу | `zu` |
+| Лаосский | `lo` |  |  |
 
-## Nächste Schritte
+## Дальнейшие действия
 
-- In den Anleitungen [Tool Use](https://ai.google.dev/gemini-api/docs/live-tools?hl=de) (Tool-Nutzung) und [Session Management](https://ai.google.dev/gemini-api/docs/live-session?hl=de) (Sitzungsverwaltung) finden Sie wichtige Informationen zur effektiven Nutzung der Live API.
-- Testen Sie die Live API in [Google AI Studio](https://aistudio.google.com/app/live?hl=de).
-- Weitere Informationen zu den Live API-Modellen finden Sie auf den Modellseiten [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=de) und [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=de).
-- Weitere Beispiele findest du im [Live API-Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=de), im [Live API Tools-Cookbook](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=de) und im [Live API-Script für die ersten Schritte](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
+- Прочитайте руководства по [использованию инструментов](https://ai.google.dev/gemini-api/docs/live-tools?hl=ru) и [управлению сеансами](https://ai.google.dev/gemini-api/docs/live-session?hl=ru), чтобы узнать, как эффективно работать с Live API.
+- Попробуйте Live API в [Google AI Studio](https://aistudio.google.com/app/live?hl=ru).
+- Дополнительную информацию о моделях Live API можно найти на страницах [Gemini 3.8 Live](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live?hl=ru) и [Gemini 3.8 Live Extended Thinking](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live-extended-thinking?hl=ru).
+- Попробуйте другие примеры из [руководства по Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.ipynb?hl=ru),
+  [руководства по инструментам Live API](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI_tools.ipynb?hl=ru)
+  и [скрипта для начала работы с Live API](https://github.com/google-gemini/cookbook/blob/main/quickstarts/Get_started_LiveAPI.py).
 
-Feedback geben
+Отправить отзыв
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+Если не указано иное, контент на этой странице предоставляется по [лицензии Creative Commons "С указанием авторства 4.0"](https://creativecommons.org/licenses/by/4.0/), а примеры кода – по [лицензии Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Подробнее об этом написано в [правилах сайта](https://developers.google.com/site-policies?hl=ru). Java – это зарегистрированный товарный знак корпорации Oracle и ее аффилированных лиц.
 
-Zuletzt aktualisiert: 2026-09-19 (UTC).
+Последнее обновление: 2026-10-29 UTC.
 
-Haben Sie Feedback für uns?
+Хотите рассказать подробнее?
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-09-19 (UTC)."],[],[]]
+[[["Прост для понимания","easyToUnderstand","thumb-up"],["Помог мне решить мою проблему","solvedMyProblem","thumb-up"],["Другое","otherUp","thumb-up"]],[["Отсутствует нужная мне информация","missingTheInformationINeed","thumb-down"],["Слишком сложен/слишком много шагов","tooComplicatedTooManySteps","thumb-down"],["Устарел","outOfDate","thumb-down"],["Проблема с переводом текста","translationIssue","thumb-down"],["Проблемы образцов/кода","samplesCodeIssue","thumb-down"],["Другое","otherDown","thumb-down"]],["Последнее обновление: 2026-10-29 UTC."],[],[]]

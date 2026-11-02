@@ -1,113 +1,114 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=th
-fetched_at: 2026-10-26T06:07:30.796985+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.5-transcribe?hl=he
+fetched_at: 2026-11-02T07:28:15.746245+00:00
 title: "Gemini 3.5 Transcribe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon พร้อมให้บริการแล้ว [ลองใช้เลย](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=th)
+‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=th)
+![](https://ai.google.dev/_static/images/translated.svg?hl=he)
 
-Google ใช้เทคโนโลยี AI เพื่อแปลเนื้อหาเป็นภาษาที่คุณต้องการ การแปลโดย AI อาจมีข้อผิดพลาด
+‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
 
-- [หน้าแรก](https://ai.google.dev/?hl=th)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=th)
-- [เอกสาร](https://ai.google.dev/gemini-api/docs?hl=th)
+- [דף הבית](https://ai.google.dev/?hl=he)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
+- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
 
-ส่งความคิดเห็น
+שליחת משוב
 
 # Gemini 3.5 Transcribe
 
-Gemini 3.5 Transcribe เป็นโมเดลการแปลงเสียงเป็นข้อความที่อิงตามความสามารถในการทำความเข้าใจเสียงของ Gemini โดยจะให้การถอดเสียงที่แม่นยำและมีเวลาในการตอบสนองต่ำ พร้อมการตรวจหาภาษาตามคำพูด การระบุผู้พูด การประทับเวลาที่ระดับคำ การถอดเสียงอัจฉริยะ และการปรับคำพูดตามคำศัพท์ที่กำหนดเอง
+‫Gemini 3.5 Transcribe הוא מודל להמרת דיבור לטקסט (STT) שמבוסס על יכולות הבנת האודיו של Gemini. הוא מספק תמלול מדויק עם זמן אחזור קצר, זיהוי שפה על סמך ביטויים, חלוקה לפי דוברים, חותמות זמן ברמת המילה, תמלול חכם והטיית דיבור של אוצר מילים בהתאמה אישית.
 
-[ลองใช้ใน Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=th)
+[התנסות ב-Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.5-transcribe&hl=he)
 
-## เอกสารประกอบ
+## מאמרי עזרה
 
-Gemini 3.5 Transcribe จะแปลงเสียงพูดเป็นข้อความจากไฟล์เสียง โดยจะตรวจจับภาษาได้มากกว่า 85 ภาษาโดยอัตโนมัติ จัดการการสลับภาษาในโค้ด ระบุผู้พูดแต่ละคน แสดงการประทับเวลาที่ระดับคำ และปรับให้เข้ากับคำศัพท์เฉพาะโดเมนผ่านการกำหนดค่าคำศัพท์ที่กำหนดเอง
+‫Gemini 3.5 Transcribe ממיר דיבור לטקסט מקובצי אודיו. הוא מזהה באופן אוטומטי יותר מ-85 שפות, מטפל במעבר בין שפות שונות, מזהה דוברים ספציפיים, מפיק חותמות זמן ברמת המילה ומתאים את עצמו למונחים ספציפיים לתחום באמצעות הטיה של אוצר מילים בהתאמה אישית.
 
-ดูคำแนะนำเกี่ยวกับ[การถอดเสียงเป็นคำของเสียง](https://ai.google.dev/gemini-api/docs/transcribe?hl=th)เพื่อดูข้อมูลทั้งหมดเกี่ยวกับฟีเจอร์ที่ไม่ใช่การสตรีม หากต้องการถอดเสียงสตรีมแบบเรียลไทม์ที่มีเวลาในการตอบสนองต่ำผ่าน WebSockets โปรดไปที่คู่มือ[การถอดเสียงเป็นคำแบบสด](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=th)โดยใช้ `gemini-3.5-transcribe-live` ดูราคาโดยละเอียดได้ที่[หน้าราคา](https://ai.google.dev/gemini-api/docs/pricing?hl=th#gemini-3.5-transcribe)
+במדריך [תמלול אודיו](https://ai.google.dev/gemini-api/docs/transcribe?hl=he) מפורטות כל התכונות שלא קשורות לסטרימינג. כדי לבצע תמלול בזמן אמת של סטרימינג עם זמן אחזור נמוך באמצעות WebSockets, עיינו במדריך [תמלול בזמן אמת](https://ai.google.dev/gemini-api/docs/live-api/live-transcribe?hl=he) באמצעות `gemini-3.5-transcribe-live`. למידע מפורט על המחירים, עיינו ב[דף התמחור](https://ai.google.dev/gemini-api/docs/pricing?hl=he#gemini-3.5-transcribe).
 
 ## gemini-3.5-transcribe
 
-| พร็อพเพอร์ตี้ | คำอธิบาย |
+| נכס | תיאור |
 | --- | --- |
-| รหัสโมเดล id\_card | `gemini-3.5-transcribe` |
-| บันทึกประเภทข้อมูลที่รองรับ | **อินพุต**  เสียง (สูงสุด 1 ชั่วโมง)  **เอาต์พุต**  ข้อความ คำอธิบายประกอบ Word |
-| token\_autoขีดจำกัดของเสียง | **ขีดจำกัดเสียงแบบเอกภาค**  สูงสุด 1 ชั่วโมงต่อคำขอ (สูงสุด 30 นาทีเมื่อเปิดใช้การแยกแยะเสียงผู้พูดหรือการประทับเวลาที่ระดับคำ) |
-| handymanความสามารถ | **[การถอดเสียงเป็นคำ](https://ai.google.dev/gemini-api/docs/transcribe?hl=th)**  สิ่งที่ทำได้  **[การแยกแยะเสียงผู้พูด](https://ai.google.dev/gemini-api/docs/transcribe?hl=th#speaker-diarization)**  สิ่งที่ทำได้  **[การประทับเวลาระดับคำ](https://ai.google.dev/gemini-api/docs/transcribe?hl=th#word-timestamps)**  สิ่งที่ทำได้  **[คำศัพท์ที่กำหนดเอง](https://ai.google.dev/gemini-api/docs/transcribe?hl=th#custom-vocabulary)**  สิ่งที่ทำได้  **[การถอดเสียงอัจฉริยะ](https://ai.google.dev/gemini-api/docs/transcribe?hl=th#transcription-modes)**  สิ่งที่ทำได้  **[การแคช](https://ai.google.dev/gemini-api/docs/caching?hl=th)**  สิ่งที่ทำไม่ได้  **[การเรียกใช้โค้ด](https://ai.google.dev/gemini-api/docs/code-execution?hl=th)**  สิ่งที่ทำไม่ได้  **[การค้นหาไฟล์](https://ai.google.dev/gemini-api/docs/file-search?hl=th)**  สิ่งที่ทำไม่ได้  **[การเรียกใช้ฟังก์ชัน](https://ai.google.dev/gemini-api/docs/function-calling?hl=th)**  สิ่งที่ทำไม่ได้  **[การสร้างรูปภาพ](https://ai.google.dev/gemini-api/docs/image-generation?hl=th)**  สิ่งที่ทำไม่ได้  **[การคิด](https://ai.google.dev/gemini-api/docs/thinking?hl=th)**  สิ่งที่ทำไม่ได้ |
-| speedตัวเลือกการรับชม | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=th)**  สิ่งที่ทำไม่ได้  **[Flex Inference](https://ai.google.dev/gemini-api/docs/flex-inference?hl=th)**  สิ่งที่ทำไม่ได้  **[การอนุมานตามลำดับความสำคัญ](https://ai.google.dev/gemini-api/docs/priority-inference?hl=th)**  สิ่งที่ทำไม่ได้ |
-| 123เวอร์ชัน | อ่านรายละเอียดเพิ่มเติมได้ใน[รูปแบบเวอร์ชันของโมเดล](https://ai.google.dev/gemini-api/docs/models/gemini?hl=th#model-versions)  - `gemini-3.5-transcribe` (Unary) - `gemini-3.5-transcribe-live` (Live API) |
-| calendar\_monthการอัปเดตล่าสุด | สิงหาคม 2569 |
+| id\_cardקוד המודל | `gemini-3.5-transcribe` |
+| saveסוגי נתונים נתמכים | **הנחיות**  אודיו (עד שעה)  **פלט**  הערות טקסט, הערות Word |
+| token\_autoמגבלות על אודיו | **מגבלת אודיו יחיד**  עד שעה לכל בקשה (עד 30 דקות כשמופעלת חלוקת קובץ האודיו לפי דוברים או חותמות זמן ברמת המילה) |
+| handymanיכולות | **[תמלול אודיו](https://ai.google.dev/gemini-api/docs/transcribe?hl=he)**  נתמך  **[חלוקת קובץ האודיו לפי דוברים](https://ai.google.dev/gemini-api/docs/transcribe?hl=he#speaker-diarization)**  נתמך  **[חותמות זמן ברמת המילה](https://ai.google.dev/gemini-api/docs/transcribe?hl=he#word-timestamps)**  נתמך  **[אוצר מילים מותאם אישית](https://ai.google.dev/gemini-api/docs/transcribe?hl=he#custom-vocabulary)**  נתמך  **[תמלול חכם](https://ai.google.dev/gemini-api/docs/transcribe?hl=he#transcription-modes)**  נתמך  **[שמירה במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he)**  לא נתמך  **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**  לא נתמך  **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**  לא נתמך  **[קריאה להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)**  לא נתמך  **[יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)**  לא נתמך  **[בתהליך חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**  לא נתמך |
+| speedאפשרויות צריכה | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he)**  לא נתמך  **[היקש ברמת Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=he)**  לא נתמך  **[הסקת עדיפות](https://ai.google.dev/gemini-api/docs/priority-inference?hl=he)**  לא נתמך |
+| 123גרסאות | מידע נוסף זמין במאמר [תבניות של גרסאות מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - `gemini-3.5-transcribe` (אונרי) - `gemini-3.5-transcribe-live` (Live API) |
+| calendar\_monthהעדכון האחרון | אוגוסט 2026 |
+| paidתמחור | [Gemini 3.5 Transcribe](https://ai.google.dev/gemini-api/docs/pricing?hl=he#gemini-3.5-transcribe) [Gemini 3.5 Transcribe Live](https://ai.google.dev/gemini-api/docs/pricing?hl=he#gemini-3.5-transcribe-live) |
 
-## การรองรับฟีเจอร์และข้อจำกัด
+## תמיכה בתכונות ומגבלות
 
-Gemini 3.5 Transcribe รองรับฟีเจอร์ต่อไปนี้ใน 2 Endpoint
+‫Gemini 3.5 Transcribe תומך בתכונות הבאות בשתי נקודות הקצה שלו:
 
-| ฟีเจอร์ | การไลฟ์สด (`gemini-3.5-transcribe-live`) | การประมวลผลไฟล์เสียง (`gemini-3.5-transcribe`) | หมายเหตุ / ข้อจำกัด |
+| תכונה | סטרימינג בשידור חי (`gemini-3.5-transcribe-live`) | עיבוד קובץ אודיו (`gemini-3.5-transcribe`) | הערות או מגבלות |
 | --- | --- | --- | --- |
-| **การตรวจหาภาษาอัตโนมัติ** | รองรับ (มากกว่า 85 ภาษา) | รองรับ (มากกว่า 85 ภาษา) | รวมถึงการผสมภาษาในระหว่างเซสชัน |
-| **การประทับเวลาระดับคำ** | ไม่รองรับ | รองรับ | ลดความแม่นยำของการถอดเสียงเป็นคำ |
-| **การเอนเอียงคำศัพท์ที่กำหนดเอง** | รองรับ (สูงสุด 1,000 คำ) | รองรับ (สูงสุด 1,000 คำ) | โดยปกติแล้ว ลูกค้าจะได้รับผลลัพธ์ที่ดีที่สุดเมื่อใช้คำไม่เกิน 100 คำ |
-| **การเขียนตามคำบอกและการจัดรูปแบบอัจฉริยะ** | รองรับ | รองรับ | รวมถึงการนำคำพูดที่ไม่มีความหมายออกและการจัดรูปแบบตัวอักษรและตัวเลขโดยพิจารณาจากเจตนา |
-| **การระบุผู้พูด** | ไม่รองรับ | รองรับ (สูงสุด 8 ลำโพง) | การระบุแหล่งที่มาสำหรับลำโพง 3 เครื่องขึ้นไปอยู่ในขั้นทดลอง |
-| **ระยะเวลาเสียงสูงสุด** | 10 นาทีต่อเซสชัน | นานสูงสุด 1 ชั่วโมง | การประมวลผลไฟล์จะจำกัดไว้ที่ 30 นาทีเมื่อเปิดใช้ฟีเจอร์ต่างๆ เช่น การระบุผู้พูดหรือการประทับเวลา |
+| **זיהוי שפה אוטומטי** | נתמך (יותר מ-85 שפות) | נתמך (יותר מ-85 שפות) | כולל ערבוב קוד באמצע הסשן. |
+| **חותמות זמן ברמת המילה** | לא נתמך | כן | פוגע בדיוק של התמלול. לא תואם לאוצר מילים מותאם אישית. |
+| **הטיה של אוצר מילים בהתאמה אישית** | נתמך (עד 1,000 מונחים) | נתמך (עד 1,000 מונחים) | בדרך כלל, הלקוחות רואים את התוצאות הטובות ביותר עם עד 100 מונחים. לא תואם לזיהוי דוברים ולחותמות זמן. |
+| **הכתבה חכמה ועיצוב חכם** | כן | כן | התכונה כוללת הסרת מילים מיותרות ועיצוב אלפאנומרי שמבוסס על כוונת המשתמש. |
+| **זיהוי דוברים** | לא נתמך | נתמך (עד 8 דוברים) | השיוך של 3 דוברים או יותר הוא ניסיוני. לא תואם לאוצר מילים מותאם אישית. |
+| **משך האודיו המקסימלי** | ‫10 דקות לכל סשן. | עד שעה | עיבוד הקובץ מוגבל ל-30 דקות כשמופעלות תכונות כמו חלוקה לדוברים או חותמות זמן. |
 
-## ภาษาที่รองรับ
+## שפות נתמכות
 
-Gemini 3.5 Transcribe รองรับภาษาและรหัสภาษา BCP-47 ต่อไปนี้
+אלה השפות וקודי השפה בתקן BCP-47 שנתמכים ב-Gemini 3.5 Transcribe:
 
-| ภาษา | รหัส BCP-47 | ภาษา | รหัส BCP-47 |
+| שפה | קוד BCP-47 | שפה | קוד BCP-47 |
 | --- | --- | --- | --- |
-| อาฟรีกานส์ | `af-ZA` | ญี่ปุ่น | `ja-JP` |
-| อัมฮาริก | `am-ET` | ชวา | `jv-ID` |
-| อาหรับ (อียิปต์) | `ar-EG` | คาบูเวอร์เดียนู | `kea-CV` |
-| อาร์เมเนีย | `hy-AM` | กันนาดา | `kn-IN` |
-| อัสสัม | `as-IN` | คาซัค | `kk-KZ` |
-| อาร์เซอร์ไบจัน | `az-AZ` | เกาหลี | `ko-KR` |
-| เบลารุส | `be-BY` | คีร์กิซ | `ky-KG` |
-| เบงกาลี (บังกลาเทศ) | `bn-BD` | ลัตเวีย | `lv-LV` |
-| เบงกาลี (อินเดีย) | `bn-IN` | ลิงกาลา | `ln-CD` |
-| บอสเนีย | `bs-BA` | ลิทัวเนีย | `lt-LT` |
-| บัลแกเรีย | `bg-BG` | มาซีโดเนีย | `mk-MK` |
-| บัลแกเรีย (อโรมาเนีย) | `rup-BG` | มาเลย์ | `ms-MY` |
-| พม่า | `my-MM` | มาลายาลัม | `ml-IN` |
-| จีนกวางตุ้ง (ตัวเต็ม) | `yue-Hant-HK` | มอลตา | `mt-MT` |
-| คาตาลัน | `ca-ES` | จีนกลาง (ตัวย่อ) | `cmn-Hans-CN` |
-| ซีบัวโน | `ceb` | มราฐี | `mr-IN` |
-| เขมรตอนกลาง | `km-KH` | มองโกเลีย | `mn-MN` |
-| โครเอเชีย | `hr-HR` | เนปาล | `ne-NP` |
-| เช็ก | `cs-CZ` | นอร์เวย์ | `nb-NO` |
-| เดนมาร์ก | `da-DK` | โอริยา | `or-IN` |
-| ดัตช์ | `nl-NL` | โปแลนด์ | `pl-PL` |
-| อังกฤษ (บริเตนใหญ่) | `en-GB` | โปรตุเกส (บราซิล) | `pt-BR` |
-| อังกฤษ (อินเดีย) | `en-IN` | โปรตุเกส (โปรตุเกส) | `pt-PT` |
-| อังกฤษ (สหรัฐอเมริกา) | `en-US` | ปัญจาบ | `pa-IN` |
-| เอสโตเนีย | `et-EE` | ปัญจาบ (สคริปต์คุรมุขี) | `pa-Guru-IN` |
-| ฟาร์ซี | `fa-IR` | โรมาเนีย | `ro-RO` |
-| ฟิลิปปินส์ | `fil-PH` | รัสเซีย | `ru-RU` |
-| ฟินแลนด์ | `fi-FI` | เซอร์เบีย | `sr-RS` |
-| ฝรั่งเศส | `fr-FR` | ภาษาสินธี (อักษรอาหรับ) | `sd-Arab-IN` |
-| กาลิเชียน | `gl-ES` | สโลวัก | `sk-SK` |
-| จอร์เจีย | `ka-GE` | สโลวีเนีย | `sl-SI` |
-| เยอรมัน | `de-DE` | สเปน (ลาตินอเมริกา) | `es-419` |
-| กรีก | `el-GR` | สเปน (สหรัฐอเมริกา) | `es-US` |
-| คุชราต | `gu-IN` | สวาฮีลี (เคนยา) | `sw-KE` |
-| เฮาซา | `ha-NG` | สวีเดน | `sv-SE` |
-| ฮีบรู | `he-IL` | ทาจิก | `tg-TJ` |
-| ฮินดี | `hi-IN` | เตลูกู | `te-IN` |
-| ฮังการี | `hu-HU` | ไทย | `th-TH` |
-| ไอซ์แลนด์ | `is-IS` | ตุรกี | `tr-TR` |
-| อังกฤษ (อินเดีย) | `en-IN` | ยูเครน | `uk-UA` |
-| อินโดนีเซีย | `id-ID` | อุซเบก | `uz-UZ` |
-| อิตาลี | `it-IT` | เวียดนาม | `vi-VN` |
+| אפריקאנס | `af-ZA` | יפנית | `ja-JP` |
+| אמהרית | `am-ET` | ג'אווה | `jv-ID` |
+| ערבית (מצרים) | `ar-EG` | קבוורדיאנית | `kea-CV` |
+| ארמנית | `hy-AM` | קנאדה | `kn-IN` |
+| אסאמית | `as-IN` | קזחית | `kk-KZ` |
+| אזרית | `az-AZ` | קוריאנית | `ko-KR` |
+| בלארוסית | `be-BY` | קירגיזית | `ky-KG` |
+| בנגלית (בנגלדש) | `bn-BD` | לטבית | `lv-LV` |
+| בנגלית (הודו) | `bn-IN` | לינגלה | `ln-CD` |
+| בוסנית | `bs-BA` | ליטאית | `lt-LT` |
+| בולגרית | `bg-BG` | מקדונית | `mk-MK` |
+| בולגרית (ארומנית) | `rup-BG` | מלאית | `ms-MY` |
+| בורמזית | `my-MM` | מליאלאם | `ml-IN` |
+| קנטונזית (מסורתית) | `yue-Hant-HK` | מלטית | `mt-MT` |
+| קטלאנית | `ca-ES` | מנדרינית (פשוטה) | `cmn-Hans-CN` |
+| סבואנו | `ceb` | מראטהית | `mr-IN` |
+| חמר מרכזית | `km-KH` | מונגולית | `mn-MN` |
+| קרואטית | `hr-HR` | נפאלית | `ne-NP` |
+| צ'כית | `cs-CZ` | נורווגית | `nb-NO` |
+| דנית | `da-DK` | אורייה | `or-IN` |
+| הולנדית | `nl-NL` | פולנית | `pl-PL` |
+| אנגלית (בריטניה) | `en-GB` | פורטוגזית (ברזיל) | `pt-BR` |
+| אנגלית (הודו) | `en-IN` | פורטוגזית (פורטוגל) | `pt-PT` |
+| אנגלית (ארצות הברית) | `en-US` | פנג'אבי | `pa-IN` |
+| אסטונית | `et-EE` | פנג'אבי (כתב גורמוקי) | `pa-Guru-IN` |
+| פרסית | `fa-IR` | רומנית | `ro-RO` |
+| פיליפינית | `fil-PH` | רוסית | `ru-RU` |
+| פינית | `fi-FI` | סרבית | `sr-RS` |
+| צרפתית | `fr-FR` | סינדהית (כתב ערבי) | `sd-Arab-IN` |
+| גליציאנית | `gl-ES` | סלובקית | `sk-SK` |
+| גאורגית | `ka-GE` | סלובנית | `sl-SI` |
+| גרמנית | `de-DE` | ספרדית (אמריקה הלטינית) | `es-419` |
+| יוונית | `el-GR` | ספרדית (ארצות הברית) | `es-US` |
+| גוג'ראטי | `gu-IN` | סוואהילית (קניה) | `sw-KE` |
+| האוסה | `ha-NG` | שוודית | `sv-SE` |
+| עברית | `he-IL` | טג'יקית | `tg-TJ` |
+| הינדי | `hi-IN` | טלוגו | `te-IN` |
+| הונגרית | `hu-HU` | תאית | `th-TH` |
+| איסלנדית | `is-IS` | טורקית | `tr-TR` |
+| אנגלית הודית | `en-IN` | אוקראינית | `uk-UA` |
+| אינדונזית | `id-ID` | אוזבקית | `uz-UZ` |
+| איטלקית | `it-IT` | וייטנאמית | `vi-VN` |
 
-ส่งความคิดเห็น
+שליחת משוב
 
-เนื้อหาของหน้าเว็บนี้ได้รับอนุญาตภายใต้[ใบอนุญาตที่ต้องระบุที่มาของครีเอทีฟคอมมอนส์ 4.0](https://creativecommons.org/licenses/by/4.0/) และตัวอย่างโค้ดได้รับอนุญาตภายใต้[ใบอนุญาต Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) เว้นแต่จะระบุไว้เป็นอย่างอื่น โปรดดูรายละเอียดที่[นโยบายเว็บไซต์ Google Developers](https://developers.google.com/site-policies?hl=th) Java เป็นเครื่องหมายการค้าจดทะเบียนของ Oracle และ/หรือบริษัทในเครือ
+אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
 
-อัปเดตล่าสุด 2026-09-10 UTC
+עדכון אחרון: 2026-10-29 (שעון UTC).
 
-หากต้องการบอกให้เราทราบเพิ่มเติม
+רוצה לתת לנו משוב?
 
-[[["เข้าใจง่าย","easyToUnderstand","thumb-up"],["แก้ปัญหาของฉันได้","solvedMyProblem","thumb-up"],["อื่นๆ","otherUp","thumb-up"]],[["ไม่มีข้อมูลที่ฉันต้องการ","missingTheInformationINeed","thumb-down"],["ซับซ้อนเกินไป/มีหลายขั้นตอนมากเกินไป","tooComplicatedTooManySteps","thumb-down"],["ล้าสมัย","outOfDate","thumb-down"],["ปัญหาเกี่ยวกับการแปล","translationIssue","thumb-down"],["ตัวอย่าง/ปัญหาเกี่ยวกับโค้ด","samplesCodeIssue","thumb-down"],["อื่นๆ","otherDown","thumb-down"]],["อัปเดตล่าสุด 2026-09-10 UTC"],[],[]]
+[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-29 (שעון UTC)."],[],[]]

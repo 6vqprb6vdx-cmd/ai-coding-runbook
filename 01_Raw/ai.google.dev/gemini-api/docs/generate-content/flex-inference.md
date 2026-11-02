@@ -1,31 +1,32 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=de
-fetched_at: 2026-10-26T05:46:37.489439+00:00
-title: "Flex-Inferenz \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/flex-inference?hl=fa
+fetched_at: 2026-11-02T07:13:31.705549+00:00
+title: "\u0627\u0633\u062a\u0646\u062a\u0627\u062c \u0627\u0646\u0639\u0637\u0627\u0641\u200c\u067e\u0630\u06cc\u0631 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs/generate-content?hl=de)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs/generate-content?hl=fa)
 
-Feedback geben
+ارسال بازخورد
 
-# Flex-Inferenz
+# استنتاج انعطاف‌پذیر
 
-Beschreibung: Informationen zur Kostenoptimierung mit der Flex-Inferenzebene
+شرح: با نحوه بهینه‌سازی هزینه‌ها با سطح استنباط «انعطاف‌پذیر» آشنا شوید
 
-Die Gemini Flex API ist eine Inferenzebene, die im Vergleich zu Standardpreisen eine Kostenreduzierung von 50% bietet. Im Gegenzug sind Latenz und Verfügbarkeit variabel. Sie ist für latenzunempfindliche Arbeitslasten konzipiert, die eine synchrone Verarbeitung erfordern, aber nicht die Echtzeitleistung der Standard-API benötigen.
+‫Gemini Flex API یک سطح استنتاج است که درمقایسه با نرخ‌های استاندارد، ۵۰٪ کاهش هزینه ارائه می‌دهد و درعوض، تأخیر متغیر و دردسترس بودن با حداکثر تلاش را ارائه می‌دهد. این API برای حجم‌های کاری با تحمل تأخیر طراحی شده است که به پردازش هم‌زمان نیاز دارند اما به عملکرد هم‌زمان API استاندارد نیاز ندارند.
 
-## Flex verwenden
+## نحوه استفاده از Flex
 
-Wenn Sie die Flex-Ebene verwenden möchten, geben Sie im Anfragetext `service_tier` als `flex` an. Wenn dieses Feld nicht angegeben ist, wird standardmäßig die Standardebene verwendet.
+برای استفاده از سطح Flex،‏ `service_tier` را به‌عنوان `flex` در
+بدنه درخواست مشخص کنید. به‌طور پیش‌فرض، اگر این فیلد حذف شود، درخواست‌ها از سطح استاندارد استفاده می‌کنند.
 
 ### Python
 
@@ -68,7 +69,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### رفتن
 
 ```
 package main
@@ -103,7 +104,7 @@ func main() {
 }
 ```
 
-### REST
+### استراحت
 
 ```
 curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=$GEMINI_API_KEY" \
@@ -116,65 +117,64 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8
 }'
 ```
 
-## Funktionsweise der Flex-Inferenz
+## نحوه عملکرد «استنتاج انعطاف‌پذیر»
 
-Die Gemini Flex-Inferenz schließt die Lücke zwischen der Standard-API und der 24-Stunden
-Bearbeitungszeit der [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de). Sie nutzt Rechenkapazität außerhalb der Spitzenzeiten, die bei Bedarf reduziert werden kann, um eine kostengünstige Lösung für Hintergrundaufgaben und sequenzielle Arbeitsabläufe zu bieten.
+استنتاج Gemini Flex فاصله بین میانای برنامه‌سازی کاربردی استاندارد و زمان پاسخ ۲۴ ساعته [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa) را پر می‌کند. این سرویس از ظرفیت محاسباتی «قابل‌کاهش» در ساعات کم‌مصرف استفاده می‌کند تا راه‌حلی مقرون‌به‌صرفه برای کارهای پس‌زمینه و گردش‌های کاری متوالی ارائه دهد.
 
-| Funktion | Flex | Priorität | Standard | Batch |
+| ویژگی | به‌رخ کشیدن | اولویت | استاندارد | دسته |
 | --- | --- | --- | --- | --- |
-| **Preise** | 50% Rabatt | 75–100% mehr als Standard | Standardpreis | 50% Rabatt |
-| **Latenz** | Minuten (Ziel: 1–15 Minuten) | Niedrig (Sekunden) | Sekunden bis Minuten | Bis zu 24 Stunden |
-| **Zuverlässigkeit** | Best-Effort-Ansatz (reduzierbar) | Hoch (nicht reduzierbar) | Hoch / Mittel bis hoch | Hoch (für Durchsatz) |
-| **Schnittstelle** | Synchron | Synchron | Synchron | Asynchron |
+| **قیمت‌گذاری** | ‫٪۵۰ تخفیف | ‫۷۵ تا ۱۰۰٪ بیشتر از «استاندارد» | قیمت کامل | ‫٪۵۰ تخفیف |
+| **تأخیر** | دقیقه (هدف ۱ تا ۱۵ دقیقه) | کم (ثانیه) | ثانیه به دقیقه | حداکثر ۲۴ ساعت |
+| **قابلیت اطمینان** | نهایت تلاش (قابل‌حذف) | زیاد (غیرقابل ریزش) | زیاد / متوسط روبه‌بالا | بالا (برای توان گذرداد) |
+| **میانا** | هم‌زمان | همگام | همگام | غیرهمگام |
 
-### Hauptvorteile
+### مزایای کلیدی
 
-- **Kosteneffizienz**: Erhebliche Einsparungen bei nicht produktionsbezogenen Bewertungen, Hintergrund-Agents und Datenanreicherung.
-- **Geringer Aufwand**: Sie müssen keine Batch-Objekte, Job-IDs oder Abrufe verwalten. Fügen Sie einfach einen einzelnen Parameter zu Ihren bestehenden Anfragen hinzu.
-- **Synchrone Workflows**: Ideal für sequenzielle API-Ketten, bei denen die nächste Anfrage von der Ausgabe der vorherigen abhängt. Dadurch ist sie flexibler als Batch für Agentic Workflows.
+- **بهینگی هزینه**: صرفه‌جویی قابل‌توجه برای ارزیابی‌های غیرتولیدی، عامل‌های پس‌زمینه، و غنی‌سازی داده‌ها.
+- **اصطکاک کم**: نیازی به مدیریت کردن اشیای دسته‌ای، شناسه‌های کار، یا نظرسنجی نیست؛ کافی است یک پارامتر به درخواست‌های موجودتان اضافه کنید.
+- **گردش کارهای همگام**: ایده‌آل برای زنجیره‌های متوالی میانای برنامه‌سازی کاربردی که در آن درخواست بعدی به خروجی درخواست قبلی بستگی دارد، که آن را برای گردش کارهای عامل‌گرا انعطاف‌پذیرتر از Batch می‌کند.
 
-### Anwendungsfälle
+### موارد استفاده
 
-- **Offline-Bewertungen**: Ausführen von Regressionstests oder Bestenlisten mit „LLM-as-a-judge“.
-- **Hintergrund-Agents**: Sequenzielle Aufgaben wie CRM-Updates, Profilerstellung oder Inhaltsmoderation, bei denen eine Verzögerung von einigen Minuten akzeptabel ist.
-- **Budgetbeschränkte Forschung**: Akademische Experimente, die ein hohes Tokenvolumen bei einem begrenzten Budget erfordern.
+- **ارزیابی‌های آفلاین**: اجرای آزمایش‌های رگرسیون «مدل زبانی بزرگ به‌عنوان داور» یا تابلوهای پیشتازان.
+- **عامل‌های پس‌زمینه**: تکالیف ترتیبی مثل به‌روزرسانی‌های CRM، ساختن نمایه‌های شخصی، یا مدیریت محتوا که در آن‌ها چند دقیقه تأخیر قابل‌قبول است.
+- **پژوهش با بودجه محدود**: آزمایش‌های دانشگاهی که به حجم بالای ژتون با بودجه محدود نیاز دارند.
 
-### Ratenbegrenzung
+### محدودیت‌های نرخ
 
-Der Flex-Inferenz-Traffic wird auf Ihre allgemeinen [Ratenlimits](https://aistudio.google.com/rate-limit?hl=de) angerechnet. Es gibt keine
-erweiterten Ratenlimits wie bei der [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de).
+ترافیک استنتاج انعطاف‌پذیر جزو [حدود نرخ](https://aistudio.google.com/rate-limit?hl=fa) عمومی شما محسوب می‌شود؛
+این ترافیک حدود نرخ گسترده‌ای مانند [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa) ارائه نمی‌دهد.
 
-### Reduzierbare Kapazität
+### ظرفیت قابل‌کاهش
 
-Flex-Traffic wird mit niedrigerer Priorität behandelt. Bei einem Anstieg des Standard-Traffics können Flex-Anfragen vorzeitig beendet oder entfernt werden, um Kapazität für Nutzer mit hoher Priorität zu gewährleisten. Wenn Sie eine Inferenz mit hoher Priorität benötigen, lesen Sie den Hilfeartikel zur
-[Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de).
+ترافیک Flex با اولویت پایین‌تری درنظر گرفته می‌شود. اگر ترافیک استاندارد افزایش ناگهانی داشته باشد، ممکن است درخواست‌های Flex برای اطمینان از وجود ظرفیت برای کاربران با اولویت بالا، پیش‌دستی یا تخلیه شوند. اگر به‌دنبال استنتاج با اولویت بالا هستید،
+[استنتاج با اولویت](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fa) را بررسی کنید
 
-### Fehlercodes
+### کدهای خطا
 
-Wenn die Flex-Kapazität nicht verfügbar ist oder das System überlastet ist, gibt die API Standardfehlercodes zurück:
+وقتی ظرفیت Flex دردسترس نباشد یا سیستم شلوغ باشد، میانای برنامه‌سازی کاربردی
+کدهای خطای استاندارد را برمی‌گرداند:
 
-- **503 Service Unavailable**: Das System ist derzeit ausgelastet.
-- **429 Too Many Requests**: Ratenbegrenzung oder Ressourcenerschöpfung.
+- **‫۵۰۳ سرویس دردسترس نیست**: درحال‌حاضر، سیستم به حداکثر ظرفیت رسیده است.
+- **‫429 درخواست‌های بیش‌ازحد**: محدودیت‌های نرخ یا اتمام منابع.
 
-### Verantwortung des Clients
+### مسئولیت کارخواه
 
-- **Kein serverseitiges Fallback**: Um unerwartete Kosten zu vermeiden, wird eine Flex-Anfrage nicht
-  automatisch auf die Standardebene aktualisiert, wenn die Flex-Kapazität
-  voll ist.
-- **Wiederholungen**: Sie müssen Ihre eigene clientseitige Wiederholungslogik mit
-  exponentiellem Backoff implementieren.
-- **Zeitlimits**: Da Flex-Anfragen in einer Warteschlange stehen können, empfehlen wir,
-  die clientseitigen Zeitlimits auf mindestens 10 Minuten zu erhöhen, um ein vorzeitiges
-  Schließen der Verbindung zu vermeiden.
+- **بدون بازگشت به سمت سرور**: برای جلوگیری از هزینه‌های غیرمنتظره، اگر ظرفیت Flex پر باشد، سیستم به‌طور خودکار درخواست Flex را به سطح Standard ارتقا نمی‌دهد.
+- **تلاش‌های مجدد**: باید منطق تلاش مجدد سمت کارخواه خودتان را با
+  عقب‌نشینی نمایی پیاده‌سازی کنید.
+- **زمان‌های استراحت**: چون درخواست‌های Flex ممکن است در صف قرار بگیرند، توصیه می‌کنیم
+  زمان‌های استراحت سمت کارخواه را به ۱۰ دقیقه یا بیشتر افزایش دهید تا از بسته شدن زودرس
+  اتصال جلوگیری شود.
 
-## Zeitlimits anpassen
+## تنظیم پنجره‌های زمان استراحت
 
-Sie können Zeitlimits pro Anfrage für die REST API und Clientbibliotheken sowie globale Zeitlimits nur bei Verwendung der Clientbibliotheken konfigurieren.
+می‌توانید زمان‌های اتمام درخواست را برای REST API و کتابخانه‌های کارخواه پیکربندی کنید،
+و زمان‌های اتمام سراسری را فقط هنگام استفاده از کتابخانه‌های کارخواه پیکربندی کنید.
 
-Achten Sie immer darauf, dass das clientseitige Zeitlimit das vorgesehene serverseitige Zeitlimit abdeckt (z.B. 600 Sekunden oder mehr für Flex-Warteschlangen). Die SDKs erwarten Zeitlimitwerte in Millisekunden.
+همیشه مطمئن شوید که مهلت زمانی سمت مشتری شما پنجره صبر سرور موردنظر را پوشش می‌دهد (برای نمونه، ۶۰۰ ثانیه و بیشتر برای صف‌های انتظار Flex). کیت‌های توسعه نرم‌افزار انتظار دارند مقادیر زمان اتمام برحسب میلی‌ثانیه باشد.
 
-### Zeitlimits pro Anfrage
+### زمان‌های اتمام درخواست
 
 ### Python
 
@@ -255,7 +255,7 @@ except Exception as e:
  await main();
 ```
 
-### Ok
+### رفتن
 
 ```
 package main
@@ -321,12 +321,13 @@ func main() {
 
 ### REST
 
-Bei REST-Aufrufen können Sie Zeitlimits mit einer Kombination aus HTTP-Headern und `curl`-Optionen steuern:
+هنگام برقراری تماس‌های REST، می‌توانید زمان‌های اتمام را بااستفاده از ترکیبی از سرصفحه‌های HTTP و گزینه‌های `curl` کنترل کنید:
 
-- **`X-Server-Timeout` -Header (serverseitiges Zeitlimit)** : Dieser Header schlägt dem Gemini API-Server eine bevorzugte Zeitlimitdauer vor (Standard: 600 Sekunden). Der Server versucht, dies zu berücksichtigen, aber es gibt keine Garantie. Der Wert muss in Sekunden angegeben werden.
-- **`--max-time` in `curl` (clientseitiges Zeitlimit)**: Mit der Option `curl --max-time
-  <seconds>` wird ein hartes Limit für die Gesamtzeit (in Sekunden) festgelegt, die `curl`
-  wartet, bis der gesamte Vorgang abgeschlossen ist. Dies ist eine clientseitige Sicherheitsmaßnahme.
+- **سرصفحه `X-Server-Timeout` (مهلت زمانی سمت سرور)**: این سرصفحه مدت‌زمان مهلت زمانی ترجیحی (به‌طور پیش‌فرض ۶۰۰ ثانیه) را به سرور Gemini API پیشنهاد می‌دهد. سرور
+  تلاش می‌کند این را رعایت کند، اما تضمینی وجود ندارد. مقدار باید برحسب ثانیه باشد.
+- **`--max-time` در `curl` (مهلت سمت کارخواه)**: گزینه `curl --max-time
+  <seconds>` محدودیت سختی را برای کل زمان (به ثانیه) که `curl`
+  منتظر می‌ماند تا کل عملیات تکمیل شود تعیین می‌کند. این یک اقدام حفاظتی سمت کارخواه است.
 
 ```
  # Set a server timeout hint of 120 seconds and a client-side curl timeout of 125 seconds.
@@ -342,9 +343,9 @@ Bei REST-Aufrufen können Sie Zeitlimits mit einer Kombination aus HTTP-Headern 
  }'
 ```
 
-### Globale Zeitlimits
+### درنگ‌های سراسری
 
-Wenn alle API-Aufrufe, die über eine bestimmte `genai.Client`-Instanz erfolgen (nur Clientbibliotheken), ein Standardzeitlimit haben sollen, können Sie dies beim Initialisieren des Clients mit `http_options` und `genai.types.HttpOptions` konfigurieren.
+اگر می‌خواهید همه تماس‌های «میانای برنامه‌سازی کاربردی» که ازطریق نمونه `genai.Client` خاصی (فقط کتابخانه‌های کارخواه) برقرار می‌شوند زمان اتمام پیش‌فرض داشته باشند، می‌توانید این را هنگام مقداردهی اولیه کارخواه بااستفاده از `http_options` و `genai.types.HttpOptions` پیکربندی کنید.
 
 ### Python
 
@@ -434,7 +435,7 @@ async function main() {
 await main();
 ```
 
-### Ok
+### رفتن
 
 ```
  package main
@@ -491,9 +492,10 @@ await main();
  }
 ```
 
-## Wiederholungen implementieren
+## پیاده‌سازی تلاش‌های مجدد
 
-Da Flex reduzierbar ist und mit 503-Fehlern fehlschlägt, finden Sie hier ein Beispiel für die optionale Implementierung einer Wiederholungslogik, um mit fehlgeschlagenen Anfragen fortzufahren:
+چون Flex قابل‌حذف است و با خطاهای ۵۰۳ ناموفق می‌شود، در اینجا نمونه‌ای از
+پیاده‌سازی اختیاری منطق تکرار مجدد برای ادامه دادن با درخواست‌های ناموفق ارائه شده است:
 
 ### Python
 
@@ -576,7 +578,7 @@ print(response.text)
  await main();
 ```
 
-### Ok
+### رفتن
 
 ```
  package main
@@ -635,44 +637,43 @@ print(response.text)
  }
 ```
 
-## Preise
+## قیمت‌گذاری
 
-Die Flex-Inferenz kostet 50% der [Standard-API](https://ai.google.dev/gemini-api/docs/pricing?hl=de)
-und wird pro Token abgerechnet.
+قیمت استنتاج انعطاف‌پذیر ۵۰٪ قیمت [میانای برنامه‌سازی کاربردی استاندارد](https://ai.google.dev/gemini-api/docs/pricing?hl=fa) است و براساس هر نمانه صورت‌حساب می‌شود.
 
-## Unterstützte Modelle
+## مدل‌های پشتیبانی‌شده
 
-Die folgenden Modelle unterstützen die Flex-Inferenz:
+مدل‌های زیر از استنتاج انعطاف‌پذیر پشتیبانی می‌کنند:
 
-| Modell | Flex-Inferenz |
+| مدل | استنتاج انعطاف‌پذیر |
 | --- | --- |
-| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=de) | ✔️ |
-| [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=de) | ✔️ |
-| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=de) | ✔️ |
-| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=de) | ✔️ |
-| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=de) | ✔️ |
-| [Gemini 3.1 Pro (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=de) | ✔️ |
-| [Gemini 3 Flash (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=de) | ✔️ |
-| [Gemini 3 Pro Image (Vorabversion)](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=de) | ✔️ |
-| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=de) | ✔️ |
-| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=de) | ✔️ |
-| [Gemini 2.5 Flash Image](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=de) | ✔️ |
-| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=de) | ✔️ |
+| [Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=fa) | ✔️ |
+| [‫Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash?hl=fa) | ✔️ |
+| [Gemini 3.6 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fa) | ✔️ |
+| [Gemini 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.5-flash-lite?hl=fa) | ✔️ |
+| [Gemini 3.1 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-flash-lite?hl=fa) | ✔️ |
+| [پیش‌نمایش Gemini 3.1 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3.1-pro-preview?hl=fa) | ✔️ |
+| [پیش‌نمایش Gemini 3 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-3-flash-preview?hl=fa) | ✔️ |
+| [پیش‌دید تصویر Gemini 3 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-3-pro-image?hl=fa) | ✔️ |
+| [Gemini 2.5 Pro](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fa) | ✔️ |
+| [Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=fa) | ✔️ |
+| [تصویر Gemini 2.5 Flash](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-image?hl=fa) | ✔️ |
+| [Gemini 2.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-lite?hl=fa) | ✔️ |
 
-## Nächste Schritte
+## قدم بعدی چیست
 
-Weitere Informationen zu anderen [Inferenz- und Optimierungs](https://ai.google.dev/gemini-api/docs/optimization?hl=de)optionen von Gemini:
+درباره سایر گزینه‌های [استنباط و بهینه‌سازی](https://ai.google.dev/gemini-api/docs/optimization?hl=fa) Gemini بخوانید:
 
-- [Prioritätsinferenz](https://ai.google.dev/gemini-api/docs/priority-inference?hl=de) für extrem niedrige Latenz.
-- [Batch-API](https://ai.google.dev/gemini-api/docs/batch-api?hl=de) für die asynchrone Verarbeitung innerhalb von 24 Stunden
-- [Kontext-Caching](https://ai.google.dev/gemini-api/docs/caching?hl=de) für geringere Kosten für Eingabetokens
+- [استنتاج اولویت](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fa) برای تأخیر بسیار کم.
+- [Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa) برای پردازش ناهمزمان در عرض ۲۴ ساعت.
+- [ذخیره‌سازی بافت در حافظه نهان](https://ai.google.dev/gemini-api/docs/caching?hl=fa) برای کاهش هزینه توکن ورودی.
 
-Feedback geben
+ارسال بازخورد
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-Zuletzt aktualisiert: 2026-10-13 (UTC).
+تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی.
 
-Haben Sie Feedback für uns?
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-13 (UTC)."],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-13 به‌وقت ساعت هماهنگ جهانی."],[],[]]

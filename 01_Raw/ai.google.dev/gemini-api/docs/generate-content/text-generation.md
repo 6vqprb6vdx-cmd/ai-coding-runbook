@@ -1,27 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=fa
-fetched_at: 2026-10-26T05:53:48.548574+00:00
-title: "\u062a\u0648\u0644\u06cc\u062f \u0646\u0648\u0634\u062a\u0627\u0631 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/text-generation?hl=zh-TW
+fetched_at: 2026-11-02T07:12:15.038293+00:00
+title: "\u6587\u5b57\u751f\u6210 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs/generate-content?hl=fa)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs/generate-content?hl=zh-tw)
 
-ارسال بازخورد
+提供意見
 
-# تولید نوشتار
+# 文字生成
 
-‫Gemini API می‌تواند از ورودی‌های نوشتاری، تصویری، ویدیویی، و صوتی، برونداد نوشتاری تولید کند.
+Gemini API 可依據輸入的文字、圖片、影片和音訊生成文字輸出內容。
 
-در اینجا یک مثال ساده آورده شده است:
+基本範例如下：
 
 ### Python
 
@@ -55,7 +55,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -86,7 +86,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -105,7 +105,7 @@ public class GenerateContentWithTextInput {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -160,14 +160,11 @@ function main() {
 }
 ```
 
-## اندیشیدن با Gemini
+## 與 Gemini 一起思考
 
-مدل‌های Gemini اغلب به‌طور پیش‌فرض [«تفکر»](https://ai.google.dev/gemini-api/docs/thinking?hl=fa) را فعال دارند
-که به مدل اجازه می‌دهد پیش‌از پاسخ دادن به درخواست، استدلال کند.
+Gemini 模型通常預設啟用[「思考」](https://ai.google.dev/gemini-api/docs/thinking?hl=zh-tw)功能，可在回覆要求前進行推論。
 
-هر مدل از پیکربندی‌های تفکر متفاوتی پشتیبانی می‌کند که به شما امکان می‌دهد
-هزینه، تأخیر، و هوش را کنترل کنید. برای جزئیات بیشتر،
-[راهنمای تفکر](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=fa#set-budget) را ببینید.
+每個模型都支援不同的思考設定，可讓您控管成本、延遲時間和智慧程度。詳情請參閱[思考指南](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=zh-tw#set-budget)。
 
 ### Python
 
@@ -210,7 +207,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -247,7 +244,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -274,7 +271,7 @@ public class GenerateContentWithThinkingConfig {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -339,11 +336,9 @@ function main() {
 }
 ```
 
-## دستورالعمل‌های سیستم و پیکربندی‌های دیگر
+## 系統指令和其他設定
 
-می‌توانید رفتار مدل‌های Gemini را با دستورالعمل‌های سیستم هدایت کنید. برای انجام این کار،
-شیء [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerationConfig)
-را ارسال کنید.
+你可以使用系統指令引導 Gemini 模型行為。方法是傳遞 [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig) 物件。
 
 ### Python
 
@@ -384,7 +379,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -419,7 +414,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -447,7 +442,7 @@ public class GenerateContentWithSystemInstruction {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -515,9 +510,7 @@ function main() {
 }
 ```
 
-شیء [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerationConfig)
-همچنین به شما امکان می‌دهد پارامترهای تولید پیش‌فرض، مثل
-[`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerationConfig) یا [`thinking_config`](https://ai.google.dev/api/generate-content?hl=fa#ThinkingConfig) را ملغی کنید.
+[`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig) 物件也可用來覆寫預設生成參數，例如 [`max_output_tokens`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig) 或 [`thinking_config`](https://ai.google.dev/api/generate-content?hl=zh-tw#ThinkingConfig)。
 
 ### Python
 
@@ -558,7 +551,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -594,7 +587,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -616,7 +609,7 @@ public class GenerateContentWithConfig {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent \
@@ -683,13 +676,11 @@ function main() {
 }
 ```
 
-برای فهرست کامل پارامترهای پیکربندی‌شدنی و توضیحات آن‌ها، به [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerationConfig)
-در مرجع API ما مراجعه کنید.
+如需可設定參數及其說明的完整清單，請參閱 API 參考資料中的 [`GenerateContentConfig`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerationConfig)。
 
-## ورودی‌های چندحالته
+## 多模態輸入
 
-‫Gemini API از ورودی‌های چندحالته پشتیبانی می‌کند و به شما امکان می‌دهد نوشتار را با
-فایل‌های رسانه‌ای ترکیب کنید. مثال زیر نحوه ارائه تصویر را نشان می‌دهد:
+Gemini API 支援多模態輸入，可結合文字和媒體檔案。以下範例說明如何提供圖片：
 
 ### Python
 
@@ -737,7 +728,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -785,7 +776,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -811,7 +802,7 @@ public class GenerateContentWithMultiModalInputs {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 # Use a temporary file to hold the base64 encoded image data
@@ -897,19 +888,13 @@ function getImageData(url) {
 }
 ```
 
-برای روش‌های جایگزین ارائه تصاویر و پردازش تصویر پیشرفته‌تر،
-به [راهنمای درک تصویر](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fa) ما مراجعه کنید.
-این API از ورودی‌ها و درک [سند](https://ai.google.dev/gemini-api/docs/document-processing?hl=fa)،
-[ویدیو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa)، و
-[صوت](https://ai.google.dev/gemini-api/docs/audio?hl=fa) نیز پشتیبانی می‌کند.
+如需提供圖片的替代方法和更進階的圖片處理方式，請參閱[圖片理解指南](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)。這項 API 也支援[文件](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)、[影片](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)和[音訊](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)輸入內容，並可瞭解這些內容。
 
-## نمایش تدریجی پاسخ‌ها
+## 逐句顯示回覆
 
-به‌طور پیش‌فرض، مدل تنها پس‌از تکمیل کل فرایند تولید پاسخ می‌دهد.
+根據預設，整個生成程序完成後，模型才會傳回回覆。
 
-برای تعاملات روان‌تر، از جاری‌سازی برای دریافت
-[`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerateContentResponse)
-نمونه‌ها به‌صورت افزایشی درحین تولید شدن استفاده کنید.
+如要讓互動更流暢，請使用串流功能，在 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerateContentResponse) 執行個體生成時逐步接收。
 
 ### Python
 
@@ -947,7 +932,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -981,7 +966,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Client;
@@ -1008,7 +993,7 @@ public class GenerateContentStream {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse" \
@@ -1063,9 +1048,9 @@ function main() {
 }
 ```
 
-## مکالمه‌های چندنوبتی (گپ)
+## 多輪對話 (即時通訊)
 
-کیت‌های توسعه نرم‌افزار ما عملکردی را برای جمع‌آوری چندین دور پیام‌واره و پاسخ در گپ ارائه می‌دهند و روشی آسان برای پیگیری سابقه مکالمه دراختیارتان می‌گذارند.
+我們的 SDK 提供將多輪提示和回覆收集到對話中的功能，可讓您輕鬆追蹤對話記錄。
 
 ### Python
 
@@ -1122,7 +1107,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -1156,7 +1141,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -1188,7 +1173,7 @@ public class MultiTurnConversation {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent \
@@ -1273,7 +1258,7 @@ function main() {
 }
 ```
 
-از جاری‌سازی می‌توان برای مکالمه‌های چندنوبتی نیز استفاده کرد.
+串流功能也可用於多輪對話。
 
 ### Python
 
@@ -1338,7 +1323,7 @@ async function main() {
 await main();
 ```
 
-### رفتن
+### Go
 
 ```
 package main
@@ -1373,7 +1358,7 @@ func main() {
 }
 ```
 
-### جاوا
+### Java
 
 ```
 import com.google.genai.Chat;
@@ -1407,7 +1392,7 @@ public class MultiTurnConversationWithStreaming {
 }
 ```
 
-### استراحت
+### REST
 
 ```
 curl https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:streamGenerateContent?alt=sse \
@@ -1492,44 +1477,37 @@ function main() {
 }
 ```
 
-## نکته‌های پیام‌واره
+## 提示詞訣竅
 
-برای دریافت پیشنهادهایی درباره بیشترین بهره‌برداری از Gemini، به [راهنمای مهندسی پیام‌واره](https://ai.google.dev/gemini/docs/prompting-strategies?hl=fa) ما مراجعه کنید.
+請參閱[提示工程指南](https://ai.google.dev/gemini/docs/prompting-strategies?hl=zh-tw)，瞭解如何充分運用 Gemini。
 
-## قدم بعدی چیست
+## 後續步驟
 
-- [Gemini را در Google AI Studio](https://aistudio.google.com?hl=fa) امتحان کنید.
-- برای پاسخ‌های شبیه JSON، [بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa) را امتحان کنید.
-- قابلیت‌های Gemini را در درک [تصویر](https://ai.google.dev/gemini-api/docs/image-understanding?hl=fa)،
-  [ویدیو](https://ai.google.dev/gemini-api/docs/video-understanding?hl=fa)، [صدا](https://ai.google.dev/gemini-api/docs/audio?hl=fa)
-  و [سند](https://ai.google.dev/gemini-api/docs/document-processing?hl=fa) کاوش کنید.
-- درباره
-  [استراتژی‌های پیام‌واره فایل](https://ai.google.dev/gemini-api/docs/files?hl=fa#prompt-guide) چندوجهی بیشتر بدانید.
+- 在 [Google AI Studio 試用 Gemini](https://aistudio.google.com?hl=zh-tw)。
+- 試用[結構化輸出內容](https://ai.google.dev/gemini-api/docs/structured-output?hl=zh-tw)，取得類似 JSON 的回覆。
+- 探索 Gemini 的[圖片](https://ai.google.dev/gemini-api/docs/image-understanding?hl=zh-tw)、
+  [影片](https://ai.google.dev/gemini-api/docs/video-understanding?hl=zh-tw)、[音訊](https://ai.google.dev/gemini-api/docs/audio?hl=zh-tw)
+  和[文件](https://ai.google.dev/gemini-api/docs/document-processing?hl=zh-tw)理解功能。
+- 瞭解多模態[檔案提示策略](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw#prompt-guide)。
 
-## تولید محتوا
+## 內容生成
 
-این نقطه پایانی مرکزی برای ارسال پیام‌واره‌ها به مدل است. دو نقطه پایانی برای تولید محتوا وجود دارد، تفاوت اصلی در نحوه دریافت پاسخ است:
+這是將提示傳送至模型的主要端點。生成內容的端點有兩種，主要差異在於接收回覆的方式：
 
-- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=fa#method:-models.generatecontent)
-  (REST)**:
-  درخواستی دریافت می‌کند و پس‌از اینکه مدل کل تولید خود را به‌پایان رساند،
-  یک پاسخ واحد ارائه می‌دهد.
-- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=fa#method:-models.streamgeneratecontent)
-  (SSE)**: دقیقاً همان درخواست را دریافت می‌کند، اما مدل بخش‌هایی از پاسخ را به‌محض تولید شدن جاری‌سازی می‌کند. این کار تجربه کاربری بهتری برای برنامه‌های تعاملی فراهم می‌کند، زیرا به شما امکان می‌دهد نتایج جزئی را فوراً نمایش دهید.
+- **[`generateContent`](https://ai.google.dev/api/generate-content?hl=zh-tw#method:-models.generatecontent) (REST)**：接收要求，並在模型完成整個生成程序後，提供單一回覆。
+- **[`streamGenerateContent`](https://ai.google.dev/api/generate-content?hl=zh-tw#method:-models.streamgeneratecontent) (SSE)**：接收完全相同的要求，但模型會在生成回覆的一部分後，就傳回該部分。這項功能可立即顯示部分結果，因此能為互動式應用程式提供更優質的使用者體驗。
 
-### ساختار متن درخواست
+### 要求主體結構
 
-[بدنه درخواست](https://ai.google.dev/api/generate-content?hl=fa#request-body) یک شیء JSON است که برای هر دو حالت استاندارد و جاری‌سازی **یکسان** است و از چند شیء اصلی ساخته شده است:
+[要求主體](https://ai.google.dev/api/generate-content?hl=zh-tw#request-body)是 JSON 物件，在標準和串流模式中**完全相同**，且由幾個核心物件建構而成：
 
-- شیء [`Content`](https://ai.google.dev/api/caching?hl=fa#Content): نشان‌دهنده یک نوبت در مکالمه است.
-- [`Part`](https://ai.google.dev/api/caching?hl=fa#Part) شیء: بخشی از داده‌ها در `Content` نوبت
-  (مثل نوشتار یا تصویر).
-- ‫`inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=fa#Blob)): محفظه‌ای برای بایت‌های رسانه خام
-  و نوع MIME آن‌ها.
+- [`Content`](https://ai.google.dev/api/caching?hl=zh-tw#Content) 物件：代表對話中的單一回合。
+- [`Part`](https://ai.google.dev/api/caching?hl=zh-tw#Part) 物件：`Content` 回合中的資料 (例如文字或圖片)。
+- `inline_data` ([`Blob`](https://ai.google.dev/api/caching?hl=zh-tw#Blob))：原始媒體位元組及其 MIME 類型的容器。
 
-در بالاترین سطح، بدنه درخواست حاوی یک شیء `contents` است که فهرستی از اشیای `Content` است و هرکدام نشان‌دهنده نوبت در مکالمه است. در اکثر موارد، برای تولید نوشتار پایه، یک شیء `Content` خواهید داشت، اما اگر می‌خواهید سابقه مکالمه را حفظ کنید، می‌توانید از چند شیء `Content` استفاده کنید.
+在最高層級，要求主體包含 `contents` 物件，也就是 `Content` 物件清單，每個物件代表對話中的一輪。在大多數情況下，如果是基本文字生成，您會使用單一 `Content` 物件，但如果您想保留對話記錄，可以使用多個 `Content` 物件。
 
-در زیر یک بدنه درخواست `generateContent` معمولی نشان داده شده است:
+以下是典型的 `generateContent` 要求主體：
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1554,25 +1532,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### ساختار متن پاسخ
+### 回應主體結構
 
-[بدنه پاسخ](https://ai.google.dev/api/generate-content?hl=fa#response-body) برای هر دو حالت جاری‌سازی و استاندارد مشابه است، به‌جز موارد زیر:
+串流和標準模式的[回應本文](https://ai.google.dev/api/generate-content?hl=zh-tw#response-body)類似，但有以下例外狀況：
 
-- حالت استاندارد: بدنه پاسخ حاوی نمونه‌ای از
-  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerateContentResponse) است.
-- حالت جاری‌سازی: بدنه پاسخ حاوی جاری‌سازی
-  [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=fa#v1beta.GenerateContentResponse)
-  نمونه است.
+- 標準模式：回應主體包含 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerateContentResponse) 的執行個體。
+- 串流模式：回應主體包含 [`GenerateContentResponse`](https://ai.google.dev/api/generate-content?hl=zh-tw#v1beta.GenerateContentResponse) 執行個體串流。
 
-در سطح بالا، بدنه پاسخ حاوی یک شیء `candidates` است که
-فهرستی از اشیای `Candidate` است. شیء `Candidate` حاوی شیء `Content` است که پاسخ تولیدشده را از مدل برمی‌گرداند.
+整體來說，回應主體包含 `candidates` 物件，也就是 `Candidate` 物件清單。`Candidate` 物件包含 `Content` 物件，其中含有模型傳回的生成回覆。
 
-## نمونه‌های REST API
+## REST API 範例
 
-### پیام‌واره چندحالته (نوشتار و تصویر)
+### 多模態提示 (文字和圖片)
 
-برای ارائه هم نوشتار و هم تصویر در پیام‌واره، آرایه `parts` باید حاوی
-دو شیء `Part` باشد: یکی برای نوشتار و یکی برای تصویر `inline_data`.
+如要在提示中同時提供文字和圖片，`parts` 陣列應包含兩個 `Part` 物件：一個用於文字，另一個用於圖片 `inline_data`。
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1594,10 +1567,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### مکالمه‌های چندنوبتی (گپ)
+### 多輪對話 (即時通訊)
 
-برای ایجاد مکالمه‌ای با چند نوبت، آرایه `contents` را با چند شیء `Content` تعریف می‌کنید. «میانای برنامه‌سازی کاربردی» از کل این سابقه به‌عنوان بافت
-برای پاسخ بعدی استفاده خواهد کرد. `role` برای هر شیء `Content` باید بین `user` و `model` متناوب باشد.
+如要建立多輪對話，請使用多個 `Content` 物件定義 `contents` 陣列。API 會將這段完整記錄做為下一個回覆的脈絡資訊。每個 `Content` 物件的 `role` 應在 `user` 和 `model` 之間交替。
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent" \
@@ -1628,34 +1600,24 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
   }'
 ```
 
-### برداشت‌های کلیدی
+### 重點整理
 
-- `Content` پاکت است: این پاکت ظرف سطح بالای پیام است،
-  چه از کاربر باشد چه از مدل.
-- `Part` چندحالتی را فعال می‌کند: از چند شیء `Part` در یک شیء
-  `Content`
-  استفاده کنید تا انواع مختلف داده (نوشتار، تصویر، URI ویدیو، و غیره) را ترکیب کنید.
-- روش داده را انتخاب کنید:
-  - برای رسانه‌های کوچک و مستقیماً جاسازی‌شده (مثل اکثر تصاویر)، از `Part` با
-    `inline_data` استفاده کنید.
-  - برای فایل‌های بزرگ‌تر یا فایل‌هایی که می‌خواهید در درخواست‌های مختلف دوباره استفاده کنید، از
-    File API برای بارگذاری فایل و ارجاع به آن با بخش `file_data` استفاده کنید.
-- مدیریت سابقه مکالمه: برای برنامه‌های گپ که از REST API استفاده می‌کنند،
-  با پیوست کردن `Content` شیء برای هر نوبت، آرایه `contents` را بسازید و
-  نقش‌های `"user"` و `"model"` را به‌صورت متناوب استفاده کنید. اگر از کیت توسعه نرم‌افزار استفاده می‌کنید،
-  برای اطلاع از روش توصیه‌شده برای مدیریت
-  سابقه مکالمه، به اسناد کیت توسعه نرم‌افزار مراجعه کنید.
+- `Content` 是信封：這是訊息輪替的頂層容器，無論是來自使用者或模型。
+- `Part` 啟用多模態：在單一 `Content` 物件中使用多個 `Part` 物件，即可合併不同類型的資料 (文字、圖片、影片 URI 等)。
+- 選擇資料方法：
+  - 如果是直接嵌入的小型媒體 (例如大多數圖片)，請使用 `Part` 和 `inline_data`。
+  - 如果檔案較大，或想在多個要求中重複使用，請透過 File API 上傳檔案，並使用 `file_data` 部分參照檔案。
+- 管理對話記錄：如果是使用 REST API 的對話應用程式，請為每個回合附加 `Content` 物件，交替使用 `"user"` 和 `"model"` 角色，建構 `contents` 陣列。如果您使用 SDK，請參閱 SDK 說明文件，瞭解管理對話記錄的建議方式。
 
-## نمونه‌های پاسخ
+## 回應範例
 
-مثال‌های زیر نشان می‌دهد که چگونه این عناصر برای انواع مختلف درخواست‌ها با هم ترکیب می‌شوند.
+以下範例說明這些元件如何搭配運作，處理不同類型的要求。
 
-### پاسخ فقط نوشتاری
+### 純文字回覆
 
-پاسخ نوشتاری پیش‌فرض شامل یک آرایه `candidates` با یک یا چند
-شیء `content` است که حاوی پاسخ مدل است.
+預設文字回覆包含 `candidates` 陣列，其中有一或多個 `content` 物件，內含模型的回覆。
 
-در زیر نمونه‌ای از پاسخ **استاندارد** آورده شده است:
+以下是**標準**回應的範例：
 
 ```
 {
@@ -1676,8 +1638,7 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 }
 ```
 
-در ادامه، مجموعه‌ای از پاسخ‌های **جاری‌سازی** آمده است. هر پاسخ حاوی یک
-`responseId` است که پاسخ کامل را به هم مرتبط می‌کند:
+以下是一系列**串流**回覆。每則回應都包含 `responseId`，可將完整回應連結在一起：
 
 ```
 {
@@ -1727,39 +1688,35 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
 
 ## Live API (BidiGenerateContent) WebSockets API
 
-‫Live API یک میانای برنامه‌سازی کاربردی مبتنی بر WebSocket حالت‌دار برای جاری‌سازی دوطرفه ارائه می‌دهد تا موارد استفاده از جاری‌سازی هم‌زمان را فعال کند. برای جزئیات بیشتر می‌توانید
-[راهنمای Live API](https://ai.google.dev/gemini-api/docs/live?hl=fa) و [مرجع Live API](https://ai.google.dev/api/live?hl=fa) را مرور کنید.
+Live API 提供以 WebSocket 為基礎的具狀態 API，可進行雙向串流，實現即時串流用途。詳情請參閱 [Live API 指南](https://ai.google.dev/gemini-api/docs/live?hl=zh-tw)和 [Live API 參考資料](https://ai.google.dev/api/live?hl=zh-tw)。
 
-## مدل‌های تخصصی
+## 專用模型
 
-علاوه‌بر خانواده مدل‌های Gemini، ‏Gemini API نقاط پایانی برای مدل‌های تخصصی مانند مدل‌های [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=fa)،‏ [Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=fa) و [جاسازی](https://ai.google.dev/gemini-api/docs/embeddings?hl=fa) ارائه می‌دهد. می‌توانید این راهنماها را در بخش «مدل‌ها» بررسی کنید.
+除了 Gemini 系列模型外，Gemini API 也提供 [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=zh-tw)、[Lyria](https://ai.google.dev/gemini-api/docs/music-generation?hl=zh-tw) 和[嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)模型等專用模型的端點。您可以在「Models」(模型) 專區查看這些指南。
 
-## میاناهای برنامه‌سازی کاربردی پلاتفرم
+## 平台 API
 
-بقیه نقاط پایانی قابلیت‌های بیشتری را برای استفاده با نقاط پایانی اصلی که تاکنون شرح داده شده است فعال می‌کنند. برای کسب اطلاعات بیشتر، موضوعات
-[حالت دسته‌ای](https://ai.google.dev/gemini-api/docs/batch-mode?hl=fa) و
-[میانای برنامه‌سازی کاربردی فایل](https://ai.google.dev/gemini-api/docs/files?hl=fa) را در بخش «راهنماها» بررسی کنید.
+其餘端點則可啟用其他功能，與目前所述的主要端點搭配使用。詳情請參閱「指南」部分的「[批次模式](https://ai.google.dev/gemini-api/docs/batch-mode?hl=zh-tw)」和「[File API](https://ai.google.dev/gemini-api/docs/files?hl=zh-tw)」主題。
 
-## قدم بعدی چیست
+## 後續步驟
 
-اگر تازه شروع کرده‌اید، راهنماهای زیر را بررسی کنید که به شما کمک می‌کند
-مدل برنامه‌نویسی «میانای برنامه‌سازی کاربردی Gemini» را درک کنید:
+如果您剛開始使用，請參閱下列指南，瞭解 Gemini API 程式設計模型：
 
-- [راهنمای شروع کار با Gemini API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=fa)
-- [راهنمای مدل Gemini](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fa)
+- [Gemini API 入門指南](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=zh-tw)
+- [Gemini 模型指南](https://ai.google.dev/gemini-api/docs/models/gemini?hl=zh-tw)
 
-همچنین می‌توانید راهنماهای قابلیت‌ها را بررسی کنید که ویژگی‌های مختلف Gemini API را معرفی می‌کنند و نمونه‌های کد ارائه می‌دهند:
+您也可以參閱功能指南，瞭解不同的 Gemini API 功能，並查看程式碼範例：
 
-- [تولید نوشتار](https://ai.google.dev/gemini-api/docs/text-generation?hl=fa)
-- [ذخیره کردن بافت در حافظه نهان](https://ai.google.dev/gemini-api/docs/caching?hl=fa)
-- [جاسازی‌ها](https://ai.google.dev/gemini-api/docs/embeddings?hl=fa)
+- [文字生成](https://ai.google.dev/gemini-api/docs/text-generation?hl=zh-tw)
+- [脈絡快取](https://ai.google.dev/gemini-api/docs/caching?hl=zh-tw)
+- [嵌入](https://ai.google.dev/gemini-api/docs/embeddings?hl=zh-tw)
 
-ارسال بازخورد
+提供意見
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-تاریخ آخرین به‌روزرسانی 2026-10-19 به‌وقت ساعت هماهنگ جهانی.
+上次更新時間：2026-10-19 (世界標準時間)。
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+想進一步說明嗎？
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-19 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-19 (世界標準時間)。"],[],[]]

@@ -1,45 +1,46 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=hi
-fetched_at: 2026-10-26T05:52:37.450818+00:00
-title: "Gemini \u0914\u0930 LangGraph \u0915\u0940 \u092e\u0926\u0926 \u0938\u0947, ReAct \u090f\u091c\u0947\u0902\u091f \u0915\u094b \u0936\u0941\u0930\u0942 \u0938\u0947 \u092c\u0928\u093e\u0928\u093e \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/langgraph-example?hl=ar
+fetched_at: 2026-11-02T07:27:15.572537+00:00
+title: "\u0625\u0646\u0634\u0627\u0621 \u0648\u0643\u064a\u0644 ReAct \u0645\u0646 \u0627\u0644\u0628\u062f\u0627\u064a\u0629 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini \u0648LangGraph \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-सुझाव भेजें
+إرسال ملاحظات
 
-# Gemini और LangGraph की मदद से, ReAct एजेंट को शुरू से बनाना
+# إنشاء وكيل ReAct من البداية باستخدام Gemini وLangGraph
 
-LangGraph, स्टेटफ़ुल एलएलएम ऐप्लिकेशन बनाने का एक फ़्रेमवर्क है. इसलिए, यह ReAct (रीज़निंग ऐंड ऐक्टिंग) एजेंट बनाने के लिए एक अच्छा विकल्प है.
+‫LangGraph هو إطار عمل لإنشاء تطبيقات ذات حالة للنماذج اللغوية الكبيرة، ما يجعله خيارًا جيدًا لإنشاء وكلاء الاستدلال واتخاذ الإجراءات (ReAct).
 
-ReAct एजेंट, एलएलएम की रीज़निंग को कार्रवाई करने की सुविधा के साथ जोड़ते हैं. ये एजेंट, उपयोगकर्ता के लक्ष्यों को हासिल करने के लिए, बार-बार सोचते हैं, टूल का इस्तेमाल करते हैं, और अपनी टिप्पणियों के आधार पर काम करते हैं. साथ ही, ये अपनी रणनीति को डाइनैमिक तरीके से अडजस्ट करते हैं. साल 2023 में ["ReAct: Synergizing Reasoning and Acting
-in Language Models"](https://arxiv.org/abs/2210.03629) में पेश किया गया यह पैटर्न,
-रिजिड वर्कफ़्लो के बजाय, इंसानों की तरह फ़्लेक्सिबल तरीके से समस्याओं को हल करने की कोशिश करता है.
+يجمع وكلاء الاستدلال واتخاذ الإجراءات بين استدلال النموذج اللغوي الكبير وتنفيذ الإجراءات. ويفكرون بشكل متكرر ويستخدمون الأدوات ويتخذون إجراءات بناءً على الملاحظات لتحقيق أهداف المستخدمين، مع تكييف طريقتهم بشكل ديناميكي. تم تقديم هذا النمط في ["الاستدلال واتخاذ الإجراءات: الجمع بين الاستدلال واتخاذ الإجراءات
+في النماذج اللغوية"](https://arxiv.org/abs/2210.03629) (2023)، ويحاول هذا النمط
+محاكاة حلّ المشاكل المرن الذي يشبه الطريقة البشرية بدلاً من سير العمل الصارم.
 
-LangGraph, पहले से बना ReAct एजेंट ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent)) उपलब्ध कराता है. यह तब काम आता है, जब आपको ReAct को लागू करने के लिए ज़्यादा कंट्रोल और कस्टमाइज़ेशन की ज़रूरत होती है. इस गाइड में, आपको इसका आसान वर्शन दिखाया जाएगा.
+تقدّم LangGraph وكيلاً للاستدلال واتخاذ الإجراءات تم إنشاؤه مسبقًا ([`create_react_agent`](https://langchain-ai.github.io/langgraph/reference/prebuilt/#langgraph.prebuilt.chat_agent_executor.create_react_agent))،
+وهو مفيد عندما تحتاج إلى مزيد من التحكّم والتخصيص لعمليات تنفيذ الاستدلال واتخاذ الإجراءات. سيعرض لك هذا الدليل إصدارًا مبسطًا.
 
-LangGraph, एजेंट को ग्राफ़ के तौर पर मॉडल करता है. इसके लिए, तीन मुख्य कॉम्पोनेंट का इस्तेमाल किया जाता है:
+تُصنّف LangGraph الوكلاء على أنّهم رسوم بيانية باستخدام ثلاثة مكوّنات رئيسية:
 
-- `State`: शेयर किया गया डेटा स्ट्रक्चर (आम तौर पर `TypedDict` या `Pydantic BaseModel`), जो ऐप्लिकेशन के मौजूदा स्नैपशॉट को दिखाता है.
-- `Nodes`: आपके एजेंट की लॉजिक को एनकोड करता है. इन्हें इनपुट के तौर पर मौजूदा स्टेट मिलती है. इसके बाद, ये कुछ कंप्यूटेशन या साइड इफ़ेक्ट करते हैं. साथ ही, अपडेट की गई स्टेट दिखाते हैं. जैसे, एलएलएम कॉल या टूल कॉल.
-- `Edges`: मौजूदा `State` के आधार पर, एक्ज़ीक्यूट करने के लिए अगला `Node` तय करते हैं. इससे, शर्तों के आधार पर लॉजिक और फ़िक्स्ड ट्रांज़िशन की अनुमति मिलती है.
+- `State`: بنية بيانات مشترَكة (عادةً `TypedDict` أو `Pydantic BaseModel`) تمثّل اللقطة الحالية للتطبيق.
+- ‫`Nodes`: ترمّز منطق الوكلاء. وتتلقّى هذه العُقد الحالة الحالية كإدخال، وتُجري بعض العمليات الحسابية أو الآثار الجانبية، وتعرض حالة معدَّلة، مثل طلبات النموذج اللغوي الكبير أو طلبات الأدوات.
+- `Edges`: تحدّد `Node` التالية التي سيتم تنفيذها استنادًا إلى `State` الحالية، ما يسمح بالمنطق الشرطي والانتقالات الثابتة.
 
-अगर आपके पास अब तक एपीआई पासकोड नहीं है, तो इसे [Google AI
-Studio](https://aistudio.google.com/apikey?hl=hi) से पाया जा सकता है.
+إذا لم يكن لديك مفتاح واجهة برمجة تطبيقات بعد، يمكنك الحصول عليه من [Google AI
+Studio](https://aistudio.google.com/apikey?hl=ar).
 
 ```
 pip install langgraph langchain-google-genai geopy requests
 ```
 
-एपीआई पासकोड को, एनवायरमेंट वैरिएबल `GEMINI_API_KEY` में सेट करें.
+اضبط مفتاح واجهة برمجة التطبيقات في متغيّر البيئة `GEMINI_API_KEY`.
 
 ```
 import os
@@ -48,11 +49,12 @@ import os
 api_key = os.getenv("GEMINI_API_KEY")
 ```
 
-LangGraph का इस्तेमाल करके, ReAct एजेंट को लागू करने का तरीका बेहतर तरीके से समझने के लिए, इस गाइड में एक व्यावहारिक उदाहरण दिया गया है. इसमें, एक ऐसा एजेंट बनाया जाएगा जिसका लक्ष्य, किसी खास जगह के मौजूदा मौसम की जानकारी पाने के लिए, किसी टूल का इस्तेमाल करना है.
+لفهم كيفية تنفيذ وكيل الاستدلال واتخاذ الإجراءات باستخدام LangGraph بشكل أفضل، سيوضّح هذا الدليل مثالاً عمليًا. ستنشئ وكيلاً يهدف إلى استخدام أداة للعثور على حالة الطقس الحالية لموقع جغرافي محدّد.
 
-मौसम की जानकारी देने वाले इस एजेंट के लिए, `State` में बातचीत के इतिहास (मैसेज की सूची के तौर पर) और उठाए गए चरणों की संख्या (इंटीजर के तौर पर) को सेव किया जाएगा. यह सिर्फ़ उदाहरण के तौर पर दिखाया गया है.
+بالنسبة إلى وكيل الطقس هذا، ستحتفظ `State` بسجلّ المحادثة الجارية (كقائمة من الرسائل) وعداد (كرقم صحيح) لعدد الخطوات المتّخذة، لأغراض توضيحية.
 
-LangGraph, स्टेट मैसेज की सूचियों को अपडेट करने के लिए, `add_messages` नाम का हेल्पर फ़ंक्शन उपलब्ध कराता है. [यह रिड्यूसर के तौर पर काम करता है. यह मौजूदा सूची के साथ-साथ, नए मैसेज लेता है और एक साथ मिलाकर सूची दिखाता है.](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers) यह मैसेज आईडी के हिसाब से अपडेट करता है. साथ ही, नए और न देखे गए मैसेज के लिए, डिफ़ॉल्ट रूप से "सिर्फ़ जोड़ने" का तरीका अपनाता है.
+توفّر LangGraph دالة مساعِدة، هي `add_messages`، لتعديل قوائم رسائل الحالة. وتعمل هذه الدالة كدالة [اختزال](https://langchain-ai.github.io/langgraph/concepts/low_level/#reducers)،
+حيث تأخذ القائمة الحالية، بالإضافة إلى الرسائل الجديدة، وتعرض قائمة مدمَجة. وتتعامل مع التعديلات حسب رقم تعريف الرسالة، وتكون تلقائيًا "إضافة فقط" للرسائل الجديدة التي لم تتم رؤيتها.
 
 ```
 from typing import Annotated,Sequence, TypedDict
@@ -66,7 +68,7 @@ class AgentState(TypedDict):
     number_of_steps: int
 ```
 
-इसके बाद, मौसम की जानकारी देने वाले टूल को तय करें.
+بعد ذلك، حدّد أداة الطقس.
 
 ```
 from langchain_core.tools import tool
@@ -105,7 +107,7 @@ def get_weather_forecast(location: str, date: str):
 tools = [get_weather_forecast]
 ```
 
-अब मॉडल को शुरू करें और टूल को मॉडल से बाइंड करें.
+الآن، ابدأ النموذج واربط الأدوات بالنموذج.
 
 ```
 from datetime import datetime
@@ -128,14 +130,16 @@ res=model.invoke(f"What is the weather in Berlin on {datetime.today()}?")
 print(res)
 ```
 
-एजेंट को चलाने से पहले, नोड और एज तय करना ज़रूरी है.
-इस उदाहरण में, दो नोड और एक एज है.
+الخطوة الأخيرة قبل أن تتمكّن من تشغيل وكيلك هي تحديد العُقد والحواف.
+في هذا المثال، لديك عُقدتان وحافة واحدة.
 
-- `call_tool` नोड, जो आपके टूल के तरीके को एक्ज़ीक्यूट करता है. LangGraph में इसके लिए, [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/) नाम का पहले से बना नोड मौजूद है.
-- `call_model` नोड, जो मॉडल को कॉल करने के लिए `model_with_tools` का इस्तेमाल करता है.
-- `should_continue` एज, जो यह तय करता है कि टूल को कॉल करना है या मॉडल को.
+- عُقدة `call_tool` التي تنفّذ طريقة الأداة. لدى LangGraph عُقدة تم إنشاؤها مسبقًا
+  لهذا الغرض تُسمى
+  [ToolNode](https://langchain-ai.github.io/langgraph/how-tos/tool-calling/).
+- عُقدة `call_model` التي تستخدم `model_with_tools` لاستدعاء النموذج.
+- حافة `should_continue` التي تحدّد ما إذا كان يجب استدعاء الأداة أو النموذج.
 
-नोड और एज की संख्या तय नहीं होती. अपने ग्राफ़ में जितने चाहें उतने नोड और एज जोड़े जा सकते हैं. उदाहरण के लिए, स्ट्रक्चर्ड आउटपुट जोड़ने के लिए कोई नोड जोड़ा जा सकता है. इसके अलावा, टूल या मॉडल को कॉल करने से पहले, मॉडल के आउटपुट की जांच करने के लिए, सेल्फ़-वेरिफ़िकेशन/रिफ़्लेक्शन नोड जोड़ा जा सकता है.
+عدد العُقد والحواف ليس ثابتًا. يمكنك إضافة أي عدد تريده من العُقد والحواف إلى الرسم البياني. على سبيل المثال، يمكنك إضافة عُقدة لإضافة ناتج منظَّم أو عُقدة للتحقّق الذاتي أو التفكير للتحقّق من ناتج النموذج قبل استدعاء الأداة أو النموذج.
 
 ```
 from langchain_core.messages import ToolMessage
@@ -179,7 +183,7 @@ def should_continue(state: AgentState):
     return "continue"
 ```
 
-एजेंट के सभी कॉम्पोनेंट तैयार होने के बाद, उन्हें जोड़ा जा सकता है.
+بعد أن تصبح جميع مكوّنات الوكيل جاهزة، يمكنك الآن تجميعها.
 
 ```
 from langgraph.graph import StateGraph, END
@@ -215,7 +219,7 @@ workflow.add_edge("tools", "llm")
 graph = workflow.compile()
 ```
 
-`draw_mermaid_png` तरीके का इस्तेमाल करके, अपने ग्राफ़ को विज़ुअलाइज़ किया जा सकता है.
+يمكنك تصوّر الرسم البياني باستخدام طريقة `draw_mermaid_png`.
 
 ```
 from IPython.display import Image, display
@@ -223,9 +227,9 @@ from IPython.display import Image, display
 display(Image(graph.get_graph().draw_mermaid_png()))
 ```
 
-![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=hi)
+![png](https://ai.google.dev/static/gemini-api/docs/images/langgraph-react-agent_16_0.png?hl=ar)
 
-अब एजेंट को चलाएं.
+الآن، شغِّل الوكيل.
 
 ```
 from datetime import datetime
@@ -238,7 +242,7 @@ for state in graph.stream(inputs, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-अब बातचीत जारी रखी जा सकती है. इसके अलावा, किसी दूसरे शहर के मौसम की जानकारी मांगी जा सकती है या तुलना करने का अनुरोध किया जा सकता है.
+يمكنك الآن مواصلة المحادثة أو طلب حالة الطقس في مدينة أخرى أو طلب إجراء مقارنة.
 
 ```
 state["messages"].append(("user", "Would it be warmer in Munich?"))
@@ -248,12 +252,12 @@ for state in graph.stream(state, stream_mode="values"):
     last_message.pretty_print()
 ```
 
-सुझाव भेजें
+إرسال ملاحظات
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया.
+تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)
 
-क्या आपको हमें और कुछ बताना है?
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-12 (UTC) को अपडेट किया गया."],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-12 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

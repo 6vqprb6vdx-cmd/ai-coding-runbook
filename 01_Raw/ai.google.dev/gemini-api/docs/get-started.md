@@ -1,66 +1,66 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=he
-fetched_at: 2026-10-26T05:41:00.529037+00:00
-title: "\u05ea\u05d7\u05d9\u05dc\u05ea \u05d4\u05e2\u05d1\u05d5\u05d3\u05d4 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/get-started?hl=es-419
+fetched_at: 2026-11-02T07:29:26.001491+00:00
+title: "C\u00f3mo empezar \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
+Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Página principal](https://ai.google.dev/?hl=es-419)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
+- [Documentos](https://ai.google.dev/gemini-api/docs?hl=es-419)
 
-שליחת משוב
+Enviar comentarios
 
-# תחילת העבודה
+# Cómo empezar
 
-במדריך הזה נסביר איך להתחיל להשתמש ב-Gemini API באמצעות [Interactions API](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he). תבצעו את הקריאה הראשונה שלכם ל-API תוך פחות מדקה, ותכירו את התכונות הבאות: יצירת טקסט, הבנה מולטי-מודאלית, יצירת תמונות, פלט מובנה, כלים, בקשות להפעלת פונקציות, סוכנים וביצוע ברקע.
+En esta guía, se explica cómo comenzar a usar la API de Gemini con la [API de Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419). Realizarás tu primera llamada a la API en menos de un minuto y explorarás la generación de texto, la comprensión multimodal, la generación de imágenes, el resultado estructurado, las herramientas, las llamadas a funciones, los agentes y la ejecución en segundo plano.
 
-ה-API של האינטראקציות זמין דרך ערכות ה-SDK של [Python](https://github.com/googleapis/python-genai) ו-[JavaScript](https://github.com/googleapis/js-genai), וגם דרך REST.
+La API de Interactions está disponible a través de los SDKs de [Python](https://github.com/googleapis/python-genai) y [JavaScript](https://github.com/googleapis/js-genai), así como a través de REST.
 
-## 1. קבלת מפתח API
+## 1. Obtén una clave de API
 
-כדי להשתמש ב-Gemini API, צריך מפתח API לאימות הבקשות, לאכיפת מגבלות האבטחה ולמעקב אחר השימוש בחשבון.
+Para usar la API de Gemini, necesitas una clave de API para autenticar tus solicitudes, aplicar límites de seguridad y hacer un seguimiento del uso de tu cuenta.
 
-- מערכת Google AI Studio יוצרת באופן אוטומטי פרויקט ומפתח API למשתמשים חדשים.
-  אפשר להעתיק אותו מ[הדף 'מפתחות API'](https://aistudio.google.com/api-keys?hl=he).
-- אם אתם צריכים מפתח חדש, לוחצים על **Create API key** (יצירת מפתח API) ב-AI Studio ופועלים לפי ההוראות בתיבת הדו-שיח כדי להוסיף צמד חדש של מפתח ופרויקט.
+- Google AI Studio crea automáticamente un proyecto y una clave de API para los usuarios nuevos.
+  Puedes copiarla desde la [página Claves de API](https://aistudio.google.com/api-keys?hl=es-419).
+- Si necesitas una clave nueva, haz clic en **Crear clave de API** en AI Studio y sigue el diálogo para agregar un nuevo par clave-proyecto.
 
-[איך יוצרים מפתח Gemini API](https://aistudio.google.com/apikey?hl=he)
+[Crea una clave de la API de Gemini](https://aistudio.google.com/apikey?hl=es-419)
 
-מגדירים את המפתח כמשתנה סביבה:
+Configura tu clave como una variable de entorno:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### שדרוג לרמה בתשלום
+### Actualiza al nivel pagado
 
-שדרוג לתוכנית בתשלום מגדיל את מגבלות הקצב ומחייב הגדרה של חיוב ב-Cloud.
+Si actualizas al nivel pagado, aumentarán tus límites de frecuencia y deberás configurar la Facturación de Cloud.
 
-- לוחצים על **הגדרת חיוב** בדפים [מפתחות API](https://aistudio.google.com/api-keys?hl=he) או [פרויקטים](https://aistudio.google.com/projects?hl=he) ב-AI Studio.
-- פועלים לפי ההוראות בתיבת הדו-שיח של החיוב ב-Cloud כדי ליצור או לקשר חשבון לחיוב, להוסיף אמצעי תשלום ולשלם מראש לפחות 5$ (או סכום שווה ערך במטבע אחר) בקרדיטים בתשלום.
-- אפשר לראות את השימוש ב-API ב-[Google AI Studio](https://aistudio.google.com/usage?hl=he) בקטע **מרכז הבקרה** > **שימוש**.
+- Haz clic en **Configurar facturación** en las páginas [Claves de API](https://aistudio.google.com/api-keys?hl=es-419) o [Proyectos](https://aistudio.google.com/projects?hl=es-419) de AI Studio.
+- Sigue el diálogo de Facturación de Cloud para crear o vincular una cuenta de facturación, agregar una forma de pago y prepagar un mínimo de USD 5 (o el equivalente en la moneda local) en créditos pagados.
+- Consulta el uso de la API en [Google AI Studio](https://aistudio.google.com/usage?hl=es-419) en **Panel** > **Uso**.
 
-מידע נוסף זמין [בדף החיוב](https://ai.google.dev/gemini-api/docs/billing?hl=he).
+Consulta la [página Facturación](https://ai.google.dev/gemini-api/docs/billing?hl=es-419) para obtener más información.
 
-## 2. התקנה של ה-SDK וביצוע השיחה הראשונה
+## 2. Instala el SDK y haz tu primera llamada
 
-מתקינים את ה-SDK ויוצרים טקסט באמצעות קריאה אחת ל-API.
+Instala el SDK y genera texto con una sola llamada a la API.
 
 ### Python
 
-מתקינים את ה-SDK:
+Instala el SDK:
 
 ```
 pip install -U google-genai
 ```
 
-מפעילים את הלקוח ושולחים בקשה:
+Inicializa el cliente y realiza una solicitud:
 
 ```
 from google import genai
@@ -76,13 +76,13 @@ print(interaction.output_text)
 
 ### JavaScript
 
-מתקינים את ה-SDK:
+Instala el SDK:
 
 ```
 npm install @google/genai
 ```
 
-מפעילים את הלקוח ושולחים בקשה:
+Inicializa el cliente y realiza una solicitud:
 
 ```
 import { GoogleGenAI } from "@google/genai";
@@ -170,7 +170,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**תשובה:**
+**Respuesta:**
 
 ```
 {
@@ -202,13 +202,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-כשמשתמשים ב-REST, ה-API מחזיר את משאב `Interaction` המלא שמכיל מטא-נתונים, נתוני שימוש והיסטוריה מפורטת של התור.
+Cuando se usa REST, la API devuelve el recurso `Interaction` completo que contiene metadatos, estadísticas de uso y el historial paso a paso del turno.
 
-ערכות ה-SDK חושפות את התגובה המלאה, אבל הן גם מספקות מאפיינים נוחים כמו `interaction.output_text` ו-`interaction.output_image` כדי לגשת ישירות לתוצרים הסופיים. ב[סקירה הכללית על אינטראקציות](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=he) אפשר לקרוא מידע נוסף על מבנה התשובה, וב[מדריך ליצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he) אפשר לקרוא פרטים על הוראות מערכת ועל הגדרות יצירה.
+Si bien los SDKs exponen la respuesta completa, también proporcionan propiedades convenientes, como `interaction.output_text` y `interaction.output_image`, para acceder directamente a los resultados finales. Obtén más información sobre la estructura de la respuesta en la [descripción general de las interacciones](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=es-419) o lee la [guía de generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419) para obtener detalles sobre las instrucciones del sistema y la configuración de generación.
 
-## 3. הצגת התשובה באופן שוטף
+## 3. Transmite la respuesta
 
-כדי שהאינטראקציה תהיה חלקה יותר, אפשר להזרים את התשובה בזמן שהיא נוצרת. כל אירוע `step.delta` מספק נתח טקסט שאפשר להציג באופן מיידי.
+Para lograr interacciones más fluidas, transmite la respuesta a medida que se genera. Cada evento `step.delta` entrega un fragmento de texto que puedes mostrar de inmediato.
 
 ### Python
 
@@ -327,9 +327,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?alt=
   }'
 ```
 
-בסטרימינג, השרת מגיב עם סטרימינג של אירועים שנשלחים מהשרת (SSE). כל אירוע כולל סוג ונתוני JSON.
+Cuando se transmite, el servidor responde con una transmisión de eventos enviados por el servidor (SSE). Cada evento incluye un tipo y datos JSON.
 
-**תשובה:**
+**Respuesta:**
 
 ```
 event: interaction.created
@@ -360,18 +360,18 @@ event: interaction.completed
 data: {"interaction":{"id":"v1_Chd...","status":"completed","usage":{"total_tokens":197}},"event_type":"interaction.completed"}
 ```
 
-ב[מדריך לאינטראקציות עם סטרימינג](https://ai.google.dev/gemini-api/docs/streaming?hl=he) מוסבר איך לטפל באירועים של סטרימינג ובסוגי דלתא.
+Para obtener una descripción detallada del manejo de eventos de transmisión y tipos de delta, consulta la [guía de interacciones de transmisión](https://ai.google.dev/gemini-api/docs/streaming?hl=es-419).
 
-## 4. שיחות רב-שלביות
+## 4. Conversaciones de varios turnos
 
-‫Interactions API תומך בשיחות רב-שלביות בשתי גישות:
+La API de Interactions admite conversaciones de varios turnos con dos enfoques:
 
-- **Stateful (מומלץ)**: המשך שיחה בשרת באמצעות `previous_interaction_id`. אידיאלי לרוב תהליכי העבודה של צ'אט וסוכנים שבהם רוצים שהשרת ינהל את ההיסטוריה ויבצע אופטימיזציה של השמירה במטמון.
-- **בלי שמירת מצב**: כדי לנהל את היסטוריית השיחות בלקוח, צריך להעביר את כל התורות הקודמות (כולל שלבי החשיבה והשימוש בכלי של המודל) בכל בקשה.
+- **Con estado (recomendado)**: Continúa una conversación en el servidor con `previous_interaction_id`. Ideal para la mayoría de los flujos de trabajo de chat y con agentes en los que deseas que el servidor administre el historial y optimice el almacenamiento en caché.
+- **Sin estado**: Administra el historial de conversaciones en el cliente pasando todos los turnos anteriores (incluidos los pasos intermedios de pensamiento del modelo y de herramientas) en cada solicitud.
 
-### עם שמירת מצב (מומלץ)
+### Con estado (recomendado)
 
-אפשר ליצור שרשרת של אינטראקציות על ידי העברת `previous_interaction_id`. השרת מנהל את היסטוריית השיחות המלאה בשבילכם.
+Encadena interacciones pasando `previous_interaction_id`. El servidor administra todo el historial de conversaciones por ti.
 
 ### Python
 
@@ -525,9 +525,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### בלי שמירת מצב
+### Sin estado
 
-הגדרה `store=false` של היסטוריית השיחות וניהול שלה מצד הלקוח. אתם צריכים לשמור ולשלוח מחדש את כל השלבים שנוצרו על ידי המודל (כולל השלבים `thought` ו-`function_call`) בדיוק כפי שהם התקבלו.
+Establece `store=false` y administra el historial de conversaciones en el cliente. Debes conservar y volver a enviar todos los pasos generados por el modelo (incluidos los pasos `thought` y `function_call`) exactamente como los recibiste.
 
 ### Python
 
@@ -746,7 +746,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**תשובה:**
+**Respuesta:**
 
 ```
 {
@@ -773,11 +773,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-האינטראקציה השנייה מחזירה אובייקט תגובה מלא שכולל רק את השלבים החדשים, אבל הוא מבוסס על ההקשר של התור הקודם. מידע נוסף על שמירת מצב ב[מדריך לשיחות רב-שלביות](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#multi-turn-conversations), או על [מצב בלי שמירת מצב](https://ai.google.dev/gemini-api/docs/text-generation?hl=he#stateless-conversations) לניהול היסטוריה בצד הלקוח
+La segunda interacción devuelve un objeto de respuesta completo que incluye solo los pasos nuevos, pero se basa en el contexto del turno anterior. Obtén más información para mantener el estado en la [guía de conversaciones de varios turnos](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#multi-turn-conversations) o explora el [modo sin estado](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419#stateless-conversations) para la administración del historial del cliente.
 
-## 5. הבנה מולטי-מודאלית
+## 5. Comprensión multimodal
 
-מודלים של Gemini מבינים תמונות, אודיו, סרטונים ומסמכים באופן טבעי. להעביר מדיה לצד טקסט בבקשה אחת.
+Los modelos de Gemini comprenden imágenes, audio, video y documentos de forma nativa. Pasa contenido multimedia junto con texto en una sola solicitud.
 
 ### Python
 
@@ -972,7 +972,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
   }'
 ```
 
-**תשובה:**
+**Respuesta:**
 
 ```
 {
@@ -997,27 +997,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions"   -
 }
 ```
 
-[במדריך להבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he) מוסבר איך מעבירים תמונות, סרטונים וקובצי אודיו.
+Explora cómo pasar imágenes, videos y archivos de audio en la [guía de comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419).
 
 [hearing
 
-הבנת אודיו
+Comprensión de audio
 
-לתמלל קובצי אודיו, לסכם אותם או לענות על שאלות לגביהם.](https://ai.google.dev/gemini-api/docs/audio?hl=he)
+Transcribir, resumir o responder preguntas sobre archivos de audio](https://ai.google.dev/gemini-api/docs/audio?hl=es-419)
 [videocam
 
-הבנת סרטונים
+Comprensión de videos
 
-לנתח את תוכן הסרטון, לאתר אירועים ולתאר פעולות.](https://ai.google.dev/gemini-api/docs/video-understanding?hl=he)
+Analizar contenido de video, ubicar eventos y describir acciones](https://ai.google.dev/gemini-api/docs/video-understanding?hl=es-419)
 [description
 
-עיבוד מסמכים
+Procesamiento de documentos
 
-חילוץ מידע מקובצי PDF ומפורמטים אחרים של מסמכים.](https://ai.google.dev/gemini-api/docs/document-processing?hl=he)
+Extrae información de archivos PDF y otros formatos de documentos.](https://ai.google.dev/gemini-api/docs/document-processing?hl=es-419)
 
-## 6. יצירה מולטי-מודאלית
+## 6. Generación multimodal
 
-‫Gemini יכול ליצור תמונות באופן מקורי באמצעות מודלי התמונות של [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=he).
+Gemini puede generar imágenes de forma nativa con los modelos de imágenes de [Nano Banana](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419).
 
 ### Python
 
@@ -1185,7 +1185,7 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
   }'
 ```
 
-**תשובה:**
+**Respuesta:**
 
 ```
 {
@@ -1208,22 +1208,22 @@ curl -s -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" 
 }
 ```
 
-כשמודל יוצר תמונה, הוא מחזיר את נתוני התמונה בקידוד base64 בשלב במערך `steps`, וגם באמצעות מאפיין הנוחות `output_image`. ב[מדריך ליצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he) אפשר לקרוא על יחסי גובה-רוחב, עריכת תמונות והפניות.
+Cuando el modelo genera una imagen, devuelve los datos de imagen codificados en base64 en un paso dentro del array `steps`, así como a través de la propiedad de conveniencia `output_image`. Consulta la [guía de generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419) para obtener información sobre las relaciones de aspecto, la edición de imágenes y las referencias.
 
 [record\_voice\_over
 
-יצירת דיבור
+Generación de voz
 
-יצירת דיבור רהוט של כמה דוברים באמצעות Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)
+Genera una voz expresiva con varios oradores con Gemini 3.1 Flash TTS.](https://ai.google.dev/gemini-api/docs/speech-generation?hl=es-419)
 [music\_note
 
-יצירת מוזיקה
+Generación de música
 
-עם Lyria 3.5 אתם יכולים ליצור קליפים ושירים באורך מלא.](https://ai.google.dev/gemini-api/docs/music-generation?hl=he)
+Crea clips y canciones completas con Lyria 3.5.](https://ai.google.dev/gemini-api/docs/music-generation?hl=es-419)
 
-## 7. שימוש בפלט מובנה
+## 7. Cómo usar resultados estructurados
 
-הגדרת המודל להחזרת JSON שתואם לסכימה שהגדרתם. פלט מובנה פועל עם [Pydantic](https://docs.pydantic.dev/latest/) ‏ (Python) ועם [Zod](https://zod.dev/) ‏ (JavaScript).
+Configura el modelo para que devuelva un objeto JSON que coincida con un esquema que definas. Los resultados estructurados funcionan con [Pydantic](https://docs.pydantic.dev/latest/) (Python) y [Zod](https://zod.dev/) (JavaScript).
 
 ### Python
 
@@ -1456,7 +1456,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**תשובה:**
+**Respuesta:**
 
 ```
 {
@@ -1478,11 +1478,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-בלוק הטקסט של הפלט מכיל מחרוזת JSON תקינה שתואמת בדיוק לסכימה המבוקשת. ב[מדריך לפלט מובנה](https://ai.google.dev/gemini-api/docs/structured-output?hl=he) מוסבר איך מגדירים מבנים מורכבים יותר וסכימות רקורסיביות.
+El bloque de texto de salida contiene una cadena JSON válida que se ajusta exactamente al esquema solicitado. Para obtener información sobre cómo definir estructuras más complejas y esquemas recursivos, consulta la [guía de resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419).
 
-## 8. שימוש בכלים
+## 8. Usar herramientas
 
-להשתמש בחיפוש Google כדי להוסיף לתשובה של המודל מידע בזמן אמת. ה-API מחפש באופן אוטומטי, מעבד את התוצאות ומחזיר ציטוטים.
+Fundamentar la respuesta del modelo en información en tiempo real con la Búsqueda de Google La API busca, procesa resultados y devuelve citas automáticamente.
 
 ### Python
 
@@ -1654,7 +1654,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-**תשובה:**
+**Respuesta:**
 
 ```
 {
@@ -1704,41 +1704,41 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-שלבי החיפוש מפורטים בהיסטוריית האינטראקציות, והפלט הסופי כולל ציטוטים מוטבעים שמפנים למקורות באינטרנט.
+Los pasos de la búsqueda se detallan en el historial de interacción, y el resultado final incluye citas intercaladas que apuntan a fuentes web.
 
-ב[מדריך להארקה של חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he) מוסבר איך לחלץ ציטוטים מחיפוש Google, וב[מדריך לשילוב כלים](https://ai.google.dev/gemini-api/docs/tool-combination?hl=he) מוסבר איך לשלב בין כמה כלים.
+Puedes aprender a extraer citas de la búsqueda en la [guía de fundamentación de la Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419) o ver cómo combinar varias herramientas en la [guía de combinación de herramientas](https://ai.google.dev/gemini-api/docs/tool-combination?hl=es-419).
 
 [code
 
-הרצת קוד
+Ejecución de código
 
-להריץ קוד Python בסביבת Borg מאובטחת שפועלת בארגז חול.](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)
+Ejecuta código de Python en un entorno de Borg seguro con zona de pruebas.](https://ai.google.dev/gemini-api/docs/code-execution?hl=es-419)
 [link
 
-URL context
+Contexto de URL
 
-העברה ישירה של כתובות URL ציבוריות באינטרנט כדי לבסס תשובות על תוכן של דפי אינטרנט.](https://ai.google.dev/gemini-api/docs/url-context?hl=he)
+Pasa URLs web públicas directamente para fundamentar las respuestas en el contenido de la página web.](https://ai.google.dev/gemini-api/docs/url-context?hl=es-419)
 [search
 
-חיפוש קבצים
+Búsqueda de archivos
 
-יצירת אינדקס וחיפוש במסמכים ובקבצי מדיה שהועלו.](https://ai.google.dev/gemini-api/docs/file-search?hl=he)
+Indexa y busca en los documentos y archivos multimedia subidos.](https://ai.google.dev/gemini-api/docs/file-search?hl=es-419)
 [map
 
-מפות Google
+Google Maps
 
-התשובות מבוססות על נתונים גיאו-מרחביים ונתוני מיקום מהעולם האמיתי.](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)
+Fundamentar las respuestas en datos geoespaciales y de ubicación del mundo real](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=es-419)
 [computer
 
-שימוש במחשב
+Uso de la computadora
 
-אוטומציה של דפדפן ואינטראקציה עם המסך.](https://ai.google.dev/gemini-api/docs/computer-use?hl=he)
+Automatización del navegador e interacción con la pantalla](https://ai.google.dev/gemini-api/docs/computer-use?hl=es-419)
 
-## 9. הפעלת פונקציות משלכם
+## 9. Llama a tus propias funciones
 
-התכונה 'הפעלת פונקציות' מאפשרת לכם לקשר את המודל לקוד שלכם. אתם מצהירים על השם והפרמטרים של הפונקציה, המודל מחליט מתי להפעיל אותה ומחזיר ארגומנטים מובנים, ואתם מפעילים אותה באופן מקומי ושולחים את התוצאה בחזרה.
+La llamada a funciones te permite conectar el modelo a tu código. Declaras el nombre y los parámetros de una función, el modelo decide cuándo llamarla y devuelve argumentos estructurados, y tú la ejecutas de forma local y envías el resultado.
 
-### עם שמירת מצב (מומלץ)
+### Con estado (recomendado)
 
 ### Python
 
@@ -2075,13 +2075,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-### בלי שמירת מצב
+### Sin estado
 
-אפשר גם להשתמש בהפעלת פונקציות במצב חסר מצב (stateless) על ידי ניהול היסטוריית השיחות בצד הלקוח והגדרת `store=false`. במצב ללא שמירת סטטוס, צריך להעביר את ההיסטוריה המלאה של השיחה בשדה `input` של כל בקשה עוקבת. ההיסטוריה הזו צריכה לכלול:
+También puedes usar la llamada a funciones en modo sin estado administrando el historial de conversaciones del cliente y configurando `store=false`. En el modo sin estado, debes pasar el historial completo de la conversación en el campo `input` de cada solicitud posterior. Este historial debe incluir lo siguiente:
 
-1. השלב הראשוני `user_input`.
-2. כל השלבים שנוצרו על ידי המודל ומוחזרים בתור 1 (כולל השלבים `thought` ו-`function_call`) בדיוק כפי שהם מתקבלים.
-3. השלב `function_result` שמכיל את הפלט של הפונקציה שהופעלה.
+1. Es el paso `user_input` inicial.
+2. Todos los pasos generados por el modelo que se devuelven en el turno 1 (incluidos los pasos `thought` y `function_call`) exactamente como se recibieron.
+3. Paso `function_result` que contiene el resultado de la función ejecutada.
 
 ### Python
 
@@ -2439,9 +2439,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }"
 ```
 
-**תשובה:**
+**Respuesta:**
 
-במהלך תור 1, המודל מחזיר תשובה עם הסטטוס `requires_action` והשלב `function_call`:
+Durante el turno 1, el modelo devuelve una respuesta con el estado `requires_action` y el paso `function_call`:
 
 ```
 {
@@ -2462,7 +2462,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-אחרי שמריצים את הפונקציה באופן מקומי ושולחים את התוצאה (תור 2), האינטראקציה הסופית שהושלמה מוחזרת:
+Después de ejecutar la función de forma local y enviar el resultado (turno 2), se muestra la interacción final completada:
 
 ```
 {
@@ -2492,11 +2492,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 }
 ```
 
-לקבלת מידע על תכונות מתקדמות כמו קריאה להפעלת פונקציות במקביל או מצבי בחירת פונקציות, אפשר לעיין [במדריך לקריאה להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he).
+Para conocer las funciones avanzadas, como la llamada a función paralela o los modos de elección de funciones, consulta la [guía de llamadas a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419).
 
-## 10. הפעלת סוכן מנוהל
+## 10. Ejecuta un agente administrado
 
-סוכנים מנוהלים פועלים בארגז חול מרוחק עם גישה לכלים כמו הרצת קוד וניהול קבצים. מעבירים `agent` במקום `model` ומגדירים את `environment="remote"`.
+Los agentes administrados se ejecutan en una zona de pruebas remota con acceso a herramientas como la ejecución de código y la administración de archivos. Pasa un `agent` en lugar de un `model` y establece `environment="remote"`.
 
 ### Python
 
@@ -2623,27 +2623,27 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-אתם יכולים גם להגדיר ולשמור [סוכנים מותאמים אישית](https://ai.google.dev/gemini-api/docs/custom-agents?hl=he) עם הוראות, כישורים ומקורות נתונים משלכם.
+También puedes definir y guardar [agentes personalizados](https://ai.google.dev/gemini-api/docs/custom-agents?hl=es-419) con tus propias instrucciones, habilidades y fuentes de datos.
 
 [rocket\_launch
 
-מדריך למתחילים
+Guía de inicio rápido
 
-איך מתקשרים לסוכן, משדרים תשובות ויוצרים סוכן בהתאמה אישית](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he)
+Haz tu primera llamada al agente, transmite respuestas y crea un agente personalizado.](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419)
 [smart\_toy
 
-Antigravity Agent
+Agente de Antigravity
 
-יכולות, כלים, קלט מולטימודאלי ותמחור של הסוכן שמוגדר כברירת מחדל.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=he)
+Funciones, herramientas, entrada multimodal y precios del agente predeterminado.](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=es-419)
 [experiment
 
-סוכנים ב-AI Studio
+Agentes en AI Studio
 
-סביבת משחקים חזותית ליצירת אב טיפוס של סוכנים בלי לכתוב קוד.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=he)
+Espacio de pruebas visual para crear prototipos de agentes sin escribir código.](https://ai.google.dev/gemini-api/docs/aistudio-agents?hl=es-419)
 
-## 11. הפעלת משימות ברקע
+## 11. Ejecutar tareas en segundo plano
 
-מגדירים את `background=True` להרצת משימות ארוכות באופן אסינכרוני. סקר לתוצאות עם `interactions.get()`. פרטים נוספים זמינים [במדריך להרצת אפליקציות ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he).
+Establece `background=True` para ejecutar tareas largas de forma asíncrona. Busca resultados con `interactions.get()`. Para obtener más detalles, consulta la [guía de ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
 ### Python
 
@@ -2845,9 +2845,9 @@ while true; do
 done
 ```
 
-**תשובה:**
+**Respuesta:**
 
-התשובה הראשונית מוחזרת באופן מיידי עם הסטטוס `in_progress`:
+La respuesta inicial se devuelve de inmediato con el estado `in_progress`:
 
 ```
 {
@@ -2858,7 +2858,7 @@ done
 }
 ```
 
-אחרי שהמשימה ברקע מבוצעת במלואה, בדיקת מצב האינטראקציה מחזירה:
+Una vez que la tarea en segundo plano se ejecuta por completo, la verificación del estado de interacción devuelve lo siguiente:
 
 ```
 {
@@ -2880,27 +2880,27 @@ done
 }
 ```
 
-ב[מדריך להרצת מודלים וסוכנים ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he) אפשר לקרוא על הרצת מודלים וסוכנים באופן אסינכרוני.
+Lee sobre la ejecución asíncrona de modelos y agentes en la [guía de ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419).
 
-## המאמרים הבאים
+## ¿Qué sigue?
 
-- [הרצה ברקע](https://ai.google.dev/gemini-api/docs/background-execution?hl=he): הרצת משימות ארוכות באופן אסינכרוני וניהול מצב.
-- [יצירת טקסט](https://ai.google.dev/gemini-api/docs/text-generation?hl=he): הוראות מערכת, הגדרות יצירה ודפוסי טקסט מתקדמים.
-- [יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he): יחסי גובה-רוחב, עריכת תמונות ותמונות להמחשה.
-- [הבנת תמונות](https://ai.google.dev/gemini-api/docs/image-understanding?hl=he): סיווג, זיהוי אובייקטים ושאלות ותשובות חזותיות.
-- [חשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he): שימוש בשרשרת חשיבה למשימות מורכבות.
-- [קריאה להפעלת פונקציות](https://ai.google.dev/gemini-api/docs/function-calling?hl=he): מצבי פונקציה מקבילים, מורכבים ומוגבלים.
-- [חיפוש Google](https://ai.google.dev/gemini-api/docs/google-search?hl=he): ביסוס, ציטוטים והצעות לחיפוש.
-- [סוכנים מנוהלים](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=he): סוכנים מוכנים מראש עם הרצת קוד וניהול קבצים.
-- ‫[Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=he): מחקר אוטונומי רב-שלבי עם תכנון וסינתזה.
-- ‫[Structured output](https://ai.google.dev/gemini-api/docs/structured-output?hl=he): סכימות JSON,‏ enums והגדרות סוג רקורסיביות.
+- [Ejecución en segundo plano](https://ai.google.dev/gemini-api/docs/background-execution?hl=es-419): Ejecuta tareas de larga duración de forma asíncrona y administra el estado.
+- [Generación de texto](https://ai.google.dev/gemini-api/docs/text-generation?hl=es-419): Instrucciones del sistema, configuración de generación y patrones de texto avanzados.
+- [Generación de imágenes](https://ai.google.dev/gemini-api/docs/image-generation?hl=es-419): Relaciones de aspecto, edición de imágenes y referencias de estilo
+- [Comprensión de imágenes](https://ai.google.dev/gemini-api/docs/image-understanding?hl=es-419): Clasificación, detección de objetos y preguntas y respuestas visuales
+- [Pensamiento](https://ai.google.dev/gemini-api/docs/thinking?hl=es-419): Usa el razonamiento de cadena de pensamiento para tareas complejas.
+- [Llamada a funciones](https://ai.google.dev/gemini-api/docs/function-calling?hl=es-419): Modos de funciones paralelos, compositivos y restringidos.
+- [Búsqueda de Google](https://ai.google.dev/gemini-api/docs/google-search?hl=es-419): Fundamentación, citas y sugerencias de búsqueda
+- [Agentes administrados](https://ai.google.dev/gemini-api/docs/managed-agents-quickstart?hl=es-419): Agentes prediseñados con ejecución de código y administración de archivos.
+- [Deep Research](https://ai.google.dev/gemini-api/docs/deep-research?hl=es-419): Investigación autónoma de varios pasos con planificación y síntesis.
+- [Resultados estructurados](https://ai.google.dev/gemini-api/docs/structured-output?hl=es-419): Esquemas JSON, enumeraciones y definiciones de tipos recursivos.
 
-שליחת משוב
+Enviar comentarios
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
 
-עדכון אחרון: 2026-10-05 (שעון UTC).
+Última actualización: 2026-10-05 (UTC)
 
-רוצה לתת לנו משוב?
+¿Quieres brindar más información?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-05 (שעון UTC)."],[],[]]
+[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-10-05 (UTC)"],[],[]]

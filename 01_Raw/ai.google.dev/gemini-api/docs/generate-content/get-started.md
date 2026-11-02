@@ -1,67 +1,59 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi
-fetched_at: 2026-10-26T05:45:22.446739+00:00
-title: "B\u1eaft \u0111\u1ea7u \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr
+fetched_at: 2026-11-02T07:11:57.688253+00:00
+title: "Ba\u015flang\u0131\u00e7 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs/generate-content?hl=vi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs/generate-content?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-# Bắt đầu
+# Başlangıç
 
-Hướng dẫn này sẽ giúp bạn bắt đầu sử dụng API **generateContent** cũ. Đối với các dự án và ứng dụng mới, bạn nên sử dụng **API Tương tác** mới. Đây là cách đơn giản và tốt nhất để xây dựng bằng các mô hình và tác nhân Gemini.
+Bu kılavuz, eski **generateContent** API'yi kullanmaya başlamanıza yardımcı olacaktır. Yeni projeler ve uygulamalar için Gemini modelleri ve aracılarıyla geliştirme yapmanın en basit ve en iyi yolu olan yeni **Interactions API**'yi kullanmanızı önemle tavsiye ederiz.
 
-Hướng dẫn bắt đầu nhanh này cho bạn biết cách cài đặt
-[thư viện](https://ai.google.dev/gemini-api/docs/libraries?hl=vi) của chúng tôi và thực hiện yêu cầu đầu tiên, truyền trực tuyến
-câu trả lời, xây dựng cuộc trò chuyện nhiều lượt và sử dụng các công cụ bằng phương thức
-`generateContent` tiêu chuẩn.
+Bu hızlı başlangıç kılavuzunda, [kitaplıklarımızı](https://ai.google.dev/gemini-api/docs/libraries?hl=tr) nasıl yükleyeceğiniz, ilk isteğinizi nasıl yapacağınız, yanıtları nasıl yayınlayacağınız, çok turlu sohbetleri nasıl oluşturacağınız ve standart `generateContent` yöntemini kullanarak araçları nasıl kullanacağınız gösterilmektedir.
 
-## Lấy khoá API
+## API anahtarı alma
 
-Để sử dụng Gemini API, bạn cần có khoá API để xác thực các yêu cầu, thực thi các giới hạn bảo mật và theo dõi mức sử dụng cho tài khoản của mình.
+Gemini API'yi kullanmak için isteklerinizin kimliğini doğrulamak, güvenlik sınırlarını zorunlu kılmak ve hesabınızdaki kullanımı izlemek üzere bir API anahtarınızın olması gerekir.
 
-- Google AI Studio tự động tạo một dự án và khoá API cho người dùng mới.
-  Bạn có thể sao chép khoá này từ trang khoá API [API keys page](https://aistudio.google.com/api-keys?hl=vi).
-- Nếu cần khoá mới, hãy nhấp vào **Tạo khoá API** trong AI Studio rồi làm theo hộp thoại để thêm một cặp khoá-dự án mới.
+- Google AI Studio, yeni kullanıcılar için otomatik olarak bir proje ve API anahtarı oluşturur.
+  Bu anahtarı [API anahtarları sayfasından](https://aistudio.google.com/api-keys?hl=tr) kopyalayabilirsiniz.
+- Yeni bir anahtara ihtiyacınız varsa AI Studio'da **API anahtarı oluştur**'u tıklayın ve yeni bir anahtar-proje çifti eklemek için iletişim kutusunu takip edin.
 
-[Tạo khoá Gemini API](https://aistudio.google.com/apikey?hl=vi)
+[Gemini API anahtarı oluşturma](https://aistudio.google.com/apikey?hl=tr)
 
-Đặt khoá làm biến môi trường:
+Anahtarınızı ortam değişkeni olarak ayarlayın:
 
 ```
 export GEMINI_API_KEY="YOUR_API_KEY"
 ```
 
-### Nâng cấp lên gói trả phí
+### Ücretli katmana yükseltme
 
-Việc nâng cấp lên gói trả phí sẽ tăng giới hạn tốc độ và yêu cầu thiết lập Cloud Billing.
+Ücretli katmana yükseltme, hız sınırlarınızı artırır ve Cloud Billing'in ayarlanmasını gerektirir.
 
-- Nhấp vào **Thiết lập thanh toán** trên các trang Khoá API
-   hoặc
-  [Dự án](https://aistudio.google.com/projects?hl=vi) của AI Studio.
-- Làm theo hộp thoại Cloud Billing để tạo hoặc liên kết một tài khoản thanh toán, thêm phương thức thanh toán và trả trước tối thiểu 10 USD (hoặc số tiền tương đương) bằng tín dụng trả phí.
-- Xem mức sử dụng API trong [Google AI Studio](https://aistudio.google.com/usage?hl=vi)
-  trong phần **Trang tổng quan** > **Mức sử dụng**.
+- AI Studio [API anahtarları](https://aistudio.google.com/api-keys?hl=tr) veya [Projeler](https://aistudio.google.com/projects?hl=tr) sayfalarında **Faturalandırma ayarlarını yap**'ı tıklayın.
+- Faturalandırma hesabı oluşturmak veya bağlamak, ödeme yöntemi eklemek ve ücretli kredilerle en az 10 ABD doları (veya eşdeğer para birimi) tutarında ön ödeme yapmak için Cloud Faturalandırma iletişim kutusundaki talimatları uygulayın.
+- API kullanımınızı [Google AI Studio](https://aistudio.google.com/usage?hl=tr)'da **Kontrol Paneli** > **Kullanım** bölümünde görüntüleyebilirsiniz.
 
-Xem trang [Thanh toán](https://ai.google.dev/gemini-api/docs/billing?hl=vi) để biết thêm thông tin.
+Daha fazla bilgi için [Faturalandırma sayfası](https://ai.google.dev/gemini-api/docs/billing?hl=tr)'na bakın.
 
-## Cài đặt SDK Google GenAI
+## Google GenAI SDK'yı yükleme
 
 ### Python
 
-Sử dụng [Python 3.9 trở lên](https://www.python.org/downloads/), hãy cài đặt gói
-[`google-genai` bằng lệnh
-[pip sau](https://packaging.python.org/en/latest/tutorials/installing-packages/):](https://pypi.org/project/google-genai/)
+[Python 3.9+](https://www.python.org/downloads/) sürümünü kullanarak aşağıdaki [pip komutunu](https://packaging.python.org/en/latest/tutorials/installing-packages/) kullanarak [`google-genai` paketini](https://pypi.org/project/google-genai/) yükleyin:
 
 ```
 pip install -q -U google-genai
@@ -69,20 +61,15 @@ pip install -q -U google-genai
 
 ### JavaScript
 
-Sử dụng [Node.js v18+](https://nodejs.org/en/download/package-manager),
-hãy cài đặt
-[SDK Google Gen AI cho TypeScript và JavaScript](https://www.npmjs.com/package/@google/genai)
-bằng
-[lệnh npm sau](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm):
+[Node.js v18+](https://nodejs.org/en/download/package-manager)'ı kullanarak aşağıdaki [npm komutunu](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) kullanarak [TypeScript ve JavaScript için Google Gen AI SDK'sını](https://www.npmjs.com/package/@google/genai) yükleyin:
 
 ```
 npm install @google/genai
 ```
 
-## Tạo văn bản
+## Metin oluşturun
 
-Sử dụng phương thức `models.generate_content` để
-[tạo câu trả lời bằng văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi).
+`models.generate_content` yöntemini kullanarak [metin yanıtı oluşturun](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr).
 
 ### Python
 
@@ -138,11 +125,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Hiện câu trả lời theo thời gian thực
+## Yanıtları akış şeklinde göster
 
-Theo mặc định, mô hình chỉ trả về câu trả lời sau khi toàn bộ quá trình tạo hoàn tất. Để có trải nghiệm nhanh hơn và mang tính tương tác hơn, bạn có thể
-[truyền trực tuyến các phần câu trả lời](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#stream) khi chúng
-được tạo.
+Varsayılan olarak, model yalnızca tüm oluşturma işlemi tamamlandıktan sonra yanıt verir. Daha hızlı ve etkileşimli bir deneyim için yanıt parçalarını oluşturuldukça [yayınlayabilirsiniz](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#stream).
 
 ### Python
 
@@ -194,11 +179,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:s
   }'
 ```
 
-## Cuộc trò chuyện nhiều lượt
+## Etkileşimli görüşmeler
 
-Đối với cuộc trò chuyện nhiều lượt, SDK cung cấp trình trợ giúp `chats` có trạng thái để
-xây dựng trải nghiệm trò chuyện [nhiều lượt](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi#chat)
-tự động quản lý nhật ký cuộc trò chuyện.
+SDK'lar, çok turlu sohbetler için durum bilgisi olan bir `chats` yardımcı sağlar. Bu yardımcı, etkileşim geçmişini otomatik olarak yöneten bir [çok turlu sohbet deneyimi](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr#chat) oluşturmaya yardımcı olur.
 
 ### Python
 
@@ -254,11 +237,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Sử dụng công cụ
+## Araçları kullanma
 
-Mở rộng khả năng của mô hình bằng cách
-[bám sát nguồn câu trả lời bằng Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)
-để truy cập vào nội dung trên web theo thời gian thực. Mô hình sẽ tự động quyết định thời điểm tìm kiếm, thực thi các truy vấn và tổng hợp câu trả lời.
+Gerçek zamanlı web içeriğine erişmek için [yanıtları Google Arama ile temellendirerek](https://ai.google.dev/gemini-api/docs/google-search?hl=tr) modelin yeteneklerini genişletin. Model, ne zaman arama yapacağına otomatik olarak karar verir, sorguları yürütür ve yanıtı sentezler.
 
 ### Python
 
@@ -345,27 +326,20 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-Gemini API cũng hỗ trợ các công cụ tích hợp khác:
+Gemini API, diğer yerleşik araçları da destekler:
 
-- **[Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi)**:
-  Cho phép mô hình viết và chạy mã Python để giải quyết các bài toán phức tạp về toán học.
-- **[Ngữ cảnh URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)**: Cho phép bạn
-  bám sát nguồn câu trả lời trong các URL trang web cụ thể mà bạn cung cấp.
-- **[Tìm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)**: Cho phép bạn
-  tải tệp lên và bám sát nguồn câu trả lời trong nội dung của tệp bằng cách sử dụng tính năng tìm kiếm theo ngữ nghĩa.
-- **[Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)**: Cho phép bạn
-  bám sát nguồn câu trả lời trong dữ liệu vị trí và tìm kiếm địa điểm, chỉ đường và
-  bản đồ.
-- **[Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi)**: Cho phép
-  mô hình tương tác với màn hình máy tính ảo, bàn phím và chuột để
-  thực hiện các tác vụ.
+- **[Kod yürütme](https://ai.google.dev/gemini-api/docs/code-execution?hl=tr)**:
+  Modelin karmaşık matematik problemlerini çözmek için Python kodu yazıp çalıştırmasına olanak tanır.
+- **[URL bağlamı](https://ai.google.dev/gemini-api/docs/url-context?hl=tr)**: Yanıtları, sağladığınız belirli web sayfası URL'lerine dayandırmanıza olanak tanır.
+- **[Dosya arama](https://ai.google.dev/gemini-api/docs/file-search?hl=tr)**: Dosyaları yüklemenize ve semantik aramayı kullanarak yanıtları içeriklerinde temellendirmenize olanak tanır.
+- **[Google Haritalar](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=tr)**: Yanıtları konum verileriyle temellendirmenize ve yerleri, yol tariflerini ve haritaları aramanıza olanak tanır.
+- **[Bilgisayar kullanımı](https://ai.google.dev/gemini-api/docs/computer-use?hl=tr)**: Modelin görevleri yerine getirmek için sanal bir bilgisayar ekranı, klavye ve fare ile etkileşime girmesine olanak tanır.
 
-## Gọi các hàm tuỳ chỉnh
+## Özel işlevleri çağırma
 
-Sử dụng **[lệnh gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)** để kết nối
-các mô hình với các công cụ và API tuỳ chỉnh. Mô hình sẽ xác định thời điểm gọi hàm của bạn và trả về `functionCall` trong câu trả lời để ứng dụng của bạn thực thi.
+Modelleri özel araçlarınıza ve API'lerinize bağlamak için **[işlev çağrısını](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)** kullanın. Model, işlevinizi ne zaman çağıracağını belirler ve uygulamanızın yürütmesi için yanıtta bir `functionCall` döndürür.
 
-Ví dụ này khai báo một hàm nhiệt độ mô phỏng và kiểm tra xem mô hình có muốn gọi hàm đó hay không.
+Bu örnekte, sahte bir sıcaklık işlevi tanımlanır ve modelin bu işlevi çağırmak isteyip istemediği kontrol edilir.
 
 ### Python
 
@@ -527,25 +501,25 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:g
   }'
 ```
 
-## Bước tiếp theo
+## Sırada ne var?
 
-Bây giờ bạn đã bắt đầu sử dụng Gemini API, hãy khám phá các hướng dẫn sau để xây dựng các ứng dụng nâng cao hơn:
+Gemini API'yi kullanmaya başladığınıza göre, daha gelişmiş uygulamalar oluşturmak için aşağıdaki kılavuzları inceleyin:
 
-- [Tạo văn bản](https://ai.google.dev/gemini-api/docs/text-generation?hl=vi)
-- [Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi)
-- [Hiểu hình ảnh](https://ai.google.dev/gemini-api/docs/image-understanding?hl=vi)
-- [Tư duy](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)
-- [Lệnh gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)
-- [Bám sát nguồn bằng Google Tìm kiếm](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)
-- [Ngữ cảnh dài](https://ai.google.dev/gemini-api/docs/long-context?hl=vi)
-- [Vectơ nhúng](https://ai.google.dev/gemini-api/docs/embeddings?hl=vi)
+- [Metin üretme](https://ai.google.dev/gemini-api/docs/text-generation?hl=tr)
+- [Görüntü üretme](https://ai.google.dev/gemini-api/docs/image-generation?hl=tr)
+- [Resim yorumlama](https://ai.google.dev/gemini-api/docs/image-understanding?hl=tr)
+- [Düşünme](https://ai.google.dev/gemini-api/docs/thinking?hl=tr) (Thinking)
+- [İşlev çağırma](https://ai.google.dev/gemini-api/docs/function-calling?hl=tr)
+- [Google Arama ile temellendirme](https://ai.google.dev/gemini-api/docs/google-search?hl=tr)
+- [Uzun bağlam](https://ai.google.dev/gemini-api/docs/long-context?hl=tr)
+- [Yerleştirmeler](https://ai.google.dev/gemini-api/docs/embeddings?hl=tr)
 
-Gửi ý kiến phản hồi
+Geri bildirim gönderin
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-Cập nhật lần gần đây nhất: 2026-09-12 UTC.
+Son güncelleme tarihi: 2026-09-12 UTC.
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-12 UTC."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-09-12 UTC."],[],[]]

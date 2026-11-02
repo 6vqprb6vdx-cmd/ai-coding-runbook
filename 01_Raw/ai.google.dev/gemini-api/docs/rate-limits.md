@@ -1,227 +1,243 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=it
-fetched_at: 2026-10-26T05:46:19.058457+00:00
-title: "Limiti di frequenza \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/rate-limits?hl=bn
+fetched_at: 2026-11-02T07:21:12.729444+00:00
+title: "\u09b0\u09c7\u099f \u09b2\u09bf\u09ae\u09bf\u099f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs?hl=bn)
 
-Invia feedback
+মতামত জানান
 
-# Limiti di frequenza
+# রেট লিমিট
 
-I limiti di frequenza regolano il numero di richieste che puoi effettuare all'API Gemini
-in un determinato periodo di tempo. Questi limiti contribuiscono a mantenere un utilizzo equo, a proteggere dagli abusi e a mantenere le prestazioni del sistema per tutti gli utenti.
+রেট লিমিট, নির্দিষ্ট সময়সীমার মধ্যে Gemini API-তে আপনি কতগুলি অনুরোধ করতে পারবেন
+তা নিয়ন্ত্রণ করে। এইসব সীমা ন্যায্য ব্যবহার বজায় রাখতে, অপব্যবহারের বিরুদ্ধে সুরক্ষা দিতে এবং
+সব ব্যবহারকারীর জন্য সিস্টেমের পারফর্ম্যান্স বজায় রাখতে সাহায্য করে।
 
-[Visualizzare i limiti di frequenza attivi in AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=it)
+[AI Studio-তে আপনার অ্যাক্টিভ রেট লিমিট দেখুন](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=bn)
 
-## Come funzionano i limiti di frequenza
+## রেট লিমিট কীভাবে কাজ করে
 
-I limiti di frequenza vengono in genere misurati in tre dimensioni:
+রেট সীমা সাধারণত তিনটি ডাইমেনশন জুড়ে পরিমাপ করা হয়:
 
-- Richieste al minuto (**RPM**)
-- Token al minuto (input) (**TPM**)
-- Richieste al giorno (**RPD**)
+- প্রতি মিনিটে অনুরোধ (**RPM**)
+- প্রতি মিনিটে টোকেন (ইনপুট) (**TPM**)
+- প্রতিদিন অনুরোধ (**RPD**)
 
-Il tuo utilizzo viene valutato in base a ciascun limite e il superamento di uno di questi attiverà un errore di limitazione di frequenza. Ad esempio, se il limite di RPM è 20, l'invio di 21 richieste entro un minuto genererà un errore, anche se non hai superato il TPM o altri limiti.
+প্রতিটি সীমার সাপেক্ষে আপনার ব্যবহার মূল্যায়ন করা হয় এবং এর মধ্যে যেকোনও একটি সীমা অতিক্রম করলে
+রেট লিমিট সংক্রান্ত সমস্যা দেখা দেবে। যেমন, আপনার RPM-এর সীমা ২০ হলে, এক মিনিটের মধ্যে ২১টি অনুরোধ করলে
+সমস্যা হবে, এমনকি আপনি TPM বা অন্যান্য সীমা অতিক্রম না করলেও
+এটি হবে।
 
-I limiti di frequenza vengono applicati per progetto, non per chiave API. Le quote di richieste al giorno (**RPD**) vengono reimpostate alla mezzanotte del fuso orario del Pacifico.
+রেট সীমা প্রতিটি প্রোজেক্টের জন্য প্রযোজ্য, প্রতিটি API key-এর জন্য নয়। প্রতিদিন অনুরোধ (**RPD**)
+কোটা প্যাসিফিক সময় অনুযায়ী মধ্যরাতে রিসেট হয়।
 
-I limiti variano a seconda del modello specifico utilizzato e alcuni limiti si applicano solo a modelli specifici. Ad esempio, le immagini al minuto (IPM) vengono calcolate solo per i modelli in grado di generare immagini (Nano Banana), ma sono concettualmente simili ai TPM. Altri modelli potrebbero avere un limite di token al giorno (TPD).
+ব্যবহার করা নির্দিষ্ট মডেলের উপর নির্ভর করে সীমা পরিবর্তিত হয় এবং কিছু সীমা শুধুমাত্র
+নির্দিষ্ট মডেলের ক্ষেত্রে প্রযোজ্য। যেমন, প্রতি মিনিটে ছবি বা IPM শুধুমাত্র ছবি জেনারেট করতে সক্ষম মডেলের (Nano Banana) জন্য গণনা করা হয়, তবে ধারণাগতভাবে TPM-এর মতো। অন্যান্য মডেলের ক্ষেত্রে প্রতিদিন টোকেন ব্যবহারের সীমা (TPD) থাকতে পারে।
+বিল্ট-ইন টুলেরও নির্দিষ্ট রেট সীমা আছে। যেমন, Gemini 3 এবং আরও নতুন মডেলে Grounding with Google Search-এর ক্ষেত্রে Gemini Developer API-তে প্রোজেক্ট প্রতি প্রতিদিন (RPD) ১,৫০০টি অনুরোধের ডিফল্ট সীমা প্রযোজ্য ([Grounding with Google Search](https://ai.google.dev/gemini-api/docs/google-search?hl=bn#pricing) দেখুন)।
 
-I limiti di frequenza sono più restrittivi per i modelli sperimentali e di anteprima.
+এক্সপেরিমেন্টাল ও প্রিভিউ মডেলের ক্ষেত্রে রেট লিমিট আরও বেশি সীমাবদ্ধ।
 
-### Limiti di frequenza basati sulla spesa
+### খরচ-ভিত্তিক রেটের সীমা
 
-Oltre ai limiti di richieste al minuto (RPM) e token al minuto (TPM), l'API Gemini applica limiti di frequenza basati sulla spesa per proteggerti da addebiti imprevisti. L'applicazione di questi limiti al tuo account dipende dalla cronologia
-della fatturazione e dal [livello di utilizzo](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers).
+প্রতি মিনিটে অনুরোধ (RPM) এবং প্রতি মিনিটে টোকেন (TPM) সংক্রান্ত সীমা ছাড়াও, Gemini API অপ্রত্যাশিত চার্জ থেকে রক্ষা করার জন্য খরচ-ভিত্তিক রেট সীমা প্রয়োগ করে। আপনার অ্যাকাউন্টে এই সীমা প্রযোজ্য হবে কিনা তা আপনার বিলিং ইতিহাস এবং [ব্যবহারের টিয়ার](https://ai.google.dev/gemini-api/docs/rate-limits?hl=bn#usage-tiers)-এর উপর নির্ভর করে।
 
-La tabella seguente mostra i limiti di frequenza basati sulla spesa per ogni
-[livello di utilizzo](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers). Questi limiti vengono valutati in una finestra mobile di 10 minuti. L'applicazione di questi limiti al tuo
-account dipende dalla cronologia della fatturazione e dallo stato dell'account.
+নিম্নলিখিত সারণীতে প্রতিটি
+[ব্যবহারের টিয়ার](https://ai.google.dev/gemini-api/docs/rate-limits?hl=bn#usage-tiers)-এর জন্য খরচ-ভিত্তিক রেট সীমা দেখানো হয়েছে। এইসব সীমা
+১০-মিনিটের রোলিং উইন্ডোতে মূল্যায়ন করা হয়। আপনার অ্যাকাউন্টে এই সীমা প্রযোজ্য হবে কিনা তা আপনার বিলিং ইতিহাস এবং অ্যাকাউন্টের স্ট্যাটাসের উপর নির্ভর করে।
 
-| Livello di utilizzo | Limite di frequenza di spesa (per 10 minuti) |
+| ব্যবহারের টিয়ার | খরচের রেট সংক্রান্ত সীমা (প্রতি ১০ মিনিটে) |
 | --- | --- |
-| **Nessun costo** | N/D |
-| **Livello 1** | 10 $ |
-| **Livello 2** | 50 $ |
-| **Livello 3** | 200 $ |
+| **ফ্রি** | প্রযোজ্য নয় |
+| **টিয়ার ১** | $১০ |
+| **টিয়ার ২** | হংকং ডলার (HKD) |
+| **টিয়ার ৩** | হংকং ডলার (HKD) |
 
-Se raggiungi un limite di frequenza basato sulla spesa, l'API restituisce un errore `429 RESOURCE_EXHAUSTED`. Per risolvere questo problema:
+আপনি খরচ-ভিত্তিক রেট সীমায় পৌঁছালে, API একটি `429 RESOURCE_EXHAUSTED`
+সমস্যা দেখায়। এই সমস্যার সমাধান করতে:
 
-- **Attendi e riprova** dopo un breve periodo.
-- **Riduci la frequenza delle richieste costose**, ad esempio utilizzando finestre di contesto più piccole o output più brevi.
-- Se raggiungi costantemente questo limite durante il normale utilizzo, [richiedi un aumento del limite di frequenza](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#request-rate-limit-increase).
+- কিছুক্ষণ **অপেক্ষা করে আবার চেষ্টা করুন**।
+- **ব্যয়বহুল অনুরোধের হার কমান**, যেমন ছোট কন্টেক্সট উইন্ডো বা ছোট আউটপুট ব্যবহার করে।
+- সাধারণ ব্যবহারের সময় আপনি যদি ক্রমাগত এই সীমায় পৌঁছে যান, তাহলে
+  [রেট লিমিট বাড়ানোর অনুরোধ করুন](https://ai.google.dev/gemini-api/docs/rate-limits?hl=bn#request-rate-limit-increase)।
 
-## Livelli di utilizzo
+## ব্যবহারের টিয়ার
 
-I limiti di frequenza sono legati al livello di utilizzo del progetto. Man mano che l'utilizzo e la spesa per l'API aumentano, verrà eseguito automaticamente l'upgrade a un livello superiore con limitazioni di frequenza più elevate.
+রেট লিমিট প্রোজেক্টের ব্যবহারের টিয়ারের সাথে যুক্ত। আপনার API ব্যবহার এবং খরচ
+বৃদ্ধি পেলে, আপনাকে অটোমেটিক আরও বেশি রেট লিমিট সহ উচ্চতর টিয়ারে আপগ্রেড করা হবে।
 
-I requisiti per i livelli 2 e 3 si basano sulla spesa cumulativa totale
-per i servizi Google Cloud (inclusa, a titolo esemplificativo, l'API Gemini) per l'account di fatturazione collegato al tuo progetto.
+আপনার প্রোজেক্টের সাথে লিঙ্ক করা বিলিং অ্যাকাউন্টের জন্য Google Cloud পরিষেবায় (Gemini API সহ, তবে এর মধ্যেই সীমিত নয়) মোট ক্রমবর্ধমান খরচের উপর ভিত্তি করে টায়ার ২ ও ৩-এর যোগ্যতা নির্ধারণ করা হয়।
 
-| Livello di utilizzo | Qualificazione | [Limite del livello di fatturazione](https://ai.google.dev/gemini-api/docs/billing?hl=it#tier-spend-caps) |
+| ব্যবহারের টিয়ার | কোয়ালিফিকেশন | [বিলিং টিয়ার ক্যাপ](https://ai.google.dev/gemini-api/docs/billing?hl=bn#tier-spend-caps) |
 | --- | --- | --- |
-| **Nessun costo** | [Progetto attivo](https://ai.google.dev/gemini-api/docs/api-key?hl=it#google-cloud-projects) o prova senza costi | N/D |
-| **Livello 1** | [Configura e collega un account di fatturazione attivo](https://ai.google.dev/gemini-api/docs/billing?hl=it#setup-billing) | 250 $ |
-| **Livello 2** | Pagamento di 100 $+ 3 giorni dal primo pagamento riuscito | $ 2000 |
-| **Livello 3** | Pagamento di 1000 $+ 30 giorni dal primo pagamento riuscito | 20.000 $-100.000 $ e oltre |
+| **ফ্রি** | [অ্যাক্টিভ প্রোজেক্ট](https://ai.google.dev/gemini-api/docs/api-key?hl=bn#google-cloud-projects) বা ফ্রি ট্রায়াল | প্রযোজ্য নয় |
+| **টিয়ার ১** | [অ্যাক্টিভ বিলিং অ্যাকাউন্ট সেট-আপ ও লিঙ্ক করুন](https://ai.google.dev/gemini-api/docs/billing?hl=bn#setup-billing) | হংকং ডলার (HKD) |
+| **টিয়ার ২** | প্রথম সফল পেমেন্টের ৩ দিন পরে $১০০ পেমেন্ট করা হয়েছে | $২,০০০ |
+| **টিয়ার ৩** | $১,০০০ পেমেন্ট করেছেন + প্রথমবার সফলভাবে পেমেন্ট করার ৩০ দিন পরে | $২০,০০০ - $১০০,০০০+ |
 
-Sebbene il rispetto dei criteri di idoneità indicati sia generalmente sufficiente per l'approvazione, in rari casi una richiesta di upgrade potrebbe essere rifiutata in base ad altri fattori identificati durante la procedura di revisione.
+সাধারণত, অনুমোদনের জন্য উল্লিখিত যোগ্যতার মাপকাঠি পূরণ করাই যথেষ্ট, তবে বিরল ক্ষেত্রে, পর্যালোচনা প্রক্রিয়া চলাকালীন চিহ্নিত অন্যান্য বিষয়ের উপর ভিত্তি করে আপগ্রেডের অনুরোধ প্রত্যাখ্যান করা হতে পারে।
 
-Questo sistema contribuisce a mantenere la sicurezza e l'integrità della piattaforma API Gemini
-per tutti gli utenti.
+এই সিস্টেম সব ব্যবহারকারীর জন্য Gemini API প্ল্যাটফর্মের নিরাপত্তা ও ইন্টিগ্রিটি বজায় রাখতে
+সাহায্য করে।
 
-## Limiti di frequenza dell'API Gemini
+## Gemini API রেট লিমিট
 
-I limiti di frequenza dipendono da una serie di fattori (come il livello di utilizzo) e possono essere visualizzati in Google AI Studio. Man mano che il tuo livello e lo stato dell'account cambiano nel tempo,
-i limiti di frequenza verranno aggiornati automaticamente.
+রেট লিমিট বিভিন্ন বিষয়ের উপর নির্ভর করে (যেমন, আপনার ব্যবহারের টিয়ার) এবং Google AI Studio-তে
+দেখা যেতে পারে। সময়ের সাথে সাথে আপনার টিয়ার ও অ্যাকাউন্টের স্ট্যাটাস পরিবর্তন হলে,
+আপনার রেট লিমিট অটোমেটিক আপডেট হবে।
 
-[Visualizza i limiti di frequenza attivi in AI Studio](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=it)
+[AI Studio-তে আপনার অ্যাক্টিভ রেট লিমিট দেখুন](https://aistudio.google.com/rate-limit?timeRange=last-28-days&hl=bn)
 
-I limiti di frequenza specificati non sono garantiti e la capacità effettiva potrebbe variare.
+নির্দিষ্ট রেট লিমিটের কোনও গ্যারান্টি দেওয়া হয় না এবং আসল ক্যাপাসিটি আলাদা হতে পারে।
 
-## Limiti di frequenza dell'inferenza della priorità
+## প্রায়রিটি ইনফারেন্স রেট লিমিট
 
-Il consumo [prioritario](https://ai.google.dev/gemini-api/docs/priority-inference?hl=it) ha i propri limiti di frequenza, anche se il consumo viene conteggiato ai fini dei limiti di frequenza del traffico interattivo complessivo. **I limiti di frequenza predefiniti sono: 0,3 volte il [limite di frequenza standard](https://aistudio.google.com/rate-limit?hl=it) per ogni modello e livello**
+[অগ্রাধিকার](https://ai.google.dev/gemini-api/docs/priority-inference?hl=bn) কনজাম্পশনের নিজস্ব রেট লিমিট আছে, যদিও কনজাম্পশন সামগ্রিক ইন্টার‍্যাক্টিভ ট্রাফিক রেট লিমিটের মধ্যে গণনা করা হয়। **ডিফল্ট রেট সীমা হল: প্রতিটি মডেল ও টিয়ারের জন্য
+[স্ট্যান্ডার্ড রেট সীমার](https://aistudio.google.com/rate-limit?hl=bn)
+0.3x**
 
-## Limiti di frequenza dell'API Batch
+## ব্যাচ API রেট লিমিট
 
-Le richieste [API Batch](https://ai.google.dev/gemini-api/docs/batch-api?hl=it) sono soggette ai propri limiti di frequenza, separati dalle chiamate API non batch.
+[ব্যাচ API](https://ai.google.dev/gemini-api/docs/batch-api?hl=bn) অনুরোধের ক্ষেত্রে নিজস্ব রেট সীমা প্রযোজ্য হয়, যা নন-ব্যাচ API কলের থেকে আলাদা।
 
-- **Richieste batch simultanee**:100
-- **Limite di dimensione del file di input**:2 GB
-- **Limite di spazio di archiviazione dei file**:20 GB
-- **Token in coda per modello**:la tabella **Token batch in coda** elenca il
-  numero massimo di token che possono essere inseriti in coda per l'elaborazione batch in
-  tutti i tuoi job batch attivi per un determinato modello.
+- **একসাথে ব্যাচ অনুরোধ:** ১০০
+- **ইনপুট ফাইলের সাইজের সীমা:** ২ জিবি
+- **ফাইল স্টোরেজের সীমা:** ২০ জিবি
+- **মডেল প্রতি এনকিউ করা টোকেন:** **ব্যাচ এনকিউ করা টোকেন** টেবিলে
+  প্রদত্ত মডেলের জন্য আপনার সব অ্যাক্টিভ ব্যাচ জব জুড়ে ব্যাচ প্রসেসিংয়ের জন্য এনকিউ করা যেতে পারে এমন
+  টোকেনের সর্বাধিক সংখ্যা তালিকাভুক্ত করা হয়।
 
-### Livello 1
+### টিয়ার ১
 
-| Modello | Token batch in coda |
+| মডেল | ব্যাচ এনকিউ করা টোকেন |
 | --- | --- |
-| Modelli di testo | | | | |
+| টেক্সট-আউট মডেল | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | 5.000.000 |
-| Gemini 3.1 Pro (anteprima) | 5.000.000 |
-| Gemini 3.5 Flash-Lite | 10.000.000 |
-| Gemini 3.8 Flash | 3.000.000 |
-| Gemini 3.1 Flash Lite | 10.000.000 |
-| Gemini 3.1 Flash Lite (anteprima) | 10.000.000 |
-| Gemini 3.6 Flash | 3.000.000 |
-| Gemini 2.5 Pro | 5.000.000 |
-| Gemini 2.5 Pro TTS | 25.000 |
-| Gemini 2.5 Flash | 3.000.000 |
-| Gemini 2.5 Flash Preview | 3.000.000 |
-| Anteprima di Gemini 2.5 Flash Image | 3.000.000 |
-| Gemini 2.5 Flash TTS | 100.000 |
-| Gemini 2.5 Flash-Lite | 10.000.000 |
-| Gemini 2.5 Flash Lite (anteprima) | 10.000.000 |
-| Gemini 2.0 Flash | 10.000.000 |
-| Gemini 2.0 Flash Image | 3.000.000 |
-| Gemini 2.0 Flash Lite | 10.000.000 |
-| Modelli di generazione multimodali | | | | |
-| Gemini 3.1 Flash Image Preview 🍌 | 1.000.000 |
-| Gemini 3.1 Flash Lite Image 🍌 | 2.000.000 |
-| Anteprima di Gemini 3 Pro Image 🍌 | 2.000.000 |
-| Modelli di embedding | | | | |
-| Embedding di Gemini | 500.000 |
+| Gemini 4 Argon | ৫,০০০,০০০ |
+| Gemini 3.1 Pro প্রিভিউ | ৫,০০০,০০০ |
+| Gemini 3.5 Flash-Lite | ১০,০০০,০০০ |
+| Gemini 3.8 Flash | ৩,০০০,০০০ |
+| Gemini 3.1 Flash Lite | ১০,০০০,০০০ |
+| Gemini 3.1 Flash Lite প্রিভিউ | ১০,০০০,০০০ |
+| Gemini 3.6 Flash | ৩,০০০,০০০ |
+| Gemini 2.5 Pro | ৫,০০০,০০০ |
+| Gemini 2.5 Pro TTS | ২৫,০০০ |
+| Gemini 2.5 Flash | ৩,০০০,০০০ |
+| Gemini 2.5 Flash প্রিভিউ | ৩,০০০,০০০ |
+| Gemini 2.5 Flash-এর ছবি প্রিভিউ | ৩,০০০,০০০ |
+| Gemini 2.5 Flash TTS | ১০০,০০০ |
+| Gemini 2.5 Flash Lite | ১০,০০০,০০০ |
+| Gemini 2.5 Flash Lite প্রিভিউ | ১০,০০০,০০০ |
+| Gemini 2.0 Flash | ১০,০০০,০০০ |
+| Gemini 2.0 Flash ছবি | ৩,০০০,০০০ |
+| Gemini 2.0 Flash Lite | ১০,০০০,০০০ |
+| মাল্টি-মোডাল জেনারেশন মডেল | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | ১,০০০,০০০ |
+| Gemini 3.1 Flash Lite Image 🍌 | ২,০০০,০০০ |
+| Gemini 3 Pro Image Preview 🍌 | ২,০০০,০০০ |
+| এম্বেডিং মডেল | | | | |
+| Gemini Embedding | ৫০০,০০০ |
 
-### Livello 2
+### টিয়ার ২
 
-| Modello | Token batch in coda |
+| মডেল | ব্যাচ এনকিউ করা টোকেন |
 | --- | --- |
-| Modelli di testo | | | | |
+| টেক্সট-আউট মডেল | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | 500.000.000 |
-| Gemini 3.1 Pro (anteprima) | 500.000.000 |
-| Gemini 3.5 Flash-Lite | 500.000.000 |
-| Gemini 3.1 Flash Lite | 500.000.000 |
-| Gemini 3.1 Flash Lite (anteprima) | 500.000.000 |
-| Gemini 3.8 Flash | 400.000.000 |
-| Gemini 3.6 Flash | 400.000.000 |
-| Gemini 2.5 Pro | 500.000.000 |
-| Gemini 2.5 Pro TTS | 100.000 |
-| Gemini 2.5 Flash | 400.000.000 |
-| Gemini 2.5 Flash (anteprima) | 400.000.000 |
-| Gemini 2.5 Flash Image Preview | 400.000.000 |
-| Gemini 2.5 Flash TTS | 100.000 |
-| Gemini 2.5 Flash-Lite | 500.000.000 |
-| Gemini 2.5 Flash Lite (anteprima) | 500.000.000 |
-| Gemini 2.0 Flash | 1.000.000.000 |
-| Gemini 2.0 Flash Image | 400.000.000 |
-| Gemini 2.0 Flash Lite | 1.000.000.000 |
-| Modelli di generazione multimodali | | | | |
-| Anteprima dell'immagine flash di Gemini 3.1 🍌 | 250.000.000 |
-| Gemini 3.1 Flash Lite Image 🍌 | 270.000.000 |
-| Anteprima di Gemini 3 Pro Image 🍌 | 270.000.000 |
-| Modelli di embedding | | | | |
-| Incorporamento di Gemini | 5.000.000 |
+| Gemini 4 Argon | ৫০০,০০০,০০০ |
+| Gemini 3.1 Pro প্রিভিউ | ৫০০,০০০,০০০ |
+| Gemini 3.5 Flash-Lite | ৫০০,০০০,০০০ |
+| Gemini 3.1 Flash Lite | ৫০০,০০০,০০০ |
+| Gemini 3.1 Flash Lite প্রিভিউ | ৫০০,০০০,০০০ |
+| Gemini 3.8 Flash | ৪০০,০০০,০০০ |
+| Gemini 3.6 Flash | ৪০০,০০০,০০০ |
+| Gemini 2.5 Pro | ৫০০,০০০,০০০ |
+| Gemini 2.5 Pro TTS | ১০০,০০০ |
+| Gemini 2.5 Flash | ৪০০,০০০,০০০ |
+| Gemini 2.5 Flash প্রিভিউ | ৪০০,০০০,০০০ |
+| Gemini 2.5 Flash-এর ছবি প্রিভিউ | ৪০০,০০০,০০০ |
+| Gemini 2.5 Flash TTS | ১০০,০০০ |
+| Gemini 2.5 Flash Lite | ৫০০,০০০,০০০ |
+| Gemini 2.5 Flash Lite প্রিভিউ | ৫০০,০০০,০০০ |
+| Gemini 2.0 Flash | ১,০০০,০০০,০০০ |
+| Gemini 2.0 Flash ছবি | ৪০০,০০০,০০০ |
+| Gemini 2.0 Flash Lite | ১,০০০,০০০,০০০ |
+| মাল্টি-মোডাল জেনারেশন মডেল | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | ২৫০,০০০,০০০ |
+| Gemini 3.1 Flash Lite Image 🍌 | ২৭০,০০০,০০০ |
+| Gemini 3 Pro Image Preview 🍌 | ২৭০,০০০,০০০ |
+| এম্বেডিং মডেল | | | | |
+| Gemini Embedding | ৫,০০০,০০০ |
 
-### Livello 3
+### টিয়ার ৩
 
-| Modello | Token batch in coda |
+| মডেল | ব্যাচ এনকিউ করা টোকেন |
 | --- | --- |
-| Modelli di testo | | | | |
+| টেক্সট-আউট মডেল | | | | |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | 1.000.000.000 |
-| Gemini 3.1 Pro (anteprima) | 1.000.000.000 |
-| Gemini 3.5 Flash-Lite | 1.000.000.000 |
-| Gemini 3.1 Flash Lite | 1.000.000.000 |
-| Gemini 3.1 Flash Lite (anteprima) | 1.000.000.000 |
-| Gemini 3.8 Flash | 1.000.000.000 |
-| Gemini 3.6 Flash | 1.000.000.000 |
-| Gemini 2.5 Pro | 1.000.000.000 |
-| Gemini 2.5 Pro TTS | 1.000.000 |
-| Gemini 2.5 Flash | 1.000.000.000 |
-| Gemini 2.5 Flash Preview | 1.000.000.000 |
-| Gemini 2.5 Flash Image Preview | 1.000.000.000 |
-| Gemini 2.5 Flash TTS | 4.000.000 |
-| Gemini 2.5 Flash-Lite | 1.000.000.000 |
-| Gemini 2.5 Flash Lite (anteprima) | 1.000.000.000 |
-| Gemini 2.0 Flash | 5.000.000.000 |
-| Gemini 2.0 Flash Image | 1.000.000.000 |
-| Gemini 2.0 Flash Lite | 5.000.000.000 |
-| Modelli di generazione multimodali | | | | |
-| Anteprima dell'immagine flash di Gemini 3.1 🍌 | 750.000.000 |
-| Gemini 3.1 Flash Lite Image 🍌 | 1.000.000.000 |
-| Gemini 3 Pro Image Preview 🍌 | 1.000.000.000 |
-| Modelli di embedding | | | | |
-| Embedding di Gemini | 10.000.000 |
+| Gemini 4 Argon | ১,০০০,০০০,০০০ |
+| Gemini 3.1 Pro প্রিভিউ | ১,০০০,০০০,০০০ |
+| Gemini 3.5 Flash-Lite | ১,০০০,০০০,০০০ |
+| Gemini 3.1 Flash Lite | ১,০০০,০০০,০০০ |
+| Gemini 3.1 Flash Lite প্রিভিউ | ১,০০০,০০০,০০০ |
+| Gemini 3.8 Flash | ১,০০০,০০০,০০০ |
+| Gemini 3.6 Flash | ১,০০০,০০০,০০০ |
+| Gemini 2.5 Pro | ১,০০০,০০০,০০০ |
+| Gemini 2.5 Pro TTS | ১,০০০,০০০ |
+| Gemini 2.5 Flash | ১,০০০,০০০,০০০ |
+| Gemini 2.5 Flash প্রিভিউ | ১,০০০,০০০,০০০ |
+| Gemini 2.5 Flash-এর ছবি প্রিভিউ | ১,০০০,০০০,০০০ |
+| Gemini 2.5 Flash TTS | ৪,০০০,০০০ |
+| Gemini 2.5 Flash Lite | ১,০০০,০০০,০০০ |
+| Gemini 2.5 Flash Lite প্রিভিউ | ১,০০০,০০০,০০০ |
+| Gemini 2.0 Flash | ৫,০০০,০০০,০০০ |
+| Gemini 2.0 Flash ছবি | ১,০০০,০০০,০০০ |
+| Gemini 2.0 Flash Lite | ৫,০০০,০০০,০০০ |
+| মাল্টি-মোডাল জেনারেশন মডেল | | | | |
+| Gemini 3.1 Flash Image Preview 🍌 | ৭৫০,০০০,০০০ |
+| Gemini 3.1 Flash Lite Image 🍌 | ১,০০০,০০০,০০০ |
+| Gemini 3 Pro Image Preview 🍌 | ১,০০০,০০০,০০০ |
+| এম্বেডিং মডেল | | | | |
+| Gemini Embedding | ১০,০০০,০০০ |
 
-## Come eseguire l'upgrade al livello successivo
+## পরবর্তী টিয়ারে কীভাবে আপগ্রেড করবেন
 
-Per eseguire la transizione dal livello senza costi a un livello a pagamento, devi prima
-[configurare la fatturazione in AI Studio](https://ai.google.dev/gemini-api/docs/billing?hl=it).
+ফ্রি টিয়ার থেকে পেড টিয়ারে ট্রানজিশন করতে, আপনাকে প্রথমে
+[AI Studio-তে বিলিং সেট-আপ করতে হবে](https://ai.google.dev/gemini-api/docs/billing?hl=bn)।
 
-Una volta che il tuo progetto soddisfa i [criteri specificati](https://ai.google.dev/gemini-api/docs/rate-limits?hl=it#usage-tiers), verrà eseguito automaticamente l'upgrade al livello successivo. Gli upgrade dal Livello senza costi al Livello 1 diventano in genere effettivi immediatamente, mentre gli upgrade successivi diventano effettivi entro 10 minuti. Vai alla
-[pagina Progetti](https://aistudio.google.com/projects?hl=it) in AI Studio per controllare i tuoi
-livelli.
+আপনার প্রোজেক্ট
+[নির্দিষ্ট মাপকাঠি](https://ai.google.dev/gemini-api/docs/rate-limits?hl=bn#usage-tiers) পূরণ করলে, এটি
+অটোমেটিক পরবর্তী টিয়ারে আপগ্রেড হয়ে যাবে। ফ্রি থেকে টায়ার ১-এ আপগ্রেড করার সুবিধা
+সাধারণত সাথে সাথেই কার্যকর হবে এবং পরবর্তী টায়ার আপগ্রেড করার সুবিধা ১০ মিনিটের মধ্যে
+কার্যকর হবে। আপনার টিয়ার চেক করতে AI Studio-তে
+[প্রোজেক্ট পৃষ্ঠায়](https://aistudio.google.com/projects?hl=bn)
+নেভিগেট করুন।
 
-## Richiedi un aumento del limite di frequenza
+## রেট লিমিট বাড়ানোর অনুরোধ করা
 
-Ogni variante del modello ha un limite di frequenza associato (richieste al minuto, RPM).
-Per informazioni dettagliate su questi limiti di frequenza, consulta la pagina
-[Limite di frequenza di AI Studio](https://aistudio.google.com/rate-limit?hl=it).
+প্রতিটি মডেল ভেরিয়েশনের সাথে একটি রেট লিমিট (প্রতি মিনিটে অনুরোধ, RPM) যুক্ত থাকে।
+এই রেট লিমিট সম্পর্কে আরও জানতে,
+[AI Studio রেট লিমিট](https://aistudio.google.com/rate-limit?hl=bn) পৃষ্ঠা দেখুন।
 
-[Richiedere un aumento del limite di frequenza del livello a pagamento](https://forms.gle/ETzX94k8jf7iSotH9)
+[পেড টিয়ার রেটের সীমা বাড়ানোর অনুরোধ করা](https://forms.gle/ETzX94k8jf7iSotH9)
 
-Non offriamo alcuna garanzia in merito all'aumento del limite di frequenza, ma faremo del nostro meglio per esaminare la tua richiesta.
+আপনার রেট লিমিট বাড়ানোর ব্যাপারে আমরা কোনও গ্যারেন্টি দিই না, তবে আপনার অনুরোধ পর্যালোচনা করার জন্য
+আমরা যথাসাধ্য চেষ্টা করব।
 
-Invia feedback
+মতামত জানান
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-Ultimo aggiornamento 2026-10-15 UTC.
+2026-10-29 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-Vuoi dirci altro?
+আমাদের আরও কিছু জানাতে চান?
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-15 UTC."],[],[]]
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-29 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

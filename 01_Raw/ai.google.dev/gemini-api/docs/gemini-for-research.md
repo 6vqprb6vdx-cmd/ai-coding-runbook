@@ -1,35 +1,35 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=zh-CN
-fetched_at: 2026-10-26T05:36:55.162419+00:00
-title: "\u4f7f\u7528 Gemini for Research \u52a0\u901f\u53d1\u73b0 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ar
+fetched_at: 2026-11-02T07:27:35.381897+00:00
+title: "\u062a\u0633\u0631\u064a\u0639 \u0639\u0645\u0644\u064a\u0629 \u0627\u0644\u0627\u0643\u062a\u0634\u0627\u0641 \u0628\u0627\u0633\u062a\u062e\u062f\u0627\u0645 Gemini \u0644\u0623\u063a\u0631\u0627\u0636 \u0627\u0644\u0628\u062d\u062b \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 现已上架。[试试看](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-cn)。
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-cn)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google 会使用 AI 技术将内容翻译成您偏好的语言。AI 翻译可能包含错误。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [首页](https://ai.google.dev/?hl=zh-cn)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-cn)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
 
-# 使用 Gemini for Research 加速发现
+# تسريع عملية الاكتشاف باستخدام Gemini لأغراض البحث
 
-[获取 Gemini API 密钥](https://aistudio.google.com/apikey?hl=zh-cn)
+[الحصول على مفتاح واجهة Gemini API](https://aistudio.google.com/apikey?hl=ar)
 
-Gemini 模型可用于推进各个学科的基础研究。
-以下是一些探索 Gemini 在研究方面的用途的方法：
+يمكن استخدام نماذج Gemini لتطوير الأبحاث الأساسية في مختلف المجالات.
+إليك بعض الطرق التي يمكنك من خلالها استكشاف Gemini لإجراء بحثك:
 
-- **分析和控制模型输出**：如需进一步分析，您可以使用 `CitationMetadata` 等工具检查模型生成的候选回答。您还可以配置模型生成和输出选项，例如 `responseSchema`、`topP` 和 `topK`。[了解详情](https://ai.google.dev/api/generate-content?hl=zh-cn)。
-- **多模态输入**：Gemini 可以处理图片、音频和视频，从而实现众多令人兴奋的研究方向。[了解详情](https://ai.google.dev/gemini-api/docs/vision?hl=zh-cn)。
-- **长上下文功能**：Gemini 3.0 Flash 和 Pro 均配备 100 万个词元的上下文窗口。[了解详情](https://ai.google.dev/gemini-api/docs/long-context?hl=zh-cn)。
-- **Grow with Google 谷歌成长计划**：通过 API 和 Google AI Studio 快速访问 Gemini 模型，以用于生产用例。如果您正在寻找基于 Google Cloud 的平台，Gemini Enterprise Agent Platform 可以提供额外的支持基础设施。
+- **تحليل نواتج النموذج والتحكّم فيها**: لإجراء المزيد من التحليلات، يمكنك فحص الردود المقترَحة التي أنشأها النموذج باستخدام أدوات مثل `CitationMetadata`. يمكنك أيضًا ضبط خيارات لإنشاء النماذج والمخرجات، مثل `responseSchema` و`topP` و`topK`. [مزيد من المعلومات](https://ai.google.dev/api/generate-content?hl=ar)
+- **مدخلات متعدّدة الوسائط**: يمكن لـ Gemini معالجة الصور والمقاطع الصوتية والفيديوهات، ما يتيح مجموعة كبيرة من مجالات البحث المثيرة. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/vision?hl=ar)
+- **قدرات استيعاب المعلومات الكثيرة**: يتضمّن كل من Gemini 3.0 Flash وPro قدرة استيعاب تصل إلى مليون رمز مميّز. [مزيد من المعلومات](https://ai.google.dev/gemini-api/docs/long-context?hl=ar)
+- **Grow with Google**: يمكنك الوصول بسرعة إلى نماذج Gemini من خلال واجهة برمجة التطبيقات وGoogle AI Studio لحالات الاستخدام في الإنتاج. إذا كنت تبحث عن منصة مستندة إلى Google Cloud، يمكن أن توفّر لك Gemini Enterprise Agent Platform بنية أساسية إضافية داعمة.
 
-为了支持学术研究并推动前沿研究，Google 通过 [Gemini 学术计划](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=zh-cn#gemini-academic-program)为科学家和学术研究人员提供 Gemini API 赠金。
+لدعم الأبحاث الأكاديمية وتعزيز الأبحاث المتطوّرة، تتيح Google للعلماء والباحثين الأكاديميين إمكانية الوصول إلى أرصدة Gemini API من خلال [برنامج Gemini الأكاديمي](https://ai.google.dev/gemini-api/docs/gemini-for-research?hl=ar#gemini-academic-program).
 
-## 开始使用 Gemini
+## بدء استخدام Gemini
 
-借助 Gemini API 和 Google AI Studio，您可以开始使用 Google 的最新模型，并将您的想法转化为可扩缩的应用。
+تساعدك واجهة Gemini API وGoogle AI Studio في بدء العمل باستخدام أحدث نماذج Google وتحويل أفكارك إلى تطبيقات قابلة للتوسّع.
 
 ### Python
 
@@ -63,7 +63,7 @@ async function main() {
 await main();
 ```
 
-### Java
+### جافا
 
 ```
 import com.google.genai.Client;
@@ -132,40 +132,42 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:g
    }'
 ```
 
-## 精选学术研究人员
+## الأكاديميون المميزون
 
-![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=zh-cn)
+![](https://ai.google.dev/static/site-assets/images/diyi-yang.png?hl=ar)
 
-“我们的研究从稳健性和安全性的角度，探讨了 Gemini 作为视觉语言模型 (VLM) 在各种环境中的智能体行为。到目前为止，我们已经评估了 VLM 代理在执行计算机任务时，Gemini 针对弹出式窗口等干扰的鲁棒性，并利用 Gemini 分析了基于视频输入的社交互动、时间事件以及风险因素。”
+"يبحث فريقنا في Gemini كنموذج لغة مرئية (VLM) وسلوكياته التي تحاكي سلوك الإنسان في بيئات متنوعة من منظورَي المتانة والأمان. حتى الآن، قيّمنا مدى فعالية Gemini في التعامل مع عوامل التشتيت، مثل النوافذ المنبثقة، عندما تنفّذ وكالات VLM مهام على الكمبيوتر، واستفدنا من Gemini في تحليل التفاعل الاجتماعي والأحداث المؤقتة وعوامل الخطر استنادًا إلى إدخال الفيديو".
 
-[Diyi Yang 的网站](https://cs.stanford.edu/~diyiy/)
+[الموقع الإلكتروني الخاص بـ "ديي يانغ"](https://cs.stanford.edu/~diyiy/)
 
-![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=zh-cn)
+![](https://ai.google.dev/static/site-assets/images/lerrel-pinto.png?hl=ar)
 
-“Gemini Pro 和 Flash 具有长上下文窗口，一直在帮助我们开展 OK-Robot 项目，这是一个开放词汇移动操作项目。Gemini 支持对机器人的“记忆”（在本例中是指机器人在长时间运行期间的先前观测结果）进行复杂的自然语言查询和命令。Mahi Shafiullah 和我还在使用 Gemini 将任务分解为机器人可以在现实世界中执行的代码。”
+"لقد ساعدنا Gemini Pro وFlash، بفضل قدرتهما على استيعاب معلومات كثيرة، في مشروعنا OK-Robot، وهو مشروع مفتوح المفردات للتحكّم في الأجهزة الجوّالة. يتيح Gemini تنفيذ طلبات وأوامر معقّدة باللغة الطبيعية استنادًا إلى "ذاكرة" الروبوت، أي الملاحظات السابقة التي سجّلها الروبوت خلال مدة تشغيل طويلة. أنا و"ماهي شافي الله" نستخدم Gemini أيضًا لتقسيم المهام إلى تعليمات برمجية يمكن للروبوت تنفيذها في العالم الحقيقي".
 
-[Lerrel Pinto 的网站](https://www.lerrelpinto.com/)
+[الموقع الإلكتروني الخاص بـ "ليريل بينتو"](https://www.lerrelpinto.com/)
 
-## Gemini 学术计划
+## برنامج Gemini الأكاديمي
 
-[支持的国家/地区](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-cn)中符合条件的学术研究人员（例如教职员工和博士生）可以申请获得 Gemini API 赠金和更高的速率限制，以用于研究项目。此支持可提高科学实验的吞吐量，并推进研究。
+يمكن للباحثين الأكاديميين المؤهّلين (مثل أعضاء هيئة التدريس والموظفين وطلاب الدكتوراه) في [البلدان
+المتاحة](https://ai.google.dev/gemini-api/docs/available-regions?hl=ar) تقديم طلب للحصول على رصيد في Gemini API وسقف استخدام أعلى لمشاريعهم البحثية. يتيح هذا الدعم إنتاجية أعلى للتجارب العلمية ويساهم في تطوير الأبحاث.
 
-我们对以下部分的研究领域特别感兴趣，但也欢迎来自不同科学学科的申请：
+نحن مهتمون بشكل خاص بمجالات البحث الواردة في القسم التالي،
+ولكن نرحّب بطلبات التقديم من مختلف التخصصات العلمية:
 
-- **评估和基准**：社区认可的评估方法，可在事实性、安全性、指令遵循、推理和规划等领域提供强有力的性能信号。
-- **加速科学发现，造福人类**：AI 在跨学科科学研究中的潜在应用，包括罕见病和被忽视的疾病、实验生物学、材料科学和可持续性等领域。
-- **具身和互动**：利用大语言模型来探索具身 AI、环境互动、机器人技术和人机交互领域的新型互动。
-- **新兴功能**：探索增强推理和规划能力所需的新智能体功能，以及如何在推理过程中扩展功能（例如，通过利用 Gemini Flash）。
-- **多模态交互和理解**：确定多模态基础模型在各种任务中进行分析、推理和规划时的差距和机遇。
+- **التقييمات والمقاييس**: طُرق تقييم يوافق عليها المنتدى ويمكن أن تقدّم إشارة أداء قوية في مجالات مثل الدقة الواقعية والأمان واتّباع التعليمات والاستدلال والتخطيط.
+- **تسريع الاكتشافات العلمية بما يعود بالنفع على البشرية**: التطبيقات المحتملة للذكاء الاصطناعي في الأبحاث العلمية المتعددة التخصصات، بما في ذلك مجالات مثل الأمراض النادرة والمهملة، وعلم الأحياء التجريبي، وعلم المواد، والاستدامة
+- **التجسيد والتفاعلات**: استخدام النماذج اللغوية الكبيرة لاستكشاف تفاعلات جديدة في مجالات الذكاء الاصطناعي المجسَّد والتفاعلات المحيطة والروبوتات والتفاعل بين الإنسان والحاسوب
+- **الإمكانات الناشئة**: استكشاف إمكانات بالذكاء الاصطناعي الوكيل جديدة مطلوبة لتحسين الاستدلال والتخطيط، وكيفية توسيع نطاق الإمكانات أثناء الاستنتاج (مثل استخدام Gemini Flash).
+- **التفاعل مع المحتوى المتعدّد الوسائط وفهمه**: تحديد الثغرات والفرص في النماذج الأساسية المتعدّدة الوسائط من أجل التحليل والاستدلال والتخطيط لمجموعة متنوعة من المهام
 
-资格要求：只有与有效学术机构或学术研究组织相关联的个人（教职人员、研究人员或同等人员）才能申请。请注意，Google 会自行决定授予和移除 API 访问权限及积分。我们会每月审核申请。
+الأهلية: يمكن فقط للأفراد (أعضاء هيئة التدريس أو الباحثين أو ما يعادلهم) التابعين لمؤسسة أكاديمية صالحة أو مؤسسة بحثية أكاديمية تقديم طلب. يُرجى العِلم أنّه سيتم منح إذن الوصول إلى واجهة برمجة التطبيقات والائتمانات وإزالتها وفقًا لتقدير Google. نراجع الطلبات شهريًا.
 
-### 开始使用 Gemini API 进行研究
+### بدء البحث باستخدام Gemini API
 
-[立即申请](https://forms.gle/HMviQstU8PxC5iCt5)
+[تقديم طلب الآن](https://forms.gle/HMviQstU8PxC5iCt5)
 
-如未另行说明，那么本页面中的内容已根据[知识共享署名 4.0 许可](https://creativecommons.org/licenses/by/4.0/)获得了许可，并且代码示例已根据 [Apache 2.0 许可](https://www.apache.org/licenses/LICENSE-2.0)获得了许可。有关详情，请参阅 [Google 开发者网站政策](https://developers.google.com/site-policies?hl=zh-cn)。Java 是 Oracle 和/或其关联公司的注册商标。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最后更新时间 (UTC)：2026-09-24。
+تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)
 
-[[["易于理解","easyToUnderstand","thumb-up"],["解决了我的问题","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["没有我需要的信息","missingTheInformationINeed","thumb-down"],["太复杂/步骤太多","tooComplicatedTooManySteps","thumb-down"],["内容需要更新","outOfDate","thumb-down"],["翻译问题","translationIssue","thumb-down"],["示例/代码问题","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["最后更新时间 (UTC)：2026-09-24。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-24 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

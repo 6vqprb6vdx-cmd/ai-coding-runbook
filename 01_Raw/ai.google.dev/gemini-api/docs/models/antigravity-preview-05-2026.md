@@ -1,45 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=hi
-fetched_at: 2026-10-26T06:04:21.991102+00:00
-title: "Antigravity \u0915\u0940 \u091d\u0932\u0915 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/antigravity-preview-05-2026?hl=tr
+fetched_at: 2026-11-02T07:04:59.068530+00:00
+title: "Antigravity \u00f6nizlemesi \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon अब उपलब्ध है. [इसे आज़माएं](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=hi).
+Gemini 4 Argon hemen oynayabilirsiniz. [Deneyin](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=tr).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=hi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=tr)
 
-Google आपकी पसंदीदा भाषा में कॉन्टेंट का अनुवाद करने के लिए, एआई टेक्नोलॉजी का इस्तेमाल करता है. एआई से मिले अनुवादों में गलतियां हो सकती हैं.
+Google, içerikleri tercih ettiğiniz dile çevirmek için yapay zeka teknolojisini kullanır. Yapay zeka çevirilerinde hata olabilir.
 
-- [होम पेज](https://ai.google.dev/?hl=hi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=hi)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=hi)
+- [Ana Sayfa](https://ai.google.dev/?hl=tr)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=tr)
+- [Dokümanlar](https://ai.google.dev/gemini-api/docs?hl=tr)
 
-सुझाव भेजें
+Geri bildirim gönderin
 
-# Antigravity की झलक
+# Antigravity önizlemesi
 
-यह मैनेज किया गया एक शक्तिशाली एजेंट है, जिसे अलग-अलग कामों के लिए इस्तेमाल की जाने वाली मशीन के तौर पर डिज़ाइन किया गया है. यह कई चरणों वाले वर्कफ़्लो को अपने-आप पूरा कर सकता है. यह मॉडल, Google के होस्ट किए गए सुरक्षित और अलग Linux सैंडबॉक्स में प्लान करता है, वजहें बताता है, कोड चलाता है, फ़ाइलें मैनेज करता है, और वेब पर खोज करता है.
+Otonom, çok adımlı iş akışları için tasarlanmış, güçlü ve genel amaçlı bir yönetilen temsilci. Bu model; planlama, akıl yürütme, kod çalıştırma, dosya yönetme ve Google tarafından barındırılan güvenli, izole bir Linux korumalı alanında web'de arama yapma işlemlerini gerçekleştirir.
 
-## दस्तावेज़
+## Belgeler
 
-सुविधाओं, क्षमताओं, और कोड सैंपल के बारे में पूरी जानकारी पाने के लिए, [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=hi) पेज पर जाएं.
+Özellikler, işlevler ve kod örnekleri hakkında ayrıntılı bilgi için [Antigravity Agent](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=tr) sayfasını ziyaret edin.
 
 ## antigravity-preview-05-2026
 
-| प्रॉपर्टी | ब्यौरा |
+| Mülk | Açıklama |
 | --- | --- |
-| id\_cardएजेंट कोड | **Interactions API**  `antigravity-preview-05-2026` |
-| saveके साथ इस्तेमाल किए जा सकने वाले डेटा टाइप | **इनपुट**  टेक्स्ट, इमेज  **आउटपुट**  टेक्स्ट |
-| token\_autoटोकन की सीमाएं[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=hi) | **इनपुट कॉन्टेक्स्ट विंडो**  1,048,576 (कंप्रेस करके ~135 हज़ार)  **आउटपुट टोकन की सीमा**  65,536 |
-| 123वर्शन | ज़्यादा जानकारी के लिए, [मॉडल वर्शन के पैटर्न](https://ai.google.dev/gemini-api/docs/models/gemini?hl=hi#model-versions) पढ़ें.  - झलक देखें: `antigravity-preview-05-2026` |
-| calendar\_monthनया अपडेट | मई 2026 |
+| id\_cardTemsilci kodu | **Interactions API**  `antigravity-preview-05-2026` |
+| saveDesteklenen veri türleri | **Giriş**  Metin, resim  **Çıkış**  Metin |
+| token\_autoToken sınırları[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=tr) | **Giriş bağlam penceresi**  1.048.576 (yaklaşık 135.000'de sıkıştırılmış)  **Çıkış parçası sınırı**  65.536 |
+| 123Sürümler | Daha fazla bilgi için [model sürümü kalıplarını](https://ai.google.dev/gemini-api/docs/models?hl=tr#model-versions) okuyun.  - Önizleme: `antigravity-preview-05-2026` |
+| calendar\_monthSon güncelleme | Mayıs 2026 |
 
-सुझाव भेजें
+Geri bildirim gönderin
 
-जब तक कुछ अलग से न बताया जाए, तब तक इस पेज की सामग्री को [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) के तहत और कोड के नमूनों को [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) के तहत लाइसेंस मिला है. ज़्यादा जानकारी के लिए, [Google Developers साइट नीतियां](https://developers.google.com/site-policies?hl=hi) देखें. Oracle और/या इससे जुड़ी हुई कंपनियों का, Java एक रजिस्टर किया हुआ ट्रेडमार्क है.
+Aksi belirtilmediği sürece bu sayfanın içeriği [Creative Commons Atıf 4.0 Lisansı](https://creativecommons.org/licenses/by/4.0/) altında ve kod örnekleri [Apache 2.0 Lisansı](https://www.apache.org/licenses/LICENSE-2.0) altında lisanslanmıştır. Ayrıntılı bilgi için [Google Developers Site Politikaları](https://developers.google.com/site-policies?hl=tr)'na göz atın. Java, Oracle ve/veya satış ortaklarının tescilli ticari markasıdır.
 
-आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया.
+Son güncelleme tarihi: 2026-10-26 UTC.
 
-क्या आपको हमें और कुछ बताना है?
+Bize geri bildirimde bulunmak mı istiyorsunuz?
 
-[[["समझने में आसान है","easyToUnderstand","thumb-up"],["मेरी समस्या हल हो गई","solvedMyProblem","thumb-up"],["अन्य","otherUp","thumb-up"]],[["वह जानकारी मौजूद नहीं है जो मुझे चाहिए","missingTheInformationINeed","thumb-down"],["बहुत मुश्किल है / बहुत सारे चरण हैं","tooComplicatedTooManySteps","thumb-down"],["पुराना","outOfDate","thumb-down"],["अनुवाद से जुड़ी समस्या","translationIssue","thumb-down"],["सैंपल / कोड से जुड़ी समस्या","samplesCodeIssue","thumb-down"],["अन्य","otherDown","thumb-down"]],["आखिरी बार 2026-09-24 (UTC) को अपडेट किया गया."],[],[]]
+[[["Anlaması kolay","easyToUnderstand","thumb-up"],["Sorunumu çözdü","solvedMyProblem","thumb-up"],["Diğer","otherUp","thumb-up"]],[["İhtiyacım olan bilgiler yok","missingTheInformationINeed","thumb-down"],["Çok karmaşık / çok fazla adım var","tooComplicatedTooManySteps","thumb-down"],["Güncel değil","outOfDate","thumb-down"],["Çeviri sorunu","translationIssue","thumb-down"],["Örnek veya kod sorunu","samplesCodeIssue","thumb-down"],["Diğer","otherDown","thumb-down"]],["Son güncelleme tarihi: 2026-10-26 UTC."],[],[]]

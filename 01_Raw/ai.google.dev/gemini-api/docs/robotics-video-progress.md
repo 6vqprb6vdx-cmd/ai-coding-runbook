@@ -1,33 +1,33 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ja
-fetched_at: 2026-10-26T05:52:17.684043+00:00
-title: "\u52d5\u753b\u7406\u89e3 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/robotics-video-progress?hl=ar
+fetched_at: 2026-11-02T07:19:56.655622+00:00
+title: "\u0641\u0647\u0645 \u0627\u0644\u0641\u064a\u062f\u064a\u0648 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
+‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
 
-Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
+تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
 
-- [ホーム](https://ai.google.dev/?hl=ja)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
-- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
+- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
+- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
 
-フィードバックを送信
+إرسال ملاحظات
 
-# 動画理解
+# فهم الفيديو
 
-Gemini Robotics-ER 2 は、次の 2 つの機能を使用して、継続的な動画フィードからタスクの進行状況を追跡できます。
+يمكن لـ Gemini Robotics ER 2 تتبُّع تقدّم المهام من خلاصات الفيديوهات المستمرة باستخدام ميزتَين:
 
-- モーメント検出: キーイベントが発生した正確なタイムスタンプを特定します。
-- 進行状況の分類: 各動画を 5 つの完了率の範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てます。
+- العثور على اللحظات: تحدِّد هذه الميزة الطابع الزمني الدقيق لوقوع حدث رئيسي.
+- تصنيف التقدّم: تصنِّف هذه الميزة كل فيديو ضمن إحدى فئات الإكمال الخمس (0–20% أو 20–40% أو 40–60% أو 60–80% أو 80–100%).
 
-## モーメントの検出
+## العثور على اللحظات
 
-モーメント検出は、重大なイベントが発生した正確な動画フレーム（カップが満杯になったときや、結び目が結ばれたときなど）を特定します。ロボットはこれを使用して、成功の確認、ステップの順序付け、修正のトリガーを行います。
+تحدِّد ميزة "العثور على اللحظات" إطار الفيديو الدقيق الذي يقع فيه حدث مهم، مثلاً عندما يمتلئ كوب أو يتم ربط عقدة. تستخدم الروبوتات هذه الميزة للتحقّق من النجاح وتسلسل الخطوات وبدء التصحيحات.
 
-次のプロンプトの例では、動画内の特定のタスクの完了時点を識別するようモデルに指示しています。
+يطلب نموذج التعليمة البرمجية التالي من النموذج تحديد لحظة الإكمال لمهمة معيّنة في فيديو:
 
 ```
 from google import genai
@@ -57,15 +57,15 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-次の図は、モデルがタスク完了のタイムスタンプを特定している、モーメント検出動画のフレームの例を示しています。
+تعرض الصورة التالية أمثلة على إطارات من فيديو للعثور على اللحظات، حيث يحدِّد النموذج الطابع الزمني لإكمال المهمة:
 
-![タイムスタンプ オーバーレイ付きのモーメント検出出力が表示された動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=ja)
+![مثال على لقطات فيديو تعرض نتيجة البحث عن اللحظة مع طابع زمني](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=ar)
 
-## 進行状況の分類
+## تصنيف التقدّم
 
-進行状況の分類では、動画が 5 つの完了範囲（0 ～ 20%、20 ～ 40%、40 ～ 60%、60 ～ 80%、80 ～ 100%）のいずれかに割り当てられます。これにより、ロボットはリアルタイムで状況を認識し、ワークフロー全体を再起動することなく、アクションを調整したり、失敗したステップを再試行したりできます。
+تصنِّف ميزة "تصنيف التقدّم" الفيديو ضمن إحدى فئات الإكمال الخمس: 0–20% أو 20–40% أو 40–60% أو 60–80% أو 80–100%. يمنح ذلك الروبوتات وعيًا بالوضع في الوقت الفعلي، ما يتيح لها تعديل الإجراءات أو إعادة محاولة الخطوات التي تعذّر إكمالها بدون إعادة بدء سير عمل كامل.
 
-次のプロンプトの例では、動画の現在の進行状況レベルを分類するようにモデルに求めています。
+يطلب نموذج التعليمة البرمجية التالي من النموذج تصنيف مستوى التقدّم الحالي من فيديو:
 
 ```
 from google import genai
@@ -95,26 +95,27 @@ interaction = client.interactions.create(
 print(interaction.output_text)
 ```
 
-次の図は、進行状況分類動画のフレームの例を示しています。モデルは進行状況の範囲を割り当てています。
+تعرض الصورة التالية أمثلة على إطارات من فيديو لتصنيف التقدّم، حيث يحدِّد النموذج فئة التقدّم:
 
-![進行状況の分類出力と進行状況の範囲ラベルを示す動画フレームの例](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=ja)
+![أمثلة على لقطات فيديو تعرض ناتج تصنيف مستوى التقدّم مع تصنيف بين قوسين](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=ar)
 
-## 例
+## أمثلة
 
-マルチステップ タスク トラッキングを含む実行可能な例については、[ロボティクス クックブック](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb)をご覧ください。
+للاطّلاع على أمثلة كاملة قابلة للتنفيذ تتضمّن تتبُّع المهام المتعدّدة الخطوات، يُرجى مراجعة الـ
+[Robotics cookbook](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## 次のステップ
+## الخطوات التالية
 
-- [ロボット工学用の Live API](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ja) - リアルタイムの双方向ストリーミング。
-- [タスク オーケストレーション](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ja) - 空間推論を伴う長期的なタスク。
-- [Gemini Robotics ER の概要](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ja) - モデルの比較と機能。
+- [Live API للروبوتات](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=ar): بث ثنائي الاتجاه في الوقت الفعلي
+- [تنسيق المهام](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=ar): مهام طويلة الأجل تتضمّن التفكير المكاني
+- [نظرة عامة على Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=ar): مقارنة النماذج والإمكانات
 
-フィードバックを送信
+إرسال ملاحظات
 
-特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
+إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
 
-最終更新日 2026-09-08 UTC。
+تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)
 
-ご意見をお聞かせください
+هل تريد مشاركة ملاحظاتك معنا؟
 
-[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-08 UTC。"],[],[]]
+[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-08 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]

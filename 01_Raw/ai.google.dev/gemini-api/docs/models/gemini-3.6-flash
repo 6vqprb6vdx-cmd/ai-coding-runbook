@@ -1,53 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=fa
-fetched_at: 2026-10-26T05:36:59.738984+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-3.6-flash?hl=vi
+fetched_at: 2026-11-02T07:06:00.891105+00:00
 title: "Gemini 3.6 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
+Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
+![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
 
-‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
+Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
 
-- [صفحه اصلی](https://ai.google.dev/?hl=fa)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
-- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
+- [Trang chủ](https://ai.google.dev/?hl=vi)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
+- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
 
-ارسال بازخورد
+Gửi ý kiến phản hồi
 
 # Gemini 3.6 Flash
 
-‫Gemini 3.6 Flash هوش پایدار در سطح پیشرفته ارائه می‌دهد که برای تکالیف دنیای واقعی با سرعت بالاتر و هزینه کمتر بهینه‌سازی شده است. این مدل که برای عصر عامل‌گرایی طراحی شده است،
-در تولید کد، اجرای عامل‌گرا، و استدلال فضایی برتری دارد. این مدل به‌ویژه برای حلقه‌های عامل‌گرای سریع که شامل چرخه‌ها و تکرارهای کدنویسی پیچیده هستند مؤثر است.
+Gemini 3.6 Flash cung cấp trí tuệ vượt trội, ổn định và được tối ưu hoá cho
+các nhiệm vụ thực tế với tốc độ cao hơn và chi phí thấp hơn. Được thiết kế cho kỷ nguyên tác nhân,
+mô hình này có khả năng vượt trội trong việc tạo mã, thực thi tác nhân và suy luận không gian. Mô hình này đặc biệt hiệu quả đối với các vòng lặp tác nhân nhanh liên quan đến các chu kỳ và vòng lặp lập trình phức tạp.
 
-[امتحان کردن در Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=fa)
+[Dùng thử trong Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-3.6-flash&hl=vi)
 
-## اسناد
+## Tài liệu
 
-برای پوشش کامل ویژگی‌ها و قابلیت‌ها، به صفحه
-[جدیدترین‌های Gemini 3.6 Flash و 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=fa)
-مراجعه کنید.
+Hãy truy cập vào trang
+[Tính năng mới trong Gemini 3.6 Flash và 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.6?hl=vi)
+để biết thông tin đầy đủ về các tính năng và chức năng.
 
 ## gemini-3.6-flash
 
-| دارایی | شرح |
+| Thuộc tính | Mô tả |
 | --- | --- |
-| id\_cardکد مدل | `gemini-3.6-flash` |
-| ذخیرهانواع داده‌های پشتیبانی‌شده | **ورودی‌ها**  نوشتار، تصویر، ویدیو، صدا، و PDF  **خروجی**  نوشتار |
-| token\_autoمحدودیت‌های توکن[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) | **حد داده‌واحد ورودی**  ۱٬۰۴۸٬۵۷۶  **محدودیت داده‌واحد برونداد**  ۶۵۵۳۶ |
-| handymanقابلیت‌ها | **[تولید صدا](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fa)**  پشتیبانی نمی‌شود  **[ذخیره در حافظه نهان](https://ai.google.dev/gemini-api/docs/caching?hl=fa)**  پشتیبانی‌شده  **[اجرای کد](https://ai.google.dev/gemini-api/docs/code-execution?hl=fa)**  پشتیبانی‌شده  **[استفاده از رایانه](https://ai.google.dev/gemini-api/docs/computer-use?hl=fa)**  پشتیبانی‌شده (پیش‌نمایش)  **[جستجوی فایل](https://ai.google.dev/gemini-api/docs/file-search?hl=fa)**  پشتیبانی‌شده  **[فراخوانی تابع](https://ai.google.dev/gemini-api/docs/function-calling?hl=fa)**  پشتیبانی‌شده  **[پایه‌مندسازی با Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fa)**  پشتیبانی‌شده  **[تولید تصویر](https://ai.google.dev/gemini-api/docs/image-generation?hl=fa)**  پشتیبانی نمی‌شود  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=fa)**  پشتیبانی نمی‌شود  **[زمینه‌سازی جستجو](https://ai.google.dev/gemini-api/docs/google-search?hl=fa)**  پشتیبانی‌شده  **[بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa)**  پشتیبانی‌شده  **[درحال اندیشیدن](https://ai.google.dev/gemini-api/docs/thinking?hl=fa)**  پشتیبانی‌شده  **[بافت نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa)**  پشتیبانی‌شده |
-| speedگزینه‌های مصرف | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa)**  پشتیبانی‌شده  **[استنتاج انعطاف‌پذیر](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fa)**  پشتیبانی‌شده  **[استنتاج اولویت‌دار](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fa)**  پشتیبانی‌شده |
-| ۱۲۳نسخه | برای جزئیات بیشتر، [الگوهای نسخه مدل](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fa#model-versions) را بخوانید.  - پایدار: `gemini-3.6-flash` |
-| calendar\_monthجدیدترین به‌روزرسانی | ژوئیه ۲۰۲۶ |
-| id\_cardکارت مدل | [کارت مدل](https://deepmind.google/models/model-cards/gemini-3-6-flash/?hl=fa) |
+| id\_cardMã kiểu máy | `gemini-3.6-flash` |
+| saveCác loại dữ liệu được hỗ trợ | **Thông tin đầu vào**  Văn bản, hình ảnh, video, âm thanh và PDF  **Kết quả**  Văn bản |
+| token\_autoGiới hạn về mã thông báo[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=vi) | **Giới hạn số token đầu vào**  1.048.576  **Giới hạn mã thông báo đầu ra**  65.536 |
+| handymanTính năng | **[Tạo âm thanh](https://ai.google.dev/gemini-api/docs/speech-generation?hl=vi)**  Không được hỗ trợ  **[Lưu vào bộ nhớ đệm](https://ai.google.dev/gemini-api/docs/caching?hl=vi)**  Được hỗ trợ  **[Thực thi mã](https://ai.google.dev/gemini-api/docs/code-execution?hl=vi)**  Được hỗ trợ  **[Sử dụng máy tính](https://ai.google.dev/gemini-api/docs/computer-use?hl=vi)**  Được hỗ trợ  **[Tìm kiếm tệp](https://ai.google.dev/gemini-api/docs/file-search?hl=vi)**  Được hỗ trợ  **[Gọi hàm](https://ai.google.dev/gemini-api/docs/function-calling?hl=vi)**  Được hỗ trợ  **[Neo bám vào Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=vi)**  Được hỗ trợ  **[Tạo hình ảnh](https://ai.google.dev/gemini-api/docs/image-generation?hl=vi)**  Không được hỗ trợ  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=vi)**  Không được hỗ trợ  **[Tìm kiếm neo bám](https://ai.google.dev/gemini-api/docs/google-search?hl=vi)**  Được hỗ trợ  **[Kết quả có cấu trúc](https://ai.google.dev/gemini-api/docs/structured-output?hl=vi)**  Được hỗ trợ  **[Đang suy nghĩ](https://ai.google.dev/gemini-api/docs/thinking?hl=vi)**  Được hỗ trợ  **[Bối cảnh từ URL](https://ai.google.dev/gemini-api/docs/url-context?hl=vi)**  Được hỗ trợ |
+| speedLựa chọn sử dụng | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=vi)**  Được hỗ trợ  **[Suy luận linh hoạt](https://ai.google.dev/gemini-api/docs/flex-inference?hl=vi)**  Được hỗ trợ  **[Suy luận mức độ ưu tiên](https://ai.google.dev/gemini-api/docs/priority-inference?hl=vi)**  Được hỗ trợ |
+| 123 phiên bản | Hãy đọc [các mẫu phiên bản mô hình](https://ai.google.dev/gemini-api/docs/models/gemini?hl=vi#model-versions) để biết thêm thông tin chi tiết.  - Ổn định: `gemini-3.6-flash` |
+| calendar\_monthThông tin cập nhật mới nhất | Tháng 7 năm 2026 |
+| id\_cardThẻ mô hình | [Thẻ thông tin về mô hình](https://deepmind.google/models/model-cards/gemini-3-6-flash/?hl=vi) |
+| paidĐịnh giá | [Định giá](https://ai.google.dev/gemini-api/docs/pricing?hl=vi#gemini-3.6-flash) |
 
-ارسال بازخورد
+Gửi ý kiến phản hồi
 
-جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
+Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
 
-تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی.
+Cập nhật lần gần đây nhất: 2026-10-30 UTC.
 
-می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
+Bạn muốn chia sẻ thêm với chúng tôi?
 
-[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-22 به‌وقت ساعت هماهنگ جهانی."],[],[]]
+[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-10-30 UTC."],[],[]]

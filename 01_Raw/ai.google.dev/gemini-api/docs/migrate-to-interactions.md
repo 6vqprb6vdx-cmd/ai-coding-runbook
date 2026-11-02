@@ -1,43 +1,43 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=vi
-fetched_at: 2026-10-26T06:03:43.220705+00:00
-title: "Di chuy\u1ec3n sang Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/migrate-to-interactions?hl=zh-TW
+fetched_at: 2026-11-02T07:13:02.772773+00:00
+title: "\u9077\u79fb\u81f3 Interactions API \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon hiện đã ra mắt. [Hãy dùng thử](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=vi).
+Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=vi)
+![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
 
-Google sử dụng công nghệ AI để dịch nội dung sang ngôn ngữ bạn ưu tiên. Bản dịch bằng AI có thể có lỗi.
+Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
 
-- [Trang chủ](https://ai.google.dev/?hl=vi)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=vi)
-- [Tài liệu](https://ai.google.dev/gemini-api/docs?hl=vi)
+- [首頁](https://ai.google.dev/?hl=zh-tw)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
+- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
 
-Gửi ý kiến phản hồi
+提供意見
 
-# Di chuyển sang Interactions API
+# 遷移至 Interactions API
 
-Hướng dẫn này giúp bạn di chuyển từ API `generateContent` sang Interactions API.
+本指南說明如何從 `generateContent` API 遷移至 Interactions API。
 
-Interactions API là cách đơn giản và hiệu quả nhất để tạo ứng dụng bằng các mô hình và tác nhân Gemini. Mặc dù `generateContent` vẫn được hỗ trợ đầy đủ, nhưng bạn nên sử dụng Interactions API cho mọi hoạt động phát triển mới.
+Interactions API 是最簡單、最有效率的方法，可讓您使用 Gemini 模型和代理建構應用程式。雖然 `generateContent` 仍獲得完整支援，但建議您在所有新開發項目中使用 Interactions API。
 
-### Tại sao nên di chuyển?
+### 為何要遷移？
 
-Interactions API là cách đơn giản và hiệu quả nhất để tạo ứng dụng bằng các mô hình và tác nhân Gemini:
+Interactions API 是最簡單、最有效率的方法，可讓您使用 Gemini 模型和代理建構應用程式：
 
-- **Quản lý nhật ký phía máy chủ**: Đơn giản hoá các quy trình nhiều lượt thông qua `previous_interaction_id`. Theo mặc định, máy chủ sẽ bật trạng thái (`store=true`), nhưng bạn có thể chọn hành vi không trạng thái bằng cách đặt `store=false`.
-- **Các bước thực thi có thể quan sát**: Các bước được nhập giúp bạn dễ dàng gỡ lỗi các luồng phức tạp và hiển thị giao diện người dùng cho các sự kiện trung gian (chẳng hạn như suy nghĩ hoặc tiện ích tìm kiếm).
-- **Sử dụng công cụ và quy trình công việc dựa trên tác nhân**: Hỗ trợ nguyên bản cho việc sử dụng công cụ nhiều bước, điều phối và các quy trình suy luận phức tạp thông qua các bước thực thi được nhập.
-- **Các thao tác dài hạn và thao tác ở chế độ nền**: Hỗ trợ chuyển các thao tác tốn nhiều thời gian như Deep Think và Deep Research sang các quy trình ở chế độ nền bằng cách sử dụng `background=true`.
+- **伺服器端記錄管理**：透過 `previous_interaction_id` 簡化多輪對話流程。伺服器預設會啟用狀態 (`store=true`)，但您可以設定 `store=false`，選擇無狀態行為。
+- **可觀測的執行步驟**：類型化步驟可輕鬆偵錯複雜流程，並為中繼事件 (例如想法或搜尋小工具) 算繪 UI。
+- **工具使用和 Agentic Workflows**：原生支援多步驟工具使用、自動化調度管理，以及透過輸入執行步驟進行複雜的推論流程。
+- **長時間執行和背景工作**：支援使用 `background=true` 將 Deep Think 和 Deep Research 等耗時作業卸載至背景程序。
 
-## Đầu vào/đầu ra cơ bản
+## 基本輸入/輸出
 
-Phần này cho biết cách di chuyển một yêu cầu tạo văn bản đơn giản.
+本節說明如何遷移簡單的文字生成要求。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-API `generateContent` không trạng thái và trả về phản hồi trực tiếp. Cấu trúc phản hồi bao bọc đầu ra trong danh sách `candidates`, mỗi chứa `content` với danh sách `parts` cần phân tích cú pháp.
+`generateContent` API 是無狀態，會直接傳回回應。回應結構會將輸出內容包裝在 `candidates` 清單中，每個清單都包含 `content`，以及要剖析的 `parts` 清單。
 
 ### Python
 
@@ -151,9 +151,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-Interactions API trả về một tài nguyên tương tác đã lưu trữ với dòng thời gian `steps`. Mặc dù bạn có thể kiểm tra mảng `steps` theo cách thủ công để tìm các sự kiện trung gian, nhưng các SDK AI tạo sinh của Google cung cấp các thuộc tính tiện lợi ngay trên đối tượng `Interaction` được trả về để truy cập vào đầu ra cuối cùng.
+Interactions API 會傳回儲存的互動資源，其中包含 `steps` 時間軸。雖然您可以手動檢查 `steps` 陣列來找出中繼
+事件，但 Google GenAI SDK 會直接在傳回的 `Interaction` 物件上提供便利屬性
+，方便您存取最終輸出內容。
 
-Thuộc tính tiện lợi phổ biến nhất là **`.output_text`** (Chuỗi), thuộc tính này sẽ tự động trích xuất và kết hợp các khối `TextContent` liên tiếp ở cuối câu trả lời của mô hình. Mặc dù hoạt động hoàn hảo đối với các câu trả lời đơn giản, nhưng tính năng này không bao gồm các khối văn bản trước đó được phân tách bằng nội dung không phải văn bản (chẳng hạn như suy nghĩ, hình ảnh, âm thanh hoặc lệnh gọi công cụ). Đối với các phản hồi đa phương thức phức tạp hoặc xen kẽ, bạn phải lặp lại `steps` theo cách thủ công.
+最常見的便利屬性是 **`.output_text`** (字串)，會自動擷取並彙整模型回覆結尾的連續 `TextContent` 區塊。雖然這對簡單的回覆來說非常合適，但不會包含由非文字內容 (例如想法、圖片、音訊或工具呼叫) 分隔的先前文字區塊。如果是複雜或交錯的多模態回覆，則必須手動疊代 `steps`。
 
 ### Python
 
@@ -249,7 +251,7 @@ func main() {
 
 ```
 # Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -286,17 +288,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Cuộc trò chuyện nhiều lượt
+## 多轉折對話
 
-Theo mặc định, Interactions API lưu trữ các lượt tương tác, cho phép quản lý trạng thái phía máy chủ cho các cuộc trò chuyện nhiều lượt.
+Interactions API 預設會儲存互動，為多輪對話啟用伺服器端狀態管理。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-Trong `generateContent`, bạn phải quản lý nhật ký trò chuyện theo cách thủ công bằng cách sử dụng mảng `contents` hoặc một trình trợ giúp trò chuyện phía máy khách.
+在 `generateContent` 中，您必須使用 `contents` 陣列或用戶端 Chat 小幫手，手動管理對話記錄。
 
 ### Python
 
-**Sử dụng trợ lý trò chuyện (nên dùng)**
+**使用 Chat 小幫手 (建議)**
 
 ```
 from google import genai
@@ -311,7 +313,7 @@ response2 = chat.send_message("What is my name?")
 print(response2.text)
 ```
 
-**Quản lý nhật ký theo cách thủ công**
+**手動管理記錄**
 
 ```
 from google import genai
@@ -339,7 +341,7 @@ print(response.text)
 
 ### JavaScript
 
-**Sử dụng trợ lý trò chuyện (nên dùng)**
+**使用 Chat 小幫手 (建議)**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -354,7 +356,7 @@ response = await chat.sendMessage({ message: 'What is my name?' });
 console.log(response.text);
 ```
 
-**Quản lý nhật ký theo cách thủ công**
+**手動管理記錄**
 
 ```
 import { GoogleGenAI } from '@google/genai';
@@ -498,9 +500,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Interactions API quản lý trạng thái trên máy chủ. Bạn tiếp tục cuộc trò chuyện bằng cách tham chiếu đến `previous_interaction_id`.
+Interactions API 會管理伺服器上的狀態。您參照 `previous_interaction_id` 繼續對話。
 
 ### Python
 
@@ -632,7 +634,7 @@ func main() {
 
 ```
 # First Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -641,7 +643,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }'
 
 # Second Request (using ID from first response)
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -678,13 +680,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Thông tin đầu vào đa phương thức
+## 多模態輸入
 
-Cả hai API này đều hỗ trợ thông tin đầu vào đa phương thức (văn bản, hình ảnh, video, v.v.).
+這兩個 API 都支援多模態輸入內容 (文字、圖片、影片等)。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-Trong `generateContent`, bạn truyền một danh sách `parts` trong mảng `contents`. Phản hồi trả về đầu ra trong `parts` của đề xuất đầu tiên.
+在 `generateContent` 中，您會在 `contents` 陣列中傳遞 `parts` 清單。回應會傳回第一個候選項目的 `parts` 輸出內容。
 
 ### Python
 
@@ -836,9 +838,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Trong Interactions API, bạn sẽ truyền một mảng đến trường `input`. Bạn có thể truy xuất nội dung đầu ra bằng cách tìm bước `model_output` trong dòng thời gian.
+在 Interactions API 中，您會將陣列傳遞至 `input` 欄位。在時間軸中找到 `model_output` 步驟，即可擷取輸出內容。
 
 ### Python
 
@@ -990,7 +992,7 @@ func main() {
 
 ```
 # Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -1041,13 +1043,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Đầu ra có cấu trúc
+## 結構化輸出內容
 
-Để mô hình trả về JSON khớp với một giản đồ cụ thể, hãy định cấu hình định dạng phản hồi.
+如要讓模型傳回符合特定結構定義的 JSON，請設定回覆格式。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-Trong `generateContent`, bạn định cấu hình định dạng đầu ra bằng cách sử dụng các trường `response_mime_type` và `response_schema` được lồng bên trong đối tượng `config` (hoặc `generationConfig`).
+在 `generateContent` 中，您可以使用巢狀結構在 `config` (或 `generationConfig`) 物件中的 `response_mime_type` 和 `response_schema` 欄位，設定輸出格式。
 
 ### Python
 
@@ -1233,9 +1235,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Trong Interactions API, các chế độ kiểm soát định dạng đầu ra sẽ chuyển sang một mảng `response_format` cấp cao nhất.
+在 Interactions API 中，輸出格式控制項會移至頂層 `response_format` 欄位。如要要求多種輸出類型，請傳遞單一格式物件，或格式物件陣列。
 
 ### Python
 
@@ -1252,13 +1254,11 @@ class Recipe(BaseModel):
 interaction = client.interactions.create(
     model="gemini-3.8-flash",
     input="Give me a recipe for chocolate chip cookies.",
-    response_format=[
-        {
-            "type": "text",
-            "mime_type": "application/json",
-            "schema": Recipe.model_json_schema(),
-        }
-    ],
+    response_format={
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": Recipe.model_json_schema(),
+    },
 )
 
 print(interaction.output_text)
@@ -1274,23 +1274,21 @@ const client = new GoogleGenAI({});
 const interaction = await client.interactions.create({
     model: 'gemini-3.8-flash',
     input: 'Give me a recipe for chocolate chip cookies.',
-    response_format: [
-        {
-            type: 'text',
-            mime_type: 'application/json',
-            schema: {
-                type: 'object',
-                properties: {
-                    recipe_name: { type: 'string' },
-                    ingredients: {
-                        type: 'array',
-                        items: { type: 'string' }
-                    }
-                },
-                required: ['recipe_name', 'ingredients']
-            }
+    response_format: {
+        type: 'text',
+        mime_type: 'application/json',
+        schema: {
+            type: 'object',
+            properties: {
+                recipe_name: { type: 'string' },
+                ingredients: {
+                    type: 'array',
+                    items: { type: 'string' }
+                }
+            },
+            required: ['recipe_name', 'ingredients']
         }
-    ]
+    }
 });
 console.log(interaction.output_text);
 ```
@@ -1329,12 +1327,11 @@ CreateModelInteraction request =
         .input(InteractionsInput.of("Give me a recipe for chocolate chip cookies."))
         .responseFormat(
             CreateModelInteractionResponseFormat.of(
-                Arrays.asList(
-                    ResponseFormat.of(
-                        TextResponseFormat.builder()
-                            .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
-                            .schema(schema)
-                            .build()))))
+                ResponseFormat.of(
+                    TextResponseFormat.builder()
+                        .mimeType(TextResponseFormatMimeType.APPLICATION_JSON)
+                        .schema(schema)
+                        .build())))
         .build();
 
 Interaction interaction =
@@ -1401,29 +1398,27 @@ func main() {
 
 ```
 # Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
     "model": "gemini-3.8-flash",
     "input": "Give me a recipe for chocolate chip cookies.",
-    "response_format": [
-        {
-            "type": "text",
-            "mime_type": "application/json",
-            "schema": {
-                "type": "OBJECT",
-                "properties": {
-                    "recipe_name": { "type": "STRING" },
-                    "ingredients": {
-                        "type": "ARRAY",
-                        "items": { "type": "STRING" }
-                    }
-                },
-                "required": ["recipe_name", "ingredients"]
-            }
+    "response_format": {
+        "type": "text",
+        "mime_type": "application/json",
+        "schema": {
+            "type": "object",
+            "properties": {
+                "recipe_name": { "type": "string" },
+                "ingredients": {
+                    "type": "array",
+                    "items": { "type": "string" }
+                }
+            },
+            "required": ["recipe_name", "ingredients"]
         }
-    ]
+    }
 }'
 
 # Response
@@ -1449,13 +1444,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Tạo nội dung đa phương thức
+## 多模態生成
 
-Khi tạo nội dung ở các phương thức ngoài văn bản (chẳng hạn như hình ảnh hoặc âm thanh), điểm khác biệt chính là cách câu trả lời cấu trúc nội dung nghe nhìn được tạo.
+生成文字以外的生成式媒體內容 (例如圖片或音訊) 時，主要差異在於回覆如何建構生成的媒體。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-Trong `generateContent`, phản hồi sẽ trả về nội dung nghe nhìn được tạo trực tiếp trong `parts` của đề xuất, thường là dưới dạng dữ liệu base64 trong `inlineData`.
+在 `generateContent` 中，回覆會直接在候選項目的 `parts` 中傳回生成的媒體，通常是 `inlineData` 中的 base64 資料。
 
 ```
 # Response structure concept
@@ -1480,9 +1475,9 @@ Trong `generateContent`, phản hồi sẽ trả về nội dung nghe nhìn đư
 }
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Trong Interactions API, nội dung nghe nhìn được tạo sẽ xuất hiện dưới dạng các mục riêng biệt trong mảng `content` của bước `model_output` trong dòng thời gian, duy trì dòng thời gian của lượt tương tác.
+在 Interactions API 中，生成的媒體會以獨立項目的形式，顯示在時間軸 `model_output` 步驟的 `content` 陣列中，維持互動的時間順序。
 
 ```
 # Response structure concept
@@ -1508,15 +1503,15 @@ Trong Interactions API, nội dung nghe nhìn được tạo sẽ xuất hiện 
 }
 ```
 
-Điều này giúp quá trình phân tích cú pháp phản hồi nhất quán với cách xử lý dữ liệu đầu vào và đầu ra văn bản – mọi thứ đều là một bước trong dòng thời gian.
+這樣一來，回覆剖析作業就會與輸入和文字輸出內容的處理方式保持一致，所有內容都會是時間軸中的一個步驟。
 
-## Công cụ phía máy chủ
+## 伺服器端工具
 
-Gemini hỗ trợ các công cụ phía máy chủ tích hợp sẵn như cơ chế liên kết thực tế của Google Tìm kiếm. Điểm khác biệt chính là cách phản hồi thể hiện quá trình thực thi công cụ.
+Gemini 支援內建的伺服器端工具，例如 Google 搜尋基準建立。主要差異在於回覆如何呈現工具執行作業。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-Trong `generateContent`, các công cụ phía máy chủ phần lớn là không rõ ràng. Bạn bật công cụ này và nhận được câu trả lời cuối cùng bằng một đối tượng `groundingMetadata` riêng biệt. Điều quan trọng là các trích dẫn không nằm trên cùng một dòng; `groundingSupports` sử dụng chỉ mục ký tự để liên kết các đoạn văn bản trở lại nguồn trên web trong `groundingChunks`.
+在 `generateContent` 中，伺服器端工具大多不透明。您啟用工具，並透過獨立的 `groundingMetadata` 物件取得最終答案。請注意，引用內容並非內嵌，`groundingSupports`會使用字元索引將文字片段對應回 `groundingChunks` 中的網頁來源。
 
 ### Python
 
@@ -1714,11 +1709,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Trong Interactions API, các công cụ phía máy chủ cung cấp thông tin minh bạch đầy đủ về dòng thời gian. API này ghi lại lệnh gọi và kết quả dưới dạng `steps` thực thi riêng biệt (`google_search_call` và `google_search_result`), cho biết chính xác dữ liệu mà mô hình đã truy xuất.
+在 Interactions API 中，伺服器端工具可提供完整時間軸透明度。API 會將呼叫和結果記錄為不同的執行 `steps` (`google_search_call` 和 `google_search_result`)，準確顯示模型擷取的資料。
 
-Ngoài ra, API này còn trả về các trích dẫn **nội dòng**. Thay vì ánh xạ các chỉ mục từ một đối tượng siêu dữ liệu riêng biệt, mục văn bản trong bước `model_output` chứa mảng `annotations` riêng liên kết trực tiếp đến nguồn.
+此外，API 會**內嵌**傳回引用來源。`model_output` 步驟中的文字項目包含自己的 `annotations` 陣列，可直接連結至來源，不必從獨立的中繼資料物件對應索引。
 
 ### Python
 
@@ -1890,7 +1885,7 @@ func main() {
 
 ```
 # Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -1945,13 +1940,13 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Gọi hàm
+## 函式呼叫
 
-Cấu trúc của các lệnh gọi hàm và kết quả cũng đã thay đổi để phù hợp với giản đồ Steps.
+函式呼叫和結果的結構也已變更，以符合 Steps 結構定義。
 
-### Trước (`generateContent`)
+### `generateContent`之前
 
-Trong `generateContent`, phản hồi sẽ trả về các lệnh gọi hàm trong số các đề xuất.\* {Python}
+在 `generateContent` 中，回應會傳回候選項目中的函式呼叫\*。{Python}
 
 ```
 ```python
@@ -2219,9 +2214,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 }
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Lệnh gọi công cụ và kết quả hiện là các bước riêng biệt trong dòng thời gian.
+工具呼叫和結果現在是時間軸中的不同步驟。
 
 ### Python
 
@@ -2480,7 +2475,7 @@ func main() {
 
 ```
 # Initial Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -2523,7 +2518,7 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 
 # Submit Tool Result Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -2563,15 +2558,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }
 ```
 
-## Phát trực tiếp
+## 串流
 
-Điểm khác biệt chính trong tính năng phát trực tuyến là Interactions API sử dụng cùng một điểm cuối với `"stream": true` trong phần nội dung yêu cầu, trong khi `generateContent` API yêu cầu gọi một điểm cuối chuyên dụng (`:streamGenerateContent`).
+串流的主要差異在於，Interactions API 使用相同的端點，並在要求主體中加入 `"stream": true`，而 `generateContent` API 則需要呼叫專屬端點 (`:streamGenerateContent`)。
 
-Ngoài ra, các sự kiện truyền phát trực tiếp hiện sử dụng các loại chuyên biệt để theo dõi vòng đời tương tác và theo dõi các bước thực thi dọc theo dòng thời gian.
+此外，串流事件現在會使用專門類型，監控互動生命週期，並追蹤時間軸上的執行步驟。
 
-### Trước (`generateContentStream`)
+### `generateContentStream`之前
 
-Với `generateContent`, bạn sẽ sử dụng một luồng các khối phản hồi.
+使用 `generateContent` 時，您會取用回覆區塊串流。
 
 ### Python
 
@@ -2680,9 +2675,9 @@ event: content.stop
 data: {"event_type": "content.stop", "index": 1}
 ```
 
-### Sau (Interactions API)
+### 之後 (Interactions API)
 
-Trong Interactions API, tính năng truyền phát trực tiếp sử dụng Sự kiện do máy chủ gửi (SSE) và các loại delta chuyên biệt để biểu thị các bước thực thi khi chúng xảy ra.
+在 Interactions API 中，串流會使用伺服器傳送事件 (SSE) 和特殊差異類型，在執行步驟發生時呈現。
 
 ### Python
 
@@ -2827,32 +2822,32 @@ func main() {
 
 # Example SSE stream output
 **event: interaction.created
-data: {"type": "interaction.created", "interaction": {"id": "int\_xyz", "status": "created"}}
-event: interaction.in\_progress
-data: {"type": "interaction.in\_progress", "interaction": {"id": "int\_xyz", "status": "in\_progress"}}
+data: {"interaction": {"id": "int\_xyz", "status": "in\_progress"}, "event\_type": "interaction.created"}
+event: interaction.status\_update
+data: {"interaction\_id": "int\_xyz", "status": "in\_progress", "event\_type": "interaction.status\_update"}
 event: step.start
-data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
+data: {"index": 0, "step": {"type": "thought"}, "event\_type": "step.start"}
 event: step.delta
-data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "User wants an explanation."}}
+data: {"index": 0, "delta": {"type": "thought\_summary", "content": {"type": "text", "text": "User wants an explanation."}}, "event\_type": "step.delta"}
 event: step.stop
-data: {"type": "step.stop", "index": 0, "status": "done"}
+data: {"index": 0, "event\_type": "step.stop"}
 event: step.start
-data: {"type": "step.start", "index": 1, "step": {"type": "model\_output"}}
+data: {"index": 1, "step": {"type": "model\_output"}, "event\_type": "step.start"}
 event: step.delta
-data: {"type": "step.delta", "index": 1, "delta": {"type": "text", "text": "Hello"}}
+data: {"index": 1, "delta": {"type": "text", "text": "Hello"}, "event\_type": "step.delta"}
 event: step.stop
-data: {"type": "step.stop", "index": 1, "status": "done"}
+data: {"index": 1, "event\_type": "step.stop"}
 event: interaction.completed
-data: {"type": "interaction.completed", "interaction": {"id": "int\_xyz", "status": "completed", "usage": {"prompt\_tokens": 10, "completion\_tokens": 5, "total\_tokens": 15}}}**
+data: {"interaction": {"id": "int\_xyz", "status": "completed", "usage": {"total\_input\_tokens": 10, "total\_output\_tokens": 5, "total\_tokens": 15}}, "event\_type": "interaction.completed"}**
 ```
 
-### Các công cụ phát trực tuyến và lệnh gọi hàm
+### 串流工具和函式呼叫
 
-Cách các công cụ hoạt động trong luồng đã thay đổi đáng kể so với `generateContent` để cung cấp khả năng kiểm soát và khả năng hiển thị chi tiết hơn.
+`generateContent`起，工具在訊息串中的運作方式有大幅變動，可提供更精細的控制選項和瀏覽權限。
 
-#### Trước (`generateContent`)
+#### `generateContent`之前
 
-Với `generateContent`, các lệnh gọi hàm truyền trực tuyến sẽ hoàn tất trong một khối duy nhất. Bạn không thể thấy các đối số được tạo theo thời gian thực, vì vậy trình xử lý chỉ cần kiểm tra xem có đối tượng `functionCall` hoàn chỉnh hay không.
+使用 `generateContent` 時，串流函式呼叫會以單一區塊完整傳送。您無法即時查看產生的引數，因此處理常式只會檢查完整的 `functionCall` 物件。
 
 ### Python
 
@@ -3018,9 +3013,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5
 {"candidates": [{"content": {"parts": [{"functionCall": {"name": "get_weather", "args": {"location": "Boston, MA"}}}]}}]}
 ```
 
-#### Sau (Interactions API)
+#### 之後 (Interactions API)
 
-Interactions API truyền trực tuyến các đối số gọi hàm từng ký tự dưới dạng sự kiện `arguments`. Toàn bộ vòng đời của công cụ (suy nghĩ, lệnh gọi, kết quả và đầu ra) diễn ra dưới dạng một loạt các bước riêng biệt.
+Interactions API 會以 `arguments_delta` 事件的形式，逐字元串流函式呼叫引數。整個工具生命週期 (思考、呼叫、結果和輸出) 會以一系列不同的步驟進行。
 
 ### Python
 
@@ -3041,8 +3036,8 @@ for event in stream:
         if getattr(event.step, "type", None) == "function_call":
             print(f"Calling: {event.step.name}")
     elif event.event_type == "step.delta" and event.delta:
-        if getattr(event.delta, "type", None) == "arguments":
-            print(f"  args: {event.delta.partial_arguments}")
+        if getattr(event.delta, "type", None) == "arguments_delta":
+            print(f"  args: {event.delta.arguments}")
         elif getattr(event.delta, "type", None) == "text" and getattr(event.delta, "text", None):
             print(event.delta.text, end="")
     elif event.event_type == "interaction.completed":
@@ -3069,8 +3064,8 @@ for await (const event of stream) {
             console.log(`Calling: ${event.step.name}`);
         }
     } else if (event.event_type === 'step.delta' && event.delta) {
-        if (event.delta.type === 'arguments' && event.delta.partial_arguments) {
-            console.log(`  args: ${event.delta.partial_arguments}`);
+        if (event.delta.type === 'arguments_delta' && event.delta.arguments) {
+            console.log(`  args: ${event.delta.arguments}`);
         } else if (event.delta.type === 'text' && event.delta.text) {
             process.stdout.write(event.delta.text);
         }
@@ -3231,7 +3226,7 @@ func main() {
 
 ```
 # Request
-curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
+curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
 -H "Content-Type: application/json" \
 -H "x-goog-api-key: $GEMINI_API_KEY" \
 -d '{
@@ -3242,82 +3237,85 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta2/interactions" \
 }'
 
 # Response stream
-// Interaction created
+// Stream 1: the model calls the function
 event: interaction.created
-data: {"type": "interaction.created", "interaction": {"id": "int_xyz", "status": "created"}}
+data: {"interaction": {"id": "int_1", "status": "in_progress"}, "event_type": "interaction.created"}
 
-event: interaction.in_progress
-data: {"type": "interaction.in_progress", "interaction": {"id": "int_xyz", "status": "in_progress"}}
+event: interaction.status_update
+data: {"interaction_id": "int_1", "status": "in_progress", "event_type": "interaction.status_update"}
 
 // ── Step 0: Thought ──────────────────────────────────
 event: step.start
-data: {"type": "step.start", "index": 0, "step": {"type": "thought"}}
+data: {"index": 0, "step": {"type": "thought"}, "event_type": "step.start"}
 
 event: step.delta
-data: {"type": "step.delta", "index": 0, "delta": {"type": "thought", "text": "The user wants weather data for Boston. I'll call the get_weather tool."}}
+data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "The user wants weather data for Boston. I'll call the get_weather tool."}}, "event_type": "step.delta"}
 
 event: step.stop
-data: {"type": "step.stop", "index": 0, "status": "done"}
+data: {"index": 0, "event_type": "step.stop"}
 
 // ── Step 1: Function Call (arguments streamed) ───────
 event: step.start
-data: {"type": "step.start", "index": 1, "step": {"type": "function_call", "id": "fc_1", "name": "get_weather"}}
+data: {"index": 1, "step": {"type": "function_call", "id": "fc_1", "name": "get_weather", "arguments": {}}, "event_type": "step.start"}
 
 event: step.delta
-data: {"type": "step.delta", "index": 1, "delta": {"type": "arguments", "partial_arguments": "{\"location\": \"Boston, MA\"}"}}
+data: {"index": 1, "delta": {"type": "arguments_delta", "arguments": "{\"location\": \"Boston, MA\"}"}, "event_type": "step.delta"}
 
 event: step.stop
-data: {"type": "step.stop", "index": 1, "status": "waiting"}
+data: {"index": 1, "event_type": "step.stop"}
 
-// The interaction pauses — the model needs the tool result before continuing.
-event: interaction.requires_action
-data: {"type": "interaction.requires_action", "interaction": {"id": "int_xyz", "status": "requires_action"}}
+// The stream ends with status requires_action: the model needs the tool result.
+event: interaction.completed
+data: {"interaction": {"id": "int_1", "status": "requires_action", "usage": {"total_input_tokens": 34, "total_output_tokens": 15, "total_tokens": 49}}, "event_type": "interaction.completed"}
+
+event: done
+data: [DONE]
 
 // ── (Client submits the tool result) ──────────────────
 // The client calls interactions.create with the function_result as input
-// and the previous interaction's ID, then resumes consuming the stream.
+// and previous_interaction_id set to "int_1". This opens a new stream.
 
-event: interaction.in_progress
-data: {"type": "interaction.in_progress", "interaction": {"id": "int_xyz", "status": "in_progress"}}
+// Stream 2: the model uses the result
+event: interaction.created
+data: {"interaction": {"id": "int_2", "status": "in_progress"}, "event_type": "interaction.created"}
 
-// ── Step 2: Function Result (echoed back, no deltas) ─
+event: interaction.status_update
+data: {"interaction_id": "int_2", "status": "in_progress", "event_type": "interaction.status_update"}
+
+// ── Step 0: Thought ──────────────────────────────────
 event: step.start
-data: {"type": "step.start", "index": 2, "step": {"type": "function_result", "call_id": "fc_1", "name": "get_weather", "result": [{"type": "text", "text": "52°F, rain"}]}}
-
-event: step.stop
-data: {"type": "step.stop", "index": 2, "status": "done"}
-
-// ── Step 3: Thought ──────────────────────────────────
-event: step.start
-data: {"type": "step.start", "index": 3, "step": {"type": "thought"}}
+data: {"index": 0, "step": {"type": "thought"}, "event_type": "step.start"}
 
 event: step.delta
-data: {"type": "step.delta", "index": 3, "delta": {"type": "thought", "text": "Got weather data. Composing the final response."}}
+data: {"index": 0, "delta": {"type": "thought_summary", "content": {"type": "text", "text": "Got weather data. Composing the final response."}}, "event_type": "step.delta"}
 
 event: step.stop
-data: {"type": "step.stop", "index": 3, "status": "done"}
+data: {"index": 0, "event_type": "step.stop"}
 
-// ── Step 4: Model Output (text streamed) ─────────────
+// ── Step 1: Model Output (text streamed) ─────────────
 event: step.start
-data: {"type": "step.start", "index": 4, "step": {"type": "model_output"}}
+data: {"index": 1, "step": {"type": "model_output"}, "event_type": "step.start"}
 
 event: step.delta
-data: {"type": "step.delta", "index": 4, "delta": {"type": "text", "text": "It's currently 52°F and rainy in Boston."}}
+data: {"index": 1, "delta": {"type": "text", "text": "It's currently 52°F and rainy in Boston."}, "event_type": "step.delta"}
 
 event: step.stop
-data: {"type": "step.stop", "index": 4, "status": "done"}
+data: {"index": 1, "event_type": "step.stop"}
 
 // ── Interaction complete ─────────────────────────────
 event: interaction.completed
-data: {"type": "interaction.completed", "interaction": {"id": "int_xyz", "status": "completed", "usage": {"prompt_tokens": 256, "completion_tokens": 128, "total_tokens": 384}}}
+data: {"interaction": {"id": "int_2", "status": "completed", "usage": {"total_input_tokens": 256, "total_output_tokens": 128, "total_tokens": 384}}, "event_type": "interaction.completed"}
+
+event: done
+data: [DONE]
 ```
 
-Gửi ý kiến phản hồi
+提供意見
 
-Trừ phi có lưu ý khác, nội dung của trang này được cấp phép theo [Giấy phép ghi nhận tác giả 4.0 của Creative Commons](https://creativecommons.org/licenses/by/4.0/) và các mẫu mã lập trình được cấp phép theo [Giấy phép Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Để biết thông tin chi tiết, vui lòng tham khảo [Chính sách trang web của Google Developers](https://developers.google.com/site-policies?hl=vi). Java là nhãn hiệu đã đăng ký của Oracle và/hoặc các đơn vị liên kết với Oracle.
+除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
 
-Cập nhật lần gần đây nhất: 2026-09-24 UTC.
+上次更新時間：2026-10-27 (世界標準時間)。
 
-Bạn muốn chia sẻ thêm với chúng tôi?
+想進一步說明嗎？
 
-[[["Dễ hiểu","easyToUnderstand","thumb-up"],["Giúp tôi giải quyết được vấn đề","solvedMyProblem","thumb-up"],["Khác","otherUp","thumb-up"]],[["Thiếu thông tin tôi cần","missingTheInformationINeed","thumb-down"],["Quá phức tạp/quá nhiều bước","tooComplicatedTooManySteps","thumb-down"],["Đã lỗi thời","outOfDate","thumb-down"],["Vấn đề về bản dịch","translationIssue","thumb-down"],["Vấn đề về mẫu/mã","samplesCodeIssue","thumb-down"],["Khác","otherDown","thumb-down"]],["Cập nhật lần gần đây nhất: 2026-09-24 UTC."],[],[]]
+[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-10-27 (世界標準時間)。"],[],[]]

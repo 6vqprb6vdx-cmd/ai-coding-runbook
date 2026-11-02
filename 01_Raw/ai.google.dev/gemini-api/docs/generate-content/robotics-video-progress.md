@@ -1,34 +1,34 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=es-419
-fetched_at: 2026-10-26T05:48:11.738304+00:00
-title: "Comprensi\u00f3n de videos \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/robotics-video-progress?hl=pt-BR
+fetched_at: 2026-11-02T07:14:02.895544+00:00
+title: "Compreens\u00e3o do v\u00eddeo \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ya está disponible. [Pruébalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=es-419).
+O Gemini 4 Argon já está disponível. [Faça um teste](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=pt-br).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=es-419)
+![](https://ai.google.dev/_static/images/translated.svg?hl=pt-br)
 
-Google utiliza tecnología de IA para traducir contenido a tu idioma preferido. Las traducciones realizadas con IA pueden contener errores.
+O Google usa tecnologia de IA na tradução de conteúdos para seu idioma de preferência. As traduções com IA podem ter erros.
 
-- [Página principal](https://ai.google.dev/?hl=es-419)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=es-419)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=es-419)
-- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=es-419)
+- [Página inicial](https://ai.google.dev/?hl=pt-br)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=pt-br)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=pt-br)
+- [Documentos](https://ai.google.dev/gemini-api/docs/generate-content?hl=pt-br)
 
-Enviar comentarios
+Envie comentários
 
-# Comprensión de videos
+# Compreensão do vídeo
 
-Gemini Robotics ER 2 puede hacer un seguimiento del progreso de las tareas a partir de transmisiones de video continuas con dos capacidades:
+O Gemini Robotics ER 2 pode acompanhar o progresso da tarefa em feeds de vídeo contínuos usando dois recursos:
 
-- Búsqueda de momentos: Identifica la marca de tiempo precisa en la que se produce un evento clave.
-- Clasificación de progreso: Asigna cada video a uno de los cinco intervalos de finalización (0–20%, 20–40%, 40–60%, 60–80%, 80–100%).
+- Localização de momentos: identifica o carimbo de data/hora exato em que um evento principal ocorre.
+- Classificação de progresso: atribui cada vídeo a um dos cinco intervalos de conclusão (0 a 20%, 20 a 40%, 40 a 60%, 60 a 80%, 80 a 100%).
 
-## Búsqueda de momentos
+## Localização de momentos
 
-La búsqueda de momentos identifica el fotograma exacto del video en el que se produce un evento crítico, por ejemplo, cuando una taza está llena o se ata un nudo. Los robots usan esto para verificar el éxito, secuenciar los pasos y activar las correcciones.
+A localização de momentos identifica o frame de vídeo exato em que um evento crítico ocorre, por exemplo, quando um copo está cheio ou um nó é amarrado. Os robôs usam isso para verificar o sucesso, sequenciar etapas e acionar correções.
 
-En la siguiente instrucción de ejemplo, se le pide al modelo que identifique el momento de finalización de una tarea determinada en un video:
+O exemplo de comando a seguir pede ao modelo para identificar o momento de conclusão de uma determinada tarefa em um vídeo:
 
 ```
 from google import genai
@@ -56,15 +56,15 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestran fotogramas de ejemplo de un video de búsqueda de momentos, en el que el modelo identifica la marca de tiempo de finalización de la tarea:
+A seguir, mostramos exemplos de frames de um vídeo de localização de momentos, com o modelo identificando o carimbo de data/hora de conclusão da tarefa:
 
-![Ejemplo de fotogramas de video que muestran el resultado de la búsqueda de momentos con una superposición de marca de tiempo](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=es-419)
+![Exemplo de frames de vídeo mostrando o resultado da descoberta de momentos com uma sobreposição de carimbo de data/hora](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-moment-finding.png?hl=pt-br)
 
-## Clasificación de progreso
+## Classificação de progresso
 
-La clasificación de progreso asigna un video a uno de los cinco intervalos de finalización: 0–20%, 20–40%, 40–60%, 60–80% o 80–100%. Esto les brinda a los robots conciencia situacional en tiempo real para que puedan ajustar las acciones o volver a intentar los pasos fallidos sin reiniciar todo el flujo de trabajo.
+A classificação de progresso atribui um vídeo a um dos cinco intervalos de conclusão: 0 a 20%, 20 a 40%, 40 a 60%, 60 a 80% ou 80 a 100%. Isso oferece aos robôs reconhecimento situacional em tempo real para que eles possam ajustar ações ou repetir etapas com falha sem reiniciar todo um fluxo de trabalho.
 
-En la siguiente instrucción de ejemplo, se le pide al modelo que clasifique el nivel de progreso actual de un video:
+O exemplo de comando a seguir pede ao modelo para classificar o nível de progresso atual de um vídeo:
 
 ```
 from google import genai
@@ -92,27 +92,27 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-A continuación, se muestran fotogramas de ejemplo de un video de clasificación de progreso, en el que el modelo asigna un intervalo de progreso:
+A seguir, mostramos exemplos de frames de um vídeo de classificação de progresso, com o modelo atribuindo um intervalo de progresso:
 
-![Ejemplo de fotogramas de video que muestran la salida de clasificación de progreso con una etiqueta de corchete de progreso](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=es-419)
+![Exemplo de frames de vídeo mostrando a saída da classificação de progresso com um rótulo de intervalo de progresso](https://ai.google.dev/static/gemini-api/docs/images/robotics/video-progress-classification.png?hl=pt-br)
 
-## Ejemplos
+## Exemplos
 
-Para obtener ejemplos ejecutables completos, incluido el seguimiento de tareas de varios pasos, consulta el
-[libro de recetas de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
+Para exemplos executáveis completos, incluindo o acompanhamento de tarefas de várias etapas, consulte o
+[cookbook de robótica](https://github.com/google-gemini/robotics-samples/blob/main/Getting%20Started/gemini_robotics_er.ipynb).
 
-## ¿Qué sigue?
+## A seguir
 
-- [API de Live para robótica](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=es-419): Transmisión bidireccional en tiempo real
-- [Organización de tareas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=es-419): Tareas de largo plazo con razonamiento espacial
-- [Descripción general de Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=es-419): Comparación de modelos y capacidades
+- [API Live para robótica](https://ai.google.dev/gemini-api/docs/robotics-streaming?hl=pt-br): streaming bidirecional em tempo real.
+- [Orquestração de tarefas](https://ai.google.dev/gemini-api/docs/robotics-orchestration?hl=pt-br): tarefas de longo prazo com raciocínio espacial.
+- [Visão geral do Gemini Robotics ER](https://ai.google.dev/gemini-api/docs/robotics-overview?hl=pt-br): comparação e recursos do modelo.
 
-Enviar comentarios
+Envie comentários
 
-Salvo que se indique lo contrario, el contenido de esta página está sujeto a la [licencia Atribución 4.0 de Creative Commons](https://creativecommons.org/licenses/by/4.0/), y los ejemplos de código están sujetos a la [licencia Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para obtener más información, consulta las [políticas del sitio de Google Developers](https://developers.google.com/site-policies?hl=es-419). Java es una marca registrada de Oracle o sus afiliados.
+Exceto em caso de indicação contrária, o conteúdo desta página é licenciado de acordo com a [Licença de atribuição 4.0 do Creative Commons](https://creativecommons.org/licenses/by/4.0/), e as amostras de código são licenciadas de acordo com a [Licença Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Para mais detalhes, consulte as [políticas do site do Google Developers](https://developers.google.com/site-policies?hl=pt-br). Java é uma marca registrada da Oracle e/ou afiliadas.
 
-Última actualización: 2026-09-08 (UTC)
+Última atualização 2026-09-08 UTC.
 
-¿Quieres brindar más información?
+Quer enviar seu feedback?
 
-[[["Fácil de comprender","easyToUnderstand","thumb-up"],["Resolvió mi problema","solvedMyProblem","thumb-up"],["Otro","otherUp","thumb-up"]],[["Falta la información que necesito","missingTheInformationINeed","thumb-down"],["Muy complicado o demasiados pasos","tooComplicatedTooManySteps","thumb-down"],["Desactualizado","outOfDate","thumb-down"],["Problema de traducción","translationIssue","thumb-down"],["Problema con las muestras o los códigos","samplesCodeIssue","thumb-down"],["Otro","otherDown","thumb-down"]],["Última actualización: 2026-09-08 (UTC)"],[],[]]
+[[["Fácil de entender","easyToUnderstand","thumb-up"],["Meu problema foi resolvido","solvedMyProblem","thumb-up"],["Outro","otherUp","thumb-up"]],[["Não contém as informações de que eu preciso","missingTheInformationINeed","thumb-down"],["Muito complicado / etapas demais","tooComplicatedTooManySteps","thumb-down"],["Desatualizado","outOfDate","thumb-down"],["Problema na tradução","translationIssue","thumb-down"],["Problema com as amostras / o código","samplesCodeIssue","thumb-down"],["Outro","otherDown","thumb-down"]],["Última atualização 2026-09-08 UTC."],[],[]]

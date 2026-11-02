@@ -1,55 +1,55 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=it
-fetched_at: 2026-10-26T05:46:28.723921+00:00
-title: "Novit\u00e0 di Gemini 4 Argon \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/latest-model?hl=bn
+fetched_at: 2026-11-02T07:09:55.093513+00:00
+title: "Gemini 4 Argon-\u098f \u09a8\u09a4\u09c1\u09a8 \u0995\u09c0 \u0986\u099b\u09c7 \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+Gemini 4 Argon এখন উপলভ্য। [এটি ব্যবহার করে দেখুন](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)।
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=it)
+![](https://ai.google.dev/_static/images/translated.svg?hl=bn)
 
-Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
+আপনার পছন্দের ভাষায় কন্টেন্ট অনুবাদ করতে Google তার AI প্রযুক্তি ব্যবহার করে। AI-এর মাধ্যমে করা অনুবাদে ভুল থাকতে পারে।
 
-- [Home page](https://ai.google.dev/?hl=it)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=it)
-- [Documenti](https://ai.google.dev/gemini-api/docs/generate-content?hl=it)
+- [হোম](https://ai.google.dev/?hl=bn)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=bn)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=bn)
+- [দস্তাবেজ](https://ai.google.dev/gemini-api/docs/generate-content?hl=bn)
 
-Invia feedback
+মতামত জানান
 
-# Novità di Gemini 4 Argon
+# Gemini 4 Argon-এ নতুন কী আছে
 
-Gemini 4 Argon (`gemini-4-argon`) è il nostro modello più recente e potente. Può ragionare più a lungo su problemi difficili per ottenere risultati migliori in attività complesse di programmazione, agentiche, matematiche e scientifiche. Gemini 4 Argon è disponibile tramite l'API Gemini e in Google AI Studio.
+Gemini 4 Argon (`gemini-4-argon`) হল আমাদের লেটেস্ট, সবচেয়ে দক্ষ মডেল। জটিল কোডিং, এজেন্টিক, গণিত এবং বিজ্ঞান সংক্রান্ত টাস্কে আরও ভালো ফলাফল পেতে এটি কঠিন সমস্যার উপর দীর্ঘ সময় ধরে যুক্তি দিতে পারে। Gemini API এবং Google AI Studio-তে Gemini 4 Argon উপলভ্য।
 
-Gemini 4 Argon supporta un limite unificato di 1 milione di token di input-output, una decodifica lunga fino a 1 milione di token e livelli di ragionamento regolabili (`low`, `medium`, `high`).
+Gemini 4 Argon-এ ১ মিলিয়ন ইনপুট-আউটপুট টোকেন লিমিট, ১ মিলিয়ন টোকেন পর্যন্ত লং ডিকোড এবং টিউন করা যায় এমন থিঙ্কিং লেভেল (`low`, `medium`, `high`) রয়েছে।
 
 [experiment
 
-Prova in AI Studio
+AI Studio-তে এটি ব্যবহার করে দেখুন
 
-Crea app da zero con Gemini 4 Argon e AI Studio.](https://aistudio.google.com/apps?model=gemini-4-argon&hl=it)
+Gemini 4 Argon এবং AI Studio-এর সাহায্যে একদম শুরু থেকে অ্যাপ তৈরি করুন।](https://aistudio.google.com/apps?model=gemini-4-argon&hl=bn)
 [smart\_toy
 
-Galleria delle applicazioni
+অ্যাপ গ্যালারি
 
-App Play e Remix, create con Gemini 4 Argon.](https://aistudio.google.com/learn/gemini-4-argon-showcase?hl=it)
+Gemini 4 Argon দিয়ে তৈরি অ্যাপ খেলুন ও রিমিক্স করুন।](https://aistudio.google.com/learn/gemini-4-argon-showcase?hl=bn)
 [rocket\_launch
 
-Inizia
+শুরু করুন
 
-Inizia a utilizzare Gemini 4 Argon con i prompt iniziali.](https://aistudio.google.com/learn/gemini-4-argon?hl=it)
+স্টার্টার প্রম্পট দিয়ে Gemini 4 Argon ব্যবহার করা শুরু করুন।](https://aistudio.google.com/learn/gemini-4-argon?hl=bn)
 
-Questa guida spiega le novità di Gemini 4 Argon, le modifiche all'API, gli esempi di codice e le indicazioni per la migrazione.
+এই গাইডে Gemini 4 Argon-এ নতুন কী আছে, API পরিবর্তন, কোডের উদাহরণ এবং মাইগ্রেশন সংক্রান্ত নির্দেশিকা ব্যাখ্যা করা হয়েছে।
 
-## Nuovo modello
+## নতুন মডেল
 
-| Modello | ID modello | Livello di ragionamento predefinito | Prezzi | Descrizione |
+| মডেল | মডেল আইডি | ডিফল্ট থিঙ্কিং লেভেল | দাম | বিবরণ |
 | --- | --- | --- | --- | --- |
-| Gemini 4 Argon | `gemini-4-argon` | `medium` | Disponibile fino al 30 novembre 2026 al prezzo di lancio di 2 $per milione di token di input e 10 $per milione di token di output (successivamente 4 $ per milione di token di input e 20 $per milione di token di output). Per i dettagli, consulta la sezione [Prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it). | Il nostro modello più potente, progettato per risolvere i problemi più difficili con profondità e precisione nelle attività di ingegneria del software e di lavoro sulla conoscenza nel mondo reale. |
+| Gemini 4 Argon | `gemini-4-argon` | `medium` | ৩০ নভেম্বর, ২০২৬ পর্যন্ত $২/১ মিলিয়ন ইনপুট টোকেন এবং $১০/১ মিলিয়ন আউটপুট টোকেনের প্রাথমিক মূল্যে উপলভ্য (তারপরে $৪/১ মিলিয়ন ইনপুট এবং $২০/১ মিলিয়ন আউটপুট)। আরও জানতে [দাম](https://ai.google.dev/gemini-api/docs/pricing?hl=bn) দেখুন। | আমাদের সবচেয়ে দক্ষ মডেল, যা বাস্তব-জগতের সফ্টওয়্যার ইঞ্জিনিয়ারিং এবং জ্ঞান সংক্রান্ত কাজের টাস্ক জুড়ে গভীরতা এবং নির্ভুলতার সাথে সবচেয়ে কঠিন সমস্যার সমাধান করার জন্য তৈরি করা হয়েছে। |
 
-## Guida rapida
+## কুইকস্টার্ট
 
-Utilizza l'esempio seguente per inviare una richiesta a `gemini-4-argon` con il valore predefinito consigliato `thinking_level` (`medium`) e un limite di token di output di 64K:
+সাজেস্ট করা ডিফল্ট `thinking_level` (`medium`) এবং 64K আউটপুট টোকেন সীমা সহ `gemini-4-argon`-এ অনুরোধ পাঠাতে নিম্নলিখিত উদাহরণটি ব্যবহার করুন:
 
 ### Python
 
@@ -75,7 +75,7 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-### JavaScript
+### জাভাস্ক্রিপ্ট
 
 ```
 npm install "@google/genai@>=2.29.1"
@@ -100,7 +100,7 @@ const response = await ai.models.generateContent({
 console.log(response.text);
 ```
 
-### REST
+### বিশ্রাম
 
 ```
 curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-4-argon:generateContent" \
@@ -120,26 +120,26 @@ curl "https://generativelanguage.googleapis.com/v1beta/models/gemini-4-argon:gen
   }'
 ```
 
-## Novità di Gemini 4 Argon
+## Gemini 4 Argon-এ নতুন কী আছে
 
-- **Limite unificato di 1 milione di token di input-output:** i token di input, pensiero e output condividono un'unica finestra da 1 milione di token, con un limite di 32.000 per richiesta per le chiamate non in streaming e di 64.000 per stream per le chiamate in streaming.
-- **Decodifica lunga fino a 1 milione di token**:il modello può generare oltre il limite per richiesta, fino a 1 milione di token meno l'input. Gli SDK Google GenAI più recenti continuano a essere disponibili per impostazione predefinita.
-- **Comprensione dei video agentica (GA):** la [comprensione dei video agentica](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=it#agentic-video-understanding) è ora in disponibilità generale.
-- **Supportato in Managed Agents**:l'[agente Antigravity](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=it) in Gemini Managed Agents ora supporta Gemini 4 Argon.
+- **ইউনিফায়েড ১ মিলিয়ন ইনপুট-আউটপুট টোকেন সীমা:** ইনপুট, থিঙ্কিং ও আউটপুট টোকেন একটি ১ মিলিয়ন টোকেন উইন্ডো শেয়ার করে, যেখানে নন-স্ট্রিমিং কলের জন্য অনুরোধ প্রতি ৩২ হাজার এবং স্ট্রিমিং কলের জন্য স্ট্রিম প্রতি ৬৪ হাজার টোকেনের সীমা রয়েছে।
+- **১ মিলিয়ন টোকেন পর্যন্ত দীর্ঘ ডিকোড:** মডেলটি অনুরোধ প্রতি ক্যাপের বাইরে, আপনার ইনপুট বাদ দিয়ে ১ মিলিয়ন টোকেন পর্যন্ত জেনারেট করতে পারে। লেটেস্ট Google GenAI SDK ডিফল্ট হিসেবে আপনার জন্য কাজ করা চালিয়ে যায়।
+- **এজেন্টিক ভিডিও আন্ডারস্ট্যান্ডিং (GA):** [এজেন্টিক ভিডিও আন্ডারস্ট্যান্ডিং](https://ai.google.dev/gemini-api/docs/generate-content/video-understanding?hl=bn#agentic-video-understanding) এখন সাধারণভাবে উপলভ্য।
+- **Managed Agents-এ কাজ করে:** Gemini Managed Agents-এ [Antigravity এজেন্ট](https://ai.google.dev/gemini-api/docs/antigravity-agent?hl=bn) এখন Gemini 4 Argon-এ কাজ করে।
 
-Per maggiori dettagli, consulta la [pagina del modello Gemini 4 Argon](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=it). Per i dettagli sui prezzi, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
+আরও বিবরণের জন্য, [Gemini 4 Argon মডেল পৃষ্ঠা](https://ai.google.dev/gemini-api/docs/models/gemini-4-argon?hl=bn) দেখুন। দাম সংক্রান্ত বিবরণের জন্য, [দাম সংক্রান্ত পৃষ্ঠা](https://ai.google.dev/gemini-api/docs/pricing?hl=bn#gemini-4-argon) দেখুন।
 
-## Output più grande e decodifica lunga
+## আরও বড় আউটপুট ও দীর্ঘ ডিকোড
 
-Quando un'attività richiede un ragionamento approfondito, Gemini 4 Argon può pensare più a lungo e lavorare di più per risolvere problemi complessi di matematica, scienze e programmazione in un'unica generazione.
+কোনও টাস্কের জন্য গভীর রিজনিংয়ের প্রয়োজন হলে, Gemini 4 Argon আরও বেশি সময় ধরে চিন্তা করতে এবং আরও বেশি পরিশ্রম করতে পারে, যাতে জটিল গণিত, বিজ্ঞান এবং কোডিংয়ের সমস্যাগুলি একবারে সমাধান করা যায়।
 
-- **Limite unificato di 1 milione di token di input-output**:Argon può utilizzare fino a 1 milione di token, meno i token di input, per il ragionamento e l'output combinati.
-- **I token di ragionamento vengono conteggiati ai fini di `max_output_tokens`**:per le attività difficili, il modello utilizza una parte maggiore del tuo budget di `max_output_tokens` per fornire una risposta migliore. Utilizza `thinking_level` per controllare l'utilizzo dei token.
-- **Limiti per richiesta (64.000 in modalità flusso di dati / 32.000 in modalità non flusso di dati)**: una richiesta in modalità flusso di dati restituisce fino a 65.536 token. Una richiesta non in streaming restituisce fino a 32.768 token, rispetto ai 65.536 di Gemini 3.x. Per le chiamate REST, questi limiti sono anche i valori predefiniti.
+- **ইউনিফায়েড ১ মিলিয়ন ইনপুট-আউটপুট টোকেন সীমা:** Argon, থিঙ্কিং ও আউটপুট মিলিয়ে, আপনার ইনপুট টোকেন বাদ দিয়ে, সর্বাধিক ১ মিলিয়ন টোকেন ব্যবহার করতে পারে।
+- **থিঙ্কিং টোকেন `max_output_tokens`-এর জন্য গণনা করা হয়:** কঠিন টাস্কের ক্ষেত্রে, আরও ভালো উত্তর দেওয়ার জন্য মডেল আপনার `max_output_tokens` বাজেট আরও বেশি ব্যবহার করে। টোকেনের ব্যবহার নিয়ন্ত্রণ করতে `thinking_level` ব্যবহার করুন।
+- **অনুরোধ প্রতি ক্যাপ (৬৪ হাজার স্ট্রিমিং / ৩২ হাজার নন-স্ট্রিমিং):** একটি স্ট্রিমিং অনুরোধ সর্বাধিক ৬৫,৫৩৬টি টোকেন রিটার্ন করে। একটি নন-স্ট্রিমিং অনুরোধ সর্বাধিক ৩২,৭৬৮ টোকেন রিটার্ন করে, যা Gemini 3.x-এ ৬৫,৫৩৬ থেকে কম। REST কলের ক্ষেত্রেও এই ক্যাপ ডিফল্ট হিসেবে সেট করা থাকে।
 
-Gli SDK di Google GenAI più recenti eseguono la decodifica lunga per impostazione predefinita. Utilizza Python `google-genai` 2.30.1 o versioni successive oppure JavaScript `@google/genai` 2.29.1 o versioni successive.
+লেটেস্ট Google GenAI SDK ডিফল্ট হিসেবে আপনার জন্য লং ডিকোড রান করে। Python `google-genai` 2.30.1 বা তার পরবর্তী ভার্সন অথবা JavaScript `@google/genai` 2.29.1 বা তার পরবর্তী ভার্সন ব্যবহার করুন।
 
-In queste versioni, `automatic_continuation` è `True` per impostazione predefinita, quindi non è necessario impostarlo. Quando imposti `max_output_tokens` su un valore superiore al limite per richiesta, `generate_content` e `generate_content_stream` continuano automaticamente tra le richieste finché il modello non termina o non raggiunge `max_output_tokens`, restituendo una risposta combinata.
+এইসব ভার্সনে, `automatic_continuation` ডিফল্ট হিসেবে `True` থাকে, তাই আপনাকে এটি সেট করতে হবে না। আপনি অনুরোধ প্রতি ক্যাপের উপরে `max_output_tokens` সেট করলে, মডেল শেষ না হওয়া বা `max_output_tokens`-এ না পৌঁছানো পর্যন্ত `generate_content` এবং `generate_content_stream` অটোমেটিক অনুরোধ জুড়ে চলতে থাকে এবং একটি সম্মিলিত উত্তর প্রদান করে।
 
 ```
 response = client.models.generate_content(
@@ -153,84 +153,88 @@ response = client.models.generate_content(
 )
 ```
 
-Per eseguire il loop autonomamente, imposta `automatic_continuation=False`. Se chiami REST o utilizzi un SDK precedente, le richieste si interrompono al limite per richiesta. Per i loop REST, i framework di terze parti, il conteggio dei token e quando utilizzare la decodifica lunga, consulta la [guida alla decodifica lunga](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it).
+লুপ নিজে থেকে চালাতে, `automatic_continuation=False` সেট করুন। আপনি REST কল করলে বা পুরনো SDK ব্যবহার করলে, অনুরোধ প্রতি-অনুরোধের ক্যাপে থেমে যায়। REST লুপ, থার্ড-পার্টি ফ্রেমওয়ার্ক, টোকেন গণনা এবং কখন লং ডিকোড ব্যবহার করতে হবে সেই সম্পর্কে জানতে, [লং ডিকোড গাইড](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=bn) দেখুন।
 
-### Impostazione dei limiti dei token di output
+### আউটপুট টোকেনের সীমা সেট করা
 
-`max_output_tokens` imposta i token di ragionamento e di output totali per una generazione, incluse tutte le richieste di continuazione. Impostalo su un valore sufficientemente alto in modo che il ragionamento non interrompa la risposta. Impostalo su un valore sufficientemente basso da limitare la spesa quando un prompt difficile lo utilizza tutto.
+`max_output_tokens`, সমস্ত কন্টিনিউয়েশন অনুরোধ সহ, একটি জেনারেশনের জন্য মোট থিঙ্কিং ও আউটপুট টোকেন সেট করে। এটি যথেষ্ট বেশি সেট করুন যাতে চিন্তা করার সময় উত্তরটি ছোট না হয়ে যায়। কোনও হার্ড প্রম্পট সব খরচ করে ফেললে, খরচ সীমিত করার জন্য এটি যথেষ্ট কম সেট করুন।
 
-Utilizza le seguenti indicazioni come punto di partenza:
+শুরু করার জন্য নিম্নলিখিত নির্দেশিকা ব্যবহার করুন:
 
-- **Attività standard**:mantieni l'impostazione predefinita.
-- **App esistenti con un limite inferiore a 32.000**:aumenta `max_output_tokens` a 32.768. Per utilizzare meno token, riduci `thinking_level`.
-- **Attività che in precedenza utilizzavano più di 32.000 token:** imposta `max_output_tokens` su 65.536.
-- **Ragionamento e programmazione complessi**:imposta `max_output_tokens` su 131.072 o 262.144, fino a 1.048.576 meno i token di input.
+- **স্ট্যান্ডার্ড টাস্ক:** ডিফল্ট রাখুন।
+- **আগে থেকে থাকা অ্যাপের সীমা ৩২ হাজারের কম হলে:** `max_output_tokens` বাড়িয়ে ৩২,৭৬৮ করুন। কম টোকেন ব্যবহার করতে, `thinking_level` কমান।
+- **আগে যেসব টাস্কে ৩২ হাজারের বেশি টোকেন ব্যবহার করা হয়েছে:** `max_output_tokens`-এর ভ্যালু ৬৫,৫৩৬-এ সেট করুন।
+- **জটিল যুক্তি ও কোডিং:** `max_output_tokens`-কে ১৩১,০৭২ বা ২৬২,১৪৪-এ সেট করুন, আপনার ইনপুট টোকেন বাদ দিয়ে ১,০৪৮,৫৭৬ পর্যন্ত।
 
-Se una richiesta utilizza tutto il valore `max_output_tokens`, restituisce `finish_reason: "MAX_TOKENS"` e include un `continuation_token`. Puoi riprendere o ricominciare.
+কোনও অনুরোধে `max_output_tokens`-এর সবকটি ব্যবহার করা হলে, এটি `finish_reason: "MAX_TOKENS"` রিটার্ন করে এবং এতে `continuation_token` অন্তর্ভুক্ত থাকে। আপনি আবার চালু বা শুরু করতে পারবেন।
 
-- **Riprendi dal checkpoint:** invia la richiesta originale con l'ultimo `continuation_token` e un `max_output_tokens` più alto. Se non generi `max_output_tokens`, la richiesta restituisce `400 INVALID_ARGUMENT`.
-- **Ricomincia**:invia la richiesta originale con un valore `max_output_tokens` più alto e senza `continuation_token`.
+- **চেকপয়েন্ট থেকে আবার শুরু করুন:** লেটেস্ট `continuation_token` ও আরও বেশি `max_output_tokens` সহ আসল অনুরোধ পাঠান। আপনি `max_output_tokens` না বাড়ালে, অনুরোধটি `400 INVALID_ARGUMENT` রিটার্ন করে।
+- **আবার শুরু করুন:** আরও বেশি `max_output_tokens` এবং কোনও `continuation_token` ছাড়াই আসল অনুরোধ পাঠান।
 
-### Informazioni sui livelli di ragionamento
+### থিঙ্কিং লেভেল সম্পর্কে বোঝা
 
-Il [livello di ragionamento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it) è il tuo controllo principale su qualità, latenza e utilizzo dei token in Gemini 4 Argon:
+Gemini 4 Argon-এ কোয়ালিটি, লেটেন্সি ও টোকেন ব্যবহারের উপর আপনার প্রধান কন্ট্রোল হল [চিন্তাভাবনার লেভেল](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=bn):
 
-| Livello di pensiero | Utilizzo dei token | Quando utilizzarle |
+| থিঙ্কিং লেভেল | টোকেনের ব্যবহার | কখন ব্যবহার হবে |
 | --- | --- | --- |
-| `low` | Minor numero di token, latenza più bassa | Attività più semplici e lavoro sensibile ai costi. Funziona anche per attività di analisi e scrittura che richiedono un ragionamento semplice. La qualità può diminuire per le attività difficili. |
-| `medium` (valore predefinito) | Bilanciato | Consigliato per la maggior parte delle attività, tra cui codice complesso e casi d'uso agentici. |
-| `high` | Maggior numero di token, primo token più lento | Ragionamento complesso, matematica e scienze avanzate e le attività di programmazione o degli agenti più difficili. Si abbina bene alla decodifica lunga per output lunghi. |
+| `low` | সবচেয়ে কম টোকেন, সবচেয়ে কম লেটেন্সি | সহজ টাস্ক এবং খরচ-সংবেদনশীল কাজ। এছাড়াও, বিশ্লেষণ ও লেখার মতো কাজ যেগুলির জন্য খুব বেশি চিন্তাভাবনা করতে হয় না, সেগুলিও করতে পারে। কঠিন টাস্কের ক্ষেত্রে কোয়ালিটি খারাপ হতে পারে। |
+| `medium` (ডিফল্ট) | ভারসাম্য রেখে | জটিল কোড ও এজেন্টিক ব্যবহারের কেস সহ বেশিরভাগ টাস্কের জন্য সাজেস্ট করা হয়। |
+| `high` | সবচেয়ে বেশি টোকেন, সবচেয়ে ধীরগতির প্রথম টোকেন | জটিল রিজনিং, কঠিন অঙ্ক ও বিজ্ঞান এবং সবচেয়ে কঠিন কোড বা এজেন্ট টাস্ক। দীর্ঘ আউটপুটের জন্য দীর্ঘ ডিকোড সহ ভালভাবে পেয়ার করে। |
 
-Esegui le valutazioni a tutti e tre i livelli con un valore `max_output_tokens` elevato, in modo che il limite non interrompa le risposte. Quindi scegli il valore più basso di `thinking_level` che soddisfa i tuoi standard di qualità.
+তিনটি লেভেলেই আপনার মূল্যায়ন রান করুন, যেখানে `max_output_tokens`-এর মান বেশি হবে, যাতে সীমা উত্তরকে ছোট না করে দেয়। তারপর, আপনার কোয়ালিটি বার পূরণ করে এমন সবচেয়ে কম `thinking_level` বেছে নিন।
 
-## Elenco di controllo per la migrazione
+## মাইগ্রেশন চেকলিস্ট
 
 ```
   `/gemini-api-dev migrate my app to Gemini 4 Argon`
 ```
 
-### Esegui la migrazione a gemini-4-argon
+### gemini-4-argon-এ মাইগ্রেট করুন
 
-- **Aggiorna l'ID modello**:modifica la stringa del modello in `gemini-4-argon`.
-- **Imposta `max_output_tokens` in modo esplicito:** il valore predefinito è 64K per le chiamate SDK e di streaming e 32K per le chiamate REST non di streaming.
-- **Aumenta i limiti inferiori a 32K**:aumenta qualsiasi limite inferiore a 32K ad almeno 32.768. Utilizza `thinking_level` per ridurre la spesa per i token.
-- **Pianifica una decodifica lunga:** per le attività che superano il limite per richiesta, utilizza l'SDK più recente o aggiungi un loop `continuation_token`.
-- **Sostituisci `thinking_budget` con `thinking_level`:** `thinking_budget` funziona ancora e viene mappato al `thinking_level` più vicino, ma restituisce un avviso. Testa il tuo workload a `low`, `medium` e `high`.
-- **Disattiva la memorizzazione nella cache del contesto esplicita**:la memorizzazione nella cache esplicita (`cachedContents`/`caches.create`) non è supportata su Gemini 4 Argon e restituisce un errore.
-  Rimuovi le chiamate che creano o trasmettono `cached_content` in `GenerateContentConfig`.
-  La [memorizzazione nella cache implicita](https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=it) è abilitata per impostazione predefinita per i prompt di almeno 4096 token e sconta del 95% i token di input memorizzati nella cache in caso di successo della cache.
-- **Rimuovi i parametri ritirati:** rimuovi `temperature`, `top_p`, `top_k` e `candidate_count` dalle richieste. Se forniti, i parametri di campionamento vengono ignorati.
-- **Aumenta i timeout del client:** imposta i timeout del client HTTP su almeno 20 minuti per chiamata.
-- **Conserva le firme di pensiero**:passa la cronologia completa della conversazione, incluse le [firme di pensiero](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it#signatures), nelle richieste multi-turn e di chiamata di funzione.
+- **মডেল আইডি আপডেট করুন:** আপনার মডেল স্ট্রিং পরিবর্তন করে `gemini-4-argon` করুন।
+- **স্পষ্টভাবে `max_output_tokens` সেট করুন:** স্ট্রিমিং ও SDK কলের জন্য ডিফল্ট হল 64K এবং নন-স্ট্রিমিং REST কলের জন্য 32K।
+- **৩২ হাজারের কম ক্যাপ বাড়ান:** ৩২ হাজারের কম যেকোনও ক্যাপ অন্তত ৩২,৭৬৮ পর্যন্ত বাড়ান। টোকেন খরচ কমাতে `thinking_level` ব্যবহার করুন।
+- **দীর্ঘ ডিকোড করার জন্য প্ল্যান:** অনুরোধ প্রতি ক্যাপের থেকে বেশি টাস্কের জন্য, লেটেস্ট SDK ব্যবহার করুন বা `continuation_token` লুপ যোগ করুন।
+- **`thinking_budget`-এর পরিবর্তে `thinking_level` ব্যবহার করুন:** `thinking_budget` এখনও কাজ করে এবং সবচেয়ে কাছের `thinking_level`-এ ম্যাপ করে, তবে এটি একটি সতর্কতা দেখায়। `low`, `medium` এবং `high`-এ আপনার ওয়ার্কলোড পরীক্ষা করুন।
+- **স্পষ্ট কনটেক্সট ক্যাশিং থেকে সরে আসুন:** স্পষ্ট ক্যাশিং (`cachedContents` /
+  `caches.create`) Gemini 4 Argon-এ কাজ করে না এবং একটি সমস্যা দেখায়।
+  `GenerateContentConfig`-এ `cached_content` তৈরি করে বা পাস করে এমন কল সরিয়ে দিন।
+  কমপক্ষে ৪,০৯৬ টোকেনের প্রম্পটের জন্য ডিফল্ট হিসেবে [ইমপ্লিসিট ক্যাশিং](https://ai.google.dev/gemini-api/docs/generate-content/caching?hl=bn) চালু করা থাকে এবং ক্যাশে হিট হলে ক্যাশে করা ইনপুট টোকেনে ৯৫% ছাড় দেয়।
+- **বন্ধ হয়ে যাওয়া প্যারামিটার সরিয়ে দিন:** অনুরোধ থেকে `temperature`, `top_p`, `top_k` এবং `candidate_count` সরিয়ে দিন। প্রদান করা হলে, স্যাম্পলিং প্যারামিটার এড়িয়ে যাওয়া হয়।
+- **ক্লায়েন্ট টাইমআউট বাড়ান:** HTTP ক্লায়েন্ট টাইমআউট প্রতি কলে অন্তত ২০ মিনিট হিসেবে সেট করুন।
+- **থট সিগনেচার সংরক্ষণ করা:** মাল্টি-টার্ন এবং ফাংশন-কলিং অনুরোধে [থট সিগনেচার](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=bn#signatures) সহ সম্পূর্ণ কথোপকথনের ইতিহাস পাস করুন।
+- **আপনার আনুমানিক খরচ পর্যালোচনা করুন:** মডেলের প্রসেস করা প্রতিটি টোকেনের জন্য বিল করা হয়, যার মধ্যে ইন্টার্নাল টুল সিস্টেম নির্দেশাবলী এবং গ্রাউন্ডিং ব্যবহার করার সময় ফাংশন ডিক্লারেশন অন্তর্ভুক্ত থাকে ([দাম](#pricing) দেখুন)।
 
-## Prezzi
+## দাম
 
-Gemini 4 Argon è disponibile a un prezzo di lancio fino al 30 novembre 2026:
+৩০ নভেম্বর, ২০২৬ পর্যন্ত Gemini 4 Argon শুরুর দিকের দামে উপলভ্য:
 
-- **Token di input:** 2,00 $per 1 milione di token (4,00 $ a partire dal 1° dicembre 2026)
-  - **Token di input memorizzati nella cache:** la memorizzazione nella cache implicita sconta del 95% l'input memorizzato nella cache, portandolo a 0,10 $per 1 milione di token (0,20 $ a partire dal 1° dicembre 2026).
-- **Token di output, inclusi i token di ragionamento:** 10,00 $per 1 milione di token (20,00 $ a partire dal 1° dicembre 2026)
+- **ইনপুট টোকেন:** প্রতি ১ মিলিয়ন টোকেনে $২.০০ ($৪.০০, ১ ডিসেম্বর, ২০২৬ থেকে শুরু)
+  - **ক্যাশে করা ইনপুট টোকেন:** ইমপ্লিসিট ক্যাশিং, ক্যাশে করা ইনপুটে ৯৫% ছাড় দেয়, যা প্রতি ১ মিলিয়ন টোকেনে $০.১০ ($০.২০, ১ ডিসেম্বর, ২০২৬ থেকে শুরু)।
+- **থিঙ্কিং টোকেন সহ আউটপুট টোকেন:** প্রতি ১ মিলিয়ন টোকেনে $১০.০০ (১ ডিসেম্বর, ২০২৬ থেকে $২০.০০)
 
-Gemini 4 Argon non è disponibile nel livello senza costi. Per i livelli di prezzo completi, consulta la [pagina dei prezzi](https://ai.google.dev/gemini-api/docs/pricing?hl=it#gemini-4-argon).
+মডেল প্রসেস করে এমন প্রতিটি টোকেন গণনা করা হয় এবং বিল করা হয়, যার মধ্যে রয়েছে থিঙ্কিং টোকেন এবং ইন্টার্নাল টুল সিস্টেম নির্দেশাবলী এবং গ্রাউন্ডিং ব্যবহার করার সময় ফাংশন ঘোষণা। Grounding with Google Search-এর ক্ষেত্রেও কোয়েরি প্রতি বিল করা হয়।
 
-## Altri modelli
+Gemini 4 Argon ফ্রি টিয়ারে উপলভ্য নয়। মূল্যের সম্পূর্ণ টিয়ার দেখতে, [মূল্যের পৃষ্ঠা](https://ai.google.dev/gemini-api/docs/pricing?hl=bn#gemini-4-argon) দেখুন।
 
-- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.8?hl=it)
-- [Gemini 3.6 Flash e 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=it)
-- [Visualizza tutti i modelli](https://ai.google.dev/gemini-api/docs/models?hl=it)
+## অন্যান্য মডেল
 
-## Passaggi successivi
+- [Gemini 3.8 Flash](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.8?hl=bn)
+- [Gemini 3.6 Flash এবং 3.5 Flash-Lite](https://ai.google.dev/gemini-api/docs/generate-content/whats-new-gemini-3.6?hl=bn)
+- [সব মডেল দেখুন](https://ai.google.dev/gemini-api/docs/models?hl=bn)
 
-- Leggi la [guida per gli sviluppatori sulla decodifica lunga](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=it) per i pattern completi di streaming, riconnessione e conteggio dei token.
-- Scopri come funzionano i livelli di ragionamento e i riepiloghi dei ragionamenti nella [guida al ragionamento](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=it).
-- Testa Gemini 4 Argon in [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
+## এর পরে কী করতে হবে
 
-Invia feedback
+- সম্পূর্ণ স্ট্রিমিং, রিকানেকশন ও টোকেন-কাউন্টিং প্যাটার্নের জন্য [লং ডিকোড ডেভেলপার গাইড](https://ai.google.dev/gemini-api/docs/generate-content/long-decode?hl=bn) পড়ুন।
+- [থিঙ্কিং গাইড](https://ai.google.dev/gemini-api/docs/generate-content/thinking?hl=bn) থেকে থিঙ্কিং লেভেল ও থট সামারি কীভাবে কাজ করে তা জানুন।
+- [Google AI Studio](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=bn)-তে Gemini 4 Argon টেস্ট করুন।
 
-Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
+মতামত জানান
 
-Ultimo aggiornamento 2026-10-16 UTC.
+অন্য কিছু উল্লেখ না করা থাকলে, এই পৃষ্ঠার কন্টেন্ট [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/)-এর অধীনে এবং কোডের নমুনাগুলি [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0)-এর অধীনে লাইসেন্স প্রাপ্ত। আরও জানতে, [Google Developers সাইট নীতি](https://developers.google.com/site-policies?hl=bn) দেখুন। Java হল Oracle এবং/অথবা তার অ্যাফিলিয়েট সংস্থার রেজিস্টার্ড ট্রেডমার্ক।
 
-Vuoi dirci altro?
+2026-10-27 UTC-তে শেষবার আপডেট করা হয়েছে।
 
-[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-16 UTC."],[],[]]
+আমাদের আরও কিছু জানাতে চান?
+
+[[["সহজে বোঝা যায়","easyToUnderstand","thumb-up"],["আমার সমস্যার সমাধান হয়েছে","solvedMyProblem","thumb-up"],["অন্যান্য","otherUp","thumb-up"]],[["এতে আমার প্রয়োজনীয় তথ্য নেই","missingTheInformationINeed","thumb-down"],["খুব জটিল / অনেক ধাপ","tooComplicatedTooManySteps","thumb-down"],["পুরনো","outOfDate","thumb-down"],["অনুবাদ সংক্রান্ত সমস্যা","translationIssue","thumb-down"],["নমুনা / কোড সংক্রান্ত সমস্যা","samplesCodeIssue","thumb-down"],["অন্যান্য","otherDown","thumb-down"]],["2026-10-27 UTC-তে শেষবার আপডেট করা হয়েছে।"],[],[]]

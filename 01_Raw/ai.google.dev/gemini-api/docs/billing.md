@@ -1,440 +1,433 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/billing?hl=zh-TW
-fetched_at: 2026-10-26T05:44:16.938224+00:00
-title: "\u8a08\u8cbb\u65b9\u5f0f \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/billing?hl=ja
+fetched_at: 2026-11-02T07:28:48.924499+00:00
+title: "\u8ab2\u91d1 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon 現已推出，[立即試用](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=zh-tw)。
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=zh-tw)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google 會運用 AI 技術將內容翻譯成你偏好的語言，但可能會出錯。
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [首頁](https://ai.google.dev/?hl=zh-tw)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=zh-tw)
-- [文件](https://ai.google.dev/gemini-api/docs?hl=zh-tw)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-提供意見
+フィードバックを送信
 
-# 計費方式
+# 課金
 
-本指南將概略說明不同的 Gemini API 計費選項、如何啟用計費和監控用量，並提供有關計費的常見問題解答。
+このガイドでは、Gemini API のさまざまな課金オプションの概要、課金を有効にして使用状況をモニタリングする方法、課金に関するよくある質問（FAQ）の回答について説明します。
 
-## 關於帳單和等級
+## お支払いと階層について
 
-Gemini API 的計費方式會根據您的付款記錄而定。
+Gemini API の請求階層は、お支払い履歴に基づいて決まります。
 
-| 用量層級 | 資格賽 | [帳單層級上限](#spend-caps) |
+| 使用量ティア | 予選 | [請求先アカウント枠の上限](#spend-caps) |
 | --- | --- | --- |
-| **免費** | [有效專案](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)或免費試用方案 | 不適用 |
-| **第 1 級** | [設定並連結有效的帳單帳戶](#setup-billing) | $250 美元 |
-| **第 2 級** | 首次付款成功後，3 天內支付 $100 美元 | $2,000 美元 |
-| **第 3 級** | 支付 $1,000 美元 + 首次付款成功後 30 天 | $20,000 美元 - $100,000 美元以上 |
+| **無料** | [有効なプロジェクト](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)または無料トライアル | なし |
+| **Tier 1** | [有効な請求先アカウントを設定してリンクしている](#setup-billing) | $250 |
+| **Tier 2** | $100 のお支払い + 最初のお支払いが完了してから 3 日 | $2,000 |
+| **Tier 3** | $1,000 のお支払い + 最初のお支払いが完了してから 30 日 | 20,000 ～ 100,000 ドル以上 |
 
-新帳戶會先採用免費方案，可存取 Gemini API 和 AI Studio 中的[特定模型](https://ai.google.dev/gemini-api/docs/pricing?hl=zh-tw)，但須遵守模型免費方案的[速率限制](https://aistudio.google.com/rate-limit?hl=zh-tw)。
+新しいアカウントは無料枠から始まり、Gemini API と AI Studio の[特定のモデル](https://ai.google.dev/gemini-api/docs/pricing?hl=ja)に、モデルの無料枠の[レート上限](https://aistudio.google.com/rate-limit?hl=ja)までアクセスできます。
 
-如要直接從「建構」模式部署應用程式，符合資格的帳戶可以使用 **Google Cloud 入門級**。這個方案可讓您發布最多 2 個全端應用程式，不必設定 Google Cloud 雲端專案或帳單帳戶。如要瞭解資格詳情，請參閱「[從 Google AI Studio 部署](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=zh-tw#starter-tier-eligibility)」，並參閱 [Google Cloud 入門級說明文件](https://docs.cloud.google.com/docs/starter-tier?hl=zh-tw)。
+ビルドモードからアプリケーションを直接デプロイするには、対象となるアカウントで **Google Cloud スターター ティア**を使用できます。この階層では、Google Cloud プロジェクトや請求先アカウントを設定せずに、フルスタック アプリケーションを 2 つまで公開できます。利用資格の詳細については、[Google AI Studio からのデプロイ](https://ai.google.dev/gemini-api/docs/aistudio-deploying?hl=ja#starter-tier-eligibility)をご覧ください。詳細については、[Google Cloud スターター ティアのドキュメント](https://docs.cloud.google.com/docs/starter-tier?hl=ja)をご覧ください。
 
-如要提高速率限制、使用進階模型，以及確保系統**不會**使用提示和回覆內容來改善 Google 產品\*，請[連結帳單帳戶](#setup-billing)並[預付](#prepay)費用，改用付費方案。然後，系統會根據累計支出和帳戶年齡，將你移至較高的層級。
+より高いレート上限にアクセスし、高度なモデルを使用し、プロンプトとレスポンスが Google プロダクトの改善に**使用されない**ようにするには、[請求先アカウントをリンク](#setup-billing)して[前払い](#prepay)し、有料階層に移行します。\*その後、累計費用とアカウントの開設期間に基づいて上位のティアに移行します。
 
-層級、速率限制和帳單帳戶上限，都是在[帳單帳戶](#cloud-billing)層級決定。
+ティア、レートの上限、請求先アカウントの上限はすべて、[請求先アカウント](#cloud-billing) レベルで決定されます。
 
-\* *企業級資料隱私權：如要進一步瞭解付費服務的資料使用方式，請參閱[服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#data-use-paid)。*
+\* *エンタープライズ グレードのデータ プライバシー: 有料サービスのデータ使用について詳しくは、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#data-use-paid)をご覧ください。*
 
-## 設定帳單資訊以存取付費方案
+## お支払い情報を設定して有料枠にアクセスする
 
-您可以建立專案並設定帳單，或匯入現有專案，在 [Google AI Studio](https://aistudio.google.com/projects?hl=zh-tw) 升級至付費層級。
-從免費方案升級至付費方案時，請連結帳單帳戶並[預付款項](#prepay)，為帳戶儲值至少 $5 美元 (或其他貨幣的等值金額)。
+[Google AI Studio](https://aistudio.google.com/projects?hl=ja) でプロジェクトを作成してお支払い情報を設定するか、既存のプロジェクトをインポートして、有料枠にアップグレードできます。無料枠から有料枠にアップグレードするには、請求先アカウントをリンクして[前払い](#prepay)を行い、アカウントに最低 5 ドル（または他の通貨での同等額）のクレジットを追加します。
 
-1. 前往 AI Studio 的「API 金鑰」頁面、「專案」頁面，或 AI Studio 中顯示「設定帳單」按鈕的任何位置。
-   - 新使用者預設會建立[專案和 API 金鑰](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)。
-   - 如需新金鑰，請按一下「建立 API 金鑰」，然後按照對話方塊的指示，將金鑰/專案配對新增至表格。
-2. 找出要從免費方案升級至付費層級的專案，然後點選「帳單層級」欄下方的「設定帳單」。
-3. 如果你從未設定 Google 帳單帳戶：
-   - 系統會要求你選取國家/地區，並同意《服務條款》。
-   - 接著，請填寫或確認聯絡資訊和付款方式，然後繼續。
-4. 如果您過去曾設定 Google 帳單帳戶：
-   - 系統會要求你從現有帳單帳戶中選擇。
-   - 如不想使用現有帳戶，請按一下「新增帳單帳戶」，然後填寫或確認聯絡資訊和付款方式，即可繼續操作。
-5. 接下來，您會看到下列其中一個畫面：
-   - 系統要求預付至少 $5 美元，才能完成帳單設定 (表示系統已自動將您的帳戶指派至[預付](#prepay)帳單方案)。
-   - 帳戶可選擇[預付](#prepay)或[後付](#postpay)方案。
-   - 在新的預付系統向所有使用者推出前 (2026 年 3 月 23 日起)，暫時採用[後付](#postpay)結帳方案。
-6. 預付或選取後付後，帳戶設定即完成。
+1. AI Studio の [API キー](https://aistudio.google.com/api-keys?hl=ja)ページ、[プロジェクト](https://aistudio.google.com/projects?hl=ja) ページ、または AI Studio の [**お支払い情報を設定**] ボタンが表示されている任意の場所に移動します。
+   - 新規ユーザーには、デフォルトで[プロジェクトと API キー](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)が作成されます。
+   - 新しいキーが必要な場合は、[[**API キーを作成**](https://aistudio.google.com/api-keys?hl=ja)] をクリックし、ダイアログに沿ってキーとプロジェクトのペアをテーブルに追加します。
+2. 有料階層にアップグレードする無料枠プロジェクトを見つけ、[*課金階層*] 列の [**課金を設定**] をクリックします。
+3. Google 請求先アカウントをまだ設定していない場合:
+   - 利用規約に同意するために、国を選択するよう求められます。
+   - 次に、連絡先情報とお支払い方法を入力または確認して、続行します。
+4. 過去に Google 請求先アカウントを設定したことがある場合:
+   - 既存の請求先アカウントから選択するよう求められます。
+   - 既存のアカウントを使用しない場合は、[**新しい請求先アカウントを追加**] をクリックして、連絡先情報とお支払い方法を入力または確認してから続行します。
+5. 次に、以下のいずれかになります。
+   - 請求設定を完了するために最低 $5 の前払いを求められた（つまり、アカウントが[前払い](#prepay)請求プランに自動的に割り当てられている）。
+   - アカウントの[前払い](#prepay)と[後払い](#postpay)の請求プランを選択できます。
+   - 新しい前払いシステムがすべてのユーザーに反映されるまでの間（2026 年 3 月 23 日から）、[後払い](#postpay)の課金プランに割り当てられます。
+6. 前払いまたは後払いを選択すると、アカウントの設定が完了します。
 
-### 升級至下一個付費層級
+### 次の有料プランにアップグレードする
 
-如果你已訂閱付費方案，且符合[條件](#about-billing)，系統會自動將你升級至下一個方案 (升級作業的[處理時間](#processing-times)不一定)。
+すでに有料プランをご利用で、プラン変更の[条件](#about-billing)を満たしている場合は、自動的に次の階層にアップグレードされます（[処理時間](#processing-times)が適用されます）。
 
-## 確認帳單狀態
+## 課金ステータスを確認する
 
-[將帳單帳戶連結至專案](#setup-billing)後，即可在 [AI Studio 帳單頁面](https://aistudio.google.com/billing?hl=zh-tw)監控帳戶狀態。與免費級別不同，付費級別狀態是動態的；用量級別取決於帳戶記錄，但只有在[預付](#prepay)抵免額餘額為正數時，Gemini API 才會處理要求。
+プロジェクトに[請求先アカウントをリンク](#setup-billing)すると、[AI Studio の [お支払い] ページ](https://aistudio.google.com/billing?hl=ja)でステータスをモニタリングできます。無料枠とは異なり、有料枠のステータスは動的です。使用枠はアカウント履歴によって決まりますが、Gemini API は、[前払い](#prepay)のクレジット残高がプラスの場合にのみリクエストを処理します。
 
-在「專案」頁面中，您可以在「帳單級別」欄下方查看專案的級別和帳單方案。您可能需要對專案採取任何帳單狀態動作，這些動作會顯示在「帳單層級」或「狀態」欄中：
+[[プロジェクト](https://aistudio.google.com/projects?hl=ja)] ページで、[*課金階層*] 列にプロジェクトの階層と課金プランが表示されます。プロジェクトで必要な課金ステータスのアクションは、[*課金ティア*] 列または [*ステータス*] 列に表示されます。
 
-- 如果專案未連結至帳單帳戶，請點選「***設定帳單***」。
-- 如果專案已連結帳單帳戶，但必須使用需要設定的「***預付***」計費方案，請按照畫面上的指示操作。
-- 如果帳單帳戶必須購買點數，但預付付款帳戶尚未設定或可用點數餘額已用盡，則會顯示「***沒有點數***」。
+- プロジェクトに請求先アカウントがリンクされていない場合は、[***請求を設定***] をクリックします。
+- プロジェクトに請求先アカウントが関連付けられているが、設定が必要な[前払い](#prepay)のお支払いプランを使用する必要がある場合は、[***前払いを設定***] をクリックします。
+- 請求先アカウントでクレジットの購入が必要な場合、前払いのお支払いアカウントが設定されていないか、利用可能なクレジット残高がなくなった場合は、「***クレジットなし***」と表示されます。
 
-點選任一訊息，即可採取必要行動。
+いずれかのメッセージをクリックして、必要な操作を続行します。
 
-## 監控使用情況
+## 使用量のモニタリング
 
-如要監控 Gemini API 用量，請前往 [Google AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 的「資訊主頁」 >「用量」。
+Gemini API の使用状況は、[Google AI Studio](https://aistudio.google.com/usage?hl=ja) の [**ダッシュボード**] > [**使用量**] でモニタリングできます。
 
-## 計費方案
+## お支払いプラン
 
-Gemini API 和 AI Studio 的帳單方案分為兩類，決定您何時支付用量費用：預付和後付。您可以在「AI Studio Billing」(AI Studio 帳單) 頁面查看已指派的帳單方案，以及管理付款方式。
+Gemini API と AI Studio の課金プランは、使用料金の支払い時期を決定する前払いと後払いの 2 つのカテゴリに分類されます。割り当てられたお支払いプランの確認とお支払い方法の管理は、[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)ページで行うことができます。
 
-### 預付
+### 前払い
 
-在預付計費方案中，您會預先購買抵免額，並將抵免額計入預付餘額，而系統會[近乎即時](#processing-times)地從預付抵免額餘額中扣除 Gemini API 用量費用。你可以[在帳戶中新增額度](#buy-credits)來預付費用，或設定[自動儲值](#auto-reload)。購買抵免額後，未使用的抵免額會在 12 個月後失效，且[無法退款](#refunds) ([改用後付型帳戶](#postpay)的情況除外)。
+前払いプランでは、Gemini API の使用前に前払い残高にクレジットを購入し、API の使用料金は前払いクレジット残高から[ほぼリアルタイム](#processing-times)で差し引かれます。前払いするには、アカウントに[クレジットを追加](#buy-credits)するか、[オートチャージ](#auto-reload)を設定します。クレジットを購入した後、未使用のクレジットは 12 か月後に有効期限切れとなり、[後払いアカウントに切り替えた](#postpay)場合を除き、[払い戻しはできません](#refunds)。
 
-當帳單帳戶的預付額度餘額達到 $0 美元時，連結至該帳單帳戶的所有專案中的所有 API 金鑰都會同時停止運作。您必須先新增點數，否則要求會失敗，並顯示 [HTTP 402 須付款](https://ai.google.dev/gemini-api/docs/api-errors?hl=zh-tw)錯誤。預付抵免額僅適用於 Gemini API 使用費用，無法用於支付其他 Google Cloud 服務費用。
+請求先アカウントのプリペイド クレジット残高が 0 ドルになると、その請求先アカウントにリンクされているすべてのプロジェクトのすべての API キーが同時に機能しなくなります。クレジットを追加するまで、リクエストは [HTTP 402 Payment Required](https://ai.google.dev/gemini-api/docs/api-errors?hl=ja) エラーで失敗します。前払いクレジットは Gemini API の使用料金にのみ適用されます。他の Google Cloud サービスの支払いに使用することはできません。
 
-新使用者預設會採用預付方案。如果專案是在預付和後付帳單方案推出前建立，可能需要[更新專案的帳單詳細資料](#verify-billing)，才能繼續使用 Gemini API。
+新規ユーザーはデフォルトで前払いのお支払いプランになります。前払いと後払いのお支払いプランの導入前に作成されたプロジェクトでは、Gemini API を引き続き使用する前に、[プロジェクトの請求先情報を更新](#verify-billing)する必要がある場合があります。
 
-*請注意，[可開立月結單的 (或離線)](https://docs.cloud.google.com/billing/docs/concepts?hl=zh-tw#billing_account_types)帳戶不適用預付功能。*
+*[請求書発行（オフライン）](https://docs.cloud.google.com/billing/docs/concepts?hl=ja#billing_account_types)アカウントでは前払いをご利用いただけません。*
 
-#### 在現有的後付帳戶中新增預付方案
+#### 既存の後払いアカウントに前払いを追加する
 
-如果現有的 Cloud Billing 帳戶使用**後付**方案，可以新增**預付**功能，預先購買抵免額。有了預付抵免額，您就能使用 Gemini API，不必建立新的 Cloud Billing 帳戶。
+既存の Cloud 請求先アカウントで**後払い**プランを使用している場合は、**前払い**機能を追加して、クレジットを事前に購入できます。これらの前払いクレジットを使用すると、新しい Cloud 請求先アカウントを作成せずに Gemini API を使用できます。
 
-在設定程序中，為現有帳戶新增**預付**款項時，系統會顯示強制確認畫面，說明所選的 Cloud Billing 帳戶將會修改。
+既存のアカウントに**前払い**を追加する設定中に、選択した Cloud 請求先アカウントが変更されることを説明する確認画面が必ず表示されます。
 
-系統必須在您提交預付款*前*修改帳戶狀態。
-因此，如果在確認修改後但完成預付款設定前取消程序，已連結至該 Cloud Billing 帳戶的專案可能會暫時中斷服務。確認轉換前，請務必準備好完成預付款程序。如果遇到問題，請參閱「[取消**預付**設定後服務中斷](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw#prepay-issue)」。
+前払いを行う*前に*、システムがアカウントの状態を変更する必要があります。そのため、変更を確認した後、前払いの設定を完了する前にプロセスをキャンセルすると、その Cloud 請求先アカウントにすでにリンクされているプロジェクトでサービスが一時的に中断される可能性があります。移行を確認する前に、前払い手続きを完了する準備ができていることを確認してください。問題が発生した場合は、[**前払い**の設定をキャンセルした後にサービスが中断される](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja#prepay-issue)をご覧ください。
 
-如果符合資格，並手動從「預付」週期切換至「後付」週期，系統會自動將所有剩餘的預付抵免額餘額，退還至預付時使用的原付款方式。不過，如果因其他原因關閉 Cloud Billing 帳戶，剩餘的預付抵免額將會失效，且無法退款。
+前払いサイクルから後払いサイクルに手動で切り替えることができる場合、前払いクレジット残高は、前払いに使用した元のお支払い方法に自動的に払い戻されます。ただし、他の理由で Cloud 請求先アカウントを閉鎖した場合、残りの前払いクレジットは没収され、払い戻しは行われません。
 
-#### 購買抵免額
+#### クレジットを購入する
 
-您可以在使用 Gemini API 前手動購買抵免額，並將抵免額存入預付帳戶的信用額度餘額。
+Gemini API の使用に先立ってクレジットを手動で購入し、前払いアカウントのクレジット残高にチャージできます。
 
-如要購買點數，請前往「AI Studio 帳單」頁面，然後選取「購買點數」。
-最低購買金額為 $5 美元。預付抵免額的金額上限為 $5,000 美元。
+クレジットを購入するには、[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)ページに移動して、[**クレジットを購入**] を選択します。最小購入額は 5 ドルです。前払いできるクレジットの最大額は $5,000 です。
 
-#### 自動重新載入
+#### 自動再読み込み
 
-自動儲值是選用功能，可讓系統在預付抵免額餘額不足時自動加值。這有助於避免服務中斷。
+オートチャージは、前払いクレジット残高が少なくなったときに自動的にチャージされるオプション機能です。これは、サービスの中断を防ぐのに役立ちます。
 
-你可以在「AI Studio 帳單」頁面的「可用抵免額」資訊卡中設定自動儲值，並查看自動儲值狀態。按一下「設定自動儲值」或「管理自動儲值」，設定付款方式、儲值金額，以及觸發儲值付款的最低餘額。
+オートチャージを設定し、オートチャージのステータスを確認するには、[[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)] ページの [*利用可能なクレジット*] カードをご覧ください。[**オートチャージを設定**] または [**オートチャージを管理**] をクリックして、お支払い方法、チャージ額、チャージ支払いをトリガーする最低残高を設定します。
 
-#### 每月自動扣款上限
+#### 1 か月あたりの自動チャージの上限
 
-預付使用者可設定每月自動扣款上限，避免因頻繁自動儲值而產生意外費用。使用這項功能，即可在單一帳單週期內，設定自動加值次數上限。如果帳單週期內的自動儲值總金額達到上限，系統就會停用自動儲值功能，直到下個月初才會重新啟用。您手動發起的一次性付款不會計入這項限制。
+毎月の自動チャージの上限は、前払いユーザーが利用できる機能です。この上限を設定すると、頻繁なクレジットの自動チャージによる予期せぬ費用の発生を防ぐことができます。この機能を使用すると、1 回の請求期間内で自動的にチャージされるクレジットの上限を設定できます。請求期間内のオートチャージの合計額がこの上限に達すると、翌月の初めまでオートチャージは無効になります。手動で開始した 1 回限りの支払いは、この上限にカウントされません。
 
-啟用自動儲值功能後，如要設定每月自動扣款上限，請按照下列步驟操作：
+オートチャージが有効になっている場合に、毎月の自動チャージの上限額を設定するには:
 
-1. 前往「AI Studio 帳單」頁面。
-2. 按一下「管理自動儲值功能」。
-3. 展開「每月限額」部分，然後輸入自動儲值的每月上限。
-4. 按一下 [儲存]。
+1. [AI Studio の [お支払い]](https://aistudio.google.com/billing?hl=ja) ページに移動します。
+2. [**オートチャージを管理**] をクリックします。
+3. [**Monthly Limit**] セクションを開き、オートチャージの 1 か月の上限額を入力します。
+4. [**保存**] をクリックします。
 
-### 後付
+### 後払い
 
-在後付費方案中，Cloud Billing 帳戶會累積費用，並在月底或費用達到[系統根據帳戶層級自動指派的支出上限](#tier-spend-caps)時，自動扣款。系統會透過連結至後付帳戶的付款方式收費，您可以在 [AI Studio 帳單](https://aistudio.google.com/billing?hl=zh-tw)頁面管理付款方式。在「帳單」頁面中，您可以查看餘額、到期日和過往付款記錄，以及付款和管理付款方式。
+後払いプランでは、Cloud 請求先アカウントに費用が蓄積され、月末に自動的に請求されます。また、アカウントの階層に基づいて[自動的に割り当てられた費用上限](#tier-spend-caps)に達した時点でも請求されます。お支払いは、後払いのお支払いアカウントに登録されているお支払い方法に対して行われます。このアカウントは、[[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)] ページで管理できます。[**お支払い**] ページでは、残高、お支払い期日、過去のお支払いの確認、お支払いの実行、お支払い方法の管理を行うことができます。
 
-[為新專案設定帳單資訊](#setup-billing)時，如果符合後付資格，您可以在[帳單設定](#setup-billing)對話方塊中選擇預付或後付。
+新しいプロジェクトの[お支払い情報を設定](#setup-billing)する際に、後払いの対象となる場合は、[[お支払い設定](#setup-billing)] ダイアログで前払いと後払いを選択できます。
 
-將 Cloud Billing 帳戶切換為使用後付費方案後，連結至該帳單帳戶的所有專案都會切換為後付費方案。如要將符合資格的帳戶改為預付，請按照「[改為預付](#migrate-to-prepay)」一文的步驟操作。您也可以將專案移至採用不同帳單方案的帳單帳戶，藉此變更專案的收費週期；請參閱「[管理專案的帳單](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw)」一文。
+Cloud 請求先アカウントを後払いプランに変更すると、その請求先アカウントにリンクされているすべてのプロジェクトが後払いプランに変更されます。[前払いに移行する](#migrate-to-prepay)の手順に沿って、対象となるアカウントを前払いに移行できます。プロジェクトを別の請求プランの請求先アカウントに移動して、そのプロジェクトの請求サイクルを変更することもできます。[プロジェクトの課金の管理](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja)に関する Cloud ドキュメントをご覧ください。
 
-如要進一步瞭解後付方案的收費週期，請參閱 [Cloud Billing 指南](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw)。
+後払いの請求サイクルの詳細については、[Cloud Billing のガイド](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja)をご覧ください。
 
-### 改用預付
+### 前払いに移行する
 
-Google AI Studio 正在將開發人員帳戶的 Gemini API 用量帳單，從後付改為預付。這項變更只會影響 Gemini API；連結至帳單帳戶的其他 Google Cloud 服務仍會採用後付方案。
+Google AI Studio では、Gemini API の使用料金の請求が後払いから前払いに移行します。この変更は Gemini API にのみ適用されます。請求先アカウントにリンクされている他の Google Cloud サービスは、引き続き後払いでご利用いただけます。
 
-請在帳戶通知中的轉換日期前切換至預付方案並儲值，以免服務中斷。如果帳戶只使用免費方案功能，則不必採取任何行動。
+サービスの中断を避けるため、アカウント通知に記載されているカットオーバー日より前に、前払いに切り替えてクレジットを追加してください。無料枠の機能のみを使用しているアカウントは、対応の必要はありません。
 
-如要將現有的後付帳戶改為預付，請按照下列步驟操作：
+既存の後払いアカウントを前払いに切り替えるには:
 
-1. 前往「AI Studio 帳單」頁面。
-2. 選取帳單帳戶的「切換至預付」。
-3. [購買抵免額](#buy-credits) (最低 $5 美元)，做為起始餘額。
+1. [AI Studio の [お支払い]](https://aistudio.google.com/billing?hl=ja) ページに移動します。
+2. 請求先アカウントの [**前払いへの切り替え**] を選択します。
+3. [クレジットを購入](#buy-credits)（最低 $5）して、開始残高をチャージします。
 
-為避免服務在切換後中斷，請設定[自動儲值](#auto-reload)，在抵免餘額不足時自動儲值。
+切り替え後にサービスが中断されないようにするには、クレジット残高が少なくなったときにチャージされるように[オートチャージ](#auto-reload)を設定します。
 
-## 支出上限
+## 利用額上限
 
-Gemini API 支援帳單帳戶層級和專案層級的每月支出上限。這些控制項旨在保護帳戶，避免產生預期外的超額費用，並確保生態系統的服務可用性。
+Gemini API は、請求先アカウントの階層とプロジェクト レベルの両方で月間の利用額上限をサポートしています。これらの制御は、アカウントを予期しない超過料金から保護し、エコシステムを保護してサービスの可用性を確保するように設計されています。
 
-*請注意，[可開立月結單的 (或離線)](https://docs.cloud.google.com/billing/docs/concepts?hl=zh-tw#billing_account_types)
-帳戶不適用支出上限。*
+*費用の上限は、[請求書発行（オフライン）](https://docs.cloud.google.com/billing/docs/concepts?hl=ja#billing_account_types)アカウントでは使用できません。*
 
-### 專案支出上限
+### プロジェクトの費用上限
 
-您可以在 AI Studio 中設定[專案層級](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)的支出上限。
-如果您在同一個帳單帳戶下有多個專案，且想確保每個專案都有足夠的累計支出上限，這項功能就非常實用。
+AI Studio では、独自の[プロジェクト レベル](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)の費用上限を設定できます。これは、同じ請求先アカウントに複数のプロジェクトがあり、各プロジェクトが累積費用上限に十分アクセスできるようにする場合に便利です。
 
-如要為 AI Studio 中的每個專案設定支出上限，請使用具備專案編輯者、擁有者或管理員[角色](https://docs.cloud.google.com/iam/docs/roles-overview?hl=zh-tw)的帳戶，依序前往「Monthly spend cap」 >「Edit spend cap」，然後在「Spend」頁面中設定。
+プロジェクトの編集者、オーナー、管理者の[ロール](https://docs.cloud.google.com/iam/docs/roles-overview?hl=ja)を持つアカウントは、AI Studio の [[費用](https://aistudio.google.com/spend?hl=ja)] ページで、[**月間の費用上限**] > [**費用上限を編集**] の順に選択して、プロジェクトごとに費用上限を設定できます。
 
-如要瞭解在 AI Studio 中查看或編輯支出上限和帳單資訊所需的特定 Google Cloud IAM 權限，請參閱 [AI Studio 疑難排解指南](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=zh-tw#iam-permissions)。
+AI Studio で費用上限とお支払い情報を表示または編集するために必要な特定の Google Cloud IAM 権限の詳細については、[AI Studio のトラブルシューティング ガイド](https://ai.google.dev/gemini-api/docs/troubleshoot-ai-studio?hl=ja#iam-permissions)をご覧ください。
 
-如果[將專案移至其他帳單帳戶](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#change_the_billing_account_for_a_project)，專案原先設定的支出上限會保留，但累積支出會在新的帳單週期重設為 $0。
+[プロジェクトを別の請求先アカウントに移動](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#change_the_billing_account_for_a_project)すると、そのプロジェクトに設定した費用の上限は維持されますが、累積費用は新しい請求期間で $0 にリセットされます。
 
-如果執行長時間執行的工作 (例如[批次模式](https://ai.google.dev/gemini-api/docs/batch-api?hl=zh-tw)完成和代理程式工作階段)，可能會超出專案支出上限。
+[バッチモード](https://ai.google.dev/gemini-api/docs/batch-api?hl=ja)の完了やエージェント セッションなどの長時間実行されるタスクでは、プロジェクトの費用上限を超える超過料金が発生する可能性があります。
 
-AI Studio 的帳單資料處理時間可能會延遲，最多約 10 分鐘。如果系統在累積更多費用前尚未處理帳單資料，您可能會超出專案上限。
+AI Studio では、課金データの処理時間が最大 10 分程度遅れることがあります。請求データが処理される前に料金が加算されると、プロジェクトの上限を超過する可能性があります。
 
-### 帳單帳戶層級支出上限
+### 請求先アカウントの階層の費用上限
 
-每個[等級](#about-billing)都有每月支出上限：
+各[ティア](#about-billing)には、月間の費用上限が設定されています。
 
-| 用量層級 | 支出上限 |
+| 使用量ティア | 利用額上限 |
 | --- | --- |
-| **免費** | 不適用 |
-| **第 1 級** | $250 美元 |
-| **第 2 級** | $2,000 美元 |
-| **第 3 級** | $20,000 美元至 $100,000 美元 |
+| **無料** | なし |
+| **Tier 1** | $250 |
+| **Tier 2** | $2,000 |
+| **Tier 3** | 20,000 ～ 100,000 ドル |
 
-系統會在[帳單帳戶](#cloud-billing)層級，對 Gemini API 設下每月用量上限。預設上限為預先設定，但您可以[要求提高上限](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=zh-tw)，以因應更高的用量。系統會彙整已啟用 Gemini API 服務的所有連結專案支出總額。當帳戶累計總額達到層級上限後，系統會暫停與該帳單帳戶連結的所有專案服務，直到下一個帳單週期開始 (每月 1 號) 為止。
+Gemini API の月間使用量上限は、[請求先アカウント](#cloud-billing)単位で適用されます。デフォルトの上限は事前に設定されていますが、使用量が増加した場合は、[引き上げをリクエスト](https://docs.google.com/forms/d/e/1FAIpQLSdiP6BWJyNNN65lnwnlOr-5Kv0MOFp0jLQyqi_ixVCfddqWBw/viewform?hl=ja)できます。合計費用は、Gemini API サービスが有効になっているリンクされたすべてのプロジェクトで集計されます。アカウントの合計が階層の上限に達すると、次の請求期間（毎月 1 日）が始まるまで、その請求先アカウントにリンクされているすべてのプロジェクトでサービスが一時停止されます。
 
-#### 評估帳單帳戶支出
+#### 請求先アカウントの費用を評価する
 
-如要評估過往的每月支出，判斷新的[帳單帳戶層級支出上限](#tier-spend-caps)是否會影響進行中的專案，請按照下列步驟操作：
+過去の月間費用を評価して、[請求先アカウントのティア別費用上限](#tier-spend-caps)が進行中のプロジェクトに影響するかどうかを確認する手順は次のとおりです。
 
-1. 在 Google Cloud 控制台中，查看 [Cloud Billing 帳戶的「報表」](https://console.cloud.google.com/billing/reports?hl=zh-tw)頁面。
-   - 如果有多個帳單帳戶，請在系統提示時選擇要查看費用報表的 Cloud Billing 帳戶。
-2. 報表預設會依「當月」的「服務」分組。您會在表格的「服務」欄中看到「Gemini API」，並在「用量費用」欄中看到總支出。
-3. 如要查看 Gemini API 用量的詳細費用，請將「依分組」篩選器設為依 **SKU** 分組，並將「服務」篩選器設為「Gemini API」。
-4. 將「依使用日期篩選時間範圍」調整為所需範圍，即可評估特定期間的歷史支出。
+1. Google Cloud コンソールで、[Cloud 請求先アカウントの [レポート]](https://console.cloud.google.com/billing/reports?hl=ja) ページを表示します。
+   - 請求先アカウントが複数ある場合は、プロンプトが表示されます。このプロンプトで、費用レポートを表示する Cloud 請求先アカウントを選択します。
+2. レポートはデフォルトで、[当月] の [サービス別にグループ化] に設定されています。テーブルの [**サービス**] 列に **Gemini API** が表示され、[**使用料金**] 列に合計費用が表示されます。
+3. Gemini API の使用量に限定した詳細な費用を表示するには、[**グループ条件**] フィルタを [**SKU**] でグループ化するように設定し、[**サービス**] フィルタを [**Gemini API**] に設定します。
+4. [**使用日別の期間**] フィルタを目的の範囲に調整して、期間内の過去の費用を評価します。
 
-## 處理時間
+## 処理時間
 
-帳單信號和更新不一定會即時顯示。
+請求シグナルと更新は必ずしもリアルタイムで行われるわけではありません。
 
-- **抵免額用量**：使用費用通常會在幾分鐘內從餘額扣除。
-- **確認付款**：大多數的信用卡付款都會立即完成，但部分付款方式 (例如銀行轉帳) 可能需要數天才能完成。購買點數的交易正式確認後，服務才會恢復或升級。
-- **等級升級**：付款成功或符合[升級條件](#about-billing)後，等級通常會在 10 分鐘內升級。
-- **總費用明細圖表**：[「帳單」](https://aistudio.google.com/billing?hl=zh-tw)頁面和[「支出」](https://aistudio.google.com/spend?hl=zh-tw)頁面上的總費用明細圖表，最多需要 24 小時才會更新。
+- **クレジットの使用量**: 通常、使用料金は数分以内に残高から引き落とされます。
+- **お支払いの確認**: ほとんどのカード支払いは即時に行われますが、お支払い方法によっては（銀行振込など）、清算に数日かかることがあります。サービスは、クレジットの購入が正式に確認された後にのみ再開またはアップグレードされます。
+- **ティアのアップグレード**: お支払いが完了した場合、または[アップグレード条件](#about-billing)を満たした場合、通常は 10 分以内にティアのアップグレードが反映されます。
+- **合計費用の内訳グラフ**: [[お支払い](https://aistudio.google.com/billing?hl=ja)] ページと [[費用](https://aistudio.google.com/spend?hl=ja)] ページに表示される合計費用の内訳グラフは、更新に最大 24 時間かかることがあります。
 
-請參閱有關[收費週期](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw#delayed-billing)和[交易](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=zh-tw#missing-transactions)延遲的 Cloud Billing 指南，進一步瞭解可能發生的帳單延遲情形。
+課金の遅延の可能性について詳しくは、[課金サイクル](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja#delayed-billing)と[トランザクション](https://docs.cloud.google.com/billing/docs/how-to/view-history?hl=ja#missing-transactions) レイテンシに関する Cloud Billing ガイドをご覧ください。
 
-## 退款
+## 払い戻し
 
-**預付**帳單帳戶無法申請退款，但變更帳戶類型時除外。
+アカウント タイプの切り替えの場合を除き、**前払い**の請求先アカウントでは払い戻しはできません。
 
-**預付帳戶切換為後付帳戶類型時** (符合[條件](#about-billing)並[手動升級](#postpay)帳戶後)，預付帳戶會關閉，剩餘的預付抵免額會自動退還至已登記的付款方式。
+**前払いアカウントが後払いアカウント タイプに切り替わる場合**（[条件](#about-billing)を満たし、アカウントを[手動でアップグレード](#postpay)した後）、前払いアカウントは閉鎖され、残りの前払いクレジットは登録されているお支払い方法に自動的に払い戻されます。
 
-如果因升級為後付以外的原因[關閉](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=zh-tw#close-a-billing-account)預付帳戶，系統會停用所有預付點數餘額，
+後払いにアップグレードする以外の理由で前払いアカウントを[閉鎖](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=ja#close-a-billing-account)した場合、残りの前払いクレジットは失効します。
 
-已購買抵免額的有效期限為 1 年。抵免額過期後即會失效，無法再使用。
+購入したクレジットの有効期限は 1 年です。有効期限が切れると、クレジットは没収され、取得できなくなります。
 
-**後付**帳戶適用 [Google Cloud 退款政策](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=zh-tw#request_a_refund)。
+**後払い**アカウントには、[Google Cloud の払い戻しポリシー](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=ja#request_a_refund)が適用されます。
 
-## Cloud Billing 帳戶
+## Cloud 請求先アカウント
 
-Gemini API 會使用 [Cloud Billing 帳戶](https://cloud.google.com/billing/docs/concepts?hl=zh-tw)支付服務費用，您可以在 [AI Studio 中直接設定](#setup-billing)。您可以使用 AI Studio 追蹤支出、瞭解費用，以及付款。
+Gemini API は、請求サービスに [Cloud 請求先アカウント](https://cloud.google.com/billing/docs/concepts?hl=ja)を使用します。これは、[AI Studio で直接設定](#setup-billing)できます。AI Studio を使用すると、費用の追跡、費用の把握、支払いができます。
 
-層級、速率限制和帳單帳戶上限都是在帳單帳戶層級決定。
+階層、レート上限、請求先アカウントの上限はすべて、請求先アカウント レベルで決定されます。
 
-### 專案和 API 金鑰
+### プロジェクトと API キー
 
-連結至 Cloud Billing 帳戶的所有[專案](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw#google-cloud-projects)，都會沿用該帳戶的使用量層級、相關費率限制和帳戶上限。如果[將專案從一個帳單帳戶移至另一個帳單帳戶](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#change_the_billing_account_for_a_project)，專案的層級 (以及隨後的速率限制和帳戶上限) 會切換至新帳單帳戶的層級。
+Cloud 請求先アカウントにリンクされているすべての[プロジェクト](https://ai.google.dev/gemini-api/docs/api-key?hl=ja#google-cloud-projects)は、請求先アカウントの使用量階層と、関連するレート上限とアカウント上限を継承します。[プロジェクトをある請求先アカウントから別の請求先アカウントに変更](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#change_the_billing_account_for_a_project)すると、その階層と、それに伴うレート制限とアカウント上限が、新しい請求先アカウントの階層に切り替わります。
 
-與帳單帳戶相關聯的所有專案，其累計支出 (所有 Google Cloud 產品) 和帳戶存在時間，都會計入該帳單帳戶的[層級資格](#about-billing)。
+請求先アカウントに関連付けられたすべてのプロジェクトの累積費用（すべての Google Cloud プロダクトの合計）とアカウントの有効期間は、その請求先アカウントの[階層の資格要件](#about-billing)の対象となります。
 
-如要返回免費層級，可以[取消專案與帳單帳戶的連結](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#disable_billing_for_a_project)。
+プロジェクトを請求先アカウントから[リンク解除](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#disable_billing_for_a_project)して、無料枠に戻ることができます。
 
-[API 金鑰](https://ai.google.dev/gemini-api/docs/api-key?hl=zh-tw)是在專案內產生的憑證。
-沒有獨立的帳單設定，而是沿用專案的層級限制和帳單狀態。專案中所有金鑰的累計用量，都會計入該專案的支出上限和帳單帳戶的總支出。
+[API キー](https://ai.google.dev/gemini-api/docs/api-key?hl=ja)は、プロジェクト内で生成される認証情報です。独立した課金設定はなく、プロジェクトの階層上限と課金ステータスを継承します。プロジェクト内のすべてのキーの累積使用量は、そのプロジェクトの費用上限と請求先アカウントの合計費用にカウントされます。
 
-## 常見問題
+## よくある質問
 
-以下各節提供常見問題的解答。
+以降のセクションでは、よくある質問の回答について説明します。
 
-### 我需要支付什麼費用？
+### 請求の対象は何ですか？
 
-Gemini API 的價格取決於以下因素：
+Gemini API の料金は、次の要素に基づきます。
 
-- 輸入詞元數
-- 輸出詞元數
-- 快取詞元數
-- 快取權杖儲存時間
+- 入力トークン数
+- 出力トークン数
+- キャッシュに保存されたトークン数
+- キャッシュに保存されたトークンの保存期間
 
-如需定價資訊，請參閱[定價頁面](https://ai.google.dev/pricing?hl=zh-tw)。
+料金については、[料金ページ](https://ai.google.dev/pricing?hl=ja)をご覧ください。
 
-### 如何查看配額？
+### 割り当てはどこで確認できますか？
 
-您可以在 [AI Studio](https://aistudio.google.com/usage?hl=zh-tw) 中查看配額和系統限制。
+割り当てとシステム上限は [AI Studio](https://aistudio.google.com/usage?hl=ja) で確認できます。
 
-### 如何升級至更高的速率限制層級，或要求更多配額？
+### より高いレート上限の階層に移行するにはどうすればよいですか？また、割り当ての増加をリクエストするにはどうすればよいですか？
 
-當帳戶達到下一個[層級的規定](https://ai.google.dev/gemini-api/docs/rate-limits?hl=zh-tw#usage-tiers)時，系統會自動授予更多配額。
+アカウントが次の[階層の要件](https://ai.google.dev/gemini-api/docs/rate-limits?hl=ja#usage-tiers)を満たすと、割り当てが自動的に増加します。
 
-### 在歐洲經濟區 (包括歐盟)、英國和瑞士，可以免費使用 Gemini API 嗎？
+### EEA（EU を含む）、英国、スイスで Gemini API を無料で使用できますか？
 
-是的，我們在[許多區域](https://ai.google.dev/gemini-api/docs/available-regions?hl=zh-tw)提供免費和付費方案。
+はい。無料枠と有料枠は[多くのリージョン](https://ai.google.dev/gemini-api/docs/available-regions?hl=ja)でご利用いただけます。
 
-### 如果我為 Gemini API 設定帳單，是否需要支付 Google AI Studio 的使用費用？
+### Gemini API でお支払い情報を設定した場合、Google AI Studio の使用料金は請求されますか？
 
-除非使用者連結付費 API 金鑰來存取付費功能，否則 AI Studio 仍可免費使用。在 AI Studio 中，將付費 API 金鑰連結至付費專案後，系統就會針對該金鑰的 AI Studio 用量收費。您可以視需要使用與各類型連結的 API 金鑰，在付費方案專案和免費方案專案之間切換。
+有料機能にアクセスするために有料の API キーをリンクしない限り、AI Studio の使用は無料です。AI Studio の有料プロジェクトの一部として有料 API キーをリンクすると、そのキーの AI Studio の使用量に対して課金されます。各タイプにリンクされているそれぞれの API キーを使用して、必要に応じて有料枠プロジェクトと無料枠プロジェクトを切り替えることができます。
 
-### 如果我使用免費方案，如何升級至更高方案？
+### 無料枠を利用している場合、上位の Tier にアップグレードするにはどうすればよいですか？
 
-如要使用較高的層級，必須先在專案中設定帳單資訊。在 Google AI Studio 中，按一下「設定帳單」。系統會引導你選取或建立 Cloud Billing 帳戶。如果必須採用預付型帳單模式，系統會透過「設定帳單」程序，引導您建立連結至 Cloud Billing 帳戶的預付帳戶。
+上位の階層にアクセスするには、プロジェクトで課金を設定する必要があります。Google AI Studio で [[**お支払い情報を設定**](#setup-billing)] をクリックします。Cloud 請求先アカウントの選択または作成の手順が表示されます。前払い請求モデルを使用する必要がある場合は、**課金の設定**プロセスで、Cloud 請求先アカウントにリンクされた前払いアカウントを作成する手順が説明されます。
 
-### 免費方案可以使用 100 萬個權杖嗎？
+### 無料枠で 100 万個のトークンを使用できますか？
 
-Gemini API 的免費方案會因所選模型而異。目前，您可以透過下列方式試用 100 萬個詞元的脈絡窗口：
+Gemini API の無料枠は、選択したモデルによって異なります。現時点では、次の方法で 100 万トークンのコンテキスト ウィンドウを試すことができます。
 
-- 在 Google AI Studio 中
-- 指定車款可享免付費方案
-- 後付費方案
+- Google AI Studio で
+- 一部のモデルでは無料プランをご利用いただけます
+- 後払いプランの場合
 
-### 升級至較高 (付費) 層級後，可以還原為免費方案嗎？
+### 上位（有料）階層にアップグレードした後、無料枠に戻すことはできますか？
 
-如要降級至免費方案，請在要降級的每個專案中[停用計費功能](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#disable_billing_for_a_project)。
+無料枠にダウングレードするには、ダウングレードする各プロジェクトで[課金を無効](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#disable_billing_for_a_project)にします。
 
-### 如何計算我使用的權杖數量？
+### 使用しているトークンの数を計算するにはどうすればよいですか？
 
-使用 [`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=zh-tw#count_tokens) 方法計算權杖數量。如要進一步瞭解權杖，請參閱[權杖指南](https://ai.google.dev/gemini-api/docs/tokens?hl=zh-tw)。
+[`GenerativeModel.count_tokens`](https://ai.google.dev/api/python/google/generativeai/GenerativeModel?hl=ja#count_tokens) メソッドを使用して、トークン数をカウントします。トークンの詳細については、[トークンガイド](https://ai.google.dev/gemini-api/docs/tokens?hl=ja)をご覧ください。
 
-### 如果我透過 AI Studio 申請第一個 Cloud Billing 帳戶，還能獲得 Google Cloud 免費試用方案嗎？
+### AI Studio から最初の Cloud 請求先アカウントに登録した場合でも、Google Cloud の無料トライアルを利用できますか？
 
-首次註冊 Cloud Billing 帳戶時，系統會啟動 [Google Cloud 免費試用](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=zh-tw#free-trial)，並提供 $300 美元的[迎新抵免額](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw#welcome-credits)。不過，這些抵免額無法用於支付 AI Studio 用量。您可以使用歡迎抵免額支付 Google Cloud 中其他符合資格的服務費用 (請注意，一旦抵免額用完或過期 (90 天內)，系統就會自動透過您設定的付款方式，收取任何額外使用費)。
+初めて Cloud 請求先アカウントに登録すると、[Google Cloud の無料トライアル](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=ja#free-trial)が開始され、$300 の[ウェルカム クレジット](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja#welcome-credits)が付与されます。ただし、これらのクレジットは AI Studio の使用料金の支払いには使用できません。ウェルカム クレジットは、Google Cloud 内の他の対象サービスのお支払いに使用できます（クレジットが消費されるか、有効期限（90 日以内）が切れると、追加の使用料金は設定されたお支払い方法に自動的に請求されます）。
 
-### 我可以使用 Google Cloud 迎新抵免額搭配 Gemini API 嗎？
+### Gemini API で Google Cloud ウェルカム クレジットを使用できますか？
 
-否，Google Cloud [迎新抵免額](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw#welcome-credits)或免費試用抵免額無法用於 Gemini API 或 AI Studio。
+いいえ。Google Cloud の[ウェルカム クレジット](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja#welcome-credits)または無料トライアル クレジットは、Gemini API または AI Studio に使用できません。
 
-如果 Google Cloud 迎新抵免額在您取得後才不符合資格，您仍可在抵免額到期前 (90 天後)，將剩餘抵免額用於 Gemini API 和 AI Studio。
+Google Cloud ウェルカム クレジットの対象外になる前にクレジットが付与された場合は、クレジットの有効期限（90 日後）が切れるまで、残りのクレジットを Gemini API と AI Studio で使用できます。
 
-### Google Cloud 免費試用方案是否適用於 Gemini API 用量？
+### Google Cloud の無料トライアルは Gemini API の使用量に適用されますか？
 
-不行。自 2026 年 3 月起，Gemini API 用量費用將不計入 [$300 美元的 Google Cloud 免費試用](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=zh-tw#free-trial)計畫。
+いいえ。2026 年 3 月より、Gemini API の使用料金は [300 ドル分の Google Cloud 無料トライアル](https://docs.cloud.google.com/free/docs/free-cloud-features?hl=ja#free-trial) プログラムの対象外となります。
 
-### Google Cloud 抵免額如何與預付方案搭配運作？
+### Google Cloud クレジットは前払いとどのように連携しますか？
 
-預付使用者必須先[購買預付額度](#buy-credits)，才能將任何符合資格的 Google Cloud 抵免額用於 Gemini API。如果預付抵免額餘額有效，系統會先使用適用於 Gemini API 的 Google Cloud 抵免額，再使用預付抵免額餘額。當帳單帳戶的預付抵免額餘額達到 $0 時，系統將不再使用 Google Cloud 抵免額。
+前払いユーザーは、Gemini API の使用に適用できる Google Cloud クレジットを使用する前に、まず[前払いクレジットを購入](#buy-credits)する必要があります。前払いクレジットの残高が有効になると、Gemini API の対象となる Google Cloud クレジットは、前払いクレジットの残高よりも先に使用されます。請求先アカウントのプリペイド クレジット残高が $0 になると、Google Cloud クレジットは使用されなくなります。
 
-並非所有 Google Cloud 抵免額 (例如 [Google Cloud 迎新抵免額](#cloud-credits)) 都能用於 Gemini API 和 AI Studio。
+[Google Cloud ウェルカム クレジット](#cloud-credits)など、一部の Google Cloud クレジットは Gemini API と AI Studio に使用できません。
 
-### 如何計費？
+### 請求はどのように処理されますか？
 
-Gemini API 的帳單事務是由 [Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=zh-tw) 系統處理。如要瞭解如何透過產品設定 Cloud Billing，請參閱 [Cloud Billing 說明文件](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=zh-tw)。
+Gemini API の課金は、[Cloud Billing](https://cloud.google.com/billing/docs/concepts?hl=ja) システムによって処理されます。プロダクト内の Cloud Billing のお支払い情報の設定については、[Cloud Billing のドキュメント](https://docs.cloud.google.com/billing/docs/in-product-billing-setup?hl=ja)をご覧ください。
 
-### 系統會對失敗的要求收費嗎？
+### 失敗したリクエストに対して課金されますか？
 
-如果要求失敗並傳回 400 或 500 錯誤，系統不會收取使用的權杖費用。不過，這類要求仍會計入配額。
+リクエストが 400 エラーまたは 500 エラーで失敗した場合、使用されたトークンに対して課金されることはありません。ただし、リクエストは割り当てにカウントされます。
 
-### 「`GetTokens`」是否已結算？
+### `GetTokens` は課金対象ですか？
 
-對 `GetTokens` API 的要求不會產生費用，也不會計入推論配額。
+`GetTokens` API へのリクエストは課金されず、推論割り当てにもカウントされません。
 
-### 如果我使用付費 API 帳戶，Google AI Studio 資料會如何處理？
+### 有料の API アカウントを使用している場合、Google AI Studio のデータはどのように処理されますか？
 
-如要瞭解啟用 Cloud 帳單後資料的處理方式，請參閱《[服務條款](https://ai.google.dev/gemini-api/terms?hl=zh-tw#paid-services)》的「付費服務」部分，並查看「Google 如何使用您的資料」。請注意，只要至少有 1 個 API 專案啟用帳單功能，Google AI Studio 提示就會適用相同的「付費服務」條款。如要驗證，請前往 [Gemini API 金鑰頁面](https://aistudio.google.com/api-keys?hl=zh-tw)，查看「方案」下方是否有任何專案標示為「付費」。
+Cloud 請求が有効になっている場合のデータの取り扱いについては、[利用規約](https://ai.google.dev/gemini-api/terms?hl=ja#paid-services)（「有料サービス」の「Google による使用者のデータの利用方法」を参照）をご覧ください。少なくとも 1 つの API プロジェクトで課金が有効になっている限り、Google AI Studio のプロンプトは同じ「有料サービス」の条件で扱われます。これは、[プラン] で「有料」とマークされているプロジェクトがあるかどうかを [Gemini API キーページ](https://aistudio.google.com/api-keys?hl=ja)で確認できます。
 
-### 什麼是預付結算？哪些人必須使用預付結算模式？
+### 前払いによるお支払いとは何ですか？また、前払いによるお支払いモデルを使用する必要があるのは誰ですか？
 
-預付帳單功能可讓 AI Studio 中的 Gemini API 使用者預購抵免額。2026 年 3 月 23 日起，AI Studio 新使用者可能必須採用預付方案。在 AI Studio 的「設定帳單」過程中，使用者介面會引導您完成帳單設定流程，並指出是否需要預付款。
+前払い請求では、AI Studio の Gemini API のユーザーがクレジットを事前に購入できます。2026 年 3 月 23 日以降、AI Studio の新規ユーザーは、前払いプランへの登録が必要になる場合があります。AI Studio の[お支払い設定](#setup-billing)プロセスでは、UI に沿ってお支払い設定フローを進めます。前払いが必須かどうかは、UI に表示されます。
 
-### 如何購買預付抵免額？是否有最低或最高金額限制？
+### 前払いクレジットを購入するにはどうすればよいですか？購入できる金額に上限や下限はありますか？
 
-你可以在 AI Studio 的「帳單」頁面[購買點數](#buy-credits)。在購買過程中，使用者介面會顯示您所在區域和層級的最低預付金額，以及帳戶一次可儲值的最高金額。
+AI Studio の [お支払い] ページで[クレジットを購入](#buy-credits)できます。購入手続きの際、UI には、お住まいの地域とティアレベルに必要な事前購入の最小額と、アカウントに一度にチャージできる最大額が表示されます。
 
-### 我可以設定預付帳戶，在需要時自動購買更多點數嗎？
+### 必要に応じてクレジットを自動的に購入するように前払いアカウントを設定できますか？
 
-建議您在 AI Studio 帳單設定中設定[自動重新載入](#auto-reload)。您指定「觸發」抵免額餘額 (例如「當餘額低於 $30 美元時」) 和「儲值金額」(例如「加值 $100 美元」)。
+はい。AI Studio の課金設定で[オートチャージ](#auto-reload)を構成することをおすすめします。「トリガー」となるクレジット残高（「残高が 30 ドルを下回った場合」など）と「チャージ金額」（「100 ドルを追加」など）を指定します。
 
-### 我可以限制自動儲值金額嗎？
+### 自動リチャージの金額を制限できますか？
 
-可以。預付型方案使用者可以在「自動儲值」小工具中設定「每月自動扣款上限」。當帳單週期內的自動儲值總金額達到這個上限時，系統會停用自動儲值功能，直到下個月為止。手動購買的點數不會計入這項限制。
+はい。プリペイド ユーザーは、[**オートチャージ**] ウィジェットで [[1 か月の上限額](#monthly-auto-charge-limit)] を設定できます。請求期間内のオートチャージの合計額がこの上限に達すると、翌月までオートチャージは無効になります。手動クレジット購入は、この上限にカウントされません。
 
-### 未使用的點數可以退款嗎？
+### 未使用のクレジットの払い戻しを受けることはできますか？
 
-所有預付 API 點數的有效期限為 1 年，且無法退款。詳閱[預付帳戶的退款政策](#refunds)。
+プリペイド API クレジットはすべて 1 年後に期限切れとなり、払い戻しはできません。[前払いアカウントの払い戻しポリシー](#refunds)をご確認ください。
 
-### 預付抵免額會過期嗎？
+### 前払いクレジットに有効期限はありますか？
 
-會，抵免額會在購買日起 12 個月後到期。
+はい。クレジットは購入日から 12 か月後に有効期限が切れます。
 
-### 預付額度用完會怎麼樣？
+### プリペイド クレジットの残高が $0 になるとどうなりますか？
 
-為避免產生更多費用，由該 Cloud Billing 預付帳戶支付的所有專案中，所有 Gemini API 服務都會立即停止。專案不會自動降級為免費方案。
+その Cloud Billing 前払いアカウントで支払われたすべてのプロジェクトのすべての Gemini API サービスが直ちに停止し、追加の料金が発生しなくなります。プロジェクトは自動的に無料枠にダウングレードされません。
 
-如要恢復目前付費層級的服務，請[購買額外點數](#buy-credits)。購買抵免額後，您應該就能使用 Gemini API。請注意，系統更新以反映信用額度時，可能會有[延遲](#processing-times)。
+現在の有料プランのレベルでサービスを復元するには、[追加のクレジットを購入](#buy-credits)する必要があります。クレジットを購入すると、Gemini API を使用できるようになります。なお、クレジット残高が反映されるまで、[遅延](#processing-times)が生じることがあります。
 
-如要降級至免費方案，可以選擇在要降級的專案中[停用計費功能](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=zh-tw#disable_billing_for_a_project)。
+必要に応じて、無料枠にダウングレードするには、ダウングレードするプロジェクトの[課金を無効](https://docs.cloud.google.com/billing/docs/how-to/modify-project?hl=ja#disable_billing_for_a_project)にします。
 
-### 為什麼預付額度大於 $0，但使用量卻停止了？
+### プリペイド クレジットの残高が 0 ドルを超えているのに、使用量が停止したのはなぜですか？
 
-你可能已達到目前方案的[用量上限](#tier-spend-caps)。
-隨著你升級至較高的級別，用量限制也會自動增加。[Cloud Billing 帳戶狀態](#missed-payment)也可能影響 Gemini API AI Studio 用量。
+現在のプランの[使用量上限](#tier-spend-caps)に達した可能性があります。上位のティアに進むと、使用量の上限が自動的に引き上げられます。Gemini API AI Studio の使用状況は、[Cloud 請求先アカウントのステータス](#missed-payment)によっても影響を受ける可能性があります。
 
-### 為什麼我的預付帳戶信用額度餘額為負值？
+### プリペイド アカウントのクレジット残高がマイナスになっているのはなぜですか？
 
-由於帳單和處理系統相當複雜，因此在您用完所有抵免額後，我們可能[延遲](#processing-times)停止服務。這類超額用量可能會在 AI Studio 帳單資訊主頁中顯示為負值抵免餘額。如果發生這種情況，服務會暫停，而負餘額會從您下次購買的抵免額中扣除。
+請求システムと処理システムが複雑なため、クレジットをすべて使用した後、使用を停止するまでに[遅延](#processing-times)が生じる可能性があります。この超過使用量は、AI Studio の課金ダッシュボードにマイナスのクレジット残高として表示されることがあります。この場合、サービスは一時停止され、マイナス残高は次回のクレジット購入時に差し引かれます。
 
-為避免 Gemini API 服務暫停，建議您設定[自動儲值](#auto-reload)，在抵免餘額低於指定值時自動購買更多抵免額。
+Gemini API サービスが一時停止しないようにするには、クレジット残高が指定した値を下回ったときに自動的にクレジットを購入する[オートチャージ](#auto-reload)を設定することをおすすめします。
 
-### 預付抵免額是否可用於其他 Google Cloud 服務，例如 Gemini Enterprise Agent Platform？
+### 前払いクレジットを Gemini Enterprise Agent Platform などの他の Google Cloud サービスに使用できますか？
 
-不行，預付抵免額只能用於 Gemini API。您使用的任何其他 Google Cloud 服務 (Compute、Storage、Gemini Enterprise Agent Platform) 都會按照標準 [Cloud 計費週期](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw)計費。
+いいえ。前払いクレジットは Gemini API の使用にのみ使用できます。使用する他の Google Cloud サービス（Compute、Storage、Gemini Enterprise Agent Platform）は、標準の [Cloud 請求サイクル](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja)で請求されます。
 
-### 可以從預付改為後付嗎？
+### 前払いから後払いに切り替えることはできますか？
 
-否，系統不支援從預付帳單方案切換至後付帳單方案。
+いいえ。前払い請求プランから後払い請求プランへの切り替えはサポートされていません。
 
-### 可以從後付切換為預付帳單嗎？
+### 後払いから前払いに切り替えることはできますか？
 
-可以，您可以在 [AI Studio 帳單](https://aistudio.google.com/billing?hl=zh-tw)頁面轉換現有的後付帳戶。如需操作說明，請參閱「[改用預付方案](#migrate-to-prepay)」。
+はい。[AI Studio のお支払い](https://aistudio.google.com/billing?hl=ja)ページで、既存の後払いアカウントを移行できます。手順については、[前払いに移行する](#migrate-to-prepay)をご覧ください。
 
-### 如果改用月結方案，預付額度會怎麼樣？
+### 後払いプランに切り替えた場合、前払いクレジットはどうなりますか？
 
-升級至[後付](#postpay)後，Cloud Billing 會關閉預付付款帳戶、停用[自動儲值](#auto-reload)，並自動將任何未使用的預付抵免額退還給您 (退款處理時間依標準程序而定)。
+[後払い](#postpay)にアップグレードすると、Cloud Billing は前払いのお支払いアカウントを閉鎖し、[オートチャージ](#auto-reload)を無効にして、未使用の前払いクレジットを自動的に払い戻します（標準の払い戻し処理時間に従います）。
 
-### 我可以在哪裡查看目前的預付額度餘額和交易記錄？
+### 現在のプリペイド クレジットの残高と取引履歴はどこで確認できますか？
 
-如要管理 Gemini API 餘額和交易記錄，請直接前往 Google AI Studio 的「帳單」分頁。
+Gemini API の残高管理と取引履歴はすべて、Google AI Studio の [お支払い] タブで直接行う必要があります。
 
-### 為什麼會看到「帳單帳戶類型無效或不受支援」？
+### 「請求先アカウントの種類が無効であるか、サポートされていません」というメッセージが表示されるのはなぜですか？
 
-如果所選帳單帳戶類型或帳單帳戶狀態不符合 AI Studio 付費層級的資格，系統可能會封鎖 [AI Studio 帳單頁面](https://aistudio.google.com/billing?hl=zh-tw)的付款互動，並顯示「帳單帳戶類型無效或不支援」訊息。
+選択した請求先アカウントの種類または請求先アカウントのステータスが AI Studio の有料階層の対象でない場合、[AI Studio のお支払いページ](https://aistudio.google.com/billing?hl=ja)でのお支払い操作がブロックされ、「請求先アカウントの種類が無効またはサポートされていません」というメッセージが表示されることがあります。
 
-請前往 [Cloud Console](https://console.cloud.google.com/billing/?hl=zh-tw) 查看帳單帳戶狀態。其中一種不符合資格的類型可能是*免費試用帳戶*，在這種情況下，您可以在 AI Studio 中[啟用帳單](#setup-billing)，即可符合資格。其中一種閒置狀態是「已關閉」，在這種情況下，您可以[重新開啟帳戶](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=zh-tw)。
+[Cloud Console](https://console.cloud.google.com/billing/?hl=ja) で、お支払いアカウントのステータスを確認します。対象外のタイプとして、*無料トライアル アカウント*が考えられます。この場合は、AI Studio で[課金を有効](#setup-billing)にすると、対象となります。無効な状態の 1 つに [*閉鎖*] があります。この場合は、[アカウントを再開](https://docs.cloud.google.com/billing/docs/how-to/close-or-reopen-billing-account?hl=ja)できます。
 
-### Google Cloud 控制台會顯示 Gemini API 用量費用嗎？
+### Gemini API の使用料金は Google Cloud コンソールに表示されますか？
 
-可以。Gemini API 費用以及 Cloud Billing 帳戶支付的任何其他 Google Cloud 服務相關費用，都會顯示在 [Cloud Billing 控制台](https://console.cloud.google.com/billing?hl=zh-tw)的[費用管理頁面](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=zh-tw#cost-reports)。請注意，你只能在 AI Studio 中管理預付額度餘額。
+はい。Gemini API の費用は、Cloud 請求先アカウントで支払われる他の Google Cloud サービスの費用とともに、[Cloud Billing コンソール](https://console.cloud.google.com/billing?hl=ja)の[費用管理ページ](https://docs.cloud.google.com/billing/docs/how-to/split-charging-cycle?hl=ja#cost-reports)で確認できます。前払いクレジット残高は AI Studio でのみ管理できます。
 
-### 為什麼我在 AI Studio 帳單中可以看到 Gemini API 用量和抵免額用量，但 Cloud Billing Console 中卻沒有顯示？
+### Gemini API の使用状況が Cloud Billing コンソールに表示されません。AI Studio の請求では、クレジットの使用状況とともに表示されています。なぜですか？
 
-Google Cloud 和 AI Studio 會按照不同間隔，將用量資料回報給 Cloud Billing。由於帳單和處理系統較為複雜，您可能需要等待一段時間，才能在 Cloud Billing 中查看服務用量和費用。費用明細通常會在一天內顯示，但有時可能超過 24 小時。如要進一步瞭解延遲結算，請參閱 [Cloud Billing 說明文件](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=zh-tw#delayed-billing)。
+Google Cloud と AI Studio は、さまざまな間隔で使用量データを Cloud Billing に報告します。請求システムと処理システムの複雑さにより、サービスの使用と、Cloud Billing に表示される使用量や費用との間に遅延が生じる場合があります。通常、費用の詳細は 1 日以内に確認できますが、24 時間以上かかる場合もあります。遅延請求の詳細については、[Cloud Billing のドキュメント](https://docs.cloud.google.com/billing/docs/how-to/billing-cycle?hl=ja#delayed-billing)をご覧ください。
 
-### 如果我使用其他 Google Cloud 服務，且費用適用於後付費週期，如果我未付款會發生什麼情況？
+### 後払い請求サイクルの対象となる費用が発生する他の Google Cloud サービスを使用している場合、支払いを忘れるとどうなりますか？
 
-如果其他 Google Cloud 服務的款項未繳清，即使**預付抵免額充足**，系統仍會暫停您在 AI Studio 中存取 Gemini API。AI Studio 的用量會透過 Google Cloud Billing 帳戶計費，該帳戶可同時用於 AI Studio 的預付帳單，以及其他 Cloud 服務的後付帳單。如果後付餘額有問題，與該帳戶相關的所有服務都會停止運作。如果 Cloud Billing 帳戶因下列問題遭到標記，Gemini API 用量就會遭到停權：
+他の Google Cloud サービスの支払いが滞ると、**利用可能なプリペイド クレジットの残高に関係なく**、AI Studio での Gemini API へのアクセスが停止される可能性があります。AI Studio の使用量は Google Cloud 請求先アカウントによって管理されます。このアカウントでは、AI Studio の前払い請求と他の Cloud サービスの後払い請求の両方を共有できます。後払い残高に問題があると、そのアカウントに関連付けられているすべてのサービスが停止します。Cloud 請求先アカウントに次のような問題が報告された場合、Gemini API の使用は一時停止されます。
 
-- 逾期或未繳的餘額
-- 已遭拒的付款
-- 付款方式無效或過期
+- 未払いまたは支払い期限が過ぎた残高
+- お支払いが承認されなかった場合
+- 無効または期限切れのお支払い方法
 
-如要恢復服務，請前往 Google Cloud Billing 控制台[解決後付費帳戶問題](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=zh-tw#resolving-declined-payments)。解決問題後，您就能重新使用預付型 Gemini API 抵免額和服務。
+サービスを復元するには、Google Cloud Billing コンソールで[後払いアカウントの問題を解決](https://docs.cloud.google.com/billing/docs/how-to/resolve-issues?hl=ja#resolving-declined-payments)する必要があります。問題を解決すると、プリペイド Gemini API クレジットとサービスに再びアクセスできるようになります。
 
-### 取消預付設定後，為什麼專案會中斷？
+### 前払い設定をキャンセルした後、プロジェクトが中断されるのはなぜですか？
 
-**問題：**您已啟動程序，要為現有的後付帳單帳戶新增預付功能，但尚未完成預付設定，就關閉視窗或取消程序。與該帳單帳戶連結的其他專案將無法存取 Gemini API。
+**問題:** 既存の後払い請求先アカウントに前払い機能を追加するフローを開始しましたが、前払い設定を完了する前にウィンドウを閉じるか、プロセスをキャンセルしました。その請求先アカウントにリンクされている他のプロジェクトは、Gemini API へのアクセス権を失いました。
 
-**原因：**在轉換流程中，接受確認對話方塊後，系統會立即在帳單帳戶中建立支援預付的基礎架構。如果未完成預付步驟，設定會維持無法收費的狀態。由於這項狀態適用於帳單帳戶層級，因此凡是連結至該帳單帳戶且依賴預付服務的專案，都會受到存取限制。
+**原因:** 移行フローでは、確認ダイアログを承認すると、前払いをサポートするインフラストラクチャが請求先アカウントに直ちに作成されます。前払いの手順を完了しないと、構成は課金できない状態のままになります。この状態は請求先アカウント レベルで適用されるため、前払いサービスを利用するその請求先アカウントにリンクされているすべてのプロジェクトへのアクセスが制限されます。
 
-**解決方法：**由於帳戶狀態已變更，如果放棄付款流程，系統不會自動還原狀態。如要還原連結專案的服務，請執行下列任一操作：
+**解決策:** アカウントの状態はすでに変更されているため、お支払いフローを中断した場合に状態を自動的に元に戻す方法はありません。リンクされたプロジェクトへのサービスを復元するには、次のいずれかを行います。
 
-- **完成設定：**返回 Google AI Studio，重新啟動帳單設定流程，然後完成預付款程序。付款處理完畢後，預付帳單方案就會啟用，服務也會恢復。
-- **聯絡支援團隊：**如果您不想使用預付計費方案，並想將帳單帳戶還原為後付方案，請[聯絡 Cloud Billing 支援團隊](https://cloud.google.com/support/billing?hl=zh-tw)，手動重設帳戶狀態。
+- **設定を完了する:** Google AI Studio に戻り、お支払い情報の設定フローを再開して、前払い手続きを完了します。お支払いが処理されると、前払い請求プランが有効になり、サービスが復元されます。
+- **サポートにお問い合わせください:** 前払いプランを使用せず、請求先アカウントを後払いに戻す場合は、[Cloud Billing サポートにお問い合わせ](https://cloud.google.com/support/billing?hl=ja)のうえ、アカウントの状態を手動でリセットしてください。
 
-### 如何取得帳單相關協助？
+### 請求に関するサポートはどこで受けられますか？
 
-如需帳單相關協助，請參閱「[取得 Cloud Billing 支援](https://cloud.google.com/support/billing?hl=zh-tw)」。
+課金に関するサポートについては、[Cloud Billing サポートを利用する](https://cloud.google.com/support/billing?hl=ja)をご覧ください。
 
-提供意見
+フィードバックを送信
 
-除非另有註明，否則本頁面中的內容是採用[創用 CC 姓名標示 4.0 授權](https://creativecommons.org/licenses/by/4.0/)，程式碼範例則為[阿帕契 2.0 授權](https://www.apache.org/licenses/LICENSE-2.0)。詳情請參閱《[Google Developers 網站政策](https://developers.google.com/site-policies?hl=zh-tw)》。Java 是 Oracle 和/或其關聯企業的註冊商標。
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-上次更新時間：2026-09-28 (世界標準時間)。
+最終更新日 2026-09-28 UTC。
 
-想進一步說明嗎？
+ご意見をお聞かせください
 
-[[["容易理解","easyToUnderstand","thumb-up"],["確實解決了我的問題","solvedMyProblem","thumb-up"],["其他","otherUp","thumb-up"]],[["缺少我需要的資訊","missingTheInformationINeed","thumb-down"],["過於複雜/步驟過多","tooComplicatedTooManySteps","thumb-down"],["過時","outOfDate","thumb-down"],["翻譯問題","translationIssue","thumb-down"],["示例/程式碼問題","samplesCodeIssue","thumb-down"],["其他","otherDown","thumb-down"]],["上次更新時間：2026-09-28 (世界標準時間)。"],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-09-28 UTC。"],[],[]]

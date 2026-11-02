@@ -1,46 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=ar
-fetched_at: 2026-10-26T05:52:13.948321+00:00
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-pro?hl=fa
+fetched_at: 2026-11-02T07:00:37.164258+00:00
 title: "Gemini 2.5 Pro \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon متاح الآن. [جرِّب هذه الميزة](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ar).
+‫Gemini 4 Argon اکنون دردسترس است. [امتحان کنید](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=fa).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=ar)
+![](https://ai.google.dev/_static/images/translated.svg?hl=fa)
 
-تستخدم Google تكنولوجيا الذكاء الاصطناعي لترجمة المحتوى إلى لغتك المفضّلة، وقد تتضمّن بعض الأخطاء.
+‫Google برای ترجمه محتوا به زبان ترجیحی شما از فناوری هوشواره استفاده می‌کند. ترجمه‌های هوشواره‌ای ممکن است اشتباه داشته باشند.
 
-- [الصفحة الرئيسية](https://ai.google.dev/?hl=ar)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=ar)
-- [المستندات](https://ai.google.dev/gemini-api/docs?hl=ar)
+- [صفحه اصلی](https://ai.google.dev/?hl=fa)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=fa)
+- [سندنگار](https://ai.google.dev/gemini-api/docs?hl=fa)
 
-إرسال ملاحظات
+ارسال بازخورد
 
 # Gemini 2.5 Pro
 
-نموذج التفكير المتطوّر الذي يمكنه الاستدلال بشأن المشاكل المعقّدة في الرموز البرمجية والرياضيات والعلوم والتكنولوجيا والهندسة والرياضيات (STEM)، بالإضافة إلى تحليل مجموعات البيانات وقواعد الرموز البرمجية والمستندات الكبيرة باستخدام سياق طويل
+مدل تفکر پیشرفته ما که قادر به استدلال درباره مسائل پیچیده در کد، ریاضی، و علوم، فناوری، مهندسی، و ریاضیات (STEM) است و می‌تواند مجموعه‌های داده بزرگ، پایگاه‌های کد، و اسناد را بااستفاده از بافت طولانی تحلیل کند.
 
-[تجربة الميزة في Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=ar)
+[امتحان کردن در Google AI Studio](https://aistudio.google.com?model=gemini-2.5-pro&hl=fa)
 
 ## gemini-2.5-pro
 
-| الموقع | الوصف |
+| دارایی | شرح |
 | --- | --- |
-| رمز النموذج id\_card | `gemini-2.5-pro` |
-| saveأنواع البيانات المتوافقة | **المدخلات**  الصوت والصور والفيديو والنصوص وملفات PDF  **الناتج**  نص |
-| token\_autoحدود الرموز المميزة[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=ar) | **الحدّ الأقصى لعدد الرموز المميزة التي يمكن إدخالها**  1,048,576  **الحدّ الأقصى لرموز الناتج المميزة**  65,536 |
-| handymanالإمكانات | **[إنشاء الصوت](https://ai.google.dev/gemini-api/docs/speech-generation?hl=ar)**  غير متاح  **[التخزين المؤقت](https://ai.google.dev/gemini-api/docs/caching?hl=ar)**  متاح  **[تنفيذ الرموز البرمجية](https://ai.google.dev/gemini-api/docs/code-execution?hl=ar)**  متاح  **[البحث عن الملفات](https://ai.google.dev/gemini-api/docs/file-search?hl=ar)**  متاح  **[استدعاء الدوال](https://ai.google.dev/gemini-api/docs/function-calling?hl=ar)**  متاح  **[استخدام "خرائط Google" كمصدر](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=ar)**  متاح  **[إنشاء الصور](https://ai.google.dev/gemini-api/docs/image-generation?hl=ar)**  غير متاح  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=ar)**  غير متاح  **[تحديد المصادر في "بحث Google"](https://ai.google.dev/gemini-api/docs/google-search?hl=ar)**  متاح  **[المُخرجات المنظَّمة](https://ai.google.dev/gemini-api/docs/structured-output?hl=ar)**  متاح  **[التفكير](https://ai.google.dev/gemini-api/docs/thinking?hl=ar)**  متاح  **[سياق عنوان URL](https://ai.google.dev/gemini-api/docs/url-context?hl=ar)**  متاح |
-| speedخيارات الاستهلاك | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=ar)**  متاح  **[الاستنتاج المرن](https://ai.google.dev/gemini-api/docs/flex-inference?hl=ar)**  متاح  **[استنتاج الأولوية](https://ai.google.dev/gemini-api/docs/priority-inference?hl=ar)**  متاح |
-| 123الإصدارات | يمكنك الاطّلاع على [أنماط إصدارات النماذج](https://ai.google.dev/gemini-api/docs/models/gemini?hl=ar#model-versions) لمزيد من التفاصيل.  - `Stable: gemini-2.5-pro` |
-| calendar\_monthآخر تعديل | يونيو 2025 |
-| cognition\_2تاريخ آخر تحديث للبيانات | يناير 2025 |
+| id\_cardکد مدل | `gemini-2.5-pro` |
+| ذخیرهانواع داده‌های پشتیبانی‌شده | **ورودی‌ها**  صدا، تصویر، ویدیو، نوشتار، و PDF  **خروجی**  نوشتار |
+| token\_autoمحدودیت‌های توکن[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=fa) | **حد داده‌واحد ورودی**  ۱٬۰۴۸٬۵۷۶  **محدودیت داده‌واحد برونداد**  ۶۵۵۳۶ |
+| handymanقابلیت‌ها | **[تولید صدا](https://ai.google.dev/gemini-api/docs/speech-generation?hl=fa)**  پشتیبانی نمی‌شود  **[ذخیره در حافظه نهان](https://ai.google.dev/gemini-api/docs/caching?hl=fa)**  پشتیبانی‌شده  **[اجرای کد](https://ai.google.dev/gemini-api/docs/code-execution?hl=fa)**  پشتیبانی‌شده  **[جستجوی فایل](https://ai.google.dev/gemini-api/docs/file-search?hl=fa)**  پشتیبانی‌شده  **[فراخوانی تابع](https://ai.google.dev/gemini-api/docs/function-calling?hl=fa)**  پشتیبانی‌شده  **[پایه‌مندسازی با Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=fa)**  پشتیبانی‌شده  **[تولید تصویر](https://ai.google.dev/gemini-api/docs/image-generation?hl=fa)**  پشتیبانی نمی‌شود  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=fa)**  پشتیبانی نمی‌شود  **[زمینه‌سازی جستجو](https://ai.google.dev/gemini-api/docs/google-search?hl=fa)**  پشتیبانی‌شده  **[بروندادهای ساختاریافته](https://ai.google.dev/gemini-api/docs/structured-output?hl=fa)**  پشتیبانی‌شده  **[درحال فکر کردن](https://ai.google.dev/gemini-api/docs/thinking?hl=fa)**  پشتیبانی‌شده  **[بافت نشانی وب](https://ai.google.dev/gemini-api/docs/url-context?hl=fa)**  پشتیبانی‌شده |
+| speedگزینه‌های مصرف | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=fa)**  پشتیبانی‌شده  **[استنتاج انعطاف‌پذیر](https://ai.google.dev/gemini-api/docs/flex-inference?hl=fa)**  پشتیبانی‌شده  **[استنتاج اولویت‌دار](https://ai.google.dev/gemini-api/docs/priority-inference?hl=fa)**  پشتیبانی‌شده |
+| ۱۲۳نسخه | برای جزئیات بیشتر، [الگوهای نسخه مدل](https://ai.google.dev/gemini-api/docs/models/gemini?hl=fa#model-versions) را بخوانید.  - `Stable: gemini-2.5-pro` |
+| calendar\_monthجدیدترین به‌روزرسانی | ژوئن ۲۰۲۵ |
+| cognition\_2تاریخ برش دانش | ژانویه ۲۰۲۵ |
+| قیمت‌گذاری پولی | [قیمت‌گذاری](https://ai.google.dev/gemini-api/docs/pricing?hl=fa#gemini-2.5-pro) |
 
-إرسال ملاحظات
+ارسال بازخورد
 
-إنّ محتوى هذه الصفحة مرخّص بموجب [ترخيص Creative Commons Attribution 4.0‏](https://creativecommons.org/licenses/by/4.0/) ما لم يُنصّ على خلاف ذلك، ونماذج الرموز مرخّصة بموجب [ترخيص Apache 2.0‏](https://www.apache.org/licenses/LICENSE-2.0). للاطّلاع على التفاصيل، يُرجى مراجعة [سياسات موقع Google Developers‏](https://developers.google.com/site-policies?hl=ar). إنّ Java هي علامة تجارية مسجَّلة لشركة Oracle و/أو شركائها التابعين.
+جز در مواردی که غیر از این ذکر شده باشد،‌محتوای این صفحه تحت مجوز [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) است. نمونه کدها نیز دارای مجوز [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) است. برای اطلاع از جزئیات، به [خطمشی‌های سایت Google Developers‏](https://developers.google.com/site-policies?hl=fa) مراجعه کنید. جاوا علامت تجاری ثبت‌شده Oracle و/یا شرکت‌های وابسته به آن است.
 
-تاريخ التعديل الأخير: 2026-09-22 (حسب التوقيت العالمي المتفَّق عليه)
+تاریخ آخرین به‌روزرسانی 2026-10-29 به‌وقت ساعت هماهنگ جهانی.
 
-هل تريد مشاركة ملاحظاتك معنا؟
+می‌خواهید موارد بیشتری را با ما درمیان بگذارید؟
 
-[[["يسهُل فهم المحتوى.","easyToUnderstand","thumb-up"],["ساعَدني المحتوى في حلّ مشكلتي.","solvedMyProblem","thumb-up"],["غير ذلك","otherUp","thumb-up"]],[["لا يحتوي على المعلومات التي أحتاج إليها.","missingTheInformationINeed","thumb-down"],["الخطوات معقدة للغاية / كثيرة جدًا.","tooComplicatedTooManySteps","thumb-down"],["المحتوى قديم.","outOfDate","thumb-down"],["ثمة مشكلة في الترجمة.","translationIssue","thumb-down"],["مشكلة في العيّنات / التعليمات البرمجية","samplesCodeIssue","thumb-down"],["غير ذلك","otherDown","thumb-down"]],["تاريخ التعديل الأخير: 2026-09-22 (حسب التوقيت العالمي المتفَّق عليه)"],[],[]]
+[[["درک آسان","easyToUnderstand","thumb-up"],["مشکلم را برطرف کرد","solvedMyProblem","thumb-up"],["غیره","otherUp","thumb-up"]],[["اطلاعاتی که نیاز دارم وجود ندارد","missingTheInformationINeed","thumb-down"],["بیش‌ازحد پیچیده/ مراحل بسیار زیاد","tooComplicatedTooManySteps","thumb-down"],["قدیمی","outOfDate","thumb-down"],["مشکل ترجمه","translationIssue","thumb-down"],["مشکل کد / نمونه‌ها","samplesCodeIssue","thumb-down"],["غیره","otherDown","thumb-down"]],["تاریخ آخرین به‌روزرسانی 2026-10-29 به‌وقت ساعت هماهنگ جهانی."],[],[]]

@@ -1,46 +1,47 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=he
-fetched_at: 2026-10-26T05:53:16.309758+00:00
-title: "Gemini \u200e2.5 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash?hl=sq
+fetched_at: 2026-11-02T07:00:32.911303+00:00
+title: "Gemini 2.5 Flash \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
+Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs?hl=he)
+- [Faqja kryesore](https://ai.google.dev/?hl=sq)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
+- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
 
-שליחת משוב
+Dërgo komente
 
-# Gemini ‎2.5 Flash
+# Gemini 2.5 Flash
 
-המודל הכי טוב שלנו מבחינת יחס מחיר-ביצועים, עם יכולות מגוונות. ‫2.5 Flash הוא המודל הכי טוב לעיבוד בקנה מידה גדול, לזמן אחזור נמוך, למשימות בהיקף גדול שדורשות חשיבה ולתרחישי שימוש ב-AI אקטיבי.
+Modeli ynë më i mirë në lidhje me performancën për çmimin, i cili ofron aftësi të gjithanshme. 2.5 Flash është më i miri për përpunimin në shkallë të gjerë, vonesat e ulëta, detyrat me volum të lartë që kërkojnë arsyetim dhe rastet e përdorimit agjentik.
 
-[לניסיון ב-Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=he)
+[Provoje në Google AI Studio](https://aistudio.google.com?model=gemini-2.5-flash&hl=sq)
 
 ## gemini-2.5-flash
 
-| נכס | תיאור |
+| Prona | Përshkrimi |
 | --- | --- |
-| id\_cardקוד מודל | `gemini-2.5-flash` |
-| saveסוגי נתונים נתמכים | **קלטים**  טקסט, תמונות, סרטונים, אודיו  **פלט**  טקסט |
-| ‫token\_autoמגבלות על טוקנים[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=he) | **מגבלת טוקנים של קלט**  1,048,576  **מגבלת טוקנים של פלט**  65,536 |
-| handymanיכולות | **[יצירת אודיו](https://ai.google.dev/gemini-api/docs/speech-generation?hl=he)**  לא נתמך  **[שמירת נתונים במטמון](https://ai.google.dev/gemini-api/docs/caching?hl=he)**  נתמך  **[הרצת קוד](https://ai.google.dev/gemini-api/docs/code-execution?hl=he)**  נתמך  **[חיפוש קבצים](https://ai.google.dev/gemini-api/docs/file-search?hl=he)**  נתמך  **[בקשה להפעלת פונקציה](https://ai.google.dev/gemini-api/docs/function-calling?hl=he)**  נתמך  **[עיגון בעזרת מפות Google](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=he)**  נתמך  **[יצירת תמונות](https://ai.google.dev/gemini-api/docs/image-generation?hl=he)**  לא נתמך  ‫**[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=he)**  לא נתמך  **[חיפוש עם עיגון בנתונים](https://ai.google.dev/gemini-api/docs/google-search?hl=he)**  נתמך  **[פלטים מובנים](https://ai.google.dev/gemini-api/docs/structured-output?hl=he)**  נתמך  **[תהליך החשיבה](https://ai.google.dev/gemini-api/docs/thinking?hl=he)**  נתמך  **[הקשר של כתובת ה-URL](https://ai.google.dev/gemini-api/docs/url-context?hl=he)**  נתמך |
-| speedאפשרויות צריכה | ‫**[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=he)**  נתמך  **[היקש ברמת Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=he)**  נתמך  **[הסקת עדיפות](https://ai.google.dev/gemini-api/docs/priority-inference?hl=he)**  נתמך |
-| גרסאות 123 | פרטים נוספים זמינים במאמר בנושא [דפוסי גרסאות של מודלים](https://ai.google.dev/gemini-api/docs/models/gemini?hl=he#model-versions).  - יציב: `gemini-2.5-flash` - כיבוי: [`gemini-2.5-flash-preview-09-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-09-2025?hl=he) |
-| calendar\_monthהעדכון האחרון | יוני 2025 |
-| cognition\_2תאריך סף הידע | ינואר 2025 |
+| id\_cardKodi i modelit | `gemini-2.5-flash` |
+| saveLlojet e mbështetura të të dhënave | **Hyrjet**  Tekst, imazhe, video, audio  **Dalja**  Teksti |
+| token\_autoKufijtë e token-ëve[[\*]](https://ai.google.dev/gemini-api/docs/tokens?hl=sq) | **Kufiri i tokenëve të hyrjes**  1 048 576  **Kufiri i tokenëve të rezultatit**  65 536 |
+| handymanAftësitë | **[Gjenerimi i audios](https://ai.google.dev/gemini-api/docs/speech-generation?hl=sq)**  Nuk mbështetet  **[Ruajtja në memorien specifike](https://ai.google.dev/gemini-api/docs/caching?hl=sq)**  Mbështetet  **[Ekzekutimi i kodit](https://ai.google.dev/gemini-api/docs/code-execution?hl=sq)**  Mbështetet  **[Kërkimi i skedarëve](https://ai.google.dev/gemini-api/docs/file-search?hl=sq)**  Mbështetet  **[Thirrja e funksionit](https://ai.google.dev/gemini-api/docs/function-calling?hl=sq)**  Mbështetet  **[Argumentimi me Google Maps](https://ai.google.dev/gemini-api/docs/maps-grounding?hl=sq)**  Mbështetet  **[Gjenerimi i imazheve](https://ai.google.dev/gemini-api/docs/image-generation?hl=sq)**  Nuk mbështetet  **[Live API](https://ai.google.dev/gemini-api/docs/live-api?hl=sq)**  Nuk mbështetet  **[Bazat e "Kërko"](https://ai.google.dev/gemini-api/docs/google-search?hl=sq)**  Mbështetet  **[Rezultatet e strukturuara](https://ai.google.dev/gemini-api/docs/structured-output?hl=sq)**  Mbështetet  **[Arsyetuesi](https://ai.google.dev/gemini-api/docs/thinking?hl=sq)**  Mbështetet  **[Konteksti me URL](https://ai.google.dev/gemini-api/docs/url-context?hl=sq)**  Mbështetet |
+| speedOpsionet e konsumit | **[Batch API](https://ai.google.dev/gemini-api/docs/batch-api?hl=sq)**  Mbështetet  **[Deduksioni Flex](https://ai.google.dev/gemini-api/docs/flex-inference?hl=sq)**  Mbështetet  **[Konkluzioni i përparësisë](https://ai.google.dev/gemini-api/docs/priority-inference?hl=sq)**  Mbështetet |
+| 123Versionet | Lexo [shabllonet e versioneve të modelit](https://ai.google.dev/gemini-api/docs/models/gemini?hl=sq#model-versions) për më shumë detaje.  - I qëndrueshëm: `gemini-2.5-flash` - Fikja: [`gemini-2.5-flash-preview-09-2025`](https://ai.google.dev/gemini-api/docs/models/gemini-2.5-flash-preview-09-2025?hl=sq) |
+| calendar\_monthPërditësimi më i fundit | Qershor 2025 |
+| cognition\_2Kufiri kohor i shkëputjes së njohurive | Janar 2025 |
+| me pagesëÇmimet | [Çmimet](https://ai.google.dev/gemini-api/docs/pricing?hl=sq#gemini-2.5-flash) |
 
-שליחת משוב
+Dërgo komente
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
 
-עדכון אחרון: 2026-09-22 (שעון UTC).
+Përditësimi i fundit: 2026-10-29 UTC.
 
-רוצה לתת לנו משוב?
+Duhet të na tregosh më shumë?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-09-22 (שעון UTC)."],[],[]]
+[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-29 UTC."],[],[]]

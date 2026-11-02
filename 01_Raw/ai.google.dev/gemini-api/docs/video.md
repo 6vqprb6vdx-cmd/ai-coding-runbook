@@ -1,46 +1,45 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/video?hl=sq
-fetched_at: 2026-10-26T05:48:27.276458+00:00
-title: "Gjenerimi i videove n\u00eb Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/video?hl=it
+fetched_at: 2026-11-02T07:20:03.823359+00:00
+title: "Generazione di video nell'API Gemini \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon tani është i disponueshëm. [Provoje](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=sq).
+Gemini 4 Argon è ora disponibile. [Provalo](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=it).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=sq)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google përdor teknologjinë e IA-së për të përkthyer përmbajtjet në gjuhën tënde të preferuar. Përkthimet nga IA-ja mund të përmbajnë gabime.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-- [Faqja kryesore](https://ai.google.dev/?hl=sq)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=sq)
-- [Dokumentet](https://ai.google.dev/gemini-api/docs?hl=sq)
+- [Home page](https://ai.google.dev/?hl=it)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=it)
+- [Documenti](https://ai.google.dev/gemini-api/docs?hl=it)
 
-Dërgo komente
+Invia feedback
 
-# Gjenerimi i videove në Gemini API
+# Generazione di video nell'API Gemini
 
-Përdor [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=sq) si modelin tënd për gjenerimin e videove dhe modifikimin e videove nëpërmjet bisedës në Gemini API. Ai ofron koherencë superiore të videove, arsyetim me shumë hyrje (duke mbështetur hyrjet me tekst, imazhe, audio dhe video në të njëjtën kohë), konsekuencë personazhi, saktësi faktike dhe modifikime përmes bisedës me disa raunde (p.sh. zëvendësimi i elementeve ose ndryshimet e perspektivës).
+Utilizza [Gemini Omni Flash](https://ai.google.dev/gemini-api/docs/omni?hl=it) come modello per la generazione di video e l'editing video conversazionale nell'API Gemini. Offre una coerenza video superiore, un ragionamento multi-input (supporta contemporaneamente input di testo, immagini, audio e video), coerenza dell'identità, accuratezza oggettiva e editing conversazionale multi-turno (ad es. sostituzione di elementi o modifiche della prospettiva).
 
-Versioni paraprak i Veo 3.1 në Gemini API është mbyllur.
+L'anteprima di Veo 3.1 nell'API Gemini è stata disattivata.
 
 ## Gemini Omni Flash
 
-Gemini Omni Flash është një model i shpejtë multimodal për gjenerimin e videove dhe modifikimin e videove në formë bisede. Ai është i shkëlqyer për të shndërruar me shpejtësi kërkesat me tekst dhe imazhet në video të shkurtra dhe të lejon të rafinosh rezultatet në disa raunde duke përdorur Interactions API.
+Gemini Omni Flash è un modello multimodale veloce per la generazione di video e l'editing di video conversazionali. Eccelle nella trasformazione rapida di prompt testuali e immagini in brevi video e consente di perfezionare i risultati in più passaggi utilizzando l'API Interactions.
 
-[Fillo me Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=sq)
+[Inizia a usare Gemini Omni Flash →](https://ai.google.dev/gemini-api/docs/omni?hl=it)
 
 ## Veo 3.1
 
-## Kuptimi i videove
+## Comprensione dei video
 
-Nëse duhet të transferosh dhe të analizosh përmbajtje ekzistuese video në vend që të gjenerosh
-video të re, shiko [Udhëzuesin për kuptimin e videove](https://ai.google.dev/gemini-api/docs/video-understanding?hl=sq).
+Se devi importare e analizzare contenuti video esistenti anziché generare nuovi video, consulta la [guida alla comprensione dei video](https://ai.google.dev/gemini-api/docs/video-understanding?hl=it).
 
-Dërgo komente
+Invia feedback
 
-Përveçse siç përcaktohet ndryshe, përmbajtja e kësaj faqeje është e licencuar sipas [licencës së atribuimit 4.0 të Creative Commons](https://creativecommons.org/licenses/by/4.0/) dhe kampionët e kodit janë licencuar sipas [licencës së Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Për detaje, shiko [Politikat e sajtit të Google Developers](https://developers.google.com/site-policies?hl=sq). Java është një markë tregtare e regjistruar e Oracle dhe/ose filialeve të tij.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Përditësimi i fundit: 2026-10-22 UTC.
+Ultimo aggiornamento 2026-10-22 UTC.
 
-Duhet të na tregosh më shumë?
+Vuoi dirci altro?
 
-[[["E lehtë për t'u kuptuar","easyToUnderstand","thumb-up"],["E zgjidhi problemin tim","solvedMyProblem","thumb-up"],["Tjetër","otherUp","thumb-up"]],[["Mungojnë informacionet që më nevojiten","missingTheInformationINeed","thumb-down"],["Shumë e ndërlikuar/shumë hapa","tooComplicatedTooManySteps","thumb-down"],["E papërditësuar","outOfDate","thumb-down"],["Problem përkthimi","translationIssue","thumb-down"],["Problem me kampionët/kodin","samplesCodeIssue","thumb-down"],["Tjetër","otherDown","thumb-down"]],["Përditësimi i fundit: 2026-10-22 UTC."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-10-22 UTC."],[],[]]

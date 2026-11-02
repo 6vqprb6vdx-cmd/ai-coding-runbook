@@ -1,35 +1,40 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=he
-fetched_at: 2026-10-26T05:58:38.139171+00:00
-title: "\u05de\u05de\u05e9\u05e7 API \u05e9\u05dc \u05e7\u05d1\u05e6\u05d9\u05dd \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/generate-content/files?hl=id
+fetched_at: 2026-11-02T07:30:32.785573+00:00
+title: "API File \u00a0|\u00a0 Gemini Generate Content API (Legacy) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-‫Gemini 4 Argon זמין עכשיו. [רוצים לנסות?](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=he)
+Gemini 4 Argon kini tersedia. [Coba praktikkan](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=id).
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=he)
+![](https://ai.google.dev/_static/images/translated.svg?hl=id)
 
-‫Google משתמשת בטכנולוגיית AI כדי לתרגם תוכן לשפה המועדפת עליך. בתרגומים כאלו עשויות להיות שגיאות.
+Google menggunakan teknologi AI untuk menerjemahkan konten ke dalam bahasa pilihan Anda. Terjemahan AI mungkin mengandung kesalahan.
 
-- [דף הבית](https://ai.google.dev/?hl=he)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=he)
-- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=he)
-- [Docs](https://ai.google.dev/gemini-api/docs/generate-content?hl=he)
+- [Beranda](https://ai.google.dev/?hl=id)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=id)
+- [Generate Content API](https://ai.google.dev/gemini-api/docs/generate-content/get-started?hl=id)
+- [Dokumen](https://ai.google.dev/gemini-api/docs/generate-content?hl=id)
 
-שליחת משוב
+Kirim masukan
 
-# ממשק API של קבצים
+# API File
 
-‫Gemini יכול לעבד סוגים שונים של נתוני קלט בו-זמנית, כולל טקסט, תמונות ואודיו.
+Gemini dapat menangani berbagai jenis data input, termasuk teks, gambar, dan
+audio, secara bersamaan.
 
-במדריך הזה מוסבר איך לעבוד עם קובצי מדיה באמצעות Files API. הפעולות הבסיסיות זהות לקובצי אודיו, תמונות, סרטונים, מסמכים וסוגי קבצים נתמכים אחרים.
+Panduan ini menunjukkan cara menggunakan file media dengan Files API. Operasi dasarnya sama untuk file audio, gambar, video, dokumen, dan jenis file lain yang didukung.
 
-בקטע [מדריך לכתיבת פרומפטים בקבצים](https://ai.google.dev/gemini-api/docs/files?hl=he#prompt-guide) מוסבר איך להשתמש בהנחיות בקבצים.
+Untuk panduan perintah file, lihat bagian
+[Panduan perintah file](https://ai.google.dev/gemini-api/docs/files?hl=id#prompt-guide).
 
-## העלאת קובץ
+## Upload file
 
-אתם יכולים להשתמש ב-Files API כדי להעלות קובץ מדיה. תמיד צריך להשתמש ב-Files API כשהגודל הכולל של הבקשה (כולל הקבצים, פרומפט טקסטואלי, הוראות המערכת וכו') גדול מ-100 MB. לקובצי PDF, המגבלה היא 50MB.
+Anda dapat menggunakan Files API untuk mengupload file media. Selalu gunakan Files API jika
+ukuran total permintaan (termasuk file, perintah teks, petunjuk sistem,
+dll.) lebih besar dari 100 MB. Untuk file PDF, batasnya adalah 50 MB.
 
-בדוגמת הקוד הבאה, קובץ מועלה ואז נעשה בו שימוש בקריאה ל-`generateContent`.
+Kode berikut mengupload file, lalu menggunakan file tersebut dalam panggilan ke
+`generateContent`.
 
 ### Python
 
@@ -156,9 +161,9 @@ echo
 jq ".candidates[].content.parts[].text" response.json
 ```
 
-## קבלת מטא-נתונים של קובץ
+## Mendapatkan metadata untuk file
 
-כדי לוודא שה-API שמר בהצלחה את הקובץ שהועלה ולקבל את המטא-נתונים שלו, אפשר לקרוא ל-`files.get`.
+Anda dapat memverifikasi bahwa API berhasil menyimpan file yang diupload dan mendapatkan metadatanya dengan memanggil `files.get`.
 
 ### Python
 
@@ -226,9 +231,9 @@ file_uri=$(jq ".file.uri" file_info.json)
 echo file_uri=$file_uri
 ```
 
-## הצגת רשימה של הקבצים שהועלו
+## Mencantumkan file yang diupload
 
-הקוד הבא מקבל רשימה של כל הקבצים שהועלו:
+Kode berikut mendapatkan daftar semua file yang diupload:
 
 ### Python
 
@@ -281,9 +286,9 @@ curl "https://generativelanguage.googleapis.com/v1beta/files" \
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## מחיקת קבצים שהועלו
+## Menghapus file yang diupload
 
-הקבצים נמחקים באופן אוטומטי אחרי 48 שעות. אתם יכולים גם למחוק באופן ידני קובץ שהעליתם:
+File akan otomatis dihapus setelah 48 jam. Anda juga dapat menghapus file yang diupload secara manual:
 
 ### Python
 
@@ -335,192 +340,224 @@ curl --request "DELETE" https://generativelanguage.googleapis.com/v1beta/files/$
   -H "x-goog-api-key: $GEMINI_API_KEY"
 ```
 
-## נתוני השימוש
+## Informasi penggunaan
 
-אפשר להשתמש ב-Files API כדי להעלות קובצי מדיה ולבצע פעולות עליהם. ה-Files API מאפשר לאחסן עד 20 GB של קבצים לכל פרויקט, עם גודל מקסימלי של 2 GB לכל קובץ. הקבצים נשמרים למשך 48 שעות.
+Anda dapat menggunakan Files API untuk mengupload dan berinteraksi dengan file media. Files API memungkinkan Anda menyimpan file hingga 20 GB per project, dengan ukuran maksimum per file sebesar 2 GB. File disimpan selama 48 jam.
 
-במהלך התקופה הזו, אתם יכולים להשתמש ב-API כדי לקבל מטא-נתונים על הקבצים. עם זאת, אי אפשר להוריד קבצים שהמשתמשים העלו. אפשר להוריד קבצים שנוצרו על ידי מודלים, כמו סרטונים, באמצעות ה-method‏ `files.download`. אפשר להשתמש ב-Files API בחינם בכל האזורים שבהם Gemini API זמין.
+Selama waktu tersebut, Anda dapat menggunakan API untuk mendapatkan metadata tentang file. Namun,
+Anda tidak dapat mendownload file yang diupload pengguna. Anda dapat mendownload file yang dihasilkan oleh model, seperti video, menggunakan metode `files.download`. Files API tersedia tanpa biaya di semua wilayah tempat Gemini API tersedia.
 
-## שיטות להנדסת פרומפטים בקבצים
+## Strategi penulisan perintah file
 
-בקטע הזה מפורטות הנחיות ושיטות מומלצות לשימוש בקובצי מדיה בהנחיות ל-Gemini API.
+Bagian ini memberikan panduan dan praktik terbaik untuk menggunakan file media dengan
+perintah untuk Gemini API.
 
-היכולת להשתמש בסוגים שונים של נתונים בהנחיות מאפשרת לכם גמישות רבה יותר במשימות שאתם יכולים לבצע באמצעות Gemini API. לדוגמה, אתם יכולים לשלוח למודל תמונה של ארוחה טעימה ולבקש ממנו לכתוב פוסט קצר בבלוג על הארוחה.
+Kemampuan untuk menggunakan berbagai jenis data dalam perintah memberi Anda lebih banyak
+fleksibilitas dalam hal tugas yang dapat Anda selesaikan dengan Gemini API. Misalnya, Anda dapat mengirimkan foto makanan lezat ke model dan memintanya untuk menulis
+blog singkat tentang makanan tersebut.
 
 |  |  |
 | --- | --- |
-| **הנחיה** | **תשובה** |
-| תכתוב פוסט קצר ומעניין לבלוג על סמך התמונה הזו. הוא צריך לכלול תיאור של הארוחה שבתמונה ולדבר על התהליך שלי בהכנת ארוחות.   קובצי Cookie | הכנת ארוחות מראש היא דרך מצוינת לחסוך זמן וכסף, והיא גם יכולה לעזור לכם לאכול בריא יותר. הארוחה הזו היא דוגמה נהדרת לארוחה בריאה וטעימה שאפשר להכין בקלות מראש.  ארוחה שכוללת אורז מלא, ירקות צלויים ועוף טריאקי. האורז החום הוא פחמימה בריאה ומורכבת שתספק לך אנרגיה לאורך זמן. הירקות הצלויים הם דרך מצוינת לקבל את המנה היומית של ויטמינים ומינרלים, והעוף ברוטב טריאקי הוא אפשרות טעימה ועשירה בחלבון.  גם את הארוחה הזו קל מאוד להכין. פשוט מבשלים את האורז המלא, צולים את הירקות ומבשלים את עוף טריאקי. אחרי שהכול מבושל, מחלקים את האוכל לקופסאות של הכנת ארוחות ושומרים במקרר. בבקרים עמוסים, פשוט לוקחים קופסה ויוצאים לדרך.  אם אתם מחפשים ארוחה בריאה וטעימה שאפשר להכין בקלות מראש, הארוחה הזו היא אפשרות מצוינת. הוא עשיר בחומרים מזינים ובטעם, ואין ספק שהוא ישביע אתכם.  שיהיה בהצלחה עם הכנת הארוחות הבריאות והטעימות! |
+| **Perintah** | **Respons** |
+| Tulis postingan blog yang singkat dan menarik berdasarkan gambar ini. Postingan ini harus menyertakan deskripsi makanan dalam foto dan menceritakan perjalanan saya dalam menyiapkan makanan.   Cookie | Menyiapkan makanan adalah cara yang bagus untuk menghemat waktu dan uang, serta dapat membantu Anda makan lebih sehat. Makanan ini adalah contoh yang bagus untuk makanan sehat dan lezat yang dapat disiapkan dengan mudah sebelumnya.  Hidangan ini menyajikan nasi merah, sayuran panggang, dan ayam teriyaki. Beras merah adalah karbohidrat kompleks dan sehat yang akan memberi Anda energi berkelanjutan. Sayuran panggang adalah cara yang bagus untuk mendapatkan asupan vitamin dan mineral harian, dan ayam teriyaki adalah pilihan yang lezat dan kaya protein.  Makanan ini juga sangat mudah disiapkan. Cukup masak beras merah, panggang sayuran, dan masak ayam teriyaki. Setelah semuanya matang, bagi menjadi beberapa wadah penyiapan makanan dan simpan di dalam kulkas. Anda bisa mengambil wadah dan pergi di pagi hari yang sibuk!  Jika Anda mencari makanan sehat dan lezat yang dapat disiapkan dengan mudah sebelumnya, makanan ini adalah pilihan yang bagus. Sup ini kaya akan nutrisi dan rasa, serta pasti akan membuat Anda merasa kenyang dan puas.  Selamat menyiapkan makanan yang sehat dan lezat. |
 
-אם אתם לא מצליחים לקבל את הפלט הרצוי מהנחיות שכוללות קובצי מדיה, יש כמה שיטות שיכולות לעזור לכם לקבל את התוצאות הרצויות. בקטעים הבאים מפורטות גישות לתכנון וטיפים לפתרון בעיות שיעזרו לכם לשפר הנחיות שמשתמשות בקלט מולטי-מודאלי.
+Jika Anda mengalami kesulitan mendapatkan output yang diinginkan dari perintah yang menggunakan
+file media, ada beberapa strategi yang dapat membantu Anda mendapatkan hasil yang
+diinginkan. Bagian berikut memberikan pendekatan desain dan tips pemecahan masalah untuk meningkatkan kualitas perintah yang menggunakan input multimodal.
 
-כדי לשפר את הפרומפטים המולטי-מודאליים, מומלץ לפעול לפי השיטות המומלצות הבאות:
+Anda dapat meningkatkan kualitas perintah multimodal dengan mengikuti praktik terbaik berikut:
 
-- ### [עקרונות בסיסיים לעיצוב הנחיות](#specific-instructions)
+- ### [Dasar-dasar desain perintah](#specific-instructions)
 
-  - **היו ספציפיים בהוראות שלכם**: נסחו הוראות ברורות ותמציתיות שלא משאירות מקום לפרשנות מוטעית.
-  - **הוסיפו כמה דוגמאות להנחיה:** השתמשו בדוגמאות מציאותיות כדי להמחיש מה אתם רוצים להשיג.
-  - **לפרק את המשימה לשלבים**: חלקו משימות מורכבות ליעדי משנה קטנים יותר, והנחו את המודל לאורך התהליך.
-  - **ציינו את פורמט הפלט**: בהנחיה, בקשו שהפלט יהיה בפורמט הרצוי, כמו Markdown, ‏ JSON, ‏ HTML ועוד.
-  - **בפרומפטים עם תמונה אחת, כדאי להוסיף את התמונה לפני הטקסט**: Gemini יכול לעבד קלט של תמונה וטקסט בכל סדר, אבל בפרומפטים עם תמונה אחת, יכול להיות שהביצועים יהיו טובים יותר אם התמונה (או הסרטון) תופיע לפני פרומפט הטקסטואלי. עם זאת, בהנחיות שבהן צריך לשלב תמונות עם טקסטים כדי שההנחיה תהיה הגיונית, כדאי להשתמש בסדר הכי טבעי.
-- ### [פתרון בעיות בפרומפט מולטי-מודאלי](#troubleshooting)
+  - **Berikan petunjuk yang spesifik**: Buat petunjuk yang jelas dan ringkas untuk meminimalkan kemungkinan salah tafsir.
+  - **Tambahkan beberapa contoh ke perintah Anda:** Gunakan contoh few-shot yang realistis untuk mengilustrasikan hal yang ingin Anda capai.
+  - **Uraikan langkah demi langkah**: Bagi tugas yang kompleks menjadi sub-sasaran yang mudah dikelola, sehingga memandu model melalui prosesnya.
+  - **Tentukan format output**: Dalam perintah Anda, minta output dalam format yang Anda inginkan, seperti markdown, JSON, HTML, dan lainnya.
+  - **Tempatkan gambar Anda terlebih dahulu untuk perintah satu gambar**: Meskipun Gemini dapat menangani input gambar dan teks dalam urutan apa pun, untuk perintah yang berisi satu gambar, Gemini mungkin akan berperforma lebih baik jika gambar (atau video) tersebut ditempatkan sebelum perintah teks. Namun, untuk perintah yang memerlukan gambar yang sangat disisipkan dengan teks agar masuk akal, gunakan urutan yang paling alami.
+- ### [Memecahkan masalah perintah multimodal](#troubleshooting)
 
-  - **אם המודל לא שואב מידע מהחלק הרלוונטי בתמונה:** כדאי להוסיף רמזים לגבי ההיבטים בתמונה שמהם רוצים שההנחיה תשלוף מידע.
-  - **אם הפלט מהמודל גנרי מדי (לא מותאם מספיק לקלט של התמונה או הסרטון):** בתחילת הפרומפט, כדאי לבקש מהמודל לתאר את התמונות או הסרטון לפני שמספקים את הוראות המשימה, או לבקש מהמודל להתייחס למה שמופיע בתמונה.
-  - **כדי לפתור בעיות בחלק מסוים:** מבקשים מהמודל לתאר את התמונה או להסביר את ההיגיון שלו, כדי להבין את התפיסה הראשונית של המודל.
-  - **אם ההנחיה שלכם גורמת להזיות בתוכן:** נסו להוריד את הגדרת הטמפרטורה או לבקש מהמודל תיאורים קצרים יותר, כדי להפחית את הסיכוי שהוא יסיק פרטים נוספים.
-  - **כוונון הפרמטרים של הדגימה:** נסו הגדרות טמפרטורה שונות ובחירות של Top-K כדי לשנות את רמת היצירתיות של המודל.
+  - **Jika model tidak mengambil informasi dari bagian gambar yang relevan:** Berikan petunjuk tentang aspek gambar yang Anda inginkan untuk diambil informasinya oleh perintah.
+  - **Jika output model terlalu umum (tidak cukup disesuaikan dengan input gambar/video):** Di awal perintah, coba minta model untuk mendeskripsikan gambar atau video sebelum memberikan petunjuk tugas, atau coba minta model untuk merujuk pada apa yang ada dalam gambar.
+  - **Untuk memecahkan masalah bagian mana yang gagal:** Minta model untuk mendeskripsikan gambar, atau minta model untuk menjelaskan penalarannya, guna mengukur pemahaman awal model.
+  - **Jika perintah Anda menghasilkan konten halusinasi:** Coba turunkan setelan temperature atau minta model memberikan deskripsi yang lebih singkat agar model tidak terlalu banyak mengekstrapolasi detail tambahan.
+  - **Menyesuaikan parameter sampling:** Bereksperimenlah dengan berbagai setelan temperature dan pilihan top-k untuk menyesuaikan kreativitas model.
 
-### הוראות ספציפיות
+### Berikan petunjuk yang spesifik
 
-ההנחיות הכי מוצלחות הן הנחיות ברורות ומפורטות. אם יש לכם פלט ספציפי בראש, עדיף לכלול את הדרישה הזו בפרומפט כדי לוודא שתקבלו את הפלט הרצוי.
+Perintah akan memberikan hasil terbaik jika jelas dan mendetail. Jika Anda memiliki
+output tertentu, sebaiknya sertakan persyaratan tersebut dalam perintah
+untuk memastikan Anda mendapatkan output yang diinginkan.
 
-אם תבקשו מהמודל "לתאר את התמונה" של לוח הטיסות בשדה התעופה, יכול להיות שתקבלו תיאור כללי. אם אתם רוצים שהמודל ינתח את השעה והעיר מהתמונה, אתם יכולים לכלול את הבקשה הזו ישירות בהנחיה.
+Untuk gambar papan bandara ini, meminta model untuk sekadar "mendeskripsikan gambar ini" dapat menghasilkan deskripsi umum. Jika Anda memerlukan model untuk mengurai waktu dan kota dari gambar, Anda dapat menyertakan permintaan tersebut langsung dalam prompt.
 
-| פרומפט | תשובה מהמודל |
+| Perintah | Respons model |
 | --- | --- |
-| מה מופיע בתמונה? | בתמונה מוצג לוח המראות ונחיתות בשדה תעופה. |
+| Jelaskan gambar ini. | Gambar menampilkan papan kedatangan dan keberangkatan bandara. |
 
-| **הנחיה מעודכנת** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| לוח זמנים לנסיעות Parse the time and city from the airport board shown in this image into a list. | - ‫10:50 מוסקבה - ‫11:05 אדינבורו - ‫11:05 לונדון - ‫11:10 בוקרשט - ‫11:30 קייב - ‫11:35 דבלין - ‫11:45 איסט מידלנדס - ‫12:15 סופיה - ‫12:30 לונדון - ‫12:30 ניוקאסל - ‫12:40 סנט פטרסבורג - ‫12:40 לונדון - ‫12:45 מנצ'סטר |
+| Jadwal perjalanan Parse the time and city from the airport board shown in this image into a list. | - 10.50 Moskow - 11.05 Edinburgh - 11.05 London - 11.10 Bucharest - 11.30 Kiev - 11.35 Dublin - 11.45 East Midlands - 12.15 Sofia - 12.30 London - 12.30 Newcastle - 12.40 St Petersburg - 12.40 London - 12.45 Manchester |
 
-### הוספת כמה דוגמאות
+### Tambahkan beberapa contoh
 
-מודל Gemini יכול לקבל כמה קלטים שאפשר להשתמש בהם כדוגמאות כדי להבין את הפלט שאתם רוצים. הוספת הדוגמאות האלה יכולה לעזור למודל לזהות את הדפוסים ולהחיל את הקשר בין התמונות והתשובות שצוינו על הדוגמה החדשה. השיטה הזו נקראת גם למידה עם מעט דוגמאות.
+Model Gemini dapat menerima beberapa input yang dapat digunakan sebagai contoh untuk memahami output yang Anda inginkan. Menambahkan contoh ini dapat membantu model mengidentifikasi pola dan menerapkan
+hubungan antara gambar dan respons yang diberikan ke contoh baru. Hal ini juga disebut
+pembelajaran "few-shot".
 
-בדוגמה הבאה, הפלט הראשוני כתוב בצורת משפט, וכולל גם את המדינה (ברזיל). נניח שאתם רוצים שהפלט יהיה בפורמט או בסגנון אחר, ורק את העיר, בלי המדינה. הוספת פרומפט עם כמה דוגמאות (few-shot) להנחיה יכולה לעזור למודל להגיב בצורה הרצויה.
+Dalam contoh di bawah, output awal ditulis dalam bentuk kalimat, dan juga berisi
+negara (Brasil). Misalnya, Anda menginginkan output dalam format atau gaya yang berbeda, dan Anda hanya menginginkan kota, bukan negara. Menambahkan contoh few-shot ke perintah Anda dapat mengarahkan model
+untuk merespons sesuai keinginan Anda.
 
-| **פרומפט** | **תשובה מהמודל** |
+| **Perintah** | **Respons model** |
 | --- | --- |
-| לוח זמנים לנסיעות צריך לציין את העיר שבה נמצא ציון הדרך. | האתר הוא פסל ישו הגואל בריו דה ז'ניירו, ברזיל. |
+| Jadwal perjalanan Tentukan kota beserta tempat terkenalnya. | Tempat terkenal ini adalah patung Kristus Penebus di Rio de Janeiro, Brasil. |
 
-| **הנחיה מעודכנת** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| מזהים את העיר שבה נמצאת נקודת הציון. קולוסאום | עיר: רומא, אתר: הקולוסיאום. |
-| העיר האסורה | עיר: בייג'ינג, ציון דרך: העיר האסורה |
-| forbidden-city | עיר: ריו דה ז'ניירו, ציון דרך: פסל ישו הגואל |
+| Tentukan kota beserta tempat terkenalnya. colosseum | kota: Roma, tempat terkenal: Colosseum. |
+| Kota Terlarang | kota: Beijing, bangunan terkenal: Kota Terlarang |
+| forbidden-city | kota: Rio de Janeiro, tempat terkenal: Patung Kristus Penebus |
 
-### צור הסבר מפורט שלב אחר שלב
+### Uraikan langkah demi langkah
 
-במשימות מורכבות, כמו כאלה שדורשות גם הבנה חזותית וגם חשיבה רציונלית, כדאי לפצל את המשימה לשלבים קטנים ופשוטים יותר. לחלופין, אפשר גם לבקש מהמודל ישירות "לחשוב צעד אחר צעד" בהנחיה.
+Untuk tugas kompleks seperti yang memerlukan pemahaman dan penalaran visual, sebaiknya bagi tugas menjadi langkah-langkah yang lebih kecil dan lebih mudah. Atau, Anda juga dapat langsung meminta model untuk “berpikir langkah demi langkah” dalam perintah Anda.
 
-| פרומפט | תשובה מהמודל |
+| Perintah | Respons model |
 | --- | --- |
-| מתי ייגמר לי נייר הטואלט? | בקרוב, נשארו לך רק 3 הטלות. |
+| Kapan tisu toilet saya akan habis? | Segera, Anda hanya memiliki sisa 3 rol. |
 
-| **הנחיה מעודכנת** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| 1. קודם כל, תספור כמה גלילי נייר טואלט יש בתמונה הזו.  ‫2. אחר כך, קובעים כמה נייר טואלט אדם ממוצע משתמש ביום.  ‫3. חשבו לכמה זמן יספיקו גלילי נייר הטואלט האלה. | 1. בתמונה הזו יש 3 גלילי נייר טואלט.  2. אדם ממוצע משתמש בכ-20 פיסות נייר טואלט ביום.  ‫3. אם כל גליל מכיל 200 דפים, כל גליל יספיק לכ-10 ימים. לכן, 3 הגלילים יספיקו למשך כחודש. |
+| 1. Pertama, hitung berapa banyak gulungan tisu toilet dalam gambar ini.  2. Kemudian, tentukan berapa banyak tisu toilet yang digunakan orang pada umumnya per hari.  3. Hitung berapa lama tisu toilet ini akan bertahan. | 1. Ada 3 rol tisu toilet dalam gambar ini.  2. Seseorang biasanya menggunakan sekitar 20 lembar tisu toilet per hari.  3. Jika setiap rol berisi 200 lembar, setiap rol akan bertahan selama sekitar 10 hari. Jadi, 3 rol akan bertahan selama sekitar satu bulan. |
 
-בעיות מתמטיות או סוגים אחרים של בעיות מילוליות הן דוגמאות מצוינות למקרים שבהם כדאי לבקש מהמודל לחשוב שלב אחר שלב.
+Soal matematika atau jenis soal cerita lainnya adalah kandidat yang bagus untuk meminta
+model berpikir langkah demi langkah.
 
-| **הנחיה** | **תגובה** |
+| **Perintah** | **Respons** |
 | --- | --- |
-| מהו האיבר הרביעי בסדרה? | -135 |
+| Berapa suku ke-4 dalam deret tersebut? | -135 |
 
-התשובה מהמודל שגויה. כדי לשפר את זה, אפשר לבקש מהמודל לנתח את הבעיה לפני שהוא עונה על ההנחיה.
+Respons dari model salah. Beberapa cara untuk meningkatkan kualitasnya adalah dengan meminta
+model mengurai masalah sebelum menjawab perintah.
 
-| **פרומפט** | **תגובה** |
+| **Perintah** | **Respons** |
 | --- | --- |
-| קודם צריך לנתח את הנוסחה בתמונה.  לאחר מכן, על סמך הנוסחה, ענה על השאלה 'מהו האיבר הרביעי בסדרה?'. | *לוחצים כדי להרחיב את התוצאה* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. מציבים n = 4 בנוסחה:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. אנחנו לא יודעים מה הערך של b(3), אז נציב n = 3 בנוסחה:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. אנחנו לא יודעים את הערך של b(2), אז נציב n = 2 בנוסחה:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. אנחנו יודעים שהערך של b(1) הוא 15, אז נציב אותו בנוסחה:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. עכשיו, כשאנחנו יודעים את הערך של b(2), נציב אותו בנוסחה של b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. עכשיו, כשאנחנו יודעים את הערך של b(3), נציב אותו בנוסחה של b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   לכן, האיבר הרביעי בסדרה הוא 405-. |
+| Uraikan formula dalam gambar terlebih dahulu.  Kemudian, berdasarkan rumus tersebut, jawab "apa suku ke-4 dalam deret tersebut?". | *Klik untuk meluaskan hasil* $$ b(n) = b(n-1) \* (-3) $$  $$ b(1) = 15 $$   1. Masukkan n = 4 ke dalam rumus:  $$ b(4) = b(4-1) \* (-3) $$  $$ b(4) = b(3) \* (-3) $$ 2. Kita tidak tahu nilai b(3), jadi substitusikan n = 3 ke dalam rumus:  $$ b(3) = b(3-1) \* (-3) $$  $$ b(3) = b(2) \* (-3) $$ 3. Kita tidak tahu nilai b(2), jadi substitusikan n = 2 ke dalam rumus:  $$ b(2) = b(2-1) \* (-3) $$  $$ b(2) = b(1) \* (-3) $$ 4. Kita tahu nilai b(1) adalah 15, jadi masukkan ke dalam rumus:  $$ b(2) = 15 \* (-3) $$  $$ b(2) = -45 $$ 5. Setelah mengetahui nilai b(2), substitusikan ke dalam formula untuk b(3):  $$ b(3) = b(2) \* (-3) $$  $$ b(3) = -45 \* (-3) $$  $$ b(3) = 135 $$ 6. Setelah kita mengetahui nilai b(3), substitusikan ke dalam rumus untuk b(4):  $$ b(4) = b(3) \* (-3) $$  $$ b(4) = 135 \* (-3) $$  $$ b(4) = -405 $$   Oleh karena itu, suku ke-4 dalam deret ini adalah -405. |
 
-התשובה של המודל נכונה. כדי שהתשובה תהיה תמציתית יותר, אפשר לבקש מהמודל לחשוב שלב אחר שלב.
+Respons model ini sudah benar. Sekarang, untuk membuat responsnya lebih efisien,
+Anda dapat meminta model untuk berpikir langkah demi langkah.
 
-| **פרומפט מעודכן** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| מהו האיבר הרביעי בסדרה? חשוב צעד אחר צעד. | המונח הראשון הוא 15.  האיבר השני הוא b(1) \* (-3) = 15 \* (-3) = -45.  האיבר השלישי הוא b(2) \* (-3) = -45 \* (-3) = 135.  האיבר הרביעי הוא b(3) \* (-3) = 135 \* (-3) = -405. |
+| Berapa suku ke-4 dalam deret tersebut? Berpikirlah secara berurutan. | Suku pertama adalah 15.  Suku kedua adalah b(1) \* (-3) = 15 \* (-3) = -45.  Suku ketiga adalah b(2) \* (-3) = -45 \* (-3) = 135.  Suku keempat adalah b(3) \* (-3) = 135 \* (-3) = -405. |
 
-### מציינים את פורמט הפלט
+### Menentukan format output
 
-בעיה נפוצה היא הצורך שהפלט מהמודל יהיה בפורמט מסוים (למשל Markdown, ‏ JSON, ‏ HTML), במיוחד אם הפלט מהמודל צריך להיקלט על ידי משימה בהמשך התהליך. כדי לנסות ליצור פלט בפורמט הזה, אתם יכולים להורות למודל לעשות זאת בהנחיה. הנה שתי דוגמאות:
+Masalah umum adalah perlunya output model dalam format tertentu
+(misalnya, markdown, JSON, HTML), terutama jika output model perlu
+diserap oleh tugas downstream. Anda dapat mencoba menghasilkan output dalam format tersebut
+dengan menginstruksikan model untuk melakukannya dalam prompt. Berikut adalah dua contoh:
 
-| פרומפט | תשובה מהמודל |
+| Perintah | Respons model |
 | --- | --- |
-| נתח את הטבלה בתמונה הזו לפורמט Markdown | | נושא | סטטוס | זמן | תאריך התחלה | תאריך יעד |  | ------- | ------ | ---- | ---------- | ------ |  | מתמטיקה | בוצע | שעה וחצי | 29/11/2023 | 1/12/2023 |  | גיאוגרפיה | בוצע | 30 דקות | 2.12.2023 | 4.12.2023 |  | פיזיקה | בתהליך | שעתיים | 12.3.2023 | 12.5.2023 |  ‫| ביולוגיה | לא התחיל | 6 שעות | 11/2/2016 | 12/6/2023 | |
+| Uraikan tabel dalam gambar ini ke dalam format markdown | | Subject | Status | Time | Start date | Due on |  | ------- | ------ | ---- | ---------- | ------ |  | Matematika | Selesai | 1,5 jam | 29/11/2023 | 1/12/2023 |  | Geografi | Selesai | 30 mnt | 2/12/2023 | 4/12/2023 |  | Physics | In progress | 2 hrs | 12/3/2023 | 12/5/2023 |  | Biology | Not started | 6 hrs | 11/2/2016 | 12/6/2023 | |
 
-| **הנחיה** | **תשובה מהמודל** |
+| **Perintah** | **Respons model** |
 | --- | --- |
-| צריך לספק רשימה של כל המאפיינים הבאים:  רכיבים, סוג המטבח, צמחוני או לא, בפורמט JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
+| Berikan daftar semua atribut berikut:  bahan, jenis masakan, vegetarian atau tidak, dalam format JSON | ```` ```json ````  `{`  `"ingredients": [`  `"rice",`  `"shrimp",`  `"clams",`  `"mussels",`  `"peas",`  `"tomatoes",`  `"onions",`  `"garlic",`  `"olive oil",`  `"paprika",`  `"salt",`  `"pepper"`  `],`  `"type of cuisine": "Spanish",`  `"vegetarian": false`  `}`  ```` ``` ```` |
 
-### אם אתם משתמשים בהנחיה עם תמונה אחת, שימו את התמונה בהתחלה
+### Letakkan gambar Anda terlebih dahulu untuk perintah satu gambar
 
-‫Gemini יכול לפרש תמונות וטקסט בכל סדר בתוך פרומפט, אבל אם תמקמו תמונה אחת לפני פרומפט טקסטואלי, יכול להיות שתקבלו תוצאות טובות יותר.
-בדוגמאות הבאות, התמונה מופיעה לפני הטקסט בכל הנחיה.
+Meskipun Gemini dapat menafsirkan gambar dan teks dalam urutan apa pun dalam perintah, menempatkan
+satu gambar sebelum perintah teks dapat memberikan hasil yang lebih baik.
+Dalam contoh berikut, Anda akan melihat gambar muncul sebelum teks di
+setiap perintah.
 
-### פתרון בעיות בפרומפטים מולטי-מודאליים
+### Memecahkan masalah perintah multimodal
 
-אם התשובה שקיבלתם לא מועילה, יכול להיות שתצטרכו לפתור בעיות בהנחיה. הנה כמה אסטרטגיות שאפשר לנסות.
+Anda mungkin perlu memecahkan masalah perintah jika tidak mendapatkan respons yang bermanfaat. Berikut beberapa strategi yang dapat Anda coba.
 
-#### אם המודל לא שואב מידע מהחלק הרלוונטי בתמונה
+#### Jika model tidak mengambil informasi dari bagian gambar yang relevan
 
-כדי לקבל תשובה ספציפית יותר, אתם יכולים לציין אילו היבטים של התמונה אתם רוצים שההנחיה תתבסס עליהם כדי ליצור את התשובה.
+Untuk mendapatkan respons yang lebih spesifik, Anda dapat menunjukkan aspek gambar mana yang Anda inginkan untuk diambil informasinya oleh perintah guna memberikan respons.
 
-| פרומפט | תשובה מהמודל |
+| Perintah | Respons model |
 | --- | --- |
-| כמה ימים יספיקו החיתולים האלה לתינוק? | החיתולים יספיקו ל-198 ימים. |
+| Berapa hari popok ini akan bertahan untuk bayi? | Popok akan bertahan selama 198 hari sebelum habis. |
 
-| **פרומפט מעודכן** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| כמה זמן יספיקו החיתולים האלה לפני שאצטרך לקנות עוד?  כדי לקבוע את גיל הילד, משתמשים במשקל שמופיע על הקופסה, ומשתמשים במספר הכולל של החיתולים בקופסה.  מחלקים את המספר הכולל במספר החיתולים שהילד או הילדה משתמשים בהם ביום. | הקופסה מכילה 198 חיתולים. על הקופסה מצוין שהחיתולים מיועדים לילדים במשקל 10-17 ק"ג.  הגיל הממוצע של ילדים בטווח המשקל הזה הוא בדרך כלל בין שנה לשנתיים.  פעוט בן שנתיים משתמש בדרך כלל ב-6 חיתולים ביום, ולכן החיתולים יספיקו לכ-33 ימים (198 חלקי 6). |
+| Berapa lama popok ini akan bertahan sebelum habis?  Gunakan berat yang ditampilkan pada kotak untuk menentukan usia anak, dan gunakan jumlah total popok dalam kotak.  Bagi jumlah total dengan jumlah popok yang digunakan anak per hari. | Kotak berisi 198 popok. Kotak tersebut menyatakan bahwa popok tersebut ditujukan untuk anak dengan berat 10-17 kg.  Anak-anak dalam rentang berat ini rata-rata berusia antara 1 dan 2 tahun.  Anak berusia 2 tahun biasanya menggunakan 6 popok per hari, sehingga popok akan bertahan sekitar 33 hari (198/6). |
 
-#### אם הפלט מהמודל כללי מדי ולא מותאם מספיק לתמונה שהוזנה
+#### Jika output model terlalu umum dan tidak cukup disesuaikan dengan input gambar
 
-כדי לעזור למודל להתאים את התשובה שלו לתמונות, כדאי לבקש ממנו לתאר את התמונות לפני שהוא מבצע את משימת הנימוק.
+Untuk membantu model menyesuaikan responsnya dengan gambar, coba minta model untuk mendeskripsikan
+gambar sebelum melakukan tugas penalarannya.
 
-| פרומפט | תשובה מהמודל |
+| Perintah | Respons model |
 | --- | --- |
-| מה משותף לתמונות האלה? | כל ארבע התמונות הן דוגמאות לצילום נוף. |
+| Apa kesamaan di antara gambar-gambar ini? | Keempat gambar tersebut adalah contoh fotografi lanskap. |
 
-| **פרומפט מעודכן** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| קודם, תאר בפירוט מה רואים בכל תמונה. מה משותף לתמונות האלה? | בתמונה הראשונה רואים אדם שאורז מזוודה. בתמונה השנייה מוצג מסדרון ריק בקניון. בתמונה השלישית מוצג גליל נייר טואלט. בתמונה הרביעית רואים ים סוער וכהה.  המשותף לכל התמונות האלה הוא שהן דוגמאות למרחבים לימינליים. מרחבים לימינליים הם מקומות או מצבים שנמצאים בין שני מקומות או מצבים אחרים. לרוב, הן מאופיינות בתחושה של חוסר ודאות או עמימות.  בתמונה הראשונה רואים את האדם בבית ובטיול. בתמונה השנייה רואים את המסדרון בין שתי החנויות. בתמונה השלישית רואים נייר טואלט, שיכול לייצג חדר שירותים. חדר הרחצה הוא מרחב מעבר בין התחום הפרטי לציבורי. זהו מקום שבו אנחנו מתכוננים להיכנס לעולם החיצוני או לצאת ממנו.  בתמונה הרביעית רואים את הים במצב ביניים בין רגוע לסוער.  מרחבים לימינליים יכולים להיות גם מרגשים וגם מטרידים. הם יכולים להיות מקום של התחלות חדשות או מקום של סיומים. הם יכולים להיות מקום של הרהור או מקום של פעולה. |
+| Pertama, jelaskan isi setiap gambar secara mendetail. Apa kesamaan di antara gambar-gambar ini? | Gambar pertama menunjukkan seseorang sedang mengemas koper. Gambar kedua menunjukkan lorong kosong di pusat perbelanjaan. Gambar ketiga menampilkan gulungan tisu toilet. Gambar keempat menunjukkan laut yang gelap dan berbadai.  Kesamaan di antara gambar-gambar ini adalah semuanya merupakan contoh ruang liminal. Ruang liminal adalah tempat atau situasi yang berada di antara dua tempat atau situasi lainnya. Masalah ini sering kali ditandai dengan rasa ketidakpastian atau ambiguitas.  Gambar pertama menunjukkan orang tersebut berada di antara rumah dan perjalanan. Gambar kedua menunjukkan lorong di antara dua toko. Gambar ketiga adalah tisu toilet, yang dapat mewakili kamar mandi. Kamar mandi adalah ruang transisi antara ranah pribadi dan publik. Ini adalah tempat kita mempersiapkan diri untuk memasuki atau meninggalkan dunia luar.  Gambar keempat menunjukkan laut yang berada di antara kondisi tenang dan badai.  Ruang liminal bisa terasa menarik sekaligus meresahkan. Stasiun bisa menjadi tempat awal yang baru atau tempat akhir. Taman bisa menjadi tempat untuk merenung atau tempat untuk beraktivitas. |
 
-אפשר גם לנסות לבקש מהמודל להתייחס למה שרואים בתמונה.
+Anda juga dapat mencoba meminta model secara eksplisit untuk merujuk pada apa yang ada dalam gambar.
 
-| **פרומפט מעודכן** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| מה משותף לתמונות האלה? התייחסו למה שמופיע בתמונות בתשובה שלכם. | כל התמונות קשורות לנסיעות. התמונה הראשונה מראה אדם אורז מזוודה, התמונה השנייה מראה מסדרון ריק בקניון, התמונה השלישית מראה ערימה של נייר טואלט והתמונה הרביעית מראה ים סוער וחשוך.  כל התמונות האלה קשורות לנסיעות כי הן מציגות דברים שאנשים צריכים או משתמשים בהם כשהם נוסעים. בתמונה הראשונה רואים אדם שאורז מזוודה, וזה משהו שאנשים עושים כשהם יוצאים לטיול. בתמונה השנייה רואים מסדרון ריק בקניון, מקום שאנשים הולכים אליו לעיתים קרובות כדי לקנות דברים לנסיעות שלהם. בתמונה השלישית מוצגת ערימה של נייר טואלט, שזה משהו שאנשים משתמשים בו לעיתים קרובות כשהם נוסעים. בתמונה הרביעית רואים ים סוער וקודר, שזה משהו שאנשים נתקלים בו לפעמים כשהם מטיילים. |
+| Apa kesamaan di antara gambar-gambar ini? Refer to what's in the images in your response. | Semua gambar terkait dengan perjalanan. Gambar pertama menunjukkan seseorang sedang mengemas koper, gambar kedua menunjukkan lorong kosong di pusat perbelanjaan, gambar ketiga menunjukkan tumpukan tisu toilet, dan gambar keempat menunjukkan laut yang gelap dan berbadai.  Gambar-gambar ini semuanya terkait dengan perjalanan karena semuanya adalah hal yang dibutuhkan atau digunakan orang saat bepergian. Gambar pertama menunjukkan seseorang sedang mengemas koper, yang merupakan sesuatu yang dilakukan orang saat mereka akan melakukan perjalanan. Gambar kedua menunjukkan lorong kosong di pusat perbelanjaan, yang merupakan tempat orang sering pergi untuk membeli barang untuk perjalanan mereka. Gambar ketiga menunjukkan tumpukan tisu toilet, yang sering digunakan orang saat bepergian. Gambar keempat menunjukkan laut yang gelap dan berbadai, yang sering ditemui orang saat bepergian. |
 
-אותם טיפים רלוונטיים גם ליצירת תוכן יצירתי מתמונות. בדוגמה הבאה עם הארנב, בקשה מפורשת מהמודל לכלול היבטים מהתמונה יכולה לשפר את הפלט.
+Tips yang sama berlaku untuk output kreatif dari gambar. Dalam contoh berikut dengan
+kelinci, meminta model secara eksplisit untuk menyertakan aspek dari gambar dapat
+meningkatkan output.
 
-| פרומפט | תשובה מהמודל |
+| Perintah | Respons model |
 | --- | --- |
-| אתה יכול לכתוב לי שיר על התמונה הזו? | ארנב קטן, רך וחום,  מקפץ בשדה, למעלה ולמטה.  האוזניים שלך כל כך ארוכות, הזנב שלך כל כך קטן,  אתה היצור הכי חמוד מכולם.  אתה מנשנש את הדשא, כל כך ירוק ומתוק,  ומקפץ משם כשאתה רואה אותי.  אבל תמיד אהיה חבר שלך,  ארנב קטן, עד הסוף. |
+| Bisakah Anda menulis puisi tentang gambar ini? | Kelinci kecil, lembut dan cokelat,  Melompat-lompat di ladang, naik dan turun.  Telingamu panjang, ekormu kecil,  Kamu makhluk paling lucu di antara semuanya.  Kau mengunyah rumput, hijau dan manis,  Dan melompat pergi saat melihatku.  Tapi aku akan selalu jadi temanmu,  Kelinci kecil, sampai akhir. |
 
-| **פרומפט מעודכן** | **תשובה משופרת** |
+| **Perintah yang diperbarui** | **Respons yang lebih baik** |
 | --- | --- |
-| תכתוב לי שיר תיאורי ודרמטי על התמונה הזו, ותציין בו את המיקום. | ארנב קטן על הדשא הירוק,  אוזניים ארוכות, חדות כל כך.  מה אתה רואה שם,  במרחק, לאן אתה בוהה?  האם זה כחול האוקיינוס,  שמנצנץ בגוון השמש?  או הגלים שמתנפצים ורועמים,  קצב שאתם אוהבים?  ארנב קטן, תגיד לי את האמת,  מה כל כך מושך את תשומת הלב שלך?  Is it the salty breeze,  Or the seagulls' cries that please?  אולי זה הגודל של הכול,  עולם כל כך גדול וקטן.  מקום שבו חלומות יכולים להתגשם,  ושבו אפשר לצאת להרפתקאות.  ארנב קטן, מעניין על מה אתה חולם,  כשאתה יושב על הדשא, כל כך רגוע.  האם אתם רוצים לחקור את המעמקים,  או להישאר על היבשה, שבה אתם יכולים לקפוץ?  לא משנה מה זה יהיה, ארנבון קטן,  תמשיך לשמור על ניצוץ הפליאה הזה.  כי בחלומות ובשאיפות שלך,  מסתתר עולם שמחכה ליצירה שלך. |
+| Bisakah Anda menulis puisi deskriptif dan dramatis tentang gambar ini dan menyertakan lokasinya? | Kelinci kecil di padang rumput,  Telinganya panjang, sangat tajam.  Apa yang kau lihat di sana,  Di kejauhan, tempat kau menatap?  Apakah itu biru laut,  Berkilau dalam rona matahari?  Atau deburan ombak yang menderu,  Irama yang Anda sukai?  Kelinci kecil, katakan padaku,  Apa yang membuatmu begitu tertarik?  Apakah angin laut yang asin,  Atau jeritan burung camar yang menyenangkan?  Mungkin karena luasnya,  Dunia yang begitu besar dan kecil.  Tempat impian dapat berkeliaran,  Dan petualangan dapat disemai.  Kelinci kecil, aku ingin tahu apa mimpimu,  Saat kamu duduk di rumput, begitu tenang.  Apakah Anda ingin menjelajahi laut dalam,  Atau tetap di darat, tempat Anda bisa melompat?  Apa pun itu, kelinci kecil,  Pertahankan percikan keajaiban itu agar tetap menyala terang.  Karena dalam mimpi dan aspirasimu,  Ada dunia yang menunggu kreasimu. |
 
-#### פתרון בעיות: איזה חלק בהנחיה נכשל
+#### Memecahkan masalah bagian perintah yang gagal
 
-קשה לדעת אם הנחיה נכשלה כי המודל לא **הבין את התמונה** מלכתחילה, או שהוא הבין את התמונה אבל לא ביצע את **שלבי החשיבה** הנכונים לאחר מכן.
-כדי להבחין בין הסיבות האלה, אפשר לבקש מהמודל לתאר מה רואים בתמונה.
+Mungkin sulit untuk mengetahui apakah perintah gagal karena model
+tidak **memahami gambar** sejak awal, atau apakah model memahami gambar
+tetapi tidak melakukan **langkah-langkah penalaran** yang benar setelahnya.
+Untuk memperjelas alasan tersebut, minta model untuk mendeskripsikan apa yang ada dalam gambar.
 
-בדוגמה הבאה, אם המודל מציע חטיף שנראה מפתיע בשילוב עם תה (למשל, פופקורן), קודם כל אפשר לפתור את הבעיה כדי לקבוע אם המודל זיהה נכון שהתמונה מכילה תה.
+Dalam contoh berikut, jika model merespons dengan camilan yang tampaknya mengejutkan
+saat dipasangkan dengan teh (misalnya, popcorn), Anda dapat memecahkan masalah terlebih dahulu untuk menentukan
+apakah model mengenali dengan benar bahwa gambar tersebut berisi teh.
 
-| פרומפט | פרומפט לפתרון בעיות |
+| Perintah | Perintah untuk pemecahan masalah |
 | --- | --- |
-| איזה נשנוש אפשר להכין בדקה שיתאים לזה? | תארו מה מופיע בתמונה. |
+| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Jelaskan apa yang ada dalam gambar ini. |
 
-אסטרטגיה נוספת היא לבקש מהמודל להסביר את הנימוקים שלו. כך תוכלו לזהות איזה חלק בתהליך החשיבה לא עבד, אם בכלל.
+Strategi lainnya adalah meminta model untuk menjelaskan penalarannya. Hal ini dapat membantu Anda
+mempersempit bagian penalaran mana yang rusak, jika ada.
 
-| פרומפט | פרומפט לפתרון בעיות |
+| Perintah | Perintah untuk pemecahan masalah |
 | --- | --- |
-| איזה חטיף אפשר להכין בדקה אחת שיתאים לזה? | איזה חטיף אפשר להכין בדקה אחת שיתאים לזה? נשמח לקבל הסבר. |
+| Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? | Apa camilan yang bisa saya buat dalam 1 menit yang cocok dengan ini? Harap jelaskan alasannya. |
 
-## המאמרים הבאים
+## Langkah berikutnya
 
-- אתם יכולים לנסות לכתוב הנחיות מולטימודאליות משלכם באמצעות [Google AI Studio](http://aistudio.google.com?hl=he).
-- כדי לקבל מידע על השימוש ב-Gemini Files API להעלאת קובצי מדיה והכללה שלהם בהנחיות, עיינו במדריכים בנושא [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=he), [אודיו](https://ai.google.dev/gemini-api/docs/audio?hl=he) ו[עיבוד מסמכים](https://ai.google.dev/gemini-api/docs/document-processing?hl=he).
-- הנחיות נוספות לעיצוב הנחיות, כמו כוונון פרמטרים של דגימה, זמינות בדף [אסטרטגיות להנחיות](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=he).
+- Coba tulis perintah multimodal Anda sendiri menggunakan [Google AI
+  Studio](http://aistudio.google.com?hl=id).
+- Untuk mengetahui informasi tentang cara menggunakan Gemini Files API untuk
+  mengupload file media dan menyertakannya dalam perintah Anda, lihat
+  panduan [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=id), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=id), dan
+  [Pemrosesan dokumen](https://ai.google.dev/gemini-api/docs/document-processing?hl=id).
+- Untuk panduan selengkapnya tentang desain prompt, seperti menyesuaikan parameter pengambilan sampel, lihat halaman [Strategi prompt](https://ai.google.dev/gemini-api/docs/prompting-strategies?hl=id).
 
-שליחת משוב
+Kirim masukan
 
-אלא אם צוין אחרת, התוכן של דף זה הוא ברישיון [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/) ודוגמאות הקוד הן ברישיון [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). לפרטים, ניתן לעיין ב[מדיניות האתר Google Developers‏](https://developers.google.com/site-policies?hl=he).‏ Java הוא סימן מסחרי רשום של חברת Oracle ו/או של השותפים העצמאיים שלה.
+Kecuali dinyatakan lain, konten di halaman ini dilisensikan berdasarkan [Lisensi Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), sedangkan contoh kode dilisensikan berdasarkan [Lisensi Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Untuk mengetahui informasi selengkapnya, lihat [Kebijakan Situs Google Developers](https://developers.google.com/site-policies?hl=id). Java adalah merek dagang terdaftar dari Oracle dan/atau afiliasinya.
 
-עדכון אחרון: 2026-10-14 (שעון UTC).
+Terakhir diperbarui pada 2026-10-26 UTC.
 
-רוצה לתת לנו משוב?
+Ada masukan untuk kami?
 
-[[["התוכן קל להבנה","easyToUnderstand","thumb-up"],["התוכן עזר לי לפתור בעיה","solvedMyProblem","thumb-up"],["סיבה אחרת","otherUp","thumb-up"]],[["חסרים לי מידע או פרטים","missingTheInformationINeed","thumb-down"],["התוכן מורכב מדי או עם יותר מדי שלבים","tooComplicatedTooManySteps","thumb-down"],["התוכן לא עדכני","outOfDate","thumb-down"],["בעיה בתרגום","translationIssue","thumb-down"],["בעיה בדוגמאות/בקוד","samplesCodeIssue","thumb-down"],["סיבה אחרת","otherDown","thumb-down"]],["עדכון אחרון: 2026-10-14 (שעון UTC)."],[],[]]
+[[["Mudah dipahami","easyToUnderstand","thumb-up"],["Memecahkan masalah saya","solvedMyProblem","thumb-up"],["Lainnya","otherUp","thumb-up"]],[["Informasi yang saya butuhkan tidak ada","missingTheInformationINeed","thumb-down"],["Terlalu rumit/langkahnya terlalu banyak","tooComplicatedTooManySteps","thumb-down"],["Sudah usang","outOfDate","thumb-down"],["Masalah terjemahan","translationIssue","thumb-down"],["Masalah kode / contoh","samplesCodeIssue","thumb-down"],["Lainnya","otherDown","thumb-down"]],["Terakhir diperbarui pada 2026-10-26 UTC."],[],[]]

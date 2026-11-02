@@ -1,28 +1,26 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=de
-fetched_at: 2026-10-26T05:48:08.657644+00:00
-title: "Methoden zur Dateieingabe \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/file-input-methods?hl=ja
+fetched_at: 2026-11-02T07:10:39.918304+00:00
+title: "\u30d5\u30a1\u30a4\u30eb\u5165\u529b\u30e1\u30bd\u30c3\u30c9 \u00a0|\u00a0 Gemini API \u00a0|\u00a0 Google AI for Developers"
 ---
 
-Gemini 4 Argon ist jetzt verfügbar. [Jetzt ausprobieren](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=de).
+Gemini 4 Argon が今すぐチェックできるようになりました。[試してみる](https://aistudio.google.com/prompts/new_chat?model=gemini-4-argon&hl=ja)
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=de)
+![](https://ai.google.dev/_static/images/translated.svg?hl=ja)
 
-Google verwendet KI-Technologie, um Inhalte in Ihre bevorzugte Sprache zu übersetzen. KI-Übersetzungen können Fehler enthalten.
+Google は AI 技術を使用して、コンテンツをご希望の言語に翻訳しています。AI 翻訳には誤りが含まれる場合があります。
 
-- [Startseite](https://ai.google.dev/?hl=de)
-- [Gemini API](https://ai.google.dev/gemini-api?hl=de)
-- [Dokumentation](https://ai.google.dev/gemini-api/docs?hl=de)
+- [ホーム](https://ai.google.dev/?hl=ja)
+- [Gemini API](https://ai.google.dev/gemini-api?hl=ja)
+- [ドキュメント](https://ai.google.dev/gemini-api/docs?hl=ja)
 
-Feedback geben
+フィードバックを送信
 
-# Methoden zur Dateieingabe
+# ファイル入力メソッド
 
-In diesem Leitfaden wird beschrieben, wie Sie Mediendateien wie Bilder, Audio, Video und Dokumente in Anfragen an die Gemini API einfügen können.
-Die neuen Methoden werden in allen Gemini API-Endpunkten unterstützt, einschließlich Batch, Interactions und Live API.
-Die Wahl der richtigen Methode hängt von der Größe der Datei, dem Speicherort der Daten und der Häufigkeit ab, mit der Sie die Datei verwenden möchten.
+このガイドでは、Gemini API にリクエストを行う際に、画像、音声、動画、ドキュメントなどのメディア ファイルを含めるさまざまな方法について説明します。新しいメソッドは、Batch、Interactions、Live API など、すべての Gemini API エンドポイントでサポートされています。適切な方法は、ファイルのサイズ、データの保存場所、ファイルの使用頻度によって異なります。
 
-Die einfachste Methode, eine Datei als Eingabe zu verwenden, besteht darin, eine lokale Datei zu lesen und in einen Prompt einzufügen. Das folgende Beispiel zeigt, wie eine lokale PDF-Datei gelesen wird. PDFs dürfen bei dieser Methode maximal 50 MB groß sein. Eine vollständige Liste der Dateieingabetypen und ‑limits finden Sie in der [Vergleichstabelle für Eingabemethoden](#method-comparison).
+ファイルを入力として含める最も簡単な方法は、ローカル ファイルを読み取ってプロンプトに含めることです。次の例は、ローカルの PDF ファイルを読み取る方法を示しています。このメソッドでは、PDF は 50 MB に制限されています。ファイル入力の種類と上限の完全なリストについては、[入力方法の比較表](#method-comparison)をご覧ください。
 
 ### Python
 
@@ -198,26 +196,26 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
   }'
 ```
 
-## Vergleich der Eingabemethoden
+## 入力方法の比較
 
-In der folgenden Tabelle werden die einzelnen Eingabemethoden mit Dateibeschränkungen und Anwendungsfällen verglichen. Das Dateigrößenlimit kann je nach Dateityp und Modell oder Tokenizer, der zum Verarbeiten der Datei verwendet wird, variieren.
+次の表は、各入力方法とファイルの上限、最適なユースケースを比較したものです。ファイルサイズの制限は、ファイルの種類と、ファイルの処理に使用されるモデルまたはトークナイザーによって異なる場合があります。
 
-| Methode | Optimal für | Maximale Dateigröße | Persistenz |
+| メソッド | 最適な用途 | 最大ファイルサイズ | 永続性 |
 | --- | --- | --- | --- |
-| **Inlinedaten** | Schnelle Tests, kleine Dateien, Echtzeitanwendungen. | 100 MB pro Anfrage oder Nutzlast   (**50 MB für PDFs**) | Keine (wird mit jeder Anfrage gesendet) |
-| **Dateiupload über API** | Große Dateien, Dateien, die mehrmals verwendet werden. | 2 GB pro Datei,   bis zu 20 GB pro Projekt | 48 Stunden |
-| **Registrierung von GCS-URIs für die File API** | Große Dateien, die sich bereits in Google Cloud Storage befinden, Dateien, die mehrmals verwendet werden. | 2 GB pro Datei, keine Speicherplatzlimits insgesamt | Keine (werden pro Anfrage abgerufen). Eine einmalige Registrierung kann bis zu 30 Tage lang Zugriff gewähren. |
-| **Externe URLs** | Öffentliche Daten oder Daten in Cloud-Buckets (AWS, Azure, GCS) ohne erneutes Hochladen. | 15 MB pro Datei | Keine (werden pro Anfrage abgerufen) |
+| **インライン データ** | 迅速なテスト、小規模なファイル、リアルタイム アプリケーション。 | リクエストまたはペイロードあたり 100 MB  （**PDF の場合は 50 MB**） | なし（すべてのリクエストで送信） |
+| **File API アップロード** | 大きなファイル、複数回使用されるファイル。 | ファイルあたり 2 GB、  プロジェクトあたり最大 20 GB | 48 時間 |
+| **File API GCS URI の登録** | Google Cloud Storage にすでに保存されている大きなファイル、複数回使用されるファイル。 | 1 ファイルあたり 2 GB、保存容量の上限なし | なし（リクエストごとに取得）。1 回の登録で最大 30 日間アクセスできます。 |
+| **外部 URL** | パブリック データまたはクラウド バケット（AWS、Azure、GCS）内のデータを再アップロードせずに使用できます。 | 1 ファイルあたり 15 MB | なし（リクエストごとに取得） |
 
-## Inlinedaten
+## インライン データ
 
-Bei kleineren Dateien (unter 100 MB oder 50 MB für PDFs) können Sie die Daten direkt im Anfrage-Payload übergeben. Dies ist die einfachste Methode für schnelle Tests oder Anwendungen, die temporäre Echtzeitdaten verarbeiten. Sie können Daten als base64-codierte Strings bereitstellen oder lokale Dateien direkt lesen.
+小さいファイル（100 MB 未満、PDF の場合は 50 MB）の場合は、リクエスト ペイロードでデータを直接渡すことができます。これは、リアルタイムの一時データを処理するクイック テストやアプリケーションに最適な最も簡単な方法です。データは、Base64 でエンコードされた文字列として提供するか、ローカル ファイルを直接読み取って提供できます。
 
-Ein Beispiel für das Lesen aus einer lokalen Datei finden Sie am Anfang dieser Seite.
+ローカル ファイルから読み取る例については、このページの冒頭の例をご覧ください。
 
-### Über eine URL abrufen
+### URL から取得する
 
-Sie können auch eine Datei über eine URL abrufen, sie in Byte konvertieren und in die Eingabe einfügen.
+URL からファイルを取得し、バイトに変換して入力に含めることもできます。
 
 ### Python
 
@@ -430,11 +428,11 @@ jq ".outputs[] | select(.type == \"text\") | .text" response.json
 
 ## Gemini File API
 
-Die File API ist für größere Dateien (bis zu 2 GB) oder Dateien vorgesehen, die Sie in mehreren Anfragen verwenden möchten.
+File API は、大きなファイル（最大 2 GB）や複数のリクエストで使用するファイルを対象としています。
 
-### Standard-Dateiupload
+### 標準のファイル アップロード
 
-Laden Sie eine lokale Datei in die Gemini API hoch. Auf diese Weise hochgeladene Dateien werden vorübergehend (48 Stunden) gespeichert und verarbeitet, damit das Modell sie effizient abrufen kann.
+ローカル ファイルを Gemini API にアップロードします。この方法でアップロードされたファイルは一時的に（48 時間）保存され、モデルによる効率的な取得のために処理されます。
 
 ### Python
 
@@ -632,42 +630,43 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
     }'
 ```
 
-### Google Cloud Storage-Dateien registrieren
+### Google Cloud Storage ファイルを登録する
 
-Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie nicht herunterladen und noch einmal hochladen. Sie können sie direkt mit der File API registrieren.
+データがすでに Google Cloud Storage にある場合は、ダウンロードして再アップロードする必要はありません。File API に直接登録できます。
 
-1. **Dienst-Agents** Zugriff auf jeden Bucket gewähren
+1. 各バケットへの **サービス エージェント** アクセス権を付与する
 
-   1. Aktivieren Sie die Gemini API in Ihrem Google Cloud-Projekt.
-   2. Dienst-Agent erstellen:
+   1. Google Cloud プロジェクトで Gemini API を有効にします。
+   2. サービス エージェントを作成します。
 
       `gcloud beta services identity create --service=generativelanguage.googleapis.com --project=<your_project>`
-   3. **Erteilen Sie dem Gemini API-Dienst-Agenten Berechtigungen** zum Lesen Ihrer Speicher-Buckets.
+   3. ストレージ バケットを読み取るための **Gemini API サービス エージェントの権限を付与**します。
 
-      Der Nutzer muss diesem Dienst-Agenten die `Storage Object Viewer`-[IAM-Rolle](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=de#storage.objectViewer) für die jeweiligen Speicher-Buckets zuweisen, die er verwenden möchte.
+      ユーザーは、使用する特定のストレージ バケットで、このサービス エージェントに `Storage Object Viewer`
+      [IAM ロール](https://docs.cloud.google.com/storage/docs/access-control/iam-roles?hl=ja#storage.objectViewer)を割り当てる必要があります。
 
-   Dieser Zugriff läuft nicht automatisch ab, kann aber jederzeit geändert werden. Sie können auch die Befehle des [Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=de) verwenden, um Berechtigungen zu erteilen.
-2. Dienst authentifizieren
+   このアクセス権はデフォルトでは期限切れになりませんが、いつでも変更できます。[Google Cloud Storage IAM SDK](https://cloud.google.com/iam/docs/write-policy-client-libraries?hl=ja) コマンドを使用して権限を付与することもできます。
+2. サービスを認証する
 
-   **Voraussetzungen**
+   **前提条件**
 
-   - API aktivieren
-   - Erstellen Sie ein Dienstkonto oder einen Agent mit den entsprechenden Berechtigungen.
+   - API を有効にする
+   - 適切な権限が付与されたサービス アカウントまたはエージェントを作成します。
 
-   Sie müssen sich zuerst als der Dienst authentifizieren, der die Berechtigungen des Storage-Objekt-Betrachters hat. Wie das geschieht, hängt von der Umgebung ab, in der Ihr Dateiverwaltungscode ausgeführt wird.
+   まず、ストレージ オブジェクト閲覧者の権限を持つサービスとして認証する必要があります。この処理は、ファイル管理コードが実行される環境によって異なります。
 
-   **Außerhalb von Google Cloud**
+   **Google Cloud の外部**
 
-   Wenn Ihr Code außerhalb von Google Cloud ausgeführt wird, z. B. auf Ihrem Desktop, laden Sie die Kontoanmeldedaten mit den folgenden Schritten aus der Google Cloud Console herunter:
+   コードが Google Cloud の外部（デスクトップなど）から実行されている場合は、次の手順で Google Cloud コンソールからアカウント認証情報をダウンロードします。
 
-   1. Rufen Sie die [Dienstkontokonsole](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=de) auf.
-   2. Wählen Sie das entsprechende Dienstkonto aus.
-   3. Wählen Sie den Tab **Schlüssel** aus und klicken Sie auf **Schlüssel hinzufügen > Neuen Schlüssel erstellen**.
-   4. Wählen Sie den Schlüsseltyp **JSON** aus und notieren Sie sich, wohin die Datei auf Ihren Computer heruntergeladen wurde.
+   1. [サービス アカウント コンソール](https://console.cloud.google.com/iam-admin/serviceaccounts?hl=ja)に移動します。
+   2. 関連するサービス アカウントを選択する
+   3. [**鍵**] タブを選択し、[**鍵を追加、新しい鍵を作成**] を選択します。
+   4. 鍵のタイプとして [**JSON**] を選択し、ファイルがマシン上のどこにダウンロードされたかを確認します。
 
-   Weitere Informationen finden Sie in der offiziellen Google Cloud-Dokumentation zur [Schlüsselverwaltung für Dienstkonten](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=de).
+   詳細については、[サービス アカウント キーの管理](https://docs.cloud.google.com/iam/docs/keys-create-delete?hl=ja)に関する Google Cloud の公式ドキュメントをご覧ください。
 
-   Verwenden Sie dann die folgenden Befehle, um sich zu authentifizieren. Bei diesen Befehlen wird davon ausgegangen, dass sich die Dienstkontodatei im aktuellen Verzeichnis befindet und den Namen `service-account.json` hat.
+   次に、次のコマンドを使用して認証します。これらのコマンドは、サービス アカウント ファイルが現在のディレクトリにあり、名前が `service-account.json` であることを前提としています。
 
    ### Python
 
@@ -705,7 +704,7 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
    });
    ```
 
-   ### Befehlszeile
+   ### CLI
 
    ```
    gcloud auth application-default login \
@@ -713,13 +712,13 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
      --scopes='https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only'
    ```
 
-   **Mit Google Cloud**
+   **Google Cloud**
 
-   Wenn Sie direkt in Google Cloud ausgeführt werden, z. B. mit [Cloud Run Functions](https://cloud.google.com/functions?hl=de) oder einer [Compute Engine-Instanz](https://cloud.google.com/products/compute?hl=de), haben Sie implizite Anmeldedaten, müssen sich aber noch einmal authentifizieren, um die entsprechenden Bereiche zu gewähren.
+   [Cloud Run 関数](https://cloud.google.com/functions?hl=ja)や [Compute Engine インスタンス](https://cloud.google.com/products/compute?hl=ja)を使用して Google Cloud で直接実行している場合は、暗黙的な認証情報がありますが、適切なスコープを付与するために再認証する必要があります。
 
    ### Python
 
-   Dieser Code setzt voraus, dass der Dienst in einer Umgebung ausgeführt wird, in der [Standardanmeldedaten für Anwendungen](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=de) automatisch abgerufen werden können, z. B. in Cloud Run oder Compute Engine.
+   このコードは、Cloud Run や Compute Engine など、[アプリケーションのデフォルト認証情報](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ja)を自動的に取得できる環境でサービスが実行されていることを想定しています。
 
    ```
    import google.auth
@@ -734,7 +733,7 @@ Wenn sich Ihre Daten bereits in Google Cloud Storage befinden, müssen Sie sie n
 
    ### JavaScript
 
-   Dieser Code setzt voraus, dass der Dienst in einer Umgebung ausgeführt wird, in der [Standardanmeldedaten für Anwendungen](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=de) automatisch abgerufen werden können, z. B. in Cloud Run oder Compute Engine.
+   このコードは、Cloud Run や Compute Engine など、[アプリケーションのデフォルト認証情報](https://docs.cloud.google.com/docs/authentication/application-default-credentials?hl=ja)を自動的に取得できる環境でサービスが実行されていることを想定しています。
 
    ```
    const { GoogleAuth } = require('google-auth-library');
@@ -767,7 +766,7 @@ GoogleCredentials credentials =
         .createScoped(gcsReadScopes);
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -787,17 +786,17 @@ func main() {
 }
 ```
 
-### Befehlszeile
+### CLI
 
-Dies ist ein interaktiver Befehl. Für Dienste wie Compute Engine können Sie Bereiche auf Konfigurationsebene an den ausgeführten Dienst anhängen. Ein Beispiel finden Sie in der [Dokumentation zu nutzerverwalteten Diensten](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=de#using).
+これはインタラクティブなコマンドです。Compute Engine などのサービスでは、構成レベルで実行中のサービスにスコープを関連付けることができます。例については、[ユーザー管理サービスに関するドキュメント](https://docs.cloud.google.com/compute/docs/access/create-enable-service-accounts-for-instances?hl=ja#using)をご覧ください。
 
 ```
 gcloud auth application-default login \
 --scopes="https://www.googleapis.com/auth/cloud-platform,https://www.googleapis.com/auth/devstorage.read_only"
 ```
 
-1. Dateiregistrierung (Files API)
-   Mit der Files API können Sie Dateien registrieren und einen Files API-Pfad erstellen, der direkt in der Gemini API verwendet werden kann.
+1. ファイル登録（Files API）
+   Files API を使用してファイルを登録し、Gemini API で直接使用できる Files API パスを生成します。
 
    ### Python
 
@@ -914,7 +913,7 @@ for (File f : registeredGcsFiles.files().orElse(Collections.emptyList())) {
 }
 ```
 
-### Ok
+### Go
 
 ```
 package main
@@ -978,7 +977,7 @@ func main() {
 }
 ```
 
-### Befehlszeile
+### CLI
 
 ```
 access_token=$(gcloud auth application-default print-access-token)
@@ -990,10 +989,9 @@ curl -X POST https://generativelanguage.googleapis.com/v1beta/files:register \
     -d '{"uris": ["gs://bucket/object1", "gs://bucket/object2"]}'
 ```
 
-## Externe HTTP-/signierte URLs
+## 外部 HTTP / 署名付き URL
 
-Sie können öffentlich zugängliche HTTPS-URLs oder vorab signierte URLs direkt in Ihre Anfrage einfügen. Die Gemini API ruft die Inhalte während der Verarbeitung sicher ab.
-Das ist ideal für Dateien, die Sie nicht noch einmal hochladen möchten. Jede Datei darf bis zu 15 MB groß sein. Verwenden Sie für größere Dateien die [File API](#file-api).
+一般公開の HTTPS URL または事前署名付き URL をリクエストで直接渡すことができます。Gemini API は、処理中にコンテンツを安全に取得します。これは、再アップロードしたくないファイルに最適です。各ファイルの最大サイズは 15 MB です。大きなファイルの場合は、[File API](#file-api) を使用します。
 
 ### Python
 
@@ -1058,20 +1056,19 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions" \
         }'
 ```
 
-### Bedienungshilfen
+### ユーザー補助
 
-Prüfen Sie, ob die von Ihnen angegebenen URLs zu Seiten führen, für die eine Anmeldung erforderlich ist oder die sich hinter einer Paywall befinden. Bei privaten Datenbanken müssen Sie eine signierte URL mit den richtigen Zugriffsberechtigungen und dem richtigen Ablaufdatum erstellen.
+指定した URL が、ログインが必要なページや有料コンテンツのページにリンクしていないことを確認します。非公開データベースの場合は、適切なアクセス権限と有効期限で署名付き URL を作成してください。
 
-### Sicherheitschecks
+### 安全チェック
 
-Das System führt eine Inhaltsmoderationsprüfung der URL durch, um zu bestätigen, dass sie den Sicherheits- und Richtlinienstandards entspricht. Wenn die URL diese Prüfung nicht besteht, erhalten Sie eine `url_retrieval_status` mit dem Fehlercode `URL_RETRIEVAL_STATUS_UNSAFE`.
+システムは URL が安全基準とポリシー基準を満たしていることを確認するため、URL に対してコンテンツ モデレーション チェックを実行します。URL がこのチェックに失敗すると、`url_retrieval_status` は `URL_RETRIEVAL_STATUS_UNSAFE` になります。
 
-### Unterstützte Inhaltstypen
+### サポートされているコンテンツの種類
 
-Diese Liste der unterstützten Dateitypen und Einschränkungen dient als erste Orientierung und ist nicht vollständig. Die tatsächliche Menge der unterstützten Typen kann sich ändern und je nach verwendetem Modell und Tokenizer-Version variieren. Nicht unterstützte Typen führen zu einem Fehler.
-Außerdem wird das Abrufen von Inhalten für diese Dateitypen nur für öffentlich zugängliche URLs unterstützt.
+サポートされているファイル形式と制限事項のこのリストは、初期のガイダンスとして提供されるものであり、包括的なものではありません。サポートされている型の有効なセットは変更される可能性があり、使用中の特定のモデルとトークナイザーのバージョンによって異なる場合があります。サポートされていない型を使用すると、エラーが発生します。また、これらのファイル形式のコンテンツ取得では、一般公開されている URL のみがサポートされます。
 
-#### Textdateitypen
+#### テキスト ファイルの種類
 
 - `text/html`
 - `text/css`
@@ -1081,19 +1078,19 @@ Außerdem wird das Abrufen von Inhalten für diese Dateitypen nur für öffentli
 - `text/rtf`
 - `text/javascript`
 
-#### Anwendungsdateitypen
+#### アプリケーション ファイル形式
 
 - `application/json`
 - `application/pdf`
 
-#### Bilddateitypen
+#### 画像ファイル形式
 
 - `image/bmp`
 - `image/jpeg`
 - `image/png`
 - `image/webp`
 
-#### Videodateitypen
+#### 動画ファイル形式
 
 - `video/mp4`
 - `video/mpeg`
@@ -1105,31 +1102,30 @@ Außerdem wird das Abrufen von Inhalten für diese Dateitypen nur für öffentli
 - `video/wmv`
 - `video/3gpp`
 
-## Best Practices
+## ベスト プラクティス
 
-- **Die richtige Methode auswählen**:Verwenden Sie Inline-Daten für kleine, temporäre Dateien.
-  Verwenden Sie die File API für größere oder häufig verwendete Dateien. Verwenden Sie externe URLs für Daten, die bereits online gehostet werden.
-- **MIME-Typen angeben**:Geben Sie immer den richtigen MIME-Typ für die Dateidaten an, damit sie richtig verarbeitet werden.
-- **Fehlerbehandlung:** Implementieren Sie die Fehlerbehandlung in Ihrem Code, um potenzielle Probleme wie Netzwerkfehler, Probleme beim Dateizugriff oder API-Fehler zu beheben.
+- **適切な方法を選択する:** 小さな一時ファイルにはインライン データを使用します。サイズが大きいファイルや頻繁に使用するファイルには、File API を使用します。すでにオンラインでホストされているデータには、外部 URL を使用します。
+- **MIME タイプを指定する:** ファイルデータを正しく処理するために、常に正しい MIME タイプを指定します。
+- **エラーを処理する:** ネットワーク障害、ファイル アクセスの問題、API エラーなどの潜在的な問題を管理するために、コードにエラー処理を実装します。
 
-## Beschränkungen
+## 制限事項
 
-- Die Dateigrößenbeschränkungen variieren je nach Methode (siehe [Vergleichstabelle](#method-comparison)) und Dateityp.
-- Inline-Daten erhöhen die Größe der Anfragenutzlast.
-- File API-Uploads sind temporär und laufen nach 48 Stunden ab.
-- Das Abrufen externer URLs ist auf 15 MB pro Datei begrenzt und unterstützt bestimmte Inhaltstypen.
+- ファイルサイズの上限は、メソッド（[比較表](#method-comparison)を参照）とファイル形式によって異なります。
+- インライン データはリクエスト ペイロード サイズを増やします。
+- File API のアップロードは一時的なもので、48 時間後に期限切れになります。
+- 外部 URL の取得は、ファイルあたり 15 MB に制限され、特定のコンテンツ タイプがサポートされます。
 
-## Nächste Schritte
+## 次のステップ
 
-- Sie können auch eigene multimodale Prompts in [Google AI Studio](http://aistudio.google.com/?hl=de) erstellen.
-- Informationen zum Einbeziehen von Dateien in Ihre Prompts finden Sie in den Anleitungen zu [Vision](https://ai.google.dev/gemini-api/docs/vision?hl=de), [Audio](https://ai.google.dev/gemini-api/docs/audio?hl=de) und [Dokumentverarbeitung](https://ai.google.dev/gemini-api/docs/document-processing?hl=de).
+- [Google AI Studio](http://aistudio.google.com/?hl=ja) を使用して、独自のマルチモーダル プロンプトを作成してみてください。
+- プロンプトにファイルを含める方法については、[Vision](https://ai.google.dev/gemini-api/docs/vision?hl=ja)、[音声](https://ai.google.dev/gemini-api/docs/audio?hl=ja)、[ドキュメント処理](https://ai.google.dev/gemini-api/docs/document-processing?hl=ja)の各ガイドをご覧ください。
 
-Feedback geben
+フィードバックを送信
 
-Sofern nicht anders angegeben, sind die Inhalte dieser Seite unter der [Creative Commons Attribution 4.0 License](https://creativecommons.org/licenses/by/4.0/) und Codebeispiele unter der [Apache 2.0 License](https://www.apache.org/licenses/LICENSE-2.0) lizenziert. Weitere Informationen finden Sie in den [Websiterichtlinien von Google Developers](https://developers.google.com/site-policies?hl=de). Java ist eine eingetragene Marke von Oracle und/oder seinen Partnern.
+特に記載のない限り、このページのコンテンツは[クリエイティブ・コモンズの表示 4.0 ライセンス](https://creativecommons.org/licenses/by/4.0/)により使用許諾されます。コードサンプルは [Apache 2.0 ライセンス](https://www.apache.org/licenses/LICENSE-2.0)により使用許諾されます。詳しくは、[Google Developers サイトのポリシー](https://developers.google.com/site-policies?hl=ja)をご覧ください。Java は Oracle および関連会社の登録商標です。
 
-Zuletzt aktualisiert: 2026-10-07 (UTC).
+最終更新日 2026-10-07 UTC。
 
-Haben Sie Feedback für uns?
+ご意見をお聞かせください
 
-[[["Leicht verständlich","easyToUnderstand","thumb-up"],["Mein Problem wurde gelöst","solvedMyProblem","thumb-up"],["Sonstiges","otherUp","thumb-up"]],[["Benötigte Informationen nicht gefunden","missingTheInformationINeed","thumb-down"],["Zu umständlich/zu viele Schritte","tooComplicatedTooManySteps","thumb-down"],["Nicht mehr aktuell","outOfDate","thumb-down"],["Problem mit der Übersetzung","translationIssue","thumb-down"],["Problem mit Beispielen/Code","samplesCodeIssue","thumb-down"],["Sonstiges","otherDown","thumb-down"]],["Zuletzt aktualisiert: 2026-10-07 (UTC)."],[],[]]
+[[["わかりやすい","easyToUnderstand","thumb-up"],["問題の解決に役立った","solvedMyProblem","thumb-up"],["その他","otherUp","thumb-up"]],[["必要な情報がない","missingTheInformationINeed","thumb-down"],["複雑すぎる / 手順が多すぎる","tooComplicatedTooManySteps","thumb-down"],["最新ではない","outOfDate","thumb-down"],["翻訳に関する問題","translationIssue","thumb-down"],["サンプル / コードに問題がある","samplesCodeIssue","thumb-down"],["その他","otherDown","thumb-down"]],["最終更新日 2026-10-07 UTC。"],[],[]]
