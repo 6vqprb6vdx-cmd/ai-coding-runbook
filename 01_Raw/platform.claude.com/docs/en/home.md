@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/home
-fetched_at: 2026-10-26T05:36:23.242532+00:00
+fetched_at: 2026-11-02T06:59:14.328067+00:00
 fetch_method: mintlify_md
 ---
 
@@ -345,7 +345,7 @@ with Claude"
             API keys in Claude Console
           </HomeJourneyLink>
 
-          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-api">
+          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api">
             Usage monitoring
           </HomeJourneyLink>
 
@@ -403,7 +403,7 @@ with Claude"
             API keys in Claude Console
           </HomeJourneyLink>
 
-          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-api">
+          <HomeJourneyLink icon="chart" href="https://platform.claude.com/docs/en/manage-claude/usage-cost-analytics-api">
             Usage monitoring
           </HomeJourneyLink>
         </HomeJourneyStep>
@@ -436,7 +436,7 @@ with Claude"
         Deployable starter apps.
       </Card>
 
-      <Card icon="star" title="What's new" href="https://platform.claude.com/docs/en/release-notes/overview">
+      <Card icon="star" title="What’s new" href="https://platform.claude.com/docs/en/release-notes/overview">
         Latest features and updates.
       </Card>
 

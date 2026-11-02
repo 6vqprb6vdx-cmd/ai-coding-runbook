@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/supported-regions
-fetched_at: 2026-10-26T05:36:40.773886+00:00
+fetched_at: 2026-11-02T06:59:22.723916+00:00
 fetch_method: mintlify_md
 ---
 
@@ -46,7 +46,7 @@ description: "Here are the countries, regions, and territories Anthropic can sup
 * Comoros
 * Congo, Republic of the
 * Costa Rica
-* Côte d'Ivoire
+* Côte d’Ivoire
 * Croatia
 * Cyprus
 * Czechia (Czech Republic)

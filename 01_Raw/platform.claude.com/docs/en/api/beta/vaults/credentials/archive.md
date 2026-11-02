@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/vaults/credentials/archive
-fetched_at: 2026-10-26T05:36:53.608498+00:00
+fetched_at: 2026-11-02T06:59:28.282465+00:00
 fetch_method: mintlify_md
 ---
 
@@ -142,6 +142,12 @@ Archive a Credential
   - `"telemetry-destinations-2026-08-11"`
 
   - `"webhooks-2026-10-07"`
+
+  - `"message-threads-2026-08-12"`
+
+  - `"analytics-usage-cost-2026-08-24"`
+
+  - `"experimental-claude-tag-2026-10-21"`
 
 - `"anthropic-workspace-id": optional string`
 

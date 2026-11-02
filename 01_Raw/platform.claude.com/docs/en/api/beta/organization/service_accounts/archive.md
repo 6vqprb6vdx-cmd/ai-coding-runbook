@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/organization/service_accounts/archive
-fetched_at: 2026-10-26T05:36:59.769417+00:00
+fetched_at: 2026-11-02T06:59:31.056589+00:00
 fetch_method: mintlify_md
 ---
 
@@ -145,6 +145,12 @@ those rules first or change their target to another service account.
   - `"telemetry-destinations-2026-08-11"`
 
   - `"webhooks-2026-10-07"`
+
+  - `"message-threads-2026-08-12"`
+
+  - `"analytics-usage-cost-2026-08-24"`
+
+  - `"experimental-claude-tag-2026-10-21"`
 
 ## Returns
 
