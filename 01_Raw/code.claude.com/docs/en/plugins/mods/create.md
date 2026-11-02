@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/plugins/mods/create
-fetched_at: 2026-10-26T05:36:23.485566+00:00
+fetched_at: 2026-11-02T06:59:17.124446+00:00
 fetch_method: mintlify_md
 ---
 
@@ -98,17 +98,17 @@ first-mod/
 
 Create the two directories that hold the files:
 
-**Bash or Zsh**
+> [tab] Bash or Zsh
+>
+> ```bash theme={null}
+> mkdir -p first-mod/.claude-plugin first-mod/hooks
+> ```
 
-```bash theme={null}
-mkdir -p first-mod/.claude-plugin first-mod/hooks
-```
-
-**PowerShell**
-
-```powershell theme={null}
-New-Item -ItemType Directory -Force first-mod\.claude-plugin, first-mod\hooks
-```
+> [tab] PowerShell
+>
+> ```powershell theme={null}
+> New-Item -ItemType Directory -Force first-mod\.claude-plugin, first-mod\hooks
+> ```
 
 **2. Write the manifest**
 
