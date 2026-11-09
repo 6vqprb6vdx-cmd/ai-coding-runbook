@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/sessions/resources/update
-fetched_at: 2026-11-02T06:59:27.408063+00:00
+fetched_at: 2026-11-09T07:27:35.420000+00:00
 fetch_method: mintlify_md
 ---
 
@@ -203,7 +203,7 @@ Update Session Resource
 
         Full commit SHA to check out.
 
-        minLength: 7, maxLength: 64
+        minLength: 7, maxLength: 64, pattern: ^[0-9a-fA-F]+$
 
 - `BetaManagedAgentsFileResource object`
 
@@ -236,6 +236,8 @@ Update Session Resource
   - `memory_store_id: string`
 
     The memory store ID (memstore_...). Must belong to the caller's organization and workspace.
+
+    pattern: ^memstore_[a-zA-Z0-9_]+$
 
   - `access: optional "read_write" or "read_only" or null`
 

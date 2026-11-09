@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/external_keys/create
-fetched_at: 2026-11-02T06:59:24.124659+00:00
+fetched_at: 2026-11-09T07:27:32.577131+00:00
 fetch_method: mintlify_md
 ---
 
@@ -137,7 +137,7 @@ Create an external key config owned by the caller's organization.
 
   - `geo: string`
 
-    Data residency geo. Selects the region that handles this key's encrypt/decrypt roundtrips.
+    Data residency geo. Selects the region this key is used in.
 
   - `provider_config: AWSExternalKeyConfig or GCPExternalKeyConfig or AzureExternalKeyConfig`
 

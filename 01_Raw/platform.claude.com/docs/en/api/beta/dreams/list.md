@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/dreams/list
-fetched_at: 2026-11-02T06:59:29.599843+00:00
+fetched_at: 2026-11-09T07:27:36.825149+00:00
 fetch_method: mintlify_md
 ---
 
@@ -290,8 +290,6 @@ See the [Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams
         The IDs of the sessions whose transcripts the dream reads (`sesn_...`).
 
         Give 1 to 100 IDs, with no duplicates. Each session must be in the same workspace as the dream. Responses list the IDs in sorted order.
-
-        The [limits table in the Dreams guide](https://platform.claude.com/docs/en/managed-agents/dreams?sdk_languages=http#limits) lists all the limits on a dream.
 
   - `instructions: string or null`
 

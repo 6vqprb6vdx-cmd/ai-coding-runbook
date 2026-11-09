@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/beta/agents/retrieve
-fetched_at: 2026-11-02T06:59:26.492257+00:00
+fetched_at: 2026-11-09T07:27:34.690928+00:00
 fetch_method: mintlify_md
 ---
 
@@ -830,6 +830,8 @@ Get Agent
             - `country: optional string or null`
 
               Two-letter ISO 3166-1 country code, uppercase.
+
+              pattern: ^[A-Z]{2}$
 
             - `region: optional string or null`
 

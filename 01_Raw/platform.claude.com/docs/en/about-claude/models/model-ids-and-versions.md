@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions
-fetched_at: 2026-10-26T05:36:37.733166+00:00
+fetched_at: 2026-11-09T07:27:30.565098+00:00
 fetch_method: mintlify_md
 ---
 
@@ -86,4 +86,4 @@ Occasionally, infrastructure updates produce minor differences in observable beh
 
 ## Current model IDs
 
-For the full list of current model IDs and their Amazon Bedrock and Claude Models on Google Cloud (Google managed) equivalents, see [Models overview](https://platform.claude.com/docs/en/models/overview).
+For the full list of current model IDs and their equivalents on Claude Models on Google Cloud (Google managed) and Amazon Bedrock, see [Models overview](https://platform.claude.com/docs/en/models/overview).
