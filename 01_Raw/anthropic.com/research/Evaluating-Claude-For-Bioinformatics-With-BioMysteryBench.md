@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/Evaluating-Claude-For-Bioinformatics-With-BioMysteryBench
-fetched_at: 2026-10-26T05:36:26.030170+00:00
+fetched_at: 2026-11-09T07:27:26.309555+00:00
 title: "Evaluating Claude with BioMysteryBench \\ Anthropic"
 ---
 
-### Chapter 01: Science is challenging, and so is evaluating it
+### 01Science is challenging, and so is evaluating it
 
 *In this post, Brianna*, *a researcher on the discovery team, shares results from a recent bioinformatics benchmarking effort.*  
   

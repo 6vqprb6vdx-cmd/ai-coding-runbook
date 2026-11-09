@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/claude-character
-fetched_at: 2026-10-26T05:36:23.513700+00:00
+fetched_at: 2026-11-09T07:27:24.764487+00:00
 title: "Claude's character \\ Anthropic"
 ---
 
-### Chapter 01: Considerations in constructing Claude’s character
+### 01Considerations in constructing Claude’s character
 
 *Listen to our conversation about Claude's character in the video above.*
 

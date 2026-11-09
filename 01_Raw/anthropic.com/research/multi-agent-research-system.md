@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/multi-agent-research-system
-fetched_at: 2026-10-26T05:36:27.616481+00:00
+fetched_at: 2026-11-09T07:27:27.777384+00:00
 title: "How we built our multi-agent research system \\ Anthropic"
 ---
 
-### Chapter 01: Benefits of a multi-agent system
+### 01Benefits of a multi-agent system
 
 Claude now has [Research capabilities](https://www.anthropic.com/news/research) that allow it to search across the web, Google Workspace, and any integrations to accomplish complex tasks.
 

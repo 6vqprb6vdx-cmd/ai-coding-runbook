@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/agents-judgment-calls
-fetched_at: 2026-11-02T06:59:14.115381+00:00
+fetched_at: 2026-11-09T07:27:23.517051+00:00
 title: "How AI agents shape experts\u2019 judgment calls \\ Anthropic"
 ---
 
-### Chapter 01: Study design
+### 01Study design
 
 *Amaç Herdağdelen, Hailey Joren, Alex Tamkin*
 

@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/anthropic-economic-index-september-2025-report
-fetched_at: 2026-10-26T05:36:22.595237+00:00
+fetched_at: 2026-11-09T07:27:23.991003+00:00
 title: "Economic Index: Uneven AI adoption \\ Anthropic"
 ---
 
-### Chapter 01: Introduction
+### 01Introduction
 
 ## Introduction
 

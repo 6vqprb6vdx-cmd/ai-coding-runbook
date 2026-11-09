@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/introducing-anthropic-science
-fetched_at: 2026-10-26T05:36:27.047743+00:00
+fetched_at: 2026-11-09T07:27:27.259882+00:00
 title: "Introducing our Science Blog \\ Anthropic"
 ---
 
-### Chapter 01: What we’ll cover
+### 01What we’ll cover
 
 *We’re launching a new blog about AI and science. We’ll share work happening at Anthropic and elsewhere, our collaborations with external researchers and labs, and discuss practical workflows for scientists using AI in their research.*
 

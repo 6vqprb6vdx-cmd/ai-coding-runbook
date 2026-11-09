@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/sabotage-evaluations
-fetched_at: 2026-10-26T05:36:28.738389+00:00
+fetched_at: 2026-11-09T07:27:28.826954+00:00
 title: "Sabotage evaluations for frontier models \\ Anthropic"
 ---
 
-### Chapter 01: Human decision sabotage
+### 01Human decision sabotage
 
 Any industry where there are potential harms needs evaluations. Nuclear power stations have continuous radiation monitoring and regular site inspections; new aircraft undergo extensive flight tests to prove their airworthiness.
 

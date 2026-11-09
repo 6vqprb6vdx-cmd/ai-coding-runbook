@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/anthropic-economic-index-january-2026-report
-fetched_at: 2026-10-26T05:36:22.585165+00:00
+fetched_at: 2026-11-09T07:27:23.936050+00:00
 title: "Economic Index report: Economic primitives \\ Anthropic"
 ---
 
-### Chapter 01: Introduction
+### 01Introduction
 
 ## Introduction
 

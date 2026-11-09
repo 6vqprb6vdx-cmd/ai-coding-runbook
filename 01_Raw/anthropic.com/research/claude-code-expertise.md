@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/claude-code-expertise
-fetched_at: 2026-10-26T05:36:23.708333+00:00
+fetched_at: 2026-11-09T07:27:24.864492+00:00
 title: "How Claude Code is used in practice \\ Anthropic"
 ---
 
-### Chapter 01: Introduction
+### 01Introduction
 
 ### Key findings
 

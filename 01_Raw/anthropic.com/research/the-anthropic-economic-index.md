@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/the-anthropic-economic-index
-fetched_at: 2026-10-26T05:36:29.545904+00:00
+fetched_at: 2026-11-09T07:27:29.365229+00:00
 title: "Introducing the Anthropic Economic Index \\ Anthropic"
 ---
 
-### Chapter 01: Mapping AI usage across the labor market
+### 01Mapping AI usage across the labor market
 
 In the coming years, AI systems will have a major impact on the ways people work. For that reason, we're launching the [Anthropic Economic Index](https://www.anthropic.com/economic-futures), an initiative aimed at understanding AI's effects on labor markets and the economy over time.
 

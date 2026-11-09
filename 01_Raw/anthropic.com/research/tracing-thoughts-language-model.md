@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/tracing-thoughts-language-model
-fetched_at: 2026-10-26T05:36:29.823687+00:00
+fetched_at: 2026-11-09T07:27:29.582959+00:00
 title: "Tracing the thoughts of a large language model \\ Anthropic"
 ---
 
-### Chapter 01: A tour of AI biology
+### 01A tour of AI biology
 
 Language models like Claude aren't programmed directly by humans—instead, they‘re trainedon large amounts of data. During that training process, they learn their own strategies to solve problems. These strategies are encoded in the billions of computations a model performs for every word it writes. They arrive inscrutable to us, the model’s developers. This means that we don’t understand how models do most of the things they do.
 

@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/automated-alignment-researchers
-fetched_at: 2026-10-26T05:36:23.082685+00:00
+fetched_at: 2026-11-09T07:27:24.341308+00:00
 title: "Automated Alignment Researchers \\ Anthropic"
 ---
 
-### Chapter 01: Our setup
+### 01Our setup
 
 Large language models’ ever-accelerating rate of improvement raises two particularly important questions for alignment research.
 

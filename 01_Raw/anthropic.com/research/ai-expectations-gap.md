@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/ai-expectations-gap
-fetched_at: 2026-10-26T05:36:22.015994+00:00
+fetched_at: 2026-11-09T07:27:23.606084+00:00
 title: "The AI expectations gap \\ Anthropic"
 ---
 
-### Chapter 01: Key findings
+### 01Key findings
 
 *Szymon Sacher, Tess Cotter, Charles I. Jones, Anton Korinek, Peter McCrory*
 

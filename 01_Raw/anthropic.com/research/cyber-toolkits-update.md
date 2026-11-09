@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/cyber-toolkits-update
-fetched_at: 2026-10-26T05:36:24.748599+00:00
+fetched_at: 2026-11-09T07:27:25.451243+00:00
 title: "AI models on realistic cyber ranges \\ Anthropic"
 ---
 
-### Chapter 01: Appendix: full transcripts
+### 01Appendix: full transcripts
 
 *In a recent evaluation of AI models’ cyber capabilities, current Claude models can now succeed at multistage attacks on networks with dozens of hosts using only standard, open-source tools, instead of the custom tools needed by previous generations. This illustrates how barriers to the use of AI in relatively autonomous cyber workflows are rapidly coming down, and highlights the importance of security fundamentals like promptly patching known vulnerabilities.*
 

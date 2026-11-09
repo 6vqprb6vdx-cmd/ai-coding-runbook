@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/writing-tools-for-agents
-fetched_at: 2026-10-26T05:36:30.080754+00:00
+fetched_at: 2026-11-09T07:27:29.803704+00:00
 title: "Writing effective tools for AI agents \\ Anthropic"
 ---
 
-### Chapter 01: What is a tool?
+### 01What is a tool?
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io/docs/getting-started/intro) can empower LLM agents with potentially hundreds of tools to solve real-world tasks. But how do we make those tools maximally effective?
 

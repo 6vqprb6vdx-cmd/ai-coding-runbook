@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/managed-agents
-fetched_at: 2026-11-02T06:59:18.989934+00:00
+fetched_at: 2026-11-09T07:27:27.606724+00:00
 title: "Scaling Managed Agents with stable interfaces \\ Anthropic"
 ---
 
-### Chapter 01: Don’t adopt a pet
+### 01Don’t adopt a pet
 
 *Get started with Claude Managed Agents by following our [docs](https://platform.claude.com/docs/en/managed-agents/overview).*  
   

@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/claude-code-auto-mode
-fetched_at: 2026-10-26T05:36:23.611575+00:00
+fetched_at: 2026-11-09T07:27:24.746651+00:00
 title: "How we built Claude Code auto mode \\ Anthropic"
 ---
 
-### Chapter 01: How it works
+### 01How it works
 
 By default, Claude Code asks users for approval before running commands or modifying files. This keeps users safe, but it also means a lot of clicking "approve." Over time that leads to approval fatigue, where people stop paying close attention to what they're approving.
 

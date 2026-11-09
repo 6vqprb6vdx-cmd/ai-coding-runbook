@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/attack-navigator
-fetched_at: 2026-10-26T05:36:22.933373+00:00
+fetched_at: 2026-11-09T07:27:24.255792+00:00
 title: "Mapping AI-enabled cyber threats \\ Anthropic"
 ---
 
-### Chapter 01: Key findings
+### 01Key findings
 
 *Kyla Guru, Alex Moix, and Jacob Klein*
 

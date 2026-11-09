@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/teaching-claude-why
-fetched_at: 2026-10-26T05:36:29.215189+00:00
+fetched_at: 2026-11-09T07:27:29.200932+00:00
 title: "Teaching Claude why \\ Anthropic"
 ---
 
-### Chapter 01: Generalization and persistence through RL
+### 01Generalization and persistence through RL
 
 Last year, we released a case study on [agentic misalignment](https://www.anthropic.com/research/agentic-misalignment). In experimental scenarios, we showed that AI models from many different developers sometimes took egregiously misaligned actions when they encountered (fictional) ethical dilemmas. For example, in one heavily discussed example, the models blackmailed engineers to avoid being shut down.
 

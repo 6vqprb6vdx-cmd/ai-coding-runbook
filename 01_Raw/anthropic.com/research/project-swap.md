@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/project-swap
-fetched_at: 2026-10-26T05:36:28.364436+00:00
+fetched_at: 2026-11-09T07:27:28.518836+00:00
 title: "Project Swap: What happens when agents trade for us? \\ Anthropic"
 ---
 
-### Chapter 01: Summary
+### 01Summary
 
 ## Summary
 

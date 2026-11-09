@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/diff-tool
-fetched_at: 2026-10-26T05:36:24.984493+00:00
+fetched_at: 2026-11-09T07:27:25.556142+00:00
 title: "A \"diff\" tool for AI models \\ Anthropic"
 ---
 
-### Chapter 01: A bilingual dictionary for AI models
+### 01A bilingual dictionary for AI models
 
 Every time a new AI model is released, its developers run a suite of evaluations to measure its performance and safety. These tests are essential, but they are somewhat limited. Because these benchmarks are human-authored, they can only test for risks we have already conceptualized and learned to measure.
 

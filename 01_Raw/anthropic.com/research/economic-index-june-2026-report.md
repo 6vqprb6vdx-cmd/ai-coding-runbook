@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/economic-index-june-2026-report
-fetched_at: 2026-10-26T05:36:25.412668+00:00
+fetched_at: 2026-11-09T07:27:25.899789+00:00
 title: "Anthropic Economic Index report: Cadences \\ Anthropic"
 ---
 
-### Chapter 01: Introduction
+### 01Introduction
 
 ## Introduction
 

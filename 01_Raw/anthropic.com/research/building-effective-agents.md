@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/building-effective-agents
-fetched_at: 2026-10-26T05:36:23.286431+00:00
+fetched_at: 2026-11-09T07:27:24.457125+00:00
 title: "Building effective AI agents \\ Anthropic"
 ---
 
-### Chapter 01: What are agents?
+### 01What are agents?
 
 *Note: Much of the tooling landscape described in this post has changed since December 2024. For our current approach, see [**how we built Claude Managed Agents**](https://www.anthropic.com/engineering/managed-agents)* *and the [**Managed Agents documentation**.](https://platform.claude.com/docs/en/managed-agents/overview)*   
   

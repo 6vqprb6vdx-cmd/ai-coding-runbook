@@ -1,10 +1,10 @@
 ---
 source_url: https://www.anthropic.com/research/property-based-testing
-fetched_at: 2026-10-26T05:36:28.502263+00:00
+fetched_at: 2026-11-09T07:27:28.636520+00:00
 title: "Finding bugs with Claude and property-based testing \\ Anthropic"
 ---
 
-### Chapter 01: Introduction
+### 01Introduction
 
 *Muhammad Maaz1,2, Liam DeVoe3, Zac Hatfield-Dodds2, Nicholas Carlini2  
 1MATS, 2Anthropic, 3Northeastern University*
