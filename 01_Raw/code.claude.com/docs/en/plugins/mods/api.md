@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/plugins/mods/api
-fetched_at: 2026-11-02T06:59:17.134993+00:00
+fetched_at: 2026-11-09T07:27:25.983900+00:00
 fetch_method: mintlify_md
 ---
 
@@ -262,7 +262,7 @@ When a background job finds something that needs Claude's attention, it can star
 
 ### Stop background work
 
-Timers stop when the module reloads. For long-running work inside a hook, [`next.signal`](https://code.claude.com/docs/en/plugins/mods/reference#the-hook-function) is an `AbortSignal` that aborts when the event your hook is handling is abandoned, for example when the user interrupts, so pass it to anything long-running.
+Timers stop after the module reloads. For long-running work inside a hook, [`next.signal`](https://code.claude.com/docs/en/plugins/mods/reference#the-hook-function) is an `AbortSignal` that aborts when the event your hook is handling is abandoned, for example when the user interrupts. Pass it to anything long-running.
 
 ### Calls and background work after the user interrupts a turn
 
