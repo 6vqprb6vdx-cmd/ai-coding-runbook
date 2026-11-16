@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/users
-fetched_at: 2026-11-02T06:59:25.155081+00:00
+fetched_at: 2026-11-16T07:28:29.374604+00:00
 fetch_method: mintlify_md
 ---
 
@@ -408,6 +408,14 @@ curl https://api.anthropic.com/v1/organizations/users/$USER_ID \
 ```
 
 ## Domain types
+
+### Cannot Remove Last Member Error Details
+
+- `CannotRemoveLastMemberErrorDetails object`
+
+  The user is the organization's only member. Add another member before removing this one.
+
+  - `error_code: "cannot_remove_last_member"`
 
 ### Organization User
 

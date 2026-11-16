@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/manage-claude/user-profiles
-fetched_at: 2026-11-09T07:27:28.380908+00:00
+fetched_at: 2026-11-16T07:28:24.112096+00:00
 fetch_method: mintlify_md
 ---
 
@@ -372,7 +372,7 @@ Message Batches is the exception: creating a batch checks only the ID’s format
 
 ### Attribute requests on Claude Models on Google Cloud (Google managed) and Amazon Bedrock
 
-A profile ID of either access type also works on Claude Models on Google Cloud (Google managed) and on [Claude in Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock). It doesn’t work with the [earlier Amazon Bedrock integration](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy) that you call with `InvokeModel` or `Converse`. You use your Anthropic organization’s credentials only to create and manage profiles. Inference stays on your existing AWS or Google Cloud credentials.
+A profile ID of either access type also works on Claude Models on Google Cloud (Google managed) and on [Claude in Amazon Bedrock](https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock). It doesn’t work on [Amazon Bedrock (`bedrock-runtime`)](https://platform.claude.com/docs/en/build-with-claude/claude-on-amazon-bedrock-legacy), which you call with `InvokeModel` or `Converse`. You use your Anthropic organization’s credentials only to create and manage profiles. Inference stays on your existing AWS or Google Cloud credentials.
 
 | Platform                                                                                                                                                   | Create profiles                                                                                                                                                         | Send the profile ID in                      |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
