@@ -1,6 +1,6 @@
 ---
 source_url: https://www.anthropic.com/research/the-capacity-for-moral-self-correction-in-large-language-models
-fetched_at: 2026-10-26T05:36:29.631914+00:00
+fetched_at: 2026-11-16T07:28:25.652465+00:00
 title: "Moral self-correction in large language models \\ Anthropic"
 ---
 
@@ -10,4 +10,4 @@ We test the hypothesis that language models trained with reinforcement learning 
 
 ### Policy Memo
 
-[Moral Self-Correction Policy Memo](https://www-cdn.anthropic.com/d14f58fe8f611858bc37ff8686bbda71e4927ce6/Anthropic_MoralSelfCorrection_v3.pdf)
+[Moral Self-Correction Policy Memo](https://assets.claude.com/d14f58fe8f611858bc37ff8686bbda71e4927ce6.pdf)
