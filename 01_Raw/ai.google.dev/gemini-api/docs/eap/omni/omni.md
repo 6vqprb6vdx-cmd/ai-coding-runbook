@@ -1,25 +1,27 @@
 ---
-source_url: https://ai.google.dev/gemini-api/docs/eap/omni/omni?hl=fr
-fetched_at: 2026-11-09T07:27:37.466689+00:00
-title: "G\u00e9n\u00e9rez et modifiez des vid\u00e9os avec Gemini Omni\u00a0Flash 1.1 (programme d'acc\u00e8s anticip\u00e9) \u00a0|\u00a0 Google AI for Developers"
+source_url: https://ai.google.dev/gemini-api/docs/eap/omni/omni?hl=it
+fetched_at: 2026-11-16T07:28:44.332789+00:00
+title: "Genera e modifica video con Gemini Omni Flash 1.1 (programma di accesso in anteprima) \u00a0|\u00a0 Google AI for Developers"
 ---
 
-![](https://ai.google.dev/_static/images/translated.svg?hl=fr)
+![](https://ai.google.dev/_static/images/translated.svg?hl=it)
 
-Google utilise la technologie IA pour traduire le contenu dans votre langue préférée. Les traductions générées par IA peuvent contenir des erreurs.
+Google utilizza la tecnologia AI per tradurre i contenuti nella tua lingua preferita. Le traduzioni generate dall'AI potrebbero contenere errori.
 
-# Générez et modifiez des vidéos avec Gemini Omni Flash 1.1 (programme d'accès anticipé)
+# Genera e modifica video con Gemini Omni Flash 1.1 (programma di accesso in anteprima)
 
-Gemini Omni Flash 1.1 (`gemini-omni-1.1-eap`) est un modèle multimodal hautes performances conçu pour la génération, le montage et le contrôle cinématographique de vidéos à haute vitesse.
-Gemini Omni Flash 1.1 remplace complètement les versions précédentes de Gemini Omni Flash, offrant une qualité de génération améliorée, une multimodalité native et des fonctionnalités de montage vidéo avec état :
+Gemini Omni Flash 1.1 (`gemini-omni-1.1-eap`) è un modello multimodale ad alte prestazioni progettato per la generazione, la modifica e il controllo cinematografico di video ad alta velocità.
+Gemini Omni Flash 1.1 sostituisce completamente le versioni precedenti di Gemini Omni Flash, offrendo una qualità di generazione migliorata, multimodalità nativa e funzionalità di editing video con stato:
 
-- **Multimodalité native** : il traite simultanément le texte, les images, l'audio et la vidéo, ce qui vous offre une sortie plus cohérente, homogène et contrôlable.
-- **Retouche conversationnelle** : activé par l'[API Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=fr), il vous permet d'affiner et de modifier vos vidéos de manière itérative grâce à une conversation en langage naturel. Décrivez ce que vous souhaitez modifier, et le modèle applique la modification tout en conservant les parties de la vidéo que vous souhaitez conserver.
-- **Connaissances du monde** : Gemini Omni combine une compréhension de la physique avec les connaissances de Gemini en matière d'histoire, de sciences et de contexte culturel, comblant ainsi le fossé entre le photoréalisme et la narration significative.
+- **Multimodalità nativa:** elabora testo, immagini, audio e video contemporaneamente, offrendoti un output più coeso, coerente e controllabile.
+- **Editing conversazionale:** abilitato dall'[API
+  Interactions](https://ai.google.dev/gemini-api/docs/interactions-overview?hl=it), ti consente di perfezionare
+  e modificare i video in modo iterativo tramite una conversazione in linguaggio naturale. Descrivi ciò che vuoi modificare e il modello applicherà la modifica mantenendo le parti del video che vuoi conservare.
+- **Conoscenza del mondo:** Gemini Omni combina una comprensione della fisica con la conoscenza di storia, scienza e contesto culturale di Gemini, colmando il divario tra fotorealismo e narrazione significativa.
 
-## Génération de vidéos à partir de texte
+## Generazione di video da testo
 
-Générez une vidéo à partir d'un prompt textuel. Le modèle génère une vidéo avec audio en fonction de votre description textuelle. Pour obtenir les meilleurs résultats, rédigez des prompts contenant des détails tels que la description de la scène, le mouvement de la caméra, l'éclairage et l'ambiance.
+Genera un video da un prompt di testo. Il modello genera un video con audio basato sulla descrizione del testo. Per ottenere risultati ottimali, scrivi prompt con dettagli come la descrizione della scena, il movimento della videocamera, l'illuminazione e l'atmosfera.
 
 ### Python
 
@@ -65,12 +67,12 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Schéma de réponse REST
+### Schema di risposta REST
 
-Le champ pratique `interaction.output_video` est **réservé au SDK**.
-Obtenez la sortie vidéo à partir du tableau `steps` lorsque vous utilisez directement l'API REST.
+Il campo di convenienza `interaction.output_video` è **solo SDK**.
+Ottieni l'output video dall'array `steps` quando utilizzi direttamente l'API REST.
 
-**Structure JSON REST brute :**
+**Struttura JSON REST non elaborata:**
 
 ```
 {
@@ -95,9 +97,9 @@ Obtenez la sortie vidéo à partir du tableau `steps` lorsque vous utilisez dire
 }
 ```
 
-### Contrôler le format
+### Controllare le proporzioni
 
-Définissez `aspect_ratio` sur `"9:16"` pour créer des vidéos en mode portrait. Le mode paysage (`16:9`) est le mode par défaut.
+Imposta `aspect_ratio` su `"9:16"` per creare video verticali. Il valore predefinito è orizzontale (`16:9`).
 
 ### Python
 
@@ -155,11 +157,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Contrôles de résolution
+### Controlli di risoluzione
 
-#### Mode brouillon 360p
+#### Modalità bozza 360p
 
-Utilisez `resolution: "360p"` dans `response_format` pour générer des extraits d'aperçu légers environ deux fois plus rapidement, avec une consommation de jetons réduite.
+Utilizza `resolution: "360p"` in `response_format` per generare clip di anteprima leggere circa 2 volte più velocemente con un consumo di token ridotto.
 
 ### Python
 
@@ -208,9 +210,9 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-#### Haute résolution (1080p et 4K)
+#### Alta risoluzione (1080p e 4K)
 
-Définissez `resolution` sur `"1080p"` ou `"4k"` dans `response_format` pour générer des vidéos haute résolution nettes.
+Imposta `resolution` su `"1080p"` o `"4k"` in `response_format` per generare video nitidi ad alta risoluzione.
 
 ### Python
 
@@ -259,15 +261,15 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-## Génération de vidéos à partir d'une image
+## Generazione di video da immagini
 
-Vous pouvez fournir des images de référence avec votre prompt textuel. En fonction de votre prompt, le modèle décidera comment utiliser l'image : il donnera vie à des photos de produits, des illustrations ou des photographies.
+Puoi fornire immagini di riferimento con il prompt testuale. A seconda del prompt, il modello deciderà come utilizzare l'immagine, dando vita a scatti di prodotti, illustrazioni o fotografie.
 
-L'exemple suivant montre comment utiliser une image de référence d'un poisson sautant hors de l'eau :
+L'esempio seguente mostra come utilizzare un'immagine di riferimento di un disegno di un pesce che salta fuori dall'acqua:
 
-![Dessin d'un poisson qui saute hors de l'eau](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=fr)
+![Disegno di un pesce che salta fuori dall'acqua](https://ai.google.dev/static/gemini-api/docs/images/fish-jumping-inputimage.png?hl=it)
 
-Avec le prompt suivant :
+Con il seguente prompt:
 
 ```
 turn this into realistic footage, using the drawing only as a guide for movement, do not show the drawing in the final video
@@ -326,10 +328,10 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Référence de sujet
+### Riferimento argomento
 
-Vous pouvez générer une vidéo intégrant des sujets spécifiques fournis sous forme d'images de référence.
-Par exemple, le code suivant montre comment fournir deux images d'un chat et d'une pelote de laine pour générer une vidéo du chat jouant avec la pelote de laine.
+Puoi generare un video che incorpori soggetti specifici forniti come immagini di riferimento.
+Ad esempio, il seguente codice mostra come fornire due immagini di un gatto e di un gomitolo di lana per generare un video del gatto che gioca con il gomitolo di lana.
 
 ### Python
 
@@ -387,17 +389,17 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-### Paramètre "Tasks"
+### Parametro attività
 
-Vous pouvez éventuellement définir le paramètre `task` dans `video_config` sous `generation_config` pour définir explicitement la tâche de génération. Si ce paramètre n'est pas défini, le modèle détermine automatiquement le mode approprié en fonction du prompt et du contenu multimédia d'entrée.
+Se vuoi, puoi impostare il parametro `task` in `video_config` in `generation_config` per definire esplicitamente l'attività di generazione. Se non è impostato, il modello determina automaticamente la modalità appropriata in base al prompt e ai media di input.
 
-Les valeurs `task` compatibles incluent les suivantes :
+I valori `task` supportati includono:
 
-- `text_to_video` : génère une vidéo uniquement à partir d'un prompt textuel.
-- `image_to_video` : génère une vidéo à partir d'une ou deux images sources (image de début et image de fin facultative).
-- `reference_to_video` : génère une vidéo à l'aide du contenu multimédia fourni comme référence.
-- `edit` : modifie une vidéo existante.
-- `extend` : prolonge un extrait vidéo existant.
+- `text_to_video`: genera video esclusivamente da un prompt testuale.
+- `image_to_video`: genera video da una o due immagini di origine (frame iniziale e frame finale facoltativo).
+- `reference_to_video`: genera video utilizzando i media forniti come riferimenti.
+- `edit`: modifica un video esistente.
+- `extend`: estende un video clip esistente.
 
 ### Python
 
@@ -474,11 +476,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-### Interpolation d'images clés
+### Interpolazione dei fotogrammi chiave
 
-Générez une vidéo continue qui passe en douceur d'une image de début à une image de fin. Cette fonctionnalité est idéale pour les orbites de caméra, les effets de zoom, les progressions en accéléré et les extraits en boucle sans interruption.
+Genera video continui che passano senza problemi da un frame iniziale a un frame finale. Questa soluzione è ideale per orbite della videocamera, effetti di zoom, progressioni di timelapse e clip in loop senza interruzioni.
 
-Fournissez les deux images dans le tableau d'entrée, ainsi qu'une description du mouvement souhaité :
+Fornisci entrambe le immagini nell'array di input insieme a una descrizione del movimento desiderato:
 
 ### Python
 
@@ -565,11 +567,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-## Montage vidéo avec état
+## Editing video con stato
 
-Générez une vidéo et modifiez-la de manière itérative à l'aide de prompts de suivi. Chaque tour s'appuie sur le résultat précédent. Le modèle mémorise le contexte de la vidéo, applique vos modifications tout en conservant les éléments que vous n'avez pas mentionnés. Utilisez `previous_interaction_id` pour suivre l'historique des conversations et l'état de la vidéo générée sans avoir à importer à nouveau la vidéo précédente.
+Genera un video e modificalo in modo iterativo utilizzando prompt di follow-up. Ogni turno si basa sul risultato precedente. Il modello ricorda il contesto del video, applicando le modifiche e mantenendo gli elementi che non hai menzionato. Utilizza `previous_interaction_id` per monitorare la cronologia delle conversazioni e lo stato del video generato senza ricaricare il video precedente.
 
-L'exemple suivant montre comment générer une première vidéo, puis la modifier :
+L'esempio seguente mostra come generare un primo video e poi modificarlo:
 
 ### Python
 
@@ -629,18 +631,18 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
 }'
 ```
 
-Exemple de vidéo initiale :
+Esempio di un video iniziale:
 
-Exemple de vidéo modifiée :
+Esempio di un video modificato:
 
-Chaque tour de la conversation produit une nouvelle vidéo. Le modèle comprend le contexte des tours précédents, ce qui vous permet d'apporter des modifications incrémentielles, comme ajuster l'éclairage et échanger les arrière-plans, sans avoir à redécrire l'ensemble de la scène.
+Ogni turno della conversazione produce un nuovo video. Il modello comprende il contesto dei turni precedenti, consentendoti di apportare modifiche incrementali come la regolazione dell'illuminazione e la sostituzione degli sfondi, senza dover descrivere nuovamente l'intera scena.
 
-### Modifier vos propres vidéos
+### Modificare i propri video
 
-Importez vos vidéos à l'aide de l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=fr) pour les modifier
-avec Gemini Omni Flash 1.1.
+Carica i tuoi video utilizzando l'[API Files](https://ai.google.dev/gemini-api/docs/files?hl=it) per modificarli
+con Gemini Omni Flash 1.1.
 
-L'exemple suivant montre comment modifier la vidéo d'origine suivante :
+L'esempio seguente mostra come modificare il seguente video originale:
 
 ### Python
 
@@ -733,11 +735,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-Exemple de vidéo modifiée :
+Esempio di un video modificato:
 
-## Prolongation de scènes
+## Estensione della scena
 
-Prolongez les extraits vidéo existants à l'aide du contexte précédent. Gemini Omni Flash 1.1 analyse le mouvement et la composition de la scène précédents pour maintenir la continuité, l'identité des personnages et l'éclairage environnemental tout au long du plan prolongé.
+Estendi i video clip esistenti utilizzando il contesto precedente. Gemini Omni Flash 1.1 analizza il movimento precedente e la composizione della scena per mantenere la continuità, l'identità dei personaggi e l'illuminazione ambientale nello scatto esteso.
 
 ### Python
 
@@ -809,11 +811,11 @@ curl -X POST "https://generativelanguage.googleapis.com/v1beta/interactions?key=
   }'
 ```
 
-## Récupérer des vidéos avec un URI
+## Recuperare i video con un URI
 
-Utilisez le paramètre `delivery="uri"` dans
-`response_format` pour récupérer les vidéos générées de plus de 4 Mo.
-Cette opération renvoie un URI hébergé par Google que vous pouvez interroger jusqu'à ce que la vidéo soit `ACTIVE` avant de la télécharger.
+Utilizza il parametro `delivery="uri"` in
+`response_format` per recuperare i video generati di dimensioni superiori a 4 MB.
+Viene restituito un URI ospitato da Google che puoi eseguire il polling finché il video non è `ACTIVE` prima di scaricarlo.
 
 ### Python
 
@@ -928,7 +930,7 @@ curl -L -X GET "https://generativelanguage.googleapis.com/v1beta/files/$FILE_ID:
 echo "Done! Video saved to output.mp4"
 ```
 
-**Structure JSON REST brute (URI) :**
+**Struttura JSON REST non elaborata (URI):**
 
 ```
 {
@@ -953,108 +955,108 @@ echo "Done! Video saved to output.mp4"
 }
 ```
 
-## Bonnes pratiques
+## Best practice
 
-- **Utiliser la diffusion d'URI pour les vidéos volumineuses** : pour les vidéos de plus de 4 Mo (> 720p
-  lorsqu'elles sont disponibles), utilisez `delivery="uri"` dans `response_format` pour éviter les limites de taille de la charge utile.
-- **Performances optimisées** : définissez `background=false`, `store=false` et `stream=false` pour une génération unaire synchrone plus rapide. Notez que si vous définissez `store=false`, la vidéo générée ne pourra pas être modifiée lors des tours suivants à l'aide de `previous_interaction_id`.
-- **Précision du prompt** : pour en savoir plus, consultez la section [Conseils pour la création de requêtes](#prompt-guide).
+- **Utilizza la distribuzione URI per i video di grandi dimensioni:** per i video di dimensioni superiori a 4 MB (>720p
+  , se disponibili), utilizza `delivery="uri"` in `response_format` per evitare i limiti di dimensioni del payload.
+- **Prestazioni ottimizzate:** imposta `background=false`, `store=false` e `stream=false` per una generazione unaria sincrona più rapida. Tieni presente che l'impostazione di `store=false` significa che il video generato non sarà modificabile nei turni successivi utilizzando `previous_interaction_id`.
+- **Precisione del prompt:** per maggiori dettagli, consulta la sezione relativa alle [indicazioni per i prompt](#prompt-guide).
 
-## Limites
+## Limitazioni
 
-- L'importation et la modification d'images contenant des mineurs ne sont pas disponibles dans l'Espace économique européen, en Suisse ni au Royaume-Uni.
-- L'importation et la modification d'images contenant certaines personnes reconnaissables ne sont pas disponibles.
-- La modification des vidéos importées n'est actuellement pas disponible pour les utilisateurs de l'Espace économique européen (EEE), de la Suisse et du Royaume-Uni (la modification des vidéos générées par le modèle est disponible).
-- L'importation de références audio n'est pas disponible dans la version actuelle de l'API.
-- Les références vidéo d'une durée maximale de trois secondes sont acceptées par le schéma de l'API, mais ne sont pas correctement traitées par le modèle pour le moment.
-- Il n'est pas possible de référencer ou de raisonner sur plusieurs vidéos. Si vous tentez d'utiliser des prompts pour plusieurs vidéos, les performances du modèle risquent de se dégrader ou des sorties inattendues peuvent se produire.
-- L'extension vidéo et l'interpolation vidéo (génération de vidéo entre une première et une dernière image) ne sont pas disponibles.
-- La modification vocale n'est pas disponible.
-- Le débit provisionné n'est pas disponible.
-- Les instructions système, la température, `top_p`, les séquences d'arrêt et les prompts négatifs ne sont pas disponibles (vous pouvez placer vos négatifs dans le prompt normal, par exemple "Ne fais pas X").
-- L'utilisation de vidéos YouTube comme source multimédia n'est pas disponible.
+- Il caricamento e la modifica di immagini che contengono minori non sono supportati nello Spazio economico europeo, in Svizzera e nel Regno Unito.
+- Il caricamento e la modifica di immagini che contengono determinate persone riconoscibili non sono supportati.
+- La modifica dei video caricati non è attualmente disponibile per gli utenti dello Spazio economico europeo (SEE), della Svizzera e del Regno Unito (è supportata la modifica dei video generati dal modello).
+- Il caricamento di riferimenti audio non è supportato nella versione attuale dell'API.
+- I riferimenti video di durata massima di 3 secondi sono accettati dallo schema dell'API, ma al momento non vengono elaborati correttamente dal modello.
+- Non è supportato il riferimento o il ragionamento su più video. Il tentativo di utilizzare prompt per più video potrebbe comportare un peggioramento delle prestazioni del modello o output imprevisti.
+- L'estensione e l'interpolazione dei video (generazione di video tra un primo e un ultimo frame) non sono supportate.
+- L'editing vocale non è supportato.
+- La capacità di trasmissione di cui è stato eseguito il provisioning non è supportata.
+- Le istruzioni di sistema, la temperatura, `top_p`, le sequenze di arresto e i prompt negativi non sono supportati (puoi inserire i negativi nel prompt normale, ad es. "Non fare X").
+- L'utilizzo di video di YouTube come origine media non è supportato.
 
-## Détails techniques
+## Dettagli tecnici
 
-- Toutes les vidéos générées incluent un filigrane SynthID, invisible pour les spectateurs, mais qui peut être détecté par programmation pour vérifier la provenance.
-- Les délais de génération des vidéos varient en fonction de la durée, de la résolution et de la charge actuelle de l'API. Les vidéos plus longues et en plus haute résolution prennent plus de temps à générer.
-- Les filtres de sécurité du contenu sont appliqués aux prompts d'entrée et à la vidéo générée (et dépendent de votre région). Les prompts qui ne respectent pas les règles d'utilisation seront bloqués.
-- L'anglais (EN) est entièrement disponible, mais les autres langues n'ont pas été évaluées. Elles peuvent donc fonctionner, mais les résultats peuvent varier.
+- Tutti i video generati includono la filigrana SynthID, invisibile per gli spettatori ma rilevabile a livello di programmazione per la verifica della provenienza.
+- I tempi di generazione dei video variano in base alla durata, alla risoluzione e al carico attuale dell'API. I video più lunghi e ad alta risoluzione richiedono più tempo per la generazione.
+- I filtri di sicurezza dei contenuti vengono applicati sia ai prompt di input sia ai video generati (e dipendono dalla tua regione). I prompt che violano le norme di utilizzo verranno bloccati.
+- L'inglese (EN) è completamente supportato, ma le altre lingue non sono state valutate, quindi potrebbero funzionare, ma i risultati possono variare.
 
-## Guide sur les prompts pour Gemini Omni Flash
+## Guida ai prompt di Gemini Omni Flash
 
-Cette section contient des conseils et des exemples sur la façon d'utiliser efficacement les prompts pour Gemini Omni Flash.
+Questa sezione contiene suggerimenti ed esempi su come utilizzare i prompt di Gemini Omni Flash in modo efficace.
 
-### Scène unique
+### Singola scena
 
-Par défaut, Omni Flash tente de créer une vidéo avec quelques plans différents.
-Il essaie de créer un récit intéressant basé sur le prompt.
+Per impostazione predefinita, Omni Flash tenterà di creare un video con alcuni scatti diversi.
+Tenterà di creare una narrazione interessante basata sul prompt.
 
-Si vous avez besoin que la vidéo de sortie contienne une seule scène, vous devez le spécifier dans le prompt :
+Se vuoi che il video di output contenga una singola scena, devi utilizzare il prompt per questo scopo:
 
-- Dans une seule scène ininterrompue
-- Dans un seul plan séquence
-- Sans coupure de scène
+- In una singola scena ininterrotta
+- In una singola sequenza continua
+- Nessun taglio di scena
 
-Exemple :
+Ad esempio:
 
 ```
 Continuous, unbroken handheld shot of a fluffy tabby cat sitting on a sunny windowsill, looking out into a leafy garden. The cat's tail twitches slowly, and its ears rotate slightly toward ambient noises. Sunbeams illuminate dust motes in the air. Sound design: Gentle breeze, distant bird chirps. No dialogue.
 ```
 
-### Supprimer les éléments indésirables
+### Rimuovere gli elementi indesiderati
 
-Si la vidéo générée contient des éléments que vous ne souhaitez pas inclure, ajoutez des prompts négatifs simples pour les éviter :
+Se il video generato contiene elementi che non ti interessano, includi semplici prompt negativi per evitarli:
 
-- Sans dialogue
-- Sans embellissement
-- Sans effets sonores supplémentaires
+- Nessun dialogo
+- Nessuna decorazione
+- Nessun effetto sonoro aggiuntivo
 
-### Prompts pour la modification
+### Prompt per la modifica
 
-Les prompts simples sont plus efficaces pour le montage vidéo. Les prompts trop descriptifs peuvent entraîner des modifications involontaires.
+I prompt semplici sono i più adatti per l'editing video. I prompt eccessivamente descrittivi possono comportare modifiche indesiderate.
 
-Voici d'autres exemples de prompts de modification simples :
+Di seguito sono riportati altri esempi di prompt di editing semplici:
 
-- Fais de cette vidéo un anime
-- Mets un chapeau à la mode sur la tête de cette personne
-- Rends l'éclairage plus spectaculaire
-- Remplace le texte sur le panneau par "Omni Flash"
+- Trasforma questo video in un anime
+- Metti un cappello alla moda a questa persona
+- Modifica l'illuminazione per renderla più drammatica
+- Modifica il testo sul cartello in modo che dica "Omni Flash"
 
-Lorsque vous modifiez un aspect spécifique de la vidéo, incluez `"Keep everything else the same"` pour maintenir la cohérence visuelle.
+Quando modifichi un aspetto specifico del video, includi `"Keep everything else the same"` per mantenere la coerenza visiva.
 
-Voici quelques exemples pour montrer comment appliquer cette technique :
+Di seguito sono riportati alcuni esempi che mostrano come applicare questa tecnica:
 
-- **À éviter** : `In the video of the man sitting on the sofa, please add a small
+- **Pratica non consigliata:** `In the video of the man sitting on the sofa, please add a small
   black cat that runs from the right side of the screen, jumps onto his lap,
   and then he starts to stroke its head while looking down.`
-  - **Simplifier** : `Add a cat that jumps onto his lap, he begins to pet it.
+  - **Semplifica:** `Add a cat that jumps onto his lap, he begins to pet it.
     Keep everything else the same.`
-- **À éviter** : `Please remove the cell phone that the person is holding in
+- **Pratica non consigliata:** `Please remove the cell phone that the person is holding in
   their hand and fill in the background so it looks like they are just holding
   their hand empty.`
-  - **Simplifier** `Make the phone invisible. Keep everything else the
+  - **Semplifica:** `Make the phone invisible. Keep everything else the
     same.`
 
-### Prompts pour l'audio
+### Prompt per l'audio
 
-Par défaut, le modèle tente de générer une piste audio appropriée pour une vidéo. Ce n'est pas toujours ce que vous souhaitez. Vous pouvez utiliser votre prompt pour décrire le type d'audio que vous souhaitez. Cela est particulièrement important si vous souhaitez ajouter de la musique à votre vidéo :
+Per impostazione predefinita, il modello tenterà di generare una traccia audio appropriata per un video. Potrebbe non essere sempre quello che ti interessa. Puoi utilizzare il prompt per descrivere il tipo di audio che ti interessa. Questo è particolarmente importante se vuoi includere musica nel video:
 
-- Ajoute une musique de fond calme
-- La vidéo contient un rythme techno énergique
-- L'audio est une émission de radio de mauvaise qualité en arrière-plan, qui diffuse une chanson
+- Include musica di sottofondo rilassante
+- Il video ha un ritmo techno ad alta energia
+- L'audio è una trasmissione radiofonica a bassa frequenza in sottofondo che riproduce una canzone
 
-### Événements de synchronisation
+### Eventi di temporizzazione
 
-Vous pouvez demander que des événements se produisent à des moments spécifiques de la vidéo. Aucune syntaxe précise n'est requise et vous pouvez utiliser le langage naturel. Cela est particulièrement utile pour créer vos propres coupures de scène, votre propre rythme ou vos propres séquences rapides.
-Voici quelques exemples :
+Puoi utilizzare i prompt per far sì che gli eventi si verifichino in momenti specifici del video. Non è necessaria una sintassi precisa e puoi utilizzare il linguaggio naturale. Questa funzionalità è particolarmente utile per creare tagli di scena, sequenze ritmiche o rapide.
+Di seguito sono riportati alcuni esempi:
 
-- Après trois secondes, une femme entre dans la scène.
-- À 5 secondes, le refrain commence dans l'audio en arrière-plan.
-- Toutes les deux secondes, passe à une nouvelle image.
-- Dans une séquence rapide, toutes les demi-secondes (12 images à 24 images par seconde), change la scène pour un nouvel emplacement.
+- Dopo 3 secondi, una donna entra nella scena.
+- A 5 secondi inizia il ritornello nell'audio di sottofondo.
+- Ogni 2 secondi passa a un nuovo frame.
+- In una sequenza rapida, ogni mezzo secondo (12 frame a 24 fps) cambia la scena in una nuova posizione.
 
-Vous pouvez également utiliser une syntaxe de code temporel :
+Puoi anche utilizzare una sintassi di timecode:
 
 ```
 [0-3s] A person is walking
@@ -1062,36 +1064,36 @@ Vous pouvez également utiliser une syntaxe de code temporel :
 [6-10s] They start running
 ```
 
-### Meta-prompting
+### Meta prompt
 
-Vous pouvez demander à Gemini Omni Flash de prêter attention aux qualités ou principes généraux de la génération de vidéos :
+Puoi chiedere a Gemini Omni Flash di prestare attenzione alle qualità o ai principi generali della generazione di video:
 
-- Tenez compte des micro-détails, de l'expression et du timing pour créer une scène très riche, détaillée, mais entièrement naturelle.
-- Soyez extrêmement précis dans vos descriptions des personnages et des environnements.
-  Appliquez les principes de conception de costumes aux personnages. Soyez très précis sur les personnes, les éléments et les objets de la scène.
-- Incluez de nombreux détails appropriés dans les éléments d'arrière-plan pour que la scène soit réaliste et naturelle.
-- Crée une vidéo rapide qui montre une `[thing]` rare différente toutes les secondes, avec une musique entraînante
-  et du texte pour étiqueter la chose.
+- Considera i microdettagli, l'espressione e la tempistica per creare una scena molto ricca, dettagliata ma completamente naturale.
+- Sii estremamente dettagliato nelle descrizioni dei personaggi e degli ambienti.
+  Applica i principi di progettazione dei costumi ai personaggi. Sii molto specifico riguardo alle persone, agli articoli e agli oggetti nella scena.
+- Includi molti dettagli appropriati negli elementi di sfondo per rendere la scena realistica e naturale.
+- Crea un video rapido che mostri una diversa `[thing]` rara ogni secondo, musica allegra
+  e testo per etichettare la cosa.
 
-### Texte dans les vidéos
+### Testo nei video
 
-Vous pouvez demander à inclure du texte dans votre vidéo, et Gemini Omni le rendra de manière correcte et lisible. Si votre vidéo contient du texte naturel, même dans les éléments d'arrière-plan, il peut être utile de définir ce qu'il doit dire.
+Puoi utilizzare i prompt per includere testo nel video e Gemini Omni eseguirà il rendering in modo corretto e leggibile. Se nel video è presente testo naturale, anche negli elementi di sfondo, può essere utile definire cosa deve dire.
 
-- Un mot à la fois à l'écran : "did, you, know, that, Omni, can, do, awesome, text?" Chaque mot apparaît pendant une seconde avec un style animé différent. Aucun dialogue.
-- Un panneau de signalisation indique : "This is an AI generation by Omni" (Il s'agit d'une génération d'IA par Omni), une vitrine indique : "All you need AI" (Tout ce dont vous avez besoin, c'est de l'IA), une voiture porte la plaque d'immatriculation "OMN111".
+- Una parola alla volta sullo schermo: "did, you, know, that, Omni, can, do, awesome, text?" Ogni parola viene visualizzata per 1 secondo con uno stile animato diverso. Nessun dialogo.
+- C'è un cartello stradale con la scritta: "This is an AI generation by Omni", c'è una vetrina con la scritta: "All you need AI", c'è un'auto con la targa: "OMN111"
 
-### Utiliser des tags dans les prompts pour définir les rôles des images
+### Utilizzare i tag nei prompt per impostare i ruoli delle immagini
 
-Vous pouvez utiliser des tags pour lier le contenu multimédia importé à des rôles de génération spécifiques. Cela vous permet de spécifier si chaque image est une image initiale ou une référence.
+Puoi utilizzare i tag per associare i media caricati a ruoli di generazione specifici. In questo modo puoi specificare se ogni immagine è un frame iniziale o un riferimento.
 
-- **`<FIRST_FRAME>`** : utilisez l'image comme image de début de la vidéo, pour
-  exemple : `<FIRST_FRAME> a woman is walking`
-- **`<IMAGE_REF_N>`** : utilisez l'image comme référence, par exemple : `in the
-  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (combine la référence de style
-  de la première image et la référence de sujet de la deuxième image).
-  Les références d'image commencent à 0.
+- **`<FIRST_FRAME>`**: utilizza l'immagine come frame iniziale del video, per
+  esempio: `<FIRST_FRAME> a woman is walking`
+- **`<IMAGE_REF_N>`**: utilizza l'immagine come riferimento, ad esempio: `in the
+  style of <IMAGE_REF_0> a woman <IMAGE_REF_1> is walking` (combina il riferimento di stile
+  della prima immagine e il riferimento del soggetto della seconda immagine).
+  I riferimenti alle immagini iniziano da 0.
 
-Voici un exemple avec des images de référence :
+Di seguito è riportato un esempio con immagini di riferimento:
 
 ```
 [0-3s] A studio fashion sequence. Starting with woman <IMAGE_REF_0>, she is holding <IMAGE_REF_1>
@@ -1099,13 +1101,13 @@ Voici un exemple avec des images de référence :
 [6-10s] And finally another woman <IMAGE_REF_4> who is holding <IMAGE_REF_5> while walking.
 ```
 
-## Étape suivante
+## Passaggi successivi
 
-- Commencez à utiliser Gemini Omni Flash en testant le [Colab de démarrage rapide Omni](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=fr).
-- Découvrez comment rédiger des prompts encore plus efficaces grâce à notre [Introduction à la conception de requêtes](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=fr).
+- Inizia a utilizzare Gemini Omni Flash sperimentando in the [Omni Quickstart Colab](https://colab.sandbox.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Get_started_Omni.ipynb?hl=it).
+- Scopri come scrivere prompt ancora migliori con la nostra [Introduzione alla progettazione dei prompt](https://ai.google.dev/gemini-api/docs/prompting-intro?hl=it).
 
-Sauf indication contraire, le contenu de cette page est régi par une licence [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), et les échantillons de code sont régis par une licence [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Pour en savoir plus, consultez les [Règles du site Google Developers](https://developers.google.com/site-policies?hl=fr). Java est une marque déposée d'Oracle et/ou de ses sociétés affiliées.
+Salvo quando diversamente specificato, i contenuti di questa pagina sono concessi in base alla [licenza Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/), mentre gli esempi di codice sono concessi in base alla [licenza Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0). Per ulteriori dettagli, consulta le [norme del sito di Google Developers](https://developers.google.com/site-policies?hl=it). Java è un marchio registrato di Oracle e/o delle sue consociate.
 
-Dernière mise à jour le 2026/09/10 (UTC).
+Ultimo aggiornamento 2026-09-10 UTC.
 
-[[["Facile à comprendre","easyToUnderstand","thumb-up"],["J'ai pu résoudre mon problème","solvedMyProblem","thumb-up"],["Autre","otherUp","thumb-up"]],[["Il n'y a pas l'information dont j'ai besoin","missingTheInformationINeed","thumb-down"],["Trop compliqué/Trop d'étapes","tooComplicatedTooManySteps","thumb-down"],["Obsolète","outOfDate","thumb-down"],["Problème de traduction","translationIssue","thumb-down"],["Mauvais exemple/Erreur de code","samplesCodeIssue","thumb-down"],["Autre","otherDown","thumb-down"]],["Dernière mise à jour le 2026/09/10 (UTC)."],[],[]]
+[[["Facile da capire","easyToUnderstand","thumb-up"],["Il problema è stato risolto","solvedMyProblem","thumb-up"],["Altra","otherUp","thumb-up"]],[["Mancano le informazioni di cui ho bisogno","missingTheInformationINeed","thumb-down"],["Troppo complicato/troppi passaggi","tooComplicatedTooManySteps","thumb-down"],["Obsoleti","outOfDate","thumb-down"],["Problema di traduzione","translationIssue","thumb-down"],["Problema relativo a esempi/codice","samplesCodeIssue","thumb-down"],["Altra","otherDown","thumb-down"]],["Ultimo aggiornamento 2026-09-10 UTC."],[],[]]
