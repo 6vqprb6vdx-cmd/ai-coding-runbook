@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/agent-sdk/mcp
-fetched_at: 2026-11-02T06:59:15.760312+00:00
+fetched_at: 2026-11-16T07:28:19.679602+00:00
 fetch_method: mintlify_md
 ---
 
@@ -211,7 +211,7 @@ Use the full tool names in `allowedTools` and in [MCP permission rules](https://
 
 ### Auto-approve with allowedTools
 
-Use `allowedTools` to auto-approve specific MCP tools so Claude can use them without a permission prompt:
+Use `allowedTools` to auto-approve specific MCP tools:
 
 ```typescript TypeScript hidelines={1,-1} theme={null}
 const _ = {

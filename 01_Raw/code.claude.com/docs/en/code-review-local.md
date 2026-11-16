@@ -1,6 +1,6 @@
 ---
 source_url: https://code.claude.com/docs/en/code-review-local
-fetched_at: 2026-11-09T07:27:25.122395+00:00
+fetched_at: 2026-11-16T07:28:20.101754+00:00
 fetch_method: mintlify_md
 ---
 
@@ -20,7 +20,7 @@ The command works on any plan. The review runs in your own session, so it counts
 >
 > To have every pull request in a repository reviewed automatically on GitHub, see [Code Review](https://code.claude.com/docs/en/code-review.md), a managed service that an Owner turns on for your organization.
 
-`/review` is an alias of `/code-review`. Before v2.1.223, `/review` was a separate command that ran a single-pass, read-only review of a GitHub pull request.
+`/review` is an alias of `/code-review`.
 
 **1. Run /code-review**
 
@@ -96,8 +96,6 @@ When you don't type a level, the review reuses the last level from `low` through
 * **Non-interactive runs**: a level you pass in a non-interactive `-p` run doesn't update the remembered level
 * **`ultra`**: the review neither uses nor updates the remembered level
 * **No level ever typed**: the review uses the session's current effort
-
-Before v2.1.223, a `/code-review` without a level always used the session's current effort.
 
 ### Post findings to a GitLab merge request
 
