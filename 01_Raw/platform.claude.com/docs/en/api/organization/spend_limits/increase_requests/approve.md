@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/api/organization/spend_limits/increase_requests/approve
-fetched_at: 2026-11-09T07:27:34.040061+00:00
+fetched_at: 2026-11-23T08:26:20.538218+00:00
 fetch_method: mintlify_md
 ---
 
@@ -343,6 +343,16 @@ the member was blocked on. Anthropic emails the requester unless
   - `"denied"`
 
   - `"pending"`
+
+## Errors
+
+Any method can also return the general [HTTP errors](https://platform.claude.com/docs/en/api/errors?sdk_languages=http).
+
+Each code below is the value of `error.details.error_code` in the response body.
+
+- `sandbox_egress_restricted` (HTTP status 403)
+
+  The request came from a Claude sandbox with restricted network access, which is not allowed to make this request. Send it from outside the sandbox, or from a sandbox with unrestricted network access.
 
 ## Example
 

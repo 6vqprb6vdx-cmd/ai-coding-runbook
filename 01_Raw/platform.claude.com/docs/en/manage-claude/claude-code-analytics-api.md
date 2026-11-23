@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/manage-claude/claude-code-analytics-api
-fetched_at: 2026-11-16T07:28:24.578116+00:00
+fetched_at: 2026-11-23T08:26:13.049126+00:00
 fetch_method: mintlify_md
 ---
 
@@ -104,11 +104,11 @@ page=page_MjAyNS0wNS0xNFQwMDowMDowMFo=" \
 
 ### Request parameters
 
-| Parameter     | Type    | Required | Description                                                             |
-| ------------- | ------- | -------- | ----------------------------------------------------------------------- |
-| `starting_at` | string  | Yes      | UTC date in YYYY-MM-DD format; returns metrics for this single day only |
-| `limit`       | integer | No       | Number of records per page (default: 20, max: 1000)                     |
-| `page`        | string  | No       | Opaque cursor token from previous response’s `next_page` field          |
+| Parameter | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| `starting_at` | string | Yes | UTC date in YYYY-MM-DD format; returns metrics for this single day only |
+| `limit` | integer | No | Number of records per page (default: 20, max: 1000) |
+| `page` | string | No | Opaque cursor token from previous response’s `next_page` field |
 
 ### Available metrics
 

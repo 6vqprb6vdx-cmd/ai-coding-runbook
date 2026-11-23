@@ -1,6 +1,6 @@
 ---
 source_url: https://platform.claude.com/docs/en/cli-sdks-libraries/sdks/ruby
-fetched_at: 2026-11-16T07:28:27.569535+00:00
+fetched_at: 2026-11-23T08:26:16.874518+00:00
 fetch_method: mintlify_md
 ---
 
@@ -142,19 +142,19 @@ end
 
 Error codes are as follows:
 
-| Cause            | Error type                 |
-| ---------------- | -------------------------- |
-| HTTP 400         | `BadRequestError`          |
-| HTTP 401         | `AuthenticationError`      |
-| HTTP 403         | `PermissionDeniedError`    |
-| HTTP 404         | `NotFoundError`            |
-| HTTP 409         | `ConflictError`            |
-| HTTP 422         | `UnprocessableEntityError` |
-| HTTP 429         | `RateLimitError`           |
-| HTTP >= 500      | `InternalServerError`      |
-| Other HTTP error | `APIStatusError`           |
-| Timeout          | `APITimeoutError`          |
-| Network error    | `APIConnectionError`       |
+| Cause | Error type |
+| ----- | ----- |
+| HTTP 400 | `BadRequestError` |
+| HTTP 401 | `AuthenticationError` |
+| HTTP 403 | `PermissionDeniedError` |
+| HTTP 404 | `NotFoundError` |
+| HTTP 409 | `ConflictError` |
+| HTTP 422 | `UnprocessableEntityError` |
+| HTTP 429 | `RateLimitError` |
+| HTTP >= 500 | `InternalServerError` |
+| Other HTTP error | `APIStatusError` |
+| Timeout | `APITimeoutError` |
+| Network error | `APIConnectionError` |
 
 ## Retries
 
